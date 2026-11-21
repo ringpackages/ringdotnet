@@ -94,4 +94,16 @@ namespace MyCompany.Tools
 		public static string Describe(this Calculator calc, string format) { return string.Format(format, calc.Total); }
 		public static string Add(this Calculator calc, string first, string second) { return first + second; }
 	}
+	// An extension method of an interface is a method of the classes that implement it (Circle) and of the interfaces that inherit it (IBox).
+	public class Circle : IShape
+	{
+		public string Name { get; set; } = "circle";
+		public double Radius { get; set; } = 1;
+		public double Area() { return Math.PI * Radius * Radius; }
+	}
+
+	public static class ShapeExtensions
+	{
+		public static string Label(this IShape shape, string prefix) { return prefix + shape.Name; }
+	}
 }

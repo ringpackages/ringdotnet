@@ -819,6 +819,22 @@ Class ExecutionStrategy from Object
 	Func CallOnWrappedException P1,P2
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy, Microsoft.EntityFrameworkCore',"s22:CallOnWrappedException",P1,P2))
 
+	Func ExecuteInTransaction P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s20:ExecuteInTransaction",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		raise("DotNet Error: ExecuteInTransaction does not take one argument: use named arguments, ExecuteInTransaction([ :parameter = value, ... ])")
+
+	Func ExecuteInTransactionAsync P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:ExecuteInTransactionAsync",P1))
+		ok
+		raise("DotNet Error: ExecuteInTransactionAsync does not take one argument: use named arguments, ExecuteInTransactionAsync([ :parameter = value, ... ])")
+
 	Func getMaxRetryCount
 		dn_x = dotnet_call("s3:get",nHandle,"s13:MaxRetryCount")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1212,7 +1228,12 @@ Class IDbContextTransaction from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
 
 	Func GetDbTransaction 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Storage.DbContextTransactionExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetDbTransaction"))
+
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func getTransactionId
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TransactionId"))
@@ -1347,13 +1368,21 @@ Class IExecutionStrategy from DotNetObject
 		ok
 		raise("DotNet Error: ExecuteAsync does not take one argument: use named arguments, ExecuteAsync([ :parameter = value, ... ])")
 
-	Func ExecuteInTransaction P1,P2
-		dotnet_callv("s4:call",nHandle,"s20:ExecuteInTransaction",P1,P2)
+	Func ExecuteInTransaction P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s20:ExecuteInTransaction",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		raise("DotNet Error: ExecuteInTransaction does not take one argument: use named arguments, ExecuteInTransaction([ :parameter = value, ... ])")
 
-		return self
-
-	Func ExecuteInTransactionAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:ExecuteInTransactionAsync",P1,P2))
+	Func ExecuteInTransactionAsync P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:ExecuteInTransactionAsync",P1))
+		ok
+		raise("DotNet Error: ExecuteInTransactionAsync does not take one argument: use named arguments, ExecuteInTransactionAsync([ :parameter = value, ... ])")
 
 	Func getRetriesOnFailure
 		dn_x = dotnet_call("s3:get",nHandle,"s16:RetriesOnFailure")
@@ -1515,18 +1544,22 @@ Class IRelationalCommandBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:DecrementIndent"))
 
 	Func AppendLines P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AppendLines",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AppendLines",P1))
 
 	Func Indent 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Indent"))
 
 	Func AddCompositeParameter P1,P2
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddCompositeParameter",P1,P2))
 
 	Func AddRawParameter P1,P2
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddRawParameter",P1,P2))
 
 	Func getParameters
@@ -1736,6 +1769,10 @@ Class IRelationalConnection from DotNetObject
 
 	Func DisposeAsync 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func getConnectionString
 		dn_x = dotnet_call("s3:get",nHandle,"s16:ConnectionString")
@@ -2164,9 +2201,17 @@ Class IRelationalTypeMappingSource from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:FindMapping",P1))
 
 	Func GetMappingForValue P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetMappingForValue",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetMappingForValue",P1))
 
 	Func GetMapping P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetMapping",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetMapping",P1))
 
 
@@ -2450,6 +2495,22 @@ Class NonRetryingExecutionStrategy from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ExecuteInTransaction P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s20:ExecuteInTransaction",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		raise("DotNet Error: ExecuteInTransaction does not take one argument: use named arguments, ExecuteInTransaction([ :parameter = value, ... ])")
+
+	Func ExecuteInTransactionAsync P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:ExecuteInTransactionAsync",P1))
+		ok
+		raise("DotNet Error: ExecuteInTransactionAsync does not take one argument: use named arguments, ExecuteInTransactionAsync([ :parameter = value, ... ])")
 
 	Func getRetriesOnFailure
 		dn_x = dotnet_call("s3:get",nHandle,"s16:RetriesOnFailure")
@@ -2759,6 +2820,25 @@ Class RelationalCommandBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func AppendLines P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AppendLines",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AppendLines",P1))
+
+	Func Indent 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Indent"))
+
+	Func AddCompositeParameter P1,P2
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddCompositeParameter",P1,P2))
+
+	Func AddRawParameter P1,P2
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddRawParameter",P1,P2))
 
 	Func getTypeMappingSource
 		return dnObj(dotnet_callo("s3:get",nHandle,"s17:TypeMappingSource"))
@@ -3107,6 +3187,10 @@ Class RelationalConnection from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+
 	Func getConnectionId
 		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ConnectionId"))
 
@@ -3301,6 +3385,10 @@ Class RelationalDataReader from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func getRelationalConnection
 		return dnObj(dotnet_callo("s3:get",nHandle,"s20:RelationalConnection"))
@@ -3899,6 +3987,14 @@ Class RelationalTransaction from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetDbTransaction 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Storage.DbContextTransactionExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetDbTransaction"))
+
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func getTransactionId
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TransactionId"))
@@ -4676,6 +4772,20 @@ Class RelationalTypeMappingSource from TypeMappingSourceBase
 			return self
 		ok
 		return self
+
+	Func GetMappingForValue P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetMappingForValue",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetMappingForValue",P1))
+
+	Func GetMapping P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetMapping",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetMapping",P1))
 
 
 Class TypeMappingSource from TypeMappingSourceBase

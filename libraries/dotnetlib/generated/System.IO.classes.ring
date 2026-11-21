@@ -408,6 +408,10 @@ Class BinaryWriter from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+
 	Func getBaseStream
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:BaseStream"))
 
@@ -1890,7 +1894,15 @@ Class Stream from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",'System.IO.Stream, System.Private.CoreLib',"s12:Synchronized",P1))
 
 	Func DrainAsync P1
+		dnEnsureExt("Microsoft.AspNetCore.WebUtilities.StreamHelperExtensions, Microsoft.AspNetCore.WebUtilities")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:DrainAsync",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:DrainAsync",P1))
+
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func getCanRead
 		dn_x = dotnet_call("s3:get",nHandle,"s7:CanRead")
@@ -2145,6 +2157,10 @@ Class TextWriter from MarshalByRefObject
 
 	Func CreateBroadcasting P1
 		return dnObj(dotnet_callo("s4:call",'System.IO.TextWriter, System.Private.CoreLib',"s18:CreateBroadcasting",P1))
+
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func getFormatProvider
 		return dnObj(dotnet_callo("s3:get",nHandle,"s14:FormatProvider"))

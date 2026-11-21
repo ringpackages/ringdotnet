@@ -418,6 +418,7 @@ Class Assembly from Object
 		return dnObj(dotnet_callo("s4:call",'System.Reflection.Assembly, System.Private.CoreLib',"s22:ReflectionOnlyLoadFrom",P1))
 
 	Func GetCustomAttribute P1
+		dnEnsureExt("System.Reflection.CustomAttributeExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetCustomAttribute",P1))
 
 	Func setModuleResolveEvent P1
@@ -1420,6 +1421,10 @@ Class MemberInfo from Object
 		return dn_x
 
 	Func GetCustomAttribute P1
+		dnEnsureExt("System.Reflection.CustomAttributeExtensions, System.Private.CoreLib")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetCustomAttribute",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetCustomAttribute",P1))
 
 	Func getMemberType
@@ -1723,6 +1728,7 @@ Class Module from Object
 		return dn_x
 
 	Func GetCustomAttribute P1
+		dnEnsureExt("System.Reflection.CustomAttributeExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetCustomAttribute",P1))
 
 	Func getAssembly
@@ -1946,6 +1952,10 @@ Class ParameterInfo from Object
 		return dn_x
 
 	Func GetCustomAttribute P1
+		dnEnsureExt("System.Reflection.CustomAttributeExtensions, System.Private.CoreLib")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetCustomAttribute",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetCustomAttribute",P1))
 
 	Func getAttributes
@@ -2245,6 +2255,7 @@ Class TypeInfo from Type
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func GetRuntimeInterfaceMap P1
+		dnEnsureExt("System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetRuntimeInterfaceMap",P1))
 
 	Func getGenericTypeParameters
@@ -3070,9 +3081,11 @@ Class MethodInfo from MethodBase
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateDelegate",P1))
 
 	Func GetRuntimeBaseDefinition 
+		dnEnsureExt("System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetRuntimeBaseDefinition"))
 
 	Func IsEFPropertyMethod 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.MethodInfoExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_call("s4:call",nHandle,"s18:IsEFPropertyMethod")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x

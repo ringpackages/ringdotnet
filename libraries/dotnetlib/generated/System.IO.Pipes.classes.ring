@@ -515,9 +515,11 @@ Class PipeStream from Stream
 		return self
 
 	Func GetAccessControl 
+		dnEnsureExt("System.IO.Pipes.PipesAclExtensions, System.IO.Pipes")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetAccessControl"))
 
 	Func SetAccessControl P1
+		dnEnsureExt("System.IO.Pipes.PipesAclExtensions, System.IO.Pipes")
 		dotnet_callv("s4:call",nHandle,"s16:SetAccessControl",P1)
 
 		return self

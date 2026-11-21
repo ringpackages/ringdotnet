@@ -561,6 +561,7 @@ Class CompareInfo from Object
 		return dn_x
 
 	Func GetStringComparer P1
+		dnEnsureExt("System.Globalization.GlobalizationExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetStringComparer",P1))
 
 	Func getName

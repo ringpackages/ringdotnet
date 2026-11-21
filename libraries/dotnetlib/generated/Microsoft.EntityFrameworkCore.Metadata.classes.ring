@@ -2571,6 +2571,130 @@ Class IComplexType from DotNetObject
 	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
+	Func GetContainerColumnName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalComplexTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:GetViewSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSqlQuery 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetSqlQuery")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFunctionName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetFunctionName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDeleteStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
+
+	Func GetInsertStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
+
+	Func GetUpdateStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
+
+	Func GetMappingFragments P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetMappingFragments",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments",P1))
+
+	Func FindMappingFragment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
+
+	Func GetMappingStrategy 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetMappingStrategy")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsMappedToJson 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:IsMappedToJson")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnType 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetJsonPropertyName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetDefaultMappings"))
+
+	Func GetTableMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetTableMappings"))
+
+	Func GetViewMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetViewMappings"))
+
+	Func GetSqlQueryMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetSqlQueryMappings"))
+
+	Func GetFunctionMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetFunctionMappings"))
+
+	Func GetInsertStoredProcedureMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetInsertStoredProcedureMappings"))
+
+	Func GetDeleteStoredProcedureMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetDeleteStoredProcedureMappings"))
+
+	Func GetUpdateStoredProcedureMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetUpdateStoredProcedureMappings"))
+
 	Func getComplexProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ComplexProperty"))
 
@@ -3396,6 +3520,98 @@ Class IConventionComplexType from DotNetObject
 		ok
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
+	Func GetContainerColumnName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalComplexTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:GetViewSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSqlQuery 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetSqlQuery")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFunctionName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetFunctionName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDeleteStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
+
+	Func GetInsertStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
+
+	Func GetUpdateStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
+
+	Func GetMappingFragments P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetMappingFragments",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments",P1))
+
+	Func FindMappingFragment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
+
+	Func GetMappingStrategy 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetMappingStrategy")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsMappedToJson 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:IsMappedToJson")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnType 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetJsonPropertyName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
 
@@ -4107,6 +4323,7 @@ Class IConventionElementType from DotNetObject
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
 	Func SetStoreType P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:SetStoreType",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4117,16 +4334,45 @@ Class IConventionElementType from DotNetObject
 		return dn_x
 
 	Func GetStoreTypeConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetStoreTypeConfigurationSource"))
 
 	Func SetIsFixedLength P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:SetIsFixedLength",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SetIsFixedLength",P1))
 
 	Func GetIsFixedLengthConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s35:GetIsFixedLengthConfigurationSource"))
+
+	Func GetStoreType 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetStoreType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsFixedLength P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:IsFixedLength",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:IsFixedLength"))
+		ok
+		return dnSend("s4:call",nHandle,"s13:IsFixedLength",dnPackItem(P1))
+
+	Func GetRelationalTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetRelationalTypeMapping"))
+
+	Func FindRelationalTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:FindRelationalTypeMapping"))
 
 	Func getCollectionProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:CollectionProperty"))
@@ -4742,6 +4988,7 @@ Class IConventionEntityType from DotNetObject
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
 	Func SetTableName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:SetTableName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4752,9 +4999,11 @@ Class IConventionEntityType from DotNetObject
 		return dn_x
 
 	Func GetTableNameConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetTableNameConfigurationSource"))
 
 	Func SetSchema P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:SetSchema",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4765,9 +5014,11 @@ Class IConventionEntityType from DotNetObject
 		return dn_x
 
 	Func GetSchemaConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetSchemaConfigurationSource"))
 
 	Func SetViewName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:SetViewName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4778,9 +5029,11 @@ Class IConventionEntityType from DotNetObject
 		return dn_x
 
 	Func GetViewNameConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetViewNameConfigurationSource"))
 
 	Func SetViewSchema P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:SetViewSchema",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4791,9 +5044,11 @@ Class IConventionEntityType from DotNetObject
 		return dn_x
 
 	Func GetViewSchemaConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetViewSchemaConfigurationSource"))
 
 	Func SetSqlQuery P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:SetSqlQuery",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4804,9 +5059,11 @@ Class IConventionEntityType from DotNetObject
 		return dn_x
 
 	Func GetSqlQueryConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetSqlQueryConfigurationSource"))
 
 	Func SetFunctionName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:SetFunctionName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4817,12 +5074,15 @@ Class IConventionEntityType from DotNetObject
 		return dn_x
 
 	Func GetFunctionNameConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s34:GetFunctionNameConfigurationSource"))
 
 	Func GetDeleteStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
 
 	Func SetDeleteStoredProcedure P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:SetDeleteStoredProcedure",P1))
 		ok
@@ -4832,15 +5092,19 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:SetDeleteStoredProcedure",P1))
 
 	Func RemoveDeleteStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:RemoveDeleteStoredProcedure"))
 
 	Func GetDeleteStoredProcedureConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s43:GetDeleteStoredProcedureConfigurationSource"))
 
 	Func GetInsertStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
 
 	Func SetInsertStoredProcedure P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:SetInsertStoredProcedure",P1))
 		ok
@@ -4850,15 +5114,19 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:SetInsertStoredProcedure",P1))
 
 	Func RemoveInsertStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:RemoveInsertStoredProcedure"))
 
 	Func GetInsertStoredProcedureConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s43:GetInsertStoredProcedureConfigurationSource"))
 
 	Func GetUpdateStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
 
 	Func SetUpdateStoredProcedure P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:SetUpdateStoredProcedure",P1))
 		ok
@@ -4868,30 +5136,38 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:SetUpdateStoredProcedure",P1))
 
 	Func RemoveUpdateStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:RemoveUpdateStoredProcedure"))
 
 	Func GetUpdateStoredProcedureConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s43:GetUpdateStoredProcedureConfigurationSource"))
 
 	Func FindCheckConstraint P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindCheckConstraint",P1))
 
 	Func AddCheckConstraint P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddCheckConstraint",P1))
 		ok
 		raise("DotNet Error: AddCheckConstraint does not take one argument: use named arguments, AddCheckConstraint([ :parameter = value, ... ])")
 
 	Func RemoveCheckConstraint P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:RemoveCheckConstraint",P1))
 
 	Func GetCheckConstraints 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetCheckConstraints"))
 
 	Func GetDeclaredCheckConstraints 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDeclaredCheckConstraints"))
 
 	Func SetComment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:SetComment",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4902,15 +5178,25 @@ Class IConventionEntityType from DotNetObject
 		return dn_x
 
 	Func GetCommentConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetCommentConfigurationSource"))
 
-	Func GetMappingFragments 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+	Func GetMappingFragments P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetMappingFragments",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments",P1))
 
 	Func FindMappingFragment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
 
 	Func GetOrCreateMappingFragment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_calla("s9:callnamed",nHandle,"s26:GetOrCreateMappingFragment",P1)
 		if islist(dn_x) return dnAny(dn_x) ok
@@ -4919,21 +5205,36 @@ Class IConventionEntityType from DotNetObject
 		return dnSend("s4:call",nHandle,"s26:GetOrCreateMappingFragment",dnPackItem(P1))
 
 	Func RemoveMappingFragment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s21:RemoveMappingFragment",dnPackItem(P1))
 
 	Func FindRowInternalForeignKeys P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s26:FindRowInternalForeignKeys",dnPackItem(P1))
 
 	Func SetIsTableExcludedFromMigrations P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s32:SetIsTableExcludedFromMigrations",P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s32:SetIsTableExcludedFromMigrations",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:SetIsTableExcludedFromMigrations",P1))
 
-	Func GetIsTableExcludedFromMigrationsConfigurationSource 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s51:GetIsTableExcludedFromMigrationsConfigurationSource"))
+	Func GetIsTableExcludedFromMigrationsConfigurationSource P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s51:GetIsTableExcludedFromMigrationsConfigurationSource",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s51:GetIsTableExcludedFromMigrationsConfigurationSource"))
+		ok
+		return dnSend("s4:call",nHandle,"s51:GetIsTableExcludedFromMigrationsConfigurationSource",dnPackItem(P1))
 
 	Func SetMappingStrategy P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s18:SetMappingStrategy",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4944,9 +5245,11 @@ Class IConventionEntityType from DotNetObject
 		return dn_x
 
 	Func GetMappingStrategyConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s37:GetMappingStrategyConfigurationSource"))
 
 	Func SetContainerColumnName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:SetContainerColumnName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4957,9 +5260,11 @@ Class IConventionEntityType from DotNetObject
 		return dn_x
 
 	Func GetContainerColumnNameConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s41:GetContainerColumnNameConfigurationSource"))
 
 	Func SetContainerColumnType P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:SetContainerColumnType",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4970,18 +5275,22 @@ Class IConventionEntityType from DotNetObject
 		return dn_x
 
 	Func GetContainerColumnTypeConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s41:GetContainerColumnTypeConfigurationSource"))
 
 	Func SetContainerColumnTypeMapping P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s29:SetContainerColumnTypeMapping",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s29:SetContainerColumnTypeMapping",P1))
 
 	Func GetContainerColumnTypeMappingConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s48:GetContainerColumnTypeMappingConfigurationSource"))
 
 	Func SetJsonPropertyName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:SetJsonPropertyName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4992,16 +5301,185 @@ Class IConventionEntityType from DotNetObject
 		return dn_x
 
 	Func GetJsonPropertyNameConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s38:GetJsonPropertyNameConfigurationSource"))
 
 	Func UseSqlReturningClause P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite")
 		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:UseSqlReturningClause",P1))
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s21:UseSqlReturningClause",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UseSqlReturningClause",P1))
 
-	Func GetUseSqlReturningClauseConfigurationSource 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s43:GetUseSqlReturningClauseConfigurationSource"))
+	Func GetUseSqlReturningClauseConfigurationSource P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s43:GetUseSqlReturningClauseConfigurationSource",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s43:GetUseSqlReturningClauseConfigurationSource"))
+		ok
+		return dnSend("s4:call",nHandle,"s43:GetUseSqlReturningClauseConfigurationSource",dnPackItem(P1))
+
+	Func GetTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultTableName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:GetDefaultTableName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s19:GetDefaultTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetDefaultTableName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s16:GetDefaultSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchemaQualifiedTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s27:GetSchemaQualifiedTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchemaQualifiedViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s26:GetSchemaQualifiedViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetDefaultViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:GetViewSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultViewSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s20:GetDefaultViewSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultSqlQueryName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultSqlQueryName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSqlQuery 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetSqlQuery")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFunctionName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetFunctionName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetComment 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s10:GetComment")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsTableExcludedFromMigrations P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s29:IsTableExcludedFromMigrations",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s29:IsTableExcludedFromMigrations")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s29:IsTableExcludedFromMigrations",dnPackItem(P1))
+
+	Func GetMappingStrategy 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetMappingStrategy")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsMappedToJson 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:IsMappedToJson")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnType 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetContainerColumnTypeMapping"))
+
+	Func GetJsonPropertyName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsSqlReturningClauseUsed P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s24:IsSqlReturningClauseUsed",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:IsSqlReturningClauseUsed")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s24:IsSqlReturningClauseUsed",dnPackItem(P1))
 
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
@@ -5167,13 +5645,21 @@ Class IConventionEntityTypeMappingFragment from DotNetObject
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
 	Func UseSqlReturningClause P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeMappingFragmentExtensions, Microsoft.EntityFrameworkCore.Sqlite")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:UseSqlReturningClause",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UseSqlReturningClause",P1))
 
 	Func GetUseSqlReturningClauseConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeMappingFragmentExtensions, Microsoft.EntityFrameworkCore.Sqlite")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s43:GetUseSqlReturningClauseConfigurationSource"))
+
+	Func IsSqlReturningClauseUsed 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeMappingFragmentExtensions, Microsoft.EntityFrameworkCore.Sqlite")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:IsSqlReturningClauseUsed")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
@@ -5395,6 +5881,7 @@ Class IConventionForeignKey from DotNetObject
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
 	Func SetConstraintName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:SetConstraintName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -5405,10 +5892,46 @@ Class IConventionForeignKey from DotNetObject
 		return dn_x
 
 	Func GetConstraintNameConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s36:GetConstraintNameConfigurationSource"))
 
 	Func FindSharedObjectRootForeignKey P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s30:FindSharedObjectRootForeignKey",dnPackItem(P1))
+
+	Func GetConstraintName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s17:GetConstraintName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s17:GetConstraintName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: GetConstraintName does not take one argument: use named arguments, GetConstraintName([ :parameter = value, ... ])")
+
+	Func GetDefaultName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s14:GetDefaultName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: GetDefaultName does not take one argument: use named arguments, GetDefaultName([ :parameter = value, ... ])")
+
+	Func IsRowInternal P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:IsRowInternal",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
@@ -5590,6 +6113,7 @@ Class IConventionIndex from DotNetObject
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
 	Func SetDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:SetDatabaseName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -5600,9 +6124,11 @@ Class IConventionIndex from DotNetObject
 		return dn_x
 
 	Func GetDatabaseNameConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s34:GetDatabaseNameConfigurationSource"))
 
 	Func SetFilter P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:SetFilter",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -5613,10 +6139,54 @@ Class IConventionIndex from DotNetObject
 		return dn_x
 
 	Func GetFilterConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetFilterConfigurationSource"))
 
 	Func FindSharedObjectRootIndex P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s25:FindSharedObjectRootIndex",dnPackItem(P1))
+
+	Func GetDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:GetDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s15:GetDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s15:GetDatabaseName",dnPackItem(P1))
+
+	Func GetDefaultDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s22:GetDefaultDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s22:GetDefaultDatabaseName",dnPackItem(P1))
+
+	Func GetFilter P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:GetFilter",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s9:GetFilter")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s9:GetFilter",dnPackItem(P1))
 
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
@@ -5758,6 +6328,7 @@ Class IConventionKey from DotNetObject
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
 	Func SetName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:SetName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -5768,10 +6339,40 @@ Class IConventionKey from DotNetObject
 		return dn_x
 
 	Func GetNameConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetNameConfigurationSource"))
 
 	Func FindSharedObjectRootKey P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s23:FindSharedObjectRootKey",dnPackItem(P1))
+
+	Func GetName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s7:GetName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s7:GetName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s7:GetName",dnPackItem(P1))
+
+	Func GetDefaultName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s14:GetDefaultName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s14:GetDefaultName",dnPackItem(P1))
 
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
@@ -6044,6 +6645,7 @@ Class IConventionModel from DotNetObject
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
 	Func SetDefaultSchema P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:SetDefaultSchema",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -6054,54 +6656,66 @@ Class IConventionModel from DotNetObject
 		return dn_x
 
 	Func GetDefaultSchemaConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s35:GetDefaultSchemaConfigurationSource"))
 
 	Func SetMaxIdentifierLength P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:SetMaxIdentifierLength",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:SetMaxIdentifierLength",P1))
 
 	Func GetMaxIdentifierLengthConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s41:GetMaxIdentifierLengthConfigurationSource"))
 
 	Func FindSequence P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:FindSequence",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindSequence",P1))
 
 	Func AddSequence P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddSequence",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddSequence",P1))
 
 	Func RemoveSequence P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:RemoveSequence",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:RemoveSequence",P1))
 
 	Func GetSequences 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetSequences"))
 
 	Func FindDbFunction P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindDbFunction",P1))
 
 	Func AddDbFunction P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddDbFunction",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddDbFunction",P1))
 
 	Func RemoveDbFunction P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveDbFunction",P1))
 
 	Func GetDbFunctions 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetDbFunctions"))
 
 	Func SetCollation P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:SetCollation",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -6112,7 +6726,26 @@ Class IConventionModel from DotNetObject
 		return dn_x
 
 	Func GetCollationConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetCollationConfigurationSource"))
+
+	Func GetDefaultSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s16:GetDefaultSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetMaxIdentifierLength 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetMaxIdentifierLength")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetCollation 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetCollation")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
@@ -7031,28 +7664,41 @@ Class IConventionProperty from DotNetObject
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
 	Func SetColumnName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:SetColumnName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:SetColumnName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s13:SetColumnName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetColumnNameConfigurationSource 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetColumnNameConfigurationSource"))
+	Func GetColumnNameConfigurationSource P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s32:GetColumnNameConfigurationSource",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetColumnNameConfigurationSource"))
+		ok
+		return dnSend("s4:call",nHandle,"s32:GetColumnNameConfigurationSource",dnPackItem(P1))
 
 	Func SetColumnOrder P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:SetColumnOrder",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:SetColumnOrder",P1))
 
 	Func GetColumnOrderConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetColumnOrderConfigurationSource"))
 
 	Func SetColumnType P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:SetColumnType",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -7063,9 +7709,11 @@ Class IConventionProperty from DotNetObject
 		return dn_x
 
 	Func GetColumnTypeConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetColumnTypeConfigurationSource"))
 
 	Func SetDefaultValueSql P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s18:SetDefaultValueSql",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -7076,9 +7724,11 @@ Class IConventionProperty from DotNetObject
 		return dn_x
 
 	Func GetDefaultValueSqlConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s37:GetDefaultValueSqlConfigurationSource"))
 
 	Func SetComputedColumnSql P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s20:SetComputedColumnSql",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -7089,36 +7739,44 @@ Class IConventionProperty from DotNetObject
 		return dn_x
 
 	Func GetComputedColumnSqlConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s39:GetComputedColumnSqlConfigurationSource"))
 
 	Func SetIsStored P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:SetIsStored",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetIsStored",P1))
 
 	Func GetIsStoredConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetIsStoredConfigurationSource"))
 
 	Func SetDefaultValue P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:SetDefaultValue",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:SetDefaultValue",P1))
 
 	Func GetDefaultValueConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s34:GetDefaultValueConfigurationSource"))
 
 	Func SetIsFixedLength P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:SetIsFixedLength",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SetIsFixedLength",P1))
 
 	Func GetIsFixedLengthConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s35:GetIsFixedLengthConfigurationSource"))
 
 	Func SetComment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:SetComment",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -7129,9 +7787,11 @@ Class IConventionProperty from DotNetObject
 		return dn_x
 
 	Func GetCommentConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetCommentConfigurationSource"))
 
 	Func SetCollation P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:SetCollation",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -7142,18 +7802,23 @@ Class IConventionProperty from DotNetObject
 		return dn_x
 
 	Func GetCollationConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetCollationConfigurationSource"))
 
 	Func FindSharedStoreObjectRootProperty P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s33:FindSharedStoreObjectRootProperty",dnPackItem(P1))
 
 	Func GetOverrides 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetOverrides"))
 
 	Func FindOverrides P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s13:FindOverrides",dnPackItem(P1))
 
 	Func GetOrCreateOverrides P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_calla("s9:callnamed",nHandle,"s20:GetOrCreateOverrides",P1)
 		if islist(dn_x) return dnAny(dn_x) ok
@@ -7162,9 +7827,11 @@ Class IConventionProperty from DotNetObject
 		return dnSend("s4:call",nHandle,"s20:GetOrCreateOverrides",dnPackItem(P1))
 
 	Func RemoveOverrides P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s15:RemoveOverrides",dnPackItem(P1))
 
 	Func SetJsonPropertyName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:SetJsonPropertyName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -7175,16 +7842,241 @@ Class IConventionProperty from DotNetObject
 		return dn_x
 
 	Func GetJsonPropertyNameConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s38:GetJsonPropertyNameConfigurationSource"))
 
 	Func SetSrid P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqlitePropertyExtensions, Microsoft.EntityFrameworkCore.Sqlite")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:SetSrid",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:SetSrid",P1))
 
 	Func GetSridConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqlitePropertyExtensions, Microsoft.EntityFrameworkCore.Sqlite")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetSridConfigurationSource"))
+
+	Func GetColumnBaseName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s17:GetColumnBaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetColumnName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:GetColumnName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:GetColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s13:GetColumnName",dnPackItem(P1))
+
+	Func GetDefaultColumnBaseName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:GetDefaultColumnBaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultColumnName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s20:GetDefaultColumnName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s20:GetDefaultColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s20:GetDefaultColumnName",dnPackItem(P1))
+
+	Func GetColumnOrder P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s14:GetColumnOrder",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetColumnOrder"))
+		ok
+		return dnSend("s4:call",nHandle,"s14:GetColumnOrder",dnPackItem(P1))
+
+	Func GetColumnType P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:GetColumnType",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:GetColumnType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s13:GetColumnType",dnPackItem(P1))
+
+	Func GetDefaultValueSql P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s18:GetDefaultValueSql",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s18:GetDefaultValueSql")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s18:GetDefaultValueSql",dnPackItem(P1))
+
+	Func GetComputedColumnSql P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s20:GetComputedColumnSql",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s20:GetComputedColumnSql")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s20:GetComputedColumnSql",dnPackItem(P1))
+
+	Func GetIsStored P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s11:GetIsStored",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetIsStored"))
+		ok
+		return dnSend("s4:call",nHandle,"s11:GetIsStored",dnPackItem(P1))
+
+	Func GetDefaultValue P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:GetDefaultValue",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetDefaultValue"))
+		ok
+		return dnSend("s4:call",nHandle,"s15:GetDefaultValue",dnPackItem(P1))
+
+	Func TryGetDefaultValue P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s18:TryGetDefaultValue",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnSend("s4:call",nHandle,"s18:TryGetDefaultValue","")
+		ok
+		return dnSend("s4:call",nHandle,"s18:TryGetDefaultValue",dnPackItem(P1))
+
+	Func IsFixedLength P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:IsFixedLength",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:IsFixedLength"))
+		ok
+		return dnSend("s4:call",nHandle,"s13:IsFixedLength",dnPackItem(P1))
+
+	Func IsColumnNullable P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s16:IsColumnNullable",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s16:IsColumnNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s16:IsColumnNullable",dnPackItem(P1))
+
+	Func GetComment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s10:GetComment",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s10:GetComment")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s10:GetComment",dnPackItem(P1))
+
+	Func GetCollation P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s12:GetCollation",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s12:GetCollation")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s12:GetCollation",dnPackItem(P1))
+
+	Func GetRelationalTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetRelationalTypeMapping"))
+
+	Func FindRelationalTypeMapping P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s25:FindRelationalTypeMapping",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s25:FindRelationalTypeMapping"))
+		ok
+		return dnSend("s4:call",nHandle,"s25:FindRelationalTypeMapping",dnPackItem(P1))
+
+	Func GetMappedStoreObjects P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetMappedStoreObjects",P1))
+
+	Func GetJsonPropertyName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSrid P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqlitePropertyExtensions, Microsoft.EntityFrameworkCore.Sqlite")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s7:GetSrid",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetSrid"))
+		ok
+		return dnSend("s4:call",nHandle,"s7:GetSrid",dnPackItem(P1))
 
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
@@ -8917,6 +9809,7 @@ Class IConventionTrigger from DotNetObject
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
 	Func SetDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:SetDatabaseName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -8927,9 +9820,11 @@ Class IConventionTrigger from DotNetObject
 		return dn_x
 
 	Func GetDatabaseNameConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s34:GetDatabaseNameConfigurationSource"))
 
 	Func SetTableName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:SetTableName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -8940,9 +9835,11 @@ Class IConventionTrigger from DotNetObject
 		return dn_x
 
 	Func GetTableNameConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetTableNameConfigurationSource"))
 
 	Func SetTableSchema P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:SetTableSchema",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -8953,7 +9850,48 @@ Class IConventionTrigger from DotNetObject
 		return dn_x
 
 	Func GetTableSchemaConfigurationSource 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetTableSchemaConfigurationSource"))
+
+	Func GetDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:GetDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s15:GetDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s15:GetDatabaseName",dnPackItem(P1))
+
+	Func GetDefaultDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s22:GetDefaultDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s22:GetDefaultDatabaseName",dnPackItem(P1))
+
+	Func GetTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetTableSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:GetTableSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
@@ -9223,6 +10161,98 @@ Class IConventionTypeBase from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:SetOrRemoveAnnotation",P1))
 		ok
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
+
+	Func GetTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:GetViewSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSqlQuery 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetSqlQuery")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFunctionName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetFunctionName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDeleteStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
+
+	Func GetInsertStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
+
+	Func GetUpdateStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
+
+	Func GetMappingFragments P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetMappingFragments",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments",P1))
+
+	Func FindMappingFragment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
+
+	Func GetMappingStrategy 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetMappingStrategy")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsMappedToJson 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:IsMappedToJson")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnType 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetJsonPropertyName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getModel
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
@@ -9725,9 +10755,30 @@ Class IElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
 	Func GetStoreType 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetStoreType")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func IsFixedLength P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:IsFixedLength",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:IsFixedLength"))
+		ok
+		return dnSend("s4:call",nHandle,"s13:IsFixedLength",dnPackItem(P1))
+
+	Func GetRelationalTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetRelationalTypeMapping"))
+
+	Func FindRelationalTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:FindRelationalTypeMapping"))
 
 	Func getCollectionProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:CollectionProperty"))
@@ -10140,31 +11191,234 @@ Class IEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
 	Func GetDeleteStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
 
 	Func GetInsertStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
 
 	Func GetUpdateStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
 
 	Func FindCheckConstraint P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindCheckConstraint",P1))
 
 	Func GetCheckConstraints 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetCheckConstraints"))
 
 	Func GetDeclaredCheckConstraints 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDeclaredCheckConstraints"))
 
-	Func GetMappingFragments 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+	Func GetMappingFragments P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetMappingFragments",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments",P1))
 
 	Func FindMappingFragment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
 
 	Func FindRowInternalForeignKeys P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s26:FindRowInternalForeignKeys",dnPackItem(P1))
+
+	Func GetTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultTableName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:GetDefaultTableName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s19:GetDefaultTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetDefaultTableName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s16:GetDefaultSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchemaQualifiedTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s27:GetSchemaQualifiedTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchemaQualifiedViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s26:GetSchemaQualifiedViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetDefaultViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:GetViewSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultViewSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s20:GetDefaultViewSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultSqlQueryName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultSqlQueryName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSqlQuery 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetSqlQuery")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFunctionName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetFunctionName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetComment 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s10:GetComment")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsTableExcludedFromMigrations P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s29:IsTableExcludedFromMigrations",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s29:IsTableExcludedFromMigrations")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s29:IsTableExcludedFromMigrations",dnPackItem(P1))
+
+	Func GetMappingStrategy 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetMappingStrategy")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsMappedToJson 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:IsMappedToJson")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnType 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetContainerColumnTypeMapping"))
+
+	Func GetJsonPropertyName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsSqlReturningClauseUsed P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s24:IsSqlReturningClauseUsed",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:IsSqlReturningClauseUsed")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s24:IsSqlReturningClauseUsed",dnPackItem(P1))
+
+	Func GetDefaultMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetDefaultMappings"))
+
+	Func GetTableMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetTableMappings"))
+
+	Func GetViewMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetViewMappings"))
+
+	Func GetSqlQueryMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetSqlQueryMappings"))
+
+	Func GetFunctionMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetFunctionMappings"))
+
+	Func GetInsertStoredProcedureMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetInsertStoredProcedureMappings"))
+
+	Func GetDeleteStoredProcedureMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetDeleteStoredProcedureMappings"))
+
+	Func GetUpdateStoredProcedureMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetUpdateStoredProcedureMappings"))
 
 	Func getBaseType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:BaseType"))
@@ -10302,6 +11556,12 @@ Class IEntityTypeMappingFragment from DotNetObject
 	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
+	Func IsSqlReturningClauseUsed 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeMappingFragmentExtensions, Microsoft.EntityFrameworkCore.Sqlite")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:IsSqlReturningClauseUsed")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
@@ -10422,10 +11682,46 @@ Class IForeignKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
 	Func GetMappedConstraints 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetMappedConstraints"))
 
 	Func FindSharedObjectRootForeignKey P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s30:FindSharedObjectRootForeignKey",dnPackItem(P1))
+
+	Func GetConstraintName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s17:GetConstraintName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s17:GetConstraintName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: GetConstraintName does not take one argument: use named arguments, GetConstraintName([ :parameter = value, ... ])")
+
+	Func GetDefaultName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s14:GetDefaultName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: GetDefaultName does not take one argument: use named arguments, GetDefaultName([ :parameter = value, ... ])")
+
+	Func IsRowInternal P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:IsRowInternal",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
@@ -11106,10 +12402,54 @@ Class IIndex from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
 	Func GetMappedTableIndexes 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetMappedTableIndexes"))
 
 	Func FindSharedObjectRootIndex P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s25:FindSharedObjectRootIndex",dnPackItem(P1))
+
+	Func GetDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:GetDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s15:GetDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s15:GetDatabaseName",dnPackItem(P1))
+
+	Func GetDefaultDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s22:GetDefaultDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s22:GetDefaultDatabaseName",dnPackItem(P1))
+
+	Func GetFilter P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:GetFilter",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s9:GetFilter")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s9:GetFilter",dnPackItem(P1))
 
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
@@ -11235,10 +12575,40 @@ Class IKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
 	Func GetMappedConstraints 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetMappedConstraints"))
 
 	Func FindSharedObjectRootKey P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s23:FindSharedObjectRootKey",dnPackItem(P1))
+
+	Func GetName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s7:GetName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s7:GetName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s7:GetName",dnPackItem(P1))
+
+	Func GetDefaultName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s14:GetDefaultName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s14:GetDefaultName",dnPackItem(P1))
 
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
@@ -11384,24 +12754,30 @@ Class IModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
 	Func GetRelationalModel 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRelationalModel"))
 
 	Func FindSequence P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:FindSequence",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindSequence",P1))
 
 	Func GetSequences 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetSequences"))
 
 	Func FindDbFunction P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindDbFunction",P1))
 
 	Func GetDbFunctions 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetDbFunctions"))
 
 	Func GetRelationalDependencies P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:GetRelationalDependencies",P1))
 		ok
@@ -11409,6 +12785,24 @@ Class IModel from DotNetObject
 			return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetRelationalDependencies"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetRelationalDependencies",P1))
+
+	Func GetDefaultSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s16:GetDefaultSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetMaxIdentifierLength 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetMaxIdentifierLength")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetCollation 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetCollation")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getModelDependencies
 		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ModelDependencies"))
@@ -12014,6 +13408,98 @@ Class IMutableComplexType from DotNetObject
 
 		return self
 
+	Func GetContainerColumnName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalComplexTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:GetViewSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSqlQuery 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetSqlQuery")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFunctionName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetFunctionName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDeleteStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
+
+	Func GetInsertStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
+
+	Func GetUpdateStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
+
+	Func GetMappingFragments P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetMappingFragments",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments",P1))
+
+	Func FindMappingFragment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
+
+	Func GetMappingStrategy 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetMappingStrategy")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsMappedToJson 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:IsMappedToJson")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnType 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetJsonPropertyName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getComplexProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ComplexProperty"))
 
@@ -12527,14 +14013,42 @@ Class IMutableElementType from DotNetObject
 		return self
 
 	Func SetStoreType P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s12:SetStoreType",P1)
 
 		return self
 
 	Func SetIsFixedLength P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s16:SetIsFixedLength",P1)
 
 		return self
+
+	Func GetStoreType 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetStoreType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsFixedLength P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:IsFixedLength",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:IsFixedLength"))
+		ok
+		return dnSend("s4:call",nHandle,"s13:IsFixedLength",dnPackItem(P1))
+
+	Func GetRelationalTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetRelationalTypeMapping"))
+
+	Func FindRelationalTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:FindRelationalTypeMapping"))
 
 	Func getCollectionProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:CollectionProperty"))
@@ -13061,131 +14575,336 @@ Class IMutableEntityType from DotNetObject
 		return self
 
 	Func SetTableName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s12:SetTableName",P1)
 
 		return self
 
 	Func SetSchema P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s9:SetSchema",P1)
 
 		return self
 
 	Func SetViewName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s11:SetViewName",P1)
 
 		return self
 
 	Func SetViewSchema P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s13:SetViewSchema",P1)
 
 		return self
 
 	Func SetSqlQuery P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s11:SetSqlQuery",P1)
 
 		return self
 
 	Func SetFunctionName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s15:SetFunctionName",P1)
 
 		return self
 
 	Func GetDeleteStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
 
 	Func SetDeleteStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:SetDeleteStoredProcedure"))
 
 	Func RemoveDeleteStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:RemoveDeleteStoredProcedure"))
 
 	Func GetInsertStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
 
 	Func SetInsertStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:SetInsertStoredProcedure"))
 
 	Func RemoveInsertStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:RemoveInsertStoredProcedure"))
 
 	Func GetUpdateStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
 
 	Func SetUpdateStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:SetUpdateStoredProcedure"))
 
 	Func RemoveUpdateStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:RemoveUpdateStoredProcedure"))
 
 	Func FindCheckConstraint P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindCheckConstraint",P1))
 
 	Func AddCheckConstraint P1,P2
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddCheckConstraint",P1,P2))
 
 	Func RemoveCheckConstraint P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:RemoveCheckConstraint",P1))
 
 	Func GetCheckConstraints 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetCheckConstraints"))
 
 	Func GetDeclaredCheckConstraints 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDeclaredCheckConstraints"))
 
 	Func SetComment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s10:SetComment",P1)
 
 		return self
 
-	Func GetMappingFragments 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+	Func GetMappingFragments P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetMappingFragments",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments",P1))
 
 	Func FindMappingFragment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
 
 	Func GetOrCreateMappingFragment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s26:GetOrCreateMappingFragment",dnPackItem(P1))
 
 	Func RemoveMappingFragment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s21:RemoveMappingFragment",dnPackItem(P1))
 
 	Func FindRowInternalForeignKeys P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s26:FindRowInternalForeignKeys",dnPackItem(P1))
 
 	Func SetIsTableExcludedFromMigrations P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s32:SetIsTableExcludedFromMigrations",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
 		dotnet_callv("s4:call",nHandle,"s32:SetIsTableExcludedFromMigrations",P1)
 
 		return self
 
 	Func SetMappingStrategy P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s18:SetMappingStrategy",P1)
 
 		return self
 
 	Func SetContainerColumnName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s22:SetContainerColumnName",P1)
 
 		return self
 
 	Func SetContainerColumnType P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s22:SetContainerColumnType",P1)
 
 		return self
 
 	Func SetContainerColumnTypeMapping P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s29:SetContainerColumnTypeMapping",P1)
 
 		return self
 
 	Func SetJsonPropertyName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s19:SetJsonPropertyName",P1)
 
 		return self
 
 	Func UseSqlReturningClause P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s21:UseSqlReturningClause",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
 		dotnet_callv("s4:call",nHandle,"s21:UseSqlReturningClause",P1)
 
 		return self
+
+	Func GetTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultTableName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:GetDefaultTableName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s19:GetDefaultTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetDefaultTableName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s16:GetDefaultSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchemaQualifiedTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s27:GetSchemaQualifiedTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchemaQualifiedViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s26:GetSchemaQualifiedViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetDefaultViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:GetViewSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultViewSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s20:GetDefaultViewSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultSqlQueryName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultSqlQueryName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSqlQuery 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetSqlQuery")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFunctionName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetFunctionName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetComment 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s10:GetComment")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsTableExcludedFromMigrations P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s29:IsTableExcludedFromMigrations",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s29:IsTableExcludedFromMigrations")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s29:IsTableExcludedFromMigrations",dnPackItem(P1))
+
+	Func GetMappingStrategy 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetMappingStrategy")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsMappedToJson 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:IsMappedToJson")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnType 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetContainerColumnTypeMapping"))
+
+	Func GetJsonPropertyName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsSqlReturningClauseUsed P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s24:IsSqlReturningClauseUsed",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:IsSqlReturningClauseUsed")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s24:IsSqlReturningClauseUsed",dnPackItem(P1))
 
 	Func getBaseType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:BaseType"))
@@ -13322,9 +15041,16 @@ Class IMutableEntityTypeMappingFragment from DotNetObject
 		return self
 
 	Func UseSqlReturningClause P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeMappingFragmentExtensions, Microsoft.EntityFrameworkCore.Sqlite")
 		dotnet_callv("s4:call",nHandle,"s21:UseSqlReturningClause",P1)
 
 		return self
+
+	Func IsSqlReturningClauseUsed 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeMappingFragmentExtensions, Microsoft.EntityFrameworkCore.Sqlite")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:IsSqlReturningClauseUsed")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
@@ -13455,12 +15181,48 @@ Class IMutableForeignKey from DotNetObject
 		return self
 
 	Func SetConstraintName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s17:SetConstraintName",P1)
 
 		return self
 
 	Func FindSharedObjectRootForeignKey P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s30:FindSharedObjectRootForeignKey",dnPackItem(P1))
+
+	Func GetConstraintName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s17:GetConstraintName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s17:GetConstraintName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: GetConstraintName does not take one argument: use named arguments, GetConstraintName([ :parameter = value, ... ])")
+
+	Func GetDefaultName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s14:GetDefaultName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: GetDefaultName does not take one argument: use named arguments, GetDefaultName([ :parameter = value, ... ])")
+
+	Func IsRowInternal P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:IsRowInternal",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
@@ -13616,17 +15378,62 @@ Class IMutableIndex from DotNetObject
 		return self
 
 	Func SetDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s15:SetDatabaseName",P1)
 
 		return self
 
 	Func SetFilter P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s9:SetFilter",P1)
 
 		return self
 
 	Func FindSharedObjectRootIndex P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s25:FindSharedObjectRootIndex",dnPackItem(P1))
+
+	Func GetDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:GetDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s15:GetDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s15:GetDatabaseName",dnPackItem(P1))
+
+	Func GetDefaultDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s22:GetDefaultDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s22:GetDefaultDatabaseName",dnPackItem(P1))
+
+	Func GetFilter P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:GetFilter",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s9:GetFilter")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s9:GetFilter",dnPackItem(P1))
 
 	Func getIsUnique
 		dn_x = dotnet_call("s3:get",nHandle,"s8:IsUnique")
@@ -13748,12 +15555,42 @@ Class IMutableKey from DotNetObject
 		return self
 
 	Func SetName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s7:SetName",P1)
 
 		return self
 
 	Func FindSharedObjectRootKey P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s23:FindSharedObjectRootKey",dnPackItem(P1))
+
+	Func GetName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s7:GetName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s7:GetName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s7:GetName",dnPackItem(P1))
+
+	Func GetDefaultName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s14:GetDefaultName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s14:GetDefaultName",dnPackItem(P1))
 
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
@@ -13958,52 +15795,84 @@ Class IMutableModel from DotNetObject
 		return self
 
 	Func SetDefaultSchema P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s16:SetDefaultSchema",P1)
 
 		return self
 
 	Func SetMaxIdentifierLength P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s22:SetMaxIdentifierLength",P1)
 
 		return self
 
 	Func FindSequence P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:FindSequence",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindSequence",P1))
 
 	Func AddSequence P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddSequence",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddSequence",P1))
 
 	Func RemoveSequence P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:RemoveSequence",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:RemoveSequence",P1))
 
 	Func GetSequences 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetSequences"))
 
 	Func FindDbFunction P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindDbFunction",P1))
 
 	Func AddDbFunction P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddDbFunction",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddDbFunction",P1))
 
 	Func RemoveDbFunction P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveDbFunction",P1))
 
 	Func GetDbFunctions 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetDbFunctions"))
 
 	Func SetCollation P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s12:SetCollation",P1)
 
 		return self
+
+	Func GetDefaultSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s16:GetDefaultSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetMaxIdentifierLength 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetMaxIdentifierLength")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetCollation 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetCollation")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getModelId
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ModelId"))
@@ -14680,79 +16549,323 @@ Class IMutableProperty from DotNetObject
 		return self
 
 	Func SetColumnName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:SetColumnName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
 		dotnet_callv("s4:call",nHandle,"s13:SetColumnName",P1)
 
 		return self
 
 	Func SetColumnOrder P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s14:SetColumnOrder",P1)
 
 		return self
 
 	Func SetColumnType P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s13:SetColumnType",P1)
 
 		return self
 
 	Func SetDefaultValueSql P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s18:SetDefaultValueSql",P1)
 
 		return self
 
 	Func SetComputedColumnSql P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s20:SetComputedColumnSql",P1)
 
 		return self
 
 	Func SetIsStored P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s11:SetIsStored",P1)
 
 		return self
 
 	Func SetDefaultValue P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s15:SetDefaultValue",P1)
 
 		return self
 
 	Func SetIsFixedLength P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s16:SetIsFixedLength",P1)
 
 		return self
 
 	Func SetComment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s10:SetComment",P1)
 
 		return self
 
 	Func SetCollation P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s12:SetCollation",P1)
 
 		return self
 
 	Func FindSharedStoreObjectRootProperty P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s33:FindSharedStoreObjectRootProperty",dnPackItem(P1))
 
 	Func GetOverrides 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetOverrides"))
 
 	Func FindOverrides P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s13:FindOverrides",dnPackItem(P1))
 
 	Func GetOrCreateOverrides P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s20:GetOrCreateOverrides",dnPackItem(P1))
 
 	Func RemoveOverrides P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s15:RemoveOverrides",dnPackItem(P1))
 
 	Func SetJsonPropertyName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s19:SetJsonPropertyName",P1)
 
 		return self
 
 	Func SetSrid P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqlitePropertyExtensions, Microsoft.EntityFrameworkCore.Sqlite")
 		dotnet_callv("s4:call",nHandle,"s7:SetSrid",P1)
 
 		return self
+
+	Func GetColumnBaseName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s17:GetColumnBaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetColumnName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:GetColumnName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:GetColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s13:GetColumnName",dnPackItem(P1))
+
+	Func GetDefaultColumnBaseName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:GetDefaultColumnBaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultColumnName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s20:GetDefaultColumnName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s20:GetDefaultColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s20:GetDefaultColumnName",dnPackItem(P1))
+
+	Func GetColumnOrder P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s14:GetColumnOrder",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetColumnOrder"))
+		ok
+		return dnSend("s4:call",nHandle,"s14:GetColumnOrder",dnPackItem(P1))
+
+	Func GetColumnType P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:GetColumnType",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:GetColumnType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s13:GetColumnType",dnPackItem(P1))
+
+	Func GetDefaultValueSql P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s18:GetDefaultValueSql",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s18:GetDefaultValueSql")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s18:GetDefaultValueSql",dnPackItem(P1))
+
+	Func GetComputedColumnSql P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s20:GetComputedColumnSql",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s20:GetComputedColumnSql")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s20:GetComputedColumnSql",dnPackItem(P1))
+
+	Func GetIsStored P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s11:GetIsStored",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetIsStored"))
+		ok
+		return dnSend("s4:call",nHandle,"s11:GetIsStored",dnPackItem(P1))
+
+	Func GetDefaultValue P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:GetDefaultValue",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetDefaultValue"))
+		ok
+		return dnSend("s4:call",nHandle,"s15:GetDefaultValue",dnPackItem(P1))
+
+	Func TryGetDefaultValue P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s18:TryGetDefaultValue",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnSend("s4:call",nHandle,"s18:TryGetDefaultValue","")
+		ok
+		return dnSend("s4:call",nHandle,"s18:TryGetDefaultValue",dnPackItem(P1))
+
+	Func IsFixedLength P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:IsFixedLength",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:IsFixedLength"))
+		ok
+		return dnSend("s4:call",nHandle,"s13:IsFixedLength",dnPackItem(P1))
+
+	Func IsColumnNullable P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s16:IsColumnNullable",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s16:IsColumnNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s16:IsColumnNullable",dnPackItem(P1))
+
+	Func GetComment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s10:GetComment",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s10:GetComment")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s10:GetComment",dnPackItem(P1))
+
+	Func GetCollation P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s12:GetCollation",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s12:GetCollation")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s12:GetCollation",dnPackItem(P1))
+
+	Func GetRelationalTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetRelationalTypeMapping"))
+
+	Func FindRelationalTypeMapping P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s25:FindRelationalTypeMapping",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s25:FindRelationalTypeMapping"))
+		ok
+		return dnSend("s4:call",nHandle,"s25:FindRelationalTypeMapping",dnPackItem(P1))
+
+	Func GetMappedStoreObjects P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetMappedStoreObjects",P1))
+
+	Func GetJsonPropertyName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSrid P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqlitePropertyExtensions, Microsoft.EntityFrameworkCore.Sqlite")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s7:GetSrid",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetSrid"))
+		ok
+		return dnSend("s4:call",nHandle,"s7:GetSrid",dnPackItem(P1))
 
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
@@ -16086,19 +18199,62 @@ Class IMutableTrigger from DotNetObject
 		return self
 
 	Func SetDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s15:SetDatabaseName",P1)
 
 		return self
 
 	Func SetTableName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s12:SetTableName",P1)
 
 		return self
 
 	Func SetTableSchema P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s14:SetTableSchema",P1)
 
 		return self
+
+	Func GetDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:GetDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s15:GetDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s15:GetDatabaseName",dnPackItem(P1))
+
+	Func GetDefaultDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s22:GetDefaultDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s22:GetDefaultDatabaseName",dnPackItem(P1))
+
+	Func GetTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetTableSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:GetTableSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
@@ -16324,6 +18480,98 @@ Class IMutableTypeBase from DotNetObject
 		dotnet_callv("s4:call",nHandle,"s21:SetOrRemoveAnnotation",P1,P2)
 
 		return self
+
+	Func GetTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:GetViewSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSqlQuery 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetSqlQuery")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFunctionName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetFunctionName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDeleteStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
+
+	Func GetInsertStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
+
+	Func GetUpdateStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
+
+	Func GetMappingFragments P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetMappingFragments",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments",P1))
+
+	Func FindMappingFragment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
+
+	Func GetMappingStrategy 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetMappingStrategy")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsMappedToJson 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:IsMappedToJson")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnType 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetJsonPropertyName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getModel
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
@@ -17131,55 +19379,287 @@ Class IProperty from DotNetObject
 	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
-	Func GetColumnType 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:GetColumnType")
+	Func GetColumnType P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:GetColumnType",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:GetColumnType")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s13:GetColumnType",dnPackItem(P1))
 
 	Func GetDefaultColumnMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDefaultColumnMappings"))
 
 	Func GetTableColumnMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetTableColumnMappings"))
 
 	Func GetViewColumnMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetViewColumnMappings"))
 
 	Func GetSqlQueryColumnMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetSqlQueryColumnMappings"))
 
 	Func GetFunctionColumnMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetFunctionColumnMappings"))
 
 	Func GetInsertStoredProcedureResultColumnMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s44:GetInsertStoredProcedureResultColumnMappings"))
 
 	Func GetInsertStoredProcedureParameterMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s41:GetInsertStoredProcedureParameterMappings"))
 
 	Func GetDeleteStoredProcedureParameterMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s41:GetDeleteStoredProcedureParameterMappings"))
 
 	Func GetUpdateStoredProcedureResultColumnMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s44:GetUpdateStoredProcedureResultColumnMappings"))
 
 	Func GetUpdateStoredProcedureParameterMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s41:GetUpdateStoredProcedureParameterMappings"))
 
 	Func FindColumn P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s10:FindColumn",dnPackItem(P1))
 
 	Func FindSharedStoreObjectRootProperty P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s33:FindSharedStoreObjectRootProperty",dnPackItem(P1))
 
 	Func GetOverrides 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetOverrides"))
 
 	Func FindOverrides P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s13:FindOverrides",dnPackItem(P1))
 
 	Func GetReaderFieldValue P1,P2,P3
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetReaderFieldValue",P1,P2,P3))
+
+	Func GetColumnBaseName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s17:GetColumnBaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetColumnName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:GetColumnName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:GetColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s13:GetColumnName",dnPackItem(P1))
+
+	Func GetDefaultColumnBaseName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:GetDefaultColumnBaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultColumnName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s20:GetDefaultColumnName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s20:GetDefaultColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s20:GetDefaultColumnName",dnPackItem(P1))
+
+	Func GetColumnOrder P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s14:GetColumnOrder",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetColumnOrder"))
+		ok
+		return dnSend("s4:call",nHandle,"s14:GetColumnOrder",dnPackItem(P1))
+
+	Func GetDefaultValueSql P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s18:GetDefaultValueSql",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s18:GetDefaultValueSql")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s18:GetDefaultValueSql",dnPackItem(P1))
+
+	Func GetComputedColumnSql P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s20:GetComputedColumnSql",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s20:GetComputedColumnSql")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s20:GetComputedColumnSql",dnPackItem(P1))
+
+	Func GetIsStored P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s11:GetIsStored",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetIsStored"))
+		ok
+		return dnSend("s4:call",nHandle,"s11:GetIsStored",dnPackItem(P1))
+
+	Func GetDefaultValue P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:GetDefaultValue",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetDefaultValue"))
+		ok
+		return dnSend("s4:call",nHandle,"s15:GetDefaultValue",dnPackItem(P1))
+
+	Func TryGetDefaultValue P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s18:TryGetDefaultValue",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnSend("s4:call",nHandle,"s18:TryGetDefaultValue","")
+		ok
+		return dnSend("s4:call",nHandle,"s18:TryGetDefaultValue",dnPackItem(P1))
+
+	Func IsFixedLength P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:IsFixedLength",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:IsFixedLength"))
+		ok
+		return dnSend("s4:call",nHandle,"s13:IsFixedLength",dnPackItem(P1))
+
+	Func IsColumnNullable P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s16:IsColumnNullable",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s16:IsColumnNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s16:IsColumnNullable",dnPackItem(P1))
+
+	Func GetComment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s10:GetComment",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s10:GetComment")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s10:GetComment",dnPackItem(P1))
+
+	Func GetCollation P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s12:GetCollation",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s12:GetCollation")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s12:GetCollation",dnPackItem(P1))
+
+	Func GetRelationalTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetRelationalTypeMapping"))
+
+	Func FindRelationalTypeMapping P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s25:FindRelationalTypeMapping",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s25:FindRelationalTypeMapping"))
+		ok
+		return dnSend("s4:call",nHandle,"s25:FindRelationalTypeMapping",dnPackItem(P1))
+
+	Func GetMappedStoreObjects P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetMappedStoreObjects",P1))
+
+	Func GetJsonPropertyName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSrid P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqlitePropertyExtensions, Microsoft.EntityFrameworkCore.Sqlite")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s7:GetSrid",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetSrid"))
+		ok
+		return dnSend("s4:call",nHandle,"s7:GetSrid",dnPackItem(P1))
 
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
@@ -17802,7 +20282,94 @@ Class IReadOnlyComplexType from DotNetObject
 		return dn_x
 
 	Func GetContainerColumnName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalComplexTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:GetViewSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSqlQuery 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetSqlQuery")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFunctionName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetFunctionName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDeleteStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
+
+	Func GetInsertStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
+
+	Func GetUpdateStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
+
+	Func GetMappingFragments P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetMappingFragments",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments",P1))
+
+	Func FindMappingFragment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
+
+	Func GetMappingStrategy 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetMappingStrategy")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsMappedToJson 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:IsMappedToJson")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnType 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetJsonPropertyName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
@@ -18202,17 +20769,29 @@ Class IReadOnlyElementType from DotNetObject
 		return dn_x
 
 	Func GetStoreType 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetStoreType")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func IsFixedLength 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:IsFixedLength"))
+	Func IsFixedLength P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:IsFixedLength",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:IsFixedLength"))
+		ok
+		return dnSend("s4:call",nHandle,"s13:IsFixedLength",dnPackItem(P1))
 
 	Func GetRelationalTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetRelationalTypeMapping"))
 
 	Func FindRelationalTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:FindRelationalTypeMapping"))
 
 	Func getCollectionProperty
@@ -18576,11 +21155,13 @@ Class IReadOnlyEntityType from DotNetObject
 		return dn_x
 
 	Func GetTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetDefaultTableName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:GetDefaultTableName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -18596,129 +21177,180 @@ Class IReadOnlyEntityType from DotNetObject
 		return dn_x
 
 	Func GetSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s9:GetSchema")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetDefaultSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s16:GetDefaultSchema")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetSchemaQualifiedTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s27:GetSchemaQualifiedTableName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetSchemaQualifiedViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s26:GetSchemaQualifiedViewName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s11:GetViewName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetDefaultViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s18:GetDefaultViewName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetViewSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s13:GetViewSchema")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetDefaultViewSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s20:GetDefaultViewSchema")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetDefaultSqlQueryName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultSqlQueryName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetSqlQuery 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s11:GetSqlQuery")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetFunctionName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s15:GetFunctionName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetDeleteStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
 
 	Func GetInsertStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
 
 	Func GetUpdateStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
 
 	Func FindCheckConstraint P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindCheckConstraint",P1))
 
 	Func GetCheckConstraints 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetCheckConstraints"))
 
 	Func GetDeclaredCheckConstraints 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDeclaredCheckConstraints"))
 
 	Func GetComment 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s10:GetComment")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetMappingFragments 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+	Func GetMappingFragments P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetMappingFragments",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments",P1))
 
 	Func FindMappingFragment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
 
 	Func FindRowInternalForeignKeys P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:FindRowInternalForeignKeys",P1))
 
-	Func IsTableExcludedFromMigrations 
-		dn_x = dotnet_call("s4:call",nHandle,"s29:IsTableExcludedFromMigrations")
+	Func IsTableExcludedFromMigrations P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s29:IsTableExcludedFromMigrations",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s29:IsTableExcludedFromMigrations")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s29:IsTableExcludedFromMigrations",dnPackItem(P1))
 
 	Func GetMappingStrategy 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s18:GetMappingStrategy")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsMappedToJson 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s14:IsMappedToJson")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetContainerColumnName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetContainerColumnType 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnType")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetContainerColumnTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetContainerColumnTypeMapping"))
 
 	Func GetJsonPropertyName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func IsSqlReturningClauseUsed 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:IsSqlReturningClauseUsed")
+	Func IsSqlReturningClauseUsed P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s24:IsSqlReturningClauseUsed",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:IsSqlReturningClauseUsed")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s24:IsSqlReturningClauseUsed",dnPackItem(P1))
 
 	Func getBaseType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:BaseType"))
@@ -18824,6 +21456,7 @@ Class IReadOnlyEntityTypeMappingFragment from DotNetObject
 		return dn_x
 
 	Func IsSqlReturningClauseUsed 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeMappingFragmentExtensions, Microsoft.EntityFrameworkCore.Sqlite")
 		dn_x = dotnet_call("s4:call",nHandle,"s24:IsSqlReturningClauseUsed")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
@@ -18923,20 +21556,40 @@ Class IReadOnlyForeignKey from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetConstraintName 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:GetConstraintName")
+	Func GetConstraintName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s17:GetConstraintName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s17:GetConstraintName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		raise("DotNet Error: GetConstraintName does not take one argument: use named arguments, GetConstraintName([ :parameter = value, ... ])")
 
-	Func GetDefaultName 
-		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
+	Func GetDefaultName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s14:GetDefaultName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		raise("DotNet Error: GetDefaultName does not take one argument: use named arguments, GetDefaultName([ :parameter = value, ... ])")
 
 	Func FindSharedObjectRootForeignKey P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s30:FindSharedObjectRootForeignKey",dnPackItem(P1))
 
 	Func IsRowInternal P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s13:IsRowInternal",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
@@ -19077,22 +21730,50 @@ Class IReadOnlyIndex from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetDatabaseName 
-		dn_x = dotnet_call("s4:call",nHandle,"s15:GetDatabaseName")
+	Func GetDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:GetDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s15:GetDatabaseName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s15:GetDatabaseName",dnPackItem(P1))
 
-	Func GetDefaultDatabaseName 
-		dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultDatabaseName")
+	Func GetDefaultDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s22:GetDefaultDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultDatabaseName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s22:GetDefaultDatabaseName",dnPackItem(P1))
 
-	Func GetFilter 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:GetFilter")
+	Func GetFilter P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:GetFilter",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s9:GetFilter")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s9:GetFilter",dnPackItem(P1))
 
 	Func FindSharedObjectRootIndex P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s25:FindSharedObjectRootIndex",dnPackItem(P1))
 
 	Func getProperties
@@ -19191,17 +21872,36 @@ Class IReadOnlyKey from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetName 
-		dn_x = dotnet_call("s4:call",nHandle,"s7:GetName")
+	Func GetName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s7:GetName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s7:GetName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s7:GetName",dnPackItem(P1))
 
-	Func GetDefaultName 
-		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
+	Func GetDefaultName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s14:GetDefaultName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s14:GetDefaultName",dnPackItem(P1))
 
 	Func FindSharedObjectRootKey P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s23:FindSharedObjectRootKey",dnPackItem(P1))
 
 	Func getProperties
@@ -19309,31 +22009,38 @@ Class IReadOnlyModel from DotNetObject
 		return dn_x
 
 	Func GetDefaultSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s16:GetDefaultSchema")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetMaxIdentifierLength 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s22:GetMaxIdentifierLength")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func FindSequence P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:FindSequence",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindSequence",P1))
 
 	Func GetSequences 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetSequences"))
 
 	Func FindDbFunction P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindDbFunction",P1))
 
 	Func GetDbFunctions 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetDbFunctions"))
 
 	Func GetCollation 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetCollation")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
@@ -19842,95 +22549,238 @@ Class IReadOnlyProperty from DotNetObject
 		return dn_x
 
 	Func GetColumnBaseName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s17:GetColumnBaseName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetColumnName 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:GetColumnName")
+	Func GetColumnName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:GetColumnName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:GetColumnName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s13:GetColumnName",dnPackItem(P1))
 
 	Func GetDefaultColumnBaseName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s24:GetDefaultColumnBaseName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetDefaultColumnName 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:GetDefaultColumnName")
+	Func GetDefaultColumnName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s20:GetDefaultColumnName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s20:GetDefaultColumnName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s20:GetDefaultColumnName",dnPackItem(P1))
 
-	Func GetColumnOrder 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetColumnOrder"))
+	Func GetColumnOrder P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s14:GetColumnOrder",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetColumnOrder"))
+		ok
+		return dnSend("s4:call",nHandle,"s14:GetColumnOrder",dnPackItem(P1))
 
-	Func GetColumnType 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:GetColumnType")
+	Func GetColumnType P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:GetColumnType",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:GetColumnType")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s13:GetColumnType",dnPackItem(P1))
 
-	Func GetDefaultValueSql 
-		dn_x = dotnet_call("s4:call",nHandle,"s18:GetDefaultValueSql")
+	Func GetDefaultValueSql P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s18:GetDefaultValueSql",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s18:GetDefaultValueSql")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s18:GetDefaultValueSql",dnPackItem(P1))
 
-	Func GetComputedColumnSql 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:GetComputedColumnSql")
+	Func GetComputedColumnSql P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s20:GetComputedColumnSql",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s20:GetComputedColumnSql")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s20:GetComputedColumnSql",dnPackItem(P1))
 
-	Func GetIsStored 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetIsStored"))
+	Func GetIsStored P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s11:GetIsStored",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetIsStored"))
+		ok
+		return dnSend("s4:call",nHandle,"s11:GetIsStored",dnPackItem(P1))
 
-	Func GetDefaultValue 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetDefaultValue"))
+	Func GetDefaultValue P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:GetDefaultValue",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetDefaultValue"))
+		ok
+		return dnSend("s4:call",nHandle,"s15:GetDefaultValue",dnPackItem(P1))
 
-	Func TryGetDefaultValue 
-		return dnSend("s4:call",nHandle,"s18:TryGetDefaultValue","")
+	Func TryGetDefaultValue P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s18:TryGetDefaultValue",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnSend("s4:call",nHandle,"s18:TryGetDefaultValue","")
+		ok
+		return dnSend("s4:call",nHandle,"s18:TryGetDefaultValue",dnPackItem(P1))
 
-	Func IsFixedLength 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:IsFixedLength"))
+	Func IsFixedLength P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:IsFixedLength",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:IsFixedLength"))
+		ok
+		return dnSend("s4:call",nHandle,"s13:IsFixedLength",dnPackItem(P1))
 
-	Func IsColumnNullable 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsColumnNullable")
+	Func IsColumnNullable P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s16:IsColumnNullable",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s16:IsColumnNullable")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s16:IsColumnNullable",dnPackItem(P1))
 
-	Func GetComment 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:GetComment")
+	Func GetComment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s10:GetComment",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s10:GetComment")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s10:GetComment",dnPackItem(P1))
 
-	Func GetCollation 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetCollation")
+	Func GetCollation P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s12:GetCollation",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s12:GetCollation")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s12:GetCollation",dnPackItem(P1))
 
 	Func GetRelationalTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetRelationalTypeMapping"))
 
-	Func FindRelationalTypeMapping 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:FindRelationalTypeMapping"))
+	Func FindRelationalTypeMapping P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s25:FindRelationalTypeMapping",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s25:FindRelationalTypeMapping"))
+		ok
+		return dnSend("s4:call",nHandle,"s25:FindRelationalTypeMapping",dnPackItem(P1))
 
 	Func FindSharedStoreObjectRootProperty P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s33:FindSharedStoreObjectRootProperty",dnPackItem(P1))
 
 	Func GetOverrides 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetOverrides"))
 
 	Func FindOverrides P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s13:FindOverrides",dnPackItem(P1))
 
 	Func GetMappedStoreObjects P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetMappedStoreObjects",P1))
 
 	Func GetJsonPropertyName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetSrid 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetSrid"))
+	Func GetSrid P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqlitePropertyExtensions, Microsoft.EntityFrameworkCore.Sqlite")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s7:GetSrid",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetSrid"))
+		ok
+		return dnSend("s4:call",nHandle,"s7:GetSrid",dnPackItem(P1))
 
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
@@ -20999,22 +23849,42 @@ Class IReadOnlyTrigger from DotNetObject
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func GetDatabaseName 
-		dn_x = dotnet_call("s4:call",nHandle,"s15:GetDatabaseName")
+	Func GetDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:GetDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s15:GetDatabaseName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s15:GetDatabaseName",dnPackItem(P1))
 
-	Func GetDefaultDatabaseName 
-		dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultDatabaseName")
+	Func GetDefaultDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s22:GetDefaultDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultDatabaseName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s22:GetDefaultDatabaseName",dnPackItem(P1))
 
 	Func GetTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetTableSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s14:GetTableSchema")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
@@ -21169,71 +24039,93 @@ Class IReadOnlyTypeBase from DotNetObject
 		return dn_x
 
 	Func GetTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s9:GetSchema")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s11:GetViewName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetViewSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s13:GetViewSchema")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetSqlQuery 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s11:GetSqlQuery")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetFunctionName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s15:GetFunctionName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetDeleteStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
 
 	Func GetInsertStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
 
 	Func GetUpdateStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
 
-	Func GetMappingFragments 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+	Func GetMappingFragments P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetMappingFragments",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments",P1))
 
 	Func FindMappingFragment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
 
 	Func GetMappingStrategy 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s18:GetMappingStrategy")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsMappedToJson 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s14:IsMappedToJson")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetContainerColumnName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetContainerColumnType 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnType")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetJsonPropertyName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
@@ -24483,6 +27375,7 @@ Class ITable from DotNetObject
 		return dn_x
 
 	Func IsSqlReturningClauseUsed 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteTableExtensions, Microsoft.EntityFrameworkCore.Sqlite")
 		dn_x = dotnet_call("s4:call",nHandle,"s24:IsSqlReturningClauseUsed")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
@@ -25206,6 +28099,46 @@ Class ITrigger from DotNetObject
 	Func GetOrAddRuntimeAnnotationValue P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
+	Func GetDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:GetDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s15:GetDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s15:GetDatabaseName",dnPackItem(P1))
+
+	Func GetDefaultDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s22:GetDefaultDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s22:GetDefaultDatabaseName",dnPackItem(P1))
+
+	Func GetTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetTableSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:GetTableSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
@@ -25396,43 +28329,128 @@ Class ITypeBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
 	Func GetDefaultMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetDefaultMappings"))
 
 	Func GetTableMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetTableMappings"))
 
 	Func GetViewMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetViewMappings"))
 
 	Func GetSqlQueryMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetSqlQueryMappings"))
 
 	Func GetFunctionMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetFunctionMappings"))
 
 	Func GetDeleteStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
 
 	Func GetInsertStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
 
 	Func GetUpdateStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
 
 	Func GetInsertStoredProcedureMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetInsertStoredProcedureMappings"))
 
 	Func GetDeleteStoredProcedureMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetDeleteStoredProcedureMappings"))
 
 	Func GetUpdateStoredProcedureMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetUpdateStoredProcedureMappings"))
 
-	Func GetMappingFragments 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+	Func GetMappingFragments P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetMappingFragments",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments",P1))
 
 	Func FindMappingFragment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
+
+	Func GetTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:GetViewSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSqlQuery 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetSqlQuery")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFunctionName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetFunctionName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetMappingStrategy 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetMappingStrategy")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsMappedToJson 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:IsMappedToJson")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnType 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetJsonPropertyName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getModel
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
@@ -27409,6 +30427,32 @@ Class RuntimeElementType from RuntimeAnnotatableBase
 	Func GetJsonValueReaderWriter 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetJsonValueReaderWriter"))
 
+	Func GetStoreType 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetStoreType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsFixedLength P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:IsFixedLength",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:IsFixedLength"))
+		ok
+		return dnSend("s4:call",nHandle,"s13:IsFixedLength",dnPackItem(P1))
+
+	Func GetRelationalTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetRelationalTypeMapping"))
+
+	Func FindRelationalTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:FindRelationalTypeMapping"))
+
 	Func getCollectionProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:CollectionProperty"))
 
@@ -27453,6 +30497,12 @@ Class RuntimeEntityTypeMappingFragment from AnnotatableBase
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.RuntimeEntityTypeMappingFragment, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func IsSqlReturningClauseUsed 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeMappingFragmentExtensions, Microsoft.EntityFrameworkCore.Sqlite")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:IsSqlReturningClauseUsed")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
@@ -27503,6 +30553,48 @@ Class RuntimeForeignKey from RuntimeAnnotatableBase
 		dotnet_callv("s4:call",nHandle,"s13:AddNavigation",P1,P2)
 
 		return self
+
+	Func GetMappedConstraints 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetMappedConstraints"))
+
+	Func FindSharedObjectRootForeignKey P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnSend("s4:call",nHandle,"s30:FindSharedObjectRootForeignKey",dnPackItem(P1))
+
+	Func GetConstraintName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s17:GetConstraintName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s17:GetConstraintName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: GetConstraintName does not take one argument: use named arguments, GetConstraintName([ :parameter = value, ... ])")
+
+	Func GetDefaultName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s14:GetDefaultName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		raise("DotNet Error: GetDefaultName does not take one argument: use named arguments, GetDefaultName([ :parameter = value, ... ])")
+
+	Func IsRowInternal P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:IsRowInternal",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
@@ -27560,6 +30652,56 @@ Class RuntimeIndex from RuntimeAnnotatableBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func GetMappedTableIndexes 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetMappedTableIndexes"))
+
+	Func FindSharedObjectRootIndex P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnSend("s4:call",nHandle,"s25:FindSharedObjectRootIndex",dnPackItem(P1))
+
+	Func GetDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:GetDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s15:GetDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s15:GetDatabaseName",dnPackItem(P1))
+
+	Func GetDefaultDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s22:GetDefaultDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s22:GetDefaultDatabaseName",dnPackItem(P1))
+
+	Func GetFilter P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:GetFilter",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s9:GetFilter")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s9:GetFilter",dnPackItem(P1))
+
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
 
@@ -27614,6 +30756,42 @@ Class RuntimeKey from RuntimeAnnotatableBase
 		dotnet_callv("s4:call",nHandle,"s21:SetIdentityMapFactory",P1)
 
 		return self
+
+	Func GetMappedConstraints 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetMappedConstraints"))
+
+	Func FindSharedObjectRootKey P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnSend("s4:call",nHandle,"s23:FindSharedObjectRootKey",dnPackItem(P1))
+
+	Func GetName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s7:GetName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s7:GetName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s7:GetName",dnPackItem(P1))
+
+	Func GetDefaultName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s14:GetDefaultName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s14:GetDefaultName",dnPackItem(P1))
 
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
@@ -27711,6 +30889,57 @@ Class RuntimeModel from RuntimeAnnotatableBase
 
 	Func FinalizeModel 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:FinalizeModel"))
+
+	Func GetRelationalModel 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRelationalModel"))
+
+	Func FindSequence P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:FindSequence",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindSequence",P1))
+
+	Func GetSequences 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetSequences"))
+
+	Func FindDbFunction P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindDbFunction",P1))
+
+	Func GetDbFunctions 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetDbFunctions"))
+
+	Func GetRelationalDependencies P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:GetRelationalDependencies",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetRelationalDependencies"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetRelationalDependencies",P1))
+
+	Func GetDefaultSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s16:GetDefaultSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetMaxIdentifierLength 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetMaxIdentifierLength")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetCollation 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetCollation")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getModelId
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ModelId"))
@@ -27952,6 +31181,46 @@ Class RuntimeTrigger from RuntimeAnnotatableBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func GetDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:GetDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s15:GetDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s15:GetDatabaseName",dnPackItem(P1))
+
+	Func GetDefaultDatabaseName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s22:GetDefaultDatabaseName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultDatabaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s22:GetDefaultDatabaseName",dnPackItem(P1))
+
+	Func GetTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetTableSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:GetTableSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getModelName
 		dn_x = dotnet_call("s3:get",nHandle,"s9:ModelName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -28063,6 +31332,130 @@ Class RuntimeTypeBase from RuntimeAnnotatableBase
 
 	Func FindIndexerProperty P1
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Metadata.RuntimeTypeBase, Microsoft.EntityFrameworkCore',"s19:FindIndexerProperty",P1))
+
+	Func GetDefaultMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetDefaultMappings"))
+
+	Func GetTableMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetTableMappings"))
+
+	Func GetViewMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetViewMappings"))
+
+	Func GetSqlQueryMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetSqlQueryMappings"))
+
+	Func GetFunctionMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetFunctionMappings"))
+
+	Func GetDeleteStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
+
+	Func GetInsertStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
+
+	Func GetUpdateStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
+
+	Func GetInsertStoredProcedureMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetInsertStoredProcedureMappings"))
+
+	Func GetDeleteStoredProcedureMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetDeleteStoredProcedureMappings"))
+
+	Func GetUpdateStoredProcedureMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetUpdateStoredProcedureMappings"))
+
+	Func GetMappingFragments P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetMappingFragments",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments",P1))
+
+	Func FindMappingFragment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
+
+	Func GetTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:GetViewSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSqlQuery 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetSqlQuery")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFunctionName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetFunctionName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetMappingStrategy 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetMappingStrategy")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsMappedToJson 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:IsMappedToJson")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnType 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetJsonPropertyName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
@@ -28490,6 +31883,12 @@ Class RuntimeComplexType from RuntimeTypeBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func GetContainerColumnName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalComplexTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func getComplexProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ComplexProperty"))
 
@@ -28660,6 +32059,204 @@ Class RuntimeEntityType from RuntimeTypeBase
 
 		return self
 
+	Func GetDeleteStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDeleteStoredProcedure"))
+
+	Func GetInsertStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetInsertStoredProcedure"))
+
+	Func GetUpdateStoredProcedure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUpdateStoredProcedure"))
+
+	Func FindCheckConstraint P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindCheckConstraint",P1))
+
+	Func GetCheckConstraints 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetCheckConstraints"))
+
+	Func GetDeclaredCheckConstraints 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDeclaredCheckConstraints"))
+
+	Func GetMappingFragments P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetMappingFragments",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMappingFragments",P1))
+
+	Func FindMappingFragment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnSend("s4:call",nHandle,"s19:FindMappingFragment",dnPackItem(P1))
+
+	Func FindRowInternalForeignKeys P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnSend("s4:call",nHandle,"s26:FindRowInternalForeignKeys",dnPackItem(P1))
+
+	Func GetTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultTableName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:GetDefaultTableName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s19:GetDefaultTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetDefaultTableName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s9:GetSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s16:GetDefaultSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchemaQualifiedTableName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s27:GetSchemaQualifiedTableName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSchemaQualifiedViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s26:GetSchemaQualifiedViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultViewName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetDefaultViewName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetViewSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:GetViewSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultViewSchema 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s20:GetDefaultViewSchema")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultSqlQueryName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetDefaultSqlQueryName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSqlQuery 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s11:GetSqlQuery")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetFunctionName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s15:GetFunctionName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetComment 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s10:GetComment")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsTableExcludedFromMigrations P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s29:IsTableExcludedFromMigrations",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s29:IsTableExcludedFromMigrations")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s29:IsTableExcludedFromMigrations",dnPackItem(P1))
+
+	Func GetMappingStrategy 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s18:GetMappingStrategy")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsMappedToJson 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s14:IsMappedToJson")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnType 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s22:GetContainerColumnType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetContainerColumnTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetContainerColumnTypeMapping"))
+
+	Func GetJsonPropertyName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func IsSqlReturningClauseUsed P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s24:IsSqlReturningClauseUsed",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s24:IsSqlReturningClauseUsed")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s24:IsSqlReturningClauseUsed",dnPackItem(P1))
+
 	Func getServiceOnlyConstructorBinding
 		return dnObj(dotnet_callo("s3:get",nHandle,"s29:ServiceOnlyConstructorBinding"))
 
@@ -28779,6 +32376,304 @@ Class RuntimeProperty from RuntimePropertyBase
 
 	Func GetElementType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetElementType"))
+
+	Func GetColumnType P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:GetColumnType",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:GetColumnType")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s13:GetColumnType",dnPackItem(P1))
+
+	Func GetDefaultColumnMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetDefaultColumnMappings"))
+
+	Func GetTableColumnMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetTableColumnMappings"))
+
+	Func GetViewColumnMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetViewColumnMappings"))
+
+	Func GetSqlQueryColumnMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetSqlQueryColumnMappings"))
+
+	Func GetFunctionColumnMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetFunctionColumnMappings"))
+
+	Func GetInsertStoredProcedureResultColumnMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s44:GetInsertStoredProcedureResultColumnMappings"))
+
+	Func GetInsertStoredProcedureParameterMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s41:GetInsertStoredProcedureParameterMappings"))
+
+	Func GetDeleteStoredProcedureParameterMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s41:GetDeleteStoredProcedureParameterMappings"))
+
+	Func GetUpdateStoredProcedureResultColumnMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s44:GetUpdateStoredProcedureResultColumnMappings"))
+
+	Func GetUpdateStoredProcedureParameterMappings 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s41:GetUpdateStoredProcedureParameterMappings"))
+
+	Func FindColumn P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnSend("s4:call",nHandle,"s10:FindColumn",dnPackItem(P1))
+
+	Func FindSharedStoreObjectRootProperty P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnSend("s4:call",nHandle,"s33:FindSharedStoreObjectRootProperty",dnPackItem(P1))
+
+	Func GetOverrides 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetOverrides"))
+
+	Func FindOverrides P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnSend("s4:call",nHandle,"s13:FindOverrides",dnPackItem(P1))
+
+	Func GetReaderFieldValue P1,P2,P3
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetReaderFieldValue",P1,P2,P3))
+
+	Func GetColumnBaseName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s17:GetColumnBaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetColumnName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:GetColumnName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s13:GetColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s13:GetColumnName",dnPackItem(P1))
+
+	Func GetDefaultColumnBaseName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s24:GetDefaultColumnBaseName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDefaultColumnName P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s20:GetDefaultColumnName",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s20:GetDefaultColumnName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s20:GetDefaultColumnName",dnPackItem(P1))
+
+	Func GetColumnOrder P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s14:GetColumnOrder",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetColumnOrder"))
+		ok
+		return dnSend("s4:call",nHandle,"s14:GetColumnOrder",dnPackItem(P1))
+
+	Func GetDefaultValueSql P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s18:GetDefaultValueSql",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s18:GetDefaultValueSql")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s18:GetDefaultValueSql",dnPackItem(P1))
+
+	Func GetComputedColumnSql P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s20:GetComputedColumnSql",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s20:GetComputedColumnSql")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s20:GetComputedColumnSql",dnPackItem(P1))
+
+	Func GetIsStored P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s11:GetIsStored",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetIsStored"))
+		ok
+		return dnSend("s4:call",nHandle,"s11:GetIsStored",dnPackItem(P1))
+
+	Func GetDefaultValue P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s15:GetDefaultValue",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetDefaultValue"))
+		ok
+		return dnSend("s4:call",nHandle,"s15:GetDefaultValue",dnPackItem(P1))
+
+	Func TryGetDefaultValue P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s18:TryGetDefaultValue",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnSend("s4:call",nHandle,"s18:TryGetDefaultValue","")
+		ok
+		return dnSend("s4:call",nHandle,"s18:TryGetDefaultValue",dnPackItem(P1))
+
+	Func GetMaxLength P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnSend("s4:call",nHandle,"s12:GetMaxLength",dnPackItem(P1))
+
+	Func GetPrecision P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnSend("s4:call",nHandle,"s12:GetPrecision",dnPackItem(P1))
+
+	Func GetScale P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnSend("s4:call",nHandle,"s8:GetScale",dnPackItem(P1))
+
+	Func IsUnicode P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnSend("s4:call",nHandle,"s9:IsUnicode",dnPackItem(P1))
+
+	Func IsFixedLength P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:IsFixedLength",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:IsFixedLength"))
+		ok
+		return dnSend("s4:call",nHandle,"s13:IsFixedLength",dnPackItem(P1))
+
+	Func IsColumnNullable P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s16:IsColumnNullable",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s16:IsColumnNullable")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s16:IsColumnNullable",dnPackItem(P1))
+
+	Func GetComment P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s10:GetComment",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s10:GetComment")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s10:GetComment",dnPackItem(P1))
+
+	Func GetCollation P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s12:GetCollation",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s12:GetCollation")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		return dnSend("s4:call",nHandle,"s12:GetCollation",dnPackItem(P1))
+
+	Func GetRelationalTypeMapping 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetRelationalTypeMapping"))
+
+	Func FindRelationalTypeMapping P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s25:FindRelationalTypeMapping",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s25:FindRelationalTypeMapping"))
+		ok
+		return dnSend("s4:call",nHandle,"s25:FindRelationalTypeMapping",dnPackItem(P1))
+
+	Func GetMappedStoreObjects P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetMappedStoreObjects",P1))
+
+	Func GetJsonPropertyName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetJsonPropertyName")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetSrid P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqlitePropertyExtensions, Microsoft.EntityFrameworkCore.Sqlite")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s7:GetSrid",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetSrid"))
+		ok
+		return dnSend("s4:call",nHandle,"s7:GetSrid",dnPackItem(P1))
 
 	Func getPrimaryKey
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:PrimaryKey"))

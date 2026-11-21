@@ -2544,6 +2544,10 @@ Class XmlWriter from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Xml.XmlWriter, System.Private.Xml',"s6:Create",P1))
 
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+
 	Func getSettings
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Settings"))
 

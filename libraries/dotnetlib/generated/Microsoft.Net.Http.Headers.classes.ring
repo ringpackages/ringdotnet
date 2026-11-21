@@ -435,11 +435,13 @@ Class AspContentDispositionHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.ContentDispositionHeaderValue, Microsoft.Net.Http.Headers'),"s8:TryParse",dnPackItem(P1))
 
 	Func IsFileDisposition 
+		dnEnsureExt("Microsoft.Net.Http.Headers.ContentDispositionHeaderValueIdentityExtensions, Microsoft.Net.Http.Headers")
 		dn_x = dotnet_call("s4:call",nHandle,"s17:IsFileDisposition")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsFormDisposition 
+		dnEnsureExt("Microsoft.Net.Http.Headers.ContentDispositionHeaderValueIdentityExtensions, Microsoft.Net.Http.Headers")
 		dn_x = dotnet_call("s4:call",nHandle,"s17:IsFormDisposition")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x

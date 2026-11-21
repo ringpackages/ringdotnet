@@ -419,6 +419,10 @@ Class FeatureCollection from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetRequiredFeature P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.Features.FeatureCollectionExtensions, Microsoft.Extensions.Features")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredFeature",P1))
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
@@ -1104,8 +1108,9 @@ Class IFeatureCollection from DotNetObject
 	Func GetEnumerator 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
-	Func GetRequiredFeature 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredFeature"))
+	Func GetRequiredFeature P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.Features.FeatureCollectionExtensions, Microsoft.Extensions.Features")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredFeature",P1))
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
@@ -2295,6 +2300,10 @@ Class RequestServicesFeature from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func getRequestServices
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:RequestServices"))

@@ -112,11 +112,9 @@ Class JsonDocument from Object
 		return dnObj(dotnet_callo("s4:call",'System.Text.Json.JsonDocument, System.Text.Json',"s10:ParseAsync",P1))
 
 	Func Deserialize P1
+		dnEnsureExt("System.Text.Json.JsonSerializer, System.Text.Json")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:Deserialize",P1))
-		ok
-		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize",P1))
 
@@ -367,11 +365,9 @@ Class JsonElement from ValueType
 		return dn_x
 
 	Func Deserialize P1
+		dnEnsureExt("System.Text.Json.JsonSerializer, System.Text.Json")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:Deserialize",P1))
-		ok
-		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize",P1))
 
@@ -1327,6 +1323,10 @@ Class Utf8JsonWriter from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func getBytesPending
 		dn_x = dotnet_call("s3:get",nHandle,"s12:BytesPending")

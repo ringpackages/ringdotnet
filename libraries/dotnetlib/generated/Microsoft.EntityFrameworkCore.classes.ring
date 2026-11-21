@@ -506,6 +506,10 @@ Class DbContext from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+
 	Func setSavingChangesEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"SavingChanges",dnCallback(P1)])
 		return self
@@ -796,6 +800,7 @@ Class DbContextOptionsBuilder from Object
 		return dn_x
 
 	Func UseSqlite P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteDbContextOptionsBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:UseSqlite",P1))
 		ok
@@ -835,40 +840,58 @@ Class DbFunctions from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func Like P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s4:Like",P1,P2)
+	Func Like P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.DbFunctionsExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s4:Like",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		raise("DotNet Error: Like does not take one argument: use named arguments, Like([ :parameter = value, ... ])")
 
 	Func Random 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.DbFunctionsExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Random")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Collate P1,P2
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDbFunctionsExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Collate",P1,P2))
 
 	Func Least P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDbFunctionsExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Least",P1))
 
 	Func Greatest P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDbFunctionsExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Greatest",P1))
 
 	Func Glob P1,P2
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteDbFunctionsExtensions, Microsoft.EntityFrameworkCore.Sqlite")
 		dn_x = dotnet_call("s4:call",nHandle,"s4:Glob",P1,P2)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Hex P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteDbFunctionsExtensions, Microsoft.EntityFrameworkCore.Sqlite")
 		dn_x = dotnet_call("s4:call",nHandle,"s3:Hex",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Unhex P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteDbFunctionsExtensions, Microsoft.EntityFrameworkCore.Sqlite")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Unhex",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Unhex",P1))
 
-	Func Substr P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Substr",P1,P2))
+	Func Substr P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteDbFunctionsExtensions, Microsoft.EntityFrameworkCore.Sqlite")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Substr",P1))
+		ok
+		raise("DotNet Error: Substr does not take one argument: use named arguments, Substr([ :parameter = value, ... ])")
 
 
 Class DbFunctionsExtensions from Object
@@ -1347,18 +1370,25 @@ Class ModelBuilder from Object
 		return dn_x
 
 	Func HasSequence P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:HasSequence",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:HasSequence",P1))
 
 	Func HasDbFunction P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:HasDbFunction",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:HasDbFunction",P1))
 
 	Func HasDefaultSchema P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:HasDefaultSchema",P1))
 
 	Func UseCollation P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:UseCollation",P1))
 
 	Func getModel

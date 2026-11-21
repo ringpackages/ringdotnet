@@ -748,95 +748,125 @@ Class IEndpointRouteBuilder from DotNetObject
 	Func CreateApplicationBuilder 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:CreateApplicationBuilder"))
 
-	Func MapBlazorHub 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:MapBlazorHub"))
+	Func MapBlazorHub P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Server")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:MapBlazorHub",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:MapBlazorHub"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:MapBlazorHub",P1))
 
-	Func MapConnections P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:MapConnections",P1,P2))
-
-	Func MapConnectionHandler P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:MapConnectionHandler",P1))
+	Func MapConnections P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ConnectionEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Http.Connections")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:MapConnections",P1))
+		ok
+		raise("DotNet Error: MapConnections does not take one argument: use named arguments, MapConnections([ :parameter = value, ... ])")
 
 	Func MapControllers 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:MapControllers"))
 
 	Func MapDefaultControllerRoute 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:MapDefaultControllerRoute"))
 
 	Func MapControllerRoute P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:MapControllerRoute",P1))
 		ok
 		raise("DotNet Error: MapControllerRoute does not take one argument: use named arguments, MapControllerRoute([ :parameter = value, ... ])")
 
 	Func MapAreaControllerRoute P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:MapAreaControllerRoute",P1))
 		ok
 		raise("DotNet Error: MapAreaControllerRoute does not take one argument: use named arguments, MapAreaControllerRoute([ :parameter = value, ... ])")
 
-	Func MapFallbackToController P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:MapFallbackToController",P1,P2))
+	Func MapFallbackToController P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:MapFallbackToController",P1))
+		ok
+		raise("DotNet Error: MapFallbackToController does not take one argument: use named arguments, MapFallbackToController([ :parameter = value, ... ])")
 
-	Func MapFallbackToAreaController P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:MapFallbackToAreaController",P1,P2,P3))
-
-	Func MapDynamicControllerRoute P1
-		dotnet_callv("s4:call",nHandle,"s25:MapDynamicControllerRoute",P1)
-
-		return self
+	Func MapFallbackToAreaController P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:MapFallbackToAreaController",P1))
+		ok
+		raise("DotNet Error: MapFallbackToAreaController does not take one argument: use named arguments, MapFallbackToAreaController([ :parameter = value, ... ])")
 
 	Func MapGroup P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:MapGroup",P1))
 
 	Func MapGet P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapGet",P1,P2))
 
 	Func MapPost P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:MapPost",P1,P2))
 
 	Func MapPut P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapPut",P1,P2))
 
 	Func MapDelete P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:MapDelete",P1,P2))
 
 	Func MapPatch P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:MapPatch",P1,P2))
 
 	Func MapMethods P1,P2,P3
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:MapMethods",P1,P2,P3))
 
 	Func Map P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Map",P1,P2))
 
 	Func MapFallback P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:MapFallback",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:MapFallback",P1))
 
 	Func MapHealthChecks P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HealthCheckEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Diagnostics.HealthChecks")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:MapHealthChecks",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapHealthChecks",P1))
 
-	Func MapHub P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapHub",P1))
-
-	Func MapRazorComponents 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:MapRazorComponents"))
-
 	Func MapRazorPages 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:MapRazorPages"))
 
 	Func MapFallbackToPage P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:MapFallbackToPage",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:MapFallbackToPage",P1))
 
-	Func MapFallbackToAreaPage P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:MapFallbackToAreaPage",P1,P2))
-
-	Func MapDynamicPageRoute P1
-		dotnet_callv("s4:call",nHandle,"s19:MapDynamicPageRoute",P1)
-
-		return self
+	Func MapFallbackToAreaPage P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:MapFallbackToAreaPage",P1))
+		ok
+		raise("DotNet Error: MapFallbackToAreaPage does not take one argument: use named arguments, MapFallbackToAreaPage([ :parameter = value, ... ])")
 
 	Func MapStaticAssets P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.StaticAssetsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticAssets")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:MapStaticAssets",P1))
 		ok
@@ -846,12 +876,14 @@ Class IEndpointRouteBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapStaticAssets",P1))
 
 	Func MapFallbackToFile P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.StaticFilesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticFiles")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:MapFallbackToFile",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:MapFallbackToFile",P1))
 
-	Func MapIdentityApi 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:MapIdentityApi"))
-
 	Func MapShortCircuit P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RouteShortCircuitEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapShortCircuit",P1,P2))
 
 	Func getServiceProvider
@@ -1030,43 +1062,62 @@ Class IRouteBuilder from DotNetObject
 	Func Build 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
 
-	Func MapRoute P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:MapRoute",P1,P2))
+	Func MapRoute P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:MapRoute",P1))
+		ok
+		raise("DotNet Error: MapRoute does not take one argument: use named arguments, MapRoute([ :parameter = value, ... ])")
 
-	Func MapAreaRoute P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:MapAreaRoute",P1,P2,P3))
+	Func MapAreaRoute P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.MvcAreaRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:MapAreaRoute",P1))
+		ok
+		raise("DotNet Error: MapAreaRoute does not take one argument: use named arguments, MapAreaRoute([ :parameter = value, ... ])")
 
 	Func MapMiddlewareRoute P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:MapMiddlewareRoute",P1,P2))
 
 	Func MapDelete P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:MapDelete",P1,P2))
 
 	Func MapMiddlewareDelete P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:MapMiddlewareDelete",P1,P2))
 
 	Func MapGet P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapGet",P1,P2))
 
 	Func MapMiddlewareGet P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:MapMiddlewareGet",P1,P2))
 
 	Func MapPost P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:MapPost",P1,P2))
 
 	Func MapMiddlewarePost P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:MapMiddlewarePost",P1,P2))
 
 	Func MapPut P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapPut",P1,P2))
 
 	Func MapMiddlewarePut P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:MapMiddlewarePut",P1,P2))
 
 	Func MapVerb P1,P2,P3
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:MapVerb",P1,P2,P3))
 
 	Func MapMiddlewareVerb P1,P2,P3
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:MapMiddlewareVerb",P1,P2,P3))
 
 	Func getApplicationBuilder
@@ -1328,6 +1379,7 @@ Class LinkGenerator from Object
 		return dn_x
 
 	Func GetPathByAction P1
+		dnEnsureExt("Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:GetPathByAction",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1338,6 +1390,7 @@ Class LinkGenerator from Object
 		return dn_x
 
 	Func GetUriByAction P1
+		dnEnsureExt("Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:GetUriByAction",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1348,14 +1401,18 @@ Class LinkGenerator from Object
 		return dn_x
 
 	Func GetPathByName P1
+		dnEnsureExt("Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:GetPathByName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 		ok
-		raise("DotNet Error: GetPathByName does not take one argument: use named arguments, GetPathByName([ :parameter = value, ... ])")
+		dn_x = dotnet_call("s4:call",nHandle,"s13:GetPathByName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func GetUriByName P1
+		dnEnsureExt("Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:GetUriByName",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1364,14 +1421,18 @@ Class LinkGenerator from Object
 		raise("DotNet Error: GetUriByName does not take one argument: use named arguments, GetUriByName([ :parameter = value, ... ])")
 
 	Func GetPathByRouteValues P1
+		dnEnsureExt("Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s20:GetPathByRouteValues",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 		ok
-		raise("DotNet Error: GetPathByRouteValues does not take one argument: use named arguments, GetPathByRouteValues([ :parameter = value, ... ])")
+		dn_x = dotnet_call("s4:call",nHandle,"s20:GetPathByRouteValues",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func GetUriByRouteValues P1
+		dnEnsureExt("Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:GetUriByRouteValues",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1380,6 +1441,7 @@ Class LinkGenerator from Object
 		raise("DotNet Error: GetUriByRouteValues does not take one argument: use named arguments, GetUriByRouteValues([ :parameter = value, ... ])")
 
 	Func GetPathByPage P1
+		dnEnsureExt("Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:GetPathByPage",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1390,6 +1452,7 @@ Class LinkGenerator from Object
 		return dn_x
 
 	Func GetUriByPage P1
+		dnEnsureExt("Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:GetUriByPage",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1537,6 +1600,7 @@ Class LinkParser from Object
 		return dn_x
 
 	Func ParsePathByEndpointName P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.LinkParserEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:ParsePathByEndpointName",P1,P2))
 
 
@@ -1794,6 +1858,64 @@ Class RouteBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func MapRoute P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:MapRoute",P1))
+		ok
+		raise("DotNet Error: MapRoute does not take one argument: use named arguments, MapRoute([ :parameter = value, ... ])")
+
+	Func MapAreaRoute P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.MvcAreaRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:MapAreaRoute",P1))
+		ok
+		raise("DotNet Error: MapAreaRoute does not take one argument: use named arguments, MapAreaRoute([ :parameter = value, ... ])")
+
+	Func MapMiddlewareRoute P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:MapMiddlewareRoute",P1,P2))
+
+	Func MapDelete P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:MapDelete",P1,P2))
+
+	Func MapMiddlewareDelete P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:MapMiddlewareDelete",P1,P2))
+
+	Func MapGet P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapGet",P1,P2))
+
+	Func MapMiddlewareGet P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:MapMiddlewareGet",P1,P2))
+
+	Func MapPost P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:MapPost",P1,P2))
+
+	Func MapMiddlewarePost P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:MapMiddlewarePost",P1,P2))
+
+	Func MapPut P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapPut",P1,P2))
+
+	Func MapMiddlewarePut P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:MapMiddlewarePut",P1,P2))
+
+	Func MapVerb P1,P2,P3
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:MapVerb",P1,P2,P3))
+
+	Func MapMiddlewareVerb P1,P2,P3
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:MapMiddlewareVerb",P1,P2,P3))
 
 	Func getApplicationBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:ApplicationBuilder"))
@@ -2115,8 +2237,161 @@ Class RouteGroupBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func AddEndpointFilter 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddEndpointFilter"))
+	Func MapBlazorHub P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Server")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:MapBlazorHub",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:MapBlazorHub"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:MapBlazorHub",P1))
+
+	Func MapConnections P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ConnectionEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Http.Connections")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:MapConnections",P1))
+		ok
+		raise("DotNet Error: MapConnections does not take one argument: use named arguments, MapConnections([ :parameter = value, ... ])")
+
+	Func MapControllers 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:MapControllers"))
+
+	Func MapDefaultControllerRoute 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:MapDefaultControllerRoute"))
+
+	Func MapControllerRoute P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:MapControllerRoute",P1))
+		ok
+		raise("DotNet Error: MapControllerRoute does not take one argument: use named arguments, MapControllerRoute([ :parameter = value, ... ])")
+
+	Func MapAreaControllerRoute P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:MapAreaControllerRoute",P1))
+		ok
+		raise("DotNet Error: MapAreaControllerRoute does not take one argument: use named arguments, MapAreaControllerRoute([ :parameter = value, ... ])")
+
+	Func MapFallbackToController P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:MapFallbackToController",P1))
+		ok
+		raise("DotNet Error: MapFallbackToController does not take one argument: use named arguments, MapFallbackToController([ :parameter = value, ... ])")
+
+	Func MapFallbackToAreaController P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:MapFallbackToAreaController",P1))
+		ok
+		raise("DotNet Error: MapFallbackToAreaController does not take one argument: use named arguments, MapFallbackToAreaController([ :parameter = value, ... ])")
+
+	Func MapGroup P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:MapGroup",P1))
+
+	Func MapGet P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapGet",P1,P2))
+
+	Func MapPost P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:MapPost",P1,P2))
+
+	Func MapPut P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapPut",P1,P2))
+
+	Func MapDelete P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:MapDelete",P1,P2))
+
+	Func MapPatch P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:MapPatch",P1,P2))
+
+	Func MapMethods P1,P2,P3
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:MapMethods",P1,P2,P3))
+
+	Func Map P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Map",P1,P2))
+
+	Func MapFallback P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:MapFallback",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:MapFallback",P1))
+
+	Func MapHealthChecks P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HealthCheckEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Diagnostics.HealthChecks")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:MapHealthChecks",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapHealthChecks",P1))
+
+	Func MapRazorPages 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:MapRazorPages"))
+
+	Func MapFallbackToPage P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:MapFallbackToPage",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:MapFallbackToPage",P1))
+
+	Func MapFallbackToAreaPage P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:MapFallbackToAreaPage",P1))
+		ok
+		raise("DotNet Error: MapFallbackToAreaPage does not take one argument: use named arguments, MapFallbackToAreaPage([ :parameter = value, ... ])")
+
+	Func MapStaticAssets P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.StaticAssetsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticAssets")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:MapStaticAssets",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapStaticAssets"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapStaticAssets",P1))
+
+	Func MapFallbackToFile P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.StaticFilesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticFiles")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:MapFallbackToFile",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:MapFallbackToFile",P1))
+
+	Func MapShortCircuit P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RouteShortCircuitEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapShortCircuit",P1,P2))
+
+	Func WithRequestTimeout P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:WithRequestTimeout",P1))
+
+	Func DisableRequestTimeout 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:DisableRequestTimeout"))
+
+	Func ShortCircuit P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ShortCircuit",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit",P1))
 
 
 Class RouteGroupContext from Object

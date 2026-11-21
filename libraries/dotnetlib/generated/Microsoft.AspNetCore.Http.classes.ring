@@ -1753,6 +1753,34 @@ Class HeaderDictionary from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func Append P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions")
+		dotnet_callv("s4:call",nHandle,"s6:Append",P1,P2)
+
+		return self
+
+	Func AppendCommaSeparatedValues P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions")
+		dotnet_callv("s4:call",nHandle,"s26:AppendCommaSeparatedValues",P1,P2)
+
+		return self
+
+	Func GetCommaSeparatedValues P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCommaSeparatedValues",P1))
+
+	Func SetCommaSeparatedValues P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions")
+		dotnet_callv("s4:call",nHandle,"s23:SetCommaSeparatedValues",P1,P2)
+
+		return self
+
+	Func AppendList P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Http.HeaderDictionaryTypeExtensions, Microsoft.AspNetCore.Http.Extensions")
+		dotnet_callv("s4:call",nHandle,"s10:AppendList",P1,P2)
+
+		return self
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
@@ -1976,41 +2004,82 @@ Class HttpContext from Object
 		return dn_x
 
 	Func GetEndpoint 
+		dnEnsureExt("Microsoft.AspNetCore.Http.EndpointHttpContextExtensions, Microsoft.AspNetCore.Http.Abstractions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetEndpoint"))
 
 	Func SetEndpoint P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.EndpointHttpContextExtensions, Microsoft.AspNetCore.Http.Abstractions")
 		dotnet_callv("s4:call",nHandle,"s11:SetEndpoint",P1)
 
 		return self
 
 	Func GetServerVariable P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.HttpContextServerVariableExtensions, Microsoft.AspNetCore.Http.Extensions")
 		dn_x = dotnet_call("s4:call",nHandle,"s17:GetServerVariable",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetRouteData 
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RoutingHttpContextExtensions, Microsoft.AspNetCore.Routing.Abstractions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetRouteData"))
 
 	Func GetRouteValue P1
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RoutingHttpContextExtensions, Microsoft.AspNetCore.Routing.Abstractions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetRouteValue",P1))
 
-	Func AuthenticateAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AuthenticateAsync"))
+	Func AuthenticateAsync P1
+		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AuthenticateAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s17:AuthenticateAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AuthenticateAsync",P1))
 
 	Func ChallengeAsync P1
+		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:ChallengeAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:ChallengeAsync"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ChallengeAsync",P1))
 
 	Func ForbidAsync P1
+		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:ForbidAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:ForbidAsync"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ForbidAsync",P1))
 
-	Func SignInAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SignInAsync",P1,P2))
+	Func SignInAsync P1
+		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:SignInAsync",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SignInAsync",P1))
 
-	Func SignOutAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SignOutAsync"))
+	Func SignOutAsync P1
+		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:SignOutAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:SignOutAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SignOutAsync",P1))
 
-	Func GetTokenAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetTokenAsync",P1,P2))
+	Func GetTokenAsync P1
+		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetTokenAsync",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetTokenAsync",P1))
 
 	Func getFeatures
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Features"))
@@ -2434,59 +2503,77 @@ Class HttpRequest from Object
 		return dn_x
 
 	Func GetTypedHeaders 
+		dnEnsureExt("Microsoft.AspNetCore.Http.HeaderDictionaryTypeExtensions, Microsoft.AspNetCore.Http.Extensions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetTypedHeaders"))
 
 	Func ReadFromJsonAsync P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ReadFromJsonAsync",P1))
-		ok
-		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadFromJsonAsync"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadFromJsonAsync",P1))
 
 	Func HasJsonContentType 
+		dnEnsureExt("Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions")
 		dn_x = dotnet_call("s4:call",nHandle,"s18:HasJsonContentType")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func EnableBuffering 
-		dotnet_callv("s4:call",nHandle,"s15:EnableBuffering")
+	Func EnableBuffering P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.HttpRequestRewindExtensions, Microsoft.AspNetCore.Http")
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s15:EnableBuffering",P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dotnet_callv("s4:call",nHandle,"s15:EnableBuffering")
+
+		return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s15:EnableBuffering",P1)
 
 		return self
 
 	Func GetDeclaredTrailers 
+		dnEnsureExt("Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetDeclaredTrailers"))
 
 	Func SupportsTrailers 
+		dnEnsureExt("Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions")
 		dn_x = dotnet_call("s4:call",nHandle,"s16:SupportsTrailers")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func CheckTrailersAvailable 
+		dnEnsureExt("Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions")
 		dn_x = dotnet_call("s4:call",nHandle,"s22:CheckTrailersAvailable")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetTrailer P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetTrailer",P1))
 
 	Func GetMultipartBoundary 
+		dnEnsureExt("Microsoft.AspNetCore.Http.Extensions.HttpRequestMultipartExtensions, Microsoft.AspNetCore.Http.Extensions")
 		dn_x = dotnet_call("s4:call",nHandle,"s20:GetMultipartBoundary")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetEncodedUrl 
+		dnEnsureExt("Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions")
 		dn_x = dotnet_call("s4:call",nHandle,"s13:GetEncodedUrl")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetEncodedPathAndQuery 
+		dnEnsureExt("Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions")
 		dn_x = dotnet_call("s4:call",nHandle,"s22:GetEncodedPathAndQuery")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetDisplayUrl 
+		dnEnsureExt("Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions")
 		dn_x = dotnet_call("s4:call",nHandle,"s13:GetDisplayUrl")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
@@ -2763,41 +2850,49 @@ Class HttpResponse from Object
 		return dn_x
 
 	Func GetTypedHeaders 
+		dnEnsureExt("Microsoft.AspNetCore.Http.HeaderDictionaryTypeExtensions, Microsoft.AspNetCore.Http.Extensions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetTypedHeaders"))
 
 	Func WriteAsJsonAsync P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.HttpResponseJsonExtensions, Microsoft.AspNetCore.Http.Extensions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:WriteAsJsonAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:WriteAsJsonAsync",P1))
 
 	Func WriteAsync P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.HttpResponseWritingExtensions, Microsoft.AspNetCore.Http.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:WriteAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:WriteAsync",P1))
 
 	Func Clear 
+		dnEnsureExt("Microsoft.AspNetCore.Http.ResponseExtensions, Microsoft.AspNetCore.Http.Extensions")
 		dotnet_callv("s4:call",nHandle,"s5:Clear")
 
 		return self
 
 	Func DeclareTrailer P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.ResponseTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions")
 		dotnet_callv("s4:call",nHandle,"s14:DeclareTrailer",P1)
 
 		return self
 
 	Func SupportsTrailers 
+		dnEnsureExt("Microsoft.AspNetCore.Http.ResponseTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions")
 		dn_x = dotnet_call("s4:call",nHandle,"s16:SupportsTrailers")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func AppendTrailer P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Http.ResponseTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions")
 		dotnet_callv("s4:call",nHandle,"s13:AppendTrailer",P1,P2)
 
 		return self
 
 	Func SendFileAsync P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.SendFileResponseExtensions, Microsoft.AspNetCore.Http.Extensions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SendFileAsync",P1))
 		ok
@@ -3338,24 +3433,29 @@ Class IHeaderDictionary from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Append P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions")
 		dotnet_callv("s4:call",nHandle,"s6:Append",P1,P2)
 
 		return self
 
 	Func AppendCommaSeparatedValues P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions")
 		dotnet_callv("s4:call",nHandle,"s26:AppendCommaSeparatedValues",P1,P2)
 
 		return self
 
 	Func GetCommaSeparatedValues P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCommaSeparatedValues",P1))
 
 	Func SetCommaSeparatedValues P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions")
 		dotnet_callv("s4:call",nHandle,"s23:SetCommaSeparatedValues",P1,P2)
 
 		return self
 
 	Func AppendList P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Http.HeaderDictionaryTypeExtensions, Microsoft.AspNetCore.Http.Extensions")
 		dotnet_callv("s4:call",nHandle,"s10:AppendList",P1,P2)
 
 		return self
@@ -4350,24 +4450,29 @@ Class ISession from DotNetObject
 		return self
 
 	Func SetInt32 P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions")
 		dotnet_callv("s4:call",nHandle,"s8:SetInt32",P1,P2)
 
 		return self
 
 	Func GetInt32 P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetInt32",P1))
 
 	Func SetString P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions")
 		dotnet_callv("s4:call",nHandle,"s9:SetString",P1,P2)
 
 		return self
 
 	Func GetString P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions")
 		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func @Get P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
 
 	Func getIsAvailable

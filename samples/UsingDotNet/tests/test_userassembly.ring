@@ -62,6 +62,10 @@ dnAssert("a property inherited from another interface",oBox.Name,"box")
 oBox.Name = "big"
 dnAssert("an inherited property can be set",oBox.Name,"big")
 
+# an extension method of an interface is a method of the classes that implement it and of the interfaces that inherit it
+dnAssert("a class gets the extension methods of its interface",new Circle().Label("a "),"a circle")
+dnAssert("an interface gets the extension methods of the interface it inherits",oBox.Label("a "),"a big")
+
 oCounter = new Counter()
 oCounter.Increment()
 oCounter.Increment()

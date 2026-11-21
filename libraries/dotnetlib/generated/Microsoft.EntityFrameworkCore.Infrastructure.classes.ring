@@ -994,12 +994,15 @@ Class DatabaseFacade from Object
 		return dn_x
 
 	Func GetMigrations 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetMigrations"))
 
 	Func GetAppliedMigrations 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetAppliedMigrations"))
 
 	Func GetAppliedMigrationsAsync P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:GetAppliedMigrationsAsync",P1))
 		ok
@@ -1009,9 +1012,11 @@ Class DatabaseFacade from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetAppliedMigrationsAsync",P1))
 
 	Func GetPendingMigrations 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetPendingMigrations"))
 
 	Func GetPendingMigrationsAsync P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:GetPendingMigrationsAsync",P1))
 		ok
@@ -1020,12 +1025,23 @@ Class DatabaseFacade from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetPendingMigrationsAsync",P1))
 
-	Func Migrate 
-		dotnet_callv("s4:call",nHandle,"s7:Migrate")
+	Func Migrate P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s7:Migrate",P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dotnet_callv("s4:call",nHandle,"s7:Migrate")
+
+		return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s7:Migrate",P1)
 
 		return self
 
 	Func MigrateAsync P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:MigrateAsync",P1))
 		ok
@@ -1035,48 +1051,50 @@ Class DatabaseFacade from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:MigrateAsync",P1))
 
 	Func ExecuteSqlRaw P1,P2
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s13:ExecuteSqlRaw",P1,P2)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ExecuteSqlInterpolated P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s22:ExecuteSqlInterpolated",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ExecuteSql P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s10:ExecuteSql",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func SqlQueryRaw P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SqlQueryRaw",P1,P2))
-
-	Func SqlQuery P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SqlQuery",P1))
-
 	Func ExecuteSqlInterpolatedAsync P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:ExecuteSqlInterpolatedAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:ExecuteSqlInterpolatedAsync",P1))
 
 	Func ExecuteSqlAsync P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:ExecuteSqlAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ExecuteSqlAsync",P1))
 
 	Func ExecuteSqlRawAsync P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:ExecuteSqlRawAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteSqlRawAsync",P1))
 
 	Func GetDbConnection 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetDbConnection"))
 
 	Func SetDbConnection P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			dotnet_callv("s9:callnamed",nHandle,"s15:SetDbConnection",P1)
 			return self
@@ -1086,21 +1104,25 @@ Class DatabaseFacade from Object
 		return self
 
 	Func GetConnectionString 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s19:GetConnectionString")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func SetConnectionString P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s19:SetConnectionString",P1)
 
 		return self
 
 	Func OpenConnection 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s14:OpenConnection")
 
 		return self
 
 	Func OpenConnectionAsync P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:OpenConnectionAsync",P1))
 		ok
@@ -1110,46 +1132,59 @@ Class DatabaseFacade from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:OpenConnectionAsync",P1))
 
 	Func CloseConnection 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s15:CloseConnection")
 
 		return self
 
 	Func CloseConnectionAsync 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:CloseConnectionAsync"))
 
 	Func UseTransaction P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:UseTransaction",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseTransaction",P1))
 
 	Func UseTransactionAsync P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:UseTransactionAsync",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseTransactionAsync",P1))
 
 	Func SetCommandTimeout P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dotnet_callv("s4:call",nHandle,"s17:SetCommandTimeout",P1)
 
 		return self
 
 	Func GetCommandTimeout 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetCommandTimeout"))
 
 	Func GenerateCreateScript 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s20:GenerateCreateScript")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsRelational 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s12:IsRelational")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func HasPendingModelChanges 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s22:HasPendingModelChanges")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsSqlite 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Sqlite")
 		dn_x = dotnet_call("s4:call",nHandle,"s8:IsSqlite")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x

@@ -1174,6 +1174,7 @@ Class IModelMetadataProvider from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetMetadataForProperties",P1))
 
 	Func GetMetadataForProperty P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Mvc.ModelBinding.ModelMetadataProviderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetMetadataForProperty",P1,P2))
 
 
@@ -1984,6 +1985,10 @@ Class ModelMetadata from Object
 	Func GetMetadataForProperties P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetMetadataForProperties",P1))
 
+	Func GetMetadataForProperty P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Mvc.ModelBinding.ModelMetadataProviderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetMetadataForProperty",P1,P2))
+
 	Func getContainerType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ContainerType"))
 
@@ -2667,6 +2672,7 @@ Class ModelStateDictionary from Object
 		return dn_x
 
 	Func RemoveAll P1
+		dnEnsureExt("Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures")
 		dotnet_callv("s4:call",nHandle,"s9:RemoveAll",P1)
 
 		return self

@@ -2313,21 +2313,27 @@ Class X509Certificate2 from X509Certificate
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',"s17:CreateFromPemFile",P1))
 
 	Func GetDSAPublicKey 
+		dnEnsureExt("System.Security.Cryptography.X509Certificates.DSACertificateExtensions, System.Security.Cryptography")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetDSAPublicKey"))
 
 	Func GetDSAPrivateKey 
+		dnEnsureExt("System.Security.Cryptography.X509Certificates.DSACertificateExtensions, System.Security.Cryptography")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetDSAPrivateKey"))
 
 	Func GetECDsaPublicKey 
+		dnEnsureExt("System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions, System.Security.Cryptography")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetECDsaPublicKey"))
 
 	Func GetECDsaPrivateKey 
+		dnEnsureExt("System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions, System.Security.Cryptography")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetECDsaPrivateKey"))
 
 	Func GetRSAPublicKey 
+		dnEnsureExt("System.Security.Cryptography.X509Certificates.RSACertificateExtensions, System.Security.Cryptography")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetRSAPublicKey"))
 
 	Func GetRSAPrivateKey 
+		dnEnsureExt("System.Security.Cryptography.X509Certificates.RSACertificateExtensions, System.Security.Cryptography")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetRSAPrivateKey"))
 
 	Func getArchived

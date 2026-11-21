@@ -638,6 +638,7 @@ Class IAsyncDisposable from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
 
 	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 
@@ -1329,33 +1330,43 @@ Class Type from MemberInfo
 		return dnObj(dotnet_callo("s4:call",'System.Type, System.Private.CoreLib',"s21:ReflectionOnlyGetType",P1,P2,P3))
 
 	Func GetTypeInfo 
+		dnEnsureExt("System.Reflection.IntrospectionExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetTypeInfo"))
 
 	Func GetRuntimeFields 
+		dnEnsureExt("System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetRuntimeFields"))
 
 	Func GetRuntimeMethods 
+		dnEnsureExt("System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetRuntimeMethods"))
 
 	Func GetRuntimeProperties 
+		dnEnsureExt("System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetRuntimeProperties"))
 
 	Func GetRuntimeEvents 
+		dnEnsureExt("System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetRuntimeEvents"))
 
 	Func GetRuntimeField P1
+		dnEnsureExt("System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetRuntimeField",P1))
 
 	Func GetRuntimeMethod P1,P2
+		dnEnsureExt("System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetRuntimeMethod",P1,P2))
 
 	Func GetRuntimeProperty P1
+		dnEnsureExt("System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRuntimeProperty",P1))
 
 	Func GetRuntimeEvent P1
+		dnEnsureExt("System.Reflection.RuntimeReflectionExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetRuntimeEvent",P1))
 
 	Func ShortDisplayName 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.TypeExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_call("s4:call",nHandle,"s16:ShortDisplayName")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
@@ -5238,11 +5249,25 @@ Class String from Object
 		ok
 		raise("DotNet Error: Join does not take one argument: use named arguments, Join([ :parameter = value, ... ])")
 
-	Func AsSpan 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AsSpan"))
+	Func AsSpan P1
+		dnEnsureExt("System.MemoryExtensions, System.Private.CoreLib")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:AsSpan",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:AsSpan"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AsSpan",P1))
 
-	Func AsMemory 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AsMemory"))
+	Func AsMemory P1
+		dnEnsureExt("System.MemoryExtensions, System.Private.CoreLib")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:AsMemory",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s8:AsMemory"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AsMemory",P1))
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))

@@ -509,6 +509,10 @@ Class CancellationTokenRegistration from ValueType
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+
 	Func getToken
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Token"))
 
@@ -973,6 +977,10 @@ Class ITimer from DotNetObject
 
 	Func DisposeAsync 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 
 Class Interlocked from Object
@@ -2766,6 +2774,10 @@ Class Timer from MarshalByRefObject
 	Func DisposeAsync 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
 
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+
 	Func getActiveCount
 		dn_x = dotnet_call("s3:get",'System.Threading.Timer, System.Private.CoreLib',"s11:ActiveCount")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2867,9 +2879,11 @@ Class WaitHandle from MarshalByRefObject
 		raise("DotNet Error: SignalAndWait does not take one argument: use named arguments, SignalAndWait([ :parameter = value, ... ])")
 
 	Func @GetSafeWaitHandle 
+		dnEnsureExt("System.Threading.WaitHandleExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetSafeWaitHandle"))
 
 	Func @SetSafeWaitHandle P1
+		dnEnsureExt("System.Threading.WaitHandleExtensions, System.Private.CoreLib")
 		dotnet_callv("s4:call",nHandle,"s17:SetSafeWaitHandle",P1)
 
 		return self

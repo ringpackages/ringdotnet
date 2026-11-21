@@ -538,6 +538,13 @@ func dnFindFactory  dn_cChain
 	next
 	return "-"
 
+# The static class with the extension methods that a generated method calls: its assembly is loaded by the bridge the first time
+func dnEnsureExt  dn_cClass
+	if find(aDotNetExtLoaded,dn_cClass) = 0
+		aDotNetExtLoaded + dn_cClass
+		dnRequest("registerext",[dn_cClass])
+	ok
+
 # The .NET null: oPictureBox.Image = dnNull()
 func dnNull
 	return new DotNetObject(0)

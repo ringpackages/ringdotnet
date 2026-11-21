@@ -757,6 +757,10 @@ Class DbBatch from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+
 	Func getBatchCommands
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:BatchCommands"))
 
@@ -1224,6 +1228,10 @@ Class DbCommand from Component
 	Func DisposeAsync 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
 
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+
 	Func getCommandText
 		dn_x = dotnet_call("s3:get",nHandle,"s11:CommandText")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1516,6 +1524,10 @@ Class DbConnection from Component
 			return dnObj(dotnet_callo("s4:call",nHandle,"s9:OpenAsync"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:OpenAsync",P1))
+
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func setStateChangeEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"StateChange",dnCallback(P1)])
@@ -1949,12 +1961,18 @@ Class DbDataReader from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:NextResultAsync",P1))
 
 	Func GetColumnSchema 
+		dnEnsureExt("System.Data.Common.DbDataReaderExtensions, System.Data.Common")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetColumnSchema"))
 
 	Func CanGetColumnSchema 
+		dnEnsureExt("System.Data.Common.DbDataReaderExtensions, System.Data.Common")
 		dn_x = dotnet_call("s4:call",nHandle,"s18:CanGetColumnSchema")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
@@ -2213,6 +2231,10 @@ Class DbDataSource from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func getConnectionString
 		dn_x = dotnet_call("s3:get",nHandle,"s16:ConnectionString")
@@ -3189,6 +3211,10 @@ Class DbTransaction from MarshalByRefObject
 		dotnet_callv("s4:call",nHandle,"s4:Save",P1)
 
 		return self
+
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func getConnection
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Connection"))

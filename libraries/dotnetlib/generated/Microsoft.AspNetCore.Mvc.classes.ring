@@ -1360,11 +1360,18 @@ Class IUrlHelper from DotNetObject
 		return dn_x
 
 	Func Page P1
+		dnEnsureExt("Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s4:Page",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s4:Page",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func ActionLink P1
+		dnEnsureExt("Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:ActionLink",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1380,6 +1387,7 @@ Class IUrlHelper from DotNetObject
 		return dn_x
 
 	Func PageLink P1
+		dnEnsureExt("Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:PageLink",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

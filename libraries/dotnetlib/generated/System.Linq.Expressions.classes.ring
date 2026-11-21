@@ -956,6 +956,7 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s19:PostDecrementAssign",P1))
 
 	Func Print P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s5:Print",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -971,15 +972,18 @@ Class ExpressionsExpression from Object
 		return dn_x
 
 	Func CreateValueBufferReadValueExpression P1,P2,P3
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s36:CreateValueBufferReadValueExpression",P1,P2,P3))
 
 	Func CreateKeyValuesExpression P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:CreateKeyValuesExpression",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:CreateKeyValuesExpression",P1))
 
 	Func CreateEFPropertyExpression P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s26:CreateEFPropertyExpression",P1))
 		ok
@@ -1743,15 +1747,19 @@ Class LambdaExpression from ExpressionsExpression
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Compile",P1))
 
 	Func GetPropertyAccess 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetPropertyAccess"))
 
 	Func GetMemberAccess 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetMemberAccess"))
 
 	Func GetPropertyAccessList 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessList"))
 
 	Func GetMemberAccessList 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMemberAccessList"))
 
 	Func getParameters
@@ -1913,6 +1921,7 @@ Class MemberExpression from ExpressionsExpression
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func Assign P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Assign",P1))
 
 	Func getMember
@@ -2027,9 +2036,11 @@ Class MethodCallExpression from ExpressionsExpression
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetArgument",P1))
 
 	Func TryGetEFPropertyArguments 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
 		return dnSend("s4:call",nHandle,"s25:TryGetEFPropertyArguments","")
 
 	Func TryGetIndexerArguments P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
 		return dnSend("s4:call",nHandle,"s22:TryGetIndexerArguments",dnPackItem(P1))
 
 	Func getMethod

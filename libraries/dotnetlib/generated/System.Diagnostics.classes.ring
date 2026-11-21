@@ -3256,29 +3256,35 @@ Class StackFrame from Object
 		return dn_x
 
 	Func HasNativeImage 
+		dnEnsureExt("System.Diagnostics.StackFrameExtensions, System.Private.CoreLib")
 		dn_x = dotnet_call("s4:call",nHandle,"s14:HasNativeImage")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func HasMethod 
+		dnEnsureExt("System.Diagnostics.StackFrameExtensions, System.Private.CoreLib")
 		dn_x = dotnet_call("s4:call",nHandle,"s9:HasMethod")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func HasILOffset 
+		dnEnsureExt("System.Diagnostics.StackFrameExtensions, System.Private.CoreLib")
 		dn_x = dotnet_call("s4:call",nHandle,"s11:HasILOffset")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func HasSource 
+		dnEnsureExt("System.Diagnostics.StackFrameExtensions, System.Private.CoreLib")
 		dn_x = dotnet_call("s4:call",nHandle,"s9:HasSource")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetNativeIP 
+		dnEnsureExt("System.Diagnostics.StackFrameExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetNativeIP"))
 
 	Func GetNativeImageBase 
+		dnEnsureExt("System.Diagnostics.StackFrameExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetNativeImageBase"))
 
 	Func getOFFSET_UNKNOWN

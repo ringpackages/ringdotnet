@@ -16,12 +16,11 @@ func main
 	# and decides how long each one lives. That makes the parts easy to replace and to test, and it is how every ASP.NET program is built.
 	# The container works with .NET types as the keys. Here three plain types stand for three services, and a Ring function makes each one
 	# (the "factory"): ArrayList = a long-lived service, Random = a new one each time, MemoryStream = one for each request.
-	cExt = "Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions"
 	oServices = new ServiceCollection
-	dnStatic(cExt,"AddSingleton",[oServices,dnType("System.Collections.ArrayList"),dnCallback("makeSingleton")])
-	dnStatic(cExt,"AddTransient",[oServices,dnType("System.Random"),dnCallback("makeTransient")])
-	dnStatic(cExt,"AddScoped",[oServices,dnType("System.IO.MemoryStream"),dnCallback("makeScoped")])
-	oProvider = new ServiceCollectionContainerBuilderExtensions().BuildServiceProvider(oServices)
+	oServices.AddSingleton([ :serviceType = dnType("System.Collections.ArrayList"), :implementationFactory = dnCallback("makeSingleton") ])
+	oServices.AddTransient([ :serviceType = dnType("System.Random"), :implementationFactory = dnCallback("makeTransient") ])
+	oServices.AddScoped([ :serviceType = dnType("System.IO.MemoryStream"), :implementationFactory = dnCallback("makeScoped") ])
+	oProvider = oServices.BuildServiceProvider(NULL)
 	? "1. " + oServices.Count + " services are registered; the provider is built"
 
 	# 2. SINGLETON: one object for the whole program. It is made the first time somebody asks.
@@ -39,8 +38,8 @@ func main
 	# 4. SCOPED: one object for each SCOPE. A scope is one unit of work: in a web server, one request. Inside a scope the same object comes
 	#    back; another scope gets its own.
 	oStream = dnType("System.IO.MemoryStream")
-	oScope1 = new ServiceProviderServiceExtensions().CreateScope(oProvider)
-	oScope2 = new ServiceProviderServiceExtensions().CreateScope(oProvider)
+	oScope1 = oProvider.CreateScope()
+	oScope2 = oProvider.CreateScope()
 	oInScope1a = oScope1.ServiceProvider.callMethod("GetService",[oStream])
 	oInScope1b = oScope1.ServiceProvider.callMethod("GetService",[oStream])
 	oInScope2 = oScope2.ServiceProvider.callMethod("GetService",[oStream])

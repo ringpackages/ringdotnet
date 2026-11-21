@@ -431,10 +431,19 @@ Class ZipArchive from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func CreateEntryFromFile P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:CreateEntryFromFile",P1,P2))
+	Func CreateEntryFromFile P1
+		dnEnsureExt("System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:CreateEntryFromFile",P1))
+		ok
+		raise("DotNet Error: CreateEntryFromFile does not take one argument: use named arguments, CreateEntryFromFile([ :parameter = value, ... ])")
 
 	Func ExtractToDirectory P1
+		dnEnsureExt("System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile")
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s18:ExtractToDirectory",P1)
+			return self
+		ok
 		dotnet_callv("s4:call",nHandle,"s18:ExtractToDirectory",P1)
 
 		return self
@@ -497,6 +506,11 @@ Class ZipArchiveEntry from Object
 		return dn_x
 
 	Func ExtractToFile P1
+		dnEnsureExt("System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile")
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s13:ExtractToFile",P1)
+			return self
+		ok
 		dotnet_callv("s4:call",nHandle,"s13:ExtractToFile",P1)
 
 		return self

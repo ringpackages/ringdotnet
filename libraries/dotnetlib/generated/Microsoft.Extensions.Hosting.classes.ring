@@ -578,6 +578,86 @@ Class HostBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ConfigureWebHostDefaults P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.GenericHostBuilderExtensions, Microsoft.AspNetCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:ConfigureWebHostDefaults",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ConfigureWebHostDefaults",P1))
+
+	Func ConfigureWebHost P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:ConfigureWebHost",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureWebHost",P1))
+
+	Func ConfigureSlimWebHost P1,P2
+		dnEnsureExt("Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ConfigureSlimWebHost",P1,P2))
+
+	Func Start 
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Start"))
+
+	Func StartAsync P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:StartAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync",P1))
+
+	Func UseEnvironment P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseEnvironment",P1))
+
+	Func UseContentRoot P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseContentRoot",P1))
+
+	Func UseDefaultServiceProvider P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:UseDefaultServiceProvider",P1))
+
+	Func ConfigureLogging P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureLogging",P1))
+
+	Func ConfigureHostOptions P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ConfigureHostOptions",P1))
+
+	Func ConfigureDefaults P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConfigureDefaults",P1))
+
+	Func UseConsoleLifetime P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:UseConsoleLifetime",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseConsoleLifetime"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseConsoleLifetime",P1))
+
+	Func RunConsoleAsync P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:RunConsoleAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:RunConsoleAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:RunConsoleAsync",P1))
+
+	Func ConfigureMetrics P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureMetrics",P1))
+
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
 
@@ -987,21 +1067,25 @@ Class IHost from DotNetObject
 		return self
 
 	Func Start 
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions")
 		dotnet_callv("s4:call",nHandle,"s5:Start")
 
 		return self
 
 	Func WaitForShutdown 
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions")
 		dotnet_callv("s4:call",nHandle,"s15:WaitForShutdown")
 
 		return self
 
 	Func Run 
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions")
 		dotnet_callv("s4:call",nHandle,"s3:Run")
 
 		return self
 
 	Func RunAsync P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:RunAsync",P1))
 		ok
@@ -1011,6 +1095,7 @@ Class IHost from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:RunAsync",P1))
 
 	Func WaitForShutdownAsync P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:WaitForShutdownAsync",P1))
 		ok
@@ -1161,18 +1246,29 @@ Class IHostBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
 
 	Func ConfigureWebHostDefaults P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.GenericHostBuilderExtensions, Microsoft.AspNetCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:ConfigureWebHostDefaults",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ConfigureWebHostDefaults",P1))
 
 	Func ConfigureWebHost P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:ConfigureWebHost",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureWebHost",P1))
 
 	Func ConfigureSlimWebHost P1,P2
+		dnEnsureExt("Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ConfigureSlimWebHost",P1,P2))
 
 	Func Start 
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Start"))
 
 	Func StartAsync P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:StartAsync",P1))
 		ok
@@ -1182,27 +1278,41 @@ Class IHostBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync",P1))
 
 	Func UseEnvironment P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseEnvironment",P1))
 
 	Func UseContentRoot P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseContentRoot",P1))
 
 	Func UseDefaultServiceProvider P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:UseDefaultServiceProvider",P1))
 
 	Func ConfigureLogging P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureLogging",P1))
 
 	Func ConfigureHostOptions P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ConfigureHostOptions",P1))
 
 	Func ConfigureDefaults P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConfigureDefaults",P1))
 
-	Func UseConsoleLifetime 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseConsoleLifetime"))
+	Func UseConsoleLifetime P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:UseConsoleLifetime",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseConsoleLifetime"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseConsoleLifetime",P1))
 
 	Func RunConsoleAsync P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:RunConsoleAsync",P1))
 		ok
@@ -1212,6 +1322,7 @@ Class IHostBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:RunConsoleAsync",P1))
 
 	Func ConfigureMetrics P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureMetrics",P1))
 
 	Func getProperties
@@ -1238,21 +1349,25 @@ Class IHostEnvironment from DotNetObject
 		return self
 
 	Func IsDevelopment 
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions")
 		dn_x = dotnet_call("s4:call",nHandle,"s13:IsDevelopment")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsStaging 
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions")
 		dn_x = dotnet_call("s4:call",nHandle,"s9:IsStaging")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsProduction 
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions")
 		dn_x = dotnet_call("s4:call",nHandle,"s12:IsProduction")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func IsEnvironment P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostEnvironmentEnvExtensions, Microsoft.Extensions.Hosting.Abstractions")
 		dn_x = dotnet_call("s4:call",nHandle,"s13:IsEnvironment",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x

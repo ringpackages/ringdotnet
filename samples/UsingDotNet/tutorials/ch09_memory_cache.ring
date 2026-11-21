@@ -43,8 +43,8 @@ func main
 
 	# 4. GetOrCreate: "give me the value, and make it if it is missing". The function that makes the value is the slow work: it runs
 	#    only on the first request (a Ring function that .NET calls during this call).
-	cFirst = dnStatic("Microsoft.Extensions.Caching.Memory.CacheExtensions","GetOrCreate",[oCache,"report",dnCallback("slowReport")])
-	cSecond = dnStatic("Microsoft.Extensions.Caching.Memory.CacheExtensions","GetOrCreate",[oCache,"report",dnCallback("slowReport")])
+	cFirst = oCache.GetOrCreate([ :key = "report", :factory = dnCallback("slowReport") ])
+	cSecond = oCache.GetOrCreate([ :key = "report", :factory = dnCallback("slowReport") ])
 	? nl + "4. the report was made " + nRuns + " time(s) for two requests: " + cFirst + " / " + cSecond
 
 	# 5. Remove and Clear (Compact removes a part): a value that changed in the database must leave the cache, or the old one is served
@@ -64,9 +64,9 @@ func slowReport aArguments
 	nRuns++                         # (nRuns is a global variable of the program)
 	return "report #" + nRuns
 
-# Set and GetOrCreate are "extension methods" of the class CacheExtensions: they are called as static methods with the cache as the first value
+# Set has two forms: with and without the options of the entry
 func cacheSet oCache,cKey,xValue,oOptions
 	if isNull(oOptions)
-		return dnStatic("Microsoft.Extensions.Caching.Memory.CacheExtensions","Set",[oCache,cKey,xValue])
+		return oCache.Set([ :key = cKey, :value = xValue ])
 	ok
-	return dnStatic("Microsoft.Extensions.Caching.Memory.CacheExtensions","Set",[oCache,cKey,xValue,oOptions])
+	return oCache.Set([ :key = cKey, :value = xValue, :options = oOptions ])

@@ -1298,6 +1298,7 @@ Class Plane from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Plane, System.Private.CoreLib',"s9:Transform",P1,P2))
 
 	Func AsVector4 
+		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector4"))
 
 	Func getNormal
@@ -1419,6 +1420,7 @@ Class Quaternion from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s8:Subtract",P1,P2))
 
 	Func AsVector4 
+		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector4"))
 
 	Func Item P1
@@ -2094,9 +2096,11 @@ Class Vector2 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s8:Truncate",P1))
 
 	Func AsVector4 
+		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector4"))
 
 	Func AsVector4Unsafe 
+		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AsVector4Unsafe"))
 
 	Func Item P1
@@ -2423,9 +2427,11 @@ Class Vector3 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s8:Truncate",P1))
 
 	Func AsVector4 
+		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector4"))
 
 	Func AsVector4Unsafe 
+		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AsVector4Unsafe"))
 
 	Func Item P1
@@ -2760,15 +2766,19 @@ Class Vector4 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s8:Truncate",P1))
 
 	Func AsPlane 
+		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AsPlane"))
 
 	Func AsQuaternion 
+		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsQuaternion"))
 
 	Func AsVector2 
+		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector2"))
 
 	Func AsVector3 
+		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector3"))
 
 	Func Item P1

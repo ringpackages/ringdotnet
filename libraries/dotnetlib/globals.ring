@@ -19,6 +19,7 @@ nDotNetWrapHandle = 0
 # Cache of type objects used for static members (type name --> DotNetObject)
 aDotNetTypes = []
 aDotNetTypeHandles = []          # type name --> the handle of its type object (see dnTypeHandle)
+aDotNetExtLoaded = []          # the static classes of extension methods that the bridge was asked to load (dnEnsureExt)
 aDotNetUserFolders = []          # the folders of dnImportFrom: a namespace of a wrapped assembly may need another namespace of the same assembly
 aDotNetPrototypes = []          # factory function --> a ready object of its class (see dnPrototype)
 aDotNetTypeItems = []          # type name --> its wire item (see dnTypeItem)

@@ -480,8 +480,15 @@ Class KestrelServerOptions from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func UseSystemd 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSystemd"))
+	Func UseSystemd P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.KestrelServerOptionsSystemdExtensions, Microsoft.AspNetCore.Server.Kestrel.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UseSystemd",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSystemd"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSystemd",P1))
 
 	Func getAllowHostHeaderOverride
 		dn_x = dotnet_call("s3:get",nHandle,"s23:AllowHostHeaderOverride")
@@ -613,11 +620,25 @@ Class ListenOptions from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func UseConnectionLogging 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:UseConnectionLogging"))
+	Func UseConnectionLogging P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.ListenOptionsConnectionLoggingExtensions, Microsoft.AspNetCore.Server.Kestrel.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:UseConnectionLogging",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s20:UseConnectionLogging"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:UseConnectionLogging",P1))
 
-	Func UseHttps 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:UseHttps"))
+	Func UseHttps P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions, Microsoft.AspNetCore.Server.Kestrel.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:UseHttps",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s8:UseHttps"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:UseHttps",P1))
 
 	Func getEndPoint
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:EndPoint"))

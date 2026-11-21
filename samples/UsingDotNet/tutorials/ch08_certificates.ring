@@ -57,9 +57,9 @@ func main
 
 	# 6. Signing: the owner signs with the private key, anybody with the public certificate verifies
 	aMessage = oUtf8.GetBytes("Invoice 2024-001: 1250.00")
-	oPrivateKey = new RSACertificateExtensions().GetRSAPrivateKey(oCertificate)
+	oPrivateKey = oCertificate.GetRSAPrivateKey()
 	aSignature = oPrivateKey.callMethod("SignData",[aMessage,oSha,oPadding])
-	oPublicKey = new RSACertificateExtensions().GetRSAPublicKey(oPublic)
+	oPublicKey = oPublic.GetRSAPublicKey()
 	aChanged = oUtf8.GetBytes("Invoice 2024-001: 9250.00")
 	? nl + "4. signature of " + len(aSignature) + " bytes (2048-bit key); verified with the public certificate: " + oPublicKey.callMethod("VerifyData",[aMessage,aSignature,oSha,oPadding])
 	? "   the message changed: " + oPublicKey.callMethod("VerifyData",[aChanged,aSignature,oSha,oPadding])
@@ -78,7 +78,7 @@ func isValidNow oCertificate
 
 func canSign oPublic
 	try
-		new RSACertificateExtensions().GetRSAPrivateKey(oPublic).SignData(new UTF8Encoding().GetBytes("x"),new HashAlgorithmName().get_SHA256(),new RSASignaturePadding().get_Pkcs1())
+		oPublic.GetRSAPrivateKey().SignData(new UTF8Encoding().GetBytes("x"),new HashAlgorithmName().get_SHA256(),new RSASignaturePadding().get_Pkcs1())
 		return True
 	catch
 		return False

@@ -501,14 +501,32 @@ Class AuthenticationBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func AddBearerToken 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddBearerToken"))
+	Func AddBearerToken P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.BearerTokenExtensions, Microsoft.AspNetCore.Authentication.BearerToken")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddBearerToken",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddBearerToken"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddBearerToken",P1))
 
-	Func AddCookie 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddCookie"))
+	Func AddCookie P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.CookieExtensions, Microsoft.AspNetCore.Authentication.Cookies")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:AddCookie",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddCookie"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddCookie",P1))
 
-	Func AddOAuth P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddOAuth",P1,P2))
+	Func AddOAuth P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OAuthExtensions, Microsoft.AspNetCore.Authentication.OAuth")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:AddOAuth",P1))
+		ok
+		raise("DotNet Error: AddOAuth does not take one argument: use named arguments, AddOAuth([ :parameter = value, ... ])")
 
 	Func getServices
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))
@@ -881,21 +899,25 @@ Class AuthenticationProperties from Object
 		return dn_x
 
 	Func StoreTokens P1
+		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
 		dotnet_callv("s4:call",nHandle,"s11:StoreTokens",P1)
 
 		return self
 
 	Func GetTokenValue P1
+		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
 		dn_x = dotnet_call("s4:call",nHandle,"s13:GetTokenValue",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func UpdateTokenValue P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
 		dn_x = dotnet_call("s4:call",nHandle,"s16:UpdateTokenValue",P1,P2)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func GetTokens 
+		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetTokens"))
 
 	Func getItems
@@ -1284,6 +1306,13 @@ Class AuthenticationService from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetTokenAsync P1
+		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetTokenAsync",P1))
+		ok
+		raise("DotNet Error: GetTokenAsync does not take one argument: use named arguments, GetTokenAsync([ :parameter = value, ... ])")
+
 	Func getSchemes
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Schemes"))
 
@@ -1576,6 +1605,7 @@ Class IAuthenticationConfigurationProvider from DotNetObject
 		return self
 
 	Func GetSchemeConfiguration P1
+		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationConfigurationProviderExtensions, Microsoft.AspNetCore.Authentication")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetSchemeConfiguration",P1))
 
 	Func getAuthenticationConfiguration
@@ -1757,8 +1787,12 @@ Class IAuthenticationService from DotNetObject
 	Func SignOutAsync P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SignOutAsync",P1,P2,P3))
 
-	Func GetTokenAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetTokenAsync",P1,P2))
+	Func GetTokenAsync P1
+		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetTokenAsync",P1))
+		ok
+		raise("DotNet Error: GetTokenAsync does not take one argument: use named arguments, GetTokenAsync([ :parameter = value, ... ])")
 
 
 Class IAuthenticationSignInHandler from DotNetObject

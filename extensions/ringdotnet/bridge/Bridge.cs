@@ -389,6 +389,8 @@ namespace RingDotNet
 					return null;
 				case "listtypes":
 					return ListTypes(Str(a, 0), Rest(a, 1));
+				case "registerext":
+					return RegisterExtensions(Str(a, 0));
 				case "extensionclasses":
 					return ExtensionClassesOf(a);
 				case "bridgefolder":
@@ -1038,6 +1040,37 @@ namespace RingDotNet
 		/* Public API of a type, used by the Ring class generator:
 		   [fullName, isStaticClass, [ctor:[paramTypes]], [method:[name,isStatic,returnType,[paramTypes]]],
 		    [member:[name,canRead,canWrite,isStatic,type]]] */
+		/* A generic method whose type parameters are not all found in its parameters (Cast<T>(IEnumerable), AddSingleton<T>(IServiceCollection)) cannot be called
+		   from Ring: nothing says what T is. The generator leaves such extension methods out. */
+		private static bool NotInferable(MethodInfo m)
+		{
+			if (!m.IsGenericMethodDefinition) return false;
+			foreach (Type argument in m.GetGenericArguments())
+			{
+				bool found = false;
+				foreach (ParameterInfo p in m.GetParameters())
+				{
+					if (Mentions(p.ParameterType, argument)) { found = true; break; }
+				}
+				if (!found) return true;
+			}
+			return false;
+		}
+
+		private static bool Mentions(Type type, Type argument)
+		{
+			if (type == argument) return true;
+			if (type.HasElementType) return Mentions(type.GetElementType(), argument);
+			if (type.IsGenericType)
+			{
+				foreach (Type inner in type.GetGenericArguments())
+				{
+					if (Mentions(inner, argument)) return true;
+				}
+			}
+			return false;
+		}
+
 		/* The types whose members describe t: an interface does not list what it inherits from other interfaces (IXLFont has no Bold: it is
 		   a member of IXLFontBase), so the members of the inherited interfaces count as its own. A class lists its inherited members itself. */
 		private static IEnumerable<Type> InterfaceAware(Type t)
@@ -1071,7 +1104,7 @@ namespace RingDotNet
 				{
 					if (m.IsSpecialName || !Usable(m)) continue;
 					if (t.IsInterface && !seenMethods.Add(m.Name + "(" + string.Join(",", m.GetParameters().Select(q => q.ParameterType.FullName)) + ")")) continue;
-					methods.Add(new List<object> { m.Name, m.IsStatic, TName(m.ReturnType), ParamTypes(m), ByRefCount(m), RequiredCount(m), m.IsDefined(typeof(System.Runtime.CompilerServices.ExtensionAttribute), false) ? 1 : 0 });
+					methods.Add(new List<object> { m.Name, m.IsStatic, TName(m.ReturnType), ParamTypes(m), ByRefCount(m), RequiredCount(m), m.IsDefined(typeof(System.Runtime.CompilerServices.ExtensionAttribute), false) ? 1 : 0, NotInferable(m) ? 1 : 0 });
 				}
 			}
 			List<object> members = new List<object>();
@@ -1113,7 +1146,14 @@ namespace RingDotNet
 					events.Add(new List<object> { ev.Name, f.HasFlag(BindingFlags.Static), TName(ev.EventHandlerType) });
 				}
 			}
-			return new List<object> { TName(t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer, events, t.IsValueType, t.Assembly.GetName().Name, t.BaseType == null ? "" : TName(t.BaseType) };
+			/* the interfaces that the class implements and its base class does not (the extension methods of an interface are methods of the classes that implement it) */
+			List<object> interfaces = new List<object>();
+			HashSet<Type> inherited = new HashSet<Type>(t.IsInterface || t.BaseType == null ? Type.EmptyTypes : t.BaseType.GetInterfaces());
+			foreach (Type i in t.GetInterfaces())
+			{
+				if (i.IsVisible && !i.IsGenericType && !inherited.Contains(i)) interfaces.Add(TName(i));
+			}
+			return new List<object> { TName(t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer, events, t.IsValueType, t.Assembly.GetName().Name, t.BaseType == null ? "" : TName(t.BaseType), interfaces };
 		}
 
 		private static List<object> ToList(object target)
@@ -1850,6 +1890,16 @@ namespace RingDotNet
 				}
 				if (added) ExtensionCache.Clear();
 			}
+		}
+
+		/* A generated method of an extension method asks for its static class before the call: the class is loaded (and its assembly with it) */
+		private static object RegisterExtensions(string typeName)
+		{
+			Type t = null;
+			try { t = ResolveSimple(typeName); } catch (Exception) { }
+			if (t == null || !t.IsSealed || !t.IsAbstract) return 0;
+			ScanExtensions();
+			return 1;
 		}
 
 		private static MethodBase[] ExtensionsFor(Type target, string name)

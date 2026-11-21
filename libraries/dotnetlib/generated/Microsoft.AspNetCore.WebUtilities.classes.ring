@@ -903,16 +903,26 @@ Class MultipartSection from Object
 		return dn_x
 
 	Func AsFileSection 
+		dnEnsureExt("Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AsFileSection"))
 
 	Func AsFormDataSection 
+		dnEnsureExt("Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AsFormDataSection"))
 
 	Func GetContentDispositionHeader 
+		dnEnsureExt("Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetContentDispositionHeader"))
 
-	Func ReadAsStringAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadAsStringAsync"))
+	Func ReadAsStringAsync P1
+		dnEnsureExt("Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions, Microsoft.AspNetCore.WebUtilities")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ReadAsStringAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadAsStringAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadAsStringAsync",P1))
 
 	Func getContentType
 		dn_x = dotnet_call("s3:get",nHandle,"s11:ContentType")

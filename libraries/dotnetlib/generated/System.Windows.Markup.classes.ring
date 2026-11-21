@@ -612,6 +612,30 @@ Class IValueSerializerContext from DotNetObject
 	Func GetService P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetService",P1))
 
+	Func GetRequiredKeyedService P1,P2
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1,P2))
+
+	Func GetKeyedServices P1,P2
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1,P2))
+
+	Func GetRequiredService P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
+
+	Func GetServices P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
+
+	Func CreateScope 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateScope"))
+
+	Func CreateAsyncScope 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateAsyncScope"))
+
 	Func getContainer
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Container"))
 
@@ -968,6 +992,30 @@ Class ServiceProviders from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetRequiredKeyedService P1,P2
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1,P2))
+
+	Func GetKeyedServices P1,P2
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1,P2))
+
+	Func GetRequiredService P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
+
+	Func GetServices P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
+
+	Func CreateScope 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateScope"))
+
+	Func CreateAsyncScope 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateAsyncScope"))
 
 
 Class SetterTriggerConditionValueConverter from TypeConverter

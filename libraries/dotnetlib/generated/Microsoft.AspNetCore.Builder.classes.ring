@@ -698,6 +698,305 @@ Class ApplicationBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func UseAntiforgery 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.AntiforgeryApplicationBuilderExtensions, Microsoft.AspNetCore.Antiforgery")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseAntiforgery"))
+
+	Func UseRequestLocalization P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ApplicationBuilderExtensions, Microsoft.AspNetCore.Localization")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:UseRequestLocalization",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s22:UseRequestLocalization"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:UseRequestLocalization",P1))
+
+	Func UseAuthentication 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions, Microsoft.AspNetCore.Authentication")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:UseAuthentication"))
+
+	Func UseAuthorization 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:UseAuthorization"))
+
+	Func UseCertificateForwarding 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.CertificateForwardingBuilderExtensions, Microsoft.AspNetCore.HttpOverrides")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:UseCertificateForwarding"))
+
+	Func UseCookiePolicy P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions, Microsoft.AspNetCore.CookiePolicy")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:UseCookiePolicy",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseCookiePolicy"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseCookiePolicy",P1))
+
+	Func UseCors P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions, Microsoft.AspNetCore.Cors")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:UseCors",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseCors"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseCors",P1))
+
+	Func UseDefaultFiles P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.DefaultFilesExtensions, Microsoft.AspNetCore.StaticFiles")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:UseDefaultFiles",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseDefaultFiles"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseDefaultFiles",P1))
+
+	Func UseDeveloperExceptionPage P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions, Microsoft.AspNetCore.Diagnostics")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:UseDeveloperExceptionPage",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s25:UseDeveloperExceptionPage"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:UseDeveloperExceptionPage",P1))
+
+	Func UseDirectoryBrowser P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions, Microsoft.AspNetCore.StaticFiles")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:UseDirectoryBrowser",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseDirectoryBrowser"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseDirectoryBrowser",P1))
+
+	Func UseRouting 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseRouting"))
+
+	Func UseEndpoints P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:UseEndpoints",P1))
+
+	Func UseExceptionHandler P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions, Microsoft.AspNetCore.Diagnostics")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:UseExceptionHandler",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseExceptionHandler"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseExceptionHandler",P1))
+
+	Func UseFileServer P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.FileServerExtensions, Microsoft.AspNetCore.StaticFiles")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:UseFileServer",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseFileServer"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseFileServer",P1))
+
+	Func UseForwardedHeaders P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions, Microsoft.AspNetCore.HttpOverrides")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:UseForwardedHeaders",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseForwardedHeaders"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseForwardedHeaders",P1))
+
+	Func UseHealthChecks P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions, Microsoft.AspNetCore.Diagnostics.HealthChecks")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:UseHealthChecks",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseHealthChecks",P1))
+
+	Func UseHostFiltering 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HostFilteringBuilderExtensions, Microsoft.AspNetCore.HostFiltering")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:UseHostFiltering"))
+
+	Func UseHsts 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HstsBuilderExtensions, Microsoft.AspNetCore.HttpsPolicy")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseHsts"))
+
+	Func UseHttpLogging 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HttpLoggingBuilderExtensions, Microsoft.AspNetCore.HttpLogging")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseHttpLogging"))
+
+	Func UseW3CLogging 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HttpLoggingBuilderExtensions, Microsoft.AspNetCore.HttpLogging")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseW3CLogging"))
+
+	Func UseHttpMethodOverride P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HttpMethodOverrideExtensions, Microsoft.AspNetCore.HttpOverrides")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:UseHttpMethodOverride",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s21:UseHttpMethodOverride"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UseHttpMethodOverride",P1))
+
+	Func UseHttpsRedirection 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions, Microsoft.AspNetCore.HttpsPolicy")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseHttpsRedirection"))
+
+	Func Map P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.MapExtensions, Microsoft.AspNetCore.Http.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Map",P1))
+		ok
+		raise("DotNet Error: Map does not take one argument: use named arguments, Map([ :parameter = value, ... ])")
+
+	Func MapWhen P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.MapWhenExtensions, Microsoft.AspNetCore.Http.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:MapWhen",P1,P2))
+
+	Func UseMvc P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:UseMvc",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:UseMvc"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:UseMvc",P1))
+
+	Func UseMvcWithDefaultRoute 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:UseMvcWithDefaultRoute"))
+
+	Func UseOutputCache 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.OutputCacheApplicationBuilderExtensions, Microsoft.AspNetCore.OutputCaching")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseOutputCache"))
+
+	Func UseRateLimiter P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RateLimiterApplicationBuilderExtensions, Microsoft.AspNetCore.RateLimiting")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:UseRateLimiter",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseRateLimiter"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseRateLimiter",P1))
+
+	Func UseRequestDecompression 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestDecompressionBuilderExtensions, Microsoft.AspNetCore.RequestDecompression")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:UseRequestDecompression"))
+
+	Func UseRequestTimeouts 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIApplicationBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseRequestTimeouts"))
+
+	Func UseResponseCaching 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ResponseCachingExtensions, Microsoft.AspNetCore.ResponseCaching")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseResponseCaching"))
+
+	Func UseResponseCompression 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ResponseCompressionBuilderExtensions, Microsoft.AspNetCore.ResponseCompression")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:UseResponseCompression"))
+
+	Func UseRewriter P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RewriteBuilderExtensions, Microsoft.AspNetCore.Rewrite")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:UseRewriter",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:UseRewriter"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:UseRewriter",P1))
+
+	Func UseRouter P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RoutingBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:UseRouter",P1))
+
+	Func Run P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RunExtensions, Microsoft.AspNetCore.Http.Abstractions")
+		dotnet_callv("s4:call",nHandle,"s3:Run",P1)
+
+		return self
+
+	Func UseSession P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions, Microsoft.AspNetCore.Session")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UseSession",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSession"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSession",P1))
+
+	Func UseStaticFiles P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.StaticFileExtensions, Microsoft.AspNetCore.StaticFiles")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:UseStaticFiles",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseStaticFiles"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseStaticFiles",P1))
+
+	Func UseStatusCodePages P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:UseStatusCodePages",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseStatusCodePages"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseStatusCodePages",P1))
+
+	Func UseStatusCodePagesWithRedirects P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:UseStatusCodePagesWithRedirects",P1))
+
+	Func UseStatusCodePagesWithReExecute P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s31:UseStatusCodePagesWithReExecute",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:UseStatusCodePagesWithReExecute",P1))
+
+	Func UseMiddleware P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.UseMiddlewareExtensions, Microsoft.AspNetCore.Http.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseMiddleware",P1,P2))
+
+	Func UsePathBase P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.UsePathBaseExtensions, Microsoft.AspNetCore.Http.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:UsePathBase",P1))
+
+	Func UseWhen P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.UseWhenExtensions, Microsoft.AspNetCore.Http.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseWhen",P1,P2))
+
+	Func UseWebSockets P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.WebSocketMiddlewareExtensions, Microsoft.AspNetCore.WebSockets")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:UseWebSockets",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseWebSockets"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseWebSockets",P1))
+
+	Func UseWelcomePage P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.WelcomePageExtensions, Microsoft.AspNetCore.Diagnostics")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:UseWelcomePage",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseWelcomePage"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseWelcomePage",P1))
+
 	Func getApplicationServices
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ApplicationServices"))
 
@@ -853,6 +1152,24 @@ Class ComponentEndpointConventionBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func WithRequestTimeout P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:WithRequestTimeout",P1))
+
+	Func DisableRequestTimeout 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:DisableRequestTimeout"))
+
+	Func ShortCircuit P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ShortCircuit",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit",P1))
+
 
 Class ComponentEndpointRouteBuilderExtensions from Object
 
@@ -910,6 +1227,86 @@ Class ConfigureHostBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ConfigureWebHostDefaults P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.GenericHostBuilderExtensions, Microsoft.AspNetCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:ConfigureWebHostDefaults",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ConfigureWebHostDefaults",P1))
+
+	Func ConfigureWebHost P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:ConfigureWebHost",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureWebHost",P1))
+
+	Func ConfigureSlimWebHost P1,P2
+		dnEnsureExt("Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ConfigureSlimWebHost",P1,P2))
+
+	Func Start 
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Start"))
+
+	Func StartAsync P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:StartAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync",P1))
+
+	Func UseEnvironment P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseEnvironment",P1))
+
+	Func UseContentRoot P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseContentRoot",P1))
+
+	Func UseDefaultServiceProvider P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:UseDefaultServiceProvider",P1))
+
+	Func ConfigureLogging P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureLogging",P1))
+
+	Func ConfigureHostOptions P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ConfigureHostOptions",P1))
+
+	Func ConfigureDefaults P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConfigureDefaults",P1))
+
+	Func UseConsoleLifetime P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:UseConsoleLifetime",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseConsoleLifetime"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseConsoleLifetime",P1))
+
+	Func RunConsoleAsync P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:RunConsoleAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:RunConsoleAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:RunConsoleAsync",P1))
+
+	Func ConfigureMetrics P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureMetrics",P1))
+
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
 
@@ -947,6 +1344,136 @@ Class ConfigureWebHostBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func UseConfiguration P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:UseConfiguration",P1))
+
+	Func CaptureStartupErrors P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:CaptureStartupErrors",P1))
+
+	Func UseStartup P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseStartup",P1))
+
+	Func UseServer P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:UseServer",P1))
+
+	Func UseEnvironment P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseEnvironment",P1))
+
+	Func UseContentRoot P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseContentRoot",P1))
+
+	Func UseWebRoot P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseWebRoot",P1))
+
+	Func UseUrls P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseUrls",P1))
+
+	Func PreferHostingUrls P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:PreferHostingUrls",P1))
+
+	Func SuppressStatusMessages P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:SuppressStatusMessages",P1))
+
+	Func UseShutdownTimeout P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseShutdownTimeout",P1))
+
+	Func Start P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Start",P1))
+
+	Func Configure P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
+
+	Func UseDefaultServiceProvider P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:UseDefaultServiceProvider",P1))
+
+	Func ConfigureLogging P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureLogging",P1))
+
+	Func UseStaticWebAssets 
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseStaticWebAssets"))
+
+	Func UseHttpSys P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions, Microsoft.AspNetCore.Server.HttpSys")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UseHttpSys",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseHttpSys"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseHttpSys",P1))
+
+	Func UseIIS 
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions, Microsoft.AspNetCore.Server.IIS")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:UseIIS"))
+
+	Func UseKestrelHttpsConfiguration 
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s28:UseKestrelHttpsConfiguration"))
+
+	Func UseKestrel P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UseKestrel",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseKestrel"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseKestrel",P1))
+
+	Func UseKestrelCore 
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseKestrelCore"))
+
+	Func ConfigureKestrel P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureKestrel",P1))
+
+	Func UseNamedPipes P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderNamedPipeExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.NamedPipes")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:UseNamedPipes",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseNamedPipes"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseNamedPipes",P1))
+
+	Func UseQuic P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderQuicExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Quic")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:UseQuic",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseQuic"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseQuic",P1))
+
+	Func UseSockets P1
+		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderSocketExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UseSockets",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSockets"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSockets",P1))
+
 
 Class ConnectionEndpointRouteBuilder from Object
 
@@ -973,6 +1500,24 @@ Class ConnectionEndpointRouteBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func WithRequestTimeout P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:WithRequestTimeout",P1))
+
+	Func DisableRequestTimeout 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:DisableRequestTimeout"))
+
+	Func ShortCircuit P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ShortCircuit",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit",P1))
 
 
 Class ConnectionEndpointRouteBuilderExtensions from Object
@@ -1031,6 +1576,7 @@ Class ControllerActionEndpointConventionBuilder from Object
 		return dn_x
 
 	Func WithStaticAssets P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:WithStaticAssets",P1))
 		ok
@@ -1038,6 +1584,24 @@ Class ControllerActionEndpointConventionBuilder from Object
 			return dnObj(dotnet_callo("s4:call",nHandle,"s16:WithStaticAssets"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:WithStaticAssets",P1))
+
+	Func WithRequestTimeout P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:WithRequestTimeout",P1))
+
+	Func DisableRequestTimeout 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:DisableRequestTimeout"))
+
+	Func ShortCircuit P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ShortCircuit",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit",P1))
 
 
 Class ControllerActionEndpointConventionBuilderResourceCollectionExtensions from Object
@@ -2457,6 +3021,24 @@ Class HubEndpointConventionBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func WithRequestTimeout P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:WithRequestTimeout",P1))
+
+	Func DisableRequestTimeout 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:DisableRequestTimeout"))
+
+	Func ShortCircuit P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ShortCircuit",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit",P1))
+
 
 Class HubEndpointRouteBuilderExtensions from Object
 
@@ -2503,143 +3085,302 @@ Class IApplicationBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
 
 	Func UseAntiforgery 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.AntiforgeryApplicationBuilderExtensions, Microsoft.AspNetCore.Antiforgery")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseAntiforgery"))
 
-	Func UseRequestLocalization 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:UseRequestLocalization"))
+	Func UseRequestLocalization P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ApplicationBuilderExtensions, Microsoft.AspNetCore.Localization")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:UseRequestLocalization",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s22:UseRequestLocalization"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:UseRequestLocalization",P1))
 
 	Func UseAuthentication 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions, Microsoft.AspNetCore.Authentication")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:UseAuthentication"))
 
 	Func UseAuthorization 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:UseAuthorization"))
 
 	Func UseCertificateForwarding 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.CertificateForwardingBuilderExtensions, Microsoft.AspNetCore.HttpOverrides")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:UseCertificateForwarding"))
 
-	Func UseCookiePolicy 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseCookiePolicy"))
+	Func UseCookiePolicy P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions, Microsoft.AspNetCore.CookiePolicy")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:UseCookiePolicy",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseCookiePolicy"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseCookiePolicy",P1))
 
-	Func UseCors 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseCors"))
+	Func UseCors P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions, Microsoft.AspNetCore.Cors")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:UseCors",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseCors"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseCors",P1))
 
-	Func UseDefaultFiles 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseDefaultFiles"))
+	Func UseDefaultFiles P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.DefaultFilesExtensions, Microsoft.AspNetCore.StaticFiles")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:UseDefaultFiles",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseDefaultFiles"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseDefaultFiles",P1))
 
-	Func UseDeveloperExceptionPage 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:UseDeveloperExceptionPage"))
+	Func UseDeveloperExceptionPage P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions, Microsoft.AspNetCore.Diagnostics")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:UseDeveloperExceptionPage",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s25:UseDeveloperExceptionPage"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:UseDeveloperExceptionPage",P1))
 
-	Func UseDirectoryBrowser 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseDirectoryBrowser"))
+	Func UseDirectoryBrowser P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions, Microsoft.AspNetCore.StaticFiles")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:UseDirectoryBrowser",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseDirectoryBrowser"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseDirectoryBrowser",P1))
 
 	Func UseRouting 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseRouting"))
 
 	Func UseEndpoints P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:UseEndpoints",P1))
 
-	Func UseExceptionHandler 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseExceptionHandler"))
+	Func UseExceptionHandler P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions, Microsoft.AspNetCore.Diagnostics")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:UseExceptionHandler",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseExceptionHandler"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseExceptionHandler",P1))
 
-	Func UseFileServer 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseFileServer"))
+	Func UseFileServer P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.FileServerExtensions, Microsoft.AspNetCore.StaticFiles")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:UseFileServer",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseFileServer"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseFileServer",P1))
 
-	Func UseForwardedHeaders 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseForwardedHeaders"))
+	Func UseForwardedHeaders P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions, Microsoft.AspNetCore.HttpOverrides")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:UseForwardedHeaders",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseForwardedHeaders"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseForwardedHeaders",P1))
 
 	Func UseHealthChecks P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions, Microsoft.AspNetCore.Diagnostics.HealthChecks")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:UseHealthChecks",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseHealthChecks",P1))
 
 	Func UseHostFiltering 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HostFilteringBuilderExtensions, Microsoft.AspNetCore.HostFiltering")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:UseHostFiltering"))
 
 	Func UseHsts 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HstsBuilderExtensions, Microsoft.AspNetCore.HttpsPolicy")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseHsts"))
 
 	Func UseHttpLogging 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HttpLoggingBuilderExtensions, Microsoft.AspNetCore.HttpLogging")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseHttpLogging"))
 
 	Func UseW3CLogging 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HttpLoggingBuilderExtensions, Microsoft.AspNetCore.HttpLogging")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseW3CLogging"))
 
-	Func UseHttpMethodOverride 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UseHttpMethodOverride"))
+	Func UseHttpMethodOverride P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HttpMethodOverrideExtensions, Microsoft.AspNetCore.HttpOverrides")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:UseHttpMethodOverride",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s21:UseHttpMethodOverride"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UseHttpMethodOverride",P1))
 
 	Func UseHttpsRedirection 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions, Microsoft.AspNetCore.HttpsPolicy")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseHttpsRedirection"))
 
-	Func Map P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Map",P1,P2))
+	Func Map P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.MapExtensions, Microsoft.AspNetCore.Http.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Map",P1))
+		ok
+		raise("DotNet Error: Map does not take one argument: use named arguments, Map([ :parameter = value, ... ])")
 
 	Func MapWhen P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.MapWhenExtensions, Microsoft.AspNetCore.Http.Abstractions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:MapWhen",P1,P2))
 
-	Func UseMvc 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:UseMvc"))
+	Func UseMvc P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:UseMvc",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:UseMvc"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:UseMvc",P1))
 
 	Func UseMvcWithDefaultRoute 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:UseMvcWithDefaultRoute"))
 
 	Func UseOutputCache 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.OutputCacheApplicationBuilderExtensions, Microsoft.AspNetCore.OutputCaching")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseOutputCache"))
 
-	Func UseRateLimiter 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseRateLimiter"))
+	Func UseRateLimiter P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RateLimiterApplicationBuilderExtensions, Microsoft.AspNetCore.RateLimiting")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:UseRateLimiter",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseRateLimiter"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseRateLimiter",P1))
 
 	Func UseRequestDecompression 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestDecompressionBuilderExtensions, Microsoft.AspNetCore.RequestDecompression")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:UseRequestDecompression"))
 
 	Func UseRequestTimeouts 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIApplicationBuilderExtensions, Microsoft.AspNetCore.Http")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseRequestTimeouts"))
 
 	Func UseResponseCaching 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ResponseCachingExtensions, Microsoft.AspNetCore.ResponseCaching")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseResponseCaching"))
 
 	Func UseResponseCompression 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ResponseCompressionBuilderExtensions, Microsoft.AspNetCore.ResponseCompression")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:UseResponseCompression"))
 
-	Func UseRewriter 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:UseRewriter"))
+	Func UseRewriter P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RewriteBuilderExtensions, Microsoft.AspNetCore.Rewrite")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:UseRewriter",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:UseRewriter"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:UseRewriter",P1))
 
 	Func UseRouter P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RoutingBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:UseRouter",P1))
 
 	Func Run P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RunExtensions, Microsoft.AspNetCore.Http.Abstractions")
 		dotnet_callv("s4:call",nHandle,"s3:Run",P1)
 
 		return self
 
-	Func UseSession 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSession"))
+	Func UseSession P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions, Microsoft.AspNetCore.Session")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UseSession",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSession"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSession",P1))
 
-	Func UseStaticFiles 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseStaticFiles"))
+	Func UseStaticFiles P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.StaticFileExtensions, Microsoft.AspNetCore.StaticFiles")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:UseStaticFiles",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseStaticFiles"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseStaticFiles",P1))
 
 	Func UseStatusCodePages P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:UseStatusCodePages",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseStatusCodePages"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseStatusCodePages",P1))
 
 	Func UseStatusCodePagesWithRedirects P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:UseStatusCodePagesWithRedirects",P1))
 
 	Func UseStatusCodePagesWithReExecute P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s31:UseStatusCodePagesWithReExecute",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:UseStatusCodePagesWithReExecute",P1))
 
-	Func UseMiddleware P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseMiddleware",P1))
+	Func UseMiddleware P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.UseMiddlewareExtensions, Microsoft.AspNetCore.Http.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseMiddleware",P1,P2))
 
 	Func UsePathBase P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.UsePathBaseExtensions, Microsoft.AspNetCore.Http.Abstractions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:UsePathBase",P1))
 
 	Func UseWhen P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.UseWhenExtensions, Microsoft.AspNetCore.Http.Abstractions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseWhen",P1,P2))
 
-	Func UseWebSockets 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseWebSockets"))
+	Func UseWebSockets P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.WebSocketMiddlewareExtensions, Microsoft.AspNetCore.WebSockets")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:UseWebSockets",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseWebSockets"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseWebSockets",P1))
 
 	Func UseWelcomePage P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.WelcomePageExtensions, Microsoft.AspNetCore.Diagnostics")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:UseWelcomePage",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseWelcomePage"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseWelcomePage",P1))
 
 	Func getApplicationServices
@@ -2684,12 +3425,15 @@ Class IEndpointConventionBuilder from DotNetObject
 		return self
 
 	Func WithRequestTimeout P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:WithRequestTimeout",P1))
 
 	Func DisableRequestTimeout 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:DisableRequestTimeout"))
 
 	Func ShortCircuit P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ShortCircuit",P1))
 		ok
@@ -2719,6 +3463,24 @@ Class IHubEndpointConventionBuilder from DotNetObject
 		dotnet_callv("s4:call",nHandle,"s7:Finally",P1)
 
 		return self
+
+	Func WithRequestTimeout P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:WithRequestTimeout",P1))
+
+	Func DisableRequestTimeout 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:DisableRequestTimeout"))
+
+	Func ShortCircuit P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ShortCircuit",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit",P1))
 
 
 Class IISOptions from Object
@@ -3015,6 +3777,7 @@ Class PageActionEndpointConventionBuilder from Object
 		return dn_x
 
 	Func WithStaticAssets P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.PageActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:WithStaticAssets",P1))
 		ok
@@ -3022,6 +3785,24 @@ Class PageActionEndpointConventionBuilder from Object
 			return dnObj(dotnet_callo("s4:call",nHandle,"s16:WithStaticAssets"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:WithStaticAssets",P1))
+
+	Func WithRequestTimeout P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:WithRequestTimeout",P1))
+
+	Func DisableRequestTimeout 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:DisableRequestTimeout"))
+
+	Func ShortCircuit P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ShortCircuit",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit",P1))
 
 
 Class PageActionEndpointConventionBuilderResourceCollectionExtensions from Object
@@ -3143,9 +3924,11 @@ Class RazorComponentsEndpointConventionBuilder from Object
 		return dn_x
 
 	Func AddAdditionalAssemblies P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddAdditionalAssemblies",P1))
 
 	Func WithStaticAssets P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:WithStaticAssets",P1))
 		ok
@@ -3154,8 +3937,33 @@ Class RazorComponentsEndpointConventionBuilder from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:WithStaticAssets",P1))
 
-	Func AddInteractiveServerRenderMode 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s30:AddInteractiveServerRenderMode"))
+	Func AddInteractiveServerRenderMode P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ServerRazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Server")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s30:AddInteractiveServerRenderMode",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s30:AddInteractiveServerRenderMode"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:AddInteractiveServerRenderMode",P1))
+
+	Func WithRequestTimeout P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:WithRequestTimeout",P1))
+
+	Func DisableRequestTimeout 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:DisableRequestTimeout"))
+
+	Func ShortCircuit P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ShortCircuit",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit",P1))
 
 
 Class RazorComponentsEndpointConventionBuilderExtensions from Object
@@ -3307,6 +4115,7 @@ Class RequestLocalizationOptions from Object
 		return dn_x
 
 	Func AddInitialRequestCultureProvider P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestLocalizationOptionsExtensions, Microsoft.AspNetCore.Localization")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:AddInitialRequestCultureProvider",P1))
 
 	Func getCultureInfoUseUserOverride
@@ -3551,25 +4360,26 @@ Class RouteHandlerBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func AddEndpointFilter 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddEndpointFilter"))
-
 	Func ExcludeFromDescription 
+		dnEnsureExt("Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:ExcludeFromDescription"))
 
 	Func Produces P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Produces",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Produces",P1))
+		raise("DotNet Error: Produces does not take one argument: use named arguments, Produces([ :parameter = value, ... ])")
 
 	Func ProducesProblem P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:ProducesProblem",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ProducesProblem",P1))
 
 	Func ProducesValidationProblem P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:ProducesValidationProblem",P1))
 		ok
@@ -3579,10 +4389,33 @@ Class RouteHandlerBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:ProducesValidationProblem",P1))
 
 	Func WithTags P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:WithTags",P1))
 
-	Func Accepts P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Accepts",P1,P2))
+	Func Accepts P1
+		dnEnsureExt("Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Accepts",P1))
+		ok
+		raise("DotNet Error: Accepts does not take one argument: use named arguments, Accepts([ :parameter = value, ... ])")
+
+	Func WithRequestTimeout P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:WithRequestTimeout",P1))
+
+	Func DisableRequestTimeout 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:DisableRequestTimeout"))
+
+	Func ShortCircuit P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ShortCircuit",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit",P1))
 
 
 Class RouteShortCircuitEndpointConventionBuilderExtensions from Object
@@ -4271,6 +5104,459 @@ Class WebApplication from Object
 
 	Func CreateEmptyBuilder P1
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore',"s18:CreateEmptyBuilder",P1))
+
+	Func Start 
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions")
+		dotnet_callv("s4:call",nHandle,"s5:Start")
+
+		return self
+
+	Func WaitForShutdown 
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions")
+		dotnet_callv("s4:call",nHandle,"s15:WaitForShutdown")
+
+		return self
+
+	Func WaitForShutdownAsync P1
+		dnEnsureExt("Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:WaitForShutdownAsync",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s20:WaitForShutdownAsync"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:WaitForShutdownAsync",P1))
+
+	Func UseAntiforgery 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.AntiforgeryApplicationBuilderExtensions, Microsoft.AspNetCore.Antiforgery")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseAntiforgery"))
+
+	Func UseRequestLocalization P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ApplicationBuilderExtensions, Microsoft.AspNetCore.Localization")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:UseRequestLocalization",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s22:UseRequestLocalization"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:UseRequestLocalization",P1))
+
+	Func UseAuthentication 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions, Microsoft.AspNetCore.Authentication")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:UseAuthentication"))
+
+	Func UseAuthorization 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:UseAuthorization"))
+
+	Func UseCertificateForwarding 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.CertificateForwardingBuilderExtensions, Microsoft.AspNetCore.HttpOverrides")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:UseCertificateForwarding"))
+
+	Func UseCookiePolicy P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions, Microsoft.AspNetCore.CookiePolicy")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:UseCookiePolicy",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseCookiePolicy"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseCookiePolicy",P1))
+
+	Func UseCors P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions, Microsoft.AspNetCore.Cors")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:UseCors",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseCors"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseCors",P1))
+
+	Func UseDefaultFiles P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.DefaultFilesExtensions, Microsoft.AspNetCore.StaticFiles")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:UseDefaultFiles",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseDefaultFiles"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseDefaultFiles",P1))
+
+	Func UseDeveloperExceptionPage P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions, Microsoft.AspNetCore.Diagnostics")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:UseDeveloperExceptionPage",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s25:UseDeveloperExceptionPage"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:UseDeveloperExceptionPage",P1))
+
+	Func UseDirectoryBrowser P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions, Microsoft.AspNetCore.StaticFiles")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:UseDirectoryBrowser",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseDirectoryBrowser"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseDirectoryBrowser",P1))
+
+	Func UseRouting 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseRouting"))
+
+	Func UseEndpoints P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:UseEndpoints",P1))
+
+	Func UseExceptionHandler P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions, Microsoft.AspNetCore.Diagnostics")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:UseExceptionHandler",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseExceptionHandler"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseExceptionHandler",P1))
+
+	Func UseFileServer P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.FileServerExtensions, Microsoft.AspNetCore.StaticFiles")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:UseFileServer",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseFileServer"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseFileServer",P1))
+
+	Func UseForwardedHeaders P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions, Microsoft.AspNetCore.HttpOverrides")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:UseForwardedHeaders",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseForwardedHeaders"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseForwardedHeaders",P1))
+
+	Func UseHealthChecks P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions, Microsoft.AspNetCore.Diagnostics.HealthChecks")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:UseHealthChecks",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:UseHealthChecks",P1))
+
+	Func UseHostFiltering 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HostFilteringBuilderExtensions, Microsoft.AspNetCore.HostFiltering")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:UseHostFiltering"))
+
+	Func UseHsts 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HstsBuilderExtensions, Microsoft.AspNetCore.HttpsPolicy")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseHsts"))
+
+	Func UseHttpLogging 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HttpLoggingBuilderExtensions, Microsoft.AspNetCore.HttpLogging")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseHttpLogging"))
+
+	Func UseW3CLogging 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HttpLoggingBuilderExtensions, Microsoft.AspNetCore.HttpLogging")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseW3CLogging"))
+
+	Func UseHttpMethodOverride P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HttpMethodOverrideExtensions, Microsoft.AspNetCore.HttpOverrides")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:UseHttpMethodOverride",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s21:UseHttpMethodOverride"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UseHttpMethodOverride",P1))
+
+	Func UseHttpsRedirection 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions, Microsoft.AspNetCore.HttpsPolicy")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UseHttpsRedirection"))
+
+	Func Map P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.MapExtensions, Microsoft.AspNetCore.Http.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Map",P1))
+		ok
+		raise("DotNet Error: Map does not take one argument: use named arguments, Map([ :parameter = value, ... ])")
+
+	Func MapWhen P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.MapWhenExtensions, Microsoft.AspNetCore.Http.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:MapWhen",P1,P2))
+
+	Func UseMvc P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:UseMvc",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:UseMvc"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:UseMvc",P1))
+
+	Func UseMvcWithDefaultRoute 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:UseMvcWithDefaultRoute"))
+
+	Func UseOutputCache 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.OutputCacheApplicationBuilderExtensions, Microsoft.AspNetCore.OutputCaching")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseOutputCache"))
+
+	Func UseRateLimiter P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RateLimiterApplicationBuilderExtensions, Microsoft.AspNetCore.RateLimiting")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:UseRateLimiter",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseRateLimiter"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseRateLimiter",P1))
+
+	Func UseRequestDecompression 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestDecompressionBuilderExtensions, Microsoft.AspNetCore.RequestDecompression")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:UseRequestDecompression"))
+
+	Func UseRequestTimeouts 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIApplicationBuilderExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseRequestTimeouts"))
+
+	Func UseResponseCaching 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ResponseCachingExtensions, Microsoft.AspNetCore.ResponseCaching")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseResponseCaching"))
+
+	Func UseResponseCompression 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ResponseCompressionBuilderExtensions, Microsoft.AspNetCore.ResponseCompression")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:UseResponseCompression"))
+
+	Func UseRewriter P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RewriteBuilderExtensions, Microsoft.AspNetCore.Rewrite")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:UseRewriter",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s11:UseRewriter"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:UseRewriter",P1))
+
+	Func UseRouter P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RoutingBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:UseRouter",P1))
+
+	Func UseSession P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions, Microsoft.AspNetCore.Session")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UseSession",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSession"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSession",P1))
+
+	Func UseStaticFiles P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.StaticFileExtensions, Microsoft.AspNetCore.StaticFiles")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:UseStaticFiles",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseStaticFiles"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseStaticFiles",P1))
+
+	Func UseStatusCodePages P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:UseStatusCodePages",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseStatusCodePages"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseStatusCodePages",P1))
+
+	Func UseStatusCodePagesWithRedirects P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:UseStatusCodePagesWithRedirects",P1))
+
+	Func UseStatusCodePagesWithReExecute P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s31:UseStatusCodePagesWithReExecute",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:UseStatusCodePagesWithReExecute",P1))
+
+	Func UseMiddleware P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.UseMiddlewareExtensions, Microsoft.AspNetCore.Http.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseMiddleware",P1,P2))
+
+	Func UsePathBase P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.UsePathBaseExtensions, Microsoft.AspNetCore.Http.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:UsePathBase",P1))
+
+	Func UseWhen P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.UseWhenExtensions, Microsoft.AspNetCore.Http.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseWhen",P1,P2))
+
+	Func UseWebSockets P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.WebSocketMiddlewareExtensions, Microsoft.AspNetCore.WebSockets")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:UseWebSockets",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseWebSockets"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseWebSockets",P1))
+
+	Func UseWelcomePage P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.WelcomePageExtensions, Microsoft.AspNetCore.Diagnostics")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:UseWelcomePage",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseWelcomePage"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseWelcomePage",P1))
+
+	Func MapBlazorHub P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Server")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:MapBlazorHub",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:MapBlazorHub"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:MapBlazorHub",P1))
+
+	Func MapConnections P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ConnectionEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Http.Connections")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:MapConnections",P1))
+		ok
+		raise("DotNet Error: MapConnections does not take one argument: use named arguments, MapConnections([ :parameter = value, ... ])")
+
+	Func MapControllers 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:MapControllers"))
+
+	Func MapDefaultControllerRoute 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:MapDefaultControllerRoute"))
+
+	Func MapControllerRoute P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:MapControllerRoute",P1))
+		ok
+		raise("DotNet Error: MapControllerRoute does not take one argument: use named arguments, MapControllerRoute([ :parameter = value, ... ])")
+
+	Func MapAreaControllerRoute P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:MapAreaControllerRoute",P1))
+		ok
+		raise("DotNet Error: MapAreaControllerRoute does not take one argument: use named arguments, MapAreaControllerRoute([ :parameter = value, ... ])")
+
+	Func MapFallbackToController P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:MapFallbackToController",P1))
+		ok
+		raise("DotNet Error: MapFallbackToController does not take one argument: use named arguments, MapFallbackToController([ :parameter = value, ... ])")
+
+	Func MapFallbackToAreaController P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:MapFallbackToAreaController",P1))
+		ok
+		raise("DotNet Error: MapFallbackToAreaController does not take one argument: use named arguments, MapFallbackToAreaController([ :parameter = value, ... ])")
+
+	Func MapGroup P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:MapGroup",P1))
+
+	Func MapGet P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapGet",P1,P2))
+
+	Func MapPost P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:MapPost",P1,P2))
+
+	Func MapPut P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapPut",P1,P2))
+
+	Func MapDelete P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:MapDelete",P1,P2))
+
+	Func MapPatch P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:MapPatch",P1,P2))
+
+	Func MapMethods P1,P2,P3
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:MapMethods",P1,P2,P3))
+
+	Func MapFallback P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:MapFallback",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:MapFallback",P1))
+
+	Func MapHealthChecks P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HealthCheckEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Diagnostics.HealthChecks")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:MapHealthChecks",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapHealthChecks",P1))
+
+	Func MapRazorPages 
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:MapRazorPages"))
+
+	Func MapFallbackToPage P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:MapFallbackToPage",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:MapFallbackToPage",P1))
+
+	Func MapFallbackToAreaPage P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:MapFallbackToAreaPage",P1))
+		ok
+		raise("DotNet Error: MapFallbackToAreaPage does not take one argument: use named arguments, MapFallbackToAreaPage([ :parameter = value, ... ])")
+
+	Func MapStaticAssets P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.StaticAssetsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticAssets")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:MapStaticAssets",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapStaticAssets"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapStaticAssets",P1))
+
+	Func MapFallbackToFile P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.StaticFilesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticFiles")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:MapFallbackToFile",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:MapFallbackToFile",P1))
+
+	Func MapShortCircuit P1,P2
+		dnEnsureExt("Microsoft.AspNetCore.Routing.RouteShortCircuitEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapShortCircuit",P1,P2))
+
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func getServices
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))

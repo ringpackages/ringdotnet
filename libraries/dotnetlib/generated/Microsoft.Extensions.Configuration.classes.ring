@@ -483,6 +483,107 @@ Class ConfigurationBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func AddConfiguration P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ChainedBuilderExtensions, Microsoft.Extensions.Configuration")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:AddConfiguration",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddConfiguration",P1))
+
+	Func AddCommandLine P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions, Microsoft.Extensions.Configuration.CommandLine")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddCommandLine",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddCommandLine",P1))
+
+	Func AddEnvironmentVariables P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:AddEnvironmentVariables",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddEnvironmentVariables"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddEnvironmentVariables",P1))
+
+	Func SetFileProvider P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:SetFileProvider",P1))
+
+	Func GetFileProvider 
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetFileProvider"))
+
+	Func SetBasePath P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetBasePath",P1))
+
+	Func SetFileLoadExceptionHandler P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:SetFileLoadExceptionHandler",P1))
+
+	Func GetFileLoadExceptionHandler 
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetFileLoadExceptionHandler"))
+
+	Func AddIniFile P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddIniFile",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddIniFile",P1))
+
+	Func AddIniStream P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddIniStream",P1))
+
+	Func AddJsonFile P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddJsonFile",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddJsonFile",P1))
+
+	Func AddJsonStream P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddJsonStream",P1))
+
+	Func AddKeyPerFile P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions, Microsoft.Extensions.Configuration.KeyPerFile")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddKeyPerFile",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddKeyPerFile",P1))
+
+	Func AddInMemoryCollection P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:AddInMemoryCollection",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddInMemoryCollection"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddInMemoryCollection",P1))
+
+	Func AddUserSecrets P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddUserSecrets",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddUserSecrets",P1))
+
+	Func AddXmlFile P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddXmlFile",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddXmlFile",P1))
+
+	Func AddXmlStream P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddXmlStream",P1))
+
 	Func getSources
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Sources"))
 
@@ -684,6 +785,171 @@ Class ConfigurationManager from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func @Get P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Get",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
+
+	Func Bind P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Bind",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s4:Bind",P1)
+
+		return self
+
+	Func GetValue P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
+		ok
+		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
+
+	Func GetConnectionString P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetConnectionString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AsEnumerable P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AsEnumerable",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsEnumerable"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsEnumerable",P1))
+
+	Func GetRequiredSection P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredSection",P1))
+
+	Func AddConfiguration P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ChainedBuilderExtensions, Microsoft.Extensions.Configuration")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:AddConfiguration",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddConfiguration",P1))
+
+	Func AddCommandLine P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions, Microsoft.Extensions.Configuration.CommandLine")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddCommandLine",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddCommandLine",P1))
+
+	Func Add P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add",P1))
+
+	Func AddEnvironmentVariables P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:AddEnvironmentVariables",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddEnvironmentVariables"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddEnvironmentVariables",P1))
+
+	Func SetFileProvider P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:SetFileProvider",P1))
+
+	Func GetFileProvider 
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetFileProvider"))
+
+	Func SetBasePath P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetBasePath",P1))
+
+	Func SetFileLoadExceptionHandler P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:SetFileLoadExceptionHandler",P1))
+
+	Func GetFileLoadExceptionHandler 
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetFileLoadExceptionHandler"))
+
+	Func AddIniFile P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddIniFile",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddIniFile",P1))
+
+	Func AddIniStream P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddIniStream",P1))
+
+	Func AddJsonFile P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddJsonFile",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddJsonFile",P1))
+
+	Func AddJsonStream P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddJsonStream",P1))
+
+	Func AddKeyPerFile P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions, Microsoft.Extensions.Configuration.KeyPerFile")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddKeyPerFile",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddKeyPerFile",P1))
+
+	Func AddInMemoryCollection P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:AddInMemoryCollection",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddInMemoryCollection"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddInMemoryCollection",P1))
+
+	Func AddUserSecrets P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddUserSecrets",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddUserSecrets",P1))
+
+	Func AddXmlFile P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddXmlFile",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddXmlFile",P1))
+
+	Func AddXmlStream P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddXmlStream",P1))
+
+	Func GetDebugView P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:GetDebugView",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s12:GetDebugView")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetDebugView",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -870,6 +1136,66 @@ Class ConfigurationRoot from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetDebugView P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:GetDebugView",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s12:GetDebugView")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetDebugView",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func @Get P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Get",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
+
+	Func Bind P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Bind",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s4:Bind",P1)
+
+		return self
+
+	Func GetValue P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
+		ok
+		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
+
+	Func GetConnectionString P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetConnectionString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AsEnumerable P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AsEnumerable",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsEnumerable"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsEnumerable",P1))
+
+	Func GetRequiredSection P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredSection",P1))
+
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -943,6 +1269,56 @@ Class ConfigurationSection from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func Exists 
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Exists")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func @Get P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Get",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
+
+	Func Bind P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Bind",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s4:Bind",P1)
+
+		return self
+
+	Func @GetValue P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
+		ok
+		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
+
+	Func GetConnectionString P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetConnectionString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AsEnumerable P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AsEnumerable",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsEnumerable"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsEnumerable",P1))
+
+	Func GetRequiredSection P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredSection",P1))
 
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
@@ -1194,26 +1570,48 @@ Class IConfiguration from DotNetObject
 	Func GetReloadToken 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetReloadToken"))
 
-	Func @Get 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get"))
+	Func @Get P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Get",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
 
-	Func Bind P1,P2
-		dotnet_callv("s4:call",nHandle,"s4:Bind",P1,P2)
+	Func Bind P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Bind",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s4:Bind",P1)
 
 		return self
 
 	Func GetValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
+		ok
+		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
 
 	Func GetConnectionString P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
 		dn_x = dotnet_call("s4:call",nHandle,"s19:GetConnectionString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func AsEnumerable 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsEnumerable"))
+	Func AsEnumerable P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AsEnumerable",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsEnumerable"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsEnumerable",P1))
 
 	Func GetRequiredSection P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredSection",P1))
 
 	Func Item P1
@@ -1247,54 +1645,104 @@ Class IConfigurationBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
 
 	Func AddConfiguration P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ChainedBuilderExtensions, Microsoft.Extensions.Configuration")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:AddConfiguration",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddConfiguration",P1))
 
 	Func AddCommandLine P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions, Microsoft.Extensions.Configuration.CommandLine")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddCommandLine",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddCommandLine",P1))
 
-	Func AddEnvironmentVariables 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddEnvironmentVariables"))
+	Func AddEnvironmentVariables P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:AddEnvironmentVariables",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddEnvironmentVariables"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddEnvironmentVariables",P1))
 
 	Func SetFileProvider P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:SetFileProvider",P1))
 
 	Func GetFileProvider 
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetFileProvider"))
 
 	Func SetBasePath P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetBasePath",P1))
 
 	Func SetFileLoadExceptionHandler P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:SetFileLoadExceptionHandler",P1))
 
 	Func GetFileLoadExceptionHandler 
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetFileLoadExceptionHandler"))
 
 	Func AddIniFile P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddIniFile",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddIniFile",P1))
 
 	Func AddIniStream P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddIniStream",P1))
 
 	Func AddJsonFile P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddJsonFile",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddJsonFile",P1))
 
 	Func AddJsonStream P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddJsonStream",P1))
 
 	Func AddKeyPerFile P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions, Microsoft.Extensions.Configuration.KeyPerFile")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddKeyPerFile",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddKeyPerFile",P1))
 
-	Func AddInMemoryCollection 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddInMemoryCollection"))
+	Func AddInMemoryCollection P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:AddInMemoryCollection",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddInMemoryCollection"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddInMemoryCollection",P1))
 
-	Func AddUserSecrets 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddUserSecrets"))
+	Func AddUserSecrets P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddUserSecrets",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddUserSecrets",P1))
 
 	Func AddXmlFile P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddXmlFile",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddXmlFile",P1))
 
 	Func AddXmlStream P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddXmlStream",P1))
 
 	Func getProperties
@@ -1338,6 +1786,151 @@ Class IConfigurationManager from DotNetObject
 
 	Func Build 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
+
+	Func @Get P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Get",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
+
+	Func Bind P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Bind",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s4:Bind",P1)
+
+		return self
+
+	Func GetValue P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
+		ok
+		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
+
+	Func GetConnectionString P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetConnectionString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AsEnumerable P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AsEnumerable",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsEnumerable"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsEnumerable",P1))
+
+	Func GetRequiredSection P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredSection",P1))
+
+	Func AddConfiguration P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ChainedBuilderExtensions, Microsoft.Extensions.Configuration")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:AddConfiguration",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddConfiguration",P1))
+
+	Func AddCommandLine P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions, Microsoft.Extensions.Configuration.CommandLine")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddCommandLine",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddCommandLine",P1))
+
+	Func AddEnvironmentVariables P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:AddEnvironmentVariables",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddEnvironmentVariables"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddEnvironmentVariables",P1))
+
+	Func SetFileProvider P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:SetFileProvider",P1))
+
+	Func GetFileProvider 
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetFileProvider"))
+
+	Func SetBasePath P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetBasePath",P1))
+
+	Func SetFileLoadExceptionHandler P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:SetFileLoadExceptionHandler",P1))
+
+	Func GetFileLoadExceptionHandler 
+		dnEnsureExt("Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetFileLoadExceptionHandler"))
+
+	Func AddIniFile P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddIniFile",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddIniFile",P1))
+
+	Func AddIniStream P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddIniStream",P1))
+
+	Func AddJsonFile P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddJsonFile",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddJsonFile",P1))
+
+	Func AddJsonStream P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddJsonStream",P1))
+
+	Func AddKeyPerFile P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions, Microsoft.Extensions.Configuration.KeyPerFile")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddKeyPerFile",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddKeyPerFile",P1))
+
+	Func AddInMemoryCollection P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:AddInMemoryCollection",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddInMemoryCollection"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddInMemoryCollection",P1))
+
+	Func AddUserSecrets P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddUserSecrets",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddUserSecrets",P1))
+
+	Func AddXmlFile P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddXmlFile",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddXmlFile",P1))
+
+	Func AddXmlStream P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddXmlStream",P1))
 
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
@@ -1410,10 +2003,65 @@ Class IConfigurationRoot from DotNetObject
 	Func GetReloadToken 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetReloadToken"))
 
-	Func GetDebugView 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetDebugView")
+	Func GetDebugView P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:GetDebugView",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_call("s4:call",nHandle,"s12:GetDebugView")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+		ok
+		dn_x = dotnet_call("s4:call",nHandle,"s12:GetDebugView",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func @Get P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Get",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
+
+	Func Bind P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Bind",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s4:Bind",P1)
+
+		return self
+
+	Func GetValue P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
+		ok
+		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
+
+	Func GetConnectionString P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetConnectionString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AsEnumerable P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AsEnumerable",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsEnumerable"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsEnumerable",P1))
+
+	Func GetRequiredSection P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredSection",P1))
 
 	Func getProviders
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Providers"))
@@ -1447,9 +2095,54 @@ Class IConfigurationSection from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetReloadToken"))
 
 	Func Exists 
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Exists")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func @Get P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Get",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
+
+	Func Bind P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s4:Bind",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s4:Bind",P1)
+
+		return self
+
+	Func @GetValue P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
+		ok
+		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
+
+	Func GetConnectionString P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		dn_x = dotnet_call("s4:call",nHandle,"s19:GetConnectionString",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func AsEnumerable P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AsEnumerable",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsEnumerable"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsEnumerable",P1))
+
+	Func GetRequiredSection P1
+		dnEnsureExt("Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredSection",P1))
 
 	Func getKey
 		dn_x = dotnet_call("s3:get",nHandle,"s3:Key")

@@ -345,7 +345,14 @@ func buildPlan cTypeName, nForceInit
 	# the extension methods of this type. An extension method never changes the Ring signature of a method that the type already has:
 	# when the type has a method with the same name (an overloaded name is one Ring method with the parameters of the longest overload),
 	# the extension is added only when its number of parameters is one that the method already takes, and then without shorter forms.
-	nExtPos = find(aExtMap,aInfo[1],1)
+	aExtTargets = [aInfo[1]]          # the type, and the interfaces that it implements and its base class does not
+	if len(aInfo) >= 11
+		for cInterface in aInfo[11]
+			aExtTargets + cInterface
+		next
+	ok
+	for cExtTarget in aExtTargets
+	nExtPos = find(aExtMap,cExtTarget,1)
 	if nExtPos > 0
 		aMemberNames = []
 		for aMember in aMembers
@@ -361,6 +368,10 @@ func buildPlan cTypeName, nForceInit
 			lSameName = false
 			lCovered = false
 			for aMethod in aMethods
+				lInjected = len(aMethod) >= 7 and isstring(aMethod[7])          # an extension method that was added: only the methods of the type count
+				if lInjected
+					loop
+				ok
 				if lower(aMethod[1]) = lower(aExt[1])
 					lSameName = true
 					if aMethod[6] <= nLen and nLen <= len(aMethod[4])
@@ -382,13 +393,14 @@ func buildPlan cTypeName, nForceInit
 			ok
 			if lAdd
 				if lSameName
-					aMethods + [aExt[1],false,aExt[3],aExt[4],aExt[5],nLen]
+					aMethods + [aExt[1],false,aExt[3],aExt[4],aExt[5],nLen]          # a name of the type: found by the bridge when the assembly is loaded
 				else
 					aMethods + aExt
 				ok
 			ok
 		next
 	ok
+	next
 	aGood = []
 	for aMember in aMembers
 		if isIdent(aMember[1])
@@ -405,7 +417,11 @@ func buildPlan cTypeName, nForceInit
 			for nType = 1 to nCut
 				aShort + aMethod[4][nType]
 			next
-			aExpanded + [aMethod[1],aMethod[2],aMethod[3],aShort,aMethod[5],aMethod[6]]
+			if len(aMethod) >= 7
+				aExpanded + [aMethod[1],aMethod[2],aMethod[3],aShort,aMethod[5],aMethod[6],aMethod[7]]
+			else
+				aExpanded + [aMethod[1],aMethod[2],aMethod[3],aShort,aMethod[5],aMethod[6]]
+			ok
 		next
 	next
 	aMethods = aExpanded
@@ -688,6 +704,10 @@ func buildPlan cTypeName, nForceInit
 		ok
 		cReq += "]"
 		cB = "	Func " + cRing + " " + paraList(nArity) + nl
+		cHint = extensionHint(aMethods,cName)
+		if cHint != ""
+			cB += '		dnEnsureExt("' + cHint + '")' + nl
+		ok
 		if find(aBoth,cLower + "|" + nArity) > 0
 			# a static and an instance method with the same name: a class used without an object (nHandle = 0) calls the static one
 			aStaticRec = aMethod
@@ -927,9 +947,24 @@ func namedCall cRequest, cMode, cIndent
 	return nativeCall(cRequest,cMode)
 
 # The plain method of an overloaded family
+# The static class (assembly qualified) of an extension method that the type does not have under that name: its assembly may not be loaded
+# when the method is called, so the generated method asks the bridge to load it first (dnEnsureExt)
+func extensionHint aHintMethods, cHintName
+	cHintLower = lower(cHintName)
+	for aHintRec in aHintMethods
+		if len(aHintRec) >= 7 and isstring(aHintRec[7]) and lower(aHintRec[1]) = cHintLower
+			return aHintRec[7]
+		ok
+	next
+	return ""
+
 func dispatcherBlock cDiRing, cDiName, cDiType, aDiMethods, aDiFamily
 	aDiArities = aDiFamily[1]
 	cDiB = "	Func " + cDiRing + " P1" + nl
+	cDiHint = extensionHint(aDiMethods,cDiName)
+	if cDiHint != ""
+		cDiB += '		dnEnsureExt("' + cDiHint + '")' + nl
+	ok
 	cDiB += "		if dotnet_isnamed(P1)" + nl
 	# the named form: the bridge chooses the overload by the parameter names; static methods are reachable from an object
 	cDiMode = dispatcherMode(aDiMethods,cDiName)
@@ -1037,7 +1072,8 @@ func isExoticType cType
 
 # The extension methods of the static classes of the plan: each one becomes a method of the class of the type that it extends
 # (Table.AddColumn("Name") is TableExtensions.AddColumn(table, "Name")). The bridge finds them after the methods of the object itself.
-# Only types that have a Ring class in this run are extended (a type of another assembly, a generic type, string, object... are not).
+# Types with a Ring class in this run are extended, and so are the classes that implement the interface that a method extends (generic types
+# are not).
 func findExtensions aPlan
 	aExtMap = []
 	nCount = 0
@@ -1069,10 +1105,11 @@ func findExtensions aPlan
 			if len(aInfo) >= 9 and aInfo[2]
 				cQualified = aInfo[1] + ", " + aInfo[9]
 				for aMethod in aInfo[4]
-					if len(aMethod) >= 7 and aMethod[7] = 1 and len(aMethod[4]) >= 1 and isIdent(aMethod[1])
+					if len(aMethod) >= 8 and aMethod[7] = 1 and aMethod[8] = 0 and len(aMethod[4]) >= 1 and isIdent(aMethod[1])
 						cTarget = aMethod[4][1]
-						nTarget = find(aClassMap,cTarget,1)
-						if nTarget > 0
+						# a target with no class of its own (System.IServiceProvider) still counts: the classes that implement it get the methods
+						lTarget = (not substr(cTarget,"`")) and (not substr(cTarget,"["))
+						if lTarget
 							aRest = []
 							for nParam = 2 to len(aMethod[4])
 								aRest + aMethod[4][nParam]
@@ -1084,7 +1121,7 @@ func findExtensions aPlan
 								aExtMap + [cTarget,[]]
 								nPos = len(aExtMap)
 							ok
-							aExtMap[nPos][2] + [aMethod[1],false,aMethod[3],aRest,aMethod[5],nRequired]
+							aExtMap[nPos][2] + [aMethod[1],false,aMethod[3],aRest,aMethod[5],nRequired,cQualified]
 							nCount++
 						ok
 					ok

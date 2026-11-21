@@ -320,6 +320,7 @@ Class ChangeTracker from Object
 		return dn_x
 
 	Func ToDebugString P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.ChangeTrackerExtensions, Microsoft.EntityFrameworkCore")
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -973,6 +974,7 @@ Class ValueComparer from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore',"s13:CreateDefault",P1))
 
 	Func IsDefault 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparerExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_call("s4:call",nHandle,"s9:IsDefault")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x

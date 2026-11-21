@@ -631,6 +631,7 @@ Class IMigrationsAssembly from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateMigration",P1,P2))
 
 	Func GetMigrationId P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Migrations.MigrationsAssemblyExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s14:GetMigrationId",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
@@ -681,6 +682,10 @@ Class IMigrationsDatabaseLock from DotNetObject
 
 	Func DisposeAsync 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 
 Class IMigrationsIdGenerator from DotNetObject
@@ -1072,6 +1077,7 @@ Class MigrationBuilder from Object
 		return dn_x
 
 	Func IsSqlite 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Migrations.SqliteMigrationBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite")
 		dn_x = dotnet_call("s4:call",nHandle,"s8:IsSqlite")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x

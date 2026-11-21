@@ -740,6 +740,10 @@ Class AsyncServiceScope from ValueType
 	Func DisposeAsync 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
 
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+
 	Func getServiceProvider
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ServiceProvider"))
 
@@ -1444,14 +1448,19 @@ Class IHealthChecksBuilder from DotNetObject
 	Func Add P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add",P1))
 
-	Func AddCheck P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddCheck",P1,P2,P3,P4))
+	Func AddCheck P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions, Microsoft.Extensions.Diagnostics.HealthChecks")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:AddCheck",P1))
+		ok
+		raise("DotNet Error: AddCheck does not take one argument: use named arguments, AddCheck([ :parameter = value, ... ])")
 
-	Func AddTypeActivatedCheck P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddTypeActivatedCheck",P1,P2))
-
-	Func AddAsyncCheck P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAsyncCheck",P1,P2,P3))
+	Func AddAsyncCheck P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HealthChecksBuilderDelegateExtensions, Microsoft.Extensions.Diagnostics.HealthChecks")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddAsyncCheck",P1))
+		ok
+		raise("DotNet Error: AddAsyncCheck does not take one argument: use named arguments, AddAsyncCheck([ :parameter = value, ... ])")
 
 	Func getServices
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))
@@ -1475,18 +1484,23 @@ Class IHttpClientBuilder from DotNetObject
 		return self
 
 	Func ConfigureHttpClient P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:ConfigureHttpClient",P1))
 
 	Func AddHttpMessageHandler P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddHttpMessageHandler",P1))
 
 	Func ConfigurePrimaryHttpMessageHandler P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s34:ConfigurePrimaryHttpMessageHandler",P1))
 
 	Func ConfigureHttpMessageHandlerBuilder P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s34:ConfigureHttpMessageHandlerBuilder",P1))
 
 	Func UseSocketsHttpHandler P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:UseSocketsHttpHandler",P1))
 		ok
@@ -1495,19 +1509,24 @@ Class IHttpClientBuilder from DotNetObject
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UseSocketsHttpHandler",P1))
 
-	Func AddTypedClient 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddTypedClient"))
+	Func AddTypedClient P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddTypedClient",P1))
 
 	Func RedactLoggedHeaders P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:RedactLoggedHeaders",P1))
 
 	Func SetHandlerLifetime P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:SetHandlerLifetime",P1))
 
 	Func ConfigureAdditionalHttpMessageHandlers P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s38:ConfigureAdditionalHttpMessageHandlers",P1))
 
 	Func AddAsKeyed P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddAsKeyed",P1))
 		ok
@@ -1517,18 +1536,22 @@ Class IHttpClientBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddAsKeyed",P1))
 
 	Func RemoveAsKeyed 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:RemoveAsKeyed"))
 
 	Func AddLogger P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:AddLogger",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddLogger",P1))
 
 	Func RemoveAllLoggers 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAllLoggers"))
 
 	Func AddDefaultLogger 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddDefaultLogger"))
 
 	Func getName
@@ -1566,6 +1589,26 @@ Class IKeyedServiceProvider from DotNetObject
 	Func GetService P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetService",P1))
 
+	Func GetKeyedServices P1,P2
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1,P2))
+
+	Func GetRequiredService P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
+
+	Func GetServices P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
+
+	Func CreateScope 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateScope"))
+
+	Func CreateAsyncScope 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateAsyncScope"))
+
 
 Class IMvcBuilder from DotNetObject
 
@@ -1582,78 +1625,139 @@ Class IMvcBuilder from DotNetObject
 		return self
 
 	Func AddMvcOptions P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddMvcOptions",P1))
 
 	Func AddJsonOptions P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddJsonOptions",P1))
 
 	Func AddFormatterMappings P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddFormatterMappings",P1))
 
 	Func AddApplicationPart P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddApplicationPart",P1))
 
 	Func ConfigureApplicationPartManager P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:ConfigureApplicationPartManager",P1))
 
 	Func AddControllersAsServices 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:AddControllersAsServices"))
 
 	Func SetCompatibilityVersion P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:SetCompatibilityVersion",P1))
 
 	Func ConfigureApiBehaviorOptions P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:ConfigureApiBehaviorOptions",P1))
 
-	Func AddDataAnnotationsLocalization 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s30:AddDataAnnotationsLocalization"))
+	Func AddDataAnnotationsLocalization P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcDataAnnotationsMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.DataAnnotations")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s30:AddDataAnnotationsLocalization",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s30:AddDataAnnotationsLocalization"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:AddDataAnnotationsLocalization",P1))
 
-	Func AddViewLocalization 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddViewLocalization"))
+	Func AddViewLocalization P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:AddViewLocalization",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddViewLocalization"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddViewLocalization",P1))
 
-	Func AddMvcLocalization 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddMvcLocalization"))
+	Func AddMvcLocalization P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddMvcLocalization",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddMvcLocalization"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddMvcLocalization",P1))
 
 	Func AddRazorOptions P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcRazorMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddRazorOptions",P1))
 
 	Func AddTagHelpersAsServices 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcRazorMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddTagHelpersAsServices"))
 
 	Func InitializeTagHelper P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcRazorMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:InitializeTagHelper",P1))
 
 	Func AddRazorPagesOptions P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddRazorPagesOptions",P1))
 
 	Func WithRazorPagesRoot P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:WithRazorPagesRoot",P1))
 
 	Func WithRazorPagesAtContentRoot 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:WithRazorPagesAtContentRoot"))
 
 	Func AddViewOptions P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddViewOptions",P1))
 
 	Func AddViewComponentsAsServices 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:AddViewComponentsAsServices"))
 
 	Func AddSessionStateTempDataProvider 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:AddSessionStateTempDataProvider"))
 
-	Func AddCookieTempDataProvider 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:AddCookieTempDataProvider"))
+	Func AddCookieTempDataProvider P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AddCookieTempDataProvider",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s25:AddCookieTempDataProvider"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:AddCookieTempDataProvider",P1))
 
 	Func AddXmlOptions P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddXmlOptions",P1))
 
-	Func AddXmlDataContractSerializerFormatters 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s38:AddXmlDataContractSerializerFormatters"))
+	Func AddXmlDataContractSerializerFormatters P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s38:AddXmlDataContractSerializerFormatters",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s38:AddXmlDataContractSerializerFormatters"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s38:AddXmlDataContractSerializerFormatters",P1))
 
-	Func AddXmlSerializerFormatters 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s26:AddXmlSerializerFormatters"))
+	Func AddXmlSerializerFormatters P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s26:AddXmlSerializerFormatters",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s26:AddXmlSerializerFormatters"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:AddXmlSerializerFormatters",P1))
 
 	Func AddCacheTagHelperLimits P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.TagHelperServicesExtensions, Microsoft.AspNetCore.Mvc.TagHelpers")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddCacheTagHelperLimits",P1))
 
 	Func getServices
@@ -1684,90 +1788,191 @@ Class IMvcCoreBuilder from DotNetObject
 		return self
 
 	Func AddApiExplorer 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcApiExplorerMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ApiExplorer")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddApiExplorer"))
 
 	Func AddMvcOptions P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddMvcOptions",P1))
 
 	Func AddJsonOptions P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddJsonOptions",P1))
 
-	Func AddFormatterMappings 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddFormatterMappings"))
+	Func AddFormatterMappings P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:AddFormatterMappings",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddFormatterMappings"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddFormatterMappings",P1))
 
-	Func AddAuthorization 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddAuthorization"))
+	Func AddAuthorization P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:AddAuthorization",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddAuthorization"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddAuthorization",P1))
 
 	Func AddControllersAsServices 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:AddControllersAsServices"))
 
 	Func AddApplicationPart P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddApplicationPart",P1))
 
 	Func ConfigureApplicationPartManager P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:ConfigureApplicationPartManager",P1))
 
 	Func ConfigureApiBehaviorOptions P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:ConfigureApiBehaviorOptions",P1))
 
 	Func SetCompatibilityVersion P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:SetCompatibilityVersion",P1))
 
-	Func AddCors 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AddCors"))
+	Func AddCors P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Cors")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:AddCors",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s7:AddCors"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AddCors",P1))
 
 	Func ConfigureCors P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Cors")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ConfigureCors",P1))
 
 	Func AddDataAnnotations 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcDataAnnotationsMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.DataAnnotations")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddDataAnnotations"))
 
-	Func AddDataAnnotationsLocalization 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s30:AddDataAnnotationsLocalization"))
+	Func AddDataAnnotationsLocalization P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcDataAnnotationsMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.DataAnnotations")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s30:AddDataAnnotationsLocalization",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s30:AddDataAnnotationsLocalization"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:AddDataAnnotationsLocalization",P1))
 
-	Func AddViewLocalization 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddViewLocalization"))
+	Func AddViewLocalization P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:AddViewLocalization",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddViewLocalization"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddViewLocalization",P1))
 
-	Func AddMvcLocalization 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddMvcLocalization"))
+	Func AddMvcLocalization P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddMvcLocalization",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddMvcLocalization"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddMvcLocalization",P1))
 
-	Func AddRazorViewEngine 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddRazorViewEngine"))
+	Func AddRazorViewEngine P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcRazorMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddRazorViewEngine",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddRazorViewEngine"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddRazorViewEngine",P1))
 
 	Func AddTagHelpersAsServices 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcRazorMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddTagHelpersAsServices"))
 
 	Func InitializeTagHelper P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcRazorMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:InitializeTagHelper",P1))
 
-	Func AddRazorPages 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddRazorPages"))
+	Func AddRazorPages P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddRazorPages",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddRazorPages"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddRazorPages",P1))
 
 	Func WithRazorPagesRoot P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:WithRazorPagesRoot",P1))
 
-	Func AddViews 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddViews"))
+	Func AddViews P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:AddViews",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddViews"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddViews",P1))
 
-	Func AddCookieTempDataProvider 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:AddCookieTempDataProvider"))
+	Func AddCookieTempDataProvider P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AddCookieTempDataProvider",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s25:AddCookieTempDataProvider"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:AddCookieTempDataProvider",P1))
 
 	Func ConfigureViews P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureViews",P1))
 
 	Func AddXmlOptions P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddXmlOptions",P1))
 
-	Func AddXmlDataContractSerializerFormatters 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s38:AddXmlDataContractSerializerFormatters"))
+	Func AddXmlDataContractSerializerFormatters P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s38:AddXmlDataContractSerializerFormatters",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s38:AddXmlDataContractSerializerFormatters"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s38:AddXmlDataContractSerializerFormatters",P1))
 
-	Func AddXmlSerializerFormatters 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s26:AddXmlSerializerFormatters"))
+	Func AddXmlSerializerFormatters P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s26:AddXmlSerializerFormatters",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s26:AddXmlSerializerFormatters"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:AddXmlSerializerFormatters",P1))
 
 	Func AddCacheTagHelper 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.TagHelperServicesExtensions, Microsoft.AspNetCore.Mvc.TagHelpers")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddCacheTagHelper"))
 
 	Func AddCacheTagHelperLimits P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.TagHelperServicesExtensions, Microsoft.AspNetCore.Mvc.TagHelpers")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddCacheTagHelperLimits",P1))
 
 	Func getServices
@@ -1797,6 +2002,7 @@ Class IRazorComponentsBuilder from DotNetObject
 		return self
 
 	Func AddInteractiveServerComponents P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServerRazorComponentsBuilderExtensions, Microsoft.AspNetCore.Components.Server")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s30:AddInteractiveServerComponents",P1))
 		ok
@@ -1826,10 +2032,22 @@ Class IServerSideBlazorBuilder from DotNetObject
 		return self
 
 	Func AddCircuitOptions P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServerSideBlazorBuilderExtensions, Microsoft.AspNetCore.Components.Server")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddCircuitOptions",P1))
 
 	Func AddHubOptions P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServerSideBlazorBuilderExtensions, Microsoft.AspNetCore.Components.Server")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddHubOptions",P1))
+
+	Func AddInteractiveServerComponents P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServerRazorComponentsBuilderExtensions, Microsoft.AspNetCore.Components.Server")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s30:AddInteractiveServerComponents",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s30:AddInteractiveServerComponents"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s30:AddInteractiveServerComponents",P1))
 
 	Func getServices
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))
@@ -1896,47 +2114,104 @@ Class IServiceCollection from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func AddHostFiltering P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HostFilteringServicesExtensions, Microsoft.AspNetCore.HostFiltering")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddHostFiltering",P1))
 
 	Func AddHsts P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HstsServicesExtensions, Microsoft.AspNetCore.HttpsPolicy")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AddHsts",P1))
 
 	Func AddHttpsRedirection P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HttpsRedirectionServicesExtensions, Microsoft.AspNetCore.HttpsPolicy")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddHttpsRedirection",P1))
 
 	Func AddRateLimiter P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RateLimiterServiceCollectionExtensions, Microsoft.AspNetCore.RateLimiting")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddRateLimiter",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddRateLimiter"))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddRateLimiter",P1))
 
-	Func AddResponseCompression 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:AddResponseCompression"))
+	Func AddResponseCompression P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ResponseCompressionServicesExtensions, Microsoft.AspNetCore.ResponseCompression")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:AddResponseCompression",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s22:AddResponseCompression"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:AddResponseCompression",P1))
 
-	Func AddAntiforgery 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddAntiforgery"))
+	Func AddAntiforgery P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.AntiforgeryServiceCollectionExtensions, Microsoft.AspNetCore.Antiforgery")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddAntiforgery",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddAntiforgery"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddAntiforgery",P1))
 
-	Func AddAuthenticationCore 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddAuthenticationCore"))
+	Func AddAuthenticationCore P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.AuthenticationCoreServiceCollectionExtensions, Microsoft.AspNetCore.Authentication.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:AddAuthenticationCore",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddAuthenticationCore"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddAuthenticationCore",P1))
 
-	Func AddAuthentication 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddAuthentication"))
+	Func AddAuthentication P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions, Microsoft.AspNetCore.Authentication")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddAuthentication",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddAuthentication"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddAuthentication",P1))
 
-	Func AddAuthorizationCore 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddAuthorizationCore"))
+	Func AddAuthorizationCore P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.AuthorizationServiceCollectionExtensions, Microsoft.AspNetCore.Authorization")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:AddAuthorizationCore",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddAuthorizationCore"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddAuthorizationCore",P1))
 
 	Func AddCascadingAuthenticationState 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.CascadingAuthenticationStateServiceCollectionExtensions, Microsoft.AspNetCore.Components.Authorization")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:AddCascadingAuthenticationState"))
 
 	Func AddCascadingValue P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.CascadingValueServiceCollectionExtensions, Microsoft.AspNetCore.Components")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddCascadingValue",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddCascadingValue",P1))
 
 	Func TryAddCascadingValue P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.CascadingValueServiceCollectionExtensions, Microsoft.AspNetCore.Components")
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s20:TryAddCascadingValue",P1)
+			return self
+		ok
 		dotnet_callv("s4:call",nHandle,"s20:TryAddCascadingValue",P1)
 
 		return self
 
 	Func AddCertificateForwarding P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.CertificateForwardingServiceExtensions, Microsoft.AspNetCore.HttpOverrides")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:AddCertificateForwarding",P1))
 
 	Func AddServerSideBlazor P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ComponentServiceCollectionExtensions, Microsoft.AspNetCore.Components.Server")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:AddServerSideBlazor",P1))
 		ok
@@ -1945,139 +2220,280 @@ Class IServiceCollection from DotNetObject
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddServerSideBlazor",P1))
 
-	Func AddConnections 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddConnections"))
+	Func AddConnections P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ConnectionsDependencyInjectionExtensions, Microsoft.AspNetCore.Http.Connections")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddConnections",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddConnections"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddConnections",P1))
 
 	Func AddCookiePolicy P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.CookiePolicyServiceCollectionExtensions, Microsoft.AspNetCore.CookiePolicy")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddCookiePolicy",P1))
 
-	Func AddCors 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AddCors"))
+	Func AddCors P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.CorsServiceCollectionExtensions, Microsoft.AspNetCore.Cors")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:AddCors",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s7:AddCors"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AddCors",P1))
 
-	Func AddDataProtection 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddDataProtection"))
+	Func AddDataProtection P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.DataProtectionServiceCollectionExtensions, Microsoft.AspNetCore.DataProtection")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddDataProtection",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddDataProtection"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddDataProtection",P1))
 
 	Func AddDirectoryBrowser 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.DirectoryBrowserServiceExtensions, Microsoft.AspNetCore.StaticFiles")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddDirectoryBrowser"))
 
-	Func AddWebEncoders 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddWebEncoders"))
+	Func AddWebEncoders P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.EncoderServiceCollectionExtensions, Microsoft.Extensions.WebEncoders")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddWebEncoders",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddWebEncoders"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddWebEncoders",P1))
 
 	Func AddEndpointsApiExplorer 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.EndpointMetadataApiExplorerServiceCollectionExtensions, Microsoft.AspNetCore.Mvc.ApiExplorer")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddEndpointsApiExplorer"))
 
 	Func AddExceptionHandler P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ExceptionHandlerServiceCollectionExtensions, Microsoft.AspNetCore.Diagnostics")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddExceptionHandler",P1))
 
 	Func AddHealthChecks 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions, Microsoft.Extensions.Diagnostics.HealthChecks")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddHealthChecks"))
 
-	Func AddHttpClient 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddHttpClient"))
+	Func AddHttpClient P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions, Microsoft.Extensions.Http")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddHttpClient",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddHttpClient"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddHttpClient",P1))
 
 	Func ConfigureHttpClientDefaults P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions, Microsoft.Extensions.Http")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:ConfigureHttpClientDefaults",P1))
 
 	Func ConfigureHttpJsonOptions P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpJsonServiceExtensions, Microsoft.AspNetCore.Http.Extensions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ConfigureHttpJsonOptions",P1))
 
-	Func AddHttpLogging 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddHttpLogging"))
-
-	Func AddHttpLoggingInterceptor 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:AddHttpLoggingInterceptor"))
+	Func AddHttpLogging P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddHttpLogging",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddHttpLogging"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddHttpLogging",P1))
 
 	Func AddW3CLogging P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddW3CLogging",P1))
 
 	Func AddHttpContextAccessor 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpServiceCollectionExtensions, Microsoft.AspNetCore.Http")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:AddHttpContextAccessor"))
 
-	Func AddIdentity 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddIdentity"))
-
-	Func AddIdentityApiEndpoints 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddIdentityApiEndpoints"))
-
 	Func ConfigureApplicationCookie P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:ConfigureApplicationCookie",P1))
 
 	Func ConfigureExternalCookie P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:ConfigureExternalCookie",P1))
 
-	Func AddLocalization 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddLocalization"))
-
-	Func AddLogging 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddLogging"))
-
-	Func AddMemoryCache 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddMemoryCache"))
-
-	Func AddDistributedMemoryCache 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:AddDistributedMemoryCache"))
-
-	Func AddMetrics 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddMetrics"))
-
-	Func AddMvcCore 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddMvcCore"))
-
-	Func AddMvc 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AddMvc"))
-
-	Func AddControllers 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddControllers"))
-
-	Func AddControllersWithViews 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddControllersWithViews"))
-
-	Func AddRazorPages 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddRazorPages"))
-
-	Func Configure P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
-
-	Func AddOptions 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddOptions"))
-
-	Func AddOptionsWithValidateOnStart P1
+	Func AddLocalization P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.LocalizationServiceCollectionExtensions, Microsoft.Extensions.Localization")
 		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s29:AddOptionsWithValidateOnStart",P1))
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:AddLocalization",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s29:AddOptionsWithValidateOnStart"))
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddLocalization"))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s29:AddOptionsWithValidateOnStart",P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddLocalization",P1))
+
+	Func AddLogging P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.LoggingServiceCollectionExtensions, Microsoft.Extensions.Logging")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddLogging",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddLogging"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddLogging",P1))
+
+	Func AddMemoryCache P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions, Microsoft.Extensions.Caching.Memory")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddMemoryCache",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddMemoryCache"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddMemoryCache",P1))
+
+	Func AddDistributedMemoryCache P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions, Microsoft.Extensions.Caching.Memory")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AddDistributedMemoryCache",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s25:AddDistributedMemoryCache"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:AddDistributedMemoryCache",P1))
+
+	Func AddMetrics P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MetricsServiceExtensions, Microsoft.Extensions.Diagnostics")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddMetrics",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddMetrics"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddMetrics",P1))
+
+	Func AddMvcCore P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCoreServiceCollectionExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddMvcCore",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddMvcCore"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddMvcCore",P1))
+
+	Func AddMvc P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:AddMvc",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:AddMvc"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AddMvc",P1))
+
+	Func AddControllers P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddControllers",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddControllers"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddControllers",P1))
+
+	Func AddControllersWithViews P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:AddControllersWithViews",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddControllersWithViews"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddControllersWithViews",P1))
+
+	Func AddRazorPages P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddRazorPages",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddRazorPages"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddRazorPages",P1))
+
+	Func AddOptions 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddOptions"))
+
+	Func Configure P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Configure",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
 
 	Func ConfigureAll P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ConfigureAll",P1))
 
 	Func PostConfigure P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:PostConfigure",P1))
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:PostConfigure",P1))
 
 	Func PostConfigureAll P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:PostConfigureAll",P1))
 
-	Func ConfigureOptions 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureOptions"))
+	Func ConfigureOptions P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureOptions",P1))
 
-	Func AddOutputCache 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddOutputCache"))
+	Func AddOutputCache P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OutputCacheServiceCollectionExtensions, Microsoft.AspNetCore.OutputCaching")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddOutputCache",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddOutputCache"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddOutputCache",P1))
 
 	Func AddAuthorizationBuilder 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.PolicyServiceCollectionExtensions, Microsoft.AspNetCore.Authorization.Policy")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddAuthorizationBuilder"))
 
 	Func AddAuthorizationPolicyEvaluator 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.PolicyServiceCollectionExtensions, Microsoft.AspNetCore.Authorization.Policy")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:AddAuthorizationPolicyEvaluator"))
 
-	Func AddAuthorization 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddAuthorization"))
+	Func AddAuthorization P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.PolicyServiceCollectionExtensions, Microsoft.AspNetCore.Authorization.Policy")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:AddAuthorization",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddAuthorization"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddAuthorization",P1))
 
-	Func AddProblemDetails 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddProblemDetails"))
+	Func AddProblemDetails P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ProblemDetailsServiceCollectionExtensions, Microsoft.AspNetCore.Http.Extensions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddProblemDetails",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddProblemDetails"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddProblemDetails",P1))
 
 	Func AddRazorComponents P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.RazorComponentsServiceCollectionExtensions, Microsoft.AspNetCore.Components.Endpoints")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddRazorComponents",P1))
 		ok
@@ -2086,53 +2502,129 @@ Class IServiceCollection from DotNetObject
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddRazorComponents",P1))
 
-	Func AddRequestDecompression 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddRequestDecompression"))
+	Func AddRequestDecompression P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.RequestDecompressionServiceExtensions, Microsoft.AspNetCore.RequestDecompression")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:AddRequestDecompression",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddRequestDecompression"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddRequestDecompression",P1))
 
 	Func AddRequestLocalization P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.RequestLocalizationServiceCollectionExtensions, Microsoft.AspNetCore.Localization")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:AddRequestLocalization",P1))
 
-	Func AddRequestTimeouts 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddRequestTimeouts"))
+	Func AddRequestTimeouts P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.RequestTimeoutsIServiceCollectionExtensions, Microsoft.AspNetCore.Http")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddRequestTimeouts",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddRequestTimeouts"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddRequestTimeouts",P1))
 
-	Func AddResponseCaching 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddResponseCaching"))
+	Func AddResponseCaching P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ResponseCachingServicesExtensions, Microsoft.AspNetCore.ResponseCaching")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddResponseCaching",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddResponseCaching"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddResponseCaching",P1))
 
-	Func AddRouting 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddRouting"))
+	Func AddRouting P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions, Microsoft.AspNetCore.Routing")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddRouting",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddRouting"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddRouting",P1))
 
 	Func AddRoutingCore 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions, Microsoft.AspNetCore.Routing")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddRoutingCore"))
 
-	Func BuildServiceProvider 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:BuildServiceProvider"))
+	Func BuildServiceProvider P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions, Microsoft.Extensions.DependencyInjection")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:BuildServiceProvider",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s20:BuildServiceProvider"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:BuildServiceProvider",P1))
 
-	Func AddHostedService 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddHostedService"))
+	Func AddHostedService P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionHostedServiceExtensions, Microsoft.Extensions.Hosting.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddHostedService",P1))
 
-	Func AddTransient P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddTransient",P1,P2))
+	Func AddTransient P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AddTransient",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddTransient",P1))
 
-	Func AddScoped P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddScoped",P1,P2))
+	Func AddScoped P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:AddScoped",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddScoped",P1))
 
-	Func AddSingleton P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddSingleton",P1,P2))
+	Func AddSingleton P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AddSingleton",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddSingleton",P1))
 
-	Func AddKeyedTransient P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddKeyedTransient",P1,P2,P3))
+	Func AddKeyedTransient P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddKeyedTransient",P1))
+		ok
+		raise("DotNet Error: AddKeyedTransient does not take one argument: use named arguments, AddKeyedTransient([ :parameter = value, ... ])")
 
-	Func AddKeyedScoped P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddKeyedScoped",P1,P2,P3))
+	Func AddKeyedScoped P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddKeyedScoped",P1))
+		ok
+		raise("DotNet Error: AddKeyedScoped does not take one argument: use named arguments, AddKeyedScoped([ :parameter = value, ... ])")
 
-	Func AddKeyedSingleton P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddKeyedSingleton",P1,P2,P3))
+	Func AddKeyedSingleton P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddKeyedSingleton",P1))
+		ok
+		raise("DotNet Error: AddKeyedSingleton does not take one argument: use named arguments, AddKeyedSingleton([ :parameter = value, ... ])")
 
-	Func AddSession 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddSession"))
+	Func AddSession P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.SessionServiceCollectionExtensions, Microsoft.AspNetCore.Session")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddSession",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddSession"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddSession",P1))
 
-	Func AddSignalR 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddSignalR"))
+	Func AddSignalR P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.SignalRDependencyInjectionExtensions, Microsoft.AspNetCore.SignalR")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddSignalR",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddSignalR"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddSignalR",P1))
 
 	Func getCount
 		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
@@ -2230,6 +2722,7 @@ Class IServiceScopeFactory from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateScope"))
 
 	Func CreateAsyncScope 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateAsyncScope"))
 
 
@@ -2248,6 +2741,7 @@ Class ISocketsHttpHandlerBuilder from DotNetObject
 		return self
 
 	Func Configure P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.SocketsHttpHandlerBuilderExtensions, Microsoft.Extensions.Http")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
 
 	Func getName
@@ -3590,6 +4084,519 @@ Class ServiceCollection from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func AddHostFiltering P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HostFilteringServicesExtensions, Microsoft.AspNetCore.HostFiltering")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddHostFiltering",P1))
+
+	Func AddHsts P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HstsServicesExtensions, Microsoft.AspNetCore.HttpsPolicy")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AddHsts",P1))
+
+	Func AddHttpsRedirection P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.HttpsRedirectionServicesExtensions, Microsoft.AspNetCore.HttpsPolicy")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddHttpsRedirection",P1))
+
+	Func AddRateLimiter P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.RateLimiterServiceCollectionExtensions, Microsoft.AspNetCore.RateLimiting")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddRateLimiter",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddRateLimiter"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddRateLimiter",P1))
+
+	Func AddResponseCompression P1
+		dnEnsureExt("Microsoft.AspNetCore.Builder.ResponseCompressionServicesExtensions, Microsoft.AspNetCore.ResponseCompression")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:AddResponseCompression",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s22:AddResponseCompression"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:AddResponseCompression",P1))
+
+	Func AddAntiforgery P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.AntiforgeryServiceCollectionExtensions, Microsoft.AspNetCore.Antiforgery")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddAntiforgery",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddAntiforgery"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddAntiforgery",P1))
+
+	Func AddAuthenticationCore P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.AuthenticationCoreServiceCollectionExtensions, Microsoft.AspNetCore.Authentication.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:AddAuthenticationCore",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddAuthenticationCore"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AddAuthenticationCore",P1))
+
+	Func AddAuthentication P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions, Microsoft.AspNetCore.Authentication")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddAuthentication",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddAuthentication"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddAuthentication",P1))
+
+	Func AddAuthorizationCore P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.AuthorizationServiceCollectionExtensions, Microsoft.AspNetCore.Authorization")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:AddAuthorizationCore",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddAuthorizationCore"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddAuthorizationCore",P1))
+
+	Func AddCascadingAuthenticationState 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.CascadingAuthenticationStateServiceCollectionExtensions, Microsoft.AspNetCore.Components.Authorization")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:AddCascadingAuthenticationState"))
+
+	Func AddCascadingValue P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.CascadingValueServiceCollectionExtensions, Microsoft.AspNetCore.Components")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddCascadingValue",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddCascadingValue",P1))
+
+	Func TryAddCascadingValue P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.CascadingValueServiceCollectionExtensions, Microsoft.AspNetCore.Components")
+		if dotnet_isnamed(P1)
+			dotnet_callv("s9:callnamed",nHandle,"s20:TryAddCascadingValue",P1)
+			return self
+		ok
+		dotnet_callv("s4:call",nHandle,"s20:TryAddCascadingValue",P1)
+
+		return self
+
+	Func AddCertificateForwarding P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.CertificateForwardingServiceExtensions, Microsoft.AspNetCore.HttpOverrides")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:AddCertificateForwarding",P1))
+
+	Func AddServerSideBlazor P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ComponentServiceCollectionExtensions, Microsoft.AspNetCore.Components.Server")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:AddServerSideBlazor",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddServerSideBlazor"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddServerSideBlazor",P1))
+
+	Func AddConnections P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ConnectionsDependencyInjectionExtensions, Microsoft.AspNetCore.Http.Connections")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddConnections",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddConnections"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddConnections",P1))
+
+	Func AddCookiePolicy P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.CookiePolicyServiceCollectionExtensions, Microsoft.AspNetCore.CookiePolicy")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddCookiePolicy",P1))
+
+	Func AddCors P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.CorsServiceCollectionExtensions, Microsoft.AspNetCore.Cors")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:AddCors",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s7:AddCors"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AddCors",P1))
+
+	Func AddDataProtection P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.DataProtectionServiceCollectionExtensions, Microsoft.AspNetCore.DataProtection")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddDataProtection",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddDataProtection"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddDataProtection",P1))
+
+	Func AddDirectoryBrowser 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.DirectoryBrowserServiceExtensions, Microsoft.AspNetCore.StaticFiles")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddDirectoryBrowser"))
+
+	Func AddWebEncoders P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.EncoderServiceCollectionExtensions, Microsoft.Extensions.WebEncoders")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddWebEncoders",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddWebEncoders"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddWebEncoders",P1))
+
+	Func AddEndpointsApiExplorer 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.EndpointMetadataApiExplorerServiceCollectionExtensions, Microsoft.AspNetCore.Mvc.ApiExplorer")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddEndpointsApiExplorer"))
+
+	Func AddExceptionHandler P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ExceptionHandlerServiceCollectionExtensions, Microsoft.AspNetCore.Diagnostics")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddExceptionHandler",P1))
+
+	Func AddHealthChecks 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions, Microsoft.Extensions.Diagnostics.HealthChecks")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddHealthChecks"))
+
+	Func AddHttpClient P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions, Microsoft.Extensions.Http")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddHttpClient",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddHttpClient"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddHttpClient",P1))
+
+	Func ConfigureHttpClientDefaults P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions, Microsoft.Extensions.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s27:ConfigureHttpClientDefaults",P1))
+
+	Func ConfigureHttpJsonOptions P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpJsonServiceExtensions, Microsoft.AspNetCore.Http.Extensions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ConfigureHttpJsonOptions",P1))
+
+	Func AddHttpLogging P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddHttpLogging",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddHttpLogging"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddHttpLogging",P1))
+
+	Func AddW3CLogging P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddW3CLogging",P1))
+
+	Func AddHttpContextAccessor 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.HttpServiceCollectionExtensions, Microsoft.AspNetCore.Http")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:AddHttpContextAccessor"))
+
+	Func ConfigureApplicationCookie P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s26:ConfigureApplicationCookie",P1))
+
+	Func ConfigureExternalCookie P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:ConfigureExternalCookie",P1))
+
+	Func AddLocalization P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.LocalizationServiceCollectionExtensions, Microsoft.Extensions.Localization")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:AddLocalization",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddLocalization"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddLocalization",P1))
+
+	Func AddLogging P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.LoggingServiceCollectionExtensions, Microsoft.Extensions.Logging")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddLogging",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddLogging"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddLogging",P1))
+
+	Func AddMemoryCache P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions, Microsoft.Extensions.Caching.Memory")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddMemoryCache",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddMemoryCache"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddMemoryCache",P1))
+
+	Func AddDistributedMemoryCache P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions, Microsoft.Extensions.Caching.Memory")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AddDistributedMemoryCache",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s25:AddDistributedMemoryCache"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s25:AddDistributedMemoryCache",P1))
+
+	Func AddMetrics P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MetricsServiceExtensions, Microsoft.Extensions.Diagnostics")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddMetrics",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddMetrics"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddMetrics",P1))
+
+	Func AddMvcCore P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcCoreServiceCollectionExtensions, Microsoft.AspNetCore.Mvc.Core")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddMvcCore",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddMvcCore"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddMvcCore",P1))
+
+	Func AddMvc P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:AddMvc",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s6:AddMvc"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AddMvc",P1))
+
+	Func AddControllers P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddControllers",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddControllers"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddControllers",P1))
+
+	Func AddControllersWithViews P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:AddControllersWithViews",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddControllersWithViews"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddControllersWithViews",P1))
+
+	Func AddRazorPages P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AddRazorPages",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddRazorPages"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddRazorPages",P1))
+
+	Func AddOptions 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddOptions"))
+
+	Func Configure P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Configure",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
+
+	Func ConfigureAll P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ConfigureAll",P1))
+
+	Func PostConfigure P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:PostConfigure",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:PostConfigure",P1))
+
+	Func PostConfigureAll P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:PostConfigureAll",P1))
+
+	Func ConfigureOptions P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureOptions",P1))
+
+	Func AddOutputCache P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OutputCacheServiceCollectionExtensions, Microsoft.AspNetCore.OutputCaching")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddOutputCache",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddOutputCache"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddOutputCache",P1))
+
+	Func AddAuthorizationBuilder 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.PolicyServiceCollectionExtensions, Microsoft.AspNetCore.Authorization.Policy")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddAuthorizationBuilder"))
+
+	Func AddAuthorizationPolicyEvaluator 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.PolicyServiceCollectionExtensions, Microsoft.AspNetCore.Authorization.Policy")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s31:AddAuthorizationPolicyEvaluator"))
+
+	Func AddAuthorization P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.PolicyServiceCollectionExtensions, Microsoft.AspNetCore.Authorization.Policy")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:AddAuthorization",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddAuthorization"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddAuthorization",P1))
+
+	Func AddProblemDetails P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ProblemDetailsServiceCollectionExtensions, Microsoft.AspNetCore.Http.Extensions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddProblemDetails",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddProblemDetails"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddProblemDetails",P1))
+
+	Func AddRazorComponents P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.RazorComponentsServiceCollectionExtensions, Microsoft.AspNetCore.Components.Endpoints")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddRazorComponents",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddRazorComponents"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddRazorComponents",P1))
+
+	Func AddRequestDecompression P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.RequestDecompressionServiceExtensions, Microsoft.AspNetCore.RequestDecompression")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:AddRequestDecompression",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddRequestDecompression"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:AddRequestDecompression",P1))
+
+	Func AddRequestLocalization P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.RequestLocalizationServiceCollectionExtensions, Microsoft.AspNetCore.Localization")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s22:AddRequestLocalization",P1))
+
+	Func AddRequestTimeouts P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.RequestTimeoutsIServiceCollectionExtensions, Microsoft.AspNetCore.Http")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddRequestTimeouts",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddRequestTimeouts"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddRequestTimeouts",P1))
+
+	Func AddResponseCaching P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ResponseCachingServicesExtensions, Microsoft.AspNetCore.ResponseCaching")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:AddResponseCaching",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddResponseCaching"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddResponseCaching",P1))
+
+	Func AddRouting P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions, Microsoft.AspNetCore.Routing")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddRouting",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddRouting"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddRouting",P1))
+
+	Func AddRoutingCore 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions, Microsoft.AspNetCore.Routing")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddRoutingCore"))
+
+	Func BuildServiceProvider P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions, Microsoft.Extensions.DependencyInjection")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:BuildServiceProvider",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s20:BuildServiceProvider"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s20:BuildServiceProvider",P1))
+
+	Func AddHostedService P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionHostedServiceExtensions, Microsoft.Extensions.Hosting.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddHostedService",P1))
+
+	Func AddTransient P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AddTransient",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddTransient",P1))
+
+	Func AddScoped P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:AddScoped",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddScoped",P1))
+
+	Func AddSingleton P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AddSingleton",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddSingleton",P1))
+
+	Func AddKeyedTransient P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddKeyedTransient",P1))
+		ok
+		raise("DotNet Error: AddKeyedTransient does not take one argument: use named arguments, AddKeyedTransient([ :parameter = value, ... ])")
+
+	Func AddKeyedScoped P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddKeyedScoped",P1))
+		ok
+		raise("DotNet Error: AddKeyedScoped does not take one argument: use named arguments, AddKeyedScoped([ :parameter = value, ... ])")
+
+	Func AddKeyedSingleton P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddKeyedSingleton",P1))
+		ok
+		raise("DotNet Error: AddKeyedSingleton does not take one argument: use named arguments, AddKeyedSingleton([ :parameter = value, ... ])")
+
+	Func AddSession P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.SessionServiceCollectionExtensions, Microsoft.AspNetCore.Session")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddSession",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddSession"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddSession",P1))
+
+	Func AddSignalR P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.SignalRDependencyInjectionExtensions, Microsoft.AspNetCore.SignalR")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddSignalR",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddSignalR"))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddSignalR",P1))
+
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
@@ -3903,6 +4910,30 @@ Class ServiceProvider from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetKeyedServices P1,P2
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1,P2))
+
+	Func GetRequiredService P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
+
+	Func GetServices P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
+
+	Func CreateScope 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateScope"))
+
+	Func CreateAsyncScope 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateAsyncScope"))
+
+	Func ConfigureAwait P1
+		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 
 Class ServiceProviderKeyedServiceExtensions from Object

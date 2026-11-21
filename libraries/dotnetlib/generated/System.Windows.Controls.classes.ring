@@ -10360,6 +10360,30 @@ Class TextBlock from FrameworkElement
 	Func @GetTextAlignment P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s16:GetTextAlignment",P1))
 
+	Func GetRequiredKeyedService P1,P2
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1,P2))
+
+	Func GetKeyedServices P1,P2
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1,P2))
+
+	Func GetRequiredService P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
+
+	Func GetServices P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
+
+	Func CreateScope 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateScope"))
+
+	Func CreateAsyncScope 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateAsyncScope"))
+
 	Func getInlines
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Inlines"))
 
@@ -16082,6 +16106,30 @@ Class FlowDocumentScrollViewer from WpfControl
 		dotnet_callv("s4:call",nHandle,"s12:DecreaseZoom")
 
 		return self
+
+	Func GetRequiredKeyedService P1,P2
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1,P2))
+
+	Func GetKeyedServices P1,P2
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1,P2))
+
+	Func GetRequiredService P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
+
+	Func GetServices P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
+
+	Func CreateScope 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateScope"))
+
+	Func CreateAsyncScope 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateAsyncScope"))
 
 	Func getDocument
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Document"))

@@ -820,6 +820,30 @@ Class DocumentPageView from FrameworkElement
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func GetRequiredKeyedService P1,P2
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1,P2))
+
+	Func GetKeyedServices P1,P2
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1,P2))
+
+	Func GetRequiredService P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
+
+	Func GetServices P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
+
+	Func CreateScope 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateScope"))
+
+	Func CreateAsyncScope 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateAsyncScope"))
+
 	Func setPageConnectedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"PageConnected",dnCallback(P1)])
 		return self
@@ -964,6 +988,30 @@ Class DocumentViewerBase from WpfControl
 		dotnet_callv("s4:call",'System.Windows.Controls.Primitives.DocumentViewerBase, PresentationFramework',"s15:SetIsMasterPage",P1,P2)
 
 		return self
+
+	Func GetRequiredKeyedService P1,P2
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1,P2))
+
+	Func GetKeyedServices P1,P2
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1,P2))
+
+	Func GetRequiredService P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
+
+	Func GetServices P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
+
+	Func CreateScope 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateScope"))
+
+	Func CreateAsyncScope 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateAsyncScope"))
 
 	Func setPageViewsChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"PageViewsChanged",dnCallback(P1)])
