@@ -4,9 +4,12 @@
 # Then a harmless call is made on each object that was created: ToString, GetHashCode, Equals(itself), GetType, and a read of every property
 # of a simple type (text, number, yes/no). The answers must have the right kind. A property may refuse because of the state of a new object
 # (a stream without a timeout, a response that was never received): that is an exception of .NET and is accepted; an error of the bridge is not.
+# The methods without parameters whose names start with Get, To or Is are called too (a generic method whose type argument cannot be found from
+# its values, such as JsonObject.GetValue<T>, is marked in the description and is left out).
 load "dotnet.ring"
 
-nProperties = 0          # a global: the function that reads the properties counts them
+nProperties = 0          # globals: the function that makes the calls counts them
+nMethodCalls = 0
 
 func main
 	aNamespaces = ["System.Collections","System.Collections.Generic","System.Collections.Specialized","System.Collections.Concurrent",
@@ -76,6 +79,7 @@ func main
 	dnAssert("no class raised another error " + joined(aErrors),len(aErrors),0)
 	dnAssert("harmless calls were made on many objects (" + nObjects + " objects)",nObjects > 150,True)
 	dnAssert("a property of a simple type was read on many of them",nProperties > 300,True)
+	dnAssert("methods that start with Get, To or Is were called (" + nMethodCalls + " calls)",nMethodCalls > 150,True)
 	dnAssert("no harmless call failed in the bridge " + joined(aWrong),len(aWrong),0)
 	dnTestSummary()
 
@@ -145,6 +149,33 @@ func harmlessCalls oObject, cType, aApi, aWrong
 		catch
 			if not stateError(cCatchError)
 				aWrong + (cType + "." + aMember[1] + ": " + left(cCatchError,50))
+			ok
+		done
+	next
+	# the methods without parameters whose names start with Get, To or Is: each one is called and its answer has the kind that its type says
+	for aMethod in aApi[4]
+		cName = aMethod[1]
+		if aMethod[2] = 1 or len(aMethod[4]) != 0 or aMethod[8] = 1
+			loop
+		ok
+		if not (left(cName,3) = "Get" or left(cName,2) = "To" or left(cName,2) = "Is")
+			loop
+		ok
+		if cName = "GetType" or cName = "ToString" or cName = "GetHashCode"
+			loop
+		ok
+		nMethodCalls++
+		try
+			xAnswer = oObject.callMethod(cName,[])
+			if aMethod[3] = "System.String" and not (isstring(xAnswer) or isobject(xAnswer))
+				aWrong + (cType + "." + cName + " should give a text")
+			ok
+			if find(["System.Int32","System.Int64","System.Double","System.Boolean"],aMethod[3]) > 0 and not isnumber(xAnswer)
+				aWrong + (cType + "." + cName + " should give a number")
+			ok
+		catch
+			if not stateError(cCatchError)
+				aWrong + (cType + "." + cName + ": " + left(cCatchError,50))
 			ok
 		done
 	next
