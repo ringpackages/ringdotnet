@@ -11,7 +11,7 @@ cTemp = oPath.Combine([oPath.GetTempPath(),"ringdotnet_test_" + new Guid().NewGu
 dnAssert("Path.Combine",oPath.Combine(["a","b"]),"a" + oPath.DirectorySeparatorChar + "b")
 dnAssert("Path.GetFileName",oPath.GetFileName("c:/x/file.txt"),"file.txt")
 dnAssert("Path.GetExtension",oPath.GetExtension("c:/x/file.txt"),".txt")
-dnAssert("Path.ChangeExtension",oPath.GetFileNameWithoutExtension("a/b/doc.md"),"doc")
+dnAssert("Path.GetFileNameWithoutExtension",oPath.GetFileNameWithoutExtension("a/b/doc.md"),"doc")
 
 # Directories
 oDir = new Directory()
