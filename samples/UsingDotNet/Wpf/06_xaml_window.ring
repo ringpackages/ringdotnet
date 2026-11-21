@@ -21,5 +21,3 @@ oPress = wpfFind(oWindow,"press")
 oPress.setClickEvent("oMessage.Text = 'The XAML button was pressed'")
 
 wpfRun(oWindow)
-
-# --------------------------------------------------------------------------

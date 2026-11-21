@@ -40,5 +40,3 @@ oWindow = wpfWindow("Shapes",260,200)
 oWindow.Content = oCanvas
 
 wpfRun(oWindow)
-
-# --------------------------------------------------------------------------

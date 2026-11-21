@@ -35,7 +35,7 @@ func selfTest
 	typeKeys("7")
 	press("±")
 	dnAssert("sign",oScreen.Text,"-7")
-	dnAssert("history shows the keys",oHistory.Text,"")
+	dnAssert("the history is empty after a sign change",oHistory.Text,"")
 	press("C")
 	# the buttons work as well
 	for oControl in oForm.Controls.toList()

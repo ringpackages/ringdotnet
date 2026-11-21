@@ -13,5 +13,3 @@ oForm.Controls.Add(oRich)
 oRich.Text = "Ring and .NET make a good team"
 
 uiRun(oForm)
-
-# --------------------------------------------------------------------------

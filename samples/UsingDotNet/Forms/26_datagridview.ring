@@ -2,11 +2,11 @@
 
 load "dotnet.ring"
 using {
+	"System.Data"
 	"System.Drawing"
 	"System.Windows.Forms"
 }
 
-using { "System.Data" }
 oTable = new DataTable()
 oTable.Columns.Add([ :columnName = "Name", :type = "System.String" ])
 oTable.Columns.Add([ :columnName = "Age", :type = "System.Int32" ])
@@ -25,5 +25,3 @@ oGrid = new DataGridView() {
 oForm.Controls.Add(oGrid)
 
 uiRun(oForm)
-
-# --------------------------------------------------------------------------

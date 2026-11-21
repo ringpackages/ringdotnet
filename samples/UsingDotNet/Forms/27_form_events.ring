@@ -18,5 +18,3 @@ uiLabel(oForm,"Watch the events in the console",15,20,280,24)
 uiRun(oForm)
 dnAssert("closing event ran",find(aLog,"FormClosing") > 0,True)
 return
-
-# --------------------------------------------------------------------------

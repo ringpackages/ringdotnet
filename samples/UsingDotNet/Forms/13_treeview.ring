@@ -25,5 +25,3 @@ oTree.ExpandAll()
 oTree.setAfterSelectEvent("oForm.Text = 'Selected: ' + oTree.SelectedNode.Text")
 
 uiRun(oForm)
-
-# --------------------------------------------------------------------------

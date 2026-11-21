@@ -543,9 +543,7 @@ oForm.Controls.<span class="f">Add</span>(oTree)
 oTree.<span class="f">ExpandAll</span>()
 oTree.<span class="f">setAfterSelectEvent</span>(<span class="s">"oForm.Text = 'Selected: ' + oTree.SelectedNode.Text"</span>)
 
-<span class="f">uiRun</span>(oForm)
-
-<span class="c"># --------------------------------------------------------------------------</span></code></pre></div></details></div></div><div class="item" id="richtextbox"><div class="pic"><img src="img/shots/forms-14_richtextbox.png" alt="Richtextbox" loading="lazy"></div><div class="info"><h3>Richtextbox</h3><p>Formatting the selected text of a rich text box</p><div class="run"><code>ring samples/UsingDotNet/Forms/14_richtextbox.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Formatting the selected text of a rich text box</span>
+<span class="f">uiRun</span>(oForm)</code></pre></div></details></div></div><div class="item" id="richtextbox"><div class="pic"><img src="img/shots/forms-14_richtextbox.png" alt="Richtextbox" loading="lazy"></div><div class="info"><h3>Richtextbox</h3><p>Formatting the selected text of a rich text box</p><div class="run"><code>ring samples/UsingDotNet/Forms/14_richtextbox.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Formatting the selected text of a rich text box</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
@@ -559,9 +557,7 @@ oRich.Dock = <span class="s">"Fill"</span>
 oForm.Controls.<span class="f">Add</span>(oRich)
 oRich.Text = <span class="s">"Ring and .NET make a good team"</span>
 
-<span class="f">uiRun</span>(oForm)
-
-<span class="c"># --------------------------------------------------------------------------</span></code></pre></div></details></div></div><div class="item" id="picturebox-drawing"><div class="pic"><img src="img/shots/forms-15_picturebox_drawing.png" alt="Picturebox drawing" loading="lazy"></div><div class="info"><h3>Picturebox drawing</h3><p>Draw shapes and text on a bitmap (UiCanvas)</p><div class="run"><code>ring samples/UsingDotNet/Forms/15_picturebox_drawing.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Draw shapes and text on a bitmap (UiCanvas)</span>
+<span class="f">uiRun</span>(oForm)</code></pre></div></details></div></div><div class="item" id="picturebox-drawing"><div class="pic"><img src="img/shots/forms-15_picturebox_drawing.png" alt="Picturebox drawing" loading="lazy"></div><div class="info"><h3>Picturebox drawing</h3><p>Draw shapes and text on a bitmap (UiCanvas)</p><div class="run"><code>ring samples/UsingDotNet/Forms/15_picturebox_drawing.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Draw shapes and text on a bitmap (UiCanvas)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
@@ -830,11 +826,11 @@ oForm.Controls.<span class="f">Add</span>(oDate)
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
+	<span class="s">"System.Data"</span>
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
 }
 
-using { <span class="s">"System.Data"</span> }
 oTable = <span class="k">new</span> <span class="t">DataTable</span>()
 oTable.Columns.<span class="f">Add</span>([ :columnName = <span class="s">"Name"</span>, :type = <span class="s">"System.String"</span> ])
 oTable.Columns.<span class="f">Add</span>([ :columnName = <span class="s">"Age"</span>, :type = <span class="s">"System.Int32"</span> ])
@@ -852,9 +848,7 @@ oGrid = <span class="k">new</span> <span class="t">DataGridView</span>() {
 }
 oForm.Controls.<span class="f">Add</span>(oGrid)
 
-<span class="f">uiRun</span>(oForm)
-
-<span class="c"># --------------------------------------------------------------------------</span></code></pre></div></details></div></div><div class="item" id="form-events"><div class="pic"><img src="img/shots/forms-27_form_events.png" alt="Form events" loading="lazy"></div><div class="info"><h3>Form events</h3><p>The life of a form: Load, Shown, Resize and FormClosing events</p><div class="run"><code>ring samples/UsingDotNet/Forms/27_form_events.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># The life of a form: Load, Shown, Resize and FormClosing events</span>
+<span class="f">uiRun</span>(oForm)</code></pre></div></details></div></div><div class="item" id="form-events"><div class="pic"><img src="img/shots/forms-27_form_events.png" alt="Form events" loading="lazy"></div><div class="info"><h3>Form events</h3><p>The life of a form: Load, Shown, Resize and FormClosing events</p><div class="run"><code>ring samples/UsingDotNet/Forms/27_form_events.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># The life of a form: Load, Shown, Resize and FormClosing events</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
@@ -873,9 +867,7 @@ oForm {
 
 <span class="f">uiRun</span>(oForm)
 <span class="f">dnAssert</span>(<span class="s">"closing event ran"</span>,find(aLog,<span class="s">"FormClosing"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
-<span class="k">return</span>
-
-<span class="c"># --------------------------------------------------------------------------</span></code></pre></div></details></div></div><div class="item" id="modal-dialog"><div class="pic"><img src="img/shots/forms-28_modal_dialog.png" alt="Modal dialog" loading="lazy"></div><div class="info"><h3>Modal dialog</h3><p>A modal dialog form that returns a value</p><div class="run"><code>ring samples/UsingDotNet/Forms/28_modal_dialog.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A modal dialog form that returns a value</span>
+<span class="k">return</span></code></pre></div></details></div></div><div class="item" id="modal-dialog"><div class="pic"><img src="img/shots/forms-28_modal_dialog.png" alt="Modal dialog" loading="lazy"></div><div class="info"><h3>Modal dialog</h3><p>A modal dialog form that returns a value</p><div class="run"><code>ring samples/UsingDotNet/Forms/28_modal_dialog.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A modal dialog form that returns a value</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
@@ -999,9 +991,7 @@ oBox {
 oOk = <span class="f">uiButton</span>(oForm,<span class="s">"OK"</span>,<span class="n">270</span>,<span class="n">175</span>,<span class="n">75</span>,<span class="n">30</span>,<span class="s">""</span>)
 oOk.Anchor = <span class="s">"Bottom, Right"</span>
 
-<span class="f">uiRun</span>(oForm)
-
-<span class="c"># --------------------------------------------------------------------------</span></code></pre></div></details></div></div><div class="item" id="fonts-colors"><div class="pic"><img src="img/shots/forms-32_fonts_colors.png" alt="Fonts colors" loading="lazy"></div><div class="info"><h3>Fonts colors</h3><p>Fonts, styles and colors</p><div class="run"><code>ring samples/UsingDotNet/Forms/32_fonts_colors.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Fonts, styles and colors</span>
+<span class="f">uiRun</span>(oForm)</code></pre></div></details></div></div><div class="item" id="fonts-colors"><div class="pic"><img src="img/shots/forms-32_fonts_colors.png" alt="Fonts colors" loading="lazy"></div><div class="info"><h3>Fonts colors</h3><p>Fonts, styles and colors</p><div class="run"><code>ring samples/UsingDotNet/Forms/32_fonts_colors.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Fonts, styles and colors</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
