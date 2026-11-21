@@ -260,7 +260,7 @@ using {
 	<span class="s">"Microsoft.Win32"</span>
 }
 
-C_PATH = <span class="s">"Software\RingDotNetTutorial118"</span>
+C_PATH = <span class="s">"Software\RingDotNetTutorial"</span>
 
 <span class="k">func</span> <span class="f">main</span>
 	<span class="k">if</span> <span class="k">not</span> iswindows()
@@ -272,8 +272,8 @@ C_PATH = <span class="s">"Software\RingDotNetTutorial118"</span>
 	<span class="c"># settings in it. The part HKEY_CURRENT_USER (HKCU) belongs to the user who is logged in and needs no special rights; the part</span>
 	<span class="c"># HKEY_LOCAL_MACHINE is for all users and needs an administrator for writing. This lesson writes only in its own key under HKCU</span>
 	<span class="c"># and deletes it at the end.</span>
-	oUser = <span class="f">dnType</span>(<span class="s">"Microsoft.Win32.Registry"</span>).<span class="f">getProp</span>(<span class="s">"CurrentUser"</span>)
-	oUser.<span class="f">callMethod</span>(<span class="s">"DeleteSubKeyTree"</span>,[C_PATH,<span class="k">False</span>])           <span class="c"># a key from an earlier run goes away (False: no error when it is missing)</span>
+	oUser = <span class="k">new</span> <span class="t">Registry</span>().CurrentUser
+	oUser.<span class="f">DeleteSubKeyTree</span>([ :subkey = C_PATH, :throwOnMissingSubKey = <span class="k">False</span> ])           <span class="c"># a key from an earlier run goes away (False: no error when it is missing)</span>
 
 	<span class="c"># 1. CreateSubKey makes a key (or opens it when it exists) and gives it ready for writing</span>
 	oKey = oUser.<span class="f">CreateSubKey</span>(C_PATH)
@@ -281,20 +281,20 @@ C_PATH = <span class="s">"Software\RingDotNetTutorial118"</span>
 
 	<span class="c"># 2. SetValue(name, data, kind). The kind says how Windows stores the data: String, DWord (a 32-bit number), QWord (64 bits),</span>
 	<span class="c">#    MultiString (a list of texts), ExpandString (a text with %NAME% variables that Windows replaces) and Binary (bytes).</span>
-	oKey.<span class="f">callMethod</span>(<span class="s">"SetValue"</span>,[<span class="s">"UserName"</span>,<span class="s">"Ann"</span>,<span class="s">"String"</span>])
-	oKey.<span class="f">callMethod</span>(<span class="s">"SetValue"</span>,[<span class="s">"WindowWidth"</span>,<span class="n">1280</span>,<span class="s">"DWord"</span>])
-	oKey.<span class="f">callMethod</span>(<span class="s">"SetValue"</span>,[<span class="s">"LastFiles"</span>,stringArray([<span class="s">"a.txt"</span>,<span class="s">"b.txt"</span>,<span class="s">"c.txt"</span>]),<span class="s">"MultiString"</span>])          <span class="c"># MultiString needs a string[]: a List&lt;string&gt; and ToArray()</span>
-	oKey.<span class="f">callMethod</span>(<span class="s">"SetValue"</span>,[<span class="s">"DataFolder"</span>,<span class="s">"%USERPROFILE%\Data"</span>,<span class="s">"ExpandString"</span>])
-	oKey.<span class="f">callMethod</span>(<span class="s">"SetValue"</span>,[<span class="s">"BigNumber"</span>,<span class="n">5000000000</span>,<span class="s">"QWord"</span>])          <span class="c"># a number above 2147483647 needs 64 bits</span>
+	oKey.<span class="f">SetValue</span>([ :name = <span class="s">"UserName"</span>, :value = <span class="s">"Ann"</span>, :valueKind = <span class="s">"String"</span> ])
+	oKey.<span class="f">SetValue</span>([ :name = <span class="s">"WindowWidth"</span>, :value = <span class="n">1280</span>, :valueKind = <span class="s">"DWord"</span> ])
+	oKey.<span class="f">SetValue</span>([ :name = <span class="s">"LastFiles"</span>, :value = stringArray([<span class="s">"a.txt"</span>,<span class="s">"b.txt"</span>,<span class="s">"c.txt"</span>]), :valueKind = <span class="s">"MultiString"</span> ])          <span class="c"># MultiString needs a string[]: a List&lt;string&gt; and ToArray()</span>
+	oKey.<span class="f">SetValue</span>([ :name = <span class="s">"DataFolder"</span>, :value = <span class="s">"%USERPROFILE%\Data"</span>, :valueKind = <span class="s">"ExpandString"</span> ])
+	oKey.<span class="f">SetValue</span>([ :name = <span class="s">"BigNumber"</span>, :value = <span class="n">5000000000</span>, :valueKind = <span class="s">"QWord"</span> ])          <span class="c"># a number above 2147483647 needs 64 bits</span>
 	<span class="c"># Binary needs a real byte[] object. A Ring text would be written as a String, so the bytes are put into a byte buffer (dnBuffer) first:</span>
 	<span class="c"># the buffer is a .NET object that holds a byte[], and a parameter of type object receives that array.</span>
-	oKey.<span class="f">callMethod</span>(<span class="s">"SetValue"</span>,[<span class="s">"Signature"</span>,<span class="f">dnBuffer</span>(char(<span class="n">1</span>) + char(<span class="n">2</span>) + char(<span class="n">0</span>) + char(<span class="n">254</span>) + char(<span class="n">255</span>)),<span class="s">"Binary"</span>])
+	oKey.<span class="f">SetValue</span>([ :name = <span class="s">"Signature"</span>, :value = <span class="f">dnBuffer</span>(char(<span class="n">1</span>) + char(<span class="n">2</span>) + char(<span class="n">0</span>) + char(<span class="n">254</span>) + char(<span class="n">255</span>)), :valueKind = <span class="s">"Binary"</span> ])
 	? nl + <span class="s">"2. values written: "</span> + oKey.ValueCount
 
 	<span class="c"># 3. Reading: GetValue(name, default) gives the data in the form that fits its kind, or the default when the name is missing</span>
-	? nl + <span class="s">"3. UserName    = "</span> + oKey.<span class="f">callMethod</span>(<span class="s">"GetValue"</span>,[<span class="s">"UserName"</span>,<span class="s">"(none)"</span>])
-	? <span class="s">"   WindowWidth = "</span> + oKey.<span class="f">callMethod</span>(<span class="s">"GetValue"</span>,[<span class="s">"WindowWidth"</span>,<span class="n">800</span>]) + <span class="s">"   (a number, so "</span> + (oKey.<span class="f">callMethod</span>(<span class="s">"GetValue"</span>,[<span class="s">"WindowWidth"</span>,<span class="n">800</span>]) + <span class="n">20</span>) + <span class="s">" after + 20)"</span>
-	? <span class="s">"   Missing     = "</span> + oKey.<span class="f">callMethod</span>(<span class="s">"GetValue"</span>,[<span class="s">"Missing"</span>,<span class="s">"(default)"</span>])
+	? nl + <span class="s">"3. UserName    = "</span> + oKey.<span class="f">GetValue</span>([ :name = <span class="s">"UserName"</span>, :defaultValue = <span class="s">"(none)"</span> ])
+	? <span class="s">"   WindowWidth = "</span> + oKey.<span class="f">GetValue</span>([ :name = <span class="s">"WindowWidth"</span>, :defaultValue = <span class="n">800</span> ]) + <span class="s">"   (a number, so "</span> + (oKey.<span class="f">GetValue</span>([ :name = <span class="s">"WindowWidth"</span>, :defaultValue = <span class="n">800</span> ]) + <span class="n">20</span>) + <span class="s">" after + 20)"</span>
+	? <span class="s">"   Missing     = "</span> + oKey.<span class="f">GetValue</span>([ :name = <span class="s">"Missing"</span>, :defaultValue = <span class="s">"(default)"</span> ])
 	? <span class="s">"   LastFiles   = "</span> + listText(oKey.<span class="f">GetValue</span>(<span class="s">"LastFiles"</span>).<span class="f">toList</span>())
 	cFolder = oKey.<span class="f">GetValue</span>(<span class="s">"DataFolder"</span>)
 	? <span class="s">"   DataFolder  = ends with \Data: "</span> + (right(cFolder,<span class="n">5</span>) = <span class="s">"\Data"</span>) + <span class="s">", still has a % sign: "</span> + (substr(cFolder,<span class="s">"%"</span>) &gt; <span class="n">0</span>) + <span class="s">"   (Windows replaced %USERPROFILE%; the path is not printed because it holds your user name)"</span>
@@ -311,8 +311,8 @@ C_PATH = <span class="s">"Software\RingDotNetTutorial118"</span>
 
 	<span class="c"># 5. Sub-keys: a key can hold other keys, like folders. GetSubKeyNames lists them.</span>
 	oChild = oKey.<span class="f">CreateSubKey</span>(<span class="s">"Window1"</span>)
-	oChild.<span class="f">callMethod</span>(<span class="s">"SetValue"</span>,[<span class="s">"Left"</span>,<span class="n">100</span>,<span class="s">"DWord"</span>])
-	oChild.<span class="f">callMethod</span>(<span class="s">"SetValue"</span>,[<span class="s">"Top"</span>,<span class="n">50</span>,<span class="s">"DWord"</span>])
+	oChild.<span class="f">SetValue</span>([ :name = <span class="s">"Left"</span>, :value = <span class="n">100</span>, :valueKind = <span class="s">"DWord"</span> ])
+	oChild.<span class="f">SetValue</span>([ :name = <span class="s">"Top"</span>, :value = <span class="n">50</span>, :valueKind = <span class="s">"DWord"</span> ])
 	oChild.<span class="f">Close</span>()
 	oKey.<span class="f">CreateSubKey</span>(<span class="s">"Window2"</span>).<span class="f">Close</span>()
 	? nl + <span class="s">"5. sub-keys: "</span> + listText(sort(oKey.<span class="f">GetSubKeyNames</span>().<span class="f">toList</span>()))
@@ -372,13 +372,13 @@ C_PATH = <span class="s">"Software\RingDotNetTutorial118"</span>
 
 6. after DeleteValue(BigNumber): 5 values
    the key was deleted: 1</code></pre></div>
-<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNewGeneric</code>, <code>dnType</code>, <code>callMethod</code>, <code>getProp</code>, <code>dnBuffer</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNewGeneric</code>, <code>dnBuffer</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="keys-and-values">Keys and values<a class="anchor" href="#keys-and-values">#</a></h3>
-<p>The Registry looks like a file system: <strong>keys</strong> are the folders, and each key holds <strong>values</strong>, a name with data and a type. The big branches are <em>hives</em>: <code>HKEY_CURRENT_USER</code> (HKCU) belongs to the user who is logged in, <code>HKEY_LOCAL_MACHINE</code> (HKLM) is for the whole computer, <code>HKEY_CLASSES_ROOT</code> holds the file types. The program writes only in HKCU, under its own key <code>Software\RingDotNetTutorial118</code>, because that needs <strong>no administrator rights</strong> and does not affect other users. HKLM needs an administrator to write.</p>
-<p><code>Registry.CurrentUser</code> is a static property of the class, read with <code>dnType("Microsoft.Win32.Registry").getProp("CurrentUser")</code>. <code>CreateSubKey(path)</code> makes a key (or opens it when it exists) for writing, <code>OpenSubKey(path)</code> opens an existing one for reading (and answers null when it does not exist), and <code>Close()</code> lets go of it. Paths use the backslash: in a Ring text <code>"Software\RingDotNetTutorial118"</code> is written as it is.</p>
+<p>The Registry looks like a file system: <strong>keys</strong> are the folders, and each key holds <strong>values</strong>, a name with data and a type. The big branches are <em>hives</em>: <code>HKEY_CURRENT_USER</code> (HKCU) belongs to the user who is logged in, <code>HKEY_LOCAL_MACHINE</code> (HKLM) is for the whole computer, <code>HKEY_CLASSES_ROOT</code> holds the file types. The program writes only in HKCU, under its own key <code>Software\RingDotNetTutorial</code>, because that needs <strong>no administrator rights</strong> and does not affect other users. HKLM needs an administrator to write.</p>
+<p><code>Registry.CurrentUser</code> is a static property of the class, read through <code>new Registry().CurrentUser</code>. <code>CreateSubKey(path)</code> makes a key (or opens it when it exists) for writing, <code>OpenSubKey(path)</code> opens an existing one for reading (and answers null when it does not exist), and <code>Close()</code> lets go of it. Paths use the backslash: in a Ring text <code>"Software\RingDotNetTutorial"</code> is written as it is.</p>
 <h3 id="the-kinds-of-value">The kinds of value<a class="anchor" href="#the-kinds-of-value">#</a></h3>
-<p><code>SetValue(name, data, kind)</code> writes a value, and the <strong>kind</strong> says how Windows stores it:</p>
+<p><code>SetValue([ :name = ..., :value = ..., :valueKind = ... ])</code> writes a value, and the <strong>kind</strong> says how Windows stores it:</p>
 <div class="tablewrap"><table><thead><tr><th>Kind</th><th>Data</th><th>Use</th></tr></thead><tbody><tr><td><code>String</code></td><td>text</td><td>names, paths</td></tr><tr><td><code>DWord</code></td><td>a 32-bit whole number</td><td>sizes, flags, counters</td></tr><tr><td><code>QWord</code></td><td>a 64-bit whole number</td><td>big numbers (5 000 000 000 does not fit 32 bits)</td></tr><tr><td><code>MultiString</code></td><td>a list of texts</td><td>a list of recent files</td></tr><tr><td><code>ExpandString</code></td><td>text with <code>%NAME%</code> variables</td><td>a path such as <code>%USERPROFILE%\Data</code>: <code>GetValue</code> gives the text with the variable already replaced</td></tr><tr><td><code>Binary</code></td><td>bytes</td><td>pictures, encrypted data</td></tr></tbody></table></div>
 <p>A <code>MultiString</code> needs a real <code>string[]</code>, so the program builds one from a <code>List&lt;string&gt;</code> with <code>ToArray()</code> (<code>stringArray</code>). A <code>Binary</code> value needs a real <code>byte[]</code> <strong>object</strong>, and a Ring text would be written as a <code>String</code>. So the program puts the bytes into a <strong>byte buffer</strong> first: <code>dnBuffer(bytes)</code> makes a .NET object that holds a <code>byte[]</code>, and a parameter of type <code>object</code> (the data of <code>SetValue</code>) receives that array. Reading a <code>Binary</code> value gives a <code>byte[]</code>, which is a Ring text of bytes: <code>Signature</code> has the five bytes <code>01 02 00 FE FF</code>, with a NUL and bytes that are not text in the middle. See the next section about byte buffers in the tutorial <a href="tut-45-binary.html">Binary files</a>.</p>
 <h3 id="reading">Reading<a class="anchor" href="#reading">#</a></h3>

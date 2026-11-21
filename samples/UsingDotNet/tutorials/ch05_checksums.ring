@@ -55,8 +55,7 @@ func main
 
 # the SHA-256 checksum of a file as lower case hexadecimal text
 func checksumOf cFile
-	oHash = dnStatic("System.Security.Cryptography.SHA256","Create",[])
-	return lower(new Convert().ToHexString(oHash.ComputeHash(new File().ReadAllBytes(cFile))))
+	return lower(new Convert().ToHexString(new SHA256().HashData(new File().ReadAllBytes(cFile))))
 
 # the paths (relative, with /) of all the files of a folder and its subfolders, sorted, without the list file itself
 func relativeFiles cFolder

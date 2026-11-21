@@ -288,20 +288,20 @@ using {
 	<span class="k">ok</span>
 	? <span class="s">"1. the database file was created: "</span> + <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile)
 
-	<span class="c"># 2. The connection string names the driver and the file (Dbq). The ODBC classes have no generated Ring classes: dnNew makes the</span>
+	<span class="c">#    The connection string names the driver and the file (Dbq). The ODBC classes have no generated Ring classes: dnNew makes the</span>
 	<span class="c">#    objects and callMethod / getProp use them.</span>
 	oConnection = <span class="f">dnNew</span>(<span class="s">"System.Data.Odbc.OdbcConnection"</span>,[<span class="s">"Driver={"</span> + cDriver + <span class="s">"};Dbq="</span> + cFile + <span class="s">";"</span>])
 	oConnection.<span class="f">Open</span>()
 	? <span class="s">"   the connection is: "</span> + oConnection.State
 
-	<span class="c"># 3. Tables. Access has its own names for the column types: AUTOINCREMENT (a number that counts by itself), TEXT(n), LONG (a whole</span>
+	<span class="c"># 2. Tables. Access has its own names for the column types: AUTOINCREMENT (a number that counts by itself), TEXT(n), LONG (a whole</span>
 	<span class="c">#    number), CURRENCY (money with 4 decimals, exact), DATETIME, YESNO.</span>
 	runSql(oConnection,<span class="s">"CREATE TABLE Customers (Id AUTOINCREMENT PRIMARY KEY, Name TEXT(40), City TEXT(30), Vip YESNO)"</span>,[])
 	runSql(oConnection,<span class="s">"CREATE TABLE Orders (Id AUTOINCREMENT PRIMARY KEY, CustomerId LONG, Total CURRENCY, Ordered DATETIME)"</span>,[])
 	? nl + <span class="s">"2. tables: "</span> + joinList(tableNames(oConnection))
 	? <span class="s">"   columns of Orders: "</span> + joinList(columnNames(oConnection,<span class="s">"Orders"</span>))
 
-	<span class="c"># 4. Rows go in with PARAMETERS: a ? in the statement and the values in a list. Never join values into the text of the statement:</span>
+	<span class="c"># 3. Rows go in with PARAMETERS: a ? in the statement and the values in a list. Never join values into the text of the statement:</span>
 	<span class="c">#    a name with an apostrophe would break it, and a bad text could change what the statement does.</span>
 	aCustomers = [ [<span class="s">"Ann"</span>,<span class="s">"Cairo"</span>,<span class="k">True</span>], [<span class="s">"Bob O'Neil"</span>,<span class="s">"Alexandria"</span>,<span class="k">False</span>], [arabicName(),<span class="s">"Cairo"</span>,<span class="k">True</span>], [<span class="s">"Dina"</span>,<span class="s">"Giza"</span>,<span class="k">False</span>] ]
 	<span class="k">for</span> aCustomer <span class="k">in</span> aCustomers
@@ -313,41 +313,41 @@ using {
 	<span class="k">next</span>
 	? nl + <span class="s">"3. rows: "</span> + scalar(oConnection,<span class="s">"SELECT COUNT(*) FROM Customers"</span>,[]) + <span class="s">" customers, "</span> + scalar(oConnection,<span class="s">"SELECT COUNT(*) FROM Orders"</span>,[]) + <span class="s">" orders"</span>
 
-	<span class="c"># 5. A query gives rows. Reading goes through a reader: Read() moves to the next row and GetValue(n) reads a column (0 is the first).</span>
+	<span class="c"># 4. A query gives rows. Reading goes through a reader: Read() moves to the next row and GetValue(n) reads a column (0 is the first).</span>
 	? nl + <span class="s">"4. the customers in Cairo, by name:"</span>
 	<span class="k">for</span> aRow <span class="k">in</span> rows(oConnection,<span class="s">"SELECT Id, Name, City FROM Customers WHERE City = ? ORDER BY Name"</span>,[<span class="s">"Cairo"</span>])
 		? <span class="s">"   "</span> + aRow[<span class="n">1</span>] + <span class="s">": "</span> + aRow[<span class="n">2</span>] + <span class="s">" ("</span> + aRow[<span class="n">3</span>] + <span class="s">")"</span>
 	<span class="k">next</span>
 	? <span class="s">"   the apostrophe and the Arabic name came back as they went in: "</span> + (scalar(oConnection,<span class="s">"SELECT Name FROM Customers WHERE Id = ?"</span>,[<span class="n">2</span>]) = <span class="s">"Bob O'Neil"</span>) + <span class="s">", "</span> + (scalar(oConnection,<span class="s">"SELECT Name FROM Customers WHERE Id = ?"</span>,[<span class="n">3</span>]) = arabicName())
 
-	<span class="c"># 6. A join puts the data of two tables side by side</span>
+	<span class="c"># 5. A join puts the data of two tables side by side</span>
 	? nl + <span class="s">"5. each order with its customer (INNER JOIN):"</span>
 	<span class="k">for</span> aRow <span class="k">in</span> rows(oConnection,<span class="s">"SELECT c.Name, o.Total, o.Ordered FROM Customers AS c INNER JOIN Orders AS o ON c.Id = o.CustomerId ORDER BY o.Ordered"</span>,[])
 		? <span class="s">"   "</span> + padRight(shortName(aRow[<span class="n">1</span>]),<span class="n">12</span>) + padLeft(money(aRow[<span class="n">2</span>]),<span class="n">8</span>) + <span class="s">"   "</span> + aRow[<span class="n">3</span>]
 	<span class="k">next</span>
 
-	<span class="c"># 7. Totals: GROUP BY makes one row for each customer, with SUM, COUNT and AVG. HAVING filters the groups.</span>
+	<span class="c"># 6. Totals: GROUP BY makes one row for each customer, with SUM, COUNT and AVG. HAVING filters the groups.</span>
 	? nl + <span class="s">"6. orders for each customer (customers with 2 orders or more):"</span>
 	<span class="k">for</span> aRow <span class="k">in</span> rows(oConnection,<span class="s">"SELECT c.Name, COUNT(*) AS Orders, SUM(o.Total) AS Total, AVG(o.Total) AS Average FROM Customers AS c INNER JOIN Orders AS o ON c.Id = o.CustomerId GROUP BY c.Name HAVING COUNT(*) &gt;= ? ORDER BY SUM(o.Total) DESC"</span>,[<span class="n">2</span>])
 		? <span class="s">"   "</span> + padRight(shortName(aRow[<span class="n">1</span>]),<span class="n">12</span>) + aRow[<span class="n">2</span>] + <span class="s">" orders, total "</span> + money(aRow[<span class="n">3</span>]) + <span class="s">", average "</span> + money(aRow[<span class="n">4</span>])
 	<span class="k">next</span>
 
-	<span class="c"># 8. TOP n is Access's way to say "the first n rows" (there is no LIMIT). LIKE searches with % for any characters (ODBC style).</span>
+	<span class="c"># 7. TOP n is Access's way to say "the first n rows" (there is no LIMIT). LIKE searches with % for any characters (ODBC style).</span>
 	? nl + <span class="s">"7. the 2 biggest orders: "</span> + joinList(columnOf(rows(oConnection,<span class="s">"SELECT TOP 2 Total FROM Orders ORDER BY Total DESC"</span>,[]),<span class="n">1</span>,<span class="s">"money"</span>))
 	? <span class="s">"   the customers whose name starts with B: "</span> + joinList(columnOf(rows(oConnection,<span class="s">"SELECT Name FROM Customers WHERE Name LIKE ?"</span>,[<span class="s">"B%"</span>]),<span class="n">1</span>,<span class="s">""</span>))
 
-	<span class="c"># 9. Dates. A DateTime object goes in as a parameter and comes back as a DateTime. Access has date functions: Year, Month, Format.</span>
+	<span class="c"># 8. Dates. A DateTime object goes in as a parameter and comes back as a DateTime. Access has date functions: Year, Month, Format.</span>
 	? nl + <span class="s">"8. the total of each month (Month function):"</span>
 	<span class="k">for</span> aRow <span class="k">in</span> rows(oConnection,<span class="s">"SELECT Month(Ordered) AS M, SUM(Total) FROM Orders GROUP BY Month(Ordered) ORDER BY Month(Ordered)"</span>,[])
 		? <span class="s">"   month "</span> + aRow[<span class="n">1</span>] + <span class="s">": "</span> + money(aRow[<span class="n">2</span>])
 	<span class="k">next</span>
 	? <span class="s">"   orders after 15 February: "</span> + scalar(oConnection,<span class="s">"SELECT COUNT(*) FROM Orders WHERE Ordered &gt; ?"</span>,[<span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">2</span>,<span class="n">15</span>)])
 
-	<span class="c"># 10. Change and delete rows. The statement answers how many rows it changed.</span>
+	<span class="c"># 9. Change and delete rows. The statement answers how many rows it changed.</span>
 	? nl + <span class="s">"9. the orders of Ann under 100 are raised by 10%: "</span> + runSql(oConnection,<span class="s">"UPDATE Orders SET Total = Total * 1.1 WHERE CustomerId = ? AND Total &lt; ?"</span>,[<span class="n">1</span>,<span class="n">100</span>]) + <span class="s">" rows"</span>
 	? <span class="s">"   Dina has no orders and is deleted: "</span> + runSql(oConnection,<span class="s">"DELETE FROM Customers WHERE Id = ?"</span>,[<span class="n">4</span>]) + <span class="s">" row"</span>
 
-	<span class="c"># 11. A transaction makes several statements ONE change: all of them happen or none. Here the second statement fails (a table that</span>
+	<span class="c"># 10. A transaction makes several statements ONE change: all of them happen or none. Here the second statement fails (a table that</span>
 	<span class="c">#     does not exist), so the first one is undone.</span>
 	oTransaction = oConnection.<span class="f">callMethod</span>(<span class="s">"BeginTransaction"</span>,[])
 	lFailed = <span class="k">False</span>
@@ -361,7 +361,7 @@ using {
 	<span class="k">done</span>
 	? nl + <span class="s">"10. the second statement failed: "</span> + lFailed + <span class="s">"; the city of Ann is still "</span> + scalar(oConnection,<span class="s">"SELECT City FROM Customers WHERE Id = ?"</span>,[<span class="n">1</span>])
 
-	<span class="c"># 12. Close the connection. The pool of ODBC keeps connections for reuse, so it is emptied too. The Access engine keeps the FILE open</span>
+	<span class="c"># 11. Close the connection. The pool of ODBC keeps connections for reuse, so it is emptied too. The Access engine keeps the FILE open</span>
 	<span class="c">#     until the program ends, so the program does not delete it here.</span>
 	oConnection.<span class="f">Close</span>()
 	oConnection.<span class="f">Dispose</span>()

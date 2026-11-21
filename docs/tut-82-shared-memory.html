@@ -284,17 +284,17 @@ C_NAME = <span class="s">"ringdotnet_shared_memory"</span>
 <span class="c"># ---------------------------------------------------------------- two programs, one block of memory</span>
 
 <span class="k">func</span> <span class="f">runParent</span>
-	<span class="c"># 1. A memory-mapped file is a block of memory with a NAME. Any program of this computer that knows the name can open it.</span>
+	<span class="c"># A memory-mapped file is a block of memory with a NAME. Any program of this computer that knows the name can open it.</span>
 	oMap = <span class="k">new</span> <span class="t">MemoryMappedFile</span>().<span class="f">CreateNew</span>([ :mapName = C_NAME, :capacity = <span class="n">4096</span> ])
 	oAccessor = oMap.<span class="f">CreateViewAccessor</span>(<span class="k">NULL</span>)               <span class="c"># a view with Read and Write methods at a position (in bytes)</span>
 
-	<span class="c"># 2. Numbers: Write(position, value) and ReadInt32(position), ReadDouble(position). A whole Ring number is written as 4 bytes</span>
+	<span class="c"># 1. Numbers: Write(position, value) and ReadInt32(position), ReadDouble(position). A whole Ring number is written as 4 bytes</span>
 	<span class="c">#    (an int), a number with decimals as 8 bytes (a double). The positions are chosen by us: 0 = the first number, 4 = the second...</span>
 	oAccessor.<span class="f">Write</span>(<span class="n">0</span>,<span class="n">21</span>)
 	oAccessor.<span class="f">Write</span>(<span class="n">8</span>,<span class="n">3.5</span>)
 	? <span class="s">"1. the parent wrote the int 21 at position 0 and the double 3.5 at position 8"</span>
 
-	<span class="c"># 3. Text: a stream on the memory (CreateViewStream) works with StreamWriter and StreamReader like a file does. The text starts at 100.</span>
+	<span class="c"># 2. Text: a stream on the memory (CreateViewStream) works with StreamWriter and StreamReader like a file does. The text starts at 100.</span>
 	<span class="c">#    (The memory is zero-filled, so a reader sees the text and then zeros: the reading side cuts the text at the first zero byte.)</span>
 	oStream = oMap.<span class="f">CreateViewStream</span>([ :offset = <span class="n">100</span>, :size = <span class="n">200</span> ])
 	oWriter = <span class="k">new</span> <span class="t">StreamWriter</span>(oStream)
@@ -303,7 +303,7 @@ C_NAME = <span class="s">"ringdotnet_shared_memory"</span>
 	oStream.<span class="f">Dispose</span>()
 	? <span class="s">"2. the parent wrote a text at position 100"</span>
 
-	<span class="c"># 4. Start the child and read what it prints. It finds the memory by its name, reads the numbers and the text, and answers in the same memory.</span>
+	<span class="c"># 3. Start the child and read what it prints. It finds the memory by its name, reads the numbers and the text, and answers in the same memory.</span>
 	oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>().@<span class="k">New</span>([ :<span class="t">fileName</span> = exefilename(), :arguments = <span class="s">'"'</span> + filename() + <span class="s">'" --child'</span> ])
 	oInfo {
 		UseShellExecute = <span class="k">False</span>
@@ -316,7 +316,7 @@ C_NAME = <span class="s">"ringdotnet_shared_memory"</span>
 	? nl + <span class="s">"3. the child says:"</span>
 	? <span class="s">"   "</span> + substr(chomp(cOutput),char(<span class="n">10</span>),nl + <span class="s">"   "</span>)
 
-	<span class="c"># 5. The answer of the child is in the same memory: read it from the positions that were agreed</span>
+	<span class="c"># 4. The answer of the child is in the same memory: read it from the positions that were agreed</span>
 	? nl + <span class="s">"4. the answer of the child at position 4 (21 * 2): "</span> + oAccessor.<span class="f">ReadInt32</span>(<span class="n">4</span>)
 	oAnswer = oMap.<span class="f">CreateViewStream</span>([ :offset = <span class="n">300</span>, :size = <span class="n">200</span> ])
 	cAnswer = textOf(<span class="k">new</span> <span class="t">StreamReader</span>(oAnswer).<span class="f">ReadLine</span>())
@@ -342,7 +342,7 @@ C_NAME = <span class="s">"ringdotnet_shared_memory"</span>
 <span class="c"># ---------------------------------------------------------------- a file edited in place</span>
 
 <span class="k">func</span> <span class="f">editFileInPlace</span>
-	<span class="c"># 6. Map a FILE: the view is the content of the file, and a change in memory is a change in the file. Nothing is read or written</span>
+	<span class="c"># 5. Map a FILE: the view is the content of the file, and a change in memory is a change in the file. Nothing is read or written</span>
 	<span class="c">#    by you: the system moves the data. The program changes the second of three numbers in a file without touching the others.</span>
 	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_shared_memory.bin"</span>])
 	oConverter = <span class="k">new</span> <span class="t">BitConverter</span>()

@@ -28,17 +28,17 @@ func main
 # ---------------------------------------------------------------- two programs, one block of memory
 
 func runParent
-	# 1. A memory-mapped file is a block of memory with a NAME. Any program of this computer that knows the name can open it.
+	# A memory-mapped file is a block of memory with a NAME. Any program of this computer that knows the name can open it.
 	oMap = new MemoryMappedFile().CreateNew([ :mapName = C_NAME, :capacity = 4096 ])
 	oAccessor = oMap.CreateViewAccessor(NULL)               # a view with Read and Write methods at a position (in bytes)
 
-	# 2. Numbers: Write(position, value) and ReadInt32(position), ReadDouble(position). A whole Ring number is written as 4 bytes
+	# 1. Numbers: Write(position, value) and ReadInt32(position), ReadDouble(position). A whole Ring number is written as 4 bytes
 	#    (an int), a number with decimals as 8 bytes (a double). The positions are chosen by us: 0 = the first number, 4 = the second...
 	oAccessor.Write(0,21)
 	oAccessor.Write(8,3.5)
 	? "1. the parent wrote the int 21 at position 0 and the double 3.5 at position 8"
 
-	# 3. Text: a stream on the memory (CreateViewStream) works with StreamWriter and StreamReader like a file does. The text starts at 100.
+	# 2. Text: a stream on the memory (CreateViewStream) works with StreamWriter and StreamReader like a file does. The text starts at 100.
 	#    (The memory is zero-filled, so a reader sees the text and then zeros: the reading side cuts the text at the first zero byte.)
 	oStream = oMap.CreateViewStream([ :offset = 100, :size = 200 ])
 	oWriter = new StreamWriter(oStream)
@@ -47,7 +47,7 @@ func runParent
 	oStream.Dispose()
 	? "2. the parent wrote a text at position 100"
 
-	# 4. Start the child and read what it prints. It finds the memory by its name, reads the numbers and the text, and answers in the same memory.
+	# 3. Start the child and read what it prints. It finds the memory by its name, reads the numbers and the text, and answers in the same memory.
 	oInfo = new ProcessStartInfo().@New([ :fileName = exefilename(), :arguments = '"' + filename() + '" --child' ])
 	oInfo {
 		UseShellExecute = False
@@ -60,7 +60,7 @@ func runParent
 	? nl + "3. the child says:"
 	? "   " + substr(chomp(cOutput),char(10),nl + "   ")
 
-	# 5. The answer of the child is in the same memory: read it from the positions that were agreed
+	# 4. The answer of the child is in the same memory: read it from the positions that were agreed
 	? nl + "4. the answer of the child at position 4 (21 * 2): " + oAccessor.ReadInt32(4)
 	oAnswer = oMap.CreateViewStream([ :offset = 300, :size = 200 ])
 	cAnswer = textOf(new StreamReader(oAnswer).ReadLine())
@@ -86,7 +86,7 @@ func runChild
 # ---------------------------------------------------------------- a file edited in place
 
 func editFileInPlace
-	# 6. Map a FILE: the view is the content of the file, and a change in memory is a change in the file. Nothing is read or written
+	# 5. Map a FILE: the view is the content of the file, and a change in memory is a change in the file. Nothing is read or written
 	#    by you: the system moves the data. The program changes the second of three numbers in a file without touching the others.
 	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_shared_memory.bin"])
 	oConverter = new BitConverter()

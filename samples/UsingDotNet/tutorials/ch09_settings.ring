@@ -93,7 +93,7 @@ class Settings
 		cJson += "}"
 		new File().WriteAllText([ :path = cFile, :contents = cJson ])
 
-	# (named readFile: "load" is a Ring keyword)
+	# read the file and replace the defaults with the values that it has
 	func readFile
 		cLoadError = ""
 		if not new File().Exists(cFile)

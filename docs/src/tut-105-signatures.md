@@ -19,8 +19,6 @@ The tutorial [Hashing and encryption](tut-08-security.html) used hashes and encr
 
 {{output:samples/UsingDotNet/tutorials/ch08_signatures.ring}}
 
-> [!NOTE] This program uses a few generic functions (`dnStatic`, `callMethod`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
-
 ## How it works
 
 ### What a signature proves
@@ -29,11 +27,11 @@ A key pair has two parts that fit each other. The **private key** stays with its
 
 ### ECDsa
 
-`ECDsa` uses elliptic curves: a 256-bit key gives the security of a much longer RSA key, and signing is fast. The key is made on a named curve: `ECCurve.CreateFromFriendlyName("nistP256")` and then `ECDsa.Create(curve)`. These are static methods, called with `dnStatic(type, method, [arguments])`; the key object has no generated Ring class, so its methods are called with `callMethod("Name", [arguments])` and its properties with `getProp` ([Core concepts](concepts.html), *Plain objects*). The key size is 256 bits and a signature on this curve has 64 bytes.
+`ECDsa` uses elliptic curves: a 256-bit key gives the security of a much longer RSA key, and signing is fast. The key is made on a named curve: `ECCurve.CreateFromFriendlyName("nistP256")` and then `ECDsa.Create(curve)`. Both are static methods, called through `new ECCurve()` and `new ECDsa()`. The key size is 256 bits and a signature on this curve has 64 bytes.
 
 ### Sign and verify
 
-`SignData(data, hashAlgorithm)` hashes the data (SHA-256) and signs the hash; `VerifyData(data, signature, hashAlgorithm)` answers *true* or *false*. The data is a byte array: a Ring text of bytes (`UTF8Encoding.GetBytes`). Step 3 shows the three results that matter: the original message is valid, the changed message ("100" to "900") is **not**, and a second signature of the same message is also valid but **different** from the first, because a random number is part of every ECDsa signature. So never compare signatures to see whether a message is the same: always verify.
+`SignData([ :data = ..., :hashAlgorithm = ... ])` hashes the data (SHA-256) and signs the hash; `VerifyData([ :data = ..., :signature = ..., :hashAlgorithm = ... ])` answers *true* or *false*. The data is a byte array: a Ring text of bytes (`UTF8Encoding.GetBytes`). Step 3 shows the three results that matter: the original message is valid, the changed message ("100" to "900") is **not**, and a second signature of the same message is also valid but **different** from the first, because a random number is part of every ECDsa signature. So never compare signatures to see whether a message is the same: always verify.
 
 ### Another key
 

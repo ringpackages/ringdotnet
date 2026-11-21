@@ -309,8 +309,7 @@ using {
 
 <span class="c"># the SHA-256 checksum of a file as lower case hexadecimal text</span>
 <span class="k">func</span> <span class="f">checksumOf</span> cFile
-	oHash = <span class="f">dnStatic</span>(<span class="s">"System.Security.Cryptography.SHA256"</span>,<span class="s">"Create"</span>,[])
-	<span class="k">return</span> lower(<span class="k">new</span> <span class="t">Convert</span>().<span class="f">ToHexString</span>(oHash.<span class="f">ComputeHash</span>(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllBytes</span>(cFile))))
+	<span class="k">return</span> lower(<span class="k">new</span> <span class="t">Convert</span>().<span class="f">ToHexString</span>(<span class="k">new</span> <span class="t">SHA256</span>().<span class="f">HashData</span>(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllBytes</span>(cFile))))
 
 <span class="c"># the paths (relative, with /) of all the files of a folder and its subfolders, sorted, without the list file itself</span>
 <span class="k">func</span> <span class="f">relativeFiles</span> cFolder
@@ -406,7 +405,6 @@ using {
 
 5. the checksum of the list: 9ddec6614911...
    after somebody edited the list the checksum is the same: no</code></pre></div>
-<div class="callout note"><span class="t">Note</span><p>This program uses a generic function (<code>dnStatic</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-checksum">The checksum<a class="anchor" href="#the-checksum">#</a></h3>
 <p><code>SHA256.ComputeHash(bytes)</code> gives 32 bytes, and <code>Convert.ToHexString</code> writes them as 64 hexadecimal characters (the tutorial <a href="tut-138-base64-hex.html">Bytes as text: Base64 and hexadecimal</a>). The program writes them in lower case, as <code>sha256sum</code> does. A change of one bit anywhere in the file gives a completely different checksum, and nobody can find another file with the same checksum by chance. The checksum of a file that is read as <em>bytes</em> does not depend on the encoding or the line endings: it is the file as it is.</p>

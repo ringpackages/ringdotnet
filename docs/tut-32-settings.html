@@ -352,7 +352,7 @@ using {
 		cJson += <span class="s">"}"</span>
 		<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = cJson ])
 
-	<span class="c"># (named readFile: "load" is a Ring keyword)</span>
+	<span class="c"># read the file and replace the defaults with the values that it has</span>
 	<span class="k">func</span> <span class="f">readFile</span>
 		cLoadError = <span class="s">""</span>
 		<span class="k">if</span> <span class="k">not</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile)

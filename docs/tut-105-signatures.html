@@ -271,32 +271,32 @@ using {
 	? <span class="s">"1. a key pair was made on the curve nistP256, key size "</span> + oKey.KeySize + <span class="s">" bits"</span>
 
 	<span class="c"># 2. Sign a message: the data is hashed (SHA-256) and the hash is signed. The signature of ECDsa has 64 bytes for this curve.</span>
-	aMessage = oUtf8.<span class="f">GetBytes</span>(<span class="s">"Pay 100 to Bob"</span>)
-	oSha = <span class="f">dnStatic</span>(<span class="s">"System.Security.Cryptography.HashAlgorithmName"</span>,<span class="s">"get_SHA256"</span>,[])
-	aSignature = oKey.<span class="f">callMethod</span>(<span class="s">"SignData"</span>,[aMessage,oSha])
-	? nl + <span class="s">"2. the signature has "</span> + len(aSignature) + <span class="s">" bytes"</span>
+	cMessage = oUtf8.<span class="f">GetBytes</span>(<span class="s">"Pay 100 to Bob"</span>)
+	oSha = <span class="k">new</span> <span class="t">HashAlgorithmName</span>().SHA256
+	cSignature = oKey.<span class="f">SignData</span>([ :data = cMessage, :hashAlgorithm = oSha ])
+	? nl + <span class="s">"2. the signature has "</span> + len(cSignature) + <span class="s">" bytes"</span>
 	? <span class="s">"   it is different every time you sign (a random number is part of it), so the program does not print it"</span>
 
 	<span class="c"># 3. Verify: true only for the same message and the same signature</span>
-	? nl + <span class="s">"3. the original message:       "</span> + oKey.<span class="f">callMethod</span>(<span class="s">"VerifyData"</span>,[aMessage,aSignature,oSha])
-	aChanged = oUtf8.<span class="f">GetBytes</span>(<span class="s">"Pay 900 to Bob"</span>)
-	? <span class="s">"   the message changed (100 to 900): "</span> + oKey.<span class="f">callMethod</span>(<span class="s">"VerifyData"</span>,[aChanged,aSignature,oSha])
-	aOther = oKey.<span class="f">callMethod</span>(<span class="s">"SignData"</span>,[aMessage,oSha])
-	? <span class="s">"   a second signature of the same message is also valid: "</span> + oKey.<span class="f">callMethod</span>(<span class="s">"VerifyData"</span>,[aMessage,aOther,oSha]) + <span class="s">", but different from the first: "</span> + (aOther != aSignature)
+	? nl + <span class="s">"3. the original message:       "</span> + oKey.<span class="f">VerifyData</span>([ :data = cMessage, :signature = cSignature, :hashAlgorithm = oSha ])
+	cChanged = oUtf8.<span class="f">GetBytes</span>(<span class="s">"Pay 900 to Bob"</span>)
+	? <span class="s">"   the message changed (100 to 900): "</span> + oKey.<span class="f">VerifyData</span>([ :data = cChanged, :signature = cSignature, :hashAlgorithm = oSha ])
+	cOther = oKey.<span class="f">SignData</span>([ :data = cMessage, :hashAlgorithm = oSha ])
+	? <span class="s">"   a second signature of the same message is also valid: "</span> + oKey.<span class="f">VerifyData</span>([ :data = cMessage, :signature = cOther, :hashAlgorithm = oSha ]) + <span class="s">", but different from the first: "</span> + (cOther != cSignature)
 
 	<span class="c"># 4. A signature of one key is not valid for another key: somebody else can not sign in your name</span>
 	oOtherKey = <span class="k">new</span> <span class="t">ECDsa</span>().<span class="f">Create</span>(oCurve)
-	? nl + <span class="s">"4. verified with another key: "</span> + oOtherKey.<span class="f">callMethod</span>(<span class="s">"VerifyData"</span>,[aMessage,aSignature,oSha])
+	? nl + <span class="s">"4. verified with another key: "</span> + oOtherKey.<span class="f">VerifyData</span>([ :data = cMessage, :signature = cSignature, :hashAlgorithm = oSha ])
 
 	<span class="c"># 5. Share only the PUBLIC part of the key: ExportParameters(False) gives the curve and the public point, without the private number.</span>
 	<span class="c">#    The receiver imports it into a new key object and can only VERIFY, never sign in your name.</span>
 	oPublic = oKey.<span class="f">ExportParameters</span>(<span class="k">False</span>)
 	oReceiver = <span class="k">new</span> <span class="t">ECDsa</span>().<span class="f">Create</span>(oCurve)
 	oReceiver.<span class="f">ImportParameters</span>(oPublic)
-	? nl + <span class="s">"5. the receiver has only the public key and can verify the message: "</span> + oReceiver.<span class="f">callMethod</span>(<span class="s">"VerifyData"</span>,[aMessage,aSignature,oSha])
+	? nl + <span class="s">"5. the receiver has only the public key and can verify the message: "</span> + oReceiver.<span class="f">VerifyData</span>([ :data = cMessage, :signature = cSignature, :hashAlgorithm = oSha ])
 	lCanSign = <span class="k">True</span>
 	<span class="k">try</span>
-		oReceiver.<span class="f">callMethod</span>(<span class="s">"SignData"</span>,[aMessage,oSha])
+		oReceiver.<span class="f">SignData</span>([ :data = cMessage, :hashAlgorithm = oSha ])
 	<span class="k">catch</span>
 		lCanSign = <span class="k">False</span>
 	<span class="k">done</span>
@@ -319,14 +319,13 @@ using {
 
 5. the receiver has only the public key and can verify the message: 1
    the receiver can sign with it: 0   (there is no private key)</code></pre></div>
-<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnStatic</code>, <code>callMethod</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="what-a-signature-proves">What a signature proves<a class="anchor" href="#what-a-signature-proves">#</a></h3>
 <p>A key pair has two parts that fit each other. The <strong>private key</strong> stays with its owner and makes signatures. The <strong>public key</strong> can be given to everybody and only <em>checks</em> signatures. A valid signature proves two things: the message was signed by the <strong>owner of the private key</strong>, and the message is <strong>exactly</strong> the signed one — changing a single character makes the check fail. It does <strong>not</strong> hide the message (that is encryption) and it does not prove that the owner is the person you think; for that you need a certificate from somebody you trust.</p>
 <h3 id="ecdsa">ECDsa<a class="anchor" href="#ecdsa">#</a></h3>
-<p><code>ECDsa</code> uses elliptic curves: a 256-bit key gives the security of a much longer RSA key, and signing is fast. The key is made on a named curve: <code>ECCurve.CreateFromFriendlyName("nistP256")</code> and then <code>ECDsa.Create(curve)</code>. These are static methods, called with <code>dnStatic(type, method, [arguments])</code>; the key object has no generated Ring class, so its methods are called with <code>callMethod("Name", [arguments])</code> and its properties with <code>getProp</code> (<a href="concepts.html">Core concepts</a>, <em>Plain objects</em>). The key size is 256 bits and a signature on this curve has 64 bytes.</p>
+<p><code>ECDsa</code> uses elliptic curves: a 256-bit key gives the security of a much longer RSA key, and signing is fast. The key is made on a named curve: <code>ECCurve.CreateFromFriendlyName("nistP256")</code> and then <code>ECDsa.Create(curve)</code>. Both are static methods, called through <code>new ECCurve()</code> and <code>new ECDsa()</code>. The key size is 256 bits and a signature on this curve has 64 bytes.</p>
 <h3 id="sign-and-verify">Sign and verify<a class="anchor" href="#sign-and-verify">#</a></h3>
-<p><code>SignData(data, hashAlgorithm)</code> hashes the data (SHA-256) and signs the hash; <code>VerifyData(data, signature, hashAlgorithm)</code> answers <em>true</em> or <em>false</em>. The data is a byte array: a Ring text of bytes (<code>UTF8Encoding.GetBytes</code>). Step 3 shows the three results that matter: the original message is valid, the changed message ("100" to "900") is <strong>not</strong>, and a second signature of the same message is also valid but <strong>different</strong> from the first, because a random number is part of every ECDsa signature. So never compare signatures to see whether a message is the same: always verify.</p>
+<p><code>SignData([ :data = ..., :hashAlgorithm = ... ])</code> hashes the data (SHA-256) and signs the hash; <code>VerifyData([ :data = ..., :signature = ..., :hashAlgorithm = ... ])</code> answers <em>true</em> or <em>false</em>. The data is a byte array: a Ring text of bytes (<code>UTF8Encoding.GetBytes</code>). Step 3 shows the three results that matter: the original message is valid, the changed message ("100" to "900") is <strong>not</strong>, and a second signature of the same message is also valid but <strong>different</strong> from the first, because a random number is part of every ECDsa signature. So never compare signatures to see whether a message is the same: always verify.</p>
 <h3 id="another-key">Another key<a class="anchor" href="#another-key">#</a></h3>
 <p>A signature made with one key does not verify with another key (step 4). Nobody can sign in your name without your private key, which is why the private key must be kept safe: in a file with strict rights, in a key store or in a hardware token, and never in the source code or in a mail.</p>
 <h3 id="sharing-the-public-key">Sharing the public key<a class="anchor" href="#sharing-the-public-key">#</a></h3>

@@ -340,7 +340,7 @@ using {
 	<span class="k">return</span> [ <span class="f">dnBufferBytes</span>(oBuffer,nCount), nCalls ]
 
 <span class="c"># One message: read the four bytes of the length, check it against the maximum, then read the message. The answer is [the message, the</span>
-<span class="c"># number of Read calls: it depends on how the bytes arrived, so the program does not print it), or ["(refused: ...)", 0] for a length over the maximum.</span>
+<span class="c"># number of Read calls: it depends on how the bytes arrived, so the program does not print it], or ["(refused: ...)", 0] for a length over the maximum.</span>
 <span class="k">func</span> <span class="f">readMessage</span> oStream,nMaximum
 	aHeader = readExact(oStream,<span class="n">4</span>)
 	nLength = bytesLength(aHeader[<span class="n">1</span>])

@@ -20,19 +20,19 @@ The tutorial [Settings](tut-32-settings.html) saved settings in a file. On Windo
 
 {{output:samples/UsingDotNet/tutorials/ch06_registry.ring}}
 
-> [!NOTE] This program uses a few generic functions (`dnNewGeneric`, `dnType`, `callMethod`, `getProp`, `dnBuffer`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+> [!NOTE] This program uses a few generic functions (`dnNewGeneric`, `dnBuffer`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
 
 ## How it works
 
 ### Keys and values
 
-The Registry looks like a file system: **keys** are the folders, and each key holds **values**, a name with data and a type. The big branches are *hives*: `HKEY_CURRENT_USER` (HKCU) belongs to the user who is logged in, `HKEY_LOCAL_MACHINE` (HKLM) is for the whole computer, `HKEY_CLASSES_ROOT` holds the file types. The program writes only in HKCU, under its own key `Software\RingDotNetTutorial118`, because that needs **no administrator rights** and does not affect other users. HKLM needs an administrator to write.
+The Registry looks like a file system: **keys** are the folders, and each key holds **values**, a name with data and a type. The big branches are *hives*: `HKEY_CURRENT_USER` (HKCU) belongs to the user who is logged in, `HKEY_LOCAL_MACHINE` (HKLM) is for the whole computer, `HKEY_CLASSES_ROOT` holds the file types. The program writes only in HKCU, under its own key `Software\RingDotNetTutorial`, because that needs **no administrator rights** and does not affect other users. HKLM needs an administrator to write.
 
-`Registry.CurrentUser` is a static property of the class, read with `dnType("Microsoft.Win32.Registry").getProp("CurrentUser")`. `CreateSubKey(path)` makes a key (or opens it when it exists) for writing, `OpenSubKey(path)` opens an existing one for reading (and answers null when it does not exist), and `Close()` lets go of it. Paths use the backslash: in a Ring text `"Software\RingDotNetTutorial118"` is written as it is.
+`Registry.CurrentUser` is a static property of the class, read through `new Registry().CurrentUser`. `CreateSubKey(path)` makes a key (or opens it when it exists) for writing, `OpenSubKey(path)` opens an existing one for reading (and answers null when it does not exist), and `Close()` lets go of it. Paths use the backslash: in a Ring text `"Software\RingDotNetTutorial"` is written as it is.
 
 ### The kinds of value
 
-`SetValue(name, data, kind)` writes a value, and the **kind** says how Windows stores it:
+`SetValue([ :name = ..., :value = ..., :valueKind = ... ])` writes a value, and the **kind** says how Windows stores it:
 
 | Kind | Data | Use |
 |---|---|---|

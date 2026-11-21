@@ -20,7 +20,7 @@ func main
 	? "   '::1' is " + oV6.AddressFamily + ", loopback: " + yesNo(oParser.IsLoopback(oV6))
 	? "   private address 192.168.1.20 is not the loopback: " + yesNo(not oParser.IsLoopback(oAddress))
 
-	# 2. An address plus a port is an IPEndPoint. Built from named arguments, because the constructor has several forms.
+	# 2. An address plus a port is an IPEndPoint.
 	oEndPoint = new IPEndPoint(oAddress,8080)
 	? nl + "2. the endpoint " + oEndPoint.ToString() + ": address " + oEndPoint.Address.ToString() + ", port " + oEndPoint.Port
 

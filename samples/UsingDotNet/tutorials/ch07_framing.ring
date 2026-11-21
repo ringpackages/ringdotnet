@@ -86,7 +86,7 @@ func readExact oStream,nCount
 	return [ dnBufferBytes(oBuffer,nCount), nCalls ]
 
 # One message: read the four bytes of the length, check it against the maximum, then read the message. The answer is [the message, the
-# number of Read calls: it depends on how the bytes arrived, so the program does not print it), or ["(refused: ...)", 0] for a length over the maximum.
+# number of Read calls: it depends on how the bytes arrived, so the program does not print it], or ["(refused: ...)", 0] for a length over the maximum.
 func readMessage oStream,nMaximum
 	aHeader = readExact(oStream,4)
 	nLength = bytesLength(aHeader[1])

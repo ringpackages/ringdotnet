@@ -31,20 +31,20 @@ func main
 	ok
 	? "1. the database file was created: " + new File().Exists(cFile)
 
-	# 2. The connection string names the driver and the file (Dbq). The ODBC classes have no generated Ring classes: dnNew makes the
+	#    The connection string names the driver and the file (Dbq). The ODBC classes have no generated Ring classes: dnNew makes the
 	#    objects and callMethod / getProp use them.
 	oConnection = dnNew("System.Data.Odbc.OdbcConnection",["Driver={" + cDriver + "};Dbq=" + cFile + ";"])
 	oConnection.Open()
 	? "   the connection is: " + oConnection.State
 
-	# 3. Tables. Access has its own names for the column types: AUTOINCREMENT (a number that counts by itself), TEXT(n), LONG (a whole
+	# 2. Tables. Access has its own names for the column types: AUTOINCREMENT (a number that counts by itself), TEXT(n), LONG (a whole
 	#    number), CURRENCY (money with 4 decimals, exact), DATETIME, YESNO.
 	runSql(oConnection,"CREATE TABLE Customers (Id AUTOINCREMENT PRIMARY KEY, Name TEXT(40), City TEXT(30), Vip YESNO)",[])
 	runSql(oConnection,"CREATE TABLE Orders (Id AUTOINCREMENT PRIMARY KEY, CustomerId LONG, Total CURRENCY, Ordered DATETIME)",[])
 	? nl + "2. tables: " + joinList(tableNames(oConnection))
 	? "   columns of Orders: " + joinList(columnNames(oConnection,"Orders"))
 
-	# 4. Rows go in with PARAMETERS: a ? in the statement and the values in a list. Never join values into the text of the statement:
+	# 3. Rows go in with PARAMETERS: a ? in the statement and the values in a list. Never join values into the text of the statement:
 	#    a name with an apostrophe would break it, and a bad text could change what the statement does.
 	aCustomers = [ ["Ann","Cairo",True], ["Bob O'Neil","Alexandria",False], [arabicName(),"Cairo",True], ["Dina","Giza",False] ]
 	for aCustomer in aCustomers
@@ -56,41 +56,41 @@ func main
 	next
 	? nl + "3. rows: " + scalar(oConnection,"SELECT COUNT(*) FROM Customers",[]) + " customers, " + scalar(oConnection,"SELECT COUNT(*) FROM Orders",[]) + " orders"
 
-	# 5. A query gives rows. Reading goes through a reader: Read() moves to the next row and GetValue(n) reads a column (0 is the first).
+	# 4. A query gives rows. Reading goes through a reader: Read() moves to the next row and GetValue(n) reads a column (0 is the first).
 	? nl + "4. the customers in Cairo, by name:"
 	for aRow in rows(oConnection,"SELECT Id, Name, City FROM Customers WHERE City = ? ORDER BY Name",["Cairo"])
 		? "   " + aRow[1] + ": " + aRow[2] + " (" + aRow[3] + ")"
 	next
 	? "   the apostrophe and the Arabic name came back as they went in: " + (scalar(oConnection,"SELECT Name FROM Customers WHERE Id = ?",[2]) = "Bob O'Neil") + ", " + (scalar(oConnection,"SELECT Name FROM Customers WHERE Id = ?",[3]) = arabicName())
 
-	# 6. A join puts the data of two tables side by side
+	# 5. A join puts the data of two tables side by side
 	? nl + "5. each order with its customer (INNER JOIN):"
 	for aRow in rows(oConnection,"SELECT c.Name, o.Total, o.Ordered FROM Customers AS c INNER JOIN Orders AS o ON c.Id = o.CustomerId ORDER BY o.Ordered",[])
 		? "   " + padRight(shortName(aRow[1]),12) + padLeft(money(aRow[2]),8) + "   " + aRow[3]
 	next
 
-	# 7. Totals: GROUP BY makes one row for each customer, with SUM, COUNT and AVG. HAVING filters the groups.
+	# 6. Totals: GROUP BY makes one row for each customer, with SUM, COUNT and AVG. HAVING filters the groups.
 	? nl + "6. orders for each customer (customers with 2 orders or more):"
 	for aRow in rows(oConnection,"SELECT c.Name, COUNT(*) AS Orders, SUM(o.Total) AS Total, AVG(o.Total) AS Average FROM Customers AS c INNER JOIN Orders AS o ON c.Id = o.CustomerId GROUP BY c.Name HAVING COUNT(*) >= ? ORDER BY SUM(o.Total) DESC",[2])
 		? "   " + padRight(shortName(aRow[1]),12) + aRow[2] + " orders, total " + money(aRow[3]) + ", average " + money(aRow[4])
 	next
 
-	# 8. TOP n is Access's way to say "the first n rows" (there is no LIMIT). LIKE searches with % for any characters (ODBC style).
+	# 7. TOP n is Access's way to say "the first n rows" (there is no LIMIT). LIKE searches with % for any characters (ODBC style).
 	? nl + "7. the 2 biggest orders: " + joinList(columnOf(rows(oConnection,"SELECT TOP 2 Total FROM Orders ORDER BY Total DESC",[]),1,"money"))
 	? "   the customers whose name starts with B: " + joinList(columnOf(rows(oConnection,"SELECT Name FROM Customers WHERE Name LIKE ?",["B%"]),1,""))
 
-	# 9. Dates. A DateTime object goes in as a parameter and comes back as a DateTime. Access has date functions: Year, Month, Format.
+	# 8. Dates. A DateTime object goes in as a parameter and comes back as a DateTime. Access has date functions: Year, Month, Format.
 	? nl + "8. the total of each month (Month function):"
 	for aRow in rows(oConnection,"SELECT Month(Ordered) AS M, SUM(Total) FROM Orders GROUP BY Month(Ordered) ORDER BY Month(Ordered)",[])
 		? "   month " + aRow[1] + ": " + money(aRow[2])
 	next
 	? "   orders after 15 February: " + scalar(oConnection,"SELECT COUNT(*) FROM Orders WHERE Ordered > ?",[new DateTime(2024,2,15)])
 
-	# 10. Change and delete rows. The statement answers how many rows it changed.
+	# 9. Change and delete rows. The statement answers how many rows it changed.
 	? nl + "9. the orders of Ann under 100 are raised by 10%: " + runSql(oConnection,"UPDATE Orders SET Total = Total * 1.1 WHERE CustomerId = ? AND Total < ?",[1,100]) + " rows"
 	? "   Dina has no orders and is deleted: " + runSql(oConnection,"DELETE FROM Customers WHERE Id = ?",[4]) + " row"
 
-	# 11. A transaction makes several statements ONE change: all of them happen or none. Here the second statement fails (a table that
+	# 10. A transaction makes several statements ONE change: all of them happen or none. Here the second statement fails (a table that
 	#     does not exist), so the first one is undone.
 	oTransaction = oConnection.callMethod("BeginTransaction",[])
 	lFailed = False
@@ -104,7 +104,7 @@ func main
 	done
 	? nl + "10. the second statement failed: " + lFailed + "; the city of Ann is still " + scalar(oConnection,"SELECT City FROM Customers WHERE Id = ?",[1])
 
-	# 12. Close the connection. The pool of ODBC keeps connections for reuse, so it is emptied too. The Access engine keeps the FILE open
+	# 11. Close the connection. The pool of ODBC keeps connections for reuse, so it is emptied too. The Access engine keeps the FILE open
 	#     until the program ends, so the program does not delete it here.
 	oConnection.Close()
 	oConnection.Dispose()

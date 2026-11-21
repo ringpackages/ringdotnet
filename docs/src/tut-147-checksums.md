@@ -19,8 +19,6 @@ The tutorial [A project: find duplicate files](tut-31-duplicates.html) used hash
 
 {{output:samples/UsingDotNet/tutorials/ch05_checksums.ring}}
 
-> [!NOTE] This program uses a generic function (`dnStatic`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
-
 ## How it works
 
 ### The checksum

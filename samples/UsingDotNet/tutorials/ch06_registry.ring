@@ -6,7 +6,7 @@ using {
 	"Microsoft.Win32"
 }
 
-C_PATH = "Software\RingDotNetTutorial118"
+C_PATH = "Software\RingDotNetTutorial"
 
 func main
 	if not iswindows()
@@ -18,8 +18,8 @@ func main
 	# settings in it. The part HKEY_CURRENT_USER (HKCU) belongs to the user who is logged in and needs no special rights; the part
 	# HKEY_LOCAL_MACHINE is for all users and needs an administrator for writing. This lesson writes only in its own key under HKCU
 	# and deletes it at the end.
-	oUser = dnType("Microsoft.Win32.Registry").getProp("CurrentUser")
-	oUser.callMethod("DeleteSubKeyTree",[C_PATH,False])           # a key from an earlier run goes away (False: no error when it is missing)
+	oUser = new Registry().CurrentUser
+	oUser.DeleteSubKeyTree([ :subkey = C_PATH, :throwOnMissingSubKey = False ])           # a key from an earlier run goes away (False: no error when it is missing)
 
 	# 1. CreateSubKey makes a key (or opens it when it exists) and gives it ready for writing
 	oKey = oUser.CreateSubKey(C_PATH)
@@ -27,20 +27,20 @@ func main
 
 	# 2. SetValue(name, data, kind). The kind says how Windows stores the data: String, DWord (a 32-bit number), QWord (64 bits),
 	#    MultiString (a list of texts), ExpandString (a text with %NAME% variables that Windows replaces) and Binary (bytes).
-	oKey.callMethod("SetValue",["UserName","Ann","String"])
-	oKey.callMethod("SetValue",["WindowWidth",1280,"DWord"])
-	oKey.callMethod("SetValue",["LastFiles",stringArray(["a.txt","b.txt","c.txt"]),"MultiString"])          # MultiString needs a string[]: a List<string> and ToArray()
-	oKey.callMethod("SetValue",["DataFolder","%USERPROFILE%\Data","ExpandString"])
-	oKey.callMethod("SetValue",["BigNumber",5000000000,"QWord"])          # a number above 2147483647 needs 64 bits
+	oKey.SetValue([ :name = "UserName", :value = "Ann", :valueKind = "String" ])
+	oKey.SetValue([ :name = "WindowWidth", :value = 1280, :valueKind = "DWord" ])
+	oKey.SetValue([ :name = "LastFiles", :value = stringArray(["a.txt","b.txt","c.txt"]), :valueKind = "MultiString" ])          # MultiString needs a string[]: a List<string> and ToArray()
+	oKey.SetValue([ :name = "DataFolder", :value = "%USERPROFILE%\Data", :valueKind = "ExpandString" ])
+	oKey.SetValue([ :name = "BigNumber", :value = 5000000000, :valueKind = "QWord" ])          # a number above 2147483647 needs 64 bits
 	# Binary needs a real byte[] object. A Ring text would be written as a String, so the bytes are put into a byte buffer (dnBuffer) first:
 	# the buffer is a .NET object that holds a byte[], and a parameter of type object receives that array.
-	oKey.callMethod("SetValue",["Signature",dnBuffer(char(1) + char(2) + char(0) + char(254) + char(255)),"Binary"])
+	oKey.SetValue([ :name = "Signature", :value = dnBuffer(char(1) + char(2) + char(0) + char(254) + char(255)), :valueKind = "Binary" ])
 	? nl + "2. values written: " + oKey.ValueCount
 
 	# 3. Reading: GetValue(name, default) gives the data in the form that fits its kind, or the default when the name is missing
-	? nl + "3. UserName    = " + oKey.callMethod("GetValue",["UserName","(none)"])
-	? "   WindowWidth = " + oKey.callMethod("GetValue",["WindowWidth",800]) + "   (a number, so " + (oKey.callMethod("GetValue",["WindowWidth",800]) + 20) + " after + 20)"
-	? "   Missing     = " + oKey.callMethod("GetValue",["Missing","(default)"])
+	? nl + "3. UserName    = " + oKey.GetValue([ :name = "UserName", :defaultValue = "(none)" ])
+	? "   WindowWidth = " + oKey.GetValue([ :name = "WindowWidth", :defaultValue = 800 ]) + "   (a number, so " + (oKey.GetValue([ :name = "WindowWidth", :defaultValue = 800 ]) + 20) + " after + 20)"
+	? "   Missing     = " + oKey.GetValue([ :name = "Missing", :defaultValue = "(default)" ])
 	? "   LastFiles   = " + listText(oKey.GetValue("LastFiles").toList())
 	cFolder = oKey.GetValue("DataFolder")
 	? "   DataFolder  = ends with \Data: " + (right(cFolder,5) = "\Data") + ", still has a % sign: " + (substr(cFolder,"%") > 0) + "   (Windows replaced %USERPROFILE%; the path is not printed because it holds your user name)"
@@ -57,8 +57,8 @@ func main
 
 	# 5. Sub-keys: a key can hold other keys, like folders. GetSubKeyNames lists them.
 	oChild = oKey.CreateSubKey("Window1")
-	oChild.callMethod("SetValue",["Left",100,"DWord"])
-	oChild.callMethod("SetValue",["Top",50,"DWord"])
+	oChild.SetValue([ :name = "Left", :value = 100, :valueKind = "DWord" ])
+	oChild.SetValue([ :name = "Top", :value = 50, :valueKind = "DWord" ])
 	oChild.Close()
 	oKey.CreateSubKey("Window2").Close()
 	? nl + "5. sub-keys: " + listText(sort(oKey.GetSubKeyNames().toList()))
