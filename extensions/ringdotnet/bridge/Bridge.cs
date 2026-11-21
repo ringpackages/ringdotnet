@@ -269,7 +269,7 @@ namespace RingDotNet
 				case float f: WriteItem(ms, 'n', Encoding.ASCII.GetBytes(((double)f).ToString("R", Inv))); return;
 				case sbyte or byte or short or ushort or int or uint or long or ulong:
 					WriteItem(ms, 'n', Encoding.ASCII.GetBytes(Convert.ToString(value, Inv))); return;
-				case List<object> list:
+				case List<object> list when list.GetType() == typeof(List<object>):
 					{
 						MemoryStream inner = new MemoryStream();
 						foreach (object item in list) { Encode(inner, item); }
@@ -1777,7 +1777,7 @@ namespace RingDotNet
 			{
 				case null or string or char or bool or byte[] or Enum or decimal or double or float:
 				case sbyte or byte or short or ushort or int or uint or long or ulong:
-				case List<object>:
+				case List<object> when value.GetType() == typeof(List<object>):
 					return 0.0;
 				default:
 					return (double)Register(value);
@@ -1792,8 +1792,18 @@ namespace RingDotNet
 			return Constructors.GetOrAdd(t, type => type.GetConstructors(BindingFlags.Public | BindingFlags.Instance));
 		}
 
+		/* The results of the bridge itself are plain List<object>, and Encode sends those as Ring lists. A List<object> that a Ring program makes (ObjectList) must stay an
+		   object, so it is made as this subclass: it is a List<object> for every method and class that asks for one, and Encode does not take it for a result list. */
+		public sealed class ObjectListObject : List<object>
+		{
+			public ObjectListObject() { }
+			public ObjectListObject(int capacity) : base(capacity) { }
+			public ObjectListObject(IEnumerable<object> items) : base(items) { }
+		}
+
 		private static object CreateInstance(Type t, object[] args)
 		{
+			if (t == typeof(List<object>)) t = typeof(ObjectListObject);
 			if (t.IsAbstract)
 			{
 				throw new InvalidOperationException("Can't create an instance of the abstract type " + t.FullName);
@@ -2119,6 +2129,7 @@ namespace RingDotNet
 		private static object CreateInstanceNamed(Type t, object pairs)
 		{
 			SplitPairs(pairs, out string[] names, out object[] values);
+			if (t == typeof(List<object>)) t = typeof(ObjectListObject);
 			if (t.IsAbstract) throw new InvalidOperationException("Can't create an instance of the abstract type " + t.FullName);
 			if (names.Length == 0 && t.IsValueType) return Activator.CreateInstance(t);
 			ConstructorInfo ctor = PickNamed(ConstructorsOf(t), names, values, out object[] conv) as ConstructorInfo;

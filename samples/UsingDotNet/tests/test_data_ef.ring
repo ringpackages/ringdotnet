@@ -47,7 +47,7 @@ func main
 
 	oContext = oDb.context()
 	dnAssert("the provider",oContext.Database.ProviderName,"Microsoft.EntityFrameworkCore.Sqlite")
-	dnAssert("the provider",oDb.context().Database.ProviderName,"Microsoft.EntityFrameworkCore.Sqlite")
+	dnAssert("the provider, without a variable",oDb.context().Database.ProviderName,"Microsoft.EntityFrameworkCore.Sqlite")
 	oDb.close()
 
 	# a database file survives the context

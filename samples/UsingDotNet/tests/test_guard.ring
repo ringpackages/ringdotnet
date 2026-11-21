@@ -6,6 +6,7 @@ func main
 		"System"
 		"System.Text"
 		"System.IO"
+		"System.Collections.Generic"
 	}
 	oGC = new GC()
 	oGC.Collect(NULL)
@@ -39,15 +40,17 @@ func main
 	dnAssert("an object returned by a method works after the first one is gone",oAgain.Append("y").ToString(),"xy")
 
 	# 4. a collection keeps its items (the .NET side keeps them alive, not the handles of Ring)
-	oList = new StringList
+	oList = new ObjectList()
 	for i = 1 to 100
 		oStream = new MemoryStream
 		oStream.WriteByte(i)
+		oList.Add(oStream)
 	next
 	oStream = NULL
 	callgc()
 	dnFlush()
-	dnAssert("a list of 100 items",new MemoryStream().Length,0)
+	dnAssert("a list of 100 items",oList.Count,100)
+	dnAssert("an item is still valid after its handle was dropped",oList.Item(49).Length,1)
 
 	# 5. release() lets go at once, and a second release or a free of the guard does no harm
 	oOne = new StringBuilder("one")

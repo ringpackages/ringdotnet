@@ -4,6 +4,7 @@ dnImport("System.Collections")
 dnImport("System.Collections.Specialized")
 dnImport("System.Collections.Generic")
 dnImport("System.Collections.ObjectModel")
+dnImport("System.Text")
 
 # Non-generic collections
 oArr = new ArrayList()
@@ -78,6 +79,14 @@ oLinked.AddLast("b")  oLinked.AddFirst("a")  oLinked.AddLast("c")
 dnAssert("LinkedList.Count",oLinked.Count,3)
 dnAssert("LinkedList.First.Value",oLinked.First.getProp("Value"),"a")
 dnAssert("LinkedList.Last.Value",oLinked.Last.getProp("Value"),"c")
+
+# List<object> is the one closed type that the bridge also uses for its own lists: an object that a program makes must stay an object
+oAny = new ObjectList()
+oAny.Add(1)  oAny.Add("two")  oAny.Add(new StringBuilder("three"))
+dnAssert("ObjectList is an object",isobject(oAny),1)
+dnAssert("ObjectList.Count",oAny.Count,3)
+dnAssert("ObjectList.Item",oAny.Item(1),"two")
+dnAssert("ObjectList keeps an object",oAny.Item(2).ToString(),"three")
 
 oStack = new ObjectStack()
 oStack.Push(1)  oStack.Push("two")
