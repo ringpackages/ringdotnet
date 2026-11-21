@@ -30,7 +30,6 @@ func main
 	dnAssert("a params array takes a plain list",oPath.Combine(["a","b","c"]),"a" + cSep + "b" + cSep + "c")
 	dnAssert("the same method by parameter names",oPath.Combine([ :path1 = "a", :path2 = "b" ]),"a" + cSep + "b")
 	dnAssert("an overloaded name has no numbered methods",isattribute(new Path(),"Combine_3") = 0 and ismethod(oPath,"Combine_3") = 0,True)
-	oBuilder2 = new StringBuilder("ab")
 	dnAssert("a constructor by names: @New",new StringBuilder("x").@New([ :value = "abc", :capacity = 16 ]).ToString(),"abc")
 
 	# inside braces
@@ -78,7 +77,7 @@ func main
 		lFailed = True
 	done
 	dnAssert("a required parameter is missing",lFailed,True)
-	
+
 
 	# constructors: a class whose init() takes one argument also has the parameterless constructor, reached with NULL
 	oBuilder = new StringBuilder(NULL)
