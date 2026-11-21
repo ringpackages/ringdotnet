@@ -1432,6 +1432,10 @@ Class CharacterRange from ValueType
 		dotnet_callv("s3:set",nHandle,"s6:Length",P1)
 		return self
 
+	# the operators of System.Drawing.CharacterRange: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class Color from ValueType
 
@@ -2570,6 +2574,10 @@ Class Color from ValueType
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
+
+	# the operators of System.Drawing.Color: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ColorTranslator from Object
@@ -6092,6 +6100,10 @@ Class Point from ValueType
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
 
+	# the operators of System.Drawing.Point: + - = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class PointF from ValueType
 
@@ -6166,6 +6178,10 @@ Class PointF from ValueType
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
+
+	# the operators of System.Drawing.PointF: + - = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Size from ValueType
@@ -6248,6 +6264,10 @@ Class Size from ValueType
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
 
+	# the operators of System.Drawing.Size: + - * / = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class SizeF from ValueType
 
@@ -6328,6 +6348,10 @@ Class SizeF from ValueType
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
+
+	# the operators of System.Drawing.SizeF: + - * / = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Rectangle from ValueType
@@ -6536,6 +6560,10 @@ Class Rectangle from ValueType
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
 
+	# the operators of System.Drawing.Rectangle: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class RectangleF from ValueType
 
@@ -6736,6 +6764,10 @@ Class RectangleF from ValueType
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
+
+	# the operators of System.Drawing.RectangleF: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Font from MarshalByRefObject

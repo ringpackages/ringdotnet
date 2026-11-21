@@ -849,6 +849,10 @@ Class ActivityContext from ValueType
 	Func setIsRemote P1
 		raise("DotNet Error: IsRemote is a read-only property")
 
+	# the operators of System.Diagnostics.ActivityContext: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class ActivityCreationOptions from ValueType
 
@@ -1053,6 +1057,10 @@ Class ActivityLink from ValueType
 	Func setTags P1
 		raise("DotNet Error: Tags is a read-only property")
 
+	# the operators of System.Diagnostics.ActivityLink: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class ActivityListener from Object
 
@@ -1251,6 +1259,10 @@ Class ActivitySpanId from ValueType
 
 	Func CreateRandom 
 		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.ActivitySpanId, System.Diagnostics.DiagnosticSource',"s12:CreateRandom"))
+
+	# the operators of System.Diagnostics.ActivitySpanId: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ActivityTagsCollection from Object
@@ -1461,6 +1473,10 @@ Class ActivityTraceId from ValueType
 
 	Func CreateRandom 
 		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.ActivityTraceId, System.Diagnostics.DiagnosticSource',"s12:CreateRandom"))
+
+	# the operators of System.Diagnostics.ActivityTraceId: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class CorrelationManager from Object

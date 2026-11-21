@@ -4287,6 +4287,10 @@ Class BindingMemberInfo from ValueType
 	Func setBindingMember P1
 		raise("DotNet Error: BindingMember is a read-only property")
 
+	# the operators of System.Windows.Forms.BindingMemberInfo: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class BindingSource from Component
 
@@ -7498,6 +7502,10 @@ Class Cursor from Object
 	Func setPosition P1
 		dotnet_callv("s3:set",'System.Windows.Forms.Cursor, System.Windows.Forms',"s8:Position",P1)
 		return self
+
+	# the operators of System.Windows.Forms.Cursor: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class CursorConverter from TypeConverter
@@ -11799,6 +11807,10 @@ Class HtmlDocument from Object
 	Func setForms P1
 		raise("DotNet Error: Forms is a read-only property")
 
+	# the operators of System.Windows.Forms.HtmlDocument: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class HtmlElement from Object
 
@@ -12228,6 +12240,10 @@ Class HtmlElement from Object
 
 	Func setDomElement P1
 		raise("DotNet Error: DomElement is a read-only property")
+
+	# the operators of System.Windows.Forms.HtmlElement: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class HtmlElementCollection from Object
@@ -12758,6 +12774,10 @@ Class HtmlWindow from Object
 
 	Func setWindowFrameElement P1
 		raise("DotNet Error: WindowFrameElement is a read-only property")
+
+	# the operators of System.Windows.Forms.HtmlWindow: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class HtmlWindowCollection from Object
@@ -14217,6 +14237,10 @@ Class LinkArea from ValueType
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
+
+	# the operators of System.Windows.Forms.LinkArea: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class LinkAreaLinkAreaConverter from TypeConverter
@@ -16069,6 +16093,10 @@ Class Message from ValueType
 		dotnet_callv("s3:set",nHandle,"s6:Result",P1)
 		return self
 
+	# the operators of System.Windows.Forms.Message: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class MessageBox from Object
 
@@ -16854,6 +16882,10 @@ Class Padding from ValueType
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
+
+	# the operators of System.Windows.Forms.Padding: + - = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class PaddingConverter from TypeConverter
@@ -20244,6 +20276,10 @@ Class TableLayoutPanelCellPosition from ValueType
 	Func setColumn P1
 		dotnet_callv("s3:set",nHandle,"s6:Column",P1)
 		return self
+
+	# the operators of System.Windows.Forms.TableLayoutPanelCellPosition: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class TableLayoutStyle from Object
@@ -32167,6 +32203,10 @@ Class TaskDialogButton from TaskDialogControl
 
 	Func getContinue
 		return dnObj(dotnet_callo("s3:get",'System.Windows.Forms.TaskDialogButton, System.Windows.Forms',"s8:Continue"))
+
+	# the operators of System.Windows.Forms.TaskDialogButton: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class TaskDialogExpander from TaskDialogControl

@@ -2265,6 +2265,10 @@ Class ClockCollection from Object
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
+	# the operators of System.Windows.Media.Animation.ClockCollection: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class ClockController from DispatcherObject
 
@@ -3860,6 +3864,10 @@ Class KeyTime from ValueType
 	Func setPaced P1
 		raise("DotNet Error: Paced is a read-only property")
 
+	# the operators of System.Windows.Media.Animation.KeyTime: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class MatrixKeyFrame from Freezable
 
@@ -5139,6 +5147,10 @@ Class RepeatBehavior from ValueType
 
 	Func setForever P1
 		raise("DotNet Error: Forever is a read-only property")
+
+	# the operators of System.Windows.Media.Animation.RepeatBehavior: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class RepeatBehaviorConverter from TypeConverter

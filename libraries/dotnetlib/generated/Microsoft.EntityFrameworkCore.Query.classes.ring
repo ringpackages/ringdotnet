@@ -914,6 +914,10 @@ Class CompiledQueryCacheKeyGeneratorDependencies from Object
 		dotnet_callv("s3:set",nHandle,"s27:IsRetryingExecutionStrategy",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Query.CompiledQueryCacheKeyGeneratorDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class EntityMaterializerSourceParameters from ValueType
 
@@ -980,6 +984,10 @@ Class EntityMaterializerSourceParameters from ValueType
 	Func setQueryTrackingBehavior P1
 		dotnet_callv("s3:set",nHandle,"s21:QueryTrackingBehavior",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Query.EntityMaterializerSourceParameters: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class EnumerableExpression from ExpressionsExpression
@@ -1097,6 +1105,10 @@ Class EvaluatableExpressionFilterDependencies from Object
 	Func setPlugins P1
 		dotnet_callv("s3:set",nHandle,"s7:Plugins",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Query.EvaluatableExpressionFilterDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ExpressionEqualityComparer from Object
@@ -2274,6 +2286,10 @@ Class LiftableConstantExpressionDependencies from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	# the operators of Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class LiftableConstantExpressionHelpers from Object
 
@@ -2444,6 +2460,10 @@ Class MaterializerLiftableConstantContext from Object
 		dotnet_callv("s3:set",nHandle,"s12:Dependencies",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Query.MaterializerLiftableConstantContext: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class NavigationExpansionExtensibilityHelper from Object
 
@@ -2501,6 +2521,10 @@ Class NavigationExpansionExtensibilityHelperDependencies from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	# the operators of Microsoft.EntityFrameworkCore.Query.NavigationExpansionExtensibilityHelperDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class NonQueryExpression from ExpressionsExpression
@@ -3012,6 +3036,10 @@ Class QueryCompilationContextDependencies from Object
 	Func setInterceptors P1
 		raise("DotNet Error: Interceptors is a read-only property")
 
+	# the operators of Microsoft.EntityFrameworkCore.Query.QueryCompilationContextDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class QueryContext from Object
 
@@ -3192,6 +3220,10 @@ Class QueryContextDependencies from Object
 		dotnet_callv("s3:set",nHandle,"s11:QueryLogger",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Query.QueryContextDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class QueryRootExpression from ExpressionsExpression
 
@@ -3275,6 +3307,10 @@ Class QuerySqlGeneratorDependencies from Object
 		dotnet_callv("s3:set",nHandle,"s19:SqlGenerationHelper",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Query.QuerySqlGeneratorDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class QueryTranslationPostprocessor from Object
 
@@ -3322,6 +3358,10 @@ Class QueryTranslationPostprocessorDependencies from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	# the operators of Microsoft.EntityFrameworkCore.Query.QueryTranslationPostprocessorDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class QueryTranslationPreprocessor from Object
@@ -3392,6 +3432,10 @@ Class QueryTranslationPreprocessorDependencies from Object
 		dotnet_callv("s3:set",nHandle,"s38:NavigationExpansionExtensibilityHelper",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Query.QueryTranslationPreprocessorDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class QueryableMethodTranslatingExpressionVisitor from ExpressionVisitor
 
@@ -3448,6 +3492,10 @@ Class QueryableMethodTranslatingExpressionVisitorDependencies from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	# the operators of Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitorDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class QueryableMethods from Object
@@ -3964,6 +4012,10 @@ Class RelationalAggregateMethodCallTranslatorProviderDependencies from Object
 		dotnet_callv("s3:set",nHandle,"s27:RelationalTypeMappingSource",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Query.RelationalAggregateMethodCallTranslatorProviderDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class RelationalCollectionShaperExpression from ExpressionsExpression
 
@@ -4073,6 +4125,10 @@ Class RelationalCompiledQueryCacheKeyGeneratorDependencies from Object
 		dotnet_callv("s3:set",nHandle,"s14:ContextOptions",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Query.RelationalCompiledQueryCacheKeyGeneratorDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class RelationalEvaluatableExpressionFilterDependencies from Object
 
@@ -4098,6 +4154,10 @@ Class RelationalEvaluatableExpressionFilterDependencies from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	# the operators of Microsoft.EntityFrameworkCore.Query.RelationalEvaluatableExpressionFilterDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class RelationalExpressionQuotingUtilities from Object
@@ -4203,6 +4263,10 @@ Class RelationalLiftableConstantExpressionDependencies from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	# the operators of Microsoft.EntityFrameworkCore.Query.RelationalLiftableConstantExpressionDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class RelationalMemberTranslatorProvider from Object
 
@@ -4260,6 +4324,10 @@ Class RelationalMemberTranslatorProviderDependencies from Object
 	Func setPlugins P1
 		dotnet_callv("s3:set",nHandle,"s7:Plugins",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Query.RelationalMemberTranslatorProviderDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class RelationalMethodCallTranslatorProvider from Object
@@ -4327,6 +4395,10 @@ Class RelationalMethodCallTranslatorProviderDependencies from Object
 		dotnet_callv("s3:set",nHandle,"s27:RelationalTypeMappingSource",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Query.RelationalMethodCallTranslatorProviderDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class RelationalParameterBasedSqlProcessor from Object
 
@@ -4393,6 +4465,10 @@ Class RelationalParameterBasedSqlProcessorDependencies from Object
 		dotnet_callv("s3:set",nHandle,"s29:ParameterNameGeneratorFactory",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Query.RelationalParameterBasedSqlProcessorDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class RelationalParameterBasedSqlProcessorParameters from Object
 
@@ -4431,6 +4507,10 @@ Class RelationalParameterBasedSqlProcessorParameters from Object
 		dotnet_callv("s3:set",nHandle,"s23:ParametersToConstantize",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Query.RelationalParameterBasedSqlProcessorParameters: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class RelationalQueryCompilationContextDependencies from Object
 
@@ -4458,6 +4538,10 @@ Class RelationalQueryCompilationContextDependencies from Object
 	Func setSqlAliasManagerFactory P1
 		dotnet_callv("s3:set",nHandle,"s22:SqlAliasManagerFactory",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Query.RelationalQueryCompilationContextDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class RelationalQueryContextDependencies from Object
@@ -4495,6 +4579,10 @@ Class RelationalQueryContextDependencies from Object
 		dotnet_callv("s3:set",nHandle,"s28:RelationalQueryStringFactory",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Query.RelationalQueryContextDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class RelationalQueryTranslationPostprocessorDependencies from Object
 
@@ -4531,6 +4619,10 @@ Class RelationalQueryTranslationPostprocessorDependencies from Object
 		dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Query.RelationalQueryTranslationPostprocessorDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class RelationalQueryTranslationPreprocessorDependencies from Object
 
@@ -4558,6 +4650,10 @@ Class RelationalQueryTranslationPreprocessorDependencies from Object
 	Func setRelationalTypeMappingSource P1
 		dotnet_callv("s3:set",nHandle,"s27:RelationalTypeMappingSource",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Query.RelationalQueryTranslationPreprocessorDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class RelationalQueryableMethodTranslatingExpressionVisitorDependencies from Object
@@ -4610,6 +4706,10 @@ Class RelationalQueryableMethodTranslatingExpressionVisitorDependencies from Obj
 	Func setModel P1
 		dotnet_callv("s3:set",nHandle,"s5:Model",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitorDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class RelationalShapedQueryCompilingExpressionVisitorShaperProcessingExpressionVisitor from ExpressionVisitor
@@ -4787,6 +4887,10 @@ Class RelationalShapedQueryCompilingExpressionVisitorDependencies from Object
 	Func setRelationalLiftableConstantFactory P1
 		dotnet_callv("s3:set",nHandle,"s33:RelationalLiftableConstantFactory",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitorDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class RelationalSplitCollectionShaperExpression from ExpressionsExpression
@@ -4981,6 +5085,10 @@ Class RelationalSqlTranslatingExpressionVisitorDependencies from Object
 
 	Func setAggregateMethodCallTranslatorProvider P1
 		raise("DotNet Error: AggregateMethodCallTranslatorProvider is a read-only property")
+
+	# the operators of Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitorDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class RelationalSqlTranslatingExpressionVisitorFactory from Object
@@ -5189,6 +5297,10 @@ Class ShapedQueryCompilingExpressionVisitorDependencies from Object
 	Func setContextServices P1
 		dotnet_callv("s3:set",nHandle,"s15:ContextServices",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitorDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ShapedQueryExpression from ExpressionsExpression
@@ -5499,6 +5611,10 @@ Class SqlExpressionFactoryDependencies from Object
 	Func setModel P1
 		dotnet_callv("s3:set",nHandle,"s5:Model",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Query.SqlExpressionFactoryDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class SqlExpressionVisitor from ExpressionVisitor
@@ -5985,6 +6101,10 @@ Class RelationalMaterializerLiftableConstantContext from MaterializerLiftableCon
 	Func setCommandBuilderDependencies P1
 		dotnet_callv("s3:set",nHandle,"s26:CommandBuilderDependencies",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Query.RelationalMaterializerLiftableConstantContext: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class RelationalQueryCompilationContext from QueryCompilationContext

@@ -146,6 +146,10 @@ Class IdentityReference from Object
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
+	# the operators of System.Security.Principal.IdentityReference: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class IdentityReferenceCollection from Object
 
@@ -458,6 +462,10 @@ Class NTAccount from IdentityReference
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	# the operators of System.Security.Principal.NTAccount: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class SecurityIdentifier from IdentityReference
 
@@ -546,5 +554,9 @@ Class SecurityIdentifier from IdentityReference
 
 	Func setMaxBinaryLength P1
 		raise("DotNet Error: MaxBinaryLength is a read-only property")
+
+	# the operators of System.Security.Principal.SecurityIdentifier: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 

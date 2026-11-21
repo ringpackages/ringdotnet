@@ -40,6 +40,10 @@ class DotNetObject
 		ok
 		return dnRequest("callgeneric",dnJoin([self,cMethod,aTypeArguments],aParameters))
 
+	# The conversion of the object to a .NET type with the operators op_Implicit / op_Explicit (the cast of C#): oToken.convertTo("System.String")
+	func convertTo  cType
+		return dnRequest("convert",[self,cType])
+
 	# Read a property or a field
 	func getProp  cMember
 		return dnRequest("get",[self,cMember])

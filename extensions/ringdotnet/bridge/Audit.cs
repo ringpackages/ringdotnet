@@ -134,7 +134,9 @@ namespace RingDotNet
 				{
 					if (m.IsSpecialName)
 					{
-						if (m.Name.StartsWith("op_", StringComparison.Ordinal)) tally.Add("GAP  method: operator (op_Addition ... not exposed)", Short(t, m.Name));
+						if (Bridge.OperatorNames.ContainsValue(m.Name)) tally.Add("OK   method: operator (the Ring operator method: o + x, o < x ...)", Short(t, m.Name));
+						else if (m.Name == "op_Implicit" || m.Name == "op_Explicit") tally.Add("OK   method: conversion (convertTo)", Short(t, m.Name));
+						else if (m.Name.StartsWith("op_", StringComparison.Ordinal)) tally.Add("GAP  method: operator that Ring has no syntax for (op_Increment, op_True ...)", Short(t, m.Name));
 						continue;
 					}
 					string where = Short(t, m.Name);

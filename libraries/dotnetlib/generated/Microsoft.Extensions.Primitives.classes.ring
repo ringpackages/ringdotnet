@@ -423,6 +423,10 @@ Class StringSegment from ValueType
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
 
+	# the operators of Microsoft.Extensions.Primitives.StringSegment: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class StringSegmentComparer from Object
 
@@ -707,6 +711,10 @@ Class StringValues from ValueType
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
+
+	# the operators of Microsoft.Extensions.Primitives.StringValues: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class StringValuesEnumerator from ValueType

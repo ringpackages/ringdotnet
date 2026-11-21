@@ -229,6 +229,10 @@ Class BitVector32Section from ValueType
 	Func setOffset P1
 		raise("DotNet Error: Offset is a read-only property")
 
+	# the operators of System.Collections.Specialized.BitVector32+Section: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class CollectionsUtil from Object
 

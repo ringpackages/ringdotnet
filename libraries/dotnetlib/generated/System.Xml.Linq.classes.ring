@@ -296,6 +296,10 @@ Class XName from Object
 	Func setNamespaceName P1
 		raise("DotNet Error: NamespaceName is a read-only property")
 
+	# the operators of System.Xml.Linq.XName: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class XNamespace from Object
 
@@ -349,6 +353,10 @@ Class XNamespace from Object
 
 	Func setXmlns P1
 		raise("DotNet Error: Xmlns is a read-only property")
+
+	# the operators of System.Xml.Linq.XNamespace: + = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class XNodeDocumentOrderComparer from Object

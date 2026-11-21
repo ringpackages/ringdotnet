@@ -469,6 +469,10 @@ Class BigInteger from ValueType
 	Func setMinusOne P1
 		raise("DotNet Error: MinusOne is a read-only property")
 
+	# the operators of System.Numerics.BigInteger: - & | ^ << >> ~ -x + * / % < <= > >= = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class BitOperations from Object
 
@@ -827,6 +831,10 @@ Class Complex from ValueType
 
 	Func setInfinity P1
 		raise("DotNet Error: Infinity is a read-only property")
+
+	# the operators of System.Numerics.Complex: -x + - * / = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class IAdditionOperators from DotNetObject
@@ -1411,6 +1419,10 @@ Class Matrix3x2 from ValueType
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")
 
+	# the operators of System.Numerics.Matrix3x2: + = != * - -x
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class Matrix4x4 from ValueType
 
@@ -1767,6 +1779,10 @@ Class Matrix4x4 from ValueType
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")
 
+	# the operators of System.Numerics.Matrix4x4: + = != * - -x
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class Plane from ValueType
 
@@ -1850,6 +1866,10 @@ Class Plane from ValueType
 	Func setD P1
 		dotnet_callv("s3:set",nHandle,"s1:D",P1)
 		return self
+
+	# the operators of System.Numerics.Plane: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Quaternion from ValueType
@@ -2021,6 +2041,10 @@ Class Quaternion from ValueType
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")
+
+	# the operators of System.Numerics.Quaternion: + / = != * - -x
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Vector from Object
@@ -2739,6 +2763,10 @@ Class Vector2 from ValueType
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
+	# the operators of System.Numerics.Vector2: + / = != * - -x
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class Vector3 from ValueType
 
@@ -3084,6 +3112,10 @@ Class Vector3 from ValueType
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
+
+	# the operators of System.Numerics.Vector3: + / = != * - -x
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Vector4 from ValueType
@@ -3447,6 +3479,10 @@ Class Vector4 from ValueType
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
+	# the operators of System.Numerics.Vector4: + / = != * - -x
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class Vector1 from ValueType
 
@@ -3484,5 +3520,9 @@ Class Vector1 from ValueType
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+
+	# the operators of System.Numerics.Vector`1: + & | / = ^ != << * ~ >> - -x
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 

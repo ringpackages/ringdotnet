@@ -305,6 +305,10 @@ Class AsyncFlowControl from ValueType
 
 		return self
 
+	# the operators of System.Threading.AsyncFlowControl: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class AsyncLocalValueChangedArgs from ValueType
 
@@ -561,6 +565,10 @@ Class CancellationToken from ValueType
 	Func setNone P1
 		raise("DotNet Error: None is a read-only property")
 
+	# the operators of System.Threading.CancellationToken: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class CancellationTokenRegistration from ValueType
 
@@ -606,6 +614,10 @@ Class CancellationTokenRegistration from ValueType
 
 	Func setToken P1
 		raise("DotNet Error: Token is a read-only property")
+
+	# the operators of System.Threading.CancellationTokenRegistration: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class CancellationTokenSource from Object
@@ -1230,6 +1242,10 @@ Class LockCookie from ValueType
 		nHandle = dnCreate('System.Threading.LockCookie, System.Threading',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	# the operators of System.Threading.LockCookie: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ManualResetEventSlim from Object

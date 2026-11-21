@@ -1306,6 +1306,10 @@ Class Matrix3D from ValueType
 	Func getIdentity
 		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Matrix3D, PresentationCore',"s8:Identity"))
 
+	# the operators of System.Windows.Media.Media3D.Matrix3D: * = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class Matrix3DConverter from TypeConverter
 
@@ -1675,6 +1679,10 @@ Class Point3D from ValueType
 		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
 		return self
 
+	# the operators of System.Windows.Media.Media3D.Point3D: + - * = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class Point3DCollection from Freezable
 
@@ -2006,6 +2014,10 @@ Class Point4D from ValueType
 		dotnet_callv("s3:set",nHandle,"s1:W",P1)
 		return self
 
+	# the operators of System.Windows.Media.Media3D.Point4D: + - * = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class Point4DConverter from TypeConverter
 
@@ -2203,6 +2215,10 @@ Class WpfQuaternion from ValueType
 
 	Func setIdentity P1
 		raise("DotNet Error: Identity is a read-only property")
+
+	# the operators of System.Windows.Media.Media3D.Quaternion: + - * = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class QuaternionConverter from TypeConverter
@@ -2479,6 +2495,10 @@ Class Rect3D from ValueType
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
 
+	# the operators of System.Windows.Media.Media3D.Rect3D: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class Rect3DConverter from TypeConverter
 
@@ -2641,6 +2661,10 @@ Class Size3D from ValueType
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
+
+	# the operators of System.Windows.Media.Media3D.Size3D: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Size3DConverter from TypeConverter
@@ -2967,6 +2991,10 @@ Class Vector3D from ValueType
 	Func setZ P1
 		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
 		return self
+
+	# the operators of System.Windows.Media.Media3D.Vector3D: -x + - * / = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Vector3DCollection from Freezable

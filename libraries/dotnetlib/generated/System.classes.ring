@@ -2294,6 +2294,10 @@ Class Type from MemberInfo
 	Func setFilterNameIgnoreCase P1
 		raise("DotNet Error: FilterNameIgnoreCase is a read-only property")
 
+	# the operators of System.Type: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class Activator from Object
 
@@ -6588,6 +6592,10 @@ Class Uri from Object
 	Func setSchemeDelimiter P1
 		raise("DotNet Error: SchemeDelimiter is a read-only property")
 
+	# the operators of System.Uri: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class UriBuilder from Object
 
@@ -7453,6 +7461,10 @@ Class String from Object
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
 
+	# the operators of System.String: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class Version from Object
 
@@ -7577,6 +7589,10 @@ Class Version from Object
 
 	Func setMinorRevision P1
 		raise("DotNet Error: MinorRevision is a read-only property")
+
+	# the operators of System.Version: = != < <= > >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class AppDomain from MarshalByRefObject
@@ -8026,6 +8042,10 @@ Class ArraySegment from ValueType
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
+
+	# the operators of System.ArraySegment`1: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ArraySegmentEnumerator from ValueType
@@ -8706,6 +8726,10 @@ Class ConsoleKeyInfo from ValueType
 	Func setModifiers P1
 		raise("DotNet Error: Modifiers is a read-only property")
 
+	# the operators of System.ConsoleKeyInfo: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class ContextBoundObject from MarshalByRefObject
 
@@ -9106,6 +9130,10 @@ Class DateTimeOffset from ValueType
 	Func setUnixEpoch P1
 		raise("DotNet Error: UnixEpoch is a read-only property")
 
+	# the operators of System.DateTimeOffset: + - = != < <= > >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class Decimal from ValueType
 
@@ -9468,6 +9496,10 @@ Class Decimal from ValueType
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
+
+	# the operators of System.Decimal: -x + - * / % = != < <= > >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class DelegateInvocationListEnumerator from ValueType
@@ -10086,6 +10118,10 @@ Class Double from ValueType
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
+
+	# the operators of System.Double: = != < > <= >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Enum from ValueType
@@ -10975,6 +11011,10 @@ Class Half from ValueType
 	Func setNegativeOne P1
 		raise("DotNet Error: NegativeOne is a read-only property")
 
+	# the operators of System.Half: < > <= >= = != + / % * - -x
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class HashCode from ValueType
 
@@ -11300,6 +11340,10 @@ Class Int128 from ValueType
 
 	Func setNegativeOne P1
 		raise("DotNet Error: NegativeOne is a read-only property")
+
+	# the operators of System.Int128: + & | ^ ~ < <= > >= / = != % * << >> - -x
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Int16 from ValueType
@@ -12073,6 +12117,10 @@ Class IntPtr from ValueType
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
+	# the operators of System.IntPtr: = != + -
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class Lazy2 from Lazy
 
@@ -12246,6 +12294,10 @@ Class ModuleHandle from ValueType
 
 	Func setEmptyHandle P1
 		raise("DotNet Error: EmptyHandle is a read-only property")
+
+	# the operators of System.ModuleHandle: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class NetPipeStyleUriParser from UriParser
@@ -12586,6 +12638,10 @@ Class RuntimeFieldHandle from ValueType
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
+	# the operators of System.RuntimeFieldHandle: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class RuntimeMethodHandle from ValueType
 
@@ -12629,6 +12685,10 @@ Class RuntimeMethodHandle from ValueType
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
+	# the operators of System.RuntimeMethodHandle: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class RuntimeTypeHandle from ValueType
 
@@ -12671,6 +12731,10 @@ Class RuntimeTypeHandle from ValueType
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
+
+	# the operators of System.RuntimeTypeHandle: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class SByte from ValueType
@@ -13447,6 +13511,10 @@ Class Single from ValueType
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
 
+	# the operators of System.Single: = != < > <= >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class TimeOnly from ValueType
 
@@ -13640,6 +13708,10 @@ Class TimeOnly from ValueType
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
+
+	# the operators of System.TimeOnly: = != > >= < <= -
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class TimeSpan from ValueType
@@ -14150,6 +14222,10 @@ Class TimeSpan from ValueType
 	Func setHoursPerDay P1
 		raise("DotNet Error: HoursPerDay is a read-only property")
 
+	# the operators of System.TimeSpan: -x - + * / = != < <= > >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class TimeZoneInfoTransitionTime from ValueType
 
@@ -14227,6 +14303,10 @@ Class TimeZoneInfoTransitionTime from ValueType
 
 	Func setIsFixedDateRule P1
 		raise("DotNet Error: IsFixedDateRule is a read-only property")
+
+	# the operators of System.TimeZoneInfo+TransitionTime: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class UInt128 from ValueType
@@ -14381,6 +14461,10 @@ Class UInt128 from ValueType
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
+
+	# the operators of System.UInt128: + & | ^ ~ < <= > >= / = != % * << >> - -x
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class UInt16 from ValueType
@@ -15041,6 +15125,10 @@ Class UIntPtr from ValueType
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
+
+	# the operators of System.UIntPtr: = != + -
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class UnhandledExceptionEventArgs from EventArgs
@@ -16008,6 +16096,10 @@ Class DateTime from ValueType
 	Func setUnixEpoch P1
 		raise("DotNet Error: UnixEpoch is a read-only property")
 
+	# the operators of System.DateTime: + - = != < <= > >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class Guid from ValueType
 
@@ -16133,6 +16225,10 @@ Class Guid from ValueType
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
+
+	# the operators of System.Guid: = != < <= > >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class DateOnly from ValueType
@@ -16306,5 +16402,9 @@ Class DateOnly from ValueType
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
+
+	# the operators of System.DateOnly: = != > >= < <=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 

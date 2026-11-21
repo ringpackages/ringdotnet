@@ -350,6 +350,10 @@ Class DrawingAttributes from Object
 	Func setMaxWidth P1
 		raise("DotNet Error: MaxWidth is a read-only property")
 
+	# the operators of System.Windows.Ink.DrawingAttributes: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class DrawingAttributesReplacedEventArgs from EventArgs
 

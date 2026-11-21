@@ -1891,6 +1891,10 @@ Class XmlNamespaceMapping from Object
 		dotnet_callv("s3:set",nHandle,"s3:Uri",P1)
 		return self
 
+	# the operators of System.Windows.Data.XmlNamespaceMapping: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class XmlNamespaceMappingCollection from XmlNamespaceManager
 

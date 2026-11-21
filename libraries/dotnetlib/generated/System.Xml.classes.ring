@@ -1408,6 +1408,10 @@ Class XmlQualifiedName from Object
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
 
+	# the operators of System.Xml.XmlQualifiedName: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class XmlReader from Object
 

@@ -508,6 +508,10 @@ Class SslApplicationProtocol from ValueType
 	Func setHttp11 P1
 		raise("DotNet Error: Http11 is a read-only property")
 
+	# the operators of System.Net.Security.SslApplicationProtocol: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class SslCertificateTrust from Object
 

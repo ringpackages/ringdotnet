@@ -714,6 +714,10 @@ Class DbContextId from ValueType
 	Func setLease P1
 		raise("DotNet Error: Lease is a read-only property")
 
+	# the operators of Microsoft.EntityFrameworkCore.DbContextId: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class DbContextOptions from Object
 
@@ -2299,6 +2303,10 @@ Class ModelCreationDependencies from Object
 	Func setValidationLogger P1
 		dotnet_callv("s3:set",nHandle,"s16:ValidationLogger",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.ModelCreationDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ObservableCollectionExtensions from Object

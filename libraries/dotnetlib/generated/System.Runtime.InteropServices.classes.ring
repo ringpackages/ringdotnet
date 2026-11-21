@@ -259,6 +259,10 @@ Class ArrayWithOffset from ValueType
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	# the operators of System.Runtime.InteropServices.ArrayWithOffset: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class BStrWrapper from Object
 
@@ -742,6 +746,10 @@ Class GCHandle from ValueType
 
 	Func setIsAllocated P1
 		raise("DotNet Error: IsAllocated is a read-only property")
+
+	# the operators of System.Runtime.InteropServices.GCHandle: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class HandleCollector from Object
@@ -2009,6 +2017,10 @@ Class NFloat from ValueType
 	Func setNegativeZero P1
 		raise("DotNet Error: NegativeZero is a read-only property")
 
+	# the operators of System.Runtime.InteropServices.NFloat: -x + - * / % = != < <= > >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class NativeLibrary from Object
 
@@ -2143,6 +2155,10 @@ Class OSPlatform from ValueType
 
 	Func setWindows P1
 		raise("DotNet Error: Windows is a read-only property")
+
+	# the operators of System.Runtime.InteropServices.OSPlatform: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class PosixSignalContext from Object

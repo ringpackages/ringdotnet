@@ -1436,6 +1436,10 @@ Class CngAlgorithm from Object
 	Func setSha512 P1
 		raise("DotNet Error: Sha512 is a read-only property")
 
+	# the operators of System.Security.Cryptography.CngAlgorithm: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class CngAlgorithmGroup from Object
 
@@ -1499,6 +1503,10 @@ Class CngAlgorithmGroup from Object
 
 	Func setRsa P1
 		raise("DotNet Error: Rsa is a read-only property")
+
+	# the operators of System.Security.Cryptography.CngAlgorithmGroup: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class CngKey from Object
@@ -1766,6 +1774,10 @@ Class CngKeyBlobFormat from Object
 	Func setPkcs8PrivateBlob P1
 		raise("DotNet Error: Pkcs8PrivateBlob is a read-only property")
 
+	# the operators of System.Security.Cryptography.CngKeyBlobFormat: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class CngKeyCreationParameters from Object
 
@@ -1904,6 +1916,10 @@ Class CngProperty from ValueType
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
+
+	# the operators of System.Security.Cryptography.CngProperty: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class CngPropertyCollection from DotNetObject
@@ -2053,6 +2069,10 @@ Class CngProvider from Object
 
 	Func setMicrosoftSoftwareKeyStorageProvider P1
 		raise("DotNet Error: MicrosoftSoftwareKeyStorageProvider is a read-only property")
+
+	# the operators of System.Security.Cryptography.CngProvider: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class CngUIPolicy from Object
@@ -3415,6 +3435,10 @@ Class HashAlgorithmName from ValueType
 	Func setSHA3_512 P1
 		raise("DotNet Error: SHA3_512 is a read-only property")
 
+	# the operators of System.Security.Cryptography.HashAlgorithmName: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class ICryptoTransform from DotNetObject
 
@@ -4335,6 +4359,10 @@ Class RSAEncryptionPadding from Object
 	Func setOaepSHA3_512 P1
 		raise("DotNet Error: OaepSHA3_512 is a read-only property")
 
+	# the operators of System.Security.Cryptography.RSAEncryptionPadding: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class RSAParameters from ValueType
 
@@ -4459,6 +4487,10 @@ Class RSASignaturePadding from Object
 
 	Func setPss P1
 		raise("DotNet Error: Pss is a read-only property")
+
+	# the operators of System.Security.Cryptography.RSASignaturePadding: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class RandomNumberGenerator from Object

@@ -2645,6 +2645,10 @@ Class DependencyPropertyChangedEventArgs from ValueType
 	Func setNewValue P1
 		raise("DotNet Error: NewValue is a read-only property")
 
+	# the operators of System.Windows.DependencyPropertyChangedEventArgs: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class DependencyPropertyHelper from Object
 
@@ -3126,6 +3130,10 @@ Class Duration from ValueType
 	Func setForever P1
 		raise("DotNet Error: Forever is a read-only property")
 
+	# the operators of System.Windows.Duration: + - = != > >= < <=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class DurationConverter from TypeConverter
 
@@ -3471,6 +3479,10 @@ Class FigureLength from ValueType
 	Func setFigureUnitType P1
 		raise("DotNet Error: FigureUnitType is a read-only property")
 
+	# the operators of System.Windows.FigureLength: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class FigureLengthConverter from TypeConverter
 
@@ -3546,6 +3558,10 @@ Class FontStretch from ValueType
 		dn_x = dotnet_call("s4:call",'System.Windows.FontStretch, PresentationCore',"s7:Compare",P1,P2)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	# the operators of System.Windows.FontStretch: < <= > >= = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class FontStretchConverter from TypeConverter
@@ -3677,6 +3693,10 @@ Class FontStyle from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	# the operators of System.Windows.FontStyle: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class FontStyleConverter from TypeConverter
 
@@ -3770,6 +3790,10 @@ Class FontWeight from ValueType
 		dn_x = dotnet_call("s4:call",'System.Windows.FontWeight, PresentationCore',"s7:Compare",P1,P2)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	# the operators of System.Windows.FontWeight: < <= > >= = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class FontWeightConverter from TypeConverter
@@ -5668,6 +5692,10 @@ Class Int32Rect from ValueType
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
 
+	# the operators of System.Windows.Int32Rect: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class Int32RectConverter from TypeConverter
 
@@ -5788,6 +5816,10 @@ Class LocalValueEntry from ValueType
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
+	# the operators of System.Windows.LocalValueEntry: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class LocalValueEnumerator from ValueType
 
@@ -5835,6 +5867,10 @@ Class LocalValueEnumerator from ValueType
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
+
+	# the operators of System.Windows.LocalValueEnumerator: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Localization from Object
@@ -6722,6 +6758,10 @@ Class RoutedEventHandlerInfo from ValueType
 
 	Func setInvokeHandledEventsToo P1
 		raise("DotNet Error: InvokeHandledEventsToo is a read-only property")
+
+	# the operators of System.Windows.RoutedEventHandlerInfo: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class SessionEndingCancelEventArgs from CancelEventArgs
@@ -11457,6 +11497,10 @@ Class ThemeMode from ValueType
 	Func setSystem P1
 		raise("DotNet Error: System is a read-only property")
 
+	# the operators of System.Windows.ThemeMode: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class ThemeModeConverter from TypeConverter
 
@@ -15203,6 +15247,10 @@ Class ValueSource from ValueType
 	Func setIsCurrent P1
 		raise("DotNet Error: IsCurrent is a read-only property")
 
+	# the operators of System.Windows.ValueSource: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class VectorConverter from TypeConverter
 
@@ -15439,6 +15487,10 @@ Class WpfSize from ValueType
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
 
+	# the operators of System.Windows.Size: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class WpfPoint from ValueType
 
@@ -15515,6 +15567,10 @@ Class WpfPoint from ValueType
 	Func setY P1
 		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
 		return self
+
+	# the operators of System.Windows.Point: = != + - *
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Rect from ValueType
@@ -15805,6 +15861,10 @@ Class Rect from ValueType
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
 
+	# the operators of System.Windows.Rect: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class Thickness from ValueType
 
@@ -15874,6 +15934,10 @@ Class Thickness from ValueType
 	Func setBottom P1
 		dotnet_callv("s3:set",nHandle,"s6:Bottom",P1)
 		return self
+
+	# the operators of System.Windows.Thickness: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class WpfVector from ValueType
@@ -15993,6 +16057,10 @@ Class WpfVector from ValueType
 	Func setLengthSquared P1
 		raise("DotNet Error: LengthSquared is a read-only property")
 
+	# the operators of System.Windows.Vector: = != -x + - * /
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class CornerRadius from ValueType
 
@@ -16062,6 +16130,10 @@ Class CornerRadius from ValueType
 	Func setBottomLeft P1
 		dotnet_callv("s3:set",nHandle,"s10:BottomLeft",P1)
 		return self
+
+	# the operators of System.Windows.CornerRadius: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class GridLength from ValueType
@@ -16142,6 +16214,10 @@ Class GridLength from ValueType
 
 	Func setAuto P1
 		raise("DotNet Error: Auto is a read-only property")
+
+	# the operators of System.Windows.GridLength: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Window from ContentControl

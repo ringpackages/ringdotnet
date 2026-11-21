@@ -4427,6 +4427,10 @@ Class DataGridCellInfo from ValueType
 	Func setIsValid P1
 		raise("DotNet Error: IsValid is a read-only property")
 
+	# the operators of System.Windows.Controls.DataGridCellInfo: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class DataGridClipboardCellContent from ValueType
 
@@ -4485,6 +4489,10 @@ Class DataGridClipboardCellContent from ValueType
 
 	Func setContent P1
 		raise("DotNet Error: Content is a read-only property")
+
+	# the operators of System.Windows.Controls.DataGridClipboardCellContent: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class DataGridColumn from DependencyObject
@@ -5029,6 +5037,10 @@ Class DataGridLength from ValueType
 
 	Func setSizeToHeader P1
 		raise("DotNet Error: SizeToHeader is a read-only property")
+
+	# the operators of System.Windows.Controls.DataGridLength: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class DataGridLengthConverter from TypeConverter
@@ -6778,6 +6790,10 @@ Class HierarchicalVirtualizationConstraints from ValueType
 	Func setViewport P1
 		raise("DotNet Error: Viewport is a read-only property")
 
+	# the operators of System.Windows.Controls.HierarchicalVirtualizationConstraints: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class HierarchicalVirtualizationHeaderDesiredSizes from ValueType
 
@@ -6829,6 +6845,10 @@ Class HierarchicalVirtualizationHeaderDesiredSizes from ValueType
 
 	Func setPixelSize P1
 		raise("DotNet Error: PixelSize is a read-only property")
+
+	# the operators of System.Windows.Controls.HierarchicalVirtualizationHeaderDesiredSizes: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class HierarchicalVirtualizationItemDesiredSizes from ValueType
@@ -6923,6 +6943,10 @@ Class HierarchicalVirtualizationItemDesiredSizes from ValueType
 
 	Func setPixelSizeAfterViewport P1
 		raise("DotNet Error: PixelSizeAfterViewport is a read-only property")
+
+	# the operators of System.Windows.Controls.HierarchicalVirtualizationItemDesiredSizes: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class WpfImage from FrameworkElement
@@ -8760,6 +8784,10 @@ Class PageRange from ValueType
 	Func setPageTo P1
 		dotnet_callv("s3:set",nHandle,"s6:PageTo",P1)
 		return self
+
+	# the operators of System.Windows.Controls.PageRange: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class WpfPanel from FrameworkElement
@@ -11911,6 +11939,10 @@ Class ValidationResult from Object
 	Func setValidResult P1
 		raise("DotNet Error: ValidResult is a read-only property")
 
+	# the operators of System.Windows.Controls.ValidationResult: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class ValidationRule from Object
 
@@ -12071,6 +12103,10 @@ Class VirtualizationCacheLength from ValueType
 
 	Func setCacheAfterViewport P1
 		raise("DotNet Error: CacheAfterViewport is a read-only property")
+
+	# the operators of System.Windows.Controls.VirtualizationCacheLength: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class VirtualizationCacheLengthConverter from TypeConverter

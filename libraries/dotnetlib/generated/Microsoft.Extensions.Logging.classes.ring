@@ -274,6 +274,10 @@ Class EventId from ValueType
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
+	# the operators of Microsoft.Extensions.Logging.EventId: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class EventLoggerFactoryExtensions from Object
 

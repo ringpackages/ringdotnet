@@ -393,6 +393,10 @@ Class HttpMethod from Object
 	Func setConnect P1
 		raise("DotNet Error: Connect is a read-only property")
 
+	# the operators of System.Net.Http.HttpMethod: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class HttpRequestMessage from Object
 

@@ -1283,6 +1283,10 @@ Class AdHocMapperDependencies from Object
 		dotnet_callv("s3:set",nHandle,"s25:ModelCreationDependencies",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Metadata.AdHocMapperDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class ConfigurationSourceExtensions from Object
 
@@ -29483,6 +29487,10 @@ Class LazyLoaderParameterBindingFactoryDependencies from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	# the operators of Microsoft.EntityFrameworkCore.Metadata.LazyLoaderParameterBindingFactoryDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class MemberIdentity from ValueType
 
@@ -29546,6 +29554,10 @@ Class MemberIdentity from ValueType
 
 	Func setNone P1
 		raise("DotNet Error: None is a read-only property")
+
+	# the operators of Microsoft.EntityFrameworkCore.Metadata.MemberIdentity: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ParameterBinding from Object
@@ -29690,6 +29702,10 @@ Class RelationalAdHocMapperDependencies from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	# the operators of Microsoft.EntityFrameworkCore.Metadata.RelationalAdHocMapperDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class RelationalAnnotationNames from Object
@@ -30357,6 +30373,10 @@ Class RelationalAnnotationProviderDependencies from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	# the operators of Microsoft.EntityFrameworkCore.Metadata.RelationalAnnotationProviderDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class RuntimeDbFunction from AnnotatableBase
@@ -31790,6 +31810,10 @@ Class StoreObjectIdentifier from ValueType
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
+
+	# the operators of Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class TypeBaseNameComparer from Object

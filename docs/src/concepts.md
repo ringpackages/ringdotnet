@@ -232,6 +232,20 @@ The members have the type argument as `object`, so Ring values go in and out as 
 
 A nested type has a class too, named after the types around it: `SqlMapper.GridReader` of Dapper is `SqlMapperGridReader`, `Control.ControlCollection` of Windows Forms is `ControlCollection` (its name in the manifest).
 
+The operators of a .NET type work in Ring: a class with `op_Addition`, `op_Equality`, `op_LessThan` and the like gets the Ring `operator` method, so `+ - * / % = != < > <= >= & | ^ << >>` and the unary minus call them. The object may come on either side (`5 + oBig`); when the type has no `op_Equality` or `op_LessThan`, `=` uses `Equals` and `<` uses `IComparable`. A cast of C# is `convertTo`.
+
+```ring
+dnImport("System")
+dnImport("System.Numerics")
+oOneHour = new TimeSpan().FromHours(1)
+oHalfHour = new TimeSpan().FromMinutes(30)
+oSum = oOneHour + oHalfHour          # TimeSpan + TimeSpan
+? oSum.TotalMinutes                    # 90
+? oOneHour > oHalfHour               # 1
+oBig = new BigInteger().Parse("42")
+? oBig.convertTo("System.Int64")     # the explicit conversion of BigInteger
+```
+
 Generic **methods** work too (the bridge infers the type arguments from the values), which is what makes LINQ possible.
 
 When a type argument appears only in the result (`JsonSerializer.Deserialize<T>(json)`), the values cannot tell it, so you give it: in the named form with `:typeArguments`, a list of type names, or with `callGeneric` on any object or type.

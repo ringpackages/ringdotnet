@@ -238,6 +238,10 @@ Class SqlBinary from ValueType
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
 
+	# the operators of System.Data.SqlTypes.SqlBinary: + = != < > <= >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class SqlBoolean from ValueType
 
@@ -432,6 +436,10 @@ Class SqlBoolean from ValueType
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
+	# the operators of System.Data.SqlTypes.SqlBoolean: not & | ~ ^ = != < > <= >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class SqlByte from ValueType
 
@@ -609,6 +617,10 @@ Class SqlByte from ValueType
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
+
+	# the operators of System.Data.SqlTypes.SqlByte: ~ + - * / % & | ^ = != < > <= >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class SqlBytes from Object
@@ -1028,6 +1040,10 @@ Class SqlDateTime from ValueType
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
 
+	# the operators of System.Data.SqlTypes.SqlDateTime: + - = != < > <= >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class SqlDecimal from ValueType
 
@@ -1272,6 +1288,10 @@ Class SqlDecimal from ValueType
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
+	# the operators of System.Data.SqlTypes.SqlDecimal: -x + - * / = != < > <= >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class SqlDouble from ValueType
 
@@ -1432,6 +1452,10 @@ Class SqlDouble from ValueType
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
+	# the operators of System.Data.SqlTypes.SqlDouble: -x + - * / = != < > <= >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class SqlGuid from ValueType
 
@@ -1538,6 +1562,10 @@ Class SqlGuid from ValueType
 
 	Func setNull P1
 		raise("DotNet Error: Null is a read-only property")
+
+	# the operators of System.Data.SqlTypes.SqlGuid: = != < > <= >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class SqlInt16 from ValueType
@@ -1717,6 +1745,10 @@ Class SqlInt16 from ValueType
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
+	# the operators of System.Data.SqlTypes.SqlInt16: -x ~ + - * / % & | ^ = != < > <= >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class SqlInt32 from ValueType
 
@@ -1895,6 +1927,10 @@ Class SqlInt32 from ValueType
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
+	# the operators of System.Data.SqlTypes.SqlInt32: -x ~ + - * / % & | ^ = != < > <= >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class SqlInt64 from ValueType
 
@@ -2072,6 +2108,10 @@ Class SqlInt64 from ValueType
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
+
+	# the operators of System.Data.SqlTypes.SqlInt64: -x ~ + - * / % & | ^ = != < > <= >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class SqlMoney from ValueType
@@ -2261,6 +2301,10 @@ Class SqlMoney from ValueType
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
+	# the operators of System.Data.SqlTypes.SqlMoney: -x + - * / = != < > <= >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class SqlSingle from ValueType
 
@@ -2420,6 +2464,10 @@ Class SqlSingle from ValueType
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
+
+	# the operators of System.Data.SqlTypes.SqlSingle: -x + - * / = != < > <= >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class SqlString from ValueType
@@ -2652,6 +2700,10 @@ Class SqlString from ValueType
 
 	Func setBinarySort2 P1
 		raise("DotNet Error: BinarySort2 is a read-only property")
+
+	# the operators of System.Data.SqlTypes.SqlString: + = != < > <= >=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class SqlXml from Object

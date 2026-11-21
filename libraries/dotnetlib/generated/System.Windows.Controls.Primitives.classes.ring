@@ -671,6 +671,10 @@ Class CustomPopupPlacement from ValueType
 		dotnet_callv("s3:set",nHandle,"s11:PrimaryAxis",P1)
 		return self
 
+	# the operators of System.Windows.Controls.Primitives.CustomPopupPlacement: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class DataGridCellsPresenter from ItemsControl
 
@@ -1337,6 +1341,10 @@ Class GeneratorPosition from ValueType
 	Func setOffset P1
 		dotnet_callv("s3:set",nHandle,"s6:Offset",P1)
 		return self
+
+	# the operators of System.Windows.Controls.Primitives.GeneratorPosition: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class GridViewRowPresenterBase from FrameworkElement

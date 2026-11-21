@@ -1092,7 +1092,28 @@ func genClass cTypeName, cClass, nForceInit
 			cCode += aBlock[2]
 		ok
 	next
+	# the operators of the type (op_Addition ...): Ring calls operator() for o + x, o < x, x + o ("r+") ...
+	if len(aInfo) >= 12 and len(aInfo[12]) > 0
+		cCode += "	# the operators of " + aInfo[1] + ": " + operatorList(aInfo[12]) + nl
+		cCode += "	Func operator cOperator, Para" + nl
+		cCode += '		return dnRequest("operator",[self,cOperator,Para])' + nl + nl
+	ok
 	return cCode
+
+# The operator methods of a type as the operators of Ring (op_Addition --> +)
+func operatorList aOps
+	aMap = [["op_Addition","+"],["op_Subtraction","-"],["op_Multiply","*"],["op_Division","/"],["op_Modulus","%"],["op_Equality","="],["op_Inequality","!="],
+		["op_LessThan","<"],["op_GreaterThan",">"],["op_LessThanOrEqual","<="],["op_GreaterThanOrEqual",">="],["op_BitwiseAnd","&"],["op_BitwiseOr","|"],
+		["op_ExclusiveOr","^"],["op_LeftShift","<<"],["op_RightShift",">>"],["op_UnaryNegation","-x"],["op_OnesComplement","~"],["op_LogicalNot","not"]]
+	cList = ""
+	for cOp in aOps
+		for aPair in aMap
+			if aPair[1] = cOp
+				cList += aPair[2] + " "
+			ok
+		next
+	next
+	return trim(cList)
 
 func copyParams nCount
 	cList = ""

@@ -1839,6 +1839,10 @@ Class FragmentString from ValueType
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
 
+	# the operators of Microsoft.AspNetCore.Http.FragmentString: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class HeaderDictionary from Object
 
@@ -2201,6 +2205,10 @@ Class HostString from ValueType
 
 	Func setPort P1
 		raise("DotNet Error: Port is a read-only property")
+
+	# the operators of Microsoft.AspNetCore.Http.HostString: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class HttpContext from Object
@@ -5066,6 +5074,10 @@ Class PathString from ValueType
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
 
+	# the operators of Microsoft.AspNetCore.Http.PathString: = != +
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class ProblemDetailsContext from Object
 
@@ -5442,6 +5454,10 @@ Class QueryString from ValueType
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
+
+	# the operators of Microsoft.AspNetCore.Http.QueryString: = != +
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class RequestDelegateFactory from Object

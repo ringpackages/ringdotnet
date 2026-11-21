@@ -1067,6 +1067,10 @@ Class ValueTask from ValueType
 	Func setCompletedTask P1
 		raise("DotNet Error: CompletedTask is a read-only property")
 
+	# the operators of System.Threading.Tasks.ValueTask: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class ValueTask1 from ValueType
 
@@ -1138,6 +1142,10 @@ Class ValueTask1 from ValueType
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
+
+	# the operators of System.Threading.Tasks.ValueTask`1: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Task from Object

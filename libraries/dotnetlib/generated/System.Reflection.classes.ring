@@ -565,6 +565,10 @@ Class Assembly from Object
 	Func setSecurityRuleSet P1
 		raise("DotNet Error: SecurityRuleSet is a read-only property")
 
+	# the operators of System.Reflection.Assembly: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class AssemblyName from Object
 
@@ -1001,6 +1005,10 @@ Class CustomAttributeNamedArgument from ValueType
 	Func setIsField P1
 		raise("DotNet Error: IsField is a read-only property")
 
+	# the operators of System.Reflection.CustomAttributeNamedArgument: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class CustomAttributeTypedArgument from ValueType
 
@@ -1052,6 +1060,10 @@ Class CustomAttributeTypedArgument from ValueType
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
+
+	# the operators of System.Reflection.CustomAttributeTypedArgument: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ExceptionHandlingClause from Object
@@ -1490,6 +1502,10 @@ Class MemberInfo from Object
 	Func setMetadataToken P1
 		raise("DotNet Error: MetadataToken is a read-only property")
 
+	# the operators of System.Reflection.MemberInfo: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class MethodBody from Object
 
@@ -1821,6 +1837,10 @@ Class Module from Object
 
 	Func setFilterTypeNameIgnoreCase P1
 		raise("DotNet Error: FilterTypeNameIgnoreCase is a read-only property")
+
+	# the operators of System.Reflection.Module: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class NullabilityInfo from Object
@@ -2442,6 +2462,10 @@ Class EventInfo from MemberInfo
 	Func setEventHandlerType P1
 		raise("DotNet Error: EventHandlerType is a read-only property")
 
+	# the operators of System.Reflection.EventInfo: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class FieldInfo from MemberInfo
 
@@ -2638,6 +2662,10 @@ Class FieldInfo from MemberInfo
 
 	Func setFieldHandle P1
 		raise("DotNet Error: FieldHandle is a read-only property")
+
+	# the operators of System.Reflection.FieldInfo: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class MethodBase from MemberInfo
@@ -2887,6 +2915,10 @@ Class MethodBase from MemberInfo
 	Func setIsSecurityTransparent P1
 		raise("DotNet Error: IsSecurityTransparent is a read-only property")
 
+	# the operators of System.Reflection.MethodBase: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class PropertyInfo from MemberInfo
 
@@ -3013,6 +3045,10 @@ Class PropertyInfo from MemberInfo
 	Func setSetMethod P1
 		raise("DotNet Error: SetMethod is a read-only property")
 
+	# the operators of System.Reflection.PropertyInfo: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class TypeDelegator from TypeInfo
 
@@ -3063,6 +3099,10 @@ Class ConstructorInfo from MethodBase
 
 	Func setTypeConstructorName P1
 		raise("DotNet Error: TypeConstructorName is a read-only property")
+
+	# the operators of System.Reflection.ConstructorInfo: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class MethodInfo from MethodBase
@@ -3125,5 +3165,9 @@ Class MethodInfo from MethodBase
 
 	Func setReturnTypeCustomAttributes P1
 		raise("DotNet Error: ReturnTypeCustomAttributes is a read-only property")
+
+	# the operators of System.Reflection.MethodInfo: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 

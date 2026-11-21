@@ -351,6 +351,10 @@ namespace RingDotNet
 					return CreateInstance(TypeOf(a, 0), Rest(a, 1));
 				case "call":
 					return CallMethod(a[0], Str(a, 1), Rest(a, 2));
+				case "operator":
+					return CallOperator(a[0], Str(a, 1), a.Length > 2 ? a[2] : null);
+				case "convert":
+					return ConvertValue(a[0], TypeOf(a, 1));
 				case "callgeneric":
 					return CallMethodGeneric(a[0], Str(a, 1), a[2], Rest(a, 3));
 				case "callnamed":
@@ -1201,7 +1205,16 @@ namespace RingDotNet
 				if (i.IsVisible && !i.IsGenericType && !inherited.Contains(i)) interfaces.Add(TName(i));
 			}
 			string baseName = t.BaseType == null ? "" : definition != null && t.BaseType.IsGenericType ? t.BaseType.GetGenericTypeDefinition().FullName : TName(t.BaseType);
-			return new RingList { TName(definition ?? t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer, events, t.IsValueType, t.Assembly.GetName().Name, baseName, interfaces };
+			/* the operators the class has itself (a derived class inherits the Ring method operator of its base class) */
+			List<object> operators = new RingList();
+			if (!t.IsInterface)
+			{
+				foreach (MethodInfo m in t.GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly))
+				{
+					if (m.IsSpecialName && OperatorNames.ContainsValue(m.Name) && !operators.Contains(m.Name)) operators.Add(m.Name);
+				}
+			}
+			return new RingList { TName(definition ?? t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer, events, t.IsValueType, t.Assembly.GetName().Name, baseName, interfaces, operators };
 		}
 
 		private static List<object> ToList(object target)
@@ -1907,6 +1920,87 @@ namespace RingDotNet
 				throw new MissingMethodException("No public method " + t.FullName + "." + name + " matches the " + args.Length + " argument(s)");
 			}
 			return InvokeResult(m, instance, conv);
+		}
+
+		/* ---------------------------------------------------------------- operators and conversions
+		   A class that has operator methods (op_Addition ...) gets the Ring method operator(cOperator, xOther): Ring calls it for o + x, o < x, and
+		   for x + o with "r+" (the object comes second). The operator method of either class is used; == and < fall back to Equals and IComparable. */
+		internal static readonly Dictionary<string, string> OperatorNames = new Dictionary<string, string>
+		{
+			{ "+", "op_Addition" }, { "-", "op_Subtraction" }, { "*", "op_Multiply" }, { "/", "op_Division" }, { "%", "op_Modulus" },
+			{ "=", "op_Equality" }, { "!=", "op_Inequality" }, { "<", "op_LessThan" }, { ">", "op_GreaterThan" },
+			{ "<=", "op_LessThanOrEqual" }, { ">=", "op_GreaterThanOrEqual" }, { "&", "op_BitwiseAnd" }, { "|", "op_BitwiseOr" },
+			{ "^", "op_ExclusiveOr" }, { "<<", "op_LeftShift" }, { ">>", "op_RightShift" },
+			{ "neg", "op_UnaryNegation" }, { "~", "op_OnesComplement" }, { "not", "op_LogicalNot" }
+		};
+
+		private static IEnumerable<MethodBase> OperatorMethods(string name, params object[] operands)
+		{
+			HashSet<MethodBase> seen = new HashSet<MethodBase>();
+			foreach (object operand in operands)
+			{
+				if (operand == null) continue;
+				Type t = operand is TypeRef tr ? tr.Type : operand.GetType();
+				foreach (MethodInfo m in t.GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy))
+				{
+					if (m.IsSpecialName && m.Name == name && seen.Add(m)) yield return m;
+				}
+			}
+		}
+
+		private static object CallOperator(object left, string op, object other)
+		{
+			bool reversed = op.Length > 1 && op[0] == 'r' && OperatorNames.ContainsKey(op.Substring(1));
+			if (reversed) op = op.Substring(1);
+			if (!OperatorNames.TryGetValue(op, out string name))
+			{
+				throw new NotSupportedException("The operator '" + op + "' is not supported for a .NET object");
+			}
+			bool unary = op == "neg" || op == "~" || op == "not";
+			other = Plain(other);
+			object[] args = unary ? new[] { left } : reversed ? new[] { other, left } : new[] { left, other };
+			MethodInfo m = Pick(OperatorMethods(name, args), args, out object[] conv) as MethodInfo;
+			if (m != null) return m.Invoke(null, conv);
+			if (!unary)
+			{
+				if (op == "=" || op == "!=")
+				{
+					bool equal = Equals(left, other);
+					return (op == "=") == equal ? 1.0 : 0.0;
+				}
+				if ((op == "<" || op == ">" || op == "<=" || op == ">=") && left is IComparable comparable)
+				{
+					object converted = other;
+					if (other != null && other.GetType() != left.GetType() && TryConvert(other, left.GetType(), out object c, out int score)) converted = c;
+					int order = comparable.CompareTo(converted);
+					if (reversed) order = -order;
+					bool result = op == "<" ? order < 0 : op == ">" ? order > 0 : op == "<=" ? order <= 0 : order >= 0;
+					return result ? 1.0 : 0.0;
+				}
+			}
+			throw new MissingMethodException("No operator " + name + " of " + left.GetType().FullName + " accepts " + (unary ? "the object" : other == null ? "null" : other.GetType().FullName));
+		}
+
+		/* The conversion of a value to a type with op_Implicit / op_Explicit of the value's class or of the target class (the cast of C#), or the
+		   plain conversion of the bridge (a number to another number type, a text to a number type ...) */
+		private static object ConvertValue(object value, Type target)
+		{
+			value = Plain(value);
+			if (value != null && target.IsInstanceOfType(value)) return value;
+			foreach (string name in new[] { "op_Implicit", "op_Explicit" })
+			{
+				foreach (MethodBase candidate in OperatorMethods(name, value, new TypeRef(target)))
+				{
+					MethodInfo m = (MethodInfo)candidate;
+					if (!target.IsAssignableFrom(m.ReturnType)) continue;
+					if (m.GetParameters().Length == 1 && TryConvert(value, m.GetParameters()[0].ParameterType, out object arg, out int score))
+					{
+						return m.Invoke(null, new[] { arg });
+					}
+				}
+			}
+			if (TryConvert(value, target, out object converted, out int s2)) return converted;
+			throw new InvalidCastException("Can't convert " + (value == null ? "null" : value.GetType().FullName) + " to " + target.FullName);
 		}
 
 		/* Generic methods with the type arguments given: JsonConvert.DeserializeObject<Person>(json). Each generic method of that name with that

@@ -2468,6 +2468,10 @@ Class ModelCacheKeyFactoryDependencies from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	# the operators of Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKeyFactoryDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class ModelCustomizer from Object
 
@@ -2518,6 +2522,10 @@ Class ModelCustomizerDependencies from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	# the operators of Microsoft.EntityFrameworkCore.Infrastructure.ModelCustomizerDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class ModelDependencies from Object
 
@@ -2545,6 +2553,10 @@ Class ModelDependencies from Object
 	Func setLogger P1
 		dotnet_callv("s3:set",nHandle,"s6:Logger",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Infrastructure.ModelDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ModelRuntimeInitializer from Object
@@ -2606,6 +2618,10 @@ Class ModelRuntimeInitializerDependencies from Object
 	Func setModelValidator P1
 		dotnet_callv("s3:set",nHandle,"s14:ModelValidator",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Infrastructure.ModelRuntimeInitializerDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ModelSnapshot from Object
@@ -2701,6 +2717,10 @@ Class ModelSourceDependencies from Object
 		dotnet_callv("s3:set",nHandle,"s11:MemoryCache",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Infrastructure.ModelSourceDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class ModelValidator from Object
 
@@ -2752,6 +2772,10 @@ Class ModelValidatorDependencies from Object
 	Func setMemberClassifier P1
 		dotnet_callv("s3:set",nHandle,"s16:MemberClassifier",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Infrastructure.ModelValidatorDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class PooledDbContextFactory from Object
@@ -2860,6 +2884,10 @@ Class RelationalModelDependencies from Object
 		dotnet_callv("s3:set",nHandle,"s22:ValueConverterSelector",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class EfRelationalModelExtensions from Object
 
@@ -2919,6 +2947,10 @@ Class RelationalModelRuntimeInitializerDependencies from Object
 		dotnet_callv("s3:set",nHandle,"s28:RelationalAnnotationProvider",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelRuntimeInitializerDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class RelationalModelValidatorDependencies from Object
 
@@ -2946,6 +2978,10 @@ Class RelationalModelValidatorDependencies from Object
 	Func setTypeMappingSource P1
 		dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelValidatorDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class RelationalOptionsExtension from Object
@@ -3283,6 +3319,10 @@ Class RuntimeModelDependencies from Object
 	Func setParameterBindingFactories P1
 		dotnet_callv("s3:set",nHandle,"s25:ParameterBindingFactories",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Infrastructure.RuntimeModelDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ServiceCharacteristics from ValueType

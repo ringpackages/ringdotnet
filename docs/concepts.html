@@ -391,6 +391,16 @@ oNumbers.<span class="f">Add</span>(<span class="n">4</span>)
 oScores = <span class="k">new</span> <span class="t">Dictionary</span>([ :typeArguments = [<span class="s">"System.String"</span>,<span class="s">"System.Int32"</span>], :capacity = <span class="n">10</span> ])</code></pre></div>
 <p>The members have the type argument as <code>object</code>, so Ring values go in and out as they are; the static members of a generic type need a closed type and are not in the class (use <code>dnNewGeneric</code>, <code>callMethod</code> on <code>dnType</code> with the closed name).</p>
 <p>A nested type has a class too, named after the types around it: <code>SqlMapper.GridReader</code> of Dapper is <code>SqlMapperGridReader</code>, <code>Control.ControlCollection</code> of Windows Forms is <code>ControlCollection</code> (its name in the manifest).</p>
+<p>The operators of a .NET type work in Ring: a class with <code>op_Addition</code>, <code>op_Equality</code>, <code>op_LessThan</code> and the like gets the Ring <code>operator</code> method, so <code>+ - * / % = != &lt; &gt; &lt;= &gt;= &amp; | ^ &lt;&lt; &gt;&gt;</code> and the unary minus call them. The object may come on either side (<code>5 + oBig</code>); when the type has no <code>op_Equality</code> or <code>op_LessThan</code>, <code>=</code> uses <code>Equals</code> and <code>&lt;</code> uses <code>IComparable</code>. A cast of C# is <code>convertTo</code>.</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="f">dnImport</span>(<span class="s">"System"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.Numerics"</span>)
+oOneHour = <span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromHours</span>(<span class="n">1</span>)
+oHalfHour = <span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromMinutes</span>(<span class="n">30</span>)
+oSum = oOneHour + oHalfHour          <span class="c"># TimeSpan + TimeSpan</span>
+? oSum.TotalMinutes                    <span class="c"># 90</span>
+? oOneHour &gt; oHalfHour               <span class="c"># 1</span>
+oBig = <span class="k">new</span> <span class="t">BigInteger</span>().<span class="f">Parse</span>(<span class="s">"42"</span>)
+? oBig.<span class="f">convertTo</span>(<span class="s">"System.Int64"</span>)     <span class="c"># the explicit conversion of BigInteger</span></code></pre></div>
 <p>Generic <strong>methods</strong> work too (the bridge infers the type arguments from the values), which is what makes LINQ possible.</p>
 <p>When a type argument appears only in the result (<code>JsonSerializer.Deserialize&lt;T&gt;(json)</code>), the values cannot tell it, so you give it: in the named form with <code>:typeArguments</code>, a list of type names, or with <code>callGeneric</code> on any object or type.</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="f">dnImport</span>(<span class="s">"System.Text.Json"</span>)

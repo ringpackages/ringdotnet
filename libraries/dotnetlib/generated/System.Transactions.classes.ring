@@ -402,6 +402,10 @@ Class Transaction from Object
 		dotnet_callv("s3:set",'System.Transactions.Transaction, System.Transactions.Local',"s7:Current",P1)
 		return self
 
+	# the operators of System.Transactions.Transaction: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class TransactionEventArgs from EventArgs
 
@@ -630,6 +634,10 @@ Class TransactionOptions from ValueType
 	Func setIsolationLevel P1
 		dotnet_callv("s3:set",nHandle,"s14:IsolationLevel",P1)
 		return self
+
+	# the operators of System.Transactions.TransactionOptions: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class TransactionScope from Object

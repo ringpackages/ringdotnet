@@ -403,6 +403,10 @@ Class HistoryRepositoryDependencies from Object
 		dotnet_callv("s3:set",nHandle,"s16:MigrationsLogger",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Migrations.HistoryRepositoryDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class HistoryRow from Object
 
@@ -1351,6 +1355,10 @@ Class MigrationsAnnotationProviderDependencies from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	# the operators of Microsoft.EntityFrameworkCore.Migrations.MigrationsAnnotationProviderDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class MigrationsAssemblyExtensions from Object
 
@@ -1489,6 +1497,10 @@ Class MigrationsSqlGeneratorDependencies from Object
 	Func setMigrationsLogger P1
 		dotnet_callv("s3:set",nHandle,"s16:MigrationsLogger",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Migrations.MigrationsSqlGeneratorDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class SqliteMigrationBuilderExtensions from Object

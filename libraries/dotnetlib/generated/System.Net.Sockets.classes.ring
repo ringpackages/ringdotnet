@@ -144,6 +144,10 @@ Class IPPacketInformation from ValueType
 	Func setInterface P1
 		raise("DotNet Error: Interface is a read-only property")
 
+	# the operators of System.Net.Sockets.IPPacketInformation: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class IPv6MulticastOption from Object
 
@@ -1999,6 +2003,10 @@ Class UdpReceiveResult from ValueType
 
 	Func setRemoteEndPoint P1
 		raise("DotNet Error: RemoteEndPoint is a read-only property")
+
+	# the operators of System.Net.Sockets.UdpReceiveResult: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class UnixDomainSocketEndPoint from EndPoint

@@ -1922,6 +1922,10 @@ Class SortVersion from Object
 	Func setSortId P1
 		raise("DotNet Error: SortId is a read-only property")
 
+	# the operators of System.Globalization.SortVersion: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class StringInfo from Object
 

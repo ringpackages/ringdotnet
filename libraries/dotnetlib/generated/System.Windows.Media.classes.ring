@@ -2395,6 +2395,10 @@ Class WpfColor from ValueType
 		dotnet_callv("s3:set",nHandle,"s3:ScB",P1)
 		return self
 
+	# the operators of System.Windows.Media.Color: + - * = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class ColorContext from Object
 
@@ -2424,6 +2428,10 @@ Class ColorContext from Object
 
 	Func setProfileUri P1
 		raise("DotNet Error: ProfileUri is a read-only property")
+
+	# the operators of System.Windows.Media.ColorContext: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ColorConverter from TypeConverter
@@ -7184,6 +7192,10 @@ Class WpfMatrix from ValueType
 	Func getIdentity
 		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Matrix, WindowsBase',"s8:Identity"))
 
+	# the operators of System.Windows.Media.Matrix: * = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class MatrixConverter from TypeConverter
 
@@ -8394,6 +8406,10 @@ Class PixelFormat from ValueType
 	Func setMasks P1
 		raise("DotNet Error: Masks is a read-only property")
 
+	# the operators of System.Windows.Media.PixelFormat: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class PixelFormatChannelMask from ValueType
 
@@ -8437,6 +8453,10 @@ Class PixelFormatChannelMask from ValueType
 
 	Func setMask P1
 		raise("DotNet Error: Mask is a read-only property")
+
+	# the operators of System.Windows.Media.PixelFormatChannelMask: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class PixelFormatConverter from TypeConverter

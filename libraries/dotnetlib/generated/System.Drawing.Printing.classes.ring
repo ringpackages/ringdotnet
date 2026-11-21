@@ -204,6 +204,10 @@ Class Margins from Object
 		dotnet_callv("s3:set",nHandle,"s6:Bottom",P1)
 		return self
 
+	# the operators of System.Drawing.Printing.Margins: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class MarginsConverter from ExpandableObjectConverter
 

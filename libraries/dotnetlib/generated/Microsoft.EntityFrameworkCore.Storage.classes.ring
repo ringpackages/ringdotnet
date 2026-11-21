@@ -769,6 +769,10 @@ Class DatabaseDependencies from Object
 	Func setLogger P1
 		raise("DotNet Error: Logger is a read-only property")
 
+	# the operators of Microsoft.EntityFrameworkCore.Storage.DatabaseDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class DatabaseProviderDependencies from Object
 
@@ -794,6 +798,10 @@ Class DatabaseProviderDependencies from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	# the operators of Microsoft.EntityFrameworkCore.Storage.DatabaseProviderDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class DatabaseProvider from Object
@@ -1019,6 +1027,10 @@ Class ExecutionStrategyDependencies from Object
 	Func setLogger P1
 		dotnet_callv("s3:set",nHandle,"s6:Logger",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Storage.ExecutionStrategyDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class IDatabase from DotNetObject
@@ -2701,6 +2713,10 @@ Class ParameterNameGeneratorDependencies from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	# the operators of Microsoft.EntityFrameworkCore.Storage.ParameterNameGeneratorDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class ParameterNameGeneratorFactory from Object
 
@@ -3015,6 +3031,10 @@ Class RelationalCommandBuilderDependencies from Object
 		dotnet_callv("s3:set",nHandle,"s17:TypeMappingSource",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class RelationalCommandBuilderExtensions from Object
 
@@ -3166,6 +3186,10 @@ Class RelationalCommandParameterObject from ValueType
 
 	Func setCommandSource P1
 		raise("DotNet Error: CommandSource is a read-only property")
+
+	# the operators of Microsoft.EntityFrameworkCore.Storage.RelationalCommandParameterObject: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class RelationalConnection from Object
@@ -3438,6 +3462,10 @@ Class RelationalConnectionDependencies from Object
 	Func setRelationalCommandBuilderFactory P1
 		dotnet_callv("s3:set",nHandle,"s31:RelationalCommandBuilderFactory",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Storage.RelationalConnectionDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class RelationalDataReader from Object
@@ -3758,6 +3786,10 @@ Class RelationalDatabaseCreatorDependencies from Object
 		dotnet_callv("s3:set",nHandle,"s14:CurrentContext",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreatorDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class RelationalDatabaseDependencies from Object
 
@@ -3801,6 +3833,10 @@ Class RelationalDatabaseDependencies from Object
 	Func setConnection P1
 		dotnet_callv("s3:set",nHandle,"s10:Connection",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class RelationalExecutionStrategyExtensions from Object
@@ -4016,6 +4052,10 @@ Class RelationalSqlGenerationHelperDependencies from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	# the operators of Microsoft.EntityFrameworkCore.Storage.RelationalSqlGenerationHelperDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class RelationalTransaction from Object
 
@@ -4178,6 +4218,10 @@ Class RelationalTransactionFactoryDependencies from Object
 	Func setSqlGenerationHelper P1
 		dotnet_callv("s3:set",nHandle,"s19:SqlGenerationHelper",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Storage.RelationalTransactionFactoryDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class RelationalTypeMappingInfo from ValueType
@@ -4347,6 +4391,10 @@ Class RelationalTypeMappingInfo from ValueType
 		dotnet_callv("s3:set",nHandle,"s18:ElementTypeMapping",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class RelationalTypeMappingSourceDependencies from Object
 
@@ -4374,6 +4422,10 @@ Class RelationalTypeMappingSourceDependencies from Object
 	Func setPlugins P1
 		dotnet_callv("s3:set",nHandle,"s7:Plugins",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class RelationalTypeMappingSourceExtensions from Object
@@ -4529,6 +4581,10 @@ Class TypeMappingInfo from ValueType
 		dotnet_callv("s3:set",nHandle,"s21:JsonValueReaderWriter",P1)
 		return self
 
+	# the operators of Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class TypeMappingSourceBase from Object
 
@@ -4594,6 +4650,10 @@ Class TypeMappingSourceDependencies from Object
 	Func setPlugins P1
 		dotnet_callv("s3:set",nHandle,"s7:Plugins",P1)
 		return self
+
+	# the operators of Microsoft.EntityFrameworkCore.Storage.TypeMappingSourceDependencies: != =
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class TypeMaterializationInfo from Object

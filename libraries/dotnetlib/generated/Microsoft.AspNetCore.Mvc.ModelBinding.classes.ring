@@ -655,6 +655,10 @@ Class AspBindingSource from Object
 	Func setFormFile P1
 		raise("DotNet Error: FormFile is a read-only property")
 
+	# the operators of Microsoft.AspNetCore.Mvc.ModelBinding.BindingSource: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class BindingSourceValueProvider from Object
 
@@ -1884,6 +1888,10 @@ Class ModelBindingResult from ValueType
 
 	Func setIsModelSet P1
 		raise("DotNet Error: IsModelSet is a read-only property")
+
+	# the operators of Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingResult: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ModelError from Object
@@ -3767,6 +3775,10 @@ Class ValueProviderResult from ValueType
 	Func setNone P1
 		dotnet_callv("s3:set",'Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',"s4:None",P1)
 		return self
+
+	# the operators of Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class CompositeBindingSource from AspBindingSource

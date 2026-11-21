@@ -6023,6 +6023,10 @@ Class StylusPoint from ValueType
 	Func setMinXY P1
 		raise("DotNet Error: MinXY is a read-only property")
 
+	# the operators of System.Windows.Input.StylusPoint: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class StylusPointCollection from DotNetObject
 

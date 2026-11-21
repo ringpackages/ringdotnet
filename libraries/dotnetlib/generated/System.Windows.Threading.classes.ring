@@ -581,6 +581,10 @@ Class DispatcherProcessingDisabled from ValueType
 
 		return self
 
+	# the operators of System.Windows.Threading.DispatcherProcessingDisabled: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class DispatcherSynchronizationContext from SynchronizationContext
 

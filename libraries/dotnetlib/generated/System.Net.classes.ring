@@ -2343,6 +2343,10 @@ Class IPNetwork from ValueType
 	Func setPrefixLength P1
 		raise("DotNet Error: PrefixLength is a read-only property")
 
+	# the operators of System.Net.IPNetwork: = !=
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class IWebProxy from DotNetObject
 
