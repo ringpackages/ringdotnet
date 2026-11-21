@@ -65,6 +65,20 @@ class DotNetObject
 	func toList
 		return dnRequest("tolist",[self])
 
+	# An IAsyncEnumerable (a method that returns one has no await foreach in Ring): toList() reads all the items. One item at a time:
+	#   oEnum = oStream.asyncEnumerator()    while oEnum.asyncNext()  ? oEnum.Current  end    oEnum.asyncDispose()
+	func asyncEnumerator
+		return dnRequest("asyncenumerator",[self])
+
+	# Wait for the next item of an async enumerator: true when there is one (it is Current), false at the end
+	func asyncNext
+		return dnRequest("asyncnext",[self]) = 1
+
+	# End an async enumerator (toList does it by itself)
+	func asyncDispose
+		dnRequest("asyncdispose",[self])
+		return self
+
 	# Release the reference kept by the bridge now (the object is not used after this). Ring releases it by itself when the last
 	# variable that holds the object is gone (see oDotNetGuard); this is only needed to let go of a big object at once.
 	func release

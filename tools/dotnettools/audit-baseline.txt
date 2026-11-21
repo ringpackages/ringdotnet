@@ -20,6 +20,7 @@
     176  OK   event: setXXXEvent / clearXXXEvent   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.JsonSerializer.Error
      35  OK   method: ref struct result (answered as an array, a list of its items or a text)   e.g. SixLabors.Fonts.dll: SixLabors.Fonts.Unicode.MemoryExtensions.EnumerateCodePoints
      35  OK   method: Span result (an array in Ring)   e.g. CsvHelper.dll: CsvHelper.CsvDynamicRecord.GetSpan
+     23  OK   method: IAsyncEnumerable result (toList, or asyncEnumerator and asyncNext)   e.g. Dapper.dll: Dapper.SqlMapper.QueryUnbufferedAsync
       1  OK   method: pointer parameter (an address, or a buffer pinned for the call)   e.g. SkiaSharp.dll: SkiaSharp.SKImageFilter.CreateMerge
   74121  INFO method: public methods   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.DefaultJsonNameTable.Get
   53876  INFO property: public properties   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.IJsonLineInfo.LineNumber
@@ -44,7 +45,6 @@
      32  GAP  ctor: not callable (pointer or ref struct parameter)   e.g. NLog.dll: NLog.LogEventInfo..ctor
      31  GAP  property: pointer or ref struct type   e.g. CsvHelper.dll: CsvHelper.CsvReader.Item
      30  GAP  method: operator that Ring has no syntax for (op_Increment, op_True ...)   e.g. Humanizer.dll: Humanizer.ByteSize.op_Increment
-     23  GAP  method: IAsyncEnumerable result (no await foreach in Ring)   e.g. Dapper.dll: Dapper.SqlMapper.QueryUnbufferedAsync
       7  GAP  property: indexer with several indexes   e.g. SkiaSharp.dll: SkiaSharp.SKColorSpaceXyz.Item
       7  GAP  method: ref return   e.g. Acornima.dll: Acornima.CommentExtensions.RangeRef
 

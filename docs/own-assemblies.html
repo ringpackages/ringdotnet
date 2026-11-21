@@ -369,6 +369,15 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 
 	<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> Spans
 	{
+		<span class="c">/* an IAsyncEnumerable result: Ring reads it with toList() or asyncEnumerator() */</span>
+		<span class="k">public</span> <span class="k">static</span> <span class="k">async</span> System.Collections.Generic.IAsyncEnumerable&lt;<span class="k">int</span>&gt; <span class="t">CountAsync</span>(<span class="k">int</span> n)
+		{
+			<span class="k">for</span> (<span class="k">int</span> i = <span class="n">1</span>; i &lt;= n; i++)
+			{
+				<span class="k">await</span> System.Threading.Tasks.Task.<span class="f">Delay</span>(<span class="n">1</span>);
+				yield <span class="k">return</span> i * <span class="n">10</span>;
+			}
+		}
 		<span class="k">public</span> <span class="k">static</span> <span class="t">WordEnumerator</span> <span class="t">Words</span>(<span class="k">string</span> text) { <span class="k">return</span> <span class="k">new</span> <span class="t">WordEnumerator</span>(text); }
 		<span class="k">public</span> <span class="k">static</span> <span class="t">Label</span> <span class="t">MakeLabel</span>(<span class="k">string</span> name) { <span class="k">return</span> <span class="k">new</span> <span class="t">Label</span>(name); }
 		<span class="k">public</span> <span class="k">static</span> <span class="k">int</span> <span class="t">CursorLength</span>(<span class="t">Cursor</span> cursor) { <span class="k">return</span> cursor.Length; }

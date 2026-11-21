@@ -89,6 +89,15 @@ namespace MyCompany.Tools
 
 	public static class Spans
 	{
+		/* an IAsyncEnumerable result: Ring reads it with toList() or asyncEnumerator() */
+		public static async System.Collections.Generic.IAsyncEnumerable<int> CountAsync(int n)
+		{
+			for (int i = 1; i <= n; i++)
+			{
+				await System.Threading.Tasks.Task.Delay(1);
+				yield return i * 10;
+			}
+		}
 		public static WordEnumerator Words(string text) { return new WordEnumerator(text); }
 		public static Label MakeLabel(string name) { return new Label(name); }
 		public static int CursorLength(Cursor cursor) { return cursor.Length; }

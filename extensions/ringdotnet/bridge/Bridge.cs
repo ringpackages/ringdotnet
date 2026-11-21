@@ -407,6 +407,13 @@ namespace RingDotNet
 					return Plain(a[0]).ToString();
 				case "typename":
 					return a[0] is TypeRef tr ? tr.Type.FullName : a[0]?.GetType().FullName;
+				case "asyncenumerator":
+					return GetAsyncEnumerator(Plain(a[0]));
+				case "asyncnext":
+					return AsyncNext(Plain(a[0])) ? 1.0 : 0.0;
+				case "asyncdispose":
+					AsyncDispose(Plain(a[0]));
+					return null;
 				case "tolist":
 					return ToList(a[0]);
 				case "setevent":
@@ -1587,8 +1594,58 @@ namespace RingDotNet
 			return new RingList { TName(definition ?? t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer, events, t.IsValueType, t.Assembly.GetName().Name, baseName, interfaces, operators };
 		}
 
+		/* ---------------------------------------------------------------- IAsyncEnumerable
+		   Ring has no await foreach. An IAsyncEnumerable<T> that a method returns is read with toList (all the items, waiting for each one), or one item at a
+		   time: asyncEnumerator() gives the enumerator, asyncNext() waits for the next item (false at the end), Current is the item, asyncDispose() ends it. */
+		private static Type AsyncInterface(Type t, string definition)
+		{
+			foreach (Type i in t.IsInterface ? new[] { t }.Concat(t.GetInterfaces()) : t.GetInterfaces())
+			{
+				if (i.IsGenericType && i.GetGenericTypeDefinition().FullName == definition) return i;
+			}
+			return null;
+		}
+
+		private static object GetAsyncEnumerator(object target)
+		{
+			Type i = target == null ? null : AsyncInterface(target.GetType(), "System.Collections.Generic.IAsyncEnumerable`1");
+			if (i == null) throw new ArgumentException("The object is not an IAsyncEnumerable");
+			return i.GetMethod("GetAsyncEnumerator").Invoke(target, new object[] { default(System.Threading.CancellationToken) });
+		}
+
+		private static bool AsyncNext(object enumerator)
+		{
+			Type i = enumerator == null ? null : AsyncInterface(enumerator.GetType(), "System.Collections.Generic.IAsyncEnumerator`1");
+			if (i == null) throw new ArgumentException("The object is not an IAsyncEnumerator");
+			object pending = i.GetMethod("MoveNextAsync").Invoke(enumerator, null);          /* a ValueTask<bool> */
+			return ((System.Threading.Tasks.Task<bool>)pending.GetType().GetMethod("AsTask").Invoke(pending, null)).GetAwaiter().GetResult();
+		}
+
+		private static void AsyncDispose(object enumerator)
+		{
+			if (enumerator is IAsyncDisposable disposable) disposable.DisposeAsync().AsTask().GetAwaiter().GetResult();
+		}
+
+		private static List<object> AsyncToList(object target)
+		{
+			object enumerator = GetAsyncEnumerator(target);
+			PropertyInfo current = AsyncInterface(enumerator.GetType(), "System.Collections.Generic.IAsyncEnumerator`1").GetProperty("Current");
+			List<object> list = new RingList();
+			try
+			{
+				while (AsyncNext(enumerator)) list.Add(current.GetValue(enumerator));
+			}
+			finally { AsyncDispose(enumerator); }
+			return list;
+		}
+
 		private static List<object> ToList(object target)
 		{
+			target = Plain(target);
+			if (target != null && !(target is IEnumerable) && AsyncInterface(target.GetType(), "System.Collections.Generic.IAsyncEnumerable`1") != null)
+			{
+				return AsyncToList(target);
+			}
 			if (!(Plain(target) is IEnumerable en) || target is string)
 			{
 				throw new ArgumentException("The object is not enumerable");
@@ -2897,6 +2954,16 @@ namespace RingDotNet
 				if (fi != null)
 				{
 					return fi.GetValue(instance);
+				}
+			}
+			if (instance != null)
+			{
+				/* a property that the class implements explicitly (the Current of a compiler-made async iterator) is found in its public interfaces */
+				foreach (Type i in t.GetInterfaces())
+				{
+					if (!i.IsVisible) continue;
+					PropertyInfo ip = i.GetProperty(name, BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase);
+					if (ip != null && ip.GetIndexParameters().Length == 0 && ip.CanRead) return ip.GetValue(instance);
 				}
 			}
 			throw new MissingMemberException("No public property or field " + t.FullName + "." + name);

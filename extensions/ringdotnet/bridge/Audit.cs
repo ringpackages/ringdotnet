@@ -181,7 +181,7 @@ namespace RingDotNet
 					if (typeof(System.Threading.Tasks.Task).IsAssignableFrom(rt) || (rt.IsGenericType && rt.GetGenericTypeDefinition().FullName == "System.Threading.Tasks.ValueTask`1") || rt.FullName == "System.Threading.Tasks.ValueTask")
 						tally.Add("INFO method: asynchronous (Task, ValueTask)", where);
 					if (rt.IsGenericType && rt.GetGenericTypeDefinition().FullName == "System.Collections.Generic.IAsyncEnumerable`1")
-						tally.Add("GAP  method: IAsyncEnumerable result (no await foreach in Ring)", where);
+						tally.Add("OK   method: IAsyncEnumerable result (toList, or asyncEnumerator and asyncNext)", where);
 					if (ps.Any(p => NeedsImplementation(p.ParameterType)))
 						tally.Add("INFO method: a parameter is an interface or abstract class (only an existing object can be passed)", where);
 					if (ps.Any(p => typeof(Delegate).IsAssignableFrom(p.ParameterType)))

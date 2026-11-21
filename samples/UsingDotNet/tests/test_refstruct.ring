@@ -41,4 +41,20 @@ aLines = dnStatic("System.MemoryExtensions","EnumerateLines",["a" + nl + "bb" + 
 dnAssert("EnumerateLines of the library",len(aLines),3)
 dnAssert("EnumerateLines, an item",aLines[3],"ccc")
 
+# an IAsyncEnumerable result: toList() reads it all, asyncNext() one item at a time
+oStream = dnStatic("MyCompany.Tools.Spans","CountAsync",[4])
+aItems = oStream.toList()
+dnAssert("IAsyncEnumerable, toList",len(aItems),4)
+dnAssert("IAsyncEnumerable, the last item",aItems[4],40)
+oEnum = dnStatic("MyCompany.Tools.Spans","CountAsync",[3]).asyncEnumerator()
+nSum = 0
+nSteps = 0
+while oEnum.asyncNext()
+	nSum += oEnum.Current
+	nSteps++
+end
+oEnum.asyncDispose()
+dnAssert("IAsyncEnumerable, one item at a time",nSteps,3)
+dnAssert("IAsyncEnumerable, the items",nSum,60)
+
 dnTestSummary()

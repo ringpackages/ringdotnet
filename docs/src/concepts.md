@@ -268,6 +268,16 @@ aLines = dnStatic("System.MemoryExtensions","EnumerateLines",["one" + nl + "two"
 ? aLines[2]        # two
 ```
 
+Ring has no `await foreach`, so an `IAsyncEnumerable<T>` that a method returns is read in one of two ways. `toList()` waits for every item and gives a Ring list; `asyncEnumerator()` gives the enumerator, `asyncNext()` waits for the next item (true while there is one), `Current` is the item and `asyncDispose()` ends the enumerator, which is the way to read a long or endless stream one item at a time.
+
+```ring
+oEnum = oStream.asyncEnumerator()
+while oEnum.asyncNext()
+	? oEnum.Current
+end
+oEnum.asyncDispose()
+```
+
 A pointer parameter (`byte*`, `char*`, `void*`, `int*`) takes an address or a buffer. A **number** is the address (from `NativeMemory.Alloc`, `Marshal.AllocHGlobal`, a native library); a **text**, a **byte string**, a **list** of numbers or a **ByteBuffer** is a buffer that is pinned for the call, so the method can read it (a text and a byte string end with a zero, for C strings) and a ByteBuffer is the live array that the method may fill. The address of a buffer is valid during the call only: a method that keeps the pointer needs memory that you allocate. A pointer that a method returns is its address, a number.
 
 ```ring
