@@ -53,7 +53,7 @@ func main
 	? "   after Remove(b): " + list2str2(oList.toList())
 
 	# 5. BitArray: one bit for each item, so a million yes/no values take 125 KB. Set, Get and the logic methods And, Or, Xor, Not.
-	#    (Get, And and Or are reserved words after a dot, so they are called with callMethod. And and Or change the array they are called on.)
+	#    (Get, And and Or are Ring words, so their names start with @. And and Or change the array they are called on.)
 	oBits = new BitArray(10)
 	oBits.Set(1,True)
 	oBits.Set(3,True)
@@ -63,8 +63,8 @@ func main
 	oOther.Set(9,True)
 	? nl + "5. bits:  " + bitText(oBits)
 	? "   other: " + bitText(oOther)
-	? "   AND:   " + bitText(dnCopyBits(oBits).callMethod("And",[oOther]))
-	? "   OR:    " + bitText(dnCopyBits(oBits).callMethod("Or",[oOther]))
+	? "   AND:   " + bitText(dnCopyBits(oBits).@And(oOther))
+	? "   OR:    " + bitText(dnCopyBits(oBits).@Or(oOther))
 
 func dnCopyBits oBits
 	return new BitArray(oBits)
@@ -72,7 +72,7 @@ func dnCopyBits oBits
 func bitText oBits
 	cText = ""
 	for i = 0 to oBits.Length - 1
-		if oBits.callMethod("Get",[i]) cText += "1" else cText += "0" ok
+		if oBits.@Get(i) cText += "1" else cText += "0" ok
 	next
 	return cText
 

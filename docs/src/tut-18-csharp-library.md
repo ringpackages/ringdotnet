@@ -49,6 +49,7 @@ dotnet build Greeter -c Release -o Greeter/bin
 | `public static int Add(int a, int b)` | `new Greeter().Add(20,22)` |
 | `bool TryDivide(double a, double b, out double result)` | a list `[worked, result]` |
 | `public event EventHandler<string> Greeted;` | `oGreeter.setGreetedEvent("code")` |
+| `public static string Shout(this Greeter g, string end)` (an extension method) | `oGreeter.Shout("!")`: a method of the Ring class of the type that it extends |
 
 ### Overloads and named arguments
 

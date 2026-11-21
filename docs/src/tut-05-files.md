@@ -73,7 +73,7 @@ A program that creates temporary files deletes them at the end. This tutorial's 
 
 ## Exercises
 
-1. Write a program that counts the lines in every `.ring` file of a folder (`Directory.GetFiles(folder, "*.ring")`).
+1. Write a program that counts the lines in every `.ring` file of a folder (`Directory.GetFiles([ :path = cFolder, :searchPattern = "*.ring" ])`).
 2. Copy a file to the Documents folder (`Environment.GetFolderPath("MyDocuments")`).
 3. Find the biggest file in a folder with `FileInfo.Length`.
 4. Write a log: each run appends a line with the date and time.

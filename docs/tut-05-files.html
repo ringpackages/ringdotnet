@@ -349,7 +349,7 @@ Cleaned up         : 1</code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>build paths with <code>Path</code>, not with <code>+</code>,</li><li>ask <code>Exists</code> before you read,</li><li>use a reader for big files and always close it,</li><li><code>FileInfo</code> gives the facts about a file.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
-<ol><li>Write a program that counts the lines in every <code>.ring</code> file of a folder (<code>Directory.GetFiles(folder, "*.ring")</code>).</li><li>Copy a file to the Documents folder (<code>Environment.GetFolderPath("MyDocuments")</code>).</li><li>Find the biggest file in a folder with <code>FileInfo.Length</code>.</li><li>Write a log: each run appends a line with the date and time.</li></ol>
+<ol><li>Write a program that counts the lines in every <code>.ring</code> file of a folder (<code>Directory.GetFiles([ :path = cFolder, :searchPattern = "*.ring" ])</code>).</li><li>Copy a file to the Documents folder (<code>Environment.GetFolderPath("MyDocuments")</code>).</li><li>Find the biggest file in a folder with <code>FileInfo.Length</code>.</li><li>Write a log: each run appends a line with the date and time.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>
 <p><a href="tut-06-json-xml.html">JSON and XML</a></p>
 <div class="pager"><a href="tut-04-collections.html"><small>Previous</small>Collections and LINQ</a><a class="next" href="tut-06-json-xml.html"><small>Next</small>JSON and XML</a></div>

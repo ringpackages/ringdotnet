@@ -40,7 +40,7 @@ A Ring number is a 64-bit floating point number: after about 15 digits it loses 
 
 ### Random
 
-`new Random(42)` starts a random generator with a *seed*. The same seed always gives the same numbers, which is useful in tests. Leave the seed out (`new Random()`) for numbers that change every run. `@Next` takes a minimum and a maximum (the maximum is *not* included, so `1` and `7` give a die). The `@` is there because `Next` is a Ring keyword.
+`new Random(42)` starts a random generator with a *seed*. The same seed always gives the same numbers, which is useful in tests. Pass `NULL` as the seed (`new Random(NULL)`) for numbers that change every run. `@Next` takes a minimum and a maximum (the maximum is *not* included, so `1` and `7` give a die). The `@` is there because `Next` is a Ring keyword.
 
 ### DateTime
 

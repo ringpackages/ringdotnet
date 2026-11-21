@@ -249,7 +249,7 @@
 <article>
 <h1>More data structures</h1><p class="lead">Lists and dictionaries are not always the best tool. This lesson shows five collections of .NET that keep order for you or save memory — a priority queue, a sorted set, a sorted dictionary, a linked list and a bit array — and when each one is the right choice.</p>
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
-<ul><li><code>PriorityQueue</code>: always the most urgent item first,</li><li><code>SortedSet</code>: no duplicates and always sorted,</li><li><code>SortedDictionary</code>: keys in order,</li><li><code>LinkedList</code>: cheap changes at both ends and next to a node,</li><li><code>BitArray</code>: a million yes/no values in 125 KB, with logic operations,</li><li>the Ring words that need <code>callMethod</code> (<code>Get</code>, <code>And</code>, <code>Or</code>).</li></ul>
+<ul><li><code>PriorityQueue</code>: always the most urgent item first,</li><li><code>SortedSet</code>: no duplicates and always sorted,</li><li><code>SortedDictionary</code>: keys in order,</li><li><code>LinkedList</code>: cheap changes at both ends and next to a node,</li><li><code>BitArray</code>: a million yes/no values in 125 KB, with logic operations,</li><li>the Ring words that start with <code>@</code> (<code>@Get</code>, <code>@And</code>, <code>@Or</code>).</li></ul>
 <p>The tutorial <a href="tut-04-collections.html">Collections and LINQ</a> used <code>List</code> and <code>Dictionary</code>, and the tutorial <a href="tut-89-concurrent-collections.html">Collections for many threads</a> the collections for many threads.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch04_data_structures.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># more data structures - PriorityQueue, SortedSet, SortedDictionary, LinkedList and BitArray</span>
@@ -307,7 +307,7 @@ using {
 	? <span class="s">"   after Remove(b): "</span> + list2str2(oList.<span class="f">toList</span>())
 
 	<span class="c"># 5. BitArray: one bit for each item, so a million yes/no values take 125 KB. Set, Get and the logic methods And, Or, Xor, Not.</span>
-	<span class="c">#    (Get, And and Or are reserved words after a dot, so they are called with callMethod. And and Or change the array they are called on.)</span>
+	<span class="c">#    (Get, And and Or are Ring words, so their names start with @. And and Or change the array they are called on.)</span>
 	oBits = <span class="k">new</span> <span class="t">BitArray</span>(<span class="n">10</span>)
 	oBits.<span class="f">Set</span>(<span class="n">1</span>,<span class="k">True</span>)
 	oBits.<span class="f">Set</span>(<span class="n">3</span>,<span class="k">True</span>)
@@ -317,8 +317,8 @@ using {
 	oOther.<span class="f">Set</span>(<span class="n">9</span>,<span class="k">True</span>)
 	? nl + <span class="s">"5. bits:  "</span> + bitText(oBits)
 	? <span class="s">"   other: "</span> + bitText(oOther)
-	? <span class="s">"   AND:   "</span> + bitText(<span class="f">dnCopyBits</span>(oBits).<span class="f">callMethod</span>(<span class="s">"And"</span>,[oOther]))
-	? <span class="s">"   OR:    "</span> + bitText(<span class="f">dnCopyBits</span>(oBits).<span class="f">callMethod</span>(<span class="s">"Or"</span>,[oOther]))
+	? <span class="s">"   AND:   "</span> + bitText(<span class="f">dnCopyBits</span>(oBits).@<span class="k">And</span>(oOther))
+	? <span class="s">"   OR:    "</span> + bitText(<span class="f">dnCopyBits</span>(oBits).@<span class="k">Or</span>(oOther))
 
 <span class="k">func</span> <span class="f">dnCopyBits</span> oBits
 	<span class="k">return</span> <span class="k">new</span> <span class="t">BitArray</span>(oBits)
@@ -326,7 +326,7 @@ using {
 <span class="k">func</span> <span class="f">bitText</span> oBits
 	cText = <span class="s">""</span>
 	<span class="k">for</span> i = <span class="n">0</span> <span class="k">to</span> oBits.Length - <span class="n">1</span>
-		<span class="k">if</span> oBits.<span class="f">callMethod</span>(<span class="s">"Get"</span>,[i]) cText += <span class="s">"1"</span> <span class="k">else</span> cText += <span class="s">"0"</span> <span class="k">ok</span>
+		<span class="k">if</span> oBits.@<span class="k">Get</span>(i) cText += <span class="s">"1"</span> <span class="k">else</span> cText += <span class="s">"0"</span> <span class="k">ok</span>
 	<span class="k">next</span>
 	<span class="k">return</span> cText
 
@@ -368,10 +368,10 @@ using {
 <h3 id="linkedlist">LinkedList<a class="anchor" href="#linkedlist">#</a></h3>
 <p>Each item is a <strong>node</strong> that knows its neighbours (<code>Next</code>, <code>Previous</code>). <code>AddFirst</code>, <code>AddLast</code> and <code>AddAfter(node, value)</code> do not move other items, and <code>Remove</code> of a known node is quick. The price: no access by number. Take it when you add or remove in the middle of a long list all the time, for example an <em>undo</em> list or a play list.</p>
 <h3 id="bitarray">BitArray<a class="anchor" href="#bitarray">#</a></h3>
-<p>One bit for each item. A million yes/no values (a sieve of primes, which seats are free, which files were seen) take 125 KB instead of megabytes. <code>Set(index, value)</code> and <code>Get(index)</code> write and read one bit (<code>Get</code> is called with <code>callMethod</code>, see below); <code>And</code>, <code>Or</code>, <code>Xor</code> and <code>Not</code> work on all the bits at once and <strong>change the array they are called on</strong>, so the program copies it first (<code>new BitArray(bits)</code>). In the output, <code>AND</code> has only the bit that both arrays have and <code>OR</code> has the bits of either.</p>
-<div class="callout note"><span class="t">Note</span><p>Ring accepts most of its own words as method names after a dot (<code>Set</code>, <code>From</code>, <code>To</code>, <code>Step</code>, <code>In</code>, <code>On</code>, <code>Off</code>), but not <code>Get</code>, <code>And</code> and <code>Or</code> (a statement <code>get x</code> reads input, and <code>and</code>, <code>or</code> are the operators of conditions). A .NET method with one of those names is called with <code>callMethod("Get", [...])</code>.</p></div>
+<p>One bit for each item. A million yes/no values (a sieve of primes, which seats are free, which files were seen) take 125 KB instead of megabytes. <code>Set(index, value)</code> and <code>@Get(index)</code> write and read one bit (<code>Get</code> is a Ring word, so the name starts with <code>@</code>, see below); <code>@And</code>, <code>@Or</code>, <code>Xor</code> and <code>@Not</code> work on all the bits at once and <strong>change the array they are called on</strong>, so the program copies it first (<code>new BitArray(bits)</code>). In the output, <code>AND</code> has only the bit that both arrays have and <code>OR</code> has the bits of either.</p>
+<div class="callout note"><span class="t">Note</span><p>Ring accepts most of its own words as method names after a dot (<code>Set</code>, <code>From</code>, <code>To</code>, <code>Step</code>, <code>In</code>, <code>On</code>, <code>Off</code>), but not <code>Get</code>, <code>And</code> and <code>Or</code> (a statement <code>get x</code> reads input, and <code>and</code>, <code>or</code> are the operators of conditions). A .NET method with one of those names has a name that starts with <code>@</code> in the generated class: <code>oBits.@Get(3)</code>, <code>oBits.@And(oOther)</code>.</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
-<ul><li>five collections and what each one is for,</li><li>the plain style (<code>callMethod</code>, <code>getProp</code>, <code>toList</code>) for closed generic types,</li><li><code>BitArray</code> operations change their own array,</li><li>the few Ring words that must be called with <code>callMethod</code>.</li></ul>
+<ul><li>five collections and what each one is for,</li><li>the plain style (<code>callMethod</code>, <code>getProp</code>, <code>toList</code>) for closed generic types,</li><li><code>BitArray</code> operations change their own array,</li><li>the few Ring words that start with <code>@</code>.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Make a task list with <code>PriorityQueue</code> where two tasks have the same priority: in which order do they come out? (Do not rely on it.)</li><li>Use a <code>SortedSet</code> of words to print the words of a text without duplicates in alphabetical order.</li><li>Find all primes below 1000 with a <code>BitArray</code> (the sieve of Eratosthenes).</li><li>Build an <em>undo list</em> of the last 5 actions with a <code>LinkedList</code>.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>

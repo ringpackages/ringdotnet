@@ -80,7 +80,7 @@ ring main.ring               # the normal program
 ring main.ring --selftest    # the test: prints SELFTEST OK
 ```
 
-With `--selftest`, `uiRun` loads that file, shows the form, runs `selfTest()` once the form is shown, closes the form and prints the result. The form must be in the global variable `oForm` (WPF: `oWindow`, with `wpfRun`). A program without a `selftest` file runs normally; the functions `uiTest(oForm, code)` and `uiEnd()` (`wpfTest`, `wpfEnd`) do the same steps by hand for a program that keeps its checks inside. `uiMessage()` prints instead of showing a dialog in a test, and `uiAsk()` answers yes unless `uiAnswer` says otherwise.
+With `--selftest`, `uiRun` loads that file, shows the form, runs `selfTest()` once the form is shown, closes the form and prints the result. The form must be in the global variable `oForm` (WPF: `oWindow`, with `wpfRun`). A program without a `selftest` file runs normally; the functions `uiTest(oForm, code)` and `uiEnd()` (`wpfTest`, `wpfEnd`) do the same steps by hand for a program that keeps its checks inside. `uiMessage()` prints instead of showing a dialog in a test, and `uiAsk()` prints the question and answers yes.
 
 ## Typing keys in tests
 

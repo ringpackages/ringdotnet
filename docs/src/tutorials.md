@@ -16,6 +16,8 @@ ring ch10_counter.ring --selftest   # the same program checks itself and closes
 
 > [!TIP] You do not need to know .NET to start. If you know Ring, you can follow every tutorial. The first two pages explain the .NET words that you will meet.
 
+> [!NOTE] The lessons about NuGet packages (the chapter **Libraries and packages**) run `dotnet publish`, so they need the .NET SDK and, the first time, the internet to get the packages.
+
 ## Start here
 
 <div class="cards">

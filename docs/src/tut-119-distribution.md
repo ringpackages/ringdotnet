@@ -46,6 +46,7 @@ ring ring2exe.ring myprogram.ring -dist -dotnet
 | the **ASP.NET Core runtime**, same version | programs with a web server, or that use `Microsoft.AspNetCore`, `Microsoft.Extensions.*` (configuration, data protection, rate limiting, routing...). It is installed together with the "ASP.NET Core Runtime" or the "Hosting Bundle" |
 | the **Windows Desktop runtime** | programs with Windows Forms or WPF windows (Windows only) |
 | the **Microsoft Access Database Engine** (64-bit) | programs that open Access files (the tutorial [Microsoft Access databases](tut-115-access.html)) |
+| the **folder of `dotnet publish`** of each NuGet package or C# library that the program uses | the DLLs and the `runtimes` folder with the native libraries go with the program, next to the DLL that `dnLoad` loads (the tutorial [A NuGet package](tut-162-nuget.html)) |
 | 64-bit Windows | the files are 64-bit |
 
 The runtimes are free downloads from `dotnet.microsoft.com`; tell users the exact name. If the runtime is installed in an unusual place, the variable `DOTNET_ROOT` points to it.

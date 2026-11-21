@@ -270,7 +270,7 @@ When no class exists for a type, or when you want the generic style, every wrapp
 
 | Method | What it does |
 |---|---|
-| `callMethod(name, [args])` | call a method |
+| `callMethod(name, [args])` | call a method; the values are in order, also for a name that has several forms (`oKey.callMethod("SetValue",["Port",8080,"DWord"])`) |
 | `getProp(name)` / `setProp(name, value)` | read or write a property or field |
 | `toString()` | `ToString()` of the object |
 | `typeName()` | full .NET type name |

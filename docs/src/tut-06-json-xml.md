@@ -54,7 +54,7 @@ Chain them to go deep: `oRoot.GetProperty("author").GetProperty("first").GetStri
 
 ### XML: load and loop
 
-`XmlDocument.LoadXml(text)` (or `Load(file)`) reads XML. `SelectNodes("//book")` finds all the `book` elements; the `Count` and the `Item(index)` of the result let you loop. For one element: `GetAttribute("id")` reads an attribute and `InnerText` the text inside.
+`XmlDocument.LoadXml(text)` (or `@Load(file)`: `Load` is a Ring word, so the name starts with `@`) reads XML. `SelectNodes("//book")` finds all the `book` elements; the `Count` and the `Item(index)` of the result let you loop. For one element: `GetAttribute("id")` reads an attribute and `InnerText` the text inside.
 
 ### XPath
 

@@ -48,6 +48,9 @@ Console.WriteLine(text);
 | `null` (a method returned it) | `oObject.isNull()` |
 | `new DateTime(2024, 12, 25)` | `new DateTime(2024,12,25)` |
 | `new Point { X = 1, Y = 2 }` | `new Point(1,2)` |
+| `new TimeSpan(1, 2, 3)` (a constructor with several forms) | `new TimeSpan().@New([ :hours = 1, :minutes = 2, :seconds = 3 ])` or `dnNew("TimeSpan",[1,2,3])` |
+| `random.Next(1, 7)` (a name that is a Ring word) | `oRandom.@Next([ :minValue = 1, :maxValue = 7 ])` (the name starts with `@`) |
+| `table.AddColumn("Name")` (an extension method) | `oTable.AddColumn("Name")` (the Ring class of the type has it) |
 
 ### Overloads: one name, different parameters
 
@@ -73,7 +76,7 @@ oPath = new Path()
 
 ## When a class is not wrapped
 
-Everything in the base library and in Windows Forms, WPF, ASP.NET and Entity Framework is wrapped. Other packages can be wrapped in one command: [Your own assemblies](own-assemblies.html). Without wrapping, a few generic functions still reach any .NET type; they are explained in [Core concepts](concepts.html#plain-objects) and used in the later chapters of the tutorials.
+Everything in the base library and in Windows Forms, WPF, ASP.NET and Entity Framework is wrapped. Other packages can be wrapped in one command: [Your own assemblies](own-assemblies.html) and the lesson [A NuGet package](tut-162-nuget.html). Without wrapping, a few generic functions still reach any .NET type; they are explained in [Core concepts](concepts.html#plain-objects) and used in the later chapters of the tutorials.
 
 ## Next
 

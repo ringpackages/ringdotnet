@@ -33,7 +33,7 @@ The earlier lessons wrote `new StringBuilder("x")`, `oText.Append("y")`, `oText.
 
 ### Named values for a constructor
 
-A class made with `new X(...)` runs its `init`, and `init` has one form. A class that has **no constructor without values** (`FileStream` must have a path and a mode) cannot be made with `new FileStream()`, and a constructor with several values needs a way to choose among the constructors: the **names** of their parameters. `dnNew("FileStream", [ :path = cFile, :mode = "Open", :access = "Read" ])` does it. For a class that does have a constructor without values, the object form is `new MemoryStream().@New([ :buffer = bytes ])`, which the tutorials use first.
+A class made with `new X(...)` runs its `init`, and `init` has one form. A class that has **no constructor without values** (`FileStream` must have a path and a mode) cannot be made with `new FileStream()`, and a constructor with several values needs a way to choose among the constructors: the **names** of their parameters. `dnNew("FileStream", [ :path = cFile, :mode = "Open", :access = "Read" ])` does it, and the values can also be given in order: `dnNew("TimeSpan", [1, 2, 3])`. For a class that does have a constructor without values, the object form is `new MemoryStream().@New([ :buffer = bytes ])`, which the tutorials use first.
 
 ### A static method by name
 
@@ -49,6 +49,7 @@ A class made with `new X(...)` runs its `init`, and `init` has one form. A class
 2. A constructor that needs values, or a class without a constructor without values: `dnNew("Class", [ :name = value ])`.
 3. A static method with a name that every object has, or a type that no class wraps: `dnStatic` or `dnType`.
 4. An object that has no class (a generic type, or a type that was not wrapped): `dnNewGeneric` or the object that came back, with `callMethod` and `getProp`.
+5. A method that has several forms, when you want to write its values **in order** and not by name: `callMethod("SetValue", ["Port", 8080, "DWord"])` (the object code form is `SetValue([ :name = "Port", :value = 8080, :valueKind = "DWord" ])`).
 
 > [!NOTE] The reference of all these functions is in [Core functions](core-api.html), and [Core concepts](concepts.html) explains how class names, overloads and properties look. If a class that you need is not wrapped, [Your own assemblies](own-assemblies.html) shows how to generate classes for it.
 
