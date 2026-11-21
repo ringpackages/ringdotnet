@@ -45,9 +45,10 @@ Options: `--jobs N` runs N programs at the same time (`--jobs 1` runs them one a
 
 ```ring
 load "dotnet.ring"
+using { "System" }
 
 dnAssert("max",new Math().Max(3,9),9)
-dnAssert("name",oForm.Text,"Hello")
+dnAssert("abs",new Math().Abs(-5),5)
 dnTestSummary()
 ```
 
