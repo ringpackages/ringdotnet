@@ -100,7 +100,7 @@ namespace RingDotNet
 				if (t.IsDefined(typeof(ObsoleteAttribute), false)) { tally.Add("INFO type: obsolete (not wrapped)", name); continue; }
 
 				int members = CountMembers(t);
-				if (t.IsNested) { tally.Add("GAP  type: nested type (not wrapped)", name); AddMembers(tally, members); continue; }
+				if (t.IsNested) tally.Add("INFO type: nested type (wrapped, named after the types around it)", name);
 				if (t.IsByRefLike) { tally.Add("GAP  type: ref struct (cannot be an object)", name); AddMembers(tally, members); continue; }
 
 				if (t.IsGenericTypeDefinition)

@@ -12,10 +12,10 @@ dnRegisterClass("System.Drawing.Imaging.EncoderParameters","EncoderParameters",0
 dnRegisterClass("System.Drawing.Imaging.FrameDimension","FrameDimension",1)
 dnRegisterClass("System.Drawing.Imaging.ImageAttributes","ImageAttributes",0)
 dnRegisterClass("System.Drawing.Imaging.ImageCodecInfo","ImageCodecInfo",0)
-dnRegisterClass("System.Drawing.Imaging.ImageFormat","ImageFormat",0)
 dnRegisterClass("System.Drawing.Imaging.MetaHeader","MetaHeader",0)
 dnRegisterClass("System.Drawing.Imaging.Metafile","Metafile",1)
 dnRegisterClass("System.Drawing.Imaging.MetafileHeader","MetafileHeader",0)
 dnRegisterClass("System.Drawing.Imaging.PropertyItem","PropertyItem",0)
 dnRegisterClass("System.Drawing.Imaging.WmfPlaceableFileHeader","WmfPlaceableFileHeader",0)
+dnRegisterClass("System.Drawing.Imaging.ImageFormat","ImageFormat",0)
 load "System.Drawing.Imaging.classes.ring"

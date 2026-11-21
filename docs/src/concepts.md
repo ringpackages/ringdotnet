@@ -230,6 +230,8 @@ oScores = new Dictionary([ :typeArguments = ["System.String","System.Int32"], :c
 
 The members have the type argument as `object`, so Ring values go in and out as they are; the static members of a generic type need a closed type and are not in the class (use `dnNewGeneric`, `callMethod` on `dnType` with the closed name).
 
+A nested type has a class too, named after the types around it: `SqlMapper.GridReader` of Dapper is `SqlMapperGridReader`, `Control.ControlCollection` of Windows Forms is `ControlCollection` (its name in the manifest).
+
 Generic **methods** work too (the bridge infers the type arguments from the values), which is what makes LINQ possible.
 
 When a type argument appears only in the result (`JsonSerializer.Deserialize<T>(json)`), the values cannot tell it, so you give it: in the named form with `:typeArguments`, a list of type names, or with `callGeneric` on any object or type.

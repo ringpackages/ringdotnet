@@ -8,5 +8,7 @@ dnRegisterClass("Microsoft.Extensions.Primitives.IChangeToken","IChangeToken",0)
 dnRegisterClass("Microsoft.Extensions.Primitives.StringSegment","StringSegment",0)
 dnRegisterClass("Microsoft.Extensions.Primitives.StringSegmentComparer","StringSegmentComparer",0)
 dnRegisterClass("Microsoft.Extensions.Primitives.StringTokenizer","StringTokenizer",0)
+dnRegisterClass("Microsoft.Extensions.Primitives.StringTokenizer+Enumerator","StringTokenizerEnumerator",0)
 dnRegisterClass("Microsoft.Extensions.Primitives.StringValues","StringValues",0)
+dnRegisterClass("Microsoft.Extensions.Primitives.StringValues+Enumerator","StringValuesEnumerator",0)
 load "Microsoft.Extensions.Primitives.classes.ring"

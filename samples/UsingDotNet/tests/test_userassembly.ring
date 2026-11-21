@@ -64,6 +64,14 @@ catch
 	dnAssert("a generic class needs its type arguments",substr(cCatchError,"typeArguments") > 0,1)
 done
 
+# a nested type has a class named after the types around it
+oMemory = oCalc.Remember()
+dnAssert("nested type, class",classname(oMemory),"calculatormemory")
+dnAssert("nested type, a method",oMemory.Label(),"stored 30")
+oMemory2 = new CalculatorMemory()
+oMemory2.Stored = 2
+dnAssert("nested type, new",oMemory2.Stored,2)
+
 # the generated method takes the type arguments in the named form
 dnAssert("generated method, type arguments",oCalc.Parse([ :typeArguments = ["System.Int32"], :text = "12" ]),12)
 dnAssert("generated method, no arguments",oCalc.Create([ :typeArguments = ["System.Text.StringBuilder"] ]).typeName(),"System.Text.StringBuilder")

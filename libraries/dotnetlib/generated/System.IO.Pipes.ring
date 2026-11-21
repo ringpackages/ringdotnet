@@ -10,6 +10,6 @@ dnRegisterClass("System.IO.Pipes.PipeStream","PipeStream",0)
 dnRegisterClass("System.IO.Pipes.PipesAclExtensions","PipesAclExtensions",0)
 dnRegisterClass("System.IO.Pipes.AnonymousPipeClientStream","AnonymousPipeClientStream",1)
 dnRegisterClass("System.IO.Pipes.AnonymousPipeServerStream","AnonymousPipeServerStream",0)
-dnRegisterClass("System.IO.Pipes.NamedPipeClientStream","NamedPipeClientStream",2)
 dnRegisterClass("System.IO.Pipes.NamedPipeServerStream","NamedPipeServerStream",1)
+dnRegisterClass("System.IO.Pipes.NamedPipeClientStream","NamedPipeClientStream",2)
 load "System.IO.Pipes.classes.ring"

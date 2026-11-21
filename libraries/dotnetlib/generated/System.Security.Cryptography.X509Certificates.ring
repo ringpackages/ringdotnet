@@ -16,6 +16,7 @@ dnRegisterClass("System.Security.Cryptography.X509Certificates.X500RelativeDisti
 dnRegisterClass("System.Security.Cryptography.X509Certificates.X509Certificate","X509Certificate",0)
 dnRegisterClass("System.Security.Cryptography.X509Certificates.X509Certificate2Enumerator","X509Certificate2Enumerator",0)
 dnRegisterClass("System.Security.Cryptography.X509Certificates.X509CertificateCollection","X509CertificateCollection",0)
+dnRegisterClass("System.Security.Cryptography.X509Certificates.X509CertificateCollection+X509CertificateEnumerator","X509CertificateCollectionX509CertificateEnumerator",1)
 dnRegisterClass("System.Security.Cryptography.X509Certificates.X509CertificateLoader","X509CertificateLoader",0)
 dnRegisterClass("System.Security.Cryptography.X509Certificates.X509Chain","X509Chain",0)
 dnRegisterClass("System.Security.Cryptography.X509Certificates.X509ChainElement","X509ChainElement",0)

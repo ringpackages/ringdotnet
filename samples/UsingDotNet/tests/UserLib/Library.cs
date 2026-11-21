@@ -34,6 +34,13 @@ namespace MyCompany.Tools
 		public T Create<T>() where T : new() { return new T(); }
 		/* closed generic types that have no class of their own: the class of the generic definition wraps them */
 		public Dictionary<string, int> Counts() { return new Dictionary<string, int> { { "a", 1 }, { "b", 2 } }; }
+		/* a nested type: its class is named after the types around it (CalculatorMemory) */
+		public class Memory
+		{
+			public double Stored { get; set; }
+			public string Label() { return "stored " + Stored; }
+		}
+		public Memory Remember() { return new Memory { Stored = Total }; }
 		public SortedSet<double> Sorted() { return new SortedSet<double> { 3.5, 1.5 }; }
 	}
 

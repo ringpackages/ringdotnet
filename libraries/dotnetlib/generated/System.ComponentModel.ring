@@ -66,6 +66,7 @@ dnRegisterClass("System.ComponentModel.PropertyDescriptorCollection","PropertyDe
 dnRegisterClass("System.ComponentModel.RefreshEventArgs","RefreshEventArgs",1)
 dnRegisterClass("System.ComponentModel.SyntaxCheck","SyntaxCheck",0)
 dnRegisterClass("System.ComponentModel.TypeConverter","TypeConverter",0)
+dnRegisterClass("System.ComponentModel.TypeConverter+StandardValuesCollection","TypeConverterStandardValuesCollection",1)
 dnRegisterClass("System.ComponentModel.TypeDescriptionProvider","TypeDescriptionProvider",0)
 dnRegisterClass("System.ComponentModel.TypeDescriptor","TypeDescriptor",0)
 dnRegisterClass("System.ComponentModel.BackgroundWorker","BackgroundWorker",0)

@@ -18,6 +18,8 @@ dnRegisterClass("Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExte
 dnRegisterClass("Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions","MultipartSectionStreamExtensions",0)
 dnRegisterClass("Microsoft.AspNetCore.WebUtilities.QueryHelpers","QueryHelpers",0)
 dnRegisterClass("Microsoft.AspNetCore.WebUtilities.QueryStringEnumerable","QueryStringEnumerable",0)
+dnRegisterClass("Microsoft.AspNetCore.WebUtilities.QueryStringEnumerable+EncodedNameValuePair","QueryStringEnumerableEncodedNameValuePair",0)
+dnRegisterClass("Microsoft.AspNetCore.WebUtilities.QueryStringEnumerable+Enumerator","QueryStringEnumerableEnumerator",0)
 dnRegisterClass("Microsoft.AspNetCore.WebUtilities.ReasonPhrases","ReasonPhrases",0)
 dnRegisterClass("Microsoft.AspNetCore.WebUtilities.StreamHelperExtensions","StreamHelperExtensions",0)
 dnRegisterClass("Microsoft.AspNetCore.WebUtilities.WebEncoders","WebEncoders",0)

@@ -44,9 +44,13 @@ func resolveNamespace aEntry
 	aAssemblies = optValue(aEntry,"assemblies",["System.Private.CoreLib"])
 	aExclude = optValue(aEntry,"exclude",[])
 	aOut = []
+	aNamed = []          # the types of the manifest with a name of their own: :all does not add them again under another name
+	for aListed in optValue(aEntry,"types",[])
+		aNamed + aListed[1]
+	next
 	if optValue(aEntry,"all",false)
 		for cName in dnRequest("listtypes",dnJoin([cNs],aAssemblies))
-			if find(aExclude,cName) = 0
+			if find(aExclude,cName) = 0 and find(aNamed,cName) = 0
 				aOut + [cName,"",-1,cName]
 			ok
 		next
@@ -97,6 +101,26 @@ func resolveNamespace aEntry
 # Short class name of a .NET type name
 func className cName, cNs
 	cShort = cName
+	if substr(cName,"+") > 0 and not substr(cName,"[")
+		# a nested type: the names of the types around it come first (SqlMapper+GridReader is SqlMapperGridReader, List`1+Enumerator is ListEnumerator)
+		cShort = cName
+		for x = len(cShort) to 1 step -1
+			if cShort[x] = "."
+				cShort = substr(cShort,x + 1)
+				exit
+			ok
+		next
+		aParts = str2list(substr(cShort,"+",nl))
+		cJoined = ""
+		for cPart in aParts
+			nTick = substr(cPart,"`")
+			if nTick > 0
+				cPart = left(cPart,nTick - 1)
+			ok
+			cJoined += cPart
+		next
+		return cJoined
+	ok
 	nPos = substr(cShort,"`")
 	if nPos > 0
 		cShort = left(cShort,nPos - 1)

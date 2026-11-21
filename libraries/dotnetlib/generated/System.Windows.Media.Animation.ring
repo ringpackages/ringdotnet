@@ -60,6 +60,7 @@ dnRegisterClass("System.Windows.Media.Animation.StringKeyFrame","StringKeyFrame"
 dnRegisterClass("System.Windows.Media.Animation.StringKeyFrameCollection","StringKeyFrameCollection",0)
 dnRegisterClass("System.Windows.Media.Animation.ThicknessKeyFrame","ThicknessKeyFrame",0)
 dnRegisterClass("System.Windows.Media.Animation.ThicknessKeyFrameCollection","ThicknessKeyFrameCollection",0)
+dnRegisterClass("System.Windows.Media.Animation.TimelineCollection+Enumerator","TimelineCollectionEnumerator",0)
 dnRegisterClass("System.Windows.Media.Animation.Vector3DKeyFrame","Vector3DKeyFrame",0)
 dnRegisterClass("System.Windows.Media.Animation.Vector3DKeyFrameCollection","Vector3DKeyFrameCollection",0)
 dnRegisterClass("System.Windows.Media.Animation.VectorKeyFrame","VectorKeyFrame",0)

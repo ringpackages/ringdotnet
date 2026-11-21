@@ -811,7 +811,7 @@ namespace RingDotNet
 				catch (Exception) { continue; }
 				foreach (Type t in types)
 				{
-					if (t.Namespace != ns || t.IsNested || t.IsEnum || t.IsByRefLike || (t.IsGenericTypeDefinition && CloseOverObject(t) == null))
+					if (t.Namespace != ns || t.IsEnum || t.IsByRefLike || (t.IsGenericTypeDefinition && CloseOverObject(t) == null))
 					{
 						continue;
 					}

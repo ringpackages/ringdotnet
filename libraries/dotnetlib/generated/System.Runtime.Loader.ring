@@ -3,4 +3,5 @@ dnImport("System")
 dnImport("System.Reflection")
 dnRegisterClass("System.Runtime.Loader.AssemblyDependencyResolver","AssemblyDependencyResolver",1)
 dnRegisterClass("System.Runtime.Loader.AssemblyLoadContext","AssemblyLoadContext",1)
+dnRegisterClass("System.Runtime.Loader.AssemblyLoadContext+ContextualReflectionScope","AssemblyLoadContextContextualReflectionScope",0)
 load "System.Runtime.Loader.classes.ring"

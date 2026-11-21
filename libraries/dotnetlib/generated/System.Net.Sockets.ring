@@ -16,8 +16,8 @@ dnRegisterClass("System.Net.Sockets.SocketReceiveFromResult","SocketReceiveFromR
 dnRegisterClass("System.Net.Sockets.SocketReceiveMessageFromResult","SocketReceiveMessageFromResult",0)
 dnRegisterClass("System.Net.Sockets.SocketTaskExtensions","SocketTaskExtensions",0)
 dnRegisterClass("System.Net.Sockets.TcpClient","TcpClient",0)
-dnRegisterClass("System.Net.Sockets.TcpListener","TcpListener",2)
 dnRegisterClass("System.Net.Sockets.UdpClient","UdpClient",0)
 dnRegisterClass("System.Net.Sockets.UdpReceiveResult","UdpReceiveResult",0)
 dnRegisterClass("System.Net.Sockets.UnixDomainSocketEndPoint","UnixDomainSocketEndPoint",1)
+dnRegisterClass("System.Net.Sockets.TcpListener","TcpListener",2)
 load "System.Net.Sockets.classes.ring"

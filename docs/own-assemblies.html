@@ -314,6 +314,13 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 		<span class="k">public</span> T Create&lt;T&gt;() where T : <span class="k">new</span>() { <span class="k">return</span> <span class="k">new</span> <span class="t">T</span>(); }
 		<span class="c">/* closed generic types that have no class of their own: the class of the generic definition wraps them */</span>
 		<span class="k">public</span> Dictionary&lt;<span class="k">string</span>, <span class="k">int</span>&gt; <span class="t">Counts</span>() { <span class="k">return</span> <span class="k">new</span> <span class="t">Dictionary</span>&lt;<span class="k">string</span>, <span class="k">int</span>&gt; { { <span class="s">"a"</span>, <span class="n">1</span> }, { <span class="s">"b"</span>, <span class="n">2</span> } }; }
+		<span class="c">/* a nested type: its class is named after the types around it (CalculatorMemory) */</span>
+		<span class="k">public</span> <span class="k">class</span> Memory
+		{
+			<span class="k">public</span> <span class="k">double</span> <span class="t">Stored</span> { <span class="k">get</span>; <span class="k">set</span>; }
+			<span class="k">public</span> <span class="k">string</span> <span class="t">Label</span>() { <span class="k">return</span> <span class="s">"stored "</span> + Stored; }
+		}
+		<span class="k">public</span> <span class="t">Memory</span> <span class="t">Remember</span>() { <span class="k">return</span> <span class="k">new</span> <span class="t">Memory</span> { <span class="t">Stored</span> = <span class="t">Total</span> }; }
 		<span class="k">public</span> SortedSet&lt;<span class="k">double</span>&gt; <span class="t">Sorted</span>() { <span class="k">return</span> <span class="k">new</span> <span class="t">SortedSet</span>&lt;<span class="k">double</span>&gt; { <span class="n">3.5</span>, <span class="n">1.5</span> }; }
 	}
 
@@ -460,6 +467,14 @@ oNumbers2.<span class="f">Add</span>(<span class="s">"a"</span>)
 <span class="k">catch</span>
 	<span class="f">dnAssert</span>(<span class="s">"a generic class needs its type arguments"</span>,substr(cCatchError,<span class="s">"typeArguments"</span>) &gt; <span class="n">0</span>,<span class="n">1</span>)
 <span class="k">done</span>
+
+<span class="c"># a nested type has a class named after the types around it</span>
+oMemory = oCalc.<span class="f">Remember</span>()
+<span class="f">dnAssert</span>(<span class="s">"nested type, class"</span>,classname(oMemory),<span class="s">"calculatormemory"</span>)
+<span class="f">dnAssert</span>(<span class="s">"nested type, a method"</span>,oMemory.<span class="f">Label</span>(),<span class="s">"stored 30"</span>)
+oMemory2 = <span class="k">new</span> <span class="t">CalculatorMemory</span>()
+oMemory2.Stored = <span class="n">2</span>
+<span class="f">dnAssert</span>(<span class="s">"nested type, new"</span>,oMemory2.Stored,<span class="n">2</span>)
 
 <span class="c"># the generated method takes the type arguments in the named form</span>
 <span class="f">dnAssert</span>(<span class="s">"generated method, type arguments"</span>,oCalc.<span class="f">Parse</span>([ :typeArguments = [<span class="s">"System.Int32"</span>], :text = <span class="s">"12"</span> ]),<span class="n">12</span>)

@@ -9,6 +9,8 @@ dnRegisterClass("System.Runtime.InteropServices.CollectionsMarshal","Collections
 dnRegisterClass("System.Runtime.InteropServices.ComAwareEventInfo","ComAwareEventInfo",2)
 dnRegisterClass("System.Runtime.InteropServices.ComEventsHelper","ComEventsHelper",0)
 dnRegisterClass("System.Runtime.InteropServices.ComWrappers","ComWrappers",0)
+dnRegisterClass("System.Runtime.InteropServices.ComWrappers+ComInterfaceDispatch","ComWrappersComInterfaceDispatch",0)
+dnRegisterClass("System.Runtime.InteropServices.ComWrappers+ComInterfaceEntry","ComWrappersComInterfaceEntry",0)
 dnRegisterClass("System.Runtime.InteropServices.CriticalHandle","CriticalHandle",0)
 dnRegisterClass("System.Runtime.InteropServices.DispatchWrapper","DispatchWrapper",1)
 dnRegisterClass("System.Runtime.InteropServices.ErrorWrapper","ErrorWrapper",1)
