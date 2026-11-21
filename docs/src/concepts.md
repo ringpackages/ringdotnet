@@ -228,7 +228,7 @@ Generic **methods** work too (the bridge infers the type arguments from the valu
 | `bool` | `1` / `0` |
 | enum | string |
 | `byte[]` | string: a Ring text of bytes, binary safe (a copy) |
-| arrays and collections of simple values | list (use `toList()` on a collection object) |
+| arrays and collections (`string[]`, `List<T>`...) | a wrapped object; `toList()` copies it into a Ring list |
 | any other object | a wrapped object (generated class, or a plain `DotNetObject`) |
 | `null` | an object whose `isNull()` is true |
 
