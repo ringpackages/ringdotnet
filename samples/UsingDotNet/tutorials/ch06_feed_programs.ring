@@ -55,7 +55,6 @@ func main
 	? nl + "2. sorted, and only the lines with an 'e': " + lines(cFound)
 
 	# 3. Environment variables and the working folder of the new program are set before it starts.
-	#    (a variable first: a "new" on the right side of an assignment to a property loses the assignment, see Gotchas)
 	cTemp = new Path().GetTempPath()
 	cEcho = "echo %GREETING%"
 	if not isWindows()

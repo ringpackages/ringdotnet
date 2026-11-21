@@ -16,7 +16,7 @@ uiRun(oForm)
 
 # --------------------------------------------------------------------------
 
-# the loop variables live in a function: a top-level variable named like an attribute (x) would break obj.X
+# adds twelve buttons to the flow panel; they wrap to the next row when the row is full
 func addButtons
 	for nButton = 1 to 12
 		oButton = new Button() {

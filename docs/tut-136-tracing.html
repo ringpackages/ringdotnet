@@ -265,39 +265,39 @@ using {
 	<span class="c"># TRACING writes messages about what a program does, for the person who looks for a problem. A program sends a message to the class</span>
 	<span class="c"># Trace, and the LISTENERS that were added to Trace decide where it goes: the console, a file, a window, a log service. The program</span>
 	<span class="c"># that writes the messages does not know where they go, and a listener can be added or removed without changing the code.</span>
-	cTrace = <span class="s">"System.Diagnostics.Trace"</span>
+	oTrace = <span class="k">new</span> <span class="t">Trace</span>()
 
 	<span class="c"># 1. A listener that writes into memory: a TextWriterTraceListener on a StringWriter. (A StringWriter is a text writer that keeps</span>
 	<span class="c">#    its text in memory; the tutorial about text readers and writers uses it.)</span>
 	oWriter = <span class="k">new</span> <span class="t">StringWriter</span>()
 	oMemory = <span class="f">dnNew</span>(<span class="s">"TextWriterTraceListener"</span>,[ oWriter ])
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"get_Listeners"</span>,[]).<span class="f">Add</span>(oMemory)
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"set_AutoFlush"</span>,[ <span class="k">True</span> ])               <span class="c"># write each message at once</span>
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"WriteLine"</span>,[ <span class="s">"program started"</span> ])
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"WriteLine"</span>,[ <span class="s">"reading the settings"</span> ])
+	oTrace.Listeners.<span class="f">Add</span>(oMemory)
+	oTrace.AutoFlush = <span class="k">True</span>               <span class="c"># write each message at once</span>
+	oTrace.<span class="f">WriteLine</span>(<span class="s">"program started"</span>)
+	oTrace.<span class="f">WriteLine</span>(<span class="s">"reading the settings"</span>)
 	? <span class="s">"1. the memory listener has:"</span>
 	showLines(oWriter.<span class="f">ToString</span>())
 
 	<span class="c"># 2. Indent: the messages of a step are pushed to the right, so that a long trace shows the structure of the work</span>
 	oWriter.<span class="f">GetStringBuilder</span>().<span class="f">Clear</span>()
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"WriteLine"</span>,[ <span class="s">"checking the files"</span> ])
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"Indent"</span>,[])
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"WriteLine"</span>,[ <span class="s">"a.txt: ok"</span> ])
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"WriteLine"</span>,[ <span class="s">"b.txt: missing"</span> ])
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"Indent"</span>,[])
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"WriteLine"</span>,[ <span class="s">"tried the backup folder"</span> ])
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"Unindent"</span>,[])
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"Unindent"</span>,[])
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"WriteLine"</span>,[ <span class="s">"done"</span> ])
+	oTrace.<span class="f">WriteLine</span>(<span class="s">"checking the files"</span>)
+	oTrace.<span class="f">Indent</span>()
+	oTrace.<span class="f">WriteLine</span>(<span class="s">"a.txt: ok"</span>)
+	oTrace.<span class="f">WriteLine</span>(<span class="s">"b.txt: missing"</span>)
+	oTrace.<span class="f">Indent</span>()
+	oTrace.<span class="f">WriteLine</span>(<span class="s">"tried the backup folder"</span>)
+	oTrace.<span class="f">Unindent</span>()
+	oTrace.<span class="f">Unindent</span>()
+	oTrace.<span class="f">WriteLine</span>(<span class="s">"done"</span>)
 	? nl + <span class="s">"2. with Indent and Unindent:"</span>
 	showLines(oWriter.<span class="f">ToString</span>())
 
 	<span class="c"># 3. WriteLineIf: the message is written only when a condition is true, and a category can come in front of it</span>
 	oWriter.<span class="f">GetStringBuilder</span>().<span class="f">Clear</span>()
 	<span class="k">for</span> nSize <span class="k">in</span> [ <span class="n">10</span>, <span class="n">5000</span>, <span class="n">90000</span> ]
-		<span class="f">dnStatic</span>(cTrace,<span class="s">"WriteLineIf"</span>,[ nSize &gt; <span class="n">1000</span>, <span class="s">"the file is big: "</span> + nSize + <span class="s">" bytes"</span> ])
+		oTrace.<span class="f">WriteLineIf</span>([ :condition = (nSize &gt; <span class="n">1000</span>), :message = <span class="s">"the file is big: "</span> + nSize + <span class="s">" bytes"</span> ])
 	<span class="k">next</span>
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"WriteLine"</span>,[ <span class="s">"slow query"</span>, <span class="s">"database"</span> ])
+	oTrace.<span class="f">WriteLine</span>([ :message = <span class="s">"slow query"</span>, :category = <span class="s">"database"</span> ])
 	? nl + <span class="s">"3. WriteLineIf and a category:"</span>
 	showLines(oWriter.<span class="f">ToString</span>())
 
@@ -305,10 +305,10 @@ using {
 	oPath = <span class="k">new</span> <span class="t">Path</span>()
 	cFile = oPath.<span class="f">Combine</span>([ oPath.<span class="f">GetTempPath</span>(), <span class="s">"ringdotnet-trace-"</span> + oPath.<span class="f">GetRandomFileName</span>() + <span class="s">".log"</span> ])
 	oFileListener = <span class="f">dnNew</span>(<span class="s">"TextWriterTraceListener"</span>,[ cFile ])
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"get_Listeners"</span>,[]).<span class="f">Add</span>(oFileListener)
+	oTrace.Listeners.<span class="f">Add</span>(oFileListener)
 	oWriter.<span class="f">GetStringBuilder</span>().<span class="f">Clear</span>()
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"WriteLine"</span>,[ <span class="s">"one message, two listeners"</span> ])
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"Flush"</span>,[])
+	oTrace.<span class="f">WriteLine</span>(<span class="s">"one message, two listeners"</span>)
+	oTrace.<span class="f">Flush</span>()
 	? nl + <span class="s">"4. the same message in memory and in the file:"</span>
 	? <span class="s">"   memory: "</span> + oneLine(oWriter.<span class="f">ToString</span>())
 	oFileListener.<span class="f">Flush</span>()
@@ -316,19 +316,19 @@ using {
 	? <span class="s">"   file:   "</span> + oneLine(readText(cFile))
 
 	<span class="c"># 5. Removing a listener: the messages stop going to it</span>
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"get_Listeners"</span>,[]).<span class="f">Remove</span>(oFileListener)
+	oTrace.Listeners.<span class="f">Remove</span>(oFileListener)
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
 	oWriter.<span class="f">GetStringBuilder</span>().<span class="f">Clear</span>()
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"WriteLine"</span>,[ <span class="s">"after the file listener was removed"</span> ])
+	oTrace.<span class="f">WriteLine</span>(<span class="s">"after the file listener was removed"</span>)
 	? nl + <span class="s">"5. the memory listener still gets messages: "</span> + yesNo(len(oneLine(oWriter.<span class="f">ToString</span>())) &gt; <span class="n">0</span>)
 
 	<span class="c"># 6. A trace with the time of each step: tracing is most useful when the messages say how long something took</span>
 	oWatch = <span class="k">new</span> <span class="t">Stopwatch</span>()
 	oWatch.<span class="f">Start</span>()
 	oWriter.<span class="f">GetStringBuilder</span>().<span class="f">Clear</span>()
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"WriteLine"</span>,[ <span class="s">"step 1 started"</span> ])
+	oTrace.<span class="f">WriteLine</span>(<span class="s">"step 1 started"</span>)
 	<span class="k">new</span> <span class="t">Task</span>().<span class="f">Delay</span>(<span class="n">150</span>).<span class="f">Wait</span>(<span class="k">NULL</span>)
-	<span class="f">dnStatic</span>(cTrace,<span class="s">"WriteLine"</span>,[ <span class="s">"step 2: after the pause, at least 100 ms: "</span> + yesNo(oWatch.ElapsedMilliseconds &gt;= <span class="n">100</span>) ])
+	oTrace.<span class="f">WriteLine</span>(<span class="s">"step 2: after the pause, at least 100 ms: "</span> + yesNo(oWatch.ElapsedMilliseconds &gt;= <span class="n">100</span>))
 	? nl + <span class="s">"6. messages with the time:"</span>
 	showLines(oWriter.<span class="f">ToString</span>())
 
@@ -377,16 +377,16 @@ using {
 6. messages with the time:
    [step 1 started]
    [step 2: after the pause, at least 100 ms: yes]</code></pre></div>
-<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a generic function (<code>dnNew</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="trace-and-listeners">Trace and listeners<a class="anchor" href="#trace-and-listeners">#</a></h3>
-<p><code>Trace</code> is a static class, called here with <code>dnStatic("System.Diagnostics.Trace", ...)</code>. <code>Trace.WriteLine(text)</code> sends a message to every <strong>listener</strong> in <code>Trace.Listeners</code>. A <code>TextWriterTraceListener</code> writes into any text writer: a <code>StringWriter</code> (memory), a file or the console. The listener is added with <code>Listeners.Add(listener)</code>. <code>AutoFlush = True</code> makes each message go to the listeners at once; without it messages wait in a buffer until <code>Flush</code> or the end of the program.</p>
+<p><code>Trace</code> is a static class, so its members are called through <code>new Trace()</code>: <code>oTrace.WriteLine(text)</code> sends a message to every <strong>listener</strong> in <code>oTrace.Listeners</code>. A <code>TextWriterTraceListener</code> writes into any text writer: a <code>StringWriter</code> (memory), a file or the console. The listener is added with <code>Listeners.Add(listener)</code>. <code>AutoFlush = True</code> makes each message go to the listeners at once; without it messages wait in a buffer until <code>Flush</code> or the end of the program.</p>
 <h3 id="memory-and-files">Memory and files<a class="anchor" href="#memory-and-files">#</a></h3>
 <p>The memory listener is the best choice for a test, because the test can read the messages back: <code>oWriter.ToString()</code> is everything that was traced. A listener made from a file name writes the file; the program flushes and disposes it before reading the file.</p>
 <h3 id="indent">Indent<a class="anchor" href="#indent">#</a></h3>
 <p><code>Indent()</code> pushes the following messages four spaces to the right and <code>Unindent()</code> takes them back. A function that traces what it does indents on entry and unindents on exit, and the trace shows the structure of the calls like an outline.</p>
 <h3 id="conditions-and-categories">Conditions and categories<a class="anchor" href="#conditions-and-categories">#</a></h3>
-<p><code>WriteLineIf(condition, text)</code> writes the message only when the condition is true, so a program does not need an <code>if</code> around each message. A second value is a <strong>category</strong>: <code>WriteLine("slow query", "database")</code> writes <code>database: slow query</code>, and a listener or a reader can filter on the category.</p>
+<p><code>WriteLineIf([ :condition = ..., :message = ... ])</code> writes the message only when the condition is true, so a program does not need an <code>if</code> around each message. A second value is a <strong>category</strong>: <code>WriteLine([ :message = "slow query", :category = "database" ])</code> writes <code>database: slow query</code>, and a listener or a reader can filter on the category.</p>
 <h3 id="many-listeners">Many listeners<a class="anchor" href="#many-listeners">#</a></h3>
 <p>One message went to the memory listener and to the file. Removing a listener (<code>Listeners.Remove</code>) stops the messages going to it, and the program that writes the messages did not change. This is the reason to use <code>Trace</code> for diagnosis: a developer adds a file listener when there is a problem, and the code stays as it is.</p>
 <h3 id="time">Time<a class="anchor" href="#time">#</a></h3>

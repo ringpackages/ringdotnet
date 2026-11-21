@@ -702,7 +702,7 @@ addButtons()
 
 <span class="c"># --------------------------------------------------------------------------</span>
 
-<span class="c"># the loop variables live in a function: a top-level variable named like an attribute (x) would break obj.X</span>
+<span class="c"># adds twelve buttons to the flow panel; they wrap to the next row when the row is full</span>
 <span class="k">func</span> <span class="f">addButtons</span>
 	<span class="k">for</span> nButton = <span class="n">1</span> <span class="k">to</span> <span class="n">12</span>
 		oButton = <span class="k">new</span> <span class="t">Button</span>() {
@@ -944,7 +944,6 @@ oPasted = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span c
 	oClipboard.<span class="f">SetText</span>(oEdit.Text)
 
 <span class="k">func</span> <span class="f">pasteText</span>
-	<span class="c"># (a method call on a new object on the right side of an attribute assignment loses the assignment: use a variable)</span>
 	oClipboard = <span class="k">new</span> <span class="t">Clipboard</span>()
 	cText = oClipboard.<span class="f">GetText</span>(<span class="k">NULL</span>)
 	oPasted.Text = cText</code></pre></div></details></div></div><div class="item" id="scrollbars"><div class="pic"><img src="img/shots/forms-30_scrollbars.png" alt="Scrollbars" loading="lazy"></div><div class="info"><h3>Scrollbars</h3><p>Horizontal and vertical scroll bars</p><div class="run"><code>ring samples/UsingDotNet/Forms/30_scrollbars.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Horizontal and vertical scroll bars</span>

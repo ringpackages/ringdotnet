@@ -311,7 +311,6 @@ lChanged = <span class="k">False</span>
 	loadFile(cChosen)
 
 <span class="k">func</span> <span class="f">loadFile</span> cPath
-	<span class="c"># (a method of a new object on the right side of an assignment to a property loses the assignment: use a variable)</span>
 	cContent = <span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cPath)
 	oEditor.Text = cContent
 	cFileName = cPath

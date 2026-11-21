@@ -35,7 +35,7 @@ oPosition = new ToolStripStatusLabel()
 oPosition.Text = "Ln 1, Col 1"
 oStatus.Items.Add(oPosition)
 oForm.Controls.Add(oStatus)
-oEditor.BringToFront()		# the control that fills is docked last: otherwise its first line is under the menu
+oEditor.BringToFront()		# the editor fills what is left, so it is sent to the front and docked first
 
 # find bar
 oFindPanel = uiPanel(oForm,0,0,640,30)

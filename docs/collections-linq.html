@@ -415,7 +415,7 @@ aTop = <span class="f">dnQuery</span>(aSales).<span class="f">Where</span>(<span
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using { <span class="s">"System.Linq"</span> }
 
-<span class="c"># LINQ over Ring lists: the conditions are Ring code (aDotNetArgs[1] is the item)</span>
+<span class="c"># Where, OrderBy, Count, Sum, Any ... take a condition written as Ring code (aDotNetArgs[1] is the item)</span>
 aSales = [<span class="n">120</span>, <span class="n">45.5</span>, <span class="n">300</span>, <span class="n">80</span>, <span class="n">15</span>, <span class="n">210</span>, <span class="n">99.9</span>]
 
 aBig = <span class="f">dnQuery</span>(aSales).<span class="f">Where</span>(<span class="s">"xDotNetResult = aDotNetArgs[1] &gt;= 100"</span>).<span class="f">OrderByDescending</span>(<span class="s">"xDotNetResult = aDotNetArgs[1]"</span>).<span class="f">ToList</span>()

@@ -24,8 +24,8 @@ oWaiting.Wait(NULL)
 oContext = oWaiting.getProp("Result")
 ? "Request        : " + oContext.Request.HttpMethod + " " + oContext.Request.Url.PathAndQuery
 cReply = "Hello " + oContext.Request.QueryString.Item("name") + ", this is .NET speaking Ring!"
-aBytes = new UTF8Encoding().GetBytes(cReply)
-oContext.Response.OutputStream.Write(aBytes,0,len(aBytes))
+cBytes = new UTF8Encoding().GetBytes(cReply)
+oContext.Response.OutputStream.Write(cBytes,0,len(cBytes))
 oContext.Response.Close(NULL)
 
 oRequest.Wait(NULL)

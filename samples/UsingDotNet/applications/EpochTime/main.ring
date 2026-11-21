@@ -61,7 +61,7 @@ func dateToEpoch
 	done
 
 func showNow
-	# (creating an object while an attribute is being assigned would confuse Ring's setter: use a variable)
+	# the current time as Unix seconds
 	nNow = new DateTimeOffset().UtcNow.ToUnixTimeSeconds()
 	oEpoch.Text = "" + floor(nNow)
 	epochToDate()

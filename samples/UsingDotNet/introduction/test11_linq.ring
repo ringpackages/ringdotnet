@@ -2,7 +2,7 @@
 load "dotnet.ring"
 using { "System.Linq" }
 
-# LINQ over Ring lists: the conditions are Ring code (aDotNetArgs[1] is the item)
+# Where, OrderBy, Count, Sum, Any ... take a condition written as Ring code (aDotNetArgs[1] is the item)
 aSales = [120, 45.5, 300, 80, 15, 210, 99.9]
 
 aBig = dnQuery(aSales).Where("xDotNetResult = aDotNetArgs[1] >= 100").OrderByDescending("xDotNetResult = aDotNetArgs[1]").ToList()

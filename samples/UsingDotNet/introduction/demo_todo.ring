@@ -5,7 +5,7 @@ using {
 	"System.Windows.Forms"
 }
 
-# Interactive to-do window (run it with: ring demo_todo.ring)
+# The window: a text box, an Add button, a list and a status line
 oForm = new Form() {
 	Text = "To-do list (Ring + .NET)"
 	ClientSize = new Size(320,220)

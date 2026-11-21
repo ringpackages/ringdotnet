@@ -20,13 +20,13 @@ The tutorial [Logging](tut-51-logging.html) wrote a log that the program owns. T
 
 {{output:samples/UsingDotNet/tutorials/ch06_tracing.ring}}
 
-> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+> [!NOTE] This program uses a generic function (`dnNew`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
 
 ## How it works
 
 ### Trace and listeners
 
-`Trace` is a static class, called here with `dnStatic("System.Diagnostics.Trace", ...)`. `Trace.WriteLine(text)` sends a message to every **listener** in `Trace.Listeners`. A `TextWriterTraceListener` writes into any text writer: a `StringWriter` (memory), a file or the console. The listener is added with `Listeners.Add(listener)`. `AutoFlush = True` makes each message go to the listeners at once; without it messages wait in a buffer until `Flush` or the end of the program.
+`Trace` is a static class, so its members are called through `new Trace()`: `oTrace.WriteLine(text)` sends a message to every **listener** in `oTrace.Listeners`. A `TextWriterTraceListener` writes into any text writer: a `StringWriter` (memory), a file or the console. The listener is added with `Listeners.Add(listener)`. `AutoFlush = True` makes each message go to the listeners at once; without it messages wait in a buffer until `Flush` or the end of the program.
 
 ### Memory and files
 
@@ -38,7 +38,7 @@ The memory listener is the best choice for a test, because the test can read the
 
 ### Conditions and categories
 
-`WriteLineIf(condition, text)` writes the message only when the condition is true, so a program does not need an `if` around each message. A second value is a **category**: `WriteLine("slow query", "database")` writes `database: slow query`, and a listener or a reader can filter on the category.
+`WriteLineIf([ :condition = ..., :message = ... ])` writes the message only when the condition is true, so a program does not need an `if` around each message. A second value is a **category**: `WriteLine([ :message = "slow query", :category = "database" ])` writes `database: slow query`, and a listener or a reader can filter on the category.
 
 ### Many listeners
 

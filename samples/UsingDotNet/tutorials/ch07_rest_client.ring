@@ -93,7 +93,6 @@ func addBook oRequest
 func request cMethod, cPath, cBody
 	oMessage = new HttpRequestMessage().@New([ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
 	if cBody != ""
-		# (a variable first: a new object with a property inside the right side of an assignment loses the assignment)
 		oContent = dnNew("StringContent",[ :content = cBody, :encoding = new Encoding().UTF8, :mediaType = "application/json" ])
 		oMessage.Content = oContent
 	ok

@@ -22,7 +22,6 @@ func copyText
 	oClipboard.SetText(oEdit.Text)
 
 func pasteText
-	# (a method call on a new object on the right side of an attribute assignment loses the assignment: use a variable)
 	oClipboard = new Clipboard()
 	cText = oClipboard.GetText(NULL)
 	oPasted.Text = cText

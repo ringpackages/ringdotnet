@@ -58,7 +58,6 @@ func openFile
 	loadFile(cChosen)
 
 func loadFile cPath
-	# (a method of a new object on the right side of an assignment to a property loses the assignment: use a variable)
 	cContent = new File().ReadAllText(cPath)
 	oEditor.Text = cContent
 	cFileName = cPath
