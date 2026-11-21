@@ -363,6 +363,15 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 	{
 		<span class="k">public</span> <span class="k">string</span> <span class="t">Text</span> { <span class="k">get</span> { <span class="k">return</span> <span class="s">"user version"</span>; } }
 	}
+	<span class="c">// Extension methods are methods of the Ring class of the type that they extend: calc.Shout("!") is CalculatorExtensions.Shout(calc, "!").</span>
+	<span class="c">// Describe has the same name and the same number of parameters as a method of Calculator (the compiler chooses by the type of the value);</span>
+	<span class="c">// Add has more parameters than the method of Calculator, so it is not added (an extension never changes the signature of a method).</span>
+	<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> CalculatorExtensions
+	{
+		<span class="k">public</span> <span class="k">static</span> <span class="k">string</span> <span class="t">Shout</span>(this <span class="t">Calculator</span> calc, <span class="k">string</span> suffix) { <span class="k">return</span> calc.Name.<span class="f">ToUpper</span>() + suffix; }
+		<span class="k">public</span> <span class="k">static</span> <span class="k">string</span> <span class="t">Describe</span>(this <span class="t">Calculator</span> calc, <span class="k">string</span> format) { <span class="k">return</span> <span class="k">string</span>.<span class="f">Format</span>(format, calc.Total); }
+		<span class="k">public</span> <span class="k">static</span> <span class="k">string</span> <span class="t">Add</span>(this <span class="t">Calculator</span> calc, <span class="k">string</span> first, <span class="k">string</span> second) { <span class="k">return</span> first + second; }
+	}
 }</code></pre></div></details>
 <details class="src"><summary>samples/UsingDotNet/tests/test_userassembly.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tests/test_userassembly.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your own assemblies: tools/dotnettools/wrapassembly.ring generates the classes, dnImportFrom() loads them</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
@@ -401,6 +410,11 @@ nEvents = <span class="n">0</span>
 oCalc.<span class="f">setChangedEvent</span>(<span class="s">"nEvents++"</span>)
 oCalc.<span class="f">Add</span>(<span class="n">1</span>)
 <span class="f">dnAssert</span>(<span class="s">"user event"</span>,nEvents,<span class="n">1</span>)
+
+<span class="c"># extension methods are methods of the class of the type that they extend</span>
+<span class="f">dnAssert</span>(<span class="s">"an extension method"</span>,oCalc.<span class="f">Shout</span>(<span class="s">"!"</span>),<span class="s">"MINE!"</span>)
+<span class="f">dnAssert</span>(<span class="s">"an extension method with the name of a method of the class"</span>,oCalc.<span class="f">Describe</span>(<span class="s">"Total is {0}"</span>),<span class="s">"Total is 31"</span>)
+<span class="f">dnAssert</span>(<span class="s">"the method of the class with that name still works"</span>,oCalc.<span class="f">Describe</span>([ :level = <span class="s">"High"</span>, :prefix = <span class="s">"Sum"</span> ]),<span class="s">"Sum=31 (High)"</span>)
 
 <span class="c"># a class of the assembly with the name of a class of the library gets the prefix of its namespace, and both work in one program</span>
 <span class="f">dnAssert</span>(<span class="s">"a class named like a class of the library is renamed"</span>,<span class="k">new</span> <span class="t">ToolsVersion</span>().Text,<span class="s">"user version"</span>)

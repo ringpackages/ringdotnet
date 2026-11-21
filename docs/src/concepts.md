@@ -186,6 +186,18 @@ ok
 aParsed = new Int32().TryParse("123")   # [1, 123]
 ```
 
+## Extension methods
+
+An extension method is a static method that C# writes as if it were a method of another type: `table.AddColumn("Name")` is `TableExtensions.AddColumn(table, "Name")`. The generated Ring class of the extended type has a method for each extension method that is in the same generated set, so it is called like any method of the object:
+
+```ring
+oTable = new Table()
+oTable.AddColumn("Name")                # TableExtensions.AddColumn(oTable, "Name")
+oTable.AddRow(["Ann","31"])
+```
+
+The methods of the object itself come first, and an extension method never changes how a method that the class already has is called: it is added to a name that the class has only when it takes a number of parameters that the method already takes. Extension methods of another assembly than the extended type, of generic types, and of `string`, `object` and the numbers are static calls on the class that holds them: `new StringHumanizeExtensions().Humanize("PascalCaseText")`.
+
 ## Generics
 
 The most useful closed generic types have classes: `StringList`, `NumberList`, `ObjectList` (`List<T>`), `StringDictionary`, `NumberDictionary`, `ObjectDictionary` (`Dictionary<string,T>`), `StringSet`, `StringQueue`, `StringStack`. See [Collections & LINQ](collections-linq.html).

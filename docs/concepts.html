@@ -365,6 +365,12 @@ oPictureBox.Image = <span class="f">dnNull</span>()           <span class="c"># 
 <span class="k">ok</span>
 
 aParsed = <span class="k">new</span> <span class="t">Int32</span>().<span class="f">TryParse</span>(<span class="s">"123"</span>)   <span class="c"># [1, 123]</span></code></pre></div>
+<h2 id="extension-methods">Extension methods<a class="anchor" href="#extension-methods">#</a></h2>
+<p>An extension method is a static method that C# writes as if it were a method of another type: <code>table.AddColumn("Name")</code> is <code>TableExtensions.AddColumn(table, "Name")</code>. The generated Ring class of the extended type has a method for each extension method that is in the same generated set, so it is called like any method of the object:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oTable = <span class="k">new</span> <span class="t">Table</span>()
+oTable.<span class="f">AddColumn</span>(<span class="s">"Name"</span>)                <span class="c"># TableExtensions.AddColumn(oTable, "Name")</span>
+oTable.<span class="f">AddRow</span>([<span class="s">"Ann"</span>,<span class="s">"31"</span>])</code></pre></div>
+<p>The methods of the object itself come first, and an extension method never changes how a method that the class already has is called: it is added to a name that the class has only when it takes a number of parameters that the method already takes. Extension methods of another assembly than the extended type, of generic types, and of <code>string</code>, <code>object</code> and the numbers are static calls on the class that holds them: <code>new StringHumanizeExtensions().Humanize("PascalCaseText")</code>.</p>
 <h2 id="generics">Generics<a class="anchor" href="#generics">#</a></h2>
 <p>The most useful closed generic types have classes: <code>StringList</code>, <code>NumberList</code>, <code>ObjectList</code> (<code>List&lt;T&gt;</code>), <code>StringDictionary</code>, <code>NumberDictionary</code>, <code>ObjectDictionary</code> (<code>Dictionary&lt;string,T&gt;</code>), <code>StringSet</code>, <code>StringQueue</code>, <code>StringStack</code>. See <a href="collections-linq.html">Collections &amp; LINQ</a>.</p>
 <p>Any other closed generic type can be created without a class:</p>
