@@ -28,11 +28,11 @@ The tutorial [Settings](tut-32-settings.html) saved the settings of a program in
 
 ### Layers
 
-A `ConfigurationBuilder` collects **sources**; `Build()` reads them and gives the configuration. The sources are added in order and **later sources override earlier ones**. So the usual setup is: the defaults in a JSON file that comes with the program, then the settings of one computer or one environment (testing or production), then environment variables, then the command line. The code that reads a value does not know or care which source gave it. Every source is added by an extension method, so each one is called with `dnStatic` (the tutorial [Caching](tut-109-memory-cache.html)): `AddJsonFile(builder, path)`, `AddInMemoryCollection(builder, dictionary)`, `AddEnvironmentVariables(builder, prefix)`.
+A `ConfigurationBuilder` collects **sources**; `Build()` reads them and gives the configuration. The sources are added in order and **later sources override earlier ones**. So the usual setup is: the defaults in a JSON file that comes with the program, then the settings of one computer or one environment (testing or production), then environment variables, then the command line. The code that reads a value does not know or care which source gave it. Every source is added by an extension method that the builder has as a method (the tutorial [Caching](tut-109-memory-cache.html)). Each has several forms, so the names of the parameters choose one: `oBuilder.AddJsonFile([ :path = cFile ])`, `oBuilder.AddInMemoryCollection([ :initialData = oDictionary ])`, `oBuilder.AddEnvironmentVariables([ :prefix = "APP_" ])`.
 
 ### Keys
 
-All the sources are turned into **one flat set of keys** with `:` between the levels: the JSON `{ "App": { "Port": 8080 } }` gives the key `App:Port`, and a list becomes numbered keys (`App:Features:0`, `App:Features:1`). A key that does not exist gives *null* (`isNull()` on the result), not an error. Keys are **not case sensitive**. The indexer is read with `callMethod("get_Item",[key])`.
+All the sources are turned into **one flat set of keys** with `:` between the levels: the JSON `{ "App": { "Port": 8080 } }` gives the key `App:Port`, and a list becomes numbered keys (`App:Features:0`, `App:Features:1`). A key that does not exist gives *null* (`isNull()` on the result), not an error. Keys are **not case sensitive**. The indexer is read with `Item(key)`.
 
 ### Types
 

@@ -50,8 +50,8 @@ func main
 	# 5. The factory receives the provider, so a service can ask for the services it needs: the scoped MemoryStream asks for the singleton
 	#    ArrayList and writes its name in it. Every scope reaches the SAME list: that is how a singleton shares data.
 	? nl + "5. the singleton list now says: " + oFirst.Count + " entries, from the " + oFirst.Item(0) + " and the " + oFirst.Item(1)
-	oScope1.callMethod("Dispose",[])
-	oScope2.callMethod("Dispose",[])
+	oScope1.Dispose()
+	oScope2.Dispose()
 
 	# 6. The rules of thumb. A service must not keep a shorter-lived service inside it (a singleton that holds a scoped object would keep it
 	#    for ever, and share it between requests). Things that hold a file, a connection or a lot of memory are disposed when their scope ends.

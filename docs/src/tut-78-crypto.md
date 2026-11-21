@@ -55,7 +55,7 @@ RSA uses a **pair** of keys. `new RSA().Create(2048)` makes the pair; `ToXmlStri
 
 The algorithm and the padding are objects: `new HashAlgorithmName().SHA256`, `new RSASignaturePadding().Pkcs1`.
 
-> [!NOTE] `ICryptoTransform` is an interface, so its `Dispose` is called by name: `oEncryptor.callMethod("Dispose",[])`. And `Aes.Create`, `CreateEncryptor` and the like have an overload with a name or key, so the form without arguments is written with `NULL`.
+> [!NOTE] `Aes.Create`, `CreateEncryptor` and the like have an overload with a name or key, so the form without arguments is written with `NULL`. A transform is released with `oEncryptor.Dispose()`.
 
 ### What this program is not
 

@@ -63,7 +63,7 @@ func protect cMessage, cEncryptionKey, cMacKey
 	oAes.IV = cIv
 	oEncryptor = oAes.CreateEncryptor(NULL)
 	cCipher = oEncryptor.TransformFinalBlock(cMessage,0,len(cMessage))
-	oEncryptor.callMethod("Dispose",[])        # ICryptoTransform is an interface: its Dispose is called by name
+	oEncryptor.Dispose()
 	oAes.Dispose()
 	cBody = cIv + cCipher
 	return cBody + tagOf(cBody,cMacKey)
@@ -84,7 +84,7 @@ func unprotect cPackage, cEncryptionKey, cMacKey
 	oDecryptor = oAes.CreateDecryptor(NULL)
 	cCipher = right(cBody,len(cBody) - 16)
 	cPlain = oDecryptor.TransformFinalBlock(cCipher,0,len(cCipher))
-	oDecryptor.callMethod("Dispose",[])
+	oDecryptor.Dispose()
 	oAes.Dispose()
 	return ["ok",cPlain]
 

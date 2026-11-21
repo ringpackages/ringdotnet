@@ -16,14 +16,13 @@ func main
 	new File().WriteAllText([ :path = cFile, :contents = cJson ])
 
 	oBuilder = new ConfigurationBuilder
-	cJsonExt = "Microsoft.Extensions.Configuration.JsonConfigurationExtensions"
-	oBuilder = dnStatic(cJsonExt,"AddJsonFile",[oBuilder,cFile])
+	oBuilder = oBuilder.AddJsonFile([ :path = cFile ])
 
 	# 1. Keys are paths: "App:Name" is the key Name inside the section App. A list in the JSON becomes numbered keys (Features:0, Features:1).
 	oConfig = oBuilder.Build()
-	? "1. App:Name = " + oConfig.callMethod("get_Item",["App:Name"]) + ", App:Port = " + oConfig.callMethod("get_Item",["App:Port"])
-	? "   App:Features:1 = " + oConfig.callMethod("get_Item",["App:Features:1"])
-	? "   a key that does not exist is null: " + oConfig.callMethod("get_Item",["App:Missing"]).isNull()
+	? "1. App:Name = " + oConfig.Item("App:Name") + ", App:Port = " + oConfig.Item("App:Port")
+	? "   App:Features:1 = " + oConfig.Item("App:Features:1")
+	? "   a key that does not exist is null: " + oConfig.Item("App:Missing").isNull()
 
 	# 2. Every value is TEXT. GetValue converts it to the type you ask for, and takes a default for a missing key
 	cBinder = "Microsoft.Extensions.Configuration.ConfigurationBinder"
@@ -44,17 +43,17 @@ func main
 	oOverrides = dnNewGeneric("System.Collections.Generic.Dictionary",["System.String","System.String"],[])
 	oOverrides.Add("App:Port","9090")
 	oOverrides.Add("App:Extra","only in memory")
-	dnStatic("Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions","AddInMemoryCollection",[oBuilder,oOverrides])
+	oBuilder.AddInMemoryCollection([ :initialData = oOverrides ])
 	oConfig2 = oBuilder.Build()
-	? nl + "4. after the memory source: App:Port = " + oConfig2.callMethod("get_Item",["App:Port"]) + " (was 8080), App:Name = " + oConfig2.callMethod("get_Item",["App:Name"]) + " (not changed), App:Extra = " + oConfig2.callMethod("get_Item",["App:Extra"])
+	? nl + "4. after the memory source: App:Port = " + oConfig2.Item("App:Port") + " (was 8080), App:Name = " + oConfig2.Item("App:Name") + " (not changed), App:Extra = " + oConfig2.Item("App:Extra")
 
 	# 5. Environment variables. With a prefix, only the variables that start with it are read, and "__" in the name means ":" in the key.
 	#    This is how a server or a container changes a setting without a new file.
 	dnStatic("System.Environment","SetEnvironmentVariable",["RDN111_Database__Host","db.example.com"])
-	dnStatic("Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions","AddEnvironmentVariables",[oBuilder,"RDN111_"])
+	oBuilder.AddEnvironmentVariables([ :prefix = "RDN111_" ])
 	oConfig3 = oBuilder.Build()
-	? nl + "5. the environment variable RDN111_Database__Host changes Database:Host to: " + oConfig3.callMethod("get_Item",["Database:Host"])
-	? "   Database:Timeout is still from the file: " + oConfig3.callMethod("get_Item",["Database:Timeout"])
+	? nl + "5. the environment variable RDN111_Database__Host changes Database:Host to: " + oConfig3.Item("Database:Host")
+	? "   Database:Timeout is still from the file: " + oConfig3.Item("Database:Timeout")
 	dnStatic("System.Environment","SetEnvironmentVariable",["RDN111_Database__Host",NULL])
 
 	# 6. Where the value came from does not matter to the code that reads it. The order of the sources is the only rule: the last wins.

@@ -270,14 +270,13 @@ using {
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = cJson ])
 
 	oBuilder = <span class="k">new</span> <span class="t">ConfigurationBuilder</span>
-	cJsonExt = <span class="s">"Microsoft.Extensions.Configuration.JsonConfigurationExtensions"</span>
-	oBuilder = <span class="f">dnStatic</span>(cJsonExt,<span class="s">"AddJsonFile"</span>,[oBuilder,cFile])
+	oBuilder = oBuilder.<span class="f">AddJsonFile</span>([ :path = cFile ])
 
 	<span class="c"># 1. Keys are paths: "App:Name" is the key Name inside the section App. A list in the JSON becomes numbered keys (Features:0, Features:1).</span>
 	oConfig = oBuilder.<span class="f">Build</span>()
-	? <span class="s">"1. App:Name = "</span> + oConfig.<span class="f">callMethod</span>(<span class="s">"get_Item"</span>,[<span class="s">"App:Name"</span>]) + <span class="s">", App:Port = "</span> + oConfig.<span class="f">callMethod</span>(<span class="s">"get_Item"</span>,[<span class="s">"App:Port"</span>])
-	? <span class="s">"   App:Features:1 = "</span> + oConfig.<span class="f">callMethod</span>(<span class="s">"get_Item"</span>,[<span class="s">"App:Features:1"</span>])
-	? <span class="s">"   a key that does not exist is null: "</span> + oConfig.<span class="f">callMethod</span>(<span class="s">"get_Item"</span>,[<span class="s">"App:Missing"</span>]).<span class="f">isNull</span>()
+	? <span class="s">"1. App:Name = "</span> + oConfig.<span class="f">Item</span>(<span class="s">"App:Name"</span>) + <span class="s">", App:Port = "</span> + oConfig.<span class="f">Item</span>(<span class="s">"App:Port"</span>)
+	? <span class="s">"   App:Features:1 = "</span> + oConfig.<span class="f">Item</span>(<span class="s">"App:Features:1"</span>)
+	? <span class="s">"   a key that does not exist is null: "</span> + oConfig.<span class="f">Item</span>(<span class="s">"App:Missing"</span>).<span class="f">isNull</span>()
 
 	<span class="c"># 2. Every value is TEXT. GetValue converts it to the type you ask for, and takes a default for a missing key</span>
 	cBinder = <span class="s">"Microsoft.Extensions.Configuration.ConfigurationBinder"</span>
@@ -298,17 +297,17 @@ using {
 	oOverrides = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.Dictionary"</span>,[<span class="s">"System.String"</span>,<span class="s">"System.String"</span>],[])
 	oOverrides.<span class="f">Add</span>(<span class="s">"App:Port"</span>,<span class="s">"9090"</span>)
 	oOverrides.<span class="f">Add</span>(<span class="s">"App:Extra"</span>,<span class="s">"only in memory"</span>)
-	<span class="f">dnStatic</span>(<span class="s">"Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions"</span>,<span class="s">"AddInMemoryCollection"</span>,[oBuilder,oOverrides])
+	oBuilder.<span class="f">AddInMemoryCollection</span>([ :initialData = oOverrides ])
 	oConfig2 = oBuilder.<span class="f">Build</span>()
-	? nl + <span class="s">"4. after the memory source: App:Port = "</span> + oConfig2.<span class="f">callMethod</span>(<span class="s">"get_Item"</span>,[<span class="s">"App:Port"</span>]) + <span class="s">" (was 8080), App:Name = "</span> + oConfig2.<span class="f">callMethod</span>(<span class="s">"get_Item"</span>,[<span class="s">"App:Name"</span>]) + <span class="s">" (not changed), App:Extra = "</span> + oConfig2.<span class="f">callMethod</span>(<span class="s">"get_Item"</span>,[<span class="s">"App:Extra"</span>])
+	? nl + <span class="s">"4. after the memory source: App:Port = "</span> + oConfig2.<span class="f">Item</span>(<span class="s">"App:Port"</span>) + <span class="s">" (was 8080), App:Name = "</span> + oConfig2.<span class="f">Item</span>(<span class="s">"App:Name"</span>) + <span class="s">" (not changed), App:Extra = "</span> + oConfig2.<span class="f">Item</span>(<span class="s">"App:Extra"</span>)
 
 	<span class="c"># 5. Environment variables. With a prefix, only the variables that start with it are read, and "__" in the name means ":" in the key.</span>
 	<span class="c">#    This is how a server or a container changes a setting without a new file.</span>
 	<span class="f">dnStatic</span>(<span class="s">"System.Environment"</span>,<span class="s">"SetEnvironmentVariable"</span>,[<span class="s">"RDN111_Database__Host"</span>,<span class="s">"db.example.com"</span>])
-	<span class="f">dnStatic</span>(<span class="s">"Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions"</span>,<span class="s">"AddEnvironmentVariables"</span>,[oBuilder,<span class="s">"RDN111_"</span>])
+	oBuilder.<span class="f">AddEnvironmentVariables</span>([ :prefix = <span class="s">"RDN111_"</span> ])
 	oConfig3 = oBuilder.<span class="f">Build</span>()
-	? nl + <span class="s">"5. the environment variable RDN111_Database__Host changes Database:Host to: "</span> + oConfig3.<span class="f">callMethod</span>(<span class="s">"get_Item"</span>,[<span class="s">"Database:Host"</span>])
-	? <span class="s">"   Database:Timeout is still from the file: "</span> + oConfig3.<span class="f">callMethod</span>(<span class="s">"get_Item"</span>,[<span class="s">"Database:Timeout"</span>])
+	? nl + <span class="s">"5. the environment variable RDN111_Database__Host changes Database:Host to: "</span> + oConfig3.<span class="f">Item</span>(<span class="s">"Database:Host"</span>)
+	? <span class="s">"   Database:Timeout is still from the file: "</span> + oConfig3.<span class="f">Item</span>(<span class="s">"Database:Timeout"</span>)
 	<span class="f">dnStatic</span>(<span class="s">"System.Environment"</span>,<span class="s">"SetEnvironmentVariable"</span>,[<span class="s">"RDN111_Database__Host"</span>,<span class="k">NULL</span>])
 
 	<span class="c"># 6. Where the value came from does not matter to the code that reads it. The order of the sources is the only rule: the last wins.</span>
@@ -331,9 +330,9 @@ using {
 <div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="layers">Layers<a class="anchor" href="#layers">#</a></h3>
-<p>A <code>ConfigurationBuilder</code> collects <strong>sources</strong>; <code>Build()</code> reads them and gives the configuration. The sources are added in order and <strong>later sources override earlier ones</strong>. So the usual setup is: the defaults in a JSON file that comes with the program, then the settings of one computer or one environment (testing or production), then environment variables, then the command line. The code that reads a value does not know or care which source gave it. Every source is added by an extension method, so each one is called with <code>dnStatic</code> (the tutorial <a href="tut-109-memory-cache.html">Caching</a>): <code>AddJsonFile(builder, path)</code>, <code>AddInMemoryCollection(builder, dictionary)</code>, <code>AddEnvironmentVariables(builder, prefix)</code>.</p>
+<p>A <code>ConfigurationBuilder</code> collects <strong>sources</strong>; <code>Build()</code> reads them and gives the configuration. The sources are added in order and <strong>later sources override earlier ones</strong>. So the usual setup is: the defaults in a JSON file that comes with the program, then the settings of one computer or one environment (testing or production), then environment variables, then the command line. The code that reads a value does not know or care which source gave it. Every source is added by an extension method that the builder has as a method (the tutorial <a href="tut-109-memory-cache.html">Caching</a>). Each has several forms, so the names of the parameters choose one: <code>oBuilder.AddJsonFile([ :path = cFile ])</code>, <code>oBuilder.AddInMemoryCollection([ :initialData = oDictionary ])</code>, <code>oBuilder.AddEnvironmentVariables([ :prefix = "APP_" ])</code>.</p>
 <h3 id="keys">Keys<a class="anchor" href="#keys">#</a></h3>
-<p>All the sources are turned into <strong>one flat set of keys</strong> with <code>:</code> between the levels: the JSON <code>{ "App": { "Port": 8080 } }</code> gives the key <code>App:Port</code>, and a list becomes numbered keys (<code>App:Features:0</code>, <code>App:Features:1</code>). A key that does not exist gives <em>null</em> (<code>isNull()</code> on the result), not an error. Keys are <strong>not case sensitive</strong>. The indexer is read with <code>callMethod("get_Item",[key])</code>.</p>
+<p>All the sources are turned into <strong>one flat set of keys</strong> with <code>:</code> between the levels: the JSON <code>{ "App": { "Port": 8080 } }</code> gives the key <code>App:Port</code>, and a list becomes numbered keys (<code>App:Features:0</code>, <code>App:Features:1</code>). A key that does not exist gives <em>null</em> (<code>isNull()</code> on the result), not an error. Keys are <strong>not case sensitive</strong>. The indexer is read with <code>Item(key)</code>.</p>
 <h3 id="types">Types<a class="anchor" href="#types">#</a></h3>
 <p>Every value is a <strong>text</strong>. <code>ConfigurationBinder.GetValue(configuration, type, key)</code> converts it: <code>Int32</code> for the port (8080, which you can add 1 to), <code>Boolean</code> for the debug flag (<code>false</code> or <code>true</code>). With a fourth value the call gives a <strong>default</strong> when the key is missing (<code>Retries</code> is 3). A text that cannot be converted raises an error, so a typo in a settings file is found when the program reads it.</p>
 <h3 id="sections">Sections<a class="anchor" href="#sections">#</a></h3>

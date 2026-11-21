@@ -319,7 +319,7 @@ using {
 	oAes.IV = cIv
 	oEncryptor = oAes.<span class="f">CreateEncryptor</span>(<span class="k">NULL</span>)
 	cCipher = oEncryptor.<span class="f">TransformFinalBlock</span>(cMessage,<span class="n">0</span>,len(cMessage))
-	oEncryptor.<span class="f">callMethod</span>(<span class="s">"Dispose"</span>,[])        <span class="c"># ICryptoTransform is an interface: its Dispose is called by name</span>
+	oEncryptor.<span class="f">Dispose</span>()
 	oAes.<span class="f">Dispose</span>()
 	cBody = cIv + cCipher
 	<span class="k">return</span> cBody + tagOf(cBody,cMacKey)
@@ -340,7 +340,7 @@ using {
 	oDecryptor = oAes.<span class="f">CreateDecryptor</span>(<span class="k">NULL</span>)
 	cCipher = right(cBody,len(cBody) - <span class="n">16</span>)
 	cPlain = oDecryptor.<span class="f">TransformFinalBlock</span>(cCipher,<span class="n">0</span>,len(cCipher))
-	oDecryptor.<span class="f">callMethod</span>(<span class="s">"Dispose"</span>,[])
+	oDecryptor.<span class="f">Dispose</span>()
 	oAes.<span class="f">Dispose</span>()
 	<span class="k">return</span> [<span class="s">"ok"</span>,cPlain]
 
@@ -393,7 +393,7 @@ using {
 <h3 id="signatures">Signatures<a class="anchor" href="#signatures">#</a></h3>
 <p>RSA uses a <strong>pair</strong> of keys. <code>new RSA().Create(2048)</code> makes the pair; <code>ToXmlString(False)</code> exports the <strong>public</strong> half as text, which you may give to anyone. <code>SignData(data, hashAlgorithm, padding)</code> hashes the data with SHA-256 and signs the hash with the private key (256 bytes for a 2048-bit key). Anyone with the public key can <code>VerifyData</code> — and a change in the message, even <code>100</code> to <code>900</code>, makes the check fail (step 6). The private key never leaves the signer.</p>
 <p>The algorithm and the padding are objects: <code>new HashAlgorithmName().SHA256</code>, <code>new RSASignaturePadding().Pkcs1</code>.</p>
-<div class="callout note"><span class="t">Note</span><p><code>ICryptoTransform</code> is an interface, so its <code>Dispose</code> is called by name: <code>oEncryptor.callMethod("Dispose",[])</code>. And <code>Aes.Create</code>, <code>CreateEncryptor</code> and the like have an overload with a name or key, so the form without arguments is written with <code>NULL</code>.</p></div>
+<div class="callout note"><span class="t">Note</span><p><code>Aes.Create</code>, <code>CreateEncryptor</code> and the like have an overload with a name or key, so the form without arguments is written with <code>NULL</code>. A transform is released with <code>oEncryptor.Dispose()</code>.</p></div>
 <h3 id="what-this-program-is-not">What this program is not<a class="anchor" href="#what-this-program-is-not">#</a></h3>
 <p>It is a teaching construction. For real systems use a well-reviewed protocol (TLS for networks, the platform's data-protection APIs for files), keep keys out of source code, and have security-sensitive code reviewed by someone who knows the field.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>

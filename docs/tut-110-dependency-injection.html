@@ -303,8 +303,8 @@ nScoped = <span class="n">0</span>
 	<span class="c"># 5. The factory receives the provider, so a service can ask for the services it needs: the scoped MemoryStream asks for the singleton</span>
 	<span class="c">#    ArrayList and writes its name in it. Every scope reaches the SAME list: that is how a singleton shares data.</span>
 	? nl + <span class="s">"5. the singleton list now says: "</span> + oFirst.Count + <span class="s">" entries, from the "</span> + oFirst.<span class="f">Item</span>(<span class="n">0</span>) + <span class="s">" and the "</span> + oFirst.<span class="f">Item</span>(<span class="n">1</span>)
-	oScope1.<span class="f">callMethod</span>(<span class="s">"Dispose"</span>,[])
-	oScope2.<span class="f">callMethod</span>(<span class="s">"Dispose"</span>,[])
+	oScope1.<span class="f">Dispose</span>()
+	oScope2.<span class="f">Dispose</span>()
 
 	<span class="c"># 6. The rules of thumb. A service must not keep a shorter-lived service inside it (a singleton that holds a scoped object would keep it</span>
 	<span class="c">#    for ever, and share it between requests). Things that hold a file, a connection or a lot of memory are disposed when their scope ends.</span>
