@@ -20,7 +20,7 @@ The tutorial [Binary files](tut-45-binary.html) introduced the byte buffer. Here
 
 {{output:samples/UsingDotNet/tutorials/ch05_copy_progress.ring}}
 
-> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnBuffer`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnBuffer`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
 
 ## How it works
 
