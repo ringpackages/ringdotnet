@@ -66,4 +66,10 @@ dnAssert("a ref property is its value",oHolder.Slot,7)
 oMemory = dnStatic("System.MemoryExtensions","AsMemory",["hello"])
 dnAssert("the Span of a Memory",oMemory.Span,"hello")
 
+# methods that return by reference: the value
+oSlots = new Slots()
+dnAssert("a ref int return is the number",oSlots.Number(1),6)
+dnAssert("a ref string return is the text",oSlots.Text(1),"y")
+dnAssert("a ref readonly struct return is the object",oSlots.Day().Year,2024)
+
 dnTestSummary()

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace MyCompany.Tools
@@ -88,6 +89,18 @@ namespace MyCompany.Tools
 	}
 
 	// properties of a Span, a ref struct and a ref type: read like the results of methods
+	// methods that return by reference: Ring gets the value
+	public class Slots
+	{
+		private readonly int[] numbers = { 5, 6, 7 };
+		private readonly string[] texts = { "x", "y" };
+		private DateTime day = new DateTime(2024, 5, 17);
+		public ref int Number(int i) { return ref numbers[i]; }
+		public ref string Text(int i) { return ref texts[i]; }
+		public ref readonly DateTime Day() { return ref day; }
+		public int Sum() { return numbers.Sum(); }
+	}
+
 	public class Holder
 	{
 		private readonly byte[] data = { 1, 2, 3 };

@@ -279,6 +279,7 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 <h3 id="the-example-in-the-package">The example in the package<a class="anchor" href="#the-example-in-the-package">#</a></h3>
 <p><code>samples/UsingDotNet/tests/UserLib</code> is a complete example — a small C# library, the generator run on it, and a test that uses it (<code>samples/UsingDotNet/tests/test_userassembly.ring</code>).</p>
 <details class="src"><summary>samples/UsingDotNet/tests/UserLib/Library.cs</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tests/UserLib/Library.cs</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">using</span> System;
+<span class="k">using</span> System.Linq;
 <span class="k">using</span> System.Collections.Generic;
 
 <span class="k">namespace</span> MyCompany.Tools
@@ -368,6 +369,18 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 	}
 
 	<span class="c">// properties of a Span, a ref struct and a ref type: read like the results of methods</span>
+	<span class="c">// methods that return by reference: Ring gets the value</span>
+	<span class="k">public</span> <span class="k">class</span> Slots
+	{
+		<span class="k">private</span> <span class="k">readonly</span> <span class="k">int</span>[] numbers = { <span class="n">5</span>, <span class="n">6</span>, <span class="n">7</span> };
+		<span class="k">private</span> <span class="k">readonly</span> <span class="k">string</span>[] texts = { <span class="s">"x"</span>, <span class="s">"y"</span> };
+		<span class="k">private</span> <span class="t">DateTime</span> day = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>, <span class="n">5</span>, <span class="n">17</span>);
+		<span class="k">public</span> <span class="k">ref</span> <span class="k">int</span> <span class="t">Number</span>(<span class="k">int</span> i) { <span class="k">return</span> <span class="k">ref</span> numbers[i]; }
+		<span class="k">public</span> <span class="k">ref</span> <span class="k">string</span> <span class="t">Text</span>(<span class="k">int</span> i) { <span class="k">return</span> <span class="k">ref</span> texts[i]; }
+		<span class="k">public</span> <span class="k">ref</span> <span class="k">readonly</span> <span class="t">DateTime</span> <span class="t">Day</span>() { <span class="k">return</span> <span class="k">ref</span> day; }
+		<span class="k">public</span> <span class="k">int</span> <span class="t">Sum</span>() { <span class="k">return</span> numbers.<span class="f">Sum</span>(); }
+	}
+
 	<span class="k">public</span> <span class="k">class</span> Holder
 	{
 		<span class="k">private</span> <span class="k">readonly</span> byte[] data = { <span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span> };

@@ -278,7 +278,7 @@ end
 oEnum.asyncDispose()
 ```
 
-A property (or field) of those types is read the same way: a `Span` property is an array (a text for `char`), a ref struct property is read like a ref struct result, a pointer is its address, and a `ref` property is its value (`oMemory.Span`, `oStream.PositionPointer`). These properties are read-only in Ring.
+A property (or field) of those types is read the same way: a `Span` property is an array (a text for `char`), a ref struct property is read like a ref struct result, a pointer is its address, and a `ref` property is its value (`oMemory.Span`, `oStream.PositionPointer`). These properties are read-only in Ring. A method that returns by reference (`ref int Number(int i)`) answers the value too; Ring cannot write through the reference.
 
 An indexer with several indexes (`matrix[row, column]`) takes the indexes as a list: `oMatrix.Item([1,2])` reads and `oMatrix.SetItem([1,2],4.5)` writes. A type that has a one-index indexer too keeps its plain form: `Item(1)`.
 

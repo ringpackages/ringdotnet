@@ -169,7 +169,7 @@ namespace RingDotNet
 					else if (IsPointer(m.ReturnType)) tally.Add("OK   method: pointer result (an address, a number)", where);
 					else if (IsRefLike(m.ReturnType) && Bridge.IsSpan(m.ReturnType, out _, out _)) tally.Add("OK   method: Span result (an array in Ring)", where);
 					else if (IsRefLike(m.ReturnType)) tally.Add("OK   method: ref struct result (answered as an array, a list of its items or a text)", where);
-					if (m.ReturnType.IsByRef) tally.Add("GAP  method: ref return", where);
+					if (m.ReturnType.IsByRef) tally.Add("OK   method: ref return (its value)", where);
 					if (m.IsGenericMethodDefinition)
 					{
 						tally.Add("INFO method: generic method", where);

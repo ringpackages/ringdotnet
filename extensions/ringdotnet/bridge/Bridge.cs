@@ -1529,7 +1529,7 @@ namespace RingDotNet
 					if (HasSpanParameter(m) && plainNames.Contains(m.Name)) continue;
 					if (definition != null && m.IsStatic) continue;
 					if (t.IsInterface && !seenMethods.Add(m.Name + "(" + string.Join(",", m.GetParameters().Select(q => q.ParameterType.FullName)) + ")")) continue;
-					methods.Add(new RingList { m.Name, m.IsStatic, m.ReturnType.IsPointer ? "System.Int64" : TName(m.ReturnType), ParamTypes(m), ByRefCount(m), RequiredCount(m), m.IsDefined(typeof(System.Runtime.CompilerServices.ExtensionAttribute), false) ? 1 : 0, NotInferable(m) ? 1 : 0 });
+					methods.Add(new RingList { m.Name, m.IsStatic, m.ReturnType.IsPointer ? "System.Int64" : TName(Unwrap(m.ReturnType)), ParamTypes(m), ByRefCount(m), RequiredCount(m), m.IsDefined(typeof(System.Runtime.CompilerServices.ExtensionAttribute), false) ? 1 : 0, NotInferable(m) ? 1 : 0 });
 				}
 			}
 			List<object> members = new RingList();
