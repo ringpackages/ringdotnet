@@ -24,7 +24,7 @@ Select the runtime mode before the first .NET call. You normally do not call the
 |---|---|
 | `using { "System" "System.Text" }` | Loads the generated wrapper classes of each namespace (once), like C#'s `using`. A value that is not a text raises an error. |
 | `dnImport("System.IO")` | The function behind `using`, handy when the name is computed. Returns true. Raises an error when no classes were generated for the name. |
-| `dnImportFrom("myclasses/","MyCompany.Tools")` | Loads classes generated for **your own assembly** with `wrapassembly.ring`. See [Your own assemblies](own-assemblies.html). |
+| `dnImportFrom("myclasses/","MyCompany.Tools")` | Loads classes generated for **your own assembly** with `wrapassembly.ring`; the other namespaces of that assembly are loaded from the same folder when an object of one of their types comes back. See [Your own assemblies](own-assemblies.html). |
 | `dnRegisterClass(type, class, nInit)` | Used by the generated files: registers a Ring class for a .NET type. |
 
 ```ring

@@ -310,9 +310,9 @@ using {
 
 	<span class="c"># 6. Signing: the owner signs with the private key, anybody with the public certificate verifies</span>
 	aMessage = oUtf8.<span class="f">GetBytes</span>(<span class="s">"Invoice 2024-001: 1250.00"</span>)
-	oPrivateKey = <span class="k">new</span> <span class="t">RSACertificateExtensions</span>().<span class="f">GetRSAPrivateKey</span>(oCertificate)
+	oPrivateKey = oCertificate.<span class="f">GetRSAPrivateKey</span>()
 	aSignature = oPrivateKey.<span class="f">callMethod</span>(<span class="s">"SignData"</span>,[aMessage,oSha,oPadding])
-	oPublicKey = <span class="k">new</span> <span class="t">RSACertificateExtensions</span>().<span class="f">GetRSAPublicKey</span>(oPublic)
+	oPublicKey = oPublic.<span class="f">GetRSAPublicKey</span>()
 	aChanged = oUtf8.<span class="f">GetBytes</span>(<span class="s">"Invoice 2024-001: 9250.00"</span>)
 	? nl + <span class="s">"4. signature of "</span> + len(aSignature) + <span class="s">" bytes (2048-bit key); verified with the public certificate: "</span> + oPublicKey.<span class="f">callMethod</span>(<span class="s">"VerifyData"</span>,[aMessage,aSignature,oSha,oPadding])
 	? <span class="s">"   the message changed: "</span> + oPublicKey.<span class="f">callMethod</span>(<span class="s">"VerifyData"</span>,[aChanged,aSignature,oSha,oPadding])
@@ -331,7 +331,7 @@ using {
 
 <span class="k">func</span> <span class="f">canSign</span> oPublic
 	<span class="k">try</span>
-		<span class="k">new</span> <span class="t">RSACertificateExtensions</span>().<span class="f">GetRSAPrivateKey</span>(oPublic).<span class="f">SignData</span>(<span class="k">new</span> <span class="t">UTF8Encoding</span>().<span class="f">GetBytes</span>(<span class="s">"x"</span>),<span class="k">new</span> <span class="t">HashAlgorithmName</span>().<span class="f">get_SHA256</span>(),<span class="k">new</span> <span class="t">RSASignaturePadding</span>().<span class="f">get_Pkcs1</span>())
+		oPublic.<span class="f">GetRSAPrivateKey</span>().<span class="f">SignData</span>(<span class="k">new</span> <span class="t">UTF8Encoding</span>().<span class="f">GetBytes</span>(<span class="s">"x"</span>),<span class="k">new</span> <span class="t">HashAlgorithmName</span>().<span class="f">get_SHA256</span>(),<span class="k">new</span> <span class="t">RSASignaturePadding</span>().<span class="f">get_Pkcs1</span>())
 		<span class="k">return</span> <span class="k">True</span>
 	<span class="k">catch</span>
 		<span class="k">return</span> <span class="k">False</span>
@@ -363,7 +363,7 @@ using {
 <h3 id="exporting">Exporting<a class="anchor" href="#exporting">#</a></h3>
 <ul><li><strong>PFX</strong> (also <em>PKCS #12</em>) holds the certificate <strong>and the private key</strong>, protected by a <strong>password</strong>. <code>Export("Pfx", password)</code> makes the bytes and <code>new X509Certificate2(bytes, password)</code> loads them again; a wrong password raises an error. A PFX is a secret: store it like a password, and give it only to the program that must sign or serve with it.</li><li><strong>PEM</strong> (<code>ExportCertificatePem()</code>, the text between <code>-----BEGIN CERTIFICATE-----</code> lines) and <strong>.cer</strong> (<code>Export("Cert")</code>) hold the <strong>public</strong> part only. This is what you give to everybody. A certificate loaded from it has <code>HasPrivateKey</code> false.</li></ul>
 <h3 id="signing-and-verifying">Signing and verifying<a class="anchor" href="#signing-and-verifying">#</a></h3>
-<p>The owner takes the private key out of the certificate (<code>RSACertificateExtensions.GetRSAPrivateKey</code>) and signs the data; anybody with the <strong>public</strong> certificate verifies it with <code>GetRSAPublicKey</code> and <code>VerifyData</code>. The signature has 256 bytes for a 2048-bit key. A changed message is refused, and the public-only certificate cannot sign at all (it has no private key). The two helper methods are extension methods, so they are called with <code>dnStatic</code> (the tutorial <a href="tut-109-memory-cache.html">Caching</a>).</p>
+<p>The owner takes the private key out of the certificate (<code>oCertificate.GetRSAPrivateKey()</code>, an extension method of the certificate) and signs the data; anybody with the <strong>public</strong> certificate verifies it with <code>GetRSAPublicKey</code> and <code>VerifyData</code>. The signature has 256 bytes for a 2048-bit key. A changed message is refused, and the public-only certificate cannot sign at all (it has no private key). The two helper methods are extension methods, so they are called with <code>dnStatic</code> (the tutorial <a href="tut-109-memory-cache.html">Caching</a>).</p>
 <h3 id="trust">Trust<a class="anchor" href="#trust">#</a></h3>
 <p><code>X509Chain.Build(certificate)</code> asks the system whether it can build a chain from the certificate up to a <strong>trusted root</strong>. For a self-signed certificate that nobody installed as trusted, the answer is <em>false</em>. To make a computer trust such a certificate, you add it to its store of trusted roots (<code>X509Store</code>), which needs the user's decision and often administrator rights; do that only for certificates you made yourself and for development. Never ask users to install a certificate "to make the warning go away" for a site on the internet.</p>
 <div class="callout warn"><span class="t">Warning</span><p>A certificate is only as good as the care of its private key. If the PFX or its password is stolen, the thief can sign as you until the certificate expires or is revoked. Keep validity short, keep keys out of source control, and renew before the end date.</p></div>

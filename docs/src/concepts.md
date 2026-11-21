@@ -188,7 +188,7 @@ aParsed = new Int32().TryParse("123")   # [1, 123]
 
 ## Extension methods
 
-An extension method is a static method that C# writes as if it were a method of another type: `table.AddColumn("Name")` is `TableExtensions.AddColumn(table, "Name")`. The generated Ring class of the extended type has a method for each extension method that is in the same generated set, so it is called like any method of the object:
+An extension method is a static method that C# writes as if it were a method of another type: `table.AddColumn("Name")` is `TableExtensions.AddColumn(table, "Name")`. The generated Ring class of the extended type has a method for each extension method that is in the same generated set, so it is called like any method of the object. The classes that implement an interface get the extension methods of the interface, and so do the interfaces that inherit it (`oServices.BuildServiceProvider(NULL)` on a `ServiceCollection`, an extension of `IServiceCollection`):
 
 ```ring
 oTable = new Table()
@@ -196,7 +196,7 @@ oTable.AddColumn("Name")                # TableExtensions.AddColumn(oTable, "Nam
 oTable.AddRow(["Ann","31"])
 ```
 
-The methods of the object itself come first, and an extension method never changes how a method that the class already has is called: it is added to a name that the class has only when it takes a number of parameters that the method already takes. Extension methods of another assembly than the extended type, of generic types, and of `string`, `object` and the numbers are static calls on the class that holds them: `new StringHumanizeExtensions().Humanize("PascalCaseText")`.
+The methods of the object itself come first, and an extension method never changes how a method that the class already has is called: it is added to a name that the class has only when it takes a number of parameters that the method already takes. An extension method has the same rule of names as every method: when it has several forms, the name takes one parameter and the names of the parameters choose the form. Extension methods that have no class to join (a type of another assembly than the one that is wrapped, a generic type, `string`, `object` and the numbers) are static calls on the class that holds them: `new StringHumanizeExtensions().Humanize("PascalCaseText")`. A generic extension method whose type cannot be known from its parameters (`Cast<T>`) cannot be called from Ring.
 
 ## Generics
 

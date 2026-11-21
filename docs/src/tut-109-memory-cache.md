@@ -9,7 +9,7 @@ lead: A cache keeps the result of slow work for a while, so the next request get
 - `MemoryCache`: `Set`, `TryGetValue`, `Remove`, `Clear`, `Count`,
 - **absolute** and **sliding** expiration,
 - `GetOrCreate`: make the value only when it is missing,
-- extension methods and `dnStatic`,
+- extension methods, which are methods of the cache,
 - the rules that keep a cache safe.
 
 The tutorial [Speed — measure first](tut-53-speed.html) measured how fast calls are. The fastest call is the one you do not make: a result that was already calculated, fetched or read can be reused.
@@ -30,7 +30,7 @@ The tutorial [Speed — measure first](tut-53-speed.html) measured how fast call
 
 ### Extension methods
 
-`Set(key, value)` and `GetOrCreate(key, factory)` are **extension methods** of the static class `CacheExtensions`, not methods of `MemoryCache` itself, so `oCache.Set(...)` raises *"Calling Method without definition"*. Extension methods are called as **static** methods with the object as the first value: `dnStatic("Microsoft.Extensions.Caching.Memory.CacheExtensions","Set",[oCache,key,value,options])`. The program wraps this in the function `cacheSet`. The same applies to many helpers of `Microsoft.Extensions.*` and to LINQ ([Collections & LINQ](collections-linq.html)). The class reference shows these classes: look for a static class with `Extensions` in its name.
+`Set` and `GetOrCreate` are **extension methods** of the static class `CacheExtensions`, not methods of `MemoryCache` itself, but the class `MemoryCache` has them, so they are called on the cache like its own methods: `oCache.Set([ :key = "user:1", :value = "Ann" ])`. They have several forms (with or without the options of the entry), so a name takes one parameter: the **names** of the parameters choose the form, as for every overloaded method ([Core concepts](concepts.html)). The program wraps `Set` in the function `cacheSet`. The same holds for many helpers of `Microsoft.Extensions.*`; the class reference lists them with the class that they extend ([Class reference](api.html)).
 
 ### Absolute expiration
 
@@ -55,7 +55,7 @@ A cache gives **old** data on purpose. Do not cache what must be exact (a bank b
 ## What you learned
 
 - a cache is a dictionary with expiration rules,
-- `Set` and `GetOrCreate` are extension methods, called with `dnStatic`,
+- `Set` and `GetOrCreate` are extension methods, called as methods of the cache,
 - absolute expiration for stale data, sliding expiration for data in use,
 - `GetOrCreate` with a Ring function as the factory,
 - remove entries when the data changes, and know what not to cache.

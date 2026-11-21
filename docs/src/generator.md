@@ -63,6 +63,8 @@ The third item forces the number of parameters of `init()` (0 here). After regen
 
 ## Name clashes
 
+The Ring class names are global. `wrapassembly.ring` (see [Your own assemblies](own-assemblies.html)) reserves the names of the library first, so a class of your assembly with the name of a class of the library gets the prefix of its namespace: `YamlDotNet.Core.Version` is `CoreVersion`, because `System.Version` is a class of the library. The generator lists the renames when it runs.
+
 When two namespaces contain a class with the same short name, the later one gets a prefix: `System.Timers.Timer` becomes `TimersTimer`, WPF's `Button` becomes `WpfButton`, ASP.NET's `MediaTypeHeaderValue` becomes `AspMediaTypeHeaderValue`, EF's clashing names start with `Ef`.
 
 ## Overload rules
@@ -75,7 +77,8 @@ The generator names the methods of a class like this:
 - `ToString()` keeps its parameterless form, and its forms with parameters are `Format`;
 - a method with optional parameters is available with every number of parameters from the required ones up;
 - a static and an instance method with the same name and arity are one method;
-- names that are Ring keywords get an `@` at the start, and so does a method whose name would be the getter or setter of a property (`@GetValue`).
+- names that are Ring keywords get an `@` at the start, and so does a method whose name would be the getter or setter of a property (`@GetValue`);
+- an **extension method** of a type that has a class in the same run is a method of that class (`oTable.AddColumn("Name")` is `TableExtensions.AddColumn(table, "Name")`). The methods of the type come first, and an extension never changes how a method that the class already has is called: it is added to a name that the class has only when it takes a number of parameters that the method already takes. The classes that implement an interface get the extension methods of the interface, and so do the interfaces that inherit it. Generic extension methods whose type cannot be known from their parameters (`Cast<T>`) are left out. Extensions of types with no class in the run (generic types, `string`, types of another assembly in a run of `wrapassembly.ring`) stay static calls on their own class.
 
 ## How a wrapper class looks
 

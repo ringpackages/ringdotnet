@@ -24,7 +24,7 @@ The first release. It needs Ring 1.28 and an installed .NET runtime (6.0 or newe
 - `wrapassembly.ring` can wrap one namespace or all of them; the class index of the folder lets an object of a namespace that was not imported be wrapped when it comes back, and several assemblies can share a folder.
 - A class of the assembly that has the name of a class of the library gets the prefix of its namespace (`YamlDotNet.Core.Version` is `CoreVersion`), and the generator lists the renames.
 - An object that comes back as a class that is not public is wrapped as the interface named after it (`XLWorksheet` as `IXLWorksheet`), and an interface has the members that it inherits from other interfaces.
-- Extension methods are methods of the Ring class of the type that they extend (`oTable.AddColumn("Name")`), for the types of the same generated set; the methods of the object come first and a method that the class already has keeps its signature.
+- Extension methods are methods of the Ring class of the type that they extend, of the classes that implement the interface that they extend, and of the interfaces that inherit it (`oTable.AddColumn("Name")`, `oServices.BuildServiceProvider(NULL)`), for the types of the same generated set; the methods of the object come first and a method that the class already has keeps its signature.
 - Methods that a class implements explicitly are found through its public interfaces (the rows of Dapper), and a parameter of the type `System.Enum` takes the full name of a member (`"System.DayOfWeek.Friday"`).
 
 **Desktop**

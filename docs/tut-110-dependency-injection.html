@@ -269,12 +269,11 @@ nScoped = <span class="n">0</span>
 	<span class="c"># and decides how long each one lives. That makes the parts easy to replace and to test, and it is how every ASP.NET program is built.</span>
 	<span class="c"># The container works with .NET types as the keys. Here three plain types stand for three services, and a Ring function makes each one</span>
 	<span class="c"># (the "factory"): ArrayList = a long-lived service, Random = a new one each time, MemoryStream = one for each request.</span>
-	cExt = <span class="s">"Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions"</span>
 	oServices = <span class="k">new</span> <span class="t">ServiceCollection</span>
-	<span class="f">dnStatic</span>(cExt,<span class="s">"AddSingleton"</span>,[oServices,<span class="f">dnType</span>(<span class="s">"System.Collections.ArrayList"</span>),<span class="f">dnCallback</span>(<span class="s">"makeSingleton"</span>)])
-	<span class="f">dnStatic</span>(cExt,<span class="s">"AddTransient"</span>,[oServices,<span class="f">dnType</span>(<span class="s">"System.Random"</span>),<span class="f">dnCallback</span>(<span class="s">"makeTransient"</span>)])
-	<span class="f">dnStatic</span>(cExt,<span class="s">"AddScoped"</span>,[oServices,<span class="f">dnType</span>(<span class="s">"System.IO.MemoryStream"</span>),<span class="f">dnCallback</span>(<span class="s">"makeScoped"</span>)])
-	oProvider = <span class="k">new</span> <span class="t">ServiceCollectionContainerBuilderExtensions</span>().<span class="f">BuildServiceProvider</span>(oServices)
+	oServices.<span class="f">AddSingleton</span>([ :serviceType = <span class="f">dnType</span>(<span class="s">"System.Collections.ArrayList"</span>), :implementationFactory = <span class="f">dnCallback</span>(<span class="s">"makeSingleton"</span>) ])
+	oServices.<span class="f">AddTransient</span>([ :serviceType = <span class="f">dnType</span>(<span class="s">"System.Random"</span>), :implementationFactory = <span class="f">dnCallback</span>(<span class="s">"makeTransient"</span>) ])
+	oServices.<span class="f">AddScoped</span>([ :serviceType = <span class="f">dnType</span>(<span class="s">"System.IO.MemoryStream"</span>), :implementationFactory = <span class="f">dnCallback</span>(<span class="s">"makeScoped"</span>) ])
+	oProvider = oServices.<span class="f">BuildServiceProvider</span>(<span class="k">NULL</span>)
 	? <span class="s">"1. "</span> + oServices.Count + <span class="s">" services are registered; the provider is built"</span>
 
 	<span class="c"># 2. SINGLETON: one object for the whole program. It is made the first time somebody asks.</span>
@@ -292,8 +291,8 @@ nScoped = <span class="n">0</span>
 	<span class="c"># 4. SCOPED: one object for each SCOPE. A scope is one unit of work: in a web server, one request. Inside a scope the same object comes</span>
 	<span class="c">#    back; another scope gets its own.</span>
 	oStream = <span class="f">dnType</span>(<span class="s">"System.IO.MemoryStream"</span>)
-	oScope1 = <span class="k">new</span> <span class="t">ServiceProviderServiceExtensions</span>().<span class="f">CreateScope</span>(oProvider)
-	oScope2 = <span class="k">new</span> <span class="t">ServiceProviderServiceExtensions</span>().<span class="f">CreateScope</span>(oProvider)
+	oScope1 = oProvider.<span class="f">CreateScope</span>()
+	oScope2 = oProvider.<span class="f">CreateScope</span>()
 	oInScope1a = oScope1.ServiceProvider.<span class="f">callMethod</span>(<span class="s">"GetService"</span>,[oStream])
 	oInScope1b = oScope1.ServiceProvider.<span class="f">callMethod</span>(<span class="s">"GetService"</span>,[oStream])
 	oInScope2 = oScope2.ServiceProvider.<span class="f">callMethod</span>(<span class="s">"GetService"</span>,[oStream])
@@ -347,7 +346,7 @@ nScoped = <span class="n">0</span>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-idea">The idea<a class="anchor" href="#the-idea">#</a></h3>
 <p>Without DI, a function that sends mail creates its own mail client, and a test of that function sends real mail. With DI, the function <strong>asks</strong> the container for a mail client; the program registers the real one, and a test registers a fake one. The code that <em>uses</em> a service does not know how it is made, and the code that <em>makes</em> it does not know who uses it.</p>
-<p>The container is a <code>ServiceCollection</code> (the list of registrations); <code>BuildServiceProvider</code> turns it into a <strong>provider</strong> that makes the objects. A service is asked for with its type: <code>oProvider.GetService(type)</code>. The keys are .NET types, so in this lesson three ordinary types stand for three services: <code>ArrayList</code>, <code>Random</code> and <code>MemoryStream</code>. Ring classes cannot be registered (they are not .NET types), but a Ring function can be the <strong>factory</strong> that makes the object: <code>AddSingleton(serviceType, factory)</code> with <code>dnCallback("makeSingleton")</code>. <code>AddSingleton</code>, <code>AddTransient</code>, <code>AddScoped</code> and <code>BuildServiceProvider</code> are extension methods, so they are called with <code>dnStatic</code> (the tutorial <a href="tut-109-memory-cache.html">Caching</a>).</p>
+<p>The container is a <code>ServiceCollection</code> (the list of registrations); <code>BuildServiceProvider</code> turns it into a <strong>provider</strong> that makes the objects. A service is asked for with its type: <code>oProvider.GetService(type)</code>. The keys are .NET types, so in this lesson three ordinary types stand for three services: <code>ArrayList</code>, <code>Random</code> and <code>MemoryStream</code>. Ring classes cannot be registered (they are not .NET types), but a Ring function can be the <strong>factory</strong> that makes the object: <code>AddSingleton(serviceType, factory)</code> with <code>dnCallback("makeSingleton")</code>. <code>AddSingleton</code>, <code>AddTransient</code>, <code>AddScoped</code> and <code>BuildServiceProvider</code> are extension methods that the class <code>ServiceCollection</code> has as methods (the tutorial <a href="tut-109-memory-cache.html">Caching</a>). Each of them has several forms, so the <strong>names</strong> of the parameters choose one: <code>oServices.AddSingleton([ :serviceType = dnType("System.Collections.ArrayList"), :implementationFactory = dnCallback("makeSingleton") ])</code>, and <code>BuildServiceProvider(NULL)</code> is the form without parameters.</p>
 <h3 id="singleton">Singleton<a class="anchor" href="#singleton">#</a></h3>
 <p><strong>One object for the whole program</strong>, made the first time somebody asks. Asked twice, the factory ran once and both answers are the <em>same object</em> (<code>Equals</code> of these types compares the object itself). Use it for things that are expensive to make or must be shared: a cache (the tutorial <a href="tut-109-memory-cache.html">Caching</a>), a configuration (the tutorial <a href="tut-111-configuration.html">Configuration</a>), a logger. A singleton must be safe for use by many threads at once.</p>
 <h3 id="transient">Transient<a class="anchor" href="#transient">#</a></h3>

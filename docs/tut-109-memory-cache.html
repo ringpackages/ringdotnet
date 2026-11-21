@@ -248,7 +248,7 @@
 <article>
 <h1>Caching</h1><p class="lead">A cache keeps the result of slow work for a while, so the next request gets it at once. This lesson uses MemoryCache with absolute and sliding expiration, GetOrCreate with a Ring function that makes the value, and Remove and Clear — and says when a cache is the wrong tool.</p>
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
-<ul><li>what a cache is and when it helps,</li><li><code>MemoryCache</code>: <code>Set</code>, <code>TryGetValue</code>, <code>Remove</code>, <code>Clear</code>, <code>Count</code>,</li><li><strong>absolute</strong> and <strong>sliding</strong> expiration,</li><li><code>GetOrCreate</code>: make the value only when it is missing,</li><li>extension methods and <code>dnStatic</code>,</li><li>the rules that keep a cache safe.</li></ul>
+<ul><li>what a cache is and when it helps,</li><li><code>MemoryCache</code>: <code>Set</code>, <code>TryGetValue</code>, <code>Remove</code>, <code>Clear</code>, <code>Count</code>,</li><li><strong>absolute</strong> and <strong>sliding</strong> expiration,</li><li><code>GetOrCreate</code>: make the value only when it is missing,</li><li>extension methods, which are methods of the cache,</li><li>the rules that keep a cache safe.</li></ul>
 <p>The tutorial <a href="tut-53-speed.html">Speed — measure first</a> measured how fast calls are. The fastest call is the one you do not make: a result that was already calculated, fetched or read can be reused.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch09_memory_cache.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># caching - MemoryCache, absolute and sliding expiration, remove and update, and when a cache is a bad idea</span>
@@ -296,8 +296,8 @@ nRuns = <span class="n">0</span>
 
 	<span class="c"># 4. GetOrCreate: "give me the value, and make it if it is missing". The function that makes the value is the slow work: it runs</span>
 	<span class="c">#    only on the first request (a Ring function that .NET calls during this call).</span>
-	cFirst = <span class="f">dnStatic</span>(<span class="s">"Microsoft.Extensions.Caching.Memory.CacheExtensions"</span>,<span class="s">"GetOrCreate"</span>,[oCache,<span class="s">"report"</span>,<span class="f">dnCallback</span>(<span class="s">"slowReport"</span>)])
-	cSecond = <span class="f">dnStatic</span>(<span class="s">"Microsoft.Extensions.Caching.Memory.CacheExtensions"</span>,<span class="s">"GetOrCreate"</span>,[oCache,<span class="s">"report"</span>,<span class="f">dnCallback</span>(<span class="s">"slowReport"</span>)])
+	cFirst = oCache.<span class="f">GetOrCreate</span>([ :key = <span class="s">"report"</span>, :factory = <span class="f">dnCallback</span>(<span class="s">"slowReport"</span>) ])
+	cSecond = oCache.<span class="f">GetOrCreate</span>([ :key = <span class="s">"report"</span>, :factory = <span class="f">dnCallback</span>(<span class="s">"slowReport"</span>) ])
 	? nl + <span class="s">"4. the report was made "</span> + nRuns + <span class="s">" time(s) for two requests: "</span> + cFirst + <span class="s">" / "</span> + cSecond
 
 	<span class="c"># 5. Remove and Clear (Compact removes a part): a value that changed in the database must leave the cache, or the old one is served</span>
@@ -317,12 +317,12 @@ nRuns = <span class="n">0</span>
 	nRuns++                         <span class="c"># (nRuns is a global variable of the program)</span>
 	<span class="k">return</span> <span class="s">"report #"</span> + nRuns
 
-<span class="c"># Set and GetOrCreate are "extension methods" of the class CacheExtensions: they are called as static methods with the cache as the first value</span>
+<span class="c"># Set has two forms: with and without the options of the entry</span>
 <span class="k">func</span> <span class="f">cacheSet</span> oCache,cKey,xValue,oOptions
 	<span class="k">if</span> isNull(oOptions)
-		<span class="k">return</span> <span class="f">dnStatic</span>(<span class="s">"Microsoft.Extensions.Caching.Memory.CacheExtensions"</span>,<span class="s">"Set"</span>,[oCache,cKey,xValue])
+		<span class="k">return</span> oCache.<span class="f">Set</span>([ :key = cKey, :value = xValue ])
 	<span class="k">ok</span>
-	<span class="k">return</span> <span class="f">dnStatic</span>(<span class="s">"Microsoft.Extensions.Caching.Memory.CacheExtensions"</span>,<span class="s">"Set"</span>,[oCache,cKey,xValue,oOptions])</code></pre></div>
+	<span class="k">return</span> oCache.<span class="f">Set</span>([ :key = cKey, :value = xValue, :options = oOptions ])</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. found: 1, value: Ann
    a key that was never stored: found = 0
    entries in the cache: 1
@@ -342,7 +342,7 @@ nRuns = <span class="n">0</span>
 <h3 id="the-cache">The cache<a class="anchor" href="#the-cache">#</a></h3>
 <p><code>MemoryCache</code> (namespace <code>Microsoft.Extensions.Caching.Memory</code>) is a dictionary with rules. Each value has a <strong>key</strong> (a text such as <code>"user:1"</code>) and may have an expiration. <code>TryGetValue(key)</code> answers <code>[ found, value ]</code> (the tutorial <a href="tut-81-network-tools.html">Network tools</a> explains the out value). A cache is made with options (<code>MemoryCacheOptions</code>), for example a size limit; the defaults are fine for this lesson.</p>
 <h3 id="extension-methods">Extension methods<a class="anchor" href="#extension-methods">#</a></h3>
-<p><code>Set(key, value)</code> and <code>GetOrCreate(key, factory)</code> are <strong>extension methods</strong> of the static class <code>CacheExtensions</code>, not methods of <code>MemoryCache</code> itself, so <code>oCache.Set(...)</code> raises <em>"Calling Method without definition"</em>. Extension methods are called as <strong>static</strong> methods with the object as the first value: <code>dnStatic("Microsoft.Extensions.Caching.Memory.CacheExtensions","Set",[oCache,key,value,options])</code>. The program wraps this in the function <code>cacheSet</code>. The same applies to many helpers of <code>Microsoft.Extensions.*</code> and to LINQ (<a href="collections-linq.html">Collections &amp; LINQ</a>). The class reference shows these classes: look for a static class with <code>Extensions</code> in its name.</p>
+<p><code>Set</code> and <code>GetOrCreate</code> are <strong>extension methods</strong> of the static class <code>CacheExtensions</code>, not methods of <code>MemoryCache</code> itself, but the class <code>MemoryCache</code> has them, so they are called on the cache like its own methods: <code>oCache.Set([ :key = "user:1", :value = "Ann" ])</code>. They have several forms (with or without the options of the entry), so a name takes one parameter: the <strong>names</strong> of the parameters choose the form, as for every overloaded method (<a href="concepts.html">Core concepts</a>). The program wraps <code>Set</code> in the function <code>cacheSet</code>. The same holds for many helpers of <code>Microsoft.Extensions.*</code>; the class reference lists them with the class that they extend (<a href="api.html">Class reference</a>).</p>
 <h3 id="absolute-expiration">Absolute expiration<a class="anchor" href="#absolute-expiration">#</a></h3>
 <p><code>AbsoluteExpirationRelativeToNow = TimeSpan</code> removes the value a fixed time after it was stored, even if it was used all the time. After 900 ms a value with a limit of 500 ms is gone. Use it when the value goes <strong>stale</strong>: a price list, a weather report, a result of a query that can change.</p>
 <h3 id="sliding-expiration">Sliding expiration<a class="anchor" href="#sliding-expiration">#</a></h3>
@@ -354,7 +354,7 @@ nRuns = <span class="n">0</span>
 <h3 id="when-not-to-cache">When not to cache<a class="anchor" href="#when-not-to-cache">#</a></h3>
 <p>A cache gives <strong>old</strong> data on purpose. Do not cache what must be exact (a bank balance, a stock count at the moment of an order), give every value an expiration so that the worst case is a value that is only a few seconds old, and watch the size: a cache without a limit that keeps a value for every user is a memory leak (the tutorial <a href="tut-98-memory.html">Memory and the garbage collector</a>). Also remember that the cache lives <em>inside the program</em>: two copies of the program have two caches that can disagree.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
-<ul><li>a cache is a dictionary with expiration rules,</li><li><code>Set</code> and <code>GetOrCreate</code> are extension methods, called with <code>dnStatic</code>,</li><li>absolute expiration for stale data, sliding expiration for data in use,</li><li><code>GetOrCreate</code> with a Ring function as the factory,</li><li>remove entries when the data changes, and know what not to cache.</li></ul>
+<ul><li>a cache is a dictionary with expiration rules,</li><li><code>Set</code> and <code>GetOrCreate</code> are extension methods, called as methods of the cache,</li><li>absolute expiration for stale data, sliding expiration for data in use,</li><li><code>GetOrCreate</code> with a Ring function as the factory,</li><li>remove entries when the data changes, and know what not to cache.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Cache the result of a slow function (the tutorial <a href="tut-53-speed.html">Speed — measure first</a>) and measure the time of the first and the second call.</li><li>Combine a sliding and an absolute expiration for a session.</li><li>Count how often <code>GetOrCreate</code> found the value (a <em>hit</em>) and how often it made it (a <em>miss</em>) and print the hit rate.</li><li>Set a size limit (<code>MemoryCacheOptions.SizeLimit</code>) and see what happens when entries are added without a size.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>

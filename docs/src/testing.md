@@ -11,14 +11,15 @@ sh samples/UsingDotNet/tests/run.sh ring.exe
 
 `samples/UsingDotNet/tests/run.sh` runs:
 
-1. every `samples/UsingDotNet/tests/test_*.ring` (language bridge, collections, LINQ, system, IO, net, services, web, data, entity framework, keyboard, WPF...),
+1. every `samples/UsingDotNet/tests/test_*.ring` (language bridge, collections, LINQ, system, IO, net, services, web, data, entity framework, keyboard, WPF, your own assemblies...),
 2. the console samples,
-3. every Windows Forms and WPF sample with `--selftest`,
-4. every application with `--selftest`,
+3. every tutorial program (the ones with a window test themselves with `--selftest`, the others just have to run without an error),
+4. every Windows Forms and WPF sample with `--selftest`,
+5. every application with `--selftest`,
 
 and prints `0 failed` when everything passes. It needs the package `bin` folder on the PATH; the script adds it for you.
 
-Programs run four at a time, and the windows of the programs that run themselves are invisible and not in the taskbar, so the whole run takes about three minutes and does not take over your screen. While you work, run the **quick tier**, which is only the tests and the console samples and takes about 25 seconds:
+Programs run four at a time, and the windows of the programs that run themselves are invisible and not in the taskbar, so the whole run takes about four minutes and does not take over your screen. The tutorials about packages run `dotnet publish`: they need the .NET SDK and, the first time, the internet to get the packages; they run one at a time, because several builds together fail. A tutorial that makes errors on purpose says `# errors on purpose` on its first lines, and then only an error that was not caught fails it. While you work, run the **quick tier**, which is only the tests and the console samples and takes about 25 seconds:
 
 ```bash
 sh samples/UsingDotNet/tests/run.sh ring.exe --quick
@@ -36,7 +37,9 @@ Options: `--jobs N` runs N programs at the same time (`--jobs 1` runs them one a
 | `test_wpf.ring` | WPF |
 | `test_web.ring` | ASP.NET Core server |
 | `test_data*.ring` | Entity Framework: schema, relations, transactions, migrations, providers, queries, hooks, entities |
-| `test_userassembly.ring` | your own assemblies |
+| `test_userassembly.ring` | your own assemblies: generated classes, interfaces, explicit implementations, extension methods, enum parameters, renamed classes |
+| `test_import_folder.ring`, `test_classindex.ring`, `test_interface_members.ring` | loading generated classes from a folder, the class index, interfaces that inherit members |
+| `test_native_call.ring`, `test_handles.ring`, `test_overload_choice.ring`, `test_named.ring`, `test_guard.ring` | the native call path, the release of handles, the choice of an overload, named arguments, the managed pointers |
 
 ## dnAssert
 

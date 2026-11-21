@@ -45,7 +45,7 @@ cd ring/extensions/ringdotnet
 sh buildgcc.sh          # Linux (macOS: sh buildclang.sh); writes libring_dotnet.so to ring/lib
 ```
 
-The build needs the Ring headers and library (`ring/language/include` and `ring/lib`). Install the .NET **runtime** (not only the SDK) with the packages of your system or with the `dotnet-install` script, and for the web programs also the ASP.NET Core runtime. If `dotnet` is not in the usual place, set `DOTNET_ROOT`. The extension finds the managed files in `ring/bin` when they are not next to the library. Windows Forms and WPF programs need Windows; everything else (text, files, collections, JSON, XML, HTTP, sockets, tasks, databases with Entity Framework and SQLite, the web server) runs the same way.
+The build needs the Ring headers and library (`ring/language/include` and `ring/lib`). Install the .NET **runtime** (not only the SDK) with the packages of your system or with the `dotnet-install` script, and for the web programs also the ASP.NET Core runtime. The .NET **SDK** is needed only to build a project: the packages of the package lessons (`dotnet publish`) and your own C# libraries. If `dotnet` is not in the usual place, set `DOTNET_ROOT`. The extension finds the managed files in `ring/bin` when they are not next to the library. Windows Forms and WPF programs need Windows; everything else (text, files, collections, JSON, XML, HTTP, sockets, tasks, databases with Entity Framework and SQLite, the web server) runs the same way.
 
 ## Your first program
 

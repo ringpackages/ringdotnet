@@ -48,16 +48,18 @@ cd tools/dotnettools
 ring wrapassembly.ring path/to/MyLibrary.dll ../../myclasses
 ```
 
-generates Ring classes (with inheritance, properties, events, enums as strings) for every public class of the assembly, one loader per namespace. Use them with:
+generates Ring classes (with inheritance, properties, events, enums as strings, and the extension methods of the types) for every public class of the assembly, a loader and a class file for each namespace. Use them with:
 
 ```ring
 load "dotnet.ring"
-dnLoad("path/to/MyLibrary.dll")                  # dependencies are found next to the dll (copy a NuGet package's dll files there)
+dnLoad("path/to/MyLibrary.dll")                  # dependencies are found next to the dll (dotnet publish collects a NuGet package with them)
 dnImportFrom("myclasses/","MyCompany.Tools")
 oCalc = new Calculator()
 ```
 
 `samples/UsingDotNet/tests/UserLib` is a complete example (`samples/UsingDotNet/tests/test_userassembly.ring`). Without generated classes any assembly is usable through `dnType("Namespace.Type")`, `dnNew()` and `callMethod()`.
+
+A NuGet package comes to Ring in four steps: a project file with a `PackageReference`, `dotnet publish -o libs` (the package, the DLLs it needs and its native libraries, which the bridge finds in `runtimes/<system>-<architecture>/native`), `wrapassembly.ring`, then `dnLoad` and `dnImportFrom`. The tutorials from *A NuGet package* on show it with Newtonsoft.Json, QRCoder, ClosedXML, SkiaSharp, PDFsharp, System.Speech, and a project with CsvHelper, LiteDB and ClosedXML. A class of the assembly with the name of a class of the library gets the prefix of its namespace (`YamlDotNet.Core.Version` is `CoreVersion`) and the generator lists the renames.
 
 ## using
 
@@ -87,7 +89,7 @@ new Console().WriteLine("Hi")
 ? new Math().Max(3,9)                   # static members are called on an instance
 ```
 
-A Ring method has one parameter list, so a .NET method name with several overloads is **one Ring method with one parameter**: `Name(NULL)` calls the parameterless overload, `Name(value)` the overload with one parameter, and `Name([ :param = value ])` chooses the overload by the .NET parameter names (`Round([ :value = x, :digits = 2 ])`, `@Next([ :minValue = 1, :maxValue = 10 ])`). A `params` array takes a plain list (`Combine(["a","b","c"])`). `ToString()` keeps its parameterless form; its forms with parameters are `Format` (`oDate.Format("yyyy-MM-dd")`). Constructors: `init` is the parameterless or shortest one, the others are `@New([ :param = value ])` (or `dnNew("Class",[ :param = value ])`). A name whose overloads all have the same number of parameters (`Math.Max(a,b)`) stays positional.
+A Ring method has one parameter list, so a .NET method name with several overloads is **one Ring method with one parameter**: `Name(NULL)` calls the parameterless overload, `Name(value)` the overload with one parameter, and `Name([ :param = value ])` chooses the overload by the .NET parameter names (`Round([ :value = x, :digits = 2 ])`, `@Next([ :minValue = 1, :maxValue = 10 ])`). A `params` array takes a plain list (`Combine(["a","b","c"])`). `ToString()` keeps its parameterless form; its forms with parameters are `Format` (`oDate.Format("yyyy-MM-dd")`). Names that are Ring keywords start with `@` (`@New`, `@Next`, `@Load`, as C# writes `@class`). Extension methods are methods of the extended type (`oTable.AddColumn("Name")`). Constructors: `init` is the parameterless or shortest one, the others are `@New([ :param = value ])` (or `dnNew("Class",[ :param = value ])`). A name whose overloads all have the same number of parameters (`Math.Max(a,b)`) stays positional.
 
 Types with classes: see the manifest. Among them the closed generic collections StringList, NumberList, ObjectList (`List<T>`), StringDictionary, NumberDictionary, ObjectDictionary (`Dictionary<string,T>`), StringSet, StringQueue, StringStack. Indexers become `Item(index)` / `SetItem(index,value)`; `toList()` copies a collection to a Ring list:
 

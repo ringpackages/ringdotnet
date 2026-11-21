@@ -261,7 +261,7 @@ oCalc.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[<span clas
 <p>Generate Ring classes for every public type of the DLL:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>cd tools/dotnettools
 ring wrapassembly.ring path/to/MyLibrary.dll ../../myclasses</code></pre></div>
-<p>This writes one loader per namespace and one file per class into <code>myclasses/</code>. Use them like any other wrapped namespace:</p>
+<p>This writes two files for each namespace into <code>myclasses/</code>: a loader and the classes (and <code>classindex.ring</code>, the index of the classes, when every namespace is wrapped). Use them like any other wrapped namespace:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnLoad</span>(<span class="s">"path/to/MyLibrary.dll"</span>)
 <span class="f">dnImportFrom</span>(<span class="s">"myclasses/"</span>,<span class="s">"MyCompany.Tools"</span>)
@@ -373,6 +373,18 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 		<span class="k">public</span> <span class="k">static</span> <span class="k">string</span> <span class="t">Describe</span>(this <span class="t">Calculator</span> calc, <span class="k">string</span> format) { <span class="k">return</span> <span class="k">string</span>.<span class="f">Format</span>(format, calc.Total); }
 		<span class="k">public</span> <span class="k">static</span> <span class="k">string</span> <span class="t">Add</span>(this <span class="t">Calculator</span> calc, <span class="k">string</span> first, <span class="k">string</span> second) { <span class="k">return</span> first + second; }
 	}
+	<span class="c">// An extension method of an interface is a method of the classes that implement it (Circle) and of the interfaces that inherit it (IBox).</span>
+	<span class="k">public</span> <span class="k">class</span> <span class="t">Circle</span> : IShape
+	{
+		<span class="k">public</span> <span class="k">string</span> <span class="t">Name</span> { <span class="k">get</span>; <span class="k">set</span>; } = <span class="s">"circle"</span>;
+		<span class="k">public</span> <span class="k">double</span> <span class="t">Radius</span> { <span class="k">get</span>; <span class="k">set</span>; } = <span class="n">1</span>;
+		<span class="k">public</span> <span class="k">double</span> <span class="t">Area</span>() { <span class="k">return</span> Math.PI * <span class="t">Radius</span> * Radius; }
+	}
+
+	<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> ShapeExtensions
+	{
+		<span class="k">public</span> <span class="k">static</span> <span class="k">string</span> <span class="t">Label</span>(this <span class="t">IShape</span> shape, <span class="k">string</span> prefix) { <span class="k">return</span> prefix + shape.Name; }
+	}
 }</code></pre></div></details>
 <details class="src"><summary>samples/UsingDotNet/tests/test_userassembly.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tests/test_userassembly.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your own assemblies: tools/dotnettools/wrapassembly.ring generates the classes, dnImportFrom() loads them</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
@@ -438,6 +450,10 @@ oBox = <span class="k">new</span> <span class="t">Shapes</span>().<span class="f
 oBox.Name = <span class="s">"big"</span>
 <span class="f">dnAssert</span>(<span class="s">"an inherited property can be set"</span>,oBox.Name,<span class="s">"big"</span>)
 
+<span class="c"># an extension method of an interface is a method of the classes that implement it and of the interfaces that inherit it</span>
+<span class="f">dnAssert</span>(<span class="s">"a class gets the extension methods of its interface"</span>,<span class="k">new</span> <span class="t">Circle</span>().<span class="f">Label</span>(<span class="s">"a "</span>),<span class="s">"a circle"</span>)
+<span class="f">dnAssert</span>(<span class="s">"an interface gets the extension methods of the interface it inherits"</span>,oBox.<span class="f">Label</span>(<span class="s">"a "</span>),<span class="s">"a big"</span>)
+
 oCounter = <span class="k">new</span> <span class="t">Counter</span>()
 oCounter.<span class="f">Increment</span>()
 oCounter.<span class="f">Increment</span>()
@@ -454,11 +470,19 @@ nFail = <span class="f">dnTestSummary</span>()</code></pre></div></details>
 <span class="f">dnImportFrom</span>(<span class="s">"json/"</span>,<span class="s">"Newtonsoft.Json.Linq"</span>)      <span class="c"># a namespace that needs another namespace of the same DLL loads it from the same folder</span>
 <span class="f">dnImportFrom</span>(<span class="s">"json/"</span>,<span class="s">"Newtonsoft.Json"</span>)</code></pre></div>
 <p>The tutorial <a href="tut-162-nuget.html">A NuGet package</a> walks through this with a real package.</p>
+<p>A package often needs other DLLs and, sometimes, native libraries. <code>dotnet publish</code> copies both: the native libraries are in <code>runtimes/&lt;system&gt;-&lt;architecture&gt;/native</code> next to the DLL, and the bridge finds them there. The lessons from <a href="tut-162-nuget.html">A NuGet package</a> on use real packages: <a href="tut-165-qr.html">A QR code</a>, <a href="tut-167-excel.html">Excel files</a>, <a href="tut-168-pictures.html">Pictures on every system</a>, <a href="tut-169-pdf.html">PDF files</a>, <a href="tut-170-speech.html">Text to speech</a>, and <a href="tut-171-csv-to-excel.html">a project with three packages</a>.</p>
 <p>Entity Framework Core is wrapped the same way — that is how its classes were generated.</p>
+<h2 id="extension-methods">Extension methods<a class="anchor" href="#extension-methods">#</a></h2>
+<p>An extension method of a type that is wrapped in the same run is a method of the Ring class of that type, so a fluent API reads as it does in C#:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oTable = <span class="k">new</span> <span class="t">Table</span>()
+oTable.<span class="f">AddColumn</span>(<span class="s">"Name"</span>)            <span class="c"># TableExtensions.AddColumn(oTable, "Name")</span>
+oTable.<span class="f">AddRow</span>([<span class="s">"Ann"</span>,<span class="s">"31"</span>])</code></pre></div>
+<p>The classes that implement an interface get the extension methods of the interface. <code>wrapassembly.ring</code> wraps one assembly at a time, so the extension methods of a type of <strong>another</strong> assembly (a sink of Serilog that extends a class of Serilog itself), and of a type that has no class (a generic type, <code>string</code>), are static calls: <code>new StringHumanizeExtensions().Humanize("PascalCaseText")</code>.</p>
 <h2 id="which-namespaces-to-wrap">Which namespaces to wrap<a class="anchor" href="#which-namespaces-to-wrap">#</a></h2>
 <p><code>wrapassembly.ring &lt;dll&gt; &lt;folder&gt; [namespace ...]</code> wraps only the namespaces you list. Without names, every namespace of the assembly is wrapped.</p>
+<p>Several assemblies can go into one folder (the index of the classes keeps the types of all of them when each one is wrapped without names), or each one into a folder of its own, as the project lesson does for its three packages. An object that comes back from a namespace that was not imported is wrapped when the folder has the index: its namespace is loaded from that folder.</p>
 <h2 id="rules">Rules<a class="anchor" href="#rules">#</a></h2>
-<ul><li>Generated loaders use the names of the .NET classes. When a class name is also a name Ring or another namespace already uses, the generator can add a prefix — see <a href="generator.html">Class generator</a>.</li><li>Keep the DLL and its dependencies in one folder: assemblies are resolved next to the DLL you load.</li><li>The runtime mode matters: a DLL that needs Windows Forms requires the desktop mode first (a <code>using</code> block that names <code>System.Windows.Forms</code>, or <code>dnUseDesktop()</code>).</li></ul>
+<ul><li>Generated loaders use the names of the .NET classes. When a class name is also the name of a class of the library, or of another namespace of the same assembly, the generator adds the prefix of its namespace (<code>CoreVersion</code>) and lists the renames — see <a href="generator.html">Class generator</a>.</li><li>Keep the DLL and its dependencies in one folder: assemblies are resolved next to the DLL you load.</li><li>The runtime mode matters: a DLL that needs Windows Forms requires the desktop mode first (a <code>using</code> block that names <code>System.Windows.Forms</code>, or <code>dnUseDesktop()</code>).</li></ul>
 <h2 id="where-to-go-next">Where to go next<a class="anchor" href="#where-to-go-next">#</a></h2>
 <ul><li><a href="generator.html">Class generator</a>: how the wrapper classes are made, and how to make more.</li><li>The tutorial chapter <a href="tutorials.html#libraries-testing-and-release">Libraries, testing and release</a>.</li></ul>
 <div class="pager"><a href="ef-reference.html"><small>Previous</small>Entity Framework reference</a><a class="next" href="generator.html"><small>Next</small>Class generator</a></div>

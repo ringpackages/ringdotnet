@@ -41,7 +41,7 @@ In the real world the issuer is a **certificate authority** (CA) that your compu
 
 ### Signing and verifying
 
-The owner takes the private key out of the certificate (`RSACertificateExtensions.GetRSAPrivateKey`) and signs the data; anybody with the **public** certificate verifies it with `GetRSAPublicKey` and `VerifyData`. The signature has 256 bytes for a 2048-bit key. A changed message is refused, and the public-only certificate cannot sign at all (it has no private key). The two helper methods are extension methods, so they are called with `dnStatic` (the tutorial [Caching](tut-109-memory-cache.html)).
+The owner takes the private key out of the certificate (`oCertificate.GetRSAPrivateKey()`, an extension method of the certificate) and signs the data; anybody with the **public** certificate verifies it with `GetRSAPublicKey` and `VerifyData`. The signature has 256 bytes for a 2048-bit key. A changed message is refused, and the public-only certificate cannot sign at all (it has no private key). The two helper methods are extension methods, so they are called with `dnStatic` (the tutorial [Caching](tut-109-memory-cache.html)).
 
 ### Trust
 
