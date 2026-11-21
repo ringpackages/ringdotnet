@@ -341,8 +341,36 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 		<span class="k">public</span> <span class="k">int</span> <span class="t">Count</span>(char c) { <span class="k">int</span> n = <span class="n">0</span>; <span class="k">foreach</span> (char x <span class="k">in</span> text) <span class="k">if</span> (x == c) n++; <span class="k">return</span> n; }
 	}
 
+	<span class="c">// ref structs that a method returns: a ref struct enumerator is answered as a list of its items, a ref struct with a text method as the text</span>
+	<span class="k">public</span> <span class="k">ref</span> <span class="k">struct</span> WordEnumerator
+	{
+		<span class="k">private</span> ReadOnlySpan&lt;char&gt; rest;
+		<span class="k">public</span> <span class="t">WordEnumerator</span>(ReadOnlySpan&lt;char&gt; text) { rest = text; <span class="t">Current</span> = default; }
+		<span class="k">public</span> ReadOnlySpan&lt;char&gt; <span class="t">Current</span> { <span class="k">get</span>; <span class="k">private</span> <span class="k">set</span>; }
+		<span class="k">public</span> <span class="t">WordEnumerator</span> <span class="t">GetEnumerator</span>() { <span class="k">return</span> this; }
+		<span class="k">public</span> <span class="k">bool</span> <span class="t">MoveNext</span>()
+		{
+			rest = rest.<span class="f">TrimStart</span>();
+			<span class="k">if</span> (rest.IsEmpty) <span class="k">return</span> <span class="k">false</span>;
+			<span class="k">int</span> end = rest.<span class="f">IndexOf</span>(<span class="s">' '</span>);
+			<span class="k">if</span> (end &lt; <span class="n">0</span>) end = rest.Length;
+			<span class="t">Current</span> = rest.<span class="f">Slice</span>(<span class="n">0</span>, end);
+			rest = rest.<span class="f">Slice</span>(end);
+			<span class="k">return</span> <span class="k">true</span>;
+		}
+	}
+
+	<span class="k">public</span> <span class="k">readonly</span> <span class="k">ref</span> <span class="k">struct</span> Label
+	{
+		<span class="k">private</span> <span class="k">readonly</span> ReadOnlySpan&lt;char&gt; name;
+		<span class="k">public</span> <span class="t">Label</span>(ReadOnlySpan&lt;char&gt; name) { this.name = name; }
+		<span class="k">public</span> <span class="k">string</span> <span class="t">Render</span>() { <span class="k">return</span> <span class="s">"["</span> + name.<span class="f">ToString</span>() + <span class="s">"]"</span>; }
+	}
+
 	<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> Spans
 	{
+		<span class="k">public</span> <span class="k">static</span> <span class="t">WordEnumerator</span> <span class="t">Words</span>(<span class="k">string</span> text) { <span class="k">return</span> <span class="k">new</span> <span class="t">WordEnumerator</span>(text); }
+		<span class="k">public</span> <span class="k">static</span> <span class="t">Label</span> <span class="t">MakeLabel</span>(<span class="k">string</span> name) { <span class="k">return</span> <span class="k">new</span> <span class="t">Label</span>(name); }
 		<span class="k">public</span> <span class="k">static</span> <span class="k">int</span> <span class="t">CursorLength</span>(<span class="t">Cursor</span> cursor) { <span class="k">return</span> cursor.Length; }
 		<span class="k">public</span> <span class="k">static</span> <span class="k">int</span> <span class="t">CountOf</span>(<span class="k">ref</span> <span class="t">Cursor</span> cursor, char c) { <span class="k">return</span> cursor.<span class="f">Count</span>(c); }
 		<span class="c">/* a Span result: answered as an array (a text for char) */</span>

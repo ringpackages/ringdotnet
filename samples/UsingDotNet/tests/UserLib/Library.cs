@@ -61,8 +61,36 @@ namespace MyCompany.Tools
 		public int Count(char c) { int n = 0; foreach (char x in text) if (x == c) n++; return n; }
 	}
 
+	// ref structs that a method returns: a ref struct enumerator is answered as a list of its items, a ref struct with a text method as the text
+	public ref struct WordEnumerator
+	{
+		private ReadOnlySpan<char> rest;
+		public WordEnumerator(ReadOnlySpan<char> text) { rest = text; Current = default; }
+		public ReadOnlySpan<char> Current { get; private set; }
+		public WordEnumerator GetEnumerator() { return this; }
+		public bool MoveNext()
+		{
+			rest = rest.TrimStart();
+			if (rest.IsEmpty) return false;
+			int end = rest.IndexOf(' ');
+			if (end < 0) end = rest.Length;
+			Current = rest.Slice(0, end);
+			rest = rest.Slice(end);
+			return true;
+		}
+	}
+
+	public readonly ref struct Label
+	{
+		private readonly ReadOnlySpan<char> name;
+		public Label(ReadOnlySpan<char> name) { this.name = name; }
+		public string Render() { return "[" + name.ToString() + "]"; }
+	}
+
 	public static class Spans
 	{
+		public static WordEnumerator Words(string text) { return new WordEnumerator(text); }
+		public static Label MakeLabel(string name) { return new Label(name); }
 		public static int CursorLength(Cursor cursor) { return cursor.Length; }
 		public static int CountOf(ref Cursor cursor, char c) { return cursor.Count(c); }
 		/* a Span result: answered as an array (a text for char) */

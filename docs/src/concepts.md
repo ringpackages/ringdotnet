@@ -260,6 +260,14 @@ Exceptions and attributes have classes too: an exception that .NET gives back (`
 
 A `Span<T>` that comes back is an array (a text for `char`, a byte string for `byte`), and a span passed by reference (`ref` or `out`) is read from the array you give and answered as an array, after the result. A ref struct of a library (`MessagePackWriter`, `Utf8JsonReader`, a parser cursor) cannot be held by Ring, so the bridge makes it for the call from one value, with its public `op_Implicit` or a constructor whose first parameter takes it (a text, bytes, an object such as an `IBufferWriter`); what the method does to the struct is lost, and a ref struct that has no such value, or that is only an `out` parameter, is still out of reach.
 
+A ref struct that a method **returns** cannot be held by Ring either, so the bridge reads it in one go and answers what it holds: an **array** when it has a `ToArray` method, a **list of its items** when it is an enumerator or has `GetEnumerator` (`foreach`: `EnumerateLines`, `EnumerateCodePoints`; an item that is a span is a text or an array), or a **text** when it has one method without parameters that returns a string (`ToString`, `utf8_to_string`).
+
+```ring
+aLines = dnStatic("System.MemoryExtensions","EnumerateLines",["one" + nl + "two"])
+? len(aLines)      # 2
+? aLines[2]        # two
+```
+
 A pointer parameter (`byte*`, `char*`, `void*`, `int*`) takes an address or a buffer. A **number** is the address (from `NativeMemory.Alloc`, `Marshal.AllocHGlobal`, a native library); a **text**, a **byte string**, a **list** of numbers or a **ByteBuffer** is a buffer that is pinned for the call, so the method can read it (a text and a byte string end with a zero, for C strings) and a ByteBuffer is the live array that the method may fill. The address of a buffer is valid during the call only: a method that keeps the pointer needs memory that you allocate. A pointer that a method returns is its address, a number.
 
 ```ring

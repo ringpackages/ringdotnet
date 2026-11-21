@@ -18,6 +18,7 @@
     231  OK   property: indexer with one index (Item, SetItem)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.Linq.IJEnumerable`1[[Newtonsoft.Json.Linq.JToken, Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed]].Item
     198  OK   type: delegate (a callback in Ring)   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.Serialization.SerializationCallback
     176  OK   event: setXXXEvent / clearXXXEvent   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.JsonSerializer.Error
+     35  OK   method: ref struct result (answered as an array, a list of its items or a text)   e.g. SixLabors.Fonts.dll: SixLabors.Fonts.Unicode.MemoryExtensions.EnumerateCodePoints
      35  OK   method: Span result (an array in Ring)   e.g. CsvHelper.dll: CsvHelper.CsvDynamicRecord.GetSpan
       1  OK   method: pointer parameter (an address, or a buffer pinned for the call)   e.g. SkiaSharp.dll: SkiaSharp.SKImageFilter.CreateMerge
   74121  INFO method: public methods   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.DefaultJsonNameTable.Get
@@ -40,7 +41,6 @@
      52  INFO method: not callable (Span or other ref struct parameter), but another overload of the name is   e.g. CsvHelper.dll: CsvHelper.CsvEnumExtensions.Parse
      60  GAP  method: not callable (Span or other ref struct parameter), no other overload of the name   e.g. CsvHelper.dll: CsvHelper.CsvEnumExtensions.ParseOrNull
      44  GAP  property: ref property   e.g. RBush.dll: RBush.ISpatialData.Envelope
-     35  GAP  method: ref struct result   e.g. SixLabors.Fonts.dll: SixLabors.Fonts.Unicode.MemoryExtensions.EnumerateCodePoints
      32  GAP  ctor: not callable (pointer or ref struct parameter)   e.g. NLog.dll: NLog.LogEventInfo..ctor
      31  GAP  property: pointer or ref struct type   e.g. CsvHelper.dll: CsvHelper.CsvReader.Item
      30  GAP  method: operator that Ring has no syntax for (op_Increment, op_True ...)   e.g. Humanizer.dll: Humanizer.ByteSize.op_Increment

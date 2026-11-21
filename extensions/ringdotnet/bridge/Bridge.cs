@@ -1112,11 +1112,117 @@ namespace RingDotNet
 			return factory.GetParameters()[0].ParameterType;
 		}
 
-		/* A method that is called through IL (see InvokeWithSpans): a Span or ref struct parameter, or a Span result */
+		/* A method that is called through IL (see InvokeWithSpans): a Span or ref struct parameter, or a Span or ref struct result */
 		private static bool UsesIl(MethodBase m)
 		{
 			return m.GetParameters().Any(p => { Type t = Unwrap(p.ParameterType); return IsSpan(t, out _, out _) || (t.IsByRefLike && RefStructFactory(t) != null); })
-				|| (m is MethodInfo mi && IsSpan(mi.ReturnType, out _, out _));
+				|| (m is MethodInfo mi && (IsSpan(mi.ReturnType, out _, out _) || (mi.ReturnType.IsByRefLike && ResultPlanOf(mi.ReturnType) != null)));
+		}
+
+		/* A ref struct that a method returns cannot be boxed. It is answered as what it holds when it can be read in one go: an array (a ToArray
+		   method), a list of its items (a ref struct enumerator, or one with GetEnumerator: foreach), or a text (the one method without parameters
+		   that returns a string: ToString, utf8_to_string). */
+		internal sealed class ResultPlan
+		{
+			public string Kind;            // "array", "list", "text"
+			public MethodInfo Method;      // ToArray, or the method that gives the text, or GetEnumerator (null when the struct is the enumerator)
+			public Type Enumerator;
+			public MethodInfo MoveNext, Current;
+		}
+
+		private static readonly System.Collections.Concurrent.ConcurrentDictionary<Type, ResultPlan> ResultPlans =
+			new System.Collections.Concurrent.ConcurrentDictionary<Type, ResultPlan>();
+
+		internal static ResultPlan ResultPlanOf(Type refStruct)
+		{
+			return ResultPlans.GetOrAdd(refStruct, FindResultPlan);
+		}
+
+		private static ResultPlan FindResultPlan(Type r)
+		{
+			const BindingFlags own = BindingFlags.Public | BindingFlags.Instance;
+			MethodInfo toArray = r.GetMethod("ToArray", own, null, Type.EmptyTypes, null);
+			if (toArray != null && toArray.ReturnType.IsArray) return new ResultPlan { Kind = "array", Method = toArray };
+			MethodInfo getEnumerator = r.GetMethod("GetEnumerator", own, null, Type.EmptyTypes, null);
+			Type enumerator = getEnumerator != null ? getEnumerator.ReturnType : r;
+			MethodInfo moveNext = enumerator.GetMethod("MoveNext", own, null, Type.EmptyTypes, null);
+			PropertyInfo current = enumerator.GetProperty("Current", own);
+			if (moveNext != null && moveNext.ReturnType == typeof(bool) && current?.GetMethod != null && !(current.PropertyType.IsByRefLike && !IsSpan(current.PropertyType, out _, out _)))
+			{
+				return new ResultPlan { Kind = "list", Method = getEnumerator, Enumerator = enumerator, MoveNext = moveNext, Current = current.GetMethod };
+			}
+			MethodInfo text = r.GetMethod("ToString", own, null, Type.EmptyTypes, null);
+			if (text == null || text.DeclaringType != r)
+			{
+				MethodInfo[] texts = r.GetMethods(own | BindingFlags.DeclaredOnly).Where(x => x.ReturnType == typeof(string) && x.GetParameters().Length == 0 && !x.IsSpecialName).ToArray();
+				text = texts.Length == 1 ? texts[0] : null;
+			}
+			return text != null ? new ResultPlan { Kind = "text", Method = text } : null;
+		}
+
+		/* an item of the list that a ref struct enumerator gives: a char array is a text */
+		public static void AddResultItem(List<object> list, object item)
+		{
+			list.Add(item is char[] chars ? new string(chars) : item);
+		}
+
+		private static void EmitInstanceCall(System.Reflection.Emit.ILGenerator il, System.Reflection.Emit.LocalBuilder local, MethodInfo method)
+		{
+			if (local.LocalType.IsValueType)
+			{
+				il.Emit(System.Reflection.Emit.OpCodes.Ldloca, local);
+				il.Emit(System.Reflection.Emit.OpCodes.Call, method);
+			}
+			else
+			{
+				il.Emit(System.Reflection.Emit.OpCodes.Ldloc, local);
+				il.Emit(System.Reflection.Emit.OpCodes.Callvirt, method);
+			}
+		}
+
+		/* the ref struct on the stack becomes the object that is answered */
+		private static void EmitRefStructResult(System.Reflection.Emit.ILGenerator il, Type refStruct)
+		{
+			ResultPlan plan = ResultPlanOf(refStruct);
+			System.Reflection.Emit.LocalBuilder value = il.DeclareLocal(refStruct);
+			il.Emit(System.Reflection.Emit.OpCodes.Stloc, value);
+			if (plan.Kind == "array" || plan.Kind == "text")
+			{
+				il.Emit(System.Reflection.Emit.OpCodes.Ldloca, value);
+				il.Emit(System.Reflection.Emit.OpCodes.Call, plan.Method);
+				return;
+			}
+			System.Reflection.Emit.LocalBuilder list = il.DeclareLocal(typeof(RingList));
+			il.Emit(System.Reflection.Emit.OpCodes.Newobj, typeof(RingList).GetConstructor(Type.EmptyTypes));
+			il.Emit(System.Reflection.Emit.OpCodes.Stloc, list);
+			System.Reflection.Emit.LocalBuilder enumerator = il.DeclareLocal(plan.Enumerator);
+			if (plan.Method != null)
+			{
+				il.Emit(System.Reflection.Emit.OpCodes.Ldloca, value);
+				il.Emit(System.Reflection.Emit.OpCodes.Call, plan.Method);
+			}
+			else il.Emit(System.Reflection.Emit.OpCodes.Ldloc, value);
+			il.Emit(System.Reflection.Emit.OpCodes.Stloc, enumerator);
+			System.Reflection.Emit.Label top = il.DefineLabel();
+			System.Reflection.Emit.Label end = il.DefineLabel();
+			il.MarkLabel(top);
+			EmitInstanceCall(il, enumerator, plan.MoveNext);
+			il.Emit(System.Reflection.Emit.OpCodes.Brfalse, end);
+			il.Emit(System.Reflection.Emit.OpCodes.Ldloc, list);
+			EmitInstanceCall(il, enumerator, plan.Current);
+			Type item = plan.Current.ReturnType;
+			if (IsSpan(item, out _, out _))
+			{
+				System.Reflection.Emit.LocalBuilder span = il.DeclareLocal(item);
+				il.Emit(System.Reflection.Emit.OpCodes.Stloc, span);
+				il.Emit(System.Reflection.Emit.OpCodes.Ldloca, span);
+				il.Emit(System.Reflection.Emit.OpCodes.Call, item.GetMethod("ToArray", Type.EmptyTypes));
+			}
+			else if (item.IsValueType) il.Emit(System.Reflection.Emit.OpCodes.Box, item);
+			il.Emit(System.Reflection.Emit.OpCodes.Call, typeof(Bridge).GetMethod("AddResultItem"));
+			il.Emit(System.Reflection.Emit.OpCodes.Br, top);
+			il.MarkLabel(end);
+			il.Emit(System.Reflection.Emit.OpCodes.Ldloc, list);
 		}
 
 		/* A parameter that Ring does not give as it is: the overloads with it are listed only when no other overload of the name has a plain form */
@@ -1251,6 +1357,7 @@ namespace RingDotNet
 				il.Emit(System.Reflection.Emit.OpCodes.Ldloca, span);
 				il.Emit(System.Reflection.Emit.OpCodes.Call, m.ReturnType.GetMethod("ToArray", Type.EmptyTypes));
 			}
+			else if (m.ReturnType.IsByRefLike) EmitRefStructResult(il, m.ReturnType);
 			else if (m.ReturnType.IsValueType) il.Emit(System.Reflection.Emit.OpCodes.Box, m.ReturnType);
 			il.Emit(System.Reflection.Emit.OpCodes.Stloc, result);
 			for (int i = 0; i < ps.Length; i++)
@@ -2528,7 +2635,7 @@ namespace RingDotNet
 			bool spanCall = UsesIl(m);
 			object returned = spanCall ? InvokeWithSpans(m, instance, conv) : m.Invoke(instance, conv);
 			if (m.ReturnType.IsPointer) returned = PointerResult(returned);
-			if (spanCall && returned is char[] returnedChars && IsSpan(m.ReturnType, out _, out _)) returned = new string(returnedChars);
+			if (spanCall && returned is char[] returnedChars && m.ReturnType.IsByRefLike) returned = new string(returnedChars);
 			if (ByRefCount(m) == 0)
 			{
 				return returned;

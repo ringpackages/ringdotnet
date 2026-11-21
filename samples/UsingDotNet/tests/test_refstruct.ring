@@ -32,4 +32,13 @@ dnAssert("a span that is read and written",aSkip[1],"cdef")
 dnAssert("a ref struct parameter",dnStatic("MyCompany.Tools.Spans","CursorLength",["hello"]),5)
 dnAssert("a ref struct passed by reference",dnStatic("MyCompany.Tools.Spans","CountOf",["banana","a"]),3)
 
+# a ref struct that a method returns: an enumerator is a list of its items, a struct with a text method is the text
+aWords = dnStatic("MyCompany.Tools.Spans","Words",["  one two  three "])
+dnAssert("a ref struct enumerator, the number of items",len(aWords),3)
+dnAssert("a ref struct enumerator, an item (a ReadOnlySpan<char> is a text)",aWords[2],"two")
+dnAssert("a ref struct with a text method",dnStatic("MyCompany.Tools.Spans","MakeLabel",["total"]),"[total]")
+aLines = dnStatic("System.MemoryExtensions","EnumerateLines",["a" + nl + "bb" + nl + "ccc"])
+dnAssert("EnumerateLines of the library",len(aLines),3)
+dnAssert("EnumerateLines, an item",aLines[3],"ccc")
+
 dnTestSummary()
