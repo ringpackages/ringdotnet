@@ -3632,17 +3632,15 @@ Class IConventionEntityTypeBuilder from DotNetObject
 	Func UseSqlReturningClause P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite")
 		if dotnet_isnamed(P1)
-			dn_x = dotnet_calla("s9:callnamed",nHandle,"s21:UseSqlReturningClause",P1)
-		if islist(dn_x) return dnAny(dn_x) ok
-		return dn_x
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:UseSqlReturningClause",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UseSqlReturningClause",P1))
 
 	Func CanUseSqlReturningClause P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite")
 		if dotnet_isnamed(P1)
-			dn_x = dotnet_calla("s9:callnamed",nHandle,"s24:CanUseSqlReturningClause",P1)
-		if islist(dn_x) return dnAny(dn_x) ok
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanUseSqlReturningClause",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s24:CanUseSqlReturningClause",P1)
@@ -5072,17 +5070,15 @@ Class IConventionPropertyBuilder from DotNetObject
 	Func HasColumnName P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
-			dn_x = dotnet_calla("s9:callnamed",nHandle,"s13:HasColumnName",P1)
-		if islist(dn_x) return dnAny(dn_x) ok
-		return dn_x
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:HasColumnName",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:HasColumnName",P1))
 
 	Func CanSetColumnName P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
 		if dotnet_isnamed(P1)
-			dn_x = dotnet_calla("s9:callnamed",nHandle,"s16:CanSetColumnName",P1)
-		if islist(dn_x) return dnAny(dn_x) ok
+			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetColumnName",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s16:CanSetColumnName",P1)

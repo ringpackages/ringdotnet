@@ -574,6 +574,22 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 	{
 		<span class="k">public</span> <span class="k">static</span> <span class="k">int</span> <span class="t">CountShapes</span>(<span class="k">string</span> label, <span class="k">params</span> IShape[] shapes) { <span class="k">return</span> shapes.Length; }
 	}
+	<span class="c">// delegate types with extension methods (like Sprache's Parser&lt;T&gt;): an object of the delegate type gets a class, and the extension methods are its methods</span>
+	<span class="k">public</span> delegate <span class="k">int</span> <span class="t">Transform</span>(<span class="k">int</span> x);
+	<span class="k">public</span> delegate T Step&lt;T&gt;(T x);
+
+	<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> DelegateFactory
+	{
+		<span class="k">public</span> <span class="k">static</span> <span class="t">Transform</span> <span class="t">Increment</span>() { <span class="k">return</span> x =&gt; x + <span class="n">1</span>; }
+		<span class="k">public</span> <span class="k">static</span> Step&lt;<span class="k">string</span>&gt; <span class="t">Exclaim</span>() { <span class="k">return</span> x =&gt; x + <span class="s">"!"</span>; }
+	}
+
+	<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> DelegateExtensions
+	{
+		<span class="k">public</span> <span class="k">static</span> <span class="t">Transform</span> <span class="t">Twice</span>(this <span class="t">Transform</span> t) { <span class="k">return</span> x =&gt; t(t(x)); }
+		<span class="k">public</span> <span class="k">static</span> <span class="t">Transform</span> <span class="t">Plus</span>(this <span class="t">Transform</span> t, <span class="k">int</span> n) { <span class="k">return</span> x =&gt; t(x) + n; }
+		<span class="k">public</span> <span class="k">static</span> Step&lt;T&gt; Repeat&lt;T&gt;(this Step&lt;T&gt; s, <span class="k">int</span> times) { <span class="k">return</span> x =&gt; { <span class="k">for</span> (<span class="k">int</span> i = <span class="n">0</span>; i &lt; times; i++) x = s(x); <span class="k">return</span> x; }; }
+	}
 }</code></pre></div></details>
 <details class="src"><summary>samples/UsingDotNet/tests/test_userassembly.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tests/test_userassembly.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your own assemblies: tools/dotnettools/wrapassembly.ring generates the classes, dnImportFrom() loads them</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
@@ -753,6 +769,14 @@ oMoney = <span class="k">new</span> <span class="t">Money</span>().@<span class=
 <span class="f">dnAssert</span>(<span class="s">"a single object for a params array"</span>,<span class="f">dnStatic</span>(<span class="s">"MyCompany.Tools.ParamsTools"</span>,<span class="s">"CountShapes"</span>,[<span class="s">"x"</span>,<span class="k">new</span> <span class="t">Circle</span>()]),<span class="n">1</span>)
 <span class="f">dnAssert</span>(<span class="s">"a list for a params array"</span>,<span class="f">dnStatic</span>(<span class="s">"MyCompany.Tools.ParamsTools"</span>,<span class="s">"CountShapes"</span>,[<span class="s">"x"</span>,[<span class="k">new</span> <span class="t">Circle</span>(),<span class="k">new</span> <span class="t">Circle</span>()]]),<span class="n">2</span>)
 <span class="f">dnAssert</span>(<span class="s">"no objects for a params array"</span>,<span class="f">dnStatic</span>(<span class="s">"MyCompany.Tools.ParamsTools"</span>,<span class="s">"CountShapes"</span>,[<span class="s">"x"</span>]),<span class="n">0</span>)
+
+<span class="c"># a delegate type with extension methods has a class: the methods are called on the object</span>
+oIncrement = <span class="f">dnStatic</span>(<span class="s">"MyCompany.Tools.DelegateFactory"</span>,<span class="s">"Increment"</span>,[])
+<span class="f">dnAssert</span>(<span class="s">"a delegate object is called"</span>,oIncrement.<span class="f">Invoke</span>(<span class="n">5</span>),<span class="n">6</span>)
+<span class="f">dnAssert</span>(<span class="s">"an extension method of a delegate"</span>,oIncrement.<span class="f">Twice</span>().<span class="f">Invoke</span>(<span class="n">5</span>),<span class="n">7</span>)
+<span class="f">dnAssert</span>(<span class="s">"a chain of them"</span>,oIncrement.<span class="f">Twice</span>().<span class="f">Plus</span>(<span class="n">10</span>).<span class="f">Invoke</span>(<span class="n">0</span>),<span class="n">12</span>)
+oExclaim = <span class="f">dnStatic</span>(<span class="s">"MyCompany.Tools.DelegateFactory"</span>,<span class="s">"Exclaim"</span>,[])
+<span class="f">dnAssert</span>(<span class="s">"a generic delegate"</span>,oExclaim.<span class="f">Repeat</span>(<span class="n">3</span>).<span class="f">Invoke</span>(<span class="s">"hi"</span>),<span class="s">"hi!!!"</span>)
 
 nFail = <span class="f">dnTestSummary</span>()</code></pre></div></details>
 <h2 id="nuget-packages">NuGet packages<a class="anchor" href="#nuget-packages">#</a></h2>

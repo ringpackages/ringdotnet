@@ -2959,7 +2959,7 @@ Class MemoryMarshal from Object
 		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s10:CreateSpan",dnPackItem(P1) + dnPackItem(P2))
 
 	Func CreateReadOnlySpan P1,P2
-		return dnSend("s4:call",dnTypeHandle('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"s18:CreateReadOnlySpan",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib',"s18:CreateReadOnlySpan",P1,P2))
 
 	Func CreateReadOnlySpanFromNullTerminated P1
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib',"s36:CreateReadOnlySpanFromNullTerminated",P1))

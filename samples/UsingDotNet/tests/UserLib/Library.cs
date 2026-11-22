@@ -293,4 +293,20 @@ namespace MyCompany.Tools
 	{
 		public static int CountShapes(string label, params IShape[] shapes) { return shapes.Length; }
 	}
+	// delegate types with extension methods (like Sprache's Parser<T>): an object of the delegate type gets a class, and the extension methods are its methods
+	public delegate int Transform(int x);
+	public delegate T Step<T>(T x);
+
+	public static class DelegateFactory
+	{
+		public static Transform Increment() { return x => x + 1; }
+		public static Step<string> Exclaim() { return x => x + "!"; }
+	}
+
+	public static class DelegateExtensions
+	{
+		public static Transform Twice(this Transform t) { return x => t(t(x)); }
+		public static Transform Plus(this Transform t, int n) { return x => t(x) + n; }
+		public static Step<T> Repeat<T>(this Step<T> s, int times) { return x => { for (int i = 0; i < times; i++) x = s(x); return x; }; }
+	}
 }

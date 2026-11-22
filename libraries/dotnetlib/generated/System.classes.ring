@@ -5773,7 +5773,7 @@ Class Nullable from Object
 		return dnObj(dotnet_callo("s4:call",'System.Nullable, System.Private.CoreLib',"s17:GetUnderlyingType",P1))
 
 	Func GetValueRefOrDefaultRef P1
-		return dnSend("s4:call",dnTypeHandle('System.Nullable, System.Private.CoreLib'),"s23:GetValueRefOrDefaultRef",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Nullable, System.Private.CoreLib',"s23:GetValueRefOrDefaultRef",P1))
 
 
 Class OperatingSystem from Object

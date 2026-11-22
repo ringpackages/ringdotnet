@@ -25,6 +25,7 @@ lLazyUses = false
 aClassMap = []	# [canonical .NET name, Ring class name]
 aTaken = []	# [lowercase Ring class name, .NET name]
 aRenamed = []	# [class name, Ring class name given because of a clash]
+aDelegateDefinitions = []	# [a generic definition, is it a delegate type]
 aExtMap = []	# [.NET name of an extended type, [the extension methods as methods of that type]]
 cClassPrefix = ""	# :prefix of the namespace being resolved (used for names that are already taken)
 cLastRegister = ""
@@ -1244,6 +1245,14 @@ func findExtensions aPlan
 						cTarget = aMethod[4][1]
 						# a target with no class of its own (System.IServiceProvider) still counts: the classes that implement it get the methods
 						lTarget = (not substr(cTarget,"[")) and not (substr(cTarget,"`") and left(cTarget,7) = "System.")          # a generic definition counts (IValidator`1), the generic types of System do not (LINQ)
+						# a closed generic delegate type outside System (Sprache's Parser<IEnumerable<char>>) extends the class of its generic definition
+						nClosed = substr(cTarget,"[[")
+						if (not lTarget) and nClosed > 1 and substr(cTarget,"`") and left(cTarget,7) != "System." and right(cTarget,2) != "[]"
+							if isDelegateDefinition(left(cTarget,nClosed - 1))
+								cTarget = left(cTarget,nClosed - 1)
+								lTarget = true
+							ok
+						ok
 						if lTarget
 							aRest = []
 							for nParam = 2 to len(aMethod[4])
@@ -1265,6 +1274,24 @@ func findExtensions aPlan
 		next
 	next
 	? "Extension methods: " + nCount + " (" + len(aExtMap) + " extended types)"
+
+# Is the generic definition (Sprache.Parser`1) a delegate type? (remembered)
+func isDelegateDefinition cDefinition
+	nFound = find(aDelegateDefinitions,cDefinition,1)
+	if nFound > 0
+		return aDelegateDefinitions[nFound][2]
+	ok
+	lDelegate = false
+	try
+		aDefinition = dnDescribe(cDefinition)
+		if len(aDefinition) >= 14
+			lDelegate = aDefinition[14]
+		ok
+	catch
+		lDelegate = false
+	done
+	aDelegateDefinitions + [cDefinition,lDelegate]
+	return lDelegate
 
 # Generate the namespaces of aDotNetManifest (all of them when aWanted is empty) into C_OUTDIR
 func genAll aWanted

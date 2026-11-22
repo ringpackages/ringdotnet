@@ -1266,7 +1266,9 @@ Class Interlocked from Object
 		return dnSend("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Read P1
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s4:Read",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",'System.Threading.Interlocked, System.Private.CoreLib',"s4:Read",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func MemoryBarrierProcessWide 
 		dotnet_callv("s4:call",'System.Threading.Interlocked, System.Private.CoreLib',"s24:MemoryBarrierProcessWide")
@@ -3024,7 +3026,9 @@ Class Volatile from Object
 		return dn_x
 
 	Func Read P1
-		return dnSend("s4:call",dnTypeHandle('System.Threading.Volatile, System.Private.CoreLib'),"s4:Read",dnPackItem(P1))
+		dn_x = dotnet_call("s4:call",'System.Threading.Volatile, System.Private.CoreLib',"s4:Read",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
 
 	Func Write P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Threading.Volatile, System.Private.CoreLib'),"s5:Write",dnPackItem(P1) + dnPackItem(P2))

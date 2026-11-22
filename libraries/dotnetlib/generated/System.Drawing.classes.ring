@@ -6966,9 +6966,7 @@ Class Font from MarshalByRefObject
 
 	Func FromLogFont P1
 		if dotnet_isnamed(P1)
-			dn_x = dotnet_calla("s9:callnamed",'System.Drawing.Font, System.Drawing.Common',"s11:FromLogFont",P1)
-		if islist(dn_x) return dnAny(dn_x) ok
-		return dn_x
+			return dnObj(dotnet_callo("s9:callnamed",'System.Drawing.Font, System.Drawing.Common',"s11:FromLogFont",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.Font, System.Drawing.Common',"s11:FromLogFont",P1))
 

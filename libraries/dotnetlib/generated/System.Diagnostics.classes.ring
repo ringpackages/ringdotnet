@@ -511,11 +511,9 @@ Class Activity from Object
 
 	Func AddException P1
 		if dotnet_isnamed(P1)
-			dn_x = dotnet_calla("s9:callnamed",nHandle,"s12:AddException",P1)
-		if islist(dn_x) return dnAny(dn_x) ok
-		return dn_x
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AddException",P1))
 		ok
-		return dnSend("s4:call",nHandle,"s12:AddException",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddException",P1))
 
 	Func AddLink P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AddLink",P1))

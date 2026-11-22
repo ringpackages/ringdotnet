@@ -3360,7 +3360,7 @@ Class EfRelationalPropertyExtensions from Object
 		return dn_x
 
 	Func GetColumnNames P1,P2
-		return dnSend("s4:call",dnTypeHandle('Microsoft.EntityFrameworkCore.Infrastructure.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"s14:GetColumnNames",dnPackItem(P1) + dnPackItem(P2))
+		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational',"s14:GetColumnNames",P1,P2))
 
 
 Class RuntimeAnnotatableBase from Object

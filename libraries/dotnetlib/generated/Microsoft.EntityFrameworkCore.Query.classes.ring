@@ -3120,7 +3120,7 @@ Class QueryContext from Object
 		return dnSend("s4:call",nHandle,"s11:TryGetEntry",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func StartTracking P1,P2,P3
-		return dnSend("s4:call",nHandle,"s13:StartTracking",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:StartTracking",P1,P2,P3))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

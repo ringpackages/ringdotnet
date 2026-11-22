@@ -627,14 +627,12 @@ Class CoreTypeMapping from Object
 
 	Func Clone P1
 		if dotnet_isnamed(P1)
-			dn_x = dotnet_calla("s9:callnamed",nHandle,"s5:Clone",P1)
-		if islist(dn_x) return dnAny(dn_x) ok
-		return dn_x
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Clone",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnSend("s4:call",nHandle,"s5:Clone","")
+			return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 		ok
-		return dnSend("s4:call",nHandle,"s5:Clone",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone",P1))
 
 	Func GenerateCodeLiteral P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GenerateCodeLiteral",P1))
@@ -2364,7 +2362,7 @@ Class IRelationalTypeMappingSourcePlugin from DotNetObject
 		return self
 
 	Func FindMapping P1
-		return dnSend("s4:call",nHandle,"s11:FindMapping",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:FindMapping",P1))
 
 
 Class ISqlGenerationHelper from DotNetObject
@@ -2542,7 +2540,7 @@ Class ITypeMappingSourcePlugin from DotNetObject
 		return self
 
 	Func FindMapping P1
-		return dnSend("s4:call",nHandle,"s11:FindMapping",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:FindMapping",P1))
 
 
 Class MaterializationContext from ValueType
@@ -4287,7 +4285,7 @@ Class RelationalTypeMappingInfo from ValueType
 		return self
 
 	Func WithConverter P1
-		return dnSend("s4:call",nHandle,"s13:WithConverter",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:WithConverter",P1))
 
 	Func getCoreTypeMappingInfo
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:CoreTypeMappingInfo"))
@@ -4552,7 +4550,7 @@ Class TypeMappingInfo from ValueType
 		return self
 
 	Func WithConverter P1
-		return dnSend("s4:call",nHandle,"s13:WithConverter",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:WithConverter",P1))
 
 	Func getElementTypeMapping
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:ElementTypeMapping"))
@@ -4910,7 +4908,7 @@ Class RelationalTypeMapping from CoreTypeMapping
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:WithPrecisionAndScale",P1,P2))
 
 	Func WithTypeMappingInfo P1
-		return dnSend("s4:call",nHandle,"s19:WithTypeMappingInfo",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:WithTypeMappingInfo",P1))
 
 	Func CreateParameter P1
 		if dotnet_isnamed(P1)

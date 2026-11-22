@@ -177,4 +177,12 @@ dnAssert("a single object for a params array",dnStatic("MyCompany.Tools.ParamsTo
 dnAssert("a list for a params array",dnStatic("MyCompany.Tools.ParamsTools","CountShapes",["x",[new Circle(),new Circle()]]),2)
 dnAssert("no objects for a params array",dnStatic("MyCompany.Tools.ParamsTools","CountShapes",["x"]),0)
 
+# a delegate type with extension methods has a class: the methods are called on the object
+oIncrement = dnStatic("MyCompany.Tools.DelegateFactory","Increment",[])
+dnAssert("a delegate object is called",oIncrement.Invoke(5),6)
+dnAssert("an extension method of a delegate",oIncrement.Twice().Invoke(5),7)
+dnAssert("a chain of them",oIncrement.Twice().Plus(10).Invoke(0),12)
+oExclaim = dnStatic("MyCompany.Tools.DelegateFactory","Exclaim",[])
+dnAssert("a generic delegate",oExclaim.Repeat(3).Invoke("hi"),"hi!!!")
+
 nFail = dnTestSummary()

@@ -881,8 +881,9 @@ namespace RingDotNet
 					{
 						continue;
 					}
-					if (typeof(Delegate).IsAssignableFrom(t))
+					if (typeof(Delegate).IsAssignableFrom(t) && !HasExtensionMethods(t))
 					{
+						/* a delegate is a callback in Ring, and has no class, unless extension methods extend it (Sprache's Parser<T>) */
 						continue;
 					}
 					/* the types that the compiler makes (the marker types of C# 14 extension blocks: IArchiveEntryExtensions+<G>$E1C2...) have no Ring name */
@@ -1747,7 +1748,7 @@ namespace RingDotNet
 				/* a type that compares (IComparable, IComparable<T>) gets the operators < > <= >= by CompareTo, also when it has no op_LessThan */
 				if (!t.IsAbstract && t.GetInterfaces().Any(i => i == typeof(IComparable) || (i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IComparable<>))) && !operators.Contains("IComparable")) operators.Add("IComparable");
 			}
-			return new RingList { TName(definition ?? t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer, events, t.IsValueType, t.Assembly.GetName().Name, baseName, interfaces, operators, multiIndexers };
+			return new RingList { TName(definition ?? t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer, events, t.IsValueType, t.Assembly.GetName().Name, baseName, interfaces, operators, multiIndexers, typeof(Delegate).IsAssignableFrom(t) };
 		}
 
 		/* ---------------------------------------------------------------- IAsyncEnumerable
@@ -2892,6 +2893,22 @@ namespace RingDotNet
 				if (t.IsGenericType && t.GetGenericTypeDefinition() == definition) return true;
 			}
 			return type.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == definition);
+		}
+
+		/* Do extension methods extend this type (or, for a generic type, its definition)? Used for delegate types: a delegate gets a Ring class only then. */
+		private static bool HasExtensionMethods(Type t)
+		{
+			if (t == typeof(Delegate) || t == typeof(MulticastDelegate)) return false;          /* the base types of all delegates have no class */
+			ScanExtensions();
+			MethodInfo[] all;
+			lock (ExtensionSync) { all = ExtensionMethods.ToArray(); }
+			Type definition = t.IsGenericType ? t.GetGenericTypeDefinition() : t;
+			foreach (MethodInfo m in all)
+			{
+				Type first = Unwrap(m.GetParameters()[0].ParameterType);
+				if (first == t || (first.IsGenericType && first.GetGenericTypeDefinition() == definition)) return true;
+			}
+			return false;
 		}
 
 		private static MethodBase[] ExtensionsFor(Type target, string name)

@@ -64,6 +64,15 @@ oBig = new BigInteger().Parse("42")
 
 An indexer with several indexes (`matrix[row, column]`) takes the indexes as a list: `oMatrix.Item([1,2])` reads and `oMatrix.SetItem([1,2],4.5)` writes. A type that has a one-index indexer too keeps its plain form: `Item(1)`.
 
+## Delegate types with extension methods
+
+A delegate is a callback in Ring (`dnCallback`) and has no class of its own. A delegate type that extension methods extend does have one, as a library of parser combinators does (`Parser<T>` of Sprache): an object of that type has the extension methods as its methods, and `Invoke` calls the delegate itself.
+
+```ring
+oDigits = dnStatic("Sprache.Parse","Digit",[]).AtLeastOnce().Text()
+? oDigits.Parse("12345")
+```
+
 ## Spans
 
 A parameter of type `Span<T>` or `ReadOnlySpan<T>` takes what Ring has for an array: a text (`char`), a byte string or a list (`byte`, numbers), or an object that is an array. A `Span<T>` that the method fills takes a number, the size of a new buffer, or a buffer you made; the filled buffer is part of the answer, after the result and the `out` values (a list of bytes is a byte string, a list of chars a text).

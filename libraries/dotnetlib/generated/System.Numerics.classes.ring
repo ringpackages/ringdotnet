@@ -3124,11 +3124,9 @@ Class Vector from Object
 
 	Func LoadUnsafe P1
 		if dotnet_isnamed(P1)
-			dn_x = dotnet_calla("s9:callnamed",'System.Numerics.Vector, System.Private.CoreLib',"s10:LoadUnsafe",P1)
-		if islist(dn_x) return dnAny(dn_x) ok
-		return dn_x
+			return dnObj(dotnet_callo("s9:callnamed",'System.Numerics.Vector, System.Private.CoreLib',"s10:LoadUnsafe",P1))
 		ok
-		return dnSend("s4:call",dnTypeHandle('System.Numerics.Vector, System.Private.CoreLib'),"s10:LoadUnsafe",dnPackItem(P1))
+		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s10:LoadUnsafe",P1))
 
 	Func Log P1
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s3:Log",P1))
