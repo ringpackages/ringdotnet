@@ -99,7 +99,7 @@ oCanvas.show()                         # refresh the picture box
 
 ## Every control is available
 
-The helpers are optional. The whole of `System.Windows.Forms` (412 classes), `System.Drawing` and its sub-namespaces are wrapped, so you can use any control directly:
+The helpers are optional. The whole of `System.Windows.Forms` (454 classes), `System.Drawing` and its sub-namespaces are wrapped, so you can use any control directly:
 
 ```ring
 oTree = new TreeView()
