@@ -70,6 +70,28 @@ func reserveLibraryNames
 			ok
 		ok
 	next
+	# the classes that other assemblies already have in the output folder (several assemblies can share a folder: Spectre.Console and
+	# Spectre.Console.Testing both have a StringExtensions): their names are reserved too, except for the namespaces of this assembly,
+	# which are made again
+	rl_aOwn = []
+	for rl_aEntry in aDotNetManifest
+		rl_aOwn + rl_aEntry[:namespace]
+	next
+	if direxists(C_OUTDIR)
+		for rl_aFile in dir(C_OUTDIR)
+			rl_cName = rl_aFile[1]
+			if right(rl_cName,5) = ".ring" and not substr(rl_cName,".classes.ring") and rl_cName != "classindex.ring"
+				if find(rl_aOwn,left(rl_cName,len(rl_cName) - 5)) = 0
+					rl_aFileLines = str2list(read(C_OUTDIR + rl_cName))
+					for rl_cLine in rl_aFileLines
+						if left(rl_cLine,16) = 'dnRegisterClass('
+							rl_aLines + trim(rl_cLine)
+						ok
+					next
+				ok
+			ok
+		next
+	ok
 	rl_aReserved = []
 	rl_aNames = []          # the reserved names alone: find on a list of texts is fast
 	for rl_cLine in rl_aLines

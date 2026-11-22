@@ -49,7 +49,7 @@ Options: `--no-packages` leaves out the package tests, `--packages-only` runs on
 
 ## Package tests
 
-`samples/UsingDotNet/tests/packages/pkgtest_*.ring` are real programs against NuGet packages: Markdig, YamlDotNet, Humanizer, Jint, NodaTime, Math.NET Numerics, Bogus, Polly, and Dapper with Microsoft.Data.Sqlite. Each one asks `dnAssert` about what the package gives back (HTML, a deserialized list, a determinant, a retried call, rows from a query), so a change of the bridge that breaks a library fails here before it fails in a program.
+`samples/UsingDotNet/tests/packages/pkgtest_*.ring` are real programs against NuGet packages: Newtonsoft.Json, CsvHelper, SharpZipLib, HtmlAgilityPack, Serilog, Spectre.Console, Scriban, Markdig, YamlDotNet, Humanizer, Jint, NodaTime, Math.NET Numerics, Bogus, Polly, and Dapper with Microsoft.Data.Sqlite. Each one asks `dnAssert` about what the package gives back (HTML, a deserialized list, a determinant, a retried call, rows from a query), so a change of the bridge that breaks a library fails here before it fails in a program.
 
 A test starts with `pkgUse` from `packages/pkg.ring`:
 
@@ -59,7 +59,7 @@ pkgUse("markdig",[["Markdig","1.6.0"]],[["Markdig.dll",["Markdig","Markdig.Synta
 pkgImport("markdig","Markdig.dll","Markdig")
 ```
 
-`pkgUse` restores the packages with `dotnet publish` and makes the Ring classes of the DLLs (only the namespaces that you list: the classes of a type that a method returns must be in the list), and keeps both in `packages/.cache`, so only the first run is slow. The versions are pinned, so a test says what works with those versions. A computer that cannot reach nuget.org on the first run prints `SKIPPED` and the runner shows `skipped`, not `FAILED`. To add a package, copy one of the tests, and run `sh run.sh --packages-only`. The newest versions of many packages are audited by `tools/dotnettools/auditpackages.py` (see [The generator](generator.html)).
+`pkgUse` restores the packages with `dotnet publish` and makes the Ring classes of the DLLs (only the namespaces that you list: the classes of a type that a method returns must be in the list; a DLL listed with no namespaces is only loaded), and keeps both in `packages/.cache`, so only the first run is slow. The versions are pinned, so a test says what works with those versions. A computer that cannot reach nuget.org on the first run prints `SKIPPED` and the runner shows `skipped`, not `FAILED`. To add a package, copy one of the tests, and run `sh run.sh --packages-only`. The newest versions of many packages are audited by `tools/dotnettools/auditpackages.py` (see [The generator](generator.html)).
 
 ## dnAssert
 
