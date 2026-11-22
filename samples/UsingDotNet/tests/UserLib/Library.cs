@@ -288,4 +288,9 @@ namespace MyCompany.Tools
 		public static string Show(this in Money m, string currency) { return currency + (m.Cents / 100) + "." + (m.Cents % 100).ToString("00"); }
 		public static Money Doubled(this in Money m) { return new Money(m.Cents * 2); }
 	}
+	// a params array of an interface type: a single object is an array of one item
+	public static class ParamsTools
+	{
+		public static int CountShapes(string label, params IShape[] shapes) { return shapes.Length; }
+	}
 }

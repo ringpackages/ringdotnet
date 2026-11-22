@@ -5,7 +5,8 @@ pkgImport("restsharp","RestSharp.dll","RestSharp")
 
 oRequest = new RestRequest().@New("users/{id}")
 oRequest.AddUrlSegment([ :name = "id", :value = "42" ])
-oRequest.AddQueryParameter([ :name = "page", :value = "2" ])
+# AddParameter(name, value) is an extension method; RestRequest has its own AddParameter(Parameter), so the two-argument form is called with callMethod
+oRequest.callMethod("AddParameter",["page","2"])
 oRequest.AddHeader([ :name = "X-Test", :value = "ring" ])
 dnAssert("the resource",oRequest.Resource,"users/{id}")
 dnAssert("the default method",oRequest.Method,"Get")

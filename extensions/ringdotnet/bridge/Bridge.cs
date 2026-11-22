@@ -2412,6 +2412,15 @@ namespace RingDotNet
 					else if (next < args.Length)
 					{
 						ok = TryConvert(args[next++], pt, out conv[i], out int sc);
+						if (!ok && IsParams(ps[i]) && next == args.Length && TryConvert(args[next - 1], pt.GetElementType(), out object single, out int singleScore))
+						{
+							/* one value for a params array (Configure(repository, appender)): an array of one item */
+							Array one = Array.CreateInstance(pt.GetElementType(), 1);
+							one.SetValue(single, 0);
+							conv[i] = one;
+							ok = true;
+							sc = singleScore;
+						}
 						total += sc;
 					}
 					else if (IsParams(ps[i]))

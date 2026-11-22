@@ -569,6 +569,11 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 		<span class="k">public</span> <span class="k">static</span> <span class="k">string</span> <span class="t">Show</span>(this <span class="k">in</span> <span class="t">Money</span> m, <span class="k">string</span> currency) { <span class="k">return</span> currency + (m.Cents / <span class="n">100</span>) + <span class="s">"."</span> + (m.Cents % <span class="n">100</span>).<span class="f">ToString</span>(<span class="s">"00"</span>); }
 		<span class="k">public</span> <span class="k">static</span> <span class="t">Money</span> <span class="t">Doubled</span>(this <span class="k">in</span> <span class="t">Money</span> m) { <span class="k">return</span> <span class="k">new</span> <span class="t">Money</span>(m.Cents * <span class="n">2</span>); }
 	}
+	<span class="c">// a params array of an interface type: a single object is an array of one item</span>
+	<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> ParamsTools
+	{
+		<span class="k">public</span> <span class="k">static</span> <span class="k">int</span> <span class="t">CountShapes</span>(<span class="k">string</span> label, <span class="k">params</span> IShape[] shapes) { <span class="k">return</span> shapes.Length; }
+	}
 }</code></pre></div></details>
 <details class="src"><summary>samples/UsingDotNet/tests/test_userassembly.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tests/test_userassembly.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your own assemblies: tools/dotnettools/wrapassembly.ring generates the classes, dnImportFrom() loads them</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
@@ -743,6 +748,11 @@ oCounter.<span class="f">Add</span>(<span class="n">2</span>)
 oMoney = <span class="k">new</span> <span class="t">Money</span>().@<span class="k">New</span>(<span class="n">1234</span>)
 <span class="f">dnAssert</span>(<span class="s">"an extension of a struct taken by reference"</span>,oMoney.<span class="f">Show</span>(<span class="s">"$"</span>),<span class="s">"$12.34"</span>)
 <span class="f">dnAssert</span>(<span class="s">"and one that returns a struct"</span>,oMoney.<span class="f">Doubled</span>().Cents,<span class="n">2468</span>)
+
+<span class="c"># one object for a params array of an interface type is an array of one item</span>
+<span class="f">dnAssert</span>(<span class="s">"a single object for a params array"</span>,<span class="f">dnStatic</span>(<span class="s">"MyCompany.Tools.ParamsTools"</span>,<span class="s">"CountShapes"</span>,[<span class="s">"x"</span>,<span class="k">new</span> <span class="t">Circle</span>()]),<span class="n">1</span>)
+<span class="f">dnAssert</span>(<span class="s">"a list for a params array"</span>,<span class="f">dnStatic</span>(<span class="s">"MyCompany.Tools.ParamsTools"</span>,<span class="s">"CountShapes"</span>,[<span class="s">"x"</span>,[<span class="k">new</span> <span class="t">Circle</span>(),<span class="k">new</span> <span class="t">Circle</span>()]]),<span class="n">2</span>)
+<span class="f">dnAssert</span>(<span class="s">"no objects for a params array"</span>,<span class="f">dnStatic</span>(<span class="s">"MyCompany.Tools.ParamsTools"</span>,<span class="s">"CountShapes"</span>,[<span class="s">"x"</span>]),<span class="n">0</span>)
 
 nFail = <span class="f">dnTestSummary</span>()</code></pre></div></details>
 <h2 id="nuget-packages">NuGet packages<a class="anchor" href="#nuget-packages">#</a></h2>

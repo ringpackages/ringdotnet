@@ -172,4 +172,9 @@ oMoney = new Money().@New(1234)
 dnAssert("an extension of a struct taken by reference",oMoney.Show("$"),"$12.34")
 dnAssert("and one that returns a struct",oMoney.Doubled().Cents,2468)
 
+# one object for a params array of an interface type is an array of one item
+dnAssert("a single object for a params array",dnStatic("MyCompany.Tools.ParamsTools","CountShapes",["x",new Circle()]),1)
+dnAssert("a list for a params array",dnStatic("MyCompany.Tools.ParamsTools","CountShapes",["x",[new Circle(),new Circle()]]),2)
+dnAssert("no objects for a params array",dnStatic("MyCompany.Tools.ParamsTools","CountShapes",["x"]),0)
+
 nFail = dnTestSummary()
