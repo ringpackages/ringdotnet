@@ -112,8 +112,9 @@ pre code { white-space: pre-wrap !important; }
 table { width: 100% !important; max-width: 100% !important; table-layout: auto; font-size: 12.5px; }
 tr { break-inside: avoid; }
 thead { display: table-header-group; }
-th, td { word-break: break-word; overflow-wrap: anywhere; min-width: 0; }
-td code, th code, td pre { white-space: pre-wrap !important; word-break: break-word; overflow-wrap: anywhere; }
+th, td { word-break: normal; overflow-wrap: break-word; min-width: 0; }
+td:first-child, th:first-child { hyphens: none; }
+td code, th code, td pre { white-space: pre-wrap !important; word-break: normal; overflow-wrap: break-word; }
 .gallery { display: block !important; margin: 10px 0 !important; }
 .item { display: block !important; break-inside: auto; margin: 0 0 16px; box-shadow: none !important; overflow: visible !important; }
 .item .pic { display: block !important; text-align: center; min-height: 0 !important; padding: 12px !important; }
