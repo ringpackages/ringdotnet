@@ -35,11 +35,11 @@ sh samples/UsingDotNet/tests/run.sh ring.exe --quick  # only the tests and the i
 
 ## Namespaces
 
-The wrapped namespaces are listed in `tools/dotnettools/dotnetmanifest.ring` (a whole namespace with `:all = true`, or explicit types, closed generics and nested types). `tools/dotnettools/gendotnet.ring [namespace ...]` generates `libraries/dotnetlib/generated/<Namespace>.ring` plus one file per class, and `dnImport("Namespace")` loads them on demand, so a program only pays for what it uses. Class names are the short .NET names; when two namespaces have the same name, the later one gets the namespace as a prefix (`TimersTimer`). When an object of a type that has a generated class (but whose namespace was not imported) is returned, its namespace is imported automatically (`generated/classindex.ring`); a manifest `:uses` list also imports the namespaces a namespace normally returns (so `oProcess.StandardOutput.ReadToEnd()` works right after `dnImport("System.Diagnostics")`). Every object a method returns is wrapped by its runtime type (or the nearest base type that has a generated class) when that namespace was imported, otherwise it is a plain `DotNetObject` (use `callMethod`/`getProp`).
+The wrapped namespaces are listed in `tools/dotnettools/dotnetmanifest.ring` (a whole namespace with `:all = true`, or explicit types, closed generics and nested types). `tools/dotnettools/gendotnet.ring` generates, for each namespace, `libraries/dotnetlib/generated/<Namespace>.ring` (the loader) and `<Namespace>.classes.ring` (all its classes; run it without namespace names for the library, a run with names is for trying a change), and `dnImport("Namespace")` loads them on demand, so a program only pays for what it uses. Class names are the short .NET names; a class whose name a class of another namespace already has starts with the last part of its namespace (`TimersTimer` is `System.Timers.Timer`). When an object of a type that has a generated class (but whose namespace was not imported) is returned, its namespace is imported automatically (`generated/classindex.ring`); a manifest `:uses` list also imports the namespaces a namespace normally returns (so `oProcess.StandardOutput.ReadToEnd()` works right after `dnImport("System.Diagnostics")`). Every object a method returns is wrapped by its runtime type (or the nearest base type that has a generated class) when that namespace was imported, otherwise it is a plain `DotNetObject` (use `callMethod`/`getProp`).
 
 Other rules: enums are strings in both directions (`oForm.WindowState = "Maximized"`, `oDate.DayOfWeek` returns `"Thursday"`); methods with `out`/`ref` parameters return a list `[result, out values...]` (`aR = oDict.TryGetValue("k")`); closed generic types without a class can be created with `dnNewGeneric("System.Collections.Generic.List",["System.Int32"],[])`.
 
-Run `samples/UsingDotNet/tests/run.sh` (it needs `ring.dll` on the PATH) to execute the tests and samples.
+`run.sh` takes the path of `ring` (`ring.exe` on Windows) and adds the package `bin` folder to the PATH itself. Options: `--quick`, `--no-packages`, `--packages-only`, `--jobs N`, `--show` (see *Testing* in the documentation).
 
 ## Your own assemblies and NuGet packages
 
@@ -104,7 +104,7 @@ oDict.SetItem("two","2")
 ? oDict.Item("two")
 ```
 
-Add your own closed generic with a line like `["System.Collections.Generic.List`1[[System.Int32]]","IntList",0]` (the optional third item forces the number of `init()` parameters). To wrap more types (or your own assemblies), add them to `aTypes` in `tools/dotnettools/gendotnet.ring` and run it (it can `dnLoad` an assembly first).
+Add your own closed generic with a line like `["System.Collections.Generic.List`1[[System.Int32]]","IntList",0]` (the optional third item forces the number of `init()` parameters). To wrap more types (or your own assemblies), add them to the manifest, `tools/dotnettools/dotnetmanifest.ring` (the `:types` of the namespace, and `:assemblies` for another assembly), and run `tools/dotnettools/gendotnet.ring`.
 
 ## Named arguments
 
@@ -282,7 +282,7 @@ oForm.getControls().Add(oButton)
 new Application().Run(oForm)
 ```
 
-Generated desktop classes: Application, MessageBox, Form, Button, Label, TextBox, CheckBox, ListBox, ControlCollection (add more in `tools/dotnettools/gendotnet.ring`). Events must be raised on the Ring thread (UI events are; timers and tasks are not).
+Every class of `System.Windows.Forms` and `System.Drawing` has a generated class. Events must be raised on the Ring thread (UI events are; timers and tasks are not).
 
 ## Architecture
 
@@ -316,7 +316,7 @@ Windows (clang): `extensions/ringdotnet/buildclang_win.bat`; Visual Studio: `bui
 
 ## Wrapped namespaces (see tools/dotnettools/dotnetmanifest.ring)
 
-System, System.Text(.Json/.Encodings/.RegularExpressions/.Unicode), System.IO(.Compression/.Pipes/.MemoryMappedFiles), System.Linq, System.Collections(.Generic/.Specialized/.Concurrent/.ObjectModel), System.Threading(.Tasks), System.Net(.Http/.Sockets/.NetworkInformation/.Mail/.WebSockets/.Security), System.Globalization, System.Security.(Cryptography/Principal/Claims/X509), System.Diagnostics, System.Xml(.Linq/.XPath/.Schema/.Serialization/.Xsl), System.Data(.Common/.SqlTypes), System.ComponentModel, System.Reflection, System.Runtime.InteropServices/Loader, System.Numerics, System.Timers, System.Formats.Tar, System.Resources, Microsoft.Win32, System.Drawing(.Drawing2D/.Imaging/.Text/.Printing) and System.Windows.Forms(.Layout/.VisualStyles). Not wrapped: other packages that are not part of the base runtime (use `wrapassembly.ring`).
+System, System.Text(.Json/.Encodings/.RegularExpressions/.Unicode), System.IO(.Compression/.Pipes/.MemoryMappedFiles), System.Linq, System.Collections(.Generic/.Specialized/.Concurrent/.ObjectModel), System.Threading(.Tasks), System.Net(.Http/.Sockets/.NetworkInformation/.Mail/.WebSockets/.Security), System.Globalization, System.Security.(Cryptography/Principal/Claims/X509), System.Diagnostics, System.Xml(.Linq/.XPath/.Schema/.Serialization/.Xsl), System.Data(.Common/.SqlTypes), System.ComponentModel, System.Reflection, System.Runtime.InteropServices/Loader, System.Numerics, System.Timers, System.Formats.Tar, System.Resources, Microsoft.Win32, System.Drawing(.Drawing2D/.Imaging/.Text/.Printing) System.Windows.Forms(.Layout/.VisualStyles), WPF (System.Windows and its `.Controls`, `.Media`, `.Shapes`, `.Data`, `.Input`, `.Documents`, `.Markup`...), ASP.NET Core and `Microsoft.Extensions.*`, Entity Framework Core with `Microsoft.Data.Sqlite`, System.Net.Http.Json, System.Linq.Expressions, System.Transactions, System.ComponentModel.DataAnnotations and System.Runtime.Serialization. Not wrapped: packages that are not part of the .NET runtime (use `wrapassembly.ring`).
 
 ## Limits
 

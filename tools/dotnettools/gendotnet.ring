@@ -3,10 +3,11 @@
 
 	Usage (from this folder, ring_dotnet.dll and the bridge on the PATH):
 		ring gendotnet.ring                    generate every namespace of dotnetmanifest.ring
-		ring gendotnet.ring System.IO ...      generate only these namespaces
+		ring gendotnet.ring System.IO ...      generate only these namespaces (for a try: base classes of other namespaces are left out;
+		                                       the files of the library are made by a run without names)
 
 	Output (per namespace): ../../libraries/dotnetlib/generated/<Namespace>.ring (the loader used by dnImport)
-	                        ../../libraries/dotnetlib/generated/<Namespace>/<ClassName>.ring
+	                        ../../libraries/dotnetlib/generated/<Namespace>.classes.ring (all the classes of the namespace)
 */
 
 load "gendotnetcore.ring"
