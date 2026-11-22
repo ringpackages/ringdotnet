@@ -12,10 +12,11 @@ sh samples/UsingDotNet/tests/run.sh ring.exe
 `samples/UsingDotNet/tests/run.sh` runs:
 
 1. every `samples/UsingDotNet/tests/test_*.ring` (language bridge, collections, LINQ, system, IO, net, services, web, data, entity framework, keyboard, WPF, your own assemblies...),
-2. the console samples,
-3. every tutorial program (the ones with a window test themselves with `--selftest`, the others just have to run without an error),
-4. every Windows Forms and WPF sample with `--selftest`,
-5. every application with `--selftest`,
+2. the package tests (see below),
+3. the console samples,
+4. every tutorial program (the ones with a window test themselves with `--selftest`, the others just have to run without an error),
+5. every Windows Forms and WPF sample with `--selftest`,
+6. every application with `--selftest`,
 
 and prints `0 failed` when everything passes. It needs the package `bin` folder on the PATH; the script adds it for you.
 
@@ -25,7 +26,7 @@ Programs run four at a time, and the windows of the programs that run themselves
 sh samples/UsingDotNet/tests/run.sh ring.exe --quick
 ```
 
-Options: `--jobs N` runs N programs at the same time (`--jobs 1` runs them one after the other, which is easier to read when something fails), and `--show` keeps the windows visible so you can watch them (or set the environment variable `RINGDOTNET_SHOW`). Run everything before a commit.
+Options: `--no-packages` leaves out the package tests, `--packages-only` runs only them, `--jobs N` runs N programs at the same time (`--jobs 1` runs them one after the other, which is easier to read when something fails), and `--show` keeps the windows visible so you can watch them (or set the environment variable `RINGDOTNET_SHOW`). Run everything before a commit.
 
 | Test file | Covers |
 |---|---|
@@ -45,6 +46,20 @@ Options: `--jobs N` runs N programs at the same time (`--jobs 1` runs them one a
 | `test_extension_methods.ring`, `test_more_classes.ring`, `test_new_forms.ring` | extension methods and `@` names, classes added after the coverage audit, the forms of `new` |
 | `test_using*.ring` | `using { }` and the runtime mode that the namespaces start |
 | `test_ready_classes.ring`, `test_smoke_classes.ring` | every ready generic class is a real object; about 200 classes of twenty namespaces are created and given harmless calls (`ToString`, `Equals`, the `Get`, `To` and `Is` methods) |
+
+## Package tests
+
+`samples/UsingDotNet/tests/packages/pkgtest_*.ring` are real programs against NuGet packages: Markdig, YamlDotNet, Humanizer, Jint, NodaTime, Math.NET Numerics, Bogus, Polly, and Dapper with Microsoft.Data.Sqlite. Each one asks `dnAssert` about what the package gives back (HTML, a deserialized list, a determinant, a retried call, rows from a query), so a change of the bridge that breaks a library fails here before it fails in a program.
+
+A test starts with `pkgUse` from `packages/pkg.ring`:
+
+```ring
+load "pkg.ring"
+pkgUse("markdig",[["Markdig","1.6.0"]],[["Markdig.dll",["Markdig","Markdig.Syntax"]]])
+pkgImport("markdig","Markdig.dll","Markdig")
+```
+
+`pkgUse` restores the packages with `dotnet publish` and makes the Ring classes of the DLLs (only the namespaces that you list: the classes of a type that a method returns must be in the list), and keeps both in `packages/.cache`, so only the first run is slow. The versions are pinned, so a test says what works with those versions. A computer that cannot reach nuget.org on the first run prints `SKIPPED` and the runner shows `skipped`, not `FAILED`. To add a package, copy one of the tests, and run `sh run.sh --packages-only`. The newest versions of many packages are audited by `tools/dotnettools/auditpackages.py` (see [The generator](generator.html)).
 
 ## dnAssert
 

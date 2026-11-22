@@ -2,18 +2,24 @@
 # Runs the RingDotNet tests (samples/UsingDotNet/tests/test_*.ring) and the non-interactive samples; fails on any error.
 # Usage: samples/UsingDotNet/tests/run.sh [path to ring] [--quick] [--jobs N] [--show]     (the package bin folder is added to the PATH)
 #   --quick    only the tests and the introduction samples (about 20 seconds); without it everything runs (a few minutes)
+#   --no-packages   not the package tests (tests/packages: real programs against NuGet packages; they need nuget.org on their first run)
+#   --packages-only   only the package tests
 #   --jobs N   run N programs at the same time (default 4, 1 = one after the other)
 #   --show     do not hide the windows of the programs that run themselves (they are invisible and not in the taskbar by default)
 HERE="$(cd "$(dirname "$0")" && pwd)"
 ROOT="$HERE/../../.."
 RING=ring
 QUICK=0
+PACKAGES=1
+ONLYPACKAGES=0
 JOBS=4
 NEXTJOBS=0
 for ARG in "$@"; do
 	if [ "$NEXTJOBS" = "1" ]; then JOBS="$ARG"; NEXTJOBS=0; continue; fi
 	case "$ARG" in
 		--quick) QUICK=1 ;;
+		--no-packages) PACKAGES=0 ;;
+		--packages-only) ONLYPACKAGES=1 ;;
 		--jobs) NEXTJOBS=1 ;;
 		--show) RINGDOTNET_SHOW=1; export RINGDOTNET_SHOW ;;
 		*) RING="$ARG" ;;
@@ -36,6 +42,7 @@ rungroup() {
 	PARALLEL=$(mktemp)
 	while IFS='|' read -r KIND DIR FILE LABEL; do
 		if [ "$FILE" = "main.ring" ]; then USES=$(grep -rlE "Clipboard|uiSendKeys|uiGameKeys|uiInputKeys" "$DIR" 2>/dev/null); else USES=$(grep -lE "Clipboard|uiSendKeys|uiGameKeys|uiInputKeys|dotnet publish|dotnet build" "$DIR/$FILE" 2>/dev/null); fi
+		if [ "$KIND" = "p" ]; then USES=package; fi
 		if [ -n "$USES" ]; then echo "$KIND|$DIR|$FILE|$LABEL" >> "$SERIAL"; else echo "$KIND|$DIR|$FILE|$LABEL" >> "$PARALLEL"; fi
 	done < "$LIST"
 	xargs -P "$JOBS" -I{} sh "$HERE/runone.sh" "{}" < "$PARALLEL" | tee -a "$RESULT"
@@ -45,11 +52,19 @@ rungroup() {
 }
 
 # 1. the tests and the introduction samples
+if [ "$ONLYPACKAGES" = "0" ]; then
 for f in "$HERE"/test_*.ring; do echo "t|$HERE|$(basename "$f")|$(basename "$f")" >> "$LIST"; done
 for f in "$HERE"/../introduction/test*.ring; do echo "t|$HERE/../introduction|$(basename "$f")|$(basename "$f")" >> "$LIST"; done
 rungroup
+fi
 
-if [ "$QUICK" = "0" ]; then
+if [ "$QUICK" = "0" ] && [ "$PACKAGES" = "1" ]; then
+	# 1b. the package tests: real programs against NuGet packages (one after the other: they restore and wrap)
+	for f in "$HERE"/packages/pkgtest_*.ring; do [ -f "$f" ] && echo "p|$HERE/packages|$(basename "$f")|packages/$(basename "$f")" >> "$LIST"; done
+	rungroup
+fi
+
+if [ "$QUICK" = "0" ] && [ "$ONLYPACKAGES" = "0" ]; then
 	# 2. tutorials: the ones with a window test run themselves (--selftest), the others just have to run without an error
 	for f in "$HERE"/../tutorials/*.ring; do
 		[ -f "$f" ] || continue
