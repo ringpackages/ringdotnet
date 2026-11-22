@@ -94,7 +94,7 @@ oTable.AddColumn("Name")            # TableExtensions.AddColumn(oTable, "Name")
 oTable.AddRow(["Ann","31"])
 ```
 
-The classes that implement an interface get the extension methods of the interface. `wrapassembly.ring` wraps one assembly at a time, so the extension methods of a type of **another** assembly (a sink of Serilog that extends a class of Serilog itself), and of a type that has no class (a generic type, `string`), are static calls: `new StringHumanizeExtensions().Humanize("PascalCaseText")`.
+The classes that implement an interface get the extension methods of the interface. `wrapassembly.ring` wraps one assembly at a time, so the extension methods of a type of **another** assembly (a sink of Serilog that extends a class of Serilog itself), and of a type that has no class (a generic type, `string`), are static calls (`new StringHumanizeExtensions().Humanize("PascalCaseText")`) or a `callMethod` on the object (`oNode.callMethod("QuerySelectorAll",["li"])`, the selectors of Fizzler on a node of HtmlAgilityPack).
 
 ## Which namespaces to wrap
 

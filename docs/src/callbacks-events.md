@@ -29,6 +29,7 @@ func show aArgs
 
 - The code is compiled **once** into a function (`dncallbackN`); the same text reuses it, so a callback in a loop or timer costs nothing extra.
 - An error raised by the Ring code reaches the .NET caller as an exception, and then your Ring `try` / `catch`.
+- The Ring function can **return a .NET object** where the delegate returns one (a `Func<T>` that makes the objects of a container): `return dnNew("System.Text.StringBuilder",[])`. The code is Ring code, so the object is made the way every program makes it.
 - Callbacks run **synchronously on the Ring thread during a call**. A callback fired later or from another thread (timers, tasks) is ignored with a message on stderr.
 
 {{source:samples/UsingDotNet/introduction/test04_callbacks.ring}}

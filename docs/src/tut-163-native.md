@@ -60,7 +60,7 @@ Windows has two versions of a function that takes a text: `GetEnvironmentVariabl
 
 ### What Ring sees
 
-Ring never sees a pointer or a structure: the public methods of `Win32` take and return **numbers and texts**, and everything else stays in C#. That is the rule to follow for your own library too, because a method with simple types is the easiest to wrap and to call.
+Ring never sees a pointer or a structure here: the public methods of `Win32` take and return **numbers and texts**, and everything else stays in C#. That is the rule to follow for your own library, because a method with simple types is the easiest to wrap and to call. (The bridge can pass an address, a buffer or a `Span<T>` to a method that takes one, see [Advanced .NET types](advanced-types.html); a small C# layer is still the simplest way to use a native library.)
 
 - `Scale(10,3,4)` passes three numbers and gets one.
 - `UpperCase` shows a function that **changes** its text. Windows writes into the memory that it gets, so C# makes a copy in native memory (`Marshal.StringToHGlobalUni`), calls the function, reads the result back and frees the copy.

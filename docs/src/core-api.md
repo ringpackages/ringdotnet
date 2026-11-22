@@ -90,6 +90,7 @@ oObject.toString()                           # ToString()
 oObject.typeName()                           # "System.Text.StringBuilder"
 oObject.toList()                             # an array or a collection as a Ring list
 oObject.isNull()                             # true for the .NET null
+oObject.convertTo("System.Int64")             # an explicit conversion (a cast of C#)
 oObject.release()                            # release the handle
 ```
 

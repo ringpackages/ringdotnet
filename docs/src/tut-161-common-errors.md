@@ -55,7 +55,7 @@ Most methods have several versions (overloads). Ring wraps them in **one** metho
 
 ### 7. A .NET null (R50)
 
-`GetEnvironmentVariable` returns **null** when the variable does not exist. The answer is an object, and `"text" + oVariable` is an operator that an object does not have (`Object does not support operator overloading`). Ask the object first: `oVariable.isNull()` is true for a null. Use it every time a method can return nothing (`Environment`, a dictionary lookup, a search that may not find).
+`GetEnvironmentVariable` returns **null** when the variable does not exist. The answer is an object, and `"text" + oVariable` is an operator that an object does not have (`Object does not support operator overloading`). Ask first: `dnIsNull(oVariable)` is true for a null (and false for every other value; `oVariable.isNull()` does the same for an object). Use it every time a method can return nothing (`Environment`, a dictionary lookup, a search that may not find).
 
 ## How to read a message
 
@@ -70,10 +70,10 @@ Most methods have several versions (overloads). Ring wraps them in **one** metho
 |---|---|---|
 | `Error (R11) ... class not found` | typing mistake, or namespace not imported | the name, or `using { "Namespace" }` |
 | `Error (R19) ... less number of parameters` | `new Class()`, or an overloaded method with no value | `new Class`, or `NULL` |
-| `Error (R20) ... extra number of parameters` | too many values | one list of named values: `[ :a = 1, :b = 2 ]` |
-| `Error (R14) ... Method without definition` | a method name that the class does not have | look up the name |
+| `Error (R20) ... extra number of parameters` | too many values for an overloaded method, which takes one | one list of named values `[ :a = 1, :b = 2 ]`, or `callMethod("Name",[a, b])` for values in order |
+| `Error (R14) ... Method without definition` | a method name that the class does not have, or an object that has no class | look up the name; `callMethod` for an object with no class |
 | `Error (R12) ... property not found` | a property name that the class does not have | look up the name |
-| `Error (R50) ... operator overloading` | an object used as a text or a number (often a null) | `isNull()`, or read the value you need |
+| `Error (R50) ... operator overloading` | an object used as a text or a number (often a null) | `dnIsNull(value)`, or read the value you need |
 | `DotNet Error: ...MissingMethodException` | values of the wrong kind or count | match the types of the parameters |
 | `DotNet Error: ...` another exception | the state or the values | read the exception name and check the values |
 
@@ -83,7 +83,7 @@ Most methods have several versions (overloads). Ring wraps them in **one** metho
 
 - `Error (R..)` comes from Ring and `DotNet Error:` from .NET,
 - the seven common mistakes: a missing namespace, `new Class()`, an overload with no value, a typing mistake, a .NET exception, a wrong value, and a null,
-- `NULL` for no values, `new Class` without parentheses, and `isNull()` for answers that can be null,
+- `NULL` for no values, `new Class` without parentheses, and `dnIsNull()` for answers that can be null,
 - `try ... catch ... done` shows a message without stopping the program.
 
 ## Exercises

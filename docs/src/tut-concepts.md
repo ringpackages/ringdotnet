@@ -85,7 +85,7 @@ Most types are classes. Two kinds of types are special:
 
 ## null
 
-**null** means "no object". A method that finds nothing may return null. An object that you got from .NET can be asked `oObject.isNull()`.
+**null** means "no object". A method that finds nothing may return null. An object that you got from .NET can be asked `oObject.isNull()`, and `dnIsNull(value)` asks it of any value.
 
 ## Exceptions
 

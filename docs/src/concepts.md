@@ -220,6 +220,8 @@ oTable.AddRow(["Ann","31"])
 
 An extension method of a **generic interface** (`ValidateAndThrow` extends `IValidator<T>`) is a method of the classes that implement it, and of the class of a generic type that derives from it; the generic interfaces of `System` (`IEnumerable<T>`, the LINQ methods) are not added to every collection class, they are called with `dnQuery` or `callMethod`.
 
+An extension method of a **struct that it takes by reference** (`this in S`, as in the Sep library) and one of a **delegate type** (Sprache's `Parser<T>`, whose `AtLeastOnce()` and `Text()` are extension methods) are methods of the generated classes too: a delegate type has a Ring class only when extension methods extend it.
+
 The methods of the object itself come first, and an extension method never changes how a method that the class already has is called: it is added to a name that the class has only when it takes a number of parameters that the method already takes. An extension method has the same rule of names as every method: when it has several forms, the name takes one parameter and the names of the parameters choose the form. Extension methods that have no class to join (a type of another assembly than the one that is wrapped, a generic type, `string`, `object` and the numbers) are static calls on the class that holds them: `new StringHumanizeExtensions().Humanize("PascalCaseText")`. A generic extension method whose type cannot be known from its parameters (`Cast<T>`) cannot be called from Ring.
 
 ## Interfaces and classes that are not public

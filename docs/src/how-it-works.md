@@ -44,15 +44,15 @@ A handle keeps its object alive, so handles must be released. Each wrapper objec
 
 ## The wire format
 
-Values travel as a compact tagged text: `s5:Hello` (string), `n2:42` (number), `l...` (list), `o3:17` (object handle), `c...` (callback), `e...` (error). Numbers that are not whole travel as the 8 bytes of the double, so there is **no loss of precision**. Binary data (`byte[]`) travels as a Ring string: a Ring text can hold any byte. A `ByteBuffer` object (`dnBuffer`) is the one case where Ring holds a live array, for the methods that fill an array that you pass in.
+Values travel as a compact tagged text: `s5:Hello` (string), `n2:42` (number), `l...` (list), `o3:17` (object handle), `c...` (callback), `e...` (error). Numbers that are not whole travel as the 8 bytes of the double, so there is **no loss of precision**; the number becomes the type of the parameter that receives it, and for a parameter of type `object` a whole number is an `Int32` ([Core concepts](concepts.html#numbers-for-an-object)). Binary data (`byte[]`) travels as a Ring string: a Ring text can hold any byte. A `ByteBuffer` object (`dnBuffer`) is the one case where Ring holds a live array, for the methods that fill an array that you pass in.
 
 ## Generated wrapper classes
 
-`tools/dotnettools/gendotnet.ring` reads the **manifest** (`tools/dotnettools/dotnetmanifest.ring`) and uses reflection to write one Ring class per .NET class into `libraries/dotnetlib/generated/` (two files per namespace: a loader and the classes). These files are plain Ring source with real inheritance, properties (as attributes with `getX`/`setX`), events and enums. `using { "System.IO" }` loads one namespace on demand. A class index lets the library import the right namespace automatically when a returned object has a type that is not loaded yet.
+`tools/dotnettools/gendotnet.ring` reads the **manifest** (`tools/dotnettools/dotnetmanifest.ring`) and uses reflection to write one Ring class per .NET class into `libraries/dotnetlib/generated/` (two files per namespace: a loader and the classes). These files are plain Ring source with real inheritance, properties (as attributes with `getX`/`setX`), events and enums. `using { "System.IO" }` loads one namespace on demand. A class index (a list of every class and its namespace, loaded the first time it is needed) lets the library import the right namespace automatically when a returned object has a type that is not loaded yet.
 
 ## Results are wrapped by their real type
 
-When a method returns an object, the bridge sends the list of its type, its base types and its interfaces (the interface named after the class first, then the ones that inherit the most interfaces: a class that is not public is wrapped as its interface). `dnWrapObject` looks for the **most specific** generated class (importing its namespace if needed) and creates it. If no class exists the result is a plain `DotNetObject` — use `callMethod` and `getProp` on it.
+When a method returns an object, the bridge sends the list of its type, its base types and its interfaces (the interface named after the class first, then the ones that inherit the most interfaces: a class that is not public is wrapped as its interface). `dnWrapObject` looks for the **most specific** generated class (importing its namespace if needed) and creates it. If no class exists the result is a plain `DotNetObject` — use `callMethod` and `getProp` on it. (A delegate type is a callback and has a class only when extension methods extend it.)
 
 ## Callbacks: Ring code called from .NET
 

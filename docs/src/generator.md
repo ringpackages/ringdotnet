@@ -14,7 +14,7 @@ libraries/dotnetlib/generated/
 	System.IO.ring
 	System.IO.classes.ring
 	...
-	classindex.ring                 # [type, namespace] of every class: automatic imports
+	classindex.ring                 # [type, namespace] of every class, one call with the whole list: automatic imports (loaded when first needed)
 ```
 
 The class files are plain Ring: a `Class X from Base` with a method per .NET method, `getX`/`setX` for properties, `setXEvent` / `clearXEvent` for events and registration with `dnRegisterClass`. The files are generated: **do not edit them**.
@@ -78,7 +78,7 @@ The generator names the methods of a class like this:
 - a method with optional parameters is available with every number of parameters from the required ones up;
 - a static and an instance method with the same name and arity are one method;
 - names that are Ring keywords get an `@` at the start, and so does a method whose name would be the getter or setter of a property (`@GetValue`);
-- an **extension method** of a type that has a class in the same run is a method of that class (`oTable.AddColumn("Name")` is `TableExtensions.AddColumn(table, "Name")`). The methods of the type come first, and an extension never changes how a method that the class already has is called: it is added to a name that the class has only when it takes a number of parameters that the method already takes. The classes that implement an interface get the extension methods of the interface, and so do the interfaces that inherit it. Generic extension methods whose type cannot be known from their parameters (`Cast<T>`) are left out. Extensions of types with no class in the run (generic types, `string`, types of another assembly in a run of `wrapassembly.ring`) stay static calls on their own class.
+- an **extension method** of a type that has a class in the same run is a method of that class (`oTable.AddColumn("Name")` is `TableExtensions.AddColumn(table, "Name")`). The methods of the type come first, and an extension never changes how a method that the class already has is called: it is added to a name that the class has only when it takes a number of parameters that the method already takes. The classes that implement an interface get the extension methods of the interface, and so do the interfaces that inherit it. Generic extension methods whose type cannot be known from their parameters (`Cast<T>`) are left out. Extensions of types with no class in the run (generic types, `string`, types of another assembly in a run of `wrapassembly.ring`) stay static calls on their own class. A **delegate type** has a class only when extension methods extend it (a closed generic delegate such as Sprache's `Parser<IEnumerable<char>>` extends the class of its definition), and an extension method that takes its struct by reference (`this in S`) is a method of the struct's class.
 
 ## How a wrapper class looks
 
@@ -120,7 +120,7 @@ Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when
 ring auditassembly.ring Library.dll
 ```
 
-The lines start with `OK` (supported: wrapped classes, enums as texts, delegates as callbacks, extension methods, events), `INFO` (facts) or `GAP` (not usable today): operators that Ring has no syntax for (`++`, `op_True`), `ref` properties and returns, pointers. `tools/dotnettools/auditpackages.py` restores a list of NuGet packages (`packages.txt`) and audits all of them together; `audit-baseline.txt` has the result of the last run.
+The lines start with `OK` (supported: wrapped classes, enums as texts, delegates as callbacks, extension methods, events), `INFO` (facts) or `GAP` (not usable today): operators that Ring has no syntax for (`++`, `op_True`) and the members of a ref struct that no value can make (a ref struct has to be made for the call from a text, bytes, a list or an object: [Advanced .NET types](advanced-types.html)). Spans, pointers, ref returns and asynchronous streams are `OK`. `tools/dotnettools/auditpackages.py` restores a list of NuGet packages (`packages.txt`) and audits all of them together; `audit-baseline.txt` has the result of the last run.
 
 ## Where to go next
 

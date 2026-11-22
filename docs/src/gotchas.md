@@ -95,7 +95,7 @@ next
 
 ### `dnNull()`
 
-`dnNull()` is the .NET null: `oPictureBox.Image = dnNull()`.
+`dnNull()` is the .NET null: `oPictureBox.Image = dnNull()`. A method that returns null gives an object that is the null: `dnIsNull(value)` is true for it and false for any other value, whatever its type.
 
 ## .NET rules
 
@@ -132,7 +132,7 @@ A method that **fills** an array that you pass in (`Stream.Read(buffer, 0, n)`, 
 | Declaring .NET classes or interfaces in Ring | Ring is not compiled to .NET. Write them in C#, build a DLL and [wrap it](own-assemblies.html). |
 | .NET members named like some Ring words (`Get`, `And`, `Or`, `Not`, `Next`, `End`, `If`, `For`, `New`, `Load`, `Call`, `Put`, `Give`, `See`) | Ring reserves these after a dot (others, such as `From`, `To`, `Set`, `Step`, `In`, `On`, `Off`, are fine). A method gets an `@` at the start (`@Next`, `@Call`); a property is read with `getProp("Name")` and `setProp("Name", value)`; a method that kept its name is called with `callMethod`. |
 | Ring code on .NET threads | One Ring thread. Use callbacks only during calls, or queue work as the web server does. |
-| `ref` struct and pointer parameters, `Span<T>` | The bridge converts values, not memory. Use arrays and strings. |
+| Holding a `ref` struct, a `Span<T>` or a pointer in a Ring variable | They live on the stack of a call, so Ring cannot keep them. The bridge makes them for the call from values (a text, bytes, a list, an address or a buffer) and answers what they hold (an array, a text, a list of items). What a method does to a ref struct is lost, and the address of a buffer is valid during the call only: [Advanced .NET types](advanced-types.html). |
 | Lambdas and expression trees written in Ring | Callbacks give delegates; EF queries are data ([Entity Framework](ef.html)). |
 | Linux/macOS Windows Forms and WPF | Those frameworks are Windows-only. The rest of the bridge is tested on Linux (Ubuntu 24.04, x64) as well as on Windows; macOS is not tested yet. |
 | EF providers other than SQLite and in-memory | Loaded by name from their packages; untested. |
@@ -145,7 +145,10 @@ A method that **fills** an array that you pass in (`Stream.Read(buffer, 0, n)`, 
 | `Runtime Error in loading the dynamic library` | `ring_dotnet.dll` is not on the PATH. Add the package `bin` folder, or install the package into the Ring folder. |
 | `DotNet Error: No generated classes for the namespace X` | the name is wrong, or the namespace is not in the manifest — see [Class generator](generator.html). |
 | `Error in property name, property not found: x` | a global variable named like the attribute, or an object that is a plain `DotNetObject` (use `getProp("x")`). |
-| `Calling function with less number of parameters` | a constructor that needs arguments: `new DateTime(2024,12,25)`. |
+| `Calling function with less number of parameters` | a constructor that needs arguments: `new DateTime(2024,12,25)`; or an overloaded method called with no argument: write `NULL` (`oList.Sort(NULL)`). |
+| `Calling function with extra number of parameters` | a method that has overloads takes one argument: a value, `NULL`, or a list of `:name = value`; for several arguments in order use `callMethod("Name",[a, b])` ([Core concepts](concepts.html#arguments-in-order-with-callmethod)). |
+| `Calling Method without definition: name` | the object is a plain `DotNetObject` that has no class for its type: use `callMethod("Name",[...])` and `getProp("Name")`; or the name is a Ring keyword: use `@Name`. |
+| `Object does not support operator overloading` | the value is a .NET array or collection that came back as an object: `toList()` copies it into a Ring list. |
 | `Trying to destroy the object using the self reference` | an attribute of a library class has the same name as a global variable of your program. |
 | An event handler does nothing | the code uses a local variable — only globals are visible; or the handler runs on another thread. |
 | `The callback '...' was ignored` | a callback fired outside a call or from another thread. |
