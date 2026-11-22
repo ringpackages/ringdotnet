@@ -483,8 +483,24 @@ func dnRegisterClass  cType, cClass, nInit
 		ok
 	ok
 
+# The index of the generated classes ([type, namespace] pairs) is a file of about six thousand entries: it is loaded when it is first
+# needed (an object comes back whose class is not loaded yet), not when a program starts
+func dnLoadClassIndex
+	if lDotNetIndexLoaded
+		return
+	ok
+	lDotNetIndexLoaded = true
+	eval('load "' + cDotNetLibFolder + 'generated/classindex.ring"')
+
+# Called by the index files that the generators write: dnAddClassIndex([ ["System.IO.File","System.IO"], ... ])
+func dnAddClassIndex  dn_aItems
+	for dn_aItem in dn_aItems
+		aDotNetClassIndex + dn_aItem
+	next
+
 # The index of the generated classes as a hash table (type --> namespace); built once, when it is first needed
 func dnBuildIndexMap
+	dnLoadClassIndex()
 	for dn_aItem in aDotNetClassIndex
 		aDotNetIndexMap[dn_aItem[1]] = dn_aItem[2]
 	next

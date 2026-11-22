@@ -39,6 +39,7 @@ aDotNetClasses = []
 
 # [.NET type name, namespace] of every generated class (generated/classindex.ring): used to import namespaces on demand
 aDotNetClassIndex = []
+lDotNetIndexLoaded = false          # the index is loaded when it is first needed (dnLoadClassIndex)
 
 # Hash tables (a list used with a text key is a hash table in Ring: an unknown key reads as ""):
 #   aDotNetClassMap[.NET type]   -> the Ring class of the type (registered by the generated files)

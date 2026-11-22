@@ -12,6 +12,7 @@ func main
 	next
 	# the types that have a class: the index of generated classes
 	aHave = []
+	dnLoadClassIndex()
 	for aItem in aDotNetClassIndex
 		aHave[aItem[1]] = "1"
 	next
