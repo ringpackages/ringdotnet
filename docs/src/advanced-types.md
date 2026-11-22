@@ -26,14 +26,16 @@ The members have the type argument as `object`, so Ring values go in and out as 
 
 Generic **methods** work too (the bridge infers the type arguments from the values), which is what makes LINQ possible.
 
-When a type argument appears only in the result (`JsonSerializer.Deserialize<T>(json)`), the values cannot tell it, so you give it: in the named form with `:typeArguments`, a list of type names, or with `callGeneric` on any object or type.
+When a type argument appears only in the result (`JsonSerializer.Deserialize<T>(json)`), the values cannot tell it, so you give it: in the named form with `:typeArguments`, a list of type names, or with `callGeneric` on a type object (`dnType`) or on an object that wraps an instance.
 
 ```ring
 dnImport("System.Text.Json")
 oJson = new JsonSerializer()
 oTags = oJson.Deserialize([ :typeArguments = ["System.Collections.Generic.List`1[[System.String]]"], :json = '["a","b"]' ])
 ? oTags.Count    # 2
-oTags = oJson.callGeneric("Deserialize",["System.Collections.Generic.List`1[[System.String]]"],['["a","b"]'])
+oType = dnType("System.Text.Json.JsonSerializer")
+oTags = oType.callGeneric("Deserialize",["System.Collections.Generic.List`1[[System.String]]"],['["a","b"]'])
+? oTags.Count    # 2
 ```
 
 ## Nested types
@@ -69,8 +71,9 @@ An indexer with several indexes (`matrix[row, column]`) takes the indexes as a l
 A delegate is a callback in Ring (`dnCallback`) and has no class of its own. A delegate type that extension methods extend does have one, as a library of parser combinators does (`Parser<T>` of Sprache): an object of that type has the extension methods as its methods, and `Invoke` calls the delegate itself.
 
 ```ring
+# the Sprache package, wrapped as in "Your own assemblies" and loaded with dnLoad and dnImportFrom
 oDigits = dnStatic("Sprache.Parse","Digit",[]).AtLeastOnce().Text()
-? oDigits.Parse("12345")
+? oDigits.Parse("12345")           # 12345
 ```
 
 ## Spans
@@ -118,9 +121,18 @@ dnStatic("System.Runtime.InteropServices.NativeMemory","Free",[nMemory])
 Ring has no `await foreach`, so an `IAsyncEnumerable<T>` that a method returns is read in one of two ways. `toList()` waits for every item and gives a Ring list; `asyncEnumerator()` gives the enumerator, `asyncNext()` waits for the next item (true while there is one), `Current` is the item and `asyncDispose()` ends the enumerator, which is the way to read a long or endless stream one item at a time.
 
 ```ring
+# a channel of numbers: ReadAllAsync() returns an IAsyncEnumerable<int>
+oChannel = dnType("System.Threading.Channels.Channel").callGeneric("CreateUnbounded",["System.Int32"],[])
+oWriter = oChannel.getProp("Writer")
+for n = 1 to 3
+	oWriter.callMethod("TryWrite",[n * 10])
+next
+oWriter.callMethod("TryComplete",[])
+oStream = oChannel.getProp("Reader").callMethod("ReadAllAsync",[])
+
 oEnum = oStream.asyncEnumerator()
 while oEnum.asyncNext()
-	? oEnum.Current
+	? oEnum.Current                 # 10, 20, 30
 end
 oEnum.asyncDispose()
 ```

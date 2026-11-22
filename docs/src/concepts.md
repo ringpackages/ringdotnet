@@ -82,18 +82,20 @@ Optional and overloaded parameters are written in Ring as a **list of `:name = v
 
 ```ring
 oMath = new Math()
-? oMath.Round(2.5)                                            # one argument
+? oMath.Round(2.5)                                            # one argument: 2 (Round goes to the even neighbor)
 ? oMath.Round([ :value = 3.14159, :digits = 2 ])              # 3.14
-? oMath.Round([ :digits = 1, :value = 2.74 ])                 # 2.7 : any order
+? oMath.Round([ :digits = 1, :value = 2.74 ])                 # 2.70 : any order (Ring shows two decimals; the value is 2.7)
 
-oProcess = new Process()
-oProcess.Start(NULL)                                          # no arguments: the parameterless Start()
-oProcess = new Process().Start([ :startInfo = oInfo ])        # by name
+oRandom = new Random(42)
+? oRandom.@Next(NULL)                                         # no arguments: the parameterless Next()
+? oRandom.@Next([ :maxValue = 10 ])                           # by name: a number from 0 to 9
 
 oSB = new StringBuilder("a")
 oSB.Append([ :value = "b" ])
+? oSB.ToString()                                              # ab
 
-oZ = new Complex().@New([ :real = 3, :imaginary = 4 ])         # a constructor chosen by names
+oTime = new TimeSpan().@New([ :hours = 1, :minutes = 2, :seconds = 3 ])   # a constructor chosen by names
+? oTime.ToString()                                            # 01:02:03
 oSB = dnNew("StringBuilder",[ :value = "Hello" ])             # the same with the generic function (it names the class as a text)
 ```
 
@@ -113,10 +115,12 @@ Rules and limits:
 The plain name of an overloaded method takes one argument (`NULL`, a value or a named list). To pass several arguments in order, call the method with `callMethod(name, [arguments])`: the bridge chooses the overload from the arguments, as C# does.
 
 ```ring
-oCompressor.callMethod("Wrap",[cText])                       # an overloaded method, one value
-oQuery.callMethod("Where",["Age",">",18])                    # three arguments in order
-oRequest.callMethod("AddParameter",["page","2"])             # an extension method that has the name of a method of the object
-oRegistry.callMethod("SetValue",["Port",8080,"DWord"])
+oSB = new StringBuilder("")
+oSB.callMethod("Append",["a",3])                             # Append(char, int): two arguments in order
+? oSB.ToString()                                             # aaa
+oRegistry.callMethod("SetValue",["Port",8080,"DWord"])       # three arguments in order (a Registry key, the tutorial "The Windows Registry")
+oQuery.callMethod("Where",["Age",">",18])                    # the SqlKata package: a query that is built with calls in order
+oRequest.callMethod("AddParameter",["page","2"])             # the RestSharp package: an extension method with the name of a method of the object
 ```
 
 `callMethod` works on every object, also on one that has no generated class (a generic type), and finds the extension methods too. An extension method with the same name as a method of the object (`RestRequest.AddParameter(Parameter)` next to the extension `AddParameter(name, value)`) is not a method of the generated class, because an extension method never changes the signature of a method that the class already has; `callMethod` reaches it. `dnStatic(type, name, [arguments])` is the same call for a static method, and `getProp` and `setProp` read and write a property of an object that has no class.
@@ -189,9 +193,9 @@ oPictureBox.Image = dnNull()           # the .NET null
 `dnNull()` is the .NET `null`. A .NET method that returns null gives an object whose `isNull()` is true, and `dnIsNull(value)` asks the same of any value: it is true for a null object and false for everything else (a number, a text, a list, an object that is not null), so it needs no check of the type first.
 
 ```ring
-oNode = oRoot.callMethod("QuerySelector",["table"])
-if dnIsNull(oNode)
-	? "no table"
+oValue = new Environment().GetEnvironmentVariable("NO_SUCH_VARIABLE")
+if dnIsNull(oValue)
+	? "not set"
 ok
 ```
 
@@ -200,7 +204,7 @@ ok
 A method with `out` or `ref` parameters returns a **list**: `[result, out values...]`:
 
 ```ring
-aResult = oDict.TryGetValue("key")      # [1, value] or [0, ""]
+aResult = oDict.TryGetValue("key")      # [1, value] or [0, the default of the type: 0 for a number, the null for a text]
 if aResult[1]
 	? aResult[2]
 ok
@@ -210,7 +214,7 @@ aParsed = new Int32().TryParse("123")   # [1, 123]
 
 ## Extension methods
 
-An extension method is a static method that C# writes as if it were a method of another type: `table.AddColumn("Name")` is `TableExtensions.AddColumn(table, "Name")`. The generated Ring class of the extended type has a method for each extension method that is in the same generated set, so it is called like any method of the object. The classes that implement an interface get the extension methods of the interface, and so do the interfaces that inherit it (`oServices.BuildServiceProvider(NULL)` on a `ServiceCollection`, an extension of `IServiceCollection`):
+An extension method is a static method that C# writes as if it were a method of another type: `table.AddColumn("Name")` is `TableExtensions.AddColumn(table, "Name")` (this one is from the Spectre.Console package, which has to be wrapped first: [Your own assemblies](own-assemblies.html)). The generated Ring class of the extended type has a method for each extension method that is in the same generated set, so it is called like any method of the object. The classes that implement an interface get the extension methods of the interface, and so do the interfaces that inherit it (`oServices.BuildServiceProvider(NULL)` on a `ServiceCollection`, an extension of `IServiceCollection`):
 
 ```ring
 oTable = new Table()

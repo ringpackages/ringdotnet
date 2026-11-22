@@ -27,6 +27,8 @@ ring gendotnet.ring                       # every namespace of the manifest
 ring gendotnet.ring System.Text System.IO # only these
 ```
 
+A run with names writes only those namespaces, and the base classes of the other namespaces are left out of its files: a class that derives from `Object` (the class of `System.Object`) derives from `DotNetObject` instead, and the line `dnImport("System")` is not written. The files of such a run are not the files of the full run, so run the command **without names** before you use or commit the result.
+
 ## The manifest
 
 Each entry describes one namespace:
@@ -85,12 +87,21 @@ The generator names the methods of a class like this:
 ```ring
 Class StringBuilder from Object
 
-	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
+	Capacity
+	MaxCapacity
+	Length
+
+	Func Equals P1
+		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Append P1
+		if dotnet_isnamed(P1)
+			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Append",P1)
+		if islist(dn_x) return dnAny(dn_x) ok
+		return dn_x
+		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Append",P1))
 
 	Func getLength
@@ -99,7 +110,7 @@ Class StringBuilder from Object
 		return dn_x
 ```
 
-Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when you assign to it. A generated method does not make a target object or a list for the request: it passes the handle as a number and the parts that never change (the operation `call` and the name) as ready wire items, and a C function of the extension packs the arguments, calls .NET and reads the answer:
+This is an extract of the class that is in `libraries/dotnetlib/generated/System.Text.classes.ring` (the real class has a method for every .NET method, an `init`, and the registration of the default object). Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when you assign to it. A generated method does not make a target object or a list for the request: it passes the handle as a number and the parts that never change (the operation `call` and the name) as ready wire items, and a C function of the extension packs the arguments, calls .NET and reads the answer:
 
 - `dotnet_call` for a method that returns a **text, a number or a yes/no**: the answer is that Ring value.
 - `dotnet_callv` for a method that returns **nothing**.
@@ -120,7 +131,7 @@ Ring calls `getLength()` when you read `oSB.Length`, and `setLength(value)` when
 ring auditassembly.ring Library.dll
 ```
 
-The lines start with `OK` (supported: wrapped classes, enums as texts, delegates as callbacks, extension methods, events), `INFO` (facts) or `GAP` (not usable today): operators that Ring has no syntax for (`++`, `op_True`) and the members of a ref struct that no value can make (a ref struct has to be made for the call from a text, bytes, a list or an object: [Advanced .NET types](advanced-types.html)). Spans, pointers, ref returns and asynchronous streams are `OK`. `tools/dotnettools/auditpackages.py` restores a list of NuGet packages (`packages.txt`) and audits all of them together; `audit-baseline.txt` has the result of the last run.
+Each line has a count, a tag and an example. The tags are `OK` (supported: wrapped classes, enums as texts, delegates as callbacks, extension methods, events), `INFO` (facts) or `GAP` (not usable today): operators that Ring has no syntax for (`++`, `op_True`) and the members of a ref struct that no value can make (a ref struct has to be made for the call from a text, bytes, a list or an object: [Advanced .NET types](advanced-types.html)). Spans, pointers, ref returns and asynchronous streams are `OK`. `tools/dotnettools/auditpackages.py` restores a list of NuGet packages (`packages.txt`) and audits all of them together; `audit-baseline.txt` has the result of the last run.
 
 ## Where to go next
 

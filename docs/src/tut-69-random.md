@@ -34,7 +34,7 @@ A wrong shuffle is a classic bug. **Fisher–Yates** is right: go from the last 
 
 ### Weighted choice
 
-To draw "common" 70 %, "rare" 25 % and "legendary" 5 % of the time, pick a number from 0 to 99 and walk through the weights adding them up until the number is below the sum. The output shows about 6,950 / 2,580 / 470 for 10,000 draws.
+To draw "common" 70 %, "rare" 25 % and "legendary" 5 % of the time, pick a number from 0 to 99 and walk through the weights adding them up until the number is below the sum. The output shows 6,954 / 2,577 / 469 for 10,000 draws, close to the expected 7,000 / 2,500 / 500.
 
 ### Guid
 

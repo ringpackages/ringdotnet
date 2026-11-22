@@ -10,11 +10,17 @@ lead: Wrap any .NET DLL — your own library or a NuGet package — with one com
 | **Generic calls** — `dnLoad`, `dnType`, `dnNew`, `callMethod` | a quick call, nothing to generate |
 | **Generated classes** — `wrapassembly.ring` | the simple `oObj.Method()` syntax, properties, events, enums, inheritance |
 
+The examples of this page use the small C# library of the package, `samples/UsingDotNet/tests/UserLib` (the namespace `MyCompany.Tools`, the class `Calculator`). Build it once with the .NET SDK, and run the Ring programs from the folder of the package:
+
+```bash
+dotnet build samples/UsingDotNet/tests/UserLib -c Release -o samples/UsingDotNet/tests/UserLib/bin
+```
+
 ## Generic calls
 
 ```ring
 load "dotnet.ring"
-dnLoad("path/to/MyLibrary.dll")                       # dependencies are found next to the dll
+dnLoad("samples/UsingDotNet/tests/UserLib/bin/UserLib.dll")     # dependencies are found next to the dll
 
 oCalc = dnNew("MyCompany.Tools.Calculator",[10])
 oCalc.callMethod("Add",[5])
@@ -28,14 +34,14 @@ Generate Ring classes for every public type of the DLL:
 
 ```bash
 cd tools/dotnettools
-ring wrapassembly.ring path/to/MyLibrary.dll ../../myclasses
+ring wrapassembly.ring ../../samples/UsingDotNet/tests/UserLib/bin/UserLib.dll ../../myclasses
 ```
 
 This writes two files for each namespace into `myclasses/`: a loader and the classes (and `classindex.ring`, the index of the classes, when every namespace is wrapped). Use them like any other wrapped namespace:
 
 ```ring
 load "dotnet.ring"
-dnLoad("path/to/MyLibrary.dll")
+dnLoad("samples/UsingDotNet/tests/UserLib/bin/UserLib.dll")
 dnImportFrom("myclasses/","MyCompany.Tools")
 
 oCalc = new Calculator()

@@ -251,9 +251,11 @@
 <h1>Your own assemblies</h1><p class="lead">Wrap any .NET DLL — your own library or a NuGet package — with one command, and use its classes with the same simple syntax as the built-in ones.</p>
 <h2 id="two-ways-to-use-an-assembly">Two ways to use an assembly<a class="anchor" href="#two-ways-to-use-an-assembly">#</a></h2>
 <div class="tablewrap"><table><thead><tr><th>Way</th><th>When</th></tr></thead><tbody><tr><td><strong>Generic calls</strong> — <code>dnLoad</code>, <code>dnType</code>, <code>dnNew</code>, <code>callMethod</code></td><td>a quick call, nothing to generate</td></tr><tr><td><strong>Generated classes</strong> — <code>wrapassembly.ring</code></td><td>the simple <code>oObj.Method()</code> syntax, properties, events, enums, inheritance</td></tr></tbody></table></div>
+<p>The examples of this page use the small C# library of the package, <code>samples/UsingDotNet/tests/UserLib</code> (the namespace <code>MyCompany.Tools</code>, the class <code>Calculator</code>). Build it once with the .NET SDK, and run the Ring programs from the folder of the package:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>dotnet build samples/UsingDotNet/tests/UserLib -c Release -o samples/UsingDotNet/tests/UserLib/bin</code></pre></div>
 <h2 id="generic-calls">Generic calls<a class="anchor" href="#generic-calls">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
-<span class="f">dnLoad</span>(<span class="s">"path/to/MyLibrary.dll"</span>)                       <span class="c"># dependencies are found next to the dll</span>
+<span class="f">dnLoad</span>(<span class="s">"samples/UsingDotNet/tests/UserLib/bin/UserLib.dll"</span>)     <span class="c"># dependencies are found next to the dll</span>
 
 oCalc = <span class="f">dnNew</span>(<span class="s">"MyCompany.Tools.Calculator"</span>,[<span class="n">10</span>])
 oCalc.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[<span class="n">5</span>])
@@ -262,10 +264,10 @@ oCalc.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[<span clas
 <h2 id="generated-classes">Generated classes<a class="anchor" href="#generated-classes">#</a></h2>
 <p>Generate Ring classes for every public type of the DLL:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>cd tools/dotnettools
-ring wrapassembly.ring path/to/MyLibrary.dll ../../myclasses</code></pre></div>
+ring wrapassembly.ring ../../samples/UsingDotNet/tests/UserLib/bin/UserLib.dll ../../myclasses</code></pre></div>
 <p>This writes two files for each namespace into <code>myclasses/</code>: a loader and the classes (and <code>classindex.ring</code>, the index of the classes, when every namespace is wrapped). Use them like any other wrapped namespace:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
-<span class="f">dnLoad</span>(<span class="s">"path/to/MyLibrary.dll"</span>)
+<span class="f">dnLoad</span>(<span class="s">"samples/UsingDotNet/tests/UserLib/bin/UserLib.dll"</span>)
 <span class="f">dnImportFrom</span>(<span class="s">"myclasses/"</span>,<span class="s">"MyCompany.Tools"</span>)
 
 oCalc = <span class="k">new</span> <span class="t">Calculator</span>()

@@ -262,12 +262,14 @@ oScores = <span class="k">new</span> <span class="t">Dictionary</span>([ :typeAr
 <p>The members have the type argument as <code>object</code>, so Ring values go in and out as they are; the static members of a generic type need a closed type and are not in the class (use <code>dnNewGeneric</code>, <code>callMethod</code> on <code>dnType</code> with the closed name).</p>
 <h2 id="generic-methods">Generic methods<a class="anchor" href="#generic-methods">#</a></h2>
 <p>Generic <strong>methods</strong> work too (the bridge infers the type arguments from the values), which is what makes LINQ possible.</p>
-<p>When a type argument appears only in the result (<code>JsonSerializer.Deserialize&lt;T&gt;(json)</code>), the values cannot tell it, so you give it: in the named form with <code>:typeArguments</code>, a list of type names, or with <code>callGeneric</code> on any object or type.</p>
+<p>When a type argument appears only in the result (<code>JsonSerializer.Deserialize&lt;T&gt;(json)</code>), the values cannot tell it, so you give it: in the named form with <code>:typeArguments</code>, a list of type names, or with <code>callGeneric</code> on a type object (<code>dnType</code>) or on an object that wraps an instance.</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="f">dnImport</span>(<span class="s">"System.Text.Json"</span>)
 oJson = <span class="k">new</span> <span class="t">JsonSerializer</span>()
 oTags = oJson.<span class="f">Deserialize</span>([ :typeArguments = [<span class="s">"System.Collections.Generic.List`1[[System.String]]"</span>], :json = <span class="s">'["a","b"]'</span> ])
 ? oTags.Count    <span class="c"># 2</span>
-oTags = oJson.<span class="f">callGeneric</span>(<span class="s">"Deserialize"</span>,[<span class="s">"System.Collections.Generic.List`1[[System.String]]"</span>],[<span class="s">'["a","b"]'</span>])</code></pre></div>
+oType = <span class="f">dnType</span>(<span class="s">"System.Text.Json.JsonSerializer"</span>)
+oTags = oType.<span class="f">callGeneric</span>(<span class="s">"Deserialize"</span>,[<span class="s">"System.Collections.Generic.List`1[[System.String]]"</span>],[<span class="s">'["a","b"]'</span>])
+? oTags.Count    <span class="c"># 2</span></code></pre></div>
 <h2 id="nested-types">Nested types<a class="anchor" href="#nested-types">#</a></h2>
 <p>A nested type has a class too, named after the types around it: <code>SqlMapper.GridReader</code> of Dapper is <code>SqlMapperGridReader</code>, <code>Control.ControlCollection</code> of Windows Forms is <code>ControlCollection</code> (its name in the manifest).</p>
 <h2 id="exceptions-and-attributes">Exceptions and attributes<a class="anchor" href="#exceptions-and-attributes">#</a></h2>
@@ -287,8 +289,9 @@ oBig = <span class="k">new</span> <span class="t">BigInteger</span>().<span clas
 <p>An indexer with several indexes (<code>matrix[row, column]</code>) takes the indexes as a list: <code>oMatrix.Item([1,2])</code> reads and <code>oMatrix.SetItem([1,2],4.5)</code> writes. A type that has a one-index indexer too keeps its plain form: <code>Item(1)</code>.</p>
 <h2 id="delegate-types-with-extension-methods">Delegate types with extension methods<a class="anchor" href="#delegate-types-with-extension-methods">#</a></h2>
 <p>A delegate is a callback in Ring (<code>dnCallback</code>) and has no class of its own. A delegate type that extension methods extend does have one, as a library of parser combinators does (<code>Parser&lt;T&gt;</code> of Sprache): an object of that type has the extension methods as its methods, and <code>Invoke</code> calls the delegate itself.</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oDigits = <span class="f">dnStatic</span>(<span class="s">"Sprache.Parse"</span>,<span class="s">"Digit"</span>,[]).<span class="f">AtLeastOnce</span>().<span class="f">Text</span>()
-? oDigits.<span class="f">Parse</span>(<span class="s">"12345"</span>)</code></pre></div>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the Sprache package, wrapped as in "Your own assemblies" and loaded with dnLoad and dnImportFrom</span>
+oDigits = <span class="f">dnStatic</span>(<span class="s">"Sprache.Parse"</span>,<span class="s">"Digit"</span>,[]).<span class="f">AtLeastOnce</span>().<span class="f">Text</span>()
+? oDigits.<span class="f">Parse</span>(<span class="s">"12345"</span>)           <span class="c"># 12345</span></code></pre></div>
 <h2 id="spans">Spans<a class="anchor" href="#spans">#</a></h2>
 <p>A parameter of type <code>Span&lt;T&gt;</code> or <code>ReadOnlySpan&lt;T&gt;</code> takes what Ring has for an array: a text (<code>char</code>), a byte string or a list (<code>byte</code>, numbers), or an object that is an array. A <code>Span&lt;T&gt;</code> that the method fills takes a number, the size of a new buffer, or a buffer you made; the filled buffer is part of the answer, after the result and the <code>out</code> values (a list of bytes is a byte string, a list of chars a text).</p>
 <p>A <code>Span&lt;T&gt;</code> that comes back is an array (a text for <code>char</code>, a byte string for <code>byte</code>), and a span passed by reference (<code>ref</code> or <code>out</code>) is read from the array you give and answered as an array, after the result.</p>
@@ -312,9 +315,18 @@ nMemory = <span class="f">dnStatic</span>(<span class="s">"System.Runtime.Intero
 <span class="f">dnStatic</span>(<span class="s">"System.Runtime.InteropServices.NativeMemory"</span>,<span class="s">"Free"</span>,[nMemory])</code></pre></div>
 <h2 id="asynchronous-streams">Asynchronous streams<a class="anchor" href="#asynchronous-streams">#</a></h2>
 <p>Ring has no <code>await foreach</code>, so an <code>IAsyncEnumerable&lt;T&gt;</code> that a method returns is read in one of two ways. <code>toList()</code> waits for every item and gives a Ring list; <code>asyncEnumerator()</code> gives the enumerator, <code>asyncNext()</code> waits for the next item (true while there is one), <code>Current</code> is the item and <code>asyncDispose()</code> ends the enumerator, which is the way to read a long or endless stream one item at a time.</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oEnum = oStream.<span class="f">asyncEnumerator</span>()
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a channel of numbers: ReadAllAsync() returns an IAsyncEnumerable&lt;int&gt;</span>
+oChannel = <span class="f">dnType</span>(<span class="s">"System.Threading.Channels.Channel"</span>).<span class="f">callGeneric</span>(<span class="s">"CreateUnbounded"</span>,[<span class="s">"System.Int32"</span>],[])
+oWriter = oChannel.<span class="f">getProp</span>(<span class="s">"Writer"</span>)
+<span class="k">for</span> n = <span class="n">1</span> <span class="k">to</span> <span class="n">3</span>
+	oWriter.<span class="f">callMethod</span>(<span class="s">"TryWrite"</span>,[n * <span class="n">10</span>])
+<span class="k">next</span>
+oWriter.<span class="f">callMethod</span>(<span class="s">"TryComplete"</span>,[])
+oStream = oChannel.<span class="f">getProp</span>(<span class="s">"Reader"</span>).<span class="f">callMethod</span>(<span class="s">"ReadAllAsync"</span>,[])
+
+oEnum = oStream.<span class="f">asyncEnumerator</span>()
 <span class="k">while</span> oEnum.<span class="f">asyncNext</span>()
-	? oEnum.Current
+	? oEnum.Current                 <span class="c"># 10, 20, 30</span>
 <span class="k">end</span>
 oEnum.<span class="f">asyncDispose</span>()</code></pre></div>
 <h2 id="where-to-go-next">Where to go next<a class="anchor" href="#where-to-go-next">#</a></h2>
