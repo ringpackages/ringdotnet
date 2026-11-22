@@ -15,5 +15,7 @@ dnAssert("by id and a child",oRoot.callMethod("QuerySelector",["#main > p"]).Inn
 dnAssert("the first of a type",oRoot.callMethod("QuerySelector",["li:first-child"]).InnerText,"one")
 dnAssert("the last of a type",oRoot.callMethod("QuerySelector",["li:last-child"]).InnerText,"three")
 dnAssert("a selector that matches nothing",len(oRoot.callMethod("QuerySelectorAll",["table"]).toList()),0)
+dnAssert("a missing node is the null",dnIsNull(oRoot.callMethod("QuerySelector",["table"])),1)
+dnAssert("and a node is not",dnIsNull(oRoot.callMethod("QuerySelector",["li"])),0)
 
 dnTestSummary()

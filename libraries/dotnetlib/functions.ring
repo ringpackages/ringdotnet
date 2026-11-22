@@ -554,6 +554,13 @@ func dnEnsureExt  dn_cClass
 func dnNull
 	return new DotNetObject(0)
 
+# Is the value the .NET null? True for a null object, false for every other value (a number, a text, a list, an object that is not null)
+func dnIsNull  dn_xValue
+	if isobject(dn_xValue) and ismethod(dn_xValue,"isNull")
+		return dn_xValue.isNull()
+	ok
+	return false
+
 # A byte buffer that .NET can fill: oBuffer = dnBuffer(1024) makes a byte[] of 1024 bytes, dnBuffer("bytes") one with the bytes of a text.
 # A byte[] that .NET returns is a Ring text (a copy), and a Ring text passed in is a new array, so a method that FILLS an array
 # (Stream.Read, Socket.Receive...) needs this object: pass it as the byte[] parameter and read what was written with dnBufferBytes.

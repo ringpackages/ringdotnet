@@ -572,6 +572,7 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 	<span class="c">// a params array of an interface type: a single object is an array of one item</span>
 	<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> ParamsTools
 	{
+		<span class="k">public</span> <span class="k">static</span> <span class="t">IShape</span> <span class="t">NoShape</span>() { <span class="k">return</span> <span class="k">null</span>; }
 		<span class="k">public</span> <span class="k">static</span> <span class="k">int</span> <span class="t">CountShapes</span>(<span class="k">string</span> label, <span class="k">params</span> IShape[] shapes) { <span class="k">return</span> shapes.Length; }
 	}
 	<span class="c">// delegate types with extension methods (like Sprache's Parser&lt;T&gt;): an object of the delegate type gets a class, and the extension methods are its methods</span>
@@ -777,6 +778,14 @@ oIncrement = <span class="f">dnStatic</span>(<span class="s">"MyCompany.Tools.De
 <span class="f">dnAssert</span>(<span class="s">"a chain of them"</span>,oIncrement.<span class="f">Twice</span>().<span class="f">Plus</span>(<span class="n">10</span>).<span class="f">Invoke</span>(<span class="n">0</span>),<span class="n">12</span>)
 oExclaim = <span class="f">dnStatic</span>(<span class="s">"MyCompany.Tools.DelegateFactory"</span>,<span class="s">"Exclaim"</span>,[])
 <span class="f">dnAssert</span>(<span class="s">"a generic delegate"</span>,oExclaim.<span class="f">Repeat</span>(<span class="n">3</span>).<span class="f">Invoke</span>(<span class="s">"hi"</span>),<span class="s">"hi!!!"</span>)
+
+<span class="c"># dnIsNull: true for the .NET null, false for every other value</span>
+<span class="f">dnAssert</span>(<span class="s">"a method that returns null"</span>,<span class="f">dnIsNull</span>(<span class="f">dnStatic</span>(<span class="s">"MyCompany.Tools.ParamsTools"</span>,<span class="s">"NoShape"</span>,[])),<span class="n">1</span>)
+<span class="f">dnAssert</span>(<span class="s">"the null of dnNull"</span>,<span class="f">dnIsNull</span>(<span class="f">dnNull</span>()),<span class="n">1</span>)
+<span class="f">dnAssert</span>(<span class="s">"an object that is not null"</span>,<span class="f">dnIsNull</span>(<span class="k">new</span> <span class="t">Circle</span>()),<span class="n">0</span>)
+<span class="f">dnAssert</span>(<span class="s">"a number"</span>,<span class="f">dnIsNull</span>(<span class="n">5</span>),<span class="n">0</span>)
+<span class="f">dnAssert</span>(<span class="s">"a text"</span>,<span class="f">dnIsNull</span>(<span class="s">"x"</span>),<span class="n">0</span>)
+<span class="f">dnAssert</span>(<span class="s">"a list"</span>,<span class="f">dnIsNull</span>([<span class="n">1</span>,<span class="n">2</span>]),<span class="n">0</span>)
 
 nFail = <span class="f">dnTestSummary</span>()</code></pre></div></details>
 <h2 id="nuget-packages">NuGet packages<a class="anchor" href="#nuget-packages">#</a></h2>

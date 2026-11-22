@@ -108,6 +108,19 @@ Rules and limits:
 - Names that are Ring keywords start with `@`, as C# writes `@class`: `oRnd.@Next([ :minValue = 1, :maxValue = 10 ])`, and so does `Init` (`init` is the constructor of a generated class): `oCipher.@Init(1,oParams)`. The words that Ring uses itself (`Get`, `Set`, `Call`) are called with `callMethod`.
 - `dnNew("Class", ...)` takes a Ring class name or a full .NET type name.
 
+## Arguments in order with `callMethod`
+
+The plain name of an overloaded method takes one argument (`NULL`, a value or a named list). To pass several arguments in order, call the method with `callMethod(name, [arguments])`: the bridge chooses the overload from the arguments, as C# does.
+
+```ring
+oCompressor.callMethod("Wrap",[cText])                       # an overloaded method, one value
+oQuery.callMethod("Where",["Age",">",18])                    # three arguments in order
+oRequest.callMethod("AddParameter",["page","2"])             # an extension method that has the name of a method of the object
+oRegistry.callMethod("SetValue",["Port",8080,"DWord"])
+```
+
+`callMethod` works on every object, also on one that has no generated class (a generic type), and finds the extension methods too. An extension method with the same name as a method of the object (`RestRequest.AddParameter(Parameter)` next to the extension `AddParameter(name, value)`) is not a method of the generated class, because an extension method never changes the signature of a method that the class already has; `callMethod` reaches it. `dnStatic(type, name, [arguments])` is the same call for a static method, and `getProp` and `setProp` read and write a property of an object that has no class.
+
 ## Properties and fields are attributes
 
 .NET properties are Ring attributes. Ring calls the generated `getName()` / `setName(value)` for you, so reading and writing is simple, also inside `{ }`:
@@ -173,7 +186,14 @@ oButton {
 oPictureBox.Image = dnNull()           # the .NET null
 ```
 
-`dnNull()` is the .NET `null`. A .NET method that returns null gives an object whose `isNull()` is true.
+`dnNull()` is the .NET `null`. A .NET method that returns null gives an object whose `isNull()` is true, and `dnIsNull(value)` asks the same of any value: it is true for a null object and false for everything else (a number, a text, a list, an object that is not null), so it needs no check of the type first.
+
+```ring
+oNode = oRoot.callMethod("QuerySelector",["table"])
+if dnIsNull(oNode)
+	? "no table"
+ok
+```
 
 ## `out` and `ref` parameters
 

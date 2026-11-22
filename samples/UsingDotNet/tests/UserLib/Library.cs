@@ -291,6 +291,7 @@ namespace MyCompany.Tools
 	// a params array of an interface type: a single object is an array of one item
 	public static class ParamsTools
 	{
+		public static IShape NoShape() { return null; }
 		public static int CountShapes(string label, params IShape[] shapes) { return shapes.Length; }
 	}
 	// delegate types with extension methods (like Sprache's Parser<T>): an object of the delegate type gets a class, and the extension methods are its methods

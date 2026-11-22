@@ -185,4 +185,12 @@ dnAssert("a chain of them",oIncrement.Twice().Plus(10).Invoke(0),12)
 oExclaim = dnStatic("MyCompany.Tools.DelegateFactory","Exclaim",[])
 dnAssert("a generic delegate",oExclaim.Repeat(3).Invoke("hi"),"hi!!!")
 
+# dnIsNull: true for the .NET null, false for every other value
+dnAssert("a method that returns null",dnIsNull(dnStatic("MyCompany.Tools.ParamsTools","NoShape",[])),1)
+dnAssert("the null of dnNull",dnIsNull(dnNull()),1)
+dnAssert("an object that is not null",dnIsNull(new Circle()),0)
+dnAssert("a number",dnIsNull(5),0)
+dnAssert("a text",dnIsNull("x"),0)
+dnAssert("a list",dnIsNull([1,2]),0)
+
 nFail = dnTestSummary()
