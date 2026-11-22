@@ -191,6 +191,7 @@ PAGES = [
     ("tut-28-testing", "Testing", "Tutorials: Testing and release"),
     ("tut-119-distribution", "Giving your program to others", "Tutorials: Testing and release"),
     ("concepts", "Core concepts", "Guide: the language bridge"),
+    ("advanced-types", "Advanced .NET types", "Guide: the language bridge"),
     ("core-api", "Core functions", "Guide: the language bridge"),
     ("collections-linq", "Collections & LINQ", "Guide: the language bridge"),
     ("callbacks-events", "Callbacks & events", "Guide: the language bridge"),

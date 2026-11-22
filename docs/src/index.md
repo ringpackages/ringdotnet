@@ -62,7 +62,7 @@ The classes are real Ring classes with the same method names as the .NET ones â€
 |---|---|
 | **Start** | [Overview](index.html), [Getting started](getting-started.html) (install, first program, the startup modes) and [How it works](how-it-works.html) |
 | **Tutorials** | learning by building programs. They are grouped into **chapters by topic** (the basics, text and data formats, numbers and dates, collections, files, processes, networking, security, databases, Windows Forms, WPF, projects, libraries and release). Read [The basics](tutorials.html#the-basics) first; then take the chapter you need |
-| **Guides** | how each area works and which functions and classes it has: the language bridge ([Core concepts](concepts.html) first), desktop programs, web and data, extending |
+| **Guides** | how each area works and which functions and classes it has: the language bridge ([Core concepts](concepts.html) first, then [Advanced .NET types](advanced-types.html) when a library needs generics, operators, spans or pointers), desktop programs, web and data, extending |
 | **Testing and limits** | how the package is tested, and the [rules and limits](gotchas.html) to read before a long program |
 | **Reference** | the [function index](reference.html) and the [class reference](api.html) with every wrapped class |
 | **Appendix** | a [quick introduction to Ring](ring-intro.html), for readers who are new to the language |
