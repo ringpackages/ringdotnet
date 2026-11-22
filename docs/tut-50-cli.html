@@ -286,8 +286,8 @@ using {
 	showResult(run([<span class="s">"missing.txt"</span>]))
 	? nl + <span class="s">"$ wordstat ringdotnet_cli.txt --top many"</span>
 	showResult(run([cFile,<span class="s">"--top"</span>,<span class="s">"many"</span>]))
-	? nl + <span class="s">"$ wordstat ringdotnet_cli.txt --colour"</span>
-	showResult(run([cFile,<span class="s">"--colour"</span>]))
+	? nl + <span class="s">"$ wordstat ringdotnet_cli.txt --color"</span>
+	showResult(run([cFile,<span class="s">"--color"</span>]))
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
 
 <span class="k">func</span> <span class="f">showResult</span> nCode
@@ -434,8 +434,8 @@ $ wordstat ringdotnet_cli.txt --top many
 error: --top needs a number
 (exit code 1)
 
-$ wordstat ringdotnet_cli.txt --colour
-error: unknown option --colour
+$ wordstat ringdotnet_cli.txt --color
+error: unknown option --color
 (exit code 1)</code></pre></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <p><code>sysargv</code> holds <code>[ring, program, arg1, arg2, ...]</code>, so your arguments start at item 3. <code>run(aArguments)</code> does everything and <strong>returns an exit code</strong> instead of stopping the program: the demonstration calls it with several lists of arguments, a real use passes the real ones. This is the trick that makes a command-line tool easy to test.</p>

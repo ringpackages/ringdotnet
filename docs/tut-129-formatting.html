@@ -279,13 +279,12 @@ oInvariant = <span class="s">""</span>
 	? <span class="s">"   G = general (the shortest form)"</span>
 	? <span class="s">"   {0:P1} of 0.256 = "</span> + one(<span class="s">"{0:P1}"</span>,<span class="n">0.256</span>)
 
-	<span class="c"># 2. Whole numbers. The formats D (zeros in front) and X (hexadecimal) are made for whole-number TYPES, and a Ring number reaches</span>
-	<span class="c">#    String.Format as a double, so they are not used here. Convert.ToString(number, base) writes a whole number in base 2, 8, 10 or 16,</span>
-	<span class="c">#    and a few Ring functions finish the job.</span>
+	<span class="c"># 2. Whole numbers. The formats D (zeros in front) and X (hexadecimal) are made for whole-number TYPES: a whole number that goes to</span>
+	<span class="c">#    String.Format is an Int32, so they work. Convert.ToString(number, base) writes a whole number in base 2, 8, 10 or 16 as well.</span>
 	? nl + <span class="s">"2. whole numbers, 255:"</span>
 	? <span class="s">"   base 16: "</span> + toBase(<span class="n">255</span>,<span class="n">16</span>) + <span class="s">", base 2: "</span> + toBase(<span class="n">255</span>,<span class="n">2</span>) + <span class="s">", base 8: "</span> + toBase(<span class="n">255</span>,<span class="n">8</span>)
-	? <span class="s">"   zeros in front (the width 6):  "</span> + right(<span class="s">"000000"</span> + <span class="n">255</span>,<span class="n">6</span>)
-	? <span class="s">"   upper case hexadecimal:        "</span> + upper(toBase(<span class="n">255</span>,<span class="n">16</span>))
+	? <span class="s">"   zeros in front, {0:D6}:        "</span> + one(<span class="s">"{0:D6}"</span>,<span class="n">255</span>)
+	? <span class="s">"   hexadecimal, {0:X} and {0:x4}:  "</span> + one(<span class="s">"{0:X}"</span>,<span class="n">255</span>) + <span class="s">" and "</span> + one(<span class="s">"{0:x4}"</span>,<span class="n">255</span>)
 	? <span class="s">"   thousands separators:          "</span> + one(<span class="s">"{0:N0}"</span>,<span class="n">1234567</span>)
 
 	<span class="c"># 3. Custom patterns: you draw the number. 0 = a digit (a zero if there is none), # = a digit (nothing if there is none),</span>
@@ -361,8 +360,8 @@ oInvariant = <span class="s">""</span>
 
 2. whole numbers, 255:
    base 16: ff, base 2: 11111111, base 8: 377
-   zeros in front (the width 6):  000255
-   upper case hexadecimal:        FF
+   zeros in front, {0:D6}:        000255
+   hexadecimal, {0:X} and {0:x4}:  FF and 00ff
    thousands separators:          1,234,567
 
 3. custom patterns:
@@ -407,7 +406,7 @@ oInvariant = <span class="s">""</span>
 <h3 id="standard-number-formats">Standard number formats<a class="anchor" href="#standard-number-formats">#</a></h3>
 <p>One letter, and often a number of digits. <strong>F</strong> is fixed: <code>F2</code> always has two decimals. <strong>N</strong> is the same with thousands separators. <strong>E</strong> is scientific. <strong>P</strong> is a percent: the value is multiplied by 100 (<code>0.256</code> is <code>25.6 %</code>). <strong>C</strong> is money. <strong>G</strong> is the shortest general form. The number after the letter means decimals for <code>F</code>, <code>N</code>, <code>P</code> and <code>C</code>.</p>
 <h3 id="whole-numbers">Whole numbers<a class="anchor" href="#whole-numbers">#</a></h3>
-<p>The formats <code>D</code> (zeros in front) and <code>X</code> (hexadecimal) are made for whole-number <em>types</em>. A Ring number reaches <code>String.Format</code> as a <code>double</code>, so those two do not apply. <code>Convert.ToString(255, 16)</code> gives <code>ff</code> (bases 2, 8, 10 and 16 work), and Ring's <code>right("000000" + n, 6)</code> puts zeros in front. <code>Convert.ToString</code> is called with <code>dnStatic</code> because <code>ToString</code> is also a method of every object.</p>
+<p>The formats <code>D</code> (zeros in front) and <code>X</code> (hexadecimal) are made for whole-number <em>types</em>, and a whole number that goes to <code>String.Format</code> is an <code>Int32</code>, so <code>{0:D6}</code> gives <code>000255</code> and <code>{0:X}</code> gives <code>FF</code> (a number with a fraction is a <code>Double</code>, which those two formats refuse). <code>Convert.ToString(255, 16)</code> gives <code>ff</code> (bases 2, 8, 10 and 16 work). <code>Convert.ToString</code> is called with <code>dnStatic</code> because <code>ToString</code> is also a method of every object.</p>
 <h3 id="custom-patterns">Custom patterns<a class="anchor" href="#custom-patterns">#</a></h3>
 <p>A custom pattern draws the number: <code>0</code> is a digit that is always written (a zero if there is none), <code>#</code> is a digit that is written only when there is one, <code>,</code> is the thousands separator, <code>.</code> the decimal point and <code>%</code> multiplies by 100 and adds the sign. <code>000.0</code> gives <code>003.1</code>; <code>#.##</code> gives <code>.5</code> for <code>0.5</code> and <code>12</code> for <code>12</code>, with no zeros. Text in single quotes is written as it is (<code>0 'kg'</code>).</p>
 <h3 id="alignment">Alignment<a class="anchor" href="#alignment">#</a></h3>

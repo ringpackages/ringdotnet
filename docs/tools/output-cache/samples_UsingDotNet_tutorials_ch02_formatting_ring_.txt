@@ -14,8 +14,8 @@
 
 2. whole numbers, 255:
    base 16: ff, base 2: 11111111, base 8: 377
-   zeros in front (the width 6):  000255
-   upper case hexadecimal:        FF
+   zeros in front, {0:D6}:        000255
+   hexadecimal, {0:X} and {0:x4}:  FF and 00ff
    thousands separators:          1,234,567
 
 3. custom patterns:

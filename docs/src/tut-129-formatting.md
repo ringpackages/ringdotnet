@@ -40,7 +40,7 @@ One letter, and often a number of digits. **F** is fixed: `F2` always has two de
 
 ### Whole numbers
 
-The formats `D` (zeros in front) and `X` (hexadecimal) are made for whole-number *types*. A Ring number reaches `String.Format` as a `double`, so those two do not apply. `Convert.ToString(255, 16)` gives `ff` (bases 2, 8, 10 and 16 work), and Ring's `right("000000" + n, 6)` puts zeros in front. `Convert.ToString` is called with `dnStatic` because `ToString` is also a method of every object.
+The formats `D` (zeros in front) and `X` (hexadecimal) are made for whole-number *types*, and a whole number that goes to `String.Format` is an `Int32`, so `{0:D6}` gives `000255` and `{0:X}` gives `FF` (a number with a fraction is a `Double`, which those two formats refuse). `Convert.ToString(255, 16)` gives `ff` (bases 2, 8, 10 and 16 work). `Convert.ToString` is called with `dnStatic` because `ToString` is also a method of every object.
 
 ### Custom patterns
 

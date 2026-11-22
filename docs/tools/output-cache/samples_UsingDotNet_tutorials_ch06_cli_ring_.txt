@@ -27,6 +27,6 @@ $ wordstat ringdotnet_cli.txt --top many
 error: --top needs a number
 (exit code 1)
 
-$ wordstat ringdotnet_cli.txt --colour
-error: unknown option --colour
+$ wordstat ringdotnet_cli.txt --color
+error: unknown option --color
 (exit code 1)

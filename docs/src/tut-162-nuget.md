@@ -58,7 +58,7 @@ Newtonsoft.Json has the namespaces `Newtonsoft.Json` (for example `JsonConvert`)
 
 ### Static methods and overloads
 
-`Parse` is a **static** method of `JObject`: Ring calls it on an object, `new JObject().Parse(cText)`. `Add` has several versions, so it takes a list of named values, `[ :propertyName = ..., :value = ... ]`, the same way as the methods of the C# library. A number that goes to .NET is a double, so `SerializeObject(42)` writes `42.0`. Names of parameters are in the class files that the generator wrote (`Packages/classes`) and in the documentation of the package.
+`Parse` is a **static** method of `JObject`: Ring calls it on an object, `new JObject().Parse(cText)`. `Add` has several versions, so it takes a list of named values, `[ :propertyName = ..., :value = ... ]`, the same way as the methods of the C# library. A whole number that goes to an `object` parameter is an `Int32` and any other number is a `Double`, so `SerializeObject(42)` writes `42` and `SerializeObject(42.5)` writes `42.5`. Names of parameters are in the class files that the generator wrote (`Packages/classes`) and in the documentation of the package.
 
 ## When a package does not work at once
 

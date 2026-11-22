@@ -24,13 +24,12 @@ func main
 	? "   G = general (the shortest form)"
 	? "   {0:P1} of 0.256 = " + one("{0:P1}",0.256)
 
-	# 2. Whole numbers. The formats D (zeros in front) and X (hexadecimal) are made for whole-number TYPES, and a Ring number reaches
-	#    String.Format as a double, so they are not used here. Convert.ToString(number, base) writes a whole number in base 2, 8, 10 or 16,
-	#    and a few Ring functions finish the job.
+	# 2. Whole numbers. The formats D (zeros in front) and X (hexadecimal) are made for whole-number TYPES: a whole number that goes to
+	#    String.Format is an Int32, so they work. Convert.ToString(number, base) writes a whole number in base 2, 8, 10 or 16 as well.
 	? nl + "2. whole numbers, 255:"
 	? "   base 16: " + toBase(255,16) + ", base 2: " + toBase(255,2) + ", base 8: " + toBase(255,8)
-	? "   zeros in front (the width 6):  " + right("000000" + 255,6)
-	? "   upper case hexadecimal:        " + upper(toBase(255,16))
+	? "   zeros in front, {0:D6}:        " + one("{0:D6}",255)
+	? "   hexadecimal, {0:X} and {0:x4}:  " + one("{0:X}",255) + " and " + one("{0:x4}",255)
 	? "   thousands separators:          " + one("{0:N0}",1234567)
 
 	# 3. Custom patterns: you draw the number. 0 = a digit (a zero if there is none), # = a digit (nothing if there is none),

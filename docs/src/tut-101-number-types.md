@@ -25,7 +25,7 @@ The tutorial [Numbers, dates and times](tut-03-numbers-dates.html) used numbers 
 
 ### Many types, one Ring number
 
-In Ring there is one number type, a double (exact for whole numbers up to 9007199254740992). .NET has `Byte` (0 to 255), `Int16` (about plus or minus 32 thousand), `Int32` (about plus or minus 2 thousand million), `Int64`, `Int128` and others, signed and unsigned, and `Single`, `Double` and `Decimal` for fractions. When Ring calls a method, the bridge converts the Ring number into the type the method asks for. A number that **does not fit** raises an error instead of wrapping around, so a wrong value is found at the call.
+In Ring there is one number type, a double (exact for whole numbers up to 9007199254740992). .NET has `Byte` (0 to 255), `Int16` (about plus or minus 32 thousand), `Int32` (about plus or minus 2 thousand million), `Int64`, `Int128` and others, signed and unsigned, and `Single`, `Double` and `Decimal` for fractions. When Ring calls a method, the bridge converts the Ring number into the type the method asks for. A number that **does not fit** raises an error instead of wrapping around, so a wrong value is found at the call. Where a .NET parameter has a number type, the number becomes that type; where the parameter is an `object` (as in `String.Format`), a whole number is an `Int32` and any other number is a `Double`.
 
 `Byte.MaxValue` and the other limits are static fields (read through any object of the class: `new Byte().MaxValue`). The limit of `Int64` is 9223372036854775807, but as a Ring number it cannot be shown exactly, so it prints rounded (step 1). For exact big values use a text: `Int64.Parse("9223372036854775807")`, and `Int128`/`BigInteger` (the tutorial [Big numbers](tut-90-big-numbers.html)).
 

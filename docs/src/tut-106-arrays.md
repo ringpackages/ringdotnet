@@ -30,7 +30,7 @@ A .NET **array** has a fixed length and **one type** (`int[]`, `string[]`, `doub
 
 ### Making an array
 
-The easy way is a typed list: a `List<Int32>` (made with `dnNewGeneric`), the values added with `Add`, and `ToArray()`. The result is a plain object (`oInts`) with `Length`, `Rank` (the number of dimensions), `toList()` to copy it into a Ring list, and the static `Array` methods. `Array.CreateInstance(type, length)` makes an empty array, but its `SetValue(value, index)` takes an `object`, and a Ring number arrives as a double, which an `Int32` array refuses; use it for `Double` and `String` arrays, or fill an `Int32` array from a list as the program does.
+The easy way is a typed list: a `List<Int32>` (made with `dnNewGeneric`), the values added with `Add`, and `ToArray()`. The result is a plain object (`oInts`) with `Length`, `Rank` (the number of dimensions), `toList()` to copy it into a Ring list, and the static `Array` methods. `Array.CreateInstance(type, length)` makes an empty array, but its `SetValue(value, index)` takes an `object`: a whole number is an `Int32` there and fits an `Int32` array, a number with a fraction is a `Double` and does not. The program fills its `Int32` arrays from a list.
 
 ### Array methods
 

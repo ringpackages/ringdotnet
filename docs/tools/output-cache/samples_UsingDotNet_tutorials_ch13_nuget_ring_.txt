@@ -29,4 +29,4 @@ the document with the new property:
 }
 
 a text as JSON   : "a b"
-a number as JSON : 42.0
+a number as JSON : 42

@@ -32,8 +32,8 @@ func main
 	showResult(run(["missing.txt"]))
 	? nl + "$ wordstat ringdotnet_cli.txt --top many"
 	showResult(run([cFile,"--top","many"]))
-	? nl + "$ wordstat ringdotnet_cli.txt --colour"
-	showResult(run([cFile,"--colour"]))
+	? nl + "$ wordstat ringdotnet_cli.txt --color"
+	showResult(run([cFile,"--color"]))
 	new File().Delete(cFile)
 
 func showResult nCode

@@ -43,4 +43,4 @@ func main
 
 	# the other namespace of the package: JsonConvert turns a value into JSON text
 	? nl + "a text as JSON   : " + new JsonConvert().SerializeObject("a b")
-	? "a number as JSON : " + new JsonConvert().SerializeObject(42)          # a Ring number is a double, so 42 becomes 42.0
+	? "a number as JSON : " + new JsonConvert().SerializeObject(42)          # a whole number that goes to an object is an Int32, so 42 is written as 42 (42.5 stays a double)

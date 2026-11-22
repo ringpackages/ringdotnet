@@ -63,8 +63,8 @@ func main
 		? cLine
 	next
 
-# A typed array is made from a list: add the values to a List<Int32> and call ToArray(). (SetValue takes an object, and a Ring number
-# arrives there as a double, which an Int32 array refuses.)
+# A typed array is made from a list: add the values to a List<Int32> and call ToArray(). (Array.SetValue takes an object: a whole number is
+# an Int32 there and fits an Int32 array, a number with a fraction is a Double and does not.)
 func makeIntArray aList
 	oList = dnNewGeneric("System.Collections.Generic.List",["System.Int32"],[])
 	for nValue in aList
