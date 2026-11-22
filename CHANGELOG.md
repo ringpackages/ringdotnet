@@ -18,6 +18,15 @@ The first release. It needs Ring 1.28 and an installed .NET runtime (6.0 or newe
 - Object code first: `new`, the dot and braces cover almost every call. The generic functions (`dnNew` with names, `dnStatic`, `dnType`, `callMethod`, `getProp`) are for the few cases that have no class.
 - `dnHandleCount()` gives the number of .NET objects that Ring holds, for tests of the release of handles.
 
+**More of the .NET type system**
+- Generic types have a Ring class for each definition (`List`, `Dictionary`, `HashSet`...), made with `new HashSet([ :typeArguments = ["System.Int32"] ])`; the class also wraps every closed type of the definition that .NET gives back. Generic methods whose type argument only the result shows (`JsonSerializer.Deserialize<T>`) take `:typeArguments` too, or `callGeneric(name, [types], [args])`.
+- Nested types, exceptions and attributes have classes (only obsolete types are left out); a nested class is named after the types around it (`SqlMapperGridReader`).
+- Operators work on wrapped objects (`oDate + oSpan`, `5 + oBig`, `oA < oB`, with `Equals` and `IComparable` as the fallback), and `convertTo("System.Int64")` is the cast of `op_Implicit` / `op_Explicit`. An indexer with several indexes takes them as a list (`Item([row,column])`).
+- `Span<T>` and `ReadOnlySpan<T>` parameters take a text, a byte string, a list or a size; spans that come back, and spans passed by reference, are answered as arrays. A ref struct of a library is made for the call from one value (`op_Implicit`, a constructor or a static factory) and, when it is returned, answered as an array, a list of its items, a text or its properties.
+- Pointer parameters take an address (a number) or a buffer that is pinned for the call; pointer results, pointer properties and `ref` returns are answered as values.
+- An `IAsyncEnumerable<T>` result is read with `toList()` or one item at a time (`asyncEnumerator()`, `asyncNext()`).
+- A call without arguments of a name that is a static or instance property or field reads it (`dnStatic("System.Math","PI",[])`).
+
 **Packages from nuget.org and other assemblies**
 - A package is brought to Ring in four steps: a project file with a `PackageReference`, `dotnet publish` (the package with the DLLs it needs and its native libraries), `wrapassembly.ring`, then `dnLoad` and `dnImportFrom`. The lessons from [A NuGet package](docs/tut-162-nuget.html) on show it with Newtonsoft.Json, QRCoder, ClosedXML, SkiaSharp, PDFsharp and System.Speech.
 - Native libraries of a package are found in `runtimes/<system>-<architecture>/native` next to its DLL.
@@ -25,6 +34,8 @@ The first release. It needs Ring 1.28 and an installed .NET runtime (6.0 or newe
 - A class of the assembly that has the name of a class of the library gets the prefix of its namespace (`YamlDotNet.Core.Version` is `CoreVersion`), and the generator lists the renames.
 - An object that comes back as a class that is not public is wrapped as the interface named after it (`XLWorksheet` as `IXLWorksheet`), and an interface has the members that it inherits from other interfaces.
 - Extension methods are methods of the Ring class of the type that they extend, of the classes that implement the interface that they extend, and of the interfaces that inherit it (`oTable.AddColumn("Name")`, `oServices.BuildServiceProvider(NULL)`), for the types of the same generated set; the methods of the object come first and a method that the class already has keeps its signature.
+- `tools/dotnettools/auditassembly.ring` and `auditpackages.py` count what Ring can and cannot use in an assembly or in a list of NuGet packages (the baseline covers 89 packages), so that the gaps are found by reading the API instead of by trying programs.
+- Real programs against pinned packages are tests (`samples/UsingDotNet/tests/packages`: Markdig, YamlDotNet, Humanizer, Jint, NodaTime, Math.NET Numerics, Bogus, Polly, Dapper); the first run restores them and a computer without nuget.org skips them.
 - Methods that a class implements explicitly are found through its public interfaces (the rows of Dapper), and a parameter of the type `System.Enum` takes the full name of a member (`"System.DayOfWeek.Friday"`).
 
 **Desktop**
