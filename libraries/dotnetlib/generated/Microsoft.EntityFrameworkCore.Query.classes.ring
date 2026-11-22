@@ -1472,6 +1472,10 @@ Class IIncludableQueryable from DotNetObject
 	Func GetEnumerator 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
+	Func ThenInclude P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ThenInclude",P1))
+
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
 		if dotnet_isnamed(P1)

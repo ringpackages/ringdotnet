@@ -83,9 +83,21 @@ func reserveLibraryNames
 			if right(rl_cName,5) = ".ring" and not substr(rl_cName,".classes.ring") and rl_cName != "classindex.ring"
 				if find(rl_aOwn,left(rl_cName,len(rl_cName) - 5)) = 0
 					rl_aFileLines = str2list(read(C_OUTDIR + rl_cName))
+					rl_cFolderNamespace = left(rl_cName,len(rl_cName) - 5)
+					aFolderNamespaces + rl_cFolderNamespace
 					for rl_cLine in rl_aFileLines
 						if left(rl_cLine,16) = 'dnRegisterClass('
 							rl_aLines + trim(rl_cLine)
+							# a class of an assembly that was wrapped into this folder before can be a base class of a class of this one
+							# (PersonValidator derives from the AbstractValidator of the package): its type is known
+							rl_nQuote = substr(rl_cLine,'","')
+							if rl_nQuote > 0
+								rl_cBaseType = substr(left(rl_cLine,rl_nQuote - 1),18)
+								rl_cBaseRest = substr(rl_cLine,rl_nQuote + 3)
+								if find(aClassMap,rl_cBaseType,1) = 0
+									aClassMap + [rl_cBaseType,left(rl_cBaseRest,substr(rl_cBaseRest,'"') - 1),rl_cFolderNamespace]
+								ok
+							ok
 						ok
 					next
 				ok

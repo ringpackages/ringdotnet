@@ -76,6 +76,8 @@ The tutorial [A NuGet package](tut-162-nuget.html) walks through this with a rea
 
 A package often needs other DLLs and, sometimes, native libraries. `dotnet publish` copies both: the native libraries are in `runtimes/<system>-<architecture>/native` next to the DLL, and the bridge finds them there. The lessons from [A NuGet package](tut-162-nuget.html) on use real packages: [A QR code](tut-165-qr.html), [Excel files](tut-167-excel.html), [Pictures on every system](tut-168-pictures.html), [PDF files](tut-169-pdf.html), [Text to speech](tut-170-speech.html), and [a project with three packages](tut-171-csv-to-excel.html).
 
+A class of your assembly that derives from a class of a package (`PersonValidator : AbstractValidator<Person>`) derives from its Ring class when the package was wrapped into the same folder **before** your assembly, so it has the methods of the base class, and the extension methods of the interfaces that the base class implements (`oValidator.ValidateAndThrow(oPerson)`). Its loader loads the namespace of the base class first.
+
 Two DLLs of one program can share the output folder: a class of the second one that has the name of a class that is already in the folder gets the prefix of its namespace (`Spectre.Console` and `Spectre.Console.Testing` both have a `StringExtensions`; the second is `TestingStringExtensions`). Two DLLs that have the same namespace need folders of their own, or only one of them wrapped: a DLL whose classes you do not call (an extension method that you call by `dnRequest`) only needs `dnLoad`.
 
 Entity Framework Core is wrapped the same way — that is how its classes were generated.

@@ -755,9 +755,8 @@ Class Stroke from Object
 		return self
 
 
-Class StrokeCollection from DotNetObject
+Class StrokeCollection from Collection
 
-	Count
 	InkSerializedFormat
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'strokecollection'          # new X without parentheses: the default object
@@ -832,18 +831,8 @@ Class StrokeCollection from DotNetObject
 	Func Clone 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
-	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
 	Func Remove P1
 		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
-
-		return self
-
-	Func Add P1
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
 		return self
 
@@ -886,59 +875,6 @@ Class StrokeCollection from DotNetObject
 	Func GetIncrementalLassoHitTester P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetIncrementalLassoHitTester",P1))
 
-	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
-		return self
-
-	Func CopyTo P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-
-		return self
-
-	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
-
-	Func Insert P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-
-		return self
-
-	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
-		return self
-
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
-
-	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		return self
-
 	Func setStrokesChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"StrokesChanged",dnCallback(P1)])
 		return self
@@ -954,14 +890,6 @@ Class StrokeCollection from DotNetObject
 	Func clearPropertyDataChangedEvent
 		dnRequest("clearevent",[new DotNetObject(this.nHandle),"PropertyDataChanged"])
 		return self
-
-	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func setCount P1
-		raise("DotNet Error: Count is a read-only property")
 
 	Func getInkSerializedFormat
 		dn_x = dotnet_call("s3:get",'System.Windows.Ink.StrokeCollection, PresentationCore',"s19:InkSerializedFormat")

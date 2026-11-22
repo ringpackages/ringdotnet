@@ -1107,6 +1107,28 @@ Class OptionsBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func Bind P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsBuilderConfigurationExtensions, Microsoft.Extensions.Options.ConfigurationExtensions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Bind",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Bind",P1))
+
+	Func BindConfiguration P1
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsBuilderConfigurationExtensions, Microsoft.Extensions.Options.ConfigurationExtensions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:BindConfiguration",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:BindConfiguration",P1))
+
+	Func ValidateDataAnnotations 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsBuilderDataAnnotationsExtensions, Microsoft.Extensions.Options.DataAnnotations")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s23:ValidateDataAnnotations"))
+
+	Func ValidateOnStart 
+		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsBuilderExtensions, Microsoft.Extensions.Options")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ValidateOnStart"))
+
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok

@@ -25,6 +25,7 @@ The first release. It needs Ring 1.28 and an installed .NET runtime (6.0 or newe
 - `Span<T>` and `ReadOnlySpan<T>` parameters take a text, a byte string, a list or a size; spans that come back, and spans passed by reference, are answered as arrays. A ref struct of a library is made for the call from one value (`op_Implicit`, a constructor or a static factory) and, when it is returned, answered as an array, a list of its items, a text or its properties.
 - Pointer parameters take an address (a number) or a buffer that is pinned for the call; pointer results, pointer properties and `ref` returns are answered as values.
 - An `IAsyncEnumerable<T>` result is read with `toList()` or one item at a time (`asyncEnumerator()`, `asyncNext()`).
+- A class that derives from a generic type derives from the Ring class of the generic definition, and the extension methods of a generic interface (`ValidateAndThrow` of `IValidator<T>`) are methods of the classes that implement it. A class of your own assembly derives from a class of a package that was wrapped into the same folder before it.
 - A call without arguments of a name that is a static or instance property or field reads it (`dnStatic("System.Math","PI",[])`).
 
 **Packages from nuget.org and other assemblies**
@@ -35,7 +36,7 @@ The first release. It needs Ring 1.28 and an installed .NET runtime (6.0 or newe
 - An object that comes back as a class that is not public is wrapped as the interface named after it (`XLWorksheet` as `IXLWorksheet`), and an interface has the members that it inherits from other interfaces.
 - Extension methods are methods of the Ring class of the type that they extend, of the classes that implement the interface that they extend, and of the interfaces that inherit it (`oTable.AddColumn("Name")`, `oServices.BuildServiceProvider(NULL)`), for the types of the same generated set; the methods of the object come first and a method that the class already has keeps its signature.
 - `tools/dotnettools/auditassembly.ring` and `auditpackages.py` count what Ring can and cannot use in an assembly or in a list of NuGet packages (the baseline covers 89 packages), so that the gaps are found by reading the API instead of by trying programs.
-- Real programs against pinned packages are tests (`samples/UsingDotNet/tests/packages`: 16 packages, among them Newtonsoft.Json, CsvHelper, SharpZipLib, HtmlAgilityPack, Serilog, Spectre.Console, Scriban, Markdig, Jint, NodaTime, Dapper); the first run restores them and a computer without nuget.org skips them.
+- Real programs against pinned packages are tests (`samples/UsingDotNet/tests/packages`: 18 packages, among them FluentValidation, AutoMapper and MediatR (with a small helper project that has the classes that .NET must write), Newtonsoft.Json, CsvHelper, SharpZipLib, HtmlAgilityPack, Serilog, Spectre.Console, Scriban, Markdig, Jint, NodaTime, Dapper); the first run restores them and a computer without nuget.org skips them.
 - Methods that a class implements explicitly are found through its public interfaces (the rows of Dapper), and a parameter of the type `System.Enum` takes the full name of a member (`"System.DayOfWeek.Friday"`).
 
 **Desktop**

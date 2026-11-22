@@ -28,6 +28,7 @@ aExtMap = []	# [.NET name of an extended type, [the extension methods as methods
 cClassPrefix = ""	# :prefix of the namespace being resolved (used for names that are already taken)
 cLastRegister = ""
 aPlanCache = []	# [.NET type name, plan] (see buildPlan)
+aFolderNamespaces = []          # the namespaces that other assemblies already have in the output folder (wrapassembly): a base class there is derived from
 aWantedNamespaces = []          # the namespaces of this run (empty: all of them): a base class in another namespace is not imported, it is not generated
 
 # Value of an optional key of a manifest entry
@@ -220,7 +221,7 @@ func genNamespace aItem
 			cBase = buildPlan(aType[1],aType[3])[8]
 			nBase = find(aClassMap,cBase,1)
 			if cBase != "" and nBase > 0
-				if aClassMap[nBase][3] != cNs and find(aBaseNamespaces,aClassMap[nBase][3]) = 0 and (len(aWantedNamespaces) = 0 or find(aWantedNamespaces,aClassMap[nBase][3]) > 0)
+				if aClassMap[nBase][3] != cNs and find(aBaseNamespaces,aClassMap[nBase][3]) = 0 and (len(aWantedNamespaces) = 0 or find(aWantedNamespaces,aClassMap[nBase][3]) > 0 or find(aFolderNamespaces,aClassMap[nBase][3]) > 0)
 					aBaseNamespaces + aClassMap[nBase][3]
 				ok
 			ok
@@ -1089,7 +1090,7 @@ func genClass cTypeName, cClass, nForceInit
 	aBasePlan = []
 	if aPlan[8] != ""
 		nBase = find(aClassMap,aPlan[8],1)
-		if nBase > 0 and len(aWantedNamespaces) > 0 and find(aWantedNamespaces,aClassMap[nBase][3]) = 0
+		if nBase > 0 and len(aWantedNamespaces) > 0 and find(aWantedNamespaces,aClassMap[nBase][3]) = 0 and find(aFolderNamespaces,aClassMap[nBase][3]) = 0
 			nBase = 0          # a base class of a namespace that this run does not generate: all its members are in this class
 		ok
 		if nBase > 0
@@ -1219,7 +1220,7 @@ func findExtensions aPlan
 					if len(aMethod) >= 8 and aMethod[7] = 1 and len(aMethod[4]) >= 1 and isIdent(aMethod[1])
 						cTarget = aMethod[4][1]
 						# a target with no class of its own (System.IServiceProvider) still counts: the classes that implement it get the methods
-						lTarget = (not substr(cTarget,"`")) and (not substr(cTarget,"["))
+						lTarget = (not substr(cTarget,"[")) and not (substr(cTarget,"`") and left(cTarget,7) = "System.")          # a generic definition counts (IValidator`1), the generic types of System do not (LINQ)
 						if lTarget
 							aRest = []
 							for nParam = 2 to len(aMethod[4])

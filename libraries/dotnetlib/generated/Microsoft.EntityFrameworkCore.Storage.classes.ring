@@ -4161,6 +4161,10 @@ Class RelationalTransaction from Object
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+
 	Func getTransactionId
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TransactionId"))
 

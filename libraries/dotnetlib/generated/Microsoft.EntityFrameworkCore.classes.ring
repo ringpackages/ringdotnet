@@ -740,6 +740,10 @@ Class DbContext from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+
 	Func ConfigureAwait P1
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
@@ -1294,7 +1298,7 @@ Class DbLoggerCategory from Object
 		raise("DotNet Error: Name is a read-only property")
 
 
-Class DbLoggerCategoryChangeTracking from DotNetObject
+Class DbLoggerCategoryChangeTracking from LoggerCategory
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dbloggercategorychangetracking'          # new X without parentheses: the default object
 		dnDefaultObject('Microsoft.EntityFrameworkCore.DbLoggerCategory+ChangeTracking, Microsoft.EntityFrameworkCore')
@@ -1314,26 +1318,8 @@ Class DbLoggerCategoryChangeTracking from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
 
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-
-Class DbLoggerCategoryDatabase from DotNetObject
+Class DbLoggerCategoryDatabase from LoggerCategory
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dbloggercategorydatabase'          # new X without parentheses: the default object
 		dnDefaultObject('Microsoft.EntityFrameworkCore.DbLoggerCategory+Database, Microsoft.EntityFrameworkCore')
@@ -1353,26 +1339,8 @@ Class DbLoggerCategoryDatabase from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
 
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-
-Class DbLoggerCategoryDatabaseCommand from DotNetObject
+Class DbLoggerCategoryDatabaseCommand from LoggerCategory
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dbloggercategorydatabasecommand'          # new X without parentheses: the default object
 		dnDefaultObject('Microsoft.EntityFrameworkCore.DbLoggerCategory+Database+Command, Microsoft.EntityFrameworkCore')
@@ -1392,26 +1360,8 @@ Class DbLoggerCategoryDatabaseCommand from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
 
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-
-Class DbLoggerCategoryDatabaseConnection from DotNetObject
+Class DbLoggerCategoryDatabaseConnection from LoggerCategory
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dbloggercategorydatabaseconnection'          # new X without parentheses: the default object
 		dnDefaultObject('Microsoft.EntityFrameworkCore.DbLoggerCategory+Database+Connection, Microsoft.EntityFrameworkCore')
@@ -1431,26 +1381,8 @@ Class DbLoggerCategoryDatabaseConnection from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
 
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-
-Class DbLoggerCategoryDatabaseTransaction from DotNetObject
+Class DbLoggerCategoryDatabaseTransaction from LoggerCategory
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dbloggercategorydatabasetransaction'          # new X without parentheses: the default object
 		dnDefaultObject('Microsoft.EntityFrameworkCore.DbLoggerCategory+Database+Transaction, Microsoft.EntityFrameworkCore')
@@ -1470,26 +1402,8 @@ Class DbLoggerCategoryDatabaseTransaction from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
 
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-
-Class DbLoggerCategoryInfrastructure from DotNetObject
+Class DbLoggerCategoryInfrastructure from LoggerCategory
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dbloggercategoryinfrastructure'          # new X without parentheses: the default object
 		dnDefaultObject('Microsoft.EntityFrameworkCore.DbLoggerCategory+Infrastructure, Microsoft.EntityFrameworkCore')
@@ -1509,26 +1423,8 @@ Class DbLoggerCategoryInfrastructure from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
 
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-
-Class DbLoggerCategoryMigrations from DotNetObject
+Class DbLoggerCategoryMigrations from LoggerCategory
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dbloggercategorymigrations'          # new X without parentheses: the default object
 		dnDefaultObject('Microsoft.EntityFrameworkCore.DbLoggerCategory+Migrations, Microsoft.EntityFrameworkCore')
@@ -1548,26 +1444,8 @@ Class DbLoggerCategoryMigrations from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
 
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-
-Class DbLoggerCategoryModel from DotNetObject
+Class DbLoggerCategoryModel from LoggerCategory
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dbloggercategorymodel'          # new X without parentheses: the default object
 		dnDefaultObject('Microsoft.EntityFrameworkCore.DbLoggerCategory+Model, Microsoft.EntityFrameworkCore')
@@ -1587,26 +1465,8 @@ Class DbLoggerCategoryModel from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
 
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-
-Class DbLoggerCategoryModelValidation from DotNetObject
+Class DbLoggerCategoryModelValidation from LoggerCategory
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dbloggercategorymodelvalidation'          # new X without parentheses: the default object
 		dnDefaultObject('Microsoft.EntityFrameworkCore.DbLoggerCategory+Model+Validation, Microsoft.EntityFrameworkCore')
@@ -1626,26 +1486,8 @@ Class DbLoggerCategoryModelValidation from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
 
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-
-Class DbLoggerCategoryQuery from DotNetObject
+Class DbLoggerCategoryQuery from LoggerCategory
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dbloggercategoryquery'          # new X without parentheses: the default object
 		dnDefaultObject('Microsoft.EntityFrameworkCore.DbLoggerCategory+Query, Microsoft.EntityFrameworkCore')
@@ -1665,26 +1507,8 @@ Class DbLoggerCategoryQuery from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
 
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-
-Class DbLoggerCategoryScaffolding from DotNetObject
+Class DbLoggerCategoryScaffolding from LoggerCategory
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dbloggercategoryscaffolding'          # new X without parentheses: the default object
 		dnDefaultObject('Microsoft.EntityFrameworkCore.DbLoggerCategory+Scaffolding, Microsoft.EntityFrameworkCore')
@@ -1704,26 +1528,8 @@ Class DbLoggerCategoryScaffolding from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
 
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-
-Class DbLoggerCategoryUpdate from DotNetObject
+Class DbLoggerCategoryUpdate from LoggerCategory
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dbloggercategoryupdate'          # new X without parentheses: the default object
 		dnDefaultObject('Microsoft.EntityFrameworkCore.DbLoggerCategory+Update, Microsoft.EntityFrameworkCore')
@@ -1742,24 +1548,6 @@ Class DbLoggerCategoryUpdate from DotNetObject
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.DbLoggerCategory+Update, Microsoft.EntityFrameworkCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
-
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
 
 
 Class DbSet from Object
@@ -1856,6 +1644,18 @@ Class DbSet from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func FromSqlRaw P1,P2
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalQueryableExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FromSqlRaw",P1,P2))
+
+	Func FromSqlInterpolated P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalQueryableExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FromSqlInterpolated",P1))
+
+	Func FromSql P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalQueryableExtensions, Microsoft.EntityFrameworkCore.Relational")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:FromSql",P1))
+
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
 		if dotnet_isnamed(P1)
@@ -1885,6 +1685,10 @@ Class DbSet from Object
 	Func CreateDbCommand 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalQueryableExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateDbCommand"))
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
@@ -2584,6 +2388,10 @@ Class ModelBuilder from Object
 	Func UseCollation P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:UseCollation",P1))
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getModel
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))

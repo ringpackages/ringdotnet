@@ -5135,6 +5135,12 @@ Class IDiagnosticsLogger1 from DotNetObject
 	Func NeedsEventData P1
 		return dnSend("s4:call",nHandle,"s14:NeedsEventData",dnPackItem(P1))
 
+	Func SensitiveDataLoggingEnabledWarning 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore")
+		dotnet_callv("s4:call",nHandle,"s34:SensitiveDataLoggingEnabledWarning")
+
+		return self
+
 	Func getOptions
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Options"))
 
@@ -5554,6 +5560,12 @@ Class IRelationalCommandDiagnosticsLogger from DotNetObject
 	Func NeedsEventData P1
 		return dnSend("s4:call",nHandle,"s14:NeedsEventData",dnPackItem(P1))
 
+	Func SensitiveDataLoggingEnabledWarning 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore")
+		dotnet_callv("s4:call",nHandle,"s34:SensitiveDataLoggingEnabledWarning")
+
+		return self
+
 	Func getOptions
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Options"))
 
@@ -5708,6 +5720,12 @@ Class IRelationalConnectionDiagnosticsLogger from DotNetObject
 
 	Func NeedsEventData P1
 		return dnSend("s4:call",nHandle,"s14:NeedsEventData",dnPackItem(P1))
+
+	Func SensitiveDataLoggingEnabledWarning 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore")
+		dotnet_callv("s4:call",nHandle,"s34:SensitiveDataLoggingEnabledWarning")
+
+		return self
 
 	Func getOptions
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Options"))

@@ -2,6 +2,7 @@
 dnImport("System.Windows.Threading")
 dnImport("System")
 dnImport("System.Windows.Markup")
+dnImport("System.Collections.ObjectModel")
 dnImport("System.ComponentModel")
 dnImport("System.Windows.Media.Animation")
 dnImport("System.Windows.Media")

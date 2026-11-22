@@ -83,9 +83,7 @@ Func DotNetNew_SmtpFailedRecipientsException
 	oDotNetNew = new SmtpFailedRecipientsException()
 
 
-Class AlternateViewCollection from DotNetObject
-
-	Count
+Class AlternateViewCollection from Collection
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -100,82 +98,6 @@ Class AlternateViewCollection from DotNetObject
 		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
-
-	Func Add P1
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-
-		return self
-
-	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
-		return self
-
-	Func CopyTo P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-
-		return self
-
-	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
-
-	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Insert P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-
-		return self
-
-	Func Remove P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
-		return self
-
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
-
-	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		return self
-
-	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func setCount P1
-		raise("DotNet Error: Count is a read-only property")
 
 
 Class AttachmentBase from Object
@@ -234,9 +156,7 @@ Class AttachmentBase from Object
 		return self
 
 
-Class AttachmentCollection from DotNetObject
-
-	Count
+Class AttachmentCollection from Collection
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -252,86 +172,8 @@ Class AttachmentCollection from DotNetObject
 
 		return self
 
-	Func Add P1
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
-		return self
-
-	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
-		return self
-
-	Func CopyTo P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-
-		return self
-
-	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
-
-	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Insert P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-
-		return self
-
-	Func Remove P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
-		return self
-
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
-
-	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		return self
-
-	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func setCount P1
-		raise("DotNet Error: Count is a read-only property")
-
-
-Class LinkedResourceCollection from DotNetObject
-
-	Count
+Class LinkedResourceCollection from Collection
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -346,82 +188,6 @@ Class LinkedResourceCollection from DotNetObject
 		dotnet_callv("s4:call",nHandle,"s7:Dispose")
 
 		return self
-
-	Func Add P1
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-
-		return self
-
-	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
-		return self
-
-	Func CopyTo P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-
-		return self
-
-	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
-
-	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Insert P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-
-		return self
-
-	Func Remove P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
-		return self
-
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
-
-	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		return self
-
-	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func setCount P1
-		raise("DotNet Error: Count is a read-only property")
 
 
 Class MailAddress from Object
@@ -503,9 +269,7 @@ Class MailAddress from Object
 		raise("DotNet Error: Address is a read-only property")
 
 
-Class MailAddressCollection from DotNetObject
-
-	Count
+Class MailAddressCollection from Collection
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'mailaddresscollection'          # new X without parentheses: the default object
 		dnDefaultObject('System.Net.Mail.MailAddressCollection, System.Net.Mail')
@@ -524,82 +288,6 @@ Class MailAddressCollection from DotNetObject
 		nHandle = dnCreate('System.Net.Mail.MailAddressCollection, System.Net.Mail',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
-
-	Func Add P1
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-
-		return self
-
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
-		return self
-
-	Func CopyTo P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-
-		return self
-
-	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
-
-	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Insert P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-
-		return self
-
-	Func Remove P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
-		return self
-
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
-
-	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		return self
-
-	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func setCount P1
-		raise("DotNet Error: Count is a read-only property")
 
 
 Class MailMessage from Object

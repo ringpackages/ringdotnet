@@ -4321,7 +4321,7 @@ Class RouteAttribute from Attribute
 		return self
 
 
-Class SerializableError from ObjectDictionary
+Class SerializableError from Dictionary
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'serializableerror'          # new X without parentheses: the default object
 		dnDefaultObject('Microsoft.AspNetCore.Mvc.SerializableError, Microsoft.AspNetCore.Mvc.Core')

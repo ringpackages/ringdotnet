@@ -863,6 +863,8 @@ namespace RingDotNet
 		private static string TName(Type t)
 		{
 			if (t.IsPointer) return "System.IntPtr";          /* an address: Ring gives a number or a buffer */
+			/* a generic type with a type parameter (IValidator<T> in the parameters of a generic method) has no full name: its definition is named */
+			if (t.FullName == null && t.IsGenericType) return t.GetGenericTypeDefinition().FullName ?? t.Name;
 			return t.FullName ?? t.Name;
 		}
 
@@ -1684,9 +1686,14 @@ namespace RingDotNet
 			HashSet<Type> inherited = new HashSet<Type>(t.IsInterface || t.BaseType == null ? Type.EmptyTypes : t.BaseType.GetInterfaces());
 			foreach (Type i in t.GetInterfaces())
 			{
-				if (i.IsVisible && !i.IsGenericType && !inherited.Contains(i)) interfaces.Add(TName(i));
+				if (!i.IsVisible || inherited.Contains(i)) continue;
+				/* a generic interface is named by its definition (IValidator`1): the extension methods of it are methods of the classes that implement it.
+				   The generic interfaces of System (IEnumerable<T>: LINQ) are left out: every collection would get every LINQ method. */
+				if (!i.IsGenericType) interfaces.Add(TName(i));
+				else if (!(i.Namespace ?? "").StartsWith("System", StringComparison.Ordinal) && !interfaces.Contains(i.GetGenericTypeDefinition().FullName)) interfaces.Add(i.GetGenericTypeDefinition().FullName);
 			}
-			string baseName = t.BaseType == null ? "" : definition != null && t.BaseType.IsGenericType ? t.BaseType.GetGenericTypeDefinition().FullName : TName(t.BaseType);
+			/* a base class that is a generic type is named by its definition: when the definition has a class, the class derives from it (PersonValidator from AbstractValidator) */
+			string baseName = t.BaseType == null ? "" : t.BaseType.IsGenericType ? t.BaseType.GetGenericTypeDefinition().FullName : TName(t.BaseType);
 			/* the operators the class has itself (a derived class inherits the Ring method operator of its base class) */
 			List<object> operators = new RingList();
 			if (!t.IsInterface)
@@ -2761,6 +2768,15 @@ namespace RingDotNet
 			return 1;
 		}
 
+		private static bool ImplementsDefinition(Type type, Type definition)
+		{
+			for (Type t = type; t != null; t = t.BaseType)
+			{
+				if (t.IsGenericType && t.GetGenericTypeDefinition() == definition) return true;
+			}
+			return type.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == definition);
+		}
+
 		private static MethodBase[] ExtensionsFor(Type target, string name)
 		{
 			ScanExtensions();
@@ -2776,6 +2792,9 @@ namespace RingDotNet
 						if (!string.Equals(m.Name, key.Item2, comparison)) continue;
 						Type first = m.GetParameters()[0].ParameterType;
 						if (!first.ContainsGenericParameters && first.IsAssignableFrom(key.Item1)) found.Add(m);
+						/* the extended type is a generic type (IValidator<T>): the class must be, or implement, a closed type of that definition; the
+						   type arguments of the method are then inferred from the object */
+						else if (first.IsGenericType && first.ContainsGenericParameters && ImplementsDefinition(key.Item1, first.GetGenericTypeDefinition())) found.Add(m);
 					}
 					if (found.Count > 0) break;
 				}

@@ -62,6 +62,8 @@ if [ "$QUICK" = "0" ] && [ "$PACKAGES" = "1" ]; then
 	# 1b. the package tests: real programs against NuGet packages (one after the other: they restore and wrap)
 	for f in "$HERE"/packages/pkgtest_*.ring; do [ -f "$f" ] && echo "p|$HERE/packages|$(basename "$f")|packages/$(basename "$f")" >> "$LIST"; done
 	rungroup
+	# the build servers that dotnet publish leaves running take the processor for a while: the programs that type keys into windows need it
+	dotnet build-server shutdown > /dev/null 2>&1
 fi
 
 if [ "$QUICK" = "0" ] && [ "$ONLYPACKAGES" = "0" ]; then

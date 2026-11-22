@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The .NET side of the package tests that need a class written in .NET: a validator, a mapping profile, request handlers. -->
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <AssemblyName>PkgHelpers</AssemblyName>
+    <RootNamespace>PkgHelpers</RootNamespace>
+    <Nullable>disable</Nullable>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <!-- AutoMapper 14 is the last version that is free of a license key; its known vulnerabilities are not a risk in a test that maps a few objects -->
+    <NoWarn>NU1903</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.2.0" />
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="MediatR" Version="12.5.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
+  </ItemGroup>
+</Project>

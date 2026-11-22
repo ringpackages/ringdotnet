@@ -2,6 +2,7 @@
 dnImport("System.Windows")
 dnImport("System")
 dnImport("System.Windows.Controls.Primitives")
+dnImport("System.Collections.ObjectModel")
 dnImport("System.ComponentModel")
 dnImport("System.Windows.Data")
 dnImport("System.Windows.Media")

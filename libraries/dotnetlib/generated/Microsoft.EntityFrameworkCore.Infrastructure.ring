@@ -70,7 +70,6 @@ dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.ServiceCharacteris
 dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.ServiceCollectionMap","ServiceCollectionMap",1)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.ServiceProviderAccessor","ServiceProviderAccessor",1)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.SpatialiteLoader","SpatialiteLoader",0)
-dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.SqliteDbContextOptionsBuilder","SqliteDbContextOptionsBuilder",1)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.TypeExtensions","TypeExtensions",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier","Uniquifier",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.Annotatable","Annotatable",0)
@@ -78,5 +77,6 @@ dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkRel
 dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelCustomizer","RelationalModelCustomizer",1)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelRuntimeInitializer","RelationalModelRuntimeInitializer",2)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelValidator","RelationalModelValidator",2)
+dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.SqliteDbContextOptionsBuilder","SqliteDbContextOptionsBuilder",1)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Infrastructure.ConventionAnnotatable","ConventionAnnotatable",0)
 load "Microsoft.EntityFrameworkCore.Infrastructure.classes.ring"

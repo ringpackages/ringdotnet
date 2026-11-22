@@ -5773,9 +5773,7 @@ Class StylusButton from Object
 		raise("DotNet Error: StylusDevice is a read-only property")
 
 
-Class StylusButtonCollection from DotNetObject
-
-	Count
+Class StylusButtonCollection from ReadOnlyCollection
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -5789,57 +5787,8 @@ Class StylusButtonCollection from DotNetObject
 	Func GetStylusButtonByGuid P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetStylusButtonByGuid",P1))
 
-	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
 
-	Func CopyTo P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-
-		return self
-
-	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
-
-	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
-
-	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func setCount P1
-		raise("DotNet Error: Count is a read-only property")
-
-
-Class StylusDeviceCollection from DotNetObject
-
-	Count
+Class StylusDeviceCollection from ReadOnlyCollection
 
 	Func init 
 		if nDotNetWrapHandle != 0
@@ -5849,53 +5798,6 @@ Class StylusDeviceCollection from DotNetObject
 			return self
 		ok
 		return self
-
-	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func CopyTo P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-
-		return self
-
-	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
-
-	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
-
-	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func setCount P1
-		raise("DotNet Error: Count is a read-only property")
 
 
 Class StylusPoint from ValueType
@@ -6028,10 +5930,9 @@ Class StylusPoint from ValueType
 		return dnRequest("operator",[self,cOperator,Para])
 
 
-Class StylusPointCollection from DotNetObject
+Class StylusPointCollection from Collection
 
 	Description
-	Count
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'styluspointcollection'          # new X without parentheses: the default object
 		dnDefaultObject('System.Windows.Input.StylusPointCollection, PresentationCore')
@@ -6067,11 +5968,6 @@ Class StylusPointCollection from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func Add P1
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-
-		return self
-
 	Func Clone 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
@@ -6080,69 +5976,6 @@ Class StylusPointCollection from DotNetObject
 
 	Func ToHiMetricArray 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ToHiMetricArray"))
-
-	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
-		return self
-
-	Func CopyTo P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-
-		return self
-
-	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
-
-	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Insert P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-
-		return self
-
-	Func Remove P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
-		return self
-
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
-
-	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		return self
 
 	Func setChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"Changed",dnCallback(P1)])
@@ -6157,14 +5990,6 @@ Class StylusPointCollection from DotNetObject
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
-
-	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func setCount P1
-		raise("DotNet Error: Count is a read-only property")
 
 
 Class StylusPointDescription from Object
@@ -6893,9 +6718,7 @@ Class TouchPoint from Object
 		raise("DotNet Error: Action is a read-only property")
 
 
-Class TouchPointCollection from DotNetObject
-
-	Count
+Class TouchPointCollection from Collection
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'touchpointcollection'          # new X without parentheses: the default object
 		dnDefaultObject('System.Windows.Input.TouchPointCollection, PresentationCore')
@@ -6914,82 +6737,6 @@ Class TouchPointCollection from DotNetObject
 		nHandle = dnCreate('System.Windows.Input.TouchPointCollection, PresentationCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
-
-	Func Add P1
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-
-		return self
-
-	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
-		return self
-
-	Func CopyTo P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
-
-		return self
-
-	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
-
-	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Insert P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-
-		return self
-
-	Func Remove P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
-		return self
-
-	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
-
-	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
-
-	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
-		return self
-
-	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func setCount P1
-		raise("DotNet Error: Count is a read-only property")
 
 
 Class TraversalRequest from Object

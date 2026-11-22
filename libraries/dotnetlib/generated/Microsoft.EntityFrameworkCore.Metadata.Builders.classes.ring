@@ -697,6 +697,10 @@ Class CheckConstraintBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
@@ -780,6 +784,10 @@ Class CollectionNavigationBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+
 
 Class ColumnBuilder from Object
 
@@ -806,6 +814,10 @@ Class ColumnBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getOverrides
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Overrides"))
@@ -906,6 +918,10 @@ Class ComplexPropertyBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -1081,6 +1097,10 @@ Class ComplexTypePrimitiveCollectionBuilder from Object
 	Func HasJsonPropertyName P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalComplexTypePrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:HasJsonPropertyName",P1))
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -1270,6 +1290,10 @@ Class ComplexTypePropertyBuilder from Object
 		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteComplexTypePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:HasSrid",P1))
 
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
@@ -1385,6 +1409,10 @@ Class DbFunctionBuilderBase from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
@@ -1423,6 +1451,10 @@ Class DbFunctionParameterBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -1573,6 +1605,10 @@ Class ElementTypeBuilder from Object
 			return dnObj(dotnet_callo("s4:call",nHandle,"s13:IsFixedLength"))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:IsFixedLength",P1))
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -1785,6 +1821,10 @@ Class EntityTypeBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s26:InsertUsingStoredProcedure",P1))
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:InsertUsingStoredProcedure",P1))
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -6506,6 +6546,10 @@ Class IndexBuilder from Object
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:HasFilter",P1))
 
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
@@ -6530,6 +6574,10 @@ Class InvertibleRelationshipBuilderBase from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -6564,6 +6612,10 @@ Class KeyBuilder from Object
 	Func HasName P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:HasName",P1))
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -6627,6 +6679,10 @@ Class NavigationBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -6835,6 +6891,10 @@ Class OwnedNavigationBuilder from Object
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalOwnedNavigationBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:HasJsonPropertyName",P1))
 
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
@@ -6891,6 +6951,10 @@ Class OwnedNavigationSplitTableBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
@@ -6951,6 +7015,10 @@ Class OwnedNavigationSplitViewBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
@@ -7043,6 +7111,10 @@ Class OwnedNavigationStoredProcedureBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
@@ -7106,6 +7178,10 @@ Class OwnedNavigationTableBuilder from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UseSqlReturningClause",P1))
 
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -7155,6 +7231,10 @@ Class OwnedNavigationViewBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
@@ -7340,6 +7420,10 @@ Class PrimitiveCollectionBuilder from Object
 	Func HasJsonPropertyName P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:HasJsonPropertyName",P1))
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -7599,6 +7683,10 @@ Class PropertyBuilder from Object
 		dnEnsureExt("Microsoft.EntityFrameworkCore.SqlitePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite")
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:HasSrid",P1))
 
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
@@ -7642,6 +7730,10 @@ Class ReferenceNavigationBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+
 
 Class RelationshipBuilderBase from Object
 
@@ -7660,6 +7752,10 @@ Class RelationshipBuilderBase from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -7711,6 +7807,10 @@ Class SequenceBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -7773,6 +7873,10 @@ Class SplitTableBuilder from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UseSqlReturningClause",P1))
 
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -7832,6 +7936,10 @@ Class SplitViewBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
@@ -7924,6 +8032,10 @@ Class StoredProcedureBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
@@ -7963,6 +8075,10 @@ Class StoredProcedureParameterBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
 
@@ -7995,6 +8111,10 @@ Class StoredProcedureResultColumnBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -8059,6 +8179,10 @@ Class TableBuilder from Object
 		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UseSqlReturningClause",P1))
 
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -8104,6 +8228,10 @@ Class TriggerBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -8205,6 +8333,10 @@ Class ViewBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+
 	Func getName
 		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -8247,6 +8379,10 @@ Class ViewColumnBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetInfrastructure 
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getOverrides
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Overrides"))

@@ -38,6 +38,11 @@ func pkgUse cName, aPackages, aWraps
 		ok
 		write(cFolder + "packages.txt",cSpec)
 	ok
+	pkgWrapAndLoad(cFolder,aWraps)
+
+# wraps the DLLs of a cache folder (the namespaces of each one) into its classes folder, and loads them
+func pkgWrapAndLoad cFolder, aWraps
+	cLibs = cFolder + "libs/"
 	for aWrap in aWraps
 		cDll = cLibs + aWrap[1]
 		cClasses = cFolder + "classes/"
@@ -65,6 +70,34 @@ func pkgExtraDlls cLibs
 		aFound + (cLibs + cDll)
 	next
 	return aFound
+
+# A test that needs a class written in .NET (a validator that derives from AbstractValidator<T>, a mapping profile, request handlers) has a helper
+# project in helpers/<name>/: pkgUseProject("fluent","helpers/PkgHelpers",[["PkgHelpers.dll",["PkgHelpers"]],["FluentValidation.dll",["FluentValidation"]]])
+# publishes it into the cache (the packages it needs come with it) and wraps and loads the DLLs like pkgUse. The cache is made again when a
+# file of the project changed.
+func pkgUseProject cName, cProject, aWraps
+	cFolder = cPkgCache + cName + "/"
+	cProjectFolder = cPkgHere + "/" + cProject + "/"
+	cSpec = ""
+	for aFile in dir(cProjectFolder)
+		if not aFile[2] and (right(aFile[1],3) = ".cs" or right(aFile[1],7) = ".csproj")
+			cSpec += aFile[1] + ":" + read(cProjectFolder + aFile[1]) + ";"
+		ok
+	next
+	if fexists(cFolder + "packages.txt") and read(cFolder + "packages.txt") != cSpec
+		pkgRemoveDir(cFolder)
+	ok
+	cLibs = cFolder + "libs/"
+	if not fexists(cLibs + aWraps[1][1])
+		pkgMakeDir(cFolder)
+		system('dotnet publish "' + cProjectFolder + '" -c Release -o "' + cLibs + '" -nologo -v q ' + pkgQuiet())
+		if not fexists(cLibs + aWraps[1][1])
+			? "SKIPPED: the helper project " + cProject + " could not be built (the first run needs nuget.org)"
+			bye
+		ok
+		write(cFolder + "packages.txt",cSpec)
+	ok
+	pkgWrapAndLoad(cFolder,aWraps)
 
 # the classes of a namespace of a wrapped DLL (the DLLs of a test share one folder of classes, so that a class name that two of them have is made unique)
 func pkgImport cName, cDll, cNamespace
