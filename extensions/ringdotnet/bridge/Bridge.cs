@@ -1707,6 +1707,8 @@ namespace RingDotNet
 				{
 					if (m.IsSpecialName && OperatorNames.ContainsValue(m.Name) && !operators.Contains(m.Name)) operators.Add(m.Name);
 				}
+				/* a type that compares (IComparable, IComparable<T>) gets the operators < > <= >= by CompareTo, also when it has no op_LessThan */
+				if (!t.IsAbstract && t.GetInterfaces().Any(i => i == typeof(IComparable) || (i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IComparable<>))) && !operators.Contains("IComparable")) operators.Add("IComparable");
 			}
 			return new RingList { TName(definition ?? t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer, events, t.IsValueType, t.Assembly.GetName().Name, baseName, interfaces, operators, multiIndexers };
 		}
@@ -2634,6 +2636,17 @@ namespace RingDotNet
 					bool equal = Equals(left, other);
 					return (op == "=") == equal ? 1.0 : 0.0;
 				}
+				if (op == "<" || op == ">" || op == "<=" || op == ">=")
+				{
+					int? compared = CompareWith(left, other);
+					if (compared.HasValue)
+					{
+						int order = compared.Value;
+						if (reversed) order = -order;
+						bool result = op == "<" ? order < 0 : op == ">" ? order > 0 : op == "<=" ? order <= 0 : order >= 0;
+						return result ? 1.0 : 0.0;
+					}
+				}
 				if ((op == "<" || op == ">" || op == "<=" || op == ">=") && left is IComparable comparable)
 				{
 					object converted = other;
@@ -2645,6 +2658,20 @@ namespace RingDotNet
 				}
 			}
 			throw new MissingMethodException("No operator " + name + " of " + left.GetType().FullName + " accepts " + (unary ? "the object" : other == null ? "null" : other.GetType().FullName));
+		}
+
+		/* IComparable<T>.CompareTo of the left object that takes the other object (a type that has no op_LessThan but compares: SemVersion); null when it has none */
+		private static int? CompareWith(object left, object other)
+		{
+			if (left == null || other == null) return null;
+			foreach (Type i in left.GetType().GetInterfaces())
+			{
+				if (!i.IsGenericType || i.GetGenericTypeDefinition() != typeof(IComparable<>)) continue;
+				Type argument = i.GetGenericArguments()[0];
+				if (!argument.IsInstanceOfType(other)) continue;
+				return (int)i.GetMethod("CompareTo").Invoke(left, new[] { other });
+			}
+			return null;
 		}
 
 		/* The conversion of a value to a type with op_Implicit / op_Explicit of the value's class or of the target class (the cast of C#), or the

@@ -3467,7 +3467,7 @@ Class NFloat from ValueType
 	Func setNegativeZero P1
 		raise("DotNet Error: NegativeZero is a read-only property")
 
-	# the operators of System.Runtime.InteropServices.NFloat: -x + - * / % = != < <= > >=
+	# the operators of System.Runtime.InteropServices.NFloat: -x + - * / % = != < <= > >= < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 

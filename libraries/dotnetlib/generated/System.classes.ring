@@ -6539,6 +6539,10 @@ Class Tuple1 from Object
 	Func setItem1 P1
 		raise("DotNet Error: Item1 is a read-only property")
 
+	# the operators of System.Tuple`1: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class Tuple2 from Object
 
@@ -6574,6 +6578,10 @@ Class Tuple2 from Object
 
 	Func setItem2 P1
 		raise("DotNet Error: Item2 is a read-only property")
+
+	# the operators of System.Tuple`2: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Tuple3 from Object
@@ -6617,6 +6625,10 @@ Class Tuple3 from Object
 
 	Func setItem3 P1
 		raise("DotNet Error: Item3 is a read-only property")
+
+	# the operators of System.Tuple`3: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Tuple4 from Object
@@ -6667,6 +6679,10 @@ Class Tuple4 from Object
 
 	Func setItem4 P1
 		raise("DotNet Error: Item4 is a read-only property")
+
+	# the operators of System.Tuple`4: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Tuple5 from Object
@@ -6724,6 +6740,10 @@ Class Tuple5 from Object
 
 	Func setItem5 P1
 		raise("DotNet Error: Item5 is a read-only property")
+
+	# the operators of System.Tuple`5: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Tuple6 from Object
@@ -6788,6 +6808,10 @@ Class Tuple6 from Object
 
 	Func setItem6 P1
 		raise("DotNet Error: Item6 is a read-only property")
+
+	# the operators of System.Tuple`6: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Tuple7 from Object
@@ -6859,6 +6883,10 @@ Class Tuple7 from Object
 
 	Func setItem7 P1
 		raise("DotNet Error: Item7 is a read-only property")
+
+	# the operators of System.Tuple`7: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Tuple8 from Object
@@ -6937,6 +6965,10 @@ Class Tuple8 from Object
 
 	Func setRest P1
 		raise("DotNet Error: Rest is a read-only property")
+
+	# the operators of System.Tuple`8: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Uri from Object
@@ -8288,7 +8320,7 @@ Class String from Object
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
 
-	# the operators of System.String: = !=
+	# the operators of System.String: = != < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 
@@ -8425,7 +8457,7 @@ Class Version from Object
 	Func setMinorRevision P1
 		raise("DotNet Error: MinorRevision is a read-only property")
 
-	# the operators of System.Version: = != < <= > >=
+	# the operators of System.Version: = != < <= > >= < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 
@@ -9139,6 +9171,10 @@ Class Boolean from ValueType
 	Func setFalseString P1
 		raise("DotNet Error: FalseString is a read-only property")
 
+	# the operators of System.Boolean: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class Byte from ValueType
 
@@ -9305,6 +9341,10 @@ Class Byte from ValueType
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
+
+	# the operators of System.Byte: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class CLSCompliantAttribute from Attribute
@@ -9638,6 +9678,10 @@ Class Char from ValueType
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
+
+	# the operators of System.Char: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ConsoleCancelEventArgs from EventArgs
@@ -10161,7 +10205,7 @@ Class DateTimeOffset from ValueType
 	Func setUnixEpoch P1
 		raise("DotNet Error: UnixEpoch is a read-only property")
 
-	# the operators of System.DateTimeOffset: + - = != < <= > >=
+	# the operators of System.DateTimeOffset: + - = != < <= > >= < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 
@@ -10539,7 +10583,7 @@ Class Decimal from ValueType
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
-	# the operators of System.Decimal: -x + - * / % = != < <= > >=
+	# the operators of System.Decimal: -x + - * / % = != < <= > >= < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 
@@ -11169,7 +11213,7 @@ Class Double from ValueType
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
 
-	# the operators of System.Double: = != < > <= >=
+	# the operators of System.Double: = != < > <= >= < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 
@@ -12098,7 +12142,7 @@ Class Half from ValueType
 	Func setNegativeOne P1
 		raise("DotNet Error: NegativeOne is a read-only property")
 
-	# the operators of System.Half: < > <= >= = != + / % * - -x
+	# the operators of System.Half: < > <= >= = != + / % * - -x < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 
@@ -12441,7 +12485,7 @@ Class Int128 from ValueType
 	Func setNegativeOne P1
 		raise("DotNet Error: NegativeOne is a read-only property")
 
-	# the operators of System.Int128: + & | ^ ~ < <= > >= / = != % * << >> - -x
+	# the operators of System.Int128: + & | ^ ~ < <= > >= / = != % * << >> - -x < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 
@@ -12641,6 +12685,10 @@ Class Int16 from ValueType
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
+
+	# the operators of System.Int16: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Int32 from ValueType
@@ -12844,6 +12892,10 @@ Class Int32 from ValueType
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
+	# the operators of System.Int32: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class Int64 from ValueType
 
@@ -13043,6 +13095,10 @@ Class Int64 from ValueType
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
+
+	# the operators of System.Int64: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class IntPtr from ValueType
@@ -13251,7 +13307,7 @@ Class IntPtr from ValueType
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
-	# the operators of System.IntPtr: = != + -
+	# the operators of System.IntPtr: = != + - < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 
@@ -14265,6 +14321,10 @@ Class SByte from ValueType
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
+	# the operators of System.SByte: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class STAThreadAttribute from Attribute
 
@@ -14901,7 +14961,7 @@ Class Single from ValueType
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
 
-	# the operators of System.Single: = != < > <= >=
+	# the operators of System.Single: = != < > <= >= < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 
@@ -15165,7 +15225,7 @@ Class TimeOnly from ValueType
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
-	# the operators of System.TimeOnly: = != > >= < <= -
+	# the operators of System.TimeOnly: = != > >= < <= - < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 
@@ -15686,7 +15746,7 @@ Class TimeSpan from ValueType
 	Func setHoursPerDay P1
 		raise("DotNet Error: HoursPerDay is a read-only property")
 
-	# the operators of System.TimeSpan: -x - + * / = != < <= > >=
+	# the operators of System.TimeSpan: -x - + * / = != < <= > >= < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 
@@ -15971,7 +16031,7 @@ Class UInt128 from ValueType
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
-	# the operators of System.UInt128: + & | ^ ~ < <= > >= / = != % * << >> - -x
+	# the operators of System.UInt128: + & | ^ ~ < <= > >= / = != % * << >> - -x < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 
@@ -16141,6 +16201,10 @@ Class UInt16 from ValueType
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
+
+	# the operators of System.UInt16: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class UInt32 from ValueType
@@ -16314,6 +16378,10 @@ Class UInt32 from ValueType
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
+	# the operators of System.UInt32: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class UInt64 from ValueType
 
@@ -16483,6 +16551,10 @@ Class UInt64 from ValueType
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
+
+	# the operators of System.UInt64: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class UIntPtr from ValueType
@@ -16669,7 +16741,7 @@ Class UIntPtr from ValueType
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
-	# the operators of System.UIntPtr: = != + -
+	# the operators of System.UIntPtr: = != + - < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 
@@ -16771,6 +16843,10 @@ Class ValueTuple from ValueType
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.ValueTuple, System.Private.CoreLib',"s6:Create",P1))
 
+	# the operators of System.ValueTuple: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
+
 
 Class ValueTuple1 from ValueType
 
@@ -16800,6 +16876,10 @@ Class ValueTuple1 from ValueType
 	Func setItem1 P1
 		dotnet_callv("s3:set",nHandle,"s5:Item1",P1)
 		return self
+
+	# the operators of System.ValueTuple`1: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ValueTuple2 from ValueType
@@ -16838,6 +16918,10 @@ Class ValueTuple2 from ValueType
 	Func setItem2 P1
 		dotnet_callv("s3:set",nHandle,"s5:Item2",P1)
 		return self
+
+	# the operators of System.ValueTuple`2: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ValueTuple3 from ValueType
@@ -16884,6 +16968,10 @@ Class ValueTuple3 from ValueType
 	Func setItem3 P1
 		dotnet_callv("s3:set",nHandle,"s5:Item3",P1)
 		return self
+
+	# the operators of System.ValueTuple`3: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ValueTuple4 from ValueType
@@ -16938,6 +17026,10 @@ Class ValueTuple4 from ValueType
 	Func setItem4 P1
 		dotnet_callv("s3:set",nHandle,"s5:Item4",P1)
 		return self
+
+	# the operators of System.ValueTuple`4: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ValueTuple5 from ValueType
@@ -17000,6 +17092,10 @@ Class ValueTuple5 from ValueType
 	Func setItem5 P1
 		dotnet_callv("s3:set",nHandle,"s5:Item5",P1)
 		return self
+
+	# the operators of System.ValueTuple`5: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ValueTuple6 from ValueType
@@ -17070,6 +17166,10 @@ Class ValueTuple6 from ValueType
 	Func setItem6 P1
 		dotnet_callv("s3:set",nHandle,"s5:Item6",P1)
 		return self
+
+	# the operators of System.ValueTuple`6: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ValueTuple7 from ValueType
@@ -17148,6 +17248,10 @@ Class ValueTuple7 from ValueType
 	Func setItem7 P1
 		dotnet_callv("s3:set",nHandle,"s5:Item7",P1)
 		return self
+
+	# the operators of System.ValueTuple`7: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class ValueTuple8 from ValueType
@@ -17236,6 +17340,10 @@ Class ValueTuple8 from ValueType
 	Func setRest P1
 		dotnet_callv("s3:set",nHandle,"s4:Rest",P1)
 		return self
+
+	# the operators of System.ValueTuple`8: < > <= >= (CompareTo)
+	Func operator cOperator, Para
+		return dnRequest("operator",[self,cOperator,Para])
 
 
 Class Void from ValueType
@@ -17647,7 +17755,7 @@ Class DateTime from ValueType
 	Func setUnixEpoch P1
 		raise("DotNet Error: UnixEpoch is a read-only property")
 
-	# the operators of System.DateTime: + - = != < <= > >=
+	# the operators of System.DateTime: + - = != < <= > >= < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 
@@ -17793,7 +17901,7 @@ Class Guid from ValueType
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
 
-	# the operators of System.Guid: = != < <= > >=
+	# the operators of System.Guid: = != < <= > >= < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 
@@ -17978,7 +18086,7 @@ Class DateOnly from ValueType
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
-	# the operators of System.DateOnly: = != > >= < <=
+	# the operators of System.DateOnly: = != > >= < <= < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 

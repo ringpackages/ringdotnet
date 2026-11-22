@@ -31811,7 +31811,7 @@ Class StoreObjectIdentifier from ValueType
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
-	# the operators of Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier: = !=
+	# the operators of Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier: = != < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 

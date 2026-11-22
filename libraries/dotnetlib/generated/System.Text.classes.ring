@@ -1311,7 +1311,7 @@ Class Rune from ValueType
 	Func setReplacementChar P1
 		raise("DotNet Error: ReplacementChar is a read-only property")
 
-	# the operators of System.Text.Rune: = != < <= > >=
+	# the operators of System.Text.Rune: = != < <= > >= < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 

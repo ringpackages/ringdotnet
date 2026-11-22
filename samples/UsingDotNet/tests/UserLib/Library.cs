@@ -191,6 +191,14 @@ namespace MyCompany.Tools
 		public static void Skip(ref ReadOnlySpan<char> text, int n) { text = text.Slice(n); }
 	}
 
+	// compares with IComparable<T> only (no operators, no IComparable): the operators < > of Ring use CompareTo
+	public class Rank : IComparable<Rank>
+	{
+		public int Level { get; set; }
+		public Rank(int level) { Level = level; }
+		public int CompareTo(Rank other) { return Level.CompareTo(other.Level); }
+	}
+
 	public class Counter : Calculator
 	{
 		public int Count { get; set; }

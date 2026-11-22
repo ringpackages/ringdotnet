@@ -46,7 +46,7 @@ Exceptions and attributes have classes too: an exception that .NET gives back (`
 
 ## Operators and conversions
 
-The operators of a .NET type work in Ring: a class with `op_Addition`, `op_Equality`, `op_LessThan` and the like gets the Ring `operator` method, so `+ - * / % = != < > <= >= & | ^ << >>` and the unary minus call them. The object may come on either side (`5 + oBig`); when the type has no `op_Equality` or `op_LessThan`, `=` uses `Equals` and `<` uses `IComparable`. A cast of C# is `convertTo`.
+The operators of a .NET type work in Ring: a class with `op_Addition`, `op_Equality`, `op_LessThan` and the like gets the Ring `operator` method, so `+ - * / % = != < > <= >= & | ^ << >>` and the unary minus call them. The object may come on either side (`5 + oBig`); when the type has no `op_Equality` or `op_LessThan`, `=` uses `Equals` and `<` uses `IComparable` or `IComparable<T>` (a type that only has `CompareTo` gets the operators `< > <= >=`). A cast of C# is `convertTo`.
 
 ```ring
 dnImport("System")

@@ -472,6 +472,14 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 		<span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="t">Skip</span>(<span class="k">ref</span> ReadOnlySpan&lt;char&gt; text, <span class="k">int</span> n) { text = text.<span class="f">Slice</span>(n); }
 	}
 
+	<span class="c">// compares with IComparable&lt;T&gt; only (no operators, no IComparable): the operators &lt; &gt; of Ring use CompareTo</span>
+	<span class="k">public</span> <span class="k">class</span> <span class="t">Rank</span> : IComparable&lt;Rank&gt;
+	{
+		<span class="k">public</span> <span class="k">int</span> <span class="t">Level</span> { <span class="k">get</span>; <span class="k">set</span>; }
+		<span class="k">public</span> <span class="t">Rank</span>(<span class="k">int</span> level) { <span class="t">Level</span> = level; }
+		<span class="k">public</span> <span class="k">int</span> <span class="t">CompareTo</span>(<span class="t">Rank</span> other) { <span class="k">return</span> Level.<span class="f">CompareTo</span>(other.Level); }
+	}
+
 	<span class="k">public</span> <span class="k">class</span> <span class="t">Counter</span> : Calculator
 	{
 		<span class="k">public</span> <span class="k">int</span> <span class="t">Count</span> { <span class="k">get</span>; <span class="k">set</span>; }
@@ -626,6 +634,14 @@ oMemory2.Stored = <span class="n">2</span>
 
 <span class="c"># a .NET method called Init is @Init (init is the constructor of a generated class)</span>
 <span class="f">dnAssert</span>(<span class="s">"a method called Init"</span>,oCalc.@Init(<span class="s">"fast"</span>),<span class="s">"init fast"</span>)
+
+<span class="c"># the operators &lt; &gt; of an object that only has IComparable&lt;T&gt;.CompareTo</span>
+oLow = <span class="k">new</span> <span class="t">Rank</span>(<span class="n">1</span>)
+oHigh = <span class="k">new</span> <span class="t">Rank</span>(<span class="n">5</span>)
+bLess = oLow &lt; oHigh
+<span class="f">dnAssert</span>(<span class="s">"a smaller rank with IComparable&lt;T&gt;"</span>,bLess,<span class="n">1</span>)
+bMore = oLow &gt; oHigh
+<span class="f">dnAssert</span>(<span class="s">"not a greater rank"</span>,bMore,<span class="n">0</span>)
 
 <span class="c"># a params array: a plain list, or left out (it is empty)</span>
 <span class="f">dnAssert</span>(<span class="s">"a params array is a list"</span>,<span class="f">dnStatic</span>(<span class="s">"MyCompany.Tools.Calculator"</span>,<span class="s">"Join"</span>,[<span class="s">"-"</span>,[<span class="s">"a"</span>,<span class="s">"b"</span>,<span class="s">"c"</span>]]),<span class="s">"a-b-c"</span>)

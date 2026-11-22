@@ -75,6 +75,14 @@ dnAssert("nested type, new",oMemory2.Stored,2)
 # a .NET method called Init is @Init (init is the constructor of a generated class)
 dnAssert("a method called Init",oCalc.@Init("fast"),"init fast")
 
+# the operators < > of an object that only has IComparable<T>.CompareTo
+oLow = new Rank(1)
+oHigh = new Rank(5)
+bLess = oLow < oHigh
+dnAssert("a smaller rank with IComparable<T>",bLess,1)
+bMore = oLow > oHigh
+dnAssert("not a greater rank",bMore,0)
+
 # a params array: a plain list, or left out (it is empty)
 dnAssert("a params array is a list",dnStatic("MyCompany.Tools.Calculator","Join",["-",["a","b","c"]]),"a-b-c")
 dnAssert("a params array that is left out is empty",dnStatic("MyCompany.Tools.Calculator","Join",["-"]),"")

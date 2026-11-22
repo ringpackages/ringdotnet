@@ -606,7 +606,7 @@ Class SecurityIdentifier from IdentityReference
 	Func setMaxBinaryLength P1
 		raise("DotNet Error: MaxBinaryLength is a read-only property")
 
-	# the operators of System.Security.Principal.SecurityIdentifier: = !=
+	# the operators of System.Security.Principal.SecurityIdentifier: = != < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 

@@ -569,7 +569,7 @@ Class BigInteger from ValueType
 	Func setMinusOne P1
 		raise("DotNet Error: MinusOne is a read-only property")
 
-	# the operators of System.Numerics.BigInteger: - & | ^ << >> ~ -x + * / % < <= > >= = !=
+	# the operators of System.Numerics.BigInteger: - & | ^ << >> ~ -x + * / % < <= > >= = != < > <= >= (CompareTo)
 	Func operator cOperator, Para
 		return dnRequest("operator",[self,cOperator,Para])
 

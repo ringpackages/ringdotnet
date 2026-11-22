@@ -1162,7 +1162,7 @@ func genClass cTypeName, cClass, nForceInit
 func operatorList aOps
 	aMap = [["op_Addition","+"],["op_Subtraction","-"],["op_Multiply","*"],["op_Division","/"],["op_Modulus","%"],["op_Equality","="],["op_Inequality","!="],
 		["op_LessThan","<"],["op_GreaterThan",">"],["op_LessThanOrEqual","<="],["op_GreaterThanOrEqual",">="],["op_BitwiseAnd","&"],["op_BitwiseOr","|"],
-		["op_ExclusiveOr","^"],["op_LeftShift","<<"],["op_RightShift",">>"],["op_UnaryNegation","-x"],["op_OnesComplement","~"],["op_LogicalNot","not"]]
+		["op_ExclusiveOr","^"],["op_LeftShift","<<"],["op_RightShift",">>"],["op_UnaryNegation","-x"],["op_OnesComplement","~"],["op_LogicalNot","not"],["IComparable","< > <= >= (CompareTo)"]]
 	cList = ""
 	for cOp in aOps
 		for aPair in aMap

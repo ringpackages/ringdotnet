@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The .NET side of the Castle DynamicProxy test: an interceptor that calls a Ring callback, and an interface to make proxies of. -->
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <AssemblyName>CastleHelpers</AssemblyName>
+    <RootNamespace>CastleHelpers</RootNamespace>
+    <Nullable>disable</Nullable>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Castle.Core" Version="5.2.1" />
+  </ItemGroup>
+</Project>
