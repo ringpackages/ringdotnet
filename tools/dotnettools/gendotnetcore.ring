@@ -1208,8 +1208,9 @@ func isExoticType cType
 
 # The extension methods of the static classes of the plan: each one becomes a method of the class of the type that it extends
 # (Table.AddColumn("Name") is TableExtensions.AddColumn(table, "Name")). The bridge finds them after the methods of the object itself.
-# Types with a Ring class in this run are extended, and so are the classes that implement the interface that a method extends (generic types
-# are not).
+# Types with a Ring class in this run are extended, and so are the classes that implement the interface that a method extends (the generic
+# types of System are not, LINQ is called with dnQuery). A closed generic DELEGATE type outside System (Sprache's Parser<IEnumerable<char>>)
+# extends the class of its generic definition (isDelegateDefinition): the delegate has a class only because extension methods extend it.
 func findExtensions aPlan
 	aExtMap = []
 	nCount = 0

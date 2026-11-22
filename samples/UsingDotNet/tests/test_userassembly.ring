@@ -87,7 +87,7 @@ dnAssert("not a greater rank",bMore,0)
 oSquare = dnStatic("System.Type","GetType",["MyCompany.Tools.Calculator, UserLib"]).callMethod("GetMethod",["Square"])
 dnAssert("MethodInfo.Invoke with an int parameter",oSquare.callMethod("Invoke",[dnNull(),[7]]),49)
 
-# a params array: a plain list, or left out (it is empty)
+# a params array: a plain list, a single value (see below), or left out (it is empty)
 dnAssert("a params array is a list",dnStatic("MyCompany.Tools.Calculator","Join",["-",["a","b","c"]]),"a-b-c")
 dnAssert("a params array that is left out is empty",dnStatic("MyCompany.Tools.Calculator","Join",["-"]),"")
 

@@ -1621,6 +1621,9 @@ namespace RingDotNet
 			return null;
 		}
 
+		/* The description of a type for the generator (dnDescribe), a list of: 1 the name, 2 a static class, 3 constructors, 4 methods (the
+		   extension methods are marked), 5 properties and fields, 6 the indexer, 7 events, 8 a struct, 9 the assembly, 10 the base type, 11 the
+		   interfaces, 12 the operators, 13 the indexers with several indexes, 14 a delegate type */
 		private static List<object> Describe(Type t)
 		{
 			Type definition = null;

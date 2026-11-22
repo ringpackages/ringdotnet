@@ -1,7 +1,7 @@
 #!/bin/sh
 # Runs the RingDotNet tests (samples/UsingDotNet/tests/test_*.ring) and the non-interactive samples; fails on any error.
 # Usage: samples/UsingDotNet/tests/run.sh [path to ring] [--quick] [--jobs N] [--show]     (the package bin folder is added to the PATH)
-#   --quick    only the tests and the introduction samples (about 20 seconds); without it everything runs (a few minutes)
+#   --quick    only the tests and the introduction samples (about 30 seconds); without it everything runs (a few minutes)
 #   --no-packages   not the package tests (tests/packages: real programs against NuGet packages; they need nuget.org on their first run)
 #   --packages-only   only the package tests
 #   --jobs N   run N programs at the same time (default 4, 1 = one after the other)

@@ -2,9 +2,10 @@
 	DotNetLib - Functions
 
 	The functions of this file are of two kinds:
-	  - the ones that a program calls: dnNew, dnStatic, dnType, dnCallback, dnImport, dnImportFrom, dnNull, dnBuffer, dnFlush, dnVersion,
-	    dnLoad, dnUseDesktop / dnUseWeb / dnUseAll / dnUseData, dnAssert ...
-	  - the ones that the library and the generated classes use: dnRequest and the packing of values, dnCreate, dnWrapObject ...
+	  - the ones that a program calls: dnNew, dnStatic, dnType, dnCallback, dnImport, dnImportFrom, dnNull / dnIsNull, dnBox, dnBuffer, dnFlush,
+	    dnVersion, dnLoad, dnUseDesktop / dnUseWeb / dnUseAll / dnUseData, dnAssert ...
+	  - the ones that the library and the generated classes use: dnRequest and the packing of values, dnCreate, dnWrapObject, dnObj,
+	    dnLoadClassIndex / dnAddClassIndex (the index of the generated classes, loaded when it is first needed) ...
 
 	Wire format: items of <tag><byte length>:<data>  (see extensions/ringdotnet/bridge/Bridge.cs)
 */

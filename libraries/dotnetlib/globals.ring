@@ -37,7 +37,8 @@ nDotNetFail = 0
 # Generated classes: [.NET type name, Ring class, dummy init arguments] (see dnRegisterClass)
 aDotNetClasses = []
 
-# [.NET type name, namespace] of every generated class (generated/classindex.ring): used to import namespaces on demand
+# [.NET type name, namespace] of every generated class (generated/classindex.ring, loaded by dnLoadClassIndex when it is first needed):
+# used to import namespaces on demand
 aDotNetClassIndex = []
 lDotNetIndexLoaded = false          # the index is loaded when it is first needed (dnLoadClassIndex)
 
