@@ -94,4 +94,8 @@ func main
 	dnAssert("new Version(NULL) is 0.0",oZero.ToString(),"0.0")
 	oParsed = new Version("1.2.3")
 	dnAssert("new Version(text) parses the text",oParsed.ToString(),"1.2.3")
+	# a call without arguments of a name that is a property or a field reads it
+	dnAssert("dnStatic of a static property",dnStatic("System.Int32","MaxValue",[]),2147483647)
+	dnAssert("dnStatic of a static property, a double",floor(dnStatic("System.Math","PI",[]) * 1000),3141)
+	dnAssert("callMethod of a property",dnNew("System.Text.StringBuilder",["abc"]).callMethod("Length",[]),3)
 	dnTestSummary()

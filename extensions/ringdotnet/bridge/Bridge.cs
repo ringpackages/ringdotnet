@@ -2554,6 +2554,12 @@ namespace RingDotNet
 					if (m != null) instance = null;
 				}
 			}
+			if (m == null && args.Length == 0)
+			{
+				/* a call without arguments of a name that is a property or a field (dnStatic("NodaTime.SystemClock","Instance",[])) reads it */
+				try { return GetMember(target, name); }
+				catch (MissingMemberException) { }
+			}
 			if (m == null)
 			{
 				throw new MissingMethodException("No public method " + t.FullName + "." + name + " matches the " + args.Length + " argument(s)");
