@@ -106,6 +106,20 @@ def find_class_ns(cls):
     return _class_ns.get(cls.lower())
 
 
+def has_func(cinfo, ring_name):
+    """True when the class, or one of its Ring base classes, has a method with this name"""
+    low = ring_name.lower()
+    info = cinfo
+    guard = 0
+    while info and guard < 30:
+        if any(f["ring"].lstrip("@").lower() == low for f in info["funcs"]):
+            return True
+        ns = find_class_ns(info["base"]) if info["base"] else None
+        info = parse_class_file(ns, info["base"]) if ns else None
+        guard += 1
+    return False
+
+
 def forms_with_bases(name, cinfo, overloads):
     """the Ring calls of a method: the class's own, or else the ones it inherits from the Ring base classes"""
     forms = ring_forms(name, cinfo["funcs"], overloads)
@@ -233,6 +247,8 @@ def render_class(ns, cls, data, cinfo, wrapped, by_full):
             is_attr = low in cinfo["attrs"]
             if is_attr:
                 use = "<code>o.%s</code>%s" % (esc(nm), " <code>o.%s = v</code>" % esc(nm) if p.get("w") else "")
+            elif not has_func(cinfo, "get" + nm):
+                use = '<span class="muted">—</span>'      # a static member of an interface or of a generic type has no Ring member
             else:
                 use = "<code>o.get%s()</code>%s" % (esc(nm), " <code>o.set%s(v)</code>" % esc(nm) if p.get("w") else "")
             rows.append("<tr><td><code>%s</code></td><td><code>%s</code></td><td>%s%s</td><td>%s</td></tr>" % (
