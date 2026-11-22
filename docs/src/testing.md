@@ -49,7 +49,7 @@ Options: `--no-packages` leaves out the package tests, `--packages-only` runs on
 
 ## Package tests
 
-`samples/UsingDotNet/tests/packages/pkgtest_*.ring` are real programs against NuGet packages: FluentValidation, AutoMapper and MediatR (with a helper project, see below), Newtonsoft.Json, CsvHelper, SharpZipLib, HtmlAgilityPack, Serilog, Spectre.Console, Scriban, Markdig, YamlDotNet, Humanizer, Jint, NodaTime, Math.NET Numerics, Bogus, Polly, and Dapper with Microsoft.Data.Sqlite. Each one asks `dnAssert` about what the package gives back (HTML, a deserialized list, a determinant, a retried call, rows from a query), so a change of the bridge that breaks a library fails here before it fails in a program.
+`samples/UsingDotNet/tests/packages/pkgtest_*.ring` are real programs against NuGet packages: FluentValidation, AutoMapper and MediatR (with a helper project, see below), Stateless, Cronos, Hashids, UnitsNet, BCrypt.Net, AngleSharp, DynamicExpresso, Ardalis.GuardClauses, Newtonsoft.Json, CsvHelper, SharpZipLib, HtmlAgilityPack, Serilog, Spectre.Console, Scriban, Markdig, YamlDotNet, Humanizer, Jint, NodaTime, Math.NET Numerics, Bogus, Polly, and Dapper with Microsoft.Data.Sqlite. Each one asks `dnAssert` about what the package gives back (HTML, a deserialized list, a determinant, a retried call, rows from a query), so a change of the bridge that breaks a library fails here before it fails in a program.
 
 A test starts with `pkgUse` from `packages/pkg.ring`:
 

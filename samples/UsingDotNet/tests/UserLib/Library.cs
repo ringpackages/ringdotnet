@@ -18,6 +18,8 @@ namespace MyCompany.Tools
 		public Calculator Add(double value) { Total += value; Changed?.Invoke(this, EventArgs.Empty); return this; }
 		public Calculator Multiply(double value) { Total *= value; return this; }
 		public static int Square(int x) { return x * x; }
+		/* a params array may be left out: it is empty */
+		public static string Join(string separator, params string[] parts) { return string.Join(separator, parts); }
 		public static string EnumName(Enum value) { return value.GetType().Name + "." + value; }
 		public string Describe(Level level, string prefix = "Total") { return prefix + "=" + Total + " (" + level + ")"; }
 		public bool TryDivide(double by, out double result)

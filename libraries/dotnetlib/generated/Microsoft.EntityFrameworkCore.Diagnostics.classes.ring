@@ -6811,9 +6811,6 @@ Class MaterializationInterceptionData from ValueType
 		return self
 
 	Func GetPropertyValue P1
-		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetPropertyValue",P1))
-		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetPropertyValue",P1))
 
 	Func getContext

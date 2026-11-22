@@ -374,6 +374,12 @@ Class SqliteDataReader from DbDataReader
 	Func GetTimeSpan P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetTimeSpan",P1))
 
+	Func GetFieldValue P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetFieldValue",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetFieldValue",P1))
+
 	Func getHandle
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Handle"))
 

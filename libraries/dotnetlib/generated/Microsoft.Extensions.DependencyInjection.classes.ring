@@ -655,7 +655,7 @@ Class ActivatorUtilities from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.ActivatorUtilities, Microsoft.Extensions.DependencyInjection.Abstractions',"s14:CreateInstance",P1))
 		ok
-		raise("DotNet Error: CreateInstance needs its type arguments: CreateInstance([ :typeArguments = [ type names ], :parameter = value, ... ])")
+		raise("DotNet Error: CreateInstance does not take one argument: use named arguments, CreateInstance([ :parameter = value, ... ])")
 
 	Func CreateFactory P1
 		if dotnet_isnamed(P1)
@@ -1295,7 +1295,7 @@ Class HealthChecksBuilderAddCheckExtensions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions, Microsoft.Extensions.Diagnostics.HealthChecks',"s8:AddCheck",P1))
 		ok
-		raise("DotNet Error: AddCheck needs its type arguments: AddCheck([ :typeArguments = [ type names ], :parameter = value, ... ])")
+		raise("DotNet Error: AddCheck does not take one argument: use named arguments, AddCheck([ :parameter = value, ... ])")
 
 	Func AddTypeActivatedCheck P1
 		if dotnet_isnamed(P1)
@@ -3752,7 +3752,7 @@ Class OAuthExtensions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.OAuthExtensions, Microsoft.AspNetCore.Authentication.OAuth',"s8:AddOAuth",P1))
 		ok
-		raise("DotNet Error: AddOAuth needs its type arguments: AddOAuth([ :typeArguments = [ type names ], :parameter = value, ... ])")
+		raise("DotNet Error: AddOAuth does not take one argument: use named arguments, AddOAuth([ :parameter = value, ... ])")
 
 
 Class OAuthPostConfigureOptions from Object
@@ -5058,19 +5058,19 @@ Class ServiceCollectionServiceExtensions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions',"s17:AddKeyedTransient",P1))
 		ok
-		raise("DotNet Error: AddKeyedTransient needs its type arguments: AddKeyedTransient([ :typeArguments = [ type names ], :parameter = value, ... ])")
+		raise("DotNet Error: AddKeyedTransient does not take one argument: use named arguments, AddKeyedTransient([ :parameter = value, ... ])")
 
 	Func AddKeyedScoped P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions',"s14:AddKeyedScoped",P1))
 		ok
-		raise("DotNet Error: AddKeyedScoped needs its type arguments: AddKeyedScoped([ :typeArguments = [ type names ], :parameter = value, ... ])")
+		raise("DotNet Error: AddKeyedScoped does not take one argument: use named arguments, AddKeyedScoped([ :parameter = value, ... ])")
 
 	Func AddKeyedSingleton P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions',"s17:AddKeyedSingleton",P1))
 		ok
-		raise("DotNet Error: AddKeyedSingleton needs its type arguments: AddKeyedSingleton([ :typeArguments = [ type names ], :parameter = value, ... ])")
+		raise("DotNet Error: AddKeyedSingleton does not take one argument: use named arguments, AddKeyedSingleton([ :parameter = value, ... ])")
 
 
 Class ServiceDescriptor from Object
@@ -5351,13 +5351,13 @@ Class ServiceProviderKeyedServiceExtensions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions',"s23:GetRequiredKeyedService",P1))
 		ok
-		raise("DotNet Error: GetRequiredKeyedService needs its type arguments: GetRequiredKeyedService([ :typeArguments = [ type names ], :parameter = value, ... ])")
+		raise("DotNet Error: GetRequiredKeyedService does not take one argument: use named arguments, GetRequiredKeyedService([ :parameter = value, ... ])")
 
 	Func GetKeyedServices P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions',"s16:GetKeyedServices",P1))
 		ok
-		raise("DotNet Error: GetKeyedServices needs its type arguments: GetKeyedServices([ :typeArguments = [ type names ], :parameter = value, ... ])")
+		raise("DotNet Error: GetKeyedServices does not take one argument: use named arguments, GetKeyedServices([ :parameter = value, ... ])")
 
 
 Class ServiceProviderOptions from Object

@@ -4771,7 +4771,7 @@ Class RelationalShapedQueryCompilingExpressionVisitorShaperProcessingExpressionV
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor+ShaperProcessingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s23:ThrowReadValueException",P1))
 		ok
-		raise("DotNet Error: ThrowReadValueException needs its type arguments: ThrowReadValueException([ :typeArguments = [ type names ], :parameter = value, ... ])")
+		raise("DotNet Error: ThrowReadValueException does not take one argument: use named arguments, ThrowReadValueException([ :parameter = value, ... ])")
 
 	Func IncludeReference P1,P2,P3,P4,P5,P6,P7
 		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor+ShaperProcessingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s16:IncludeReference",P1,P2,P3,P4,P5,P6,P7)

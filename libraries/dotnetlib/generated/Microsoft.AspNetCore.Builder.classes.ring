@@ -4422,7 +4422,7 @@ Class RouteHandlerBuilder from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Accepts",P1))
 		ok
-		raise("DotNet Error: Accepts needs its type arguments: Accepts([ :typeArguments = [ type names ], :parameter = value, ... ])")
+		raise("DotNet Error: Accepts does not take one argument: use named arguments, Accepts([ :parameter = value, ... ])")
 
 	Func WithRequestTimeout P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
@@ -4987,7 +4987,7 @@ Class UseMiddlewareExtensions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Builder.UseMiddlewareExtensions, Microsoft.AspNetCore.Http.Abstractions',"s13:UseMiddleware",P1))
 		ok
-		raise("DotNet Error: UseMiddleware needs its type arguments: UseMiddleware([ :typeArguments = [ type names ], :parameter = value, ... ])")
+		raise("DotNet Error: UseMiddleware does not take one argument: use named arguments, UseMiddleware([ :parameter = value, ... ])")
 
 
 Class UsePathBaseExtensions from Object

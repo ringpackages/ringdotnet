@@ -4018,7 +4018,7 @@ Class RelationalModelBuilderExtensions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational',"s11:HasSequence",P1))
 		ok
-		raise("DotNet Error: HasSequence needs its type arguments: HasSequence([ :typeArguments = [ type names ], :parameter = value, ... ])")
+		raise("DotNet Error: HasSequence does not take one argument: use named arguments, HasSequence([ :parameter = value, ... ])")
 
 	Func HasDbFunction P1
 		if dotnet_isnamed(P1)

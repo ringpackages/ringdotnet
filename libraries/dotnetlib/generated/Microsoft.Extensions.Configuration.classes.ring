@@ -452,7 +452,7 @@ Class ConfigurationBinder from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder',"s8:GetValue",P1))
 		ok
-		raise("DotNet Error: GetValue needs its type arguments: GetValue([ :typeArguments = [ type names ], :parameter = value, ... ])")
+		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
 
 
 Class ConfigurationBuilder from Object

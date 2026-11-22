@@ -72,6 +72,10 @@ oMemory2 = new CalculatorMemory()
 oMemory2.Stored = 2
 dnAssert("nested type, new",oMemory2.Stored,2)
 
+# a params array: a plain list, or left out (it is empty)
+dnAssert("a params array is a list",dnStatic("MyCompany.Tools.Calculator","Join",["-",["a","b","c"]]),"a-b-c")
+dnAssert("a params array that is left out is empty",dnStatic("MyCompany.Tools.Calculator","Join",["-"]),"")
+
 # an indexer with several indexes takes them as a list; the one with a single index keeps its plain form
 oGrid = new Grid()
 oGrid.SetItem([1,2],4.5)

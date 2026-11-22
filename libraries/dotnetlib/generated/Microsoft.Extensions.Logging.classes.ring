@@ -354,7 +354,7 @@ Class FilterLoggingBuilderExtensions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Logging.FilterLoggingBuilderExtensions, Microsoft.Extensions.Logging',"s9:AddFilter",P1))
 		ok
-		raise("DotNet Error: AddFilter needs its type arguments: AddFilter([ :typeArguments = [ type names ], :parameter = value, ... ])")
+		raise("DotNet Error: AddFilter does not take one argument: use named arguments, AddFilter([ :parameter = value, ... ])")
 
 
 Class IExternalScopeProvider from DotNetObject
@@ -1173,16 +1173,13 @@ Class LoggerMessage from Object
 		return dn_x
 
 	Func DefineScope P1
-		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Logging.LoggerMessage, Microsoft.Extensions.Logging.Abstractions',"s11:DefineScope",P1))
-		ok
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Logging.LoggerMessage, Microsoft.Extensions.Logging.Abstractions',"s11:DefineScope",P1))
 
 	Func Define P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Logging.LoggerMessage, Microsoft.Extensions.Logging.Abstractions',"s6:Define",P1))
 		ok
-		raise("DotNet Error: Define needs its type arguments: Define([ :typeArguments = [ type names ], :parameter = value, ... ])")
+		raise("DotNet Error: Define does not take one argument: use named arguments, Define([ :parameter = value, ... ])")
 
 
 Class LoggerMessageAttribute from Attribute

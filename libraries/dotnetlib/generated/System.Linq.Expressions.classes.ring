@@ -722,7 +722,7 @@ Class ExpressionsExpression from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s6:Lambda",P1))
 		ok
-		raise("DotNet Error: Lambda needs its type arguments: Lambda([ :typeArguments = [ type names ], :parameter = value, ... ])")
+		raise("DotNet Error: Lambda does not take one argument: use named arguments, Lambda([ :parameter = value, ... ])")
 
 	Func GetFuncType P1
 		return dnObj(dotnet_callo("s4:call",'System.Linq.Expressions.Expression, System.Linq.Expressions',"s11:GetFuncType",P1))

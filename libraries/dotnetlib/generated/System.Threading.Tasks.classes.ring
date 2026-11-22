@@ -1005,19 +1005,11 @@ Class TaskToAsyncResult from Object
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib',"s5:Begin",P1,P2,P3))
 
 	Func @End P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_calla("s9:callnamed",'System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib',"s3:End",P1)
-		if islist(dn_x) return dnAny(dn_x) ok
-		return dn_x
-		ok
 		dotnet_callv("s4:call",'System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib',"s3:End",P1)
 
 		return self
 
 	Func Unwrap P1
-		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",'System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib',"s6:Unwrap",P1))
-		ok
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib',"s6:Unwrap",P1))
 
 
@@ -1112,15 +1104,9 @@ Class ValueTask from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.ValueTask, System.Private.CoreLib',"s10:FromResult",P1))
 
 	Func FromCanceled P1
-		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",'System.Threading.Tasks.ValueTask, System.Private.CoreLib',"s12:FromCanceled",P1))
-		ok
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.ValueTask, System.Private.CoreLib',"s12:FromCanceled",P1))
 
 	Func FromException P1
-		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",'System.Threading.Tasks.ValueTask, System.Private.CoreLib',"s13:FromException",P1))
-		ok
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.ValueTask, System.Private.CoreLib',"s13:FromException",P1))
 
 	Func getIsCompleted
@@ -1379,15 +1365,9 @@ Class Task from Object
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s10:FromResult",P1))
 
 	Func FromException P1
-		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",'System.Threading.Tasks.Task, System.Private.CoreLib',"s13:FromException",P1))
-		ok
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s13:FromException",P1))
 
 	Func FromCanceled P1
-		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",'System.Threading.Tasks.Task, System.Private.CoreLib',"s12:FromCanceled",P1))
-		ok
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s12:FromCanceled",P1))
 
 	Func Run P1

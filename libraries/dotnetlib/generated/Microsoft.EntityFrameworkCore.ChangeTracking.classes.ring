@@ -278,14 +278,8 @@ Class ChangeTracker from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func Entries P1
-		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Entries",P1))
-		ok
-		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s7:Entries"))
-		ok
-		raise("DotNet Error: Entries needs its type arguments: Entries([ :typeArguments = [ type names ], :parameter = value, ... ])")
+	Func Entries 
+		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Entries"))
 
 	Func HasChanges 
 		dn_x = dotnet_call("s4:call",nHandle,"s10:HasChanges")
@@ -1659,30 +1653,6 @@ Class EntityEntry1 from EntityEntry
 		ok
 		return self
 
-	Func Property P1
-		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Property",P1))
-		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Property",P1))
-
-	Func ComplexProperty P1
-		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:ComplexProperty",P1))
-		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ComplexProperty",P1))
-
-	Func Reference P1
-		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Reference",P1))
-		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Reference",P1))
-
-	Func Collection P1
-		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:Collection",P1))
-		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:Collection",P1))
-
 
 Class EntityStateChangedEventArgs from EntityEntryEventArgs
 
@@ -1963,18 +1933,6 @@ Class ComplexPropertyEntry2 from ComplexPropertyEntry
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
-
-	Func Property P1
-		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Property",P1))
-		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Property",P1))
-
-	Func ComplexProperty P1
-		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:ComplexProperty",P1))
-		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ComplexProperty",P1))
 
 
 Class GeometryValueComparer from ValueComparer1

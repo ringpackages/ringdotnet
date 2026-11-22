@@ -2000,9 +2000,6 @@ Class DbDataReader from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
 	Func GetFieldValue P1
-		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetFieldValue",P1))
-		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetFieldValue",P1))
 
 	Func GetFieldValueAsync P1

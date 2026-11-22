@@ -78,7 +78,23 @@ func resolveNamespace aEntry
 			# a generic definition whose name another type has (ValueTuple, ValueTuple`2): the number of type arguments follows the name
 			nTaken = find(aTaken,lower(cRing),1)
 			if nTaken > 0 and aTaken[nTaken][2] != cCanonical
-				cRing += substr(cCanonical,substr(cCanonical,"`") + 1,len(cCanonical))
+				# the number after the last backtick (a nested generic type has one for each type around it: StateMachine`2+TriggerWithParameters`3)
+				nTick = 0
+				for x = len(cCanonical) to 1 step -1
+					if cCanonical[x] = "`"
+						nTick = x
+						exit
+					ok
+				next
+				cArity = ""
+				for x = nTick + 1 to len(cCanonical)
+					if isdigit(cCanonical[x])
+						cArity += cCanonical[x]
+					else
+						exit
+					ok
+				next
+				cRing += cArity
 			ok
 		ok
 		cRing = uniqueClassName(cRing,cCanonical,cNs)
@@ -900,15 +916,21 @@ func buildPlan cTypeName, nForceInit
 
 
 # The overloads of a method name: [available arities (optional parameters count), any static, any instance]
-# True when a method of the name is generic with a type argument that its parameters do not show (JsonConvert.DeserializeObject<T>): the
-# type arguments are given in the named form, Name([ :typeArguments = [ "System.String" ], :json = "..." ])
+# True when every method of the name is generic with a type argument that its parameters do not show (JsonConvert.DeserializeObject<T>): the
+# type arguments are given in the named form, Name([ :typeArguments = [ "System.String" ], :json = "..." ]). A name that also has a plain overload
+# is a dispatcher only when it has more than one arity; the generic form of a name with one arity is called with callGeneric.
 func needsTypeArguments aNtMethods, cNtLower
+	lGeneric = false
 	for aNtRec in aNtMethods
-		if len(aNtRec) >= 8 and lower(aNtRec[1]) = cNtLower and aNtRec[8] = 1
-			return true
+		if lower(aNtRec[1]) = cNtLower
+			if len(aNtRec) >= 8 and aNtRec[8] = 1
+				lGeneric = true
+			else
+				return false          # a name that also has a plain overload keeps its positional form when it has one arity (Eval(text) and Eval<T>(text)): the generic one is callGeneric
+			ok
 		ok
 	next
-	return false
+	return lGeneric
 
 func familyInfo aFiMethods, cFiLower
 	aFiArities = []

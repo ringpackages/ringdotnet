@@ -2183,6 +2183,11 @@ namespace RingDotNet
 		private static readonly System.Collections.Concurrent.ConcurrentDictionary<MethodBase, ParamShape> Shapes =
 			new System.Collections.Concurrent.ConcurrentDictionary<MethodBase, ParamShape>();
 
+		private static bool IsParams(ParameterInfo p)
+		{
+			return p.ParameterType.IsArray && p.IsDefined(typeof(ParamArrayAttribute), false);
+		}
+
 		private static ParamShape ShapeOf(MethodBase m)
 		{
 			return Shapes.GetOrAdd(m, method =>
@@ -2192,7 +2197,7 @@ namespace RingDotNet
 				{
 					if (IsOutOnly(p)) continue;
 					shape.Inputs++;
-					if (!p.IsOptional) shape.Required++;
+					if (!p.IsOptional && !IsParams(p)) shape.Required++;          /* a params array may be left out: it is empty */
 				}
 				return shape;
 			});
@@ -2346,6 +2351,10 @@ namespace RingDotNet
 					{
 						ok = TryConvert(args[next++], pt, out conv[i], out int sc);
 						total += sc;
+					}
+					else if (IsParams(ps[i]))
+					{
+						conv[i] = Array.CreateInstance(pt.GetElementType(), 0);
 					}
 					else
 					{
@@ -2945,6 +2954,7 @@ namespace RingDotNet
 					{
 						conv[i] = ps[i].HasDefaultValue ? ps[i].DefaultValue : Type.Missing;
 					}
+					else if (IsParams(ps[i])) conv[i] = Array.CreateInstance(pt.GetElementType(), 0);
 					else ok = false;
 				}
 				/* fewer parameters left unset is a better match */

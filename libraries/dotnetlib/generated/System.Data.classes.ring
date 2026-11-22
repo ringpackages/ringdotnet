@@ -893,7 +893,7 @@ Class DataReaderExtensions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Data.DataReaderExtensions, System.Data.Common',"s18:GetFieldValueAsync",P1))
 		ok
-		raise("DotNet Error: GetFieldValueAsync needs its type arguments: GetFieldValueAsync([ :typeArguments = [ type names ], :parameter = value, ... ])")
+		raise("DotNet Error: GetFieldValueAsync does not take one argument: use named arguments, GetFieldValueAsync([ :parameter = value, ... ])")
 
 	Func GetFloat P1,P2
 		dn_x = dotnet_call("s4:call",'System.Data.DataReaderExtensions, System.Data.Common',"s8:GetFloat",P1,P2)
@@ -2313,6 +2313,12 @@ Class DataTableReader from DbDataReader
 		nHandle = dnCreate('System.Data.DataTableReader, System.Data.Common',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func GetFieldValue P1
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetFieldValue",P1))
+		ok
+		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetFieldValue",P1))
 
 
 Class DataView from MarshalByValueComponent

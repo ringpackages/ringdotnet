@@ -125,11 +125,8 @@ Class CacheExtensions from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
-	Func @Get P1
-		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions',"s3:Get",P1))
-		ok
-		raise("DotNet Error: Get needs its type arguments: Get([ :typeArguments = [ type names ], :parameter = value, ... ])")
+	Func @Get P1,P2
+		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions',"s3:Get",P1,P2))
 
 	Func TryGetValue P1,P2
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions'),"s11:TryGetValue",dnPackItem(P1) + dnPackItem(P2))
@@ -307,9 +304,6 @@ Class IMemoryCache from DotNetObject
 
 	Func @Get P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions")
-		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Get",P1))
-		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
 
 	Func Set P1
@@ -401,9 +395,6 @@ Class MemoryCache from Object
 
 	Func @Get P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions")
-		if dotnet_isnamed(P1)
-			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Get",P1))
-		ok
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
 
 	Func Set P1

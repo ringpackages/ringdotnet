@@ -4910,7 +4910,7 @@ Class OpenApiRouteHandlerBuilderExtensions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing',"s8:Produces",P1))
 		ok
-		raise("DotNet Error: Produces needs its type arguments: Produces([ :typeArguments = [ type names ], :parameter = value, ... ])")
+		raise("DotNet Error: Produces does not take one argument: use named arguments, Produces([ :parameter = value, ... ])")
 
 	Func ProducesProblem P1
 		if dotnet_isnamed(P1)
@@ -4931,7 +4931,7 @@ Class OpenApiRouteHandlerBuilderExtensions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing',"s7:Accepts",P1))
 		ok
-		raise("DotNet Error: Accepts needs its type arguments: Accepts([ :typeArguments = [ type names ], :parameter = value, ... ])")
+		raise("DotNet Error: Accepts does not take one argument: use named arguments, Accepts([ :parameter = value, ... ])")
 
 	Func WithDescription P1,P2
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing',"s15:WithDescription",P1,P2))
