@@ -167,4 +167,9 @@ dnAssert("derived class property",oCounter.Count,2)
 dnAssert("inherited method",oCounter.Total,2)
 dnAssert("objects come back as the derived class",classname(oCalc.Add(0)),"calculator")
 
+# an extension method that takes its struct by reference (this in S): found on the object, and the answer is the value
+oMoney = new Money().@New(1234)
+dnAssert("an extension of a struct taken by reference",oMoney.Show("$"),"$12.34")
+dnAssert("and one that returns a struct",oMoney.Doubled().Cents,2468)
+
 nFail = dnTestSummary()

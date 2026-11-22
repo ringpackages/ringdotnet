@@ -276,4 +276,16 @@ namespace MyCompany.Tools
 	{
 		public static string Label(this IShape shape, string prefix) { return prefix + shape.Name; }
 	}
+	// a struct with an extension method that takes the struct by reference (this in S): called on the object, the answer is the value, not a list
+	public readonly struct Money
+	{
+		public Money(int cents) { Cents = cents; }
+		public int Cents { get; }
+	}
+
+	public static class MoneyExtensions
+	{
+		public static string Show(this in Money m, string currency) { return currency + (m.Cents / 100) + "." + (m.Cents % 100).ToString("00"); }
+		public static Money Doubled(this in Money m) { return new Money(m.Cents * 2); }
+	}
 }

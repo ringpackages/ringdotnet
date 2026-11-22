@@ -1099,6 +1099,7 @@ namespace RingDotNet
 			{
 				if (p.ParameterType.IsByRef)
 				{
+					if (p.IsIn && !p.IsOut) continue;          /* an in parameter (this in S, a struct passed by reference) is an input only */
 					Type element = p.ParameterType.GetElementType();
 					if (!element.IsByRefLike || IsSpan(element, out _, out _)) n++;
 				}
@@ -2885,7 +2886,7 @@ namespace RingDotNet
 					foreach (MethodInfo m in all)
 					{
 						if (!string.Equals(m.Name, key.Item2, comparison)) continue;
-						Type first = m.GetParameters()[0].ParameterType;
+						Type first = Unwrap(m.GetParameters()[0].ParameterType);          /* this in S (a struct passed by reference) is S */
 						if (!first.ContainsGenericParameters && first.IsAssignableFrom(key.Item1)) found.Add(m);
 						/* the extended type is a generic type (IValidator<T>): the class must be, or implement, a closed type of that definition; the
 						   type arguments of the method are then inferred from the object */
@@ -2954,7 +2955,7 @@ namespace RingDotNet
 			{
 				Type answered = Unwrap(mps[i].ParameterType);
 				bool spanParameter = IsSpan(answered, out _, out bool writableSpan);
-				if (mps[i].ParameterType.IsByRef ? (!answered.IsByRefLike || spanParameter) : (spanParameter && writableSpan))
+				if (mps[i].ParameterType.IsByRef ? ((!answered.IsByRefLike || spanParameter) && !(mps[i].IsIn && !mps[i].IsOut)) : (spanParameter && writableSpan))
 				{
 					results.Add(spanParameter && conv[i] is char[] chars ? new string(chars) : conv[i]);
 				}

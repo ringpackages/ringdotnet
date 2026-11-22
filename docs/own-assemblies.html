@@ -557,6 +557,18 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 	{
 		<span class="k">public</span> <span class="k">static</span> <span class="k">string</span> <span class="t">Label</span>(this <span class="t">IShape</span> shape, <span class="k">string</span> prefix) { <span class="k">return</span> prefix + shape.Name; }
 	}
+	<span class="c">// a struct with an extension method that takes the struct by reference (this in S): called on the object, the answer is the value, not a list</span>
+	<span class="k">public</span> <span class="k">readonly</span> <span class="k">struct</span> Money
+	{
+		<span class="k">public</span> <span class="t">Money</span>(<span class="k">int</span> cents) { <span class="t">Cents</span> = cents; }
+		<span class="k">public</span> <span class="k">int</span> <span class="t">Cents</span> { <span class="k">get</span>; }
+	}
+
+	<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> MoneyExtensions
+	{
+		<span class="k">public</span> <span class="k">static</span> <span class="k">string</span> <span class="t">Show</span>(this <span class="k">in</span> <span class="t">Money</span> m, <span class="k">string</span> currency) { <span class="k">return</span> currency + (m.Cents / <span class="n">100</span>) + <span class="s">"."</span> + (m.Cents % <span class="n">100</span>).<span class="f">ToString</span>(<span class="s">"00"</span>); }
+		<span class="k">public</span> <span class="k">static</span> <span class="t">Money</span> <span class="t">Doubled</span>(this <span class="k">in</span> <span class="t">Money</span> m) { <span class="k">return</span> <span class="k">new</span> <span class="t">Money</span>(m.Cents * <span class="n">2</span>); }
+	}
 }</code></pre></div></details>
 <details class="src"><summary>samples/UsingDotNet/tests/test_userassembly.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tests/test_userassembly.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your own assemblies: tools/dotnettools/wrapassembly.ring generates the classes, dnImportFrom() loads them</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
@@ -726,6 +738,11 @@ oCounter.<span class="f">Add</span>(<span class="n">2</span>)
 <span class="f">dnAssert</span>(<span class="s">"derived class property"</span>,oCounter.Count,<span class="n">2</span>)
 <span class="f">dnAssert</span>(<span class="s">"inherited method"</span>,oCounter.Total,<span class="n">2</span>)
 <span class="f">dnAssert</span>(<span class="s">"objects come back as the derived class"</span>,classname(oCalc.<span class="f">Add</span>(<span class="n">0</span>)),<span class="s">"calculator"</span>)
+
+<span class="c"># an extension method that takes its struct by reference (this in S): found on the object, and the answer is the value</span>
+oMoney = <span class="k">new</span> <span class="t">Money</span>().@<span class="k">New</span>(<span class="n">1234</span>)
+<span class="f">dnAssert</span>(<span class="s">"an extension of a struct taken by reference"</span>,oMoney.<span class="f">Show</span>(<span class="s">"$"</span>),<span class="s">"$12.34"</span>)
+<span class="f">dnAssert</span>(<span class="s">"and one that returns a struct"</span>,oMoney.<span class="f">Doubled</span>().Cents,<span class="n">2468</span>)
 
 nFail = <span class="f">dnTestSummary</span>()</code></pre></div></details>
 <h2 id="nuget-packages">NuGet packages<a class="anchor" href="#nuget-packages">#</a></h2>
