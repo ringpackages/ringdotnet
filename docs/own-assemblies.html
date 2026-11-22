@@ -299,6 +299,8 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 		<span class="k">public</span> <span class="t">Calculator</span> <span class="t">Add</span>(<span class="k">double</span> value) { <span class="t">Total</span> += value; Changed?.<span class="f">Invoke</span>(this, EventArgs.Empty); <span class="k">return</span> this; }
 		<span class="k">public</span> <span class="t">Calculator</span> <span class="t">Multiply</span>(<span class="k">double</span> value) { <span class="t">Total</span> *= value; <span class="k">return</span> this; }
 		<span class="k">public</span> <span class="k">static</span> <span class="k">int</span> <span class="t">Square</span>(<span class="k">int</span> x) { <span class="k">return</span> x * x; }
+		<span class="c">/* a method called Init: Ring uses init for the constructor of a generated class, so the method is @Init */</span>
+		<span class="k">public</span> <span class="k">string</span> <span class="t">Init</span>(<span class="k">string</span> mode) { <span class="k">return</span> <span class="s">"init "</span> + mode; }
 		<span class="c">/* a params array may be left out: it is empty */</span>
 		<span class="k">public</span> <span class="k">static</span> <span class="k">string</span> <span class="t">Join</span>(<span class="k">string</span> separator, <span class="k">params</span> <span class="k">string</span>[] parts) { <span class="k">return</span> <span class="k">string</span>.<span class="f">Join</span>(separator, parts); }
 		<span class="k">public</span> <span class="k">static</span> <span class="k">string</span> <span class="t">EnumName</span>(<span class="t">Enum</span> value) { <span class="k">return</span> value.<span class="f">GetType</span>().Name + <span class="s">"."</span> + value; }
@@ -621,6 +623,9 @@ oMemory = oCalc.<span class="f">Remember</span>()
 oMemory2 = <span class="k">new</span> <span class="t">CalculatorMemory</span>()
 oMemory2.Stored = <span class="n">2</span>
 <span class="f">dnAssert</span>(<span class="s">"nested type, new"</span>,oMemory2.Stored,<span class="n">2</span>)
+
+<span class="c"># a .NET method called Init is @Init (init is the constructor of a generated class)</span>
+<span class="f">dnAssert</span>(<span class="s">"a method called Init"</span>,oCalc.@Init(<span class="s">"fast"</span>),<span class="s">"init fast"</span>)
 
 <span class="c"># a params array: a plain list, or left out (it is empty)</span>
 <span class="f">dnAssert</span>(<span class="s">"a params array is a list"</span>,<span class="f">dnStatic</span>(<span class="s">"MyCompany.Tools.Calculator"</span>,<span class="s">"Join"</span>,[<span class="s">"-"</span>,[<span class="s">"a"</span>,<span class="s">"b"</span>,<span class="s">"c"</span>]]),<span class="s">"a-b-c"</span>)

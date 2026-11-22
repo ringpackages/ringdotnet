@@ -16,6 +16,7 @@ for cWord in aKeywords
 		aMemberKeywords + cWord
 	ok
 next
+aMemberKeywords + "init"          # init is the constructor of a generated class: a .NET method called Init is @Init (oHmac.@Init(oKey))
 
 # true: the namespaces of the manifest :uses are not loaded together with a namespace (only the namespaces of base classes are):
 # a class of another namespace is loaded when an object of it comes back, or when the program names the namespace in using { }
@@ -474,7 +475,7 @@ func buildPlan cTypeName, nForceInit
 		next
 	next
 	aMethods = aExpanded
-	cReserved = "|callmethod|getprop|setprop|typename|tolist|release|isnull|init|"
+	cReserved = "|callmethod|getprop|setprop|typename|tolist|release|isnull|"
 
 	aBlocks = []	# [Ring name (lower case), text]
 	cB = ""

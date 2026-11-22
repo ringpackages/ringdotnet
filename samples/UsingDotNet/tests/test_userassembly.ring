@@ -72,6 +72,9 @@ oMemory2 = new CalculatorMemory()
 oMemory2.Stored = 2
 dnAssert("nested type, new",oMemory2.Stored,2)
 
+# a .NET method called Init is @Init (init is the constructor of a generated class)
+dnAssert("a method called Init",oCalc.@Init("fast"),"init fast")
+
 # a params array: a plain list, or left out (it is empty)
 dnAssert("a params array is a list",dnStatic("MyCompany.Tools.Calculator","Join",["-",["a","b","c"]]),"a-b-c")
 dnAssert("a params array that is left out is empty",dnStatic("MyCompany.Tools.Calculator","Join",["-"]),"")

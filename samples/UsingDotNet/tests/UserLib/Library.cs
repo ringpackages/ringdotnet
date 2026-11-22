@@ -18,6 +18,8 @@ namespace MyCompany.Tools
 		public Calculator Add(double value) { Total += value; Changed?.Invoke(this, EventArgs.Empty); return this; }
 		public Calculator Multiply(double value) { Total *= value; return this; }
 		public static int Square(int x) { return x * x; }
+		/* a method called Init: Ring uses init for the constructor of a generated class, so the method is @Init */
+		public string Init(string mode) { return "init " + mode; }
 		/* a params array may be left out: it is empty */
 		public static string Join(string separator, params string[] parts) { return string.Join(separator, parts); }
 		public static string EnumName(Enum value) { return value.GetType().Name + "." + value; }

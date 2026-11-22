@@ -98,6 +98,7 @@ namespace RingDotNet
 			{
 				Type t = exported;
 				string name = t.FullName ?? t.Name;
+				if (t.Name.IndexOf('<') >= 0 || t.Name.IndexOf('$') >= 0) continue;          /* compiler-made marker types are not counted */
 				tally.Add("INFO type: public types", name);
 
 				/* what kind of type, and whether the generator wraps it */

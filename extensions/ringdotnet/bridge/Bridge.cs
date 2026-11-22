@@ -849,6 +849,11 @@ namespace RingDotNet
 					{
 						continue;
 					}
+					/* the types that the compiler makes (the marker types of C# 14 extension blocks: IArchiveEntryExtensions+<G>$E1C2...) have no Ring name */
+					if (t.Name.IndexOf('<') >= 0 || t.Name.IndexOf('$') >= 0)
+					{
+						continue;
+					}
 					if (t.IsDefined(typeof(ObsoleteAttribute), false) || t.FullName == null || found.Contains(t.FullName))
 					{
 						continue;
