@@ -2250,6 +2250,17 @@ namespace RingDotNet
 			return p.ParameterType.IsArray && p.IsDefined(typeof(ParamArrayAttribute), false);
 		}
 
+		/* An override often has no default values of its own: the optional parameters are declared where the method was first declared
+		   (ChannelWriter<T>.TryComplete(Exception error = null) and its override in a private class), so the parameter is looked up there too. */
+		private static ParameterInfo DeclaredParameter(MethodBase m, ParameterInfo p)
+		{
+			if (p.IsOptional || !(m is MethodInfo mi) || !mi.IsVirtual) return p;
+			MethodInfo b = mi.GetBaseDefinition();
+			if (b == null || b == mi) return p;
+			ParameterInfo[] bp = b.GetParameters();
+			return p.Position < bp.Length && bp[p.Position].IsOptional ? bp[p.Position] : p;
+		}
+
 		private static ParamShape ShapeOf(MethodBase m)
 		{
 			return Shapes.GetOrAdd(m, method =>
@@ -2259,7 +2270,7 @@ namespace RingDotNet
 				{
 					if (IsOutOnly(p)) continue;
 					shape.Inputs++;
-					if (!p.IsOptional && !IsParams(p)) shape.Required++;          /* a params array may be left out: it is empty */
+					if (!DeclaredParameter(method, p).IsOptional && !IsParams(p)) shape.Required++;          /* a params array may be left out: it is empty */
 				}
 				return shape;
 			});
@@ -2429,7 +2440,8 @@ namespace RingDotNet
 					}
 					else
 					{
-						conv[i] = ps[i].HasDefaultValue ? ps[i].DefaultValue : Type.Missing;
+						ParameterInfo declared = DeclaredParameter(m, ps[i]);
+						conv[i] = declared.HasDefaultValue ? declared.DefaultValue : Type.Missing;
 					}
 				}
 				if (candidate != m)
@@ -3068,9 +3080,10 @@ namespace RingDotNet
 						ok = TryConvert(values[given[i]], pt, out conv[i], out int sc);
 						total += sc;
 					}
-					else if (ps[i].IsOptional)
+					else if (DeclaredParameter(m, ps[i]).IsOptional)
 					{
-						conv[i] = ps[i].HasDefaultValue ? ps[i].DefaultValue : Type.Missing;
+						ParameterInfo declared = DeclaredParameter(m, ps[i]);
+						conv[i] = declared.HasDefaultValue ? declared.DefaultValue : Type.Missing;
 					}
 					else if (IsParams(ps[i])) conv[i] = Array.CreateInstance(pt.GetElementType(), 0);
 					else ok = false;
