@@ -71,6 +71,7 @@ oSB.setProp("Capacity",64)
 | `dnGenericName(type, [typeArguments])` | the .NET name of a closed generic type |
 | `dnDescribe("Namespace.Type")` | the public API of a type (used by the generator) |
 | `dnNull()` | the .NET null |
+| `dnBox("System.Double", 10)` | a value of an exact type for a parameter of type `object` (a whole number that goes to an object is an `Int32`) |
 | `dnBuffer(size)` / `dnBuffer(bytes)` | a byte buffer: a .NET object with a live `byte[]`, for methods that fill an array (`Stream.Read`) |
 | `dnBufferBytes(oBuffer, nCount)` | the first `nCount` bytes of a buffer as a Ring text |
 | `dnBufferSize(oBuffer)` | the size of a buffer in bytes |

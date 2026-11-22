@@ -40,6 +40,11 @@ dnAssert("the second object",oManyBack.Item(1).Name,"Bo")
 dnAssert("a number as bytes",len(oSerializer.callGeneric("Serialize",["System.Int32"],[300])),3)
 dnAssert("a text read back",oSerializer.callGeneric("Deserialize",["System.String"],[oSerializer.callGeneric("Serialize",["System.String"],["héllo"])]),"héllo")
 
+# a whole number of Ring is an Int32 where an object is expected (the MessagePack code of an int32 and 4 bytes: 5), not a Double (the code and 8 bytes: 9)
+dnAssert("an object that holds a whole number",len(oSerializer.callGeneric("Serialize",["System.Object"],[5])),5)
+dnAssert("an object that holds a number with a fraction",len(oSerializer.callGeneric("Serialize",["System.Object"],[2.5])),9)
+dnAssert("a Double made exact by dnBox",len(oSerializer.callGeneric("Serialize",["System.Object"],[dnBox("System.Double",5)])),9)
+
 # bytes that are not MessagePack are an error
 try
 	oSerializer.callGeneric("Deserialize",["AttributeHelpers.Person"],[char(255) + char(255)])

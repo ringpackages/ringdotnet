@@ -35,6 +35,15 @@ namespace RingDotNet
 	   passed in, so a method that FILLS an array (Stream.Read, Socket.Receive...) would fill a copy that Ring never sees. A ByteBuffer
 	   is a normal .NET object: Ring holds its handle, a parameter of type byte[] (or object) gets the live array inside it, and
 	   GetBytes(count) copies what was written into a Ring text. */
+	/* A value of an exact .NET type for a parameter of type object: Ring has one kind of number, a whole number that goes to an object is an Int32, and
+	   dnBox("System.Double",10) is the Double 10 (an Int64, a Single, a Decimal ... the same way) */
+	public sealed class Boxed
+	{
+		public object Value;
+		public Boxed(object value) { Value = value; }
+		public override string ToString() { return Value == null ? "" : Convert.ToString(Value, System.Globalization.CultureInfo.InvariantCulture); }
+	}
+
 	public sealed class ByteBuffer
 	{
 		public byte[] Data;
@@ -182,13 +191,38 @@ namespace RingDotNet
 					case 'd': items.Add(BitConverter.ToDouble(body)); break;
 					case 'z': items.Add(null); break;
 					case 'o': items.Add(Lookup(ParseHandle(body))); break;
-					case 'l': items.Add(Decode(body).ToArray()); break;
+					case 'l':
+						{
+							object[] list = Decode(body).ToArray();
+							RingLists.TryAdd(list, null);          /* a list of Ring: its whole numbers become Int32 where an object is expected (NormalizeNumbers) */
+							items.Add(list);
+							break;
+						}
 					case 'c': items.Add(new CallbackRef(Encoding.UTF8.GetString(body))); break;
 					case 'e': throw new InvalidOperationException("Ring error: " + Encoding.UTF8.GetString(body));
 					default: throw new ArgumentException("Unknown item tag '" + tag + "'");
 				}
 			}
 			return items;
+		}
+
+		/* The arrays that were made from lists of Ring (a .NET object[] that Ring holds as an object is not one of them) */
+		private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<object[], object> RingLists = new System.Runtime.CompilerServices.ConditionalWeakTable<object[], object>();
+
+		/* Ring has one kind of number, a double. Where an object is expected (an argument of String.Format, an item of params object[], a value of a
+		   dictionary of objects) a whole number is an Int32: "{0:D3}" and "{0:X}" need an int, JSON writes 5 and not 5.0, and a database stores an integer.
+		   A list of Ring that goes to an object[] gets the same for its items. */
+		private static object NormalizeNumbers(object value)
+		{
+			if (value is Boxed boxed) return boxed.Value;
+			if (value is double d && d == Math.Floor(d) && d >= int.MinValue && d <= int.MaxValue) return (int)d;
+			if (value is object[] list && RingLists.TryGetValue(list, out _))
+			{
+				object[] copy = new object[list.Length];
+				for (int i = 0; i < list.Length; i++) copy[i] = NormalizeNumbers(list[i]);
+				return copy;
+			}
+			return value;
 		}
 
 		/* An object item is "<id>" or "<id>|<type>|<base type>|..." (the form sent to Ring) */
@@ -356,6 +390,8 @@ namespace RingDotNet
 			object[] a = items.GetRange(1, items.Count - 1).ToArray();
 			switch (op)
 			{
+				case "box":
+					return new Boxed(Convert.ChangeType(Plain(a[1]), ResolveType(Str(a, 0)), Inv));
 				case "version":
 					return RuntimeInformation.FrameworkDescription;
 				case "handlecount":
@@ -1884,6 +1920,24 @@ namespace RingDotNet
 			}
 			v = Plain(v);
 			if (t.IsPointer) return ConvertPointer(v, t, out result, out score);
+			if (v is Boxed exact)
+			{
+				/* an exact value (dnBox): an object parameter gets it as it is, another parameter gets the conversion of its value */
+				if (t.IsInstanceOfType(exact.Value)) { result = exact.Value; score = 5; return true; }
+				v = exact.Value;
+			}
+			if (t == typeof(object) && (v is double || (v is object[] ringList && RingLists.TryGetValue(ringList, out _))))
+			{
+				result = NormalizeNumbers(v);
+				score = 1;
+				return true;
+			}
+			if (v is object[] listOfRing && t != typeof(object) && t.IsAssignableFrom(typeof(object[])) && RingLists.TryGetValue(listOfRing, out _))
+			{
+				result = NormalizeNumbers(v);
+				score = t == typeof(object[]) ? 4 : 2;
+				return true;
+			}
 			Type ut = Nullable.GetUnderlyingType(t) ?? t;
 			if ((ut == typeof(IntPtr) || ut == typeof(UIntPtr)) && v is double address && address >= 0 && address == Math.Floor(address))
 			{

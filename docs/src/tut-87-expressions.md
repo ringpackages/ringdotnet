@@ -34,7 +34,7 @@ Every part of the code is a node made by a factory method:
 | Node | Made by | Looks like |
 |---|---|---|
 | a parameter | `Parameter([ :type = ..., :name = "a" ])` | `a` |
-| a number | `Constant(10.0)` | `10` |
+| a number | `Constant(dnBox("System.Double",10))` | `10` |
 | an operation | `Add`, `Subtract`, `Multiply`, `Divide` with `:left` and `:right` | `(a + b)` |
 | a comparison | `GreaterThan([ :left = ..., :right = ... ])` | `(a > b)` |
 | a decision | `Condition([ :test = ..., :ifTrue = ..., :ifFalse = ... ])` | `IIF((a > b), a, b)` |

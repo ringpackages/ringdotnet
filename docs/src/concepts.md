@@ -221,6 +221,16 @@ oList.callMethod("Add",[5])
 
 A generic type has a class of its own too (`new HashSet([ :typeArguments = ["System.Int32"] ])`), and a generic method whose type argument only the result shows takes `:typeArguments`. These, and the other types that need more than a plain class (nested types, operators, spans, ref structs, pointers, asynchronous streams), are on the page [Advanced .NET types](advanced-types.html).
 
+## Numbers for an object
+
+Ring has one kind of number. Where a .NET parameter has a type (`int`, `double`, `long`) the number becomes that type; where the parameter is an `object` (an argument of `String.Format`, an item of `params object[]`, a value of a `Dictionary<string, object>`), a **whole number is an `Int32`** and any other number is a `Double`. That is what `"{0:D3}"` and `"{0:X}"` need, and what JSON and a database write as `5`. A number beyond the range of `Int32` is a `Double`. For another exact type, `dnBox` makes the value:
+
+```ring
+? dnStatic("System.String","Format",["{0:D3} {1:X}",[7,255]])            # 007 FF
+oTen = dnBox("System.Double",10)                                        # the Double 10, for a parameter of type object
+oExpression.Constant(oTen)                                              # a constant of type double
+```
+
 ## Return values
 
 | .NET returns | Ring gets |

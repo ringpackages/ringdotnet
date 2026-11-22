@@ -437,6 +437,11 @@ func dnGenericName  cType, aArguments
 	next
 	return dn_cName + "]"
 
+# A value of an exact .NET type for a parameter of type object: a whole number that goes to an object is an Int32 (Ring has one kind of number),
+# so dnBox("System.Double",10) is the Double 10, dnBox("System.Int64",5) the Int64 5 (also Single, Decimal, Byte ...)
+func dnBox  cType, nValue
+	return dnRequest("box",[cType,nValue])
+
 # Create an object of a generic type without a generated class (a DotNetObject: use callMethod/getProp)
 func dnNewGeneric  cType, aArguments, aParameters
 	return dnNew(dnGenericName(cType,aArguments),aParameters)

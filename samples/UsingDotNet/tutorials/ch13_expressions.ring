@@ -22,7 +22,7 @@ func main
 	? nl + "2. the lambda: " + oLambda.ToString() + "; calling it with 2 and 3.5 gives " + oAdd.callMethod("DynamicInvoke",[[2,3.5]])
 
 	# 3. Bigger trees: (a + b) * 10, and a decision: if a > b then a else b
-	oTimes = oExpression.Multiply([ :left = oSum, :right = oExpression.Constant(10.0) ])
+	oTimes = oExpression.Multiply([ :left = oSum, :right = oExpression.Constant(dnBox("System.Double",10)) ])
 	oScaled = oExpression.Lambda([ :body = oTimes, :parameters = [oA,oB] ])
 	? nl + "3. " + oScaled.ToString() + " with 1 and 2 gives " + oScaled.Compile(NULL).callMethod("DynamicInvoke",[[1,2]])
 	oTest = oExpression.GreaterThan([ :left = oA, :right = oB ])

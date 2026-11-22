@@ -18,6 +18,14 @@ dnAssert("a list as JSON",dnStatic("Newtonsoft.Json.JsonConvert","SerializeObjec
 cIndented = dnStatic("Newtonsoft.Json.JsonConvert","SerializeObject",[oData,dnStatic("Newtonsoft.Json.Formatting","Indented",[])])
 dnAssert("indented JSON has lines",substr(cIndented,nl) > 0 or substr(cIndented,char(10)) > 0,1)
 
+# numbers that go to an object: a whole number is an Int32 (JSON 5), another number a Double (2.5)
+oMixed = new ObjectDictionary()
+oMixed.SetItem("whole",5)
+oMixed.SetItem("fraction",2.5)
+oMixed.SetItem("big",3000000000)
+dnAssert("numbers in a dictionary of objects as JSON",dnStatic("Newtonsoft.Json.JsonConvert","SerializeObject",[oMixed]),'{"whole":5,"fraction":2.5,"big":3000000000.0}')
+dnAssert("a list of objects as JSON",dnStatic("Newtonsoft.Json.JsonConvert","SerializeObject",[ [1,2.5,"x"] ]),'[1,2.5,"x"]')
+
 # JSON to objects: the type argument only the result shows
 oJsonConvert = dnType("Newtonsoft.Json.JsonConvert")
 oBack = oJsonConvert.callGeneric("DeserializeObject",["System.Collections.Generic.Dictionary`2[[System.String],[System.String]]"],[cJson])

@@ -98,4 +98,17 @@ func main
 	dnAssert("dnStatic of a static property",dnStatic("System.Int32","MaxValue",[]),2147483647)
 	dnAssert("dnStatic of a static property, a double",floor(dnStatic("System.Math","PI",[]) * 1000),3141)
 	dnAssert("callMethod of a property",dnNew("System.Text.StringBuilder",["abc"]).callMethod("Length",[]),3)
+	# a whole number that goes to an object is an Int32 (Ring has one kind of number): formats that need an int work
+	dnAssert("String.Format with D3",dnStatic("System.String","Format",["{0:D3}",5]),"005")
+	dnAssert("String.Format with a hexadecimal number",dnStatic("System.String","Format",["{0:X}",255]),"FF")
+	dnAssert("a number with a fraction stays a double",dnStatic("System.String","Format",["{0:F2}",2.5]),"2.50")
+	dnAssert("the items of a list for params object[]",dnStatic("System.String","Format",["{0:D2}-{1:X}",[7,255]]),"07-FF")
+	dnAssert("a list for params object[], with a number that has a fraction",dnStatic("System.String","Format",["{0:D2} {1:F1}",[7,2.5]]),"07 2.5")
+	dnAssert("a whole number for an object is an Int32",dnStatic("System.Convert","GetTypeCode",[5]),"Int32")
+	dnAssert("a number with a fraction for an object is a Double",dnStatic("System.Convert","GetTypeCode",[2.5]),"Double")
+	dnAssert("dnBox makes an exact Double for an object",dnStatic("System.Convert","GetTypeCode",[dnBox("System.Double",5)]),"Double")
+	dnAssert("dnBox makes an exact Int64 for an object",dnStatic("System.Convert","GetTypeCode",[dnBox("System.Int64",5)]),"Int64")
+	dnAssert("an exact value is the one that String.Format gets",dnStatic("System.String","Format",["{0:F1}",dnBox("System.Double",5)]),"5.0")
+	dnAssert("a number beyond Int32 for an object is a Double",dnStatic("System.Convert","GetTypeCode",[3000000000]),"Double")
+
 	dnTestSummary()
