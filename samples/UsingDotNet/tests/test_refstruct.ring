@@ -72,4 +72,22 @@ dnAssert("a ref int return is the number",oSlots.Number(1),6)
 dnAssert("a ref string return is the text",oSlots.Text(1),"y")
 dnAssert("a ref readonly struct return is the object",oSlots.Day().Year,2024)
 
+# a ref struct that only holds values: its properties as [name, value] pairs, and it is disposed
+aLease = dnStatic("MyCompany.Tools.Spans","Take",[])
+dnAssert("a ref struct answered as its properties",aLease["Length"],3)
+dnAssert("a property that is a text",aLease["Name"],"lease")
+dnAssert("a property that is a ReadOnlySpan<byte>",ascii(aLease["Data"][1]),9)
+dnAssert("the struct was disposed after it was read",dnType("MyCompany.Tools.Spans").getProp("Disposed"),1)
+
+# a ref return of a method that has a Span parameter
+aElement = dnStatic("MyCompany.Tools.Spans","ElementAt",[ [4,5,6], 1 ])
+dnAssert("a ref return through a Span parameter",aElement[1],5)
+
+# constructors with a Span or a ref struct; a ref struct that has only a static factory (FromString)
+oMessage = dnNew("MyCompany.Tools.Message",["hello",3])
+dnAssert("a constructor with a ReadOnlySpan<char>",oMessage.Text,"hello")
+dnAssert("a constructor with a ReadOnlySpan<char>, the other parameter",oMessage.Copies,3)
+dnAssert("a ref struct made by a static factory",dnStatic("MyCompany.Tools.Spans","TokenSize",["four"]),4)
+dnAssert("a constructor with a ref struct",dnNew("MyCompany.Tools.Message",[ :token = "abcde" ]).Copies,5)
+
 dnTestSummary()

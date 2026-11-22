@@ -126,6 +126,34 @@ namespace MyCompany.Tools
 		public int this[int row, int column] { get { return row * 10 + column; } }
 	}
 
+	// a ref struct that only holds values (no ToArray, no enumerator, no text method): answered as its properties, then disposed
+	public readonly ref struct Lease
+	{
+		private readonly byte[] data;
+		public Lease(byte[] data) { this.data = data; }
+		public int Length { get { return data.Length; } }
+		public string Name { get { return "lease"; } }
+		public ReadOnlySpan<byte> Data { get { return data; } }
+		public void Dispose() { Spans.Disposed++; }
+	}
+
+	// constructors with a Span or a ref struct, and a ref struct that has only a static factory
+	public readonly ref struct Token
+	{
+		private readonly string text;
+		private Token(string text) { this.text = text; }
+		public static Token FromString(string text) { return new Token(text); }
+		public int Size { get { return text.Length; } }
+	}
+
+	public class Message
+	{
+		public string Text { get; private set; }
+		public int Copies { get; private set; }
+		public Message(ReadOnlySpan<char> text, int copies) { Text = text.ToString(); Copies = copies; }
+		public Message(Token token) { Text = "token"; Copies = token.Size; }
+	}
+
 	public static class Spans
 	{
 		/* an IAsyncEnumerable result: Ring reads it with toList() or asyncEnumerator() */
@@ -137,6 +165,11 @@ namespace MyCompany.Tools
 				yield return i * 10;
 			}
 		}
+		/* a ref return through the IL path (a Span parameter): the value is read from the reference */
+		public static ref int ElementAt(Span<int> data, int index) { return ref data[index]; }
+		public static int TokenSize(Token token) { return token.Size; }
+		public static int Disposed;
+		public static Lease Take() { return new Lease(new byte[] { 9, 8, 7 }); }
 		public static WordEnumerator Words(string text) { return new WordEnumerator(text); }
 		public static Label MakeLabel(string name) { return new Label(name); }
 		public static int CursorLength(Cursor cursor) { return cursor.Length; }

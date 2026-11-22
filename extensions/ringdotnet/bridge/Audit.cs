@@ -44,7 +44,7 @@ namespace RingDotNet
 		private static bool IsRefLike(Type t)
 		{
 			if (t.IsByRef) t = t.GetElementType();
-			return t.IsByRefLike || (t.IsGenericType && t.GetGenericArguments().Any(g => g.IsByRefLike));
+			return (t.IsByRefLike && !t.IsGenericParameter) || (t.IsGenericType && t.GetGenericArguments().Any(g => g.IsByRefLike && !g.IsGenericParameter));          /* a type parameter that allows ref struct is not one */
 		}
 
 		private static bool IsPointer(Type t)
@@ -163,12 +163,13 @@ namespace RingDotNet
 						tally.Add("OK   method: callable", where);
 						if (ps.Any(p => Bridge.IsSpan(p.ParameterType.IsByRef ? p.ParameterType.GetElementType() : p.ParameterType, out _, out _))) tally.Add("OK   method: Span parameter (an array in Ring: a text, a byte string, a list, or a size)", where);
 						if (ps.Any(p => IsPointer(p.ParameterType) && !p.ParameterType.IsByRef)) tally.Add("OK   method: pointer parameter (an address, or a buffer pinned for the call)", where);
-						if (ps.Any(p => { Type t = p.ParameterType.IsByRef ? p.ParameterType.GetElementType() : p.ParameterType; return t.IsByRefLike && !Bridge.IsSpan(t, out _, out _); })) tally.Add("OK   method: ref struct parameter (made for the call from a value)", where);
+						if (ps.Any(p => { Type t = p.ParameterType.IsByRef ? p.ParameterType.GetElementType() : p.ParameterType; return t.IsByRefLike && !t.IsGenericParameter && !Bridge.IsSpan(t, out _, out _); })) tally.Add("OK   method: ref struct parameter (made for the call from a value)", where);
 					}
-					if (IsRefLike(m.ReturnType) && !Bridge.IsSpan(m.ReturnType, out _, out _) && Bridge.ResultPlanOf(m.ReturnType) == null) tally.Add("GAP  method: ref struct result", where);
-					else if (IsPointer(m.ReturnType)) tally.Add("OK   method: pointer result (an address, a number)", where);
-					else if (IsRefLike(m.ReturnType) && Bridge.IsSpan(m.ReturnType, out _, out _)) tally.Add("OK   method: Span result (an array in Ring)", where);
-					else if (IsRefLike(m.ReturnType)) tally.Add("OK   method: ref struct result (answered as an array, a list of its items or a text)", where);
+					Type resultType = m.ReturnType.IsByRef ? m.ReturnType.GetElementType() : m.ReturnType;
+					if (IsRefLike(resultType) && !Bridge.IsSpan(resultType, out _, out _) && Bridge.ResultPlanOf(resultType) == null) tally.Add("GAP  method: ref struct result", where);
+					else if (IsPointer(resultType)) tally.Add("OK   method: pointer result (an address, a number)", where);
+					else if (IsRefLike(resultType) && Bridge.IsSpan(resultType, out _, out _)) tally.Add("OK   method: Span result (an array in Ring)", where);
+					else if (IsRefLike(resultType)) tally.Add("OK   method: ref struct result (answered as an array, a list of its items or a text)", where);
 					if (m.ReturnType.IsByRef) tally.Add("OK   method: ref return (its value)", where);
 					if (m.IsGenericMethodDefinition)
 					{
@@ -176,7 +177,7 @@ namespace RingDotNet
 						if (Bridge.NotInferable(m)) tally.Add("INFO method: generic with a type argument that no parameter shows (DeserializeObject<T> ...)", where);
 					}
 					if (m.IsDefined(typeof(System.Runtime.CompilerServices.ExtensionAttribute), false)) tally.Add("OK   method: extension method (added to the class it extends)", where);
-					if (m.IsAbstract && m.IsStatic) tally.Add("GAP  method: static abstract (interface)", where);
+					if (m.IsAbstract && m.IsStatic) tally.Add("INFO method: static abstract (interface; the classes that implement it have the method)", where);
 					Type rt = m.ReturnType;
 					if (typeof(System.Threading.Tasks.Task).IsAssignableFrom(rt) || (rt.IsGenericType && rt.GetGenericTypeDefinition().FullName == "System.Threading.Tasks.ValueTask`1") || rt.FullName == "System.Threading.Tasks.ValueTask")
 						tally.Add("INFO method: asynchronous (Task, ValueTask)", where);

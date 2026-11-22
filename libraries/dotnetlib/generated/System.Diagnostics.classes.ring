@@ -4560,6 +4560,22 @@ Class TagList from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func @New P1
+		nHandle = 0          # the default object made for the class body is not needed: its guard is dropped when oDotNetGuard gets a new one, and the handle is released in a group
+		if dotnet_isnamed(P1)
+			nHandle = dnCreateNamed('System.Diagnostics.TagList, System.Diagnostics.DiagnosticSource',P1)
+			oDotNetGuard = dotnet_guard(nHandle)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Diagnostics.TagList, System.Diagnostics.DiagnosticSource',[])
+			oDotNetGuard = dotnet_guard(nHandle)
+			return self
+		ok
+		nHandle = dnCreate('System.Diagnostics.TagList, System.Diagnostics.DiagnosticSource',[P1])
+		oDotNetGuard = dotnet_guard(nHandle)
+		return self
+
 	Func Add P1
 		if dotnet_isnamed(P1)
 			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)

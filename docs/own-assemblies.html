@@ -406,6 +406,34 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 		<span class="k">public</span> <span class="k">int</span> this[<span class="k">int</span> row, <span class="k">int</span> column] { <span class="k">get</span> { <span class="k">return</span> row * <span class="n">10</span> + column; } }
 	}
 
+	<span class="c">// a ref struct that only holds values (no ToArray, no enumerator, no text method): answered as its properties, then disposed</span>
+	<span class="k">public</span> <span class="k">readonly</span> <span class="k">ref</span> <span class="k">struct</span> Lease
+	{
+		<span class="k">private</span> <span class="k">readonly</span> byte[] data;
+		<span class="k">public</span> <span class="t">Lease</span>(byte[] data) { this.data = data; }
+		<span class="k">public</span> <span class="k">int</span> <span class="t">Length</span> { <span class="k">get</span> { <span class="k">return</span> data.Length; } }
+		<span class="k">public</span> <span class="k">string</span> <span class="t">Name</span> { <span class="k">get</span> { <span class="k">return</span> <span class="s">"lease"</span>; } }
+		<span class="k">public</span> ReadOnlySpan&lt;byte&gt; <span class="t">Data</span> { <span class="k">get</span> { <span class="k">return</span> data; } }
+		<span class="k">public</span> <span class="k">void</span> <span class="t">Dispose</span>() { Spans.Disposed++; }
+	}
+
+	<span class="c">// constructors with a Span or a ref struct, and a ref struct that has only a static factory</span>
+	<span class="k">public</span> <span class="k">readonly</span> <span class="k">ref</span> <span class="k">struct</span> Token
+	{
+		<span class="k">private</span> <span class="k">readonly</span> <span class="k">string</span> text;
+		<span class="k">private</span> <span class="t">Token</span>(<span class="k">string</span> text) { this.text = text; }
+		<span class="k">public</span> <span class="k">static</span> <span class="t">Token</span> <span class="t">FromString</span>(<span class="k">string</span> text) { <span class="k">return</span> <span class="k">new</span> <span class="t">Token</span>(text); }
+		<span class="k">public</span> <span class="k">int</span> <span class="t">Size</span> { <span class="k">get</span> { <span class="k">return</span> text.Length; } }
+	}
+
+	<span class="k">public</span> <span class="k">class</span> Message
+	{
+		<span class="k">public</span> <span class="k">string</span> <span class="t">Text</span> { <span class="k">get</span>; <span class="k">private</span> <span class="k">set</span>; }
+		<span class="k">public</span> <span class="k">int</span> <span class="t">Copies</span> { <span class="k">get</span>; <span class="k">private</span> <span class="k">set</span>; }
+		<span class="k">public</span> <span class="t">Message</span>(ReadOnlySpan&lt;char&gt; text, <span class="k">int</span> copies) { <span class="t">Text</span> = text.<span class="f">ToString</span>(); <span class="t">Copies</span> = copies; }
+		<span class="k">public</span> <span class="t">Message</span>(<span class="t">Token</span> token) { <span class="t">Text</span> = <span class="s">"token"</span>; <span class="t">Copies</span> = token.Size; }
+	}
+
 	<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> Spans
 	{
 		<span class="c">/* an IAsyncEnumerable result: Ring reads it with toList() or asyncEnumerator() */</span>
@@ -417,6 +445,11 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 				yield <span class="k">return</span> i * <span class="n">10</span>;
 			}
 		}
+		<span class="c">/* a ref return through the IL path (a Span parameter): the value is read from the reference */</span>
+		<span class="k">public</span> <span class="k">static</span> <span class="k">ref</span> <span class="k">int</span> <span class="t">ElementAt</span>(Span&lt;<span class="k">int</span>&gt; data, <span class="k">int</span> index) { <span class="k">return</span> <span class="k">ref</span> data[index]; }
+		<span class="k">public</span> <span class="k">static</span> <span class="k">int</span> <span class="t">TokenSize</span>(<span class="t">Token</span> token) { <span class="k">return</span> token.Size; }
+		<span class="k">public</span> <span class="k">static</span> <span class="k">int</span> Disposed;
+		<span class="k">public</span> <span class="k">static</span> <span class="t">Lease</span> <span class="t">Take</span>() { <span class="k">return</span> <span class="k">new</span> <span class="t">Lease</span>(<span class="k">new</span> <span class="t">byte</span>[] { <span class="n">9</span>, <span class="n">8</span>, <span class="n">7</span> }); }
 		<span class="k">public</span> <span class="k">static</span> <span class="t">WordEnumerator</span> <span class="t">Words</span>(<span class="k">string</span> text) { <span class="k">return</span> <span class="k">new</span> <span class="t">WordEnumerator</span>(text); }
 		<span class="k">public</span> <span class="k">static</span> <span class="t">Label</span> <span class="t">MakeLabel</span>(<span class="k">string</span> name) { <span class="k">return</span> <span class="k">new</span> <span class="t">Label</span>(name); }
 		<span class="k">public</span> <span class="k">static</span> <span class="k">int</span> <span class="t">CursorLength</span>(<span class="t">Cursor</span> cursor) { <span class="k">return</span> cursor.Length; }
