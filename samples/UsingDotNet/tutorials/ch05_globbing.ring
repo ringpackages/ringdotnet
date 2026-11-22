@@ -38,7 +38,7 @@ func main
 	# 4. A pattern does not need files on a disk: Match(root, list of paths) tests a list of names, for example the files of an archive
 	#    (the tutorial "ZIP archives in memory") or the changed files of a project. The paths use / and are relative to the root.
 	aPaths = ["src/main.ring","src/old_main.ring","README.md","docs/guide/intro.md","docs/logo.png"]
-	oResult = dnStatic(cExt,"Match",[oMatcher3,".",stringList(aPaths)])
+	oResult = dnStatic(cExt,"Match",[oMatcher3,".",aPaths])
 	? nl + "4. which of the names are matched: has matches = " + oResult.getProp("HasMatches")
 	for oFile in oResult.getProp("Files").toList()
 		? "   " + oFile.getProp("Path")
@@ -47,7 +47,7 @@ func main
 	# 5. By default a Matcher ignores case (OrdinalIgnoreCase). The constructor takes a StringComparison: with Ordinal, case counts.
 	oStrict = dnNew("Microsoft.Extensions.FileSystemGlobbing.Matcher",[ :comparisonType = "Ordinal" ])
 	oStrict.callMethod("AddInclude",["**/*.RING"])
-	oResultStrict = dnStatic(cExt,"Match",[oStrict,".",stringList(["a.ring","b.RING"])])
+	oResultStrict = dnStatic(cExt,"Match",[oStrict,".",["a.ring","b.RING"]])
 	? nl + "5. with Ordinal comparison, **/*.RING matches only: " + oResultStrict.getProp("Files").toList()[1].getProp("Path")
 
 	new Directory().Delete([ :path = cBase, :recursive = True ])
@@ -76,11 +76,3 @@ func makeTree
 		new File().WriteAllText([ :path = cFull, :contents = "x" ])
 	next
 	return cBase
-
-# the Matcher wants a collection of texts (IEnumerable of string): a List<string>
-func stringList aList
-	oList = dnNewGeneric("System.Collections.Generic.List",["System.String"],[])
-	for cItem in aList
-		oList.Add(cItem)
-	next
-	return oList

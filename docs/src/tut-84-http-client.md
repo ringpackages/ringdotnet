@@ -42,9 +42,9 @@ When *anything but success* means "stop", call `oResponse.EnsureSuccessStatusCod
 
 ### Cancelling
 
-A `CancellationTokenSource` (the tutorial [Tasks that wait](tut-83-tasks-waiting.html)) with `CancelAfter(300)` and its token in `GetAsync([ :requestUri = …, :cancellationToken = oSource.Token ])` cancels a request that is not finished after 300 ms. In the tutorial the `/slow` page is simply never served, so only the cancel can end it; the task ends *cancelled* and `Wait` raises an error. This is how a window program offers a **Cancel** button: the click calls `oSource.Cancel()`.
+A `CancellationTokenSource` (the tutorial [Tasks that wait](tut-83-tasks-waiting.html)) with `CancelAfter(300)` and its token in `GetAsync([ :requestUri = …, :cancellationToken = oSource.Token ])` cancels a request that is not finished after 300 ms. In the tutorial the `/slow` page is simply never served, so only the cancel can end it; the task ends *canceled* and `Wait` raises an error. This is how a window program offers a **Cancel** button: the click calls `oSource.Cancel()`.
 
-> [!NOTE] The little server lives in this program and handles requests only while the program calls `serveOne`. The helper `fetchPage` keeps serving until its own request is finished, so it also serves requests of earlier, cancelled calls. A real server runs elsewhere and does not need that.
+> [!NOTE] The little server lives in this program and handles requests only while the program calls `serveOne`. The helper `fetchPage` keeps serving until its own request is finished, so it also serves requests of earlier, canceled calls. A real server runs elsewhere and does not need that.
 
 ### Saving a download
 

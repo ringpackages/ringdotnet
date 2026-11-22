@@ -40,7 +40,7 @@ For a bar: `nHeight = (nBottom - nTop) * value / nScaleMax`. A value of `nScaleM
 
 ### One bar per value
 
-The width available for one bar is `nSlot`, the plot width divided by the number of bars. The bar fills 60 percent of its slot and is centerd in it, which leaves a gap between bars. The color comes from a list.
+The width available for one bar is `nSlot`, the plot width divided by the number of bars. The bar fills 60 percent of its slot and is centered in it, which leaves a gap between bars. The color comes from a list.
 
 ### The text
 

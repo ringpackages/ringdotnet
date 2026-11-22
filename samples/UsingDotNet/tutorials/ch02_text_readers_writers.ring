@@ -64,7 +64,7 @@ func main
 	oString = new String()
 	? nl + "5. " + oString.Format([ :format = "{0} bought {1} items for {2:0.00}", :args = ["Ann",3,12.5] ])
 	? "   alignment: [" + oString.Format([ :format = "{0,-8}|{1,8}", :args = ["left","right"] ]) + "]"
-	? "   padded numbers: " + oString.Format([ :format = "{0:00000} {1:0.0} {2:0.##}", :args = [42,255,0.25] ])
+	? "   padded numbers: " + oString.Format([ :format = "{0:00000} {1:0.0} {2:0.##} {3:D5} {4:X4}", :args = [42,255,0.25,42,255] ])
 
 func writeReport oWriter,cName,nAge
 	oWriter.WriteLine("name: " + cName)

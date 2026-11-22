@@ -1,6 +1,6 @@
 ---
 title: "A project: analyze a log file"
-lead: Put several lessons to work in one useful program — read a text file, take each line apart with a regular expression, count with a dictionary, summarise with LINQ and write a JSON report.
+lead: Put several lessons to work in one useful program — read a text file, take each line apart with a regular expression, count with a dictionary, summarize with LINQ and write a JSON report.
 ---
 
 ## What you will learn
@@ -69,7 +69,7 @@ A JSON object is simple text: the helper builds `{"lines":30,"errors":9,"differe
 
 ## What you learned
 
-- plan: read → parse → count → summarise → write,
+- plan: read → parse → count → summarize → write,
 - named regex groups make parsing readable,
 - dictionaries count,
 - small helper functions keep `main` short.

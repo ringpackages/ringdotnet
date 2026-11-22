@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Copying a big file with progress · RingDotNet</title>
-<meta name="description" content="File.Copy copies a file in one call, but a program that shows a progress bar or can be cancelled reads and writes the file in pieces. This lesson copies 3,000,000 bytes through a 64 KB byte buffer, reports the progress, cancels half way, checks the copy with a checksum and compares buffer sizes.">
+<meta name="description" content="File.Copy copies a file in one call, but a program that shows a progress bar or can be canceled reads and writes the file in pieces. This lesson copies 3,000,000 bytes through a 64 KB byte buffer, reports the progress, cancels half way, checks the copy with a checksum and compares buffer sizes.">
 <link rel="stylesheet" href="assets/style.css">
 <script>window.SITE_ROOT="";</script>
 <script src="assets/search-index.js"></script>
@@ -248,7 +248,7 @@
 </nav>
 <main>
 <article>
-<h1>Copying a big file with progress</h1><p class="lead">File.Copy copies a file in one call, but a program that shows a progress bar or can be cancelled reads and writes the file in pieces. This lesson copies 3,000,000 bytes through a 64 KB byte buffer, reports the progress, cancels half way, checks the copy with a checksum and compares buffer sizes.</p>
+<h1>Copying a big file with progress</h1><p class="lead">File.Copy copies a file in one call, but a program that shows a progress bar or can be canceled reads and writes the file in pieces. This lesson copies 3,000,000 bytes through a 64 KB byte buffer, reports the progress, cancels half way, checks the copy with a checksum and compares buffer sizes.</p>
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
 <ul><li>reading and writing in <strong>pieces</strong> with <code>FileStream.Read</code> and <code>Write</code>,</li><li>a <strong>byte buffer</strong> (<code>dnBuffer</code>) that is filled by <code>Read</code> and sent on by <code>Write</code>,</li><li>why <code>Read</code> returns a <strong>number</strong> and <code>0</code> means the end,</li><li>a <strong>progress</strong> report and a <strong>cancel</strong> that removes the half copy,</li><li>checking the copy with the size and a SHA-256 checksum,</li><li>the size of the buffer and the number of calls.</li></ul>
 <p>The tutorial <a href="tut-45-binary.html">Binary files</a> introduced the byte buffer. Here the buffer does the work of a copy.</p>
@@ -282,7 +282,7 @@ using {
 	oFile.<span class="f">WriteAllBytes</span>(cSource,cData)
 	? <span class="s">"1. the source file has "</span> + <span class="k">new</span> <span class="t">FileInfo</span>(cSource).Length + <span class="s">" bytes"</span>
 
-	<span class="c"># 2. A copy in PIECES. File.Copy does it in one call, but a program that shows a progress bar, or that can be cancelled, reads and writes</span>
+	<span class="c"># 2. A copy in PIECES. File.Copy does it in one call, but a program that shows a progress bar, or that can be canceled, reads and writes</span>
 	<span class="c">#    a piece at a time. The piece is a BYTE BUFFER (dnBuffer): Read fills it, and Write sends the same buffer on, so the bytes are</span>
 	<span class="c">#    never turned into a Ring text. The buffer has 64 KB: a small buffer means many calls, a huge one wastes memory.</span>
 	? nl + <span class="s">"2. copy with a progress report at each quarter:"</span>
@@ -316,7 +316,7 @@ using {
 	oBuffer = <span class="f">dnBuffer</span>(nBufferSize)
 	nCopied = <span class="n">0</span>
 	nQuarter = <span class="n">0</span>
-	lCancelled = <span class="k">False</span>
+	lCanceled = <span class="k">False</span>
 	<span class="k">while</span> <span class="k">True</span>
 		nRead = oIn.<span class="f">Read</span>(oBuffer,<span class="n">0</span>,nBufferSize)
 		<span class="k">if</span> nRead = <span class="n">0</span>
@@ -330,13 +330,13 @@ using {
 			? <span class="s">"   "</span> + nPercent + <span class="s">" percent ("</span> + nCopied + <span class="s">" of "</span> + nTotal + <span class="s">" bytes)"</span>
 		<span class="k">ok</span>
 		<span class="k">if</span> nStopAfter &gt; <span class="n">0</span> <span class="k">and</span> nCopied &gt;= nStopAfter
-			lCancelled = <span class="k">True</span>
+			lCanceled = <span class="k">True</span>
 			<span class="k">exit</span>
 		<span class="k">ok</span>
 	<span class="k">end</span>
 	oOut.<span class="f">Dispose</span>()
 	oIn.<span class="f">Dispose</span>()
-	<span class="k">if</span> lCancelled
+	<span class="k">if</span> lCanceled
 		<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cTarget)
 	<span class="k">ok</span>
 	<span class="k">return</span> nCopied
@@ -393,7 +393,7 @@ using {
 <h3 id="progress">Progress<a class="anchor" href="#progress">#</a></h3>
 <p>After each piece the program knows how many bytes were copied and the total (<code>Length</code> of the source), so the percentage is <code>100 * copied / total</code>. The program prints a line the first time that the percentage passes 25, 50, 75 and 100. A window program sets a progress bar at this place, and handles the events of the window in the loop so that it does not freeze (the tutorial <a href="tut-34-timers.html">Timers and progress</a> does the same with a timer).</p>
 <h3 id="cancel">Cancel<a class="anchor" href="#cancel">#</a></h3>
-<p>A cancelled copy leaves a <strong>half file</strong>, which is worse than no file: somebody may use it. The function stops when the limit is reached, closes both streams (<code>Dispose</code>), and deletes the target. The same pattern is used for an error in the middle: close, delete, report.</p>
+<p>A canceled copy leaves a <strong>half file</strong>, which is worse than no file: somebody may use it. The function stops when the limit is reached, closes both streams (<code>Dispose</code>), and deletes the target. The same pattern is used for an error in the middle: close, delete, report.</p>
 <h3 id="check-the-copy">Check the copy<a class="anchor" href="#check-the-copy">#</a></h3>
 <p>A copy is complete when the <strong>size</strong> is the same and the <strong>checksum</strong> is the same (the tutorial <a href="tut-147-checksums.html">A project: check that files did not change</a>). The size is a quick check, and the checksum proves that every byte is the same.</p>
 <h3 id="the-size-of-the-buffer">The size of the buffer<a class="anchor" href="#the-size-of-the-buffer">#</a></h3>

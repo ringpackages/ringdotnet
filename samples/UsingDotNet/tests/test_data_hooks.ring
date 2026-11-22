@@ -48,7 +48,7 @@ func main
 	catch
 		lFailed = true
 	done
-	dnAssert("the save was cancelled",lFailed,1)
+	dnAssert("the save was canceled",lFailed,1)
 	dnAssert("nothing was stored",oDb.count("Users"),2)
 
 	# pending changes with manual saving

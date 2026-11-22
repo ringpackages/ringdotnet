@@ -9,5 +9,5 @@
 
 4. verified with another key: 0
 
-5. the receiver has only the public key and can verify the message: 1
+5. the public key is 91 bytes; the receiver has only that and can verify the message: 1
    the receiver can sign with it: 0   (there is no private key)

@@ -47,18 +47,18 @@ func main
 		? nl + "3. EnsureSuccessStatusCode raised: " + substr(left(cCatchError,70),nl," ")
 	done
 
-	# 4. Cancelling. A request that takes too long can be cancelled: CancelAfter(ms) on a CancellationTokenSource, and its Token goes
-	#    with the request. The slow page is never served (nobody calls serveOne), so the request has to be cancelled.
+	# 4. Canceling. A request that takes too long can be canceled: CancelAfter(ms) on a CancellationTokenSource, and its Token goes
+	#    with the request. The slow page is never served (nobody calls serveOne), so the request has to be canceled.
 	oSource = new CancellationTokenSource()
 	oSource.CancelAfter(300)
 	oTask = oClient.GetAsync([ :requestUri = oServer.url() + "/slow", :cancellationToken = oSource.Token ])
-	lCancelled = False
+	lCanceled = False
 	try
 		oTask.Wait(NULL)
 	catch
-		lCancelled = True
+		lCanceled = True
 	done
-	? nl + "4. a request cancelled after 300 ms: cancelled = " + yesNo(lCancelled) + ", the task says cancelled: " + yesNo(oTask.IsCanceled)
+	? nl + "4. a request canceled after 300 ms: canceled = " + yesNo(lCanceled) + ", the task says canceled: " + yesNo(oTask.IsCanceled)
 	oSource.Dispose()
 
 	# 5. Save a download to a file: copy the content to a FileStream. The whole body is never held in memory.

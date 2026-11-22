@@ -27,7 +27,7 @@ func main
 	oFile.WriteAllBytes(cSource,cData)
 	? "1. the source file has " + new FileInfo(cSource).Length + " bytes"
 
-	# 2. A copy in PIECES. File.Copy does it in one call, but a program that shows a progress bar, or that can be cancelled, reads and writes
+	# 2. A copy in PIECES. File.Copy does it in one call, but a program that shows a progress bar, or that can be canceled, reads and writes
 	#    a piece at a time. The piece is a BYTE BUFFER (dnBuffer): Read fills it, and Write sends the same buffer on, so the bytes are
 	#    never turned into a Ring text. The buffer has 64 KB: a small buffer means many calls, a huge one wastes memory.
 	? nl + "2. copy with a progress report at each quarter:"
@@ -61,7 +61,7 @@ func copyFile cSource,cTarget,nBufferSize,nStopAfter
 	oBuffer = dnBuffer(nBufferSize)
 	nCopied = 0
 	nQuarter = 0
-	lCancelled = False
+	lCanceled = False
 	while True
 		nRead = oIn.Read(oBuffer,0,nBufferSize)
 		if nRead = 0
@@ -75,13 +75,13 @@ func copyFile cSource,cTarget,nBufferSize,nStopAfter
 			? "   " + nPercent + " percent (" + nCopied + " of " + nTotal + " bytes)"
 		ok
 		if nStopAfter > 0 and nCopied >= nStopAfter
-			lCancelled = True
+			lCanceled = True
 			exit
 		ok
 	end
 	oOut.Dispose()
 	oIn.Dispose()
-	if lCancelled
+	if lCanceled
 		new File().Delete(cTarget)
 	ok
 	return nCopied

@@ -39,7 +39,7 @@ A signature made with one key does not verify with another key (step 4). Nobody 
 
 ### Sharing the public key
 
-`ExportParameters(False)` returns the curve and the **public** point of the key, without the private number (`True` would include it). The receiver makes a new key object and imports these parameters (`ImportParameters`); now it can verify, and it *cannot sign*: `SignData` raises an error because there is no private key. In a real program you send the public key as a file (PEM or the bytes) or fetch it from a certificate. The bridge cannot pass `Span` parameters, so the byte-array methods `ExportSubjectPublicKeyInfo` and `ImportSubjectPublicKeyInfo` are not used here.
+`ExportSubjectPublicKeyInfo()` returns the **public** part of the key as bytes (a Ring text of 91 bytes for this curve) in a standard format that every system and language reads, without the private number. The receiver makes a new key object and imports the bytes (`ImportSubjectPublicKeyInfo`, which takes the bytes as a `ReadOnlySpan<byte>` and answers `[ bytes read ]`); now it can verify, and it *cannot sign*: `SignData` raises an error because there is no private key. In a real program you send the bytes as a file or as Base64 text (the tutorial [Bytes as text: Base64 and hex](tut-138-base64-hex.html)), or fetch the key from a certificate. `ExportParameters(False)` and `ImportParameters` do the same with the parts of the key as an object.
 
 > [!WARNING] Sign **bytes**, not "the same text": agree exactly on the bytes (the encoding, the line endings, the order of the fields). A message that is written as JSON by one program and re-written by another may be the same *data* but not the same *bytes*, and then the signature fails. Sign the exact bytes that you send.
 

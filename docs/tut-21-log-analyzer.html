@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A project: analyze a log file · RingDotNet</title>
-<meta name="description" content="Put several lessons to work in one useful program — read a text file, take each line apart with a regular expression, count with a dictionary, summarise with LINQ and write a JSON report.">
+<meta name="description" content="Put several lessons to work in one useful program — read a text file, take each line apart with a regular expression, count with a dictionary, summarize with LINQ and write a JSON report.">
 <link rel="stylesheet" href="assets/style.css">
 <script>window.SITE_ROOT="";</script>
 <script src="assets/search-index.js"></script>
@@ -248,7 +248,7 @@
 </nav>
 <main>
 <article>
-<h1>A project: analyze a log file</h1><p class="lead">Put several lessons to work in one useful program — read a text file, take each line apart with a regular expression, count with a dictionary, summarise with LINQ and write a JSON report.</p>
+<h1>A project: analyze a log file</h1><p class="lead">Put several lessons to work in one useful program — read a text file, take each line apart with a regular expression, count with a dictionary, summarize with LINQ and write a JSON report.</p>
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
 <ul><li>how to plan a small data-processing program,</li><li>combining <code>File</code>, <code>Regex</code>, <code>NumberDictionary</code>, LINQ and JSON,</li><li>writing helper functions for the things you do many times.</li></ul>
 <h2 id="the-task">The task<a class="anchor" href="#the-task">#</a></h2>
@@ -389,7 +389,7 @@ STEP 5: report {"lines":30,"errors":9,"different":3}</code></pre></div>
 <h3 id="habits-that-the-program-shows">Habits that the program shows<a class="anchor" href="#habits-that-the-program-shows">#</a></h3>
 <div class="tablewrap"><table><thead><tr><th>Habit</th><th>Where</th></tr></thead><tbody><tr><td>one function per job (<code>makeLog</code>, <code>count</code>, <code>webJsonText</code>)</td><td>the bottom of the file</td></tr><tr><td>skip bad input instead of crashing</td><td><code>if not oMatch.Success loop ok</code></td></tr><tr><td>clean up temporary files</td><td><code>File.Delete</code> at the end</td></tr><tr><td>steps numbered in the output</td><td><code>STEP 1 ... STEP 5</code></td></tr></tbody></table></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
-<ul><li>plan: read → parse → count → summarise → write,</li><li>named regex groups make parsing readable,</li><li>dictionaries count,</li><li>small helper functions keep <code>main</code> short.</li></ul>
+<ul><li>plan: read → parse → count → summarize → write,</li><li>named regex groups make parsing readable,</li><li>dictionaries count,</li><li>small helper functions keep <code>main</code> short.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Count the errors <strong>per day</strong>: put the date in a dictionary.</li><li>Print the busiest hour (use the first two characters of the time).</li><li>Take the file name from the command line (<code>sysargv[3]</code>) and report an error if it does not exist.</li><li>Write the report with <code>webJson</code> instead of the helper (with <code>"RingDotNet.Web"</code> in the <code>using</code> block).</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>

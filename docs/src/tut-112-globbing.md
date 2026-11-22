@@ -22,7 +22,7 @@ The tutorial [Files and folders](tut-05-files.html) listed the files of a folder
 
 {{output:samples/UsingDotNet/tutorials/ch05_globbing.ring}}
 
-> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `dnNewGeneric`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
+> [!NOTE] This program uses a few generic functions (`dnNew`, `dnStatic`, `callMethod`, `getProp`) where a class cannot be used. The lesson [The generic functions](tut-160-generic-calls.html) explains them.
 
 ## How it works
 
@@ -48,7 +48,7 @@ A `Matcher` collects **include** rules (`AddInclude`) and **exclude** rules (`Ad
 
 ### A list of names
 
-`Match(root, files)` applies the patterns to a **list of paths** that need not exist: the names inside an archive (the tutorial [ZIP archives in memory](tut-108-zip-in-memory.html)), the files that a version control system reports as changed, the lines of a file. It needs a root (use `"."`, an empty text is read as a missing value) and a .NET collection of texts: the program makes a `List<string>` (`stringList`), because a plain Ring list is not accepted for an `IEnumerable<string>`. The result has `HasMatches` and `Files`, each file with its `Path`.
+`Match(root, files)` applies the patterns to a **list of paths** that need not exist: the names inside an archive (the tutorial [ZIP archives in memory](tut-108-zip-in-memory.html)), the files that a version control system reports as changed, the lines of a file. It needs a root (use `"."`, an empty text is read as a missing value) and a collection of texts: a plain Ring list is accepted where .NET wants an `IEnumerable<string>`. The result has `HasMatches` and `Files`, each file with its `Path`.
 
 ### Case
 

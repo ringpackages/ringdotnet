@@ -10,6 +10,6 @@
 
 3. EnsureSuccessStatusCode raised: DotNet Error: System.Net.Http.HttpRequestException: Response status co
 
-4. a request cancelled after 300 ms: cancelled = yes, the task says cancelled: yes
+4. a request canceled after 300 ms: canceled = yes, the task says canceled: yes
 
 5. the download was saved: 12286 bytes, the first line is 'first line of the file'

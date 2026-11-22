@@ -294,7 +294,7 @@ using {
 	<span class="c"># 4. A pattern does not need files on a disk: Match(root, list of paths) tests a list of names, for example the files of an archive</span>
 	<span class="c">#    (the tutorial "ZIP archives in memory") or the changed files of a project. The paths use / and are relative to the root.</span>
 	aPaths = [<span class="s">"src/main.ring"</span>,<span class="s">"src/old_main.ring"</span>,<span class="s">"README.md"</span>,<span class="s">"docs/guide/intro.md"</span>,<span class="s">"docs/logo.png"</span>]
-	oResult = <span class="f">dnStatic</span>(cExt,<span class="s">"Match"</span>,[oMatcher3,<span class="s">"."</span>,stringList(aPaths)])
+	oResult = <span class="f">dnStatic</span>(cExt,<span class="s">"Match"</span>,[oMatcher3,<span class="s">"."</span>,aPaths])
 	? nl + <span class="s">"4. which of the names are matched: has matches = "</span> + oResult.<span class="f">getProp</span>(<span class="s">"HasMatches"</span>)
 	<span class="k">for</span> oFile <span class="k">in</span> oResult.<span class="f">getProp</span>(<span class="s">"Files"</span>).<span class="f">toList</span>()
 		? <span class="s">"   "</span> + oFile.<span class="f">getProp</span>(<span class="s">"Path"</span>)
@@ -303,7 +303,7 @@ using {
 	<span class="c"># 5. By default a Matcher ignores case (OrdinalIgnoreCase). The constructor takes a StringComparison: with Ordinal, case counts.</span>
 	oStrict = <span class="f">dnNew</span>(<span class="s">"Microsoft.Extensions.FileSystemGlobbing.Matcher"</span>,[ :comparisonType = <span class="s">"Ordinal"</span> ])
 	oStrict.<span class="f">callMethod</span>(<span class="s">"AddInclude"</span>,[<span class="s">"**/*.RING"</span>])
-	oResultStrict = <span class="f">dnStatic</span>(cExt,<span class="s">"Match"</span>,[oStrict,<span class="s">"."</span>,stringList([<span class="s">"a.ring"</span>,<span class="s">"b.RING"</span>])])
+	oResultStrict = <span class="f">dnStatic</span>(cExt,<span class="s">"Match"</span>,[oStrict,<span class="s">"."</span>,[<span class="s">"a.ring"</span>,<span class="s">"b.RING"</span>]])
 	? nl + <span class="s">"5. with Ordinal comparison, **/*.RING matches only: "</span> + oResultStrict.<span class="f">getProp</span>(<span class="s">"Files"</span>).<span class="f">toList</span>()[<span class="n">1</span>].<span class="f">getProp</span>(<span class="s">"Path"</span>)
 
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cBase, :recursive = <span class="k">True</span> ])
@@ -331,15 +331,7 @@ using {
 		<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(oPath.<span class="f">GetDirectoryName</span>(cFull))
 		<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFull, :contents = <span class="s">"x"</span> ])
 	<span class="k">next</span>
-	<span class="k">return</span> cBase
-
-<span class="c"># the Matcher wants a collection of texts (IEnumerable of string): a List&lt;string&gt;</span>
-<span class="k">func</span> <span class="f">stringList</span> aList
-	oList = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.List"</span>,[<span class="s">"System.String"</span>],[])
-	<span class="k">for</span> cItem <span class="k">in</span> aList
-		oList.<span class="f">Add</span>(cItem)
-	<span class="k">next</span>
-	<span class="k">return</span> oList</code></pre></div>
+	<span class="k">return</span> cBase</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. **/*.ring :
    src/main.ring
    src/old_main.ring
@@ -365,7 +357,7 @@ using {
    docs/guide/intro.md
 
 5. with Ordinal comparison, **/*.RING matches only: b.RING</code></pre></div>
-<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>dnNewGeneric</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
+<div class="callout note"><span class="t">Note</span><p>This program uses a few generic functions (<code>dnNew</code>, <code>dnStatic</code>, <code>callMethod</code>, <code>getProp</code>) where a class cannot be used. The lesson <a href="tut-160-generic-calls.html">The generic functions</a> explains them.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-wildcards">The wildcards<a class="anchor" href="#the-wildcards">#</a></h3>
 <div class="tablewrap"><table><thead><tr><th>Pattern</th><th>Matches</th></tr></thead><tbody><tr><td><code>*.ring</code></td><td>any file name that ends with <code>.ring</code>, in <strong>one</strong> folder</td></tr><tr><td><code>?</code></td><td>exactly one character: <code>file?.txt</code> is <code>file1.txt</code> and <code>fileA.txt</code></td></tr><tr><td><code>**</code></td><td>any number of folders, <strong>also none</strong>: <code>**/*.ring</code> is <code>a.ring</code>, <code>src/a.ring</code> and <code>src/util/a.ring</code></td></tr><tr><td><code>src/*.ring</code></td><td>files in <code>src</code>, <strong>not</strong> in its sub-folders</td></tr><tr><td><code>docs/**/*.md</code></td><td>every <code>.md</code> file below <code>docs</code>, at any depth</td></tr></tbody></table></div>
@@ -375,7 +367,7 @@ using {
 <h3 id="files-on-a-disk">Files on a disk<a class="anchor" href="#files-on-a-disk">#</a></h3>
 <p><code>GetResultsInFullPath(matcher, folder)</code> walks the folder and gives the full paths of the matching files. The order is the order of the file system, which is not the same on every system, so the program sorts the names before printing. <code>GetResultsInFullPath</code> and <code>Match</code> are <strong>extension methods</strong> of <code>MatcherExtensions</code>, so they are called with <code>dnStatic(type, method, [arguments])</code> (the tutorial <a href="tut-109-memory-cache.html">Caching</a>); <code>AddInclude</code> and <code>AddExclude</code> are real methods of the object. The class is made with <code>dnNew(type, [])</code> because the namespace has no generated Ring classes.</p>
 <h3 id="a-list-of-names">A list of names<a class="anchor" href="#a-list-of-names">#</a></h3>
-<p><code>Match(root, files)</code> applies the patterns to a <strong>list of paths</strong> that need not exist: the names inside an archive (the tutorial <a href="tut-108-zip-in-memory.html">ZIP archives in memory</a>), the files that a version control system reports as changed, the lines of a file. It needs a root (use <code>"."</code>, an empty text is read as a missing value) and a .NET collection of texts: the program makes a <code>List&lt;string&gt;</code> (<code>stringList</code>), because a plain Ring list is not accepted for an <code>IEnumerable&lt;string&gt;</code>. The result has <code>HasMatches</code> and <code>Files</code>, each file with its <code>Path</code>.</p>
+<p><code>Match(root, files)</code> applies the patterns to a <strong>list of paths</strong> that need not exist: the names inside an archive (the tutorial <a href="tut-108-zip-in-memory.html">ZIP archives in memory</a>), the files that a version control system reports as changed, the lines of a file. It needs a root (use <code>"."</code>, an empty text is read as a missing value) and a collection of texts: a plain Ring list is accepted where .NET wants an <code>IEnumerable&lt;string&gt;</code>. The result has <code>HasMatches</code> and <code>Files</code>, each file with its <code>Path</code>.</p>
 <h3 id="case">Case<a class="anchor" href="#case">#</a></h3>
 <p>By default a matcher <strong>ignores case</strong>: <code>*.ring</code> also finds <code>B.RING</code>. The constructor takes a <code>StringComparison</code>; with <code>Ordinal</code>, <code>**/*.RING</code> matches only names written in capitals (step 5). Use <code>Ordinal</code> for file systems that care about case.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>

@@ -14,6 +14,7 @@ func main
 	oA = oBig.Parse("9007199254740992")
 	oB = oBig.Add(oA,oBig.One)
 	? nl + "2. BigInteger: 9007199254740992 + 1 = " + oB.ToString()
+	? "   the operators of Ring work on these objects too: " + (oA + oBig.One).ToString() + ", and oA > 1 is " + (oA > oBig.One)
 
 	# 3. Factorials grow fast: 30! has 33 digits. The loop multiplies with BigInteger.Multiply
 	oFact = oBig.One

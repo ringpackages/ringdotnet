@@ -43,7 +43,7 @@ func editProfile
 	ok
 
 # ---------------------------------------------------------------- the dialog
-# Returns [name, age] when the user presses OK, or "" when the dialog is cancelled.
+# Returns [name, age] when the user presses OK, or "" when the dialog is canceled.
 func askProfile cStartName, nStartAge
 	oDialog = new Form() {
 		Text = "Edit profile"

@@ -16,7 +16,7 @@ lead: A complete small application — add, tick and remove tasks, see how many 
 |---|---|
 | **Data** | the tasks live in the list control itself; each has a text and a done flag |
 | **Window** | a text box and *Add* / *Remove* buttons on top, the list in the middle, a status line at the bottom |
-| **Behaviour** | *Add* ignores blank text; clicking an item ticks it; the status says "n of m done" |
+| **Behavior** | *Add* ignores blank text; clicking an item ticks it; the status says "n of m done" |
 | **Saving** | after every change the tasks are written to a JSON file; at start-up the file is read |
 
 ## The program

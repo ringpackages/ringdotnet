@@ -14,7 +14,7 @@ lead: A Task is something that finishes later. .NET can start many of them at on
 
 ## Tasks and Ring
 
-In .NET a **task** is a promise: a piece of work that is running or waiting and will be *finished*, *failed* or *cancelled*. `HttpClient.GetAsync`, `File.ReadAllTextAsync` and `Process.WaitForExitAsync` all return tasks. Ring runs your code on one thread, and **Ring code cannot run on other threads** ([Core concepts](concepts.html)), so you do not write the work of a task in Ring. You use the tasks that .NET provides, start several, and wait for them in Ring. `Task.Delay` is the simplest such task: it finishes after a time and does nothing else, which makes the rules visible.
+In .NET a **task** is a promise: a piece of work that is running or waiting and will be *finished*, *failed* or *canceled*. `HttpClient.GetAsync`, `File.ReadAllTextAsync` and `Process.WaitForExitAsync` all return tasks. Ring runs your code on one thread, and **Ring code cannot run on other threads** ([Core concepts](concepts.html)), so you do not write the work of a task in Ring. You use the tasks that .NET provides, start several, and wait for them in Ring. `Task.Delay` is the simplest such task: it finishes after a time and does nothing else, which makes the rules visible.
 
 ## The program
 
@@ -42,7 +42,7 @@ The tasks go into a Ring list, which `WhenAll` and `WhenAny` take as an array of
 
 ### Cancellation
 
-A `CancellationTokenSource` is a switch. `CancelAfter(100)` turns it on after 100 ms. Its `Token` goes with the work: `Task.Delay([ :millisecondsDelay = 5000, :cancellationToken = oSource.Token ])` is a delay of five seconds that ends *cancelled* when the switch turns on. Waiting for a cancelled task raises an error (the `catch` sees it), `IsCanceled` is true and `Status` is `Canceled`. Most asynchronous methods of .NET accept a token as their last parameter, for example `HttpClient.GetAsync` (the tutorial [HttpClient in depth](tut-84-http-client.html)).
+A `CancellationTokenSource` is a switch. `CancelAfter(100)` turns it on after 100 ms. Its `Token` goes with the work: `Task.Delay([ :millisecondsDelay = 5000, :cancellationToken = oSource.Token ])` is a delay of five seconds that ends *canceled* when the switch turns on. Waiting for a canceled task raises an error (the `catch` sees it), `IsCanceled` is true and `Status` is `Canceled`. Most asynchronous methods of .NET accept a token as their last parameter, for example `HttpClient.GetAsync` (the tutorial [HttpClient in depth](tut-84-http-client.html)).
 
 > [!TIP] Dispose a `CancellationTokenSource` when you are done with it (`oSource.Dispose()`).
 

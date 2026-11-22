@@ -252,7 +252,7 @@
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
 <ul><li>what a <code>Task</code> is and what <code>Wait</code> does,</li><li><code>Task.Delay</code>: a wait that does not block a thread,</li><li><code>WhenAll</code> and <code>WhenAny</code>,</li><li>a time limit with <code>Wait(milliseconds)</code>,</li><li>cancelling with <code>CancellationTokenSource</code> and a token,</li><li>why many waits together take the time of the longest, not the sum.</li></ul>
 <h2 id="tasks-and-ring">Tasks and Ring<a class="anchor" href="#tasks-and-ring">#</a></h2>
-<p>In .NET a <strong>task</strong> is a promise: a piece of work that is running or waiting and will be <em>finished</em>, <em>failed</em> or <em>cancelled</em>. <code>HttpClient.GetAsync</code>, <code>File.ReadAllTextAsync</code> and <code>Process.WaitForExitAsync</code> all return tasks. Ring runs your code on one thread, and <strong>Ring code cannot run on other threads</strong> (<a href="concepts.html">Core concepts</a>), so you do not write the work of a task in Ring. You use the tasks that .NET provides, start several, and wait for them in Ring. <code>Task.Delay</code> is the simplest such task: it finishes after a time and does nothing else, which makes the rules visible.</p>
+<p>In .NET a <strong>task</strong> is a promise: a piece of work that is running or waiting and will be <em>finished</em>, <em>failed</em> or <em>canceled</em>. <code>HttpClient.GetAsync</code>, <code>File.ReadAllTextAsync</code> and <code>Process.WaitForExitAsync</code> all return tasks. Ring runs your code on one thread, and <strong>Ring code cannot run on other threads</strong> (<a href="concepts.html">Core concepts</a>), so you do not write the work of a task in Ring. You use the tasks that .NET provides, start several, and wait for them in Ring. <code>Task.Delay</code> is the simplest such task: it finishes after a time and does nothing else, which makes the rules visible.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch06_tasks_waiting.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># tasks that wait - Task.Delay, WhenAll, WhenAny, time limits and cancellation (System.Threading.Tasks)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
@@ -293,7 +293,7 @@ using {
 	lDone = oLong.<span class="f">Wait</span>(<span class="n">200</span>)
 	? nl + <span class="s">"4. waited 200 ms for a task of 2 seconds: finished = "</span> + yesNo(lDone) + <span class="s">" (the task keeps running; you stopped waiting)"</span>
 
-	<span class="c"># 5. Cancellation: a CancellationTokenSource says "stop". CancelAfter(ms) says it later. A task that got the token ends as cancelled.</span>
+	<span class="c"># 5. Cancellation: a CancellationTokenSource says "stop". CancelAfter(ms) says it later. A task that got the token ends as canceled.</span>
 	oSource = <span class="k">new</span> <span class="t">CancellationTokenSource</span>()
 	oSource.<span class="f">CancelAfter</span>(<span class="n">100</span>)
 	oCancellable = oTasks.<span class="f">Delay</span>([ :millisecondsDelay = <span class="n">5000</span>, :cancellationToken = oSource.Token ])
@@ -303,7 +303,7 @@ using {
 	<span class="k">catch</span>
 		lError = <span class="k">True</span>
 	<span class="k">done</span>
-	? nl + <span class="s">"5. a delay of 5 seconds cancelled after 100 ms: the wait raised an error "</span> + yesNo(lError) + <span class="s">", the task is cancelled: "</span> + yesNo(oCancellable.IsCanceled) + <span class="s">", status "</span> + oCancellable.Status
+	? nl + <span class="s">"5. a delay of 5 seconds canceled after 100 ms: the wait raised an error "</span> + yesNo(lError) + <span class="s">", the task is canceled: "</span> + yesNo(oCancellable.IsCanceled) + <span class="s">", status "</span> + oCancellable.Status
 	oSource.<span class="f">Dispose</span>()
 
 	<span class="c"># 6. Many waits, one result: wait for all pages of a list (here: delays standing for downloads) and see that they ran together</span>
@@ -334,7 +334,7 @@ using {
 
 4. waited 200 ms for a task of 2 seconds: finished = no (the task keeps running; you stopped waiting)
 
-5. a delay of 5 seconds cancelled after 100 ms: the wait raised an error yes, the task is cancelled: yes, status Canceled
+5. a delay of 5 seconds canceled after 100 ms: the wait raised an error yes, the task is canceled: yes, status Canceled
 
 6. five waits that add up to 480 ms were over in less than that: yes</code></pre></div>
 <p>The output prints <em>yes</em> and <em>no</em> instead of the exact milliseconds, so that it is the same on every computer. When you try it yourself, print <code>ElapsedMilliseconds</code>.</p>
@@ -347,7 +347,7 @@ using {
 <h3 id="a-time-limit">A time limit<a class="anchor" href="#a-time-limit">#</a></h3>
 <p><code>oTask.Wait(200)</code> waits at most 200 ms and answers <strong>true</strong> if the task finished, <strong>false</strong> if the time ran out. The task keeps running; you only stopped waiting. Use it so that a missing server cannot block your program for ever; <code>Wait(NULL)</code> waits without a limit.</p>
 <h3 id="cancellation">Cancellation<a class="anchor" href="#cancellation">#</a></h3>
-<p>A <code>CancellationTokenSource</code> is a switch. <code>CancelAfter(100)</code> turns it on after 100 ms. Its <code>Token</code> goes with the work: <code>Task.Delay([ :millisecondsDelay = 5000, :cancellationToken = oSource.Token ])</code> is a delay of five seconds that ends <em>cancelled</em> when the switch turns on. Waiting for a cancelled task raises an error (the <code>catch</code> sees it), <code>IsCanceled</code> is true and <code>Status</code> is <code>Canceled</code>. Most asynchronous methods of .NET accept a token as their last parameter, for example <code>HttpClient.GetAsync</code> (the tutorial <a href="tut-84-http-client.html">HttpClient in depth</a>).</p>
+<p>A <code>CancellationTokenSource</code> is a switch. <code>CancelAfter(100)</code> turns it on after 100 ms. Its <code>Token</code> goes with the work: <code>Task.Delay([ :millisecondsDelay = 5000, :cancellationToken = oSource.Token ])</code> is a delay of five seconds that ends <em>canceled</em> when the switch turns on. Waiting for a canceled task raises an error (the <code>catch</code> sees it), <code>IsCanceled</code> is true and <code>Status</code> is <code>Canceled</code>. Most asynchronous methods of .NET accept a token as their last parameter, for example <code>HttpClient.GetAsync</code> (the tutorial <a href="tut-84-http-client.html">HttpClient in depth</a>).</p>
 <div class="callout tip"><span class="t">Tip</span><p>Dispose a <code>CancellationTokenSource</code> when you are done with it (<code>oSource.Dispose()</code>).</p></div>
 <h3 id="many-waits-one-result">Many waits, one result<a class="anchor" href="#many-waits-one-result">#</a></h3>
 <p>Step 6 starts five delays and waits for them with one <code>WhenAll</code>: the total is about 200 ms (the longest), not the 480 ms that they add up to.</p>

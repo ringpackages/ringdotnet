@@ -37,7 +37,7 @@ func main
 	lDone = oLong.Wait(200)
 	? nl + "4. waited 200 ms for a task of 2 seconds: finished = " + yesNo(lDone) + " (the task keeps running; you stopped waiting)"
 
-	# 5. Cancellation: a CancellationTokenSource says "stop". CancelAfter(ms) says it later. A task that got the token ends as cancelled.
+	# 5. Cancellation: a CancellationTokenSource says "stop". CancelAfter(ms) says it later. A task that got the token ends as canceled.
 	oSource = new CancellationTokenSource()
 	oSource.CancelAfter(100)
 	oCancellable = oTasks.Delay([ :millisecondsDelay = 5000, :cancellationToken = oSource.Token ])
@@ -47,7 +47,7 @@ func main
 	catch
 		lError = True
 	done
-	? nl + "5. a delay of 5 seconds cancelled after 100 ms: the wait raised an error " + yesNo(lError) + ", the task is cancelled: " + yesNo(oCancellable.IsCanceled) + ", status " + oCancellable.Status
+	? nl + "5. a delay of 5 seconds canceled after 100 ms: the wait raised an error " + yesNo(lError) + ", the task is canceled: " + yesNo(oCancellable.IsCanceled) + ", status " + oCancellable.Status
 	oSource.Dispose()
 
 	# 6. Many waits, one result: wait for all pages of a list (here: delays standing for downloads) and see that they ran together

@@ -1,6 +1,6 @@
 ---
 title: "Copying a big file with progress"
-lead: File.Copy copies a file in one call, but a program that shows a progress bar or can be cancelled reads and writes the file in pieces. This lesson copies 3,000,000 bytes through a 64 KB byte buffer, reports the progress, cancels half way, checks the copy with a checksum and compares buffer sizes.
+lead: File.Copy copies a file in one call, but a program that shows a progress bar or can be canceled reads and writes the file in pieces. This lesson copies 3,000,000 bytes through a 64 KB byte buffer, reports the progress, cancels half way, checks the copy with a checksum and compares buffer sizes.
 ---
 
 ## What you will learn
@@ -42,7 +42,7 @@ After each piece the program knows how many bytes were copied and the total (`Le
 
 ### Cancel
 
-A cancelled copy leaves a **half file**, which is worse than no file: somebody may use it. The function stops when the limit is reached, closes both streams (`Dispose`), and deletes the target. The same pattern is used for an error in the middle: close, delete, report.
+A canceled copy leaves a **half file**, which is worse than no file: somebody may use it. The function stops when the limit is reached, closes both streams (`Dispose`), and deletes the target. The same pattern is used for an error in the middle: close, delete, report.
 
 ### Check the copy
 

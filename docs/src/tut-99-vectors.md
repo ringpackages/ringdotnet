@@ -27,7 +27,7 @@ A `Vector3` holds three numbers `X`, `Y`, `Z`. It can be a **position** (a point
 
 ### Operations
 
-The operations are **static methods**: `Add(a, b)`, `Subtract(a, b)`, `Multiply(a, number)`, `Negate(a)`. In Ring you call them on any object of the class (`oVector = new Vector3()`, then `oVector.Add(oA, oB)`). `Length()` is the distance from zero (3, 4, 0 has length 5), `Distance(a, b)` the distance between two points, and `Normalize(a)` the direction of `a` with length 1 — the *unit vector*, useful when you want a direction without a size. `Lerp(a, b, t)` is the point at the fraction `t` between `a` and `b` (0.5 is the middle): the base of every smooth movement.
+The operators of Ring work on these structs: `oA + oB` adds two vectors, `oA * 2` and `2 * oA` scale one, `oA = oB` compares them. The operations are also **static methods**: `Add(a, b)`, `Subtract(a, b)`, `Multiply(a, number)`, `Negate(a)`. In Ring you call them on any object of the class (`oVector = new Vector3()`, then `oVector.Add(oA, oB)`). `Length()` is the distance from zero (3, 4, 0 has length 5), `Distance(a, b)` the distance between two points, and `Normalize(a)` the direction of `a` with length 1 — the *unit vector*, useful when you want a direction without a size. `Lerp(a, b, t)` is the point at the fraction `t` between `a` and `b` (0.5 is the middle): the base of every smooth movement.
 
 ### Dot product
 

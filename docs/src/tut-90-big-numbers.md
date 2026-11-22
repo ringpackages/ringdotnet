@@ -26,7 +26,7 @@ A double stores 53 bits of precision. Whole numbers are exact up to 2^53 = 90071
 
 ### BigInteger
 
-A `BigInteger` is a struct from `System.Numerics`. In Ring you create it from a **text** (`Parse("9007199254740992")`), calculate with the **static methods** (`Add`, `Multiply`, `Pow`, ...) and show it with `ToString()`. The operators `+` and `*` of Ring do not work on these objects, so every step is a method call. The first object is a handle to reach the static methods (`new BigInteger()`); `One` and `Zero` are ready-made values. Step 2 adds 1 to 2^53 and keeps the result exact.
+A `BigInteger` is a struct from `System.Numerics`. In Ring you create it from a **text** (`Parse("9007199254740992")`), calculate with the **static methods** (`Add`, `Multiply`, `Pow`, ...) and show it with `ToString()`. The operators of Ring work on these objects too (`oA + oB`, `oA * oB`, `oA > oB`), because the type defines them (step 2 shows `+` and `>`); the loops use the static methods, which also have `Pow`, `ModPow` and the rest. The first object is a handle to reach the static methods (`new BigInteger()`); `One` and `Zero` are ready-made values. Step 2 adds 1 to 2^53 and keeps the result exact.
 
 ### Factorials, powers, Fibonacci
 

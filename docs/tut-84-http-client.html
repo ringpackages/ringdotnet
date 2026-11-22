@@ -303,18 +303,18 @@ oClient = <span class="s">""</span>
 		? nl + <span class="s">"3. EnsureSuccessStatusCode raised: "</span> + substr(left(cCatchError,<span class="n">70</span>),nl,<span class="s">" "</span>)
 	<span class="k">done</span>
 
-	<span class="c"># 4. Cancelling. A request that takes too long can be cancelled: CancelAfter(ms) on a CancellationTokenSource, and its Token goes</span>
-	<span class="c">#    with the request. The slow page is never served (nobody calls serveOne), so the request has to be cancelled.</span>
+	<span class="c"># 4. Canceling. A request that takes too long can be canceled: CancelAfter(ms) on a CancellationTokenSource, and its Token goes</span>
+	<span class="c">#    with the request. The slow page is never served (nobody calls serveOne), so the request has to be canceled.</span>
 	oSource = <span class="k">new</span> <span class="t">CancellationTokenSource</span>()
 	oSource.<span class="f">CancelAfter</span>(<span class="n">300</span>)
 	oTask = oClient.<span class="f">GetAsync</span>([ :requestUri = oServer.<span class="f">url</span>() + <span class="s">"/slow"</span>, :cancellationToken = oSource.Token ])
-	lCancelled = <span class="k">False</span>
+	lCanceled = <span class="k">False</span>
 	<span class="k">try</span>
 		oTask.<span class="f">Wait</span>(<span class="k">NULL</span>)
 	<span class="k">catch</span>
-		lCancelled = <span class="k">True</span>
+		lCanceled = <span class="k">True</span>
 	<span class="k">done</span>
-	? nl + <span class="s">"4. a request cancelled after 300 ms: cancelled = "</span> + yesNo(lCancelled) + <span class="s">", the task says cancelled: "</span> + yesNo(oTask.IsCanceled)
+	? nl + <span class="s">"4. a request canceled after 300 ms: canceled = "</span> + yesNo(lCanceled) + <span class="s">", the task says canceled: "</span> + yesNo(oTask.IsCanceled)
 	oSource.<span class="f">Dispose</span>()
 
 	<span class="c"># 5. Save a download to a file: copy the content to a FileStream. The whole body is never held in memory.</span>
@@ -382,7 +382,7 @@ oClient = <span class="s">""</span>
 
 3. EnsureSuccessStatusCode raised: DotNet Error: System.Net.Http.HttpRequestException: Response status co
 
-4. a request cancelled after 300 ms: cancelled = yes, the task says cancelled: yes
+4. a request canceled after 300 ms: canceled = yes, the task says canceled: yes
 
 5. the download was saved: 12286 bytes, the first line is 'first line of the file'</code></pre></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
@@ -395,8 +395,8 @@ oClient = <span class="s">""</span>
 <h3 id="ensuresuccessstatuscode">EnsureSuccessStatusCode<a class="anchor" href="#ensuresuccessstatuscode">#</a></h3>
 <p>When <em>anything but success</em> means "stop", call <code>oResponse.EnsureSuccessStatusCode()</code>: it raises an <code>HttpRequestException</code> that says which code came, and your <code>try</code> / <code>catch</code> handles it in one place (the tutorial <a href="tut-07-errors.html">When things go wrong</a>).</p>
 <h3 id="cancelling">Cancelling<a class="anchor" href="#cancelling">#</a></h3>
-<p>A <code>CancellationTokenSource</code> (the tutorial <a href="tut-83-tasks-waiting.html">Tasks that wait</a>) with <code>CancelAfter(300)</code> and its token in <code>GetAsync([ :requestUri = …, :cancellationToken = oSource.Token ])</code> cancels a request that is not finished after 300 ms. In the tutorial the <code>/slow</code> page is simply never served, so only the cancel can end it; the task ends <em>cancelled</em> and <code>Wait</code> raises an error. This is how a window program offers a <strong>Cancel</strong> button: the click calls <code>oSource.Cancel()</code>.</p>
-<div class="callout note"><span class="t">Note</span><p>The little server lives in this program and handles requests only while the program calls <code>serveOne</code>. The helper <code>fetchPage</code> keeps serving until its own request is finished, so it also serves requests of earlier, cancelled calls. A real server runs elsewhere and does not need that.</p></div>
+<p>A <code>CancellationTokenSource</code> (the tutorial <a href="tut-83-tasks-waiting.html">Tasks that wait</a>) with <code>CancelAfter(300)</code> and its token in <code>GetAsync([ :requestUri = …, :cancellationToken = oSource.Token ])</code> cancels a request that is not finished after 300 ms. In the tutorial the <code>/slow</code> page is simply never served, so only the cancel can end it; the task ends <em>canceled</em> and <code>Wait</code> raises an error. This is how a window program offers a <strong>Cancel</strong> button: the click calls <code>oSource.Cancel()</code>.</p>
+<div class="callout note"><span class="t">Note</span><p>The little server lives in this program and handles requests only while the program calls <code>serveOne</code>. The helper <code>fetchPage</code> keeps serving until its own request is finished, so it also serves requests of earlier, canceled calls. A real server runs elsewhere and does not need that.</p></div>
 <h3 id="saving-a-download">Saving a download<a class="anchor" href="#saving-a-download">#</a></h3>
 <p><code>oResponse.Content.CopyToAsync(oStream)</code> copies the body into a file stream in pieces; <code>Wait(NULL)</code> waits for it. A big file is never held in memory as a whole. Dispose the stream afterwards. For a really big download ask for the headers first (<code>HttpCompletionOption.ResponseHeadersRead</code>) so that the body is not buffered before you copy it.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>

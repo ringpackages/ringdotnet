@@ -34,12 +34,12 @@ func main
 	oOtherKey = new ECDsa().Create(oCurve)
 	? nl + "4. verified with another key: " + oOtherKey.VerifyData([ :data = cMessage, :signature = cSignature, :hashAlgorithm = oSha ])
 
-	# 5. Share only the PUBLIC part of the key: ExportParameters(False) gives the curve and the public point, without the private number.
-	#    The receiver imports it into a new key object and can only VERIFY, never sign in your name.
-	oPublic = oKey.ExportParameters(False)
+	# 5. Share only the PUBLIC part of the key: ExportSubjectPublicKeyInfo() gives its bytes (a Ring text, in a standard format that every system reads),
+	#    without the private number. The receiver imports the bytes into a new key object and can only VERIFY, never sign in your name.
+	cPublic = oKey.ExportSubjectPublicKeyInfo()
 	oReceiver = new ECDsa().Create(oCurve)
-	oReceiver.ImportParameters(oPublic)
-	? nl + "5. the receiver has only the public key and can verify the message: " + oReceiver.VerifyData([ :data = cMessage, :signature = cSignature, :hashAlgorithm = oSha ])
+	oReceiver.ImportSubjectPublicKeyInfo(cPublic)
+	? nl + "5. the public key is " + len(cPublic) + " bytes; the receiver has only that and can verify the message: " + oReceiver.VerifyData([ :data = cMessage, :signature = cSignature, :hashAlgorithm = oSha ])
 	lCanSign = True
 	try
 		oReceiver.SignData([ :data = cMessage, :hashAlgorithm = oSha ])

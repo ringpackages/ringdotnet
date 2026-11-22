@@ -13,7 +13,7 @@ lead: Tests tell you in seconds whether a change broke something. This lesson sh
 
 ## Why test?
 
-A test is a small program that checks that another piece of code gives the right answers. You run all the tests after every change: if one fails, you know *what* broke and *when*. The tests of this package (`samples/UsingDotNet/tests/run.sh`) are what makes it possible to change the generator and regenerate 4,500 classes with confidence.
+A test is a small program that checks that another piece of code gives the right answers. You run all the tests after every change: if one fails, you know *what* broke and *when*. The tests of this package (`samples/UsingDotNet/tests/run.sh`) are what makes it possible to change the generator and regenerate thousands of classes with confidence.
 
 ## Make code testable
 

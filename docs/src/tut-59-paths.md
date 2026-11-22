@@ -44,7 +44,7 @@ Windows does not allow `\ / : * ? " < > |` in a name. Step 4 replaces each by `_
 
 ### Environment variables
 
-An environment variable is a named setting that lives outside the program (set by the user, a script or a server). `SetEnvironmentVariable` sets one *for this process*; `GetEnvironmentVariable` reads it. A variable that does not exist gives **null**, and .NET `null` arrives in Ring as an **object** (not a text): test it with `isobject(value)`, then use your default. Never print a password or a key that came from a variable.
+An environment variable is a named setting that lives outside the program (set by the user, a script or a server). `SetEnvironmentVariable` sets one *for this process*; `GetEnvironmentVariable` reads it. A variable that does not exist gives **null**, and .NET `null` arrives in Ring as an **object** (not a text): test it with `isobject(value)` (or `dnIsNull(value)`, which also accepts a text), then use your default. Never print a password or a key that came from a variable.
 
 ## What you learned
 

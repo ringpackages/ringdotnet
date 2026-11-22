@@ -7,7 +7,7 @@ lead: Lists, dictionaries, sets, queues and stacks, how to sort them, and how to
 
 - the five common collections and when to use each,
 - how to get a collection's items back into a Ring list,
-- LINQ: filter, sort and summarise with a few calls.
+- LINQ: filter, sort and summarize with a few calls.
 
 ## Which collection?
 

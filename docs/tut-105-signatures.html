@@ -289,12 +289,12 @@ using {
 	oOtherKey = <span class="k">new</span> <span class="t">ECDsa</span>().<span class="f">Create</span>(oCurve)
 	? nl + <span class="s">"4. verified with another key: "</span> + oOtherKey.<span class="f">VerifyData</span>([ :data = cMessage, :signature = cSignature, :hashAlgorithm = oSha ])
 
-	<span class="c"># 5. Share only the PUBLIC part of the key: ExportParameters(False) gives the curve and the public point, without the private number.</span>
-	<span class="c">#    The receiver imports it into a new key object and can only VERIFY, never sign in your name.</span>
-	oPublic = oKey.<span class="f">ExportParameters</span>(<span class="k">False</span>)
+	<span class="c"># 5. Share only the PUBLIC part of the key: ExportSubjectPublicKeyInfo() gives its bytes (a Ring text, in a standard format that every system reads),</span>
+	<span class="c">#    without the private number. The receiver imports the bytes into a new key object and can only VERIFY, never sign in your name.</span>
+	cPublic = oKey.<span class="f">ExportSubjectPublicKeyInfo</span>()
 	oReceiver = <span class="k">new</span> <span class="t">ECDsa</span>().<span class="f">Create</span>(oCurve)
-	oReceiver.<span class="f">ImportParameters</span>(oPublic)
-	? nl + <span class="s">"5. the receiver has only the public key and can verify the message: "</span> + oReceiver.<span class="f">VerifyData</span>([ :data = cMessage, :signature = cSignature, :hashAlgorithm = oSha ])
+	oReceiver.<span class="f">ImportSubjectPublicKeyInfo</span>(cPublic)
+	? nl + <span class="s">"5. the public key is "</span> + len(cPublic) + <span class="s">" bytes; the receiver has only that and can verify the message: "</span> + oReceiver.<span class="f">VerifyData</span>([ :data = cMessage, :signature = cSignature, :hashAlgorithm = oSha ])
 	lCanSign = <span class="k">True</span>
 	<span class="k">try</span>
 		oReceiver.<span class="f">SignData</span>([ :data = cMessage, :hashAlgorithm = oSha ])
@@ -318,7 +318,7 @@ using {
 
 4. verified with another key: 0
 
-5. the receiver has only the public key and can verify the message: 1
+5. the public key is 91 bytes; the receiver has only that and can verify the message: 1
    the receiver can sign with it: 0   (there is no private key)</code></pre></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="what-a-signature-proves">What a signature proves<a class="anchor" href="#what-a-signature-proves">#</a></h3>
@@ -330,7 +330,7 @@ using {
 <h3 id="another-key">Another key<a class="anchor" href="#another-key">#</a></h3>
 <p>A signature made with one key does not verify with another key (step 4). Nobody can sign in your name without your private key, which is why the private key must be kept safe: in a file with strict rights, in a key store or in a hardware token, and never in the source code or in a mail.</p>
 <h3 id="sharing-the-public-key">Sharing the public key<a class="anchor" href="#sharing-the-public-key">#</a></h3>
-<p><code>ExportParameters(False)</code> returns the curve and the <strong>public</strong> point of the key, without the private number (<code>True</code> would include it). The receiver makes a new key object and imports these parameters (<code>ImportParameters</code>); now it can verify, and it <em>cannot sign</em>: <code>SignData</code> raises an error because there is no private key. In a real program you send the public key as a file (PEM or the bytes) or fetch it from a certificate. The bridge cannot pass <code>Span</code> parameters, so the byte-array methods <code>ExportSubjectPublicKeyInfo</code> and <code>ImportSubjectPublicKeyInfo</code> are not used here.</p>
+<p><code>ExportSubjectPublicKeyInfo()</code> returns the <strong>public</strong> part of the key as bytes (a Ring text of 91 bytes for this curve) in a standard format that every system and language reads, without the private number. The receiver makes a new key object and imports the bytes (<code>ImportSubjectPublicKeyInfo</code>, which takes the bytes as a <code>ReadOnlySpan&lt;byte&gt;</code> and answers <code>[ bytes read ]</code>); now it can verify, and it <em>cannot sign</em>: <code>SignData</code> raises an error because there is no private key. In a real program you send the bytes as a file or as Base64 text (the tutorial <a href="tut-138-base64-hex.html">Bytes as text: Base64 and hex</a>), or fetch the key from a certificate. <code>ExportParameters(False)</code> and <code>ImportParameters</code> do the same with the parts of the key as an object.</p>
 <div class="callout warn"><span class="t">Warning</span><p>Sign <strong>bytes</strong>, not "the same text": agree exactly on the bytes (the encoding, the line endings, the order of the fields). A message that is written as JSON by one program and re-written by another may be the same <em>data</em> but not the same <em>bytes</em>, and then the signature fails. Sign the exact bytes that you send.</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>a signature proves the owner and the integrity, not secrecy,</li><li>the private key signs and the public key verifies,</li><li><code>ECCurve.CreateFromFriendlyName</code>, <code>ECDsa.Create</code>, <code>SignData</code>, <code>VerifyData</code>,</li><li>a changed message or another key fails,</li><li>export the public parameters and keep the private key.</li></ul>

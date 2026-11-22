@@ -269,6 +269,7 @@ using {
 	oA = oBig.<span class="f">Parse</span>(<span class="s">"9007199254740992"</span>)
 	oB = oBig.<span class="f">Add</span>(oA,oBig.One)
 	? nl + <span class="s">"2. BigInteger: 9007199254740992 + 1 = "</span> + oB.<span class="f">ToString</span>()
+	? <span class="s">"   the operators of Ring work on these objects too: "</span> + (oA + oBig.One).<span class="f">ToString</span>() + <span class="s">", and oA &gt; 1 is "</span> + (oA &gt; oBig.One)
 
 	<span class="c"># 3. Factorials grow fast: 30! has 33 digits. The loop multiplies with BigInteger.Multiply</span>
 	oFact = oBig.One
@@ -309,6 +310,7 @@ using {
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. Ring: 9007199254740992 + 1 = 9007199254740992.00   (the +1 is lost)
 
 2. BigInteger: 9007199254740992 + 1 = 9007199254740993
+   the operators of Ring work on these objects too: 9007199254740993, and oA &gt; 1 is 1
 
 3. 30! = 265252859812191058636308480000000
 
@@ -328,7 +330,7 @@ using {
 <h3 id="the-limit-of-ring-numbers">The limit of Ring numbers<a class="anchor" href="#the-limit-of-ring-numbers">#</a></h3>
 <p>A double stores 53 bits of precision. Whole numbers are exact up to 2^53 = 9007199254740992; above that, <code>+ 1</code> can be lost, as step 1 shows (it prints the same number).</p>
 <h3 id="biginteger">BigInteger<a class="anchor" href="#biginteger">#</a></h3>
-<p>A <code>BigInteger</code> is a struct from <code>System.Numerics</code>. In Ring you create it from a <strong>text</strong> (<code>Parse("9007199254740992")</code>), calculate with the <strong>static methods</strong> (<code>Add</code>, <code>Multiply</code>, <code>Pow</code>, ...) and show it with <code>ToString()</code>. The operators <code>+</code> and <code>*</code> of Ring do not work on these objects, so every step is a method call. The first object is a handle to reach the static methods (<code>new BigInteger()</code>); <code>One</code> and <code>Zero</code> are ready-made values. Step 2 adds 1 to 2^53 and keeps the result exact.</p>
+<p>A <code>BigInteger</code> is a struct from <code>System.Numerics</code>. In Ring you create it from a <strong>text</strong> (<code>Parse("9007199254740992")</code>), calculate with the <strong>static methods</strong> (<code>Add</code>, <code>Multiply</code>, <code>Pow</code>, ...) and show it with <code>ToString()</code>. The operators of Ring work on these objects too (<code>oA + oB</code>, <code>oA * oB</code>, <code>oA &gt; oB</code>), because the type defines them (step 2 shows <code>+</code> and <code>&gt;</code>); the loops use the static methods, which also have <code>Pow</code>, <code>ModPow</code> and the rest. The first object is a handle to reach the static methods (<code>new BigInteger()</code>); <code>One</code> and <code>Zero</code> are ready-made values. Step 2 adds 1 to 2^53 and keeps the result exact.</p>
 <h3 id="factorials-powers-fibonacci">Factorials, powers, Fibonacci<a class="anchor" href="#factorials-powers-fibonacci">#</a></h3>
 <p>The loops of steps 3 and 5 are the ordinary ones, with <code>Multiply</code> and <code>Add</code> in place of <code>*</code> and <code>+</code>. 30! has 33 digits and fib(100) has 21; the results are exact. <code>Pow(number, exponent)</code> takes a normal whole exponent. <code>ModPow(number, exponent, modulus)</code> computes the remainder of a huge power <strong>without ever building</strong> the huge number; public-key cryptography is built on it (the tutorial <a href="tut-78-crypto.html">Protecting and signing messages</a>). Step 4 shows that <code>ModPow</code> and <code>Remainder(Pow(...))</code> give the same answer.</p>
 <h3 id="comparing">Comparing<a class="anchor" href="#comparing">#</a></h3>

@@ -39,7 +39,7 @@ A `StringWriter` has the same methods as a `StreamWriter` (`Write`, `WriteLine`)
 
 ### Composite formatting
 
-`String.Format("{0} bought {1} items for {2:0.00}", args)` puts the values into numbered places. After a colon comes a **format**: `0.00` is two decimals (12.50), `00000` pads with zeros (00042), `0.##` shows up to two decimals and no more (0.25). The format `P0` writes a percentage, but where the `%` goes depends on the culture of the computer (`25%` or `25 %`), so a test must not compare it as text. A comma sets the width: `{0,-8}` is left-aligned in 8 characters and `{1,8}` right-aligned. The method has several forms, so it takes names (`:format` and `:args`). Numbers from Ring arrive in the array as doubles, so use the formats that fit doubles; `D5` and `X4` are for integer types and would raise *Format specifier was invalid*.
+`String.Format("{0} bought {1} items for {2:0.00}", args)` puts the values into numbered places. After a colon comes a **format**: `0.00` is two decimals (12.50), `00000` pads with zeros (00042), `0.##` shows up to two decimals and no more (0.25). The format `P0` writes a percentage, but where the `%` goes depends on the culture of the computer (`25%` or `25 %`), so a test must not compare it as text. A comma sets the width: `{0,-8}` is left-aligned in 8 characters and `{1,8}` right-aligned. The method has several forms, so it takes names (`:format` and `:args`). A whole number from Ring is an `Int32` in the array, so `D5` (zeros in front) and `X4` (hexadecimal) work for it; a number with a fraction is a `Double`, and those two formats raise *Format specifier was invalid* for it.
 
 ## What you learned
 
