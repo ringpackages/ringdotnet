@@ -60,6 +60,8 @@ def rewrite(body, name, known):
     body = re.sub(r'href="([^"]*)"', link, body)
     # a link to a page that is not in the PDF: only its text stays
     body = re.sub(r'<a data-nolink="1"[^>]*>(.*?)</a>', r"\1", body, flags=re.S)
+    # a collapsed <details> prints nothing: the source code of the samples (gallery, {{source:}}) is open in the PDF
+    body = re.sub(r"<details(?![^>]*\bopen\b)", "<details open", body)
     return body
 
 
@@ -89,11 +91,13 @@ thead { display: table-header-group; }
 th, td { word-break: break-word; overflow-wrap: anywhere; min-width: 0; }
 td code, th code, td pre { white-space: pre-wrap !important; word-break: break-word; overflow-wrap: anywhere; }
 .gallery { display: block !important; margin: 10px 0 !important; }
-.item { display: block !important; break-inside: avoid; page-break-inside: avoid; margin: 0 0 16px; box-shadow: none !important; overflow: visible !important; }
+.item { display: block !important; break-inside: auto; margin: 0 0 16px; box-shadow: none !important; overflow: visible !important; }
 .item .pic { display: block !important; text-align: center; min-height: 0 !important; padding: 12px !important; }
 .item .pic img { max-height: 170px !important; width: auto; box-shadow: 0 1px 4px rgba(0,0,0,.25) !important; }
 .item .info { padding: 10px 14px 12px; }
-.item details { display: none; }
+.item details { display: block; margin-top: 8px; }
+.item details summary { display: none; }
+.item .pic, .item .info h3, .item .info p, .item .run { break-inside: avoid; break-after: avoid; }
 img { max-width: 100%; break-inside: avoid; }
 figure, .shot { break-inside: avoid; }
 h1, h2, h3 { break-after: avoid; }
