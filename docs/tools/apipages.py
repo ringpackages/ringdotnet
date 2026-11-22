@@ -69,25 +69,61 @@ def parse_class_file(ns, cls):
             info["attrs"].add(ma.group(1).lower())
     for b in blocks[1:]:
         first, _, body = b.partition("\n")
-        mf = re.match(r"(\w+)(?:\s+([\w,]+))?\s*$", first)
+        mf = re.match(r"(@?\w+)(?:\s+([\w,]+))?\s*$", first)
         if not mf:
             continue
         ring, params = mf.group(1), mf.group(2)
         n = len(params.split(",")) if params else 0
         net = None
         kind = "method"
-        mm = re.search(r'"(call|callnamed|get|set|setevent|clearevent)",\[[^\]]*?,"(\w+)"', body)
+        # a request is written as dotnet_call("s4:call",<handle or type>,"s6:Append",args): the operation and the .NET name are sized items
+        mm = re.search(r'"s\d+:(call|callnamed|get|set)",[^"]*,"s\d+:(\w+)"', body)
         if mm:
             net = mm.group(2)
             if mm.group(1) in ("get", "set"):
                 kind = mm.group(1)
-            elif mm.group(1) in ("setevent", "clearevent"):
-                kind = "event"
-        if "dnIsNamed(P1)" in body:
+        elif re.search(r'"(setevent|clearevent)"', body):
+            kind = "event"
+        if "dotnet_isnamed(P1)" in body:
             kind = "dispatch"
         info["funcs"].append({"ring": ring, "n": n, "net": net, "kind": kind, "null": 'isstring(P1) and P1 = ""' in body,
                               "one": bool(re.search(r'"call",\[[^\]]*\]\)', body))})
     return info
+
+
+_class_ns = {}
+
+
+def find_class_ns(cls):
+    """the namespace whose generated file defines the Ring class (a base class may be in another namespace)"""
+    if not _class_ns:
+        for fn in os.listdir(GEN):
+            if fn.endswith(".classes.ring"):
+                ns = fn[:-len(".classes.ring")]
+                with open(os.path.join(GEN, fn), encoding="utf-8") as f:
+                    for m in re.finditer(r"(?m)^Class\s+(\w+)\s+from\s+", f.read()):
+                        _class_ns.setdefault(m.group(1).lower(), ns)
+    return _class_ns.get(cls.lower())
+
+
+def forms_with_bases(name, cinfo, overloads):
+    """the Ring calls of a method: the class's own, or else the ones it inherits from the Ring base classes"""
+    forms = ring_forms(name, cinfo["funcs"], overloads)
+    guard = 0
+    base = cinfo["base"]
+    while not forms and base and guard < 30:
+        ns = find_class_ns(base)
+        if not ns:
+            break
+        info = parse_class_file(ns, base)
+        forms = ring_forms(name, info["funcs"], overloads)
+        base = info["base"]
+        guard += 1
+    if not forms and overloads:
+        # a name that DotNetObject already has (Release, IsNull, New, ToList...) has no method of its own: callMethod calls the .NET one
+        for n in sorted({len(o["p"]) for o in overloads}):
+            forms.append('callMethod("%s",[%s])' % (name, ",".join("p%d" % (i + 1) for i in range(n))))
+    return forms
 
 
 def sig_params(params):
@@ -217,7 +253,7 @@ def render_class(ns, cls, data, cinfo, wrapped, by_full):
         rows = []
         for name in sorted(groups, key=lambda x: x.lower()):
             ms = groups[name]
-            forms = ring_forms(name, cinfo["funcs"], ms)
+            forms = forms_with_bases(name, cinfo, ms)
             sigs = []
             for m in ms:
                 gen = "<%s>" % m["g"] if m.get("g") else ""
@@ -296,6 +332,11 @@ def build(page_html, DOCS_DIR):
             'Each entry shows the .NET type, constructors, properties (as Ring attributes), methods (with the way to call them from Ring), and events.</p>'
             '<div class="callout tip"><span class="t">Tip</span><p>Use the search box (<kbd>/</kbd>) to find a class by name. '
             'Load a namespace with <code>using { "System.Text" }</code>. How members are named in Ring: <a href="concepts.html">Core concepts</a>.</p></div>'
+            '<h2>Reading the Ring call column</h2><ul>'
+            '<li><code>Name(p1,p2)</code>: a method that has one form takes its parameters in order.</li>'
+            '<li><code>Name(NULL)</code>, <code>Name(value)</code>, <code>Name([ :param = … ])</code>: a method with several overloads is one Ring method that takes one argument: <code>NULL</code> for no parameters, a value for one, or a list of named parameters.</li>'
+            '<li><code>callMethod("Name",[p1,p2])</code>: the .NET name is one that every object already has in Ring (<code>Release</code>, <code>IsNull</code>, <code>New</code>, <code>ToList</code>...), so the method is called with <code>callMethod</code>.</li>'
+            '<li>A name with <code>@</code> (<code>@Next</code>) is a .NET name that is a Ring keyword.</li></ul>'
             '<div class="tablewrap"><table><thead><tr><th>Namespace</th><th>Types</th><th>Assembly</th></tr></thead><tbody>%s</tbody></table></div>') % (total, len(ns_rows), rows)
     with open(os.path.join(DOCS_DIR, "api.html"), "w", encoding="utf-8") as f:
         f.write(page_html("api", "Class reference", "", body, "api", heading="Class reference"))

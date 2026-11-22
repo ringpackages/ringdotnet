@@ -41,7 +41,7 @@ func main
 	? "   look-alike: " + cLookAlike + "   " + oIdn.GetAscii(cLookAlike)
 	? "   they look the same on the screen but they are different names: " + (cLatin != cLookAlike)
 
-	# 5. A defence: look at the SCRIPTS (alphabets) of the letters in each part. A normal name uses one script; a name that mixes
+	# 5. A defense: look at the SCRIPTS (alphabets) of the letters in each part. A normal name uses one script; a name that mixes
 	#    Latin and Cyrillic letters is suspicious. Browsers show such names in Punycode instead of the letters.
 	? nl + "5. the alphabets in each part of the name (the parts are separated by dots):"
 	for cName in [cLatin,cLookAlike,cGerman,cArabic,"dom" + char(208) + char(176) + "in.com"]

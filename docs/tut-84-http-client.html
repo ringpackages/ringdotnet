@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HttpClient in depth · RingDotNet</title>
-<meta name="description" content="Headers in both directions, status codes that are answers and not errors, EnsureSuccessStatusCode, cancelling a request, and saving a download to a file without holding it in memory. A small server in the same program makes it work without the internet.">
+<meta name="description" content="Headers in both directions, status codes that are answers and not errors, EnsureSuccessStatusCode, canceling a request, and saving a download to a file without holding it in memory. A small server in the same program makes it work without the internet.">
 <link rel="stylesheet" href="assets/style.css">
 <script>window.SITE_ROOT="";</script>
 <script src="assets/search-index.js"></script>
@@ -248,9 +248,9 @@
 </nav>
 <main>
 <article>
-<h1>HttpClient in depth</h1><p class="lead">Headers in both directions, status codes that are answers and not errors, EnsureSuccessStatusCode, cancelling a request, and saving a download to a file without holding it in memory. A small server in the same program makes it work without the internet.</p>
+<h1>HttpClient in depth</h1><p class="lead">Headers in both directions, status codes that are answers and not errors, EnsureSuccessStatusCode, canceling a request, and saving a download to a file without holding it in memory. A small server in the same program makes it work without the internet.</p>
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
-<ul><li>one <code>HttpClient</code> for the whole program, and <code>DefaultRequestHeaders</code>,</li><li>reading response headers and the content type,</li><li>status codes: an answer of <code>404</code> is not an error,</li><li><code>EnsureSuccessStatusCode</code> when "not OK" must stop the program,</li><li>cancelling a request that takes too long,</li><li>saving a download with <code>CopyToAsync</code>.</li></ul>
+<ul><li>one <code>HttpClient</code> for the whole program, and <code>DefaultRequestHeaders</code>,</li><li>reading response headers and the content type,</li><li>status codes: an answer of <code>404</code> is not an error,</li><li><code>EnsureSuccessStatusCode</code> when "not OK" must stop the program,</li><li>canceling a request that takes too long,</li><li>saving a download with <code>CopyToAsync</code>.</li></ul>
 <p>The tutorial <a href="tut-39-rest-client.html">A REST client</a> made a first REST client; the tutorial <a href="tut-09-http.html">HTTP</a> explained HTTP. This lesson adds what you need for real services.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <p>The service is a small <code>WebServer</code> that runs in the same program (the client code is the same for a real service; only the address differs).</p>
@@ -394,13 +394,13 @@ oClient = <span class="s">""</span>
 <p><code>oResponse.StatusCode</code> is a text (<code>OK</code>, <code>Created</code>, <code>NotFound</code>, <code>InternalServerError</code>), <code>ReasonPhrase</code> the standard words, and <code>IsSuccessStatusCode</code> is true for the 200s. A <code>404</code> is <strong>an answer from the server</strong>: the request worked, the thing is not there. Your program decides what that means.</p>
 <h3 id="ensuresuccessstatuscode">EnsureSuccessStatusCode<a class="anchor" href="#ensuresuccessstatuscode">#</a></h3>
 <p>When <em>anything but success</em> means "stop", call <code>oResponse.EnsureSuccessStatusCode()</code>: it raises an <code>HttpRequestException</code> that says which code came, and your <code>try</code> / <code>catch</code> handles it in one place (the tutorial <a href="tut-07-errors.html">When things go wrong</a>).</p>
-<h3 id="cancelling">Cancelling<a class="anchor" href="#cancelling">#</a></h3>
+<h3 id="canceling">Canceling<a class="anchor" href="#canceling">#</a></h3>
 <p>A <code>CancellationTokenSource</code> (the tutorial <a href="tut-83-tasks-waiting.html">Tasks that wait</a>) with <code>CancelAfter(300)</code> and its token in <code>GetAsync([ :requestUri = …, :cancellationToken = oSource.Token ])</code> cancels a request that is not finished after 300 ms. In the tutorial the <code>/slow</code> page is simply never served, so only the cancel can end it; the task ends <em>canceled</em> and <code>Wait</code> raises an error. This is how a window program offers a <strong>Cancel</strong> button: the click calls <code>oSource.Cancel()</code>.</p>
 <div class="callout note"><span class="t">Note</span><p>The little server lives in this program and handles requests only while the program calls <code>serveOne</code>. The helper <code>fetchPage</code> keeps serving until its own request is finished, so it also serves requests of earlier, canceled calls. A real server runs elsewhere and does not need that.</p></div>
 <h3 id="saving-a-download">Saving a download<a class="anchor" href="#saving-a-download">#</a></h3>
 <p><code>oResponse.Content.CopyToAsync(oStream)</code> copies the body into a file stream in pieces; <code>Wait(NULL)</code> waits for it. A big file is never held in memory as a whole. Dispose the stream afterwards. For a really big download ask for the headers first (<code>HttpCompletionOption.ResponseHeadersRead</code>) so that the body is not buffered before you copy it.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
-<ul><li>one shared <code>HttpClient</code>, default headers,</li><li>request and response headers, <code>ContentType</code>,</li><li><code>StatusCode</code>, <code>ReasonPhrase</code>, <code>IsSuccessStatusCode</code>,</li><li><code>EnsureSuccessStatusCode</code>,</li><li>cancelling with a token,</li><li><code>CopyToAsync</code> to a file.</li></ul>
+<ul><li>one shared <code>HttpClient</code>, default headers,</li><li>request and response headers, <code>ContentType</code>,</li><li><code>StatusCode</code>, <code>ReasonPhrase</code>, <code>IsSuccessStatusCode</code>,</li><li><code>EnsureSuccessStatusCode</code>,</li><li>canceling with a token,</li><li><code>CopyToAsync</code> to a file.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Add a header <code>Authorization</code> with a fake token and let the server answer <code>401</code> when it is missing.</li><li>Download the file with <code>ResponseHeadersRead</code> and print the <code>ContentLength</code> from the headers before copying.</li><li>Send three requests together and wait with <code>WhenAll</code> (the tutorial <a href="tut-83-tasks-waiting.html">Tasks that wait</a>).</li><li>Retry a request three times with a pause when the status is <code>503</code>.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>

@@ -16,7 +16,7 @@ lead: Text from a user must never be put into HTML, a URL, JavaScript, JSON, XML
 
 ## The rule
 
-A text has no meaning by itself; the **place** gives it one. `<b>` is just letters in a text file and a command in an HTML page. If the text of a visitor reaches a place without being encoded, the visitor can write *commands* for that place: a script that runs in other people's browsers (*cross-site scripting*), SQL that reads your whole database (*SQL injection*). The defence is always the same: **encode for the place where the text goes**, with a tool that knows that place.
+A text has no meaning by itself; the **place** gives it one. `<b>` is just letters in a text file and a command in an HTML page. If the text of a visitor reaches a place without being encoded, the visitor can write *commands* for that place: a script that runs in other people's browsers (*cross-site scripting*), SQL that reads your whole database (*SQL injection*). The defense is always the same: **encode for the place where the text goes**, with a tool that knows that place.
 
 | Place | Danger | Tool |
 |---|---|---|

@@ -1,6 +1,6 @@
 ---
 title: "HttpClient in depth"
-lead: Headers in both directions, status codes that are answers and not errors, EnsureSuccessStatusCode, cancelling a request, and saving a download to a file without holding it in memory. A small server in the same program makes it work without the internet.
+lead: Headers in both directions, status codes that are answers and not errors, EnsureSuccessStatusCode, canceling a request, and saving a download to a file without holding it in memory. A small server in the same program makes it work without the internet.
 ---
 
 ## What you will learn
@@ -9,7 +9,7 @@ lead: Headers in both directions, status codes that are answers and not errors, 
 - reading response headers and the content type,
 - status codes: an answer of `404` is not an error,
 - `EnsureSuccessStatusCode` when "not OK" must stop the program,
-- cancelling a request that takes too long,
+- canceling a request that takes too long,
 - saving a download with `CopyToAsync`.
 
 The tutorial [A REST client](tut-39-rest-client.html) made a first REST client; the tutorial [HTTP](tut-09-http.html) explained HTTP. This lesson adds what you need for real services.
@@ -40,7 +40,7 @@ Step 1 shows both directions. The request carried `X-Client`; the page read it w
 
 When *anything but success* means "stop", call `oResponse.EnsureSuccessStatusCode()`: it raises an `HttpRequestException` that says which code came, and your `try` / `catch` handles it in one place (the tutorial [When things go wrong](tut-07-errors.html)).
 
-### Cancelling
+### Canceling
 
 A `CancellationTokenSource` (the tutorial [Tasks that wait](tut-83-tasks-waiting.html)) with `CancelAfter(300)` and its token in `GetAsync([ :requestUri = …, :cancellationToken = oSource.Token ])` cancels a request that is not finished after 300 ms. In the tutorial the `/slow` page is simply never served, so only the cancel can end it; the task ends *canceled* and `Wait` raises an error. This is how a window program offers a **Cancel** button: the click calls `oSource.Cancel()`.
 
@@ -56,7 +56,7 @@ A `CancellationTokenSource` (the tutorial [Tasks that wait](tut-83-tasks-waiting
 - request and response headers, `ContentType`,
 - `StatusCode`, `ReasonPhrase`, `IsSuccessStatusCode`,
 - `EnsureSuccessStatusCode`,
-- cancelling with a token,
+- canceling with a token,
 - `CopyToAsync` to a file.
 
 ## Exercises

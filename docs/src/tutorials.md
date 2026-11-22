@@ -199,7 +199,7 @@ IP addresses and networks, TCP and UDP sockets, WebSockets, HttpClient and REST,
 <a class="card" href="tut-158-framing.html"><div class="ic">🌐</div><b>Messages on a TCP stream</b><span>A length prefix, reading exactly n bytes, partial reads and a maximum length.</span></a>
 <a class="card" href="tut-91-udp.html"><div class="ic">🌐</div><b>UDP</b><span>Datagrams between sockets, answers, time limits and lost messages.</span></a>
 <a class="card" href="tut-156-websockets.html"><div class="ic">🌐</div><b>WebSockets</b><span>A connection that stays open: HttpListener and ClientWebSocket, text and binary messages, parts and closing.</span></a>
-<a class="card" href="tut-84-http-client.html"><div class="ic">🌐</div><b>HttpClient in depth</b><span>Headers, status codes, EnsureSuccessStatusCode, cancelling and saving a download.</span></a>
+<a class="card" href="tut-84-http-client.html"><div class="ic">🌐</div><b>HttpClient in depth</b><span>Headers, status codes, EnsureSuccessStatusCode, canceling and saving a download.</span></a>
 <a class="card" href="tut-39-rest-client.html"><div class="ic">🌐</div><b>A REST client</b><span>GET and POST with JSON, status codes, timeouts and errors.</span></a>
 <a class="card" href="tut-16-web-service.html"><div class="ic">🌐</div><b>A web service with a database</b><span>JSON over HTTP, stored with Entity Framework.</span></a>
 <a class="card" href="tut-26-website.html"><div class="ic">🌐</div><b>A small web site</b><span>HTML pages, a form, a guestbook, status codes and the escaping rule.</span></a>

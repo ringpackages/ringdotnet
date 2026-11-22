@@ -9,7 +9,7 @@ lead: A Task is something that finishes later. .NET can start many of them at on
 - `Task.Delay`: a wait that does not block a thread,
 - `WhenAll` and `WhenAny`,
 - a time limit with `Wait(milliseconds)`,
-- cancelling with `CancellationTokenSource` and a token,
+- canceling with `CancellationTokenSource` and a token,
 - why many waits together take the time of the longest, not the sum.
 
 ## Tasks and Ring
