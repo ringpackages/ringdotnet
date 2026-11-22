@@ -643,6 +643,10 @@ bLess = oLow &lt; oHigh
 bMore = oLow &gt; oHigh
 <span class="f">dnAssert</span>(<span class="s">"not a greater rank"</span>,bMore,<span class="n">0</span>)
 
+<span class="c"># reflection: the arguments of MethodInfo.Invoke are an object[] of doubles, converted to the types of the method that is invoked</span>
+oSquare = <span class="f">dnStatic</span>(<span class="s">"System.Type"</span>,<span class="s">"GetType"</span>,[<span class="s">"MyCompany.Tools.Calculator, UserLib"</span>]).<span class="f">callMethod</span>(<span class="s">"GetMethod"</span>,[<span class="s">"Square"</span>])
+<span class="f">dnAssert</span>(<span class="s">"MethodInfo.Invoke with an int parameter"</span>,oSquare.<span class="f">callMethod</span>(<span class="s">"Invoke"</span>,[<span class="f">dnNull</span>(),[<span class="n">7</span>]]),<span class="n">49</span>)
+
 <span class="c"># a params array: a plain list, or left out (it is empty)</span>
 <span class="f">dnAssert</span>(<span class="s">"a params array is a list"</span>,<span class="f">dnStatic</span>(<span class="s">"MyCompany.Tools.Calculator"</span>,<span class="s">"Join"</span>,[<span class="s">"-"</span>,[<span class="s">"a"</span>,<span class="s">"b"</span>,<span class="s">"c"</span>]]),<span class="s">"a-b-c"</span>)
 <span class="f">dnAssert</span>(<span class="s">"a params array that is left out is empty"</span>,<span class="f">dnStatic</span>(<span class="s">"MyCompany.Tools.Calculator"</span>,<span class="s">"Join"</span>,[<span class="s">"-"</span>]),<span class="s">""</span>)

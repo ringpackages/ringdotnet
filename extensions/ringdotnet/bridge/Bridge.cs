@@ -2858,8 +2858,30 @@ namespace RingDotNet
 		}
 
 		/* Run a method and shape its result: methods with out/ref parameters return a list [return value (if any), out/ref values...] */
+		/* MethodInfo.Invoke(obj, args), ConstructorInfo.Invoke(args) and Delegate.DynamicInvoke(args) take the arguments of another method as an object[]: the numbers
+		   of Ring are doubles there, and reflection does not narrow a double to an int, so the arguments are converted to the parameter types of that method */
+		private static void FixInvokeArguments(MethodInfo m, object instance, object[] conv)
+		{
+			if (m.Name != "Invoke" && m.Name != "DynamicInvoke") return;
+			ParameterInfo[] target = instance is MethodBase mb ? mb.GetParameters() : instance is Delegate d ? d.Method.GetParameters() : null;
+			if (target == null) return;
+			ParameterInfo[] mine = m.GetParameters();
+			for (int at = 0; at < mine.Length; at++)
+			{
+				if (mine[at].ParameterType != typeof(object[]) || !(conv[at] is object[] args)) continue;
+				object[] fixedArgs = new object[args.Length];
+				for (int i = 0; i < args.Length; i++)
+				{
+					Type wanted = i < target.Length ? Unwrap(target[i].ParameterType) : null;
+					fixedArgs[i] = args[i] is double && wanted != null && TryConvert(args[i], wanted, out object converted, out _) ? converted : args[i];
+				}
+				conv[at] = fixedArgs;
+			}
+		}
+
 		private static object InvokeResult(MethodInfo m, object instance, object[] conv)
 		{
+			FixInvokeArguments(m, instance, conv);
 			bool spanCall = UsesIl(m);
 			object returned = spanCall ? InvokeWithSpans(m, instance, conv) : m.Invoke(instance, conv);
 			if (m.ReturnType.IsPointer) returned = PointerResult(returned);

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The .NET side of the Quartz test: a job that records its runs (and calls a Ring callback when there is one), and a scheduler to start from Ring. -->
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <AssemblyName>QuartzHelpers</AssemblyName>
+    <RootNamespace>QuartzHelpers</RootNamespace>
+    <Nullable>disable</Nullable>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Quartz" Version="3.22.11" />
+  </ItemGroup>
+</Project>

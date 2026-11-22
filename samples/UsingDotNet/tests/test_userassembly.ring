@@ -83,6 +83,10 @@ dnAssert("a smaller rank with IComparable<T>",bLess,1)
 bMore = oLow > oHigh
 dnAssert("not a greater rank",bMore,0)
 
+# reflection: the arguments of MethodInfo.Invoke are an object[] of doubles, converted to the types of the method that is invoked
+oSquare = dnStatic("System.Type","GetType",["MyCompany.Tools.Calculator, UserLib"]).callMethod("GetMethod",["Square"])
+dnAssert("MethodInfo.Invoke with an int parameter",oSquare.callMethod("Invoke",[dnNull(),[7]]),49)
+
 # a params array: a plain list, or left out (it is empty)
 dnAssert("a params array is a list",dnStatic("MyCompany.Tools.Calculator","Join",["-",["a","b","c"]]),"a-b-c")
 dnAssert("a params array that is left out is empty",dnStatic("MyCompany.Tools.Calculator","Join",["-"]),"")
