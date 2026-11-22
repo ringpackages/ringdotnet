@@ -570,16 +570,19 @@ def stats():
     # two files per namespace: <Namespace>.classes.ring has all its classes
     namespaces = [f for f in os.listdir(gen) if f.endswith(".classes.ring")]
     classes = 0
+    with_classes = 0          # the class reference has a page for a namespace that has classes
     for f in namespaces:
         with open(os.path.join(gen, f), encoding="utf-8") as fh:
-            classes += sum(1 for line in fh if line.startswith("Class "))
+            n = sum(1 for line in fh if line.startswith("Class "))
+        classes += n
+        with_classes += 1 if n else 0
 
     def count(p, ext=".ring"):
         p = os.path.join(ROOT, p)
         return len([f for f in os.listdir(p) if f.endswith(ext)]) if os.path.isdir(p) else 0
     apps = len([d for d in os.listdir(os.path.join(ROOT, "samples", "UsingDotNet", "applications")) if os.path.exists(os.path.join(ROOT, "samples", "UsingDotNet", "applications", d, "main.ring"))])
     tests = len([f for f in os.listdir(os.path.join(ROOT, "samples", "UsingDotNet", "tests")) if f.startswith("test_")])
-    return {"namespaces": len(namespaces), "classes": "{:,}".format(classes), "forms": count("samples/UsingDotNet/Forms"), "wpf": count("samples/UsingDotNet/Wpf"), "apps": apps, "tests": tests}
+    return {"namespaces": with_classes, "classes": "{:,}".format(classes), "forms": count("samples/UsingDotNet/Forms"), "wpf": count("samples/UsingDotNet/Wpf"), "apps": apps, "tests": tests}
 
 
 # ---------------------------------------------------------------- templates

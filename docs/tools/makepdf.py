@@ -41,6 +41,28 @@ def article_of(name):
     return text[a:b]
 
 
+def cards_table(m):
+    """a list of cards (icon, title, text) is one table in print: the title (a link) and the text in a row"""
+    rows = []
+    for c in re.finditer(r'<a class="card" href="([^"]*)"[^>]*>(.*?)</a>', m.group(1), re.S):
+        t = re.search(r"<b>(.*?)</b>", c.group(2), re.S)
+        d = re.search(r"<span>(.*?)</span>", c.group(2), re.S)
+        if not t:
+            return m.group(0)
+        rows.append('<tr><td class="cardname"><a href="%s">%s</a></td><td>%s</td></tr>' % (c.group(1), t.group(1), d.group(1) if d else ""))
+    return '<div class="tablewrap"><table class="cardtable"><thead><tr><th>Topic</th><th>Description</th></tr></thead><tbody>%s</tbody></table></div>' % "".join(rows)
+
+
+def stats_table(m):
+    """the row of numbers (a number and its label in a box) is one table in print"""
+    items = re.findall(r'<div class="stat"><b>(.*?)</b><span>(.*?)</span></div>', m.group(0), re.S)
+    if not items:
+        return m.group(0)
+    head = "".join("<th>%s</th>" % l for _, l in items)
+    row = "".join("<td><b>%s</b></td>" % n for n, _ in items)
+    return '<div class="tablewrap"><table class="stattable"><thead><tr>%s</tr></thead><tbody><tr>%s</tr></tbody></table></div>' % (head, row)
+
+
 def rewrite(body, name, known):
     """ids get the page name in front, links to other pages become links inside the document"""
     body = re.sub(r'\sid="([^"]+)"', lambda m: ' id="p-%s-%s"' % (name, m.group(1)), body)
@@ -57,6 +79,8 @@ def rewrite(body, name, known):
             return 'href="#p-%s-%s"' % (target, frag) if frag else 'href="#p-%s"' % target
         return 'data-nolink="1"'            # a page that is not in the PDF (the class reference, source files)
     body = body.replace(' loading="lazy"', "")
+    body = re.sub(r'<div class="cards">\s*((?:<a class="card"[^>]*>.*?</a>\s*)+)</div>', cards_table, body, flags=re.S)
+    body = re.sub(r'<div class="stats">(?:<div class="stat">.*?</div>)+</div>', stats_table, body, flags=re.S)
     body = re.sub(r'href="([^"]*)"', link, body)
     # a link to a page that is not in the PDF: only its text stays
     body = re.sub(r'<a data-nolink="1"[^>]*>(.*?)</a>', r"\1", body, flags=re.S)
@@ -108,6 +132,9 @@ article h2[id$='-next']::before, article h2[id$='-where-to-go-next']::before { m
 .code.keep { break-inside: avoid; }
 .code .bar { break-after: avoid; }
 p, li { orphans: 3; widows: 3; }
+.stattable th { font-size: 8.5px !important; letter-spacing: 0 !important; word-break: normal !important; overflow-wrap: normal !important; text-align: center; }
+.stattable td { font-size: 17px; text-align: center; }
+.cardtable td.cardname { width: 32%; font-weight: 600; }
 .cards { display: block !important; }
 .cards .card { display: block !important; margin: 2px 0; padding: 2px 0; box-shadow: none !important; border: 0 !important; background: none !important; }
 .hero .btns { display: none; }
