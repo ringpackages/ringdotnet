@@ -80,6 +80,8 @@ A class of your assembly that derives from a class of a package (`PersonValidato
 
 Two DLLs of one program can share the output folder: a class of the second one that has the name of a class that is already in the folder gets the prefix of its namespace (`Spectre.Console` and `Spectre.Console.Testing` both have a `StringExtensions`; the second is `TestingStringExtensions`). Two DLLs that have the same namespace need folders of their own, or only one of them wrapped: a DLL whose classes you do not call (an extension method that you call by `dnRequest`) only needs `dnLoad`.
 
+A package of a namespace that the library already has (`Microsoft.Extensions.DependencyInjection`, `Microsoft.Extensions.Configuration`: the NuGet DLLs are newer builds of the ASP.NET Core ones) is only loaded with `dnLoad`: the classes of the library wrap its objects, and wrapping the namespace again would define the same classes twice. Make its objects with `dnNew("Namespace.Type",[...])` and call its extension methods with `dnRequest("call",[dnType("Namespace.StaticClass"),"Method",...])` or `callGeneric`.
+
 Entity Framework Core is wrapped the same way — that is how its classes were generated.
 
 ## Extension methods
