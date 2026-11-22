@@ -52,15 +52,19 @@ class RingRequest
 	nHandle = 0
 	oOwner = ""          # the object that owns the handle (its guard releases the handle when this request is gone)
 
+	# a request that the server received; pHandle is its handle
 	func init  pHandle
 		nHandle = pHandle
 
+	# the HTTP method: "GET", "POST"...
 	func method
 		return dnRequest("get",[self,"Method"])
 
+	# the path of the address, without the query string: "/api/echo"
 	func path
 		return dnRequest("get",[self,"Path"])
 
+	# the whole query string: "q=ring&page=2"
 	func queryString
 		return dnRequest("get",[self,"QueryString"])
 
@@ -68,15 +72,19 @@ class RingRequest
 	func query  cName
 		return dnRequest("call",[self,"Query",cName])
 
+	# the body of the request as a text
 	func body
 		return dnRequest("get",[self,"Body"])
 
+	# the value of the request header cName
 	func header  cName
 		return dnRequest("call",[self,"Header",cName])
 
+	# the value of the field cName of a posted form
 	func form  cName
 		return dnRequest("call",[self,"Form",cName])
 
+	# add a header to the response
 	func setHeader  cName, cValue
 		dnRequest("call",[self,"SetHeader",cName,cValue])
 
@@ -84,6 +92,7 @@ class RingRequest
 	func context
 		return dnRequest("get",[self,"Context"])
 
+	# send the response: the status code, the content type and the text
 	func respond  nStatus, cType, cBody
 		dnRequest("call",[self,"Respond",nStatus,cType,cBody])
 
@@ -95,6 +104,7 @@ class WebServer
 	wb_cNotFound = ""
 	nRequests = 0
 
+	# start a Kestrel server that listens at cUrl: "http://localhost:5080" (port 0 chooses a free port)
 	func init  cUrl
 		wb_oServer = dnRequest("call",[dnType("RingDotNet.RingWebServer, RingDotNet.Web"),"Start",cUrl])
 
@@ -107,18 +117,23 @@ class WebServer
 		wb_aRoutes + [upper(cMethod),cPath,webWrapper(cHandler)]
 		return self
 
+	# the Ring function cHandler answers the GET requests of the path cPath
 	func onGet  cPath, cHandler
 		return route("GET",cPath,cHandler)
 
+	# the Ring function cHandler answers the POST requests of the path cPath
 	func onPost  cPath, cHandler
 		return route("POST",cPath,cHandler)
 
+	# the Ring function cHandler answers the PUT requests of the path cPath
 	func onPut  cPath, cHandler
 		return route("PUT",cPath,cHandler)
 
+	# the Ring function cHandler answers the DELETE requests of the path cPath
 	func onDelete  cPath, cHandler
 		return route("DELETE",cPath,cHandler)
 
+	# the Ring function cHandler answers the requests that no route has
 	func notFound  cHandler
 		wb_cNotFound = webWrapper(cHandler)
 		return self
@@ -155,6 +170,7 @@ class WebServer
 		sendResponse(xWebResponse)
 		return true
 
+	# send what a handler returned: a text (200, text/html) or [status, contentType, text]
 	func sendResponse  xResponse
 		if isstring(xResponse)
 			oWebRequest.respond(200,"text/html",xResponse)
@@ -164,15 +180,18 @@ class WebServer
 			oWebRequest.respond(500,"text/plain","The handler must return a text or [status, contentType, text]")
 		ok
 
+	# serve requests until stop() is called
 	func run
 		wb_lRunning = true
 		while wb_lRunning
 			serveOne(100)
 		end
 
+	# make run() end (call it from a handler)
 	func stop
 		wb_lRunning = false
 
+	# stop serving and shut the server down
 	func close
 		wb_lRunning = false
 		dnRequest("call",[wb_oServer,"Stop"])

@@ -92,6 +92,7 @@ class DotNetObject
 # is a reference that does not own it). The guard is made inside init: Ring does not free a guard that is assigned from outside the object.
 class DotNetOwned from DotNetObject
 
+	# a .NET object that Ring owns: pHandle is its handle, which is released when the Ring object is dropped
 	func init  pHandle
 		nHandle = pHandle
 		if pHandle != 0
@@ -105,5 +106,6 @@ class DotNetCallback
 
 	cCode = ""
 
+	# keep the Ring code (a text of code or the name of a function) that .NET runs when it calls the delegate
 	func init  pCode
 		cCode = pCode

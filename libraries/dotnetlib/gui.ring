@@ -153,6 +153,7 @@ func uiMenu  oForm, aMenus
 
 	uiGameKeys(oForm,"keyPressed(aDotNetArgs[2].KeyCode)")	# call it after the controls were added
 */
+# every control reports the arrow keys, Space and Enter as KeyDown events of the form: uiGameKeys(oForm,"keyPressed(aDotNetArgs[2].KeyCode)"), called after the controls were added
 func uiGameKeys  oForm, cCode
 	oForm.KeyPreview = 1
 	uiInputKeys(oForm)
@@ -317,6 +318,7 @@ class UiCanvas
 	aBrushes = []
 	aPens = []
 
+	# draw on a new bitmap of the size of the picture box, and show it there
 	func init  oPictureBox
 		oPicture = oPictureBox
 		nWidth = oPictureBox.Width
@@ -337,6 +339,7 @@ class UiCanvas
 		ok
 		return xColor
 
+	# a solid brush for a color (a name, "#RRGGBB" or a .NET Color); the brush of a name is made once
 	func brush  xColor
 		ui_cKey = "" + xColor
 		if isstring(xColor)
@@ -350,6 +353,7 @@ class UiCanvas
 		ok
 		return new SolidBrush(xColor)
 
+	# a pen for a color and a width; the pen of a name and width is made once
 	func pen  xColor, nPenWidth
 		ui_cKey = "" + xColor + "|" + nPenWidth
 		if isstring(xColor)
@@ -364,27 +368,35 @@ class UiCanvas
 		ok
 		return new Pen(xColor)
 
+	# fill the whole bitmap with a color
 	func clear  xColor
 		oGraphics.Clear(color(xColor))
 
+	# a filled rectangle with its corner at nX, nY
 	func fillRect  nX, nY, nW, nH, xColor
 		oGraphics.FillRectangle([ :brush = brush(xColor), :x = nX, :y = nY, :width = nW, :height = nH ])
 
+	# the outline of a rectangle with its corner at nX, nY
 	func drawRect  nX, nY, nW, nH, xColor
 		oGraphics.DrawRectangle([ :pen = pen(xColor,1), :x = nX, :y = nY, :width = nW, :height = nH ])
 
+	# a filled circle around the center nX, nY
 	func fillCircle  nX, nY, nRadius, xColor
 		oGraphics.FillEllipse([ :brush = brush(xColor), :x = nX - nRadius, :y = nY - nRadius, :width = nRadius * 2, :height = nRadius * 2 ])
 
+	# the outline of a circle around the center nX, nY
 	func drawCircle  nX, nY, nRadius, xColor
 		oGraphics.DrawEllipse([ :pen = pen(xColor,1), :x = nX - nRadius, :y = nY - nRadius, :width = nRadius * 2, :height = nRadius * 2 ])
 
+	# a filled ellipse in the rectangle that has its corner at nX, nY
 	func fillEllipse  nX, nY, nW, nH, xColor
 		oGraphics.FillEllipse([ :brush = brush(xColor), :x = nX, :y = nY, :width = nW, :height = nH ])
 
+	# a line from nX1, nY1 to nX2, nY2 with the pen width nPenWidth
 	func line  nX1, nY1, nX2, nY2, xColor, nPenWidth
 		oGraphics.DrawLine([ :pen = pen(xColor,nPenWidth), :x1 = nX1, :y1 = nY1, :x2 = nX2, :y2 = nY2 ])
 
+	# text with the corner of its box at nX, nY; nSize is the font size (Segoe UI)
 	func text  cText, nX, nY, xColor, nSize
 		ui_oFont = new Font("Segoe UI",nSize)
 		oGraphics.DrawString([ :s = cText, :font = ui_oFont, :brush = brush(xColor), :point = new PointF(nX,nY) ])
@@ -393,8 +405,10 @@ class UiCanvas
 	func show
 		oPicture.Refresh()
 
+	# the color of the pixel at nX, nY as a hex text (ffRRGGBB), for tests
 	func pixel  nX, nY
 		return oBitmap.GetPixel(nX,nY).Name
 
+	# release the graphics of the canvas
 	func close
 		oGraphics.Dispose()

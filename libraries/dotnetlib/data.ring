@@ -80,6 +80,7 @@ class RingDatabase
 		ok
 		return db_xRow
 
+	# all the rows of a table
 	func all  cTable
 		return dnRequest("call",[db_oContext,"All",cTable])
 
@@ -87,12 +88,15 @@ class RingDatabase
 	func where  cTable, cCondition, aParameters
 		return dnRequest("call",[db_oContext,"Where",cTable,cCondition,aParameters])
 
+	# change the columns of the row with the key xKey: aValues = [[name, value], ...]
 	func update  cTable, xKey, aValues
 		return dnRequest("call",[db_oContext,"Update",cTable,xKey,aValues])
 
+	# delete the row with the key xKey
 	func remove  cTable, xKey
 		return dnRequest("call",[db_oContext,"Delete",cTable,xKey])
 
+	# the number of rows of a table
 	func count  cTable
 		return dnRequest("call",[db_oContext,"Count",cTable])
 
@@ -139,18 +143,23 @@ class RingDatabase
 		ok
 		return dnRequest("call",[db_oContext,"Aggregate",cTable,cFunction,cColumn,aCondition])
 
+	# the number of rows that match the condition aCondition
 	func countWhere  cTable, aCondition
 		return aggregate(cTable,"count","",aCondition)
 
+	# the sum of a column for the rows that match the condition ([] = all rows)
 	func sum  cTable, cColumn, aCondition
 		return aggregate(cTable,"sum",cColumn,aCondition)
 
+	# the smallest value of a column for the rows that match the condition ([] = all rows)
 	func min  cTable, cColumn, aCondition
 		return aggregate(cTable,"min",cColumn,aCondition)
 
+	# the largest value of a column for the rows that match the condition ([] = all rows)
 	func max  cTable, cColumn, aCondition
 		return aggregate(cTable,"max",cColumn,aCondition)
 
+	# the average of a column for the rows that match the condition ([] = all rows)
 	func average  cTable, cColumn, aCondition
 		return aggregate(cTable,"average",cColumn,aCondition)
 
@@ -172,9 +181,11 @@ class RingDatabase
 	func onSaving  oCallback
 		dnRequest("call",[db_oContext,"SetHook","saving",oCallback])
 
+	# hook: the callback runs after the changes were saved; aArgs[1] = the number of rows
 	func onSaved  oCallback
 		dnRequest("call",[db_oContext,"SetHook","saved",oCallback])
 
+	# hook: the callback gets every SQL text that EF Core runs
 	func onLog  oCallback
 		dnRequest("call",[db_oContext,"SetHook","log",oCallback])
 
@@ -199,12 +210,15 @@ class RingDatabase
 	func begin
 		dnRequest("call",[db_oContext,"Begin"])
 
+	# save the changes of the transaction that begin() started
 	func commit
 		dnRequest("call",[db_oContext,"Commit"])
 
+	# undo the changes of the transaction that begin() started
 	func rollback
 		dnRequest("call",[db_oContext,"Rollback"])
 
+	# 1 while a transaction that begin() started is open
 	func inTransaction
 		return dnRequest("get",[db_oContext,"InTransaction"])
 
@@ -212,15 +226,19 @@ class RingDatabase
 	func insertAsync  cTable, aValues
 		return dnRequest("call",[db_oContext,"InsertAsync",cTable,aValues])
 
+	# async all(): a .NET Task
 	func allAsync  cTable
 		return dnRequest("call",[db_oContext,"AllAsync",cTable])
 
+	# async where(): a .NET Task
 	func whereAsync  cTable, cCondition, aParameters
 		return dnRequest("call",[db_oContext,"WhereAsync",cTable,cCondition,aParameters])
 
+	# async count(): a .NET Task
 	func countAsync  cTable
 		return dnRequest("call",[db_oContext,"CountAsync",cTable])
 
+	# async save(): a .NET Task
 	func saveAsync
 		return dnRequest("call",[db_oContext,"SaveAsync"])
 
@@ -228,6 +246,7 @@ class RingDatabase
 	func autoSave  lAuto
 		dnRequest("set",[db_oContext,"AutoSave",lAuto])
 
+	# write the pending changes (after autoSave(false))
 	func save
 		dnRequest("call",[db_oContext,"Save"])
 
@@ -243,6 +262,7 @@ class RingDatabase
 	func context
 		return db_oContext
 
+	# release the database context and the connection
 	func close
 		dnRequest("call",[db_oContext,"Close"])
 
@@ -263,6 +283,7 @@ class RingEntityDb
 
 	db_oContext = ""
 
+	# open the database; aSchema describes the tables, which become .NET classes (the same schema lists as RingDatabase)
 	func init  cConnection, aSchema
 		db_cProvider = "sqlite"
 		for db_cName in ["sqlite","inmemory","sqlserver","postgres","mysql"]
@@ -290,6 +311,7 @@ class RingEntityDb
 	func add  oEntity
 		return dnRequest("call",[db_oContext,"Add",oEntity])
 
+	# delete an entity
 	func remove  oEntity
 		dnRequest("call",[db_oContext,"Remove",oEntity])
 
@@ -305,9 +327,11 @@ class RingEntityDb
 	func query  cTable, aSpec
 		return dnRequest("call",[db_oContext,"Query",cTable,aSpec])
 
+	# all the entities of a table
 	func all  cTable
 		return dnRequest("call",[db_oContext,"All",cTable])
 
+	# the number of entities of a table that match the condition aCondition ([] = all)
 	func count  cTable, aCondition
 		if not islist(aCondition)
 			aCondition = []
@@ -322,6 +346,7 @@ class RingEntityDb
 		ok
 		return db_xValue
 
+	# set a property of an entity
 	func setValue  oEntity, cProperty, xValue
 		dnRequest("call",[db_oContext,"Set",oEntity,cProperty,xValue])
 
@@ -329,24 +354,31 @@ class RingEntityDb
 	func toRow  oEntity
 		return dnRequest("call",[db_oContext,"ToRow",oEntity])
 
+	# set several columns of an entity from [[name, value], ...]
 	func fill  oEntity, aValues
 		dnRequest("call",[db_oContext,"Fill",oEntity,aValues])
 
+	# write the changes of the tracked entities
 	func save
 		dnRequest("call",[db_oContext,"Save"])
 
+	# autoSave(false): the changes are written when save() is called
 	func autoSave  lAuto
 		dnRequest("set",[db_oContext,"AutoSave",lAuto])
 
+	# forget the changes that were not saved
 	func discard
 		dnRequest("call",[db_oContext,"Discard"])
 
+	# start a transaction
 	func begin
 		dnRequest("call",[db_oContext,"Begin"])
 
+	# save the changes of the transaction
 	func commit
 		dnRequest("call",[db_oContext,"Commit"])
 
+	# undo the changes of the transaction
 	func rollback
 		dnRequest("call",[db_oContext,"Rollback"])
 
@@ -354,5 +386,6 @@ class RingEntityDb
 	func context
 		return db_oContext
 
+	# release the database context and the connection
 	func close
 		dnRequest("call",[db_oContext,"Close"])
