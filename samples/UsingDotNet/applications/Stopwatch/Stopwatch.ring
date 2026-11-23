@@ -1,6 +1,7 @@
 # Stopwatch with laps - a port of ring/applications/stopwatch to RingDotNet
 
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Diagnostics"
@@ -29,11 +30,13 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func formatTime nMilliseconds
+
 	nSeconds = floor(nMilliseconds / 1000)
 	nMinutes = floor(nSeconds / 60)
 	return twoDigits(nMinutes) + ":" + twoDigits(nSeconds % 60) + "." + twoDigits(floor((nMilliseconds % 1000) / 10))
 
 func twoDigits n
+
 	cText = "" + floor(n)
 	if len(cText) < 2
 		cText = "0" + cText
@@ -41,9 +44,11 @@ func twoDigits n
 	return cText
 
 func showTime
+
 	oTime.Text = formatTime(oWatch.ElapsedMilliseconds)
 
 func startStop
+
 	if oWatch.IsRunning
 		oWatch.Stop()
 		oTimer.Stop()
@@ -56,6 +61,7 @@ func startStop
 	showTime()
 
 func lap
+
 	if oWatch.ElapsedMilliseconds > 0
 		nNow = oWatch.ElapsedMilliseconds
 		oLaps.Items.Add("Lap " + (oLaps.Items.Count + 1) + "   " + formatTime(nNow) + "   (+" + formatTime(nNow - nLastLap) + ")")
@@ -63,6 +69,7 @@ func lap
 	ok
 
 func reset
+
 	oWatch.Reset()
 	oTimer.Stop()
 	oStart.Text = "Start"
