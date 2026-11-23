@@ -1,6 +1,7 @@
 # the checks of ImageViewer.ring: run with  ring ImageViewer.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	# make a small picture: red on the left half, blue on the right half
 	oSample = new Bitmap(40,20)
 	for nY = 0 to 19
