@@ -1,6 +1,7 @@
 # Tetris - Left/Right move, Up rotates, Down drops one row, Space drops all the way (a port of ring/applications/tetris)
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -51,10 +52,12 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func cellOf nColumn, nRow
+
 	return nRow * C_COLUMNS + nColumn + 1
 
 # does the piece fit at the position
 func fits aCells, nX, nY
+
 	for aCell in aCells
 		nColumn = nX + aCell[1]
 		nRow = nY + aCell[2]
@@ -68,6 +71,7 @@ func fits aCells, nX, nY
 	return true
 
 func rotated aCells
+
 	aNew = []
 	for aCell in aCells
 		aNew + [-aCell[2],aCell[1]]
@@ -75,6 +79,7 @@ func rotated aCells
 	return aNew
 
 func newPiece
+
 	nPiece = random(len(aPieces) - 1) + 1
 	aCurrent = aPieces[nPiece]
 	nPieceX = 4
@@ -85,6 +90,7 @@ func newPiece
 	ok
 
 func newGame
+
 	aBoard = list(C_COLUMNS * C_ROWS)
 	nScore = 0
 	nLines = 0
@@ -95,6 +101,7 @@ func newGame
 
 # lock the piece into the board and clear the full rows
 func lockPiece
+
 	for aCell in aCurrent
 		nColumn = nPieceX + aCell[1]
 		nRow = nPieceY + aCell[2]
@@ -109,6 +116,7 @@ func lockPiece
 	newPiece()
 
 func clearRows
+
 	nCleared = 0
 	nRow = C_ROWS - 1
 	while nRow >= 0
@@ -137,6 +145,7 @@ func clearRows
 	return nCleared
 
 func tick
+
 	if lGameOver
 		return
 	ok
@@ -148,6 +157,7 @@ func tick
 	draw()
 
 func keyPressed cKey
+
 	if lGameOver
 		return
 	ok
@@ -176,6 +186,7 @@ func keyPressed cKey
 	draw()
 
 func draw
+
 	oCanvas.clear("#101820")
 	for nRow = 0 to C_ROWS - 1
 		for nColumn = 0 to C_COLUMNS - 1
