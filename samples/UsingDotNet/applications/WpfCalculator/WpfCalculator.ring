@@ -1,6 +1,7 @@
 # Calculator with a WPF window described in XAML (the calculator logic is the one of the Windows Forms Calculator)
 
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Globalization"
@@ -25,6 +26,7 @@ cXaml += '<TextBlock x:Name="screen" Height="60" FontSize="36" TextAlignment="Ri
 cXaml += '<UniformGrid x:Name="keys" Columns="4" Margin="0,10,0,0"/></DockPanel></Window>'
 
 func main
+
 	oWindow = wpfXaml(cXaml)
 	oScreen = wpfFind(oWindow,"screen")
 	oHistory = wpfFind(oWindow,"history")
@@ -40,6 +42,7 @@ func main
 	wpfRun(oWindow)
 
 func press cKey
+
 	if find(["0","1","2","3","4","5","6","7","8","9"],cKey) > 0
 		if lFresh
 			cDisplay = cKey
@@ -100,6 +103,7 @@ func press cKey
 	oScreen.Text = cDisplay
 
 func calculate
+
 	nRight = number(cDisplay)
 	switch cOperator
 	on "+"
@@ -124,4 +128,5 @@ func calculate
 
 # a number as text without Ring's fixed decimals
 func numberText nValue
+
 	return new Convert().Format([ :value = nValue, :provider = new CultureInfo("").InvariantCulture ])
