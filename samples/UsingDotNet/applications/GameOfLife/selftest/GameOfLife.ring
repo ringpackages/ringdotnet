@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of GameOfLife.ring: run with  ring GameOfLife.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
 	dnAssert("glider has 5 cells",population(),5)
