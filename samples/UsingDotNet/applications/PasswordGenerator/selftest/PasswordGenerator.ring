@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of PasswordGenerator.ring: run with  ring PasswordGenerator.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
 	dnAssert("default length",len(oPassword.Text),16)
