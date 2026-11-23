@@ -2,6 +2,7 @@
 #   # wall   @ player   $ box   . target   * box on a target   + player on a target
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -55,6 +56,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func loadLevel nNumber
+
 	nLevel = nNumber
 	aMap = []
 	for cRow in aLevels[nLevel]
@@ -74,6 +76,7 @@ func loadLevel nNumber
 
 # the window and the picture follow the size of the level
 func fitWindow
+
 	nColumns = 0
 	for cRow in aMap
 		if len(cRow) > nColumns
@@ -92,31 +95,38 @@ func fitWindow
 	oNext.Left = nWidth - 65
 
 func nextLevel
+
 	loadLevel(nLevel % len(aLevels) + 1)
 
 func tileAt nColumn, nRow
+
 	if nRow < 1 or nRow > len(aMap) or nColumn < 1 or nColumn > len(aMap[nRow])
 		return "#"
 	ok
 	return aMap[nRow][nColumn]
 
 func setTile nColumn, nRow, cTile
+
 	aMap[nRow][nColumn] = cTile
 
 func isTarget cTile
+
 	return cTile = "." or cTile = "*" or cTile = "+"
 
 func isBox cTile
+
 	return cTile = "$" or cTile = "*"
 
 # the tile left behind: a target stays a target
 func without cTile
+
 	if isTarget(cTile)
 		return "."
 	ok
 	return " "
 
 func move nDx, nDy
+
 	nTargetColumn = nPlayerColumn + nDx
 	nTargetRow = nPlayerRow + nDy
 	cTarget = tileAt(nTargetColumn,nTargetRow)
@@ -149,6 +159,7 @@ func move nDx, nDy
 	return true
 
 func boxesLeft
+
 	nCount = 0
 	for cRow in aMap
 		for x = 1 to len(cRow)
@@ -160,6 +171,7 @@ func boxesLeft
 	return nCount
 
 func keyPressed cKey
+
 	switch cKey
 	on "Left"	move(-1,0)
 	on "Right"	move(1,0)
@@ -169,6 +181,7 @@ func keyPressed cKey
 	draw()
 
 func draw
+
 	oCanvas.clear("#222222")
 	for nRow = 1 to len(aMap)
 		for nColumn = 1 to len(aMap[nRow])
