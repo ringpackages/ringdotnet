@@ -6,6 +6,10 @@ func main
 	cRing = exefolder() + "../"
 	chdir(cRing)
 	cList = "extensions/ringdotnet/package-files.txt"
+	aFiles = []
+	if not fexists(cList)
+		? "RingDotNet: the list of the files (" + cList + ") was not found: the package is removed already, or it is not installed"
+	ok
 	if fexists(cList)
 		aFiles = str2list(read(cList))
 		for cFile in aFiles
