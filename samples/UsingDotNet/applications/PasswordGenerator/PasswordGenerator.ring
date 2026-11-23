@@ -1,6 +1,7 @@
 # Password generator - uses the .NET cryptographic random number generator
 
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Security.Cryptography"
@@ -51,6 +52,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func alphabet
+
 	cChars = ""
 	if oLower.Checked cChars += "abcdefghijklmnopqrstuvwxyz" ok
 	if oUpper.Checked cChars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ" ok
@@ -60,9 +62,11 @@ func alphabet
 
 # a random number from 0 to nMax - 1 taken from the operating system's random generator
 func secureRandom nMax
+
 	return new RandomNumberGenerator().GetInt32(nMax)
 
 func strength cPassword
+
 	nScore = len(cPassword) * 4
 	nClasses = 0
 	if hasAny(cPassword,"abcdefghijklmnopqrstuvwxyz") nClasses++ ok
@@ -76,6 +80,7 @@ func strength cPassword
 	return nScore
 
 func hasAny cText, cChars
+
 	for x = 1 to len(cText)
 		if substr(cChars,cText[x])
 			return true
@@ -84,6 +89,7 @@ func hasAny cText, cChars
 	return false
 
 func generate
+
 	cChars = alphabet()
 	if cChars = ""
 		oPassword.Text = ""
@@ -107,6 +113,7 @@ func generate
 	ok
 
 func copyIt
+
 	if oPassword.Text != "" and not uiSelfTest()
 		new Clipboard().SetText(oPassword.Text)
 	ok
