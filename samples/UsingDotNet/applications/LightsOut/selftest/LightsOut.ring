@@ -1,6 +1,7 @@
 # the checks of LightsOut.ring: run with  ring LightsOut.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	aLights = list(C_SIZE * C_SIZE)
 	showLights()
 	aCells[13].PerformClick()
