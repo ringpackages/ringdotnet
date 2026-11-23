@@ -42,14 +42,6 @@ oSB.Append(", Ring!")
 
 ![Architecture of RingDotNet: your Ring program, dotnetlib, the C extension ring_dotnet.dll, and the C# bridge that reaches the .NET class library, WinForms, WPF, ASP.NET, EF and your own DLLs](docs/img/architecture.svg)
 
-| Folder | Contents |
-|---|---|
-| `libraries/dotnetlib` | The Ring library (functions, the helpers, the generated classes). |
-| `extensions/ringdotnet` | The C extension, the managed bridge, the web host and the Entity Framework layer, with the build scripts (Windows clang or Visual Studio: `buildclang_win.bat`, `buildvc_x64.bat`; Linux: `buildgcc.sh`; macOS: `buildclang.sh`). The .NET SDK builds the managed parts. |
-| `tools/dotnettools` | The generators (`gendotnet.ring`, `wrapassembly.ring`), the manifest and the package script. |
-| `samples/UsingDotNet` | Samples, applications, tutorials and tests. |
-| `docs` | The manual (`docs/src` is the source) and its tools. |
-
 ## Samples and tests
 
 `samples/UsingDotNet` has:
