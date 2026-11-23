@@ -1,6 +1,7 @@
 # the checks of RockPaperScissors.ring: run with  ring RockPaperScissors.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	dnAssert("rock beats scissors",compare(1,3),1)
 	dnAssert("scissors beat paper",compare(3,2),1)
 	dnAssert("paper beats rock",compare(2,1),1)
