@@ -13,19 +13,6 @@ lead: How Ring behaves when it works with .NET objects, why, and what to write â
 
 `"text" + number` works. `number + "text"` needs the number as text first: write `string(n) + " items"`.
 
-### Do not call a method on a new object on the right of an attribute assignment
-
-```ring
-oForm.Text = new Path().GetFileName(cFile)        # the assignment is not made
-```
-
-Use a variable first:
-
-```ring
-oPath = new Path()
-oForm.Text = oPath.GetFileName(cFile)
-```
-
 ### Event code can only see global variables
 
 The code of an event (`setClickEvent("...")`) runs outside the function that set it up. Create the widgets and the program state as **globals** at the top, then assign them inside `func main`:
