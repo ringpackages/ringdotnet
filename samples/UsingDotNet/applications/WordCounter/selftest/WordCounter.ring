@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of WordCounter.ring: run with  ring WordCounter.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
 	oText.Text = "the cat and the hat" + windowsnl() + "The end"
