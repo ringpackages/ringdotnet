@@ -1,6 +1,7 @@
 # the checks of NumberGuess.ring: run with  ring NumberGuess.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	nSecret = 37
 	nAttempts = 0
 	oGuess.Value = 50
