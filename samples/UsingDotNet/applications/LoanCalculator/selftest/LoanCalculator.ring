@@ -1,6 +1,7 @@
 # the checks of LoanCalculator.ring: run with  ring LoanCalculator.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	calculate()
 	dnAssert("known payment",oPayment.Text,"Monthly payment: 386.66")
 	dnAssert("total interest",oInterest.Text,"Total interest: 3199.36")
