@@ -1,6 +1,7 @@
 # the checks of Sudoku.ring: run with  ring Sudoku.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	dnAssert("puzzle loaded",aGrid[1],5)
 	dnAssert("empty square",aBoxes[3].Text,"")
 	dnAssert("given digits are read only",aBoxes[1].ReadOnly,True)
