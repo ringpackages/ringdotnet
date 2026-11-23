@@ -2030,18 +2030,25 @@ oForm = <span class="f">uiForm</span>(<span class="s">"Image viewer"</span>,<spa
 	[<span class="s">"File"</span>,[[<span class="s">"Open..."</span>,<span class="s">"openDialog()"</span>,<span class="s">"Control, O"</span>],[<span class="s">"Save As..."</span>,<span class="s">"saveDialog()"</span>,<span class="s">"Control, S"</span>],[<span class="s">"-"</span>,<span class="s">""</span>],[<span class="s">"Exit"</span>,<span class="s">"oForm.Close()"</span>]]],
 	[<span class="s">"Image"</span>,[[<span class="s">"Rotate right"</span>,<span class="s">"rotate()"</span>],[<span class="s">"Flip horizontal"</span>,<span class="s">"flip()"</span>],[<span class="s">"Grayscale"</span>,<span class="s">"grayscale()"</span>],[<span class="s">"-"</span>,<span class="s">""</span>],[<span class="s">"Zoom in"</span>,<span class="s">"zoomBy(25)"</span>],[<span class="s">"Zoom out"</span>,<span class="s">"zoomBy(-25)"</span>],[<span class="s">"Actual size"</span>,<span class="s">"setZoom(100)"</span>]]]
 ])
-oBox = <span class="k">new</span> <span class="t">PictureBox</span>() {
+<span class="c"># the picture is shown in a panel that scrolls; the zoom changes the size of the picture box</span>
+oPanel = <span class="k">new</span> <span class="t">Panel</span>() {
 	Dock = <span class="s">"Fill"</span>
-	SizeMode = <span class="s">"Zoom"</span>
+	AutoScroll = <span class="k">True</span>
 	BackColor = <span class="f">uiColor</span>(<span class="s">"DimGray"</span>)
 }
-oForm.Controls.<span class="f">Add</span>(oBox)
+oBox = <span class="k">new</span> <span class="t">PictureBox</span>() {
+	SizeMode = <span class="s">"StretchImage"</span>
+	Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">0</span>,<span class="n">0</span>)
+	Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">1</span>,<span class="n">1</span>)
+}
+oPanel.Controls.<span class="f">Add</span>(oBox)
+oForm.Controls.<span class="f">Add</span>(oPanel)
 oInfo = <span class="k">new</span> <span class="t">StatusStrip</span>()
 oInfoText = <span class="k">new</span> <span class="t">ToolStripStatusLabel</span>()
 oInfoText.Text = <span class="s">"No picture"</span>
 oInfo.Items.<span class="f">Add</span>(oInfoText)
 oForm.Controls.<span class="f">Add</span>(oInfo)
-oBox.<span class="f">BringToFront</span>()
+oPanel.<span class="f">BringToFront</span>()
 
 <span class="f">uiRun</span>(oForm)
 
@@ -2051,6 +2058,8 @@ oBox.<span class="f">BringToFront</span>()
 
 	<span class="k">if</span> isobject(oImage)
 		oBox.Image = oImage
+		oBox.Width = max([<span class="n">1</span>,floor(oImage.Width * nZoom / <span class="n">100</span>)])
+		oBox.Height = max([<span class="n">1</span>,floor(oImage.Height * nZoom / <span class="n">100</span>)])
 		oInfoText.Text = <span class="s">""</span> + oImage.Width + <span class="s">" x "</span> + oImage.Height + <span class="s">"   zoom "</span> + nZoom + <span class="s">"%"</span>
 	<span class="k">ok</span>
 
@@ -2128,11 +2137,6 @@ oBox.<span class="f">BringToFront</span>()
 <span class="k">func</span> <span class="f">setZoom</span> nPercent
 
 	nZoom = nPercent
-	<span class="k">if</span> nZoom = <span class="n">100</span>
-		oBox.SizeMode = <span class="s">"Zoom"</span>
-	<span class="k">else</span>
-		oBox.SizeMode = <span class="s">"CenterImage"</span>
-	<span class="k">ok</span>
 	showImage()
 
 <span class="k">func</span> <span class="f">zoomBy</span> nDelta
@@ -2140,6 +2144,9 @@ oBox.<span class="f">BringToFront</span>()
 	nZoom += nDelta
 	<span class="k">if</span> nZoom &lt; <span class="n">25</span>
 		nZoom = <span class="n">25</span>
+	<span class="k">ok</span>
+	<span class="k">if</span> nZoom &gt; <span class="n">800</span>
+		nZoom = <span class="n">800</span>
 	<span class="k">ok</span>
 	showImage()</code></pre></div></details></div></div><div class="item" id="julian-day"><div class="pic"><img src="img/shots/app-JulianDay.png" alt="Julian Day" loading="lazy"></div><div class="info"><h3>Julian Day</h3><p>Julian day converter - dates and Julian day numbers in both directions (a port of ring/applications/juliandaycalendar)</p><div class="run"><code>cd samples/UsingDotNet/applications/JulianDay  then  ring JulianDay.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Julian day converter - dates and Julian day numbers in both directions (a port of ring/applications/juliandaycalendar)</span>
 

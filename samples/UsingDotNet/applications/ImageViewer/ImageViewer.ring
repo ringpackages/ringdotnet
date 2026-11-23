@@ -18,18 +18,25 @@ uiMenu(oForm,[
 	["File",[["Open...","openDialog()","Control, O"],["Save As...","saveDialog()","Control, S"],["-",""],["Exit","oForm.Close()"]]],
 	["Image",[["Rotate right","rotate()"],["Flip horizontal","flip()"],["Grayscale","grayscale()"],["-",""],["Zoom in","zoomBy(25)"],["Zoom out","zoomBy(-25)"],["Actual size","setZoom(100)"]]]
 ])
-oBox = new PictureBox() {
+# the picture is shown in a panel that scrolls; the zoom changes the size of the picture box
+oPanel = new Panel() {
 	Dock = "Fill"
-	SizeMode = "Zoom"
+	AutoScroll = True
 	BackColor = uiColor("DimGray")
 }
-oForm.Controls.Add(oBox)
+oBox = new PictureBox() {
+	SizeMode = "StretchImage"
+	Location = new Point(0,0)
+	Size = new Size(1,1)
+}
+oPanel.Controls.Add(oBox)
+oForm.Controls.Add(oPanel)
 oInfo = new StatusStrip()
 oInfoText = new ToolStripStatusLabel()
 oInfoText.Text = "No picture"
 oInfo.Items.Add(oInfoText)
 oForm.Controls.Add(oInfo)
-oBox.BringToFront()
+oPanel.BringToFront()
 
 uiRun(oForm)
 
@@ -39,6 +46,8 @@ func showImage
 
 	if isobject(oImage)
 		oBox.Image = oImage
+		oBox.Width = max([1,floor(oImage.Width * nZoom / 100)])
+		oBox.Height = max([1,floor(oImage.Height * nZoom / 100)])
 		oInfoText.Text = "" + oImage.Width + " x " + oImage.Height + "   zoom " + nZoom + "%"
 	ok
 
@@ -116,11 +125,6 @@ func grayscale
 func setZoom nPercent
 
 	nZoom = nPercent
-	if nZoom = 100
-		oBox.SizeMode = "Zoom"
-	else
-		oBox.SizeMode = "CenterImage"
-	ok
 	showImage()
 
 func zoomBy nDelta
@@ -128,5 +132,8 @@ func zoomBy nDelta
 	nZoom += nDelta
 	if nZoom < 25
 		nZoom = 25
+	ok
+	if nZoom > 800
+		nZoom = 800
 	ok
 	showImage()
