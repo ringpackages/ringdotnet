@@ -1,6 +1,7 @@
 # Memory game - find the pairs (a port of ring/applications/memorygame to RingDotNet)
 
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Diagnostics"
@@ -41,6 +42,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func newGame
+
 	oHideTimer.Stop()
 	# two cards of each of the 8 letters, shuffled
 	aSymbols = []
@@ -70,9 +72,11 @@ func newGame
 	showInfo()
 
 func showInfo
+
 	oInfo.Text = "Pairs: " + nPairs + "/8   Attempts: " + nAttempts
 
 func turn nCard
+
 	if lBusy or aMatched[nCard] or nCard = nFirst
 		return
 	ok
@@ -102,6 +106,7 @@ func turn nCard
 	showInfo()
 
 func hideCards
+
 	oHideTimer.Stop()
 	for nCard in [nFirst,nSecond]
 		aCardButtons[nCard].Text = "?"
