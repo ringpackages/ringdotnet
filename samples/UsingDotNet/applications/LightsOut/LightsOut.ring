@@ -2,6 +2,7 @@
 # (a port of ring/applications/lightsout to RingDotNet)
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -33,6 +34,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func showLights
+
 	for nCell = 1 to len(aLights)
 		if aLights[nCell]
 			aCells[nCell].BackColor = uiColor("Gold")
@@ -51,10 +53,12 @@ func showLights
 	ok
 
 func toggle nCell
+
 	aLights[nCell] = not aLights[nCell]
 
 # toggle the cell and its neighbors
 func flip nCell
+
 	nRow = floor((nCell - 1) / C_SIZE)
 	nCol = (nCell - 1) % C_SIZE
 	toggle(nCell)
@@ -64,11 +68,13 @@ func flip nCell
 	if nCol < C_SIZE - 1 toggle(nCell + 1) ok
 
 func press nCell
+
 	flip(nCell)
 	nPresses++
 	showLights()
 
 func newGame
+
 	aLights = list(C_SIZE * C_SIZE)
 	# random presses keep the game solvable
 	for nStep = 1 to 12
