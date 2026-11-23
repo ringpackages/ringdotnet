@@ -1,6 +1,7 @@
 # Rock, paper, scissors against the computer (a port of ring/applications/rockpaperscissors)
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -36,6 +37,7 @@ uiRun(oForm)
 
 # 1 = the player wins, 0 = tie, -1 = the computer wins (rock = 1, paper = 2, scissors = 3)
 func compare nPlayer, nComputer
+
 	if nPlayer = nComputer
 		return 0
 	ok
@@ -45,9 +47,11 @@ func compare nPlayer, nComputer
 	return -1
 
 func showScore
+
 	oScore.Text = "Wins " + nWins + "   Losses " + nLosses + "   Ties " + nTies
 
 func playAgainst nPlayer, nComputer
+
 	nOutcome = compare(nPlayer,nComputer)
 	switch nOutcome
 	on 1
@@ -66,4 +70,5 @@ func playAgainst nPlayer, nComputer
 	return nOutcome
 
 func play nPlayer
+
 	playAgainst(nPlayer,random(2) + 1)
