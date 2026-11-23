@@ -26,6 +26,13 @@ It includes over one million lines of generated Ring code, more than 6,000 pages
 
 ![RingDotNet: the cover of the PDF manual, and the size of the package](docs/img/ringdotnet.png)
 
+## Install
+
+```
+ringpm install ringdotnet from ringpackages
+```
+
+The package is one zip file, `extensions/ringdotnet.zip`: `setup.ring` extracts it into the Ring folder (`uninstall.ring` removes it). Then a program starts with `load "dotnet.ring"`. On Linux and macOS the C extension is built once for the system (`extensions/ringdotnet/buildgcc.sh` or `buildclang.sh`); see *Getting started* in the manual.
 
 ## What you get
 
@@ -49,14 +56,6 @@ It includes over one million lines of generated Ring code, more than 6,000 pages
 | .NET SDK | Only to build C# libraries and to restore NuGet packages. |
 
 Windows is the tested platform. Linux (x64, Ubuntu 24.04, .NET 9) is tested too, except the Windows Forms and WPF programs, which need the Windows Desktop runtime. macOS and arm64 have not been tested yet.
-
-## Install
-
-```
-ringpm install ringdotnet from ringpackages
-```
-
-The package is one zip file, `extensions/ringdotnet.zip`: `setup.ring` extracts it into the Ring folder (`uninstall.ring` removes it). Then a program starts with `load "dotnet.ring"`. On Linux and macOS the C extension is built once for the system (`extensions/ringdotnet/buildgcc.sh` or `buildclang.sh`); see *Getting started* in the manual.
 
 ## Documentation
 
@@ -120,7 +119,10 @@ The namespaces that have Ring classes are listed in `tools/dotnettools/dotnetman
 ## How it is made
 
 ```
-Ring program ── dotnetlib (Ring) ── ring_dotnet.dll (C, hosts the CLR) ── RingDotNet.Bridge.dll (C#, reflection)
+Ring program
+dotnetlib (Ring)
+ring_dotnet.dll (C, hosts the CLR)
+RingDotNet.Bridge.dll (C#, reflection)
 ```
 
 | Folder | Contents |
@@ -139,6 +141,8 @@ After changing the library, the samples, the DLLs, the tests or the documentatio
 python tools/dotnettools/makepackage.py
 ```
 
-## Version and license
+## License
 
-The package version is in `package.ring`, and the changes are in [CHANGELOG.md](CHANGELOG.md). The package is tested with Ring 1.28 and .NET 9. It is released under the MIT License.
+The package is tested with Ring 1.28 and .NET 9. 
+
+It is released under the MIT License.
