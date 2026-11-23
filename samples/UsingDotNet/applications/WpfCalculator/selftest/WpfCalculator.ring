@@ -1,11 +1,13 @@
 # the checks of WpfCalculator.ring: run with  ring WpfCalculator.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func typeKeys cKeys
+
 	for nIndex = 1 to len(cKeys)
 		press(cKeys[nIndex])
 	next
 
 func selfTest
+
 	typeKeys("12+30=")
 	dnAssert("12+30",oScreen.Text,"42")
 	press("C")
