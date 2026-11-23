@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of Calculator.ring: run with  ring Calculator.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func typeKeys cKeys
 	for x = 1 to len(cKeys)

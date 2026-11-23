@@ -112,7 +112,7 @@ Every feature has a test, and every sample and application can test itself:
 
 ```bash
 sh samples/UsingDotNet/tests/run.sh ring.exe          # runs tests, samples and applications (add --quick for a short run)
-ring samples/UsingDotNet/applications/Calculator/main.ring --selftest   # drives the form and prints SELFTEST OK
+ring samples/UsingDotNet/applications/Calculator/Calculator.ring --selftest   # drives the form and prints SELFTEST OK
 ```
 
 Read [Testing](testing.html) for how the self tests work.
