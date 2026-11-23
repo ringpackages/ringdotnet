@@ -1,6 +1,7 @@
 # the checks of TypingQuiz.ring: run with  ring TypingQuiz.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	showTarget("hello ring")
 	dnAssert("a correct start has no mistakes",mistakes("hello"),0)
 	dnAssert("one mistake",mistakes("hallo ring"),1)
