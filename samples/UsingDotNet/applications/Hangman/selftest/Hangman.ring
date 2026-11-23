@@ -1,6 +1,7 @@
 # the checks of Hangman.ring: run with  ring Hangman.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	cWord = "RING"
 	cGuessed = ""
 	nWrong = 0
