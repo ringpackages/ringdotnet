@@ -1,6 +1,7 @@
 # the checks of BMICalculator.ring: run with  ring BMICalculator.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	dnAssert("category underweight",category(17),"Underweight")
 	dnAssert("category normal",category(22),"Normal weight")
 	dnAssert("category overweight",category(27),"Overweight")
