@@ -98,9 +98,9 @@ main { display: block !important; margin: 0 !important; padding: 0 !important; m
 article { max-width: none !important; }
 .part { break-before: page; }
 .part h1 { break-after: avoid; }
-.cover { height: 236mm; display: flex; flex-direction: column; justify-content: center; }
-.cover h1 { font-size: 46px; margin: 0 0 10px; }
-.cover p { font-size: 20px; color: #5f6480; margin: 0; }
+@page cover { size: A4; margin: 0; }
+.cover { page: cover; width: 210mm; height: 296.5mm; overflow: hidden; margin: 0; padding: 0; background: #0f0a30; }
+.cover svg { display: block; width: 210mm; height: 296.5mm; }
 .doc-contents { break-before: page; }
 .doc-contents h2 { margin-top: 18px; font-size: 18px; border: 0; }
 .doc-contents ol { margin: 4px 0 0 0; padding: 0; list-style: none; columns: 2; column-gap: 24px; }
@@ -143,6 +143,18 @@ p, li { orphans: 3; widows: 3; }
 """
 
 
+def cover_svg():
+    """the cover (docs/tools/cover.svg) with the version of the package and the Ring version it needs"""
+    svg = open(os.path.join(HERE, "cover.svg"), encoding="utf-8").read()
+    info = open(os.path.join(os.path.dirname(DOCS), "package.ring"), encoding="utf-8").read()
+    version = re.search(r':version\s*=\s*"([\d.]+)"', info)
+    ring = re.search(r':ringversion\s*=\s*"([\d.]+)"', info)
+    if version and ring:
+        short = ".".join(version.group(1).split(".")[:2])
+        svg = svg.replace("Version 1.0  ·  Ring 1.28", "Version %s  ·  Ring %s" % (short, ring.group(1)))
+    return re.sub(r"<\?xml[^>]*\?>", "", svg)
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     allp = [(n, t, s) for n, t, s in pages() if n not in SKIP and os.path.exists(os.path.join(DOCS, n + ".html"))]
@@ -161,11 +173,11 @@ def main():
     toc.append("</ol>")
     doc = """<!doctype html><html lang="en"><head><meta charset="utf-8"><title>RingDotNet documentation</title>
 <base href="../"><link rel="stylesheet" href="assets/style.css"><style>%s</style></head><body>
-<section class="cover"><h1>RingDotNet</h1><p>Use .NET classes and methods from Ring programs</p><p style="margin-top:22px;font-size:15px">Documentation: overview, tutorials, guides and reference. The class reference (one page for each namespace) is only in the HTML documentation.</p></section>
+<section class="cover">%s</section>
 <section class="doc-contents"><h1>Contents</h1>%s</section>
 <main>%s</main>
 <script>/* a short code block stays on one page; a long one may be split */
-document.querySelectorAll('.code').forEach(function (c) { if (c.offsetHeight < 480) { c.classList.add('keep'); } });</script></body></html>""" % (CSS, "".join(toc), "".join(parts))
+document.querySelectorAll('.code').forEach(function (c) { if (c.offsetHeight < 480) { c.classList.add('keep'); } });</script></body></html>""" % (CSS, cover_svg(), "".join(toc), "".join(parts))
     page = os.path.join(OUT, "RingDotNet-documentation.html")
     open(page, "w", encoding="utf-8").write(doc)
     pdf = os.path.join(OUT, "RingDotNet-documentation.pdf")
