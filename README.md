@@ -28,6 +28,8 @@ ringpm install ringdotnet from ringpackages
 
 RingDotNet includes over one million lines of generated Ring code, more than 6,000 pages of documentation, and a large collection of samples and applications.
 
+The package is tested with Ring 1.28 and .NET 9. 
+
 ![RingDotNet: the cover of the PDF manual, and the size of the package](docs/img/ringdotnet.png)
 
 ## Online Documentation
@@ -58,6 +60,4 @@ URL: https://ringpackages.github.io/ringdotnet/
 
 ## License
 
-The package is tested with Ring 1.28 and .NET 9. 
-
-It is released under the MIT License.
+The RingDotNet package is released under the MIT License.
