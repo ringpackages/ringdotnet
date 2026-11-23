@@ -18,28 +18,34 @@ func main
 	ok
 	while true
 		? nl + "1 add  2 list  3 find by city  4 delete  0 quit"
-		cChoice = trim(input("> "))
+		cChoice = trim(ask("> "))
 		switch cChoice
 		on "1"
-			cName = trim(input("Name: "))
-			cPhone = trim(input("Phone: "))
-			cCity = trim(input("City: "))
+			cName = trim(ask("Name: "))
+			cPhone = trim(ask("Phone: "))
+			cCity = trim(ask("City: "))
 			oDb.insert("Contacts",[["Name",cName],["Phone",cPhone],["City",cCity]])
 		on "2"
 			showRows(oDb.all("Contacts"))
 		on "3"
-			showRows(oDb.where("Contacts","City = {0}",[trim(input("City: "))]))
+			showRows(oDb.where("Contacts","City = {0}",[trim(ask("City: "))]))
 		on "4"
-			oDb.remove("Contacts",number(input("Id: ")))
+			oDb.remove("Contacts",number(ask("Id: ")))
 		on "0"
 			exit
 		off
 	end
 	oDb.close()
 
+# show a prompt and read a line
+func ask cPrompt
+	see cPrompt
+	give cLine
+	return cLine
+
 func showRows aRows
 	for aRow in aRows
-		? dbValue(aRow,"Id") + "  " + dbValue(aRow,"Name") + "  " + dbValue(aRow,"Phone") + "  " + dbValue(aRow,"City")
+		? "" + dbValue(aRow,"Id") + "  " + dbValue(aRow,"Name") + "  " + dbValue(aRow,"Phone") + "  " + dbValue(aRow,"City")
 	next
 	? "" + len(aRows) + " contact(s)"
 
