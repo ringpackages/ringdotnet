@@ -1,6 +1,7 @@
 # the checks of TemperatureConverter.ring: run with  ring TemperatureConverter.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	dnAssert("20 C in F",oFahrenheit.Text,"68")
 	dnAssert("20 C in K",oKelvin.Text,"293.15")
 	oCelsius.Text = "100"
