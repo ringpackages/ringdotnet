@@ -255,6 +255,7 @@
 <div class="gallery"><div class="item" id="address-book"><div class="pic"><img src="img/shots/app-AddressBook.png" alt="Address Book" loading="lazy"></div><div class="info"><h3>Address Book</h3><p>Address book - a DataGridView bound to a DataTable, search, edit, delete and save/load as XML</p><div class="run"><code>cd samples/UsingDotNet/applications/AddressBook  then  ring AddressBook.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Address book - a DataGridView bound to a DataTable, search, edit, delete and save/load as XML</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -311,9 +312,11 @@ showCount()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">showCount</span>
+
 	oCount.Text = string(oTable.DefaultView.Count) + <span class="s">" of "</span> + oTable.Rows.Count + <span class="s">" contacts"</span>
 
 <span class="k">func</span> <span class="f">addContact</span>
+
 	<span class="k">if</span> trim(oName.Text) = <span class="s">""</span>
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -324,6 +327,7 @@ showCount()
 	showCount()
 
 <span class="k">func</span> <span class="f">deleteSelected</span>
+
 	<span class="k">if</span> oGrid.SelectedRows.Count &gt; <span class="n">0</span>
 		nIndex = oGrid.SelectedRows.<span class="f">Item</span>(<span class="n">0</span>).Index
 		oTable.DefaultView.<span class="f">Delete</span>(nIndex)
@@ -331,6 +335,7 @@ showCount()
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">applyFilter</span>
+
 	cText = trim(oSearch.Text)
 	<span class="k">if</span> cText = <span class="s">""</span>
 		oTable.DefaultView.RowFilter = <span class="s">""</span>
@@ -342,6 +347,7 @@ showCount()
 	showCount()
 
 <span class="k">func</span> <span class="f">saveBook</span>
+
 	<span class="k">try</span>
 		oTable.<span class="f">WriteXml</span>(cFile)
 		oMessage.Text = <span class="s">"Saved "</span> + oTable.Rows.Count + <span class="s">" contacts to "</span> + cFile
@@ -350,6 +356,7 @@ showCount()
 	<span class="k">done</span>
 
 <span class="k">func</span> <span class="f">loadBook</span>
+
 	<span class="k">if</span> <span class="k">not</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile)
 		oMessage.Text = <span class="s">"Nothing to load yet: save the address book first ("</span> + cFile + <span class="s">")"</span>
 		<span class="k">return</span>
@@ -364,6 +371,7 @@ showCount()
 	showCount()</code></pre></div></details></div></div><div class="item" id="analog-clock"><div class="pic"><img src="img/shots/app-AnalogClock.png" alt="Analog Clock" loading="lazy"></div><div class="info"><h3>Analog Clock</h3><p>Analog clock - a port of ring/applications/analogclock to RingDotNet</p><div class="run"><code>cd samples/UsingDotNet/applications/AnalogClock  then  ring AnalogClock.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Analog clock - a port of ring/applications/analogclock to RingDotNet</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Drawing"</span>
@@ -395,12 +403,15 @@ oTimer.<span class="f">Start</span>()
 
 <span class="c"># the end of a hand: nAngle in degrees (0 = 12 o'clock, clockwise)</span>
 <span class="k">func</span> <span class="f">handX</span> nAngle, nLength
+
 	<span class="k">return</span> C_CENTER + nLength * sin(nAngle * C_PI / <span class="n">180</span>)
 
 <span class="k">func</span> <span class="f">handY</span> nAngle, nLength
+
 	<span class="k">return</span> C_CENTER - nLength * cos(nAngle * C_PI / <span class="n">180</span>)
 
 <span class="k">func</span> <span class="f">drawClock</span> nHour, nMinute, nSecond
+
 	oCanvas.<span class="f">clear</span>(<span class="s">"White"</span>)
 	oCanvas.<span class="f">fillCircle</span>(C_CENTER,C_CENTER,<span class="n">140</span>,<span class="s">"#f4f1e8"</span>)
 	oCanvas.<span class="f">drawCircle</span>(C_CENTER,C_CENTER,<span class="n">140</span>,<span class="s">"Black"</span>)
@@ -422,6 +433,7 @@ oTimer.<span class="f">Start</span>()
 	oCanvas.<span class="f">show</span>()
 
 <span class="k">func</span> <span class="f">twoDigits</span> n
+
 	cText = <span class="s">""</span> + floor(n)
 	<span class="k">if</span> len(cText) &lt; <span class="n">2</span>
 		cText = <span class="s">"0"</span> + cText
@@ -429,11 +441,13 @@ oTimer.<span class="f">Start</span>()
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">tick</span>
+
 	oNow = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2000</span>,<span class="n">1</span>,<span class="n">1</span>).Now
 	drawClock(oNow.Hour,oNow.Minute,oNow.Second)
 	oDigital.Text = twoDigits(oNow.Hour) + <span class="s">":"</span> + twoDigits(oNow.Minute) + <span class="s">":"</span> + twoDigits(oNow.Second)</code></pre></div></details></div></div><div class="item" id="ascii-table"><div class="pic"><img src="img/shots/app-AsciiTable.png" alt="Ascii Table" loading="lazy"></div><div class="info"><h3>Ascii Table</h3><p>ASCII table in a ListView with a filter (a port of ring/applications/asciitable)</p><div class="run"><code>cd samples/UsingDotNet/applications/AsciiTable  then  ring AsciiTable.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># ASCII table in a ListView with a filter (a port of ring/applications/asciitable)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -465,6 +479,7 @@ fillTable()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">charName</span> nCode
+
 	<span class="k">if</span> nCode &lt; <span class="n">32</span>
 		<span class="k">return</span> aNames[nCode + <span class="n">1</span>]
 	<span class="k">but</span> nCode = <span class="n">32</span>
@@ -475,6 +490,7 @@ fillTable()
 	<span class="k">return</span> char(nCode)
 
 <span class="k">func</span> <span class="f">binary</span> nCode
+
 	cBits = <span class="s">""</span>
 	<span class="k">for</span> nBit = <span class="n">7</span> <span class="k">to</span> <span class="n">0</span> <span class="k">step</span> -<span class="n">1</span>
 		<span class="k">if</span> floor(nCode / pow(<span class="n">2</span>,nBit)) % <span class="n">2</span> = <span class="n">1</span>
@@ -486,6 +502,7 @@ fillTable()
 	<span class="k">return</span> cBits
 
 <span class="k">func</span> <span class="f">fillTable</span>
+
 	cFilter = lower(oFilter.Text)
 	oList.<span class="f">BeginUpdate</span>()
 	oList.Items.<span class="f">Clear</span>()
@@ -510,6 +527,7 @@ fillTable()
 	oCount.Text = string(nShown) + <span class="s">" characters"</span></code></pre></div></details></div></div><div class="item" id="bmicalculator"><div class="pic"><img src="img/shots/app-BMICalculator.png" alt="BMICalculator" loading="lazy"></div><div class="info"><h3>BMICalculator</h3><p>BMI calculator with history (a port of ring/applications/bmicalculator to RingDotNet)</p><div class="run"><code>cd samples/UsingDotNet/applications/BMICalculator  then  ring BMICalculator.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># BMI calculator with history (a port of ring/applications/bmicalculator to RingDotNet)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -541,9 +559,11 @@ oUnits.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"unit
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">bmi</span> nKilograms, nMeters
+
 	<span class="k">return</span> nKilograms / (nMeters * nMeters)
 
 <span class="k">func</span> <span class="f">category</span> nBmi
+
 	<span class="k">if</span> nBmi &lt; <span class="n">18.5</span>
 		<span class="k">return</span> <span class="s">"Underweight"</span>
 	<span class="k">but</span> nBmi &lt; <span class="n">25</span>
@@ -554,6 +574,7 @@ oUnits.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"unit
 	<span class="k">return</span> <span class="s">"Obese"</span>
 
 <span class="k">func</span> <span class="f">unitsChanged</span>
+
 	<span class="k">if</span> oUnits.SelectedIndex = <span class="n">0</span>
 		oWeightLabel.Text = <span class="s">"Weight (kg)"</span>
 		oHeightLabel.Text = <span class="s">"Height (cm)"</span>
@@ -563,6 +584,7 @@ oUnits.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"unit
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">calculate</span>
+
 	nWeight = number(oWeight.Text)
 	nHeight = number(oHeight.Text)
 	<span class="k">if</span> nWeight &lt;= <span class="n">0</span> <span class="k">or</span> nHeight &lt;= <span class="n">0</span>
@@ -585,6 +607,7 @@ oUnits.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"unit
 	oHistory.Items.<span class="f">Insert</span>(<span class="n">0</span>,cLine)</code></pre></div></details></div></div><div class="item" id="calculator"><div class="pic"><img src="img/shots/app-Calculator.png" alt="Calculator" loading="lazy"></div><div class="info"><h3>Calculator</h3><p>Calculator - a port of ring/applications/calculator to RingDotNet (Windows Forms)</p><div class="run"><code>cd samples/UsingDotNet/applications/Calculator  then  ring Calculator.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Calculator - a port of ring/applications/calculator to RingDotNet (Windows Forms)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -648,6 +671,7 @@ oForm {
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">keyTyped</span> oArgs
+
 	cChar = oArgs.KeyChar
 	<span class="k">if</span> find([<span class="s">"0"</span>,<span class="s">"1"</span>,<span class="s">"2"</span>,<span class="s">"3"</span>,<span class="s">"4"</span>,<span class="s">"5"</span>,<span class="s">"6"</span>,<span class="s">"7"</span>,<span class="s">"8"</span>,<span class="s">"9"</span>,<span class="s">"."</span>,<span class="s">"+"</span>,<span class="s">"-"</span>,<span class="s">"*"</span>,<span class="s">"/"</span>,<span class="s">"%"</span>],cChar) &gt; <span class="n">0</span>
 		press(cChar)
@@ -661,6 +685,7 @@ oForm {
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">specialKey</span> oArgs
+
 	cKey = oArgs.KeyCode
 	<span class="k">if</span> cKey = <span class="s">"Return"</span> <span class="k">or</span> cKey = <span class="s">"Enter"</span>
 		press(<span class="s">"="</span>)
@@ -677,6 +702,7 @@ oForm {
 	}
 
 <span class="k">func</span> <span class="f">backspace</span>
+
 	<span class="k">if</span> <span class="k">not</span> lFresh <span class="k">and</span> len(cDisplay) &gt; <span class="n">0</span>
 		cDisplay = left(cDisplay,len(cDisplay) - <span class="n">1</span>)
 		<span class="k">if</span> cDisplay = <span class="s">""</span> <span class="k">or</span> cDisplay = <span class="s">"-"</span>
@@ -687,6 +713,7 @@ oForm {
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">press</span> cKey
+
 	<span class="k">if</span> find([<span class="s">"0"</span>,<span class="s">"1"</span>,<span class="s">"2"</span>,<span class="s">"3"</span>,<span class="s">"4"</span>,<span class="s">"5"</span>,<span class="s">"6"</span>,<span class="s">"7"</span>,<span class="s">"8"</span>,<span class="s">"9"</span>],cKey) &gt; <span class="n">0</span>
 		<span class="k">if</span> lFresh
 			cDisplay = cKey
@@ -748,6 +775,7 @@ oForm {
 	oHistory.Text = cHistory
 
 <span class="k">func</span> <span class="f">calculate</span>
+
 	nRight = number(cDisplay)
 	<span class="k">switch</span> cOperator
 	<span class="k">on</span> <span class="s">"+"</span>
@@ -771,6 +799,7 @@ oForm {
 	lFresh = <span class="k">true</span></code></pre></div></details></div></div><div class="item" id="calendar"><div class="pic"><img src="img/shots/app-Calendar.png" alt="Calendar" loading="lazy"></div><div class="info"><h3>Calendar</h3><p>Calendar with date facts - MonthCalendar and the .NET date classes (a port of ring/applications/calendar)</p><div class="run"><code>cd samples/UsingDotNet/applications/Calendar  then  ring Calendar.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Calendar with date facts - MonthCalendar and the .NET date classes (a port of ring/applications/calendar)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Globalization"</span>
@@ -798,6 +827,7 @@ showFacts()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">factsOf</span> oDate
+
 	oCulture = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>)
 	nYear = oDate.Year
 	oEndOfYear = <span class="k">new</span> <span class="t">DateTime</span>(nYear,<span class="n">12</span>,<span class="n">31</span>)
@@ -815,9 +845,11 @@ showFacts()
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">showFacts</span>
+
 	oFacts.Text = factsOf(oCalendar.SelectionStart)</code></pre></div></details></div></div><div class="item" id="color-mixer"><div class="pic"><img src="img/shots/app-ColorMixer.png" alt="Color Mixer" loading="lazy"></div><div class="info"><h3>Color Mixer</h3><p>Color mixer - three track bars, the color, its #RRGGBB code and HSV values</p><div class="run"><code>cd samples/UsingDotNet/applications/ColorMixer  then  ring ColorMixer.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Color mixer - three track bars, the color, its #RRGGBB code and HSV values</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -866,6 +898,7 @@ aBars[<span class="n">3</span>].Value = <span class="n">40</span>
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">hex2</span> nValue
+
 	cText = upper(hex(nValue))
 	<span class="k">if</span> len(cText) &lt; <span class="n">2</span>
 		cText = <span class="s">"0"</span> + cText
@@ -873,6 +906,7 @@ aBars[<span class="n">3</span>].Value = <span class="n">40</span>
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">mix</span>
+
 	nRed = aBars[<span class="n">1</span>].Value
 	nGreen = aBars[<span class="n">2</span>].Value
 	nBlue = aBars[<span class="n">3</span>].Value
@@ -885,11 +919,13 @@ aBars[<span class="n">3</span>].Value = <span class="n">40</span>
 	oHsv.Text = <span class="s">"H "</span> + floor(oColor.<span class="f">GetHue</span>()) + <span class="s">"   S "</span> + floor(oColor.<span class="f">GetSaturation</span>() * <span class="n">100</span>) + <span class="s">"%   V "</span> + floor(oColor.<span class="f">GetBrightness</span>() * <span class="n">100</span>) + <span class="s">"% (HSL lightness)"</span>
 
 <span class="k">func</span> <span class="f">randomColor</span>
+
 	<span class="k">for</span> oBar <span class="k">in</span> aBars
 		oBar.Value = random(<span class="n">255</span>)
 	<span class="k">next</span></code></pre></div></details></div></div><div class="item" id="countdown"><div class="pic"><img src="img/shots/app-Countdown.png" alt="Countdown" loading="lazy"></div><div class="info"><h3>Countdown</h3><p>Countdown timer with a progress bar (a Windows Forms Timer drives the Ring code)</p><div class="run"><code>cd samples/UsingDotNet/applications/Countdown  then  ring Countdown.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Countdown timer with a progress bar (a Windows Forms Timer drives the Ring code)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Diagnostics"</span>
@@ -942,6 +978,7 @@ oTimer = <span class="f">uiTimer</span>(<span class="n">1000</span>,<span class=
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">twoDigits</span> n
+
 	cText = <span class="s">""</span> + floor(n)
 	<span class="k">if</span> len(cText) &lt; <span class="n">2</span>
 		cText = <span class="s">"0"</span> + cText
@@ -949,6 +986,7 @@ oTimer = <span class="f">uiTimer</span>(<span class="n">1000</span>,<span class=
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">showTime</span>
+
 	oDisplay.Text = twoDigits(floor(nLeft / <span class="n">60</span>)) + <span class="s">":"</span> + twoDigits(nLeft % <span class="n">60</span>)
 	<span class="k">if</span> nTotal &gt; <span class="n">0</span>
 		oBar.Value = floor((nTotal - nLeft) * <span class="n">100</span> / nTotal)
@@ -957,6 +995,7 @@ oTimer = <span class="f">uiTimer</span>(<span class="n">1000</span>,<span class=
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">startStop</span>
+
 	<span class="k">if</span> lRunning
 		lRunning = <span class="k">false</span>
 		oTimer.<span class="f">Stop</span>()
@@ -975,6 +1014,7 @@ oTimer = <span class="f">uiTimer</span>(<span class="n">1000</span>,<span class=
 	showTime()
 
 <span class="k">func</span> <span class="f">resetTimer</span>
+
 	lRunning = <span class="k">false</span>
 	oTimer.<span class="f">Stop</span>()
 	oStart.Text = <span class="s">"Start"</span>
@@ -983,6 +1023,7 @@ oTimer = <span class="f">uiTimer</span>(<span class="n">1000</span>,<span class=
 	showTime()
 
 <span class="k">func</span> <span class="f">tick</span>
+
 	<span class="k">if</span> nLeft &gt; <span class="n">0</span>
 		nLeft--
 	<span class="k">ok</span>
@@ -995,6 +1036,7 @@ oTimer = <span class="f">uiTimer</span>(<span class="n">1000</span>,<span class=
 	<span class="k">ok</span></code></pre></div></details></div></div><div class="item" id="dice-roller"><div class="pic"><img src="img/shots/app-DiceRoller.png" alt="Dice Roller" loading="lazy"></div><div class="info"><h3>Dice Roller</h3><p>Dice roller - draws five dice with their pips and keeps statistics</p><div class="run"><code>cd samples/UsingDotNet/applications/DiceRoller  then  ring DiceRoller.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Dice roller - draws five dice with their pips and keeps statistics</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -1025,6 +1067,7 @@ draw()
 
 <span class="c"># the pips of a die face: positions in a 3x3 grid</span>
 <span class="k">func</span> <span class="f">pips</span> nFace
+
 	<span class="k">switch</span> nFace
 	<span class="k">on</span> <span class="n">1</span>	<span class="k">return</span> [<span class="n">5</span>]
 	<span class="k">on</span> <span class="n">2</span>	<span class="k">return</span> [<span class="n">1</span>,<span class="n">9</span>]
@@ -1035,6 +1078,7 @@ draw()
 	<span class="k">off</span>
 
 <span class="k">func</span> <span class="f">drawDie</span> nIndex, nFace
+
 	nX = <span class="n">10</span> + (nIndex - <span class="n">1</span>) * <span class="n">80</span>
 	oCanvas.<span class="f">fillRect</span>(nX,<span class="n">10</span>,<span class="n">70</span>,<span class="n">70</span>,<span class="s">"White"</span>)
 	oCanvas.<span class="f">drawRect</span>(nX,<span class="n">10</span>,<span class="n">70</span>,<span class="n">70</span>,<span class="s">"Black"</span>)
@@ -1045,6 +1089,7 @@ draw()
 	<span class="k">next</span>
 
 <span class="k">func</span> <span class="f">draw</span>
+
 	oCanvas.<span class="f">clear</span>(<span class="s">"#2e7d32"</span>)
 	<span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> C_DICE
 		drawDie(nIndex,aDice[nIndex])
@@ -1066,6 +1111,7 @@ draw()
 	oCanvas.<span class="f">show</span>()
 
 <span class="k">func</span> <span class="f">rollAll</span>
+
 	<span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> C_DICE
 		aDice[nIndex] = random(<span class="n">5</span>) + <span class="n">1</span>
 		aCounts[aDice[nIndex]]++
@@ -1074,6 +1120,7 @@ draw()
 	draw()
 
 <span class="k">func</span> <span class="f">rollMany</span> nTimes
+
 	<span class="k">for</span> nTime = <span class="n">1</span> <span class="k">to</span> nTimes
 		nFace = random(<span class="n">5</span>) + <span class="n">1</span>
 		aCounts[nFace]++
@@ -1083,6 +1130,7 @@ draw()
 <span class="c"># Click a square to put or remove a queen; "Solve" finds a solution with backtracking.</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -1118,10 +1166,12 @@ showBoard()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">squareOf</span> nRow, nColumn
+
 	<span class="k">return</span> (nRow - <span class="n">1</span>) * C_SIZE + nColumn
 
 <span class="c"># do two queens (row, column) attack each other</span>
 <span class="k">func</span> <span class="f">attacks</span> nRow1, nColumn1, nRow2, nColumn2
+
 	<span class="k">if</span> nRow1 = nRow2 <span class="k">or</span> nColumn1 = nColumn2
 		<span class="k">return</span> <span class="k">true</span>
 	<span class="k">ok</span>
@@ -1129,6 +1179,7 @@ showBoard()
 
 <span class="c"># the columns whose queen is attacked by another queen</span>
 <span class="k">func</span> <span class="f">conflicts</span>
+
 	aBad = list(C_SIZE)
 	<span class="k">for</span> nA = <span class="n">1</span> <span class="k">to</span> C_SIZE
 		<span class="k">for</span> nB = nA + <span class="n">1</span> <span class="k">to</span> C_SIZE
@@ -1141,6 +1192,7 @@ showBoard()
 	<span class="k">return</span> aBad
 
 <span class="k">func</span> <span class="f">showBoard</span>
+
 	aBad = conflicts()
 	nPlaced = <span class="n">0</span>
 	<span class="k">for</span> nRow = <span class="n">1</span> <span class="k">to</span> C_SIZE
@@ -1175,6 +1227,7 @@ showBoard()
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">toggle</span> nRow, nColumn
+
 	<span class="k">if</span> aQueens[nColumn] = nRow
 		aQueens[nColumn] = <span class="n">0</span>
 	<span class="k">else</span>
@@ -1183,11 +1236,13 @@ showBoard()
 	showBoard()
 
 <span class="k">func</span> <span class="f">clearBoard</span>
+
 	aQueens = list(C_SIZE)
 	showBoard()
 
 <span class="c"># the number of ways to complete the board from column nColumn (backtracking)</span>
 <span class="k">func</span> <span class="f">countSolutions</span> nColumn, aPlaced
+
 	<span class="k">if</span> nColumn &gt; C_SIZE
 		<span class="k">return</span> <span class="n">1</span>
 	<span class="k">ok</span>
@@ -1209,17 +1264,20 @@ showBoard()
 	<span class="k">return</span> nTotal
 
 <span class="k">func</span> <span class="f">solveIt</span>
+
 	aQueens = firstSolution()
 	showBoard()
 	oCount.Text = <span class="s">"92 solutions exist"</span>
 
 <span class="c"># a solution found by backtracking</span>
 <span class="k">func</span> <span class="f">firstSolution</span>
+
 	aResult = list(C_SIZE)
 	findOne(<span class="n">1</span>,aResult)
 	<span class="k">return</span> aResult
 
 <span class="k">func</span> <span class="f">findOne</span> nColumn, aPlaced
+
 	<span class="k">if</span> nColumn &gt; C_SIZE
 		<span class="k">return</span> <span class="k">true</span>
 	<span class="k">ok</span>
@@ -1242,6 +1300,7 @@ showBoard()
 	<span class="k">return</span> <span class="k">false</span></code></pre></div></details></div></div><div class="item" id="epoch-time"><div class="pic"><img src="img/shots/app-EpochTime.png" alt="Epoch Time" loading="lazy"></div><div class="info"><h3>Epoch Time</h3><p>Epoch (Unix) time converter - both directions, UTC and local time (a port of ring/applications/epochtime)</p><div class="run"><code>cd samples/UsingDotNet/applications/EpochTime  then  ring EpochTime.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Epoch (Unix) time converter - both directions, UTC and local time (a port of ring/applications/epochtime)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Globalization"</span>
@@ -1275,13 +1334,16 @@ oMessage.ForeColor = <span class="f">uiColor</span>(<span class="s">"Firebrick"<
 
 <span class="c"># the epoch (seconds) of a UTC date text, raises an error for invalid text</span>
 <span class="k">func</span> <span class="f">epochOf</span> cDateText
+
 	oDate = <span class="k">new</span> <span class="t">DateTimeOffset</span>().<span class="f">Parse</span>([ :input = cDateText, :formatProvider = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>).InvariantCulture, :styles = <span class="s">"AssumeUniversal"</span> ])
 	<span class="k">return</span> oDate.<span class="f">ToUnixTimeSeconds</span>()
 
 <span class="k">func</span> <span class="f">dateOf</span> nEpoch
+
 	<span class="k">return</span> <span class="k">new</span> <span class="t">DateTimeOffset</span>().<span class="f">FromUnixTimeSeconds</span>(nEpoch)
 
 <span class="k">func</span> <span class="f">epochToDate</span>
+
 	oMessage.Text = <span class="s">""</span>
 	<span class="k">try</span>
 		oDate = dateOf(number(oEpoch.Text))
@@ -1292,6 +1354,7 @@ oMessage.ForeColor = <span class="f">uiColor</span>(<span class="s">"Firebrick"<
 	<span class="k">done</span>
 
 <span class="k">func</span> <span class="f">dateToEpoch</span>
+
 	oMessage.Text = <span class="s">""</span>
 	<span class="k">try</span>
 		nEpoch = epochOf(oUtc.Text)
@@ -1302,12 +1365,14 @@ oMessage.ForeColor = <span class="f">uiColor</span>(<span class="s">"Firebrick"<
 	<span class="k">done</span>
 
 <span class="k">func</span> <span class="f">showNow</span>
+
 	<span class="c"># the current time as Unix seconds</span>
 	nNow = <span class="k">new</span> <span class="t">DateTimeOffset</span>().UtcNow.<span class="f">ToUnixTimeSeconds</span>()
 	oEpoch.Text = <span class="s">""</span> + floor(nNow)
 	epochToDate()</code></pre></div></details></div></div><div class="item" id="fifteen-puzzle"><div class="pic"><img src="img/shots/app-FifteenPuzzle.png" alt="Fifteen Puzzle" loading="lazy"></div><div class="info"><h3>Fifteen Puzzle</h3><p>Fifteen puzzle (sliding tiles) - a port of ring/applications/fifteenpuzzle to RingDotNet</p><div class="run"><code>cd samples/UsingDotNet/applications/FifteenPuzzle  then  ring FifteenPuzzle.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Fifteen puzzle (sliding tiles) - a port of ring/applications/fifteenpuzzle to RingDotNet</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -1342,6 +1407,7 @@ shuffleBoard()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">showBoard</span>
+
 	<span class="k">for</span> nCell = <span class="n">1</span> <span class="k">to</span> len(aTiles)
 		<span class="k">if</span> aTiles[nCell] = <span class="n">0</span>
 			aCells[nCell].Text = <span class="s">""</span>
@@ -1354,10 +1420,12 @@ shuffleBoard()
 	oMoves.Text = <span class="s">"Moves: "</span> + nMoves
 
 <span class="k">func</span> <span class="f">emptyCell</span>
+
 	<span class="k">return</span> find(aTiles,<span class="n">0</span>)
 
 <span class="c"># cells that touch the cell</span>
 <span class="k">func</span> <span class="f">neighbors</span> nCell
+
 	aList = []
 	nRow = floor((nCell - <span class="n">1</span>) / C_SIZE)
 	nCol = (nCell - <span class="n">1</span>) % C_SIZE
@@ -1368,6 +1436,7 @@ shuffleBoard()
 	<span class="k">return</span> aList
 
 <span class="k">func</span> <span class="f">slideTile</span> nCell
+
 	nEmpty = emptyCell()
 	<span class="k">if</span> find(neighbors(nEmpty),nCell) &gt; <span class="n">0</span>
 		aTiles[nEmpty] = aTiles[nCell]
@@ -1377,6 +1446,7 @@ shuffleBoard()
 	<span class="k">return</span> <span class="k">false</span>
 
 <span class="k">func</span> <span class="f">clickCell</span> nCell
+
 	<span class="k">if</span> slideTile(nCell)
 		nMoves++
 		showBoard()
@@ -1386,6 +1456,7 @@ shuffleBoard()
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">isSolved</span>
+
 	<span class="k">for</span> nCell = <span class="n">1</span> <span class="k">to</span> len(aTiles) - <span class="n">1</span>
 		<span class="k">if</span> aTiles[nCell] != nCell
 			<span class="k">return</span> <span class="k">false</span>
@@ -1395,6 +1466,7 @@ shuffleBoard()
 
 <span class="c"># shuffle with legal moves only, so the puzzle is always solvable</span>
 <span class="k">func</span> <span class="f">shuffleBoard</span>
+
 	<span class="k">for</span> nCell = <span class="n">1</span> <span class="k">to</span> len(aTiles)
 		aTiles[nCell] = nCell % len(aTiles)
 	<span class="k">next</span>
@@ -1407,6 +1479,7 @@ shuffleBoard()
 	showBoard()</code></pre></div></details></div></div><div class="item" id="file-explorer"><div class="pic"><img src="img/shots/app-FileExplorer.png" alt="File Explorer" loading="lazy"></div><div class="info"><h3>File Explorer</h3><p>File explorer - a folder tree on the left, the files of the selected folder on the right</p><div class="run"><code>cd samples/UsingDotNet/applications/FileExplorer  then  ring FileExplorer.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># File explorer - a folder tree on the left, the files of the selected folder on the right</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -1452,6 +1525,7 @@ oTree {
 
 <span class="c"># the tree starts at a folder; its sub folders are loaded when a node is expanded</span>
 <span class="k">func</span> <span class="f">setRoot</span> cFolder
+
 	cRoot = cFolder
 	oTree.Nodes.<span class="f">Clear</span>()
 	oNode = oTree.Nodes.<span class="f">Add</span>(cFolder)
@@ -1460,6 +1534,7 @@ oTree {
 	oNode.<span class="f">Expand</span>()
 
 <span class="k">func</span> <span class="f">addChildren</span> oNode
+
 	oNode.Nodes.<span class="f">Clear</span>()
 	<span class="k">try</span>
 		<span class="k">for</span> cFolder <span class="k">in</span> <span class="k">new</span> <span class="t">Directory</span>().<span class="f">GetDirectories</span>(oNode.Tag).<span class="f">toList</span>()
@@ -1473,11 +1548,13 @@ oTree {
 	<span class="k">done</span>
 
 <span class="k">func</span> <span class="f">expandNode</span> oNode
+
 	<span class="k">if</span> oNode.Nodes.Count = <span class="n">1</span> <span class="k">and</span> oNode.Nodes.<span class="f">Item</span>(<span class="n">0</span>).Text = <span class="s">"..."</span>
 		addChildren(oNode)
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">sizeText</span> nBytes
+
 	<span class="k">if</span> nBytes &lt; <span class="n">1024</span>
 		<span class="k">return</span> <span class="s">""</span> + nBytes + <span class="s">" B"</span>
 	<span class="k">but</span> nBytes &lt; <span class="n">1024</span> * <span class="n">1024</span>
@@ -1486,6 +1563,7 @@ oTree {
 	<span class="k">return</span> <span class="s">""</span> + floor(nBytes / <span class="n">1048576</span>) + <span class="s">" MB"</span>
 
 <span class="k">func</span> <span class="f">showFolder</span>
+
 	oList.Items.<span class="f">Clear</span>()
 	<span class="k">if</span> <span class="k">not</span> isobject(oTree.SelectedNode)
 		<span class="k">return</span>
@@ -1508,6 +1586,7 @@ oTree {
 	oStatusText.Text = cFolder + <span class="s">"   ("</span> + nFiles + <span class="s">" files)"</span></code></pre></div></details></div></div><div class="item" id="game2048"><div class="pic"><img src="img/shots/app-Game2048.png" alt="Game2048" loading="lazy"></div><div class="info"><h3>Game2048</h3><p>2048 - use the arrow keys (a port of ring/applications/game2048 to RingDotNet)</p><div class="run"><code>cd samples/UsingDotNet/applications/Game2048  then  ring Game2048.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># 2048 - use the arrow keys (a port of ring/applications/game2048 to RingDotNet)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -1550,6 +1629,7 @@ newGame()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">tileColor</span> nValue
+
 	<span class="k">switch</span> nValue
 	<span class="k">on</span> <span class="n">0</span>	<span class="k">return</span> <span class="f">uiRGB</span>(<span class="n">205</span>,<span class="n">193</span>,<span class="n">180</span>)
 	<span class="k">on</span> <span class="n">2</span>	<span class="k">return</span> <span class="f">uiRGB</span>(<span class="n">238</span>,<span class="n">228</span>,<span class="n">218</span>)
@@ -1565,6 +1645,7 @@ newGame()
 	<span class="k">off</span>
 
 <span class="k">func</span> <span class="f">showBoard</span>
+
 	<span class="k">for</span> nCell = <span class="n">1</span> <span class="k">to</span> len(aBoard)
 		<span class="k">if</span> aBoard[nCell] = <span class="n">0</span>
 			aTileLabels[nCell].Text = <span class="s">""</span>
@@ -1577,6 +1658,7 @@ newGame()
 
 <span class="c"># slide one line to the left: [new line, points gained]</span>
 <span class="k">func</span> <span class="f">slideLine</span> aLine
+
 	aKept = []
 	<span class="k">for</span> nValue <span class="k">in</span> aLine
 		<span class="k">if</span> nValue != <span class="n">0</span>
@@ -1603,6 +1685,7 @@ newGame()
 
 <span class="c"># move the whole board: "Left" "Right" "Up" "Down"; true when something moved</span>
 <span class="k">func</span> <span class="f">moveBoard</span> cDirection
+
 	lMoved = <span class="k">false</span>
 	<span class="k">for</span> nLine = <span class="n">1</span> <span class="k">to</span> C_SIZE
 		aLine = []
@@ -1623,6 +1706,7 @@ newGame()
 
 <span class="c"># the cell that is the nStep-th of line nLine when sliding in cDirection (nStep 1 = the cell the tiles slide to)</span>
 <span class="k">func</span> <span class="f">cellIndex</span> nLine, nStep, cDirection
+
 	<span class="k">switch</span> cDirection
 	<span class="k">on</span> <span class="s">"Left"</span>
 		<span class="k">return</span> (nLine - <span class="n">1</span>) * C_SIZE + nStep
@@ -1635,6 +1719,7 @@ newGame()
 	<span class="k">off</span>
 
 <span class="k">func</span> <span class="f">addRandomTile</span>
+
 	aFree = []
 	<span class="k">for</span> nCell = <span class="n">1</span> <span class="k">to</span> len(aBoard)
 		<span class="k">if</span> aBoard[nCell] = <span class="n">0</span>
@@ -1650,6 +1735,7 @@ newGame()
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">canMove</span>
+
 	<span class="k">for</span> cDirection <span class="k">in</span> [<span class="s">"Left"</span>,<span class="s">"Right"</span>,<span class="s">"Up"</span>,<span class="s">"Down"</span>]
 		aSaved = aBoard
 		nSavedScore = nScore
@@ -1663,6 +1749,7 @@ newGame()
 	<span class="k">return</span> <span class="k">false</span>
 
 <span class="k">func</span> <span class="f">keyPressed</span> cKey
+
 	<span class="k">if</span> lGameOver <span class="k">or</span> find([<span class="s">"Left"</span>,<span class="s">"Right"</span>,<span class="s">"Up"</span>,<span class="s">"Down"</span>],cKey) = <span class="n">0</span>
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -1676,6 +1763,7 @@ newGame()
 	showBoard()
 
 <span class="k">func</span> <span class="f">newGame</span>
+
 	aBoard = list(C_SIZE * C_SIZE)
 	nScore = <span class="n">0</span>
 	lGameOver = <span class="k">false</span>
@@ -1685,6 +1773,7 @@ newGame()
 <span class="c"># (a port of ring/applications/gameoflife to RingDotNet)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -1719,15 +1808,18 @@ glider()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">cellIndex</span> nColumn, nRow
+
 	<span class="k">return</span> nRow * C_COLUMNS + nColumn + <span class="n">1</span>
 
 <span class="k">func</span> <span class="f">isAlive</span> nColumn, nRow
+
 	<span class="c"># the world wraps around</span>
 	nColumn = (nColumn + C_COLUMNS) % C_COLUMNS
 	nRow = (nRow + C_ROWS) % C_ROWS
 	<span class="k">return</span> aCells[cellIndex(nColumn,nRow)]
 
 <span class="k">func</span> <span class="f">countNeighbors</span> nColumn, nRow
+
 	nTotal = <span class="n">0</span>
 	<span class="k">for</span> nDy = -<span class="n">1</span> <span class="k">to</span> <span class="n">1</span>
 		<span class="k">for</span> nDx = -<span class="n">1</span> <span class="k">to</span> <span class="n">1</span>
@@ -1739,6 +1831,7 @@ glider()
 	<span class="k">return</span> nTotal
 
 <span class="k">func</span> <span class="f">nextGeneration</span>
+
 	aNext = list(C_COLUMNS * C_ROWS)
 	<span class="k">for</span> nRow = <span class="n">0</span> <span class="k">to</span> C_ROWS - <span class="n">1</span>
 		<span class="k">for</span> nColumn = <span class="n">0</span> <span class="k">to</span> C_COLUMNS - <span class="n">1</span>
@@ -1755,6 +1848,7 @@ glider()
 	draw()
 
 <span class="k">func</span> <span class="f">population</span>
+
 	nTotal = <span class="n">0</span>
 	<span class="k">for</span> nCell <span class="k">in</span> aCells
 		nTotal += nCell
@@ -1762,6 +1856,7 @@ glider()
 	<span class="k">return</span> nTotal
 
 <span class="k">func</span> <span class="f">draw</span>
+
 	oCanvas.<span class="f">clear</span>(<span class="s">"White"</span>)
 	<span class="k">for</span> nRow = <span class="n">0</span> <span class="k">to</span> C_ROWS - <span class="n">1</span>
 		<span class="k">for</span> nColumn = <span class="n">0</span> <span class="k">to</span> C_COLUMNS - <span class="n">1</span>
@@ -1774,6 +1869,7 @@ glider()
 	oCanvas.<span class="f">show</span>()
 
 <span class="k">func</span> <span class="f">clickCell</span> nMouseX, nMouseY
+
 	nColumn = floor(nMouseX / C_CELL)
 	nRow = floor(nMouseY / C_CELL)
 	nIndex = cellIndex(nColumn,nRow)
@@ -1781,6 +1877,7 @@ glider()
 	draw()
 
 <span class="k">func</span> <span class="f">startStop</span>
+
 	<span class="k">if</span> oRun.Text = <span class="s">"Start"</span>
 		oRun.Text = <span class="s">"Stop"</span>
 		oTimer.<span class="f">Start</span>()
@@ -1790,11 +1887,13 @@ glider()
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">clearAll</span>
+
 	aCells = list(C_COLUMNS * C_ROWS)
 	nGeneration = <span class="n">0</span>
 	draw()
 
 <span class="k">func</span> <span class="f">randomFill</span>
+
 	<span class="k">for</span> nCell = <span class="n">1</span> <span class="k">to</span> len(aCells)
 		aCells[nCell] = (random(<span class="n">3</span>) = <span class="n">0</span>)
 	<span class="k">next</span>
@@ -1802,6 +1901,7 @@ glider()
 	draw()
 
 <span class="k">func</span> <span class="f">glider</span>
+
 	aCells = list(C_COLUMNS * C_ROWS)
 	<span class="k">for</span> aPoint <span class="k">in</span> [[<span class="n">1</span>,<span class="n">0</span>],[<span class="n">2</span>,<span class="n">1</span>],[<span class="n">0</span>,<span class="n">2</span>],[<span class="n">1</span>,<span class="n">2</span>],[<span class="n">2</span>,<span class="n">2</span>]]
 		aCells[cellIndex(aPoint[<span class="n">1</span>] + <span class="n">5</span>,aPoint[<span class="n">2</span>] + <span class="n">5</span>)] = <span class="n">1</span>
@@ -1810,6 +1910,7 @@ glider()
 	draw()</code></pre></div></details></div></div><div class="item" id="hangman"><div class="pic"><img src="img/shots/app-Hangman.png" alt="Hangman" loading="lazy"></div><div class="info"><h3>Hangman</h3><p>Hangman - guess the word letter by letter</p><div class="run"><code>cd samples/UsingDotNet/applications/Hangman  then  ring Hangman.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Hangman - guess the word letter by letter</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -1845,6 +1946,7 @@ newGame()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">newGame</span>
+
 	cWord = aWords[random(len(aWords) - <span class="n">1</span>) + <span class="n">1</span>]
 	cGuessed = <span class="s">""</span>
 	nWrong = <span class="n">0</span>
@@ -1855,6 +1957,7 @@ newGame()
 
 <span class="c"># the word with the unknown letters as underscores</span>
 <span class="k">func</span> <span class="f">maskedWord</span>
+
 	cMask = <span class="s">""</span>
 	<span class="k">for</span> x = <span class="n">1</span> <span class="k">to</span> len(cWord)
 		<span class="k">if</span> substr(cGuessed,cWord[x])
@@ -1866,9 +1969,11 @@ newGame()
 	<span class="k">return</span> trim(cMask)
 
 <span class="k">func</span> <span class="f">isWon</span>
+
 	<span class="k">return</span> substr(maskedWord(),<span class="s">"_"</span>) = <span class="n">0</span>
 
 <span class="k">func</span> <span class="f">letter</span> cLetter
+
 	<span class="k">if</span> substr(cGuessed,cLetter) <span class="k">or</span> nWrong &gt;= C_MAXWRONG <span class="k">or</span> isWon()
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -1880,6 +1985,7 @@ newGame()
 	showState()
 
 <span class="k">func</span> <span class="f">drawGallows</span>
+
 	oCanvas.<span class="f">clear</span>(<span class="s">"White"</span>)
 	oCanvas.<span class="f">line</span>(<span class="n">20</span>,<span class="n">190</span>,<span class="n">180</span>,<span class="n">190</span>,<span class="s">"Black"</span>,<span class="n">4</span>)
 	oCanvas.<span class="f">line</span>(<span class="n">60</span>,<span class="n">190</span>,<span class="n">60</span>,<span class="n">20</span>,<span class="s">"Black"</span>,<span class="n">4</span>)
@@ -1894,6 +2000,7 @@ newGame()
 	oCanvas.<span class="f">show</span>()
 
 <span class="k">func</span> <span class="f">showState</span>
+
 	oWord.Text = maskedWord()
 	<span class="k">if</span> isWon()
 		oInfo.Text = <span class="s">"You won!"</span>
@@ -1906,6 +2013,7 @@ newGame()
 	drawGallows()</code></pre></div></details></div></div><div class="item" id="image-viewer"><div class="pic"><img src="img/shots/app-ImageViewer.png" alt="Image Viewer" loading="lazy"></div><div class="info"><h3>Image Viewer</h3><p>Image viewer - open a picture, zoom, rotate, flip, grayscale and save (System.Drawing)</p><div class="run"><code>cd samples/UsingDotNet/applications/ImageViewer  then  ring ImageViewer.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Image viewer - open a picture, zoom, rotate, flip, grayscale and save (System.Drawing)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -1940,18 +2048,21 @@ oBox.<span class="f">BringToFront</span>()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">showImage</span>
+
 	<span class="k">if</span> isobject(oImage)
 		oBox.Image = oImage
 		oInfoText.Text = <span class="s">""</span> + oImage.Width + <span class="s">" x "</span> + oImage.Height + <span class="s">"   zoom "</span> + nZoom + <span class="s">"%"</span>
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">openDialog</span>
+
 	cFile = <span class="f">uiOpenFileName</span>(<span class="s">"Open picture"</span>,<span class="s">"Pictures|*.png;*.jpg;*.jpeg;*.bmp;*.gif|All files|*.*"</span>)
 	<span class="k">if</span> cFile != <span class="s">""</span>
 		loadFile(cFile)
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">loadFile</span> cFile
+
 	<span class="k">try</span>
 		oLoaded = <span class="k">new</span> <span class="t">Bitmap</span>(cFile,<span class="n">0</span>)
 	<span class="k">catch</span>
@@ -1965,27 +2076,32 @@ oBox.<span class="f">BringToFront</span>()
 	showImage()
 
 <span class="k">func</span> <span class="f">saveDialog</span>
+
 	cFile = <span class="f">uiSaveFileName</span>(<span class="s">"Save picture"</span>,<span class="s">"PNG|*.png"</span>)
 	<span class="k">if</span> cFile != <span class="s">""</span>
 		saveTo(cFile)
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">saveTo</span> cFile
+
 	oImage.<span class="f">Save</span>([ :filename = cFile, :format = <span class="k">new</span> <span class="t">ImageFormat</span>().Png ])
 
 <span class="k">func</span> <span class="f">rotate</span>
+
 	<span class="k">if</span> isobject(oImage)
 		oImage.<span class="f">RotateFlip</span>(<span class="s">"Rotate90FlipNone"</span>)
 		showImage()
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">flip</span>
+
 	<span class="k">if</span> isobject(oImage)
 		oImage.<span class="f">RotateFlip</span>(<span class="s">"RotateNoneFlipX"</span>)
 		showImage()
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">grayscale</span>
+
 	<span class="k">if</span> <span class="k">not</span> isobject(oImage)
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -1999,6 +2115,7 @@ oBox.<span class="f">BringToFront</span>()
 	showImage()
 
 <span class="k">func</span> <span class="f">setZoom</span> nPercent
+
 	nZoom = nPercent
 	<span class="k">if</span> nZoom = <span class="n">100</span>
 		oBox.SizeMode = <span class="s">"Zoom"</span>
@@ -2008,6 +2125,7 @@ oBox.<span class="f">BringToFront</span>()
 	showImage()
 
 <span class="k">func</span> <span class="f">zoomBy</span> nDelta
+
 	nZoom += nDelta
 	<span class="k">if</span> nZoom &lt; <span class="n">25</span>
 		nZoom = <span class="n">25</span>
@@ -2015,6 +2133,7 @@ oBox.<span class="f">BringToFront</span>()
 	showImage()</code></pre></div></details></div></div><div class="item" id="julian-day"><div class="pic"><img src="img/shots/app-JulianDay.png" alt="Julian Day" loading="lazy"></div><div class="info"><h3>Julian Day</h3><p>Julian day converter - dates and Julian day numbers in both directions (a port of ring/applications/juliandaycalendar)</p><div class="run"><code>cd samples/UsingDotNet/applications/JulianDay  then  ring JulianDay.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Julian day converter - dates and Julian day numbers in both directions (a port of ring/applications/juliandaycalendar)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Drawing"</span>
@@ -2046,6 +2165,7 @@ fromDate()
 
 <span class="c"># Julian day number of a calendar date (at noon)</span>
 <span class="k">func</span> <span class="f">julianDay</span> nYear, nMonth, nDay
+
 	nA = floor((<span class="n">14</span> - nMonth) / <span class="n">12</span>)
 	nY = nYear + <span class="n">4800</span> - nA
 	nM = nMonth + <span class="n">12</span> * nA - <span class="n">3</span>
@@ -2053,6 +2173,7 @@ fromDate()
 
 <span class="c"># the calendar date of a Julian day number: [year, month, day]</span>
 <span class="k">func</span> <span class="f">calendarDate</span> nJulian
+
 	nA = nJulian + <span class="n">32044</span>
 	nB = floor((<span class="n">4</span> * nA + <span class="n">3</span>) / <span class="n">146097</span>)
 	nC = nA - floor(<span class="n">146097</span> * nB / <span class="n">4</span>)
@@ -2065,12 +2186,14 @@ fromDate()
 	<span class="k">return</span> [nYear,nMonth,nDay]
 
 <span class="k">func</span> <span class="f">fromDate</span>
+
 	oDate = oPicker.Value
 	nJulian = julianDay(oDate.Year,oDate.Month,oDate.Day)
 	oJulian.Text = <span class="s">""</span> + nJulian
 	oInfo.Text = oDate.DayOfWeek + nl + <span class="s">"Modified Julian day: "</span> + (nJulian - <span class="n">2400001</span>) + nl + <span class="s">"Day of the year: "</span> + oDate.DayOfYear
 
 <span class="k">func</span> <span class="f">fromJulian</span>
+
 	nJulian = floor(number(oJulian.Text))
 	aDate = calendarDate(nJulian)
 	oDate = <span class="k">new</span> <span class="t">DateTime</span>(aDate[<span class="n">1</span>],aDate[<span class="n">2</span>],aDate[<span class="n">3</span>])
@@ -2078,6 +2201,7 @@ fromDate()
 <span class="c"># (a port of ring/applications/lightsout to RingDotNet)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -2109,6 +2233,7 @@ newGame()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">showLights</span>
+
 	<span class="k">for</span> nCell = <span class="n">1</span> <span class="k">to</span> len(aLights)
 		<span class="k">if</span> aLights[nCell]
 			aCells[nCell].BackColor = <span class="f">uiColor</span>(<span class="s">"Gold"</span>)
@@ -2127,10 +2252,12 @@ newGame()
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">toggle</span> nCell
+
 	aLights[nCell] = <span class="k">not</span> aLights[nCell]
 
 <span class="c"># toggle the cell and its neighbors</span>
 <span class="k">func</span> <span class="f">flip</span> nCell
+
 	nRow = floor((nCell - <span class="n">1</span>) / C_SIZE)
 	nCol = (nCell - <span class="n">1</span>) % C_SIZE
 	toggle(nCell)
@@ -2140,11 +2267,13 @@ newGame()
 	<span class="k">if</span> nCol &lt; C_SIZE - <span class="n">1</span> toggle(nCell + <span class="n">1</span>) <span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">press</span> nCell
+
 	flip(nCell)
 	nPresses++
 	showLights()
 
 <span class="k">func</span> <span class="f">newGame</span>
+
 	aLights = list(C_SIZE * C_SIZE)
 	<span class="c"># random presses keep the game solvable</span>
 	<span class="k">for</span> nStep = <span class="n">1</span> <span class="k">to</span> <span class="n">12</span>
@@ -2154,6 +2283,7 @@ newGame()
 	showLights()</code></pre></div></details></div></div><div class="item" id="loan-calculator"><div class="pic"><img src="img/shots/app-LoanCalculator.png" alt="Loan Calculator" loading="lazy"></div><div class="info"><h3>Loan Calculator</h3><p>Loan calculator - monthly payment, total interest and the first rows of the amortization table</p><div class="run"><code>cd samples/UsingDotNet/applications/LoanCalculator  then  ring LoanCalculator.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Loan calculator - monthly payment, total interest and the first rows of the amortization table</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -2192,10 +2322,12 @@ calculate()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">money</span> nValue
+
 	<span class="k">return</span> <span class="f">uiNumber</span>(floor(nValue * <span class="n">100</span> + <span class="n">0.5</span>) / <span class="n">100</span>)
 
 <span class="c"># the monthly payment of a loan</span>
 <span class="k">func</span> <span class="f">monthlyPayment</span> nAmount, nYearlyRate, nYears
+
 	nMonths = nYears * <span class="n">12</span>
 	nMonthlyRate = nYearlyRate / <span class="n">100</span> / <span class="n">12</span>
 	<span class="k">if</span> nMonthlyRate = <span class="n">0</span>
@@ -2204,6 +2336,7 @@ calculate()
 	<span class="k">return</span> nAmount * nMonthlyRate / (<span class="n">1</span> - pow(<span class="n">1</span> + nMonthlyRate,-nMonths))
 
 <span class="k">func</span> <span class="f">calculate</span>
+
 	nAmount = number(oAmount.Text)
 	nRate = number(oRate.Text)
 	nYears = number(oYears.Text)
@@ -2237,6 +2370,7 @@ calculate()
 	oTotal.Text = <span class="s">"Total paid: "</span> + money(nAmount + nTotalInterest)</code></pre></div></details></div></div><div class="item" id="login-form"><div class="pic"><img src="img/shots/app-LoginForm.png" alt="Login Form" loading="lazy"></div><div class="info"><h3>Login Form</h3><p>Login form with validation, a password hash and an error provider</p><div class="run"><code>cd samples/UsingDotNet/applications/LoginForm  then  ring LoginForm.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Login form with validation, a password hash and an error provider</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Text"</span>
@@ -2272,10 +2406,12 @@ register(<span class="s">"admin"</span>,<span class="s">"secret"</span>)
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">hashOf</span> cPassword
+
 	cBytes = <span class="k">new</span> <span class="t">SHA256</span>().<span class="f">HashData</span>(cPassword)
 	<span class="k">return</span> lower(<span class="k">new</span> <span class="t">Convert</span>().<span class="f">ToHexString</span>(cBytes))
 
 <span class="k">func</span> <span class="f">register</span> cName, cPassword
+
 	<span class="k">for</span> aUser <span class="k">in</span> aUsers
 		<span class="k">if</span> aUser[<span class="n">1</span>] = lower(cName)
 			<span class="k">return</span> <span class="k">false</span>
@@ -2285,6 +2421,7 @@ register(<span class="s">"admin"</span>,<span class="s">"secret"</span>)
 	<span class="k">return</span> <span class="k">true</span>
 
 <span class="k">func</span> <span class="f">checkLogin</span> cName, cPassword
+
 	<span class="k">for</span> aUser <span class="k">in</span> aUsers
 		<span class="k">if</span> aUser[<span class="n">1</span>] = lower(cName) <span class="k">and</span> aUser[<span class="n">2</span>] = hashOf(cPassword)
 			<span class="k">return</span> <span class="k">true</span>
@@ -2293,10 +2430,12 @@ register(<span class="s">"admin"</span>,<span class="s">"secret"</span>)
 	<span class="k">return</span> <span class="k">false</span>
 
 <span class="k">func</span> <span class="f">togglePassword</span>
+
 	oPassword.UseSystemPasswordChar = <span class="k">not</span> oShow.Checked
 
 <span class="c"># true when the fields are filled (the error provider shows an icon next to an empty one)</span>
 <span class="k">func</span> <span class="f">validate</span>
+
 	lValid = <span class="k">true</span>
 	<span class="k">if</span> trim(oUser.Text) = <span class="s">""</span>
 		oErrors.<span class="f">SetError</span>(oUser,<span class="s">"Enter the user name"</span>)
@@ -2313,6 +2452,7 @@ register(<span class="s">"admin"</span>,<span class="s">"secret"</span>)
 	<span class="k">return</span> lValid
 
 <span class="k">func</span> <span class="f">signIn</span>
+
 	<span class="k">if</span> <span class="k">not</span> validate()
 		oMessage.Text = <span class="s">"Please fill in both fields"</span>
 		<span class="k">return</span>
@@ -2336,6 +2476,7 @@ register(<span class="s">"admin"</span>,<span class="s">"secret"</span>)
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">registerUser</span>
+
 	<span class="k">if</span> validate()
 		<span class="k">if</span> register(oUser.Text,oPassword.Text)
 			oMessage {
@@ -2351,6 +2492,7 @@ register(<span class="s">"admin"</span>,<span class="s">"secret"</span>)
 	<span class="k">ok</span></code></pre></div></details></div></div><div class="item" id="memory-game"><div class="pic"><img src="img/shots/app-MemoryGame.png" alt="Memory Game" loading="lazy"></div><div class="info"><h3>Memory Game</h3><p>Memory game - find the pairs (a port of ring/applications/memorygame to RingDotNet)</p><div class="run"><code>cd samples/UsingDotNet/applications/MemoryGame  then  ring MemoryGame.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Memory game - find the pairs (a port of ring/applications/memorygame to RingDotNet)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Diagnostics"</span>
@@ -2391,6 +2533,7 @@ newGame()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">newGame</span>
+
 	oHideTimer.<span class="f">Stop</span>()
 	<span class="c"># two cards of each of the 8 letters, shuffled</span>
 	aSymbols = []
@@ -2420,9 +2563,11 @@ newGame()
 	showInfo()
 
 <span class="k">func</span> <span class="f">showInfo</span>
+
 	oInfo.Text = <span class="s">"Pairs: "</span> + nPairs + <span class="s">"/8   Attempts: "</span> + nAttempts
 
 <span class="k">func</span> <span class="f">turn</span> nCard
+
 	<span class="k">if</span> lBusy <span class="k">or</span> aMatched[nCard] <span class="k">or</span> nCard = nFirst
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -2452,6 +2597,7 @@ newGame()
 	showInfo()
 
 <span class="k">func</span> <span class="f">hideCards</span>
+
 	oHideTimer.<span class="f">Stop</span>()
 	<span class="k">for</span> nCard <span class="k">in</span> [nFirst,nSecond]
 		aCardButtons[nCard].Text = <span class="s">"?"</span>
@@ -2462,6 +2608,7 @@ newGame()
 	lBusy = <span class="k">false</span></code></pre></div></details></div></div><div class="item" id="minesweeper"><div class="pic"><img src="img/shots/app-Minesweeper.png" alt="Minesweeper" loading="lazy"></div><div class="info"><h3>Minesweeper</h3><p>Minesweeper - left click reveals, right click flags (a port of ring/applications/minesweeper)</p><div class="run"><code>cd samples/UsingDotNet/applications/Minesweeper  then  ring Minesweeper.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Minesweeper - left click reveals, right click flags (a port of ring/applications/minesweeper)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -2505,6 +2652,7 @@ newGame()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">neighbors</span> nCell
+
 	aList = []
 	nRow = floor((nCell - <span class="n">1</span>) / C_COLUMNS)
 	nColumn = (nCell - <span class="n">1</span>) % C_COLUMNS
@@ -2522,6 +2670,7 @@ newGame()
 	<span class="k">return</span> aList
 
 <span class="k">func</span> <span class="f">mineCount</span> nCell
+
 	nTotal = <span class="n">0</span>
 	<span class="k">for</span> nNear <span class="k">in</span> neighbors(nCell)
 		nTotal += aMine[nNear]
@@ -2529,6 +2678,7 @@ newGame()
 	<span class="k">return</span> nTotal
 
 <span class="k">func</span> <span class="f">newGame</span>
+
 	aMine = list(C_COLUMNS * C_ROWS)
 	aRevealed = list(C_COLUMNS * C_ROWS)
 	aFlagged = list(C_COLUMNS * C_ROWS)
@@ -2543,6 +2693,7 @@ newGame()
 	startPlay()
 
 <span class="k">func</span> <span class="f">startPlay</span>
+
 	lPlaying = <span class="k">true</span>
 	nFlags = <span class="n">0</span>
 	<span class="k">for</span> oButton <span class="k">in</span> aButtons
@@ -2555,11 +2706,13 @@ newGame()
 	showInfo()
 
 <span class="k">func</span> <span class="f">showInfo</span>
+
 	<span class="k">if</span> lPlaying
 		oInfo.Text = <span class="s">"Mines left: "</span> + (C_MINES - nFlags)
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">cellClicked</span> nCell, cButton
+
 	<span class="k">if</span> <span class="k">not</span> lPlaying
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -2570,6 +2723,7 @@ newGame()
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">toggleFlag</span> nCell
+
 	<span class="k">if</span> aRevealed[nCell]
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -2585,6 +2739,7 @@ newGame()
 	showInfo()
 
 <span class="k">func</span> <span class="f">reveal</span> nCell
+
 	<span class="k">if</span> aRevealed[nCell] <span class="k">or</span> aFlagged[nCell]
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -2618,10 +2773,12 @@ newGame()
 	checkWin()
 
 <span class="k">func</span> <span class="f">numberColor</span> nNear
+
 	aColors = [<span class="s">"Blue"</span>,<span class="s">"Green"</span>,<span class="s">"Red"</span>,<span class="s">"DarkBlue"</span>,<span class="s">"Brown"</span>,<span class="s">"Teal"</span>,<span class="s">"Black"</span>,<span class="s">"Gray"</span>]
 	<span class="k">return</span> <span class="f">uiColor</span>(aColors[nNear])
 
 <span class="k">func</span> <span class="f">checkWin</span>
+
 	nHidden = <span class="n">0</span>
 	<span class="k">for</span> nCell = <span class="n">1</span> <span class="k">to</span> len(aRevealed)
 		<span class="k">if</span> <span class="k">not</span> aRevealed[nCell]
@@ -2634,6 +2791,7 @@ newGame()
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">gameOver</span>
+
 	lPlaying = <span class="k">false</span>
 	<span class="k">for</span> nCell = <span class="n">1</span> <span class="k">to</span> len(aMine)
 		<span class="k">if</span> aMine[nCell]
@@ -2644,6 +2802,7 @@ newGame()
 	oInfo.Text = <span class="s">"Boom! Game over"</span></code></pre></div></details></div></div><div class="item" id="notepad"><div class="pic"><img src="img/shots/app-Notepad.png" alt="Notepad" loading="lazy"></div><div class="info"><h3>Notepad</h3><p>Notepad - a text editor (menu, file dialogs, status bar, find) written with RingDotNet</p><div class="run"><code>cd samples/UsingDotNet/applications/Notepad  then  ring Notepad.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Notepad - a text editor (menu, file dialogs, status bar, find) written with RingDotNet</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -2698,6 +2857,7 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">textChanged</span>
+
 	<span class="k">if</span> <span class="k">not</span> lLoading
 		lModified = <span class="k">true</span>
 	<span class="k">ok</span>
@@ -2705,6 +2865,7 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 	showPosition()
 
 <span class="k">func</span> <span class="f">updateTitle</span>
+
 	cName = <span class="s">"Untitled"</span>
 	<span class="k">if</span> cFileName != <span class="s">""</span>
 		cName = <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetFileName</span>(cFileName)
@@ -2715,6 +2876,7 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 	oForm.Text = cName + <span class="s">" - Notepad"</span>
 
 <span class="k">func</span> <span class="f">showPosition</span>
+
 	nIndex = oEditor.SelectionStart
 	nLine = oEditor.<span class="f">GetLineFromCharIndex</span>(nIndex)
 	nColumn = nIndex - oEditor.<span class="f">GetFirstCharIndexFromLine</span>(nLine)
@@ -2722,12 +2884,14 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 
 <span class="c"># true when it is fine to throw away the current text</span>
 <span class="k">func</span> <span class="f">canDiscard</span>
+
 	<span class="k">if</span> <span class="k">not</span> lModified
 		<span class="k">return</span> <span class="k">true</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> <span class="f">uiAsk</span>(<span class="s">"Discard the changes?"</span>,<span class="s">"Notepad"</span>)
 
 <span class="k">func</span> <span class="f">newFile</span>
+
 	<span class="k">if</span> canDiscard()
 		setText(<span class="s">""</span>)
 		cFileName = <span class="s">""</span>
@@ -2736,11 +2900,13 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">setText</span> cText
+
 	lLoading = <span class="k">true</span>
 	oEditor.Text = cText
 	lLoading = <span class="k">false</span>
 
 <span class="k">func</span> <span class="f">openDialog</span>
+
 	<span class="k">if</span> canDiscard()
 		cName = <span class="f">uiOpenFileName</span>(<span class="s">"Open"</span>,<span class="s">"Text files (*.txt)|*.txt|All files (*.*)|*.*"</span>)
 		<span class="k">if</span> cName != <span class="s">""</span>
@@ -2749,6 +2915,7 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">loadFile</span> cName
+
 	<span class="k">try</span>
 		cContent = <span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cName)
 	<span class="k">catch</span>
@@ -2761,6 +2928,7 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 	updateTitle()
 
 <span class="k">func</span> <span class="f">saveFile</span>
+
 	<span class="k">if</span> cFileName = <span class="s">""</span>
 		saveAsDialog()
 	<span class="k">else</span>
@@ -2768,12 +2936,14 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">saveAsDialog</span>
+
 	cName = <span class="f">uiSaveFileName</span>(<span class="s">"Save As"</span>,<span class="s">"Text files (*.txt)|*.txt|All files (*.*)|*.*"</span>)
 	<span class="k">if</span> cName != <span class="s">""</span>
 		saveTo(cName)
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">saveTo</span> cName
+
 	<span class="k">try</span>
 		<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cName, :contents = oEditor.Text ])
 	<span class="k">catch</span>
@@ -2785,6 +2955,7 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 	updateTitle()
 
 <span class="k">func</span> <span class="f">toggleWrap</span>
+
 	oEditor.WordWrap = <span class="k">not</span> oEditor.WordWrap
 	<span class="k">if</span> oEditor.WordWrap
 		oEditor.ScrollBars = <span class="s">"Vertical"</span>
@@ -2793,12 +2964,14 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">toggleFind</span>
+
 	oFindPanel.Visible = <span class="k">not</span> oFindPanel.Visible
 	<span class="k">if</span> oFindPanel.Visible
 		oFindText.<span class="f">Focus</span>()
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">findNext</span>
+
 	cWhat = oFindText.Text
 	<span class="k">if</span> cWhat = <span class="s">""</span>
 		<span class="k">return</span>
@@ -2820,6 +2993,7 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 
 <span class="c"># 0-based position of cWhat in cText at or after nStart (-1 = not found); positions are bytes, so it is meant for ASCII text</span>
 <span class="k">func</span> <span class="f">findFrom</span> cText, cWhat, nStart
+
 	<span class="k">if</span> nStart &gt;= len(cText)
 		<span class="k">return</span> -<span class="n">1</span>
 	<span class="k">ok</span>
@@ -2831,11 +3005,13 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 	<span class="k">return</span> nStart + nPos - <span class="n">1</span>
 
 <span class="k">func</span> <span class="f">closing</span> oArgs
+
 	<span class="k">if</span> <span class="k">not</span> canDiscard()
 		oArgs.Cancel = <span class="k">True</span>
 	<span class="k">ok</span></code></pre></div></details></div></div><div class="item" id="number-guess"><div class="pic"><img src="img/shots/app-NumberGuess.png" alt="Number Guess" loading="lazy"></div><div class="info"><h3>Number Guess</h3><p>Guess the number between 1 and 100 - higher/lower hints and an attempts counter</p><div class="run"><code>cd samples/UsingDotNet/applications/NumberGuess  then  ring NumberGuess.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Guess the number between 1 and 100 - higher/lower hints and an attempts counter</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -2871,6 +3047,7 @@ newGame()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">newGame</span>
+
 	nSecret = random(<span class="n">99</span>) + <span class="n">1</span>
 	nAttempts = <span class="n">0</span>
 	oHint.Text = <span class="s">"Take a guess"</span>
@@ -2878,6 +3055,7 @@ newGame()
 	oGuess.Value = <span class="n">50</span>
 
 <span class="k">func</span> <span class="f">guess</span>
+
 	nNumber = number(oGuess.Value)
 	nAttempts++
 	<span class="k">if</span> nNumber &lt; nSecret
@@ -2898,6 +3076,7 @@ newGame()
 	<span class="k">ok</span></code></pre></div></details></div></div><div class="item" id="paint"><div class="pic"><img src="img/shots/app-Paint.png" alt="Paint" loading="lazy"></div><div class="info"><h3>Paint</h3><p>Paint - draw with the mouse (mouse events and UiCanvas), save the picture as PNG</p><div class="run"><code>cd samples/UsingDotNet/applications/Paint  then  ring Paint.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Paint - draw with the mouse (mouse events and UiCanvas), save the picture as PNG</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -2947,6 +3126,7 @@ oForm.Controls.<span class="f">Add</span>(oSize)
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">mouseDown</span> nX, nY
+
 	lDrawing = <span class="k">true</span>
 	nLastX = nX
 	nLastY = nY
@@ -2954,6 +3134,7 @@ oForm.Controls.<span class="f">Add</span>(oSize)
 	oCanvas.<span class="f">show</span>()
 
 <span class="k">func</span> <span class="f">mouseMove</span> nX, nY
+
 	<span class="k">if</span> lDrawing
 		oCanvas.<span class="f">line</span>(nLastX,nLastY,nX,nY,cColor,nPenSize)
 		oCanvas.<span class="f">fillCircle</span>(nX,nY,nPenSize / <span class="n">2</span>,cColor)
@@ -2963,19 +3144,23 @@ oForm.Controls.<span class="f">Add</span>(oSize)
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">clearCanvas</span>
+
 	oCanvas.<span class="f">clear</span>(<span class="s">"White"</span>)
 	oCanvas.<span class="f">show</span>()
 
 <span class="k">func</span> <span class="f">saveTo</span> cFile
+
 	oCanvas.oBitmap.<span class="f">Save</span>([ :filename = cFile, :format = <span class="k">new</span> <span class="t">ImageFormat</span>().Png ])
 
 <span class="k">func</span> <span class="f">saveDialog</span>
+
 	cFile = <span class="f">uiSaveFileName</span>(<span class="s">"Save picture"</span>,<span class="s">"PNG image (*.png)|*.png"</span>)
 	<span class="k">if</span> cFile != <span class="s">""</span>
 		saveTo(cFile)
 	<span class="k">ok</span></code></pre></div></details></div></div><div class="item" id="password-generator"><div class="pic"><img src="img/shots/app-PasswordGenerator.png" alt="Password Generator" loading="lazy"></div><div class="info"><h3>Password Generator</h3><p>Password generator - uses the .NET cryptographic random number generator</p><div class="run"><code>cd samples/UsingDotNet/applications/PasswordGenerator  then  ring PasswordGenerator.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Password generator - uses the .NET cryptographic random number generator</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Security.Cryptography"</span>
@@ -3026,6 +3211,7 @@ generate()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">alphabet</span>
+
 	cChars = <span class="s">""</span>
 	<span class="k">if</span> oLower.Checked cChars += <span class="s">"abcdefghijklmnopqrstuvwxyz"</span> <span class="k">ok</span>
 	<span class="k">if</span> oUpper.Checked cChars += <span class="s">"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</span> <span class="k">ok</span>
@@ -3035,9 +3221,11 @@ generate()
 
 <span class="c"># a random number from 0 to nMax - 1 taken from the operating system's random generator</span>
 <span class="k">func</span> <span class="f">secureRandom</span> nMax
+
 	<span class="k">return</span> <span class="k">new</span> <span class="t">RandomNumberGenerator</span>().<span class="f">GetInt32</span>(nMax)
 
 <span class="k">func</span> <span class="f">strength</span> cPassword
+
 	nScore = len(cPassword) * <span class="n">4</span>
 	nClasses = <span class="n">0</span>
 	<span class="k">if</span> hasAny(cPassword,<span class="s">"abcdefghijklmnopqrstuvwxyz"</span>) nClasses++ <span class="k">ok</span>
@@ -3051,6 +3239,7 @@ generate()
 	<span class="k">return</span> nScore
 
 <span class="k">func</span> <span class="f">hasAny</span> cText, cChars
+
 	<span class="k">for</span> x = <span class="n">1</span> <span class="k">to</span> len(cText)
 		<span class="k">if</span> substr(cChars,cText[x])
 			<span class="k">return</span> <span class="k">true</span>
@@ -3059,6 +3248,7 @@ generate()
 	<span class="k">return</span> <span class="k">false</span>
 
 <span class="k">func</span> <span class="f">generate</span>
+
 	cChars = alphabet()
 	<span class="k">if</span> cChars = <span class="s">""</span>
 		oPassword.Text = <span class="s">""</span>
@@ -3082,11 +3272,13 @@ generate()
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">copyIt</span>
+
 	<span class="k">if</span> oPassword.Text != <span class="s">""</span> <span class="k">and</span> <span class="k">not</span> <span class="f">uiSelfTest</span>()
 		<span class="k">new</span> <span class="t">Clipboard</span>().<span class="f">SetText</span>(oPassword.Text)
 	<span class="k">ok</span></code></pre></div></details></div></div><div class="item" id="pong"><div class="pic"><img src="img/shots/app-Pong.png" alt="Pong" loading="lazy"></div><div class="info"><h3>Pong</h3><p>Pong - Up/Down (or W/S) move your paddle, the computer plays the other one (a port of ring/applications/pong)</p><div class="run"><code>cd samples/UsingDotNet/applications/Pong  then  ring Pong.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Pong - Up/Down (or W/S) move your paddle, the computer plays the other one (a port of ring/applications/pong)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -3129,6 +3321,7 @@ draw()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">keyChanged</span> cKey, lDown
+
 	nKeyEvents++
 	<span class="k">if</span> cKey = <span class="s">"Up"</span> <span class="k">or</span> cKey = <span class="s">"W"</span>
 		<span class="k">if</span> lDown
@@ -3145,6 +3338,7 @@ draw()
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">clampPaddle</span> nY
+
 	<span class="k">if</span> nY &lt; <span class="n">0</span>
 		<span class="k">return</span> <span class="n">0</span>
 	<span class="k">but</span> nY &gt; C_HEIGHT - C_PADDLE_HEIGHT
@@ -3153,6 +3347,7 @@ draw()
 	<span class="k">return</span> nY
 
 <span class="k">func</span> <span class="f">serve</span> nDirection
+
 	nBallX = C_WIDTH / <span class="n">2</span>
 	nBallY = C_HEIGHT / <span class="n">2</span>
 	nBallDX = <span class="n">5</span> * nDirection
@@ -3160,6 +3355,7 @@ draw()
 
 <span class="c"># one step of the game</span>
 <span class="k">func</span> <span class="f">tick</span>
+
 	nPlayerY = clampPaddle(nPlayerY + nPlayerMove * <span class="n">7</span>)
 	<span class="c"># the computer follows the ball slowly</span>
 	nTarget = nBallY - C_PADDLE_HEIGHT / <span class="n">2</span>
@@ -3193,6 +3389,7 @@ draw()
 	draw()
 
 <span class="k">func</span> <span class="f">draw</span>
+
 	oCanvas.<span class="f">clear</span>(<span class="s">"Black"</span>)
 	<span class="k">for</span> nY = <span class="n">0</span> <span class="k">to</span> C_HEIGHT <span class="k">step</span> <span class="n">24</span>
 		oCanvas.<span class="f">fillRect</span>(C_WIDTH / <span class="n">2</span> - <span class="n">2</span>,nY,<span class="n">4</span>,<span class="n">12</span>,<span class="s">"DimGray"</span>)
@@ -3204,6 +3401,7 @@ draw()
 	oCanvas.<span class="f">show</span>()</code></pre></div></details></div></div><div class="item" id="rock-paper-scissors"><div class="pic"><img src="img/shots/app-RockPaperScissors.png" alt="Rock Paper Scissors" loading="lazy"></div><div class="info"><h3>Rock Paper Scissors</h3><p>Rock, paper, scissors against the computer (a port of ring/applications/rockpaperscissors)</p><div class="run"><code>cd samples/UsingDotNet/applications/RockPaperScissors  then  ring RockPaperScissors.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Rock, paper, scissors against the computer (a port of ring/applications/rockpaperscissors)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -3239,6 +3437,7 @@ showScore()
 
 <span class="c"># 1 = the player wins, 0 = tie, -1 = the computer wins (rock = 1, paper = 2, scissors = 3)</span>
 <span class="k">func</span> <span class="f">compare</span> nPlayer, nComputer
+
 	<span class="k">if</span> nPlayer = nComputer
 		<span class="k">return</span> <span class="n">0</span>
 	<span class="k">ok</span>
@@ -3248,9 +3447,11 @@ showScore()
 	<span class="k">return</span> -<span class="n">1</span>
 
 <span class="k">func</span> <span class="f">showScore</span>
+
 	oScore.Text = <span class="s">"Wins "</span> + nWins + <span class="s">"   Losses "</span> + nLosses + <span class="s">"   Ties "</span> + nTies
 
 <span class="k">func</span> <span class="f">playAgainst</span> nPlayer, nComputer
+
 	nOutcome = compare(nPlayer,nComputer)
 	<span class="k">switch</span> nOutcome
 	<span class="k">on</span> <span class="n">1</span>
@@ -3269,9 +3470,11 @@ showScore()
 	<span class="k">return</span> nOutcome
 
 <span class="k">func</span> <span class="f">play</span> nPlayer
+
 	playAgainst(nPlayer,random(<span class="n">2</span>) + <span class="n">1</span>)</code></pre></div></details></div></div><div class="item" id="snake"><div class="pic"><img src="img/shots/app-Snake.png" alt="Snake" loading="lazy"></div><div class="info"><h3>Snake</h3><p>Snake - arrow keys, eat the food, do not hit the walls or yourself (a port of ring/applications/snake)</p><div class="run"><code>cd samples/UsingDotNet/applications/Snake  then  ring Snake.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Snake - arrow keys, eat the food, do not hit the walls or yourself (a port of ring/applications/snake)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -3307,6 +3510,7 @@ newGame()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">newGame</span>
+
 	aSnake = [[<span class="n">12</span>,<span class="n">9</span>],[<span class="n">11</span>,<span class="n">9</span>],[<span class="n">10</span>,<span class="n">9</span>]]
 	cDirection = <span class="s">"Right"</span>
 	cNextDirection = <span class="s">"Right"</span>
@@ -3317,6 +3521,7 @@ newGame()
 	oTimer.<span class="f">Start</span>()
 
 <span class="k">func</span> <span class="f">placeFood</span>
+
 	<span class="k">while</span> <span class="k">true</span>
 		aFood = [random(C_COLUMNS - <span class="n">1</span>),random(C_ROWS - <span class="n">1</span>)]
 		<span class="k">if</span> <span class="k">not</span> onSnake(aFood[<span class="n">1</span>],aFood[<span class="n">2</span>])
@@ -3325,6 +3530,7 @@ newGame()
 	<span class="k">end</span>
 
 <span class="k">func</span> <span class="f">onSnake</span> nX, nY
+
 	<span class="k">for</span> aPart <span class="k">in</span> aSnake
 		<span class="k">if</span> aPart[<span class="n">1</span>] = nX <span class="k">and</span> aPart[<span class="n">2</span>] = nY
 			<span class="k">return</span> <span class="k">true</span>
@@ -3333,6 +3539,7 @@ newGame()
 	<span class="k">return</span> <span class="k">false</span>
 
 <span class="k">func</span> <span class="f">keyPressed</span> cKey
+
 	<span class="k">if</span> cKey = <span class="s">"Left"</span> <span class="k">and</span> cDirection != <span class="s">"Right"</span>
 		cNextDirection = <span class="s">"Left"</span>
 	<span class="k">but</span> cKey = <span class="s">"Right"</span> <span class="k">and</span> cDirection != <span class="s">"Left"</span>
@@ -3347,6 +3554,7 @@ newGame()
 
 <span class="c"># one step of the game</span>
 <span class="k">func</span> <span class="f">tick</span>
+
 	<span class="k">if</span> <span class="k">not</span> lAlive
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -3375,6 +3583,7 @@ newGame()
 	draw()
 
 <span class="k">func</span> <span class="f">draw</span>
+
 	oCanvas.<span class="f">clear</span>(<span class="s">"#202020"</span>)
 	oCanvas.<span class="f">fillRect</span>(aFood[<span class="n">1</span>] * C_CELL + <span class="n">2</span>,aFood[<span class="n">2</span>] * C_CELL + <span class="n">2</span>,C_CELL - <span class="n">4</span>,C_CELL - <span class="n">4</span>,<span class="s">"Red"</span>)
 	<span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> len(aSnake)
@@ -3393,6 +3602,7 @@ newGame()
 <span class="c">#   # wall   @ player   $ box   . target   * box on a target   + player on a target</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -3446,6 +3656,7 @@ loadLevel(<span class="n">1</span>)
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">loadLevel</span> nNumber
+
 	nLevel = nNumber
 	aMap = []
 	<span class="k">for</span> cRow <span class="k">in</span> aLevels[nLevel]
@@ -3465,6 +3676,7 @@ loadLevel(<span class="n">1</span>)
 
 <span class="c"># the window and the picture follow the size of the level</span>
 <span class="k">func</span> <span class="f">fitWindow</span>
+
 	nColumns = <span class="n">0</span>
 	<span class="k">for</span> cRow <span class="k">in</span> aMap
 		<span class="k">if</span> len(cRow) &gt; nColumns
@@ -3483,31 +3695,38 @@ loadLevel(<span class="n">1</span>)
 	oNext.Left = nWidth - <span class="n">65</span>
 
 <span class="k">func</span> <span class="f">nextLevel</span>
+
 	loadLevel(nLevel % len(aLevels) + <span class="n">1</span>)
 
 <span class="k">func</span> <span class="f">tileAt</span> nColumn, nRow
+
 	<span class="k">if</span> nRow &lt; <span class="n">1</span> <span class="k">or</span> nRow &gt; len(aMap) <span class="k">or</span> nColumn &lt; <span class="n">1</span> <span class="k">or</span> nColumn &gt; len(aMap[nRow])
 		<span class="k">return</span> <span class="s">"#"</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> aMap[nRow][nColumn]
 
 <span class="k">func</span> <span class="f">setTile</span> nColumn, nRow, cTile
+
 	aMap[nRow][nColumn] = cTile
 
 <span class="k">func</span> <span class="f">isTarget</span> cTile
+
 	<span class="k">return</span> cTile = <span class="s">"."</span> <span class="k">or</span> cTile = <span class="s">"*"</span> <span class="k">or</span> cTile = <span class="s">"+"</span>
 
 <span class="k">func</span> <span class="f">isBox</span> cTile
+
 	<span class="k">return</span> cTile = <span class="s">"$"</span> <span class="k">or</span> cTile = <span class="s">"*"</span>
 
 <span class="c"># the tile left behind: a target stays a target</span>
 <span class="k">func</span> <span class="f">without</span> cTile
+
 	<span class="k">if</span> isTarget(cTile)
 		<span class="k">return</span> <span class="s">"."</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> <span class="s">" "</span>
 
 <span class="k">func</span> <span class="f">move</span> nDx, nDy
+
 	nTargetColumn = nPlayerColumn + nDx
 	nTargetRow = nPlayerRow + nDy
 	cTarget = tileAt(nTargetColumn,nTargetRow)
@@ -3540,6 +3759,7 @@ loadLevel(<span class="n">1</span>)
 	<span class="k">return</span> <span class="k">true</span>
 
 <span class="k">func</span> <span class="f">boxesLeft</span>
+
 	nCount = <span class="n">0</span>
 	<span class="k">for</span> cRow <span class="k">in</span> aMap
 		<span class="k">for</span> x = <span class="n">1</span> <span class="k">to</span> len(cRow)
@@ -3551,6 +3771,7 @@ loadLevel(<span class="n">1</span>)
 	<span class="k">return</span> nCount
 
 <span class="k">func</span> <span class="f">keyPressed</span> cKey
+
 	<span class="k">switch</span> cKey
 	<span class="k">on</span> <span class="s">"Left"</span>	move(-<span class="n">1</span>,<span class="n">0</span>)
 	<span class="k">on</span> <span class="s">"Right"</span>	move(<span class="n">1</span>,<span class="n">0</span>)
@@ -3560,6 +3781,7 @@ loadLevel(<span class="n">1</span>)
 	draw()
 
 <span class="k">func</span> <span class="f">draw</span>
+
 	oCanvas.<span class="f">clear</span>(<span class="s">"#222222"</span>)
 	<span class="k">for</span> nRow = <span class="n">1</span> <span class="k">to</span> len(aMap)
 		<span class="k">for</span> nColumn = <span class="n">1</span> <span class="k">to</span> len(aMap[nRow])
@@ -3591,6 +3813,7 @@ loadLevel(<span class="n">1</span>)
 	oCanvas.<span class="f">show</span>()</code></pre></div></details></div></div><div class="item" id="stopwatch"><div class="pic"><img src="img/shots/app-Stopwatch.png" alt="Stopwatch" loading="lazy"></div><div class="info"><h3>Stopwatch</h3><p>Stopwatch with laps - a port of ring/applications/stopwatch to RingDotNet</p><div class="run"><code>cd samples/UsingDotNet/applications/Stopwatch  then  ring Stopwatch.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Stopwatch with laps - a port of ring/applications/stopwatch to RingDotNet</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Diagnostics"</span>
@@ -3619,11 +3842,13 @@ oTimer = <span class="f">uiTimer</span>(<span class="n">50</span>,<span class="s
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">formatTime</span> nMilliseconds
+
 	nSeconds = floor(nMilliseconds / <span class="n">1000</span>)
 	nMinutes = floor(nSeconds / <span class="n">60</span>)
 	<span class="k">return</span> twoDigits(nMinutes) + <span class="s">":"</span> + twoDigits(nSeconds % <span class="n">60</span>) + <span class="s">"."</span> + twoDigits(floor((nMilliseconds % <span class="n">1000</span>) / <span class="n">10</span>))
 
 <span class="k">func</span> <span class="f">twoDigits</span> n
+
 	cText = <span class="s">""</span> + floor(n)
 	<span class="k">if</span> len(cText) &lt; <span class="n">2</span>
 		cText = <span class="s">"0"</span> + cText
@@ -3631,9 +3856,11 @@ oTimer = <span class="f">uiTimer</span>(<span class="n">50</span>,<span class="s
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">showTime</span>
+
 	oTime.Text = formatTime(oWatch.ElapsedMilliseconds)
 
 <span class="k">func</span> <span class="f">startStop</span>
+
 	<span class="k">if</span> oWatch.IsRunning
 		oWatch.<span class="f">Stop</span>()
 		oTimer.<span class="f">Stop</span>()
@@ -3646,6 +3873,7 @@ oTimer = <span class="f">uiTimer</span>(<span class="n">50</span>,<span class="s
 	showTime()
 
 <span class="k">func</span> <span class="f">lap</span>
+
 	<span class="k">if</span> oWatch.ElapsedMilliseconds &gt; <span class="n">0</span>
 		nNow = oWatch.ElapsedMilliseconds
 		oLaps.Items.<span class="f">Add</span>(<span class="s">"Lap "</span> + (oLaps.Items.Count + <span class="n">1</span>) + <span class="s">"   "</span> + formatTime(nNow) + <span class="s">"   (+"</span> + formatTime(nNow - nLastLap) + <span class="s">")"</span>)
@@ -3653,6 +3881,7 @@ oTimer = <span class="f">uiTimer</span>(<span class="n">50</span>,<span class="s
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">reset</span>
+
 	oWatch.<span class="f">Reset</span>()
 	oTimer.<span class="f">Stop</span>()
 	oStart.Text = <span class="s">"Start"</span>
@@ -3661,6 +3890,7 @@ oTimer = <span class="f">uiTimer</span>(<span class="n">50</span>,<span class="s
 	showTime()</code></pre></div></details></div></div><div class="item" id="sudoku"><div class="pic"><img src="img/shots/app-Sudoku.png" alt="Sudoku" loading="lazy"></div><div class="info"><h3>Sudoku</h3><p>Sudoku - type the digits, "Check" finds mistakes, "Solve" uses backtracking (a port of ring/applications/sudoku)</p><div class="run"><code>cd samples/UsingDotNet/applications/Sudoku  then  ring Sudoku.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Sudoku - type the digits, "Check" finds mistakes, "Solve" uses backtracking (a port of ring/applications/sudoku)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -3703,6 +3933,7 @@ loadPuzzle(cPuzzle)
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">loadPuzzle</span> cDigits
+
 	lLoading = <span class="k">true</span>
 	<span class="k">for</span> nCell = <span class="n">1</span> <span class="k">to</span> <span class="n">81</span>
 		aGrid[nCell] = number(cDigits[nCell])
@@ -3723,6 +3954,7 @@ loadPuzzle(cPuzzle)
 	oInfo.Text = <span class="s">"Fill the empty squares"</span>
 
 <span class="k">func</span> <span class="f">typed</span> nCell
+
 	<span class="k">if</span> lLoading <span class="k">or</span> aFixed[nCell]
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -3743,6 +3975,7 @@ loadPuzzle(cPuzzle)
 
 <span class="c"># can nDigit go in the cell without breaking a rule</span>
 <span class="k">func</span> <span class="f">canPlace</span> aCells, nCell, nDigit
+
 	nRow = floor((nCell - <span class="n">1</span>) / <span class="n">9</span>)
 	nColumn = (nCell - <span class="n">1</span>) % <span class="n">9</span>
 	<span class="k">for</span> nOther = <span class="n">0</span> <span class="k">to</span> <span class="n">8</span>
@@ -3767,6 +4000,7 @@ loadPuzzle(cPuzzle)
 
 <span class="c"># backtracking solver; fills aCells and returns true when the puzzle has a solution</span>
 <span class="k">func</span> <span class="f">solve</span> aCells
+
 	nEmpty = <span class="n">0</span>
 	<span class="k">for</span> nCell = <span class="n">1</span> <span class="k">to</span> <span class="n">81</span>
 		<span class="k">if</span> aCells[nCell] = <span class="n">0</span>
@@ -3789,6 +4023,7 @@ loadPuzzle(cPuzzle)
 	<span class="k">return</span> <span class="k">false</span>
 
 <span class="k">func</span> <span class="f">solveBoard</span>
+
 	aWork = aGrid
 	<span class="k">if</span> solve(aWork)
 		lLoading = <span class="k">true</span>
@@ -3804,6 +4039,7 @@ loadPuzzle(cPuzzle)
 
 <span class="c"># mark the digits that break a rule</span>
 <span class="k">func</span> <span class="f">checkBoard</span>
+
 	nWrong = <span class="n">0</span>
 	<span class="k">for</span> nCell = <span class="n">1</span> <span class="k">to</span> <span class="n">81</span>
 		<span class="k">if</span> aGrid[nCell] &gt; <span class="n">0</span> <span class="k">and</span> <span class="k">not</span> canPlace(aGrid,nCell,aGrid[nCell])
@@ -3828,6 +4064,7 @@ loadPuzzle(cPuzzle)
 	<span class="k">ok</span></code></pre></div></details></div></div><div class="item" id="temperature-converter"><div class="pic"><img src="img/shots/app-TemperatureConverter.png" alt="Temperature Converter" loading="lazy"></div><div class="info"><h3>Temperature Converter</h3><p>Temperature converter: type in any box and the others follow (TextChanged events)</p><div class="run"><code>cd samples/UsingDotNet/applications/TemperatureConverter  then  ring TemperatureConverter.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Temperature converter: type in any box and the others follow (TextChanged events)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -3856,6 +4093,7 @@ oCelsius.Text = <span class="s">"20"</span>
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">isValidNumber</span> cText
+
 	cText = trim(cText)
 	<span class="k">if</span> cText = <span class="s">""</span> <span class="k">or</span> cText = <span class="s">"-"</span> <span class="k">or</span> cText = <span class="s">"."</span>
 		<span class="k">return</span> <span class="k">false</span>
@@ -3869,11 +4107,13 @@ oCelsius.Text = <span class="s">"20"</span>
 	<span class="k">return</span> <span class="k">true</span>
 
 <span class="k">func</span> <span class="f">show</span> oBox, nValue
+
 	lUpdating = <span class="k">true</span>
 	oBox.Text = <span class="f">uiNumber</span>(floor(nValue * <span class="n">100</span> + <span class="n">0.5</span>) / <span class="n">100</span>)
 	lUpdating = <span class="k">false</span>
 
 <span class="k">func</span> <span class="f">fromCelsius</span>
+
 	<span class="k">if</span> lUpdating <span class="k">or</span> <span class="k">not</span> isValidNumber(oCelsius.Text)
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -3882,6 +4122,7 @@ oCelsius.Text = <span class="s">"20"</span>
 	show(oKelvin,nValue + <span class="n">273.15</span>)
 
 <span class="k">func</span> <span class="f">fromFahrenheit</span>
+
 	<span class="k">if</span> lUpdating <span class="k">or</span> <span class="k">not</span> isValidNumber(oFahrenheit.Text)
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -3890,6 +4131,7 @@ oCelsius.Text = <span class="s">"20"</span>
 	show(oKelvin,nValue + <span class="n">273.15</span>)
 
 <span class="k">func</span> <span class="f">fromKelvin</span>
+
 	<span class="k">if</span> lUpdating <span class="k">or</span> <span class="k">not</span> isValidNumber(oKelvin.Text)
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -3898,6 +4140,7 @@ oCelsius.Text = <span class="s">"20"</span>
 	show(oFahrenheit,nValue * <span class="n">9</span> / <span class="n">5</span> + <span class="n">32</span>)</code></pre></div></details></div></div><div class="item" id="tetris"><div class="pic"><img src="img/shots/app-Tetris.png" alt="Tetris" loading="lazy"></div><div class="info"><h3>Tetris</h3><p>Tetris - Left/Right move, Up rotates, Down drops one row, Space drops all the way (a port of ring/applications/tetris)</p><div class="run"><code>cd samples/UsingDotNet/applications/Tetris  then  ring Tetris.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tetris - Left/Right move, Up rotates, Down drops one row, Space drops all the way (a port of ring/applications/tetris)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -3948,10 +4191,12 @@ newGame()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">cellOf</span> nColumn, nRow
+
 	<span class="k">return</span> nRow * C_COLUMNS + nColumn + <span class="n">1</span>
 
 <span class="c"># does the piece fit at the position</span>
 <span class="k">func</span> <span class="f">fits</span> aCells, nX, nY
+
 	<span class="k">for</span> aCell <span class="k">in</span> aCells
 		nColumn = nX + aCell[<span class="n">1</span>]
 		nRow = nY + aCell[<span class="n">2</span>]
@@ -3965,6 +4210,7 @@ newGame()
 	<span class="k">return</span> <span class="k">true</span>
 
 <span class="k">func</span> <span class="f">rotated</span> aCells
+
 	aNew = []
 	<span class="k">for</span> aCell <span class="k">in</span> aCells
 		aNew + [-aCell[<span class="n">2</span>],aCell[<span class="n">1</span>]]
@@ -3972,6 +4218,7 @@ newGame()
 	<span class="k">return</span> aNew
 
 <span class="k">func</span> <span class="f">newPiece</span>
+
 	nPiece = random(len(aPieces) - <span class="n">1</span>) + <span class="n">1</span>
 	aCurrent = aPieces[nPiece]
 	nPieceX = <span class="n">4</span>
@@ -3982,6 +4229,7 @@ newGame()
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">newGame</span>
+
 	aBoard = list(C_COLUMNS * C_ROWS)
 	nScore = <span class="n">0</span>
 	nLines = <span class="n">0</span>
@@ -3992,6 +4240,7 @@ newGame()
 
 <span class="c"># lock the piece into the board and clear the full rows</span>
 <span class="k">func</span> <span class="f">lockPiece</span>
+
 	<span class="k">for</span> aCell <span class="k">in</span> aCurrent
 		nColumn = nPieceX + aCell[<span class="n">1</span>]
 		nRow = nPieceY + aCell[<span class="n">2</span>]
@@ -4006,6 +4255,7 @@ newGame()
 	newPiece()
 
 <span class="k">func</span> <span class="f">clearRows</span>
+
 	nCleared = <span class="n">0</span>
 	nRow = C_ROWS - <span class="n">1</span>
 	<span class="k">while</span> nRow &gt;= <span class="n">0</span>
@@ -4034,6 +4284,7 @@ newGame()
 	<span class="k">return</span> nCleared
 
 <span class="k">func</span> <span class="f">tick</span>
+
 	<span class="k">if</span> lGameOver
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -4045,6 +4296,7 @@ newGame()
 	draw()
 
 <span class="k">func</span> <span class="f">keyPressed</span> cKey
+
 	<span class="k">if</span> lGameOver
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -4073,6 +4325,7 @@ newGame()
 	draw()
 
 <span class="k">func</span> <span class="f">draw</span>
+
 	oCanvas.<span class="f">clear</span>(<span class="s">"#101820"</span>)
 	<span class="k">for</span> nRow = <span class="n">0</span> <span class="k">to</span> C_ROWS - <span class="n">1</span>
 		<span class="k">for</span> nColumn = <span class="n">0</span> <span class="k">to</span> C_COLUMNS - <span class="n">1</span>
@@ -4095,6 +4348,7 @@ newGame()
 	oCanvas.<span class="f">show</span>()</code></pre></div></details></div></div><div class="item" id="tic-tac-toe"><div class="pic"><img src="img/shots/app-TicTacToe.png" alt="Tic Tac Toe" loading="lazy"></div><div class="info"><h3>Tic Tac Toe</h3><p>Tic-Tac-Toe against the computer - a port of ring/applications/tictactoe to RingDotNet</p><div class="run"><code>cd samples/UsingDotNet/applications/TicTacToe  then  ring TicTacToe.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tic-Tac-Toe against the computer - a port of ring/applications/tictactoe to RingDotNet</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -4133,9 +4387,11 @@ showScore()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">showScore</span>
+
 	oScore.Text = <span class="s">"You "</span> + nWinsX + <span class="s">"   Computer "</span> + nWinsO + <span class="s">"   Draws "</span> + nDraws
 
 <span class="k">func</span> <span class="f">newGame</span>
+
 	aBoard = list(<span class="n">9</span>)
 	lGameOver = <span class="k">false</span>
 	<span class="k">for</span> oButton <span class="k">in</span> aButtons
@@ -4147,6 +4403,7 @@ showScore()
 	oStatus.Text = <span class="s">"Your turn (X)"</span>
 
 <span class="k">func</span> <span class="f">move</span> nIndex
+
 	<span class="k">if</span> lGameOver <span class="k">or</span> aBoard[nIndex] != <span class="n">0</span>
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -4156,6 +4413,7 @@ showScore()
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">place</span> nIndex, nPlayer
+
 	aBoard[nIndex] = nPlayer
 	<span class="k">if</span> nPlayer = <span class="n">1</span>
 		aButtons[nIndex].Text = <span class="s">"X"</span>
@@ -4189,6 +4447,7 @@ showScore()
 
 <span class="c"># index of the winning line (0 = none)</span>
 <span class="k">func</span> <span class="f">winner</span> aCells
+
 	<span class="k">for</span> nLine = <span class="n">1</span> <span class="k">to</span> len(aLines)
 		nA = aCells[aLines[nLine][<span class="n">1</span>]]
 		<span class="k">if</span> nA != <span class="n">0</span> <span class="k">and</span> nA = aCells[aLines[nLine][<span class="n">2</span>]] <span class="k">and</span> nA = aCells[aLines[nLine][<span class="n">3</span>]]
@@ -4198,6 +4457,7 @@ showScore()
 	<span class="k">return</span> <span class="n">0</span>
 
 <span class="k">func</span> <span class="f">isFull</span> aCells
+
 	<span class="k">for</span> nCell <span class="k">in</span> aCells
 		<span class="k">if</span> nCell = <span class="n">0</span>
 			<span class="k">return</span> <span class="k">false</span>
@@ -4207,6 +4467,7 @@ showScore()
 
 <span class="c"># a cell that wins or blocks, else the center, a corner, any cell</span>
 <span class="k">func</span> <span class="f">computerMove</span>
+
 	<span class="k">for</span> nPlayer <span class="k">in</span> [<span class="n">2</span>,<span class="n">1</span>]
 		<span class="k">for</span> nCell = <span class="n">1</span> <span class="k">to</span> <span class="n">9</span>
 			<span class="k">if</span> aBoard[nCell] = <span class="n">0</span>
@@ -4226,6 +4487,7 @@ showScore()
 	<span class="k">next</span></code></pre></div></details></div></div><div class="item" id="todo-list"><div class="pic"><img src="img/shots/app-TodoList.png" alt="Todo List" loading="lazy"></div><div class="info"><h3>Todo List</h3><p>To-do list with check boxes, saved to a text file</p><div class="run"><code>cd samples/UsingDotNet/applications/TodoList  then  ring TodoList.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># To-do list with check boxes, saved to a text file</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -4263,10 +4525,12 @@ loadTasks()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">updateInfo</span>
+
 	nDone = oList.CheckedItems.Count
 	oInfo.Text = string(oList.Items.Count) + <span class="s">" tasks, "</span> + nDone + <span class="s">" done"</span>
 
 <span class="k">func</span> <span class="f">addTask</span>
+
 	cTask = trim(oInput.Text)
 	<span class="k">if</span> cTask != <span class="s">""</span>
 		oList.Items.<span class="f">Add</span>([ :item = cTask, :isChecked = <span class="k">False</span> ])
@@ -4275,6 +4539,7 @@ loadTasks()
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">removeDone</span>
+
 	<span class="k">for</span> nIndex = oList.Items.Count - <span class="n">1</span> <span class="k">to</span> <span class="n">0</span> <span class="k">step</span> -<span class="n">1</span>
 		<span class="k">if</span> oList.<span class="f">GetItemChecked</span>(nIndex)
 			oList.Items.<span class="f">RemoveAt</span>(nIndex)
@@ -4284,6 +4549,7 @@ loadTasks()
 
 <span class="c"># one line per task: "[x] text" or "[ ] text"</span>
 <span class="k">func</span> <span class="f">saveTasks</span>
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> nIndex = <span class="n">0</span> <span class="k">to</span> oList.Items.Count - <span class="n">1</span>
 		<span class="k">if</span> oList.<span class="f">GetItemChecked</span>(nIndex)
@@ -4296,6 +4562,7 @@ loadTasks()
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = cText ])
 
 <span class="k">func</span> <span class="f">loadTasks</span>
+
 	oList.Items.<span class="f">Clear</span>()
 	<span class="k">if</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile)
 		<span class="k">for</span> cLine <span class="k">in</span> str2list(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cFile))
@@ -4309,6 +4576,7 @@ loadTasks()
 <span class="c"># (a port of ring/applications/towersofhanoi to RingDotNet)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -4349,6 +4617,7 @@ newGame()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">newGame</span>
+
 	oSolver.<span class="f">Stop</span>()
 	nDisks = number(oCount.Value)
 	aPegs = [[],[],[]]
@@ -4360,6 +4629,7 @@ newGame()
 	draw()
 
 <span class="k">func</span> <span class="f">draw</span>
+
 	oCanvas.<span class="f">clear</span>(<span class="s">"White"</span>)
 	<span class="k">for</span> nPeg = <span class="n">1</span> <span class="k">to</span> <span class="n">3</span>
 		nX = <span class="n">100</span> + (nPeg - <span class="n">1</span>) * <span class="n">200</span>
@@ -4383,14 +4653,17 @@ newGame()
 	oCanvas.<span class="f">show</span>()
 
 <span class="k">func</span> <span class="f">diskColor</span> nSize
+
 	aColors = [<span class="s">"#e6194b"</span>,<span class="s">"#f58231"</span>,<span class="s">"#ffe119"</span>,<span class="s">"#3cb44b"</span>,<span class="s">"#4363d8"</span>,<span class="s">"#911eb4"</span>,<span class="s">"#f032e6"</span>,<span class="s">"#808000"</span>]
 	<span class="k">return</span> aColors[nSize]
 
 <span class="k">func</span> <span class="f">isSolved</span>
+
 	<span class="k">return</span> len(aPegs[<span class="n">3</span>]) = nDisks
 
 <span class="c"># can the top disk of nFrom go to nTo</span>
 <span class="k">func</span> <span class="f">canMove</span> nFrom, nTo
+
 	<span class="k">if</span> nFrom = nTo <span class="k">or</span> len(aPegs[nFrom]) = <span class="n">0</span>
 		<span class="k">return</span> <span class="k">false</span>
 	<span class="k">ok</span>
@@ -4400,6 +4673,7 @@ newGame()
 	<span class="k">return</span> aPegs[nFrom][len(aPegs[nFrom])] &lt; aPegs[nTo][len(aPegs[nTo])]
 
 <span class="k">func</span> <span class="f">moveDisk</span> nFrom, nTo
+
 	<span class="k">if</span> <span class="k">not</span> canMove(nFrom,nTo)
 		<span class="k">return</span> <span class="k">false</span>
 	<span class="k">ok</span>
@@ -4409,6 +4683,7 @@ newGame()
 	<span class="k">return</span> <span class="k">true</span>
 
 <span class="k">func</span> <span class="f">clicked</span> nMouseX
+
 	nPeg = floor(nMouseX / <span class="n">200</span>) + <span class="n">1</span>
 	<span class="k">if</span> nPeg &gt; <span class="n">3</span>
 		nPeg = <span class="n">3</span>
@@ -4425,6 +4700,7 @@ newGame()
 
 <span class="c"># the recursive solution, collected as a list of moves</span>
 <span class="k">func</span> <span class="f">solve</span> nCount, nFrom, nTo, nVia
+
 	<span class="k">if</span> nCount = <span class="n">0</span>
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -4433,6 +4709,7 @@ newGame()
 	solve(nCount - <span class="n">1</span>,nVia,nTo,nFrom)
 
 <span class="k">func</span> <span class="f">startSolver</span>
+
 	newGame()
 	aPlan = []
 	solve(nDisks,<span class="n">1</span>,<span class="n">3</span>,<span class="n">2</span>)
@@ -4440,6 +4717,7 @@ newGame()
 	oSolver.<span class="f">Start</span>()
 
 <span class="k">func</span> <span class="f">solverStep</span>
+
 	nPlanned++
 	<span class="k">if</span> nPlanned &gt; len(aPlan)
 		oSolver.<span class="f">Stop</span>()
@@ -4449,6 +4727,7 @@ newGame()
 	draw()</code></pre></div></details></div></div><div class="item" id="typing-quiz"><div class="pic"><img src="img/shots/app-TypingQuiz.png" alt="Typing Quiz" loading="lazy"></div><div class="info"><h3>Typing Quiz</h3><p>Typing quiz - type the sentence, the quiz measures the speed and the mistakes (a port of ring/applications/typingquiz)</p><div class="run"><code>cd samples/UsingDotNet/applications/TypingQuiz  then  ring TypingQuiz.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Typing quiz - type the sentence, the quiz measures the speed and the mistakes (a port of ring/applications/typingquiz)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Diagnostics"</span>
@@ -4490,6 +4769,7 @@ newSentence()
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">newSentence</span>
+
 	cTarget = aSentences[random(len(aSentences) - <span class="n">1</span>) + <span class="n">1</span>]
 	showTarget(cTarget)
 	oInput.Text = <span class="s">""</span>
@@ -4502,11 +4782,13 @@ newSentence()
 	oInput.<span class="f">Focus</span>()
 
 <span class="k">func</span> <span class="f">showTarget</span> cText
+
 	cTarget = cText
 	oSentence.Text = cText
 
 <span class="c"># the number of typed characters that differ from the target (the part that is not typed yet does not count)</span>
 <span class="k">func</span> <span class="f">mistakes</span> cTyped
+
 	nWrong = <span class="n">0</span>
 	<span class="k">for</span> x = <span class="n">1</span> <span class="k">to</span> len(cTarget)
 		<span class="k">if</span> x &lt;= len(cTyped) <span class="k">and</span> cTyped[x] != cTarget[x]
@@ -4520,12 +4802,14 @@ newSentence()
 
 <span class="c"># words per minute: five characters make a word</span>
 <span class="k">func</span> <span class="f">wordsPerMinute</span> nCharacters, nMilliseconds
+
 	<span class="k">if</span> nMilliseconds &lt;= <span class="n">0</span>
 		<span class="k">return</span> <span class="n">0</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> floor((nCharacters / <span class="n">5</span>) / (nMilliseconds / <span class="n">60000</span>))
 
 <span class="k">func</span> <span class="f">typed</span>
+
 	cTyped = oInput.Text
 	<span class="k">if</span> cTyped = <span class="s">""</span> <span class="k">or</span> cTarget = <span class="s">""</span>
 		<span class="k">return</span>
@@ -4561,6 +4845,7 @@ newSentence()
 	<span class="k">ok</span></code></pre></div></details></div></div><div class="item" id="unit-converter"><div class="pic"><img src="img/shots/app-UnitConverter.png" alt="Unit Converter" loading="lazy"></div><div class="info"><h3>Unit Converter</h3><p>Unit converter - length, weight, volume and temperature</p><div class="run"><code>cd samples/UsingDotNet/applications/UnitConverter  then  ring UnitConverter.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Unit converter - length, weight, volume and temperature</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -4604,6 +4889,7 @@ oValue.Text = <span class="s">"1"</span>
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">fillUnits</span>
+
 	aUnits = aCategories[oCategory.SelectedIndex + <span class="n">1</span>][<span class="n">2</span>]
 	oFrom.Items.<span class="f">Clear</span>()
 	oTo.Items.<span class="f">Clear</span>()
@@ -4616,6 +4902,7 @@ oValue.Text = <span class="s">"1"</span>
 	convert()
 
 <span class="k">func</span> <span class="f">toCelsius</span> cUnit, nValue
+
 	<span class="k">switch</span> cUnit
 	<span class="k">on</span> <span class="s">"Celsius"</span>	<span class="k">return</span> nValue
 	<span class="k">on</span> <span class="s">"Fahrenheit"</span>	<span class="k">return</span> (nValue - <span class="n">32</span>) * <span class="n">5</span> / <span class="n">9</span>
@@ -4623,6 +4910,7 @@ oValue.Text = <span class="s">"1"</span>
 	<span class="k">off</span>
 
 <span class="k">func</span> <span class="f">fromCelsius</span> cUnit, nValue
+
 	<span class="k">switch</span> cUnit
 	<span class="k">on</span> <span class="s">"Celsius"</span>	<span class="k">return</span> nValue
 	<span class="k">on</span> <span class="s">"Fahrenheit"</span>	<span class="k">return</span> nValue * <span class="n">9</span> / <span class="n">5</span> + <span class="n">32</span>
@@ -4631,6 +4919,7 @@ oValue.Text = <span class="s">"1"</span>
 
 <span class="c"># convert nValue between two units of a category</span>
 <span class="k">func</span> <span class="f">convertValue</span> cCategory, cFromUnit, cToUnit, nValue
+
 	<span class="k">if</span> cCategory = <span class="s">"Temperature"</span>
 		<span class="k">return</span> fromCelsius(cToUnit,toCelsius(cFromUnit,nValue))
 	<span class="k">ok</span>
@@ -4651,6 +4940,7 @@ oValue.Text = <span class="s">"1"</span>
 	<span class="k">next</span>
 
 <span class="k">func</span> <span class="f">isNumeric</span> cText
+
 	cText = trim(cText)
 	<span class="k">if</span> cText = <span class="s">""</span> <span class="k">or</span> cText = <span class="s">"-"</span> <span class="k">or</span> cText = <span class="s">"."</span>
 		<span class="k">return</span> <span class="k">false</span>
@@ -4664,6 +4954,7 @@ oValue.Text = <span class="s">"1"</span>
 	<span class="k">return</span> <span class="k">true</span>
 
 <span class="k">func</span> <span class="f">convert</span>
+
 	<span class="k">if</span> oFrom.SelectedIndex &lt; <span class="n">0</span> <span class="k">or</span> oTo.SelectedIndex &lt; <span class="n">0</span> <span class="k">or</span> <span class="k">not</span> isNumeric(oValue.Text)
 		oResult.Text = <span class="s">""</span>
 		<span class="k">return</span>
@@ -4673,6 +4964,7 @@ oValue.Text = <span class="s">"1"</span>
 	oFormula.Text = oValue.Text + <span class="s">" "</span> + oFrom.Text + <span class="s">" = "</span> + oResult.Text + <span class="s">" "</span> + oTo.Text</code></pre></div></details></div></div><div class="item" id="word-counter"><div class="pic"><img src="img/shots/app-WordCounter.png" alt="Word Counter" loading="lazy"></div><div class="info"><h3>Word Counter</h3><p>Word counter - live statistics of the text and the most frequent words (uses a .NET Regex and Dictionary)</p><div class="run"><code>cd samples/UsingDotNet/applications/WordCounter  then  ring WordCounter.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Word counter - live statistics of the text and the most frequent words (uses a .NET Regex and Dictionary)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Text.RegularExpressions"</span>
 	<span class="s">"System.Collections.Generic"</span>
@@ -4700,6 +4992,7 @@ update()
 
 <span class="c"># the words of a text (letters and digits, lower case)</span>
 <span class="k">func</span> <span class="f">wordsOf</span> cText
+
 	oMatches = <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"[\p{L}\p{N}']+"</span>).<span class="f">Matches</span>(cText)
 	aWords = []
 	<span class="k">for</span> oMatch <span class="k">in</span> oMatches.<span class="f">toList</span>()
@@ -4708,6 +5001,7 @@ update()
 	<span class="k">return</span> aWords
 
 <span class="k">func</span> <span class="f">update</span>
+
 	cText = oText.Text
 	aWords = wordsOf(cText)
 	nChars = len(cText)
@@ -4727,10 +5021,12 @@ update()
 	<span class="k">next</span>
 
 <span class="k">func</span> <span class="f">uniqueWords</span> aWords
+
 	<span class="k">return</span> <span class="f">dnQuery</span>(aWords).<span class="f">Distinct</span>().<span class="f">ToList</span>()
 
 <span class="c"># [[word, count], ...] sorted by count: the most frequent word is the last one</span>
 <span class="k">func</span> <span class="f">countWords</span> aWords
+
 	oCounts = <span class="k">new</span> <span class="t">NumberDictionary</span>()
 	<span class="k">for</span> cWord <span class="k">in</span> aWords
 		aGot = oCounts.<span class="f">TryGetValue</span>(cWord)
@@ -4747,6 +5043,7 @@ update()
 	<span class="k">return</span> sort(aList,<span class="n">2</span>)</code></pre></div></details></div></div><div class="item" id="wpf-calculator"><div class="pic"><img src="img/shots/app-WpfCalculator.png" alt="Wpf Calculator" loading="lazy"></div><div class="info"><h3>Wpf Calculator</h3><p>Calculator with a WPF window described in XAML (the calculator logic is the one of the Windows Forms Calculator)</p><div class="run"><code>cd samples/UsingDotNet/applications/WpfCalculator  then  ring WpfCalculator.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Calculator with a WPF window described in XAML (the calculator logic is the one of the Windows Forms Calculator)</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Globalization"</span>
@@ -4771,6 +5068,7 @@ cXaml += <span class="s">'&lt;TextBlock x:Name="screen" Height="60" FontSize="36
 cXaml += <span class="s">'&lt;UniformGrid x:Name="keys" Columns="4" Margin="0,10,0,0"/&gt;&lt;/DockPanel&gt;&lt;/Window&gt;'</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oWindow = <span class="f">wpfXaml</span>(cXaml)
 	oScreen = <span class="f">wpfFind</span>(oWindow,<span class="s">"screen"</span>)
 	oHistory = <span class="f">wpfFind</span>(oWindow,<span class="s">"history"</span>)
@@ -4786,6 +5084,7 @@ cXaml += <span class="s">'&lt;UniformGrid x:Name="keys" Columns="4" Margin="0,10
 	<span class="f">wpfRun</span>(oWindow)
 
 <span class="k">func</span> <span class="f">press</span> cKey
+
 	<span class="k">if</span> find([<span class="s">"0"</span>,<span class="s">"1"</span>,<span class="s">"2"</span>,<span class="s">"3"</span>,<span class="s">"4"</span>,<span class="s">"5"</span>,<span class="s">"6"</span>,<span class="s">"7"</span>,<span class="s">"8"</span>,<span class="s">"9"</span>],cKey) &gt; <span class="n">0</span>
 		<span class="k">if</span> lFresh
 			cDisplay = cKey
@@ -4846,6 +5145,7 @@ cXaml += <span class="s">'&lt;UniformGrid x:Name="keys" Columns="4" Margin="0,10
 	oScreen.Text = cDisplay
 
 <span class="k">func</span> <span class="f">calculate</span>
+
 	nRight = number(cDisplay)
 	<span class="k">switch</span> cOperator
 	<span class="k">on</span> <span class="s">"+"</span>
@@ -4870,9 +5170,11 @@ cXaml += <span class="s">'&lt;UniformGrid x:Name="keys" Columns="4" Margin="0,10
 
 <span class="c"># a number as text without Ring's fixed decimals</span>
 <span class="k">func</span> <span class="f">numberText</span> nValue
+
 	<span class="k">return</span> <span class="k">new</span> <span class="t">Convert</span>().<span class="f">Format</span>([ :value = nValue, :provider = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">""</span>).InvariantCulture ])</code></pre></div></details></div></div><div class="item" id="wpf-color-mixer"><div class="pic"><img src="img/shots/app-WpfColorMixer.png" alt="Wpf Color Mixer" loading="lazy"></div><div class="info"><h3>Wpf Color Mixer</h3><p>Color mixer in WPF: three sliders, a rectangle that shows the color and its #RRGGBB code</p><div class="run"><code>cd samples/UsingDotNet/applications/WpfColorMixer  then  ring WpfColorMixer.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Color mixer in WPF: three sliders, a rectangle that shows the color and its #RRGGBB code</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -4891,6 +5193,7 @@ oSwatch = <span class="s">""</span>
 oCode = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oWindow = <span class="f">wpfWindow</span>(<span class="s">"Color mixer"</span>,<span class="n">380</span>,<span class="n">300</span>)
 	oGrid = <span class="k">new</span> <span class="t">Grid</span>()
 	oGrid.Margin = <span class="k">new</span> <span class="t">Thickness</span>(<span class="n">15</span>,<span class="n">15</span>,<span class="n">15</span>,<span class="n">15</span>)
@@ -4937,6 +5240,7 @@ oCode = <span class="s">""</span>
 	<span class="f">wpfRun</span>(oWindow)
 
 <span class="k">func</span> <span class="f">hex2</span> nValue
+
 	cText = upper(hex(floor(nValue)))
 	<span class="k">if</span> len(cText) &lt; <span class="n">2</span>
 		cText = <span class="s">"0"</span> + cText
@@ -4944,6 +5248,7 @@ oCode = <span class="s">""</span>
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">mix</span>
+
 	<span class="k">if</span> len(aSliders) &lt; <span class="n">3</span> <span class="k">or</span> <span class="k">not</span> isobject(oSwatch)
 		<span class="k">return</span>
 	<span class="k">ok</span>

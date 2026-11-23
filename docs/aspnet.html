@@ -295,6 +295,7 @@ oServer.<span class="f">run</span>()                                  <span clas
 <span class="c">#   GET /api/todos   POST /api/todos (the text is the body)   DELETE /api/todos?id=1</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Net.Http"</span>
@@ -309,6 +310,7 @@ oClient = <span class="s">""</span>
 cUrl = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	cAddress = <span class="s">"http://localhost:5080"</span>
 	<span class="k">if</span> isSelfTest()
 		cAddress = <span class="s">"http://127.0.0.1:0"</span>
@@ -327,11 +329,13 @@ cUrl = <span class="s">""</span>
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">isSelfTest</span>
+
 	<span class="k">return</span> find(sysargv,<span class="s">"--selftest"</span>) &gt; <span class="n">0</span>
 
 <span class="c"># ---------------------------------------------------------------- handlers</span>
 
 <span class="k">func</span> <span class="f">page</span> oRequest
+
 	cHtml = <span class="s">"&lt;html&gt;&lt;body&gt;&lt;h1&gt;To-do list&lt;/h1&gt;&lt;ul&gt;"</span>
 	<span class="k">for</span> aTodo <span class="k">in</span> aTodos
 		cHtml += <span class="s">"&lt;li&gt;"</span> + aTodo[<span class="n">2</span>] + <span class="s">" &lt;a href='/api/todos?id="</span> + aTodo[<span class="n">1</span>] + <span class="s">"'&gt;(json)&lt;/a&gt;&lt;/li&gt;"</span>
@@ -340,6 +344,7 @@ cUrl = <span class="s">""</span>
 	<span class="k">return</span> cHtml
 
 <span class="k">func</span> <span class="f">listTodos</span> oRequest
+
 	aList = []
 	<span class="k">for</span> aTodo <span class="k">in</span> aTodos
 		aList + [[<span class="s">"id"</span>,aTodo[<span class="n">1</span>]],[<span class="s">"text"</span>,aTodo[<span class="n">2</span>]]]
@@ -347,6 +352,7 @@ cUrl = <span class="s">""</span>
 	<span class="k">return</span> <span class="f">webJson</span>(aList)
 
 <span class="k">func</span> <span class="f">addTodo</span> oRequest
+
 	cText = trim(oRequest.<span class="f">body</span>())
 	<span class="k">if</span> cText = <span class="s">""</span>
 		<span class="k">return</span> [<span class="n">400</span>,<span class="s">"text/plain"</span>,<span class="s">"The text of the to-do is empty"</span>]
@@ -356,6 +362,7 @@ cUrl = <span class="s">""</span>
 	<span class="k">return</span> [<span class="n">201</span>,<span class="s">"text/plain"</span>,<span class="s">"added "</span> + (nNextId - <span class="n">1</span>)]
 
 <span class="k">func</span> <span class="f">deleteTodo</span> oRequest
+
 	nId = number(oRequest.<span class="f">query</span>(<span class="s">"id"</span>))
 	<span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> len(aTodos)
 		<span class="k">if</span> aTodos[nIndex][<span class="n">1</span>] = nId
@@ -368,6 +375,7 @@ cUrl = <span class="s">""</span>
 <span class="c"># ---------------------------------------------------------------- self test: a .NET client talks to the server</span>
 
 <span class="k">func</span> <span class="f">request</span> cMethod, cPath, cBody
+
 	oMessage = <span class="k">new</span> <span class="t">HttpRequestMessage</span>().@<span class="k">New</span>([ :<span class="t">method</span> = <span class="k">new</span> <span class="t">HttpMethod</span>(cMethod), :requestUri = cUrl + cPath ])
 	<span class="k">if</span> cBody != <span class="s">""</span>
 		oMessage.Content = <span class="k">new</span> <span class="t">StringContent</span>(cBody)
@@ -387,6 +395,7 @@ cUrl = <span class="s">""</span>
 
 <span class="c"># enums are strings: the status names the example uses</span>
 <span class="k">func</span> <span class="f">statusNumber</span> cName
+
 	<span class="k">switch</span> cName
 	<span class="k">on</span> <span class="s">"OK"</span>			<span class="k">return</span> <span class="n">200</span>
 	<span class="k">on</span> <span class="s">"Created"</span>		<span class="k">return</span> <span class="n">201</span>
@@ -396,6 +405,7 @@ cUrl = <span class="s">""</span>
 	<span class="k">return</span> <span class="n">0</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	aResult = request(<span class="s">"GET"</span>,<span class="s">"/api/todos"</span>,<span class="s">""</span>)
 	<span class="f">dnAssert</span>(<span class="s">"empty list"</span>,aResult[<span class="n">2</span>],<span class="s">"[]"</span>)
 	aResult = request(<span class="s">"POST"</span>,<span class="s">"/api/todos"</span>,<span class="s">"write Ring code"</span>)
@@ -415,6 +425,7 @@ cUrl = <span class="s">""</span>
 	? <span class="s">"SELFTEST "</span> + iif(nDotNetFail = <span class="n">0</span>,<span class="s">"OK ("</span> + nDotNetPass + <span class="s">" checks)"</span>,<span class="s">"FAILED"</span>)
 
 <span class="k">func</span> <span class="f">iif</span> lCondition, xYes, xNo
+
 	<span class="k">if</span> lCondition
 		<span class="k">return</span> xYes
 	<span class="k">ok</span>
