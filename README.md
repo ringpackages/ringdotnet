@@ -31,6 +31,10 @@ It includes over one million lines of generated Ring code, more than 6,000 pages
 
 ![RingDotNet: the cover of the PDF manual, and the size of the package](docs/img/ringdotnet.png)
 
+## Online Documentation
+
+URL: https://ringpackages.github.io/ringdotnet/
+
 ## Features
 
 * **Object code.** The .NET types are generated Ring classes with the .NET names: `new` makes an object, the dot calls a method or reads a property, and braces `{ }` set several properties at once. Properties are attributes (`oForm.Text = "Hello"`), enums are texts (`"Maximized"`), and `out` / `ref` parameters come back in a list.
