@@ -1,6 +1,7 @@
 # Countdown timer with a progress bar (a Windows Forms Timer drives the Ring code)
 
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Diagnostics"
@@ -53,6 +54,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func twoDigits n
+
 	cText = "" + floor(n)
 	if len(cText) < 2
 		cText = "0" + cText
@@ -60,6 +62,7 @@ func twoDigits n
 	return cText
 
 func showTime
+
 	oDisplay.Text = twoDigits(floor(nLeft / 60)) + ":" + twoDigits(nLeft % 60)
 	if nTotal > 0
 		oBar.Value = floor((nTotal - nLeft) * 100 / nTotal)
@@ -68,6 +71,7 @@ func showTime
 	ok
 
 func startStop
+
 	if lRunning
 		lRunning = false
 		oTimer.Stop()
@@ -86,6 +90,7 @@ func startStop
 	showTime()
 
 func resetTimer
+
 	lRunning = false
 	oTimer.Stop()
 	oStart.Text = "Start"
@@ -94,6 +99,7 @@ func resetTimer
 	showTime()
 
 func tick
+
 	if nLeft > 0
 		nLeft--
 	ok
