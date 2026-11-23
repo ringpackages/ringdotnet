@@ -1,6 +1,7 @@
 # the checks of FifteenPuzzle.ring: run with  ring FifteenPuzzle.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	# a position one move from solved
 	for nCell = 1 to 15
 		aTiles[nCell] = nCell
