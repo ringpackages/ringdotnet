@@ -1,6 +1,7 @@
 # the checks of Minesweeper.ring: run with  ring Minesweeper.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	# a known layout: mines in the top row, cells 1 to 9, except 5
 	aMine = list(C_COLUMNS * C_ROWS)
 	for nCell in [1,3,5,7,9]
