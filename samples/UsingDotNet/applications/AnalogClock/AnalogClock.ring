@@ -1,6 +1,7 @@
 # Analog clock - a port of ring/applications/analogclock to RingDotNet
 
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Drawing"
@@ -32,12 +33,15 @@ uiRun(oForm)
 
 # the end of a hand: nAngle in degrees (0 = 12 o'clock, clockwise)
 func handX nAngle, nLength
+
 	return C_CENTER + nLength * sin(nAngle * C_PI / 180)
 
 func handY nAngle, nLength
+
 	return C_CENTER - nLength * cos(nAngle * C_PI / 180)
 
 func drawClock nHour, nMinute, nSecond
+
 	oCanvas.clear("White")
 	oCanvas.fillCircle(C_CENTER,C_CENTER,140,"#f4f1e8")
 	oCanvas.drawCircle(C_CENTER,C_CENTER,140,"Black")
@@ -59,6 +63,7 @@ func drawClock nHour, nMinute, nSecond
 	oCanvas.show()
 
 func twoDigits n
+
 	cText = "" + floor(n)
 	if len(cText) < 2
 		cText = "0" + cText
@@ -66,6 +71,7 @@ func twoDigits n
 	return cText
 
 func tick
+
 	oNow = new DateTime(2000,1,1).Now
 	drawClock(oNow.Hour,oNow.Minute,oNow.Second)
 	oDigital.Text = twoDigits(oNow.Hour) + ":" + twoDigits(oNow.Minute) + ":" + twoDigits(oNow.Second)
