@@ -30,9 +30,9 @@
     <pattern id="dots" width="7" height="7" patternUnits="userSpaceOnUse">
       <circle cx="1" cy="1" r="0.28" fill="#ffffff" fill-opacity="0.16"/>
     </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feGaussianBlur stdDeviation="3.2"/></filter>
+    <filter id="glowblur" x="-30%" y="-40%" width="160%" height="180%"><feGaussianBlur stdDeviation="6"/></filter>
     <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.2"/></filter>
-    <clipPath id="clipA"><circle cx="120" cy="134.9" r="9"/></clipPath>
-    <clipPath id="clipB"><circle cx="120" cy="65.1" r="9"/></clipPath>
   </defs>
 
   <rect width="210" height="297" fill="url(#bg)"/>
@@ -42,10 +42,10 @@
 
   <!-- orbits around the rings -->
   <g fill="none" stroke="#ffffff" stroke-opacity="0.13" stroke-width="0.35">
-    <circle cx="120" cy="100" r="60"/>
-    <circle cx="120" cy="100" r="78"/>
-    <circle cx="120" cy="100" r="98" stroke-dasharray="0.6 2.2"/>
-    <circle cx="120" cy="100" r="118" stroke-dasharray="0.6 3.4"/>
+    <circle cx="105" cy="100" r="60"/>
+    <circle cx="105" cy="100" r="78"/>
+    <circle cx="105" cy="100" r="98" stroke-dasharray="0.6 2.2"/>
+    <circle cx="105" cy="100" r="118" stroke-dasharray="0.6 3.4"/>
   </g>
   <g fill="#ffffff">
     <circle cx="180" cy="100" r="1.4" fill-opacity="0.85"/>
@@ -57,21 +57,11 @@
     <circle cx="150" cy="170" r="1" fill="#7cf3ff" fill-opacity="0.6"/>
   </g>
 
-  <!-- two linked rings: Ring (violet-white) and .NET (teal) -->
-  <g fill="none" stroke-linecap="round">
-    <circle cx="103" cy="100" r="40" stroke="#8f74ff" stroke-opacity="0.45" stroke-width="9" filter="url(#soft)"/>
-    <circle cx="137" cy="100" r="40" stroke="#00c2d4" stroke-opacity="0.45" stroke-width="9" filter="url(#soft)"/>
-    <circle cx="103" cy="100" r="40" stroke="url(#ringA)" stroke-width="5.2"/>
-    <circle cx="137" cy="100" r="40" stroke="url(#ringB)" stroke-width="5.2"/>
-    <!-- weave: the Ring ring passes over the .NET ring below, under it above -->
-    <g clip-path="url(#clipA)"><circle cx="103" cy="100" r="40" stroke="url(#ringA)" stroke-width="5.2"/></g>
-    <g clip-path="url(#clipB)"><circle cx="137" cy="100" r="40" stroke="url(#ringB)" stroke-width="5.2"/></g>
-  </g>
-  <!-- the two names inside the rings -->
-  <g font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" text-anchor="middle" font-weight="700">
-    <text x="88" y="104.5" font-size="12.5" fill="#ffffff" fill-opacity="0.95">Ring</text>
-    <text x="152" y="104.5" font-size="12.5" fill="#bffaff">.NET</text>
-  </g>
+  <!-- the Ring logo (B:ing\marketing\graphics	hering.jpg, enlarged in ring-logo.png) on a white card -->
+  <rect x="42" y="66" width="136" height="80" rx="9" fill="#0b0827" fill-opacity="0.55" filter="url(#shadow)"/>
+  <rect x="38" y="60" width="136" height="80" rx="9" fill="#00c2d4" fill-opacity="0.35" filter="url(#glowblur)"/>
+  <rect x="40" y="62" width="130" height="76" rx="8" fill="#ffffff"/>
+  <image x="50" y="67" width="110" height="57" href="@RINGLOGO@" preserveAspectRatio="xMidYMid meet"/>
 
   <!-- title block -->
   <g font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif">

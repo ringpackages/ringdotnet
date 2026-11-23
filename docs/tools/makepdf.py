@@ -8,6 +8,7 @@ and the PDF has bookmarks. The class reference (docs/api/, one page per namespac
     python docs/tools/makepdf.py
 """
 import html
+import base64
 import os
 import re
 import subprocess
@@ -152,6 +153,8 @@ def cover_svg():
     if version and ring:
         short = ".".join(version.group(1).split(".")[:2])
         svg = svg.replace("Version 1.0  ·  Ring 1.28", "Version %s  ·  Ring %s" % (short, ring.group(1)))
+    logo = base64.b64encode(open(os.path.join(HERE, "ring-logo.png"), "rb").read()).decode("ascii")
+    svg = svg.replace("@RINGLOGO@", "data:image/png;base64," + logo)
     return re.sub(r"<\?xml[^>]*\?>", "", svg)
 
 
