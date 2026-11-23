@@ -1,6 +1,7 @@
 # the checks of LoginForm.ring: run with  ring LoginForm.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	dnAssert("sha-256 of abc",hashOf("abc"),"ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad")
 	oSignIn.PerformClick()
 	dnAssert("empty fields",oMessage.Text,"Please fill in both fields")
