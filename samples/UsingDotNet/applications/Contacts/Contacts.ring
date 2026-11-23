@@ -1,5 +1,5 @@
 # A contacts book stored in a SQLite database with Entity Framework Core
-#   ring main.ring                 (console menu)      ring main.ring --selftest
+#   ring Contacts.ring                 (console menu)      ring Contacts.ring --selftest
 load "dotnet.ring"
 using { "RingDotNet.Data" }
 
