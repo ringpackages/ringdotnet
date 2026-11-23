@@ -1,6 +1,7 @@
 # Image viewer - open a picture, zoom, rotate, flip, grayscale and save (System.Drawing)
 
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -35,18 +36,21 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func showImage
+
 	if isobject(oImage)
 		oBox.Image = oImage
 		oInfoText.Text = "" + oImage.Width + " x " + oImage.Height + "   zoom " + nZoom + "%"
 	ok
 
 func openDialog
+
 	cFile = uiOpenFileName("Open picture","Pictures|*.png;*.jpg;*.jpeg;*.bmp;*.gif|All files|*.*")
 	if cFile != ""
 		loadFile(cFile)
 	ok
 
 func loadFile cFile
+
 	try
 		oLoaded = new Bitmap(cFile,0)
 	catch
@@ -60,27 +64,32 @@ func loadFile cFile
 	showImage()
 
 func saveDialog
+
 	cFile = uiSaveFileName("Save picture","PNG|*.png")
 	if cFile != ""
 		saveTo(cFile)
 	ok
 
 func saveTo cFile
+
 	oImage.Save([ :filename = cFile, :format = new ImageFormat().Png ])
 
 func rotate
+
 	if isobject(oImage)
 		oImage.RotateFlip("Rotate90FlipNone")
 		showImage()
 	ok
 
 func flip
+
 	if isobject(oImage)
 		oImage.RotateFlip("RotateNoneFlipX")
 		showImage()
 	ok
 
 func grayscale
+
 	if not isobject(oImage)
 		return
 	ok
@@ -94,6 +103,7 @@ func grayscale
 	showImage()
 
 func setZoom nPercent
+
 	nZoom = nPercent
 	if nZoom = 100
 		oBox.SizeMode = "Zoom"
@@ -103,6 +113,7 @@ func setZoom nPercent
 	showImage()
 
 func zoomBy nDelta
+
 	nZoom += nDelta
 	if nZoom < 25
 		nZoom = 25
