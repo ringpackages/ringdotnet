@@ -1,6 +1,7 @@
 # Word counter - live statistics of the text and the most frequent words (uses a .NET Regex and Dictionary)
 
 load "dotnet.ring"
+
 using {
 	"System.Text.RegularExpressions"
 	"System.Collections.Generic"
@@ -28,6 +29,7 @@ uiRun(oForm)
 
 # the words of a text (letters and digits, lower case)
 func wordsOf cText
+
 	oMatches = new Regex("[\p{L}\p{N}']+").Matches(cText)
 	aWords = []
 	for oMatch in oMatches.toList()
@@ -36,6 +38,7 @@ func wordsOf cText
 	return aWords
 
 func update
+
 	cText = oText.Text
 	aWords = wordsOf(cText)
 	nChars = len(cText)
@@ -55,10 +58,12 @@ func update
 	next
 
 func uniqueWords aWords
+
 	return dnQuery(aWords).Distinct().ToList()
 
 # [[word, count], ...] sorted by count: the most frequent word is the last one
 func countWords aWords
+
 	oCounts = new NumberDictionary()
 	for cWord in aWords
 		aGot = oCounts.TryGetValue(cWord)
