@@ -1,6 +1,7 @@
 # Calendar with date facts - MonthCalendar and the .NET date classes (a port of ring/applications/calendar)
 
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Globalization"
@@ -28,6 +29,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func factsOf oDate
+
 	oCulture = new CultureInfo("en-US")
 	nYear = oDate.Year
 	oEndOfYear = new DateTime(nYear,12,31)
@@ -45,4 +47,5 @@ func factsOf oDate
 	return cText
 
 func showFacts
+
 	oFacts.Text = factsOf(oCalendar.SelectionStart)
