@@ -1,6 +1,7 @@
 # the checks of EightQueens.ring: run with  ring EightQueens.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	toggle(1,1)
 	toggle(2,2)
 	dnAssert("diagonal conflict",oInfo.Text,"Queens: 2/8   conflicts: 2")
