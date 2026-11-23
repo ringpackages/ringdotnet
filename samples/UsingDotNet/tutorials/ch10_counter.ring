@@ -1,5 +1,6 @@
 # Your first window, step 3: the button does something - events and global variables
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -12,6 +13,7 @@ oLabel = ""
 nClicks = 0
 
 func main
+
 	oForm = uiForm("Click counter",320,120)
 	oLabel = uiLabel(oForm,"The button was not clicked yet",20,15,280,24)
 	uiButton(oForm,"Click me",20,55,120,32,"clicked()")      # the click calls the function clicked()
@@ -20,9 +22,11 @@ func main
 	uiRun(oForm)
 
 func clicked
+
 	nClicks++
 	oLabel.Text = "Clicked " + nClicks + " times"
 
 func resetCount
+
 	nClicks = 0
 	oLabel.Text = "The button was not clicked yet"

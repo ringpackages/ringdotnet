@@ -1,5 +1,6 @@
 # a project - a command runner (a window that starts a program and shows what it prints)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Diagnostics"
@@ -13,6 +14,7 @@ oOutput = ""
 oStatus = ""
 
 func main
+
 	oForm = uiForm("Command runner",560,380)
 	uiLabel(oForm,"Command:",10,12,70,22)
 	oCommand = uiTextBox(oForm,84,10,380,24)
@@ -31,6 +33,7 @@ func main
 
 # Run "cmd /c <command>", wait for it, show everything it printed and its exit code
 func runCommand
+
 	cCommand = trim(oCommand.Text)
 	if cCommand = ""
 		return

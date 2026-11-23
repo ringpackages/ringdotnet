@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_screenshot.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># screens and pictures of windows - Screen, taking a picture of the screen, and a picture of a form (Windows Forms)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -264,6 +265,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. Screen describes the monitors. The size of a screen depends on the computer, so the program prints only what is always true.</span>
 	oScreens = <span class="k">new</span> <span class="t">Screen</span>()
 	oPrimary = oScreens.PrimaryScreen
@@ -323,6 +325,7 @@ using {
 	oForm.<span class="f">Close</span>()
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

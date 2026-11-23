@@ -1,11 +1,13 @@
 # releasing resources - files that stay locked, Dispose, and cleaning up even when an error happens
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
 }
 
 func main
+
 	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_dispose.txt"])
 	new File().WriteAllText([ :path = cFile, :contents = "some text" ])
 
@@ -40,6 +42,7 @@ func main
 
 # Opens a reader, fails while reading, and never closes the reader
 func readBadly cFile
+
 	oReader = new StreamReader(cFile)
 	try
 		? "   first line: " + oReader.ReadLine()
@@ -52,6 +55,7 @@ func readBadly cFile
 
 # The Dispose is after the try block: it runs whether the work failed or not
 func readCarefully cFile
+
 	oReader = new StreamReader(cFile)
 	try
 		? "   first line: " + oReader.ReadLine()
@@ -63,10 +67,12 @@ func readCarefully cFile
 	? "   the reader was disposed"
 
 func failHere
+
 	new Int32().Parse("not a number")
 
 # true when the file could be deleted
 func tryDelete cFile
+
 	lDeleted = True
 	try
 		new File().Delete(cFile)
@@ -79,6 +85,7 @@ func tryDelete cFile
 	return lDeleted
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

@@ -1,5 +1,6 @@
 # Events: setXXXEvent(code) runs Ring code when a .NET event is raised
 load "dotnet.ring"
+
 using { "System.Collections.ObjectModel" }
 
 # .NET events: setXXXEvent(cRingCode) like RingQt, the code reads aDotNetArgs = [sender, eventArgs]

@@ -1,5 +1,6 @@
 # A Windows Forms Click event (the program closes itself)
 load "dotnet.ring"
+
 using { "System.Windows.Forms" }
 
 # Windows Forms: the Ring thread runs the message loop, so event code runs on it.

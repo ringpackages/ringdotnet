@@ -3,6 +3,7 @@
 # the plain name nHandle could be looked up in the wrong object after a caught error, and the call arrived at a null object. The generated
 # classes write this.nHandle.)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -10,6 +11,7 @@ using {
 }
 
 func main
+
 	oStream = new MemoryStream()
 	oBuilder = new StringBuilder("x")
 
@@ -41,6 +43,7 @@ func main
 	dnTestSummary()
 
 func afterCatch
+
 	oClient = new MemoryStream()
 	try
 		new Int32().Parse("abc")

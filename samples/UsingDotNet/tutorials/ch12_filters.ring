@@ -1,5 +1,6 @@
 # an image filter lab - pixels as numbers, filters as small functions, a BMP file written by hand, before and after side by side
 load "dotnet.ring"
+
 using {
 	"System.IO"
 	"System.Drawing"
@@ -19,6 +20,7 @@ cFolder = ""
 nFile = 0
 
 func main
+
 	oForm = uiForm("Filter lab",C_WIDTH * 2 + 60,C_HEIGHT + 190)
 	oBefore = uiPictureBox(oForm,10,10,C_WIDTH,C_HEIGHT)
 	oAfter = uiPictureBox(oForm,C_WIDTH + 40,10,C_WIDTH,C_HEIGHT)
@@ -45,6 +47,7 @@ func main
 
 # A picture to work on, made of numbers: a sky that gets lighter near the horizon, a sun, a hill and a house
 func makeSource
+
 	aSource = []
 	for nY = 1 to C_HEIGHT
 		aRow = []
@@ -55,6 +58,7 @@ func makeSource
 	next
 
 func pictureColor nX, nY
+
 	aColor = [110,170,255 - floor(nY * 90 / C_HEIGHT)]                                    # sky
 	if (nX - 94) * (nX - 94) + (nY - 22) * (nY - 22) <= 196                              # sun: a circle of radius 14
 		aColor = [255,215,0]
@@ -76,6 +80,7 @@ func pictureColor nX, nY
 # A BMP file is simple: a 54 byte header, then the pixels row by row, from the bottom row up, each pixel as blue, green, red.
 # (A row must be a multiple of 4 bytes long: 120 pixels * 3 = 360 is.) .NET reads it with Bitmap.
 func saveBmp aPixels, cFile
+
 	nSize = 54 + C_WIDTH * C_HEIGHT * 3
 	cData = "BM" + le32(nSize) + le32(0) + le32(54)                                        # file header: 14 bytes
 	cData += le32(40) + le32(C_WIDTH) + le32(C_HEIGHT) + le16(1) + le16(24) + le32(0)     # picture header: 40 bytes
@@ -89,15 +94,18 @@ func saveBmp aPixels, cFile
 
 # numbers as little-endian bytes (the least significant byte first)
 func le32 nValue
+
 	return char(nValue % 256) + char(floor(nValue / 256) % 256) + char(floor(nValue / 65536) % 256) + char(floor(nValue / 16777216) % 256)
 
 func le16 nValue
+
 	return char(nValue % 256) + char(floor(nValue / 256) % 256)
 
 # ---------------------------------------------------------------- the filters: each one makes a new list of rows from the old one
 
 # a value kept between 0 and 255 (a color channel cannot be outside)
 func clamp nValue
+
 	if nValue < 0
 		return 0
 	but nValue > 255
@@ -107,6 +115,7 @@ func clamp nValue
 
 # apply cFunction to every pixel: the function gets [r,g,b] and returns [r,g,b]
 func mapPixels aPixels, cFunction
+
 	aRows = []
 	for aRow in aPixels
 		aNew = []
@@ -118,19 +127,24 @@ func mapPixels aPixels, cFunction
 	return aRows
 
 func grayPixel aPixel
+
 	nGray = floor(aPixel[1] * 0.299 + aPixel[2] * 0.587 + aPixel[3] * 0.114)      # the eye sees green brighter than blue
 	return [nGray,nGray,nGray]
 
 func invertPixel aPixel
+
 	return [255 - aPixel[1],255 - aPixel[2],255 - aPixel[3]]
 
 func brighterPixel aPixel
+
 	return [clamp(aPixel[1] + 40),clamp(aPixel[2] + 40),clamp(aPixel[3] + 40)]
 
 func darkerPixel aPixel
+
 	return [clamp(aPixel[1] - 40),clamp(aPixel[2] - 40),clamp(aPixel[3] - 40)]
 
 func sepiaPixel aPixel
+
 	nRed = aPixel[1]
 	nGreen = aPixel[2]
 	nBlue = aPixel[3]
@@ -138,6 +152,7 @@ func sepiaPixel aPixel
 
 # blur: every pixel becomes the average of itself and its 8 neighbors (at the border: only the neighbors that exist)
 func blur aPixels
+
 	aRows = []
 	for nY = 1 to C_HEIGHT
 		aNew = []
@@ -166,6 +181,7 @@ func blur aPixels
 
 # edges: the difference between a pixel and its right and lower neighbor; flat areas become black, borders light
 func edges aPixels
+
 	aGray = mapPixels(aPixels,"grayPixel")
 	aRows = []
 	for nY = 1 to C_HEIGHT
@@ -184,6 +200,7 @@ func edges aPixels
 # ---------------------------------------------------------------- the window
 
 func applyFilter cName
+
 	switch cName
 	on "Gray"
 		aResult = mapPixels(aSource,"grayPixel")
@@ -208,6 +225,7 @@ func applyFilter cName
 
 # save the pixels as a BMP file (a new name each time: a file that is shown is locked) and give the picture box that image
 func showPixels oPicture, aPixels
+
 	nFile++
 	cFile = new Path().Combine([cFolder,"image" + nFile + ".bmp"])
 	saveBmp(aPixels,cFile)

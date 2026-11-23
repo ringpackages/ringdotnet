@@ -256,12 +256,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch06_dispose.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># releasing resources - files that stay locked, Dispose, and cleaning up even when an error happens</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_dispose.txt"</span>])
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = <span class="s">"some text"</span> ])
 
@@ -296,6 +298,7 @@ using {
 
 <span class="c"># Opens a reader, fails while reading, and never closes the reader</span>
 <span class="k">func</span> <span class="f">readBadly</span> cFile
+
 	oReader = <span class="k">new</span> <span class="t">StreamReader</span>(cFile)
 	<span class="k">try</span>
 		? <span class="s">"   first line: "</span> + oReader.<span class="f">ReadLine</span>()
@@ -308,6 +311,7 @@ using {
 
 <span class="c"># The Dispose is after the try block: it runs whether the work failed or not</span>
 <span class="k">func</span> <span class="f">readCarefully</span> cFile
+
 	oReader = <span class="k">new</span> <span class="t">StreamReader</span>(cFile)
 	<span class="k">try</span>
 		? <span class="s">"   first line: "</span> + oReader.<span class="f">ReadLine</span>()
@@ -319,10 +323,12 @@ using {
 	? <span class="s">"   the reader was disposed"</span>
 
 <span class="k">func</span> <span class="f">failHere</span>
+
 	<span class="k">new</span> <span class="t">Int32</span>().<span class="f">Parse</span>(<span class="s">"not a number"</span>)
 
 <span class="c"># true when the file could be deleted</span>
 <span class="k">func</span> <span class="f">tryDelete</span> cFile
+
 	lDeleted = <span class="k">True</span>
 	<span class="k">try</span>
 		<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
@@ -335,6 +341,7 @@ using {
 	<span class="k">return</span> lDeleted
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

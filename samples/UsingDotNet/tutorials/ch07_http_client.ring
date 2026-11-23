@@ -1,6 +1,7 @@
 # HttpClient in depth - headers both ways, status codes, errors, time limits, cancelling and saving a download
 #   (a small server runs inside the program, so no internet is needed; the client code is what you write for a real service)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -13,6 +14,7 @@ oServer = ""
 oClient = ""
 
 func main
+
 	oServer = new WebServer("http://127.0.0.1:0")
 	oServer.onGet("/echo","echoPage")
 	oServer.onGet("/status","statusPage")
@@ -75,6 +77,7 @@ func main
 
 # send a GET request, serve it (the server lives in this program) and return the HttpResponseMessage
 func fetchPage cPath
+
 	oTask = oClient.GetAsync(oServer.url() + cPath)
 	for nTry = 1 to 100
 		oServer.serveOne(50)                   # serve what is waiting (also requests that nobody waits for any more)
@@ -86,11 +89,13 @@ func fetchPage cPath
 	return oTask.Result
 
 func bodyOf oResponse
+
 	oBody = oResponse.Content.ReadAsStringAsync(NULL)
 	oBody.Wait(NULL)
 	return oBody.Result
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok
@@ -99,16 +104,20 @@ func yesNo lValue
 # ---------------------------------------------------------------- the pages of the little server
 
 func echoPage oRequest
+
 	oRequest.setHeader("X-Server","ring")
 	return [200,"text/plain","hello " + oRequest.query("name") + ", your header X-Client was: " + oRequest.header("X-Client")]
 
 func statusPage oRequest
+
 	return [number(oRequest.query("code")),"text/plain","status page"]
 
 func slowPage oRequest
+
 	return [200,"text/plain","never sent"]
 
 func filePage oRequest
+
 	cText = "first line of the file" + nl
 	for nLine = 2 to 400
 		cText += "line number " + nLine + " of a long file" + nl

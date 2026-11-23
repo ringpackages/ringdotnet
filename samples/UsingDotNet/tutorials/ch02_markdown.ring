@@ -1,5 +1,6 @@
 # a project - a small Markdown to HTML converter (regular expressions, StringBuilder, files)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -8,6 +9,7 @@ using {
 }
 
 func main
+
 	cMarkdown = "# Shopping" + nl +
 		"" + nl +
 		"Things to buy **today** for the *party*, see [the list](http://example.com/list)." + nl +
@@ -33,6 +35,7 @@ func main
 
 # The converter reads the text line by line and keeps a little state: are we inside a list?
 func markdownToHtml cMarkdown
+
 	oHtml = new StringBuilder("")
 	lInList = False
 	for cLine in str2list(cMarkdown)
@@ -76,6 +79,7 @@ func markdownToHtml cMarkdown
 
 # the formatting inside a line: FIRST make the text safe, THEN add our own tags
 func inlineHtml cText
+
 	# 1. escape: text typed by people must not become HTML (see the tutorial "A small web site")
 	cSafe = substr(cText,"&","&amp;")
 	cSafe = substr(cSafe,"<","&lt;")

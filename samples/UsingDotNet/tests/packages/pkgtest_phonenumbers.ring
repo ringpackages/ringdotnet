@@ -42,4 +42,5 @@ dnAssert("an example number of Germany",oUtil.IsValidNumber(oUtil.GetExampleNumb
 dnTestSummary()
 
 func parseNumber oUtil, cText, cRegion
+
 	return oUtil.Parse([ :numberToParse = cText, :defaultRegion = cRegion ])

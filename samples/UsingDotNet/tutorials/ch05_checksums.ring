@@ -1,5 +1,6 @@
 # a project: check that files did not change - a checksum list in the format of sha256sum, and a verify that finds changed, missing and new files
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	oFile = new File()
 	oPath = new Path()
 	oDirectory = new Directory()
@@ -55,10 +57,12 @@ func main
 
 # the SHA-256 checksum of a file as lower case hexadecimal text
 func checksumOf cFile
+
 	return lower(new Convert().ToHexString(new SHA256().HashData(new File().ReadAllBytes(cFile))))
 
 # the paths (relative, with /) of all the files of a folder and its subfolders, sorted, without the list file itself
 func relativeFiles cFolder
+
 	aPaths = []
 	nCut = len(cFolder) + 2
 	for cFile in new Directory().GetFiles([ :path = cFolder, :searchPattern = "*", :searchOption = "AllDirectories" ]).toList()
@@ -70,6 +74,7 @@ func relativeFiles cFolder
 	return sort(aPaths)
 
 func makeList cFolder
+
 	aList = []
 	for cRelative in relativeFiles(cFolder)
 		aList + [ checksumOf(cFolder + "/" + cRelative), cRelative ]
@@ -77,6 +82,7 @@ func makeList cFolder
 	return aList
 
 func listText aList
+
 	cText = ""
 	for aItem in aList
 		cText += aItem[1] + "  " + aItem[2] + nl
@@ -85,6 +91,7 @@ func listText aList
 
 # the list from its file: each line is the checksum (64 characters), two spaces and the path
 func readList cListFile
+
 	aList = []
 	for cLine in new File().ReadAllLines(cListFile).toList()
 		if len(cLine) > 66 and left(cLine,1) != "#"
@@ -95,6 +102,7 @@ func readList cListFile
 
 # the problems: changed files, missing files and new files (the files that the list does not know)
 func verify cFolder,aList
+
 	aProblems = []
 	aKnown = []
 	for aItem in aList
@@ -114,6 +122,7 @@ func verify cFolder,aList
 	return [ len(aList),aProblems ]
 
 func showResult aResult
+
 	nChecked = aResult[1]
 	aProblems = aResult[2]
 	if len(aProblems) = 0
@@ -126,10 +135,12 @@ func showResult aResult
 	ok
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok
 	return "no"
 
 func padRight cText,nWidth
+
 	return cText + copy(" ",nWidth - len(cText))

@@ -1,5 +1,6 @@
 # a project - a to-do list that remembers its tasks (Windows Forms + JSON + files)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -16,6 +17,7 @@ cFile = ""
 lLoading = False
 
 func main
+
 	# the tasks are saved here (a test uses a temporary file)
 	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_todo-tasks.json"])
 	if uiSelfTest()
@@ -50,6 +52,7 @@ func main
 	uiRun(oForm)
 
 func addTask
+
 	cText = trim(oNew.Text)
 	if cText = ""
 		return
@@ -60,6 +63,7 @@ func addTask
 	refreshStatus()
 
 func removeTask
+
 	nIndex = oTasks.SelectedIndex
 	if nIndex >= 0
 		oTasks.Items.RemoveAt(nIndex)
@@ -68,16 +72,19 @@ func removeTask
 	ok
 
 func tasksChanged
+
 	saveTasks()
 	refreshStatus()
 
 func refreshStatus
+
 	nDone = oTasks.CheckedItems.Count
 	oStatus.Text = "  " + nDone + " of " + oTasks.Items.Count + " done"
 
 # ---------------------------------------------------------------- saving and loading (JSON: [[1 or 0, "text"], ...])
 
 func saveTasks
+
 	if lLoading
 		return
 	ok
@@ -89,6 +96,7 @@ func saveTasks
 	new File().WriteAllText([ :path = cFile, :contents = cJson ])
 
 func loadTasks
+
 	if not new File().Exists(cFile)
 		return
 	ok

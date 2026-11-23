@@ -255,12 +255,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_diff.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project: compare two text files - the longest common subsequence of lines, a diff with + and -, changes with context, and a similarity</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oFile = <span class="k">new</span> <span class="t">File</span>()
 	oPath = <span class="k">new</span> <span class="t">Path</span>()
 	cFolder = oPath.<span class="f">Combine</span>([ oPath.<span class="f">GetTempPath</span>(), <span class="s">"ringdotnet-diff-"</span> + oPath.<span class="f">GetRandomFileName</span>() ])
@@ -313,6 +315,7 @@ using {
 <span class="c"># The LCS table: aTable[i][j] is the length of the LCS of the lines i.. of the old list and the lines j.. of the new list. It is</span>
 <span class="c"># filled from the end to the start, and the cell [1][1] has the answer for the whole lists.</span>
 <span class="k">func</span> <span class="f">lcsTable</span> aOld,aNew
+
 	nOld = len(aOld)
 	nNew = len(aNew)
 	aTable = []
@@ -336,6 +339,7 @@ using {
 
 <span class="c"># the diff as a list of [mark, line]</span>
 <span class="k">func</span> <span class="f">makeDiff</span> aOld,aNew,aTable
+
 	aDiff = []
 	i = <span class="n">1</span>
 	j = <span class="n">1</span>
@@ -363,6 +367,7 @@ using {
 	<span class="k">return</span> aDiff
 
 <span class="k">func</span> <span class="f">countOf</span> aDiff,cMark
+
 	nCount = <span class="n">0</span>
 	<span class="k">for</span> aItem <span class="k">in</span> aDiff
 		<span class="k">if</span> aItem[<span class="n">1</span>] = cMark
@@ -372,11 +377,13 @@ using {
 	<span class="k">return</span> nCount
 
 <span class="k">func</span> <span class="f">similarity</span> aOld,aNew
+
 	aDiff = makeDiff(aOld,aNew,lcsTable(aOld,aNew))
 	<span class="k">return</span> floor(<span class="n">100</span> * <span class="n">2</span> * countOf(aDiff,<span class="s">" "</span>) / (len(aOld) + len(aNew)))
 
 <span class="c"># the lines of the diff that are changes or are within nContext lines of a change; "..." marks the lines that were left out</span>
 <span class="k">func</span> <span class="f">withContext</span> aDiff,nContext
+
 	aShow = []
 	<span class="k">for</span> i = <span class="n">1</span> <span class="k">to</span> len(aDiff)
 		aShow + <span class="k">False</span>

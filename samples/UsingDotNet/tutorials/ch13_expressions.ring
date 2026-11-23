@@ -1,11 +1,13 @@
 # building code while the program runs - expression trees (System.Linq.Expressions): build, show, compile and call
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Linq.Expressions"
 }
 
 func main
+
 	# The expression class of this namespace is called ExpressionsExpression in Ring (the name Expression is used by another namespace).
 	oExpression = new ExpressionsExpression()
 	oDouble = dnType("System.Double")
@@ -48,6 +50,7 @@ func main
 
 # the compiled function of "a OP b" for an operator written as text
 func binaryFunction oExpression, oA, oB, cOperator
+
 	switch cOperator
 	on "+"
 		oBody = oExpression.Add([ :left = oA, :right = oB ])

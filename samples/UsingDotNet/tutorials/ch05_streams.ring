@@ -1,5 +1,6 @@
 # streams and compression - the same data in memory, in a file, and squeezed with GZip
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -8,6 +9,7 @@ using {
 }
 
 func main
+
 	oUtf8 = new Encoding().UTF8
 
 	# 1. A stream is a flow of bytes. A MemoryStream keeps them in memory: no file is needed to learn the pattern.
@@ -54,6 +56,7 @@ func main
 	new File().Delete(cFile)
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

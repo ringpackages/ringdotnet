@@ -1,5 +1,6 @@
 # WPF animation - move, fade and rotate with animations that WPF runs for you
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Windows"
@@ -18,6 +19,7 @@ oStatus = ""
 oCheck = ""
 
 func main
+
 	# 1. The window: a canvas (free positions) with three shapes, and two buttons
 	cXaml = '<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Animation" Width="420" Height="330">'
 	cXaml += '<Grid><Grid.RowDefinitions><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>'
@@ -50,6 +52,7 @@ func main
 
 # An animation says: change this property from a value to a value, in this time. WPF does the rest on every frame.
 func startAnimations
+
 	# the ball: Canvas.Left from 10 to 340 in 2 seconds, back again (AutoReverse), for ever, slowing down at the ends
 	oMove = new DoubleAnimation()
 	oMove.SetProp("From",10)                      # From and To can be empty in WPF, so they are set by name
@@ -82,12 +85,14 @@ func startAnimations
 
 # an animation is stopped by starting "no animation" (the .NET null) on the property
 func stopAnimations
+
 	oBall.BeginAnimation([ :dp = new Canvas().LeftProperty, :animation = dnNull() ])
 	oBox.BeginAnimation([ :dp = oBox.OpacityProperty, :animation = dnNull() ])
 	oSpin.BeginAnimation([ :dp = oSpin.AngleProperty, :animation = dnNull() ])
 	oStatus.Text = "Stopped"
 
 func selfTest
+
 	oCheck.Stop()
 	nLeft = oBall.GetValue(new Canvas().LeftProperty)
 	nOpacity = oBox.GetValue(oBox.OpacityProperty)

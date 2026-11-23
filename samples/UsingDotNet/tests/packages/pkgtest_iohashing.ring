@@ -27,6 +27,7 @@ dnAssert("after a reset",oHasher.GetHashAndReset() = cCrc,1)
 dnTestSummary()
 
 func hexs cBytes
+
 	cOut = ""
 	for i = 1 to len(cBytes)
 		cOut += right("0" + hex(ascii(cBytes[i])),2)

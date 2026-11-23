@@ -1,5 +1,6 @@
 # watching sorting algorithms - an animation, a timer and counting the work
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -24,6 +25,7 @@ nSeed = 12345
 aHot = []                 # the two bars that are touched by the step being shown
 
 func main
+
 	oForm = uiForm("Sorting",C_COUNT * C_BAR + 30,C_HEIGHT + 100)
 	oPicture = uiPictureBox(oForm,5,5,C_COUNT * C_BAR,C_HEIGHT)
 	oCanvas = new UiCanvas(oPicture)
@@ -37,10 +39,12 @@ func main
 
 # a small random number generator with a fixed start, so that every run shows the same bars
 func nextRandom nLimit
+
 	nSeed = (nSeed * 1103515245 + 12345) % 2147483648
 	return (floor(nSeed / 65536) % nLimit) + 1
 
 func shuffle
+
 	oTimer.Stop()
 	aValues = []
 	for nI = 1 to C_COUNT
@@ -62,6 +66,7 @@ func shuffle
 
 # the algorithms only RECORD what they do on a copy; the timer replays it step by step
 func startSorting
+
 	oTimer.Stop()
 	aWork = aValues
 	aSteps = []
@@ -79,6 +84,7 @@ func startSorting
 	oTimer.Start()
 
 func bubbleSort aWork
+
 	for nEnd = len(aWork) to 2 step -1
 		for nI = 1 to nEnd - 1
 			aSteps + ["compare",nI,nI + 1]
@@ -92,6 +98,7 @@ func bubbleSort aWork
 	next
 
 func selectionSort aWork
+
 	for nI = 1 to len(aWork) - 1
 		nMin = nI
 		for nJ = nI + 1 to len(aWork)
@@ -109,6 +116,7 @@ func selectionSort aWork
 	next
 
 func insertionSort aWork
+
 	for nI = 2 to len(aWork)
 		nJ = nI
 		while nJ > 1
@@ -127,6 +135,7 @@ func insertionSort aWork
 
 # show the next recorded step (the timer calls this)
 func showStep
+
 	if nStep >= len(aSteps)
 		oTimer.Stop()
 		aHot = []
@@ -149,6 +158,7 @@ func showStep
 	draw()
 
 func draw
+
 	oCanvas.clear("White")
 	for nI = 1 to len(aValues)
 		nHeight = aValues[nI] * (C_HEIGHT - 10) / C_COUNT

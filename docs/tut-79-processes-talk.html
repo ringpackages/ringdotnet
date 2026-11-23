@@ -259,6 +259,7 @@
 <span class="c">#   ring ch06_processes_talk.ring            the parent: it starts a second copy of this program (the child) and talks to it</span>
 <span class="c">#   ring ch06_processes_talk.ring --child    the child (the parent starts it, you do not)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -271,6 +272,7 @@ C_PIPE = <span class="s">"ringdotnet_talk"</span>
 C_MUTEX = <span class="s">"ringdotnet_talk_single_copy"</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="k">if</span> find(sysargv,<span class="s">"--child"</span>) &gt; <span class="n">0</span>
 		runChild()
 		<span class="k">return</span>
@@ -280,6 +282,7 @@ C_MUTEX = <span class="s">"ringdotnet_talk_single_copy"</span>
 <span class="c"># ---------------------------------------------------------------- the parent</span>
 
 <span class="k">func</span> <span class="f">runParent</span>
+
 	<span class="c"># 1. A named mutex is a lock that the whole computer shares. The first program that gets it is "the only copy".</span>
 	oLock = <span class="k">new</span> <span class="t">Mutex</span>().@<span class="k">New</span>([ :<span class="t">initiallyOwned</span> = <span class="k">False</span>, :name = C_MUTEX ])
 	? <span class="s">"1. the parent got the lock: "</span> + yesNo(oLock.<span class="f">WaitOne</span>(<span class="n">0</span>))              <span class="c"># WaitOne(0): do not wait, just try</span>
@@ -320,6 +323,7 @@ C_MUTEX = <span class="s">"ringdotnet_talk_single_copy"</span>
 <span class="c"># ---------------------------------------------------------------- the child</span>
 
 <span class="k">func</span> <span class="f">runChild</span>
+
 	oLock = <span class="k">new</span> <span class="t">Mutex</span>().@<span class="k">New</span>([ :<span class="t">initiallyOwned</span> = <span class="k">False</span>, :name = C_MUTEX ])
 	<span class="k">if</span> oLock.<span class="f">WaitOne</span>(<span class="n">0</span>)
 		? <span class="s">"I got the lock: no other copy was running"</span>
@@ -342,6 +346,7 @@ C_MUTEX = <span class="s">"ringdotnet_talk_single_copy"</span>
 	oClient.<span class="f">Dispose</span>()
 
 <span class="k">func</span> <span class="f">answer</span> cRequest
+
 	aWords = str2list(substr(cRequest,<span class="s">" "</span>,nl))
 	<span class="k">if</span> aWords[<span class="n">1</span>] = <span class="s">"add"</span> <span class="k">and</span> len(aWords) = <span class="n">3</span> <span class="k">and</span> isDigits(aWords[<span class="n">2</span>]) <span class="k">and</span> isDigits(aWords[<span class="n">3</span>])
 		<span class="k">return</span> <span class="s">""</span> + (number(aWords[<span class="n">2</span>]) + number(aWords[<span class="n">3</span>]))
@@ -351,6 +356,7 @@ C_MUTEX = <span class="s">"ringdotnet_talk_single_copy"</span>
 	<span class="k">return</span> <span class="s">"error: I do not understand '"</span> + cRequest + <span class="s">"'"</span>
 
 <span class="k">func</span> <span class="f">isDigits</span> cText
+
 	<span class="k">if</span> cText = <span class="s">""</span>
 		<span class="k">return</span> <span class="k">False</span>
 	<span class="k">ok</span>
@@ -363,12 +369,14 @@ C_MUTEX = <span class="s">"ringdotnet_talk_single_copy"</span>
 
 <span class="c"># a text without the new line at its end</span>
 <span class="k">func</span> <span class="f">chomp</span> cText
+
 	<span class="k">while</span> right(cText,<span class="n">1</span>) = char(<span class="n">10</span>) <span class="k">or</span> right(cText,<span class="n">1</span>) = char(<span class="n">13</span>)
 		cText = left(cText,len(cText) - <span class="n">1</span>)
 	<span class="k">end</span>
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

@@ -393,6 +393,7 @@ addOne(aNumbers)
 ? aNumbers[<span class="n">1</span>]                 <span class="c"># 31: the function worked on the original</span>
 
 <span class="k">func</span> <span class="f">addOne</span> aList
+
 	aList[<span class="n">1</span>] = aList[<span class="n">1</span>] + <span class="n">1</span></code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>4
 Ann Dee
@@ -448,6 +449,7 @@ total age: 115
 nTotal = <span class="n">0</span>                          <span class="c"># a global variable: defined at the top, outside every function</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. if / but (else if) / else, closed with ok</span>
 	nAge = <span class="n">17</span>
 	<span class="k">if</span> nAge &gt;= <span class="n">18</span>
@@ -497,13 +499,16 @@ nTotal = <span class="n">0</span>                          <span class="c"># a g
 	? <span class="s">"total (global) = "</span> + nTotal
 
 <span class="k">func</span> <span class="f">square</span> nNumber
+
 	<span class="k">return</span> nNumber * nNumber
 
 <span class="c"># A function has one parameter list: calling greet("Ann") with one value raises an error ("less number of parameters").</span>
 <span class="k">func</span> <span class="f">greet</span> cName, cGreeting
+
 	<span class="k">return</span> cGreeting + <span class="s">", "</span> + cName
 
 <span class="k">func</span> <span class="f">minMax</span> aList
+
 	nMin = aList[<span class="n">1</span>]
 	nMax = aList[<span class="n">1</span>]
 	<span class="k">for</span> nItem <span class="k">in</span> aList
@@ -513,6 +518,7 @@ nTotal = <span class="n">0</span>                          <span class="c"># a g
 	<span class="k">return</span> [nMin,nMax]
 
 <span class="k">func</span> <span class="f">addToTotal</span> nValue
+
 	nTotal += nValue</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>teenager
 for 1
@@ -533,6 +539,7 @@ total (global) = 11</code></pre></div>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ring_classes.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Ring in 15 minutes, part 4: classes and objects (the code at the top comes first, the classes go LAST: a func or class continues until the next func or class)</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. new makes an object. The parentheses call init().</span>
 	oAnn = <span class="k">new</span> <span class="t">Person</span>(<span class="s">"Ann"</span>,<span class="n">31</span>)
 	? oAnn.name
@@ -574,17 +581,21 @@ total (global) = 11</code></pre></div>
 	<span class="c"># init runs when the object is made with new Person(...). Give a class an init (even an empty one) if you write new Person()</span>
 	<span class="c"># with parentheses, and end it with "return self" if the object is used with braces: new Person(...) { ... }</span>
 	<span class="k">func</span> <span class="f">init</span> cName, nAge
+
 		name = cName
 		age = nAge
 		<span class="k">return</span> <span class="k">self</span>
 
 	<span class="k">func</span> <span class="f">birthday</span>
+
 		age++
 
 	<span class="k">func</span> <span class="f">describe</span>
+
 		<span class="k">return</span> name + <span class="s">" is "</span> + age + <span class="s">" and lives in "</span> + city
 
 	<span class="k">func</span> <span class="f">isAdult</span>
+
 		<span class="k">return</span> age &gt;= <span class="n">18</span>
 
 <span class="k">class</span> Student <span class="k">from</span> Person
@@ -592,11 +603,13 @@ total (global) = 11</code></pre></div>
 	subject = <span class="s">""</span>
 
 	<span class="k">func</span> <span class="f">init</span> cName, nAge, cSubject
+
 		super.<span class="f">init</span>(cName,nAge)           <span class="c"># the init of the parent</span>
 		subject = cSubject
 		<span class="k">return</span> <span class="k">self</span>
 
 	<span class="k">func</span> <span class="f">describe</span>
+
 		<span class="k">return</span> super.<span class="f">describe</span>() + <span class="s">", studies "</span> + subject</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>Ann
 Ann is 32 and lives in Cairo
@@ -613,6 +626,7 @@ Eva 20</code></pre></div>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ring_errors_files.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Ring in 15 minutes, part 5: errors, files, arguments and other files</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. try / catch / done: the error text is in cCatchError. raise() makes an error of your own.</span>
 	<span class="k">try</span>
 		nResult = <span class="n">10</span> / <span class="n">0</span>
@@ -650,11 +664,13 @@ Eva 20</code></pre></div>
 	? <span class="s">"done"</span>
 
 <span class="k">func</span> <span class="f">checkAge</span> nAge
+
 	<span class="k">if</span> nAge &lt; <span class="n">0</span>
 		raise(<span class="s">"an age can not be negative: "</span> + nAge)
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">hello</span>
+
 	? <span class="s">"hello from a function called by name"</span></code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>caught: Can't divide by zero
 caught: an age can not be negative: -5

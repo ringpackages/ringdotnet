@@ -258,6 +258,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch08_crypto.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># protecting and signing messages - AES, HMAC (encrypt-then-MAC), a password-derived key and RSA signatures</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Text"</span>
@@ -265,6 +266,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oRandom = <span class="k">new</span> <span class="t">RandomNumberGenerator</span>()
 
 	<span class="c"># 1. A key from a password: PBKDF2 stretches it (many rounds, a random salt) into as many bytes as we ask for.</span>
@@ -308,6 +310,7 @@ using {
 
 <span class="c"># the keys of a password: PBKDF2 with SHA-256, 100000 rounds, nBytes long</span>
 <span class="k">func</span> <span class="f">deriveKeys</span> cPassword, cSalt
+
 	oDerive = <span class="f">dnNew</span>(<span class="s">"Rfc2898DeriveBytes"</span>,[ :password = cPassword, :salt = cSalt, :iterations = <span class="n">100000</span>, :hashAlgorithm = <span class="k">new</span> <span class="t">HashAlgorithmName</span>().SHA256 ])
 	cKeys = oDerive.<span class="f">GetBytes</span>(<span class="n">64</span>)
 	oDerive.<span class="f">Dispose</span>()
@@ -315,6 +318,7 @@ using {
 
 <span class="c"># IV + AES-CBC(message) + HMAC-SHA256(IV + ciphertext)</span>
 <span class="k">func</span> <span class="f">protect</span> cMessage, cEncryptionKey, cMacKey
+
 	oAes = <span class="k">new</span> <span class="t">Aes</span>().<span class="f">Create</span>(<span class="k">NULL</span>)
 	oAes.Key = cEncryptionKey
 	cIv = <span class="k">new</span> <span class="t">RandomNumberGenerator</span>().<span class="f">GetBytes</span>(<span class="n">16</span>)
@@ -328,6 +332,7 @@ using {
 
 <span class="c"># returns [status, text]: "ok" and the message, or "refused" and the reason</span>
 <span class="k">func</span> <span class="f">unprotect</span> cPackage, cEncryptionKey, cMacKey
+
 	<span class="k">if</span> len(cPackage) &lt; <span class="n">16</span> + <span class="n">16</span> + <span class="n">32</span>
 		<span class="k">return</span> [<span class="s">"refused"</span>,<span class="s">"too short"</span>]
 	<span class="k">ok</span>
@@ -347,6 +352,7 @@ using {
 	<span class="k">return</span> [<span class="s">"ok"</span>,cPlain]
 
 <span class="k">func</span> <span class="f">tagOf</span> cBody, cMacKey
+
 	oHmac = <span class="k">new</span> <span class="t">HMACSHA256</span>().@<span class="k">New</span>([ :<span class="t">key</span> = cMacKey ])
 	cTag = oHmac.<span class="f">ComputeHash</span>(cBody)
 	oHmac.<span class="f">Dispose</span>()
@@ -354,6 +360,7 @@ using {
 
 <span class="c"># compare without stopping at the first difference (the time must not tell how many bytes were equal)</span>
 <span class="k">func</span> <span class="f">sameBytes</span> cA, cB
+
 	<span class="k">if</span> len(cA) != len(cB)
 		<span class="k">return</span> <span class="k">False</span>
 	<span class="k">ok</span>
@@ -364,6 +371,7 @@ using {
 	<span class="k">return</span> nDifference = <span class="n">0</span>
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

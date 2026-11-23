@@ -1,6 +1,7 @@
 # A menu bar and a status bar
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -22,4 +23,5 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func say cText
+
 	oMessage.Text = cText

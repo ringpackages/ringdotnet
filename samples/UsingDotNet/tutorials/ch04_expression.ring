@@ -1,11 +1,13 @@
 # an expression calculator - tokens, a recursive-descent parser, precedence and clear errors
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Text.RegularExpressions"
 }
 
 func main
+
 	aTests = ["1 + 2 * 3","(1 + 2) * 3","10 / 4 - 1","2 ^ 3 ^ 2","-(2 + 3) * 4","sqrt(16) + max(3, 9)","2 * (3 + ","4 $ 4","1 / 0"]
 	for cText in aTests
 		oCalc = new Evaluator()
@@ -13,6 +15,7 @@ func main
 	next
 
 func padRight cText, nWidth
+
 	while len(cText) < nWidth
 		cText += " "
 	end
@@ -29,9 +32,11 @@ class Evaluator
 	cError = ""
 
 	func init
+
 		return self
 
 	func calculate cText
+
 		cError = ""
 		aTokens = tokenize(cText)
 		if cError != ""
@@ -49,6 +54,7 @@ class Evaluator
 
 	# Regex.Matches finds every piece; anything that is not a number, a name, an operator or a space is an error
 	func tokenize cText
+
 		aList = []
 		oMatches = new Regex("\s*(\d+\.?\d*|[A-Za-z]+|[-+*/^(),]|\S)").Matches(cText)
 		for nIndex = 0 to oMatches.Count - 1
@@ -62,12 +68,14 @@ class Evaluator
 		return aList
 
 	func peek
+
 		if nPos <= len(aTokens)
 			return aTokens[nPos]
 		ok
 		return ""
 
 	func expression
+
 		nLeft = term()
 		while cError = "" and (peek() = "+" or peek() = "-")
 			cOp = peek()
@@ -82,6 +90,7 @@ class Evaluator
 		return nLeft
 
 	func term
+
 		nLeft = power()
 		while cError = "" and (peek() = "*" or peek() = "/")
 			cOp = peek()
@@ -101,6 +110,7 @@ class Evaluator
 
 	# ^ goes to the right: 2^3^2 = 2^(3^2)
 	func power
+
 		nBase = unary()
 		if cError = "" and peek() = "^"
 			nPos++
@@ -109,6 +119,7 @@ class Evaluator
 		return nBase
 
 	func unary
+
 		if peek() = "-"
 			nPos++
 			return -unary()
@@ -116,6 +127,7 @@ class Evaluator
 		return primary()
 
 	func primary
+
 		cToken = peek()
 		if cToken = ""
 			cError = "the expression ends too early"
@@ -137,6 +149,7 @@ class Evaluator
 		return 0
 
 	func expect cToken
+
 		if cError != ""
 			return
 		ok
@@ -148,6 +161,7 @@ class Evaluator
 
 	# name ( arguments ): the functions come from the .NET Math class
 	func callFunction cName
+
 		expect("(")
 		aArgs = []
 		if peek() != ")"

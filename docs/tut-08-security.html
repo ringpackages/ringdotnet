@@ -258,6 +258,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch01_security.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># hashing and encryption basics - checksums, HMAC, random tokens, AES</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Security.Cryptography"</span>
@@ -265,6 +266,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oConvert = <span class="k">new</span> <span class="t">Convert</span>()
 
 	<span class="c"># A hash is a fingerprint of data: the same input always gives the same hash, you can not go back</span>

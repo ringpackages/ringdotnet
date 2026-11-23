@@ -1,5 +1,6 @@
 # a project: mail merge - a template with {fields}, rows of data, Regex.Replace with a callback, formats, missing fields and the letters
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Globalization"
@@ -10,6 +11,7 @@ aFields = []                     # the data of the row that is being merged (the
 aMissing = []                    # the names of the fields that a row did not have
 
 func main
+
 	# A MAIL MERGE makes many letters from one template and a table of data. The template has FIELDS in braces: {name} is replaced by the
 	# value of the column name, and {amount:N2} is replaced by the value written with a format (the tutorial about formatting).
 	cTemplate = "Dear {name}," + nl + "Your order {order} of {amount:N2} is ready." + nl + "It will be sent to {city} on {date:d MMMM yyyy}." + nl + "Thank you, {shop}"
@@ -59,6 +61,7 @@ func main
 
 # the names of the fields in a template: the first part of each {name} or {name:format}
 func fieldNames cTemplate
+
 	aNames = []
 	for oMatch in dnStatic("System.Text.RegularExpressions.Regex","Matches",[ cTemplate, cPattern() ]).toList()
 		aNames + oMatch.Groups.Item(1).Value
@@ -67,16 +70,19 @@ func fieldNames cTemplate
 
 # the pattern of a field: { a name, and then perhaps a colon and a format } . The name is in group 1 and the format in group 2.
 func cPattern
+
 	return "\{(\w+)(?::([^}]+))?\}"
 
 # the letter of one row: every field is replaced by what the callback returns
 func merge cTemplate,aRow
+
 	aFields = aRow
 	return dnStatic("System.Text.RegularExpressions.Regex","Replace",[ cTemplate, cPattern(), dnCallback("replaceField") ])
 
 # The callback. A callback that is the NAME of a function gets the arguments as a list: aArgs[1] is the Match. Group 1 is the name of the
 # field and group 2 the format (empty when there is none). The text that the function RETURNS replaces the field in the letter.
 func replaceField aArgs
+
 	oMatch = aArgs[1]
 	cName = oMatch.Groups.Item(1).Value
 	cFormat = oMatch.Groups.Item(2).Value
@@ -92,6 +98,7 @@ func replaceField aArgs
 
 # a value with a format: a number with N2, a date with d MMMM yyyy (the invariant culture: the same text on every computer)
 func formatValue cValue,cFormat
+
 	oInvariant = new CultureInfo("en-US").InvariantCulture
 	if isDate(cValue)
 		oDate = dnStatic("System.DateTime","Parse",[ cValue, oInvariant ])
@@ -100,10 +107,12 @@ func formatValue cValue,cFormat
 	return new String().Format([ :provider = oInvariant, :format = "{0:" + cFormat + "}", :arg0 = 0 + cValue ])
 
 func isDate cText
+
 	return len(cText) = 10 and substr(cText,5,1) = "-" and substr(cText,8,1) = "-"
 
 # a CSV text as a list of rows; each row is a list of [name, value] pairs, found by the name of the column
 func readCsv cCsv
+
 	aLines = str2list(substr(cCsv,char(13),""))
 	aNames = splitKeep(aLines[1])
 	aRows = []
@@ -122,6 +131,7 @@ func readCsv cCsv
 
 # split a line at the commas and keep the empty values
 func splitKeep cLine
+
 	aParts = []
 	cPart = ""
 	for i = 1 to len(cLine)
@@ -136,12 +146,15 @@ func splitKeep cLine
 	return aParts
 
 func columnNames cCsv
+
 	return splitKeep(str2list(substr(cCsv,char(13),""))[1])
 
 func first cLetter
+
 	return str2list(cLetter)[1]
 
 func indent cText
+
 	cOut = ""
 	for cLine in str2list(cText)
 		cOut += "   | " + cLine + nl
@@ -149,6 +162,7 @@ func indent cText
 	return left(cOut,len(cOut) - 1)
 
 func joinList aList
+
 	cText = ""
 	for item in aList
 		if cText != ""

@@ -1,5 +1,6 @@
 # a project - Tic-Tac-Toe (game logic in functions, nine buttons, a status line)
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -16,6 +17,7 @@ oStatus = ""
 aButtons = []
 
 func main
+
 	oForm = uiForm("Tic-Tac-Toe",300,376)
 	oStatus = uiLabel(oForm,"X to play",10,10,280,26)
 	oStatus.Font = new Font("Segoe UI",14)
@@ -34,6 +36,7 @@ func main
 
 # the winner of a board: "X", "O" or "" when nobody has won; the 8 lines of three cells
 func winnerOf aCells
+
 	aLines = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
 	for aLine in aLines
 		cFirst = aCells[aLine[1]]
@@ -44,6 +47,7 @@ func winnerOf aCells
 	return ""
 
 func boardFull aCells
+
 	for cCell in aCells
 		if cCell = ""
 			return False
@@ -54,6 +58,7 @@ func boardFull aCells
 # ---------------------------------------------------------------- THE GAME: a move changes the state, then the window shows it
 
 func play nCell
+
 	if lOver or aBoard[nCell] != ""
 		return
 	ok
@@ -76,6 +81,7 @@ func play nCell
 	ok
 
 func newGame
+
 	aBoard = ["","","","","","","","",""]
 	cTurn = "X"
 	lOver = False

@@ -28,6 +28,7 @@ dnAssert("a text that is not a PDF raises an error",len(cError) > 0,1)
 dnTestSummary()
 
 func makePdf cText
+
 	cStream = "BT /F1 12 Tf 10 50 Td (" + cText + ") Tj ET"
 	aObjects = [
 		"<< /Type /Catalog /Pages 2 0 R >>",

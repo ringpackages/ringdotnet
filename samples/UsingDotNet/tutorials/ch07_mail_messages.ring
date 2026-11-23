@@ -1,5 +1,6 @@
 # e-mail messages - addresses, a MailMessage with several recipients, an attachment, a body in HTML and in text (nothing is sent)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -9,6 +10,7 @@ using {
 }
 
 func main
+
 	# 1. MailAddress reads "Name <user@host>" and splits it. A wrong address raises an error, so it is a check too.
 	oAddress = new MailAddress("Ann Lee <ann.lee@example.com>")
 	? "1. display name: " + oAddress.DisplayName
@@ -42,6 +44,7 @@ func main
 
 # A text is an address when MailAddress accepts it (a wrong one raises an error)
 func isAddress cText
+
 	try
 		new MailAddress(cText)
 		return True

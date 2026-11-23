@@ -1,5 +1,6 @@
 # a list with columns - ListView in details view: columns, check boxes, sorting by a column header, removing the checked rows
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -14,6 +15,7 @@ nSortColumn = -1                      # no column yet
 lAscending = True
 
 func main
+
 	oForm = uiForm("Tasks",520,330)
 	oList = new ListView()
 	oList.Location = new Point(15,15)
@@ -39,6 +41,7 @@ func main
 # the rows come from the Ring list aTasks: the list is the DATA and the ListView only shows it, so sorting means sorting the list
 # and filling the view again
 func fillList
+
 	oList.Items.Clear()
 	for aTask in aTasks
 		oItem = new ListViewItem().@New([ :text = aTask[1] ])
@@ -50,6 +53,7 @@ func fillList
 
 # sort by a column: the same column again turns the order around. A sort with a Ring function: a plain bubble sort on the column.
 func sortBy nColumn
+
 	if nColumn = nSortColumn
 		lAscending = not lAscending
 	else
@@ -72,6 +76,7 @@ func sortBy nColumn
 # because the signs < and > compare numbers. Dates written as year-month-day sort correctly as text; the priority is a number, so it is
 # written with the same number of digits ("2") and compares the same way.
 func goesAfter aFirst,aSecond
+
 	nColumn = nSortColumn + 1
 	nResult = strcmp("" + aFirst[nColumn],"" + aSecond[nColumn])
 	if lAscending
@@ -80,6 +85,7 @@ func goesAfter aFirst,aSecond
 	return nResult < 0
 
 func removeChecked
+
 	aKept = []
 	for i = 1 to len(aTasks)
 		if not oList.Items.Item(i - 1).Checked
@@ -91,6 +97,7 @@ func removeChecked
 
 # the number of checked rows: ask each row (the property Checked)
 func checkedCount
+
 	nChecked = 0
 	for i = 0 to oList.Items.Count - 1
 		if oList.Items.Item(i).Checked
@@ -100,4 +107,5 @@ func checkedCount
 	return nChecked
 
 func showStatus
+
 	oStatus.Text = "" + oList.Items.Count + " tasks, " + checkedCount() + " checked"

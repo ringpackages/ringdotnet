@@ -1,6 +1,7 @@
 # the checks of ch10_closing.ring: run with  ring ch10_closing.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	# no changes yet: closing would not ask anything
 	dnAssert("no changes",lChanged,False)
 

@@ -3,6 +3,7 @@ load "dotnet.ring"
 dnUseData()
 
 func main
+
 	aSchema = [
 		["Authors",[["Id","int",1],["Name","string",0,[["required",1]]]]],
 		["Books",[["Id","int",1],["Title","string",0],["Year","int",0],["Pages","int",0,[["nullable",1]]],["AuthorId","int",0,[["references","Authors"],["ondelete","cascade"]]]]]

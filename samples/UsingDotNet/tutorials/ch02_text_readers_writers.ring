@@ -1,5 +1,6 @@
 # text readers and writers - StringWriter and StringReader, TextWriter in functions, and capturing Console output
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	# 1. A StringWriter is a TextWriter that writes into a string in memory. Code that writes to "a TextWriter" does not care whether it
 	#    is a file, the console or a string: that makes it easy to test and to reuse.
 	oWriter = new StringWriter
@@ -67,5 +69,6 @@ func main
 	? "   padded numbers: " + oString.Format([ :format = "{0:00000} {1:0.0} {2:0.##} {3:D5} {4:X4}", :args = [42,255,0.25,42,255] ])
 
 func writeReport oWriter,cName,nAge
+
 	oWriter.WriteLine("name: " + cName)
 	oWriter.WriteLine("age: " + nAge)

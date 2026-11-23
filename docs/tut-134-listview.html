@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_listview.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a list with columns - ListView in details view: columns, check boxes, sorting by a column header, removing the checked rows</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -269,6 +270,7 @@ nSortColumn = -<span class="n">1</span>                      <span class="c"># n
 lAscending = <span class="k">True</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Tasks"</span>,<span class="n">520</span>,<span class="n">330</span>)
 	oList = <span class="k">new</span> <span class="t">ListView</span>()
 	oList.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">15</span>,<span class="n">15</span>)
@@ -294,6 +296,7 @@ lAscending = <span class="k">True</span>
 <span class="c"># the rows come from the Ring list aTasks: the list is the DATA and the ListView only shows it, so sorting means sorting the list</span>
 <span class="c"># and filling the view again</span>
 <span class="k">func</span> <span class="f">fillList</span>
+
 	oList.Items.<span class="f">Clear</span>()
 	<span class="k">for</span> aTask <span class="k">in</span> aTasks
 		oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().@<span class="k">New</span>([ :<span class="t">text</span> = aTask[<span class="n">1</span>] ])
@@ -305,6 +308,7 @@ lAscending = <span class="k">True</span>
 
 <span class="c"># sort by a column: the same column again turns the order around. A sort with a Ring function: a plain bubble sort on the column.</span>
 <span class="k">func</span> <span class="f">sortBy</span> nColumn
+
 	<span class="k">if</span> nColumn = nSortColumn
 		lAscending = <span class="k">not</span> lAscending
 	<span class="k">else</span>
@@ -327,6 +331,7 @@ lAscending = <span class="k">True</span>
 <span class="c"># because the signs &lt; and &gt; compare numbers. Dates written as year-month-day sort correctly as text; the priority is a number, so it is</span>
 <span class="c"># written with the same number of digits ("2") and compares the same way.</span>
 <span class="k">func</span> <span class="f">goesAfter</span> aFirst,aSecond
+
 	nColumn = nSortColumn + <span class="n">1</span>
 	nResult = strcmp(<span class="s">""</span> + aFirst[nColumn],<span class="s">""</span> + aSecond[nColumn])
 	<span class="k">if</span> lAscending
@@ -335,6 +340,7 @@ lAscending = <span class="k">True</span>
 	<span class="k">return</span> nResult &lt; <span class="n">0</span>
 
 <span class="k">func</span> <span class="f">removeChecked</span>
+
 	aKept = []
 	<span class="k">for</span> i = <span class="n">1</span> <span class="k">to</span> len(aTasks)
 		<span class="k">if</span> <span class="k">not</span> oList.Items.<span class="f">Item</span>(i - <span class="n">1</span>).Checked
@@ -346,6 +352,7 @@ lAscending = <span class="k">True</span>
 
 <span class="c"># the number of checked rows: ask each row (the property Checked)</span>
 <span class="k">func</span> <span class="f">checkedCount</span>
+
 	nChecked = <span class="n">0</span>
 	<span class="k">for</span> i = <span class="n">0</span> <span class="k">to</span> oList.Items.Count - <span class="n">1</span>
 		<span class="k">if</span> oList.Items.<span class="f">Item</span>(i).Checked
@@ -355,6 +362,7 @@ lAscending = <span class="k">True</span>
 	<span class="k">return</span> nChecked
 
 <span class="k">func</span> <span class="f">showStatus</span>
+
 	oStatus.Text = <span class="s">""</span> + oList.Items.Count + <span class="s">" tasks, "</span> + checkedCount() + <span class="s">" checked"</span></code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g134.png" alt="The task list" loading="lazy"><figcaption>The task list</figcaption></figure>
 

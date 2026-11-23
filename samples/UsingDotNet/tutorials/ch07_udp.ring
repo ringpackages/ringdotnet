@@ -1,5 +1,6 @@
 # UDP - datagrams between two sockets of this computer, Receive with a time limit, broadcast-style replies and lost data
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Net"
@@ -8,6 +9,7 @@ using {
 }
 
 func main
+
 	oUtf8 = new UTF8Encoding()
 	oLoop = new IPAddress().Loopback
 

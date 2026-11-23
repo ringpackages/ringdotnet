@@ -1,11 +1,13 @@
 # the tutorial "Entity objects and migrations", part 2: changing a database that already has data - migrations
 load "dotnet.ring"
+
 using {
 	"System.IO"
 	"RingDotNet.Data"
 }
 
 func main
+
 	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_migrations.db"])
 	if new File().Exists(cFile)
 		new File().Delete(cFile)

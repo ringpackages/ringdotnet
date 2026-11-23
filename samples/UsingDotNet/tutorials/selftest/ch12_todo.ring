@@ -1,6 +1,7 @@
 # the checks of ch12_todo.ring: run with  ring ch12_todo.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	oNew.Text = "Buy milk"
 	addTask()
 	oNew.Text = "Write the tutorial"

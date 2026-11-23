@@ -259,12 +259,14 @@
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch09_access.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Microsoft Access databases - an .accdb file through ODBC: tables, parameters, joins, totals, dates, transactions</span>
 <span class="c"># (Windows only: it needs the Microsoft Access Database Engine; anywhere else the program says why it stops)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 0. What the program needs. Without it, it stops with a message and no error.</span>
 	cDriver = <span class="s">"Microsoft Access Driver (*.mdb, *.accdb)"</span>
 	<span class="k">if</span> <span class="k">not</span> iswindows()
@@ -373,6 +375,7 @@ using {
 
 <span class="c"># is the ODBC driver registered? (the list of ODBC drivers is in the registry)</span>
 <span class="k">func</span> <span class="f">driverInstalled</span> cDriver
+
 	<span class="k">try</span>
 		oMachine = <span class="f">dnType</span>(<span class="s">"Microsoft.Win32.Registry"</span>).<span class="f">getProp</span>(<span class="s">"LocalMachine"</span>)
 		oKey = oMachine.<span class="f">OpenSubKey</span>(<span class="s">"SOFTWARE\ODBC\ODBCINST.INI\ODBC Drivers"</span>)
@@ -390,6 +393,7 @@ using {
 
 <span class="c"># a new Access file made with ADOX (a COM component of Windows); false when it is not available</span>
 <span class="k">func</span> <span class="f">createDatabase</span> cFile
+
 	<span class="k">try</span>
 		oType = <span class="k">new</span> <span class="t">Type</span>().<span class="f">GetTypeFromProgID</span>(<span class="s">"ADOX.Catalog"</span>)
 		<span class="k">if</span> oType.<span class="f">isNull</span>()
@@ -404,6 +408,7 @@ using {
 
 <span class="c"># a command with its parameters (the driver uses them in the order of the ? marks)</span>
 <span class="k">func</span> <span class="f">makeCommand</span> oConnection,cSql,aValues
+
 	oCommand = oConnection.<span class="f">CreateCommand</span>()
 	oCommand.<span class="f">setProp</span>(<span class="s">"CommandText"</span>,cSql)
 	oParameters = oCommand.Parameters
@@ -416,19 +421,23 @@ using {
 
 <span class="c"># a statement that changes data: answers the number of rows</span>
 <span class="k">func</span> <span class="f">runSql</span> oConnection,cSql,aValues
+
 	<span class="k">return</span> makeCommand(oConnection,cSql,aValues).<span class="f">ExecuteNonQuery</span>()
 
 <span class="k">func</span> <span class="f">runSqlIn</span> oConnection,oTransaction,cSql,aValues
+
 	oCommand = makeCommand(oConnection,cSql,aValues)
 	oCommand.<span class="f">setProp</span>(<span class="s">"Transaction"</span>,oTransaction)
 	<span class="k">return</span> oCommand.<span class="f">ExecuteNonQuery</span>()
 
 <span class="c"># one value: the first column of the first row</span>
 <span class="k">func</span> <span class="f">scalar</span> oConnection,cSql,aValues
+
 	<span class="k">return</span> makeCommand(oConnection,cSql,aValues).<span class="f">ExecuteScalar</span>()
 
 <span class="c"># all the rows as a list of lists. A date comes back as a text "yyyy-MM-dd", the other values as Ring numbers and texts.</span>
 <span class="k">func</span> <span class="f">rows</span> oConnection,cSql,aValues
+
 	aRows = []
 	oReader = makeCommand(oConnection,cSql,aValues).<span class="f">callMethod</span>(<span class="s">"ExecuteReader"</span>,[])
 	nColumns = oReader.FieldCount
@@ -452,6 +461,7 @@ using {
 
 <span class="c"># the user tables (the schema also lists the system tables of Access)</span>
 <span class="k">func</span> <span class="f">tableNames</span> oConnection
+
 	aNames = []
 	<span class="k">for</span> oRow <span class="k">in</span> oConnection.<span class="f">GetSchema</span>(<span class="s">"Tables"</span>).Rows.<span class="f">toList</span>()
 		<span class="k">if</span> oRow.<span class="f">callMethod</span>(<span class="s">"get_Item"</span>,[<span class="s">"TABLE_TYPE"</span>]) = <span class="s">"TABLE"</span>
@@ -462,6 +472,7 @@ using {
 
 <span class="c"># the column names and types of a table: an empty query (WHERE 1 = 0) describes the columns without reading rows</span>
 <span class="k">func</span> <span class="f">columnNames</span> oConnection,cTable
+
 	aNames = []
 	oReader = makeCommand(oConnection,<span class="s">"SELECT * FROM "</span> + cTable + <span class="s">" WHERE 1 = 0"</span>,[]).<span class="f">callMethod</span>(<span class="s">"ExecuteReader"</span>,[])
 	<span class="k">for</span> nColumn = <span class="n">0</span> <span class="k">to</span> oReader.FieldCount - <span class="n">1</span>
@@ -474,10 +485,12 @@ using {
 
 <span class="c"># an Arabic name as UTF-8 bytes (a Ring text is a text of bytes)</span>
 <span class="k">func</span> <span class="f">arabicName</span>
+
 	<span class="k">return</span> char(<span class="n">216</span>) + char(<span class="n">163</span>) + char(<span class="n">216</span>) + char(<span class="n">173</span>) + char(<span class="n">217</span>) + char(<span class="n">133</span>) + char(<span class="n">216</span>) + char(<span class="n">175</span>)
 
 <span class="c"># the first word, so that the Arabic name does not disturb the columns</span>
 <span class="k">func</span> <span class="f">shortName</span> cName
+
 	cShort = cName
 	<span class="k">if</span> cName = arabicName()
 		cShort = <span class="s">"(Arabic)"</span>
@@ -485,6 +498,7 @@ using {
 	<span class="k">return</span> cShort
 
 <span class="k">func</span> <span class="f">money</span> nValue
+
 	nRounded = floor(nValue * <span class="n">100</span> + <span class="n">0.5</span>)
 	nUnits = floor(nRounded / <span class="n">100</span>)
 	nCents = nRounded - nUnits * <span class="n">100</span>
@@ -495,6 +509,7 @@ using {
 	<span class="k">return</span> <span class="s">""</span> + nUnits + <span class="s">"."</span> + cCents
 
 <span class="k">func</span> <span class="f">columnOf</span> aRows,nColumn,cFormat
+
 	aValues = []
 	<span class="k">for</span> aRow <span class="k">in</span> aRows
 		<span class="k">if</span> cFormat = <span class="s">"money"</span>
@@ -506,6 +521,7 @@ using {
 	<span class="k">return</span> aValues
 
 <span class="k">func</span> <span class="f">joinList</span> aList
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> item <span class="k">in</span> aList
 		<span class="k">if</span> cText != <span class="s">""</span>
@@ -516,9 +532,11 @@ using {
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">padRight</span> cText,nWidth
+
 	<span class="k">return</span> cText + copy(<span class="s">" "</span>,nWidth - len(cText))
 
 <span class="k">func</span> <span class="f">padLeft</span> cText,nWidth
+
 	<span class="k">return</span> copy(<span class="s">" "</span>,nWidth - len(cText)) + cText</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. the database file was created: 1
    the connection is: Open

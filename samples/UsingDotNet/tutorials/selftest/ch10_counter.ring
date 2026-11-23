@@ -2,6 +2,7 @@
 
 # The same program tests itself when it is started with --selftest
 func selfTest
+
 	oForm.Controls.Item(1).PerformClick()
 	oForm.Controls.Item(1).PerformClick()
 	oForm.Controls.Item(1).PerformClick()

@@ -122,6 +122,7 @@ dnAssert("dispatcher timer ticked 3 times",nTicks,3)
 nFail = dnTestSummary()
 
 func tick
+
 	nTicks++
 	if nTicks = 3
 		oTimer.Stop()
@@ -129,6 +130,7 @@ func tick
 	ok
 
 func selfTest
+
 	dnAssert("title",oWindow.Title,"WPF test")
 	dnAssert("rendered: the window has a real size",oWindow.ActualWidth > 100,1)
 	dnAssert("button was laid out",oButton.ActualWidth > 10,1)

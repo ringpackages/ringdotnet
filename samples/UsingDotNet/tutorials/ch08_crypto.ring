@@ -1,5 +1,6 @@
 # protecting and signing messages - AES, HMAC (encrypt-then-MAC), a password-derived key and RSA signatures
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Text"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	oRandom = new RandomNumberGenerator()
 
 	# 1. A key from a password: PBKDF2 stretches it (many rounds, a random salt) into as many bytes as we ask for.
@@ -50,6 +52,7 @@ func main
 
 # the keys of a password: PBKDF2 with SHA-256, 100000 rounds, nBytes long
 func deriveKeys cPassword, cSalt
+
 	oDerive = dnNew("Rfc2898DeriveBytes",[ :password = cPassword, :salt = cSalt, :iterations = 100000, :hashAlgorithm = new HashAlgorithmName().SHA256 ])
 	cKeys = oDerive.GetBytes(64)
 	oDerive.Dispose()
@@ -57,6 +60,7 @@ func deriveKeys cPassword, cSalt
 
 # IV + AES-CBC(message) + HMAC-SHA256(IV + ciphertext)
 func protect cMessage, cEncryptionKey, cMacKey
+
 	oAes = new Aes().Create(NULL)
 	oAes.Key = cEncryptionKey
 	cIv = new RandomNumberGenerator().GetBytes(16)
@@ -70,6 +74,7 @@ func protect cMessage, cEncryptionKey, cMacKey
 
 # returns [status, text]: "ok" and the message, or "refused" and the reason
 func unprotect cPackage, cEncryptionKey, cMacKey
+
 	if len(cPackage) < 16 + 16 + 32
 		return ["refused","too short"]
 	ok
@@ -89,6 +94,7 @@ func unprotect cPackage, cEncryptionKey, cMacKey
 	return ["ok",cPlain]
 
 func tagOf cBody, cMacKey
+
 	oHmac = new HMACSHA256().@New([ :key = cMacKey ])
 	cTag = oHmac.ComputeHash(cBody)
 	oHmac.Dispose()
@@ -96,6 +102,7 @@ func tagOf cBody, cMacKey
 
 # compare without stopping at the first difference (the time must not tell how many bytes were equal)
 func sameBytes cA, cB
+
 	if len(cA) != len(cB)
 		return False
 	ok
@@ -106,6 +113,7 @@ func sameBytes cA, cB
 	return nDifference = 0
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

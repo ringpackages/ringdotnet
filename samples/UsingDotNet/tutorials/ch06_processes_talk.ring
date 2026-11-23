@@ -2,6 +2,7 @@
 #   ring ch06_processes_talk.ring            the parent: it starts a second copy of this program (the child) and talks to it
 #   ring ch06_processes_talk.ring --child    the child (the parent starts it, you do not)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -14,6 +15,7 @@ C_PIPE = "ringdotnet_talk"
 C_MUTEX = "ringdotnet_talk_single_copy"
 
 func main
+
 	if find(sysargv,"--child") > 0
 		runChild()
 		return
@@ -23,6 +25,7 @@ func main
 # ---------------------------------------------------------------- the parent
 
 func runParent
+
 	# 1. A named mutex is a lock that the whole computer shares. The first program that gets it is "the only copy".
 	oLock = new Mutex().@New([ :initiallyOwned = False, :name = C_MUTEX ])
 	? "1. the parent got the lock: " + yesNo(oLock.WaitOne(0))              # WaitOne(0): do not wait, just try
@@ -63,6 +66,7 @@ func runParent
 # ---------------------------------------------------------------- the child
 
 func runChild
+
 	oLock = new Mutex().@New([ :initiallyOwned = False, :name = C_MUTEX ])
 	if oLock.WaitOne(0)
 		? "I got the lock: no other copy was running"
@@ -85,6 +89,7 @@ func runChild
 	oClient.Dispose()
 
 func answer cRequest
+
 	aWords = str2list(substr(cRequest," ",nl))
 	if aWords[1] = "add" and len(aWords) = 3 and isDigits(aWords[2]) and isDigits(aWords[3])
 		return "" + (number(aWords[2]) + number(aWords[3]))
@@ -94,6 +99,7 @@ func answer cRequest
 	return "error: I do not understand '" + cRequest + "'"
 
 func isDigits cText
+
 	if cText = ""
 		return False
 	ok
@@ -106,12 +112,14 @@ func isDigits cText
 
 # a text without the new line at its end
 func chomp cText
+
 	while right(cText,1) = char(10) or right(cText,1) = char(13)
 		cText = left(cText,len(cText) - 1)
 	end
 	return cText
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

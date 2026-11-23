@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch02_mailmerge.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project: mail merge - a template with {fields}, rows of data, Regex.Replace with a callback, formats, missing fields and the letters</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Globalization"</span>
@@ -265,6 +266,7 @@ aFields = []                     <span class="c"># the data of the row that is b
 aMissing = []                    <span class="c"># the names of the fields that a row did not have</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># A MAIL MERGE makes many letters from one template and a table of data. The template has FIELDS in braces: {name} is replaced by the</span>
 	<span class="c"># value of the column name, and {amount:N2} is replaced by the value written with a format (the tutorial about formatting).</span>
 	cTemplate = <span class="s">"Dear {name},"</span> + nl + <span class="s">"Your order {order} of {amount:N2} is ready."</span> + nl + <span class="s">"It will be sent to {city} on {date:d MMMM yyyy}."</span> + nl + <span class="s">"Thank you, {shop}"</span>
@@ -314,6 +316,7 @@ aMissing = []                    <span class="c"># the names of the fields that 
 
 <span class="c"># the names of the fields in a template: the first part of each {name} or {name:format}</span>
 <span class="k">func</span> <span class="f">fieldNames</span> cTemplate
+
 	aNames = []
 	<span class="k">for</span> oMatch <span class="k">in</span> <span class="f">dnStatic</span>(<span class="s">"System.Text.RegularExpressions.Regex"</span>,<span class="s">"Matches"</span>,[ cTemplate, cPattern() ]).<span class="f">toList</span>()
 		aNames + oMatch.Groups.<span class="f">Item</span>(<span class="n">1</span>).Value
@@ -322,16 +325,19 @@ aMissing = []                    <span class="c"># the names of the fields that 
 
 <span class="c"># the pattern of a field: { a name, and then perhaps a colon and a format } . The name is in group 1 and the format in group 2.</span>
 <span class="k">func</span> <span class="f">cPattern</span>
+
 	<span class="k">return</span> <span class="s">"\{(\w+)(?::([^}]+))?\}"</span>
 
 <span class="c"># the letter of one row: every field is replaced by what the callback returns</span>
 <span class="k">func</span> <span class="f">merge</span> cTemplate,aRow
+
 	aFields = aRow
 	<span class="k">return</span> <span class="f">dnStatic</span>(<span class="s">"System.Text.RegularExpressions.Regex"</span>,<span class="s">"Replace"</span>,[ cTemplate, cPattern(), <span class="f">dnCallback</span>(<span class="s">"replaceField"</span>) ])
 
 <span class="c"># The callback. A callback that is the NAME of a function gets the arguments as a list: aArgs[1] is the Match. Group 1 is the name of the</span>
 <span class="c"># field and group 2 the format (empty when there is none). The text that the function RETURNS replaces the field in the letter.</span>
 <span class="k">func</span> <span class="f">replaceField</span> aArgs
+
 	oMatch = aArgs[<span class="n">1</span>]
 	cName = oMatch.Groups.<span class="f">Item</span>(<span class="n">1</span>).Value
 	cFormat = oMatch.Groups.<span class="f">Item</span>(<span class="n">2</span>).Value
@@ -347,6 +353,7 @@ aMissing = []                    <span class="c"># the names of the fields that 
 
 <span class="c"># a value with a format: a number with N2, a date with d MMMM yyyy (the invariant culture: the same text on every computer)</span>
 <span class="k">func</span> <span class="f">formatValue</span> cValue,cFormat
+
 	oInvariant = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>).InvariantCulture
 	<span class="k">if</span> isDate(cValue)
 		oDate = <span class="f">dnStatic</span>(<span class="s">"System.DateTime"</span>,<span class="s">"Parse"</span>,[ cValue, oInvariant ])
@@ -355,10 +362,12 @@ aMissing = []                    <span class="c"># the names of the fields that 
 	<span class="k">return</span> <span class="k">new</span> <span class="t">String</span>().<span class="f">Format</span>([ :provider = oInvariant, :format = <span class="s">"{0:"</span> + cFormat + <span class="s">"}"</span>, :arg0 = <span class="n">0</span> + cValue ])
 
 <span class="k">func</span> <span class="f">isDate</span> cText
+
 	<span class="k">return</span> len(cText) = <span class="n">10</span> <span class="k">and</span> substr(cText,<span class="n">5</span>,<span class="n">1</span>) = <span class="s">"-"</span> <span class="k">and</span> substr(cText,<span class="n">8</span>,<span class="n">1</span>) = <span class="s">"-"</span>
 
 <span class="c"># a CSV text as a list of rows; each row is a list of [name, value] pairs, found by the name of the column</span>
 <span class="k">func</span> <span class="f">readCsv</span> cCsv
+
 	aLines = str2list(substr(cCsv,char(<span class="n">13</span>),<span class="s">""</span>))
 	aNames = splitKeep(aLines[<span class="n">1</span>])
 	aRows = []
@@ -377,6 +386,7 @@ aMissing = []                    <span class="c"># the names of the fields that 
 
 <span class="c"># split a line at the commas and keep the empty values</span>
 <span class="k">func</span> <span class="f">splitKeep</span> cLine
+
 	aParts = []
 	cPart = <span class="s">""</span>
 	<span class="k">for</span> i = <span class="n">1</span> <span class="k">to</span> len(cLine)
@@ -391,12 +401,15 @@ aMissing = []                    <span class="c"># the names of the fields that 
 	<span class="k">return</span> aParts
 
 <span class="k">func</span> <span class="f">columnNames</span> cCsv
+
 	<span class="k">return</span> splitKeep(str2list(substr(cCsv,char(<span class="n">13</span>),<span class="s">""</span>))[<span class="n">1</span>])
 
 <span class="k">func</span> <span class="f">first</span> cLetter
+
 	<span class="k">return</span> str2list(cLetter)[<span class="n">1</span>]
 
 <span class="k">func</span> <span class="f">indent</span> cText
+
 	cOut = <span class="s">""</span>
 	<span class="k">for</span> cLine <span class="k">in</span> str2list(cText)
 		cOut += <span class="s">"   | "</span> + cLine + nl
@@ -404,6 +417,7 @@ aMissing = []                    <span class="c"># the names of the fields that 
 	<span class="k">return</span> left(cOut,len(cOut) - <span class="n">1</span>)
 
 <span class="k">func</span> <span class="f">joinList</span> aList
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> item <span class="k">in</span> aList
 		<span class="k">if</span> cText != <span class="s">""</span>

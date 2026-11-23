@@ -1,12 +1,14 @@
 # giving your program to others - a self check that a program made with Ring2EXE can run when it starts
 #   ring ring2exe.ring ch13_distribution.ring -dist -dotnet        (the page explains the steps)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
 }
 
 func main
+
 	? "Self check of RingDotNet"
 
 	# 1. The .NET runtime. The program can not start without it, so a distributed program checks the version first and says clearly what to
@@ -34,6 +36,7 @@ func main
 	? "5. the folder for the data of the program exists or was made: " + (cData != "" and new Directory().Exists(cData))
 
 func sqliteWorks
+
 	try
 		dnLoad(dnRequest("bridgefolder",[]) + "/RingDotNet.Data.dll")      # it knows where the native SQLite library of this system is
 		dnLoadName("SQLitePCLRaw.batteries_v2")               # the assembly that starts the native SQLite library
@@ -50,6 +53,7 @@ func sqliteWorks
 	done
 
 func aspNetInstalled
+
 	try
 		cRuntime = dnStatic("System.Runtime.InteropServices.RuntimeEnvironment","GetRuntimeDirectory",[])
 		# ...\shared\Microsoft.NETCore.App\9.0.15\ : two folders up is "shared", the folder of all the shared runtimes

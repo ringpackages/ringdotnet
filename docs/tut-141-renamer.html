@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_renamer.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project: rename many files - rules (replace, regular expression, case, numbering), a preview, conflict checks and undo</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -262,6 +263,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oFile = <span class="k">new</span> <span class="t">File</span>()
 	oPath = <span class="k">new</span> <span class="t">Path</span>()
 	oDirectory = <span class="k">new</span> <span class="t">Directory</span>()
@@ -332,6 +334,7 @@ using {
 
 <span class="c"># the names of the files of a folder, sorted (the folder order is not defined)</span>
 <span class="k">func</span> <span class="f">fileNames</span> cFolder
+
 	aList = []
 	<span class="k">for</span> oItem <span class="k">in</span> <span class="k">new</span> <span class="t">DirectoryInfo</span>(cFolder).<span class="f">GetFiles</span>(<span class="k">NULL</span>).<span class="f">toList</span>()
 		aList + oItem.Name
@@ -340,6 +343,7 @@ using {
 
 <span class="c"># split "name.ext" into the name and the extension (the extension starts at the last dot)</span>
 <span class="k">func</span> <span class="f">splitName</span> cName
+
 	nDot = <span class="n">0</span>
 	<span class="k">for</span> i = len(cName) <span class="k">to</span> <span class="n">1</span> <span class="k">step</span> -<span class="n">1</span>
 		<span class="k">if</span> substr(cName,i,<span class="n">1</span>) = <span class="s">"."</span>
@@ -354,6 +358,7 @@ using {
 
 <span class="c"># one rule applied to the name part (the extension is kept, except by "extension")</span>
 <span class="k">func</span> <span class="f">applyRule</span> aItem,cBase,cExtension
+
 	cKind = aItem[<span class="n">1</span>]
 	<span class="k">if</span> cKind = <span class="s">"replace"</span>
 		cBase = substr(cBase,aItem[<span class="n">2</span>],aItem[<span class="n">3</span>])
@@ -369,6 +374,7 @@ using {
 
 <span class="c"># the new names of a list of names: a list of [old, new]</span>
 <span class="k">func</span> <span class="f">makePlan</span> aNames,aRule
+
 	aPlan = []
 	nNumber = <span class="n">0</span>
 	<span class="k">for</span> cName <span class="k">in</span> aNames
@@ -395,12 +401,14 @@ using {
 	<span class="k">return</span> aPlan
 
 <span class="k">func</span> <span class="f">showPreview</span> aNames,aRule
+
 	<span class="k">for</span> aItem <span class="k">in</span> makePlan(aNames,aRule)
 		? <span class="s">"   "</span> + padRight(aItem[<span class="n">1</span>],<span class="n">26</span>) + <span class="s">"-&gt; "</span> + aItem[<span class="n">2</span>]
 	<span class="k">next</span>
 
 <span class="c"># problems that stop the renaming: two files with one new name, a new name that is the name of a file that stays, or an empty name</span>
 <span class="k">func</span> <span class="f">findConflicts</span> aPlan,aAllNames
+
 	aProblems = []
 	aTaken = []
 	<span class="k">for</span> aItem <span class="k">in</span> aPlan
@@ -417,6 +425,7 @@ using {
 
 <span class="c"># rename (a file whose name does not change is skipped) and return the log of what was done</span>
 <span class="k">func</span> <span class="f">applyPlan</span> cFolder,aPlan
+
 	aLog = []
 	<span class="k">for</span> aItem <span class="k">in</span> aPlan
 		<span class="k">if</span> aItem[<span class="n">1</span>] != aItem[<span class="n">2</span>]
@@ -428,11 +437,13 @@ using {
 
 <span class="c"># undo: the same moves, the other way and the last one first</span>
 <span class="k">func</span> <span class="f">undoLog</span> cFolder,aLog
+
 	<span class="k">for</span> i = len(aLog) <span class="k">to</span> <span class="n">1</span> <span class="k">step</span> -<span class="n">1</span>
 		<span class="k">new</span> <span class="t">File</span>().<span class="f">Move</span>([ :sourceFileName = cFolder + <span class="s">"/"</span> + aLog[i][<span class="n">2</span>], :destFileName = cFolder + <span class="s">"/"</span> + aLog[i][<span class="n">1</span>] ])
 	<span class="k">next</span>
 
 <span class="k">func</span> <span class="f">sameList</span> aFirst,aSecond
+
 	<span class="k">if</span> len(aFirst) != len(aSecond)
 		<span class="k">return</span> <span class="k">False</span>
 	<span class="k">ok</span>
@@ -444,12 +455,14 @@ using {
 	<span class="k">return</span> <span class="k">True</span>
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> <span class="s">"no"</span>
 
 <span class="k">func</span> <span class="f">padRight</span> cText,nWidth
+
 	<span class="k">return</span> cText + copy(<span class="s">" "</span>,nWidth - len(cText))</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. the files:
    IMG 0042 holiday.JPG

@@ -1,6 +1,7 @@
 # the Windows Registry - keys and values in HKEY_CURRENT_USER, value types, listing, a settings class, and deleting what you made
 # (Windows only: anywhere else the program says so and stops)
 load "dotnet.ring"
+
 using {
 	"System"
 	"Microsoft.Win32"
@@ -9,6 +10,7 @@ using {
 C_PATH = "Software\RingDotNetTutorial"
 
 func main
+
 	if not iswindows()
 		? "The Registry exists only on Windows."
 		return
@@ -74,6 +76,7 @@ func main
 	? "   the key was deleted: " + oUser.OpenSubKey(C_PATH).isNull()
 
 func listText aList
+
 	cText = ""
 	for item in aList
 		if cText != ""
@@ -84,10 +87,12 @@ func listText aList
 	return cText
 
 func padRight cText,nWidth
+
 	return cText + copy(" ",nWidth - len(cText))
 
 # a string[] from a Ring list (the registry wants the exact type)
 func stringArray aList
+
 	oList = dnNewGeneric("System.Collections.Generic.List",["System.String"],[])
 	for cItem in aList
 		oList.Add(cItem)

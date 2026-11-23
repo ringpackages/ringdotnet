@@ -1,11 +1,13 @@
 # when things go wrong - exceptions, try/catch, checking before you act
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
 }
 
 func main
+
 	# A .NET exception becomes a Ring error you can catch
 	try
 		new Int32().Parse("abc")
@@ -68,6 +70,7 @@ func main
 	# More detail while you are developing: set RINGDOTNET_TRACE=1 to see the .NET stack trace in the error text
 
 func withdraw nBalance, nAmount
+
 	if nAmount > nBalance
 		raise("Not enough money: balance " + nBalance + ", asked " + nAmount)
 	ok

@@ -1,5 +1,6 @@
 # tracing - Trace and listeners: messages with an indent, a listener that collects them in memory, a listener that writes a file, and levels
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -8,6 +9,7 @@ using {
 }
 
 func main
+
 	# TRACING writes messages about what a program does, for the person who looks for a problem. A program sends a message to the class
 	# Trace, and the LISTENERS that were added to Trace decide where it goes: the console, a file, a window, a log service. The program
 	# that writes the messages does not know where they go, and a listener can be added or removed without changing the code.
@@ -80,6 +82,7 @@ func main
 
 # the lines of a text, each one indented by three spaces (the trace output has the line ending of the system)
 func showLines cText
+
 	for cLine in str2list(substr(cText,char(13),""))
 		if cLine != ""
 			? "   [" + cLine + "]"
@@ -88,12 +91,15 @@ func showLines cText
 
 # a text without its line ending (the trace adds one after each message)
 func oneLine cText
+
 	return trim(substr(substr(cText,char(13),""),nl,""))
 
 func readText cFile
+
 	return new File().ReadAllText(cFile)
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

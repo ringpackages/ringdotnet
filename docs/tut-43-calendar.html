@@ -256,11 +256,13 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch03_calendar.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># calendars - month tables, ages, business days and birthdays with DateTime</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. A text calendar of a month: how many days it has, and on which weekday the 1st falls</span>
 	? monthCalendar(<span class="n">2024</span>,<span class="n">2</span>)
 
@@ -289,6 +291,7 @@ using {
 
 <span class="c"># A month as text: a title, the weekday names, then the days in rows of seven (the week starts on Monday)</span>
 <span class="k">func</span> <span class="f">monthCalendar</span> nYear, nMonth
+
 	oFirst = <span class="k">new</span> <span class="t">DateTime</span>(nYear,nMonth,<span class="n">1</span>)
 	nDays = <span class="k">new</span> <span class="t">DateTime</span>(nYear,nMonth,<span class="n">1</span>).<span class="f">DaysInMonth</span>(nYear,nMonth)
 	cText = <span class="s">""</span> + oFirst.<span class="f">Format</span>(<span class="s">"MMMM yyyy"</span>) + <span class="s">" ("</span> + nDays + <span class="s">" days)"</span> + nl
@@ -308,6 +311,7 @@ using {
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">copies</span> cText, nTimes
+
 	cResult = <span class="s">""</span>
 	<span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> nTimes
 		cResult += cText
@@ -316,6 +320,7 @@ using {
 
 <span class="c"># complete years, months and days between a birth date and a date</span>
 <span class="k">func</span> <span class="f">ageText</span> nBirthYear, nBirthMonth, nBirthDay, nYear, nMonth, nDay
+
 	nYears = nYear - nBirthYear
 	nMonths = nMonth - nBirthMonth
 	nDays = nDay - nBirthDay
@@ -332,6 +337,7 @@ using {
 
 <span class="c"># the days from oFrom up to (not including) oTo that are not Saturday or Sunday</span>
 <span class="k">func</span> <span class="f">businessDays</span> oFrom, oTo
+
 	nCount = <span class="n">0</span>
 	oDay = oFrom
 	<span class="k">while</span> oDay.<span class="f">CompareTo</span>(oTo) &lt; <span class="n">0</span>
@@ -344,6 +350,7 @@ using {
 	<span class="k">return</span> nCount
 
 <span class="k">func</span> <span class="f">daysUntilBirthday</span> nMonth, nDay, nYear, nTodayMonth, nTodayDay
+
 	oToday = <span class="k">new</span> <span class="t">DateTime</span>(nYear,nTodayMonth,nTodayDay)
 	oBirthday = <span class="k">new</span> <span class="t">DateTime</span>(nYear,nMonth,nDay)
 	<span class="k">if</span> oBirthday.<span class="f">CompareTo</span>(oToday) &lt; <span class="n">0</span>

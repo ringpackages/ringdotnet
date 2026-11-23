@@ -1,6 +1,7 @@
 # a PDF file with a NuGet package - PDFsharp makes the pages: text, lines and a title, then the program reads the file back
 #   (the project is in the folder Pdf: Pdf.csproj names PdfSharp, and Empty.cs is the one source file a project needs)
 load "dotnet.ring"
+
 using { "System.IO" }
 
 cHere = currentdir()
@@ -29,6 +30,7 @@ dnImportFrom(cClasses + "/","PdfSharp.Pdf.IO")
 dnImportFrom(cClasses + "/","PdfSharp.Drawing")
 
 func main
+
 	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet-report.pdf"])
 
 	# 1. A document has pages, and a page is drawn with an XGraphics, like a canvas. Fonts are made with dnNew and the names of the

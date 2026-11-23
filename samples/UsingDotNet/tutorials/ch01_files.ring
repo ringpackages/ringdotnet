@@ -1,5 +1,6 @@
 # files and folders - Path, Directory, File, reading and writing, zip
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	oPath = new Path()
 	oFile = new File()
 	oDirectory = new Directory()

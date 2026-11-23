@@ -256,11 +256,13 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch03_rounding.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># rounding and the Math class - Round with its modes, Floor, Ceiling, Truncate, DivRem, Clamp, Sign and the rounding of money</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oMath = <span class="k">new</span> <span class="t">Math</span>()
 
 	<span class="c"># 1. Round has a MODE for the numbers that are exactly in the middle (x.5). "ToEven" (the default of .NET, called banker's rounding) goes to</span>
@@ -324,6 +326,7 @@ using {
 	? <span class="s">"   A shop uses ONE rule everywhere and rounds only the final amount, or the amount of each line, as the law of the country says."</span>
 
 <span class="k">func</span> <span class="f">padRight</span> cText,nWidth
+
 	<span class="k">return</span> cText + copy(<span class="s">" "</span>,nWidth - len(cText))</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. Round of x.5 with the two modes:
    value   ToEven   AwayFromZero

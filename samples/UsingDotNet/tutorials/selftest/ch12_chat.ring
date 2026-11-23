@@ -2,6 +2,7 @@
 
 # wait (at most about a second) until the logs have changed: network messages arrive a little later
 func waitForText cText
+
 	for nTry = 1 to 50
 		pump()
 		if substr(aLogs[1].Text,cText) > 0 and substr(aLogs[2].Text,cText) > 0
@@ -12,6 +13,7 @@ func waitForText cText
 	return False
 
 func selfTest
+
 	oTimer.Stop()
 	aInputs[1].Text = "Hello Bob"
 	sendFrom(1)

@@ -1,5 +1,6 @@
 # MIME types - file extensions to content types, reading a Content-Type header, and choosing what to send for an Accept header
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Net.Mime"
@@ -9,6 +10,7 @@ using {
 cHeaders = "Microsoft.Net.Http.Headers."
 
 func main
+
 	# A MIME type (media type, content type) names the KIND of a piece of data: text/html, image/png, application/json. A server sends it in
 	# the Content-Type header so that the browser knows what to do with the bytes, and a client sends Accept to say what it understands.
 
@@ -51,6 +53,7 @@ func main
 	? nl + "6. Accept: application/json, the server offers text/csv: " + negotiate(aStrict,["text/csv"])
 
 func contentTypeOf oProvider,cFile
+
 	aResult = oProvider.TryGetContentType(cFile)
 	if aResult[1]
 		return aResult[2]
@@ -59,6 +62,7 @@ func contentTypeOf oProvider,cFile
 
 # the Accept header as a list of [type, quality], the best first (the sort is stable: types with the same quality keep their order)
 func parseAccept cAccept
+
 	aItems = []
 	for cPart in str2list(substr(cAccept,",",nl))
 		oValue = dnStatic(cHeaders + "MediaTypeHeaderValue","Parse",[trim(cPart)])
@@ -82,6 +86,7 @@ func parseAccept cAccept
 
 # does the pattern of the Accept header (text/html, text/*, */*) cover the type?
 func covers cPattern,cType
+
 	if cPattern = "*/*" or cPattern = cType
 		return True
 	ok
@@ -90,6 +95,7 @@ func covers cPattern,cType
 
 # the offered type that the client likes best, or 406
 func negotiate aClient,aOffers
+
 	for aItem in aClient
 		if aItem[2] > 0
 			for cOffer in aOffers
@@ -102,6 +108,7 @@ func negotiate aClient,aOffers
 	return "406 Not Acceptable"
 
 func joinList aList
+
 	cText = ""
 	for item in aList
 		if cText != ""
@@ -112,4 +119,5 @@ func joinList aList
 	return cText
 
 func padRight cText,nWidth
+
 	return cText + copy(" ",nWidth - len(cText))

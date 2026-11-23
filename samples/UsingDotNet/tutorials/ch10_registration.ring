@@ -1,5 +1,6 @@
 # a form with many controls - text boxes, check box, combo box, list box, validation
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -15,6 +16,7 @@ oResult = ""
 oPeople = ""
 
 func main
+
 	oForm = uiForm("Registration",400,330)
 
 	uiLabel(oForm,"Name",20,20,80,22)
@@ -45,6 +47,7 @@ func main
 	uiRun(oForm)
 
 func register
+
 	cName = trim(oName.Text)
 	if cName = ""
 		oResult.Text = "Please type a name"

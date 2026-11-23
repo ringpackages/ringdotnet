@@ -34,7 +34,9 @@ dnAssert("FirstAsync",oFirst.Result,1)
 dnTestSummary()
 
 func isEven aArgs
+
 	return aArgs[1] % 2 = 0
 
 func square aArgs
+
 	return aArgs[1] * aArgs[1]

@@ -1,5 +1,6 @@
 # text files and encodings - the bytes of a text, the byte order mark, reading a file in the right encoding, and strict decoding
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	oFile = new File()
 	oPath = new Path()
 	cFolder = oPath.Combine([ oPath.GetTempPath(), "ringdotnet-enc-" + oPath.GetRandomFileName() ])
@@ -79,6 +81,7 @@ func main
 
 # does the text of bytes decode without a replacement as UTF-8? (the strict encoding raises an error for bad bytes)
 func isValidUtf8 cBytes
+
 	oStrict = dnNew("UTF8Encoding",[ False, True ])
 	try
 		oStrict.GetString(cBytes)
@@ -89,6 +92,7 @@ func isValidUtf8 cBytes
 
 # the order of the tests
 func detect cBytes
+
 	if left(cBytes,3) = char(239) + char(187) + char(191)
 		return "UTF-8 with a BOM"
 	ok
@@ -105,6 +109,7 @@ func detect cBytes
 
 # the bytes of a text as hexadecimal pairs
 func toHex cBytes
+
 	cText = ""
 	for i = 1 to len(cBytes)
 		cText += right("0" + upper(hex(ascii(substr(cBytes,i,1)))),2) + " "
@@ -112,10 +117,12 @@ func toHex cBytes
 	return trim(cText)
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok
 	return "no"
 
 func padRight cText,nWidth
+
 	return cText + copy(" ",nWidth - len(cText))

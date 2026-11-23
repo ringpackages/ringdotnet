@@ -270,6 +270,7 @@
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch13_excel.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># an Excel file with a NuGet package - ClosedXML writes and reads .xlsx files without Excel on the computer</span>
 <span class="c">#   (the project is in the folder Excel: Excel.csproj names ClosedXML, and Empty.cs is the one source file a project needs)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using { <span class="s">"System.IO"</span> }
 
 cHere = currentdir()
@@ -296,6 +297,7 @@ chdir(cHere)
 <span class="f">dnImportFrom</span>(cClasses + <span class="s">"/"</span>,<span class="s">"ClosedXML.Excel"</span>)
 
 <span class="k">func</span> <span class="f">main</span>
+
 	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet-sales.xlsx"</span>])
 
 	<span class="c"># 1. A workbook is the file; a worksheet is one of its sheets; a cell is found by its address ("B2") like in Excel</span>

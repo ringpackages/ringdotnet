@@ -2,6 +2,7 @@
 load "dotnet.ring"
 
 func main
+
 	dnAssert("no mode before the block",cDotNetMode,"")
 	using {
 		"System"

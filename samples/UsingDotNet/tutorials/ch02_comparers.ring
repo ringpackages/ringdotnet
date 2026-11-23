@@ -1,5 +1,6 @@
 # comparing text - ordinal and culture comparison, ignoring case, StringComparer and a sorted set that ignores case
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Globalization"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	oString = new String()
 	# 1. Two texts can be compared in different ways. Ordinal compares the code of every character: fast, exact, the same on every
 	#    computer. Culture-aware comparison follows the rules of a language (in German "ä" is close to "a"). Both can ignore case.
@@ -56,9 +58,11 @@ func main
 	? "   'title' in capitals, Turkish culture:   " + upperText("title",oTurkish)
 
 func upperText cText,oCulture
+
 	return oCulture.TextInfo.ToUpper(cText)
 
 func joinList aList
+
 	cText = ""
 	for item in aList
 		cText += "" + item + " "

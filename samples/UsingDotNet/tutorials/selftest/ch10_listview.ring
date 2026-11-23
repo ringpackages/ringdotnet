@@ -1,6 +1,7 @@
 # the checks of ch10_listview.ring: run with  ring ch10_listview.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func firstColumn
+
 	cText = ""
 	for i = 0 to oList.Items.Count - 1
 		if cText != ""
@@ -11,6 +12,7 @@ func firstColumn
 	return cText
 
 func selfTest
+
 	dnAssert("five rows",oList.Items.Count,5)
 	dnAssert("the cells of a row",oList.Items.Item(1).SubItems.Item(2).Text,"2030-03-11")
 

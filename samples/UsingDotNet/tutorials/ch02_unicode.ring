@@ -1,5 +1,6 @@
 # Unicode and text encodings - characters, code points, bytes, and why len() is not the number of letters
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Globalization"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	oUtf8 = new Encoding().UTF8
 	oUtf16 = new Encoding().Unicode              # .NET's own text format: UTF-16
 	oLatin1 = new Encoding().Latin1
@@ -51,6 +53,7 @@ func main
 
 # text padded with spaces on the right (the columns of the table)
 func padRight cText, nWidth
+
 	cResult = cText
 	while len(cResult) < nWidth
 		cResult += " "
@@ -59,9 +62,11 @@ func padRight cText, nWidth
 
 # a StringInfo knows the letters you see (text elements) of a text
 func textElements cText
+
 	return new StringInfo().@New([ :value = cText ])
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

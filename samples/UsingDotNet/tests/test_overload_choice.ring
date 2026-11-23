@@ -1,12 +1,14 @@
 # The overload that the bridge chooses for a kind of arguments is remembered (Math.Max has 14 overloads). The same call with other
 # kinds of arguments must still choose its own overload, and a text must still be read as an enum name where an enum is possible.
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Text"
 }
 
 func main
+
 	oMath = new Math()
 	for nRound = 1 to 2          # the second round uses the remembered choices
 		dnAssert("whole numbers",oMath.Max(1,2),2)

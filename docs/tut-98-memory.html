@@ -254,6 +254,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch06_memory.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># memory and the garbage collector - how much memory .NET uses, GC.Collect, WeakReference, generations and a big array</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -261,6 +262,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oGC = <span class="k">new</span> <span class="t">GC</span>()
 
 	<span class="c"># 1. .NET frees the memory of objects that nothing uses any more: the garbage collector (GC). The numbers depend on the computer and</span>

@@ -1,6 +1,7 @@
 # The ready classes of the closed generic types (StringList, NumberDictionary, ObjectList ...): each one can be made with and without
 # parentheses, and the result is a real .NET object (a handle), not an empty Ring list or a null.
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Collections.Generic"
@@ -9,6 +10,7 @@ using {
 }
 
 func main
+
 	aNames = ["BlockingObjectCollection","ConcurrentObjectBag","ConcurrentObjectDictionary","ConcurrentObjectQueue","ConcurrentObjectStack",
 		"ConcurrentStringDictionary","ConcurrentStringQueue","IntList","NumberDictionary","NumberKeyDictionary","NumberList","NumberSet",
 		"ObjectDictionary","ObjectLinkedList","ObjectList","ObjectQueue","ObjectStack","ObservableObjectList","ObservableStringList",

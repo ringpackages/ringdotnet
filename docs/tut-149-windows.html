@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_windows.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># more than one window - a tool window next to the main window: Show with an owner, only one copy, talking between windows, closing together</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -271,6 +272,7 @@ nToolOpened = <span class="n">0</span>                   <span class="c"># how m
 cApplied = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Main window"</span>,<span class="n">420</span>,<span class="n">200</span>)
 	oShown = <span class="f">uiLabel</span>(oForm,<span class="s">"Nothing applied yet"</span>,<span class="n">20</span>,<span class="n">20</span>,<span class="n">370</span>,<span class="n">28</span>)
 	<span class="f">uiButton</span>(oForm,<span class="s">"Open the tool window"</span>,<span class="n">20</span>,<span class="n">60</span>,<span class="n">170</span>,<span class="n">32</span>,<span class="s">"openTool()"</span>)
@@ -280,6 +282,7 @@ cApplied = <span class="s">""</span>
 
 <span class="c"># Open the tool window. A program should not open a second copy: if it is open, the function brings it to the front.</span>
 <span class="k">func</span> <span class="f">openTool</span>
+
 	<span class="k">if</span> lToolOpen
 		oTool.<span class="f">Activate</span>()
 		<span class="k">return</span>
@@ -299,17 +302,20 @@ cApplied = <span class="s">""</span>
 
 <span class="c"># the tool window changes the main window: one window calls a function that works with the controls of the other</span>
 <span class="k">func</span> <span class="f">applyTool</span>
+
 	oShown.Text = <span class="s">"Applied: "</span> + oToolBox.Text
 	oToolStatus.Text = <span class="s">"Sent to the main window"</span>
 
 <span class="c"># The event code runs inside a method of the tool window, so it must not destroy the window object (assigning another value to oTool</span>
 <span class="c"># would): it only sets a flag, and the next openTool makes a new window and replaces the old object.</span>
 <span class="k">func</span> <span class="f">toolClosed</span>
+
 	cApplied += <span class="s">"[tool closed]"</span>
 	lToolOpen = <span class="k">False</span>
 
 <span class="c"># the number of the open windows of the program</span>
 <span class="k">func</span> <span class="f">openForms</span>
+
 	<span class="k">return</span> <span class="k">new</span> <span class="t">Application</span>().OpenForms.Count</code></pre></div>
 
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
@@ -321,6 +327,7 @@ cApplied = <span class="s">""</span>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_windows.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_windows.ring: run with  ring ch10_windows.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	<span class="f">dnAssert</span>(<span class="s">"one window at the start"</span>,openForms(),<span class="n">1</span>)
 
 	<span class="c"># open the tool window: two windows, and the tool has the main window as owner</span>

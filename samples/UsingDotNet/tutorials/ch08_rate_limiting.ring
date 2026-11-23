@@ -1,5 +1,6 @@
 # rate limiting - a token bucket, a concurrency limiter with leases, statistics, and one limiter for each client
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Threading"
@@ -9,6 +10,7 @@ using {
 cNs = "System.Threading.RateLimiting."
 
 func main
+
 	# A rate limiter protects a service from too many requests: a client that asks 1000 times a second, a script with a bug, an attack.
 	# It says YES or NO to each request at once (AttemptAcquire), without waiting. The program decides what NO means (an error 429
 	# "Too Many Requests", a pause, a message).
@@ -64,6 +66,7 @@ func main
 	? "   10.0.0.2: " + asks(aClients[2][2],2)
 
 func makeBucket nTokens,nPeriodMs
+
 	oOptions = dnNew(cNs + "TokenBucketRateLimiterOptions",[])
 	oOptions.setProp("TokenLimit",nTokens)
 	oOptions.setProp("TokensPerPeriod",1)
@@ -73,6 +76,7 @@ func makeBucket nTokens,nPeriodMs
 	return dnNew(cNs + "TokenBucketRateLimiter",[oOptions])
 
 func makeConcurrencyOptions nLimit
+
 	oOptions = dnNew(cNs + "ConcurrencyLimiterOptions",[])
 	oOptions.setProp("PermitLimit",nLimit)
 	oOptions.setProp("QueueLimit",0)
@@ -80,6 +84,7 @@ func makeConcurrencyOptions nLimit
 
 # the answers of one client for n requests, as a text of yes and no
 func asks oBucket,nCount
+
 	cText = ""
 	for i = 1 to nCount
 		cText += answer(oBucket.callMethod("AttemptAcquire",[1]).getProp("IsAcquired")) + " "
@@ -87,6 +92,7 @@ func asks oBucket,nCount
 	return cText
 
 func answer lYes
+
 	if lYes
 		return "allowed"
 	ok

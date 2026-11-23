@@ -255,12 +255,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch07_ip_networks.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># IP networks - CIDR notation, the addresses of a subnet, "is this address in that network?" and a small allow list</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Net"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># A network is written in CIDR form: an address and the number of bits that are the same for the whole network.</span>
 	<span class="c"># 192.168.1.0/24 means: the first 24 bits (192.168.1) are fixed, the last 8 bits (0 to 255) are free.</span>
 	oNetworkClass = <span class="k">new</span> <span class="t">IPNetwork</span>()
@@ -299,9 +301,11 @@ using {
 	? nl + <span class="s">"6. 2001:db8:1::5 is in 2001:db8::/32: "</span> + oV6.<span class="f">Contains</span>(oIP.<span class="f">Parse</span>(<span class="s">"2001:db8:1::5"</span>)) + <span class="s">", 2001:db9::1: "</span> + oV6.<span class="f">Contains</span>(oIP.<span class="f">Parse</span>(<span class="s">"2001:db9::1"</span>))
 
 <span class="k">func</span> <span class="f">addressCount</span> nPrefix
+
 	<span class="k">return</span> floor(pow(<span class="n">2</span>,<span class="n">32</span> - nPrefix))
 
 <span class="k">func</span> <span class="f">isPrivate</span> cAddress,aRanges
+
 	oNet = <span class="k">new</span> <span class="t">IPNetwork</span>()
 	oAddress = <span class="k">new</span> <span class="t">IPAddress</span>().<span class="f">Parse</span>(cAddress)
 	<span class="k">for</span> cRange <span class="k">in</span> aRanges
@@ -312,6 +316,7 @@ using {
 	<span class="k">return</span> <span class="s">"not in the private ranges"</span>
 
 <span class="k">func</span> <span class="f">padRight</span> cText,nWidth
+
 	<span class="k">return</span> cText + copy(<span class="s">" "</span>,nWidth - len(cText))</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. network: 192.168.1.0/24
    base address: 192.168.1.0, prefix length: 24

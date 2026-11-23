@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_globbing.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># file patterns (globbing) - "**/*.ring", include and exclude rules, matching a list of paths, and finding files in a folder tree</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -263,6 +264,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># A glob pattern describes a set of files with wildcards, like the patterns in a .gitignore file or a build tool:</span>
 	<span class="c">#   *      any characters inside one name           *.ring     a.ring, b.ring</span>
 	<span class="c">#   **     any number of folders (also none)         **/*.ring  src/a.ring, src/sub/b.ring, a.ring</span>
@@ -310,6 +312,7 @@ using {
 
 <span class="c"># the files of the program, with their relative paths in sorted order (the order of a disk is not the same on every system)</span>
 <span class="k">func</span> <span class="f">showFiles</span> oMatcher,cBase
+
 	oResult = <span class="f">dnStatic</span>(<span class="s">"Microsoft.Extensions.FileSystemGlobbing.MatcherExtensions"</span>,<span class="s">"GetResultsInFullPath"</span>,[oMatcher,cBase])
 	aNames = []
 	<span class="k">for</span> cFull <span class="k">in</span> oResult.<span class="f">toList</span>()
@@ -321,6 +324,7 @@ using {
 	? <span class="s">"   ("</span> + len(aNames) + <span class="s">" files)"</span>
 
 <span class="k">func</span> <span class="f">makeTree</span>
+
 	oPath = <span class="k">new</span> <span class="t">Path</span>()
 	cBase = oPath.<span class="f">Combine</span>([oPath.<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_globbing"</span>])
 	<span class="k">if</span> <span class="k">new</span> <span class="t">Directory</span>().<span class="f">Exists</span>(cBase)

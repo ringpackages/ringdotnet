@@ -257,6 +257,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_duplicates.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project - find duplicate files (folders, hashes, dictionaries)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -265,6 +266,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># STEP 1. A folder with some files: three of them have the same content, two others as well</span>
 	cFolder = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_duplicates"</span>])
 	<span class="k">if</span> <span class="k">new</span> <span class="t">Directory</span>().<span class="f">Exists</span>(cFolder)
@@ -318,11 +320,13 @@ using {
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cFolder, :recursive = <span class="k">True</span> ])
 
 <span class="k">func</span> <span class="f">makeFile</span> cFolder, cName, cText
+
 	cPath = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,cName])
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cPath, :contents = cText ])
 
 <span class="c"># the SHA-256 hash of the content of a file, as text</span>
 <span class="k">func</span> <span class="f">hashOf</span> cFile
+
 	<span class="k">return</span> lower(<span class="k">new</span> <span class="t">Convert</span>().<span class="f">ToHexString</span>(<span class="k">new</span> <span class="t">SHA256</span>().<span class="f">HashData</span>(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllBytes</span>(cFile))))</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>STEP 1: made six files in a folder and its subfolder
 STEP 2: 6 files found

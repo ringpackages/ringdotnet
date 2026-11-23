@@ -257,6 +257,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch12_tictactoe.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project - Tic-Tac-Toe (game logic in functions, nine buttons, a status line)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -273,6 +274,7 @@ oStatus = <span class="s">""</span>
 aButtons = []
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Tic-Tac-Toe"</span>,<span class="n">300</span>,<span class="n">376</span>)
 	oStatus = <span class="f">uiLabel</span>(oForm,<span class="s">"X to play"</span>,<span class="n">10</span>,<span class="n">10</span>,<span class="n">280</span>,<span class="n">26</span>)
 	oStatus.Font = <span class="k">new</span> <span class="t">Font</span>(<span class="s">"Segoe UI"</span>,<span class="n">14</span>)
@@ -291,6 +293,7 @@ aButtons = []
 
 <span class="c"># the winner of a board: "X", "O" or "" when nobody has won; the 8 lines of three cells</span>
 <span class="k">func</span> <span class="f">winnerOf</span> aCells
+
 	aLines = [[<span class="n">1</span>,<span class="n">2</span>,<span class="n">3</span>],[<span class="n">4</span>,<span class="n">5</span>,<span class="n">6</span>],[<span class="n">7</span>,<span class="n">8</span>,<span class="n">9</span>],[<span class="n">1</span>,<span class="n">4</span>,<span class="n">7</span>],[<span class="n">2</span>,<span class="n">5</span>,<span class="n">8</span>],[<span class="n">3</span>,<span class="n">6</span>,<span class="n">9</span>],[<span class="n">1</span>,<span class="n">5</span>,<span class="n">9</span>],[<span class="n">3</span>,<span class="n">5</span>,<span class="n">7</span>]]
 	<span class="k">for</span> aLine <span class="k">in</span> aLines
 		cFirst = aCells[aLine[<span class="n">1</span>]]
@@ -301,6 +304,7 @@ aButtons = []
 	<span class="k">return</span> <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">boardFull</span> aCells
+
 	<span class="k">for</span> cCell <span class="k">in</span> aCells
 		<span class="k">if</span> cCell = <span class="s">""</span>
 			<span class="k">return</span> <span class="k">False</span>
@@ -311,6 +315,7 @@ aButtons = []
 <span class="c"># ---------------------------------------------------------------- THE GAME: a move changes the state, then the window shows it</span>
 
 <span class="k">func</span> <span class="f">play</span> nCell
+
 	<span class="k">if</span> lOver <span class="k">or</span> aBoard[nCell] != <span class="s">""</span>
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -333,6 +338,7 @@ aButtons = []
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">newGame</span>
+
 	aBoard = [<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>]
 	cTurn = <span class="s">"X"</span>
 	lOver = <span class="k">False</span>
@@ -368,6 +374,7 @@ aButtons = []
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch12_tictactoe.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch12_tictactoe.ring: run with  ring ch12_tictactoe.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	<span class="f">dnAssert</span>(<span class="s">"an empty board has no winner"</span>,winnerOf([<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>]),<span class="s">""</span>)
 	<span class="f">dnAssert</span>(<span class="s">"a row"</span>,winnerOf([<span class="s">"X"</span>,<span class="s">"X"</span>,<span class="s">"X"</span>,<span class="s">""</span>,<span class="s">"O"</span>,<span class="s">"O"</span>,<span class="s">""</span>,<span class="s">""</span>,<span class="s">""</span>]),<span class="s">"X"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"a column"</span>,winnerOf([<span class="s">"O"</span>,<span class="s">"X"</span>,<span class="s">""</span>,<span class="s">"O"</span>,<span class="s">"X"</span>,<span class="s">""</span>,<span class="s">"O"</span>,<span class="s">""</span>,<span class="s">""</span>]),<span class="s">"O"</span>)

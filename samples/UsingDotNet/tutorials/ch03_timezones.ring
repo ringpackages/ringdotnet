@@ -1,10 +1,12 @@
 # time zones - UTC, local time, daylight saving, a meeting for several cities and a flight
 load "dotnet.ring"
+
 using {
 	"System"
 }
 
 func main
+
 	oZones = new TimeZoneInfo()
 	aCities = [["New York","Eastern Standard Time"],["London","GMT Standard Time"],["Cairo","Egypt Standard Time"],["Tokyo","Tokyo Standard Time"]]
 
@@ -45,10 +47,12 @@ func main
 	? "   hours between midnight and midnight that day: " + nHours
 
 func localTime oZones, oUtc, cZoneId
+
 	return oZones.ConvertTimeFromUtc(oUtc,oZones.FindSystemTimeZoneById(cZoneId))
 
 # "+02:00" or "-04:00": the offset from UTC at that moment (it includes daylight saving)
 func offsetText oZones, oUtc, cZoneId
+
 	oZone = oZones.FindSystemTimeZoneById(cZoneId)
 	cOffset = oZone.GetUtcOffset(oUtc).ToString()
 	if left(cOffset,1) != "-"
@@ -57,12 +61,14 @@ func offsetText oZones, oUtc, cZoneId
 	return left(cOffset,6)
 
 func padRight cText, nWidth
+
 	while len(cText) < nWidth
 		cText += " "
 	end
 	return cText
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

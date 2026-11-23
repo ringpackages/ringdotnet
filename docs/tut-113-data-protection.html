@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch08_data_protection.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># protecting data - the Data Protection API: purposes, tampering, keys on disk, and values that expire</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Threading"</span>
@@ -264,6 +265,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	cExt = <span class="s">"Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions"</span>
 	cProviderType = <span class="s">"Microsoft.AspNetCore.DataProtection.DataProtectionProvider"</span>
 
@@ -321,6 +323,7 @@ using {
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cOtherFolder, :recursive = <span class="k">True</span> ])
 
 <span class="k">func</span> <span class="f">tryUnprotect</span> cExt,oProtector,cToken
+
 	<span class="k">try</span>
 		<span class="k">return</span> <span class="s">"valid, it gives '"</span> + <span class="f">dnStatic</span>(cExt,<span class="s">"Unprotect"</span>,[oProtector,cToken]) + <span class="s">"'"</span>
 	<span class="k">catch</span>
@@ -328,6 +331,7 @@ using {
 	<span class="k">done</span>
 
 <span class="k">func</span> <span class="f">changeChar</span> cChar
+
 	<span class="k">if</span> cChar = <span class="s">"A"</span>
 		<span class="k">return</span> <span class="s">"B"</span>
 	<span class="k">ok</span>
@@ -335,6 +339,7 @@ using {
 
 <span class="c"># the time-limited protector also gives the time when the token expires (an out value: the answer is a list)</span>
 <span class="k">func</span> <span class="f">tryUnprotectLimited</span> cAdvanced,oLimited,cToken
+
 	<span class="k">try</span>
 		aResult = <span class="f">dnStatic</span>(cAdvanced,<span class="s">"Unprotect"</span>,[oLimited,cToken])
 		<span class="k">if</span> islist(aResult)

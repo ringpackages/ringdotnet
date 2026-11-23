@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_zip_in_memory.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># ZIP archives in memory - ZipArchive on a MemoryStream, entries, reading one file, compression levels, and updating an archive</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -263,6 +264,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oUtf8 = <span class="k">new</span> <span class="t">UTF8Encoding</span>()
 
 	<span class="c"># 1. A ZIP archive does not have to be a file. ZipArchive works on any stream: a MemoryStream keeps the whole archive in memory, which is</span>
@@ -323,12 +325,14 @@ using {
 	? nl + <span class="s">"6. a safe name has no '..' part and does not start with '/': "</span> + safeName(<span class="s">"data/names.txt"</span>) + <span class="s">", "</span> + safeName(<span class="s">"../../etc/passwd"</span>) + <span class="s">", "</span> + safeName(<span class="s">"/absolute.txt"</span>)
 
 <span class="k">func</span> <span class="f">addEntry</span> oZip,cName,cText
+
 	oEntry = oZip.<span class="f">CreateEntry</span>(cName)
 	oWriter = <span class="k">new</span> <span class="t">StreamWriter</span>(oEntry.<span class="f">Open</span>())
 	oWriter.<span class="f">Write</span>(cText)
 	oWriter.<span class="f">Dispose</span>()
 
 <span class="k">func</span> <span class="f">packSize</span> cLevel,cText
+
 	oStream = <span class="k">new</span> <span class="t">MemoryStream</span>
 	oZip = <span class="f">dnNew</span>(<span class="s">"ZipArchive"</span>,[ :stream = oStream, :mode = <span class="s">"Create"</span>, :leaveOpen = <span class="k">True</span> ])
 	oEntry = oZip.<span class="f">CreateEntry</span>([ :entryName = <span class="s">"text.txt"</span>, :compressionLevel = cLevel ])
@@ -339,15 +343,18 @@ using {
 	<span class="k">return</span> oStream.Length
 
 <span class="k">func</span> <span class="f">safeName</span> cName
+
 	<span class="k">if</span> left(cName,<span class="n">1</span>) = <span class="s">"/"</span> <span class="k">or</span> left(cName,<span class="n">1</span>) = <span class="s">"\" or substr(cName,"</span>..") &gt; <span class="n">0</span>
 		<span class="k">return</span> <span class="s">"unsafe"</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> <span class="s">"safe"</span>
 
 <span class="k">func</span> <span class="f">padRight</span> cText,nWidth
+
 	<span class="k">return</span> cText + copy(<span class="s">" "</span>,nWidth - len(cText))
 
 <span class="k">func</span> <span class="f">padLeft</span> cText,nWidth
+
 	<span class="k">return</span> copy(<span class="s">" "</span>,nWidth - len(cText)) + cText</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. an archive with 3 files is in memory, it has bytes: 1
 

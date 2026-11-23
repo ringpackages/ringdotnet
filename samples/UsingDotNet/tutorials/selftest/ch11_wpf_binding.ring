@@ -1,6 +1,7 @@
 # the checks of ch11_wpf_binding.ring: run with  ring ch11_wpf_binding.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	oSlider = wpfFind(oWindow,"amount")
 	oBox = wpfFind(oWindow,"box")
 	oBar = wpfFind(oWindow,"bar")

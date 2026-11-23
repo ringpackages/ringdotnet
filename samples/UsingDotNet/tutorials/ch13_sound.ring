@@ -1,6 +1,7 @@
 # sound - SoundPlayer is a framework class that has no Ring class in the package: wrapassembly.ring makes one from the DLL of the framework.
 #   The sound is a WAV file made in memory from Ring numbers (a Ring text can hold any byte). Run it with --play to hear it.
 load "dotnet.ring"
+
 using {
 	"System.IO"
 	"System.Windows.Forms"
@@ -17,6 +18,7 @@ cClasses = cHere + "/Sound/classes"
 # STEP 1. Where is the DLL? SoundPlayer is in System.Windows.Extensions.dll, in the folder of the desktop runtime, where
 # System.Windows.Forms.dll is too: the program asks a Windows Forms class for its folder instead of writing the path of one computer.
 func main
+
 	cFormsDll = new Label().GetType().Assembly.Location
 	cFolder = new Path().GetDirectoryName(cFormsDll)
 	cDll = new Path().Combine([cFolder,"System.Windows.Extensions.dll"])
@@ -59,7 +61,9 @@ func main
 
 # a number as bytes, the lowest byte first (little endian)
 func le16 nNumber
+
 	return char(nNumber % 256) + char(floor(nNumber / 256) % 256)
 
 func le32 nNumber
+
 	return le16(nNumber % 65536) + le16(floor(nNumber / 65536))

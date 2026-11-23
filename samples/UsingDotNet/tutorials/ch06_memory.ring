@@ -1,5 +1,6 @@
 # memory and the garbage collector - how much memory .NET uses, GC.Collect, WeakReference, generations and a big array
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	oGC = new GC()
 
 	# 1. .NET frees the memory of objects that nothing uses any more: the garbage collector (GC). The numbers depend on the computer and

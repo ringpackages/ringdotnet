@@ -1,6 +1,7 @@
 # Key events: KeyDown and KeyPress
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -21,7 +22,9 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func keyDown cKey
+
 	oLast.Text = "KeyDown: " + cKey
 
 func keyPress cChar
+
 	oChars.Text += cChar

@@ -1,5 +1,6 @@
 # caching - MemoryCache, absolute and sliding expiration, remove and update, and when a cache is a bad idea
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Threading"
@@ -9,6 +10,7 @@ using {
 nRuns = 0
 
 func main
+
 	# A cache keeps the result of slow work (a database query, a web request, a big calculation) for a while, so the next request
 	# gets it at once. MemoryCache keeps the values in memory, with a key for each one and rules for when a value must go.
 	oCache = new MemoryCache(new MemoryCacheOptions())
@@ -59,14 +61,17 @@ func main
 	oCache.Dispose()
 
 func sleepMs nMilliseconds
+
 	new Thread().Sleep(nMilliseconds)
 
 func slowReport aArguments
+
 	nRuns++                         # (nRuns is a global variable of the program)
 	return "report #" + nRuns
 
 # Set has two forms: with and without the options of the entry
 func cacheSet oCache,cKey,xValue,oOptions
+
 	if isNull(oOptions)
 		return oCache.Set([ :key = cKey, :value = xValue ])
 	ok

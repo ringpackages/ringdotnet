@@ -37,4 +37,5 @@ dnAssert("an unknown option",oParser.callGeneric("ParseArguments",[cOptions],[ [
 dnTestSummary()
 
 func quietSettings aArgs
+
 	aArgs[1].HelpWriter = dnNull()

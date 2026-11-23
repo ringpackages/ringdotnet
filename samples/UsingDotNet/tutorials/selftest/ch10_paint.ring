@@ -1,6 +1,7 @@
 # the checks of ch10_paint.ring: run with  ring ch10_paint.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	# a new canvas is white
 	dnAssert("white at the start",oBitmap.GetPixel(100,100).Name,"ffffffff")
 

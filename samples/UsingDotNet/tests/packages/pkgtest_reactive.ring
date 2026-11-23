@@ -54,17 +54,22 @@ dnAssert("the error handler got the error",cError,"broken")
 dnTestSummary()
 
 func seeItem aArgs
+
 	add(aSeen,aArgs[1])
 
 func seeError aArgs
+
 	cError = aArgs[1].Message
 
 func isEven aArgs
+
 	return aArgs[1] % 2 = 0
 
 func square aArgs
+
 	return aArgs[1] * aArgs[1]
 
 func awaitFirst oObservable, cType
+
 	# ToTask makes a task of the last item of an observable: its Result waits for it
 	return dnType("System.Reactive.Threading.Tasks.TaskObservableExtensions").callGeneric("ToTask",[cType],[oObservable]).Result

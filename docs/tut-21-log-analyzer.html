@@ -262,6 +262,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_log_analyzer.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project - analyze a log file (files, regular expressions, dictionaries, LINQ, JSON)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -272,6 +273,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># STEP 1. Make a sample log file (a real program would read an existing file)</span>
 	cLog = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_log_analyzer.log"</span>])
 	makeLog(cLog)
@@ -328,6 +330,7 @@ using {
 
 <span class="c"># a count from the dictionary (0 when the key is missing)</span>
 <span class="k">func</span> <span class="f">count</span> oDictionary, cKey
+
 	aFound = oDictionary.<span class="f">TryGetValue</span>(cKey)
 	<span class="k">if</span> aFound[<span class="n">1</span>]
 		<span class="k">return</span> aFound[<span class="n">2</span>]
@@ -336,6 +339,7 @@ using {
 
 <span class="c"># a small JSON object from [name, value] pairs</span>
 <span class="k">func</span> <span class="f">webJsonText</span> aPairs
+
 	cText = <span class="s">"{"</span>
 	<span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> len(aPairs)
 		<span class="k">if</span> nIndex &gt; <span class="n">1</span>
@@ -346,6 +350,7 @@ using {
 	<span class="k">return</span> cText + <span class="s">"}"</span>
 
 <span class="k">func</span> <span class="f">makeLog</span> cFile
+
 	aLines = []
 	aLevels = [<span class="s">"INFO"</span>,<span class="s">"INFO"</span>,<span class="s">"WARN"</span>,<span class="s">"INFO"</span>,<span class="s">"ERROR"</span>,<span class="s">"INFO"</span>,<span class="s">"ERROR"</span>,<span class="s">"WARN"</span>,<span class="s">"INFO"</span>,<span class="s">"ERROR"</span>]
 	aParts = [<span class="s">"db"</span>,<span class="s">"web"</span>,<span class="s">"disk"</span>,<span class="s">"web"</span>,<span class="s">"db"</span>,<span class="s">"web"</span>,<span class="s">"disk"</span>,<span class="s">"db"</span>,<span class="s">"web"</span>,<span class="s">"web"</span>]

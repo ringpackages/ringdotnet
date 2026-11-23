@@ -262,12 +262,14 @@ primary    = number | "(" expression ")" | name "(" expression { "," expression 
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch04_expression.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># an expression calculator - tokens, a recursive-descent parser, precedence and clear errors</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Text.RegularExpressions"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	aTests = [<span class="s">"1 + 2 * 3"</span>,<span class="s">"(1 + 2) * 3"</span>,<span class="s">"10 / 4 - 1"</span>,<span class="s">"2 ^ 3 ^ 2"</span>,<span class="s">"-(2 + 3) * 4"</span>,<span class="s">"sqrt(16) + max(3, 9)"</span>,<span class="s">"2 * (3 + "</span>,<span class="s">"4 $ 4"</span>,<span class="s">"1 / 0"</span>]
 	<span class="k">for</span> cText <span class="k">in</span> aTests
 		oCalc = <span class="k">new</span> <span class="t">Evaluator</span>()
@@ -275,6 +277,7 @@ using {
 	<span class="k">next</span>
 
 <span class="k">func</span> <span class="f">padRight</span> cText, nWidth
+
 	<span class="k">while</span> len(cText) &lt; nWidth
 		cText += <span class="s">" "</span>
 	<span class="k">end</span>
@@ -291,9 +294,11 @@ using {
 	cError = <span class="s">""</span>
 
 	<span class="k">func</span> <span class="f">init</span>
+
 		<span class="k">return</span> <span class="k">self</span>
 
 	<span class="k">func</span> <span class="f">calculate</span> cText
+
 		cError = <span class="s">""</span>
 		aTokens = tokenize(cText)
 		<span class="k">if</span> cError != <span class="s">""</span>
@@ -311,6 +316,7 @@ using {
 
 	<span class="c"># Regex.Matches finds every piece; anything that is not a number, a name, an operator or a space is an error</span>
 	<span class="k">func</span> <span class="f">tokenize</span> cText
+
 		aList = []
 		oMatches = <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"\s*(\d+\.?\d*|[A-Za-z]+|[-+*/^(),]|\S)"</span>).<span class="f">Matches</span>(cText)
 		<span class="k">for</span> nIndex = <span class="n">0</span> <span class="k">to</span> oMatches.Count - <span class="n">1</span>
@@ -324,12 +330,14 @@ using {
 		<span class="k">return</span> aList
 
 	<span class="k">func</span> <span class="f">peek</span>
+
 		<span class="k">if</span> nPos &lt;= len(aTokens)
 			<span class="k">return</span> aTokens[nPos]
 		<span class="k">ok</span>
 		<span class="k">return</span> <span class="s">""</span>
 
 	<span class="k">func</span> <span class="f">expression</span>
+
 		nLeft = term()
 		<span class="k">while</span> cError = <span class="s">""</span> <span class="k">and</span> (peek() = <span class="s">"+"</span> <span class="k">or</span> peek() = <span class="s">"-"</span>)
 			cOp = peek()
@@ -344,6 +352,7 @@ using {
 		<span class="k">return</span> nLeft
 
 	<span class="k">func</span> <span class="f">term</span>
+
 		nLeft = power()
 		<span class="k">while</span> cError = <span class="s">""</span> <span class="k">and</span> (peek() = <span class="s">"*"</span> <span class="k">or</span> peek() = <span class="s">"/"</span>)
 			cOp = peek()
@@ -363,6 +372,7 @@ using {
 
 	<span class="c"># ^ goes to the right: 2^3^2 = 2^(3^2)</span>
 	<span class="k">func</span> <span class="f">power</span>
+
 		nBase = unary()
 		<span class="k">if</span> cError = <span class="s">""</span> <span class="k">and</span> peek() = <span class="s">"^"</span>
 			nPos++
@@ -371,6 +381,7 @@ using {
 		<span class="k">return</span> nBase
 
 	<span class="k">func</span> <span class="f">unary</span>
+
 		<span class="k">if</span> peek() = <span class="s">"-"</span>
 			nPos++
 			<span class="k">return</span> -unary()
@@ -378,6 +389,7 @@ using {
 		<span class="k">return</span> primary()
 
 	<span class="k">func</span> <span class="f">primary</span>
+
 		cToken = peek()
 		<span class="k">if</span> cToken = <span class="s">""</span>
 			cError = <span class="s">"the expression ends too early"</span>
@@ -399,6 +411,7 @@ using {
 		<span class="k">return</span> <span class="n">0</span>
 
 	<span class="k">func</span> <span class="f">expect</span> cToken
+
 		<span class="k">if</span> cError != <span class="s">""</span>
 			<span class="k">return</span>
 		<span class="k">ok</span>
@@ -410,6 +423,7 @@ using {
 
 	<span class="c"># name ( arguments ): the functions come from the .NET Math class</span>
 	<span class="k">func</span> <span class="f">callFunction</span> cName
+
 		expect(<span class="s">"("</span>)
 		aArgs = []
 		<span class="k">if</span> peek() != <span class="s">")"</span>

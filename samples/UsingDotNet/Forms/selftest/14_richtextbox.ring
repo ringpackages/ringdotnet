@@ -1,6 +1,7 @@
 # the checks of 14_richtextbox.ring: run with  ring 14_richtextbox.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	oRich.Select([ :start = 0, :length = 4 ])
 	oRich.SelectionColor = uiColor("Red")
 	oBoldFont = uiFont("Segoe UI",14,true)

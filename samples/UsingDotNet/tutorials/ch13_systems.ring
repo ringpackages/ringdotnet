@@ -1,6 +1,7 @@
 # one program for Windows, Linux and macOS - what differs between the systems and how a program asks instead of assuming
 #   (the answers are different on each system; the lesson shows the output of Windows and of Linux)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -12,6 +13,7 @@ if isWindows()
 ok
 
 func main
+
 	# 1. Which system? Ring answers with isWindows(), isLinux() and isMacOSX(); .NET names the platform
 	? "1. windows: " + isWindows() + ", linux: " + isLinux() + ", macos: " + isMacOSX() + ", platform: " + new Environment().OSVersion.Platform
 

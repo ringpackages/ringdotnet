@@ -1,6 +1,7 @@
 # common mistakes - each one is made on purpose inside try/catch, and the message that Ring or .NET gives is printed, with the fix
 # errors on purpose
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Text"
@@ -8,6 +9,7 @@ using {
 }
 
 func main
+
 	# Every mistake is in a try ... catch ... done block, so that the program goes on and shows the next one. In your own program the same
 	# mistake stops the program and prints the same message with the line number.
 	oList = new StringList
@@ -83,5 +85,6 @@ func main
 	? "   fix: ask first: oVariable.isNull() is " + oVariable.isNull()
 
 func show cNumber, cTitle, cMessage
+
 	? cNumber + ". " + cTitle
 	? "   message: " + cMessage

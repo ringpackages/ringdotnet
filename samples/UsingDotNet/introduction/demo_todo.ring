@@ -1,5 +1,6 @@
 # A to-do list in a window, with plain Windows Forms classes (run it with: ring demo_todo.ring)
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -43,6 +44,7 @@ oList.setDoubleClickEvent("removeItem()")
 new Application().Run(oForm)
 
 func addItem
+
 	if trim(oInput.Text) != ""
 		oList.Items.Add(oInput.Text)
 		oInput.Text = ""
@@ -51,6 +53,7 @@ func addItem
 	oInput.Focus()
 
 func removeItem
+
 	if oList.SelectedIndex >= 0
 		oList.Items.RemoveAt(oList.SelectedIndex)
 		oStatus.Text = string(oList.Items.Count) + " items"

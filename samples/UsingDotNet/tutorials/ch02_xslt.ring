@@ -1,5 +1,6 @@
 # XSLT - turn XML into text, CSV and HTML with a stylesheet (System.Xml.Xsl)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -22,6 +23,7 @@ C_HTML = '<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Tr
 C_HTML += '<xsl:template match="/library"><table><xsl:for-each select="book"><tr class="{@genre}"><td><xsl:value-of select="title"/></td><td><xsl:value-of select="price"/></td></tr></xsl:for-each></table></xsl:template></xsl:stylesheet>'
 
 func main
+
 	cFolder = new Path().Combine([new Path().GetTempPath(),"ringdotnet_xslt"])
 	new Directory().CreateDirectory(cFolder)
 	cInput = new Path().Combine([cFolder,"library.xml"])
@@ -47,6 +49,7 @@ func main
 
 # compile the stylesheet text, run it over the input file, return the text of the output file
 func transform cFolder, cInput, cStylesheet, cOutputName
+
 	cSheet = new Path().Combine([cFolder,cOutputName + ".xsl"])
 	cOutput = new Path().Combine([cFolder,cOutputName])
 	new File().WriteAllText([ :path = cSheet, :contents = cStylesheet ])
@@ -56,6 +59,7 @@ func transform cFolder, cInput, cStylesheet, cOutputName
 	return new File().ReadAllText(cOutput)
 
 func indent cText
+
 	cText = substr(cText,char(13),"")
 	while right(cText,1) = char(10)
 		cText = left(cText,len(cText) - 1)
@@ -63,6 +67,7 @@ func indent cText
 	return "   " + substr(cText,char(10),nl + "   ")
 
 func countOf cText, cPart
+
 	nCount = 0
 	nPos = 1
 	while true
@@ -79,6 +84,7 @@ func countOf cText, cPart
 	return nCount
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

@@ -27,6 +27,7 @@ dnLoad(cDll)
 dnImportFrom(cClasses + "/","Tutorial.Native")
 
 func main
+
 	# STEP 4. Use the class. Win32 is a static class, and a static method is called on an object, as with Math.
 	oWin = new Win32()
 

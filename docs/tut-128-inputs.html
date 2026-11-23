@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_inputs.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># more input controls - a date picker, a track bar, radio buttons, tool tips and an error marker (a booking form)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Drawing"</span>
@@ -277,6 +278,7 @@ oResult = <span class="s">""</span>
 oBook = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Booking"</span>,<span class="n">420</span>,<span class="n">330</span>)
 
 	<span class="f">uiLabel</span>(oForm,<span class="s">"Name"</span>,<span class="n">20</span>,<span class="n">20</span>,<span class="n">80</span>,<span class="n">22</span>)
@@ -347,6 +349,7 @@ oBook = <span class="s">""</span>
 
 <span class="c"># the price of one night in each room, and a discount for a long stay</span>
 <span class="k">func</span> <span class="f">roomPrice</span>
+
 	<span class="k">if</span> oSuite.Checked
 		<span class="k">return</span> <span class="n">180</span>
 	<span class="k">ok</span>
@@ -356,6 +359,7 @@ oBook = <span class="s">""</span>
 	<span class="k">return</span> <span class="n">70</span>
 
 <span class="k">func</span> <span class="f">roomName</span>
+
 	<span class="k">if</span> oSuite.Checked
 		<span class="k">return</span> <span class="s">"Suite"</span>
 	<span class="k">ok</span>
@@ -365,6 +369,7 @@ oBook = <span class="s">""</span>
 	<span class="k">return</span> <span class="s">"Single"</span>
 
 <span class="k">func</span> <span class="f">total</span>
+
 	nNights = oNights.Value
 	nTotal = nNights * roomPrice()
 	<span class="k">if</span> nNights &gt;= <span class="n">7</span>
@@ -373,10 +378,12 @@ oBook = <span class="s">""</span>
 	<span class="k">return</span> nTotal
 
 <span class="k">func</span> <span class="f">showPrice</span>
+
 	oNightsLabel.Text = <span class="s">""</span> + oNights.Value
 	oPrice.Text = <span class="s">""</span> + oNights.Value + <span class="s">" nights, "</span> + roomName() + <span class="s">": "</span> + total() + <span class="s">" (a week or more: 10 percent off)"</span>
 
 <span class="k">func</span> <span class="f">book</span>
+
 	cName = trim(oName.Text)
 	<span class="k">if</span> cName = <span class="s">""</span>
 		oErrors.<span class="f">SetError</span>(oName,<span class="s">"Please type a name"</span>)
@@ -404,6 +411,7 @@ oBook = <span class="s">""</span>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_inputs.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_inputs.ring: run with  ring ch10_inputs.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	<span class="c"># the starting state</span>
 	<span class="f">dnAssert</span>(<span class="s">"price at the start"</span>,oPrice.Text,<span class="s">"3 nights, Single: 210 (a week or more: 10 percent off)"</span>)
 

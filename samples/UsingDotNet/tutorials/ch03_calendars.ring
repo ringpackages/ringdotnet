@@ -1,11 +1,13 @@
 # other calendars - Hijri (Umm al-Qura), Persian, Hebrew, Japanese and Thai Buddhist dates with System.Globalization
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Globalization"
 }
 
 func main
+
 	oDate = new DateTime(2024,3,11)                   # a DateTime always holds a Gregorian date; a Calendar object reads it in its own way
 
 	# 1. The same day in several calendars. Each calendar class has GetYear, GetMonth and GetDayOfMonth.
@@ -48,15 +50,18 @@ func main
 
 # "1445-9-1" for a date, read in the calendar oCalendar
 func dateText oCalendar, oDate
+
 	return string(oCalendar.GetYear(oDate)) + "-" + oCalendar.GetMonth(oDate) + "-" + oCalendar.GetDayOfMonth(oDate)
 
 func padLeft cText, nWidth
+
 	while len(cText) < nWidth
 		cText = " " + cText
 	end
 	return cText
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

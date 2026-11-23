@@ -1,5 +1,6 @@
 # enums and flags - named choices from .NET as text, checking and parsing them, and combining options with bits
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -10,6 +11,7 @@ C_WRITE = 2
 C_RUN = 4
 
 func main
+
 	oEnum = new Enum()
 	oDays = dnType("System.DayOfWeek")
 
@@ -52,6 +54,7 @@ func main
 	? "   can it read? " + yesNo((nPermissions & C_READ) != 0) + ", can it write? " + yesNo((nPermissions & C_WRITE) != 0)
 
 func describe nPermissions
+
 	aNames = []
 	if (nPermissions & C_READ) != 0
 		aNames + "read"
@@ -68,6 +71,7 @@ func describe nPermissions
 	return joinWith(aNames," + ")
 
 func joinWith aList, cSeparator
+
 	cText = ""
 	for cItem in aList
 		if cText != ""
@@ -78,6 +82,7 @@ func joinWith aList, cSeparator
 	return cText
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

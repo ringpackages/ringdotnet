@@ -1,6 +1,7 @@
 # A menu and tab pages
 
 load "dotnet.ring"
+
 using {
 	"System.Windows"
 	"System.Windows.Controls"

@@ -66,8 +66,10 @@ done
 dnTestSummary()
 
 func isAdult aArgs
+
 	return aArgs[1] >= 18
 
 func startsWithCapital aArgs
+
 	cName = aArgs[1]
 	return len(cName) > 0 and cName[1] = upper(cName[1]) and cName[1] != lower(cName[1])

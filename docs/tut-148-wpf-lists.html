@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch11_wpf_lists.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># WPF lists and dynamic content - a ListBox that the program fills, selection, moving and removing items, and controls made in code</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Windows"</span>
 	<span class="s">"System.Windows.Controls"</span>
@@ -264,6 +265,7 @@ using {
 oWindow = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># The window has a text box to type into, buttons, a ListBox and a WrapPanel. The ListBox is empty in the XAML: the program fills it.</span>
 	cXaml = <span class="s">'&lt;Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Lists" Width="420" Height="420" Background="#F4F2FB"&gt;'</span>
 	cXaml += <span class="s">'&lt;StackPanel Margin="12"&gt;'</span>
@@ -287,10 +289,12 @@ oWindow = <span class="s">""</span>
 	<span class="f">wpfRun</span>(oWindow)
 
 <span class="k">func</span> <span class="f">listBox</span>
+
 	<span class="k">return</span> <span class="f">wpfFind</span>(oWindow,<span class="s">"list"</span>)
 
 <span class="c"># Items is the collection of the items of a list control. Add puts an item at the end, Insert at a place, RemoveAt takes one away.</span>
 <span class="k">func</span> <span class="f">addItem</span>
+
 	cText = trim(<span class="f">wpfFind</span>(oWindow,<span class="s">"input"</span>).Text)
 	<span class="k">if</span> cText = <span class="s">""</span>
 		<span class="k">return</span>
@@ -301,6 +305,7 @@ oWindow = <span class="s">""</span>
 
 <span class="c"># SelectedIndex is -1 when nothing is selected</span>
 <span class="k">func</span> <span class="f">removeItem</span>
+
 	nIndex = listBox().SelectedIndex
 	<span class="k">if</span> nIndex &gt;= <span class="n">0</span>
 		listBox().Items.<span class="f">RemoveAt</span>(nIndex)
@@ -309,6 +314,7 @@ oWindow = <span class="s">""</span>
 
 <span class="c"># move the selected item up (-1) or down (1): take it out and put it in at the new place</span>
 <span class="k">func</span> <span class="f">moveItem</span> nStep
+
 	nIndex = listBox().SelectedIndex
 	nNew = nIndex + nStep
 	<span class="k">if</span> nIndex &lt; <span class="n">0</span> <span class="k">or</span> nNew &lt; <span class="n">0</span> <span class="k">or</span> nNew &gt;= listBox().Items.Count
@@ -321,12 +327,14 @@ oWindow = <span class="s">""</span>
 	refresh()
 
 <span class="k">func</span> <span class="f">clearItems</span>
+
 	listBox().Items.<span class="f">Clear</span>()
 	refresh()
 
 <span class="c"># the count, and a button for each item in the WrapPanel: controls MADE BY THE PROGRAM, as many as there are items. The panel is emptied</span>
 <span class="c"># first, and each button gets the code that shows its item.</span>
 <span class="k">func</span> <span class="f">refresh</span>
+
 	nCount = listBox().Items.Count
 	<span class="f">wpfFind</span>(oWindow,<span class="s">"count"</span>).Text = <span class="s">""</span> + nCount + <span class="s">" items"</span>
 	oChips = <span class="f">wpfFind</span>(oWindow,<span class="s">"chips"</span>)
@@ -338,6 +346,7 @@ oWindow = <span class="s">""</span>
 	<span class="k">next</span>
 
 <span class="k">func</span> <span class="f">showItem</span> nIndex
+
 	<span class="f">wpfFind</span>(oWindow,<span class="s">"count"</span>).Text = <span class="s">"Item "</span> + (nIndex + <span class="n">1</span>) + <span class="s">": "</span> + listBox().Items.<span class="f">Item</span>(nIndex)</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g148.png" alt="The list window" loading="lazy"><figcaption>A list with the buttons that the program made</figcaption></figure>
 
@@ -359,6 +368,7 @@ oWindow = <span class="s">""</span>
 
 <span class="c"># the items as one text, for the test</span>
 <span class="k">func</span> <span class="f">itemsText</span>
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> i = <span class="n">0</span> <span class="k">to</span> listBox().Items.Count - <span class="n">1</span>
 		<span class="k">if</span> cText != <span class="s">""</span>
@@ -369,9 +379,11 @@ oWindow = <span class="s">""</span>
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">clickButton</span> oButton
+
 	oButton.<span class="f">RaiseEvent</span>(<span class="k">new</span> <span class="t">RoutedEventArgs</span>().@<span class="k">New</span>([ :<span class="t">routedEvent</span> = <span class="k">new</span> <span class="t">WpfButtonBase</span>().ClickEvent ]))
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	<span class="c"># add three items through the text box and the Add button</span>
 	<span class="k">for</span> cText <span class="k">in</span> [ <span class="s">"tea"</span>,<span class="s">"coffee"</span>,<span class="s">"milk"</span> ]
 		<span class="f">wpfFind</span>(oWindow,<span class="s">"input"</span>).Text = cText

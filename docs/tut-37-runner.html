@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch12_runner.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project - a command runner (a window that starts a program and shows what it prints)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Diagnostics"</span>
@@ -269,6 +270,7 @@ oOutput = <span class="s">""</span>
 oStatus = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Command runner"</span>,<span class="n">560</span>,<span class="n">380</span>)
 	<span class="f">uiLabel</span>(oForm,<span class="s">"Command:"</span>,<span class="n">10</span>,<span class="n">12</span>,<span class="n">70</span>,<span class="n">22</span>)
 	oCommand = <span class="f">uiTextBox</span>(oForm,<span class="n">84</span>,<span class="n">10</span>,<span class="n">380</span>,<span class="n">24</span>)
@@ -287,6 +289,7 @@ oStatus = <span class="s">""</span>
 
 <span class="c"># Run "cmd /c &lt;command&gt;", wait for it, show everything it printed and its exit code</span>
 <span class="k">func</span> <span class="f">runCommand</span>
+
 	cCommand = trim(oCommand.Text)
 	<span class="k">if</span> cCommand = <span class="s">""</span>
 		<span class="k">return</span>
@@ -331,6 +334,7 @@ oStatus = <span class="s">""</span>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch12_runner.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch12_runner.ring: run with  ring ch12_runner.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	oCommand.Text = <span class="s">"echo one &amp;&amp; echo two"</span>
 	runCommand()
 	<span class="f">dnAssert</span>(<span class="s">"the output has both lines"</span>,substr(oOutput.Text,<span class="s">"one"</span>) &gt; <span class="n">0</span> <span class="k">and</span> substr(oOutput.Text,<span class="s">"two"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)

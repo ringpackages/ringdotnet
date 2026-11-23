@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_clipboard.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the clipboard - text, a table for a spreadsheet, a picture, and leaving the clipboard as the user had it</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Threading.Tasks"</span>
@@ -270,6 +271,7 @@ aTable = [ [<span class="s">"Item"</span>,<span class="s">"Price"</span>], [<spa
 cBefore = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Clipboard"</span>,<span class="n">420</span>,<span class="n">300</span>)
 	oEdit = <span class="f">uiTextBox</span>(oForm,<span class="n">15</span>,<span class="n">15</span>,<span class="n">380</span>,<span class="n">26</span>)
 	oEdit.Text = <span class="s">"Copied from Ring"</span>
@@ -289,11 +291,13 @@ cBefore = <span class="s">""</span>
 
 <span class="c"># 1. Text. SetText puts a text on the clipboard; GetText reads it (it needs NULL: the method has a second form). ContainsText asks first.</span>
 <span class="k">func</span> <span class="f">copyText</span>
+
 	oClipboard = <span class="k">new</span> <span class="t">Clipboard</span>()
 	oClipboard.<span class="f">SetText</span>(oEdit.Text)
 	oStatus.Text = <span class="s">"Copied "</span> + len(oEdit.Text) + <span class="s">" characters"</span>
 
 <span class="k">func</span> <span class="f">pasteText</span>
+
 	oClipboard = <span class="k">new</span> <span class="t">Clipboard</span>()
 	cText = readText()
 	<span class="k">if</span> cText != <span class="s">""</span>
@@ -306,6 +310,7 @@ cBefore = <span class="s">""</span>
 <span class="c"># 2. A table for a spreadsheet. Excel, LibreOffice and others paste text with TABS between the columns and a new line between the rows as</span>
 <span class="c">#    a table of cells: the program only has to make that text.</span>
 <span class="k">func</span> <span class="f">copyTable</span>
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> aRow <span class="k">in</span> aTable
 		cText += aRow[<span class="n">1</span>] + char(<span class="n">9</span>) + aRow[<span class="n">2</span>] + nl
@@ -316,6 +321,7 @@ cBefore = <span class="s">""</span>
 
 <span class="c"># 3. A picture. SetImage puts a bitmap on the clipboard; other programs paste it as a picture.</span>
 <span class="k">func</span> <span class="f">copyPicture</span>
+
 	oClipboard = <span class="k">new</span> <span class="t">Clipboard</span>()
 	oClipboard.<span class="f">SetImage</span>(oPicture.Image)
 	oStatus.Text = <span class="s">"Copied a picture of "</span> + oPicture.Image.Width + <span class="s">" x "</span> + oPicture.Image.Height + <span class="s">" pixels"</span>
@@ -323,6 +329,7 @@ cBefore = <span class="s">""</span>
 <span class="c"># The clipboard belongs to the whole computer, and another program (a clipboard manager, for example) can have it open for a moment:</span>
 <span class="c"># a read then gives nothing. Reading again a few times, with a short pause, is the usual answer; the result is "" when there is no text.</span>
 <span class="k">func</span> <span class="f">readText</span>
+
 	oClipboard = <span class="k">new</span> <span class="t">Clipboard</span>()
 	<span class="k">for</span> nTry = <span class="n">1</span> <span class="k">to</span> <span class="n">20</span>
 		<span class="k">if</span> oClipboard.<span class="f">ContainsText</span>(<span class="k">NULL</span>)
@@ -336,12 +343,14 @@ cBefore = <span class="s">""</span>
 	<span class="k">return</span> <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">clearClipboard</span>
+
 	oClipboard = <span class="k">new</span> <span class="t">Clipboard</span>()
 	oClipboard.<span class="f">Clear</span>()
 	oStatus.Text = <span class="s">"The clipboard is empty"</span>
 
 <span class="c"># a small picture made with Graphics: a blue square with a yellow circle</span>
 <span class="k">func</span> <span class="f">makePicture</span>
+
 	oBitmap = <span class="k">new</span> <span class="t">Bitmap</span>(<span class="n">120</span>,<span class="n">80</span>)
 	oGraphics = <span class="k">new</span> <span class="t">Graphics</span>().<span class="f">FromImage</span>(oBitmap)
 	oGraphics.<span class="f">Clear</span>(<span class="f">dnStatic</span>(<span class="s">"System.Drawing.Color"</span>,<span class="s">"FromArgb"</span>,[ <span class="n">255</span>, <span class="n">40</span>, <span class="n">90</span>, <span class="n">200</span> ]))
@@ -360,6 +369,7 @@ cBefore = <span class="s">""</span>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_clipboard.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_clipboard.ring: run with  ring ch10_clipboard.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">waitForImage</span>
+
 	oClipboard = <span class="k">new</span> <span class="t">Clipboard</span>()
 	<span class="k">for</span> nTry = <span class="n">1</span> <span class="k">to</span> <span class="n">20</span>
 		<span class="k">if</span> oClipboard.<span class="f">ContainsImage</span>()
@@ -370,6 +380,7 @@ cBefore = <span class="s">""</span>
 	<span class="k">return</span> <span class="k">False</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	oClipboard = <span class="k">new</span> <span class="t">Clipboard</span>()
 	cBefore = readText()                                    <span class="c"># keep what the user had on the clipboard</span>
 

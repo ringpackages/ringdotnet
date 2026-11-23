@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch07_routes.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># route templates - "users/{id}/orders/{orderId?}", optional and default values, catch-all parameters, and choosing a route</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"RingDotNet.Web"</span>                  <span class="c"># the routing classes are part of the ASP.NET Core runtime: this line starts it</span>
@@ -264,6 +265,7 @@ using {
 cRouting = <span class="s">"Microsoft.AspNetCore.Routing."</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># A web program decides what to do from the PATH of the address: /users/42 shows user 42, /files/docs/a/b.txt shows a file. A ROUTE</span>
 	<span class="c"># TEMPLATE describes such a path with named parts in braces. ASP.NET Core uses them for every route; the same classes work here.</span>
 	<span class="c"># {id}             a required part, its value is read into "id"</span>
@@ -317,6 +319,7 @@ cRouting = <span class="s">"Microsoft.AspNetCore.Routing."</span>
 
 <span class="c"># the dictionary of values for a template and a path, as text; "no match" when the path does not fit the template</span>
 <span class="k">func</span> <span class="f">showMatch</span> cTemplate,cPath
+
 	oValues = <span class="f">dnNew</span>(cRouting + <span class="s">"RouteValueDictionary"</span>,[])
 	<span class="k">if</span> <span class="k">not</span> matches(cTemplate,cPath,oValues)
 		<span class="k">return</span> <span class="s">"no match"</span>
@@ -328,6 +331,7 @@ cRouting = <span class="s">"Microsoft.AspNetCore.Routing."</span>
 	<span class="k">return</span> <span class="s">"match   "</span> + cText
 
 <span class="k">func</span> <span class="f">matches</span> cTemplate,cPath,oValues
+
 	oTemplate = <span class="f">dnStatic</span>(cRouting + <span class="s">"Template.TemplateParser"</span>,<span class="s">"Parse"</span>,[cTemplate])
 	<span class="c"># the defaults of the template ({page=1}) are given to the matcher: a part with a default may be missing at the END of the path</span>
 	oDefaults = <span class="f">dnNew</span>(cRouting + <span class="s">"RouteValueDictionary"</span>,[])
@@ -342,6 +346,7 @@ cRouting = <span class="s">"Microsoft.AspNetCore.Routing."</span>
 	<span class="k">return</span> oMatcher.<span class="f">callMethod</span>(<span class="s">"TryMatch"</span>,[oPath,oValues])
 
 <span class="k">func</span> <span class="f">chooseRoute</span> aTable,cPath
+
 	<span class="k">for</span> aRoute <span class="k">in</span> aTable
 		<span class="k">if</span> matches(aRoute[<span class="n">1</span>],cPath,<span class="f">dnNew</span>(cRouting + <span class="s">"RouteValueDictionary"</span>,[]))
 			<span class="k">return</span> aRoute[<span class="n">1</span>] + <span class="s">"  -&gt;  "</span> + aRoute[<span class="n">2</span>]
@@ -350,6 +355,7 @@ cRouting = <span class="s">"Microsoft.AspNetCore.Routing."</span>
 	<span class="k">return</span> <span class="s">"(no route: 404 not found)"</span>
 
 <span class="k">func</span> <span class="f">padRight</span> cText,nWidth
+
 	<span class="k">return</span> cText + copy(<span class="s">" "</span>,nWidth - len(cText))</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. the templates and their parts:
    users/{id}/orders/{orderId?}    id (required)  orderId (optional)  

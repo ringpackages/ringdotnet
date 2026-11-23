@@ -1,5 +1,6 @@
 # settings - defaults, a JSON file, loading, saving, and special folders
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	# Where do programs keep their files? .NET knows the special folders of the user.
 	oEnvironment = new Environment()
 	? "Special folders exist:"
@@ -45,6 +47,7 @@ func main
 	new File().Delete(cFile)
 
 func showSettings oSettings
+
 	? "   name     = " + oSettings.getValue("name")
 	? "   fontSize = " + oSettings.getValue("fontSize")
 	? "   darkMode = " + oSettings.getValue("darkMode")
@@ -57,12 +60,14 @@ class Settings
 	cLoadError = ""
 
 	func init cPath
+
 		cFile = cPath
 		# the defaults: the keys that exist, and what they are before the user changes them
 		aValues = [["name","Guest"],["fontSize",11],["darkMode",0]]
 		readFile()
 
 	func getValue cKey
+
 		for aPair in aValues
 			if aPair[1] = cKey
 				return aPair[2]
@@ -71,6 +76,7 @@ class Settings
 		return ""
 
 	func setValue cKey, xValue
+
 		for nIndex = 1 to len(aValues)
 			if aValues[nIndex][1] = cKey
 				aValues[nIndex][2] = xValue
@@ -79,6 +85,7 @@ class Settings
 
 	# the file holds a JSON object: {"name":"Ann","fontSize":14,"darkMode":1}
 	func save
+
 		cJson = "{"
 		for nIndex = 1 to len(aValues)
 			if nIndex > 1
@@ -95,6 +102,7 @@ class Settings
 
 	# read the file and replace the defaults with the values that it has
 	func readFile
+
 		cLoadError = ""
 		if not new File().Exists(cFile)
 			return

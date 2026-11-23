@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch07_shortener.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project: a link shortener - a web service that makes short codes, redirects with 302, counts the visits and refuses bad addresses</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Net.Http"</span>
@@ -269,6 +270,7 @@ aLinks = []                       <span class="c"># [code, address, visits]</spa
 nCounter = <span class="n">1000</span>                   <span class="c"># the next number to turn into a code</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oServer = <span class="k">new</span> <span class="t">WebServer</span>(<span class="s">"http://127.0.0.1:0"</span>)
 	oServer.<span class="f">onPost</span>(<span class="s">"/shorten"</span>,<span class="s">"shorten"</span>)
 	oServer.<span class="f">onGet</span>(<span class="s">"/stats"</span>,<span class="s">"statsOverview"</span>)
@@ -315,6 +317,7 @@ nCounter = <span class="n">1000</span>                   <span class="c"># the n
 
 <span class="c"># the code of a number: its digits in base 62</span>
 <span class="k">func</span> <span class="f">toCode</span> nNumber
+
 	cDigits = <span class="s">"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"</span>
 	cCode = <span class="s">""</span>
 	n = nNumber
@@ -327,6 +330,7 @@ nCounter = <span class="n">1000</span>                   <span class="c"># the n
 <span class="c"># Only http and https addresses are accepted. An address like "javascript:..." in a redirect would run a script in the browser of</span>
 <span class="c"># the visitor: a shortener must check what it redirects to.</span>
 <span class="k">func</span> <span class="f">isAllowed</span> cAddress
+
 	oAbsolute = <span class="f">dnStatic</span>(<span class="s">"System.Uri"</span>,<span class="s">"TryCreate"</span>,[ cAddress, <span class="s">"Absolute"</span> ])
 	<span class="k">if</span> <span class="k">not</span> oAbsolute[<span class="n">1</span>]
 		<span class="k">return</span> <span class="k">False</span>
@@ -335,6 +339,7 @@ nCounter = <span class="n">1000</span>                   <span class="c"># the n
 	<span class="k">return</span> cScheme = <span class="s">"http"</span> <span class="k">or</span> cScheme = <span class="s">"https"</span>
 
 <span class="k">func</span> <span class="f">shorten</span> oRequest
+
 	cAddress = trim(oRequest.<span class="f">form</span>(<span class="s">"address"</span>))
 	<span class="k">if</span> cAddress = <span class="s">""</span>
 		<span class="k">return</span> [<span class="n">400</span>,<span class="s">"text/plain"</span>,<span class="s">"the field address is needed"</span>]
@@ -354,6 +359,7 @@ nCounter = <span class="n">1000</span>                   <span class="c"># the n
 	<span class="k">return</span> [<span class="n">201</span>,<span class="s">"text/plain"</span>,cCode + <span class="s">"  "</span> + shortAddress(cAddress)]
 
 <span class="k">func</span> <span class="f">shortAddress</span> cAddress
+
 	<span class="k">if</span> len(cAddress) &lt;= <span class="n">28</span>
 		<span class="k">return</span> cAddress
 	<span class="k">ok</span>
@@ -361,6 +367,7 @@ nCounter = <span class="n">1000</span>                   <span class="c"># the n
 
 <span class="c"># any other path: its text after the first / is the code</span>
 <span class="k">func</span> <span class="f">visit</span> oRequest
+
 	cCode = substr(oRequest.<span class="f">path</span>(),<span class="n">2</span>)
 	<span class="k">for</span> i = <span class="n">1</span> <span class="k">to</span> len(aLinks)
 		<span class="k">if</span> aLinks[i][<span class="n">1</span>] = cCode
@@ -372,6 +379,7 @@ nCounter = <span class="n">1000</span>                   <span class="c"># the n
 	<span class="k">return</span> [<span class="n">404</span>,<span class="s">"text/plain"</span>,<span class="s">"no such code"</span>]
 
 <span class="k">func</span> <span class="f">statsOverview</span> oRequest
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> aLink <span class="k">in</span> aLinks
 		<span class="k">if</span> cText != <span class="s">""</span>
@@ -385,13 +393,16 @@ nCounter = <span class="n">1000</span>                   <span class="c"># the n
 
 <span class="c"># one request is sent, the server answers it (serveOne), and the answer comes back as [status, text, location]</span>
 <span class="k">func</span> <span class="f">fetch</span> cPath
+
 	<span class="k">return</span> exchange(oClient.<span class="f">GetAsync</span>(cUrl + cPath))
 
 <span class="k">func</span> <span class="f">post</span> cPath,cForm
+
 	oContent = <span class="f">dnNew</span>(<span class="s">"StringContent"</span>,[ :content = cForm, :encoding = <span class="k">new</span> <span class="t">UTF8Encoding</span>(), :mediaType = <span class="s">"application/x-www-form-urlencoded"</span> ])
 	<span class="k">return</span> exchange(oClient.<span class="f">PostAsync</span>([ :requestUri = cUrl + cPath, :content = oContent ]))
 
 <span class="k">func</span> <span class="f">exchange</span> oTask
+
 	<span class="k">for</span> nTry = <span class="n">1</span> <span class="k">to</span> <span class="n">50</span>
 		<span class="k">if</span> oServer.<span class="f">serveOne</span>(<span class="n">100</span>)
 			<span class="k">exit</span>

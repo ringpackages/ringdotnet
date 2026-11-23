@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch13_inspector.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project: an object inspector - reflection shows the properties of any .NET object, with their types and values, in a list</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -273,6 +274,7 @@ aObjects = []                     <span class="c"># [ name, the .NET object ]</s
 cTempFile = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># Some objects to look at. They are made here; the inspector does not care what they are.</span>
 	cTempFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([ <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(), <span class="s">"ringdotnet-inspect.txt"</span> ])
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cTempFile, :contents = <span class="s">"Hello, inspector"</span> ])
@@ -306,6 +308,7 @@ cTempFile = <span class="s">""</span>
 <span class="c"># Fill the list with the properties of the object. GetType() gives the Type of any object, and the Type lists its properties; each</span>
 <span class="c"># property can read its value from the object: GetValue(object). A property with parameters (an indexer such as Chars[i]) is skipped.</span>
 <span class="k">func</span> <span class="f">inspect</span> n
+
 	oObject = aObjects[n][<span class="n">2</span>]
 	oList.Items.<span class="f">Clear</span>()
 	nShown = <span class="n">0</span>
@@ -335,6 +338,7 @@ cTempFile = <span class="s">""</span>
 
 <span class="c"># a value for the list: a Ring text or number as it is; an object (a date, another .NET object) by its ToString</span>
 <span class="k">func</span> <span class="f">showValue</span> xValue
+
 	<span class="k">if</span> isObject(xValue)
 		<span class="k">return</span> xValue.<span class="f">toString</span>()
 	<span class="k">ok</span>
@@ -342,6 +346,7 @@ cTempFile = <span class="s">""</span>
 
 <span class="c"># the rows sorted by the name of the property (a bubble sort on the first item; the lists are short)</span>
 <span class="k">func</span> <span class="f">sortRows</span> aRows
+
 	<span class="k">for</span> i = <span class="n">1</span> <span class="k">to</span> len(aRows) - <span class="n">1</span>
 		<span class="k">for</span> j = <span class="n">1</span> <span class="k">to</span> len(aRows) - i
 			<span class="k">if</span> strcmp(aRows[j][<span class="n">1</span>],aRows[j + <span class="n">1</span>][<span class="n">1</span>]) &gt; <span class="n">0</span>
@@ -373,6 +378,7 @@ cTempFile = <span class="s">""</span>
 
 <span class="c"># the value of a property that the list shows, found by the name of the property</span>
 <span class="k">func</span> <span class="f">valueOf</span> cName
+
 	<span class="k">for</span> i = <span class="n">0</span> <span class="k">to</span> oList.Items.Count - <span class="n">1</span>
 		<span class="k">if</span> oList.Items.<span class="f">Item</span>(i).Text = cName
 			<span class="k">return</span> oList.Items.<span class="f">Item</span>(i).SubItems.<span class="f">Item</span>(<span class="n">2</span>).Text
@@ -381,6 +387,7 @@ cTempFile = <span class="s">""</span>
 	<span class="k">return</span> <span class="s">"(not in the list)"</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	<span class="c"># the Uri</span>
 	<span class="f">dnAssert</span>(<span class="s">"the host"</span>,valueOf(<span class="s">"Host"</span>),<span class="s">"example.com"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the port"</span>,valueOf(<span class="s">"Port"</span>),<span class="s">"8080"</span>)

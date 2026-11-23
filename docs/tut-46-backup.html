@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_backup.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project - a backup tool (zip a folder, name by date, keep the newest few, restore)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -263,6 +264,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oPath = <span class="k">new</span> <span class="t">Path</span>()
 	oDirectory = <span class="k">new</span> <span class="t">Directory</span>()
 	oFile = <span class="k">new</span> <span class="t">File</span>()
@@ -303,21 +305,25 @@ using {
 
 <span class="c"># STEP 1: zip the source folder to backups/backup-&lt;stamp&gt;.zip</span>
 <span class="k">func</span> <span class="f">makeBackup</span> cSource, cBackups, cStamp
+
 	cZip = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cBackups,<span class="s">"backup-"</span> + cStamp + <span class="s">".zip"</span>])
 	<span class="k">new</span> <span class="t">ZipFile</span>().<span class="f">CreateFromDirectory</span>([ :sourceDirectoryName = cSource, :destinationArchiveFileName = cZip ])
 	<span class="k">return</span> cZip
 
 <span class="c"># the backups, oldest first (the names sort the same way as the dates)</span>
 <span class="k">func</span> <span class="f">listBackups</span> cBackups
+
 	<span class="k">return</span> sort(<span class="k">new</span> <span class="t">Directory</span>().<span class="f">GetFiles</span>([ :path = cBackups, :searchPattern = <span class="s">"backup-*.zip"</span> ]).<span class="f">toList</span>())
 
 <span class="k">func</span> <span class="f">showBackups</span> cBackups
+
 	<span class="k">for</span> cFile <span class="k">in</span> listBackups(cBackups)
 		? <span class="s">"   "</span> + <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetFileName</span>(cFile)
 	<span class="k">next</span>
 
 <span class="c"># STEP 2: delete the oldest backups until only nKeep are left</span>
 <span class="k">func</span> <span class="f">keepNewest</span> cBackups, nKeep
+
 	aList = listBackups(cBackups)
 	nDeleted = <span class="n">0</span>
 	<span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> len(aList) - nKeep
@@ -328,12 +334,14 @@ using {
 
 <span class="c"># STEP 3: unzip the newest backup into a folder</span>
 <span class="k">func</span> <span class="f">restoreLatest</span> cBackups, cFolder
+
 	aList = listBackups(cBackups)
 	cLatest = aList[len(aList)]
 	<span class="k">new</span> <span class="t">ZipFile</span>().<span class="f">ExtractToDirectory</span>([ :sourceArchiveFileName = cLatest, :destinationDirectoryName = cFolder ])
 	<span class="k">return</span> cLatest
 
 <span class="k">func</span> <span class="f">copies</span> cText, nTimes
+
 	cResult = <span class="s">""</span>
 	<span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> nTimes
 		cResult += cText

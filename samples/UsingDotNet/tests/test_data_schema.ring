@@ -3,6 +3,7 @@ load "dotnet.ring"
 dnUseData()
 
 func main
+
 	aSchema = [
 		["Users",[
 			["Id","int",1],

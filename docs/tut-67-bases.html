@@ -258,12 +258,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch03_bases.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># number systems and big numbers - binary, hexadecimal, bits, and numbers that do not fit in a double</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Numerics"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oConvert = <span class="k">new</span> <span class="t">Convert</span>()
 
 	<span class="c"># 1. The same number in different bases: 2 (binary), 8 (octal), 10 (decimal), 16 (hexadecimal)</span>
@@ -310,6 +312,7 @@ using {
 	? nl + <span class="s">"8. 30! = "</span> + oFactorial.<span class="f">ToString</span>()
 
 <span class="k">func</span> <span class="f">hex2</span> nValue
+
 	cText = <span class="k">new</span> <span class="t">Convert</span>().<span class="f">Format</span>([ :value = nValue, :toBase = <span class="n">16</span> ])
 	<span class="k">if</span> len(cText) = <span class="n">1</span>
 		cText = <span class="s">"0"</span> + cText
@@ -317,6 +320,7 @@ using {
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

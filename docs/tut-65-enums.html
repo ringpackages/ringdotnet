@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch04_enums.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># enums and flags - named choices from .NET as text, checking and parsing them, and combining options with bits</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -266,6 +267,7 @@ C_WRITE = <span class="n">2</span>
 C_RUN = <span class="n">4</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oEnum = <span class="k">new</span> <span class="t">Enum</span>()
 	oDays = <span class="f">dnType</span>(<span class="s">"System.DayOfWeek"</span>)
 
@@ -308,6 +310,7 @@ C_RUN = <span class="n">4</span>
 	? <span class="s">"   can it read? "</span> + yesNo((nPermissions &amp; C_READ) != <span class="n">0</span>) + <span class="s">", can it write? "</span> + yesNo((nPermissions &amp; C_WRITE) != <span class="n">0</span>)
 
 <span class="k">func</span> <span class="f">describe</span> nPermissions
+
 	aNames = []
 	<span class="k">if</span> (nPermissions &amp; C_READ) != <span class="n">0</span>
 		aNames + <span class="s">"read"</span>
@@ -324,6 +327,7 @@ C_RUN = <span class="n">4</span>
 	<span class="k">return</span> joinWith(aNames,<span class="s">" + "</span>)
 
 <span class="k">func</span> <span class="f">joinWith</span> aList, cSeparator
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> cItem <span class="k">in</span> aList
 		<span class="k">if</span> cText != <span class="s">""</span>
@@ -334,6 +338,7 @@ C_RUN = <span class="n">4</span>
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

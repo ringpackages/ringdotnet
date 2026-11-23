@@ -258,6 +258,7 @@
 <p><code>DateTime</code>, <code>TimeSpan</code>, <code>Convert</code>, <code>Math</code>, <code>String</code> helpers, <code>Guid</code>, <code>Random</code>, <code>Environment</code>:</p>
 <details class="src"><summary>samples/UsingDotNet/introduction/test08_system.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/introduction/test08_system.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Dates and times, strings, conversions and math from the .NET class library</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using { <span class="s">"System"</span> }
 
 <span class="c"># Dates and times</span>
@@ -307,6 +308,7 @@ TryParse bad   : 0</code></pre></div>
 <p><code>File</code>, <code>Directory</code>, <code>Path</code>, <code>StreamReader</code>/<code>StreamWriter</code>, <code>MemoryStream</code>, <code>Regex</code>, <code>GZipStream</code>:</p>
 <details class="src"><summary>samples/UsingDotNet/introduction/test09_io_regex.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/introduction/test09_io_regex.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Text files, compression and regular expressions</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -368,6 +370,7 @@ Zip created   : 184 bytes</code></pre></div>
 <p><code>Uri</code>, <code>IPAddress</code>, <code>Dns</code>, <code>HttpClient</code>, <code>WebUtility</code>, <code>Encoding</code> — a program that does not need the internet to run:</p>
 <details class="src"><summary>samples/UsingDotNet/introduction/test12_network.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/introduction/test12_network.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># HTTP: a small web server and a web client in one program</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Text"</span>
@@ -415,6 +418,7 @@ Host name set  : 1</code></pre></div>
 <p>Hashes (<code>SHA256</code>, <code>MD5</code>), HMAC, random bytes, AES, culture-aware formatting:</p>
 <details class="src"><summary>samples/UsingDotNet/introduction/test13_security.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/introduction/test13_security.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Hashes, HMAC and AES encryption</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Globalization"</span>
@@ -478,6 +482,7 @@ Microsoft Windows [Version 10.0.26200.9974]</code></pre></div>
 <p><code>XmlDocument</code>, <code>XPath</code>, <code>System.Text.Json</code>, <code>DataTable</code> and <code>DataView</code> — no database needed:</p>
 <details class="src"><summary>samples/UsingDotNet/introduction/test14_xml_json_data.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/introduction/test14_xml_json_data.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># XML with XPath, JSON and data tables</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Xml"</span>
 	<span class="s">"System.Text.Json"</span>
@@ -529,6 +534,7 @@ Low stock rows  : 2</code></pre></div>
 <p><code>Type</code>, <code>Assembly</code>, <code>MethodInfo</code>, <code>BigInteger</code>, <code>Complex</code>:</p>
 <details class="src"><summary>samples/UsingDotNet/introduction/test15_reflection_numbers.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/introduction/test15_reflection_numbers.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Big numbers, reflection, encoders and concurrent collections</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Reflection"</span>

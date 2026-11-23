@@ -258,6 +258,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch13_callbacks.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># callbacks and events - giving Ring code to .NET</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Collections.Generic"</span>
 	<span class="s">"System.Collections.ObjectModel"</span>
@@ -268,6 +269,7 @@ nLetters = <span class="n">0</span>
 nChanges = <span class="n">0</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oWords = <span class="k">new</span> <span class="t">StringList</span>()
 	oWords.<span class="f">Add</span>(<span class="s">"pear"</span>)  oWords.<span class="f">Add</span>(<span class="s">"apple"</span>)  oWords.<span class="f">Add</span>(<span class="s">"fig"</span>)  oWords.<span class="f">Add</span>(<span class="s">"avocado"</span>)
 
@@ -311,21 +313,27 @@ nChanges = <span class="n">0</span>
 
 <span class="c"># A callback written as a function receives ONE parameter: the list of the .NET arguments. It returns the answer.</span>
 <span class="k">func</span> <span class="f">showItem</span> aArgs
+
 	? <span class="s">"   item: "</span> + aArgs[<span class="n">1</span>]
 
 <span class="k">func</span> <span class="f">compareLength</span> aArgs
+
 	<span class="k">return</span> len(aArgs[<span class="n">1</span>]) - len(aArgs[<span class="n">2</span>])
 
 <span class="k">func</span> <span class="f">startsWithA</span> aArgs
+
 	<span class="k">return</span> left(aArgs[<span class="n">1</span>],<span class="n">1</span>) = <span class="s">"a"</span>
 
 <span class="k">func</span> <span class="f">isFig</span> aArgs
+
 	<span class="k">return</span> aArgs[<span class="n">1</span>] = <span class="s">"fig"</span>
 
 <span class="k">func</span> <span class="f">broken</span> aArgs
+
 	raise(<span class="s">"the callback failed on purpose"</span>)
 
 <span class="k">func</span> <span class="f">joinList</span> aList
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> xItem <span class="k">in</span> aList
 		<span class="k">if</span> cText != <span class="s">""</span>

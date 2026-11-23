@@ -1,6 +1,7 @@
 # the checks of 04_checkbox_radio.ring: run with  ring 04_checkbox_radio.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	oCheck.IsChecked = True
 	oCheck.IsChecked = False
 	dnAssert("events",cLog,"on off ")

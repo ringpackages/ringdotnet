@@ -255,12 +255,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch08_claims.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># identities and claims - ClaimsIdentity, ClaimsPrincipal, roles, claim types and a simple permission check</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Security.Claims"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># A claim is a statement about a user: a type and a value ("Role" = "Admin", "Email" = "ann@example.com").</span>
 	<span class="c"># An identity is a list of claims from one source; a principal holds identities. ASP.NET uses these classes for every login.</span>
 	oIdentity = <span class="k">new</span> <span class="t">ClaimsIdentity</span>().@<span class="k">New</span>([ :<span class="t">authenticationType</span> = <span class="s">"Password"</span> ])
@@ -302,6 +304,7 @@ using {
 
 <span class="c"># True when one of the roles of the principal allows the action</span>
 <span class="k">func</span> <span class="f">mayDo</span> oPrincipal, aRules, cAction
+
 	<span class="k">for</span> oRole <span class="k">in</span> oPrincipal.<span class="f">FindAll</span>(<span class="s">"Role"</span>).<span class="f">toList</span>()
 		aAllowed = aRules[lower(oRole.Value)]
 		<span class="k">if</span> <span class="k">not</span> islist(aAllowed) <span class="k">loop</span> <span class="k">ok</span>

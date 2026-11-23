@@ -255,12 +255,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch13_expressions.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># building code while the program runs - expression trees (System.Linq.Expressions): build, show, compile and call</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Linq.Expressions"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># The expression class of this namespace is called ExpressionsExpression in Ring (the name Expression is used by another namespace).</span>
 	oExpression = <span class="k">new</span> <span class="t">ExpressionsExpression</span>()
 	oDouble = <span class="f">dnType</span>(<span class="s">"System.Double"</span>)
@@ -303,6 +305,7 @@ using {
 
 <span class="c"># the compiled function of "a OP b" for an operator written as text</span>
 <span class="k">func</span> <span class="f">binaryFunction</span> oExpression, oA, oB, cOperator
+
 	<span class="k">switch</span> cOperator
 	<span class="k">on</span> <span class="s">"+"</span>
 		oBody = oExpression.<span class="f">Add</span>([ :left = oA, :right = oB ])

@@ -1,5 +1,6 @@
 # Binary data: a Ring text can hold any byte (a NUL, bytes that are not valid UTF-8), and a byte[] that .NET returns is such a text.
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"

@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_binary.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># binary files - bytes, BinaryWriter and BinaryReader, a file format, and a hex dump</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -263,6 +264,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_binary.dat"</span>])
 
 	<span class="c"># 1. A binary file stores values as bytes, not as readable text. We invent a tiny format:</span>
@@ -317,6 +319,7 @@ using {
 
 <span class="c"># a hex dump: 8 bytes per line</span>
 <span class="k">func</span> <span class="f">hexDump</span> cFile
+
 	cData = <span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllBytes</span>(cFile)
 	cOut = <span class="s">""</span>
 	<span class="k">for</span> nStart = <span class="n">1</span> <span class="k">to</span> len(cData) <span class="k">step</span> <span class="n">8</span>
@@ -336,6 +339,7 @@ using {
 	<span class="k">return</span> cOut
 
 <span class="k">func</span> <span class="f">readMagic</span> cFile
+
 	cMagic = <span class="s">""</span>
 	oReader = <span class="s">""</span>
 	<span class="k">try</span>
@@ -351,6 +355,7 @@ using {
 	<span class="k">return</span> cMagic
 
 <span class="k">func</span> <span class="f">copies</span> cText, nTimes
+
 	cResult = <span class="s">""</span>
 	<span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> nTimes
 		cResult += cText

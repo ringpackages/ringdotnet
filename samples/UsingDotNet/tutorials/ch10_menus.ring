@@ -1,5 +1,6 @@
 # menus, toolbars, context menus and shortcuts - one action, several ways to reach it
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -12,6 +13,7 @@ oWrapItem = ""
 nActions = 0
 
 func main
+
 	oForm = uiForm("Menus",480,300)
 
 	# The text area first (it fills the window: see the tutorial "A small text editor")
@@ -70,10 +72,12 @@ func main
 # ---------------------------------------------------------------- the actions: written once, reached from many places
 
 func say cMessage
+
 	nActions++
 	oStatus.Items.Item(0).Text = cMessage
 
 func upperCase
+
 	if oText.SelectionLength > 0
 		oText.SelectedText = upper(oText.SelectedText)
 		say("Upper case applied to the selection")
@@ -83,14 +87,17 @@ func upperCase
 	ok
 
 func newText
+
 	oText.Text = ""
 	say("Cleared")
 
 func wrapChanged
+
 	oText.WordWrap = oWrapItem.Checked
 	say("Word wrap is " + iif(oWrapItem.Checked,"on","off"))
 
 func iif lCondition, xYes, xNo
+
 	if lCondition
 		return xYes
 	ok

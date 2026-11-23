@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_printing.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># printing - PrintDocument and the PrintPage event: a report on several pages, margins, page numbers, landscape, and a preview without a printer</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -270,6 +271,7 @@ nNextRow = <span class="n">1</span>                      <span class="c"># the f
 aOnPage = []                      <span class="c"># how many rows each page got</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. A report with 100 rows</span>
 	<span class="k">for</span> i = <span class="n">1</span> <span class="k">to</span> <span class="n">100</span>
 		aRows + [ i, <span class="s">"Item "</span> + right(<span class="s">"000"</span> + i,<span class="n">3</span>), <span class="n">2.5</span> + i * <span class="n">0.75</span> ]
@@ -324,12 +326,14 @@ aOnPage = []                      <span class="c"># how many rows each page got<
 
 <span class="c"># A4 is 827 x 1169 hundredths of an inch; the margins are 50 (half an inch). Landscape turns the page.</span>
 <span class="k">func</span> <span class="f">setupPaper</span> oDocument,lLandscape
+
 	oDocument.DefaultPageSettings.PaperSize = <span class="k">new</span> <span class="t">PaperSize</span>().@<span class="k">New</span>([ :<span class="t">name</span> = <span class="s">"A4"</span>, :width = <span class="n">827</span>, :height = <span class="n">1169</span> ])
 	oDocument.DefaultPageSettings.Margins = <span class="k">new</span> <span class="t">Margins</span>().@<span class="k">New</span>([ :<span class="t">left</span> = <span class="n">50</span>, :right = <span class="n">50</span>, :top = <span class="n">50</span>, :bottom = <span class="n">50</span> ])
 	oDocument.DefaultPageSettings.Landscape = lLandscape
 
 <span class="c"># The PrintPage event: draw one page. e.MarginBounds is the rectangle inside the margins (in hundredths of an inch).</span>
 <span class="k">func</span> <span class="f">drawPage</span> oArgs
+
 	nPage++
 	oGraphics = oArgs.Graphics
 	oBounds = oArgs.MarginBounds
@@ -363,6 +367,7 @@ aOnPage = []                      <span class="c"># how many rows each page got<
 
 <span class="c"># a metafile drawn on a white bitmap of the given size</span>
 <span class="k">func</span> <span class="f">pageBitmap</span> oMetafile,nWidth,nHeight
+
 	oBitmap = <span class="k">new</span> <span class="t">Bitmap</span>(nWidth,nHeight)
 	oGraphics = <span class="k">new</span> <span class="t">Graphics</span>().<span class="f">FromImage</span>(oBitmap)
 	oGraphics.<span class="f">Clear</span>(<span class="f">uiColor</span>(<span class="s">"White"</span>))
@@ -372,6 +377,7 @@ aOnPage = []                      <span class="c"># how many rows each page got<
 
 <span class="c"># how many pixels of a picture are dark (a step of 4 keeps it quick)</span>
 <span class="k">func</span> <span class="f">countDark</span> oImage
+
 	nDark = <span class="n">0</span>
 	<span class="k">for</span> x = <span class="n">0</span> <span class="k">to</span> oImage.Width - <span class="n">1</span> <span class="k">step</span> <span class="n">4</span>
 		<span class="k">for</span> y = <span class="n">0</span> <span class="k">to</span> oImage.Height - <span class="n">1</span> <span class="k">step</span> <span class="n">4</span>
@@ -384,6 +390,7 @@ aOnPage = []                      <span class="c"># how many rows each page got<
 	<span class="k">return</span> nDark
 
 <span class="k">func</span> <span class="f">joinList</span> aList
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> item <span class="k">in</span> aList
 		<span class="k">if</span> cText != <span class="s">""</span>
@@ -394,6 +401,7 @@ aOnPage = []                      <span class="c"># how many rows each page got<
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

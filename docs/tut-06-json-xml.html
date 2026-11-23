@@ -261,12 +261,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch01_json_xml.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># JSON and XML - reading, writing and searching structured data</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Text.Json"</span>
 	<span class="s">"System.Xml"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># JSON: turn Ring data into text</span>
 	oJson = <span class="k">new</span> <span class="t">JsonSerializer</span>()
 	? <span class="s">"A Ring list as JSON : "</span> + oJson.<span class="f">Serialize</span>([<span class="n">1</span>,<span class="s">"two"</span>,[<span class="n">3</span>,<span class="n">4</span>]])

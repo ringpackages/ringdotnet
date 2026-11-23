@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_random_access.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># random access files - FileStream: records of a fixed size, Seek, changing one record in place, SetLength and locking a file with FileShare</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -264,6 +265,7 @@ using {
 nSize = <span class="n">20</span>                        <span class="c"># every record has 20 bytes: the name in 12, the quantity in 4, and 4 spaces</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oPath = <span class="k">new</span> <span class="t">Path</span>()
 	cFolder = oPath.<span class="f">Combine</span>([ oPath.<span class="f">GetTempPath</span>(), <span class="s">"ringdotnet-records-"</span> + oPath.<span class="f">GetRandomFileName</span>() ])
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(cFolder)
@@ -319,32 +321,39 @@ nSize = <span class="n">20</span>                        <span class="c"># every
 
 <span class="c"># a FileStream: the path, the mode, the access and the share</span>
 <span class="k">func</span> <span class="f">openFile</span> cFile,cMode,cAccess,cShare
+
 	<span class="k">return</span> <span class="f">dnNew</span>(<span class="s">"FileStream"</span>,[ :path = cFile, :mode = cMode, :access = cAccess, :share = cShare ])
 
 <span class="c"># a record: the name to 12 characters (spaces on the right), the quantity to 4 digits (zeros on the left), and 4 spaces</span>
 <span class="k">func</span> <span class="f">makeRecord</span> cName,nQuantity
+
 	<span class="k">return</span> left(cName + copy(<span class="s">" "</span>,<span class="n">12</span>),<span class="n">12</span>) + right(<span class="s">"0000"</span> + nQuantity,<span class="n">4</span>) + <span class="s">"    "</span>
 
 <span class="k">func</span> <span class="f">writeRecord</span> oStream,cName,nQuantity
+
 	cRecord = makeRecord(cName,nQuantity)
 	oStream.<span class="f">Write</span>(cRecord,<span class="n">0</span>,nSize)
 
 <span class="c"># record number n (from 1): go to its place and write</span>
 <span class="k">func</span> <span class="f">writeRecordAt</span> oStream,n,cName,nQuantity
+
 	oStream.<span class="f">Seek</span>((n - <span class="n">1</span>) * nSize,<span class="s">"Begin"</span>)
 	writeRecord(oStream,cName,nQuantity)
 
 <span class="k">func</span> <span class="f">readRecord</span> oStream,n
+
 	oStream.<span class="f">Seek</span>((n - <span class="n">1</span>) * nSize,<span class="s">"Begin"</span>)
 	oBuffer = <span class="f">dnBuffer</span>(nSize)                              <span class="c"># a .NET byte[] that Read fills</span>
 	nRead = oStream.<span class="f">Read</span>(oBuffer,<span class="n">0</span>,nSize)
 	<span class="k">return</span> <span class="f">dnBufferBytes</span>(oBuffer,nRead)
 
 <span class="k">func</span> <span class="f">showRecord</span> cRecord
+
 	<span class="k">return</span> trim(left(cRecord,<span class="n">12</span>)) + <span class="s">", quantity "</span> + (<span class="n">0</span> + substr(cRecord,<span class="n">13</span>,<span class="n">4</span>))
 
 <span class="c"># try to open a file; the answer is "ok" or the kind of the error</span>
 <span class="k">func</span> <span class="f">tryOpen</span> cFile,cAccess,cShare
+
 	<span class="k">try</span>
 		oStream = openFile(cFile,<span class="s">"Open"</span>,cAccess,cShare)
 		oStream.<span class="f">Dispose</span>()
@@ -354,6 +363,7 @@ nSize = <span class="n">20</span>                        <span class="c"># every
 	<span class="k">done</span>
 
 <span class="k">func</span> <span class="f">errorKind</span> cMessage
+
 	cText = trim(cMessage)
 	nStart = substr(cText,<span class="s">"DotNet Error: "</span>)
 	<span class="k">if</span> nStart &gt; <span class="n">0</span>

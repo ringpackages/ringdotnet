@@ -254,12 +254,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch06_logging.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># logging - levels, timestamps, a file, rotation, and what to write</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	cFolder = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_logging"</span>])
 	<span class="k">if</span> <span class="k">new</span> <span class="t">Directory</span>().<span class="f">Exists</span>(cFolder)
 		<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cFolder, :recursive = <span class="k">True</span> ])
@@ -315,30 +317,39 @@ using {
 	nMaxSize = <span class="n">0</span>           <span class="c"># 0: no limit</span>
 
 	<span class="k">func</span> <span class="f">init</span> cPath
+
 		cFile = cPath
 
 	<span class="k">func</span> <span class="f">setClock</span> cText
+
 		cClock = cText
 
 	<span class="k">func</span> <span class="f">setLevel</span> cLevel
+
 		nLevel = levelNumber(cLevel)
 
 	<span class="k">func</span> <span class="f">setMaxSize</span> nBytes
+
 		nMaxSize = nBytes
 
 	<span class="k">func</span> <span class="f">debug</span> cMessage
+
 		write(<span class="s">"DEBUG"</span>,cMessage)
 
 	<span class="k">func</span> <span class="f">info</span> cMessage
+
 		write(<span class="s">"INFO "</span>,cMessage)
 
 	<span class="k">func</span> <span class="f">warn</span> cMessage
+
 		write(<span class="s">"WARN "</span>,cMessage)
 
 	<span class="k">func</span> <span class="f">error</span> cMessage
+
 		write(<span class="s">"ERROR"</span>,cMessage)
 
 	<span class="k">func</span> <span class="f">levelNumber</span> cLevel
+
 		cLevel = upper(trim(cLevel))
 		<span class="k">if</span> cLevel = <span class="s">"DEBUG"</span>
 			<span class="k">return</span> <span class="n">1</span>
@@ -351,6 +362,7 @@ using {
 
 	<span class="c"># one line: "2024-05-17 08:00:00 INFO  the program started"</span>
 	<span class="k">func</span> <span class="f">write</span> cLevel, cMessage
+
 		<span class="k">if</span> levelNumber(cLevel) &lt; nLevel
 			<span class="k">return</span>
 		<span class="k">ok</span>
@@ -363,6 +375,7 @@ using {
 
 	<span class="c"># when the file is bigger than the limit: app.log becomes app.log.1 (an older .1 is replaced), and a new file starts</span>
 	<span class="k">func</span> <span class="f">rotateIfNeeded</span>
+
 		<span class="k">if</span> nMaxSize = <span class="n">0</span> <span class="k">or</span> <span class="k">not</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile)
 			<span class="k">return</span>
 		<span class="k">ok</span>

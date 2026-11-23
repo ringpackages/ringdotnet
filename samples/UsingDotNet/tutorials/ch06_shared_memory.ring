@@ -2,6 +2,7 @@
 #   ring ch06_shared_memory.ring            the parent: it makes the memory and starts the child
 #   ring ch06_shared_memory.ring --child    the child (the parent starts it)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -13,6 +14,7 @@ using {
 C_NAME = "ringdotnet_shared_memory"
 
 func main
+
 	if find(sysargv,"--child") > 0
 		runChild()
 		return
@@ -28,6 +30,7 @@ func main
 # ---------------------------------------------------------------- two programs, one block of memory
 
 func runParent
+
 	# A memory-mapped file is a block of memory with a NAME. Any program of this computer that knows the name can open it.
 	oMap = new MemoryMappedFile().CreateNew([ :mapName = C_NAME, :capacity = 4096 ])
 	oAccessor = oMap.CreateViewAccessor(NULL)               # a view with Read and Write methods at a position (in bytes)
@@ -69,6 +72,7 @@ func runParent
 	oMap.Dispose()
 
 func runChild
+
 	oMap = new MemoryMappedFile().OpenExisting(C_NAME)      # open: the parent made it
 	oAccessor = oMap.CreateViewAccessor(NULL)
 	nNumber = oAccessor.ReadInt32(0)
@@ -86,6 +90,7 @@ func runChild
 # ---------------------------------------------------------------- a file edited in place
 
 func editFileInPlace
+
 	# 5. Map a FILE: the view is the content of the file, and a change in memory is a change in the file. Nothing is read or written
 	#    by you: the system moves the data. The program changes the second of three numbers in a file without touching the others.
 	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_shared_memory.bin"])
@@ -104,6 +109,7 @@ func editFileInPlace
 
 # the memory is filled with zero bytes: a text ends at the first one
 func textOf cText
+
 	nZero = substr(cText,char(0))
 	if nZero > 0
 		return left(cText,nZero - 1)
@@ -111,6 +117,7 @@ func textOf cText
 	return cText
 
 func chomp cText
+
 	while right(cText,1) = char(10) or right(cText,1) = char(13)
 		cText = left(cText,len(cText) - 1)
 	end

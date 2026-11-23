@@ -1,6 +1,7 @@
 # A tooltip and a link label
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -24,4 +25,5 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func linkClicked
+
 	oOpened.Text = "link clicked"

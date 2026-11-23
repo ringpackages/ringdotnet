@@ -13,6 +13,7 @@ oClient = ""
 cUrl = ""
 
 func main
+
 	oServer = new WebServer("http://127.0.0.1:0")
 	oServer.onGet("/","home")
 	oServer.onGet("/api/info","apiInfo")
@@ -48,6 +49,7 @@ func main
 
 # one request: the .NET client sends it in a task, the Ring thread serves it; returns the text of the response (any status)
 func fetch cMethod, cPath, cBody
+
 	if cMethod = "GET"
 		oTask = oClient.GetAsync(cUrl + cPath)
 	else
@@ -66,26 +68,33 @@ func fetch cMethod, cPath, cBody
 	return oBody.getProp("Result")
 
 func home oRequest
+
 	return "<h1>Hello from Ring</h1>"
 
 func apiInfo oRequest
+
 	return webJson([["name","ring"],["tags",["a","b"]],["n",3]])
 
 func echo oRequest
+
 	return [200,"text/plain","you sent: " + oRequest.body()]
 
 func search oRequest
+
 	return "q=" + oRequest.query("q") + " page=" + oRequest.query("page")
 
 func ctxInfo oRequest
+
 	oContext = oRequest.context()
 	return oContext.Request.Method + " " + oContext.Request.Path.Value + " " + oContext.Request.Scheme + " " + oContext.Request.Host.Host
 
 func boom oRequest
+
 	raise("something failed")
 
 # a form post (application/x-www-form-urlencoded): oRequest.form("name") reads its fields
 func fetchForm cPath, cForm
+
 	oContent = dnNew("StringContent",[ :content = cForm, :encoding = new Encoding().UTF8, :mediaType = "application/x-www-form-urlencoded" ])
 	oTask = oClient.PostAsync([ :requestUri = cUrl + cPath, :content = oContent ])
 	for nTry = 1 to 50
@@ -99,4 +108,5 @@ func fetchForm cPath, cForm
 	return oBody.getProp("Result")
 
 func formInfo oRequest
+
 	return oRequest.form("a") + "," + oRequest.form("b")

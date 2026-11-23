@@ -258,11 +258,13 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch04_undo.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># stacks and queues - undo/redo with two stacks, and a first-come-first-served job queue</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Collections.Generic"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># A STACK: last in, first out (a pile of plates). A QUEUE: first in, first out (people waiting in a line).</span>
 
 	<span class="c"># 1. Stack basics</span>
@@ -306,6 +308,7 @@ using {
 	<span class="k">done</span>
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>
@@ -319,16 +322,19 @@ using {
 	oRedo = <span class="s">""</span>
 
 	<span class="k">func</span> <span class="f">init</span>
+
 		oUndo = <span class="k">new</span> <span class="t">StringStack</span>()
 		oRedo = <span class="k">new</span> <span class="t">StringStack</span>()
 		<span class="k">return</span> <span class="k">self</span>
 
 	<span class="k">func</span> <span class="f">type</span> cNewText
+
 		oUndo.<span class="f">Push</span>(cCurrent)
 		cCurrent = cNewText
 		oRedo.<span class="f">Clear</span>()                     <span class="c"># a new change makes the old future impossible</span>
 
 	<span class="k">func</span> <span class="f">undo</span>
+
 		<span class="k">if</span> oUndo.Count = <span class="n">0</span>
 			<span class="k">return</span>
 		<span class="k">ok</span>
@@ -336,6 +342,7 @@ using {
 		cCurrent = oUndo.<span class="f">Pop</span>()
 
 	<span class="k">func</span> <span class="f">redo</span>
+
 		<span class="k">if</span> oRedo.Count = <span class="n">0</span>
 			<span class="k">return</span>
 		<span class="k">ok</span>
@@ -343,9 +350,11 @@ using {
 		cCurrent = oRedo.<span class="f">Pop</span>()
 
 	<span class="k">func</span> <span class="f">canRedo</span>
+
 		<span class="k">return</span> oRedo.Count &gt; <span class="n">0</span>
 
 	<span class="k">func</span> <span class="f">text</span>
+
 		<span class="k">return</span> cCurrent</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. Peek (look at the top): c, Pop (take it): c, now 2 items, the top is b
 

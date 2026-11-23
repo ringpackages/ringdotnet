@@ -258,6 +258,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch11_wpf_layout.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># WPF layout and styles - Grid, resources, a Style for all buttons, a keypad</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Windows"</span>
 	<span class="s">"System.Windows.Controls"</span>
@@ -272,6 +273,7 @@ oDisplay = <span class="s">""</span>
 cEntered = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># The window: a Grid with a display row on top and a keypad below.</span>
 	<span class="c">#  - Grid.RowDefinitions / ColumnDefinitions divide the space: "Auto" = as big as the content, "*" = share what is left</span>
 	<span class="c">#  - Window.Resources holds a Style: every Button inside gets the same look without repeating it</span>
@@ -306,22 +308,26 @@ cEntered = <span class="s">""</span>
 	<span class="f">wpfRun</span>(oWindow)
 
 <span class="k">func</span> <span class="f">pressKey</span> nDigit
+
 	<span class="k">if</span> len(cEntered) &lt; <span class="n">12</span>
 		cEntered += nDigit
 	<span class="k">ok</span>
 	showEntered()
 
 <span class="k">func</span> <span class="f">clearKeys</span>
+
 	cEntered = <span class="s">""</span>
 	showEntered()
 
 <span class="k">func</span> <span class="f">backspace</span>
+
 	<span class="k">if</span> len(cEntered) &gt; <span class="n">0</span>
 		cEntered = left(cEntered,len(cEntered) - <span class="n">1</span>)
 	<span class="k">ok</span>
 	showEntered()
 
 <span class="k">func</span> <span class="f">showEntered</span>
+
 	<span class="k">if</span> cEntered = <span class="s">""</span>
 		oDisplay.Text = <span class="s">"0"</span>
 	<span class="k">else</span>
@@ -362,6 +368,7 @@ cEntered = <span class="s">""</span>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch11_wpf_layout.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch11_wpf_layout.ring: run with  ring ch11_wpf_layout.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	clickKey(<span class="s">"key4"</span>)
 	clickKey(<span class="s">"key2"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"two digits"</span>,oDisplay.Text,<span class="s">"42"</span>)
@@ -376,6 +383,7 @@ cEntered = <span class="s">""</span>
 	<span class="f">dnAssert</span>(<span class="s">"the style: Margin of a key"</span>,<span class="f">wpfFind</span>(oWindow,<span class="s">"key5"</span>).Margin.Left,<span class="n">4</span>)
 
 <span class="k">func</span> <span class="f">clickKey</span> cName
+
 	<span class="f">wpfFind</span>(oWindow,cName).<span class="f">RaiseEvent</span>(<span class="k">new</span> <span class="t">RoutedEventArgs</span>().@<span class="k">New</span>([ :<span class="t">routedEvent</span> = <span class="k">new</span> <span class="t">WpfButtonBase</span>().ClickEvent ]))</code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li><code>Grid</code> rows and columns with <code>Auto</code> and <code>*</code>,</li><li><code>Grid.Row</code>, <code>Grid.Column</code>, <code>Grid.ColumnSpan</code>,</li><li>one <code>Style</code> for all controls of a type,</li><li>XAML assembled by a loop, many events with one function.</li></ul>

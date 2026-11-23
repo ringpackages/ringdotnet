@@ -1,6 +1,7 @@
 # the checks of ch10_clipboard.ring: run with  ring ch10_clipboard.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func waitForImage
+
 	oClipboard = new Clipboard()
 	for nTry = 1 to 20
 		if oClipboard.ContainsImage()
@@ -11,6 +12,7 @@ func waitForImage
 	return False
 
 func selfTest
+
 	oClipboard = new Clipboard()
 	cBefore = readText()                                    # keep what the user had on the clipboard
 

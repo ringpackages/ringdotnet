@@ -1,5 +1,6 @@
 # a tray icon - NotifyIcon: a program that lives in the notification area, a context menu, hiding the window, and a balloon message
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Drawing"
@@ -14,6 +15,7 @@ oStatus = ""
 nShown = 0                        # how many times the window was brought back from the tray
 
 func main
+
 	oForm = uiForm("Tray demo",380,160)
 	oStatus = uiLabel(oForm,"The window is visible",20,20,330,24)
 	uiButton(oForm,"Hide to the tray",20,60,160,32,"hideToTray()")
@@ -40,12 +42,14 @@ func main
 
 # hide the window: it is not minimized, it is gone from the screen and the taskbar; only the icon remains
 func hideToTray
+
 	oForm.Hide()
 	if not uiSelfTest()                                    # (a test does not show a message on the screen)
 		oTray.ShowBalloonTip([ :timeout = 2000, :tipTitle = "Tray demo", :tipText = "Still running in the tray", :tipIcon = "Info" ])
 	ok
 
 func showFromTray
+
 	nShown++
 	oForm.Show(NULL)
 	oForm.Activate()

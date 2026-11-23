@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch02_json_nodes.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># JSON as a tree you can change - JsonNode, JsonObject and JsonArray (System.Text.Json.Nodes)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Text.Json"</span>
@@ -264,6 +265,7 @@ using {
 C_CONFIG = <span class="s">'{"name":"shop","port":8080,"debug":false,"tags":["web","sql"],"database":{"host":"localhost","pool":5}}'</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. Parse text into a tree. A JsonNode is an object, an array or a value; AsObject() and AsArray() give the specific class.</span>
 	oRoot = <span class="k">new</span> <span class="t">JsonNode</span>().<span class="f">Parse</span>(C_CONFIG).<span class="f">AsObject</span>()
 	? <span class="s">"1. name = "</span> + oRoot.<span class="f">Item</span>(<span class="s">"name"</span>).<span class="f">ToString</span>() + <span class="s">", port + 1 = "</span> + (number(oRoot.<span class="f">Item</span>(<span class="s">"port"</span>).<span class="f">ToString</span>()) + <span class="n">1</span>)
@@ -318,6 +320,7 @@ C_CONFIG = <span class="s">'{"name":"shop","port":8080,"debug":false,"tags":["we
 
 <span class="c"># the tree as indented text</span>
 <span class="k">func</span> <span class="f">pretty</span> oNode
+
 	oOptions = <span class="k">new</span> <span class="t">JsonSerializerOptions</span>() {
 		WriteIndented = <span class="k">True</span>
 	}
@@ -325,6 +328,7 @@ C_CONFIG = <span class="s">'{"name":"shop","port":8080,"debug":false,"tags":["we
 
 <span class="c"># copy the keys of oSource into oTarget; where both are objects, merge them</span>
 <span class="k">func</span> <span class="f">merge</span> oTarget, oSource
+
 	<span class="k">for</span> cKey <span class="k">in</span> keysOf(oSource)
 		oValue = oSource.<span class="f">Item</span>(cKey)
 		<span class="k">if</span> oTarget.<span class="f">ContainsKey</span>(cKey) <span class="k">and</span> oTarget.<span class="f">Item</span>(cKey).<span class="f">GetValueKind</span>() = <span class="s">"Object"</span> <span class="k">and</span> oValue.<span class="f">GetValueKind</span>() = <span class="s">"Object"</span>
@@ -336,6 +340,7 @@ C_CONFIG = <span class="s">'{"name":"shop","port":8080,"debug":false,"tags":["we
 
 <span class="c"># the keys of a JsonObject: its text form is parsed again with JsonDocument and its properties listed</span>
 <span class="k">func</span> <span class="f">keysOf</span> oObject
+
 	oDocument = <span class="k">new</span> <span class="t">JsonDocument</span>().<span class="f">Parse</span>(oObject.<span class="f">ToJsonString</span>(<span class="k">NULL</span>))
 	aKeys = []
 	oEnumerator = oDocument.RootElement.<span class="f">EnumerateObject</span>()
@@ -347,6 +352,7 @@ C_CONFIG = <span class="s">'{"name":"shop","port":8080,"debug":false,"tags":["we
 	<span class="k">return</span> aKeys
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

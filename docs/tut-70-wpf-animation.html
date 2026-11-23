@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch11_wpf_animation.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># WPF animation - move, fade and rotate with animations that WPF runs for you</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Windows"</span>
@@ -274,6 +275,7 @@ oStatus = <span class="s">""</span>
 oCheck = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. The window: a canvas (free positions) with three shapes, and two buttons</span>
 	cXaml = <span class="s">'&lt;Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Animation" Width="420" Height="330"&gt;'</span>
 	cXaml += <span class="s">'&lt;Grid&gt;&lt;Grid.RowDefinitions&gt;&lt;RowDefinition Height="*"/&gt;&lt;RowDefinition Height="Auto"/&gt;&lt;/Grid.RowDefinitions&gt;'</span>
@@ -306,6 +308,7 @@ oCheck = <span class="s">""</span>
 
 <span class="c"># An animation says: change this property from a value to a value, in this time. WPF does the rest on every frame.</span>
 <span class="k">func</span> <span class="f">startAnimations</span>
+
 	<span class="c"># the ball: Canvas.Left from 10 to 340 in 2 seconds, back again (AutoReverse), for ever, slowing down at the ends</span>
 	oMove = <span class="k">new</span> <span class="t">DoubleAnimation</span>()
 	oMove.<span class="f">SetProp</span>(<span class="s">"From"</span>,<span class="n">10</span>)                      <span class="c"># From and To can be empty in WPF, so they are set by name</span>
@@ -338,12 +341,14 @@ oCheck = <span class="s">""</span>
 
 <span class="c"># an animation is stopped by starting "no animation" (the .NET null) on the property</span>
 <span class="k">func</span> <span class="f">stopAnimations</span>
+
 	oBall.<span class="f">BeginAnimation</span>([ :dp = <span class="k">new</span> <span class="t">Canvas</span>().LeftProperty, :animation = <span class="f">dnNull</span>() ])
 	oBox.<span class="f">BeginAnimation</span>([ :dp = oBox.OpacityProperty, :animation = <span class="f">dnNull</span>() ])
 	oSpin.<span class="f">BeginAnimation</span>([ :dp = oSpin.AngleProperty, :animation = <span class="f">dnNull</span>() ])
 	oStatus.Text = <span class="s">"Stopped"</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	oCheck.<span class="f">Stop</span>()
 	nLeft = oBall.<span class="f">GetValue</span>(<span class="k">new</span> <span class="t">Canvas</span>().LeftProperty)
 	nOpacity = oBox.<span class="f">GetValue</span>(oBox.OpacityProperty)

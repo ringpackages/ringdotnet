@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_grid.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># editing a grid - DataGridView with typed columns (text, check box, combo box), a read-only total, cell events and a grand total</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Drawing"</span>
@@ -267,6 +268,7 @@ oGrid = <span class="s">""</span>
 oSum = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Order"</span>,<span class="n">560</span>,<span class="n">320</span>)
 	oGrid = <span class="k">new</span> <span class="t">DataGridView</span>()
 	oGrid.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">15</span>,<span class="n">15</span>)
@@ -313,6 +315,7 @@ oSum = <span class="s">""</span>
 	<span class="f">uiRun</span>(oForm)
 
 <span class="k">func</span> <span class="f">addTextColumn</span> cName,cHeader,nWidth,lReadOnly
+
 	oColumn = <span class="k">new</span> <span class="t">DataGridViewTextBoxColumn</span>()
 	oColumn.Name = cName
 	oColumn.HeaderText = cHeader
@@ -321,15 +324,18 @@ oSum = <span class="s">""</span>
 	oGrid.Columns.<span class="f">Add</span>(oColumn)
 
 <span class="k">func</span> <span class="f">addRow</span>
+
 	oGrid.Rows.<span class="f">Add</span>([<span class="s">"New item"</span>,<span class="n">1</span>,<span class="n">1</span>,<span class="k">False</span>,<span class="s">"Small"</span>,<span class="s">""</span>])
 
 <span class="c"># a cell by row and column name (the value of a cell can be text, a number, a boolean or empty)</span>
 <span class="k">func</span> <span class="f">cellText</span> nRow,cColumn
+
 	<span class="k">return</span> <span class="s">""</span> + oGrid.Rows.<span class="f">Item</span>(nRow).Cells.<span class="f">Item</span>(cColumn).Value
 
 <span class="c"># the number of a cell: a number that was typed arrives as a text, and a text that is not a number counts as 0. (A conversion that fails</span>
 <span class="c"># raises a Ring error, which try / catch turns into the answer 0.)</span>
 <span class="k">func</span> <span class="f">cellNumber</span> nRow,cColumn
+
 	cText = trim(cellText(nRow,cColumn))
 	nNumber = <span class="n">0</span>
 	<span class="k">try</span>
@@ -341,6 +347,7 @@ oSum = <span class="s">""</span>
 
 <span class="c"># the total of a row: quantity x price, plus 5 for express, and 10 percent more for the size Large. Then the grand total.</span>
 <span class="k">func</span> <span class="f">rowChanged</span> nRow
+
 	<span class="k">if</span> nRow &lt; <span class="n">0</span>
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -359,6 +366,7 @@ oSum = <span class="s">""</span>
 
 <span class="c"># two decimals at most, and no decimals for a whole number: 55.00000000000001 -&gt; "55", 31.9 -&gt; "31.90"</span>
 <span class="k">func</span> <span class="f">shortNumber</span> nValue
+
 	nRounded = floor(nValue * <span class="n">100</span> + <span class="n">0.5</span>) / <span class="n">100</span>
 	<span class="k">if</span> nRounded = floor(nRounded)
 		<span class="k">return</span> <span class="s">""</span> + floor(nRounded)
@@ -366,6 +374,7 @@ oSum = <span class="s">""</span>
 	<span class="k">return</span> <span class="s">""</span> + nRounded
 
 <span class="k">func</span> <span class="f">showSum</span>
+
 	nSum = <span class="n">0</span>
 	<span class="k">for</span> i = <span class="n">0</span> <span class="k">to</span> oGrid.Rows.Count - <span class="n">1</span>
 		nSum += cellNumber(i,<span class="s">"Total"</span>)
@@ -391,6 +400,7 @@ oSum = <span class="s">""</span>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_grid.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_grid.ring: run with  ring ch10_grid.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	<span class="c"># the starting totals: 10 x 2.5 = 25; 4 x 6 + 5 (express) = 29, and 10 percent more for Large = 31.9; 3 x 4 = 12</span>
 	<span class="f">dnAssert</span>(<span class="s">"pens"</span>,cellText(<span class="n">0</span>,<span class="s">"Total"</span>),<span class="s">"25"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"paper"</span>,cellText(<span class="n">1</span>,<span class="s">"Total"</span>),<span class="s">"31.90"</span>)

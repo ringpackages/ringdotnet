@@ -1,6 +1,7 @@
 # Ring in 15 minutes, part 5: errors, files, arguments and other files
 
 func main
+
 	# 1. try / catch / done: the error text is in cCatchError. raise() makes an error of your own.
 	try
 		nResult = 10 / 0
@@ -38,9 +39,11 @@ func main
 	? "done"
 
 func checkAge nAge
+
 	if nAge < 0
 		raise("an age can not be negative: " + nAge)
 	ok
 
 func hello
+
 	? "hello from a function called by name"

@@ -1,5 +1,6 @@
 # tasks that wait - Task.Delay, WhenAll, WhenAny, time limits and cancellation (System.Threading.Tasks)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Diagnostics"
@@ -8,6 +9,7 @@ using {
 }
 
 func main
+
 	oTasks = new Task()
 
 	# 1. A Task is "something that finishes later". Task.Delay(ms) is a task that finishes after that time, without using a thread to sleep.
@@ -65,6 +67,7 @@ func main
 	? nl + "6. five waits that add up to " + nTotal + " ms were over in less than that: " + yesNo(oWatch.ElapsedMilliseconds < nTotal)
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

@@ -1,6 +1,7 @@
 # A window described in XAML: parse it, find the named elements, handle events
 
 load "dotnet.ring"
+
 using {
 	"System.Windows"
 	"System.Windows.Controls"

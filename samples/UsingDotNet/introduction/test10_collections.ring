@@ -1,5 +1,6 @@
 # Collections of the .NET class library: dictionaries and the specialized and generic collections
 load "dotnet.ring"
+
 using {
 	"System.Collections"
 	"System.Collections.Specialized"
@@ -39,4 +40,5 @@ oQuery.Add([ :name = "tag", :value = "ring" ])  oQuery.Add([ :name = "tag", :val
 ? "Query values   : " + oQuery.Item("tag") + " | " + oQuery.Item("page")
 
 func split cText, cSep
+
 	return str2list(substr(cText,cSep,nl))

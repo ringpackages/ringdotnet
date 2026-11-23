@@ -1,5 +1,6 @@
 # a project - find duplicate files (folders, hashes, dictionaries)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -8,6 +9,7 @@ using {
 }
 
 func main
+
 	# STEP 1. A folder with some files: three of them have the same content, two others as well
 	cFolder = new Path().Combine([new Path().GetTempPath(),"ringdotnet_duplicates"])
 	if new Directory().Exists(cFolder)
@@ -61,9 +63,11 @@ func main
 	new Directory().Delete([ :path = cFolder, :recursive = True ])
 
 func makeFile cFolder, cName, cText
+
 	cPath = new Path().Combine([cFolder,cName])
 	new File().WriteAllText([ :path = cPath, :contents = cText ])
 
 # the SHA-256 hash of the content of a file, as text
 func hashOf cFile
+
 	return lower(new Convert().ToHexString(new SHA256().HashData(new File().ReadAllBytes(cFile))))

@@ -1,5 +1,6 @@
 # copying a big file with progress - reading and writing in pieces with a byte buffer, a percentage, cancelling, and checking the copy
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	oPath = new Path()
 	oFile = new File()
 	cFolder = oPath.Combine([ oPath.GetTempPath(), "ringdotnet-copy-" + oPath.GetRandomFileName() ])
@@ -55,6 +57,7 @@ func main
 # Copy a file in pieces. Progress is printed for the first piece after each quarter (the pieces are 64 KB, so it is a little over 25 percent). nStopAfter > 0 cancels when that many bytes were copied; the
 # target is then deleted. The answer is the number of bytes copied.
 func copyFile cSource,cTarget,nBufferSize,nStopAfter
+
 	oIn = dnNew("FileStream",[ :path = cSource, :mode = "Open", :access = "Read" ])
 	oOut = dnNew("FileStream",[ :path = cTarget, :mode = "Create", :access = "Write" ])
 	nTotal = oIn.Length
@@ -88,6 +91,7 @@ func copyFile cSource,cTarget,nBufferSize,nStopAfter
 
 # how many calls of Read a buffer of this size needs for the whole file
 func countCalls cFile,nBufferSize
+
 	oIn = dnNew("FileStream",[ :path = cFile, :mode = "Open", :access = "Read" ])
 	oBuffer = dnBuffer(nBufferSize)
 	nCalls = 0
@@ -98,13 +102,16 @@ func countCalls cFile,nBufferSize
 	return nCalls
 
 func checksum cFile
+
 	return new Convert().ToHexString(new SHA256().HashData(new File().ReadAllBytes(cFile)))
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok
 	return "no"
 
 func padLeft cText,nWidth
+
 	return copy(" ",nWidth - len(cText)) + cText

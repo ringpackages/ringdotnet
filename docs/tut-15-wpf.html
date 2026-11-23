@@ -257,6 +257,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch11_wpf.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># WPF - describe the window in XAML, find elements by name, bind a slider to a text</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Windows"</span>
 	<span class="s">"System.Windows.Controls"</span>
@@ -276,6 +277,7 @@ oGreet = <span class="s">""</span>
 oNameBox = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. The window is described in XAML: a text format of elements and attributes</span>
 	cXaml = <span class="s">'&lt;Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="WPF tutorial" Width="360" Height="340"&gt;'</span>
 	cXaml += <span class="s">'&lt;StackPanel Margin="15"&gt;'</span>

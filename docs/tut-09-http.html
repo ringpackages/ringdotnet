@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch01_http.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># HTTP - a web server and a web client in one program</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Net.Http"</span>
 	<span class="s">"System.Threading.Tasks"</span>
@@ -267,6 +268,7 @@ oClient = <span class="s">""</span>
 cUrl = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. A web server: a Ring function answers each address</span>
 	oServer = <span class="k">new</span> <span class="t">WebServer</span>(<span class="s">"http://127.0.0.1:0"</span>)          <span class="c"># port 0: the system picks a free port</span>
 	oServer.<span class="f">onGet</span>(<span class="s">"/hello"</span>,<span class="s">"hello"</span>)
@@ -285,17 +287,21 @@ cUrl = <span class="s">""</span>
 
 <span class="c"># The handlers: each gets the request and returns the answer</span>
 <span class="k">func</span> <span class="f">hello</span> oRequest
+
 	<span class="k">return</span> <span class="s">"Hello from a Ring handler"</span>
 
 <span class="k">func</span> <span class="f">clock</span> oRequest
+
 	<span class="k">return</span> <span class="f">webJson</span>([[<span class="s">"hour"</span>,<span class="n">12</span>],[<span class="s">"minute"</span>,<span class="n">30</span>]])
 
 <span class="k">func</span> <span class="f">echo</span> oRequest
+
 	<span class="k">return</span> [<span class="n">201</span>,<span class="s">"text/plain"</span>,<span class="s">"you sent: "</span> + oRequest.<span class="f">body</span>()]
 
 <span class="c"># Send one request and return the answer. The server runs on .NET threads, but Ring code may only run on the Ring thread:</span>
 <span class="c"># serveOne() hands one waiting request to its Ring handler.</span>
 <span class="k">func</span> <span class="f">fetch</span> cMethod, cPath, cBody
+
 	<span class="k">if</span> cMethod = <span class="s">"GET"</span>
 		oTask = oClient.<span class="f">GetAsync</span>(cUrl + cPath)
 	<span class="k">else</span>

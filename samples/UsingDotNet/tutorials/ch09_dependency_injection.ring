@@ -1,5 +1,6 @@
 # dependency injection - a service container, the three lifetimes (singleton, transient, scoped) and services that need other services
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Collections"
@@ -12,6 +13,7 @@ nTransients = 0
 nScoped = 0
 
 func main
+
 	# Dependency injection (DI) means: a part of a program does not create the things it needs, it ASKS for them. A container makes them,
 	# and decides how long each one lives. That makes the parts easy to replace and to test, and it is how every ASP.NET program is built.
 	# The container works with .NET types as the keys. Here three plain types stand for three services, and a Ring function makes each one
@@ -58,15 +60,18 @@ func main
 	? nl + "6. total made: singleton " + nSingletons + ", transient " + nTransients + ", scoped " + nScoped
 
 func makeSingleton aArguments
+
 	nSingletons++
 	return new ArrayList
 
 func makeTransient aArguments
+
 	nTransients++
 	return new Random
 
 # the first value of the arguments is the provider of the scope: it can give other services
 func makeScoped aArguments
+
 	nScoped++
 	oProvider = aArguments[1]
 	oList = oProvider.callMethod("GetService",[dnType("System.Collections.ArrayList")])

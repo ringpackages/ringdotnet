@@ -1,6 +1,7 @@
 # Mouse position and buttons
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -23,7 +24,9 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func moved nX, nY
+
 	oInfo.Text = "x=" + nX + " y=" + nY
 
 func pressed cButton, nX, nY
+
 	oInfo.Text = cButton + " button at " + nX + "," + nY

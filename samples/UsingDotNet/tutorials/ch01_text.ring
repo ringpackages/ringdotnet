@@ -1,5 +1,6 @@
 # working with text - Ring text functions, String helpers, StringBuilder, regular expressions, encodings
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Text"
@@ -8,6 +9,7 @@ using {
 }
 
 func main
+
 	# Ring already has many text functions: use them for the basics
 	cSentence = "  The quick brown fox  "
 	? "Ring trim/upper : [" + upper(trim(cSentence)) + "]"

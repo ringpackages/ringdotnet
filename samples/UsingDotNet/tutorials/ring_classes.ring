@@ -1,6 +1,7 @@
 # Ring in 15 minutes, part 4: classes and objects (the code at the top comes first, the classes go LAST: a func or class continues until the next func or class)
 
 func main
+
 	# 1. new makes an object. The parentheses call init().
 	oAnn = new Person("Ann",31)
 	? oAnn.name
@@ -42,17 +43,21 @@ class Person
 	# init runs when the object is made with new Person(...). Give a class an init (even an empty one) if you write new Person()
 	# with parentheses, and end it with "return self" if the object is used with braces: new Person(...) { ... }
 	func init cName, nAge
+
 		name = cName
 		age = nAge
 		return self
 
 	func birthday
+
 		age++
 
 	func describe
+
 		return name + " is " + age + " and lives in " + city
 
 	func isAdult
+
 		return age >= 18
 
 class Student from Person
@@ -60,9 +65,11 @@ class Student from Person
 	subject = ""
 
 	func init cName, nAge, cSubject
+
 		super.init(cName,nAge)           # the init of the parent
 		subject = cSubject
 		return self
 
 	func describe
+
 		return super.describe() + ", studies " + subject

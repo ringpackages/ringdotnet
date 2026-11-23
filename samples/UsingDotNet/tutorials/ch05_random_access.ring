@@ -1,5 +1,6 @@
 # random access files - FileStream: records of a fixed size, Seek, changing one record in place, SetLength and locking a file with FileShare
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -9,6 +10,7 @@ using {
 nSize = 20                        # every record has 20 bytes: the name in 12, the quantity in 4, and 4 spaces
 
 func main
+
 	oPath = new Path()
 	cFolder = oPath.Combine([ oPath.GetTempPath(), "ringdotnet-records-" + oPath.GetRandomFileName() ])
 	new Directory().CreateDirectory(cFolder)
@@ -64,32 +66,39 @@ func main
 
 # a FileStream: the path, the mode, the access and the share
 func openFile cFile,cMode,cAccess,cShare
+
 	return dnNew("FileStream",[ :path = cFile, :mode = cMode, :access = cAccess, :share = cShare ])
 
 # a record: the name to 12 characters (spaces on the right), the quantity to 4 digits (zeros on the left), and 4 spaces
 func makeRecord cName,nQuantity
+
 	return left(cName + copy(" ",12),12) + right("0000" + nQuantity,4) + "    "
 
 func writeRecord oStream,cName,nQuantity
+
 	cRecord = makeRecord(cName,nQuantity)
 	oStream.Write(cRecord,0,nSize)
 
 # record number n (from 1): go to its place and write
 func writeRecordAt oStream,n,cName,nQuantity
+
 	oStream.Seek((n - 1) * nSize,"Begin")
 	writeRecord(oStream,cName,nQuantity)
 
 func readRecord oStream,n
+
 	oStream.Seek((n - 1) * nSize,"Begin")
 	oBuffer = dnBuffer(nSize)                              # a .NET byte[] that Read fills
 	nRead = oStream.Read(oBuffer,0,nSize)
 	return dnBufferBytes(oBuffer,nRead)
 
 func showRecord cRecord
+
 	return trim(left(cRecord,12)) + ", quantity " + (0 + substr(cRecord,13,4))
 
 # try to open a file; the answer is "ok" or the kind of the error
 func tryOpen cFile,cAccess,cShare
+
 	try
 		oStream = openFile(cFile,"Open",cAccess,cShare)
 		oStream.Dispose()
@@ -99,6 +108,7 @@ func tryOpen cFile,cAccess,cShare
 	done
 
 func errorKind cMessage
+
 	cText = trim(cMessage)
 	nStart = substr(cText,"DotNet Error: ")
 	if nStart > 0

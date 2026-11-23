@@ -1,5 +1,6 @@
 # numbers, parsing, dates and times
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Numerics"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	oMath = new Math()
 
 	# Math: functions on numbers

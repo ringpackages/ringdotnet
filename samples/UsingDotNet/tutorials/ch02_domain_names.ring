@@ -1,5 +1,6 @@
 # international domain names - Punycode with IdnMapping, Uri.IdnHost, invalid names, and look-alike letters (homograph attacks)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Globalization"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	oIdn = new IdnMapping()
 
 	# The system of domain names (DNS) knows only the letters a-z, the digits and the hyphen. A name with other letters is sent as
@@ -53,6 +55,7 @@ func main
 
 # the checks of GetAscii: an error means that the name is not valid
 func checkName oIdn,cName
+
 	try
 		return "valid: " + oIdn.GetAscii(cName)
 	catch
@@ -61,6 +64,7 @@ func checkName oIdn,cName
 
 # the code of every letter of a text (Unicode code points): UTF-32 has four bytes for each letter
 func codePoints cText
+
 	aCodes = []
 	cBytes = new UTF32Encoding().GetBytes(cText)
 	for nPos = 1 to len(cBytes) step 4
@@ -70,6 +74,7 @@ func codePoints cText
 
 # the alphabet of a letter, from the range of its code (only a few alphabets, to show the idea)
 func scriptOf nCode
+
 	cScript = "other"
 	if nCode >= 65 and nCode <= 122 and not (nCode > 90 and nCode < 97)
 		cScript = "Latin"
@@ -86,6 +91,7 @@ func scriptOf nCode
 
 # the alphabets used in the letters of ONE part of a name (digits and hyphens are not letters of an alphabet)
 func scriptList cLabel
+
 	aScripts = []
 	for nCode in codePoints(cLabel)
 		cScript = scriptOf(nCode)
@@ -97,9 +103,11 @@ func scriptList cLabel
 
 # the labels of a name are separated by dots; each label is checked alone (an Arabic name under the Latin ".example" is normal)
 func labels cName
+
 	return str2list(substr(cName,".",nl))
 
 func scriptsOf cName
+
 	cText = ""
 	for cLabel in labels(cName)
 		cText += joinWith(scriptList(cLabel),"+") + " "
@@ -107,6 +115,7 @@ func scriptsOf cName
 	return cText
 
 func isMixed cName
+
 	for cLabel in labels(cName)
 		if len(scriptList(cLabel)) > 1
 			return True
@@ -115,27 +124,32 @@ func isMixed cName
 	return False
 
 func decision cName
+
 	if isMixed(cName)
 		return "MIXED in one part: suspicious"
 	ok
 	return "one alphabet in each part"
 
 func displayName oIdn,cName
+
 	if isMixed(cName)
 		return oIdn.GetAscii(cName) + " (Punycode: mixed alphabets)"
 	ok
 	return cName + " (shown as written)"
 
 func shortText cText
+
 	if len(cText) > 22
 		return left(cText,20) + "..."
 	ok
 	return cText
 
 func padRight cText,nWidth
+
 	return cText + copy(" ",nWidth - len(cText))
 
 func joinWith aList,cSeparator
+
 	cText = ""
 	for item in aList
 		if cText != ""

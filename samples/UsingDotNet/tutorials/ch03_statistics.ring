@@ -1,11 +1,13 @@
 # numbers - statistics, primes and a simulation (Monte Carlo estimate of pi)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Linq"
 }
 
 func main
+
 	aData = [4,8,15,16,23,42,8,15,8,4]
 
 	# 1. The usual summaries of a set of numbers
@@ -56,6 +58,7 @@ func main
 # ---------------------------------------------------------------- the formulas (small functions, each testable)
 
 func sumOf aList
+
 	nSum = 0
 	for nValue in aList
 		nSum += nValue
@@ -63,9 +66,11 @@ func sumOf aList
 	return nSum
 
 func mean aList
+
 	return sumOf(aList) / len(aList)
 
 func median aList
+
 	aSorted = sort(aList)
 	nMiddle = len(aSorted) / 2
 	if len(aSorted) % 2 = 1
@@ -74,6 +79,7 @@ func median aList
 	return (aSorted[nMiddle] + aSorted[nMiddle + 1]) / 2
 
 func mode aList
+
 	nBest = aList[1]
 	nBestCount = 0
 	for nValue in aList
@@ -86,6 +92,7 @@ func mode aList
 	return nBest
 
 func stdDev aList
+
 	nMean = mean(aList)
 	nSquares = 0
 	for nValue in aList
@@ -94,6 +101,7 @@ func stdDev aList
 	return sqrt(nSquares / len(aList))
 
 func count aList, nValue
+
 	nTimes = 0
 	for nItem in aList
 		if nItem = nValue
@@ -103,6 +111,7 @@ func count aList, nValue
 	return nTimes
 
 func primesUpTo nLimit
+
 	aIsPrime = list(nLimit)
 	for nIndex = 1 to nLimit
 		aIsPrime[nIndex] = True
@@ -124,6 +133,7 @@ func primesUpTo nLimit
 	return aPrimes
 
 func gcd nA, nB
+
 	while nB != 0
 		nTemp = nB
 		nB = nA % nB
@@ -132,9 +142,11 @@ func gcd nA, nB
 	return nA
 
 func lcm nA, nB
+
 	return nA * nB / gcd(nA,nB)
 
 func copies cText, nTimes
+
 	cResult = ""
 	for nIndex = 1 to nTimes
 		cResult += cText
@@ -142,6 +154,7 @@ func copies cText, nTimes
 	return cResult
 
 func joinList aList
+
 	cText = ""
 	for xItem in aList
 		if cText != ""

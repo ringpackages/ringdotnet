@@ -272,6 +272,7 @@
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch13_pdf.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a PDF file with a NuGet package - PDFsharp makes the pages: text, lines and a title, then the program reads the file back</span>
 <span class="c">#   (the project is in the folder Pdf: Pdf.csproj names PdfSharp, and Empty.cs is the one source file a project needs)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using { <span class="s">"System.IO"</span> }
 
 cHere = currentdir()
@@ -300,6 +301,7 @@ chdir(cHere)
 <span class="f">dnImportFrom</span>(cClasses + <span class="s">"/"</span>,<span class="s">"PdfSharp.Drawing"</span>)
 
 <span class="k">func</span> <span class="f">main</span>
+
 	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet-report.pdf"</span>])
 
 	<span class="c"># 1. A document has pages, and a page is drawn with an XGraphics, like a canvas. Fonts are made with dnNew and the names of the</span>

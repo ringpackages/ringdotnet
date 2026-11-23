@@ -1,5 +1,6 @@
 # closing a window - the FormClosing event: asking to save changes, cancelling the close, and what runs after the form closed
 load "dotnet.ring"
+
 using {
 	"System.IO"
 	"System.Drawing"
@@ -17,6 +18,7 @@ nCloseAttempts = 0
 lClosed = False
 
 func main
+
 	cFile = new Path().Combine([ new Path().GetTempPath(), "ringdotnet-closing.txt" ])
 	oForm = uiForm("Notes",420,260)
 	oEdit = uiTextBox(oForm,15,15,380,26)
@@ -33,12 +35,14 @@ func main
 	cleanUp()
 
 func saveNow
+
 	new File().WriteAllText([ :path = cFile, :contents = oEdit.Text ])
 	lChanged = False
 	oStatus.Text = "Saved"
 
 # The question: Yes = save and close, No = close without saving, Cancel = do not close. A test answers by itself.
 func askSave
+
 	if cTestAnswer != ""
 		return cTestAnswer
 	ok
@@ -46,6 +50,7 @@ func askSave
 
 # The event arguments (aDotNetArgs[2]) have Cancel: set it to True and the form stays open.
 func onClosing
+
 	nCloseAttempts++
 	if not lChanged
 		return                                            # nothing to save: let the form close
@@ -58,6 +63,7 @@ func onClosing
 	ok
 
 func cleanUp
+
 	if new File().Exists(cFile)
 		new File().Delete(cFile)
 	ok

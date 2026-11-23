@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_tray.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a tray icon - NotifyIcon: a program that lives in the notification area, a context menu, hiding the window, and a balloon message</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Drawing"</span>
@@ -269,6 +270,7 @@ oStatus = <span class="s">""</span>
 nShown = <span class="n">0</span>                        <span class="c"># how many times the window was brought back from the tray</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Tray demo"</span>,<span class="n">380</span>,<span class="n">160</span>)
 	oStatus = <span class="f">uiLabel</span>(oForm,<span class="s">"The window is visible"</span>,<span class="n">20</span>,<span class="n">20</span>,<span class="n">330</span>,<span class="n">24</span>)
 	<span class="f">uiButton</span>(oForm,<span class="s">"Hide to the tray"</span>,<span class="n">20</span>,<span class="n">60</span>,<span class="n">160</span>,<span class="n">32</span>,<span class="s">"hideToTray()"</span>)
@@ -295,12 +297,14 @@ nShown = <span class="n">0</span>                        <span class="c"># how m
 
 <span class="c"># hide the window: it is not minimized, it is gone from the screen and the taskbar; only the icon remains</span>
 <span class="k">func</span> <span class="f">hideToTray</span>
+
 	oForm.<span class="f">Hide</span>()
 	<span class="k">if</span> <span class="k">not</span> <span class="f">uiSelfTest</span>()                                    <span class="c"># (a test does not show a message on the screen)</span>
 		oTray.<span class="f">ShowBalloonTip</span>([ :timeout = <span class="n">2000</span>, :tipTitle = <span class="s">"Tray demo"</span>, :tipText = <span class="s">"Still running in the tray"</span>, :tipIcon = <span class="s">"Info"</span> ])
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">showFromTray</span>
+
 	nShown++
 	oForm.<span class="f">Show</span>(<span class="k">NULL</span>)
 	oForm.<span class="f">Activate</span>()
@@ -323,6 +327,7 @@ nShown = <span class="n">0</span>                        <span class="c"># how m
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_tray.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_tray.ring: run with  ring ch10_tray.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	<span class="f">dnAssert</span>(<span class="s">"the icon is visible"</span>,oTray.Visible,<span class="k">True</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the tip"</span>,oTray.Text,<span class="s">"Tray demo (double-click to open)"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"two menu items"</span>,oMenu.Items.Count,<span class="n">2</span>)

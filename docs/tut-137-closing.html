@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_closing.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># closing a window - the FormClosing event: asking to save changes, cancelling the close, and what runs after the form closed</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.IO"</span>
 	<span class="s">"System.Drawing"</span>
@@ -272,6 +273,7 @@ nCloseAttempts = <span class="n">0</span>
 lClosed = <span class="k">False</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([ <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(), <span class="s">"ringdotnet-closing.txt"</span> ])
 	oForm = <span class="f">uiForm</span>(<span class="s">"Notes"</span>,<span class="n">420</span>,<span class="n">260</span>)
 	oEdit = <span class="f">uiTextBox</span>(oForm,<span class="n">15</span>,<span class="n">15</span>,<span class="n">380</span>,<span class="n">26</span>)
@@ -288,12 +290,14 @@ lClosed = <span class="k">False</span>
 	cleanUp()
 
 <span class="k">func</span> <span class="f">saveNow</span>
+
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = oEdit.Text ])
 	lChanged = <span class="k">False</span>
 	oStatus.Text = <span class="s">"Saved"</span>
 
 <span class="c"># The question: Yes = save and close, No = close without saving, Cancel = do not close. A test answers by itself.</span>
 <span class="k">func</span> <span class="f">askSave</span>
+
 	<span class="k">if</span> cTestAnswer != <span class="s">""</span>
 		<span class="k">return</span> cTestAnswer
 	<span class="k">ok</span>
@@ -301,6 +305,7 @@ lClosed = <span class="k">False</span>
 
 <span class="c"># The event arguments (aDotNetArgs[2]) have Cancel: set it to True and the form stays open.</span>
 <span class="k">func</span> <span class="f">onClosing</span>
+
 	nCloseAttempts++
 	<span class="k">if</span> <span class="k">not</span> lChanged
 		<span class="k">return</span>                                            <span class="c"># nothing to save: let the form close</span>
@@ -313,6 +318,7 @@ lClosed = <span class="k">False</span>
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">cleanUp</span>
+
 	<span class="k">if</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile)
 		<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
 	<span class="k">ok</span></code></pre></div>
@@ -330,6 +336,7 @@ lClosed = <span class="k">False</span>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_closing.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_closing.ring: run with  ring ch10_closing.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	<span class="c"># no changes yet: closing would not ask anything</span>
 	<span class="f">dnAssert</span>(<span class="s">"no changes"</span>,lChanged,<span class="k">False</span>)
 

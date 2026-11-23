@@ -1,10 +1,12 @@
 # arrays - Ring lists and .NET arrays, Array.Sort, Reverse, IndexOf, BinarySearch, Copy and Clear, and arrays with two dimensions
 load "dotnet.ring"
+
 using {
 	"System"
 }
 
 func main
+
 	oArray = new Array()
 
 	# 1. A .NET array has a fixed size and one type. A Ring list becomes an array when a method asks for one: the bridge makes an int[],
@@ -66,6 +68,7 @@ func main
 # A typed array is made from a list: add the values to a List<Int32> and call ToArray(). (Array.SetValue takes an object: a whole number is
 # an Int32 there and fits an Int32 array, a number with a fraction is a Double and does not.)
 func makeIntArray aList
+
 	oList = dnNewGeneric("System.Collections.Generic.List",["System.Int32"],[])
 	for nValue in aList
 		oList.Add(nValue)
@@ -73,6 +76,7 @@ func makeIntArray aList
 	return oList.ToArray()
 
 func arrayText oArray
+
 	cText = ""
 	for item in oArray.toList()
 		cText += "" + item + " "
@@ -80,6 +84,7 @@ func arrayText oArray
 	return cText
 
 func list2text aList
+
 	cText = ""
 	for item in aList
 		cText += "" + item + " "
@@ -87,4 +92,5 @@ func list2text aList
 	return cText
 
 func padLeft cText,nWidth
+
 	return copy(" ",nWidth - len(cText)) + cText

@@ -1,5 +1,6 @@
 # your own dialog - a modal form that asks for data and gives it back
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -22,6 +23,7 @@ nStep = 0                       # which step of the test is next
 cNextName = ""
 
 func main
+
 	oForm = uiForm("Profile",340,150)
 	oShow = uiLabel(oForm,"",20,20,300,50)
 	oShow.Font = new Font("Segoe UI",12)
@@ -31,10 +33,12 @@ func main
 	uiRun(oForm)
 
 func showProfile
+
 	oShow.Text = cName + nl + nAge + " years old"
 
 # The main window asks the dialog and uses the answer only when the user pressed OK
 func editProfile
+
 	aAnswer = askProfile(cName,nAge)
 	if islist(aAnswer)
 		cName = aAnswer[1]
@@ -45,6 +49,7 @@ func editProfile
 # ---------------------------------------------------------------- the dialog
 # Returns [name, age] when the user presses OK, or "" when the dialog is canceled.
 func askProfile cStartName, nStartAge
+
 	oDialog = new Form() {
 		Text = "Edit profile"
 		ClientSize = new Size(300,150)
@@ -90,6 +95,7 @@ func askProfile cStartName, nStartAge
 
 # OK checks the input: an invalid input keeps the dialog open and says why
 func okPressed
+
 	if trim(oNameBox.Text) = ""
 		oError.Text = "Please type a name"
 		oNameBox.Focus()
@@ -100,6 +106,7 @@ func okPressed
 # ---------------------------------------------------------------- tests: a timer acts as the user in the dialog
 
 func driveDialog
+
 	nStep++
 	if nStep = 1
 		oNameBox.Text = "   "                     # first an invalid name: the dialog must stay open

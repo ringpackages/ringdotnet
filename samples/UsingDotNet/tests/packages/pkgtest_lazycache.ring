@@ -22,5 +22,6 @@ dnAssert("a removed key is the null",dnIsNull(oCache.callGeneric("Get",["System.
 dnTestSummary()
 
 func makeValue aArgs
+
 	nMade++
 	return "made " + nMade

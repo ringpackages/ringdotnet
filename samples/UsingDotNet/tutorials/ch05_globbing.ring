@@ -1,5 +1,6 @@
 # file patterns (globbing) - "**/*.ring", include and exclude rules, matching a list of paths, and finding files in a folder tree
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	# A glob pattern describes a set of files with wildcards, like the patterns in a .gitignore file or a build tool:
 	#   *      any characters inside one name           *.ring     a.ring, b.ring
 	#   **     any number of folders (also none)         **/*.ring  src/a.ring, src/sub/b.ring, a.ring
@@ -54,6 +56,7 @@ func main
 
 # the files of the program, with their relative paths in sorted order (the order of a disk is not the same on every system)
 func showFiles oMatcher,cBase
+
 	oResult = dnStatic("Microsoft.Extensions.FileSystemGlobbing.MatcherExtensions","GetResultsInFullPath",[oMatcher,cBase])
 	aNames = []
 	for cFull in oResult.toList()
@@ -65,6 +68,7 @@ func showFiles oMatcher,cBase
 	? "   (" + len(aNames) + " files)"
 
 func makeTree
+
 	oPath = new Path()
 	cBase = oPath.Combine([oPath.GetTempPath(),"ringdotnet_globbing"])
 	if new Directory().Exists(cBase)

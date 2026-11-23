@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_keyboard.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the keyboard in a form - KeyPress to allow only digits, the Enter and Escape buttons, the tab order, the access keys and select-all</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -271,6 +272,7 @@ nRejected = <span class="n">0</span>                     <span class="c"># how m
 lClosed = <span class="k">False</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Keyboard"</span>,<span class="n">360</span>,<span class="n">230</span>)
 
 	<span class="c"># An ACCESS KEY: the &amp; in front of a letter underlines it, and Alt + that letter moves the focus to the NEXT control in the tab order</span>
@@ -304,6 +306,7 @@ lClosed = <span class="k">False</span>
 
 <span class="c"># The argument of KeyPress has KeyChar (the character) and Handled. Digits and the Backspace key are accepted; everything else is refused.</span>
 <span class="k">func</span> <span class="f">filterKey</span> oArgs
+
 	cChar = oArgs.KeyChar
 	nCode = <span class="n">0</span>
 	<span class="k">if</span> len(cChar) = <span class="n">1</span>
@@ -317,6 +320,7 @@ lClosed = <span class="k">False</span>
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">accept</span>
+
 	<span class="k">if</span> trim(oName.Text) = <span class="s">""</span> <span class="k">or</span> oAge.Text = <span class="s">""</span>
 		oResult.Text = <span class="s">"Please fill in both boxes"</span>
 		<span class="k">return</span>
@@ -343,6 +347,7 @@ lClosed = <span class="k">False</span>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_keyboard.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_keyboard.ring: run with  ring ch10_keyboard.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	<span class="c"># the keys go to the box that has the focus, through the real key processing</span>
 	oForm.ActiveControl = oAge
 	<span class="f">uiSendKeys</span>(oForm,<span class="s">"1a2-3"</span>)

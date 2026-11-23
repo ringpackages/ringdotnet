@@ -1,10 +1,12 @@
 # money - why 0.1 + 0.2 is not 0.3, cents as whole numbers, rounding rules and fair splitting
 load "dotnet.ring"
+
 using {
 	"System"
 }
 
 func main
+
 	# 1. Computers store fractions in binary: 0.1 and 0.2 cannot be written exactly, so tiny errors appear
 	? "1. 0.1 + 0.2 = 0.3 ?  " + yesNo((0.1 + 0.2) = 0.3)
 	nTotal = 0
@@ -47,10 +49,12 @@ func main
 
 # "19.99" -> 1999
 func toCents cText
+
 	return floor(number(cText) * 100 + 0.5)
 
 # 1999 -> "19.99"
 func showMoney nCents
+
 	cSign = ""
 	if nCents < 0
 		cSign = "-"
@@ -65,9 +69,11 @@ func showMoney nCents
 	return cSign + nUnits + "." + cRest
 
 func roundHalfUp nValue
+
 	return floor(nValue + 0.5)
 
 func roundList oMath, cMode
+
 	cText = ""
 	for nValue in [0.5,1.5,2.5,3.5]
 		nRounded = oMath.Round([ :value = nValue, :mode = cMode ])
@@ -77,6 +83,7 @@ func roundList oMath, cMode
 
 # n cents in parts shares, the first shares get the remaining cents
 func splitCents nCents, nParts
+
 	nShare = floor(nCents / nParts)
 	nRest = nCents - nShare * nParts
 	aList = []
@@ -90,18 +97,21 @@ func splitCents nCents, nParts
 	return aList
 
 func padRight cText, nWidth
+
 	while len(cText) < nWidth
 		cText += " "
 	end
 	return cText
 
 func padLeft cText, nWidth
+
 	while len(cText) < nWidth
 		cText = " " + cText
 	end
 	return cText
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

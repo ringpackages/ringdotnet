@@ -1,6 +1,7 @@
 # the checks of ch10_grid.ring: run with  ring ch10_grid.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	# the starting totals: 10 x 2.5 = 25; 4 x 6 + 5 (express) = 29, and 10 percent more for Large = 31.9; 3 x 4 = 12
 	dnAssert("pens",cellText(0,"Total"),"25")
 	dnAssert("paper",cellText(1,"Total"),"31.90")

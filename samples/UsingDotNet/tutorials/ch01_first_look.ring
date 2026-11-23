@@ -1,5 +1,6 @@
 # a first look at .NET from Ring - runtime, types, objects, namespaces
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Text"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	# 1. The runtime that runs inside your Ring program
 	? "Runtime          : .NET " + new Environment().Version.ToString()
 

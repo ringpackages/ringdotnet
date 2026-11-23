@@ -1,10 +1,12 @@
 # rounding and the Math class - Round with its modes, Floor, Ceiling, Truncate, DivRem, Clamp, Sign and the rounding of money
 load "dotnet.ring"
+
 using {
 	"System"
 }
 
 func main
+
 	oMath = new Math()
 
 	# 1. Round has a MODE for the numbers that are exactly in the middle (x.5). "ToEven" (the default of .NET, called banker's rounding) goes to
@@ -68,4 +70,5 @@ func main
 	? "   A shop uses ONE rule everywhere and rounds only the final amount, or the amount of each line, as the law of the country says."
 
 func padRight cText,nWidth
+
 	return cText + copy(" ",nWidth - len(cText))

@@ -26,8 +26,10 @@ dnAssert("a broken query raises an error",len(cError) > 0,1)
 dnTestSummary()
 
 func jq cQuery, cData
+
 	oQuery = new JsonataQuery(cQuery)
 	return oQuery.callMethod("Eval",[cData])
 
 func compact cText
+
 	return substr(substr(substr(cText,char(13),""),char(10),"")," ","")

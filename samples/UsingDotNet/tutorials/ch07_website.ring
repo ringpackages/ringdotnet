@@ -1,5 +1,6 @@
 # a small web site - HTML pages, a form, links and a guestbook (ASP.NET Core)
 load "dotnet.ring"
+
 using {
 	"System.Net.Http"
 	"System.Text"
@@ -13,6 +14,7 @@ aEntries = []                 # the guestbook: [name, message]
 
 # Run it as a web site:   ring ch07_website.ring --serve     then open http://localhost:5090/
 func main
+
 	cAddress = "http://127.0.0.1:0"
 	if find(sysargv,"--serve") > 0
 		cAddress = "http://localhost:5090"
@@ -44,18 +46,22 @@ func main
 
 # every page has the same frame: a function builds it
 func page cTitle, cBody
+
 	return "<html><head><title>" + cTitle + "</title><style>body{font-family:Segoe UI,Arial;max-width:560px;margin:30px auto;color:#222}" +
 		"nav a{margin-right:14px}h1{color:#5b3fd1}.entry{border-left:4px solid #5b3fd1;padding:4px 10px;margin:8px 0}</style></head><body>" +
 		"<nav><a href='/'>Home</a><a href='/guestbook'>Guestbook</a><a href='/about'>About</a></nav>" +
 		"<h1>" + cTitle + "</h1>" + cBody + "</body></html>"
 
 func homePage oRequest
+
 	return page("Welcome","<p>This site is written in Ring and served by ASP.NET Core.</p><p>Visit the <a href='/guestbook'>guestbook</a>.</p>")
 
 func aboutPage oRequest
+
 	return page("About","<p>" + len(aEntries) + " entries so far.</p>")
 
 func guestbookPage oRequest
+
 	cList = ""
 	for aEntry in aEntries
 		cList += "<div class='entry'><b>" + htmlText(aEntry[1]) + "</b><br>" + htmlText(aEntry[2]) + "</div>"
@@ -70,6 +76,7 @@ func guestbookPage oRequest
 	return page("Guestbook",cList + cForm)
 
 func signGuestbook oRequest
+
 	cName = trim(oRequest.form("name"))
 	cMessage = trim(oRequest.form("message"))
 	if cName = "" or cMessage = ""
@@ -80,6 +87,7 @@ func signGuestbook oRequest
 
 # NEVER put text typed by a visitor into HTML as it is: "<script>" would run in other visitors' browsers.
 func htmlText cText
+
 	cText = substr(cText,"&","&amp;")
 	cText = substr(cText,"<","&lt;")
 	return substr(cText,">","&gt;")
@@ -87,13 +95,16 @@ func htmlText cText
 # ---------------------------------------------------------------- a client for the test
 
 func fetchPage cPath
+
 	return send(oClient.GetAsync(cUrl + cPath))
 
 func postForm cPath, cForm
+
 	oContent = dnNew("StringContent",[ :content = cForm, :encoding = new Encoding().UTF8, :mediaType = "application/x-www-form-urlencoded" ])
 	return send(oClient.PostAsync([ :requestUri = cUrl + cPath, :content = oContent ]))
 
 func send oTask
+
 	for nTry = 1 to 50
 		if oServer.serveOne(100)
 			exit
@@ -106,6 +117,7 @@ func send oTask
 	return [oResponse.StatusCode,oBody.Result]
 
 func summary aResult
+
 	cBody = aResult[2]
 	nStart = substr(cBody,"<h1>")
 	cTitle = ""

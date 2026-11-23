@@ -1,5 +1,6 @@
 # exploring .NET from Ring - ask a class what it can do
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Text"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	# Reflection means: a program looks at its own types. Start from a type name.
 	oType = new Type().GetType([ :typeName = "System.Text.StringBuilder" ])
 	? "Type          : " + oType.FullName
@@ -61,12 +63,14 @@ func main
 	? nl + "dnDescribe('System.Math') returned a list with " + len(aApi) + " parts"
 
 func iif lCondition, xYes, xNo
+
 	if lCondition
 		return xYes
 	ok
 	return xNo
 
 func joinList aList
+
 	cText = ""
 	for xItem in aList
 		if cText != ""

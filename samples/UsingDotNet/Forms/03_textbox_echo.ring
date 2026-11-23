@@ -1,6 +1,7 @@
 # Type in the text box: the label follows (TextChanged event)
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

@@ -1,6 +1,7 @@
 # the checks of ch10_bounce.ring: run with  ring ch10_bounce.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	oTimer.Stop()
 	nBefore = nX
 	step() step() step()

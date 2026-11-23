@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch13_reflection.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># exploring .NET from Ring - ask a class what it can do</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Text"</span>
@@ -263,6 +264,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># Reflection means: a program looks at its own types. Start from a type name.</span>
 	oType = <span class="k">new</span> <span class="t">Type</span>().<span class="f">GetType</span>([ :typeName = <span class="s">"System.Text.StringBuilder"</span> ])
 	? <span class="s">"Type          : "</span> + oType.FullName
@@ -317,12 +319,14 @@ using {
 	? nl + <span class="s">"dnDescribe('System.Math') returned a list with "</span> + len(aApi) + <span class="s">" parts"</span>
 
 <span class="k">func</span> <span class="f">iif</span> lCondition, xYes, xNo
+
 	<span class="k">if</span> lCondition
 		<span class="k">return</span> xYes
 	<span class="k">ok</span>
 	<span class="k">return</span> xNo
 
 <span class="k">func</span> <span class="f">joinList</span> aList
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> xItem <span class="k">in</span> aList
 		<span class="k">if</span> cText != <span class="s">""</span>

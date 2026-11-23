@@ -1,5 +1,6 @@
 # callbacks and events - giving Ring code to .NET
 load "dotnet.ring"
+
 using {
 	"System.Collections.Generic"
 	"System.Collections.ObjectModel"
@@ -10,6 +11,7 @@ nLetters = 0
 nChanges = 0
 
 func main
+
 	oWords = new StringList()
 	oWords.Add("pear")  oWords.Add("apple")  oWords.Add("fig")  oWords.Add("avocado")
 
@@ -53,21 +55,27 @@ func main
 
 # A callback written as a function receives ONE parameter: the list of the .NET arguments. It returns the answer.
 func showItem aArgs
+
 	? "   item: " + aArgs[1]
 
 func compareLength aArgs
+
 	return len(aArgs[1]) - len(aArgs[2])
 
 func startsWithA aArgs
+
 	return left(aArgs[1],1) = "a"
 
 func isFig aArgs
+
 	return aArgs[1] = "fig"
 
 func broken aArgs
+
 	raise("the callback failed on purpose")
 
 func joinList aList
+
 	cText = ""
 	for xItem in aList
 		if cText != ""

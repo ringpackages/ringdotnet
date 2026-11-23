@@ -1,5 +1,6 @@
 # route templates - "users/{id}/orders/{orderId?}", optional and default values, catch-all parameters, and choosing a route
 load "dotnet.ring"
+
 using {
 	"System"
 	"RingDotNet.Web"                  # the routing classes are part of the ASP.NET Core runtime: this line starts it
@@ -8,6 +9,7 @@ using {
 cRouting = "Microsoft.AspNetCore.Routing."
 
 func main
+
 	# A web program decides what to do from the PATH of the address: /users/42 shows user 42, /files/docs/a/b.txt shows a file. A ROUTE
 	# TEMPLATE describes such a path with named parts in braces. ASP.NET Core uses them for every route; the same classes work here.
 	# {id}             a required part, its value is read into "id"
@@ -61,6 +63,7 @@ func main
 
 # the dictionary of values for a template and a path, as text; "no match" when the path does not fit the template
 func showMatch cTemplate,cPath
+
 	oValues = dnNew(cRouting + "RouteValueDictionary",[])
 	if not matches(cTemplate,cPath,oValues)
 		return "no match"
@@ -72,6 +75,7 @@ func showMatch cTemplate,cPath
 	return "match   " + cText
 
 func matches cTemplate,cPath,oValues
+
 	oTemplate = dnStatic(cRouting + "Template.TemplateParser","Parse",[cTemplate])
 	# the defaults of the template ({page=1}) are given to the matcher: a part with a default may be missing at the END of the path
 	oDefaults = dnNew(cRouting + "RouteValueDictionary",[])
@@ -86,6 +90,7 @@ func matches cTemplate,cPath,oValues
 	return oMatcher.callMethod("TryMatch",[oPath,oValues])
 
 func chooseRoute aTable,cPath
+
 	for aRoute in aTable
 		if matches(aRoute[1],cPath,dnNew(cRouting + "RouteValueDictionary",[]))
 			return aRoute[1] + "  ->  " + aRoute[2]
@@ -94,4 +99,5 @@ func chooseRoute aTable,cPath
 	return "(no route: 404 not found)"
 
 func padRight cText,nWidth
+
 	return cText + copy(" ",nWidth - len(cText))

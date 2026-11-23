@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch07_websockets.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># WebSockets - a connection that stays open: a client and a server in one program, text and binary messages, long messages in parts, closing</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Net"</span>
@@ -266,6 +267,7 @@ using {
 oToken = <span class="s">""</span>                       <span class="c"># a token that cancels everything after 20 seconds, so that a mistake cannot hang the program</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># HTTP is a question and an answer. A WEBSOCKET is a connection that stays open after the first HTTP request: both sides can send a</span>
 	<span class="c"># message whenever they like, which is what a chat, a live price list or a game needs. The first request asks to "upgrade" the</span>
 	<span class="c"># connection, and then the two sides send MESSAGES (text or binary) until one of them closes it.</span>
@@ -347,6 +349,7 @@ oToken = <span class="s">""</span>                       <span class="c"># a tok
 <span class="c"># class ClientWebSocket has SendAsync with four values; the object that the server got is a WebSocket, where SendAsync has more forms and</span>
 <span class="c"># takes the values by name.</span>
 <span class="k">func</span> <span class="f">send</span> oSocket,cBytes,cType,lClient
+
 	oSegment = <span class="f">dnNew</span>(<span class="s">"System.ArraySegment`1[[System.Byte]]"</span>,[ cBytes ])
 	<span class="k">if</span> lClient
 		oSocket.<span class="f">SendAsync</span>(oSegment,cType,<span class="k">True</span>,oToken).<span class="f">Wait</span>(<span class="k">NULL</span>)
@@ -355,12 +358,14 @@ oToken = <span class="s">""</span>                       <span class="c"># a tok
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">sendText</span> oSocket,cText,lClient
+
 	send(oSocket,cText,<span class="s">"Text"</span>,lClient)
 
 <span class="c"># Receive into a buffer of nSize bytes. The buffer is a byte buffer (dnBuffer): a .NET byte[] that Ring holds. The ArraySegment is made</span>
 <span class="c"># on that array, .NET fills it, and the received bytes are the first Count bytes of the buffer. The answer is [the bytes, the type,</span>
 <span class="c"># EndOfMessage].</span>
 <span class="k">func</span> <span class="f">receive</span> oSocket,nSize
+
 	oBuffer = <span class="f">dnBuffer</span>(nSize)
 	oSegment = <span class="f">dnNew</span>(<span class="s">"System.ArraySegment`1[[System.Byte]]"</span>,[ oBuffer ])
 	oTask = oSocket.<span class="f">ReceiveAsync</span>(oSegment,oToken)
@@ -369,9 +374,11 @@ oToken = <span class="s">""</span>                       <span class="c"># a tok
 	<span class="k">return</span> [ <span class="f">dnBufferBytes</span>(oBuffer,oResult.Count), <span class="s">""</span> + oResult.MessageType, oResult.EndOfMessage ]
 
 <span class="k">func</span> <span class="f">receiveText</span> oSocket
+
 	<span class="k">return</span> receive(oSocket,<span class="n">1024</span>)[<span class="n">1</span>]
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

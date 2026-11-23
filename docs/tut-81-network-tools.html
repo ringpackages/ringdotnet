@@ -254,6 +254,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch07_network_tools.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># network tools - IP addresses, DNS, ping, network interfaces and checking whether a port is open (all on this computer)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Net"</span>
@@ -262,6 +263,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. IPAddress parses an address and knows its family. A method with an "out" parameter returns a list: [success, the address].</span>
 	oParser = <span class="k">new</span> <span class="t">IPAddress</span>()
 	oAddress = oParser.<span class="f">Parse</span>(<span class="s">"192.168.1.20"</span>)
@@ -309,6 +311,7 @@ using {
 
 <span class="c"># true when a TCP connection to the address and port is accepted within half a second</span>
 <span class="k">func</span> <span class="f">portIsOpen</span> cAddress, nPort
+
 	oClient = <span class="k">new</span> <span class="t">TcpClient</span>()
 	lOpen = <span class="k">False</span>
 	<span class="k">try</span>
@@ -321,6 +324,7 @@ using {
 	<span class="k">return</span> lOpen
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

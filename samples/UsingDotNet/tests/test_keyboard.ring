@@ -33,6 +33,7 @@ oForm.Close()
 nFail = dnTestSummary()
 
 func newForm lFixed
+
 	oForm = uiForm("Keyboard",300,160)
 	oButton = uiButton(oForm,"New game",10,10,100,30,"nClicks++")
 	if lFixed

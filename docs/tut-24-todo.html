@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch12_todo.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project - a to-do list that remembers its tasks (Windows Forms + JSON + files)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -272,6 +273,7 @@ cFile = <span class="s">""</span>
 lLoading = <span class="k">False</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># the tasks are saved here (a test uses a temporary file)</span>
 	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_todo-tasks.json"</span>])
 	<span class="k">if</span> <span class="f">uiSelfTest</span>()
@@ -306,6 +308,7 @@ lLoading = <span class="k">False</span>
 	<span class="f">uiRun</span>(oForm)
 
 <span class="k">func</span> <span class="f">addTask</span>
+
 	cText = trim(oNew.Text)
 	<span class="k">if</span> cText = <span class="s">""</span>
 		<span class="k">return</span>
@@ -316,6 +319,7 @@ lLoading = <span class="k">False</span>
 	refreshStatus()
 
 <span class="k">func</span> <span class="f">removeTask</span>
+
 	nIndex = oTasks.SelectedIndex
 	<span class="k">if</span> nIndex &gt;= <span class="n">0</span>
 		oTasks.Items.<span class="f">RemoveAt</span>(nIndex)
@@ -324,16 +328,19 @@ lLoading = <span class="k">False</span>
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">tasksChanged</span>
+
 	saveTasks()
 	refreshStatus()
 
 <span class="k">func</span> <span class="f">refreshStatus</span>
+
 	nDone = oTasks.CheckedItems.Count
 	oStatus.Text = <span class="s">"  "</span> + nDone + <span class="s">" of "</span> + oTasks.Items.Count + <span class="s">" done"</span>
 
 <span class="c"># ---------------------------------------------------------------- saving and loading (JSON: [[1 or 0, "text"], ...])</span>
 
 <span class="k">func</span> <span class="f">saveTasks</span>
+
 	<span class="k">if</span> lLoading
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -345,6 +352,7 @@ lLoading = <span class="k">False</span>
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = cJson ])
 
 <span class="k">func</span> <span class="f">loadTasks</span>
+
 	<span class="k">if</span> <span class="k">not</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile)
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -376,6 +384,7 @@ lLoading = <span class="k">False</span>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch12_todo.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch12_todo.ring: run with  ring ch12_todo.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	oNew.Text = <span class="s">"Buy milk"</span>
 	addTask()
 	oNew.Text = <span class="s">"Write the tutorial"</span>

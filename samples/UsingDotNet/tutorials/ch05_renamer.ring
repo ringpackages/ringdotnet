@@ -1,5 +1,6 @@
 # a project: rename many files - rules (replace, regular expression, case, numbering), a preview, conflict checks and undo
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	oFile = new File()
 	oPath = new Path()
 	oDirectory = new Directory()
@@ -77,6 +79,7 @@ func main
 
 # the names of the files of a folder, sorted (the folder order is not defined)
 func fileNames cFolder
+
 	aList = []
 	for oItem in new DirectoryInfo(cFolder).GetFiles(NULL).toList()
 		aList + oItem.Name
@@ -85,6 +88,7 @@ func fileNames cFolder
 
 # split "name.ext" into the name and the extension (the extension starts at the last dot)
 func splitName cName
+
 	nDot = 0
 	for i = len(cName) to 1 step -1
 		if substr(cName,i,1) = "."
@@ -99,6 +103,7 @@ func splitName cName
 
 # one rule applied to the name part (the extension is kept, except by "extension")
 func applyRule aItem,cBase,cExtension
+
 	cKind = aItem[1]
 	if cKind = "replace"
 		cBase = substr(cBase,aItem[2],aItem[3])
@@ -114,6 +119,7 @@ func applyRule aItem,cBase,cExtension
 
 # the new names of a list of names: a list of [old, new]
 func makePlan aNames,aRule
+
 	aPlan = []
 	nNumber = 0
 	for cName in aNames
@@ -140,12 +146,14 @@ func makePlan aNames,aRule
 	return aPlan
 
 func showPreview aNames,aRule
+
 	for aItem in makePlan(aNames,aRule)
 		? "   " + padRight(aItem[1],26) + "-> " + aItem[2]
 	next
 
 # problems that stop the renaming: two files with one new name, a new name that is the name of a file that stays, or an empty name
 func findConflicts aPlan,aAllNames
+
 	aProblems = []
 	aTaken = []
 	for aItem in aPlan
@@ -162,6 +170,7 @@ func findConflicts aPlan,aAllNames
 
 # rename (a file whose name does not change is skipped) and return the log of what was done
 func applyPlan cFolder,aPlan
+
 	aLog = []
 	for aItem in aPlan
 		if aItem[1] != aItem[2]
@@ -173,11 +182,13 @@ func applyPlan cFolder,aPlan
 
 # undo: the same moves, the other way and the last one first
 func undoLog cFolder,aLog
+
 	for i = len(aLog) to 1 step -1
 		new File().Move([ :sourceFileName = cFolder + "/" + aLog[i][2], :destFileName = cFolder + "/" + aLog[i][1] ])
 	next
 
 func sameList aFirst,aSecond
+
 	if len(aFirst) != len(aSecond)
 		return False
 	ok
@@ -189,10 +200,12 @@ func sameList aFirst,aSecond
 	return True
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok
 	return "no"
 
 func padRight cText,nWidth
+
 	return cText + copy(" ",nWidth - len(cText))

@@ -72,11 +72,13 @@ oConn.Close()
 dnTestSummary()
 
 func runSql cSql
+
 	oCommand = oConn.CreateCommand()
 	oCommand.CommandText = cSql
 	return oCommand.ExecuteNonQuery()
 
 func scalar cSql
+
 	oCommand = oConn.CreateCommand()
 	oCommand.CommandText = cSql
 	return oCommand.ExecuteScalar()

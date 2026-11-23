@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch09_dependency_injection.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># dependency injection - a service container, the three lifetimes (singleton, transient, scoped) and services that need other services</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Collections"</span>
@@ -267,6 +268,7 @@ nTransients = <span class="n">0</span>
 nScoped = <span class="n">0</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># Dependency injection (DI) means: a part of a program does not create the things it needs, it ASKS for them. A container makes them,</span>
 	<span class="c"># and decides how long each one lives. That makes the parts easy to replace and to test, and it is how every ASP.NET program is built.</span>
 	<span class="c"># The container works with .NET types as the keys. Here three plain types stand for three services, and a Ring function makes each one</span>
@@ -313,15 +315,18 @@ nScoped = <span class="n">0</span>
 	? nl + <span class="s">"6. total made: singleton "</span> + nSingletons + <span class="s">", transient "</span> + nTransients + <span class="s">", scoped "</span> + nScoped
 
 <span class="k">func</span> <span class="f">makeSingleton</span> aArguments
+
 	nSingletons++
 	<span class="k">return</span> <span class="k">new</span> <span class="t">ArrayList</span>
 
 <span class="k">func</span> <span class="f">makeTransient</span> aArguments
+
 	nTransients++
 	<span class="k">return</span> <span class="k">new</span> <span class="t">Random</span>
 
 <span class="c"># the first value of the arguments is the provider of the scope: it can give other services</span>
 <span class="k">func</span> <span class="f">makeScoped</span> aArguments
+
 	nScoped++
 	oProvider = aArguments[<span class="n">1</span>]
 	oList = oProvider.<span class="f">callMethod</span>(<span class="s">"GetService"</span>,[<span class="f">dnType</span>(<span class="s">"System.Collections.ArrayList"</span>)])

@@ -1,5 +1,6 @@
 # messages on a TCP stream - TCP has no message boundaries: a length prefix, reading exactly n bytes, partial reads and a limit
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Net"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	# TCP is a STREAM of bytes, not a list of messages. If a program writes "ab" and then "cd", the other side may read "abcd" in one call,
 	# or "a" and "bcd", or ... The sizes of the pieces that Read returns have nothing to do with the sizes of the writes. A protocol that
 	# sends MESSAGES must say where each one ends: here every message has a LENGTH PREFIX, four bytes with the size of the message,
@@ -53,13 +55,16 @@ func main
 
 # the length as four bytes, biggest first
 func lengthBytes nLength
+
 	return char(floor(nLength / 16777216) % 256) + char(floor(nLength / 65536) % 256) + char(floor(nLength / 256) % 256) + char(nLength % 256)
 
 func bytesLength cBytes
+
 	return ascii(substr(cBytes,1,1)) * 16777216 + ascii(substr(cBytes,2,1)) * 65536 + ascii(substr(cBytes,3,1)) * 256 + ascii(substr(cBytes,4,1))
 
 # one message: the length, then the bytes. Two writes (a real program may write both in one buffer).
 func writeMessage oStream,cMessage
+
 	oStream.Write(lengthBytes(len(cMessage)),0,4)
 	if len(cMessage) > 0
 		oStream.Write(cMessage,0,len(cMessage))
@@ -69,6 +74,7 @@ func writeMessage oStream,cMessage
 # again, into the next part of the same buffer, until all the bytes are there. Read gives 0 when the other side has closed the connection.
 # The answer is [the bytes, the number of Read calls].
 func readExact oStream,nCount
+
 	if nCount = 0
 		return [ "", 0 ]
 	ok
@@ -88,6 +94,7 @@ func readExact oStream,nCount
 # One message: read the four bytes of the length, check it against the maximum, then read the message. The answer is [the message, the
 # number of Read calls: it depends on how the bytes arrived, so the program does not print it], or ["(refused: ...)", 0] for a length over the maximum.
 func readMessage oStream,nMaximum
+
 	aHeader = readExact(oStream,4)
 	nLength = bytesLength(aHeader[1])
 	if nLength > nMaximum
@@ -97,6 +104,7 @@ func readMessage oStream,nMaximum
 	return [ aBody[1], aHeader[2] + aBody[2] ]
 
 func hexText cBytes
+
 	cText = ""
 	for i = 1 to len(cBytes)
 		cText += right("0" + upper(hex(ascii(substr(cBytes,i,1)))),2) + " "
@@ -104,10 +112,12 @@ func hexText cBytes
 	return trim(cText)
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok
 	return "no"
 
 func padLeft cText,nWidth
+
 	return copy(" ",nWidth - len(cText)) + cText

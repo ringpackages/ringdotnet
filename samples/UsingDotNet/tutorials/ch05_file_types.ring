@@ -1,5 +1,6 @@
 # finding out what a file is - the first bytes (magic numbers), a signature table, text or binary, and a file whose name tells a lie
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -9,6 +10,7 @@ using {
 aSignatures = []                  # [ name, mime type, the first bytes ]
 
 func main
+
 	oFile = new File()
 	oPath = new Path()
 	cFolder = oPath.Combine([ oPath.GetTempPath(), "ringdotnet-types-" + oPath.GetRandomFileName() ])
@@ -55,6 +57,7 @@ func main
 
 # the known signatures: the bytes at the start of the file
 func addSignatures
+
 	aSignatures + [ "PNG picture","image/png",char(137) + "PNG" + char(13) + char(10) + char(26) + char(10) ]
 	aSignatures + [ "GIF picture","image/gif","GIF8" ]
 	aSignatures + [ "JPEG picture","image/jpeg",char(255) + char(216) + char(255) ]
@@ -64,10 +67,12 @@ func addSignatures
 	aSignatures + [ "Windows program","application/x-msdownload","MZ" ]
 
 func makeFile cFile,cStart,cFill
+
 	new File().WriteAllBytes(cFile,cStart + copy(cFill,20))
 
 # the first nCount bytes of a file (fewer when the file is shorter), read into a byte buffer
 func firstBytes cFile,nCount
+
 	oStream = dnNew("FileStream",[ :path = cFile, :mode = "Open", :access = "Read" ])
 	oBuffer = dnBuffer(nCount)
 	nRead = oStream.Read(oBuffer,0,nCount)
@@ -76,6 +81,7 @@ func firstBytes cFile,nCount
 
 # [name, mime type] of a file, from its first bytes
 func detect cFile
+
 	cStart = firstBytes(cFile,16)
 	if len(cStart) = 0
 		return [ "empty file","" ]
@@ -92,6 +98,7 @@ func detect cFile
 
 # text has no NUL and no control characters except tab, new line and return, and it is valid UTF-8
 func looksLikeText cBytes
+
 	for i = 1 to len(cBytes)
 		nCode = ascii(substr(cBytes,i,1))
 		if nCode = 0 or (nCode < 32 and nCode != 9 and nCode != 10 and nCode != 13)
@@ -107,6 +114,7 @@ func looksLikeText cBytes
 	done
 
 func describe cFile
+
 	aType = detect(cFile)
 	if aType[2] = ""
 		return aType[1]
@@ -115,6 +123,7 @@ func describe cFile
 
 # what the name says (the extension) and what the bytes say
 func checkName cFile
+
 	cExtension = lower(new Path().GetExtension(cFile))
 	aType = detect(cFile)
 	aExpected = [ [".png","PNG picture"], [".gif","GIF picture"], [".jpg","JPEG picture"], [".jpeg","JPEG picture"], [".zip","ZIP archive"], [".pdf","PDF document"], [".gz","GZip data"], [".txt","text"] ]
@@ -129,10 +138,12 @@ func checkName cFile
 	return "unknown extension, the bytes say " + aType[1]
 
 func isPicture cFile
+
 	cMime = detect(cFile)[2]
 	return cMime = "image/png" or cMime = "image/jpeg" or cMime = "image/gif"
 
 func sortNames cFolder
+
 	aList = []
 	for oItem in new DirectoryInfo(cFolder).GetFiles(NULL).toList()
 		aList + oItem.Name
@@ -140,10 +151,12 @@ func sortNames cFolder
 	return sort(aList)
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok
 	return "no"
 
 func padRight cText,nWidth
+
 	return cText + copy(" ",nWidth - len(cText))

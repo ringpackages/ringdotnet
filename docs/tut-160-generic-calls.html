@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch13_generic_calls.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the generic functions - dnType, dnNew, dnStatic, dnNewGeneric, callMethod, getProp, dnNull and dnBuffer: what to use when there is no class</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -262,6 +263,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># The tutorials so far wrote OBJECT code: new makes an object, the dot calls a method or reads a property, and braces set properties.</span>
 	<span class="c"># That works for every class that was generated, and nearly everything is. A few cases have no class, and for them there are</span>
 	<span class="c"># generic functions. They do the same work with the names as texts.</span>
@@ -310,6 +312,7 @@ using {
 	? nl + <span class="s">"7. the same call in two styles: "</span> + <span class="k">new</span> <span class="t">Math</span>().<span class="f">Max</span>(<span class="n">3</span>,<span class="n">9</span>) + <span class="s">" and "</span> + <span class="f">dnStatic</span>(<span class="s">"System.Math"</span>,<span class="s">"Max"</span>,[<span class="n">3</span>,<span class="n">9</span>])
 
 <span class="k">func</span> <span class="f">joinList</span> aList
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> item <span class="k">in</span> aList
 		<span class="k">if</span> cText != <span class="s">""</span>

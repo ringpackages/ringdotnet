@@ -1,5 +1,6 @@
 # screens and pictures of windows - Screen, taking a picture of the screen, and a picture of a form (Windows Forms)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -9,6 +10,7 @@ using {
 }
 
 func main
+
 	# 1. Screen describes the monitors. The size of a screen depends on the computer, so the program prints only what is always true.
 	oScreens = new Screen()
 	oPrimary = oScreens.PrimaryScreen
@@ -68,6 +70,7 @@ func main
 	oForm.Close()
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

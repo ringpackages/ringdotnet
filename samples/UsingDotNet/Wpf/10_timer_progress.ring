@@ -1,6 +1,7 @@
 # A DispatcherTimer fills a progress bar
 
 load "dotnet.ring"
+
 using {
 	"System.Windows"
 	"System.Windows.Controls"
@@ -39,6 +40,7 @@ wpfEnd()
 # --------------------------------------------------------------------------
 
 func advance
+
 	nPercent += 20
 	oBar.Value = nPercent
 	oText.Content = "" + nPercent + "%"

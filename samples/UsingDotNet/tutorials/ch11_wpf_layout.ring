@@ -1,5 +1,6 @@
 # WPF layout and styles - Grid, resources, a Style for all buttons, a keypad
 load "dotnet.ring"
+
 using {
 	"System.Windows"
 	"System.Windows.Controls"
@@ -14,6 +15,7 @@ oDisplay = ""
 cEntered = ""
 
 func main
+
 	# The window: a Grid with a display row on top and a keypad below.
 	#  - Grid.RowDefinitions / ColumnDefinitions divide the space: "Auto" = as big as the content, "*" = share what is left
 	#  - Window.Resources holds a Style: every Button inside gets the same look without repeating it
@@ -48,22 +50,26 @@ func main
 	wpfRun(oWindow)
 
 func pressKey nDigit
+
 	if len(cEntered) < 12
 		cEntered += nDigit
 	ok
 	showEntered()
 
 func clearKeys
+
 	cEntered = ""
 	showEntered()
 
 func backspace
+
 	if len(cEntered) > 0
 		cEntered = left(cEntered,len(cEntered) - 1)
 	ok
 	showEntered()
 
 func showEntered
+
 	if cEntered = ""
 		oDisplay.Text = "0"
 	else

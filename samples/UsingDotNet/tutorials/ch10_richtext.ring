@@ -1,5 +1,6 @@
 # formatted text - RichTextBox: bold and colored words, searching, saving as RTF and loading it again
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -15,6 +16,7 @@ oBold = ""
 oFind = ""
 
 func main
+
 	oForm = uiForm("Formatted text",520,360)
 	oBold = uiButton(oForm,"Bold",15,12,70,28,"toggleBold()")
 	uiButton(oForm,"Red",92,12,70,28,"makeRed()")
@@ -36,9 +38,11 @@ func main
 
 # the font of the selection: uiFont(family, size, bold). The same family and size, only the bold changes.
 func setBold lBold
+
 	oRich.SelectionFont = uiFont("Segoe UI",11,lBold)
 
 func toggleBold
+
 	if oRich.SelectionLength = 0
 		oStatus.Text = "Select some text first"
 		return
@@ -51,15 +55,18 @@ func toggleBold
 	oStatus.Text = "Bold: " + oRich.SelectionFont.Bold
 
 func makeRed
+
 	oRich.SelectionColor = uiColor("Red")
 
 func makePlain
+
 	setBold(False)
 	oRich.SelectionColor = uiColor("Black")
 
 # Find searches from a start place; the loop finds every match and marks it. The options "None" ignore upper and lower case; "MatchCase"
 # would not.
 func findAll
+
 	cWord = oFind.Text
 	nCount = 0
 	nStart = 0

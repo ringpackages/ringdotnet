@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch06_tracing.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># tracing - Trace and listeners: messages with an indent, a listener that collects them in memory, a listener that writes a file, and levels</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -263,6 +264,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># TRACING writes messages about what a program does, for the person who looks for a problem. A program sends a message to the class</span>
 	<span class="c"># Trace, and the LISTENERS that were added to Trace decide where it goes: the console, a file, a window, a log service. The program</span>
 	<span class="c"># that writes the messages does not know where they go, and a listener can be added or removed without changing the code.</span>
@@ -335,6 +337,7 @@ using {
 
 <span class="c"># the lines of a text, each one indented by three spaces (the trace output has the line ending of the system)</span>
 <span class="k">func</span> <span class="f">showLines</span> cText
+
 	<span class="k">for</span> cLine <span class="k">in</span> str2list(substr(cText,char(<span class="n">13</span>),<span class="s">""</span>))
 		<span class="k">if</span> cLine != <span class="s">""</span>
 			? <span class="s">"   ["</span> + cLine + <span class="s">"]"</span>
@@ -343,12 +346,15 @@ using {
 
 <span class="c"># a text without its line ending (the trace adds one after each message)</span>
 <span class="k">func</span> <span class="f">oneLine</span> cText
+
 	<span class="k">return</span> trim(substr(substr(cText,char(<span class="n">13</span>),<span class="s">""</span>),nl,<span class="s">""</span>))
 
 <span class="k">func</span> <span class="f">readText</span> cFile
+
 	<span class="k">return</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cFile)
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

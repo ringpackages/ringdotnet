@@ -13,6 +13,7 @@ cPkgCache = cPkgHere + "/.cache/"
 aPkgExtra = []          # the DLLs of a package that are not wrapped but are loaded (a native provider ...): a test adds them before pkgUse
 
 func pkgUse cName, aPackages, aWraps
+
 	cFolder = cPkgCache + cName + "/"
 	cLibs = cFolder + "libs/"
 	# the packages and versions of the test: a cache that was made for other ones is made again
@@ -42,6 +43,7 @@ func pkgUse cName, aPackages, aWraps
 
 # wraps the DLLs of a cache folder (the namespaces of each one) into its classes folder, and loads them
 func pkgWrapAndLoad cFolder, aWraps
+
 	cLibs = cFolder + "libs/"
 	for aWrap in aWraps
 		cDll = cLibs + aWrap[1]
@@ -65,6 +67,7 @@ func pkgWrapAndLoad cFolder, aWraps
 	next
 
 func pkgExtraDlls cLibs
+
 	aFound = []
 	for cDll in aPkgExtra
 		aFound + (cLibs + cDll)
@@ -76,6 +79,7 @@ func pkgExtraDlls cLibs
 # publishes it into the cache (the packages it needs come with it) and wraps and loads the DLLs like pkgUse. The cache is made again when a
 # file of the project changed.
 func pkgUseProject cName, cProject, aWraps
+
 	cFolder = cPkgCache + cName + "/"
 	cProjectFolder = cPkgHere + "/" + cProject + "/"
 	cSpec = ""
@@ -101,15 +105,18 @@ func pkgUseProject cName, cProject, aWraps
 
 # the classes of a namespace of a wrapped DLL (the DLLs of a test share one folder of classes, so that a class name that two of them have is made unique)
 func pkgImport cName, cDll, cNamespace
+
 	dnImportFrom(cPkgCache + cName + "/classes/",cNamespace)
 
 func pkgQuiet
+
 	if iswindows()
 		return "> nul"
 	ok
 	return "> /dev/null 2>&1"
 
 func pkgRemoveDir cPath
+
 	if iswindows()
 		system('rmdir /s /q "' + substr(cPath,"/","\") + '" 2>nul')
 	else
@@ -117,6 +124,7 @@ func pkgRemoveDir cPath
 	ok
 
 func pkgMakeDir cPath
+
 	if iswindows()
 		system('mkdir "' + substr(cPath,"/","\") + '" 2>nul')
 	else

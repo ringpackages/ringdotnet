@@ -1,5 +1,6 @@
 # a web service with a database - JSON over HTTP, stored with Entity Framework
 load "dotnet.ring"
+
 using {
 	"System.Net.Http"
 	"RingDotNet.Web"
@@ -12,6 +13,7 @@ cUrl = ""
 oDb = ""
 
 func main
+
 	# 1. The database: one table, kept in memory for this tutorial (use "Data Source=notes.db" for a file)
 	oDb = new RingDatabase("Data Source=:memory:",[
 		["Notes",[["Id","int",1],["Text","string",0,[["required",1],["maxlength",200]]],["Done","int",0,[["default",0]]]]]
@@ -39,6 +41,7 @@ func main
 # ---------------------------------------------------------------- the handlers
 
 func listNotes oRequest
+
 	aList = []
 	for aRow in oDb.all("Notes")
 		aList + [["id",dbValue(aRow,"Id")],["text",dbValue(aRow,"Text")]]
@@ -46,6 +49,7 @@ func listNotes oRequest
 	return webJson(aList)
 
 func addNote oRequest
+
 	cText = trim(oRequest.body())
 	if cText = ""
 		return [400,"text/plain","The text of the note is empty"]
@@ -54,6 +58,7 @@ func addNote oRequest
 	return [201,"application/json",'{"id":' + nId + '}']
 
 func deleteNote oRequest
+
 	nId = number(oRequest.query("id"))
 	if oDb.remove("Notes",nId) = 0
 		return [404,"text/plain","There is no note " + nId]
@@ -63,6 +68,7 @@ func deleteNote oRequest
 # ---------------------------------------------------------------- the client
 
 func send cMethod, cPath, cBody
+
 	oMessage = new HttpRequestMessage().@New([ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
 	if cBody != ""
 		oMessage.Content = new StringContent(cBody)

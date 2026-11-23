@@ -1,11 +1,13 @@
 # collections for many threads - ConcurrentQueue, ConcurrentStack, BlockingCollection and ConcurrentDictionary
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Collections.Concurrent"
 }
 
 func main
+
 	# The collections of System.Collections.Concurrent are safe when several threads use them at the same time: the 'is it
 	# there? then change it' steps are done as ONE step. They are generic, so they are made with dnNewGeneric (a type name,
 	# the type arguments, the constructor values).

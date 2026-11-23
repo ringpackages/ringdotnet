@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_browser.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a folder browser - a TreeView of folders, a ListView of files, and the details of a file</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -270,6 +271,7 @@ oStatus = <span class="s">""</span>
 cRoot = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># The folder to browse: this program makes a small demo folder (give another folder as the first argument to browse it)</span>
 	cRoot = makeDemoFolder()
 	<span class="k">if</span> len(sysargv) &gt;= <span class="n">3</span> <span class="k">and</span> sysargv[<span class="n">3</span>] != <span class="s">"--selftest"</span>
@@ -314,6 +316,7 @@ cRoot = <span class="s">""</span>
 
 <span class="c"># A node for a folder, with a node for each subfolder below it. The Tag of a node remembers the full path.</span>
 <span class="k">func</span> <span class="f">addFolderNode</span> oNodes, cFolder
+
 	oNode = oNodes.<span class="f">Add</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetFileName</span>(cFolder))
 	oNode.Tag = cFolder
 	<span class="k">for</span> cSub <span class="k">in</span> sort(<span class="k">new</span> <span class="t">Directory</span>().<span class="f">GetDirectories</span>(cFolder).<span class="f">toList</span>())
@@ -323,6 +326,7 @@ cRoot = <span class="s">""</span>
 
 <span class="c"># The user picked a folder: list its files</span>
 <span class="k">func</span> <span class="f">folderChosen</span>
+
 	cFolder = oTree.SelectedNode.Tag
 	oList.Items.<span class="f">Clear</span>()
 	nFiles = <span class="n">0</span>
@@ -340,6 +344,7 @@ cRoot = <span class="s">""</span>
 
 <span class="c"># a size in bytes as text: 1536 -&gt; 1.5 KB</span>
 <span class="k">func</span> <span class="f">sizeText</span> nBytes
+
 	<span class="k">if</span> nBytes &lt; <span class="n">1024</span>
 		<span class="k">return</span> <span class="s">""</span> + nBytes + <span class="s">" B"</span>
 	<span class="k">ok</span>
@@ -350,6 +355,7 @@ cRoot = <span class="s">""</span>
 
 <span class="c"># a demo folder with folders and files</span>
 <span class="k">func</span> <span class="f">makeDemoFolder</span>
+
 	cBase = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_browser"</span>])
 	<span class="k">if</span> <span class="k">new</span> <span class="t">Directory</span>().<span class="f">Exists</span>(cBase)
 		<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cBase, :recursive = <span class="k">True</span> ])
@@ -365,6 +371,7 @@ cRoot = <span class="s">""</span>
 	<span class="k">return</span> cBase
 
 <span class="k">func</span> <span class="f">copies</span> cText, nTimes
+
 	cResult = <span class="s">""</span>
 	<span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> nTimes
 		cResult += cText
@@ -392,6 +399,7 @@ cRoot = <span class="s">""</span>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_browser.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_browser.ring: run with  ring ch10_browser.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	<span class="f">dnAssert</span>(<span class="s">"the root node"</span>,oTree.Nodes.Count,<span class="n">1</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the root has three subfolders"</span>,oTree.Nodes.<span class="f">Item</span>(<span class="n">0</span>).Nodes.Count,<span class="n">3</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the root folder has one file"</span>,oList.Items.Count,<span class="n">1</span>)

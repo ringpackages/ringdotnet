@@ -1,6 +1,7 @@
 # A list box: add, remove and the selected item
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -19,12 +20,14 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func addItem
+
 	if trim(oEdit.Text) != ""
 		oList.Items.Add(oEdit.Text)
 		oEdit.Text = ""
 	ok
 
 func removeItem
+
 	if oList.SelectedIndex >= 0
 		oList.Items.RemoveAt(oList.SelectedIndex)
 	ok

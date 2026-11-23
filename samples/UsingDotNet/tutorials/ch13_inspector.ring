@@ -1,5 +1,6 @@
 # a project: an object inspector - reflection shows the properties of any .NET object, with their types and values, in a list
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -18,6 +19,7 @@ aObjects = []                     # [ name, the .NET object ]
 cTempFile = ""
 
 func main
+
 	# Some objects to look at. They are made here; the inspector does not care what they are.
 	cTempFile = new Path().Combine([ new Path().GetTempPath(), "ringdotnet-inspect.txt" ])
 	new File().WriteAllText([ :path = cTempFile, :contents = "Hello, inspector" ])
@@ -51,6 +53,7 @@ func main
 # Fill the list with the properties of the object. GetType() gives the Type of any object, and the Type lists its properties; each
 # property can read its value from the object: GetValue(object). A property with parameters (an indexer such as Chars[i]) is skipped.
 func inspect n
+
 	oObject = aObjects[n][2]
 	oList.Items.Clear()
 	nShown = 0
@@ -80,6 +83,7 @@ func inspect n
 
 # a value for the list: a Ring text or number as it is; an object (a date, another .NET object) by its ToString
 func showValue xValue
+
 	if isObject(xValue)
 		return xValue.toString()
 	ok
@@ -87,6 +91,7 @@ func showValue xValue
 
 # the rows sorted by the name of the property (a bubble sort on the first item; the lists are short)
 func sortRows aRows
+
 	for i = 1 to len(aRows) - 1
 		for j = 1 to len(aRows) - i
 			if strcmp(aRows[j][1],aRows[j + 1][1]) > 0

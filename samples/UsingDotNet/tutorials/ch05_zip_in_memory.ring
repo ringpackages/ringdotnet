@@ -1,5 +1,6 @@
 # ZIP archives in memory - ZipArchive on a MemoryStream, entries, reading one file, compression levels, and updating an archive
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -8,6 +9,7 @@ using {
 }
 
 func main
+
 	oUtf8 = new UTF8Encoding()
 
 	# 1. A ZIP archive does not have to be a file. ZipArchive works on any stream: a MemoryStream keeps the whole archive in memory, which is
@@ -68,12 +70,14 @@ func main
 	? nl + "6. a safe name has no '..' part and does not start with '/': " + safeName("data/names.txt") + ", " + safeName("../../etc/passwd") + ", " + safeName("/absolute.txt")
 
 func addEntry oZip,cName,cText
+
 	oEntry = oZip.CreateEntry(cName)
 	oWriter = new StreamWriter(oEntry.Open())
 	oWriter.Write(cText)
 	oWriter.Dispose()
 
 func packSize cLevel,cText
+
 	oStream = new MemoryStream
 	oZip = dnNew("ZipArchive",[ :stream = oStream, :mode = "Create", :leaveOpen = True ])
 	oEntry = oZip.CreateEntry([ :entryName = "text.txt", :compressionLevel = cLevel ])
@@ -84,13 +88,16 @@ func packSize cLevel,cText
 	return oStream.Length
 
 func safeName cName
+
 	if left(cName,1) = "/" or left(cName,1) = "\" or substr(cName,"..") > 0
 		return "unsafe"
 	ok
 	return "safe"
 
 func padRight cText,nWidth
+
 	return cText + copy(" ",nWidth - len(cText))
 
 func padLeft cText,nWidth
+
 	return copy(" ",nWidth - len(cText)) + cText

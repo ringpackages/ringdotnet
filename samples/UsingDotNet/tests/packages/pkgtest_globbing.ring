@@ -42,6 +42,7 @@ pkgRemoveDir(cRoot)
 dnTestSummary()
 
 func matchFiles oMatcher, cRoot
+
 	oInfo = dnNew("System.IO.DirectoryInfo",[cRoot])
 	oWrapper = dnNew("Microsoft.Extensions.FileSystemGlobbing.Abstractions.DirectoryInfoWrapper",[oInfo])
 	oResult = oMatcher.Execute(oWrapper)

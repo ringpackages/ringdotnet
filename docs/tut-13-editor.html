@@ -254,6 +254,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_editor.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a small text editor - menus, a status bar, files and a message when you quit with unsaved text</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -268,6 +269,7 @@ cFileName = <span class="s">""</span>
 lChanged = <span class="k">False</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Tiny editor"</span>,<span class="n">560</span>,<span class="n">360</span>)
 
 	<span class="c"># The editor fills the window. Add the control that fills FIRST: Windows Forms docks the controls added later</span>
@@ -295,16 +297,19 @@ lChanged = <span class="k">False</span>
 	<span class="f">uiRun</span>(oForm)
 
 <span class="k">func</span> <span class="f">textChanged</span>
+
 	lChanged = <span class="k">True</span>
 	oStatus.Items.<span class="f">Item</span>(<span class="n">0</span>).Text = <span class="s">""</span> + len(oEditor.Text) + <span class="s">" characters (not saved)"</span>
 
 <span class="k">func</span> <span class="f">newFile</span>
+
 	oEditor.Text = <span class="s">""</span>
 	cFileName = <span class="s">""</span>
 	lChanged = <span class="k">False</span>
 	oForm.Text = <span class="s">"Tiny editor"</span>
 
 <span class="k">func</span> <span class="f">openFile</span>
+
 	cChosen = <span class="f">uiOpenFileName</span>(<span class="s">"Open a text file"</span>,<span class="s">"Text files|*.txt|All files|*.*"</span>)
 	<span class="k">if</span> cChosen = <span class="s">""</span>
 		<span class="k">return</span>
@@ -312,6 +317,7 @@ lChanged = <span class="k">False</span>
 	loadFile(cChosen)
 
 <span class="k">func</span> <span class="f">loadFile</span> cPath
+
 	cContent = <span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cPath)
 	oEditor.Text = cContent
 	cFileName = cPath
@@ -321,6 +327,7 @@ lChanged = <span class="k">False</span>
 	oStatus.Items.<span class="f">Item</span>(<span class="n">0</span>).Text = <span class="s">"Opened "</span> + cPath
 
 <span class="k">func</span> <span class="f">saveFile</span>
+
 	<span class="k">if</span> cFileName = <span class="s">""</span>
 		cFileName = <span class="f">uiSaveFileName</span>(<span class="s">"Save the text"</span>,<span class="s">"Text files|*.txt|All files|*.*"</span>)
 		<span class="k">if</span> cFileName = <span class="s">""</span>
@@ -352,6 +359,7 @@ lChanged = <span class="k">False</span>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_editor.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_editor.ring: run with  ring ch10_editor.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	oEditor.Text = <span class="s">"Hello from the test"</span>
 	<span class="f">dnAssert</span>(<span class="s">"the text changed"</span>,lChanged,<span class="k">True</span>)
 	cTemp = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_editor.txt"</span>])

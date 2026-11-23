@@ -260,6 +260,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch09_settings.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># settings - defaults, a JSON file, loading, saving, and special folders</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -267,6 +268,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># Where do programs keep their files? .NET knows the special folders of the user.</span>
 	oEnvironment = <span class="k">new</span> <span class="t">Environment</span>()
 	? <span class="s">"Special folders exist:"</span>
@@ -305,6 +307,7 @@ using {
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
 
 <span class="k">func</span> <span class="f">showSettings</span> oSettings
+
 	? <span class="s">"   name     = "</span> + oSettings.<span class="f">getValue</span>(<span class="s">"name"</span>)
 	? <span class="s">"   fontSize = "</span> + oSettings.<span class="f">getValue</span>(<span class="s">"fontSize"</span>)
 	? <span class="s">"   darkMode = "</span> + oSettings.<span class="f">getValue</span>(<span class="s">"darkMode"</span>)
@@ -317,12 +320,14 @@ using {
 	cLoadError = <span class="s">""</span>
 
 	<span class="k">func</span> <span class="f">init</span> cPath
+
 		cFile = cPath
 		<span class="c"># the defaults: the keys that exist, and what they are before the user changes them</span>
 		aValues = [[<span class="s">"name"</span>,<span class="s">"Guest"</span>],[<span class="s">"fontSize"</span>,<span class="n">11</span>],[<span class="s">"darkMode"</span>,<span class="n">0</span>]]
 		readFile()
 
 	<span class="k">func</span> <span class="f">getValue</span> cKey
+
 		<span class="k">for</span> aPair <span class="k">in</span> aValues
 			<span class="k">if</span> aPair[<span class="n">1</span>] = cKey
 				<span class="k">return</span> aPair[<span class="n">2</span>]
@@ -331,6 +336,7 @@ using {
 		<span class="k">return</span> <span class="s">""</span>
 
 	<span class="k">func</span> <span class="f">setValue</span> cKey, xValue
+
 		<span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> len(aValues)
 			<span class="k">if</span> aValues[nIndex][<span class="n">1</span>] = cKey
 				aValues[nIndex][<span class="n">2</span>] = xValue
@@ -339,6 +345,7 @@ using {
 
 	<span class="c"># the file holds a JSON object: {"name":"Ann","fontSize":14,"darkMode":1}</span>
 	<span class="k">func</span> <span class="f">save</span>
+
 		cJson = <span class="s">"{"</span>
 		<span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> len(aValues)
 			<span class="k">if</span> nIndex &gt; <span class="n">1</span>
@@ -355,6 +362,7 @@ using {
 
 	<span class="c"># read the file and replace the defaults with the values that it has</span>
 	<span class="k">func</span> <span class="f">readFile</span>
+
 		cLoadError = <span class="s">""</span>
 		<span class="k">if</span> <span class="k">not</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile)
 			<span class="k">return</span>

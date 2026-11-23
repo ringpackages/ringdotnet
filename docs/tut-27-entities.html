@@ -257,9 +257,11 @@
 <h2 id="part-1-objects">Part 1: objects<a class="anchor" href="#part-1-objects">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch09_entities.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the tutorial "Entity objects and migrations", part 1: entity objects - the rows of a table as real objects with navigation properties</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using { <span class="s">"RingDotNet.Data"</span> }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># The schema is the same as with RingDatabase. RingEntityDb turns every table into a .NET class.</span>
 	oDb = <span class="k">new</span> <span class="t">RingEntityDb</span>(<span class="s">"Data Source=:memory:"</span>,[
 		[<span class="s">"Teams"</span>,[[<span class="s">"Id"</span>,<span class="s">"int"</span>,<span class="n">1</span>],[<span class="s">"Name"</span>,<span class="s">"string"</span>,<span class="n">0</span>,[[<span class="s">"required"</span>,<span class="n">1</span>]]]]],
@@ -341,12 +343,14 @@ STEP 5: after removing Bob there are 1 player(s)</code></pre></div>
 <p>You shipped version 1 of a program. Users have data. In version 2 you need a <code>Phone</code> column and a <code>Notes</code> table. If you only change the schema in the program, the <em>old file still has the old tables</em>: new code meets old data. A <strong>migration</strong> brings the file up to date.</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch09_migrations.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the tutorial "Entity objects and migrations", part 2: changing a database that already has data - migrations</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.IO"</span>
 	<span class="s">"RingDotNet.Data"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_migrations.db"</span>])
 	<span class="k">if</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile)
 		<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)

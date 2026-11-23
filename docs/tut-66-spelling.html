@@ -254,6 +254,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch02_spelling.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a spell checker - a set of words, edit distance (Levenshtein) and the best suggestions</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Collections.Generic"</span>
 	<span class="s">"System.Text.RegularExpressions"</span>
@@ -262,6 +263,7 @@ using {
 aDictionary = [<span class="s">"the"</span>,<span class="s">"quick"</span>,<span class="s">"brown"</span>,<span class="s">"fox"</span>,<span class="s">"jumps"</span>,<span class="s">"over"</span>,<span class="s">"lazy"</span>,<span class="s">"dog"</span>,<span class="s">"and"</span>,<span class="s">"then"</span>,<span class="s">"there"</span>,<span class="s">"their"</span>,<span class="s">"brain"</span>,<span class="s">"crown"</span>,<span class="s">"frown"</span>,<span class="s">"jump"</span>,<span class="s">"quack"</span>,<span class="s">"quiet"</span>,<span class="s">"lake"</span>,<span class="s">"dig"</span>,<span class="s">"dot"</span>,<span class="s">"dug"</span>]
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. A StringSet (a .NET HashSet) answers "is this word known?" at once, however many words it holds</span>
 	oWords = <span class="k">new</span> <span class="t">StringSet</span>()
 	<span class="k">for</span> cWord <span class="k">in</span> aDictionary
@@ -295,6 +297,7 @@ aDictionary = [<span class="s">"the"</span>,<span class="s">"quick"</span>,<span
 <span class="c"># The distance with a table: aTable[i][j] = the distance between the first i letters of cA and the first j letters of cB.</span>
 <span class="c"># The first row and column are the distances to the empty text. Each cell is the cheapest of: delete, insert, replace (free when the letters are equal).</span>
 <span class="k">func</span> <span class="f">distance</span> cA, cB
+
 	nA = len(cA)
 	nB = len(cB)
 	aTable = []
@@ -327,6 +330,7 @@ aDictionary = [<span class="s">"the"</span>,<span class="s">"quick"</span>,<span
 
 <span class="c"># the nCount closest dictionary words: sorted by distance, equal distances alphabetically</span>
 <span class="k">func</span> <span class="f">suggest</span> cWord, nCount
+
 	aScored = []
 	<span class="k">for</span> cKnown <span class="k">in</span> aDictionary
 		aScored + [distance(cWord,cKnown),cKnown]
@@ -347,6 +351,7 @@ aDictionary = [<span class="s">"the"</span>,<span class="s">"quick"</span>,<span
 	<span class="k">return</span> aBest
 
 <span class="k">func</span> <span class="f">joinWith</span> aList, cSeparator
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> cItem <span class="k">in</span> aList
 		<span class="k">if</span> cText != <span class="s">""</span>
@@ -357,6 +362,7 @@ aDictionary = [<span class="s">"the"</span>,<span class="s">"quick"</span>,<span
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

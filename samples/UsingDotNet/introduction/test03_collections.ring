@@ -1,5 +1,6 @@
 # Collections: the generated closed generic classes (StringList, StringDictionary ...)
 load "dotnet.ring"
+
 using { "System.Collections.Generic" }
 
 # List<string>

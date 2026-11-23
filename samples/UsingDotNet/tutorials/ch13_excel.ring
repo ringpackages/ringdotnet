@@ -1,6 +1,7 @@
 # an Excel file with a NuGet package - ClosedXML writes and reads .xlsx files without Excel on the computer
 #   (the project is in the folder Excel: Excel.csproj names ClosedXML, and Empty.cs is the one source file a project needs)
 load "dotnet.ring"
+
 using { "System.IO" }
 
 cHere = currentdir()
@@ -27,6 +28,7 @@ dnLoad(cDll)
 dnImportFrom(cClasses + "/","ClosedXML.Excel")
 
 func main
+
 	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet-sales.xlsx"])
 
 	# 1. A workbook is the file; a worksheet is one of its sheets; a cell is found by its address ("B2") like in Excel

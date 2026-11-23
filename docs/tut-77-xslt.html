@@ -263,6 +263,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch02_xslt.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># XSLT - turn XML into text, CSV and HTML with a stylesheet (System.Xml.Xsl)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -285,6 +286,7 @@ C_HTML = <span class="s">'&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www
 C_HTML += <span class="s">'&lt;xsl:template match="/library"&gt;&lt;table&gt;&lt;xsl:for-each select="book"&gt;&lt;tr class="{@genre}"&gt;&lt;td&gt;&lt;xsl:value-of select="title"/&gt;&lt;/td&gt;&lt;td&gt;&lt;xsl:value-of select="price"/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/xsl:for-each&gt;&lt;/table&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;'</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	cFolder = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_xslt"</span>])
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(cFolder)
 	cInput = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,<span class="s">"library.xml"</span>])
@@ -310,6 +312,7 @@ C_HTML += <span class="s">'&lt;xsl:template match="/library"&gt;&lt;table&gt;&lt
 
 <span class="c"># compile the stylesheet text, run it over the input file, return the text of the output file</span>
 <span class="k">func</span> <span class="f">transform</span> cFolder, cInput, cStylesheet, cOutputName
+
 	cSheet = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,cOutputName + <span class="s">".xsl"</span>])
 	cOutput = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,cOutputName])
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cSheet, :contents = cStylesheet ])
@@ -319,6 +322,7 @@ C_HTML += <span class="s">'&lt;xsl:template match="/library"&gt;&lt;table&gt;&lt
 	<span class="k">return</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cOutput)
 
 <span class="k">func</span> <span class="f">indent</span> cText
+
 	cText = substr(cText,char(<span class="n">13</span>),<span class="s">""</span>)
 	<span class="k">while</span> right(cText,<span class="n">1</span>) = char(<span class="n">10</span>)
 		cText = left(cText,len(cText) - <span class="n">1</span>)
@@ -326,6 +330,7 @@ C_HTML += <span class="s">'&lt;xsl:template match="/library"&gt;&lt;table&gt;&lt
 	<span class="k">return</span> <span class="s">"   "</span> + substr(cText,char(<span class="n">10</span>),nl + <span class="s">"   "</span>)
 
 <span class="k">func</span> <span class="f">countOf</span> cText, cPart
+
 	nCount = <span class="n">0</span>
 	nPos = <span class="n">1</span>
 	<span class="k">while</span> <span class="k">true</span>
@@ -342,6 +347,7 @@ C_HTML += <span class="s">'&lt;xsl:template match="/library"&gt;&lt;table&gt;&lt
 	<span class="k">return</span> nCount
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

@@ -1,5 +1,6 @@
 # binary files - bytes, BinaryWriter and BinaryReader, a file format, and a hex dump
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_binary.dat"])
 
 	# 1. A binary file stores values as bytes, not as readable text. We invent a tiny format:
@@ -61,6 +63,7 @@ func main
 
 # a hex dump: 8 bytes per line
 func hexDump cFile
+
 	cData = new File().ReadAllBytes(cFile)
 	cOut = ""
 	for nStart = 1 to len(cData) step 8
@@ -80,6 +83,7 @@ func hexDump cFile
 	return cOut
 
 func readMagic cFile
+
 	cMagic = ""
 	oReader = ""
 	try
@@ -95,6 +99,7 @@ func readMagic cFile
 	return cMagic
 
 func copies cText, nTimes
+
 	cResult = ""
 	for nIndex = 1 to nTimes
 		cResult += cText

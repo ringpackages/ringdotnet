@@ -33,13 +33,17 @@ dnAssert("the value",aPick[2],"hello")
 dnTestSummary()
 
 func describeText aArgs
+
 	return "text: " + aArgs[1]
 
 func describeNumber aArgs
+
 	return "number: " + aArgs[1]
 
 func seeText aArgs
+
 	cSeen = "saw text " + aArgs[1]
 
 func seeNumber aArgs
+
 	cSeen = "saw number " + aArgs[1]

@@ -1,5 +1,6 @@
 # a project - a backup tool (zip a folder, name by date, keep the newest few, restore)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	oPath = new Path()
 	oDirectory = new Directory()
 	oFile = new File()
@@ -47,21 +49,25 @@ func main
 
 # STEP 1: zip the source folder to backups/backup-<stamp>.zip
 func makeBackup cSource, cBackups, cStamp
+
 	cZip = new Path().Combine([cBackups,"backup-" + cStamp + ".zip"])
 	new ZipFile().CreateFromDirectory([ :sourceDirectoryName = cSource, :destinationArchiveFileName = cZip ])
 	return cZip
 
 # the backups, oldest first (the names sort the same way as the dates)
 func listBackups cBackups
+
 	return sort(new Directory().GetFiles([ :path = cBackups, :searchPattern = "backup-*.zip" ]).toList())
 
 func showBackups cBackups
+
 	for cFile in listBackups(cBackups)
 		? "   " + new Path().GetFileName(cFile)
 	next
 
 # STEP 2: delete the oldest backups until only nKeep are left
 func keepNewest cBackups, nKeep
+
 	aList = listBackups(cBackups)
 	nDeleted = 0
 	for nIndex = 1 to len(aList) - nKeep
@@ -72,12 +78,14 @@ func keepNewest cBackups, nKeep
 
 # STEP 3: unzip the newest backup into a folder
 func restoreLatest cBackups, cFolder
+
 	aList = listBackups(cBackups)
 	cLatest = aList[len(aList)]
 	new ZipFile().ExtractToDirectory([ :sourceArchiveFileName = cLatest, :destinationDirectoryName = cFolder ])
 	return cLatest
 
 func copies cText, nTimes
+
 	cResult = ""
 	for nIndex = 1 to nTimes
 		cResult += cText

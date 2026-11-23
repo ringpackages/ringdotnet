@@ -1,10 +1,12 @@
 # sets - HashSet, union, intersection, difference, subsets, and how a set removes duplicates and finds common items fast
 load "dotnet.ring"
+
 using {
 	"System"
 }
 
 func main
+
 	cText = "System.String"
 
 	# A set holds each value ONCE and has no order. Adding a value that is already there changes nothing. Looking for a value is
@@ -58,6 +60,7 @@ func main
 	? nl + "6. " + len(aWithDuplicates) + " numbers, " + len(aUnique) + " different: " + list2text(aUnique)
 
 func makeSet aList
+
 	oSet = dnNewGeneric("System.Collections.Generic.HashSet",["System.String"],[])
 	for cItem in aList
 		oSet.Add(cItem)
@@ -66,12 +69,15 @@ func makeSet aList
 
 # a copy of a set: the constructor of HashSet takes a collection
 func copySet oSet
+
 	return dnNewGeneric("System.Collections.Generic.HashSet",["System.String"],[oSet])
 
 func sortedText oSet
+
 	return list2text(sort(oSet.toList()))
 
 func list2text aList
+
 	cText = ""
 	for item in aList
 		cText += "" + item + " "

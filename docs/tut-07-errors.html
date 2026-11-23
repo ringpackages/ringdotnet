@@ -262,12 +262,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch01_errors.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># when things go wrong - exceptions, try/catch, checking before you act</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># A .NET exception becomes a Ring error you can catch</span>
 	<span class="k">try</span>
 		<span class="k">new</span> <span class="t">Int32</span>().<span class="f">Parse</span>(<span class="s">"abc"</span>)
@@ -330,6 +332,7 @@ using {
 	<span class="c"># More detail while you are developing: set RINGDOTNET_TRACE=1 to see the .NET stack trace in the error text</span>
 
 <span class="k">func</span> <span class="f">withdraw</span> nBalance, nAmount
+
 	<span class="k">if</span> nAmount &gt; nBalance
 		raise(<span class="s">"Not enough money: balance "</span> + nBalance + <span class="s">", asked "</span> + nAmount)
 	<span class="k">ok</span>

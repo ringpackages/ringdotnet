@@ -1,11 +1,13 @@
 # dates and times - DateOnly, TimeOnly, DateTimeOffset, TimeSpan and calculations that do not break
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Globalization"
 }
 
 func main
+
 	# 1. DateTime mixes a date and a time. When you only need ONE of them, DateOnly and TimeOnly say it in the type: a birthday has no
 	#    time, an opening hour has no date.
 	oDate = makeDate(2024,2,28)
@@ -55,7 +57,9 @@ func main
 	? "   '31/04/2024' is a date: " + aParsed[1] + "   (April has 30 days)"
 
 func makeDate nYear,nMonth,nDay
+
 	return new DateOnly(nYear,nMonth,nDay)
 
 func makeDateTime nYear,nMonth,nDay,nHour,nMinute
+
 	return dnNew("DateTime",[ :year = nYear, :month = nMonth, :day = nDay, :hour = nHour, :minute = nMinute, :second = 0 ])

@@ -256,12 +256,14 @@
 <span class="c">#   ring ch06_cli.ring                        runs a demonstration of several command lines</span>
 <span class="c">#   ring ch06_cli.ring file.txt --top 5       is a real use of the tool: the 5 most frequent words of file.txt</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.IO"</span>
 	<span class="s">"System.Text.RegularExpressions"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># the arguments after the program name: sysargv = [ring, program, arg1, arg2, ...] (the first two are not ours)</span>
 	aArguments = []
 	<span class="k">for</span> nIndex = <span class="n">3</span> <span class="k">to</span> len(sysargv)
@@ -291,10 +293,12 @@ using {
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
 
 <span class="k">func</span> <span class="f">showResult</span> nCode
+
 	? <span class="s">"(exit code "</span> + nCode + <span class="s">")"</span>
 
 <span class="c"># Runs the tool with a list of arguments. It returns an exit code: 0 = success, 1 = a problem with the arguments, 2 = a problem with the file.</span>
 <span class="k">func</span> <span class="f">run</span> aArguments
+
 	aOptions = parseArguments(aArguments)
 	<span class="k">if</span> islist(aOptions) = <span class="k">False</span>
 		<span class="k">return</span> <span class="n">1</span>
@@ -318,6 +322,7 @@ using {
 
 <span class="c"># Options start with --; some have a value (--top 5). A word without -- is the file. Returns a list of [name, value], or false on a mistake.</span>
 <span class="k">func</span> <span class="f">parseArguments</span> aArguments
+
 	aOptions = [[<span class="s">"top"</span>,<span class="s">"10"</span>],[<span class="s">"min"</span>,<span class="s">"1"</span>],[<span class="s">"help"</span>,<span class="s">""</span>],[<span class="s">"file"</span>,<span class="s">""</span>]]
 	nIndex = <span class="n">1</span>
 	<span class="k">while</span> nIndex &lt;= len(aArguments)
@@ -342,6 +347,7 @@ using {
 	<span class="k">return</span> aOptions
 
 <span class="k">func</span> <span class="f">setOption</span> aOptions, cName, cValue
+
 	<span class="k">for</span> nPos = <span class="n">1</span> <span class="k">to</span> len(aOptions)
 		<span class="k">if</span> aOptions[nPos][<span class="n">1</span>] = cName
 			aOptions[nPos][<span class="n">2</span>] = cValue
@@ -349,6 +355,7 @@ using {
 	<span class="k">next</span>
 
 <span class="k">func</span> <span class="f">optionValue</span> aOptions, cName
+
 	<span class="k">for</span> aPair <span class="k">in</span> aOptions
 		<span class="k">if</span> aPair[<span class="n">1</span>] = cName
 			<span class="k">return</span> aPair[<span class="n">2</span>]
@@ -357,9 +364,11 @@ using {
 	<span class="k">return</span> <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">isNumberText</span> cText
+
 	<span class="k">return</span> <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"^[0-9]+$"</span>).<span class="f">IsMatch</span>(cText)
 
 <span class="k">func</span> <span class="f">showUsage</span>
+
 	? <span class="s">"usage: wordstat FILE [--top N] [--min LENGTH]"</span>
 	? <span class="s">"  FILE        a text file"</span>
 	? <span class="s">"  --top N     show the N most frequent words (default 10)"</span>
@@ -368,6 +377,7 @@ using {
 
 <span class="c"># the words of a file counted, the most frequent first</span>
 <span class="k">func</span> <span class="f">showStatistics</span> cFile, nTop, nMin
+
 	oWords = <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"[A-Za-z]+"</span>).<span class="f">Matches</span>(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cFile))
 	aWords = []                              <span class="c"># [word, count]</span>
 	<span class="k">for</span> nIndex = <span class="n">0</span> <span class="k">to</span> oWords.Count - <span class="n">1</span>
@@ -395,6 +405,7 @@ using {
 	<span class="k">next</span>
 
 <span class="k">func</span> <span class="f">sortBy</span> aPairs
+
 	<span class="k">for</span> nI = <span class="n">1</span> <span class="k">to</span> len(aPairs) - <span class="n">1</span>
 		<span class="k">for</span> nJ = nI + <span class="n">1</span> <span class="k">to</span> len(aPairs)
 			<span class="k">if</span> aPairs[nJ][<span class="n">2</span>] &gt; aPairs[nI][<span class="n">2</span>] <span class="k">or</span> (aPairs[nJ][<span class="n">2</span>] = aPairs[nI][<span class="n">2</span>] <span class="k">and</span> strcmp(aPairs[nJ][<span class="n">1</span>],aPairs[nI][<span class="n">1</span>]) &lt; <span class="n">0</span>)

@@ -257,6 +257,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_layout.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># layout and richer controls - SplitContainer, TabControl, TableLayoutPanel, DataGridView with a filter</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Data"</span>
 	<span class="s">"System.Drawing"</span>
@@ -274,6 +275,7 @@ oView = <span class="s">""</span>
 aCustomers = [[<span class="s">"Ann"</span>,<span class="s">"Cairo"</span>],[<span class="s">"Bob"</span>,<span class="s">"Oslo"</span>],[<span class="s">"Cy"</span>,<span class="s">"Tokyo"</span>]]
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Customers"</span>,<span class="n">620</span>,<span class="n">300</span>)
 
 	<span class="c"># A SplitContainer has two panels with a bar between them that the user can drag.</span>
@@ -347,6 +349,7 @@ aCustomers = [[<span class="s">"Ann"</span>,<span class="s">"Cairo"</span>],[<sp
 
 <span class="c"># a label and a value in one row of the table</span>
 <span class="k">func</span> <span class="f">addRow</span> oTable, nRow, cTitle
+
 	oTitle = <span class="k">new</span> <span class="t">Label</span>() {
 		Text = cTitle
 		Dock = <span class="s">"Fill"</span>
@@ -363,6 +366,7 @@ aCustomers = [[<span class="s">"Ann"</span>,<span class="s">"Cairo"</span>],[<sp
 	<span class="k">return</span> oValue
 
 <span class="k">func</span> <span class="f">customerChosen</span>
+
 	nIndex = oList.SelectedIndex + <span class="n">1</span>
 	<span class="k">if</span> nIndex &lt; <span class="n">1</span>
 		<span class="k">return</span>

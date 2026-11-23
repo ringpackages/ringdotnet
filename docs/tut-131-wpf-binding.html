@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch11_wpf_binding.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># WPF data binding - controls that follow each other: a slider, a text box, a progress bar, a check box and a list, all in XAML</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Windows"</span>
 	<span class="s">"System.Windows.Controls"</span>
@@ -264,6 +265,7 @@ using {
 oWindow = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># A BINDING connects a property of one control to a property of another: when one changes, the other follows, and no Ring code runs.</span>
 	<span class="c">#   {Binding ElementName=amount, Path=Value}   the property Value of the element named "amount"</span>
 	<span class="c">#   Mode=TwoWay                                the change goes both ways (a text box writes back to the slider)</span>
@@ -303,6 +305,7 @@ oWindow = <span class="s">""</span>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch11_wpf_binding.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch11_wpf_binding.ring: run with  ring ch11_wpf_binding.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	oSlider = <span class="f">wpfFind</span>(oWindow,<span class="s">"amount"</span>)
 	oBox = <span class="f">wpfFind</span>(oWindow,<span class="s">"box"</span>)
 	oBar = <span class="f">wpfFind</span>(oWindow,<span class="s">"bar"</span>)

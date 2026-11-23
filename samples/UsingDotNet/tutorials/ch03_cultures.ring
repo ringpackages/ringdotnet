@@ -1,11 +1,13 @@
 # cultures - the same number, date and text written, read and sorted in different languages
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Globalization"
 }
 
 func main
+
 	oString = new String()
 	oConvert = new Convert()
 	aCultures = ["en-US","de-DE","fr-FR","ar-EG","ja-JP"]

@@ -1,6 +1,7 @@
 # the checks of ch12_addressbook.ring: run with  ring ch12_addressbook.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	for aPerson in [["Ann","555-0101","Cairo"],["Bob","555-0102","Oslo"],["Cy","555-0103","Cairo"]]
 		oName.Text = aPerson[1]
 		oPhone.Text = aPerson[2]

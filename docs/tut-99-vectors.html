@@ -255,12 +255,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch03_vectors.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># vectors and matrices - Vector3 (length, dot and cross product, distance), Vector2 and a rotation with Matrix3x2</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Numerics"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. A Vector3 holds three numbers (X, Y, Z): a point or a direction in space (Vector2 has two numbers, Vector4 four).</span>
 	<span class="c">#    The numbers are single-precision floats, so results are shown rounded.</span>
 	oA = <span class="k">new</span> <span class="t">Vector3</span>().@<span class="k">New</span>([ :<span class="t">x</span> = <span class="n">3</span>, :y = <span class="n">4</span>, :z = <span class="n">0</span> ])
@@ -300,10 +302,12 @@ using {
 	? <span class="s">"   turned and then moved: ("</span> + roundNumber(oResult.X) + <span class="s">", "</span> + roundNumber(oResult.Y) + <span class="s">")"</span>
 
 <span class="k">func</span> <span class="f">show3</span> oVector
+
 	<span class="k">return</span> <span class="s">"("</span> + roundNumber(oVector.X) + <span class="s">", "</span> + roundNumber(oVector.Y) + <span class="s">", "</span> + roundNumber(oVector.Z) + <span class="s">")"</span>
 
 <span class="c"># a number rounded to 3 decimals (a float has about 7 digits, so 1E-8 is "zero")</span>
 <span class="k">func</span> <span class="f">roundNumber</span> nValue
+
 	nRounded = floor(nValue * <span class="n">1000</span> + <span class="n">0.5</span>) / <span class="n">1000</span>
 	<span class="k">if</span> nRounded = <span class="n">0</span>
 		nRounded = <span class="n">0</span>

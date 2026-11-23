@@ -1,5 +1,6 @@
 # URLs and encodings - taking an address apart, building a query string safely, Base64 and percent-encoding
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Net"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	# 1. A URL has parts. The Uri class splits them: no searching for ":" and "/" yourself.
 	oUri = new Uri("https://shop.example.com:8443/products/shoes?color=red&size=42#reviews")
 	? "1. scheme   : " + oUri.Scheme
@@ -54,6 +56,7 @@ func main
 	? "   is 'https://example.com' valid? " + yesNo(oUri.IsWellFormedUriString("https://example.com","Absolute"))
 
 func buildUrl cBase, aParameters
+
 	cQuery = ""
 	for aPair in aParameters
 		if cQuery != ""
@@ -65,6 +68,7 @@ func buildUrl cBase, aParameters
 
 # "a=1&b=2" -> [["a","1"],["b","2"]], each value decoded
 func parseQuery cQuery
+
 	aList = []
 	for cPart in str2list(substr(cQuery,"&",nl))
 		nPos = substr(cPart,"=")
@@ -73,6 +77,7 @@ func parseQuery cQuery
 	return aList
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

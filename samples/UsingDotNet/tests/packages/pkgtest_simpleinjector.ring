@@ -33,4 +33,5 @@ dnTestSummary()
 
 # the delegate that makes a transient object: Ring code that SimpleInjector calls
 func makeBuilder aArgs
+
 	return dnNew("System.Text.StringBuilder",[])

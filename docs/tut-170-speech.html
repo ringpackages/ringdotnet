@@ -274,6 +274,7 @@
 <span class="c">#   (the project is in the folder Speech: Speech.csproj names the package for Windows, and Empty.cs is the one source file a project needs)</span>
 <span class="c">#   Run it with --speak to hear the voice; without it the program writes the speech to a file, silently.</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using { <span class="s">"System.IO"</span> }
 
 <span class="k">if</span> <span class="k">not</span> iswindows()
@@ -306,6 +307,7 @@ chdir(cHere)
 <span class="f">dnImportFrom</span>(cClasses + <span class="s">"/"</span>,<span class="s">"System.Speech.Synthesis"</span>)
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oVoice = <span class="k">new</span> <span class="t">SpeechSynthesizer</span>()
 
 	<span class="c"># 1. The voices that are installed (the names depend on the computer, so the program only counts them)</span>
@@ -336,6 +338,7 @@ chdir(cHere)
 
 <span class="c"># speaks a text to a WAV file with a rate and gives the size of the file</span>
 <span class="k">func</span> <span class="f">speakToFile</span> oVoice, cText, nRate, cFile
+
 	oVoice.Rate = nRate
 	oVoice.<span class="f">SetOutputToWaveFile</span>(cFile)
 	oVoice.<span class="f">Speak</span>(cText)

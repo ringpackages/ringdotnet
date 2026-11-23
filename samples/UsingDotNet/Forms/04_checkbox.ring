@@ -1,6 +1,7 @@
 # A check box changes a label
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -15,6 +16,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func changed
+
 	if oCheck.Checked
 		oState.Text = "Notifications are on"
 	else

@@ -2,12 +2,14 @@
 
 # the test plays: it chooses the answers like a user and clicks the button
 func play nAnswer
+
 	if nAnswer > 0
 		aAnswers[nAnswer].Checked = True
 	ok
 	oNext.PerformClick()
 
 func selfTest
+
 	cleanUp()
 	dnAssert("the first question",oQuestion.Text,"Which language is used with this package?")
 	dnAssert("the progress",oProgress.Text,"Question 1 of 4")

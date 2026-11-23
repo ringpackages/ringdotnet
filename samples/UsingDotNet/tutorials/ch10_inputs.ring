@@ -1,5 +1,6 @@
 # more input controls - a date picker, a track bar, radio buttons, tool tips and an error marker (a booking form)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Drawing"
@@ -22,6 +23,7 @@ oResult = ""
 oBook = ""
 
 func main
+
 	oForm = uiForm("Booking",420,330)
 
 	uiLabel(oForm,"Name",20,20,80,22)
@@ -92,6 +94,7 @@ func main
 
 # the price of one night in each room, and a discount for a long stay
 func roomPrice
+
 	if oSuite.Checked
 		return 180
 	ok
@@ -101,6 +104,7 @@ func roomPrice
 	return 70
 
 func roomName
+
 	if oSuite.Checked
 		return "Suite"
 	ok
@@ -110,6 +114,7 @@ func roomName
 	return "Single"
 
 func total
+
 	nNights = oNights.Value
 	nTotal = nNights * roomPrice()
 	if nNights >= 7
@@ -118,10 +123,12 @@ func total
 	return nTotal
 
 func showPrice
+
 	oNightsLabel.Text = "" + oNights.Value
 	oPrice.Text = "" + oNights.Value + " nights, " + roomName() + ": " + total() + " (a week or more: 10 percent off)"
 
 func book
+
 	cName = trim(oName.Text)
 	if cName = ""
 		oErrors.SetError(oName,"Please type a name")

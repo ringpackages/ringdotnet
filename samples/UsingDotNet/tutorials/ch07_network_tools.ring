@@ -1,5 +1,6 @@
 # network tools - IP addresses, DNS, ping, network interfaces and checking whether a port is open (all on this computer)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Net"
@@ -8,6 +9,7 @@ using {
 }
 
 func main
+
 	# 1. IPAddress parses an address and knows its family. A method with an "out" parameter returns a list: [success, the address].
 	oParser = new IPAddress()
 	oAddress = oParser.Parse("192.168.1.20")
@@ -55,6 +57,7 @@ func main
 
 # true when a TCP connection to the address and port is accepted within half a second
 func portIsOpen cAddress, nPort
+
 	oClient = new TcpClient()
 	lOpen = False
 	try
@@ -67,6 +70,7 @@ func portIsOpen cAddress, nPort
 	return lOpen
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

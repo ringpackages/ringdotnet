@@ -257,6 +257,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch02_unicode.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Unicode and text encodings - characters, code points, bytes, and why len() is not the number of letters</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Globalization"</span>
@@ -264,6 +265,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oUtf8 = <span class="k">new</span> <span class="t">Encoding</span>().UTF8
 	oUtf16 = <span class="k">new</span> <span class="t">Encoding</span>().Unicode              <span class="c"># .NET's own text format: UTF-16</span>
 	oLatin1 = <span class="k">new</span> <span class="t">Encoding</span>().Latin1
@@ -308,6 +310,7 @@ using {
 
 <span class="c"># text padded with spaces on the right (the columns of the table)</span>
 <span class="k">func</span> <span class="f">padRight</span> cText, nWidth
+
 	cResult = cText
 	<span class="k">while</span> len(cResult) &lt; nWidth
 		cResult += <span class="s">" "</span>
@@ -316,9 +319,11 @@ using {
 
 <span class="c"># a StringInfo knows the letters you see (text elements) of a text</span>
 <span class="k">func</span> <span class="f">textElements</span> cText
+
 	<span class="k">return</span> <span class="k">new</span> <span class="t">StringInfo</span>().@<span class="k">New</span>([ :<span class="t">value</span> = cText ])
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

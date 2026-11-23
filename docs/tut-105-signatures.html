@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch08_signatures.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># digital signatures - ECDsa keys, signing a message, verifying it, and what happens when the message or the key changes</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Security.Cryptography"</span>
@@ -262,6 +263,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oUtf8 = <span class="k">new</span> <span class="t">UTF8Encoding</span>()
 
 	<span class="c"># A digital signature proves two things about a message: who sent it (only the owner of the PRIVATE key can make the signature) and</span>

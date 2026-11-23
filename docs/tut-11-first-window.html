@@ -256,6 +256,7 @@
 <h2 id="step-1-the-smallest-window">Step 1: the smallest window<a class="anchor" href="#step-1-the-smallest-window">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_window.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your first window, step 1: the smallest window</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -269,6 +270,7 @@ oForm = <span class="f">uiForm</span>(<span class="s">"My first window"</span>,<
 <h2 id="step-2-a-label-and-a-button">Step 2: a label and a button<a class="anchor" href="#step-2-a-label-and-a-button">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_controls.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your first window, step 2: a label and a button</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -284,6 +286,7 @@ oButton = <span class="f">uiButton</span>(oForm,<span class="s">"Click me"</span
 <h2 id="step-3-the-button-does-something">Step 3: the button does something<a class="anchor" href="#step-3-the-button-does-something">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_counter.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your first window, step 3: the button does something - events and global variables</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -296,6 +299,7 @@ oLabel = <span class="s">""</span>
 nClicks = <span class="n">0</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Click counter"</span>,<span class="n">320</span>,<span class="n">120</span>)
 	oLabel = <span class="f">uiLabel</span>(oForm,<span class="s">"The button was not clicked yet"</span>,<span class="n">20</span>,<span class="n">15</span>,<span class="n">280</span>,<span class="n">24</span>)
 	<span class="f">uiButton</span>(oForm,<span class="s">"Click me"</span>,<span class="n">20</span>,<span class="n">55</span>,<span class="n">120</span>,<span class="n">32</span>,<span class="s">"clicked()"</span>)      <span class="c"># the click calls the function clicked()</span>
@@ -304,10 +308,12 @@ nClicks = <span class="n">0</span>
 	<span class="f">uiRun</span>(oForm)
 
 <span class="k">func</span> <span class="f">clicked</span>
+
 	nClicks++
 	oLabel.Text = <span class="s">"Clicked "</span> + nClicks + <span class="s">" times"</span>
 
 <span class="k">func</span> <span class="f">resetCount</span>
+
 	nClicks = <span class="n">0</span>
 	oLabel.Text = <span class="s">"The button was not clicked yet"</span></code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g01c-clicked.png" alt="The counter after three clicks" loading="lazy"><figcaption>Step 3: after three clicks</figcaption></figure>
@@ -321,6 +327,7 @@ nClicks = <span class="n">0</span>
 <p>The helpers are only short-cuts. This program builds the same window with the real classes, so you can see what is going on:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_plain.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your first window, step 4: the same window without the helper functions - what uiForm, uiLabel and uiButton do</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -332,6 +339,7 @@ oButton = <span class="s">""</span>
 nClicks = <span class="n">0</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># every control is an object of a class, configured with properties inside braces</span>
 	oForm = <span class="k">new</span> <span class="t">Form</span>() {
 		Text = <span class="s">"Click counter (no helpers)"</span>
@@ -358,6 +366,7 @@ nClicks = <span class="n">0</span>
 	<span class="f">uiEnd</span>()
 
 <span class="k">func</span> <span class="f">clicked</span>
+
 	nClicks++
 	oLabel.Text = <span class="s">"Clicked "</span> + nClicks + <span class="s">" times"</span></code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g01d.png" alt="The same program without helpers" loading="lazy"><figcaption>Step 4: the plain version</figcaption></figure>

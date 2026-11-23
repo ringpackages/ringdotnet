@@ -1,6 +1,7 @@
 # Extension methods of the library are methods of the classes of the types that they extend (and of the classes that implement an interface that
 # they extend), the names that are Ring keywords start with @, and an interface has the members that it inherits.
 load "dotnet.ring"
+
 using {
 	"System"
 	"Microsoft.Extensions.DependencyInjection"
@@ -12,6 +13,7 @@ using {
 nMade = 0
 
 func main
+
 	# dependency injection: ServiceCollection implements IServiceCollection, which the extension methods extend
 	oServices = new ServiceCollection
 	oServices.AddSingleton([ :serviceType = dnType("System.Collections.ArrayList"), :implementationFactory = dnCallback("makeList") ])
@@ -55,8 +57,10 @@ func main
 	dnTestSummary()
 
 func makeList aArguments
+
 	return new ArrayList()
 
 func makeReport aArguments
+
 	nMade++
 	return "made"

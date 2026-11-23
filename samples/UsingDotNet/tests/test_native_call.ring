@@ -1,6 +1,7 @@
 # The calls that return a text, a number, a yes/no or nothing are packed and read in C (dotnet_call, dotnet_callv). Everything the C code
 # does not finish (an object as an argument, an object or null as the answer, a .NET error) goes the Ring way: the results must be the same.
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -11,6 +12,7 @@ using {
 nTotal = 0          # the code of a callback sees only global variables
 
 func main
+
 	oMath = new Math()
 	oList = new StringList()
 

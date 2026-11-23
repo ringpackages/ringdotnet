@@ -1,5 +1,6 @@
 # timers and progress - a stopwatch and a long job that keeps the window alive
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Diagnostics"
@@ -20,6 +21,7 @@ nTotal = 100
 lRunning = False
 
 func main
+
 	oWatch = new Stopwatch()
 	oForm = uiForm("Timers",360,200)
 	oTime = uiLabel(oForm,"0:00.0",20,10,320,44)
@@ -45,6 +47,7 @@ func main
 # ---------------------------------------------------------------- the stopwatch
 
 func toggleWatch
+
 	if oWatch.IsRunning
 		oWatch.Stop()
 	else
@@ -52,10 +55,12 @@ func toggleWatch
 	ok
 
 func resetWatch
+
 	oWatch.Reset()
 	showTime()
 
 func showTime
+
 	nMilliseconds = oWatch.ElapsedMilliseconds
 	nSeconds = floor(nMilliseconds / 1000)
 	oTime.Text = "" + floor(nSeconds / 60) + ":" + right("0" + (nSeconds % 60),2) + "." + floor((nMilliseconds % 1000) / 100)
@@ -65,6 +70,7 @@ func showTime
 # Instead, do a small part each time a timer ticks, and return to the message loop in between.
 
 func startJob
+
 	if lRunning
 		return
 	ok
@@ -76,6 +82,7 @@ func startJob
 	oInfo.Text = "Working..."
 
 func jobStep
+
 	nDone += 5                       # one small part of the work
 	oBar.Value = min(nDone,nTotal)
 	oInfo.Text = "Working... " + nDone + "%"

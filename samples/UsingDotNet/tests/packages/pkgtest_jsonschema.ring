@@ -33,4 +33,5 @@ dnAssert("a text that does not",oPattern.Evaluate(parseJson('"abc"')).IsValid,0)
 dnTestSummary()
 
 func parseJson cJson
+
 	return dnStatic("System.Text.Json.JsonDocument","Parse",[cJson]).RootElement

@@ -51,4 +51,5 @@ dnAssert("the exception that was thrown",substr(oThrown.Message,"boom") > 0,1)
 dnTestSummary()
 
 func failing aArgs
+
 	raise("boom")

@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch04_data_structures.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># more data structures - PriorityQueue, SortedSet, SortedDictionary, LinkedList and BitArray</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Collections"</span>
@@ -262,6 +263,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	cInt = <span class="s">"System.Int32"</span>
 	cText = <span class="s">"System.String"</span>
 
@@ -322,9 +324,11 @@ using {
 	? <span class="s">"   OR:    "</span> + bitText(copyBits(oBits).@<span class="k">Or</span>(oOther))
 
 <span class="k">func</span> <span class="f">copyBits</span> oBits
+
 	<span class="k">return</span> <span class="k">new</span> <span class="t">BitArray</span>(oBits)
 
 <span class="k">func</span> <span class="f">bitText</span> oBits
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> i = <span class="n">0</span> <span class="k">to</span> oBits.Length - <span class="n">1</span>
 		<span class="k">if</span> oBits.@<span class="k">Get</span>(i) cText += <span class="s">"1"</span> <span class="k">else</span> cText += <span class="s">"0"</span> <span class="k">ok</span>
@@ -332,6 +336,7 @@ using {
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">list2str2</span> aList
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> item <span class="k">in</span> aList
 		cText += <span class="s">""</span> + item + <span class="s">" "</span>

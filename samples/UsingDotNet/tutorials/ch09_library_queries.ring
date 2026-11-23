@@ -1,11 +1,13 @@
 # the tutorial "Databases step by step", part 2: relations, queries, transactions and a file database
 load "dotnet.ring"
+
 using {
 	"System.IO"
 	"RingDotNet.Data"
 }
 
 func main
+
 	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_library.db"])
 	if new File().Exists(cFile)
 		new File().Delete(cFile)

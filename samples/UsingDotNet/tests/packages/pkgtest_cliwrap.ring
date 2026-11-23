@@ -41,5 +41,6 @@ dnAssert("the SDKs that are installed",len(oList.StandardOutput) > 0,1)
 dnTestSummary()
 
 func runBuffered oCommand
+
 	oRun = dnRequest("call",[dnType("CliWrap.Buffered.BufferedCommandExtensions"),"ExecuteBufferedAsync",oCommand])
 	return oRun.getProp("Task").Result

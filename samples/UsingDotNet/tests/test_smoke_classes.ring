@@ -12,6 +12,7 @@ nProperties = 0          # globals: the function that makes the calls counts the
 nMethodCalls = 0
 
 func main
+
 	aNamespaces = ["System.Collections","System.Collections.Generic","System.Collections.Specialized","System.Collections.Concurrent",
 		"System.Collections.ObjectModel","System.Text","System.Text.Json","System.Text.Json.Nodes","System.Xml","System.Xml.Linq",
 		"System.Data","System.Numerics","System.ComponentModel","System.IO","System.Globalization","System.Net.Mail",
@@ -101,6 +102,7 @@ func main
 
 # the items of a list as one text (empty for an empty list)
 func joined aList
+
 	cText = ""
 	for cItem in aList
 		cText += cItem + "; "
@@ -109,6 +111,7 @@ func joined aList
 
 # The exceptions of .NET that a new object may raise for the state it is in (not a fault of the bridge)
 func stateError cMessage
+
 	for cKind in ["InvalidOperationException","ObjectDisposedException","NotSupportedException","PlatformNotSupportedException","NullReferenceException","ArgumentException","NotImplementedException"]
 		if substr(cMessage,cKind) > 0
 			return True
@@ -117,6 +120,7 @@ func stateError cMessage
 	return False
 
 func harmlessCalls oObject, cType, aApi, aWrong
+
 	try
 		if not isstring(oObject.toString())
 			aWrong + (cType + ": ToString is not a text")

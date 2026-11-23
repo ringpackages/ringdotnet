@@ -1,5 +1,6 @@
 # speed - measure first, then choose: Stopwatch, StringBuilder, a cache (memoization) and fewer calls
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Diagnostics"
@@ -12,6 +13,7 @@ nCachedCalls = 0
 aCache = []
 
 func main
+
 	# 1. Measure with a Stopwatch. A guess about speed is often wrong.
 	oWatch = new Stopwatch()
 	oWatch.Start()
@@ -52,6 +54,7 @@ func main
 	? "   one call is faster ? " + yesNo(nAll < nOne)
 
 func timeOf cFunction
+
 	oWatch = new Stopwatch()
 	oWatch.Start()
 	eval(cFunction + "(22)")
@@ -59,6 +62,7 @@ func timeOf cFunction
 	return oWatch.Elapsed.TotalMilliseconds
 
 func timeOfItems oList, lAtOnce
+
 	oWatch = new Stopwatch()
 	oWatch.Start()
 	nTotal = 0
@@ -76,6 +80,7 @@ func timeOfItems oList, lAtOnce
 	return oWatch.Elapsed.TotalMilliseconds
 
 func buildWithPlus nIgnored
+
 	cText = ""
 	for nI = 1 to 20000
 		cText += "piece " + nI + ";"
@@ -83,6 +88,7 @@ func buildWithPlus nIgnored
 	return cText
 
 func buildWithBuilder nIgnored
+
 	oBuilder = new StringBuilder(NULL)
 	for nI = 1 to 20000
 		oBuilder.Append("piece " + nI + ";")
@@ -90,6 +96,7 @@ func buildWithBuilder nIgnored
 	return oBuilder.ToString()
 
 func fibSlow n
+
 	nCalls++
 	if n < 2
 		return n
@@ -97,6 +104,7 @@ func fibSlow n
 	return fibSlow(n-1) + fibSlow(n-2)
 
 func fibCached n
+
 	nCachedCalls++
 	if n < 2
 		return n
@@ -111,6 +119,7 @@ func fibCached n
 	return nValue
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

@@ -1,6 +1,7 @@
 # The smallest WPF window
 
 load "dotnet.ring"
+
 using {
 	"System.Windows"
 	"System.Windows.Controls"

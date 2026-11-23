@@ -5,6 +5,7 @@
 nTotal = 0                          # a global variable: defined at the top, outside every function
 
 func main
+
 	# 1. if / but (else if) / else, closed with ok
 	nAge = 17
 	if nAge >= 18
@@ -54,13 +55,16 @@ func main
 	? "total (global) = " + nTotal
 
 func square nNumber
+
 	return nNumber * nNumber
 
 # A function has one parameter list: calling greet("Ann") with one value raises an error ("less number of parameters").
 func greet cName, cGreeting
+
 	return cGreeting + ", " + cName
 
 func minMax aList
+
 	nMin = aList[1]
 	nMax = aList[1]
 	for nItem in aList
@@ -70,4 +74,5 @@ func minMax aList
 	return [nMin,nMax]
 
 func addToTotal nValue
+
 	nTotal += nValue

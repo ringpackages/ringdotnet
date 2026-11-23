@@ -1,6 +1,7 @@
 # A date picker and the weekday of the chosen date
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -21,4 +22,5 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func showDay
+
 	oDay.Text = oPicker.Value.DayOfWeek + ", day " + oPicker.Value.DayOfYear + " of the year"

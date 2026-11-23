@@ -1,11 +1,13 @@
 # paths and the environment - building paths safely, splitting them, special folders and environment variables
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
 }
 
 func main
+
 	oPath = new Path()
 
 	# 1. Build a path with Combine, never with + "\": Combine uses the right separator for the system and never doubles it
@@ -54,6 +56,7 @@ func main
 	? nl + "7. 64-bit process? " + yesNo(oEnvironment.Is64BitProcess) + ", the new line is " + len(oEnvironment.NewLine) + " character(s) long"
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

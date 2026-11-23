@@ -274,6 +274,7 @@
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch13_csv_to_excel.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project with three packages - CsvHelper reads a CSV text, LiteDB stores the rows and finds some of them, ClosedXML writes an Excel report</span>
 <span class="c">#   (the project is in the folder Report: Report.csproj names the three packages, and Empty.cs is the one source file a project needs)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using { <span class="s">"System.IO"</span> <span class="s">"System.Globalization"</span> }
 
 cHere = currentdir()
@@ -306,6 +307,7 @@ chdir(cHere)
 <span class="f">dnImportFrom</span>(cClasses + <span class="s">"ClosedXML/"</span>,<span class="s">"ClosedXML.Excel"</span>)
 
 <span class="k">func</span> <span class="f">main</span>
+
 	cTemp = <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>()
 	cDbFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cTemp,<span class="s">"ringdotnet-sales.db"</span>])
 	cXlsx = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cTemp,<span class="s">"ringdotnet-sales-report.xlsx"</span>])

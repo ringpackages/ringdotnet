@@ -1,6 +1,7 @@
 # A grid with rows, columns and attached properties
 
 load "dotnet.ring"
+
 using {
 	"System.Windows"
 	"System.Windows.Controls"
@@ -22,6 +23,7 @@ wpfRun(oWindow)
 # --------------------------------------------------------------------------
 
 func fillGrid
+
 	for nIndex = 1 to 3
 		oGrid.RowDefinitions.Add(new RowDefinition())
 		oGrid.ColumnDefinitions.Add(new ColumnDefinition())

@@ -255,12 +255,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch02_highlighter.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project: a syntax highlighter - one regular expression with named groups splits code into tokens, and each token becomes an HTML span</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Text.RegularExpressions"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># A highlighter reads code as TOKENS (comments, strings, numbers, words) and writes each kind in its own color. The idea is one</span>
 	<span class="c"># regular expression with an alternative for each kind of token: the first alternative that matches at a place wins. The order</span>
 	<span class="c"># matters: a comment must be tried before the words, so that a word inside a comment is not a keyword.</span>
@@ -305,6 +307,7 @@ using {
 
 <span class="c"># the tokens of a text: a list of [kind, text]</span>
 <span class="k">func</span> <span class="f">tokens</span> cCode,cPattern
+
 	aList = []
 	aKinds = [ <span class="s">"comment"</span>,<span class="s">"string"</span>,<span class="s">"number"</span>,<span class="s">"word"</span>,<span class="s">"other"</span> ]
 	<span class="k">for</span> oMatch <span class="k">in</span> <span class="f">dnStatic</span>(<span class="s">"System.Text.RegularExpressions.Regex"</span>,<span class="s">"Matches"</span>,[ cCode, cPattern ]).<span class="f">toList</span>()
@@ -319,6 +322,7 @@ using {
 
 <span class="c"># the words of a kind of list: the keywords that were used (each once)</span>
 <span class="k">func</span> <span class="f">findKind</span> aTokens,cKind,aKeywords
+
 	aFound = []
 	<span class="k">for</span> aToken <span class="k">in</span> aTokens
 		<span class="k">if</span> aToken[<span class="n">1</span>] = <span class="s">"word"</span> <span class="k">and</span> find(aKeywords,aToken[<span class="n">2</span>]) &gt; <span class="n">0</span> <span class="k">and</span> find(aFound,aToken[<span class="n">2</span>]) = <span class="n">0</span>
@@ -328,6 +332,7 @@ using {
 	<span class="k">return</span> aFound
 
 <span class="k">func</span> <span class="f">findNames</span> aTokens,aKeywords
+
 	aFound = []
 	<span class="k">for</span> aToken <span class="k">in</span> aTokens
 		<span class="k">if</span> aToken[<span class="n">1</span>] = <span class="s">"word"</span> <span class="k">and</span> find(aKeywords,aToken[<span class="n">2</span>]) = <span class="n">0</span> <span class="k">and</span> find(aFound,aToken[<span class="n">2</span>]) = <span class="n">0</span>
@@ -338,6 +343,7 @@ using {
 
 <span class="c"># the HTML of a list of tokens: a span with a class for comments, strings, numbers and keywords; the rest is plain</span>
 <span class="k">func</span> <span class="f">toHtml</span> aTokens,aKeywords
+
 	cHtml = <span class="s">""</span>
 	<span class="k">for</span> aToken <span class="k">in</span> aTokens
 		cKind = aToken[<span class="n">1</span>]
@@ -359,20 +365,24 @@ using {
 
 <span class="c"># the three characters that HTML reads as markup. &amp; first: otherwise the &amp; of the other two would be changed again.</span>
 <span class="k">func</span> <span class="f">htmlText</span> cText
+
 	cText = substr(cText,<span class="s">"&amp;"</span>,<span class="s">"&amp;amp;"</span>)
 	cText = substr(cText,<span class="s">"&lt;"</span>,<span class="s">"&amp;lt;"</span>)
 	<span class="k">return</span> substr(cText,<span class="s">"&gt;"</span>,<span class="s">"&amp;gt;"</span>)
 
 <span class="c"># the HTML without the tags (the spans that the program added): what is left must be the escaped code</span>
 <span class="k">func</span> <span class="f">stripTags</span> cHtml
+
 	<span class="k">return</span> <span class="f">dnStatic</span>(<span class="s">"System.Text.RegularExpressions.Regex"</span>,<span class="s">"Replace"</span>,[ cHtml, <span class="s">'&lt;/?span[^&gt;]*&gt;'</span>, <span class="s">""</span> ])
 
 <span class="c"># a token of spaces, tabs or line breaks only</span>
 <span class="k">func</span> <span class="f">isBlank</span> cText
+
 	cText = substr(substr(substr(substr(cText,<span class="s">" "</span>,<span class="s">""</span>),char(<span class="n">9</span>),<span class="s">""</span>),char(<span class="n">10</span>),<span class="s">""</span>),char(<span class="n">13</span>),<span class="s">""</span>)
 	<span class="k">return</span> cText = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">joinList</span> aList
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> item <span class="k">in</span> aList
 		<span class="k">if</span> cText != <span class="s">""</span>
@@ -383,12 +393,14 @@ using {
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> <span class="s">"no"</span>
 
 <span class="k">func</span> <span class="f">padRight</span> cText,nWidth
+
 	<span class="k">return</span> cText + copy(<span class="s">" "</span>,nWidth - len(cText))</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. the tokens (each token with its kind), without the spaces:
    comment  [# count to three]

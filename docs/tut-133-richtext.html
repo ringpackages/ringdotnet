@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_richtext.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># formatted text - RichTextBox: bold and colored words, searching, saving as RTF and loading it again</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -270,6 +271,7 @@ oBold = <span class="s">""</span>
 oFind = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Formatted text"</span>,<span class="n">520</span>,<span class="n">360</span>)
 	oBold = <span class="f">uiButton</span>(oForm,<span class="s">"Bold"</span>,<span class="n">15</span>,<span class="n">12</span>,<span class="n">70</span>,<span class="n">28</span>,<span class="s">"toggleBold()"</span>)
 	<span class="f">uiButton</span>(oForm,<span class="s">"Red"</span>,<span class="n">92</span>,<span class="n">12</span>,<span class="n">70</span>,<span class="n">28</span>,<span class="s">"makeRed()"</span>)
@@ -291,9 +293,11 @@ oFind = <span class="s">""</span>
 
 <span class="c"># the font of the selection: uiFont(family, size, bold). The same family and size, only the bold changes.</span>
 <span class="k">func</span> <span class="f">setBold</span> lBold
+
 	oRich.SelectionFont = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">11</span>,lBold)
 
 <span class="k">func</span> <span class="f">toggleBold</span>
+
 	<span class="k">if</span> oRich.SelectionLength = <span class="n">0</span>
 		oStatus.Text = <span class="s">"Select some text first"</span>
 		<span class="k">return</span>
@@ -306,15 +310,18 @@ oFind = <span class="s">""</span>
 	oStatus.Text = <span class="s">"Bold: "</span> + oRich.SelectionFont.Bold
 
 <span class="k">func</span> <span class="f">makeRed</span>
+
 	oRich.SelectionColor = <span class="f">uiColor</span>(<span class="s">"Red"</span>)
 
 <span class="k">func</span> <span class="f">makePlain</span>
+
 	setBold(<span class="k">False</span>)
 	oRich.SelectionColor = <span class="f">uiColor</span>(<span class="s">"Black"</span>)
 
 <span class="c"># Find searches from a start place; the loop finds every match and marks it. The options "None" ignore upper and lower case; "MatchCase"</span>
 <span class="c"># would not.</span>
 <span class="k">func</span> <span class="f">findAll</span>
+
 	cWord = oFind.Text
 	nCount = <span class="n">0</span>
 	nStart = <span class="n">0</span>

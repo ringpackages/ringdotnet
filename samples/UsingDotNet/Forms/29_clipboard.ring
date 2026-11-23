@@ -1,6 +1,7 @@
 # Copy text to the clipboard and read it back
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -18,10 +19,12 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func copyText
+
 	oClipboard = new Clipboard()
 	oClipboard.SetText(oEdit.Text)
 
 func pasteText
+
 	oClipboard = new Clipboard()
 	cText = oClipboard.GetText(NULL)
 	oPasted.Text = cText

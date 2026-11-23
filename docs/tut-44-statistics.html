@@ -254,12 +254,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch03_statistics.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># numbers - statistics, primes and a simulation (Monte Carlo estimate of pi)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Linq"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	aData = [<span class="n">4</span>,<span class="n">8</span>,<span class="n">15</span>,<span class="n">16</span>,<span class="n">23</span>,<span class="n">42</span>,<span class="n">8</span>,<span class="n">15</span>,<span class="n">8</span>,<span class="n">4</span>]
 
 	<span class="c"># 1. The usual summaries of a set of numbers</span>
@@ -310,6 +312,7 @@ using {
 <span class="c"># ---------------------------------------------------------------- the formulas (small functions, each testable)</span>
 
 <span class="k">func</span> <span class="f">sumOf</span> aList
+
 	nSum = <span class="n">0</span>
 	<span class="k">for</span> nValue <span class="k">in</span> aList
 		nSum += nValue
@@ -317,9 +320,11 @@ using {
 	<span class="k">return</span> nSum
 
 <span class="k">func</span> <span class="f">mean</span> aList
+
 	<span class="k">return</span> sumOf(aList) / len(aList)
 
 <span class="k">func</span> <span class="f">median</span> aList
+
 	aSorted = sort(aList)
 	nMiddle = len(aSorted) / <span class="n">2</span>
 	<span class="k">if</span> len(aSorted) % <span class="n">2</span> = <span class="n">1</span>
@@ -328,6 +333,7 @@ using {
 	<span class="k">return</span> (aSorted[nMiddle] + aSorted[nMiddle + <span class="n">1</span>]) / <span class="n">2</span>
 
 <span class="k">func</span> <span class="f">mode</span> aList
+
 	nBest = aList[<span class="n">1</span>]
 	nBestCount = <span class="n">0</span>
 	<span class="k">for</span> nValue <span class="k">in</span> aList
@@ -340,6 +346,7 @@ using {
 	<span class="k">return</span> nBest
 
 <span class="k">func</span> <span class="f">stdDev</span> aList
+
 	nMean = mean(aList)
 	nSquares = <span class="n">0</span>
 	<span class="k">for</span> nValue <span class="k">in</span> aList
@@ -348,6 +355,7 @@ using {
 	<span class="k">return</span> sqrt(nSquares / len(aList))
 
 <span class="k">func</span> <span class="f">count</span> aList, nValue
+
 	nTimes = <span class="n">0</span>
 	<span class="k">for</span> nItem <span class="k">in</span> aList
 		<span class="k">if</span> nItem = nValue
@@ -357,6 +365,7 @@ using {
 	<span class="k">return</span> nTimes
 
 <span class="k">func</span> <span class="f">primesUpTo</span> nLimit
+
 	aIsPrime = list(nLimit)
 	<span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> nLimit
 		aIsPrime[nIndex] = <span class="k">True</span>
@@ -378,6 +387,7 @@ using {
 	<span class="k">return</span> aPrimes
 
 <span class="k">func</span> <span class="f">gcd</span> nA, nB
+
 	<span class="k">while</span> nB != <span class="n">0</span>
 		nTemp = nB
 		nB = nA % nB
@@ -386,9 +396,11 @@ using {
 	<span class="k">return</span> nA
 
 <span class="k">func</span> <span class="f">lcm</span> nA, nB
+
 	<span class="k">return</span> nA * nB / gcd(nA,nB)
 
 <span class="k">func</span> <span class="f">copies</span> cText, nTimes
+
 	cResult = <span class="s">""</span>
 	<span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> nTimes
 		cResult += cText
@@ -396,6 +408,7 @@ using {
 	<span class="k">return</span> cResult
 
 <span class="k">func</span> <span class="f">joinList</span> aList
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> xItem <span class="k">in</span> aList
 		<span class="k">if</span> cText != <span class="s">""</span>

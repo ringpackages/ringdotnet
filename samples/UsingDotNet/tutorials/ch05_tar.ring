@@ -1,5 +1,6 @@
 # tar archives - make a .tar from a folder, list it, read one file from it and unpack it (System.Formats.Tar)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	oPath = new Path()
 	cBase = oPath.Combine([oPath.GetTempPath(),"ringdotnet_tar"])
 	cSource = oPath.Combine([cBase,"source"])
@@ -67,4 +69,5 @@ func main
 	oDirectory.Delete([ :path = cBase, :recursive = True ])
 
 func padRight cText,nWidth
+
 	return cText + copy(" ",nWidth - len(cText))

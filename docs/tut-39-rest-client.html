@@ -260,6 +260,7 @@
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch07_rest_client.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a REST client - call a JSON service, read the answer, handle the errors</span>
 <span class="c">#   (the service is started in the same program so that the tutorial needs no internet)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Net.Http"</span>
 	<span class="s">"System.Text"</span>
@@ -273,6 +274,7 @@ cUrl = <span class="s">""</span>
 aBooks = [[<span class="n">1</span>,<span class="s">"The Hobbit"</span>,<span class="n">1937</span>],[<span class="n">2</span>,<span class="s">"Dune"</span>,<span class="n">1965</span>],[<span class="n">3</span>,<span class="s">"Neuromancer"</span>,<span class="n">1984</span>]]
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># --- the service (a stand-in for a real one on the internet)</span>
 	oServer = <span class="k">new</span> <span class="t">WebServer</span>(<span class="s">"http://127.0.0.1:0"</span>)
 	oServer.<span class="f">onGet</span>(<span class="s">"/api/books"</span>,<span class="s">"listBooks"</span>)
@@ -324,6 +326,7 @@ aBooks = [[<span class="n">1</span>,<span class="s">"The Hobbit"</span>,<span cl
 <span class="c"># ---------------------------------------------------------------- the service</span>
 
 <span class="k">func</span> <span class="f">listBooks</span> oRequest
+
 	aList = []
 	<span class="k">for</span> aBook <span class="k">in</span> aBooks
 		aList + [[<span class="s">"id"</span>,aBook[<span class="n">1</span>]],[<span class="s">"title"</span>,aBook[<span class="n">2</span>]],[<span class="s">"year"</span>,aBook[<span class="n">3</span>]]]
@@ -331,6 +334,7 @@ aBooks = [[<span class="n">1</span>,<span class="s">"The Hobbit"</span>,<span cl
 	<span class="k">return</span> <span class="f">webJson</span>(aList)
 
 <span class="k">func</span> <span class="f">oneBook</span> oRequest
+
 	nId = number(oRequest.<span class="f">query</span>(<span class="s">"id"</span>))
 	<span class="k">for</span> aBook <span class="k">in</span> aBooks
 		<span class="k">if</span> aBook[<span class="n">1</span>] = nId
@@ -340,6 +344,7 @@ aBooks = [[<span class="n">1</span>,<span class="s">"The Hobbit"</span>,<span cl
 	<span class="k">return</span> [<span class="n">404</span>,<span class="s">"text/plain"</span>,<span class="s">"no book "</span> + nId]
 
 <span class="k">func</span> <span class="f">addBook</span> oRequest
+
 	oDocument = <span class="k">new</span> <span class="t">JsonDocument</span>().<span class="f">Parse</span>(oRequest.<span class="f">body</span>())
 	oRoot = oDocument.RootElement
 	nId = len(aBooks) + <span class="n">1</span>
@@ -350,6 +355,7 @@ aBooks = [[<span class="n">1</span>,<span class="s">"The Hobbit"</span>,<span cl
 <span class="c"># ---------------------------------------------------------------- the client's helper: send, wait, return [status, body]</span>
 
 <span class="k">func</span> <span class="f">request</span> cMethod, cPath, cBody
+
 	oMessage = <span class="k">new</span> <span class="t">HttpRequestMessage</span>().@<span class="k">New</span>([ :<span class="t">method</span> = <span class="k">new</span> <span class="t">HttpMethod</span>(cMethod), :requestUri = cUrl + cPath ])
 	<span class="k">if</span> cBody != <span class="s">""</span>
 		oContent = <span class="f">dnNew</span>(<span class="s">"StringContent"</span>,[ :content = cBody, :encoding = <span class="k">new</span> <span class="t">Encoding</span>().UTF8, :mediaType = <span class="s">"application/json"</span> ])

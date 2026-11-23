@@ -1,11 +1,13 @@
 # a project: compare two text files - the longest common subsequence of lines, a diff with + and -, changes with context, and a similarity
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
 }
 
 func main
+
 	oFile = new File()
 	oPath = new Path()
 	cFolder = oPath.Combine([ oPath.GetTempPath(), "ringdotnet-diff-" + oPath.GetRandomFileName() ])
@@ -58,6 +60,7 @@ func main
 # The LCS table: aTable[i][j] is the length of the LCS of the lines i.. of the old list and the lines j.. of the new list. It is
 # filled from the end to the start, and the cell [1][1] has the answer for the whole lists.
 func lcsTable aOld,aNew
+
 	nOld = len(aOld)
 	nNew = len(aNew)
 	aTable = []
@@ -81,6 +84,7 @@ func lcsTable aOld,aNew
 
 # the diff as a list of [mark, line]
 func makeDiff aOld,aNew,aTable
+
 	aDiff = []
 	i = 1
 	j = 1
@@ -108,6 +112,7 @@ func makeDiff aOld,aNew,aTable
 	return aDiff
 
 func countOf aDiff,cMark
+
 	nCount = 0
 	for aItem in aDiff
 		if aItem[1] = cMark
@@ -117,11 +122,13 @@ func countOf aDiff,cMark
 	return nCount
 
 func similarity aOld,aNew
+
 	aDiff = makeDiff(aOld,aNew,lcsTable(aOld,aNew))
 	return floor(100 * 2 * countOf(aDiff," ") / (len(aOld) + len(aNew)))
 
 # the lines of the diff that are changes or are within nContext lines of a change; "..." marks the lines that were left out
 func withContext aDiff,nContext
+
 	aShow = []
 	for i = 1 to len(aDiff)
 		aShow + False

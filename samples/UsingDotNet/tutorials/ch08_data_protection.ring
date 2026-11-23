@@ -1,5 +1,6 @@
 # protecting data - the Data Protection API: purposes, tampering, keys on disk, and values that expire
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Threading"
@@ -8,6 +9,7 @@ using {
 }
 
 func main
+
 	cExt = "Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions"
 	cProviderType = "Microsoft.AspNetCore.DataProtection.DataProtectionProvider"
 
@@ -65,6 +67,7 @@ func main
 	new Directory().Delete([ :path = cOtherFolder, :recursive = True ])
 
 func tryUnprotect cExt,oProtector,cToken
+
 	try
 		return "valid, it gives '" + dnStatic(cExt,"Unprotect",[oProtector,cToken]) + "'"
 	catch
@@ -72,6 +75,7 @@ func tryUnprotect cExt,oProtector,cToken
 	done
 
 func changeChar cChar
+
 	if cChar = "A"
 		return "B"
 	ok
@@ -79,6 +83,7 @@ func changeChar cChar
 
 # the time-limited protector also gives the time when the token expires (an out value: the answer is a list)
 func tryUnprotectLimited cAdvanced,oLimited,cToken
+
 	try
 		aResult = dnStatic(cAdvanced,"Unprotect",[oLimited,cToken])
 		if islist(aResult)

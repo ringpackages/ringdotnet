@@ -1,11 +1,13 @@
 # logging - levels, timestamps, a file, rotation, and what to write
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
 }
 
 func main
+
 	cFolder = new Path().Combine([new Path().GetTempPath(),"ringdotnet_logging"])
 	if new Directory().Exists(cFolder)
 		new Directory().Delete([ :path = cFolder, :recursive = True ])
@@ -61,30 +63,39 @@ class Logger
 	nMaxSize = 0           # 0: no limit
 
 	func init cPath
+
 		cFile = cPath
 
 	func setClock cText
+
 		cClock = cText
 
 	func setLevel cLevel
+
 		nLevel = levelNumber(cLevel)
 
 	func setMaxSize nBytes
+
 		nMaxSize = nBytes
 
 	func debug cMessage
+
 		write("DEBUG",cMessage)
 
 	func info cMessage
+
 		write("INFO ",cMessage)
 
 	func warn cMessage
+
 		write("WARN ",cMessage)
 
 	func error cMessage
+
 		write("ERROR",cMessage)
 
 	func levelNumber cLevel
+
 		cLevel = upper(trim(cLevel))
 		if cLevel = "DEBUG"
 			return 1
@@ -97,6 +108,7 @@ class Logger
 
 	# one line: "2024-05-17 08:00:00 INFO  the program started"
 	func write cLevel, cMessage
+
 		if levelNumber(cLevel) < nLevel
 			return
 		ok
@@ -109,6 +121,7 @@ class Logger
 
 	# when the file is bigger than the limit: app.log becomes app.log.1 (an older .1 is replaced), and a new file starts
 	func rotateIfNeeded
+
 		if nMaxSize = 0 or not new File().Exists(cFile)
 			return
 		ok

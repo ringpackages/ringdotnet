@@ -256,12 +256,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch04_concurrent_collections.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># collections for many threads - ConcurrentQueue, ConcurrentStack, BlockingCollection and ConcurrentDictionary</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Collections.Concurrent"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># The collections of System.Collections.Concurrent are safe when several threads use them at the same time: the 'is it</span>
 	<span class="c"># there? then change it' steps are done as ONE step. They are generic, so they are made with dnNewGeneric (a type name,</span>
 	<span class="c"># the type arguments, the constructor values).</span>

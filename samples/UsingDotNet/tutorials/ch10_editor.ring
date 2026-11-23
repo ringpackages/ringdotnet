@@ -1,5 +1,6 @@
 # a small text editor - menus, a status bar, files and a message when you quit with unsaved text
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -14,6 +15,7 @@ cFileName = ""
 lChanged = False
 
 func main
+
 	oForm = uiForm("Tiny editor",560,360)
 
 	# The editor fills the window. Add the control that fills FIRST: Windows Forms docks the controls added later
@@ -41,16 +43,19 @@ func main
 	uiRun(oForm)
 
 func textChanged
+
 	lChanged = True
 	oStatus.Items.Item(0).Text = "" + len(oEditor.Text) + " characters (not saved)"
 
 func newFile
+
 	oEditor.Text = ""
 	cFileName = ""
 	lChanged = False
 	oForm.Text = "Tiny editor"
 
 func openFile
+
 	cChosen = uiOpenFileName("Open a text file","Text files|*.txt|All files|*.*")
 	if cChosen = ""
 		return
@@ -58,6 +63,7 @@ func openFile
 	loadFile(cChosen)
 
 func loadFile cPath
+
 	cContent = new File().ReadAllText(cPath)
 	oEditor.Text = cContent
 	cFileName = cPath
@@ -67,6 +73,7 @@ func loadFile cPath
 	oStatus.Items.Item(0).Text = "Opened " + cPath
 
 func saveFile
+
 	if cFileName = ""
 		cFileName = uiSaveFileName("Save the text","Text files|*.txt|All files|*.*")
 		if cFileName = ""

@@ -1,5 +1,6 @@
 # Properties and fields are Ring attributes: read, write, and inside braces
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Text"

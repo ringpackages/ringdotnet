@@ -255,12 +255,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_file_info.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># file information - size, attributes, times, read-only files, temporary files and copying with File and FileInfo</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oFile = <span class="k">new</span> <span class="t">File</span>()
 	oPath = <span class="k">new</span> <span class="t">Path</span>()
 	oDirectory = <span class="k">new</span> <span class="t">Directory</span>()
@@ -331,6 +333,7 @@ using {
 	oDirectory.<span class="f">Delete</span>([ :path = cFolder, :recursive = <span class="k">True</span> ])
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>
@@ -338,6 +341,7 @@ using {
 
 <span class="c"># how many days ago the file was written</span>
 <span class="k">func</span> <span class="f">daysOld</span> oInfo
+
 	oNow = <span class="f">dnStatic</span>(<span class="s">"System.DateTime"</span>,<span class="s">"get_Now"</span>,[])
 	oSpan = oNow.<span class="f">Subtract</span>(oInfo.LastWriteTime)
 	<span class="k">return</span> oSpan.TotalDays
@@ -345,6 +349,7 @@ using {
 <span class="c"># the kind of an error: the name of the .NET exception ("System.IO.IOException"). The message of the exception also has the path of the</span>
 <span class="c"># file, which is different on each computer, so the program prints only the kind.</span>
 <span class="k">func</span> <span class="f">errorKind</span> cMessage
+
 	cText = trim(cMessage)
 	nStart = substr(cText,<span class="s">"DotNet Error: "</span>)
 	<span class="k">if</span> nStart &gt; <span class="n">0</span>

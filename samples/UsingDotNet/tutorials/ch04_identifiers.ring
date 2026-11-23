@@ -1,11 +1,13 @@
 # identifiers and versions - Guid, Version, and sorting version numbers by number and not as text
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Collections.Generic"
 }
 
 func main
+
 	oGuid = new Guid()
 
 	# 1. A Guid is a 128-bit number that is unique for practical purposes: two programs on two computers can make one each and

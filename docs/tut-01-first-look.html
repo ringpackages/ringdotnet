@@ -257,6 +257,7 @@
 <p>Read the program first; the explanations follow. The line <code>using { ... }</code> brings classes in. <code>func main</code> is where Ring starts.</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch01_first_look.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a first look at .NET from Ring - runtime, types, objects, namespaces</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Text"</span>
@@ -264,6 +265,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. The runtime that runs inside your Ring program</span>
 	? <span class="s">"Runtime          : .NET "</span> + <span class="k">new</span> <span class="t">Environment</span>().Version.<span class="f">ToString</span>()
 

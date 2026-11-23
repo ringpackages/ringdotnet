@@ -5,6 +5,7 @@ dnImport("System")
 dnImport("System.IO")
 
 func main
+
 	aSchema = [
 		["Customers",[["Id","int",1],["Name","string",0],["Age","int",0],["City","string",0],["Balance","double",0],["Active","bool",0],["Joined","datetime",0]]],
 		["Orders",[["Id","long",1],["CustomerId","int",0],["Total","decimal",0]]]

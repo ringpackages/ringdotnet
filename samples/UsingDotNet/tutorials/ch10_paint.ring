@@ -1,5 +1,6 @@
 # drawing with the mouse - MouseDown, MouseMove and MouseUp: a small paint program with colors, a pen size, clear and save
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -21,6 +22,7 @@ nLastY = 0
 nStrokes = 0
 
 func main
+
 	oForm = uiForm("Paint",460,380)
 	uiButton(oForm,"Black",10,10,70,28,"setColor('Black')")
 	uiButton(oForm,"Red",86,10,70,28,"setColor('Red')")
@@ -44,6 +46,7 @@ func main
 	uiRun(oForm)
 
 func clearCanvas
+
 	oGraphics = new Graphics().FromImage(oBitmap)
 	oGraphics.Clear(uiColor("White"))
 	oGraphics.Dispose()
@@ -52,18 +55,21 @@ func clearCanvas
 	oStatus.Text = "Clear"
 
 func setColor cName
+
 	cColor = cName
 	oStatus.Text = "Color: " + cName
 
 # The three steps of a stroke. Down starts it (and draws a dot, so that a click without a move also leaves a mark), Move continues it
 # with a line from the last place to this one, and Up ends it. Moving the mouse with the button up draws nothing.
 func mouseDown nX,nY
+
 	lDrawing = True
 	nLastX = nX
 	nLastY = nY
 	drawDot(nX,nY)
 
 func mouseMove nX,nY
+
 	if not lDrawing
 		return
 	ok
@@ -72,6 +78,7 @@ func mouseMove nX,nY
 	nLastY = nY
 
 func mouseUp
+
 	if lDrawing
 		nStrokes++
 		oStatus.Text = "" + nStrokes + " strokes"
@@ -80,6 +87,7 @@ func mouseUp
 
 # a dot: a filled circle with the size of the pen (a line of length zero draws nothing, so the first point of a stroke is a circle)
 func drawDot nX,nY
+
 	oGraphics = new Graphics().FromImage(oBitmap)
 	oBrush = new SolidBrush(uiColor(cColor))
 	nRadius = nPenSize / 2
@@ -90,6 +98,7 @@ func drawDot nX,nY
 
 # a line with a round pen: round ends make the joints of the small steps of the mouse smooth
 func drawLine nX1,nY1,nX2,nY2
+
 	oGraphics = new Graphics().FromImage(oBitmap)
 	oPen = new Pen(uiColor(cColor)) {
 		Width = nPenSize

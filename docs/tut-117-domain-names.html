@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch02_domain_names.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># international domain names - Punycode with IdnMapping, Uri.IdnHost, invalid names, and look-alike letters (homograph attacks)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Globalization"</span>
@@ -262,6 +263,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oIdn = <span class="k">new</span> <span class="t">IdnMapping</span>()
 
 	<span class="c"># The system of domain names (DNS) knows only the letters a-z, the digits and the hyphen. A name with other letters is sent as</span>
@@ -308,6 +310,7 @@ using {
 
 <span class="c"># the checks of GetAscii: an error means that the name is not valid</span>
 <span class="k">func</span> <span class="f">checkName</span> oIdn,cName
+
 	<span class="k">try</span>
 		<span class="k">return</span> <span class="s">"valid: "</span> + oIdn.<span class="f">GetAscii</span>(cName)
 	<span class="k">catch</span>
@@ -316,6 +319,7 @@ using {
 
 <span class="c"># the code of every letter of a text (Unicode code points): UTF-32 has four bytes for each letter</span>
 <span class="k">func</span> <span class="f">codePoints</span> cText
+
 	aCodes = []
 	cBytes = <span class="k">new</span> <span class="t">UTF32Encoding</span>().<span class="f">GetBytes</span>(cText)
 	<span class="k">for</span> nPos = <span class="n">1</span> <span class="k">to</span> len(cBytes) <span class="k">step</span> <span class="n">4</span>
@@ -325,6 +329,7 @@ using {
 
 <span class="c"># the alphabet of a letter, from the range of its code (only a few alphabets, to show the idea)</span>
 <span class="k">func</span> <span class="f">scriptOf</span> nCode
+
 	cScript = <span class="s">"other"</span>
 	<span class="k">if</span> nCode &gt;= <span class="n">65</span> <span class="k">and</span> nCode &lt;= <span class="n">122</span> <span class="k">and</span> <span class="k">not</span> (nCode &gt; <span class="n">90</span> <span class="k">and</span> nCode &lt; <span class="n">97</span>)
 		cScript = <span class="s">"Latin"</span>
@@ -341,6 +346,7 @@ using {
 
 <span class="c"># the alphabets used in the letters of ONE part of a name (digits and hyphens are not letters of an alphabet)</span>
 <span class="k">func</span> <span class="f">scriptList</span> cLabel
+
 	aScripts = []
 	<span class="k">for</span> nCode <span class="k">in</span> codePoints(cLabel)
 		cScript = scriptOf(nCode)
@@ -352,9 +358,11 @@ using {
 
 <span class="c"># the labels of a name are separated by dots; each label is checked alone (an Arabic name under the Latin ".example" is normal)</span>
 <span class="k">func</span> <span class="f">labels</span> cName
+
 	<span class="k">return</span> str2list(substr(cName,<span class="s">"."</span>,nl))
 
 <span class="k">func</span> <span class="f">scriptsOf</span> cName
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> cLabel <span class="k">in</span> labels(cName)
 		cText += joinWith(scriptList(cLabel),<span class="s">"+"</span>) + <span class="s">" "</span>
@@ -362,6 +370,7 @@ using {
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">isMixed</span> cName
+
 	<span class="k">for</span> cLabel <span class="k">in</span> labels(cName)
 		<span class="k">if</span> len(scriptList(cLabel)) &gt; <span class="n">1</span>
 			<span class="k">return</span> <span class="k">True</span>
@@ -370,27 +379,32 @@ using {
 	<span class="k">return</span> <span class="k">False</span>
 
 <span class="k">func</span> <span class="f">decision</span> cName
+
 	<span class="k">if</span> isMixed(cName)
 		<span class="k">return</span> <span class="s">"MIXED in one part: suspicious"</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> <span class="s">"one alphabet in each part"</span>
 
 <span class="k">func</span> <span class="f">displayName</span> oIdn,cName
+
 	<span class="k">if</span> isMixed(cName)
 		<span class="k">return</span> oIdn.<span class="f">GetAscii</span>(cName) + <span class="s">" (Punycode: mixed alphabets)"</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> cName + <span class="s">" (shown as written)"</span>
 
 <span class="k">func</span> <span class="f">shortText</span> cText
+
 	<span class="k">if</span> len(cText) &gt; <span class="n">22</span>
 		<span class="k">return</span> left(cText,<span class="n">20</span>) + <span class="s">"..."</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">padRight</span> cText,nWidth
+
 	<span class="k">return</span> cText + copy(<span class="s">" "</span>,nWidth - len(cText))
 
 <span class="k">func</span> <span class="f">joinWith</span> aList,cSeparator
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> item <span class="k">in</span> aList
 		<span class="k">if</span> cText != <span class="s">""</span>

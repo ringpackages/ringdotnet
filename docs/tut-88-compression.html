@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_compression.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># compression - GZip, Deflate and Brotli on streams, sizes, a round trip and a compressed file</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -263,6 +264,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># Compression looks for repetition. A text with many repeated parts becomes small; random data does not.</span>
 	cText = <span class="s">""</span>
 	<span class="k">for</span> i = <span class="n">1</span> <span class="k">to</span> <span class="n">200</span>
@@ -316,6 +318,7 @@ using {
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
 
 <span class="k">func</span> <span class="f">compress</span> cFormat,cData
+
 	oMemory = <span class="k">new</span> <span class="t">MemoryStream</span>()
 	oPacker = packer(cFormat,oMemory,<span class="s">"Compress"</span>)
 	oPacker.<span class="f">Write</span>(cData,<span class="n">0</span>,len(cData))
@@ -323,6 +326,7 @@ using {
 	<span class="k">return</span> oMemory.<span class="f">ToArray</span>()
 
 <span class="k">func</span> <span class="f">decompress</span> cFormat,cData
+
 	oSource = <span class="k">new</span> <span class="t">MemoryStream</span>().@<span class="k">New</span>([ :<span class="t">buffer</span> = cData ])
 	oUnpacker = packer(cFormat,oSource,<span class="s">"Decompress"</span>)
 	oOut = <span class="k">new</span> <span class="t">MemoryStream</span>()
@@ -330,6 +334,7 @@ using {
 	<span class="k">return</span> oOut.<span class="f">ToArray</span>()
 
 <span class="k">func</span> <span class="f">packer</span> cFormat,oStream,oMode
+
 	<span class="k">switch</span> cFormat
 	<span class="k">on</span> <span class="s">"GZip"</span>    <span class="k">return</span> <span class="k">new</span> <span class="t">GZipStream</span>(oStream,oMode)
 	<span class="k">on</span> <span class="s">"Deflate"</span> <span class="k">return</span> <span class="k">new</span> <span class="t">DeflateStream</span>(oStream,oMode)
@@ -337,6 +342,7 @@ using {
 	<span class="k">off</span>
 
 <span class="k">func</span> <span class="f">padRight</span> cText,nWidth
+
 	<span class="k">return</span> cText + copy(<span class="s">" "</span>,nWidth - len(cText))</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. original text: 9000 bytes
 

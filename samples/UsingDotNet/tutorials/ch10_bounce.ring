@@ -1,5 +1,6 @@
 # drawing and animation - a canvas, a timer and the keyboard
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -20,6 +21,7 @@ nPaddle = 160
 nScore = 0
 
 func main
+
 	oForm = uiForm("Bounce",C_WIDTH,C_HEIGHT)
 	oPicture = uiPictureBox(oForm,0,0,C_WIDTH,C_HEIGHT)
 	oCanvas = new UiCanvas(oPicture)               # a canvas draws on the picture box
@@ -36,6 +38,7 @@ func main
 	uiRun(oForm)
 
 func step
+
 	nX += nDX
 	nY += nDY
 	if nX < 10 or nX > C_WIDTH - 10
@@ -56,6 +59,7 @@ func step
 	draw()
 
 func draw
+
 	oCanvas.clear("Black")
 	oCanvas.fillCircle(nX,nY,10,"Orange")
 	oCanvas.fillRect(nPaddle,C_HEIGHT - 20,80,10,"SteelBlue")
@@ -63,6 +67,7 @@ func draw
 	oCanvas.show()
 
 func keyPressed cKey
+
 	if cKey = "Left"
 		nPaddle = max(0,nPaddle - 30)
 	but cKey = "Right"

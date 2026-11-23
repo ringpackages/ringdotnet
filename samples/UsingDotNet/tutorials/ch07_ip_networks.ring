@@ -1,11 +1,13 @@
 # IP networks - CIDR notation, the addresses of a subnet, "is this address in that network?" and a small allow list
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Net"
 }
 
 func main
+
 	# A network is written in CIDR form: an address and the number of bits that are the same for the whole network.
 	# 192.168.1.0/24 means: the first 24 bits (192.168.1) are fixed, the last 8 bits (0 to 255) are free.
 	oNetworkClass = new IPNetwork()
@@ -44,9 +46,11 @@ func main
 	? nl + "6. 2001:db8:1::5 is in 2001:db8::/32: " + oV6.Contains(oIP.Parse("2001:db8:1::5")) + ", 2001:db9::1: " + oV6.Contains(oIP.Parse("2001:db9::1"))
 
 func addressCount nPrefix
+
 	return floor(pow(2,32 - nPrefix))
 
 func isPrivate cAddress,aRanges
+
 	oNet = new IPNetwork()
 	oAddress = new IPAddress().Parse(cAddress)
 	for cRange in aRanges
@@ -57,4 +61,5 @@ func isPrivate cAddress,aRanges
 	return "not in the private ranges"
 
 func padRight cText,nWidth
+
 	return cText + copy(" ",nWidth - len(cText))

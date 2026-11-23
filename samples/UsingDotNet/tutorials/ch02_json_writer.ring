@@ -1,5 +1,6 @@
 # writing JSON as a stream - Utf8JsonWriter, indentation, nesting, escaping, and JsonSerializer options
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -8,6 +9,7 @@ using {
 }
 
 func main
+
 	# 1. Utf8JsonWriter writes a JSON text piece by piece into a stream, without building a tree in memory first.
 	#    It is the right tool for big documents and for output that must be exactly formatted.
 	oStream = new MemoryStream

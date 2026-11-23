@@ -1,6 +1,7 @@
 # the checks of ch10_keyboard.ring: run with  ring ch10_keyboard.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	# the keys go to the box that has the focus, through the real key processing
 	oForm.ActiveControl = oAge
 	uiSendKeys(oForm,"1a2-3")

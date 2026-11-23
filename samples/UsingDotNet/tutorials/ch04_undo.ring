@@ -1,10 +1,12 @@
 # stacks and queues - undo/redo with two stacks, and a first-come-first-served job queue
 load "dotnet.ring"
+
 using {
 	"System.Collections.Generic"
 }
 
 func main
+
 	# A STACK: last in, first out (a pile of plates). A QUEUE: first in, first out (people waiting in a line).
 
 	# 1. Stack basics
@@ -48,6 +50,7 @@ func main
 	done
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok
@@ -61,16 +64,19 @@ class TextHistory
 	oRedo = ""
 
 	func init
+
 		oUndo = new StringStack()
 		oRedo = new StringStack()
 		return self
 
 	func type cNewText
+
 		oUndo.Push(cCurrent)
 		cCurrent = cNewText
 		oRedo.Clear()                     # a new change makes the old future impossible
 
 	func undo
+
 		if oUndo.Count = 0
 			return
 		ok
@@ -78,6 +84,7 @@ class TextHistory
 		cCurrent = oUndo.Pop()
 
 	func redo
+
 		if oRedo.Count = 0
 			return
 		ok
@@ -85,7 +92,9 @@ class TextHistory
 		cCurrent = oRedo.Pop()
 
 	func canRedo
+
 		return oRedo.Count > 0
 
 	func text
+
 		return cCurrent

@@ -1,6 +1,7 @@
 # A button counts its clicks (routed Click event)
 
 load "dotnet.ring"
+
 using {
 	"System.Windows"
 	"System.Windows.Controls"
@@ -28,5 +29,6 @@ wpfRun(oWindow)
 # --------------------------------------------------------------------------
 
 func clicked
+
 	nClicks++
 	oInfo.Content = "" + nClicks + " clicks"

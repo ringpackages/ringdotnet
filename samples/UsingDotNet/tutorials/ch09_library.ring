@@ -1,8 +1,10 @@
 # databases step by step - a library catalog with Entity Framework Core
 load "dotnet.ring"
+
 using { "RingDotNet.Data" }
 
 func main
+
 	# STEP 1. Describe the tables: [table name, [ [column, type, isKey, options], ... ]]
 	aSchema = [
 		["Authors",[

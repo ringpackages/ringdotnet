@@ -1,11 +1,13 @@
 # disks and free space - DriveInfo: the drives of the computer, size, free space, and a check before a big write
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
 }
 
 func main
+
 	# Drive names, sizes and formats are different on each computer, so this program prints what is true on every computer (counts, yes/no)
 	# and a few sizes that come from its own functions.
 
@@ -58,6 +60,7 @@ func main
 	done
 
 func fits oDrive,nBytes
+
 	nAvailable = oDrive.AvailableFreeSpace
 	if nBytes <= nAvailable
 		return "fits"
@@ -66,6 +69,7 @@ func fits oDrive,nBytes
 
 # 1024 bytes = 1 KB, 1024 KB = 1 MB, ... one decimal, and no decimal for whole bytes
 func formatSize nBytes
+
 	aUnits = [ "bytes", "KB", "MB", "GB", "TB", "PB" ]
 	nValue = nBytes
 	nUnit = 1
@@ -80,15 +84,18 @@ func formatSize nBytes
 	return "" + floor(nTenths / 10) + "." + (nTenths % 10) + " " + aUnits[nUnit]
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok
 	return "no"
 
 func padRight cText,nWidth
+
 	return cText + copy(" ",nWidth - len(cText))
 
 func errorKind cMessage
+
 	cText = trim(cMessage)
 	nStart = substr(cText,"DotNet Error: ")
 	if nStart > 0

@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch12_quiz.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a project: a quiz - questions in data, radio buttons, a score, feedback, a result screen and a saved list of best scores</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -284,6 +285,7 @@ lAnswered = <span class="k">False</span>                 <span class="c"># was t
 cScoreFile = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	cScoreFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([ <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(), <span class="s">"ringdotnet-quiz-scores.txt"</span> ])
 	oForm = <span class="f">uiForm</span>(<span class="s">"Quiz"</span>,<span class="n">470</span>,<span class="n">300</span>)
 	oProgress = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">15</span>,<span class="n">12</span>,<span class="n">430</span>,<span class="n">22</span>)
@@ -303,6 +305,7 @@ cScoreFile = <span class="s">""</span>
 	cleanUp()
 
 <span class="k">func</span> <span class="f">showQuestion</span> n
+
 	nCurrent = n
 	lAnswered = <span class="k">False</span>
 	aQuestion = aQuestions[n]
@@ -318,6 +321,7 @@ cScoreFile = <span class="s">""</span>
 
 <span class="c"># which radio button is on? 0 when none</span>
 <span class="k">func</span> <span class="f">chosen</span>
+
 	<span class="k">for</span> i = <span class="n">1</span> <span class="k">to</span> <span class="n">4</span>
 		<span class="k">if</span> aAnswers[i].Checked
 			<span class="k">return</span> i
@@ -327,6 +331,7 @@ cScoreFile = <span class="s">""</span>
 
 <span class="c"># The button has two jobs. First click: check the answer and show the right one. Second click: the next question, or the result.</span>
 <span class="k">func</span> <span class="f">nextStep</span>
+
 	<span class="k">if</span> <span class="k">not</span> lAnswered
 		checkAnswer()
 	<span class="k">else</span>
@@ -338,6 +343,7 @@ cScoreFile = <span class="s">""</span>
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">checkAnswer</span>
+
 	nChosen = chosen()
 	<span class="k">if</span> nChosen = <span class="n">0</span>
 		oFeedback.Text = <span class="s">"Choose an answer first"</span>
@@ -362,6 +368,7 @@ cScoreFile = <span class="s">""</span>
 
 <span class="c"># the result: the score, a saved line for the list of scores, and the best three</span>
 <span class="k">func</span> <span class="f">showResult</span>
+
 	oQuestion.Text = <span class="s">"Your score: "</span> + nScore + <span class="s">" of "</span> + len(aQuestions)
 	oProgress.Text = <span class="s">"Finished"</span>
 	<span class="k">for</span> i = <span class="n">1</span> <span class="k">to</span> <span class="n">4</span>
@@ -378,6 +385,7 @@ cScoreFile = <span class="s">""</span>
 
 <span class="c"># the best scores of the file, the highest first</span>
 <span class="k">func</span> <span class="f">bestScores</span> nCount
+
 	aScores = []
 	<span class="k">if</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cScoreFile)
 		<span class="k">for</span> cLine <span class="k">in</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllLines</span>(cScoreFile).<span class="f">toList</span>()
@@ -394,6 +402,7 @@ cScoreFile = <span class="s">""</span>
 	<span class="k">return</span> aBest
 
 <span class="k">func</span> <span class="f">cleanUp</span>
+
 	<span class="k">if</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cScoreFile)
 		<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cScoreFile)
 	<span class="k">ok</span></code></pre></div>
@@ -415,12 +424,14 @@ cScoreFile = <span class="s">""</span>
 
 <span class="c"># the test plays: it chooses the answers like a user and clicks the button</span>
 <span class="k">func</span> <span class="f">play</span> nAnswer
+
 	<span class="k">if</span> nAnswer &gt; <span class="n">0</span>
 		aAnswers[nAnswer].Checked = <span class="k">True</span>
 	<span class="k">ok</span>
 	oNext.<span class="f">PerformClick</span>()
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	cleanUp()
 	<span class="f">dnAssert</span>(<span class="s">"the first question"</span>,oQuestion.Text,<span class="s">"Which language is used with this package?"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the progress"</span>,oProgress.Text,<span class="s">"Question 1 of 4"</span>)

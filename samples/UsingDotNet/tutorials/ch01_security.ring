@@ -1,5 +1,6 @@
 # hashing and encryption basics - checksums, HMAC, random tokens, AES
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Security.Cryptography"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	oConvert = new Convert()
 
 	# A hash is a fingerprint of data: the same input always gives the same hash, you can not go back

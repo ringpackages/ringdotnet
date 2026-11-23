@@ -272,6 +272,7 @@
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch13_pictures.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># pictures that work on every system - SkiaSharp draws, saves and reads pictures on Windows, Linux and macOS (System.Drawing is Windows only)</span>
 <span class="c">#   (the project is in the folder Skia: Skia.csproj names SkiaSharp and its Linux library, and Empty.cs is the one source file a project needs)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using { <span class="s">"System.IO"</span> }
 
 cHere = currentdir()
@@ -298,6 +299,7 @@ chdir(cHere)
 <span class="f">dnImportFrom</span>(cClasses + <span class="s">"/"</span>,<span class="s">"SkiaSharp"</span>)
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. A bitmap is a grid of pixels, and a canvas is what draws on it. Colors are values of the type SKColor: Parse reads "#rrggbb".</span>
 	oBitmap = <span class="k">new</span> <span class="t">SKBitmap</span>().@<span class="k">New</span>([ :<span class="t">width</span> = <span class="n">200</span>, :height = <span class="n">100</span> ])
 	oCanvas = <span class="k">new</span> <span class="t">SKCanvas</span>(oBitmap)

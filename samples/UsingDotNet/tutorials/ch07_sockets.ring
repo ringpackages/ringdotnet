@@ -1,5 +1,6 @@
 # sockets - a TCP server and client in one program
 load "dotnet.ring"
+
 using {
 	"System.IO"
 	"System.Net"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	# STEP 1. The server: a listener waits for connections on a port of this computer.
 	oListener = new TcpListener(new IPAddress().Loopback,0)        # port 0: any free port
 	oListener.Start(NULL)

@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_menus.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># menus, toolbars, context menus and shortcuts - one action, several ways to reach it</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -268,6 +269,7 @@ oWrapItem = <span class="s">""</span>
 nActions = <span class="n">0</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Menus"</span>,<span class="n">480</span>,<span class="n">300</span>)
 
 	<span class="c"># The text area first (it fills the window: see the tutorial "A small text editor")</span>
@@ -326,10 +328,12 @@ nActions = <span class="n">0</span>
 <span class="c"># ---------------------------------------------------------------- the actions: written once, reached from many places</span>
 
 <span class="k">func</span> <span class="f">say</span> cMessage
+
 	nActions++
 	oStatus.Items.<span class="f">Item</span>(<span class="n">0</span>).Text = cMessage
 
 <span class="k">func</span> <span class="f">upperCase</span>
+
 	<span class="k">if</span> oText.SelectionLength &gt; <span class="n">0</span>
 		oText.SelectedText = upper(oText.SelectedText)
 		say(<span class="s">"Upper case applied to the selection"</span>)
@@ -339,14 +343,17 @@ nActions = <span class="n">0</span>
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">newText</span>
+
 	oText.Text = <span class="s">""</span>
 	say(<span class="s">"Cleared"</span>)
 
 <span class="k">func</span> <span class="f">wrapChanged</span>
+
 	oText.WordWrap = oWrapItem.Checked
 	say(<span class="s">"Word wrap is "</span> + iif(oWrapItem.Checked,<span class="s">"on"</span>,<span class="s">"off"</span>))
 
 <span class="k">func</span> <span class="f">iif</span> lCondition, xYes, xNo
+
 	<span class="k">if</span> lCondition
 		<span class="k">return</span> xYes
 	<span class="k">ok</span>
@@ -370,6 +377,7 @@ nActions = <span class="n">0</span>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_menus.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_menus.ring: run with  ring ch10_menus.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	<span class="c"># the same action from the menu, the toolbar and the context menu</span>
 	oText.Text = <span class="s">"hello menus"</span>
 	oForm.MainMenuStrip.Items.<span class="f">Item</span>(<span class="n">2</span>).DropDownItems.<span class="f">Item</span>(<span class="n">0</span>).<span class="f">PerformClick</span>()       <span class="c"># Text &gt; Upper case</span>

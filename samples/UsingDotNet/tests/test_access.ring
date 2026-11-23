@@ -4,6 +4,7 @@
 load "dotnet.ring"
 
 func main
+
 	using {
 		"System"
 		"System.IO"
@@ -108,10 +109,12 @@ func main
 
 # an Arabic name and an accent, as UTF-8 bytes (a Ring text is a text of bytes)
 func unicodeName
+
 	return char(216) + char(163) + char(216) + char(173) + char(217) + char(133) + char(216) + char(175) + " Zo" + char(195) + char(171)
 
 # is the ODBC driver registered? (the list of ODBC drivers is in the registry)
 func driverInstalled cDriver
+
 	try
 		oMachine = dnType("Microsoft.Win32.Registry").getProp("LocalMachine")
 		oKey = oMachine.callMethod("OpenSubKey",["SOFTWARE\ODBC\ODBCINST.INI\ODBC Drivers"])
@@ -129,6 +132,7 @@ func driverInstalled cDriver
 
 # a new Access file made with ADOX (a COM component of Windows); false when it is not available
 func createDatabase cFile
+
 	try
 		oType = dnStatic("System.Type","GetTypeFromProgID",["ADOX.Catalog"])
 		if oType.isNull()
@@ -142,6 +146,7 @@ func createDatabase cFile
 	done
 
 func makeCommand oConnection,cSql,aValues
+
 	oCommand = oConnection.callMethod("CreateCommand",[])
 	oCommand.setProp("CommandText",cSql)
 	oParameters = oCommand.getProp("Parameters")
@@ -153,13 +158,16 @@ func makeCommand oConnection,cSql,aValues
 	return oCommand
 
 func runSql oConnection,cSql,aValues
+
 	return makeCommand(oConnection,cSql,aValues).callMethod("ExecuteNonQuery",[])
 
 func scalar oConnection,cSql,aValues
+
 	return makeCommand(oConnection,cSql,aValues).callMethod("ExecuteScalar",[])
 
 # True when the answer is NULL (a column without a value comes back as System.DBNull)
 func scalarIsNull oConnection,cSql,aValues
+
 	xValue = makeCommand(oConnection,cSql,aValues).callMethod("ExecuteScalar",[])
 	if isObject(xValue)
 		return xValue.isNull() or (xValue.typeName() = "System.DBNull")
@@ -167,17 +175,20 @@ func scalarIsNull oConnection,cSql,aValues
 	return false
 
 func runSqlIn oConnection,oTransaction,cSql,aValues
+
 	oCommand = makeCommand(oConnection,cSql,aValues)
 	oCommand.setProp("Transaction",oTransaction)
 	return oCommand.callMethod("ExecuteNonQuery",[])
 
 func scalarIn oConnection,oTransaction,cSql,aValues
+
 	oCommand = makeCommand(oConnection,cSql,aValues)
 	oCommand.setProp("Transaction",oTransaction)
 	return oCommand.callMethod("ExecuteScalar",[])
 
 # all the rows as a list of lists (id, text, number)
 func query oConnection,cSql,aValues
+
 	aRows = []
 	oReader = makeCommand(oConnection,cSql,aValues).callMethod("ExecuteReader",[])
 	while oReader.callMethod("Read",[])

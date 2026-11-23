@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch02_text_encodings.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># text files and encodings - the bytes of a text, the byte order mark, reading a file in the right encoding, and strict decoding</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -262,6 +263,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oFile = <span class="k">new</span> <span class="t">File</span>()
 	oPath = <span class="k">new</span> <span class="t">Path</span>()
 	cFolder = oPath.<span class="f">Combine</span>([ oPath.<span class="f">GetTempPath</span>(), <span class="s">"ringdotnet-enc-"</span> + oPath.<span class="f">GetRandomFileName</span>() ])
@@ -334,6 +336,7 @@ using {
 
 <span class="c"># does the text of bytes decode without a replacement as UTF-8? (the strict encoding raises an error for bad bytes)</span>
 <span class="k">func</span> <span class="f">isValidUtf8</span> cBytes
+
 	oStrict = <span class="f">dnNew</span>(<span class="s">"UTF8Encoding"</span>,[ <span class="k">False</span>, <span class="k">True</span> ])
 	<span class="k">try</span>
 		oStrict.<span class="f">GetString</span>(cBytes)
@@ -344,6 +347,7 @@ using {
 
 <span class="c"># the order of the tests</span>
 <span class="k">func</span> <span class="f">detect</span> cBytes
+
 	<span class="k">if</span> left(cBytes,<span class="n">3</span>) = char(<span class="n">239</span>) + char(<span class="n">187</span>) + char(<span class="n">191</span>)
 		<span class="k">return</span> <span class="s">"UTF-8 with a BOM"</span>
 	<span class="k">ok</span>
@@ -360,6 +364,7 @@ using {
 
 <span class="c"># the bytes of a text as hexadecimal pairs</span>
 <span class="k">func</span> <span class="f">toHex</span> cBytes
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> i = <span class="n">1</span> <span class="k">to</span> len(cBytes)
 		cText += right(<span class="s">"0"</span> + upper(hex(ascii(substr(cBytes,i,<span class="n">1</span>)))),<span class="n">2</span>) + <span class="s">" "</span>
@@ -367,12 +372,14 @@ using {
 	<span class="k">return</span> trim(cText)
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> <span class="s">"no"</span>
 
 <span class="k">func</span> <span class="f">padRight</span> cText,nWidth
+
 	<span class="k">return</span> cText + copy(<span class="s">" "</span>,nWidth - len(cText))</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. the bytes of the text 'Cafe' with an accent, a space and the euro sign:
    UTF-8   9 bytes   43 61 66 C3 A9 20 E2 82 AC

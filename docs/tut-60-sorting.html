@@ -254,6 +254,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch12_sorting.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># watching sorting algorithms - an animation, a timer and counting the work</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -278,6 +279,7 @@ nSeed = <span class="n">12345</span>
 aHot = []                 <span class="c"># the two bars that are touched by the step being shown</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Sorting"</span>,C_COUNT * C_BAR + <span class="n">30</span>,C_HEIGHT + <span class="n">100</span>)
 	oPicture = <span class="f">uiPictureBox</span>(oForm,<span class="n">5</span>,<span class="n">5</span>,C_COUNT * C_BAR,C_HEIGHT)
 	oCanvas = <span class="k">new</span> <span class="t">UiCanvas</span>(oPicture)
@@ -291,10 +293,12 @@ aHot = []                 <span class="c"># the two bars that are touched by the
 
 <span class="c"># a small random number generator with a fixed start, so that every run shows the same bars</span>
 <span class="k">func</span> <span class="f">nextRandom</span> nLimit
+
 	nSeed = (nSeed * <span class="n">1103515245</span> + <span class="n">12345</span>) % <span class="n">2147483648</span>
 	<span class="k">return</span> (floor(nSeed / <span class="n">65536</span>) % nLimit) + <span class="n">1</span>
 
 <span class="k">func</span> <span class="f">shuffle</span>
+
 	oTimer.<span class="f">Stop</span>()
 	aValues = []
 	<span class="k">for</span> nI = <span class="n">1</span> <span class="k">to</span> C_COUNT
@@ -316,6 +320,7 @@ aHot = []                 <span class="c"># the two bars that are touched by the
 
 <span class="c"># the algorithms only RECORD what they do on a copy; the timer replays it step by step</span>
 <span class="k">func</span> <span class="f">startSorting</span>
+
 	oTimer.<span class="f">Stop</span>()
 	aWork = aValues
 	aSteps = []
@@ -333,6 +338,7 @@ aHot = []                 <span class="c"># the two bars that are touched by the
 	oTimer.<span class="f">Start</span>()
 
 <span class="k">func</span> <span class="f">bubbleSort</span> aWork
+
 	<span class="k">for</span> nEnd = len(aWork) <span class="k">to</span> <span class="n">2</span> <span class="k">step</span> -<span class="n">1</span>
 		<span class="k">for</span> nI = <span class="n">1</span> <span class="k">to</span> nEnd - <span class="n">1</span>
 			aSteps + [<span class="s">"compare"</span>,nI,nI + <span class="n">1</span>]
@@ -346,6 +352,7 @@ aHot = []                 <span class="c"># the two bars that are touched by the
 	<span class="k">next</span>
 
 <span class="k">func</span> <span class="f">selectionSort</span> aWork
+
 	<span class="k">for</span> nI = <span class="n">1</span> <span class="k">to</span> len(aWork) - <span class="n">1</span>
 		nMin = nI
 		<span class="k">for</span> nJ = nI + <span class="n">1</span> <span class="k">to</span> len(aWork)
@@ -363,6 +370,7 @@ aHot = []                 <span class="c"># the two bars that are touched by the
 	<span class="k">next</span>
 
 <span class="k">func</span> <span class="f">insertionSort</span> aWork
+
 	<span class="k">for</span> nI = <span class="n">2</span> <span class="k">to</span> len(aWork)
 		nJ = nI
 		<span class="k">while</span> nJ &gt; <span class="n">1</span>
@@ -381,6 +389,7 @@ aHot = []                 <span class="c"># the two bars that are touched by the
 
 <span class="c"># show the next recorded step (the timer calls this)</span>
 <span class="k">func</span> <span class="f">showStep</span>
+
 	<span class="k">if</span> nStep &gt;= len(aSteps)
 		oTimer.<span class="f">Stop</span>()
 		aHot = []
@@ -403,6 +412,7 @@ aHot = []                 <span class="c"># the two bars that are touched by the
 	draw()
 
 <span class="k">func</span> <span class="f">draw</span>
+
 	oCanvas.<span class="f">clear</span>(<span class="s">"White"</span>)
 	<span class="k">for</span> nI = <span class="n">1</span> <span class="k">to</span> len(aValues)
 		nHeight = aValues[nI] * (C_HEIGHT - <span class="n">10</span>) / C_COUNT
@@ -429,6 +439,7 @@ aHot = []                 <span class="c"># the two bars that are touched by the
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch12_sorting.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch12_sorting.ring: run with  ring ch12_sorting.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">isSorted</span>
+
 	<span class="k">for</span> nI = <span class="n">1</span> <span class="k">to</span> len(aValues) - <span class="n">1</span>
 		<span class="k">if</span> aValues[nI] &gt; aValues[nI + <span class="n">1</span>]
 			<span class="k">return</span> <span class="k">False</span>
@@ -437,6 +448,7 @@ aHot = []                 <span class="c"># the two bars that are touched by the
 	<span class="k">return</span> <span class="k">True</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	oTimer.<span class="f">Stop</span>()
 	<span class="f">dnAssert</span>(<span class="s">"the bars start shuffled"</span>,isSorted(),<span class="k">False</span>)
 	<span class="k">for</span> nAlgorithm = <span class="n">0</span> <span class="k">to</span> <span class="n">2</span>

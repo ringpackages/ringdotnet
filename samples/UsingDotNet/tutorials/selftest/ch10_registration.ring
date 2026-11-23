@@ -1,6 +1,7 @@
 # the checks of ch10_registration.ring: run with  ring ch10_registration.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	oForm.Controls.Item(7).PerformClick()                 # nothing typed yet
 	dnAssert("name is required",oResult.Text,"Please type a name")
 	oName.Text = "Ann"

@@ -1,5 +1,6 @@
 # a maze - make it with a stack (depth-first), solve it with a queue (breadth-first), draw it on a canvas
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -18,6 +19,7 @@ aPath = []                # the solution: a list of [row, column]
 nSeed = 2024
 
 func main
+
 	oForm = uiForm("Maze",C_COLUMNS * C_CELL + 30,C_ROWS * C_CELL + 100)
 	oPicture = uiPictureBox(oForm,5,5,C_COLUMNS * C_CELL,C_ROWS * C_CELL)
 	oCanvas = new UiCanvas(oPicture)
@@ -28,6 +30,7 @@ func main
 	uiRun(oForm)
 
 func nextRandom nLimit
+
 	nSeed = (nSeed * 1103515245 + 12345) % 2147483648
 	return (floor(nSeed / 65536) % nLimit) + 1
 
@@ -36,6 +39,7 @@ func nextRandom nLimit
 # Start with all walls. Walk to a random neighbor that has not been visited, opening the wall between the two cells; when
 # there is no such neighbor go back (pop the stack). Every cell is visited once, so there is exactly one path between any two cells.
 func newMaze
+
 	aOpen = []
 	aSeen = []
 	for nRow = 1 to C_ROWS
@@ -66,6 +70,7 @@ func newMaze
 
 # the four neighbors [row, column] that exist and were not visited
 func freeNeighbors aCell, aSeen
+
 	aList = []
 	for aMove in [[-1,0],[0,1],[1,0],[0,-1]]
 		nRow = aCell[1] + aMove[1]
@@ -79,6 +84,7 @@ func freeNeighbors aCell, aSeen
 	return aList
 
 func openBetween aFrom, aTo
+
 	if aTo[1] < aFrom[1]
 		aOpen[aFrom[1]][aFrom[2]] += "N"
 		aOpen[aTo[1]][aTo[2]] += "S"
@@ -98,6 +104,7 @@ func openBetween aFrom, aTo
 # Visit the cells in rings around the start: first the cells 1 step away, then 2 steps... The first time the exit is reached, the way
 # there is the SHORTEST path. Each cell remembers the cell it was reached from, and the path is followed back from the exit.
 func solve
+
 	aFrom = []
 	for nRow = 1 to C_ROWS
 		aFrom + list(C_COLUMNS)
@@ -138,6 +145,7 @@ func solve
 # ---------------------------------------------------------------- drawing
 
 func draw
+
 	oCanvas.clear("White")
 	for aCell in aPath
 		oCanvas.fillRect((aCell[2] - 1) * C_CELL + 4,(aCell[1] - 1) * C_CELL + 4,C_CELL - 8,C_CELL - 8,"Orange")

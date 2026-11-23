@@ -1,5 +1,6 @@
 # more data structures - PriorityQueue, SortedSet, SortedDictionary, LinkedList and BitArray
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Collections"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	cInt = "System.Int32"
 	cText = "System.String"
 
@@ -67,9 +69,11 @@ func main
 	? "   OR:    " + bitText(copyBits(oBits).@Or(oOther))
 
 func copyBits oBits
+
 	return new BitArray(oBits)
 
 func bitText oBits
+
 	cText = ""
 	for i = 0 to oBits.Length - 1
 		if oBits.@Get(i) cText += "1" else cText += "0" ok
@@ -77,6 +81,7 @@ func bitText oBits
 	return cText
 
 func list2str2 aList
+
 	cText = ""
 	for item in aList
 		cText += "" + item + " "

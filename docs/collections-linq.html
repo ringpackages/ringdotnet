@@ -269,6 +269,7 @@ aResult = oDict.<span class="f">TryGetValue</span>(<span class="s">"three"</span
 ? aResult[<span class="n">1</span>]                           <span class="c"># 0</span></code></pre></div>
 <details class="src"><summary>samples/UsingDotNet/introduction/test03_collections.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/introduction/test03_collections.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Collections: the generated closed generic classes (StringList, StringDictionary ...)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using { <span class="s">"System.Collections.Generic"</span> }
 
 <span class="c"># List&lt;string&gt;</span>
@@ -343,6 +344,7 @@ Pop = top</code></pre></div>
 <p><code>System.Collections</code>, <code>System.Collections.Specialized</code>, <code>System.Collections.Concurrent</code> and <code>System.Collections.ObjectModel</code> are wrapped completely: <code>ArrayList</code>, <code>Hashtable</code>, <code>SortedList</code>, <code>Stack</code>, <code>Queue</code>, <code>BitArray</code>, <code>NameValueCollection</code>, <code>ObservableCollection</code> and so on.</p>
 <details class="src"><summary>samples/UsingDotNet/introduction/test10_collections.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/introduction/test10_collections.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Collections of the .NET class library: dictionaries and the specialized and generic collections</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Collections"</span>
 	<span class="s">"System.Collections.Specialized"</span>
@@ -382,6 +384,7 @@ oQuery.<span class="f">Add</span>([ :name = <span class="s">"tag"</span>, :value
 ? <span class="s">"Query values   : "</span> + oQuery.<span class="f">Item</span>(<span class="s">"tag"</span>) + <span class="s">" | "</span> + oQuery.<span class="f">Item</span>(<span class="s">"page"</span>)
 
 <span class="k">func</span> <span class="f">split</span> cText, cSep
+
 	<span class="k">return</span> str2list(substr(cText,cSep,nl))</code></pre></div></details>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>Distinct words : 9
 'the' appears  : 3 times
@@ -414,6 +417,7 @@ aTop = <span class="f">dnQuery</span>(aSales).<span class="f">Where</span>(<span
 ? <span class="f">dnQuery</span>(aSales).<span class="f">Max</span>(<span class="s">""</span>)</code></pre></div>
 <details class="src"><summary>samples/UsingDotNet/introduction/test11_linq.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/introduction/test11_linq.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># LINQ over Ring lists and strings: the conditions are Ring code</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using { <span class="s">"System.Linq"</span> }
 
 <span class="c"># Where, OrderBy, Count, Sum, Any ... take a condition written as Ring code (aDotNetArgs[1] is the item)</span>

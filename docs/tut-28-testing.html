@@ -260,12 +260,14 @@
 <span class="c">#   ring ch13_testing.ring            all tests pass</span>
 <span class="c">#   ring ch13_testing.ring --break    one test fails on purpose, to show what a failure looks like</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Text.RegularExpressions"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	testFizzBuzz()
 	testWordCount()
 	testDates()
@@ -278,6 +280,7 @@ using {
 <span class="c"># ---------------------------------------------------------------- the code that is tested (small, with one job each)</span>
 
 <span class="k">func</span> <span class="f">fizzBuzz</span> nNumber
+
 	<span class="k">if</span> nNumber % <span class="n">15</span> = <span class="n">0</span>
 		<span class="k">return</span> <span class="s">"FizzBuzz"</span>
 	<span class="k">ok</span>
@@ -290,17 +293,20 @@ using {
 	<span class="k">return</span> <span class="s">""</span> + nNumber
 
 <span class="k">func</span> <span class="f">wordCount</span> cText
+
 	<span class="k">if</span> trim(cText) = <span class="s">""</span>
 		<span class="k">return</span> <span class="n">0</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"\s+"</span>).<span class="f">Split</span>(trim(cText)).Length
 
 <span class="k">func</span> <span class="f">daysUntil</span> nYear, nMonth, nDay, nFromYear, nFromMonth, nFromDay
+
 	oFrom = <span class="k">new</span> <span class="t">DateTime</span>(nFromYear,nFromMonth,nFromDay)
 	oTo = <span class="k">new</span> <span class="t">DateTime</span>(nYear,nMonth,nDay)
 	<span class="k">return</span> oTo.<span class="f">Subtract</span>(oFrom).Days
 
 <span class="k">func</span> <span class="f">toNumber</span> cText
+
 	aResult = <span class="k">new</span> <span class="t">Int32</span>().<span class="f">TryParse</span>(cText)
 	<span class="k">if</span> <span class="k">not</span> aResult[<span class="n">1</span>]
 		raise(<span class="s">"Not a number: "</span> + cText)
@@ -310,24 +316,28 @@ using {
 <span class="c"># ---------------------------------------------------------------- the tests: dnAssert(name, actual, expected)</span>
 
 <span class="k">func</span> <span class="f">testFizzBuzz</span>
+
 	<span class="f">dnAssert</span>(<span class="s">"3 is Fizz"</span>,fizzBuzz(<span class="n">3</span>),<span class="s">"Fizz"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"10 is Buzz"</span>,fizzBuzz(<span class="n">10</span>),<span class="s">"Buzz"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"30 is FizzBuzz"</span>,fizzBuzz(<span class="n">30</span>),<span class="s">"FizzBuzz"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"7 is 7"</span>,fizzBuzz(<span class="n">7</span>),<span class="s">"7"</span>)
 
 <span class="k">func</span> <span class="f">testWordCount</span>
+
 	<span class="f">dnAssert</span>(<span class="s">"empty text"</span>,wordCount(<span class="s">""</span>),<span class="n">0</span>)
 	<span class="f">dnAssert</span>(<span class="s">"spaces only"</span>,wordCount(<span class="s">"    "</span>),<span class="n">0</span>)
 	<span class="f">dnAssert</span>(<span class="s">"one word"</span>,wordCount(<span class="s">"Ring"</span>),<span class="n">1</span>)
 	<span class="f">dnAssert</span>(<span class="s">"many spaces between words"</span>,wordCount(<span class="s">"  Ring   and  .NET "</span>),<span class="n">3</span>)
 
 <span class="k">func</span> <span class="f">testDates</span>
+
 	<span class="f">dnAssert</span>(<span class="s">"a week"</span>,daysUntil(<span class="n">2024</span>,<span class="n">1</span>,<span class="n">8</span>,<span class="n">2024</span>,<span class="n">1</span>,<span class="n">1</span>),<span class="n">7</span>)
 	<span class="f">dnAssert</span>(<span class="s">"over a leap day"</span>,daysUntil(<span class="n">2024</span>,<span class="n">3</span>,<span class="n">1</span>,<span class="n">2024</span>,<span class="n">2</span>,<span class="n">28</span>),<span class="n">2</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the same day"</span>,daysUntil(<span class="n">2024</span>,<span class="n">5</span>,<span class="n">5</span>,<span class="n">2024</span>,<span class="n">5</span>,<span class="n">5</span>),<span class="n">0</span>)
 
 <span class="c"># Test that an error is raised: catch it and remember that it happened</span>
 <span class="k">func</span> <span class="f">testErrors</span>
+
 	<span class="f">dnAssert</span>(<span class="s">"a number"</span>,toNumber(<span class="s">"42"</span>),<span class="n">42</span>)
 	lRaised = <span class="k">False</span>
 	<span class="k">try</span>
@@ -339,6 +349,7 @@ using {
 	<span class="f">dnAssert</span>(<span class="s">"an error was raised"</span>,lRaised,<span class="k">True</span>)
 
 <span class="k">func</span> <span class="f">testBrokenOnPurpose</span>
+
 	<span class="f">dnAssert</span>(<span class="s">"2 + 2 is 5 (wrong on purpose)"</span>,<span class="n">2</span> + <span class="n">2</span>,<span class="n">5</span>)</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>TESTS: 14 passed, 0 failed</code></pre></div>
 <h3 id="when-a-test-fails">When a test fails<a class="anchor" href="#when-a-test-fails">#</a></h3>

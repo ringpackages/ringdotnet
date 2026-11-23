@@ -1,5 +1,6 @@
 # the keyboard in a form - KeyPress to allow only digits, the Enter and Escape buttons, the tab order, the access keys and select-all
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -16,6 +17,7 @@ nRejected = 0                     # how many keys the age box refused
 lClosed = False
 
 func main
+
 	oForm = uiForm("Keyboard",360,230)
 
 	# An ACCESS KEY: the & in front of a letter underlines it, and Alt + that letter moves the focus to the NEXT control in the tab order
@@ -49,6 +51,7 @@ func main
 
 # The argument of KeyPress has KeyChar (the character) and Handled. Digits and the Backspace key are accepted; everything else is refused.
 func filterKey oArgs
+
 	cChar = oArgs.KeyChar
 	nCode = 0
 	if len(cChar) = 1
@@ -62,6 +65,7 @@ func filterKey oArgs
 	ok
 
 func accept
+
 	if trim(oName.Text) = "" or oAge.Text = ""
 		oResult.Text = "Please fill in both boxes"
 		return

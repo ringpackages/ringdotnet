@@ -257,6 +257,7 @@
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch07_http_client.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># HttpClient in depth - headers both ways, status codes, errors, time limits, cancelling and saving a download</span>
 <span class="c">#   (a small server runs inside the program, so no internet is needed; the client code is what you write for a real service)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -269,6 +270,7 @@ oServer = <span class="s">""</span>
 oClient = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oServer = <span class="k">new</span> <span class="t">WebServer</span>(<span class="s">"http://127.0.0.1:0"</span>)
 	oServer.<span class="f">onGet</span>(<span class="s">"/echo"</span>,<span class="s">"echoPage"</span>)
 	oServer.<span class="f">onGet</span>(<span class="s">"/status"</span>,<span class="s">"statusPage"</span>)
@@ -331,6 +333,7 @@ oClient = <span class="s">""</span>
 
 <span class="c"># send a GET request, serve it (the server lives in this program) and return the HttpResponseMessage</span>
 <span class="k">func</span> <span class="f">fetchPage</span> cPath
+
 	oTask = oClient.<span class="f">GetAsync</span>(oServer.<span class="f">url</span>() + cPath)
 	<span class="k">for</span> nTry = <span class="n">1</span> <span class="k">to</span> <span class="n">100</span>
 		oServer.<span class="f">serveOne</span>(<span class="n">50</span>)                   <span class="c"># serve what is waiting (also requests that nobody waits for any more)</span>
@@ -342,11 +345,13 @@ oClient = <span class="s">""</span>
 	<span class="k">return</span> oTask.Result
 
 <span class="k">func</span> <span class="f">bodyOf</span> oResponse
+
 	oBody = oResponse.Content.<span class="f">ReadAsStringAsync</span>(<span class="k">NULL</span>)
 	oBody.<span class="f">Wait</span>(<span class="k">NULL</span>)
 	<span class="k">return</span> oBody.Result
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>
@@ -355,16 +360,20 @@ oClient = <span class="s">""</span>
 <span class="c"># ---------------------------------------------------------------- the pages of the little server</span>
 
 <span class="k">func</span> <span class="f">echoPage</span> oRequest
+
 	oRequest.<span class="f">setHeader</span>(<span class="s">"X-Server"</span>,<span class="s">"ring"</span>)
 	<span class="k">return</span> [<span class="n">200</span>,<span class="s">"text/plain"</span>,<span class="s">"hello "</span> + oRequest.<span class="f">query</span>(<span class="s">"name"</span>) + <span class="s">", your header X-Client was: "</span> + oRequest.<span class="f">header</span>(<span class="s">"X-Client"</span>)]
 
 <span class="k">func</span> <span class="f">statusPage</span> oRequest
+
 	<span class="k">return</span> [number(oRequest.<span class="f">query</span>(<span class="s">"code"</span>)),<span class="s">"text/plain"</span>,<span class="s">"status page"</span>]
 
 <span class="k">func</span> <span class="f">slowPage</span> oRequest
+
 	<span class="k">return</span> [<span class="n">200</span>,<span class="s">"text/plain"</span>,<span class="s">"never sent"</span>]
 
 <span class="k">func</span> <span class="f">filePage</span> oRequest
+
 	cText = <span class="s">"first line of the file"</span> + nl
 	<span class="k">for</span> nLine = <span class="n">2</span> <span class="k">to</span> <span class="n">400</span>
 		cText += <span class="s">"line number "</span> + nLine + <span class="s">" of a long file"</span> + nl

@@ -1,5 +1,6 @@
 # asking the computer - the operating system, the runtime, processors, memory, drives and running programs
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -9,6 +10,7 @@ using {
 }
 
 func main
+
 	oEnvironment = new Environment()
 	oRuntime = new RuntimeInformation()
 
@@ -59,10 +61,12 @@ func main
 
 # true when the program runs on Windows (the platform is "Win32NT" there, "Unix" on Linux and macOS)
 func runsOnWindows oEnvironment
+
 	cPlatform = oEnvironment.OSVersion.Platform
 	return cPlatform = "Win32NT"
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

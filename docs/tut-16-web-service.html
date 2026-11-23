@@ -257,6 +257,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch07_notes_service.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a web service with a database - JSON over HTTP, stored with Entity Framework</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Net.Http"</span>
 	<span class="s">"RingDotNet.Web"</span>
@@ -269,6 +270,7 @@ cUrl = <span class="s">""</span>
 oDb = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. The database: one table, kept in memory for this tutorial (use "Data Source=notes.db" for a file)</span>
 	oDb = <span class="k">new</span> <span class="t">RingDatabase</span>(<span class="s">"Data Source=:memory:"</span>,[
 		[<span class="s">"Notes"</span>,[[<span class="s">"Id"</span>,<span class="s">"int"</span>,<span class="n">1</span>],[<span class="s">"Text"</span>,<span class="s">"string"</span>,<span class="n">0</span>,[[<span class="s">"required"</span>,<span class="n">1</span>],[<span class="s">"maxlength"</span>,<span class="n">200</span>]]],[<span class="s">"Done"</span>,<span class="s">"int"</span>,<span class="n">0</span>,[[<span class="s">"default"</span>,<span class="n">0</span>]]]]]
@@ -296,6 +298,7 @@ oDb = <span class="s">""</span>
 <span class="c"># ---------------------------------------------------------------- the handlers</span>
 
 <span class="k">func</span> <span class="f">listNotes</span> oRequest
+
 	aList = []
 	<span class="k">for</span> aRow <span class="k">in</span> oDb.<span class="f">all</span>(<span class="s">"Notes"</span>)
 		aList + [[<span class="s">"id"</span>,<span class="f">dbValue</span>(aRow,<span class="s">"Id"</span>)],[<span class="s">"text"</span>,<span class="f">dbValue</span>(aRow,<span class="s">"Text"</span>)]]
@@ -303,6 +306,7 @@ oDb = <span class="s">""</span>
 	<span class="k">return</span> <span class="f">webJson</span>(aList)
 
 <span class="k">func</span> <span class="f">addNote</span> oRequest
+
 	cText = trim(oRequest.<span class="f">body</span>())
 	<span class="k">if</span> cText = <span class="s">""</span>
 		<span class="k">return</span> [<span class="n">400</span>,<span class="s">"text/plain"</span>,<span class="s">"The text of the note is empty"</span>]
@@ -311,6 +315,7 @@ oDb = <span class="s">""</span>
 	<span class="k">return</span> [<span class="n">201</span>,<span class="s">"application/json"</span>,<span class="s">'{"id":'</span> + nId + <span class="s">'}'</span>]
 
 <span class="k">func</span> <span class="f">deleteNote</span> oRequest
+
 	nId = number(oRequest.<span class="f">query</span>(<span class="s">"id"</span>))
 	<span class="k">if</span> oDb.<span class="f">remove</span>(<span class="s">"Notes"</span>,nId) = <span class="n">0</span>
 		<span class="k">return</span> [<span class="n">404</span>,<span class="s">"text/plain"</span>,<span class="s">"There is no note "</span> + nId]
@@ -320,6 +325,7 @@ oDb = <span class="s">""</span>
 <span class="c"># ---------------------------------------------------------------- the client</span>
 
 <span class="k">func</span> <span class="f">send</span> cMethod, cPath, cBody
+
 	oMessage = <span class="k">new</span> <span class="t">HttpRequestMessage</span>().@<span class="k">New</span>([ :<span class="t">method</span> = <span class="k">new</span> <span class="t">HttpMethod</span>(cMethod), :requestUri = cUrl + cPath ])
 	<span class="k">if</span> cBody != <span class="s">""</span>
 		oMessage.Content = <span class="k">new</span> <span class="t">StringContent</span>(cBody)

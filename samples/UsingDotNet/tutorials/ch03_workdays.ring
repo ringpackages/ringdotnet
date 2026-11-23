@@ -1,5 +1,6 @@
 # working days - adding business days, skipping weekends and holidays, week numbers, quarters, month ends and an age
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Globalization"
@@ -9,6 +10,7 @@ using {
 aHolidays = [ "2030-01-01", "2030-12-25", "2030-12-26" ]
 
 func main
+
 	# 1. The day of the week. DayOfWeek is a text: "Monday" ... "Sunday". Many countries have another weekend (Friday and Saturday), so the
 	#    weekend is a list in one place.
 	oDate = makeDate(2030,3,9)
@@ -59,21 +61,26 @@ func main
 	next
 
 func makeDate nYear,nMonth,nDay
+
 	return new DateTime(nYear,nMonth,nDay)
 
 # the weekend in one place (Saturday and Sunday here; use ["Friday","Saturday"] for the countries with that weekend)
 func isWeekend oDate
+
 	cDay = "" + oDate.DayOfWeek
 	return cDay = "Saturday" or cDay = "Sunday"
 
 func isHoliday oDate
+
 	return find(aHolidays,oDate.Format("yyyy-MM-dd")) > 0
 
 func isWorkday oDate
+
 	return not isWeekend(oDate) and not isHoliday(oDate)
 
 # n working days after a date (the date itself does not count)
 func addWorkdays oDate,nDays
+
 	oCurrent = oDate
 	nLeft = nDays
 	while nLeft > 0
@@ -85,6 +92,7 @@ func addWorkdays oDate,nDays
 	return oCurrent
 
 func countWorkdays oFrom,oTo
+
 	nCount = 0
 	oCurrent = oFrom
 	while oCurrent.CompareTo(oTo) < 0
@@ -96,16 +104,20 @@ func countWorkdays oFrom,oTo
 	return nCount
 
 func isoWeek oDate
+
 	return new ISOWeek().GetWeekOfYear(oDate)
 
 func isoYear oDate
+
 	return new ISOWeek().GetYear(oDate)
 
 func daysInMonth nYear,nMonth
+
 	return new DateTime(nYear,nMonth,1).DaysInMonth(nYear,nMonth)
 
 # the years between two dates, minus one when the birthday of that year has not come yet
 func ageOn oBirth,oDay
+
 	nAge = oDay.Year - oBirth.Year
 	if oDay.Month < oBirth.Month or (oDay.Month = oBirth.Month and oDay.Day < oBirth.Day)
 		nAge--
@@ -113,10 +125,12 @@ func ageOn oBirth,oDay
 	return nAge
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok
 	return "no"
 
 func padRight cText,nWidth
+
 	return cText + copy(" ",nWidth - len(cText))

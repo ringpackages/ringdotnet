@@ -1,11 +1,13 @@
 # randomness - seeds, dice, shuffling cards, weighted choices, unique ids, and when "random" must be secure
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Security.Cryptography"
 }
 
 func main
+
 	# 1. Random with a SEED gives the same sequence every time: perfect for tests and for repeating a simulation
 	oFirst = new Random(2024)
 	oSecond = new Random(2024)
@@ -70,6 +72,7 @@ func main
 	? nl + "6. a secure number from RandomNumberGenerator.GetInt32: " + yesNo(nSecure >= 0 and nSecure < 1000000) + " (in range); a different one every run"
 
 func sumOf aList
+
 	nSum = 0
 	for nItem in aList
 		nSum += nItem
@@ -77,6 +80,7 @@ func sumOf aList
 	return nSum
 
 func joinWith aList, cSeparator
+
 	cText = ""
 	for xItem in aList
 		if cText != ""
@@ -87,12 +91,14 @@ func joinWith aList, cSeparator
 	return cText
 
 func padRight cText, nWidth
+
 	while len(cText) < nWidth
 		cText += " "
 	end
 	return cText
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

@@ -1,5 +1,6 @@
 # recursion - a function that calls itself: factorial, the Hanoi towers, permutations, a folder tree and a flood fill
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -8,6 +9,7 @@ using {
 nMoves = 0
 
 func main
+
 	# 1. Recursion = a function solves a big problem by solving a smaller one with itself. It needs a STOP: a case that is answered directly.
 	? "1. factorial(5) = " + factorial(5) + "   (5 * factorial(4), ..., and factorial(1) = 1 stops it)"
 	? "   sum of the numbers 1..100 = " + sumTo(100)
@@ -53,24 +55,28 @@ func main
 
 # factorial(n) = n * factorial(n - 1); factorial(1) = 1
 func factorial n
+
 	if n <= 1
 		return 1
 	ok
 	return n * factorial(n - 1)
 
 func sumTo n
+
 	if n = 0
 		return 0
 	ok
 	return n + sumTo(n - 1)
 
 func countdown n, nDepth
+
 	? "   " + copy("  ",nDepth) + "countdown(" + n + ")"
 	if n > 0
 		countdown(n - 1,nDepth + 1)
 	ok
 
 func hanoi n, cFrom, cTo, cVia
+
 	if n = 0
 		return
 	ok
@@ -81,6 +87,7 @@ func hanoi n, cFrom, cTo, cVia
 
 # all the orders of a list of letters, as texts
 func permutations aItems
+
 	if len(aItems) <= 1
 		return aItems
 	ok
@@ -100,6 +107,7 @@ func permutations aItems
 	return aResult
 
 func makeTree cRoot
+
 	new Directory().CreateDirectory(new Path().Combine([cRoot,"docs"]))
 	new Directory().CreateDirectory(new Path().Combine([cRoot,"docs","old"]))
 	new Directory().CreateDirectory(new Path().Combine([cRoot,"src"]))
@@ -109,6 +117,7 @@ func makeTree cRoot
 	new File().WriteAllText([ :path = new Path().Combine([cRoot,"src/main.ring"]), :contents = "? 1" ])
 
 func showTree cFolder, nLevel
+
 	? "   " + copy("   ",nLevel) + new Path().GetFileName(cFolder) + "/"
 	aFolders = sort(new Directory().GetDirectories(cFolder).toList())
 	for cSub in aFolders
@@ -120,6 +129,7 @@ func showTree cFolder, nLevel
 	next
 
 func folderSize cFolder
+
 	nTotal = 0
 	aFiles = new Directory().GetFiles(cFolder).toList()
 	for cFile in aFiles
@@ -133,6 +143,7 @@ func folderSize cFolder
 
 # fill the empty cells ('.') that touch the cell (nRow, nCol), turning them into '*'. Returns how many cells were filled.
 func fill aGrid, nRow, nCol
+
 	if nRow < 1 or nRow > len(aGrid) or nCol < 1 or nCol > len(aGrid[1])
 		return 0
 	ok
@@ -143,6 +154,7 @@ func fill aGrid, nRow, nCol
 	return 1 + fill(aGrid,nRow - 1,nCol) + fill(aGrid,nRow + 1,nCol) + fill(aGrid,nRow,nCol - 1) + fill(aGrid,nRow,nCol + 1)
 
 func joinWith aList, cSeparator
+
 	cText = ""
 	for cItem in aList
 		if cText != ""

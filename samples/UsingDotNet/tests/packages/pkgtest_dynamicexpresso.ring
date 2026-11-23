@@ -44,4 +44,5 @@ done
 dnTestSummary()
 
 func evalText oInterpreter, cText
+
 	return oInterpreter.Eval([ :expressionText = cText, :parameters = [] ])

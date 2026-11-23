@@ -27,6 +27,7 @@ dnAssert("an array from JSON",oFromJson.Item("a").Count,3)
 dnTestSummary()
 
 func hexs cBytes
+
 	cOut = ""
 	for i = 1 to len(cBytes)
 		cOut += right("0" + hex(ascii(cBytes[i])),2)

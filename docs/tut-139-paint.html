@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_paint.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># drawing with the mouse - MouseDown, MouseMove and MouseUp: a small paint program with colors, a pen size, clear and save</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -276,6 +277,7 @@ nLastY = <span class="n">0</span>
 nStrokes = <span class="n">0</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Paint"</span>,<span class="n">460</span>,<span class="n">380</span>)
 	<span class="f">uiButton</span>(oForm,<span class="s">"Black"</span>,<span class="n">10</span>,<span class="n">10</span>,<span class="n">70</span>,<span class="n">28</span>,<span class="s">"setColor('Black')"</span>)
 	<span class="f">uiButton</span>(oForm,<span class="s">"Red"</span>,<span class="n">86</span>,<span class="n">10</span>,<span class="n">70</span>,<span class="n">28</span>,<span class="s">"setColor('Red')"</span>)
@@ -299,6 +301,7 @@ nStrokes = <span class="n">0</span>
 	<span class="f">uiRun</span>(oForm)
 
 <span class="k">func</span> <span class="f">clearCanvas</span>
+
 	oGraphics = <span class="k">new</span> <span class="t">Graphics</span>().<span class="f">FromImage</span>(oBitmap)
 	oGraphics.<span class="f">Clear</span>(<span class="f">uiColor</span>(<span class="s">"White"</span>))
 	oGraphics.<span class="f">Dispose</span>()
@@ -307,18 +310,21 @@ nStrokes = <span class="n">0</span>
 	oStatus.Text = <span class="s">"Clear"</span>
 
 <span class="k">func</span> <span class="f">setColor</span> cName
+
 	cColor = cName
 	oStatus.Text = <span class="s">"Color: "</span> + cName
 
 <span class="c"># The three steps of a stroke. Down starts it (and draws a dot, so that a click without a move also leaves a mark), Move continues it</span>
 <span class="c"># with a line from the last place to this one, and Up ends it. Moving the mouse with the button up draws nothing.</span>
 <span class="k">func</span> <span class="f">mouseDown</span> nX,nY
+
 	lDrawing = <span class="k">True</span>
 	nLastX = nX
 	nLastY = nY
 	drawDot(nX,nY)
 
 <span class="k">func</span> <span class="f">mouseMove</span> nX,nY
+
 	<span class="k">if</span> <span class="k">not</span> lDrawing
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -327,6 +333,7 @@ nStrokes = <span class="n">0</span>
 	nLastY = nY
 
 <span class="k">func</span> <span class="f">mouseUp</span>
+
 	<span class="k">if</span> lDrawing
 		nStrokes++
 		oStatus.Text = <span class="s">""</span> + nStrokes + <span class="s">" strokes"</span>
@@ -335,6 +342,7 @@ nStrokes = <span class="n">0</span>
 
 <span class="c"># a dot: a filled circle with the size of the pen (a line of length zero draws nothing, so the first point of a stroke is a circle)</span>
 <span class="k">func</span> <span class="f">drawDot</span> nX,nY
+
 	oGraphics = <span class="k">new</span> <span class="t">Graphics</span>().<span class="f">FromImage</span>(oBitmap)
 	oBrush = <span class="k">new</span> <span class="t">SolidBrush</span>(<span class="f">uiColor</span>(cColor))
 	nRadius = nPenSize / <span class="n">2</span>
@@ -345,6 +353,7 @@ nStrokes = <span class="n">0</span>
 
 <span class="c"># a line with a round pen: round ends make the joints of the small steps of the mouse smooth</span>
 <span class="k">func</span> <span class="f">drawLine</span> nX1,nY1,nX2,nY2
+
 	oGraphics = <span class="k">new</span> <span class="t">Graphics</span>().<span class="f">FromImage</span>(oBitmap)
 	oPen = <span class="k">new</span> <span class="t">Pen</span>(<span class="f">uiColor</span>(cColor)) {
 		Width = nPenSize
@@ -372,6 +381,7 @@ nStrokes = <span class="n">0</span>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_paint.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_paint.ring: run with  ring ch10_paint.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	<span class="c"># a new canvas is white</span>
 	<span class="f">dnAssert</span>(<span class="s">"white at the start"</span>,oBitmap.<span class="f">GetPixel</span>(<span class="n">100</span>,<span class="n">100</span>).Name,<span class="s">"ffffffff"</span>)
 

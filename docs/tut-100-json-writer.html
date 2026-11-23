@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch02_json_writer.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># writing JSON as a stream - Utf8JsonWriter, indentation, nesting, escaping, and JsonSerializer options</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -263,6 +264,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. Utf8JsonWriter writes a JSON text piece by piece into a stream, without building a tree in memory first.</span>
 	<span class="c">#    It is the right tool for big documents and for output that must be exactly formatted.</span>
 	oStream = <span class="k">new</span> <span class="t">MemoryStream</span>

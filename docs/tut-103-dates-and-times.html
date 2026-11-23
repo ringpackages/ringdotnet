@@ -255,12 +255,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch03_dates_and_times.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># dates and times - DateOnly, TimeOnly, DateTimeOffset, TimeSpan and calculations that do not break</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Globalization"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. DateTime mixes a date and a time. When you only need ONE of them, DateOnly and TimeOnly say it in the type: a birthday has no</span>
 	<span class="c">#    time, an opening hour has no date.</span>
 	oDate = makeDate(<span class="n">2024</span>,<span class="n">2</span>,<span class="n">28</span>)
@@ -310,9 +312,11 @@ using {
 	? <span class="s">"   '31/04/2024' is a date: "</span> + aParsed[<span class="n">1</span>] + <span class="s">"   (April has 30 days)"</span>
 
 <span class="k">func</span> <span class="f">makeDate</span> nYear,nMonth,nDay
+
 	<span class="k">return</span> <span class="k">new</span> <span class="t">DateOnly</span>(nYear,nMonth,nDay)
 
 <span class="k">func</span> <span class="f">makeDateTime</span> nYear,nMonth,nDay,nHour,nMinute
+
 	<span class="k">return</span> <span class="f">dnNew</span>(<span class="s">"DateTime"</span>,[ :year = nYear, :month = nMonth, :day = nDay, :hour = nHour, :minute = nMinute, :second = <span class="n">0</span> ])</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. a date:  2024-02-28, Wednesday, day 59 of the year
    2 days later: 2024-03-01   (2024 is a leap year: February has 29 days)

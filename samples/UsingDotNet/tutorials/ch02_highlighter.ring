@@ -1,11 +1,13 @@
 # a project: a syntax highlighter - one regular expression with named groups splits code into tokens, and each token becomes an HTML span
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Text.RegularExpressions"
 }
 
 func main
+
 	# A highlighter reads code as TOKENS (comments, strings, numbers, words) and writes each kind in its own color. The idea is one
 	# regular expression with an alternative for each kind of token: the first alternative that matches at a place wins. The order
 	# matters: a comment must be tried before the words, so that a word inside a comment is not a keyword.
@@ -50,6 +52,7 @@ func main
 
 # the tokens of a text: a list of [kind, text]
 func tokens cCode,cPattern
+
 	aList = []
 	aKinds = [ "comment","string","number","word","other" ]
 	for oMatch in dnStatic("System.Text.RegularExpressions.Regex","Matches",[ cCode, cPattern ]).toList()
@@ -64,6 +67,7 @@ func tokens cCode,cPattern
 
 # the words of a kind of list: the keywords that were used (each once)
 func findKind aTokens,cKind,aKeywords
+
 	aFound = []
 	for aToken in aTokens
 		if aToken[1] = "word" and find(aKeywords,aToken[2]) > 0 and find(aFound,aToken[2]) = 0
@@ -73,6 +77,7 @@ func findKind aTokens,cKind,aKeywords
 	return aFound
 
 func findNames aTokens,aKeywords
+
 	aFound = []
 	for aToken in aTokens
 		if aToken[1] = "word" and find(aKeywords,aToken[2]) = 0 and find(aFound,aToken[2]) = 0
@@ -83,6 +88,7 @@ func findNames aTokens,aKeywords
 
 # the HTML of a list of tokens: a span with a class for comments, strings, numbers and keywords; the rest is plain
 func toHtml aTokens,aKeywords
+
 	cHtml = ""
 	for aToken in aTokens
 		cKind = aToken[1]
@@ -104,20 +110,24 @@ func toHtml aTokens,aKeywords
 
 # the three characters that HTML reads as markup. & first: otherwise the & of the other two would be changed again.
 func htmlText cText
+
 	cText = substr(cText,"&","&amp;")
 	cText = substr(cText,"<","&lt;")
 	return substr(cText,">","&gt;")
 
 # the HTML without the tags (the spans that the program added): what is left must be the escaped code
 func stripTags cHtml
+
 	return dnStatic("System.Text.RegularExpressions.Regex","Replace",[ cHtml, '</?span[^>]*>', "" ])
 
 # a token of spaces, tabs or line breaks only
 func isBlank cText
+
 	cText = substr(substr(substr(substr(cText," ",""),char(9),""),char(10),""),char(13),"")
 	return cText = ""
 
 func joinList aList
+
 	cText = ""
 	for item in aList
 		if cText != ""
@@ -128,10 +138,12 @@ func joinList aList
 	return cText
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok
 	return "no"
 
 func padRight cText,nWidth
+
 	return cText + copy(" ",nWidth - len(cText))

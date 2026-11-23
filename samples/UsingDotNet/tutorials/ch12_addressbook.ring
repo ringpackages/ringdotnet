@@ -1,5 +1,6 @@
 # a project - an address book with a database (Windows Forms + Entity Framework + a data grid)
 load "dotnet.ring"
+
 using {
 	"System.Data"
 	"System.Drawing"
@@ -18,6 +19,7 @@ oSearch = ""
 oStatus = ""
 
 func main
+
 	# THE DATABASE: a file next to the program (a test uses memory, so that it leaves nothing behind)
 	cConnection = "Data Source=addressbook.db"
 	if uiSelfTest()
@@ -70,6 +72,7 @@ func main
 
 # read the rows that match the search text into the DataTable that the grid shows
 func reload
+
 	oTable.Rows.Clear()
 	cFind = trim(oSearch.Text)
 	if cFind = ""
@@ -86,18 +89,21 @@ func reload
 
 # the key is not shown to the user
 func hideKey
+
 	if oGrid.Columns.Count > 0
 		oGrid.Columns.Item(0).Visible = False
 	ok
 
 # the key of the chosen row, or 0 when no row is chosen
 func currentId
+
 	if oGrid.SelectedRows.Count = 0
 		return 0
 	ok
 	return oGrid.SelectedRows.Item(0).Cells.Item(0).Value
 
 func rowChosen
+
 	if oGrid.SelectedRows.Count = 0
 		return
 	ok
@@ -109,6 +115,7 @@ func rowChosen
 # ---------------------------------------------------------------- the buttons
 
 func addContact
+
 	cName = trim(oName.Text)
 	if cName = ""
 		oStatus.Text = "  A contact needs a name"
@@ -119,6 +126,7 @@ func addContact
 	reload()
 
 func updateContact
+
 	nId = currentId()
 	if nId = 0 or trim(oName.Text) = ""
 		return
@@ -127,6 +135,7 @@ func updateContact
 	reload()
 
 func deleteContact
+
 	nId = currentId()
 	if nId = 0
 		return
@@ -138,6 +147,7 @@ func deleteContact
 	ok
 
 func clearFields
+
 	oName.Text = ""
 	oPhone.Text = ""
 	oCity.Text = ""

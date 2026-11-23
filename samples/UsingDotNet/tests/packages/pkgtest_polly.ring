@@ -30,6 +30,7 @@ dnAssert("it was tried once and three times again",nAttempts,-6)
 dnTestSummary()
 
 func pollyWork aArgs
+
 	nAttempts++
 	if nAttempts < 3
 		raise("boom")

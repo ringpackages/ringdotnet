@@ -28,6 +28,7 @@ dnAssert("the last row",aBack[3].Item("Name"),"user3")
 dnTestSummary()
 
 func pkgRemoveFile cPath
+
 	if fexists(cPath)
 		remove(cPath)
 	ok

@@ -255,12 +255,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch03_big_numbers.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># numbers that do not fit - BigInteger for exact big whole numbers, Complex numbers and the limits of Ring numbers</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Numerics"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. A Ring number is a double: whole numbers are exact up to 9007199254740992 (2^53). After that, the last digits are lost.</span>
 	? <span class="s">"1. Ring: 9007199254740992 + 1 = "</span> + (<span class="n">9007199254740992</span> + <span class="n">1</span>) + <span class="s">"   (the +1 is lost)"</span>
 

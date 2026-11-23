@@ -3,6 +3,7 @@ load "dotnet.ring"
 dnUseData()
 
 func main
+
 	oDb = new RingDatabase("Data Source=:memory:",[
 		["Accounts",[["Id","int",1],["Owner","string",0],["Balance","double",0]]]
 	])

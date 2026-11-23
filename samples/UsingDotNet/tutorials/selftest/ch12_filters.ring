@@ -1,6 +1,7 @@
 # the checks of ch12_filters.ring: run with  ring ch12_filters.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	applyFilter("Gray")
 	lGray = True
 	for aRow in aResult

@@ -257,6 +257,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch08_login.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># login, sessions and cookies - a web site that knows who you are</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Net.Http"</span>
@@ -273,6 +274,7 @@ oDb = <span class="s">""</span>
 aSessions = []            <span class="c"># [token, user name]: who is logged in</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># THE USERS: a table; the password is never stored, only a salted slow hash of it (the tutorial "Hashing and encryption")</span>
 	oDb = <span class="k">new</span> <span class="t">RingDatabase</span>(<span class="s">"Data Source=:memory:"</span>,[
 		[<span class="s">"Users"</span>,[[<span class="s">"Id"</span>,<span class="s">"int"</span>,<span class="n">1</span>],[<span class="s">"Name"</span>,<span class="s">"string"</span>,<span class="n">0</span>,[[<span class="s">"required"</span>,<span class="n">1</span>],[<span class="s">"unique"</span>,<span class="n">1</span>]]],[<span class="s">"Salt"</span>,<span class="s">"string"</span>,<span class="n">0</span>],[<span class="s">"Hash"</span>,<span class="s">"string"</span>,<span class="n">0</span>]]]
@@ -310,6 +312,7 @@ aSessions = []            <span class="c"># [token, user name]: who is logged in
 <span class="c"># ---------------------------------------------------------------- the handlers</span>
 
 <span class="k">func</span> <span class="f">registerUser</span> oRequest
+
 	cName = lower(trim(oRequest.<span class="f">form</span>(<span class="s">"name"</span>)))
 	cPassword = oRequest.<span class="f">form</span>(<span class="s">"password"</span>)
 	<span class="k">if</span> cName = <span class="s">""</span> <span class="k">or</span> len(cPassword) &lt; <span class="n">4</span>
@@ -324,6 +327,7 @@ aSessions = []            <span class="c"># [token, user name]: who is logged in
 	<span class="k">return</span> [<span class="n">201</span>,<span class="s">"text/plain"</span>,<span class="s">"welcome, "</span> + cName]
 
 <span class="k">func</span> <span class="f">loginUser</span> oRequest
+
 	cName = lower(trim(oRequest.<span class="f">form</span>(<span class="s">"name"</span>)))
 	aUsers = oDb.<span class="f">where</span>(<span class="s">"Users"</span>,<span class="s">"Name = {0}"</span>,[cName])
 	<span class="c"># the same answer for a wrong name and a wrong password: do not tell an attacker which one was wrong</span>
@@ -337,6 +341,7 @@ aSessions = []            <span class="c"># [token, user name]: who is logged in
 	<span class="k">return</span> [<span class="n">200</span>,<span class="s">"text/plain"</span>,<span class="s">"logged in as "</span> + cName]
 
 <span class="k">func</span> <span class="f">profilePage</span> oRequest
+
 	cUser = userOf(oRequest)
 	<span class="k">if</span> cUser = <span class="s">""</span>
 		<span class="k">return</span> [<span class="n">401</span>,<span class="s">"text/plain"</span>,<span class="s">"please log in"</span>]
@@ -344,6 +349,7 @@ aSessions = []            <span class="c"># [token, user name]: who is logged in
 	<span class="k">return</span> [<span class="n">200</span>,<span class="s">"text/plain"</span>,<span class="s">"this is the profile of "</span> + cUser]
 
 <span class="k">func</span> <span class="f">logoutUser</span> oRequest
+
 	cToken = tokenOf(oRequest)
 	<span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> len(aSessions)
 		<span class="k">if</span> aSessions[nIndex][<span class="n">1</span>] = cToken
@@ -358,6 +364,7 @@ aSessions = []            <span class="c"># [token, user name]: who is logged in
 
 <span class="c"># the token in the "Cookie" header of the request: "session=abc123; other=1"</span>
 <span class="k">func</span> <span class="f">tokenOf</span> oRequest
+
 	cHeader = oRequest.<span class="f">header</span>(<span class="s">"Cookie"</span>)
 	<span class="k">for</span> cPart <span class="k">in</span> str2list(substr(cHeader,<span class="s">";"</span>,nl))
 		cPart = trim(cPart)
@@ -369,6 +376,7 @@ aSessions = []            <span class="c"># [token, user name]: who is logged in
 
 <span class="c"># the user name of a session, or "" when the cookie is missing or unknown</span>
 <span class="k">func</span> <span class="f">userOf</span> oRequest
+
 	cToken = tokenOf(oRequest)
 	<span class="k">if</span> cToken = <span class="s">""</span>
 		<span class="k">return</span> <span class="s">""</span>
@@ -383,9 +391,11 @@ aSessions = []            <span class="c"># [token, user name]: who is logged in
 <span class="c"># ---------------------------------------------------------------- passwords and tokens (see the tutorial "Hashing and encryption")</span>
 
 <span class="k">func</span> <span class="f">randomHex</span> nBytes
+
 	<span class="k">return</span> lower(<span class="k">new</span> <span class="t">Convert</span>().<span class="f">ToHexString</span>(<span class="k">new</span> <span class="t">RandomNumberGenerator</span>().<span class="f">GetBytes</span>(nBytes)))
 
 <span class="k">func</span> <span class="f">hashPassword</span> cPassword, cSalt
+
 	oDerive = <span class="f">dnNew</span>(<span class="s">"Rfc2898DeriveBytes"</span>,[ :password = cPassword, :salt = cSalt, :iterations = <span class="n">10000</span>, :hashAlgorithm = <span class="k">new</span> <span class="t">HashAlgorithmName</span>().SHA256 ])
 	<span class="k">return</span> lower(<span class="k">new</span> <span class="t">Convert</span>().<span class="f">ToHexString</span>(oDerive.<span class="f">GetBytes</span>(<span class="n">32</span>)))
 
@@ -393,6 +403,7 @@ aSessions = []            <span class="c"># [token, user name]: who is logged in
 
 <span class="c"># send a request (with the cookie when there is one); returns [status, body, the cookie that the server sent, if any]</span>
 <span class="k">func</span> <span class="f">visit</span> cMethod, cPath, cForm, cCookie
+
 	oMessage = <span class="k">new</span> <span class="t">HttpRequestMessage</span>().@<span class="k">New</span>([ :<span class="t">method</span> = <span class="k">new</span> <span class="t">HttpMethod</span>(cMethod), :requestUri = cUrl + cPath ])
 	<span class="k">if</span> cForm != <span class="s">""</span>
 		oContent = <span class="f">dnNew</span>(<span class="s">"StringContent"</span>,[ :content = cForm, :encoding = <span class="k">new</span> <span class="t">Encoding</span>().UTF8, :mediaType = <span class="s">"application/x-www-form-urlencoded"</span> ])

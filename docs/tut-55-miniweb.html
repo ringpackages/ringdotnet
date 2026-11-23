@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch07_miniweb.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a tiny web framework - routes with parameters (/users/:id), templates ({{name}}) and one catch-all handler</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Net"</span>
 	<span class="s">"System.Net.Http"</span>
@@ -267,6 +268,7 @@ oClient = <span class="s">""</span>
 oRouter = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oServer = <span class="k">new</span> <span class="t">WebServer</span>(<span class="s">"http://127.0.0.1:0"</span>)
 	oRouter = <span class="k">new</span> <span class="t">Router</span>()
 	oRouter.<span class="f">add</span>(<span class="s">"GET"</span>,<span class="s">"/"</span>,<span class="s">"homePage"</span>)
@@ -282,6 +284,7 @@ oRouter = <span class="s">""</span>
 	oServer.<span class="f">close</span>()
 
 <span class="k">func</span> <span class="f">padRight</span> cText, nWidth
+
 	<span class="k">while</span> len(cText) &lt; nWidth
 		cText += <span class="s">" "</span>
 	<span class="k">end</span>
@@ -291,6 +294,7 @@ oRouter = <span class="s">""</span>
 
 <span class="c"># the one handler of the web server: it asks the router</span>
 <span class="k">func</span> <span class="f">dispatch</span> oRequest
+
 	aMatch = oRouter.<span class="f">find</span>(oRequest.<span class="f">method</span>(),oRequest.<span class="f">path</span>())
 	<span class="k">if</span> len(aMatch) = <span class="n">0</span>
 		<span class="k">return</span> [<span class="n">404</span>,<span class="s">"text/plain"</span>,<span class="s">"no page "</span> + oRequest.<span class="f">path</span>()]
@@ -301,12 +305,14 @@ oRouter = <span class="s">""</span>
 
 <span class="c"># a template: {{name}} is replaced by the value, with HTML characters escaped</span>
 <span class="k">func</span> <span class="f">render</span> cTemplate, aValues
+
 	<span class="k">for</span> aPair <span class="k">in</span> aValues
 		cTemplate = substr(cTemplate,<span class="s">"{{"</span> + aPair[<span class="n">1</span>] + <span class="s">"}}"</span>,escape(aPair[<span class="n">2</span>]))
 	<span class="k">next</span>
 	<span class="k">return</span> [<span class="n">200</span>,<span class="s">"text/html"</span>,cTemplate]
 
 <span class="k">func</span> <span class="f">escape</span> cText
+
 	cText = substr(cText,<span class="s">"&amp;"</span>,<span class="s">"&amp;amp;"</span>)
 	cText = substr(cText,<span class="s">"&lt;"</span>,<span class="s">"&amp;lt;"</span>)
 	cText = substr(cText,<span class="s">"&gt;"</span>,<span class="s">"&amp;gt;"</span>)
@@ -315,17 +321,21 @@ oRouter = <span class="s">""</span>
 <span class="c"># ---------------------------------------------------------------- the pages</span>
 
 <span class="k">func</span> <span class="f">homePage</span> oRequest, aParams
+
 	<span class="k">return</span> render(<span class="s">"&lt;h1&gt;Welcome&lt;/h1&gt;"</span>,[])
 
 <span class="k">func</span> <span class="f">userPage</span> oRequest, aParams
+
 	<span class="k">return</span> render(<span class="s">"&lt;h1&gt;User {{name}}&lt;/h1&gt;"</span>,aParams)
 
 <span class="k">func</span> <span class="f">postPage</span> oRequest, aParams
+
 	<span class="k">return</span> render(<span class="s">"&lt;h1&gt;Post {{id}} of {{name}}&lt;/h1&gt;"</span>,aParams)
 
 <span class="c"># ---------------------------------------------------------------- a test client</span>
 
 <span class="k">func</span> <span class="f">fetch</span> cPath
+
 	oTask = oClient.<span class="f">GetAsync</span>(oServer.<span class="f">url</span>() + cPath)
 	<span class="k">for</span> nTry = <span class="n">1</span> <span class="k">to</span> <span class="n">50</span>
 		<span class="k">if</span> oServer.<span class="f">serveOne</span>(<span class="n">100</span>)
@@ -340,6 +350,7 @@ oRouter = <span class="s">""</span>
 
 <span class="c"># "/users/ali" -&gt; ["", "users", "ali"]</span>
 <span class="k">func</span> <span class="f">splitPath</span> cText
+
 	<span class="k">return</span> str2list(substr(cText,<span class="s">"/"</span>,nl))
 
 <span class="c"># ---------------------------------------------------------------- the router (a class goes last: functions after it would belong to it)</span>
@@ -349,13 +360,16 @@ oRouter = <span class="s">""</span>
 	aRoutes = []              <span class="c"># [method, [parts of the pattern], handler name]</span>
 
 	<span class="k">func</span> <span class="f">init</span>
+
 		<span class="k">return</span> <span class="k">self</span>
 
 	<span class="k">func</span> <span class="f">add</span> cMethod, cPattern, cHandler
+
 		aRoutes + [cMethod,splitPath(cPattern),cHandler]
 
 	<span class="c"># the first route that fits: returns [handler, [[parameter name, value], ...]] or an empty list</span>
 	<span class="k">func</span> <span class="f">find</span> cMethod, cPath
+
 		aParts = splitPath(cPath)
 		<span class="k">for</span> aRoute <span class="k">in</span> aRoutes
 			<span class="k">if</span> aRoute[<span class="n">1</span>] = cMethod <span class="k">and</span> len(aRoute[<span class="n">2</span>]) = len(aParts)
@@ -369,6 +383,7 @@ oRouter = <span class="s">""</span>
 
 	<span class="c"># a part that starts with : is a parameter, the other parts must be equal</span>
 	<span class="k">func</span> <span class="f">matchParts</span> aPattern, aParts
+
 		aParams = []
 		<span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> len(aPattern)
 			cWanted = aPattern[nIndex]

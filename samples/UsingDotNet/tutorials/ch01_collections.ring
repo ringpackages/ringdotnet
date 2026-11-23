@@ -1,11 +1,13 @@
 # collections and LINQ - lists, dictionaries, sets, queues, sorting and querying
 load "dotnet.ring"
+
 using {
 	"System.Collections.Generic"
 	"System.Linq"
 }
 
 func main
+
 	# A list keeps items in order
 	oFruit = new StringList()
 	oFruit.Add("banana")
@@ -50,6 +52,7 @@ func main
 
 # the items of a Ring list on one line
 func joinList aList
+
 	cText = ""
 	for xItem in aList
 		if cText != ""

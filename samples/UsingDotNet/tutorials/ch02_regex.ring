@@ -1,11 +1,13 @@
 # regular expressions in depth - patterns, groups, replace, split, validation
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Text.RegularExpressions"
 }
 
 func main
+
 	cText = "Ann: 555-0101, Bob: 555-0199, Cy: 555-0123 (call after 18:30 on 2024-05-17)"
 
 	# 1. Literal text matches itself

@@ -37,10 +37,13 @@ dnAssert("a running total",aRunning[7],28)
 dnTestSummary()
 
 func addPair aArgs
+
 	return aArgs[1] + aArgs[2]
 
 func negative aArgs
+
 	return 0 - aArgs[1]
 
 func joinPair aArgs
+
 	return aArgs[1] + aArgs[2]

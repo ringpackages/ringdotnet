@@ -1,5 +1,6 @@
 # WPF lists and dynamic content - a ListBox that the program fills, selection, moving and removing items, and controls made in code
 load "dotnet.ring"
+
 using {
 	"System.Windows"
 	"System.Windows.Controls"
@@ -9,6 +10,7 @@ using {
 oWindow = ""
 
 func main
+
 	# The window has a text box to type into, buttons, a ListBox and a WrapPanel. The ListBox is empty in the XAML: the program fills it.
 	cXaml = '<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Lists" Width="420" Height="420" Background="#F4F2FB">'
 	cXaml += '<StackPanel Margin="12">'
@@ -32,10 +34,12 @@ func main
 	wpfRun(oWindow)
 
 func listBox
+
 	return wpfFind(oWindow,"list")
 
 # Items is the collection of the items of a list control. Add puts an item at the end, Insert at a place, RemoveAt takes one away.
 func addItem
+
 	cText = trim(wpfFind(oWindow,"input").Text)
 	if cText = ""
 		return
@@ -46,6 +50,7 @@ func addItem
 
 # SelectedIndex is -1 when nothing is selected
 func removeItem
+
 	nIndex = listBox().SelectedIndex
 	if nIndex >= 0
 		listBox().Items.RemoveAt(nIndex)
@@ -54,6 +59,7 @@ func removeItem
 
 # move the selected item up (-1) or down (1): take it out and put it in at the new place
 func moveItem nStep
+
 	nIndex = listBox().SelectedIndex
 	nNew = nIndex + nStep
 	if nIndex < 0 or nNew < 0 or nNew >= listBox().Items.Count
@@ -66,12 +72,14 @@ func moveItem nStep
 	refresh()
 
 func clearItems
+
 	listBox().Items.Clear()
 	refresh()
 
 # the count, and a button for each item in the WrapPanel: controls MADE BY THE PROGRAM, as many as there are items. The panel is emptied
 # first, and each button gets the code that shows its item.
 func refresh
+
 	nCount = listBox().Items.Count
 	wpfFind(oWindow,"count").Text = "" + nCount + " items"
 	oChips = wpfFind(oWindow,"chips")
@@ -83,4 +91,5 @@ func refresh
 	next
 
 func showItem nIndex
+
 	wpfFind(oWindow,"count").Text = "Item " + (nIndex + 1) + ": " + listBox().Items.Item(nIndex)

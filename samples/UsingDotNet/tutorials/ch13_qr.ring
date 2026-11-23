@@ -1,6 +1,7 @@
 # a QR code with a NuGet package - QRCoder makes the code, and the program prints it as text and writes it as a PNG picture
 #   (the project is in the folder Qr: Qr.csproj names QRCoder, and Empty.cs is the one source file a project needs)
 load "dotnet.ring"
+
 using { "System.IO" }
 
 cHere = currentdir()
@@ -27,6 +28,7 @@ dnLoad(cDll)
 dnImportFrom(cClasses + "/","QRCoder")
 
 func main
+
 	oGenerator = new QRCodeGenerator()
 
 	# 1. The code of a text. CreateQrCode has several versions, so it takes the names of its parameters; the level of error

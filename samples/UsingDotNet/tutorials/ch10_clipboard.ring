@@ -1,5 +1,6 @@
 # the clipboard - text, a table for a spreadsheet, a picture, and leaving the clipboard as the user had it
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Threading.Tasks"
@@ -15,6 +16,7 @@ aTable = [ ["Item","Price"], ["Tea","2.50"], ["Coffee","3.20"], ["Juice","4.00"]
 cBefore = ""
 
 func main
+
 	oForm = uiForm("Clipboard",420,300)
 	oEdit = uiTextBox(oForm,15,15,380,26)
 	oEdit.Text = "Copied from Ring"
@@ -34,11 +36,13 @@ func main
 
 # 1. Text. SetText puts a text on the clipboard; GetText reads it (it needs NULL: the method has a second form). ContainsText asks first.
 func copyText
+
 	oClipboard = new Clipboard()
 	oClipboard.SetText(oEdit.Text)
 	oStatus.Text = "Copied " + len(oEdit.Text) + " characters"
 
 func pasteText
+
 	oClipboard = new Clipboard()
 	cText = readText()
 	if cText != ""
@@ -51,6 +55,7 @@ func pasteText
 # 2. A table for a spreadsheet. Excel, LibreOffice and others paste text with TABS between the columns and a new line between the rows as
 #    a table of cells: the program only has to make that text.
 func copyTable
+
 	cText = ""
 	for aRow in aTable
 		cText += aRow[1] + char(9) + aRow[2] + nl
@@ -61,6 +66,7 @@ func copyTable
 
 # 3. A picture. SetImage puts a bitmap on the clipboard; other programs paste it as a picture.
 func copyPicture
+
 	oClipboard = new Clipboard()
 	oClipboard.SetImage(oPicture.Image)
 	oStatus.Text = "Copied a picture of " + oPicture.Image.Width + " x " + oPicture.Image.Height + " pixels"
@@ -68,6 +74,7 @@ func copyPicture
 # The clipboard belongs to the whole computer, and another program (a clipboard manager, for example) can have it open for a moment:
 # a read then gives nothing. Reading again a few times, with a short pause, is the usual answer; the result is "" when there is no text.
 func readText
+
 	oClipboard = new Clipboard()
 	for nTry = 1 to 20
 		if oClipboard.ContainsText(NULL)
@@ -81,12 +88,14 @@ func readText
 	return ""
 
 func clearClipboard
+
 	oClipboard = new Clipboard()
 	oClipboard.Clear()
 	oStatus.Text = "The clipboard is empty"
 
 # a small picture made with Graphics: a blue square with a yellow circle
 func makePicture
+
 	oBitmap = new Bitmap(120,80)
 	oGraphics = new Graphics().FromImage(oBitmap)
 	oGraphics.Clear(dnStatic("System.Drawing.Color","FromArgb",[ 255, 40, 90, 200 ]))

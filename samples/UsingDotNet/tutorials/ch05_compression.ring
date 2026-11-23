@@ -1,5 +1,6 @@
 # compression - GZip, Deflate and Brotli on streams, sizes, a round trip and a compressed file
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -8,6 +9,7 @@ using {
 }
 
 func main
+
 	# Compression looks for repetition. A text with many repeated parts becomes small; random data does not.
 	cText = ""
 	for i = 1 to 200
@@ -61,6 +63,7 @@ func main
 	new File().Delete(cFile)
 
 func compress cFormat,cData
+
 	oMemory = new MemoryStream()
 	oPacker = packer(cFormat,oMemory,"Compress")
 	oPacker.Write(cData,0,len(cData))
@@ -68,6 +71,7 @@ func compress cFormat,cData
 	return oMemory.ToArray()
 
 func decompress cFormat,cData
+
 	oSource = new MemoryStream().@New([ :buffer = cData ])
 	oUnpacker = packer(cFormat,oSource,"Decompress")
 	oOut = new MemoryStream()
@@ -75,6 +79,7 @@ func decompress cFormat,cData
 	return oOut.ToArray()
 
 func packer cFormat,oStream,oMode
+
 	switch cFormat
 	on "GZip"    return new GZipStream(oStream,oMode)
 	on "Deflate" return new DeflateStream(oStream,oMode)
@@ -82,4 +87,5 @@ func packer cFormat,oStream,oMode
 	off
 
 func padRight cText,nWidth
+
 	return cText + copy(" ",nWidth - len(cText))

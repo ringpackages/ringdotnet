@@ -1,6 +1,7 @@
 # the checks of ch11_wpf_layout.ring: run with  ring ch11_wpf_layout.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	clickKey("key4")
 	clickKey("key2")
 	dnAssert("two digits",oDisplay.Text,"42")
@@ -15,4 +16,5 @@ func selfTest
 	dnAssert("the style: Margin of a key",wpfFind(oWindow,"key5").Margin.Left,4)
 
 func clickKey cName
+
 	wpfFind(oWindow,cName).RaiseEvent(new RoutedEventArgs().@New([ :routedEvent = new WpfButtonBase().ClickEvent ]))

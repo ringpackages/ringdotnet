@@ -1,5 +1,6 @@
 # a project - analyze a log file (files, regular expressions, dictionaries, LINQ, JSON)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -10,6 +11,7 @@ using {
 }
 
 func main
+
 	# STEP 1. Make a sample log file (a real program would read an existing file)
 	cLog = new Path().Combine([new Path().GetTempPath(),"ringdotnet_log_analyzer.log"])
 	makeLog(cLog)
@@ -66,6 +68,7 @@ func main
 
 # a count from the dictionary (0 when the key is missing)
 func count oDictionary, cKey
+
 	aFound = oDictionary.TryGetValue(cKey)
 	if aFound[1]
 		return aFound[2]
@@ -74,6 +77,7 @@ func count oDictionary, cKey
 
 # a small JSON object from [name, value] pairs
 func webJsonText aPairs
+
 	cText = "{"
 	for nIndex = 1 to len(aPairs)
 		if nIndex > 1
@@ -84,6 +88,7 @@ func webJsonText aPairs
 	return cText + "}"
 
 func makeLog cFile
+
 	aLines = []
 	aLevels = ["INFO","INFO","WARN","INFO","ERROR","INFO","ERROR","WARN","INFO","ERROR"]
 	aParts = ["db","web","disk","web","db","web","disk","db","web","web"]

@@ -1,5 +1,6 @@
 # editing a grid - DataGridView with typed columns (text, check box, combo box), a read-only total, cell events and a grand total
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Drawing"
@@ -12,6 +13,7 @@ oGrid = ""
 oSum = ""
 
 func main
+
 	oForm = uiForm("Order",560,320)
 	oGrid = new DataGridView()
 	oGrid.Location = new Point(15,15)
@@ -58,6 +60,7 @@ func main
 	uiRun(oForm)
 
 func addTextColumn cName,cHeader,nWidth,lReadOnly
+
 	oColumn = new DataGridViewTextBoxColumn()
 	oColumn.Name = cName
 	oColumn.HeaderText = cHeader
@@ -66,15 +69,18 @@ func addTextColumn cName,cHeader,nWidth,lReadOnly
 	oGrid.Columns.Add(oColumn)
 
 func addRow
+
 	oGrid.Rows.Add(["New item",1,1,False,"Small",""])
 
 # a cell by row and column name (the value of a cell can be text, a number, a boolean or empty)
 func cellText nRow,cColumn
+
 	return "" + oGrid.Rows.Item(nRow).Cells.Item(cColumn).Value
 
 # the number of a cell: a number that was typed arrives as a text, and a text that is not a number counts as 0. (A conversion that fails
 # raises a Ring error, which try / catch turns into the answer 0.)
 func cellNumber nRow,cColumn
+
 	cText = trim(cellText(nRow,cColumn))
 	nNumber = 0
 	try
@@ -86,6 +92,7 @@ func cellNumber nRow,cColumn
 
 # the total of a row: quantity x price, plus 5 for express, and 10 percent more for the size Large. Then the grand total.
 func rowChanged nRow
+
 	if nRow < 0
 		return
 	ok
@@ -104,6 +111,7 @@ func rowChanged nRow
 
 # two decimals at most, and no decimals for a whole number: 55.00000000000001 -> "55", 31.9 -> "31.90"
 func shortNumber nValue
+
 	nRounded = floor(nValue * 100 + 0.5) / 100
 	if nRounded = floor(nRounded)
 		return "" + floor(nRounded)
@@ -111,6 +119,7 @@ func shortNumber nValue
 	return "" + nRounded
 
 func showSum
+
 	nSum = 0
 	for i = 0 to oGrid.Rows.Count - 1
 		nSum += cellNumber(i,"Total")

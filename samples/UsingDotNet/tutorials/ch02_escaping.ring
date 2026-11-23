@@ -1,5 +1,6 @@
 # escaping - the right encoding for the right place (HTML, URL, JavaScript, JSON, XML, regular expressions and SQL)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Net"
@@ -11,6 +12,7 @@ using {
 }
 
 func main
+
 	# A text from a user can contain characters that mean something in the place where you put it. The rule: ENCODE FOR THE PLACE.
 	cText = "<script>alert('x & y')</script>"
 
@@ -57,6 +59,7 @@ func main
 	oDb.close()
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

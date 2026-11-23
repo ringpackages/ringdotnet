@@ -1,6 +1,7 @@
 # the checks of ch12_tictactoe.ring: run with  ring ch12_tictactoe.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	dnAssert("an empty board has no winner",winnerOf(["","","","","","","","",""]),"")
 	dnAssert("a row",winnerOf(["X","X","X","","O","O","","",""]),"X")
 	dnAssert("a column",winnerOf(["O","X","","O","X","","O","",""]),"O")

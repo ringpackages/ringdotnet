@@ -1,5 +1,6 @@
 # configuration - settings from a JSON file, from memory and from environment variables, layered so that the last one wins
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -8,6 +9,7 @@ using {
 }
 
 func main
+
 	# A program needs settings that are not in its code: a port, a name, a path, the address of a database. The configuration system of
 	# .NET reads them from SEVERAL sources and puts them into one tree of keys. Sources added later override sources added earlier:
 	# defaults in a file, changes for a computer in the environment, a value for one run on the command line.

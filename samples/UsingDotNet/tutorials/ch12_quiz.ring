@@ -1,5 +1,6 @@
 # a project: a quiz - questions in data, radio buttons, a score, feedback, a result screen and a saved list of best scores
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -29,6 +30,7 @@ lAnswered = False                 # was this question already checked?
 cScoreFile = ""
 
 func main
+
 	cScoreFile = new Path().Combine([ new Path().GetTempPath(), "ringdotnet-quiz-scores.txt" ])
 	oForm = uiForm("Quiz",470,300)
 	oProgress = uiLabel(oForm,"",15,12,430,22)
@@ -48,6 +50,7 @@ func main
 	cleanUp()
 
 func showQuestion n
+
 	nCurrent = n
 	lAnswered = False
 	aQuestion = aQuestions[n]
@@ -63,6 +66,7 @@ func showQuestion n
 
 # which radio button is on? 0 when none
 func chosen
+
 	for i = 1 to 4
 		if aAnswers[i].Checked
 			return i
@@ -72,6 +76,7 @@ func chosen
 
 # The button has two jobs. First click: check the answer and show the right one. Second click: the next question, or the result.
 func nextStep
+
 	if not lAnswered
 		checkAnswer()
 	else
@@ -83,6 +88,7 @@ func nextStep
 	ok
 
 func checkAnswer
+
 	nChosen = chosen()
 	if nChosen = 0
 		oFeedback.Text = "Choose an answer first"
@@ -107,6 +113,7 @@ func checkAnswer
 
 # the result: the score, a saved line for the list of scores, and the best three
 func showResult
+
 	oQuestion.Text = "Your score: " + nScore + " of " + len(aQuestions)
 	oProgress.Text = "Finished"
 	for i = 1 to 4
@@ -123,6 +130,7 @@ func showResult
 
 # the best scores of the file, the highest first
 func bestScores nCount
+
 	aScores = []
 	if new File().Exists(cScoreFile)
 		for cLine in new File().ReadAllLines(cScoreFile).toList()
@@ -139,6 +147,7 @@ func bestScores nCount
 	return aBest
 
 func cleanUp
+
 	if new File().Exists(cScoreFile)
 		new File().Delete(cScoreFile)
 	ok

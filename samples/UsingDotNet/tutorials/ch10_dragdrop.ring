@@ -1,5 +1,6 @@
 # drag and drop - moving items between two lists, Ctrl for copy, dropping files on a window, and testing the drop without a mouse
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -15,6 +16,7 @@ oStatus = ""
 oFilesList = ""
 
 func main
+
 	oForm = uiForm("Drag and drop",520,360)
 	uiLabel(oForm,"Fruits (drag from here)",15,12,230,22)
 	oSource = uiListBox(oForm,15,36,230,130)
@@ -48,6 +50,7 @@ func main
 # the start of a drag: the item under the mouse is the data. The result of DoDragDrop is the effect that the target chose: "Move" means
 # that the item is taken from the source.
 func beginDrag nX,nY
+
 	nIndex = oSource.IndexFromPoint([ :x = nX, :y = nY ])
 	if nIndex < 0
 		return
@@ -61,6 +64,7 @@ func beginDrag nX,nY
 # Does the target accept what comes? Text or files: yes. The Ctrl key (bit 8 of the key state) asks for a copy, and without it the
 # effect is a move. Anything else: "None" (the mouse shows a forbidden sign).
 func dragEnter oArgs
+
 	if oArgs.Data.GetDataPresent("Text") or oArgs.Data.GetDataPresent("FileDrop")
 		if (oArgs.KeyState & 8) != 0
 			oArgs.Effect = "Copy"
@@ -73,6 +77,7 @@ func dragEnter oArgs
 
 # the drop of a text: put it in the basket (once)
 func dragDrop oArgs
+
 	cText = oArgs.Data.GetData("Text")
 	if oBasket.Items.IndexOf(cText) >= 0
 		oStatus.Text = cText + " is already in the basket"
@@ -84,6 +89,7 @@ func dragDrop oArgs
 
 # the drop of files: the data is a list of paths
 func dropFiles oArgs
+
 	if not oArgs.Data.GetDataPresent("FileDrop")
 		return
 	ok

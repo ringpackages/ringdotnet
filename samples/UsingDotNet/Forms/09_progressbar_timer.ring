@@ -1,6 +1,7 @@
 # A progress bar driven by a timer
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -22,6 +23,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func advance
+
 	nPercent += 10
 	oBar.Value = nPercent
 	oText.Text = "" + nPercent + "%"

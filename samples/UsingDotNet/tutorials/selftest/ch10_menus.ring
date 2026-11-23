@@ -1,6 +1,7 @@
 # the checks of ch10_menus.ring: run with  ring ch10_menus.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	# the same action from the menu, the toolbar and the context menu
 	oText.Text = "hello menus"
 	oForm.MainMenuStrip.Items.Item(2).DropDownItems.Item(0).PerformClick()       # Text > Upper case

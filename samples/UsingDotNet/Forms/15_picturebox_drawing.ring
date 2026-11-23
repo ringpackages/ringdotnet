@@ -1,6 +1,7 @@
 # Draw shapes and text on a bitmap (UiCanvas)
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

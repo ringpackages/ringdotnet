@@ -1,6 +1,7 @@
 # the checks of ch10_chart.ring: run with  ring ch10_chart.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	dnAssert("the biggest value",maxOf(aValues),25)
 	dnAssert("round axis for 25",niceMax(25),30)
 	dnAssert("round axis for 8",niceMax(8),8)

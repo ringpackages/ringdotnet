@@ -1,5 +1,6 @@
 # printing - PrintDocument and the PrintPage event: a report on several pages, margins, page numbers, landscape, and a preview without a printer
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -15,6 +16,7 @@ nNextRow = 1                      # the first row that has not been printed yet
 aOnPage = []                      # how many rows each page got
 
 func main
+
 	# 1. A report with 100 rows
 	for i = 1 to 100
 		aRows + [ i, "Item " + right("000" + i,3), 2.5 + i * 0.75 ]
@@ -69,12 +71,14 @@ func main
 
 # A4 is 827 x 1169 hundredths of an inch; the margins are 50 (half an inch). Landscape turns the page.
 func setupPaper oDocument,lLandscape
+
 	oDocument.DefaultPageSettings.PaperSize = new PaperSize().@New([ :name = "A4", :width = 827, :height = 1169 ])
 	oDocument.DefaultPageSettings.Margins = new Margins().@New([ :left = 50, :right = 50, :top = 50, :bottom = 50 ])
 	oDocument.DefaultPageSettings.Landscape = lLandscape
 
 # The PrintPage event: draw one page. e.MarginBounds is the rectangle inside the margins (in hundredths of an inch).
 func drawPage oArgs
+
 	nPage++
 	oGraphics = oArgs.Graphics
 	oBounds = oArgs.MarginBounds
@@ -108,6 +112,7 @@ func drawPage oArgs
 
 # a metafile drawn on a white bitmap of the given size
 func pageBitmap oMetafile,nWidth,nHeight
+
 	oBitmap = new Bitmap(nWidth,nHeight)
 	oGraphics = new Graphics().FromImage(oBitmap)
 	oGraphics.Clear(uiColor("White"))
@@ -117,6 +122,7 @@ func pageBitmap oMetafile,nWidth,nHeight
 
 # how many pixels of a picture are dark (a step of 4 keeps it quick)
 func countDark oImage
+
 	nDark = 0
 	for x = 0 to oImage.Width - 1 step 4
 		for y = 0 to oImage.Height - 1 step 4
@@ -129,6 +135,7 @@ func countDark oImage
 	return nDark
 
 func joinList aList
+
 	cText = ""
 	for item in aList
 		if cText != ""
@@ -139,6 +146,7 @@ func joinList aList
 	return cText
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

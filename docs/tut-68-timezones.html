@@ -257,11 +257,13 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch03_timezones.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># time zones - UTC, local time, daylight saving, a meeting for several cities and a flight</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oZones = <span class="k">new</span> <span class="t">TimeZoneInfo</span>()
 	aCities = [[<span class="s">"New York"</span>,<span class="s">"Eastern Standard Time"</span>],[<span class="s">"London"</span>,<span class="s">"GMT Standard Time"</span>],[<span class="s">"Cairo"</span>,<span class="s">"Egypt Standard Time"</span>],[<span class="s">"Tokyo"</span>,<span class="s">"Tokyo Standard Time"</span>]]
 
@@ -302,10 +304,12 @@ using {
 	? <span class="s">"   hours between midnight and midnight that day: "</span> + nHours
 
 <span class="k">func</span> <span class="f">localTime</span> oZones, oUtc, cZoneId
+
 	<span class="k">return</span> oZones.<span class="f">ConvertTimeFromUtc</span>(oUtc,oZones.<span class="f">FindSystemTimeZoneById</span>(cZoneId))
 
 <span class="c"># "+02:00" or "-04:00": the offset from UTC at that moment (it includes daylight saving)</span>
 <span class="k">func</span> <span class="f">offsetText</span> oZones, oUtc, cZoneId
+
 	oZone = oZones.<span class="f">FindSystemTimeZoneById</span>(cZoneId)
 	cOffset = oZone.<span class="f">GetUtcOffset</span>(oUtc).<span class="f">ToString</span>()
 	<span class="k">if</span> left(cOffset,<span class="n">1</span>) != <span class="s">"-"</span>
@@ -314,12 +318,14 @@ using {
 	<span class="k">return</span> left(cOffset,<span class="n">6</span>)
 
 <span class="k">func</span> <span class="f">padRight</span> cText, nWidth
+
 	<span class="k">while</span> len(cText) &lt; nWidth
 		cText += <span class="s">" "</span>
 	<span class="k">end</span>
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

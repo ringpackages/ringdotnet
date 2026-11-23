@@ -23,4 +23,5 @@ dnAssert("a comment",rend("a{{! hidden }}b"),"ab")
 dnTestSummary()
 
 func rend cTemplate
+
 	return oRenderer.Render([ :template = cTemplate, :view = oData ])

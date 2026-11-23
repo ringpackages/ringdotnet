@@ -39,4 +39,5 @@ dnAssert("Arabic text in a token",substr(dnStatic("Jose.JWT","Decode",[cArabic,c
 dnTestSummary()
 
 func compact cText
+
 	return substr(substr(substr(cText,char(13),""),char(10),"")," ","")

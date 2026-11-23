@@ -1,6 +1,7 @@
 # the checks of ch10_editor.ring: run with  ring ch10_editor.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	oEditor.Text = "Hello from the test"
 	dnAssert("the text changed",lChanged,True)
 	cTemp = new Path().Combine([new Path().GetTempPath(),"ringdotnet_editor.txt"])

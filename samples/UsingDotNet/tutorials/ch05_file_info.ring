@@ -1,11 +1,13 @@
 # file information - size, attributes, times, read-only files, temporary files and copying with File and FileInfo
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
 }
 
 func main
+
 	oFile = new File()
 	oPath = new Path()
 	oDirectory = new Directory()
@@ -76,6 +78,7 @@ func main
 	oDirectory.Delete([ :path = cFolder, :recursive = True ])
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok
@@ -83,6 +86,7 @@ func yesNo lValue
 
 # how many days ago the file was written
 func daysOld oInfo
+
 	oNow = dnStatic("System.DateTime","get_Now",[])
 	oSpan = oNow.Subtract(oInfo.LastWriteTime)
 	return oSpan.TotalDays
@@ -90,6 +94,7 @@ func daysOld oInfo
 # the kind of an error: the name of the .NET exception ("System.IO.IOException"). The message of the exception also has the path of the
 # file, which is different on each computer, so the program prints only the kind.
 func errorKind cMessage
+
 	cText = trim(cMessage)
 	nStart = substr(cText,"DotNet Error: ")
 	if nStart > 0

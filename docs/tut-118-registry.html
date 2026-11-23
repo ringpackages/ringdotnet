@@ -256,6 +256,7 @@
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch06_registry.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the Windows Registry - keys and values in HKEY_CURRENT_USER, value types, listing, a settings class, and deleting what you made</span>
 <span class="c"># (Windows only: anywhere else the program says so and stops)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"Microsoft.Win32"</span>
@@ -264,6 +265,7 @@ using {
 C_PATH = <span class="s">"Software\RingDotNetTutorial"</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="k">if</span> <span class="k">not</span> iswindows()
 		? <span class="s">"The Registry exists only on Windows."</span>
 		<span class="k">return</span>
@@ -329,6 +331,7 @@ C_PATH = <span class="s">"Software\RingDotNetTutorial"</span>
 	? <span class="s">"   the key was deleted: "</span> + oUser.<span class="f">OpenSubKey</span>(C_PATH).<span class="f">isNull</span>()
 
 <span class="k">func</span> <span class="f">listText</span> aList
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> item <span class="k">in</span> aList
 		<span class="k">if</span> cText != <span class="s">""</span>
@@ -339,10 +342,12 @@ C_PATH = <span class="s">"Software\RingDotNetTutorial"</span>
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">padRight</span> cText,nWidth
+
 	<span class="k">return</span> cText + copy(<span class="s">" "</span>,nWidth - len(cText))
 
 <span class="c"># a string[] from a Ring list (the registry wants the exact type)</span>
 <span class="k">func</span> <span class="f">stringArray</span> aList
+
 	oList = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.List"</span>,[<span class="s">"System.String"</span>],[])
 	<span class="k">for</span> cItem <span class="k">in</span> aList
 		oList.<span class="f">Add</span>(cItem)

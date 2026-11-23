@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_dialog.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># your own dialog - a modal form that asks for data and gives it back</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -278,6 +279,7 @@ nStep = <span class="n">0</span>                       <span class="c"># which s
 cNextName = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Profile"</span>,<span class="n">340</span>,<span class="n">150</span>)
 	oShow = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">20</span>,<span class="n">20</span>,<span class="n">300</span>,<span class="n">50</span>)
 	oShow.Font = <span class="k">new</span> <span class="t">Font</span>(<span class="s">"Segoe UI"</span>,<span class="n">12</span>)
@@ -287,10 +289,12 @@ cNextName = <span class="s">""</span>
 	<span class="f">uiRun</span>(oForm)
 
 <span class="k">func</span> <span class="f">showProfile</span>
+
 	oShow.Text = cName + nl + nAge + <span class="s">" years old"</span>
 
 <span class="c"># The main window asks the dialog and uses the answer only when the user pressed OK</span>
 <span class="k">func</span> <span class="f">editProfile</span>
+
 	aAnswer = askProfile(cName,nAge)
 	<span class="k">if</span> islist(aAnswer)
 		cName = aAnswer[<span class="n">1</span>]
@@ -301,6 +305,7 @@ cNextName = <span class="s">""</span>
 <span class="c"># ---------------------------------------------------------------- the dialog</span>
 <span class="c"># Returns [name, age] when the user presses OK, or "" when the dialog is canceled.</span>
 <span class="k">func</span> <span class="f">askProfile</span> cStartName, nStartAge
+
 	oDialog = <span class="k">new</span> <span class="t">Form</span>() {
 		Text = <span class="s">"Edit profile"</span>
 		ClientSize = <span class="k">new</span> <span class="t">Size</span>(<span class="n">300</span>,<span class="n">150</span>)
@@ -346,6 +351,7 @@ cNextName = <span class="s">""</span>
 
 <span class="c"># OK checks the input: an invalid input keeps the dialog open and says why</span>
 <span class="k">func</span> <span class="f">okPressed</span>
+
 	<span class="k">if</span> trim(oNameBox.Text) = <span class="s">""</span>
 		oError.Text = <span class="s">"Please type a name"</span>
 		oNameBox.<span class="f">Focus</span>()
@@ -356,6 +362,7 @@ cNextName = <span class="s">""</span>
 <span class="c"># ---------------------------------------------------------------- tests: a timer acts as the user in the dialog</span>
 
 <span class="k">func</span> <span class="f">driveDialog</span>
+
 	nStep++
 	<span class="k">if</span> nStep = <span class="n">1</span>
 		oNameBox.Text = <span class="s">"   "</span>                     <span class="c"># first an invalid name: the dialog must stay open</span>
@@ -387,6 +394,7 @@ cNextName = <span class="s">""</span>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_dialog.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_dialog.ring: run with  ring ch10_dialog.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	cNextName = <span class="s">"Bob"</span>
 	nStep = <span class="n">0</span>
 	editProfile()

@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch02_formatting.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># formatting numbers and dates - format strings: fixed decimals, thousands, percent, hexadecimal, padding, alignment and custom patterns</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Globalization"</span>
@@ -264,6 +265,7 @@ oString = <span class="k">new</span> <span class="t">String</span>()
 oInvariant = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># A format string says HOW a value is written. The invariant culture is used here, so that the output is the same on every computer;</span>
 	<span class="c"># a program for people uses the culture of the user (the tutorial about cultures).</span>
 	oInvariant = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>).InvariantCulture
@@ -324,16 +326,20 @@ oInvariant = <span class="s">""</span>
 
 <span class="c"># a whole number in another base (a static method of Convert, called by its name because ToString is also a method of every object)</span>
 <span class="k">func</span> <span class="f">toBase</span> nNumber,nBase
+
 	<span class="k">return</span> <span class="f">dnStatic</span>(<span class="s">"System.Convert"</span>,<span class="s">"ToString"</span>,[ nNumber, nBase ])
 
 <span class="c"># format one value with the invariant culture</span>
 <span class="k">func</span> <span class="f">one</span> cFormat,value
+
 	<span class="k">return</span> oString.<span class="f">Format</span>([ :provider = oInvariant, :format = cFormat, :arg0 = value ])
 
 <span class="k">func</span> <span class="f">padRight</span> cText,nWidth
+
 	<span class="k">return</span> <span class="s">""</span> + cText + copy(<span class="s">" "</span>,nWidth - len(<span class="s">""</span> + cText))
 
 <span class="k">func</span> <span class="f">errorKind</span> cMessage
+
 	cText = trim(cMessage)
 	nStart = substr(cText,<span class="s">"DotNet Error: "</span>)
 	<span class="k">if</span> nStart &gt; <span class="n">0</span>

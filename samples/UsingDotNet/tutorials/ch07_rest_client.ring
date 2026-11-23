@@ -1,6 +1,7 @@
 # a REST client - call a JSON service, read the answer, handle the errors
 #   (the service is started in the same program so that the tutorial needs no internet)
 load "dotnet.ring"
+
 using {
 	"System.Net.Http"
 	"System.Text"
@@ -14,6 +15,7 @@ cUrl = ""
 aBooks = [[1,"The Hobbit",1937],[2,"Dune",1965],[3,"Neuromancer",1984]]
 
 func main
+
 	# --- the service (a stand-in for a real one on the internet)
 	oServer = new WebServer("http://127.0.0.1:0")
 	oServer.onGet("/api/books","listBooks")
@@ -65,6 +67,7 @@ func main
 # ---------------------------------------------------------------- the service
 
 func listBooks oRequest
+
 	aList = []
 	for aBook in aBooks
 		aList + [["id",aBook[1]],["title",aBook[2]],["year",aBook[3]]]
@@ -72,6 +75,7 @@ func listBooks oRequest
 	return webJson(aList)
 
 func oneBook oRequest
+
 	nId = number(oRequest.query("id"))
 	for aBook in aBooks
 		if aBook[1] = nId
@@ -81,6 +85,7 @@ func oneBook oRequest
 	return [404,"text/plain","no book " + nId]
 
 func addBook oRequest
+
 	oDocument = new JsonDocument().Parse(oRequest.body())
 	oRoot = oDocument.RootElement
 	nId = len(aBooks) + 1
@@ -91,6 +96,7 @@ func addBook oRequest
 # ---------------------------------------------------------------- the client's helper: send, wait, return [status, body]
 
 func request cMethod, cPath, cBody
+
 	oMessage = new HttpRequestMessage().@New([ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
 	if cBody != ""
 		oContent = dnNew("StringContent",[ :content = cBody, :encoding = new Encoding().UTF8, :mediaType = "application/json" ])

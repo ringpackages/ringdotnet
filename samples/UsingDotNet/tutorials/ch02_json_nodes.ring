@@ -1,5 +1,6 @@
 # JSON as a tree you can change - JsonNode, JsonObject and JsonArray (System.Text.Json.Nodes)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Text.Json"
@@ -9,6 +10,7 @@ using {
 C_CONFIG = '{"name":"shop","port":8080,"debug":false,"tags":["web","sql"],"database":{"host":"localhost","pool":5}}'
 
 func main
+
 	# 1. Parse text into a tree. A JsonNode is an object, an array or a value; AsObject() and AsArray() give the specific class.
 	oRoot = new JsonNode().Parse(C_CONFIG).AsObject()
 	? "1. name = " + oRoot.Item("name").ToString() + ", port + 1 = " + (number(oRoot.Item("port").ToString()) + 1)
@@ -63,6 +65,7 @@ func main
 
 # the tree as indented text
 func pretty oNode
+
 	oOptions = new JsonSerializerOptions() {
 		WriteIndented = True
 	}
@@ -70,6 +73,7 @@ func pretty oNode
 
 # copy the keys of oSource into oTarget; where both are objects, merge them
 func merge oTarget, oSource
+
 	for cKey in keysOf(oSource)
 		oValue = oSource.Item(cKey)
 		if oTarget.ContainsKey(cKey) and oTarget.Item(cKey).GetValueKind() = "Object" and oValue.GetValueKind() = "Object"
@@ -81,6 +85,7 @@ func merge oTarget, oSource
 
 # the keys of a JsonObject: its text form is parsed again with JsonDocument and its properties listed
 func keysOf oObject
+
 	oDocument = new JsonDocument().Parse(oObject.ToJsonString(NULL))
 	aKeys = []
 	oEnumerator = oDocument.RootElement.EnumerateObject()
@@ -92,6 +97,7 @@ func keysOf oObject
 	return aKeys
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

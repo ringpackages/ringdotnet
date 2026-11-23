@@ -1,6 +1,7 @@
 # Radio buttons in a group box
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -34,6 +35,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func show
+
 	for oRadio in aRadios
 		if oRadio.Checked
 			oChoice.Text = "You chose " + oRadio.Text

@@ -2,6 +2,7 @@
 #   ring ch05_watch_folder.ring            the parent: it watches a folder and starts a second copy of this program (the child) that changes it
 #   ring ch05_watch_folder.ring --child    the child (the parent starts it, you do not)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -10,6 +11,7 @@ using {
 }
 
 func main
+
 	if find(sysargv,"--child") > 0
 		child(sysargv[len(sysargv)])
 		return
@@ -67,6 +69,7 @@ func main
 
 # what a change tells: the kind of change and the name (a rename also has the old name)
 func describe oResult
+
 	cKind = "" + oResult.ChangeType
 	if cKind = "Renamed"
 		return "Renamed   " + oResult.OldName + " -> " + oResult.Name
@@ -74,10 +77,12 @@ func describe oResult
 	return padRight(cKind,10) + oResult.Name
 
 func padRight cText,nWidth
+
 	return cText + copy(" ",nWidth - len(cText))
 
 # ---------------------------------------------------------------- the child
 func child cFolder
+
 	oFile = new File()
 	pause(1000)
 	oFile.WriteAllText([ :path = cFolder + "/note.txt", :contents = "first" ])
@@ -91,4 +96,5 @@ func child cFolder
 	oFile.Delete(cFolder + "/done.txt")
 
 func pause nMilliseconds
+
 	new Task().Delay(nMilliseconds).Wait(NULL)

@@ -7,6 +7,7 @@ nSaved = 0
 aSql = []
 
 func main
+
 	oDb = new RingDatabase("Data Source=:memory:",[
 		["Notes",[["Id","int",1],["Text","string",0],["Deleted","int",0]],[["filter",["Deleted","=",0]]]],
 		["Users",[["Id","int",1],["Name","string",0,[["convert","upper"]]],["Secret","string",0,[["convert",[dnCallback("hide"),dnCallback("reveal")]]]]]]
@@ -64,12 +65,15 @@ func main
 	dnTestSummary()
 
 func hide aArgs
+
 	return reverse(aArgs[1])
 
 func reveal aArgs
+
 	return reverse(aArgs[1])
 
 func beforeSave aArgs
+
 	aSeen = aArgs[1]
 	if len(aSeen) > 0 and dbValue(aSeen[1][3],"Name") = "forbidden"
 		return "forbidden user"
@@ -77,7 +81,9 @@ func beforeSave aArgs
 	return ""
 
 func afterSave aArgs
+
 	nSaved += aArgs[1]
 
 func logSql aArgs
+
 	aSql + aArgs[1]

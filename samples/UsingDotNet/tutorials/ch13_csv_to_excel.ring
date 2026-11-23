@@ -1,6 +1,7 @@
 # a project with three packages - CsvHelper reads a CSV text, LiteDB stores the rows and finds some of them, ClosedXML writes an Excel report
 #   (the project is in the folder Report: Report.csproj names the three packages, and Empty.cs is the one source file a project needs)
 load "dotnet.ring"
+
 using { "System.IO" "System.Globalization" }
 
 cHere = currentdir()
@@ -33,6 +34,7 @@ dnLoad(cLibs + "ClosedXML.dll")
 dnImportFrom(cClasses + "ClosedXML/","ClosedXML.Excel")
 
 func main
+
 	cTemp = new Path().GetTempPath()
 	cDbFile = new Path().Combine([cTemp,"ringdotnet-sales.db"])
 	cXlsx = new Path().Combine([cTemp,"ringdotnet-sales-report.xlsx"])

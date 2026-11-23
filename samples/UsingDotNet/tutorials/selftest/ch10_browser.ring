@@ -1,6 +1,7 @@
 # the checks of ch10_browser.ring: run with  ring ch10_browser.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	dnAssert("the root node",oTree.Nodes.Count,1)
 	dnAssert("the root has three subfolders",oTree.Nodes.Item(0).Nodes.Count,3)
 	dnAssert("the root folder has one file",oList.Items.Count,1)

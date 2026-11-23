@@ -1,5 +1,6 @@
 # LINQ over Ring lists and strings: the conditions are Ring code
 load "dotnet.ring"
+
 using { "System.Linq" }
 
 # Where, OrderBy, Count, Sum, Any ... take a condition written as Ring code (aDotNetArgs[1] is the item)

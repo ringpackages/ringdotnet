@@ -254,6 +254,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_file_types.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># finding out what a file is - the first bytes (magic numbers), a signature table, text or binary, and a file whose name tells a lie</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -263,6 +264,7 @@ using {
 aSignatures = []                  <span class="c"># [ name, mime type, the first bytes ]</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oFile = <span class="k">new</span> <span class="t">File</span>()
 	oPath = <span class="k">new</span> <span class="t">Path</span>()
 	cFolder = oPath.<span class="f">Combine</span>([ oPath.<span class="f">GetTempPath</span>(), <span class="s">"ringdotnet-types-"</span> + oPath.<span class="f">GetRandomFileName</span>() ])
@@ -309,6 +311,7 @@ aSignatures = []                  <span class="c"># [ name, mime type, the first
 
 <span class="c"># the known signatures: the bytes at the start of the file</span>
 <span class="k">func</span> <span class="f">addSignatures</span>
+
 	aSignatures + [ <span class="s">"PNG picture"</span>,<span class="s">"image/png"</span>,char(<span class="n">137</span>) + <span class="s">"PNG"</span> + char(<span class="n">13</span>) + char(<span class="n">10</span>) + char(<span class="n">26</span>) + char(<span class="n">10</span>) ]
 	aSignatures + [ <span class="s">"GIF picture"</span>,<span class="s">"image/gif"</span>,<span class="s">"GIF8"</span> ]
 	aSignatures + [ <span class="s">"JPEG picture"</span>,<span class="s">"image/jpeg"</span>,char(<span class="n">255</span>) + char(<span class="n">216</span>) + char(<span class="n">255</span>) ]
@@ -318,10 +321,12 @@ aSignatures = []                  <span class="c"># [ name, mime type, the first
 	aSignatures + [ <span class="s">"Windows program"</span>,<span class="s">"application/x-msdownload"</span>,<span class="s">"MZ"</span> ]
 
 <span class="k">func</span> <span class="f">makeFile</span> cFile,cStart,cFill
+
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllBytes</span>(cFile,cStart + copy(cFill,<span class="n">20</span>))
 
 <span class="c"># the first nCount bytes of a file (fewer when the file is shorter), read into a byte buffer</span>
 <span class="k">func</span> <span class="f">firstBytes</span> cFile,nCount
+
 	oStream = <span class="f">dnNew</span>(<span class="s">"FileStream"</span>,[ :path = cFile, :mode = <span class="s">"Open"</span>, :access = <span class="s">"Read"</span> ])
 	oBuffer = <span class="f">dnBuffer</span>(nCount)
 	nRead = oStream.<span class="f">Read</span>(oBuffer,<span class="n">0</span>,nCount)
@@ -330,6 +335,7 @@ aSignatures = []                  <span class="c"># [ name, mime type, the first
 
 <span class="c"># [name, mime type] of a file, from its first bytes</span>
 <span class="k">func</span> <span class="f">detect</span> cFile
+
 	cStart = firstBytes(cFile,<span class="n">16</span>)
 	<span class="k">if</span> len(cStart) = <span class="n">0</span>
 		<span class="k">return</span> [ <span class="s">"empty file"</span>,<span class="s">""</span> ]
@@ -346,6 +352,7 @@ aSignatures = []                  <span class="c"># [ name, mime type, the first
 
 <span class="c"># text has no NUL and no control characters except tab, new line and return, and it is valid UTF-8</span>
 <span class="k">func</span> <span class="f">looksLikeText</span> cBytes
+
 	<span class="k">for</span> i = <span class="n">1</span> <span class="k">to</span> len(cBytes)
 		nCode = ascii(substr(cBytes,i,<span class="n">1</span>))
 		<span class="k">if</span> nCode = <span class="n">0</span> <span class="k">or</span> (nCode &lt; <span class="n">32</span> <span class="k">and</span> nCode != <span class="n">9</span> <span class="k">and</span> nCode != <span class="n">10</span> <span class="k">and</span> nCode != <span class="n">13</span>)
@@ -361,6 +368,7 @@ aSignatures = []                  <span class="c"># [ name, mime type, the first
 	<span class="k">done</span>
 
 <span class="k">func</span> <span class="f">describe</span> cFile
+
 	aType = detect(cFile)
 	<span class="k">if</span> aType[<span class="n">2</span>] = <span class="s">""</span>
 		<span class="k">return</span> aType[<span class="n">1</span>]
@@ -369,6 +377,7 @@ aSignatures = []                  <span class="c"># [ name, mime type, the first
 
 <span class="c"># what the name says (the extension) and what the bytes say</span>
 <span class="k">func</span> <span class="f">checkName</span> cFile
+
 	cExtension = lower(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetExtension</span>(cFile))
 	aType = detect(cFile)
 	aExpected = [ [<span class="s">".png"</span>,<span class="s">"PNG picture"</span>], [<span class="s">".gif"</span>,<span class="s">"GIF picture"</span>], [<span class="s">".jpg"</span>,<span class="s">"JPEG picture"</span>], [<span class="s">".jpeg"</span>,<span class="s">"JPEG picture"</span>], [<span class="s">".zip"</span>,<span class="s">"ZIP archive"</span>], [<span class="s">".pdf"</span>,<span class="s">"PDF document"</span>], [<span class="s">".gz"</span>,<span class="s">"GZip data"</span>], [<span class="s">".txt"</span>,<span class="s">"text"</span>] ]
@@ -383,10 +392,12 @@ aSignatures = []                  <span class="c"># [ name, mime type, the first
 	<span class="k">return</span> <span class="s">"unknown extension, the bytes say "</span> + aType[<span class="n">1</span>]
 
 <span class="k">func</span> <span class="f">isPicture</span> cFile
+
 	cMime = detect(cFile)[<span class="n">2</span>]
 	<span class="k">return</span> cMime = <span class="s">"image/png"</span> <span class="k">or</span> cMime = <span class="s">"image/jpeg"</span> <span class="k">or</span> cMime = <span class="s">"image/gif"</span>
 
 <span class="k">func</span> <span class="f">sortNames</span> cFolder
+
 	aList = []
 	<span class="k">for</span> oItem <span class="k">in</span> <span class="k">new</span> <span class="t">DirectoryInfo</span>(cFolder).<span class="f">GetFiles</span>(<span class="k">NULL</span>).<span class="f">toList</span>()
 		aList + oItem.Name
@@ -394,12 +405,14 @@ aSignatures = []                  <span class="c"># [ name, mime type, the first
 	<span class="k">return</span> sort(aList)
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> <span class="s">"no"</span>
 
 <span class="k">func</span> <span class="f">padRight</span> cText,nWidth
+
 	<span class="k">return</span> cText + copy(<span class="s">" "</span>,nWidth - len(cText))</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. what each file is:
    animation.gif GIF picture           image/gif

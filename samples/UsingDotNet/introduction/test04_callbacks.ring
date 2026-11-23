@@ -1,5 +1,6 @@
 # Callbacks: Ring functions that .NET calls through delegates (Action, Comparison ...), made with dnCallback
 load "dotnet.ring"
+
 using { "System.Collections.Generic" }
 
 oList = new StringList()
@@ -37,13 +38,17 @@ done
 # A callback receives ONE parameter: the list of the .NET arguments, and returns the result
 
 func printItem aArgs
+
 	? "  item: " + aArgs[1]
 
 func compareLength aArgs
+
 	return len(aArgs[1]) - len(aArgs[2])
 
 func startsWithA aArgs
+
 	return left(aArgs[1],1) = "a"
 
 func broken aArgs
+
 	raise("callback failed on purpose")

@@ -254,12 +254,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch03_random.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># randomness - seeds, dice, shuffling cards, weighted choices, unique ids, and when "random" must be secure</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Security.Cryptography"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. Random with a SEED gives the same sequence every time: perfect for tests and for repeating a simulation</span>
 	oFirst = <span class="k">new</span> <span class="t">Random</span>(<span class="n">2024</span>)
 	oSecond = <span class="k">new</span> <span class="t">Random</span>(<span class="n">2024</span>)
@@ -324,6 +326,7 @@ using {
 	? nl + <span class="s">"6. a secure number from RandomNumberGenerator.GetInt32: "</span> + yesNo(nSecure &gt;= <span class="n">0</span> <span class="k">and</span> nSecure &lt; <span class="n">1000000</span>) + <span class="s">" (in range); a different one every run"</span>
 
 <span class="k">func</span> <span class="f">sumOf</span> aList
+
 	nSum = <span class="n">0</span>
 	<span class="k">for</span> nItem <span class="k">in</span> aList
 		nSum += nItem
@@ -331,6 +334,7 @@ using {
 	<span class="k">return</span> nSum
 
 <span class="k">func</span> <span class="f">joinWith</span> aList, cSeparator
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> xItem <span class="k">in</span> aList
 		<span class="k">if</span> cText != <span class="s">""</span>
@@ -341,12 +345,14 @@ using {
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">padRight</span> cText, nWidth
+
 	<span class="k">while</span> len(cText) &lt; nWidth
 		cText += <span class="s">" "</span>
 	<span class="k">end</span>
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

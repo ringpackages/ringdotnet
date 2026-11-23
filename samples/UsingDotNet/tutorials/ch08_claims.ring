@@ -1,11 +1,13 @@
 # identities and claims - ClaimsIdentity, ClaimsPrincipal, roles, claim types and a simple permission check
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Security.Claims"
 }
 
 func main
+
 	# A claim is a statement about a user: a type and a value ("Role" = "Admin", "Email" = "ann@example.com").
 	# An identity is a list of claims from one source; a principal holds identities. ASP.NET uses these classes for every login.
 	oIdentity = new ClaimsIdentity().@New([ :authenticationType = "Password" ])
@@ -47,6 +49,7 @@ func main
 
 # True when one of the roles of the principal allows the action
 func mayDo oPrincipal, aRules, cAction
+
 	for oRole in oPrincipal.FindAll("Role").toList()
 		aAllowed = aRules[lower(oRole.Value)]
 		if not islist(aAllowed) loop ok

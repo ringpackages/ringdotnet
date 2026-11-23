@@ -1,5 +1,6 @@
 # certificates - a self-signed X.509 certificate, what it contains, export with and without the private key, and signing with it
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Text"
@@ -8,6 +9,7 @@ using {
 }
 
 func main
+
 	oUtf8 = new UTF8Encoding()
 
 	# A certificate is a public key together with a name (the SUBJECT), a time of validity, and a signature of whoever vouches for it (the
@@ -72,10 +74,12 @@ func main
 	oRsa.Dispose()
 
 func isValidNow oCertificate
+
 	oNow = dnStatic("System.DateTime","get_Now",[])
 	return oNow.CompareTo(oCertificate.NotBefore) >= 0 and oNow.CompareTo(oCertificate.NotAfter) <= 0
 
 func canSign oPublic
+
 	try
 		oPublic.GetRSAPrivateKey().SignData(new UTF8Encoding().GetBytes("x"),new HashAlgorithmName().SHA256,new RSASignaturePadding().Pkcs1)
 		return True

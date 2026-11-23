@@ -1,8 +1,10 @@
 # reports with SQL - JOIN, GROUP BY, HAVING, LEFT JOIN, sub-queries and parameters
 load "dotnet.ring"
+
 using { "RingDotNet.Data" }
 
 func main
+
 	aSchema = [
 		["Customers",[["Id","int",1],["Name","string",0],["City","string",0]]],
 		["Orders",[["Id","int",1],["CustomerId","int",0,[["references","Customers"]]],["Product","string",0],["Amount","int",0],["Month","string",0]]]
@@ -49,6 +51,7 @@ func main
 
 # print rows as a small table: cColumns are the names of the columns to show
 func show aRows, aColumns
+
 	for aRow in aRows
 		cLine = "   "
 		for cColumn in aColumns
@@ -61,6 +64,7 @@ func show aRows, aColumns
 	ok
 
 func padRight cText, nWidth
+
 	while len(cText) < nWidth
 		cText += " "
 	end

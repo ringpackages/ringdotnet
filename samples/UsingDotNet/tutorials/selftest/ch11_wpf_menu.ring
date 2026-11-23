@@ -2,9 +2,11 @@
 
 # a menu item is clicked by raising its Click event, as a user would
 func clickItem cName
+
 	wpfFind(oWindow,cName).RaiseEvent(new RoutedEventArgs().@New([ :routedEvent = new MenuItem().ClickEvent ]))
 
 func selfTest
+
 	# a menu item runs its code
 	clickItem("newItem")
 	dnAssert("new order",wpfFind(oWindow,"message").Text,"New order 1")

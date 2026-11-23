@@ -1,5 +1,6 @@
 # The simple syntax: classes with the .NET names, methods, properties and braces (the namespaces are opened with using)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Text"

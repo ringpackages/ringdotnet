@@ -1,5 +1,6 @@
 # tabular data - read a CSV text, use a DataTable, filter, sort, summarise, write a CSV
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Data"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	# STEP 1. The data: a CSV text (comma separated values): a header line and one line per row
 	cCsv = "Region,Seller,Amount" + nl +
 		"North,Ann,1200" + nl +

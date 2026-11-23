@@ -1,5 +1,6 @@
 # digital signatures - ECDsa keys, signing a message, verifying it, and what happens when the message or the key changes
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Security.Cryptography"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	oUtf8 = new UTF8Encoding()
 
 	# A digital signature proves two things about a message: who sent it (only the owner of the PRIVATE key can make the signature) and

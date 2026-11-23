@@ -1,5 +1,6 @@
 # formatting numbers and dates - format strings: fixed decimals, thousands, percent, hexadecimal, padding, alignment and custom patterns
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Globalization"
@@ -9,6 +10,7 @@ oString = new String()
 oInvariant = ""
 
 func main
+
 	# A format string says HOW a value is written. The invariant culture is used here, so that the output is the same on every computer;
 	# a program for people uses the culture of the user (the tutorial about cultures).
 	oInvariant = new CultureInfo("en-US").InvariantCulture
@@ -69,16 +71,20 @@ func main
 
 # a whole number in another base (a static method of Convert, called by its name because ToString is also a method of every object)
 func toBase nNumber,nBase
+
 	return dnStatic("System.Convert","ToString",[ nNumber, nBase ])
 
 # format one value with the invariant culture
 func one cFormat,value
+
 	return oString.Format([ :provider = oInvariant, :format = cFormat, :arg0 = value ])
 
 func padRight cText,nWidth
+
 	return "" + cText + copy(" ",nWidth - len("" + cText))
 
 func errorKind cMessage
+
 	cText = trim(cMessage)
 	nStart = substr(cText,"DotNet Error: ")
 	if nStart > 0

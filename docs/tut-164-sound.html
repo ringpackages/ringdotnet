@@ -261,6 +261,7 @@
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch13_sound.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># sound - SoundPlayer is a framework class that has no Ring class in the package: wrapassembly.ring makes one from the DLL of the framework.</span>
 <span class="c">#   The sound is a WAV file made in memory from Ring numbers (a Ring text can hold any byte). Run it with --play to hear it.</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.IO"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -277,6 +278,7 @@ cClasses = cHere + <span class="s">"/Sound/classes"</span>
 <span class="c"># STEP 1. Where is the DLL? SoundPlayer is in System.Windows.Extensions.dll, in the folder of the desktop runtime, where</span>
 <span class="c"># System.Windows.Forms.dll is too: the program asks a Windows Forms class for its folder instead of writing the path of one computer.</span>
 <span class="k">func</span> <span class="f">main</span>
+
 	cFormsDll = <span class="k">new</span> <span class="t">Label</span>().<span class="f">GetType</span>().Assembly.Location
 	cFolder = <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetDirectoryName</span>(cFormsDll)
 	cDll = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,<span class="s">"System.Windows.Extensions.dll"</span>])
@@ -319,9 +321,11 @@ cClasses = cHere + <span class="s">"/Sound/classes"</span>
 
 <span class="c"># a number as bytes, the lowest byte first (little endian)</span>
 <span class="k">func</span> <span class="f">le16</span> nNumber
+
 	<span class="k">return</span> char(nNumber % <span class="n">256</span>) + char(floor(nNumber / <span class="n">256</span>) % <span class="n">256</span>)
 
 <span class="k">func</span> <span class="f">le32</span> nNumber
+
 	<span class="k">return</span> le16(nNumber % <span class="n">65536</span>) + le16(floor(nNumber / <span class="n">65536</span>))</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>the DLL is next to System.Windows.Forms.dll: 1
 samples: 2000, bytes of the file: 4044

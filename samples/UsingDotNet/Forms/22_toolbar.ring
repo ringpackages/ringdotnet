@@ -1,6 +1,7 @@
 # A tool strip with buttons
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

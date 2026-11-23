@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch02_comparers.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># comparing text - ordinal and culture comparison, ignoring case, StringComparer and a sorted set that ignores case</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Globalization"</span>
@@ -262,6 +263,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oString = <span class="k">new</span> <span class="t">String</span>()
 	<span class="c"># 1. Two texts can be compared in different ways. Ordinal compares the code of every character: fast, exact, the same on every</span>
 	<span class="c">#    computer. Culture-aware comparison follows the rules of a language (in German "ä" is close to "a"). Both can ignore case.</span>
@@ -311,9 +313,11 @@ using {
 	? <span class="s">"   'title' in capitals, Turkish culture:   "</span> + upperText(<span class="s">"title"</span>,oTurkish)
 
 <span class="k">func</span> <span class="f">upperText</span> cText,oCulture
+
 	<span class="k">return</span> oCulture.TextInfo.<span class="f">ToUpper</span>(cText)
 
 <span class="k">func</span> <span class="f">joinList</span> aList
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> item <span class="k">in</span> aList
 		cText += <span class="s">""</span> + item + <span class="s">" "</span>

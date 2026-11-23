@@ -1,6 +1,7 @@
 # Horizontal and vertical scroll bars
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -28,4 +29,5 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func show
+
 	oValues.Text = "H = " + oH.Value + ", V = " + oV.Value

@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch09_configuration.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># configuration - settings from a JSON file, from memory and from environment variables, layered so that the last one wins</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -264,6 +265,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># A program needs settings that are not in its code: a port, a name, a path, the address of a database. The configuration system of</span>
 	<span class="c"># .NET reads them from SEVERAL sources and puts them into one tree of keys. Sources added later override sources added earlier:</span>
 	<span class="c"># defaults in a file, changes for a computer in the environment, a value for one run on the command line.</span>

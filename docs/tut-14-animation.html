@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_bounce.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># drawing and animation - a canvas, a timer and the keyboard</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -276,6 +277,7 @@ nPaddle = <span class="n">160</span>
 nScore = <span class="n">0</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Bounce"</span>,C_WIDTH,C_HEIGHT)
 	oPicture = <span class="f">uiPictureBox</span>(oForm,<span class="n">0</span>,<span class="n">0</span>,C_WIDTH,C_HEIGHT)
 	oCanvas = <span class="k">new</span> <span class="t">UiCanvas</span>(oPicture)               <span class="c"># a canvas draws on the picture box</span>
@@ -292,6 +294,7 @@ nScore = <span class="n">0</span>
 	<span class="f">uiRun</span>(oForm)
 
 <span class="k">func</span> <span class="k">step</span>
+
 	nX += nDX
 	nY += nDY
 	<span class="k">if</span> nX &lt; <span class="n">10</span> <span class="k">or</span> nX &gt; C_WIDTH - <span class="n">10</span>
@@ -312,6 +315,7 @@ nScore = <span class="n">0</span>
 	draw()
 
 <span class="k">func</span> <span class="f">draw</span>
+
 	oCanvas.<span class="f">clear</span>(<span class="s">"Black"</span>)
 	oCanvas.<span class="f">fillCircle</span>(nX,nY,<span class="n">10</span>,<span class="s">"Orange"</span>)
 	oCanvas.<span class="f">fillRect</span>(nPaddle,C_HEIGHT - <span class="n">20</span>,<span class="n">80</span>,<span class="n">10</span>,<span class="s">"SteelBlue"</span>)
@@ -319,6 +323,7 @@ nScore = <span class="n">0</span>
 	oCanvas.<span class="f">show</span>()
 
 <span class="k">func</span> <span class="f">keyPressed</span> cKey
+
 	<span class="k">if</span> cKey = <span class="s">"Left"</span>
 		nPaddle = max(<span class="n">0</span>,nPaddle - <span class="n">30</span>)
 	<span class="k">but</span> cKey = <span class="s">"Right"</span>
@@ -346,6 +351,7 @@ oForm.<span class="f">setKeyDownEvent</span>(<span class="s">"keyPressed(aDotNet
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_bounce.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_bounce.ring: run with  ring ch10_bounce.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	oTimer.<span class="f">Stop</span>()
 	nBefore = nX
 	<span class="k">step</span>() <span class="k">step</span>() <span class="k">step</span>()

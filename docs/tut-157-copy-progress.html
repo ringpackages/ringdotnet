@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_copy_progress.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># copying a big file with progress - reading and writing in pieces with a byte buffer, a percentage, cancelling, and checking the copy</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -262,6 +263,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oPath = <span class="k">new</span> <span class="t">Path</span>()
 	oFile = <span class="k">new</span> <span class="t">File</span>()
 	cFolder = oPath.<span class="f">Combine</span>([ oPath.<span class="f">GetTempPath</span>(), <span class="s">"ringdotnet-copy-"</span> + oPath.<span class="f">GetRandomFileName</span>() ])
@@ -310,6 +312,7 @@ using {
 <span class="c"># Copy a file in pieces. Progress is printed for the first piece after each quarter (the pieces are 64 KB, so it is a little over 25 percent). nStopAfter &gt; 0 cancels when that many bytes were copied; the</span>
 <span class="c"># target is then deleted. The answer is the number of bytes copied.</span>
 <span class="k">func</span> <span class="f">copyFile</span> cSource,cTarget,nBufferSize,nStopAfter
+
 	oIn = <span class="f">dnNew</span>(<span class="s">"FileStream"</span>,[ :path = cSource, :mode = <span class="s">"Open"</span>, :access = <span class="s">"Read"</span> ])
 	oOut = <span class="f">dnNew</span>(<span class="s">"FileStream"</span>,[ :path = cTarget, :mode = <span class="s">"Create"</span>, :access = <span class="s">"Write"</span> ])
 	nTotal = oIn.Length
@@ -343,6 +346,7 @@ using {
 
 <span class="c"># how many calls of Read a buffer of this size needs for the whole file</span>
 <span class="k">func</span> <span class="f">countCalls</span> cFile,nBufferSize
+
 	oIn = <span class="f">dnNew</span>(<span class="s">"FileStream"</span>,[ :path = cFile, :mode = <span class="s">"Open"</span>, :access = <span class="s">"Read"</span> ])
 	oBuffer = <span class="f">dnBuffer</span>(nBufferSize)
 	nCalls = <span class="n">0</span>
@@ -353,15 +357,18 @@ using {
 	<span class="k">return</span> nCalls
 
 <span class="k">func</span> <span class="f">checksum</span> cFile
+
 	<span class="k">return</span> <span class="k">new</span> <span class="t">Convert</span>().<span class="f">ToHexString</span>(<span class="k">new</span> <span class="t">SHA256</span>().<span class="f">HashData</span>(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllBytes</span>(cFile)))
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> <span class="s">"no"</span>
 
 <span class="k">func</span> <span class="f">padLeft</span> cText,nWidth
+
 	<span class="k">return</span> copy(<span class="s">" "</span>,nWidth - len(cText)) + cText</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. the source file has 3000000 bytes
 

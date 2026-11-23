@@ -2,6 +2,7 @@
 load "dotnet.ring"
 
 func main
+
 	using {
 		"System.Windows.Forms"
 		"Microsoft.AspNetCore.Builder"

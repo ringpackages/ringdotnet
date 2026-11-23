@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch02_mime_types.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># MIME types - file extensions to content types, reading a Content-Type header, and choosing what to send for an Accept header</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Net.Mime"</span>
@@ -265,6 +266,7 @@ using {
 cHeaders = <span class="s">"Microsoft.Net.Http.Headers."</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># A MIME type (media type, content type) names the KIND of a piece of data: text/html, image/png, application/json. A server sends it in</span>
 	<span class="c"># the Content-Type header so that the browser knows what to do with the bytes, and a client sends Accept to say what it understands.</span>
 
@@ -307,6 +309,7 @@ cHeaders = <span class="s">"Microsoft.Net.Http.Headers."</span>
 	? nl + <span class="s">"6. Accept: application/json, the server offers text/csv: "</span> + negotiate(aStrict,[<span class="s">"text/csv"</span>])
 
 <span class="k">func</span> <span class="f">contentTypeOf</span> oProvider,cFile
+
 	aResult = oProvider.<span class="f">TryGetContentType</span>(cFile)
 	<span class="k">if</span> aResult[<span class="n">1</span>]
 		<span class="k">return</span> aResult[<span class="n">2</span>]
@@ -315,6 +318,7 @@ cHeaders = <span class="s">"Microsoft.Net.Http.Headers."</span>
 
 <span class="c"># the Accept header as a list of [type, quality], the best first (the sort is stable: types with the same quality keep their order)</span>
 <span class="k">func</span> <span class="f">parseAccept</span> cAccept
+
 	aItems = []
 	<span class="k">for</span> cPart <span class="k">in</span> str2list(substr(cAccept,<span class="s">","</span>,nl))
 		oValue = <span class="f">dnStatic</span>(cHeaders + <span class="s">"MediaTypeHeaderValue"</span>,<span class="s">"Parse"</span>,[trim(cPart)])
@@ -338,6 +342,7 @@ cHeaders = <span class="s">"Microsoft.Net.Http.Headers."</span>
 
 <span class="c"># does the pattern of the Accept header (text/html, text/*, */*) cover the type?</span>
 <span class="k">func</span> <span class="f">covers</span> cPattern,cType
+
 	<span class="k">if</span> cPattern = <span class="s">"*/*"</span> <span class="k">or</span> cPattern = cType
 		<span class="k">return</span> <span class="k">True</span>
 	<span class="k">ok</span>
@@ -346,6 +351,7 @@ cHeaders = <span class="s">"Microsoft.Net.Http.Headers."</span>
 
 <span class="c"># the offered type that the client likes best, or 406</span>
 <span class="k">func</span> <span class="f">negotiate</span> aClient,aOffers
+
 	<span class="k">for</span> aItem <span class="k">in</span> aClient
 		<span class="k">if</span> aItem[<span class="n">2</span>] &gt; <span class="n">0</span>
 			<span class="k">for</span> cOffer <span class="k">in</span> aOffers
@@ -358,6 +364,7 @@ cHeaders = <span class="s">"Microsoft.Net.Http.Headers."</span>
 	<span class="k">return</span> <span class="s">"406 Not Acceptable"</span>
 
 <span class="k">func</span> <span class="f">joinList</span> aList
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> item <span class="k">in</span> aList
 		<span class="k">if</span> cText != <span class="s">""</span>
@@ -368,6 +375,7 @@ cHeaders = <span class="s">"Microsoft.Net.Http.Headers."</span>
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">padRight</span> cText,nWidth
+
 	<span class="k">return</span> cText + copy(<span class="s">" "</span>,nWidth - len(cText))</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. file name -&gt; content type:
    index.html      text/html

@@ -3,6 +3,7 @@
 load "dotnet.ring"
 
 func main
+
 	using {
 		"System"
 		"System.IO"

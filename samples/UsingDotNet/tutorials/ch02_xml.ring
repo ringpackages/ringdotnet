@@ -1,5 +1,6 @@
 # XML in depth - reading with XDocument, searching with XPath, building and changing a document
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -8,6 +9,7 @@ using {
 }
 
 func main
+
 	cXml = '<library><book id="1" year="1937"><title>The Hobbit</title><price>9.5</price></book><book id="2" year="1965"><title>Dune</title><price>12</price></book><book id="3" year="1984"><title>Neuromancer</title><price>8.25</price></book></library>'
 
 	# 1. XDocument (LINQ to XML) reads a text into a tree of elements. The root is the outer element.

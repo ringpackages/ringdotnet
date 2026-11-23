@@ -254,6 +254,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_dragdrop.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># drag and drop - moving items between two lists, Ctrl for copy, dropping files on a window, and testing the drop without a mouse</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -269,6 +270,7 @@ oStatus = <span class="s">""</span>
 oFilesList = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Drag and drop"</span>,<span class="n">520</span>,<span class="n">360</span>)
 	<span class="f">uiLabel</span>(oForm,<span class="s">"Fruits (drag from here)"</span>,<span class="n">15</span>,<span class="n">12</span>,<span class="n">230</span>,<span class="n">22</span>)
 	oSource = <span class="f">uiListBox</span>(oForm,<span class="n">15</span>,<span class="n">36</span>,<span class="n">230</span>,<span class="n">130</span>)
@@ -302,6 +304,7 @@ oFilesList = <span class="s">""</span>
 <span class="c"># the start of a drag: the item under the mouse is the data. The result of DoDragDrop is the effect that the target chose: "Move" means</span>
 <span class="c"># that the item is taken from the source.</span>
 <span class="k">func</span> <span class="f">beginDrag</span> nX,nY
+
 	nIndex = oSource.<span class="f">IndexFromPoint</span>([ :x = nX, :y = nY ])
 	<span class="k">if</span> nIndex &lt; <span class="n">0</span>
 		<span class="k">return</span>
@@ -315,6 +318,7 @@ oFilesList = <span class="s">""</span>
 <span class="c"># Does the target accept what comes? Text or files: yes. The Ctrl key (bit 8 of the key state) asks for a copy, and without it the</span>
 <span class="c"># effect is a move. Anything else: "None" (the mouse shows a forbidden sign).</span>
 <span class="k">func</span> <span class="f">dragEnter</span> oArgs
+
 	<span class="k">if</span> oArgs.Data.<span class="f">GetDataPresent</span>(<span class="s">"Text"</span>) <span class="k">or</span> oArgs.Data.<span class="f">GetDataPresent</span>(<span class="s">"FileDrop"</span>)
 		<span class="k">if</span> (oArgs.KeyState &amp; <span class="n">8</span>) != <span class="n">0</span>
 			oArgs.Effect = <span class="s">"Copy"</span>
@@ -327,6 +331,7 @@ oFilesList = <span class="s">""</span>
 
 <span class="c"># the drop of a text: put it in the basket (once)</span>
 <span class="k">func</span> <span class="f">dragDrop</span> oArgs
+
 	cText = oArgs.Data.<span class="f">GetData</span>(<span class="s">"Text"</span>)
 	<span class="k">if</span> oBasket.Items.<span class="f">IndexOf</span>(cText) &gt;= <span class="n">0</span>
 		oStatus.Text = cText + <span class="s">" is already in the basket"</span>
@@ -338,6 +343,7 @@ oFilesList = <span class="s">""</span>
 
 <span class="c"># the drop of files: the data is a list of paths</span>
 <span class="k">func</span> <span class="f">dropFiles</span> oArgs
+
 	<span class="k">if</span> <span class="k">not</span> oArgs.Data.<span class="f">GetDataPresent</span>(<span class="s">"FileDrop"</span>)
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -364,10 +370,12 @@ oFilesList = <span class="s">""</span>
 
 <span class="c"># a drag made by the test: a DataObject with the data, and the arguments that .NET would give to the event</span>
 <span class="k">func</span> <span class="f">makeArgs</span> cFormat,xData,nKeys
+
 	oData = <span class="k">new</span> <span class="t">DataObject</span>().@<span class="k">New</span>([ :<span class="t">format</span> = cFormat, :data = xData ])
 	<span class="k">return</span> <span class="k">new</span> <span class="t">DragEventArgs</span>(oData, nKeys, <span class="n">10</span>, <span class="n">10</span>, <span class="s">"Copy, Move"</span>, <span class="s">"None"</span>)
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	<span class="f">dnAssert</span>(<span class="s">"four fruits"</span>,oSource.Items.Count,<span class="n">4</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the basket accepts drops"</span>,oBasket.AllowDrop,<span class="k">True</span>)
 

@@ -15,4 +15,5 @@ dnAssert("a long text",len(ud(copy("Привет ",1000))),7000)
 dnTestSummary()
 
 func ud cText
+
 	return dnType("Unidecode.NET.Unidecoder").callMethod("Unidecode",[cText])

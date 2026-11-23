@@ -66,4 +66,5 @@ dnAssert("the scheduler is shut down",oScheduler.IsShutdown,1)
 dnTestSummary()
 
 func onJobThread aArgs
+
 	nCalled++

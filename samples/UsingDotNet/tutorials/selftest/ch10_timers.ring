@@ -1,6 +1,7 @@
 # the checks of ch10_timers.ring: run with  ring ch10_timers.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	oClock.Stop()
 	toggleWatch()                                   # start
 	new Thread().Sleep(150)

@@ -1,10 +1,12 @@
 # number types - the limits of Byte, Int16, Int32, Int64 and Int128, overflow, checked conversion, Half and Single
 load "dotnet.ring"
+
 using {
 	"System"
 }
 
 func main
+
 	# A Ring number is always a double. .NET has many number types with different sizes and limits. When a number goes to .NET,
 	# the bridge uses the type the method asks for, and a value that does not fit raises an error: it does not wrap around.
 	oByte = new Byte()
@@ -56,6 +58,7 @@ func main
 	? "   0.1 + 0.2 = " + (0.1 + 0.2) + ", equal to 0.3: " + (0.1 + 0.2 = 0.3) + ", close to 0.3: " + (fabs(0.1 + 0.2 - 0.3) < 0.0000001)
 
 func try300 oConvert
+
 	try
 		return oConvert.ToByte(300)
 	catch
@@ -63,6 +66,7 @@ func try300 oConvert
 	done
 
 func tryMinus1 oConvert
+
 	try
 		return oConvert.ToByte(-1)
 	catch
@@ -70,6 +74,7 @@ func tryMinus1 oConvert
 	done
 
 func singleSum
+
 	oConvert = new Convert()
 	nA = oConvert.ToSingle(16777216)
 	return oConvert.ToSingle(nA + 1)

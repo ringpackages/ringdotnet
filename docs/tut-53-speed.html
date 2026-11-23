@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch06_speed.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># speed - measure first, then choose: Stopwatch, StringBuilder, a cache (memoization) and fewer calls</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Diagnostics"</span>
@@ -268,6 +269,7 @@ nCachedCalls = <span class="n">0</span>
 aCache = []
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. Measure with a Stopwatch. A guess about speed is often wrong.</span>
 	oWatch = <span class="k">new</span> <span class="t">Stopwatch</span>()
 	oWatch.<span class="f">Start</span>()
@@ -308,6 +310,7 @@ aCache = []
 	? <span class="s">"   one call is faster ? "</span> + yesNo(nAll &lt; nOne)
 
 <span class="k">func</span> <span class="f">timeOf</span> cFunction
+
 	oWatch = <span class="k">new</span> <span class="t">Stopwatch</span>()
 	oWatch.<span class="f">Start</span>()
 	eval(cFunction + <span class="s">"(22)"</span>)
@@ -315,6 +318,7 @@ aCache = []
 	<span class="k">return</span> oWatch.Elapsed.TotalMilliseconds
 
 <span class="k">func</span> <span class="f">timeOfItems</span> oList, lAtOnce
+
 	oWatch = <span class="k">new</span> <span class="t">Stopwatch</span>()
 	oWatch.<span class="f">Start</span>()
 	nTotal = <span class="n">0</span>
@@ -332,6 +336,7 @@ aCache = []
 	<span class="k">return</span> oWatch.Elapsed.TotalMilliseconds
 
 <span class="k">func</span> <span class="f">buildWithPlus</span> nIgnored
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> nI = <span class="n">1</span> <span class="k">to</span> <span class="n">20000</span>
 		cText += <span class="s">"piece "</span> + nI + <span class="s">";"</span>
@@ -339,6 +344,7 @@ aCache = []
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">buildWithBuilder</span> nIgnored
+
 	oBuilder = <span class="k">new</span> <span class="t">StringBuilder</span>(<span class="k">NULL</span>)
 	<span class="k">for</span> nI = <span class="n">1</span> <span class="k">to</span> <span class="n">20000</span>
 		oBuilder.<span class="f">Append</span>(<span class="s">"piece "</span> + nI + <span class="s">";"</span>)
@@ -346,6 +352,7 @@ aCache = []
 	<span class="k">return</span> oBuilder.<span class="f">ToString</span>()
 
 <span class="k">func</span> <span class="f">fibSlow</span> n
+
 	nCalls++
 	<span class="k">if</span> n &lt; <span class="n">2</span>
 		<span class="k">return</span> n
@@ -353,6 +360,7 @@ aCache = []
 	<span class="k">return</span> fibSlow(n-<span class="n">1</span>) + fibSlow(n-<span class="n">2</span>)
 
 <span class="k">func</span> <span class="f">fibCached</span> n
+
 	nCachedCalls++
 	<span class="k">if</span> n &lt; <span class="n">2</span>
 		<span class="k">return</span> n
@@ -367,6 +375,7 @@ aCache = []
 	<span class="k">return</span> nValue
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

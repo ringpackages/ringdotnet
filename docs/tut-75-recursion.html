@@ -258,6 +258,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch04_recursion.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># recursion - a function that calls itself: factorial, the Hanoi towers, permutations, a folder tree and a flood fill</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -266,6 +267,7 @@ using {
 nMoves = <span class="n">0</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. Recursion = a function solves a big problem by solving a smaller one with itself. It needs a STOP: a case that is answered directly.</span>
 	? <span class="s">"1. factorial(5) = "</span> + factorial(<span class="n">5</span>) + <span class="s">"   (5 * factorial(4), ..., and factorial(1) = 1 stops it)"</span>
 	? <span class="s">"   sum of the numbers 1..100 = "</span> + sumTo(<span class="n">100</span>)
@@ -311,24 +313,28 @@ nMoves = <span class="n">0</span>
 
 <span class="c"># factorial(n) = n * factorial(n - 1); factorial(1) = 1</span>
 <span class="k">func</span> <span class="f">factorial</span> n
+
 	<span class="k">if</span> n &lt;= <span class="n">1</span>
 		<span class="k">return</span> <span class="n">1</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> n * factorial(n - <span class="n">1</span>)
 
 <span class="k">func</span> <span class="f">sumTo</span> n
+
 	<span class="k">if</span> n = <span class="n">0</span>
 		<span class="k">return</span> <span class="n">0</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> n + sumTo(n - <span class="n">1</span>)
 
 <span class="k">func</span> <span class="f">countdown</span> n, nDepth
+
 	? <span class="s">"   "</span> + copy(<span class="s">"  "</span>,nDepth) + <span class="s">"countdown("</span> + n + <span class="s">")"</span>
 	<span class="k">if</span> n &gt; <span class="n">0</span>
 		countdown(n - <span class="n">1</span>,nDepth + <span class="n">1</span>)
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">hanoi</span> n, cFrom, cTo, cVia
+
 	<span class="k">if</span> n = <span class="n">0</span>
 		<span class="k">return</span>
 	<span class="k">ok</span>
@@ -339,6 +345,7 @@ nMoves = <span class="n">0</span>
 
 <span class="c"># all the orders of a list of letters, as texts</span>
 <span class="k">func</span> <span class="f">permutations</span> aItems
+
 	<span class="k">if</span> len(aItems) &lt;= <span class="n">1</span>
 		<span class="k">return</span> aItems
 	<span class="k">ok</span>
@@ -358,6 +365,7 @@ nMoves = <span class="n">0</span>
 	<span class="k">return</span> aResult
 
 <span class="k">func</span> <span class="f">makeTree</span> cRoot
+
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cRoot,<span class="s">"docs"</span>]))
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cRoot,<span class="s">"docs"</span>,<span class="s">"old"</span>]))
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cRoot,<span class="s">"src"</span>]))
@@ -367,6 +375,7 @@ nMoves = <span class="n">0</span>
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cRoot,<span class="s">"src/main.ring"</span>]), :contents = <span class="s">"? 1"</span> ])
 
 <span class="k">func</span> <span class="f">showTree</span> cFolder, nLevel
+
 	? <span class="s">"   "</span> + copy(<span class="s">"   "</span>,nLevel) + <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetFileName</span>(cFolder) + <span class="s">"/"</span>
 	aFolders = sort(<span class="k">new</span> <span class="t">Directory</span>().<span class="f">GetDirectories</span>(cFolder).<span class="f">toList</span>())
 	<span class="k">for</span> cSub <span class="k">in</span> aFolders
@@ -378,6 +387,7 @@ nMoves = <span class="n">0</span>
 	<span class="k">next</span>
 
 <span class="k">func</span> <span class="f">folderSize</span> cFolder
+
 	nTotal = <span class="n">0</span>
 	aFiles = <span class="k">new</span> <span class="t">Directory</span>().<span class="f">GetFiles</span>(cFolder).<span class="f">toList</span>()
 	<span class="k">for</span> cFile <span class="k">in</span> aFiles
@@ -391,6 +401,7 @@ nMoves = <span class="n">0</span>
 
 <span class="c"># fill the empty cells ('.') that touch the cell (nRow, nCol), turning them into '*'. Returns how many cells were filled.</span>
 <span class="k">func</span> <span class="f">fill</span> aGrid, nRow, nCol
+
 	<span class="k">if</span> nRow &lt; <span class="n">1</span> <span class="k">or</span> nRow &gt; len(aGrid) <span class="k">or</span> nCol &lt; <span class="n">1</span> <span class="k">or</span> nCol &gt; len(aGrid[<span class="n">1</span>])
 		<span class="k">return</span> <span class="n">0</span>
 	<span class="k">ok</span>
@@ -401,6 +412,7 @@ nMoves = <span class="n">0</span>
 	<span class="k">return</span> <span class="n">1</span> + fill(aGrid,nRow - <span class="n">1</span>,nCol) + fill(aGrid,nRow + <span class="n">1</span>,nCol) + fill(aGrid,nRow,nCol - <span class="n">1</span>) + fill(aGrid,nRow,nCol + <span class="n">1</span>)
 
 <span class="k">func</span> <span class="f">joinWith</span> aList, cSeparator
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> cItem <span class="k">in</span> aList
 		<span class="k">if</span> cText != <span class="s">""</span>

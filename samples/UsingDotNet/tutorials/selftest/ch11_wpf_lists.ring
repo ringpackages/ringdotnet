@@ -2,6 +2,7 @@
 
 # the items as one text, for the test
 func itemsText
+
 	cText = ""
 	for i = 0 to listBox().Items.Count - 1
 		if cText != ""
@@ -12,9 +13,11 @@ func itemsText
 	return cText
 
 func clickButton oButton
+
 	oButton.RaiseEvent(new RoutedEventArgs().@New([ :routedEvent = new WpfButtonBase().ClickEvent ]))
 
 func selfTest
+
 	# add three items through the text box and the Add button
 	for cText in [ "tea","coffee","milk" ]
 		wpfFind(oWindow,"input").Text = cText

@@ -1,6 +1,7 @@
 # the checks of ch10_tray.ring: run with  ring ch10_tray.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	dnAssert("the icon is visible",oTray.Visible,True)
 	dnAssert("the tip",oTray.Text,"Tray demo (double-click to open)")
 	dnAssert("two menu items",oMenu.Items.Count,2)

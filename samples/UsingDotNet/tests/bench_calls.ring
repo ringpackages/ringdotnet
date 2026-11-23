@@ -1,12 +1,14 @@
 # The cost of a call from Ring to .NET, in microseconds (run it by hand: ring bench_calls.ring; run.sh does not start it).
 # Compare the numbers before and after a change of the library on the same computer in the same session: they differ from computer to computer.
 load "dotnet.ring"
+
 using {
 	"System.Collections.Generic"
 	"System.Text"
 }
 
 func main
+
 	oList = new StringList()
 	oList.Add("a")
 	oSB = new StringBuilder("x")
@@ -33,4 +35,5 @@ func main
 	report("new StringBuilder('x')                    ",t0,nCount)
 
 func report cTitle, nStart, nCount
+
 	? cTitle + " : " + ((clock() - nStart) * 1000000 / clockspersecond() / nCount) + " us"

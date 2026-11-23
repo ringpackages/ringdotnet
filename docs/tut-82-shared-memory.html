@@ -259,6 +259,7 @@
 <span class="c">#   ring ch06_shared_memory.ring            the parent: it makes the memory and starts the child</span>
 <span class="c">#   ring ch06_shared_memory.ring --child    the child (the parent starts it)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -270,6 +271,7 @@ using {
 C_NAME = <span class="s">"ringdotnet_shared_memory"</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="k">if</span> find(sysargv,<span class="s">"--child"</span>) &gt; <span class="n">0</span>
 		runChild()
 		<span class="k">return</span>
@@ -285,6 +287,7 @@ C_NAME = <span class="s">"ringdotnet_shared_memory"</span>
 <span class="c"># ---------------------------------------------------------------- two programs, one block of memory</span>
 
 <span class="k">func</span> <span class="f">runParent</span>
+
 	<span class="c"># A memory-mapped file is a block of memory with a NAME. Any program of this computer that knows the name can open it.</span>
 	oMap = <span class="k">new</span> <span class="t">MemoryMappedFile</span>().<span class="f">CreateNew</span>([ :mapName = C_NAME, :capacity = <span class="n">4096</span> ])
 	oAccessor = oMap.<span class="f">CreateViewAccessor</span>(<span class="k">NULL</span>)               <span class="c"># a view with Read and Write methods at a position (in bytes)</span>
@@ -326,6 +329,7 @@ C_NAME = <span class="s">"ringdotnet_shared_memory"</span>
 	oMap.<span class="f">Dispose</span>()
 
 <span class="k">func</span> <span class="f">runChild</span>
+
 	oMap = <span class="k">new</span> <span class="t">MemoryMappedFile</span>().<span class="f">OpenExisting</span>(C_NAME)      <span class="c"># open: the parent made it</span>
 	oAccessor = oMap.<span class="f">CreateViewAccessor</span>(<span class="k">NULL</span>)
 	nNumber = oAccessor.<span class="f">ReadInt32</span>(<span class="n">0</span>)
@@ -343,6 +347,7 @@ C_NAME = <span class="s">"ringdotnet_shared_memory"</span>
 <span class="c"># ---------------------------------------------------------------- a file edited in place</span>
 
 <span class="k">func</span> <span class="f">editFileInPlace</span>
+
 	<span class="c"># 5. Map a FILE: the view is the content of the file, and a change in memory is a change in the file. Nothing is read or written</span>
 	<span class="c">#    by you: the system moves the data. The program changes the second of three numbers in a file without touching the others.</span>
 	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_shared_memory.bin"</span>])
@@ -361,6 +366,7 @@ C_NAME = <span class="s">"ringdotnet_shared_memory"</span>
 
 <span class="c"># the memory is filled with zero bytes: a text ends at the first one</span>
 <span class="k">func</span> <span class="f">textOf</span> cText
+
 	nZero = substr(cText,char(<span class="n">0</span>))
 	<span class="k">if</span> nZero &gt; <span class="n">0</span>
 		<span class="k">return</span> left(cText,nZero - <span class="n">1</span>)
@@ -368,6 +374,7 @@ C_NAME = <span class="s">"ringdotnet_shared_memory"</span>
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">chomp</span> cText
+
 	<span class="k">while</span> right(cText,<span class="n">1</span>) = char(<span class="n">10</span>) <span class="k">or</span> right(cText,<span class="n">1</span>) = char(<span class="n">13</span>)
 		cText = left(cText,len(cText) - <span class="n">1</span>)
 	<span class="k">end</span>

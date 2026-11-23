@@ -1,5 +1,6 @@
 # WPF - describe the window in XAML, find elements by name, bind a slider to a text
 load "dotnet.ring"
+
 using {
 	"System.Windows"
 	"System.Windows.Controls"
@@ -19,6 +20,7 @@ oGreet = ""
 oNameBox = ""
 
 func main
+
 	# 1. The window is described in XAML: a text format of elements and attributes
 	cXaml = '<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="WPF tutorial" Width="360" Height="340">'
 	cXaml += '<StackPanel Margin="15">'

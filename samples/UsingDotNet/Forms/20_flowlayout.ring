@@ -1,6 +1,7 @@
 # Buttons in a flow layout panel that wraps
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -18,6 +19,7 @@ uiRun(oForm)
 
 # adds twelve buttons to the flow panel; they wrap to the next row when the row is full
 func addButtons
+
 	for nButton = 1 to 12
 		oButton = new Button() {
 			Text = "Button " + nButton

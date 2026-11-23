@@ -1,11 +1,13 @@
 # numbers that do not fit - BigInteger for exact big whole numbers, Complex numbers and the limits of Ring numbers
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Numerics"
 }
 
 func main
+
 	# 1. A Ring number is a double: whole numbers are exact up to 9007199254740992 (2^53). After that, the last digits are lost.
 	? "1. Ring: 9007199254740992 + 1 = " + (9007199254740992 + 1) + "   (the +1 is lost)"
 

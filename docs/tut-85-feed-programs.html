@@ -257,6 +257,7 @@
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch06_feed_programs.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># working with other programs - feeding standard input, environment variables, errors and exit codes, a time limit and Kill</span>
 <span class="c">#   (the commands are chosen for the system: sort, find and cmd on Windows; sort, grep and sh on Linux and macOS)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -268,6 +269,7 @@ cShell = <span class="s">""</span>
 cShellOption = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># the program that keeps the lines with an "e", and the shell, for this system</span>
 	cFilter = <span class="s">"grep"</span>
 	cFilterArgs = <span class="s">"e"</span>
@@ -348,10 +350,12 @@ cShellOption = <span class="s">""</span>
 
 <span class="c"># the arguments that make the shell run a command: cmd /c "command" or sh -c "command"</span>
 <span class="k">func</span> <span class="f">shellArgs</span> cCommand
+
 	<span class="k">return</span> cShellOption + <span class="s">' "'</span> + cCommand + <span class="s">'"'</span>
 
 <span class="c"># start a program; lRedirect = True gives the program's three streams to this program (input, output, error)</span>
 <span class="k">func</span> <span class="f">startProgram</span> cFile, cArguments, lRedirect
+
 	oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>().@<span class="k">New</span>([ :<span class="t">fileName</span> = cFile, :arguments = cArguments ])
 	oInfo.UseShellExecute = <span class="k">False</span>
 	oInfo.CreateNoWindow = <span class="k">True</span>
@@ -364,6 +368,7 @@ cShellOption = <span class="s">""</span>
 
 <span class="c"># the lines of a text as one line: "apple, fig, pear"</span>
 <span class="k">func</span> <span class="f">lines</span> cText
+
 	cResult = <span class="s">""</span>
 	<span class="k">for</span> cLine <span class="k">in</span> str2list(substr(substr(cText,char(<span class="n">13</span>),<span class="s">""</span>),char(<span class="n">10</span>),nl))
 		<span class="k">if</span> trim(cLine) != <span class="s">""</span>
@@ -376,12 +381,14 @@ cShellOption = <span class="s">""</span>
 	<span class="k">return</span> cResult
 
 <span class="k">func</span> <span class="f">chomp</span> cText
+
 	<span class="k">while</span> right(cText,<span class="n">1</span>) = char(<span class="n">10</span>) <span class="k">or</span> right(cText,<span class="n">1</span>) = char(<span class="n">13</span>) <span class="k">or</span> right(cText,<span class="n">1</span>) = <span class="s">" "</span>
 		cText = left(cText,len(cText) - <span class="n">1</span>)
 	<span class="k">end</span>
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

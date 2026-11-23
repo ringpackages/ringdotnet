@@ -256,12 +256,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch03_calendars.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># other calendars - Hijri (Umm al-Qura), Persian, Hebrew, Japanese and Thai Buddhist dates with System.Globalization</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Globalization"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oDate = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">3</span>,<span class="n">11</span>)                   <span class="c"># a DateTime always holds a Gregorian date; a Calendar object reads it in its own way</span>
 
 	<span class="c"># 1. The same day in several calendars. Each calendar class has GetYear, GetMonth and GetDayOfMonth.</span>
@@ -304,15 +306,18 @@ using {
 
 <span class="c"># "1445-9-1" for a date, read in the calendar oCalendar</span>
 <span class="k">func</span> <span class="f">dateText</span> oCalendar, oDate
+
 	<span class="k">return</span> string(oCalendar.<span class="f">GetYear</span>(oDate)) + <span class="s">"-"</span> + oCalendar.<span class="f">GetMonth</span>(oDate) + <span class="s">"-"</span> + oCalendar.<span class="f">GetDayOfMonth</span>(oDate)
 
 <span class="k">func</span> <span class="f">padLeft</span> cText, nWidth
+
 	<span class="k">while</span> len(cText) &lt; nWidth
 		cText = <span class="s">" "</span> + cText
 	<span class="k">end</span>
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

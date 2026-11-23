@@ -1,11 +1,13 @@
 # number systems and big numbers - binary, hexadecimal, bits, and numbers that do not fit in a double
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Numerics"
 }
 
 func main
+
 	oConvert = new Convert()
 
 	# 1. The same number in different bases: 2 (binary), 8 (octal), 10 (decimal), 16 (hexadecimal)
@@ -52,6 +54,7 @@ func main
 	? nl + "8. 30! = " + oFactorial.ToString()
 
 func hex2 nValue
+
 	cText = new Convert().Format([ :value = nValue, :toBase = 16 ])
 	if len(cText) = 1
 		cText = "0" + cText
@@ -59,6 +62,7 @@ func hex2 nValue
 	return cText
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

@@ -1,5 +1,6 @@
 # layout and richer controls - SplitContainer, TabControl, TableLayoutPanel, DataGridView with a filter
 load "dotnet.ring"
+
 using {
 	"System.Data"
 	"System.Drawing"
@@ -17,6 +18,7 @@ oView = ""
 aCustomers = [["Ann","Cairo"],["Bob","Oslo"],["Cy","Tokyo"]]
 
 func main
+
 	oForm = uiForm("Customers",620,300)
 
 	# A SplitContainer has two panels with a bar between them that the user can drag.
@@ -90,6 +92,7 @@ func main
 
 # a label and a value in one row of the table
 func addRow oTable, nRow, cTitle
+
 	oTitle = new Label() {
 		Text = cTitle
 		Dock = "Fill"
@@ -106,6 +109,7 @@ func addRow oTable, nRow, cTitle
 	return oValue
 
 func customerChosen
+
 	nIndex = oList.SelectedIndex + 1
 	if nIndex < 1
 		return

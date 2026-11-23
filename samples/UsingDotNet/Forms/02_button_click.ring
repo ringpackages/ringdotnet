@@ -1,6 +1,7 @@
 # A button that counts its clicks
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -16,5 +17,6 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func clicked
+
 	nClicks++
 	oCount.Text = "" + nClicks + " clicks"

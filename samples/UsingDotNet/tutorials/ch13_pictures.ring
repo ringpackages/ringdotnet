@@ -1,6 +1,7 @@
 # pictures that work on every system - SkiaSharp draws, saves and reads pictures on Windows, Linux and macOS (System.Drawing is Windows only)
 #   (the project is in the folder Skia: Skia.csproj names SkiaSharp and its Linux library, and Empty.cs is the one source file a project needs)
 load "dotnet.ring"
+
 using { "System.IO" }
 
 cHere = currentdir()
@@ -27,6 +28,7 @@ dnLoad(cDll)
 dnImportFrom(cClasses + "/","SkiaSharp")
 
 func main
+
 	# 1. A bitmap is a grid of pixels, and a canvas is what draws on it. Colors are values of the type SKColor: Parse reads "#rrggbb".
 	oBitmap = new SKBitmap().@New([ :width = 200, :height = 100 ])
 	oCanvas = new SKCanvas(oBitmap)

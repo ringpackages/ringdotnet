@@ -3,6 +3,7 @@
 # Selection: SelectionStart is the first character (counted from 0) and SelectionLength how many. Everything that is set through
 # SelectionFont or SelectionColor applies to the selected part only.
 func selectWord cWord
+
 	nStart = oRich.Find(cWord)                      # the place of the first match, or -1
 	if nStart < 0
 		oStatus.Text = "'" + cWord + "' was not found"
@@ -12,6 +13,7 @@ func selectWord cWord
 	return True
 
 func selfTest
+
 	# finding and selecting a word
 	dnAssert("find a word",oRich.Find("Ring"),0)
 	dnAssert("a missing word",oRich.Find("zebra"),-1)

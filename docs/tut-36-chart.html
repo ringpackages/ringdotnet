@@ -257,6 +257,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch10_chart.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a chart - turn numbers into a bar chart with UiCanvas, show it in a window and save it as a PNG</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -276,6 +277,7 @@ oForm = <span class="s">""</span>
 oCanvas = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Sales chart"</span>,C_WIDTH,C_HEIGHT + <span class="n">36</span>)
 	oPicture = <span class="f">uiPictureBox</span>(oForm,<span class="n">0</span>,<span class="n">0</span>,C_WIDTH,C_HEIGHT)
 	oCanvas = <span class="k">new</span> <span class="t">UiCanvas</span>(oPicture)
@@ -287,6 +289,7 @@ oCanvas = <span class="s">""</span>
 <span class="c"># ---------------------------------------------------------------- drawing</span>
 
 <span class="k">func</span> <span class="f">drawChart</span>
+
 	nLeft = <span class="n">50</span>                                      <span class="c"># room for the numbers on the left</span>
 	nBottom = C_HEIGHT - <span class="n">40</span>                         <span class="c"># the y of the bottom axis</span>
 	nTop = <span class="n">50</span>
@@ -321,6 +324,7 @@ oCanvas = <span class="s">""</span>
 
 <span class="c"># the biggest value of a list</span>
 <span class="k">func</span> <span class="f">maxOf</span> aList
+
 	nMax = aList[<span class="n">1</span>]
 	<span class="k">for</span> nValue <span class="k">in</span> aList
 		<span class="k">if</span> nValue &gt; nMax
@@ -331,6 +335,7 @@ oCanvas = <span class="s">""</span>
 
 <span class="c"># the next "round" number at or above a value: 25 -&gt; 30, 8 -&gt; 10, 120 -&gt; 150. Charts look better with round axes.</span>
 <span class="k">func</span> <span class="f">niceMax</span> nValue
+
 	nPower = pow(<span class="n">10</span>,floor(log10(nValue)))
 	<span class="k">for</span> nFactor <span class="k">in</span> [<span class="n">1</span>,<span class="n">1.5</span>,<span class="n">2</span>,<span class="n">3</span>,<span class="n">4</span>,<span class="n">5</span>,<span class="n">6</span>,<span class="n">8</span>,<span class="n">10</span>]
 		<span class="k">if</span> nFactor * nPower &gt;= nValue
@@ -340,6 +345,7 @@ oCanvas = <span class="s">""</span>
 	<span class="k">return</span> nValue
 
 <span class="k">func</span> <span class="f">savePng</span>
+
 	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"sales-chart.png"</span>])
 	oCanvas.oBitmap.<span class="f">Save</span>([ :filename = cFile, :format = <span class="k">new</span> <span class="t">ImageFormat</span>().Png ])
 	<span class="f">uiMessage</span>(<span class="s">"Saved to "</span> + cFile,<span class="s">"Chart"</span>)</code></pre></div>
@@ -362,6 +368,7 @@ oCanvas = <span class="s">""</span>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch10_chart.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch10_chart.ring: run with  ring ch10_chart.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	<span class="f">dnAssert</span>(<span class="s">"the biggest value"</span>,maxOf(aValues),<span class="n">25</span>)
 	<span class="f">dnAssert</span>(<span class="s">"round axis for 25"</span>,niceMax(<span class="n">25</span>),<span class="n">30</span>)
 	<span class="f">dnAssert</span>(<span class="s">"round axis for 8"</span>,niceMax(<span class="n">8</span>),<span class="n">8</span>)

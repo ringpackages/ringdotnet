@@ -256,12 +256,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_paths.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># paths and the environment - building paths safely, splitting them, special folders and environment variables</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oPath = <span class="k">new</span> <span class="t">Path</span>()
 
 	<span class="c"># 1. Build a path with Combine, never with + "\": Combine uses the right separator for the system and never doubles it</span>
@@ -310,6 +312,7 @@ using {
 	? nl + <span class="s">"7. 64-bit process? "</span> + yesNo(oEnvironment.Is64BitProcess) + <span class="s">", the new line is "</span> + len(oEnvironment.NewLine) + <span class="s">" character(s) long"</span>
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

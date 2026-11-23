@@ -1,6 +1,7 @@
 # Anchor and dock: controls follow the size of the form
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

@@ -1,6 +1,7 @@
 # dnImportFrom: a loader of a wrapped assembly asks for another namespace of the same assembly (dnImport), and it is found in the folder
 # that the program gave to dnImportFrom (Newtonsoft.Json.Linq needs Newtonsoft.Json, for example)
 load "dotnet.ring"
+
 using { "System.IO" }
 
 nTestSecondLoaded = 0          # globals: the loaded files set them
@@ -8,6 +9,7 @@ nTestFirstLoaded = 0
 nTestLazyLoaded = 0
 
 func main
+
 	cFolder = currentdir() + "/import_folder_tmp/"
 	new Directory().CreateDirectory(cFolder)
 	write(cFolder + "Test.Second.ring","nTestSecondLoaded = 1" + nl)

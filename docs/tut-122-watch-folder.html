@@ -257,6 +257,7 @@
 <span class="c">#   ring ch05_watch_folder.ring            the parent: it watches a folder and starts a second copy of this program (the child) that changes it</span>
 <span class="c">#   ring ch05_watch_folder.ring --child    the child (the parent starts it, you do not)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -265,6 +266,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="k">if</span> find(sysargv,<span class="s">"--child"</span>) &gt; <span class="n">0</span>
 		child(sysargv[len(sysargv)])
 		<span class="k">return</span>
@@ -322,6 +324,7 @@ using {
 
 <span class="c"># what a change tells: the kind of change and the name (a rename also has the old name)</span>
 <span class="k">func</span> <span class="f">describe</span> oResult
+
 	cKind = <span class="s">""</span> + oResult.ChangeType
 	<span class="k">if</span> cKind = <span class="s">"Renamed"</span>
 		<span class="k">return</span> <span class="s">"Renamed   "</span> + oResult.OldName + <span class="s">" -&gt; "</span> + oResult.Name
@@ -329,10 +332,12 @@ using {
 	<span class="k">return</span> padRight(cKind,<span class="n">10</span>) + oResult.Name
 
 <span class="k">func</span> <span class="f">padRight</span> cText,nWidth
+
 	<span class="k">return</span> cText + copy(<span class="s">" "</span>,nWidth - len(cText))
 
 <span class="c"># ---------------------------------------------------------------- the child</span>
 <span class="k">func</span> <span class="f">child</span> cFolder
+
 	oFile = <span class="k">new</span> <span class="t">File</span>()
 	pause(<span class="n">1000</span>)
 	oFile.<span class="f">WriteAllText</span>([ :path = cFolder + <span class="s">"/note.txt"</span>, :contents = <span class="s">"first"</span> ])
@@ -346,6 +351,7 @@ using {
 	oFile.<span class="f">Delete</span>(cFolder + <span class="s">"/done.txt"</span>)
 
 <span class="k">func</span> <span class="f">pause</span> nMilliseconds
+
 	<span class="k">new</span> <span class="t">Task</span>().<span class="f">Delay</span>(nMilliseconds).<span class="f">Wait</span>(<span class="k">NULL</span>)</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. a folder to watch was created
 2. watching: *.txt, subfolders: no

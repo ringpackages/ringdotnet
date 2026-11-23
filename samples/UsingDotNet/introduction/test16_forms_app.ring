@@ -1,5 +1,6 @@
 # A small Windows Forms application that drives itself
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -48,6 +49,7 @@ new Application().Run(oForm)
 ? "Final list : " + list2str(oList.Items.toList())
 
 func addItem
+
 	if trim(oInput.Text) != ""
 		oList.Items.Add(oInput.Text)
 		oInput.Text = ""
@@ -55,6 +57,7 @@ func addItem
 	ok
 
 func autoPlay
+
 	for cTask in ["buy milk","write Ring code","call .NET"]
 		oInput.Text = cTask
 		oAdd.PerformClick()

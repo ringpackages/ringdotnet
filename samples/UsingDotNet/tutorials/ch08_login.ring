@@ -1,5 +1,6 @@
 # login, sessions and cookies - a web site that knows who you are
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Net.Http"
@@ -16,6 +17,7 @@ oDb = ""
 aSessions = []            # [token, user name]: who is logged in
 
 func main
+
 	# THE USERS: a table; the password is never stored, only a salted slow hash of it (the tutorial "Hashing and encryption")
 	oDb = new RingDatabase("Data Source=:memory:",[
 		["Users",[["Id","int",1],["Name","string",0,[["required",1],["unique",1]]],["Salt","string",0],["Hash","string",0]]]
@@ -53,6 +55,7 @@ func main
 # ---------------------------------------------------------------- the handlers
 
 func registerUser oRequest
+
 	cName = lower(trim(oRequest.form("name")))
 	cPassword = oRequest.form("password")
 	if cName = "" or len(cPassword) < 4
@@ -67,6 +70,7 @@ func registerUser oRequest
 	return [201,"text/plain","welcome, " + cName]
 
 func loginUser oRequest
+
 	cName = lower(trim(oRequest.form("name")))
 	aUsers = oDb.where("Users","Name = {0}",[cName])
 	# the same answer for a wrong name and a wrong password: do not tell an attacker which one was wrong
@@ -80,6 +84,7 @@ func loginUser oRequest
 	return [200,"text/plain","logged in as " + cName]
 
 func profilePage oRequest
+
 	cUser = userOf(oRequest)
 	if cUser = ""
 		return [401,"text/plain","please log in"]
@@ -87,6 +92,7 @@ func profilePage oRequest
 	return [200,"text/plain","this is the profile of " + cUser]
 
 func logoutUser oRequest
+
 	cToken = tokenOf(oRequest)
 	for nIndex = 1 to len(aSessions)
 		if aSessions[nIndex][1] = cToken
@@ -101,6 +107,7 @@ func logoutUser oRequest
 
 # the token in the "Cookie" header of the request: "session=abc123; other=1"
 func tokenOf oRequest
+
 	cHeader = oRequest.header("Cookie")
 	for cPart in str2list(substr(cHeader,";",nl))
 		cPart = trim(cPart)
@@ -112,6 +119,7 @@ func tokenOf oRequest
 
 # the user name of a session, or "" when the cookie is missing or unknown
 func userOf oRequest
+
 	cToken = tokenOf(oRequest)
 	if cToken = ""
 		return ""
@@ -126,9 +134,11 @@ func userOf oRequest
 # ---------------------------------------------------------------- passwords and tokens (see the tutorial "Hashing and encryption")
 
 func randomHex nBytes
+
 	return lower(new Convert().ToHexString(new RandomNumberGenerator().GetBytes(nBytes)))
 
 func hashPassword cPassword, cSalt
+
 	oDerive = dnNew("Rfc2898DeriveBytes",[ :password = cPassword, :salt = cSalt, :iterations = 10000, :hashAlgorithm = new HashAlgorithmName().SHA256 ])
 	return lower(new Convert().ToHexString(oDerive.GetBytes(32)))
 
@@ -136,6 +146,7 @@ func hashPassword cPassword, cSalt
 
 # send a request (with the cookie when there is one); returns [status, body, the cookie that the server sent, if any]
 func visit cMethod, cPath, cForm, cCookie
+
 	oMessage = new HttpRequestMessage().@New([ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
 	if cForm != ""
 		oContent = dnNew("StringContent",[ :content = cForm, :encoding = new Encoding().UTF8, :mediaType = "application/x-www-form-urlencoded" ])

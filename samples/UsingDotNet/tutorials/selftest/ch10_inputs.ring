@@ -1,6 +1,7 @@
 # the checks of ch10_inputs.ring: run with  ring ch10_inputs.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	# the starting state
 	dnAssert("price at the start",oPrice.Text,"3 nights, Single: 210 (a week or more: 10 percent off)")
 

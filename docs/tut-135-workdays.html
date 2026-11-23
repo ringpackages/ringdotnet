@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch03_workdays.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># working days - adding business days, skipping weekends and holidays, week numbers, quarters, month ends and an age</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Globalization"</span>
@@ -264,6 +265,7 @@ using {
 aHolidays = [ <span class="s">"2030-01-01"</span>, <span class="s">"2030-12-25"</span>, <span class="s">"2030-12-26"</span> ]
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># 1. The day of the week. DayOfWeek is a text: "Monday" ... "Sunday". Many countries have another weekend (Friday and Saturday), so the</span>
 	<span class="c">#    weekend is a list in one place.</span>
 	oDate = makeDate(<span class="n">2030</span>,<span class="n">3</span>,<span class="n">9</span>)
@@ -314,21 +316,26 @@ aHolidays = [ <span class="s">"2030-01-01"</span>, <span class="s">"2030-12-25"<
 	<span class="k">next</span>
 
 <span class="k">func</span> <span class="f">makeDate</span> nYear,nMonth,nDay
+
 	<span class="k">return</span> <span class="k">new</span> <span class="t">DateTime</span>(nYear,nMonth,nDay)
 
 <span class="c"># the weekend in one place (Saturday and Sunday here; use ["Friday","Saturday"] for the countries with that weekend)</span>
 <span class="k">func</span> <span class="f">isWeekend</span> oDate
+
 	cDay = <span class="s">""</span> + oDate.DayOfWeek
 	<span class="k">return</span> cDay = <span class="s">"Saturday"</span> <span class="k">or</span> cDay = <span class="s">"Sunday"</span>
 
 <span class="k">func</span> <span class="f">isHoliday</span> oDate
+
 	<span class="k">return</span> find(aHolidays,oDate.<span class="f">Format</span>(<span class="s">"yyyy-MM-dd"</span>)) &gt; <span class="n">0</span>
 
 <span class="k">func</span> <span class="f">isWorkday</span> oDate
+
 	<span class="k">return</span> <span class="k">not</span> isWeekend(oDate) <span class="k">and</span> <span class="k">not</span> isHoliday(oDate)
 
 <span class="c"># n working days after a date (the date itself does not count)</span>
 <span class="k">func</span> <span class="f">addWorkdays</span> oDate,nDays
+
 	oCurrent = oDate
 	nLeft = nDays
 	<span class="k">while</span> nLeft &gt; <span class="n">0</span>
@@ -340,6 +347,7 @@ aHolidays = [ <span class="s">"2030-01-01"</span>, <span class="s">"2030-12-25"<
 	<span class="k">return</span> oCurrent
 
 <span class="k">func</span> <span class="f">countWorkdays</span> oFrom,oTo
+
 	nCount = <span class="n">0</span>
 	oCurrent = oFrom
 	<span class="k">while</span> oCurrent.<span class="f">CompareTo</span>(oTo) &lt; <span class="n">0</span>
@@ -351,16 +359,20 @@ aHolidays = [ <span class="s">"2030-01-01"</span>, <span class="s">"2030-12-25"<
 	<span class="k">return</span> nCount
 
 <span class="k">func</span> <span class="f">isoWeek</span> oDate
+
 	<span class="k">return</span> <span class="k">new</span> <span class="t">ISOWeek</span>().<span class="f">GetWeekOfYear</span>(oDate)
 
 <span class="k">func</span> <span class="f">isoYear</span> oDate
+
 	<span class="k">return</span> <span class="k">new</span> <span class="t">ISOWeek</span>().<span class="f">GetYear</span>(oDate)
 
 <span class="k">func</span> <span class="f">daysInMonth</span> nYear,nMonth
+
 	<span class="k">return</span> <span class="k">new</span> <span class="t">DateTime</span>(nYear,nMonth,<span class="n">1</span>).<span class="f">DaysInMonth</span>(nYear,nMonth)
 
 <span class="c"># the years between two dates, minus one when the birthday of that year has not come yet</span>
 <span class="k">func</span> <span class="f">ageOn</span> oBirth,oDay
+
 	nAge = oDay.Year - oBirth.Year
 	<span class="k">if</span> oDay.Month &lt; oBirth.Month <span class="k">or</span> (oDay.Month = oBirth.Month <span class="k">and</span> oDay.Day &lt; oBirth.Day)
 		nAge--
@@ -368,12 +380,14 @@ aHolidays = [ <span class="s">"2030-01-01"</span>, <span class="s">"2030-12-25"<
 	<span class="k">return</span> nAge
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> <span class="s">"no"</span>
 
 <span class="k">func</span> <span class="f">padRight</span> cText,nWidth
+
 	<span class="k">return</span> cText + copy(<span class="s">" "</span>,nWidth - len(cText))</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. 2030-03-09 is a Saturday, weekend: yes
    the days of the week of 11-17 March 2030:

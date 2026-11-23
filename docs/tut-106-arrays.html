@@ -255,11 +255,13 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch04_arrays.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># arrays - Ring lists and .NET arrays, Array.Sort, Reverse, IndexOf, BinarySearch, Copy and Clear, and arrays with two dimensions</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oArray = <span class="k">new</span> <span class="t">Array</span>()
 
 	<span class="c"># 1. A .NET array has a fixed size and one type. A Ring list becomes an array when a method asks for one: the bridge makes an int[],</span>
@@ -321,6 +323,7 @@ using {
 <span class="c"># A typed array is made from a list: add the values to a List&lt;Int32&gt; and call ToArray(). (Array.SetValue takes an object: a whole number is</span>
 <span class="c"># an Int32 there and fits an Int32 array, a number with a fraction is a Double and does not.)</span>
 <span class="k">func</span> <span class="f">makeIntArray</span> aList
+
 	oList = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.List"</span>,[<span class="s">"System.Int32"</span>],[])
 	<span class="k">for</span> nValue <span class="k">in</span> aList
 		oList.<span class="f">Add</span>(nValue)
@@ -328,6 +331,7 @@ using {
 	<span class="k">return</span> oList.<span class="f">ToArray</span>()
 
 <span class="k">func</span> <span class="f">arrayText</span> oArray
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> item <span class="k">in</span> oArray.<span class="f">toList</span>()
 		cText += <span class="s">""</span> + item + <span class="s">" "</span>
@@ -335,6 +339,7 @@ using {
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">list2text</span> aList
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> item <span class="k">in</span> aList
 		cText += <span class="s">""</span> + item + <span class="s">" "</span>
@@ -342,6 +347,7 @@ using {
 	<span class="k">return</span> cText
 
 <span class="k">func</span> <span class="f">padLeft</span> cText,nWidth
+
 	<span class="k">return</span> copy(<span class="s">" "</span>,nWidth - len(cText)) + cText</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. a list given to Array.Sort comes back unchanged: 42 7 19 3 25 (the bridge sorted its own copy)
 

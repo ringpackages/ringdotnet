@@ -2,6 +2,7 @@
 
 # the value of a property that the list shows, found by the name of the property
 func valueOf cName
+
 	for i = 0 to oList.Items.Count - 1
 		if oList.Items.Item(i).Text = cName
 			return oList.Items.Item(i).SubItems.Item(2).Text
@@ -10,6 +11,7 @@ func valueOf cName
 	return "(not in the list)"
 
 func selfTest
+
 	# the Uri
 	dnAssert("the host",valueOf("Host"),"example.com")
 	dnAssert("the port",valueOf("Port"),"8080")

@@ -256,12 +256,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch02_regex.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># regular expressions in depth - patterns, groups, replace, split, validation</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Text.RegularExpressions"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	cText = <span class="s">"Ann: 555-0101, Bob: 555-0199, Cy: 555-0123 (call after 18:30 on 2024-05-17)"</span>
 
 	<span class="c"># 1. Literal text matches itself</span>

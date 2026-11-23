@@ -255,11 +255,13 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch04_sets.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># sets - HashSet, union, intersection, difference, subsets, and how a set removes duplicates and finds common items fast</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	cText = <span class="s">"System.String"</span>
 
 	<span class="c"># A set holds each value ONCE and has no order. Adding a value that is already there changes nothing. Looking for a value is</span>
@@ -313,6 +315,7 @@ using {
 	? nl + <span class="s">"6. "</span> + len(aWithDuplicates) + <span class="s">" numbers, "</span> + len(aUnique) + <span class="s">" different: "</span> + list2text(aUnique)
 
 <span class="k">func</span> <span class="f">makeSet</span> aList
+
 	oSet = <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.HashSet"</span>,[<span class="s">"System.String"</span>],[])
 	<span class="k">for</span> cItem <span class="k">in</span> aList
 		oSet.<span class="f">Add</span>(cItem)
@@ -321,12 +324,15 @@ using {
 
 <span class="c"># a copy of a set: the constructor of HashSet takes a collection</span>
 <span class="k">func</span> <span class="f">copySet</span> oSet
+
 	<span class="k">return</span> <span class="f">dnNewGeneric</span>(<span class="s">"System.Collections.Generic.HashSet"</span>,[<span class="s">"System.String"</span>],[oSet])
 
 <span class="k">func</span> <span class="f">sortedText</span> oSet
+
 	<span class="k">return</span> list2text(sort(oSet.<span class="f">toList</span>()))
 
 <span class="k">func</span> <span class="f">list2text</span> aList
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> item <span class="k">in</span> aList
 		cText += <span class="s">""</span> + item + <span class="s">" "</span>

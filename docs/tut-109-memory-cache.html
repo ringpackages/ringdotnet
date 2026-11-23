@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch09_memory_cache.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># caching - MemoryCache, absolute and sliding expiration, remove and update, and when a cache is a bad idea</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Threading"</span>
@@ -264,6 +265,7 @@ using {
 nRuns = <span class="n">0</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># A cache keeps the result of slow work (a database query, a web request, a big calculation) for a while, so the next request</span>
 	<span class="c"># gets it at once. MemoryCache keeps the values in memory, with a key for each one and rules for when a value must go.</span>
 	oCache = <span class="k">new</span> <span class="t">MemoryCache</span>(<span class="k">new</span> <span class="t">MemoryCacheOptions</span>())
@@ -314,14 +316,17 @@ nRuns = <span class="n">0</span>
 	oCache.<span class="f">Dispose</span>()
 
 <span class="k">func</span> <span class="f">sleepMs</span> nMilliseconds
+
 	<span class="k">new</span> <span class="t">Thread</span>().<span class="f">Sleep</span>(nMilliseconds)
 
 <span class="k">func</span> <span class="f">slowReport</span> aArguments
+
 	nRuns++                         <span class="c"># (nRuns is a global variable of the program)</span>
 	<span class="k">return</span> <span class="s">"report #"</span> + nRuns
 
 <span class="c"># Set has two forms: with and without the options of the entry</span>
 <span class="k">func</span> <span class="f">cacheSet</span> oCache,cKey,xValue,oOptions
+
 	<span class="k">if</span> isNull(oOptions)
 		<span class="k">return</span> oCache.<span class="f">Set</span>([ :key = cKey, :value = xValue ])
 	<span class="k">ok</span>

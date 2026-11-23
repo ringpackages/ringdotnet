@@ -2,12 +2,14 @@
 #   ring ch06_cli.ring                        runs a demonstration of several command lines
 #   ring ch06_cli.ring file.txt --top 5       is a real use of the tool: the 5 most frequent words of file.txt
 load "dotnet.ring"
+
 using {
 	"System.IO"
 	"System.Text.RegularExpressions"
 }
 
 func main
+
 	# the arguments after the program name: sysargv = [ring, program, arg1, arg2, ...] (the first two are not ours)
 	aArguments = []
 	for nIndex = 3 to len(sysargv)
@@ -37,10 +39,12 @@ func main
 	new File().Delete(cFile)
 
 func showResult nCode
+
 	? "(exit code " + nCode + ")"
 
 # Runs the tool with a list of arguments. It returns an exit code: 0 = success, 1 = a problem with the arguments, 2 = a problem with the file.
 func run aArguments
+
 	aOptions = parseArguments(aArguments)
 	if islist(aOptions) = False
 		return 1
@@ -64,6 +68,7 @@ func run aArguments
 
 # Options start with --; some have a value (--top 5). A word without -- is the file. Returns a list of [name, value], or false on a mistake.
 func parseArguments aArguments
+
 	aOptions = [["top","10"],["min","1"],["help",""],["file",""]]
 	nIndex = 1
 	while nIndex <= len(aArguments)
@@ -88,6 +93,7 @@ func parseArguments aArguments
 	return aOptions
 
 func setOption aOptions, cName, cValue
+
 	for nPos = 1 to len(aOptions)
 		if aOptions[nPos][1] = cName
 			aOptions[nPos][2] = cValue
@@ -95,6 +101,7 @@ func setOption aOptions, cName, cValue
 	next
 
 func optionValue aOptions, cName
+
 	for aPair in aOptions
 		if aPair[1] = cName
 			return aPair[2]
@@ -103,9 +110,11 @@ func optionValue aOptions, cName
 	return ""
 
 func isNumberText cText
+
 	return new Regex("^[0-9]+$").IsMatch(cText)
 
 func showUsage
+
 	? "usage: wordstat FILE [--top N] [--min LENGTH]"
 	? "  FILE        a text file"
 	? "  --top N     show the N most frequent words (default 10)"
@@ -114,6 +123,7 @@ func showUsage
 
 # the words of a file counted, the most frequent first
 func showStatistics cFile, nTop, nMin
+
 	oWords = new Regex("[A-Za-z]+").Matches(new File().ReadAllText(cFile))
 	aWords = []                              # [word, count]
 	for nIndex = 0 to oWords.Count - 1
@@ -141,6 +151,7 @@ func showStatistics cFile, nTop, nMin
 	next
 
 func sortBy aPairs
+
 	for nI = 1 to len(aPairs) - 1
 		for nJ = nI + 1 to len(aPairs)
 			if aPairs[nJ][2] > aPairs[nI][2] or (aPairs[nJ][2] = aPairs[nI][2] and strcmp(aPairs[nJ][1],aPairs[nI][1]) < 0)

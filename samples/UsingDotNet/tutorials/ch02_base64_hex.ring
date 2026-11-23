@@ -1,5 +1,6 @@
 # bytes as text - Base64, Base64 for URLs and hexadecimal: encoding and decoding, the size of the result, line breaks, and data URIs
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Text"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	oConvert = new Convert()
 
 	# Bytes can hold any value from 0 to 255, but many places accept only TEXT: an e-mail, a JSON file, a URL, an XML attribute. An
@@ -66,17 +68,21 @@ func main
 	? "   " + hashHex("abc")
 
 func toBase64 cBytes
+
 	return new Convert().ToBase64String(cBytes)
 
 func fromBase64 cText
+
 	return new Convert().FromBase64String(cText)
 
 # a Base64 text needs a length that is a multiple of 4: = fills the missing places
 func addPadding cText
+
 	nMissing = (4 - len(cText) % 4) % 4
 	return cText + copy("=",nMissing)
 
 func tryDecode cText
+
 	try
 		fromBase64(cText)
 		return "decoded"
@@ -85,6 +91,7 @@ func tryDecode cText
 	done
 
 func tryHex cText
+
 	try
 		new Convert().FromHexString(cText)
 		return "decoded"
@@ -93,9 +100,11 @@ func tryHex cText
 	done
 
 func hashHex cText
+
 	return new Convert().ToHexString(new SHA256().HashData(cText))
 
 func errorKind cMessage
+
 	cText = trim(cMessage)
 	nStart = substr(cText,"DotNet Error: ")
 	if nStart > 0
@@ -108,10 +117,12 @@ func errorKind cMessage
 	return cText
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok
 	return "no"
 
 func padRight cText,nWidth
+
 	return cText + copy(" ",nWidth - len(cText))

@@ -1,6 +1,7 @@
 # the checks of ch12_maze.ring: run with  ring ch12_maze.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	# a perfect maze: C_COLUMNS * C_ROWS cells joined by exactly (cells - 1) openings
 	nOpenings = 0
 	for nRow = 1 to C_ROWS

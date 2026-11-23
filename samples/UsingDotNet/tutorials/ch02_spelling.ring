@@ -1,5 +1,6 @@
 # a spell checker - a set of words, edit distance (Levenshtein) and the best suggestions
 load "dotnet.ring"
+
 using {
 	"System.Collections.Generic"
 	"System.Text.RegularExpressions"
@@ -8,6 +9,7 @@ using {
 aDictionary = ["the","quick","brown","fox","jumps","over","lazy","dog","and","then","there","their","brain","crown","frown","jump","quack","quiet","lake","dig","dot","dug"]
 
 func main
+
 	# 1. A StringSet (a .NET HashSet) answers "is this word known?" at once, however many words it holds
 	oWords = new StringSet()
 	for cWord in aDictionary
@@ -41,6 +43,7 @@ func main
 # The distance with a table: aTable[i][j] = the distance between the first i letters of cA and the first j letters of cB.
 # The first row and column are the distances to the empty text. Each cell is the cheapest of: delete, insert, replace (free when the letters are equal).
 func distance cA, cB
+
 	nA = len(cA)
 	nB = len(cB)
 	aTable = []
@@ -73,6 +76,7 @@ func distance cA, cB
 
 # the nCount closest dictionary words: sorted by distance, equal distances alphabetically
 func suggest cWord, nCount
+
 	aScored = []
 	for cKnown in aDictionary
 		aScored + [distance(cWord,cKnown),cKnown]
@@ -93,6 +97,7 @@ func suggest cWord, nCount
 	return aBest
 
 func joinWith aList, cSeparator
+
 	cText = ""
 	for cItem in aList
 		if cText != ""
@@ -103,6 +108,7 @@ func joinWith aList, cSeparator
 	return cText
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

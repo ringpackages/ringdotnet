@@ -1,12 +1,14 @@
 # Microsoft Access databases - an .accdb file through ODBC: tables, parameters, joins, totals, dates, transactions
 # (Windows only: it needs the Microsoft Access Database Engine; anywhere else the program says why it stops)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
 }
 
 func main
+
 	# 0. What the program needs. Without it, it stops with a message and no error.
 	cDriver = "Microsoft Access Driver (*.mdb, *.accdb)"
 	if not iswindows()
@@ -115,6 +117,7 @@ func main
 
 # is the ODBC driver registered? (the list of ODBC drivers is in the registry)
 func driverInstalled cDriver
+
 	try
 		oMachine = dnType("Microsoft.Win32.Registry").getProp("LocalMachine")
 		oKey = oMachine.OpenSubKey("SOFTWARE\ODBC\ODBCINST.INI\ODBC Drivers")
@@ -132,6 +135,7 @@ func driverInstalled cDriver
 
 # a new Access file made with ADOX (a COM component of Windows); false when it is not available
 func createDatabase cFile
+
 	try
 		oType = new Type().GetTypeFromProgID("ADOX.Catalog")
 		if oType.isNull()
@@ -146,6 +150,7 @@ func createDatabase cFile
 
 # a command with its parameters (the driver uses them in the order of the ? marks)
 func makeCommand oConnection,cSql,aValues
+
 	oCommand = oConnection.CreateCommand()
 	oCommand.setProp("CommandText",cSql)
 	oParameters = oCommand.Parameters
@@ -158,19 +163,23 @@ func makeCommand oConnection,cSql,aValues
 
 # a statement that changes data: answers the number of rows
 func runSql oConnection,cSql,aValues
+
 	return makeCommand(oConnection,cSql,aValues).ExecuteNonQuery()
 
 func runSqlIn oConnection,oTransaction,cSql,aValues
+
 	oCommand = makeCommand(oConnection,cSql,aValues)
 	oCommand.setProp("Transaction",oTransaction)
 	return oCommand.ExecuteNonQuery()
 
 # one value: the first column of the first row
 func scalar oConnection,cSql,aValues
+
 	return makeCommand(oConnection,cSql,aValues).ExecuteScalar()
 
 # all the rows as a list of lists. A date comes back as a text "yyyy-MM-dd", the other values as Ring numbers and texts.
 func rows oConnection,cSql,aValues
+
 	aRows = []
 	oReader = makeCommand(oConnection,cSql,aValues).callMethod("ExecuteReader",[])
 	nColumns = oReader.FieldCount
@@ -194,6 +203,7 @@ func rows oConnection,cSql,aValues
 
 # the user tables (the schema also lists the system tables of Access)
 func tableNames oConnection
+
 	aNames = []
 	for oRow in oConnection.GetSchema("Tables").Rows.toList()
 		if oRow.callMethod("get_Item",["TABLE_TYPE"]) = "TABLE"
@@ -204,6 +214,7 @@ func tableNames oConnection
 
 # the column names and types of a table: an empty query (WHERE 1 = 0) describes the columns without reading rows
 func columnNames oConnection,cTable
+
 	aNames = []
 	oReader = makeCommand(oConnection,"SELECT * FROM " + cTable + " WHERE 1 = 0",[]).callMethod("ExecuteReader",[])
 	for nColumn = 0 to oReader.FieldCount - 1
@@ -216,10 +227,12 @@ func columnNames oConnection,cTable
 
 # an Arabic name as UTF-8 bytes (a Ring text is a text of bytes)
 func arabicName
+
 	return char(216) + char(163) + char(216) + char(173) + char(217) + char(133) + char(216) + char(175)
 
 # the first word, so that the Arabic name does not disturb the columns
 func shortName cName
+
 	cShort = cName
 	if cName = arabicName()
 		cShort = "(Arabic)"
@@ -227,6 +240,7 @@ func shortName cName
 	return cShort
 
 func money nValue
+
 	nRounded = floor(nValue * 100 + 0.5)
 	nUnits = floor(nRounded / 100)
 	nCents = nRounded - nUnits * 100
@@ -237,6 +251,7 @@ func money nValue
 	return "" + nUnits + "." + cCents
 
 func columnOf aRows,nColumn,cFormat
+
 	aValues = []
 	for aRow in aRows
 		if cFormat = "money"
@@ -248,6 +263,7 @@ func columnOf aRows,nColumn,cFormat
 	return aValues
 
 func joinList aList
+
 	cText = ""
 	for item in aList
 		if cText != ""
@@ -258,7 +274,9 @@ func joinList aList
 	return cText
 
 func padRight cText,nWidth
+
 	return cText + copy(" ",nWidth - len(cText))
 
 func padLeft cText,nWidth
+
 	return copy(" ",nWidth - len(cText)) + cText

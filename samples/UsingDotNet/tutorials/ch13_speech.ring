@@ -2,6 +2,7 @@
 #   (the project is in the folder Speech: Speech.csproj names the package for Windows, and Empty.cs is the one source file a project needs)
 #   Run it with --speak to hear the voice; without it the program writes the speech to a file, silently.
 load "dotnet.ring"
+
 using { "System.IO" }
 
 if not iswindows()
@@ -34,6 +35,7 @@ dnLoad(cDll)
 dnImportFrom(cClasses + "/","System.Speech.Synthesis")
 
 func main
+
 	oVoice = new SpeechSynthesizer()
 
 	# 1. The voices that are installed (the names depend on the computer, so the program only counts them)
@@ -64,6 +66,7 @@ func main
 
 # speaks a text to a WAV file with a rate and gives the size of the file
 func speakToFile oVoice, cText, nRate, cFile
+
 	oVoice.Rate = nRate
 	oVoice.SetOutputToWaveFile(cFile)
 	oVoice.Speak(cText)

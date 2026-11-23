@@ -1,6 +1,7 @@
 # the checks of ch10_windows.ring: run with  ring ch10_windows.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	dnAssert("one window at the start",openForms(),1)
 
 	# open the tool window: two windows, and the tool has the main window as owner

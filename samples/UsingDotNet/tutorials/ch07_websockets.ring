@@ -1,5 +1,6 @@
 # WebSockets - a connection that stays open: a client and a server in one program, text and binary messages, long messages in parts, closing
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Net"
@@ -11,6 +12,7 @@ using {
 oToken = ""                       # a token that cancels everything after 20 seconds, so that a mistake cannot hang the program
 
 func main
+
 	# HTTP is a question and an answer. A WEBSOCKET is a connection that stays open after the first HTTP request: both sides can send a
 	# message whenever they like, which is what a chat, a live price list or a game needs. The first request asks to "upgrade" the
 	# connection, and then the two sides send MESSAGES (text or binary) until one of them closes it.
@@ -92,6 +94,7 @@ func main
 # class ClientWebSocket has SendAsync with four values; the object that the server got is a WebSocket, where SendAsync has more forms and
 # takes the values by name.
 func send oSocket,cBytes,cType,lClient
+
 	oSegment = dnNew("System.ArraySegment`1[[System.Byte]]",[ cBytes ])
 	if lClient
 		oSocket.SendAsync(oSegment,cType,True,oToken).Wait(NULL)
@@ -100,12 +103,14 @@ func send oSocket,cBytes,cType,lClient
 	ok
 
 func sendText oSocket,cText,lClient
+
 	send(oSocket,cText,"Text",lClient)
 
 # Receive into a buffer of nSize bytes. The buffer is a byte buffer (dnBuffer): a .NET byte[] that Ring holds. The ArraySegment is made
 # on that array, .NET fills it, and the received bytes are the first Count bytes of the buffer. The answer is [the bytes, the type,
 # EndOfMessage].
 func receive oSocket,nSize
+
 	oBuffer = dnBuffer(nSize)
 	oSegment = dnNew("System.ArraySegment`1[[System.Byte]]",[ oBuffer ])
 	oTask = oSocket.ReceiveAsync(oSegment,oToken)
@@ -114,9 +119,11 @@ func receive oSocket,nSize
 	return [ dnBufferBytes(oBuffer,oResult.Count), "" + oResult.MessageType, oResult.EndOfMessage ]
 
 func receiveText oSocket
+
 	return receive(oSocket,1024)[1]
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

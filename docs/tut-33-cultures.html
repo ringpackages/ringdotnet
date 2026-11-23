@@ -258,12 +258,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch03_cultures.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># cultures - the same number, date and text written, read and sorted in different languages</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Globalization"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oString = <span class="k">new</span> <span class="t">String</span>()
 	oConvert = <span class="k">new</span> <span class="t">Convert</span>()
 	aCultures = [<span class="s">"en-US"</span>,<span class="s">"de-DE"</span>,<span class="s">"fr-FR"</span>,<span class="s">"ar-EG"</span>,<span class="s">"ja-JP"</span>]

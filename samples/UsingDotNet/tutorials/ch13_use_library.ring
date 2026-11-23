@@ -23,6 +23,7 @@ dnLoad(cDll)
 dnImportFrom(cClasses + "/","Tutorial.Greetings")
 
 func main
+
 	# STEP 4. Use the class like any other
 	oGreeter = new Greeter()
 	? oGreeter.Hello(NULL)                                      # the overload without parameters

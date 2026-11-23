@@ -1,5 +1,6 @@
 # a chat over TCP - a server that relays lines, two clients, and a timer that polls the sockets
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -18,6 +19,7 @@ aInputs = []              # the two text boxes where the user types
 oTimer = ""
 
 func main
+
 	oServer = new ChatServer()
 	nPort = oServer.start()
 	oForm = uiForm("Chat on port " + nPort,620,380)
@@ -45,6 +47,7 @@ func main
 
 # the user pressed Send in window nIndex: send the text to the server
 func sendFrom nIndex
+
 	cText = trim(aInputs[nIndex].Text)
 	if cText != ""
 		aClients[nIndex].send(cText)
@@ -53,6 +56,7 @@ func sendFrom nIndex
 
 # one round: the server relays what it has received, and each client shows what it has received
 func pump
+
 	oServer.poll()
 	for nIndex = 1 to 2
 		aNew = aClients[nIndex].poll()
@@ -69,10 +73,12 @@ class LineReader
 	cPartial = ""
 
 	func init oNetworkStream
+
 		oStream = oNetworkStream
 		return self
 
 	func lines
+
 		aList = []
 		while oStream.DataAvailable
 			nByte = oStream.ReadByte()
@@ -94,18 +100,22 @@ class ChatServer
 	aConnections = []         # [TcpClient, LineReader, StreamWriter]
 
 	func init
+
 		return self
 
 	func start
+
 		oListener = new TcpListener(new IPAddress().Loopback,0)
 		oListener.Start(NULL)
 		return oListener.LocalEndpoint.Port
 
 	func count
+
 		return len(aConnections)
 
 	# called often: accept new clients, read the lines that are waiting, relay them
 	func poll
+
 		while oListener.Pending()
 			oSocket = oListener.AcceptTcpClient()
 			oStream = oSocket.GetStream()
@@ -129,6 +139,7 @@ class ChatServer
 		next
 
 	func stop
+
 		for aConnection in aConnections
 			aConnection[3].Dispose()
 		next
@@ -146,6 +157,7 @@ class ChatClient
 	aSent = []
 
 	func init cWho, nPort
+
 		cName = cWho
 		oSocket = new TcpClient()
 		oSocket.Connect([ :hostname = "127.0.0.1", :port = nPort ])
@@ -157,16 +169,20 @@ class ChatClient
 
 	# the line that is sent to the server starts with the name: "Alice: Hello"
 	func send cText
+
 		oWriter.WriteLine(cName + ": " + cText)
 		aSent + cText
 
 	func sent
+
 		return aSent
 
 	# the lines that have arrived since the last call
 	func poll
+
 		return oReader.lines()
 
 	func close
+
 		oWriter.Dispose()
 		oSocket.Close()

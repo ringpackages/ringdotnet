@@ -1,5 +1,6 @@
 # a chart - turn numbers into a bar chart with UiCanvas, show it in a window and save it as a PNG
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -19,6 +20,7 @@ oForm = ""
 oCanvas = ""
 
 func main
+
 	oForm = uiForm("Sales chart",C_WIDTH,C_HEIGHT + 36)
 	oPicture = uiPictureBox(oForm,0,0,C_WIDTH,C_HEIGHT)
 	oCanvas = new UiCanvas(oPicture)
@@ -30,6 +32,7 @@ func main
 # ---------------------------------------------------------------- drawing
 
 func drawChart
+
 	nLeft = 50                                      # room for the numbers on the left
 	nBottom = C_HEIGHT - 40                         # the y of the bottom axis
 	nTop = 50
@@ -64,6 +67,7 @@ func drawChart
 
 # the biggest value of a list
 func maxOf aList
+
 	nMax = aList[1]
 	for nValue in aList
 		if nValue > nMax
@@ -74,6 +78,7 @@ func maxOf aList
 
 # the next "round" number at or above a value: 25 -> 30, 8 -> 10, 120 -> 150. Charts look better with round axes.
 func niceMax nValue
+
 	nPower = pow(10,floor(log10(nValue)))
 	for nFactor in [1,1.5,2,3,4,5,6,8,10]
 		if nFactor * nPower >= nValue
@@ -83,6 +88,7 @@ func niceMax nValue
 	return nValue
 
 func savePng
+
 	cFile = new Path().Combine([new Path().GetTempPath(),"sales-chart.png"])
 	oCanvas.oBitmap.Save([ :filename = cFile, :format = new ImageFormat().Png ])
 	uiMessage("Saved to " + cFile,"Chart")

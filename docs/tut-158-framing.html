@@ -255,6 +255,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch07_framing.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># messages on a TCP stream - TCP has no message boundaries: a length prefix, reading exactly n bytes, partial reads and a limit</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Net"</span>
@@ -262,6 +263,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># TCP is a STREAM of bytes, not a list of messages. If a program writes "ab" and then "cd", the other side may read "abcd" in one call,</span>
 	<span class="c"># or "a" and "bcd", or ... The sizes of the pieces that Read returns have nothing to do with the sizes of the writes. A protocol that</span>
 	<span class="c"># sends MESSAGES must say where each one ends: here every message has a LENGTH PREFIX, four bytes with the size of the message,</span>
@@ -308,13 +310,16 @@ using {
 
 <span class="c"># the length as four bytes, biggest first</span>
 <span class="k">func</span> <span class="f">lengthBytes</span> nLength
+
 	<span class="k">return</span> char(floor(nLength / <span class="n">16777216</span>) % <span class="n">256</span>) + char(floor(nLength / <span class="n">65536</span>) % <span class="n">256</span>) + char(floor(nLength / <span class="n">256</span>) % <span class="n">256</span>) + char(nLength % <span class="n">256</span>)
 
 <span class="k">func</span> <span class="f">bytesLength</span> cBytes
+
 	<span class="k">return</span> ascii(substr(cBytes,<span class="n">1</span>,<span class="n">1</span>)) * <span class="n">16777216</span> + ascii(substr(cBytes,<span class="n">2</span>,<span class="n">1</span>)) * <span class="n">65536</span> + ascii(substr(cBytes,<span class="n">3</span>,<span class="n">1</span>)) * <span class="n">256</span> + ascii(substr(cBytes,<span class="n">4</span>,<span class="n">1</span>))
 
 <span class="c"># one message: the length, then the bytes. Two writes (a real program may write both in one buffer).</span>
 <span class="k">func</span> <span class="f">writeMessage</span> oStream,cMessage
+
 	oStream.<span class="f">Write</span>(lengthBytes(len(cMessage)),<span class="n">0</span>,<span class="n">4</span>)
 	<span class="k">if</span> len(cMessage) &gt; <span class="n">0</span>
 		oStream.<span class="f">Write</span>(cMessage,<span class="n">0</span>,len(cMessage))
@@ -324,6 +329,7 @@ using {
 <span class="c"># again, into the next part of the same buffer, until all the bytes are there. Read gives 0 when the other side has closed the connection.</span>
 <span class="c"># The answer is [the bytes, the number of Read calls].</span>
 <span class="k">func</span> <span class="f">readExact</span> oStream,nCount
+
 	<span class="k">if</span> nCount = <span class="n">0</span>
 		<span class="k">return</span> [ <span class="s">""</span>, <span class="n">0</span> ]
 	<span class="k">ok</span>
@@ -343,6 +349,7 @@ using {
 <span class="c"># One message: read the four bytes of the length, check it against the maximum, then read the message. The answer is [the message, the</span>
 <span class="c"># number of Read calls: it depends on how the bytes arrived, so the program does not print it], or ["(refused: ...)", 0] for a length over the maximum.</span>
 <span class="k">func</span> <span class="f">readMessage</span> oStream,nMaximum
+
 	aHeader = readExact(oStream,<span class="n">4</span>)
 	nLength = bytesLength(aHeader[<span class="n">1</span>])
 	<span class="k">if</span> nLength &gt; nMaximum
@@ -352,6 +359,7 @@ using {
 	<span class="k">return</span> [ aBody[<span class="n">1</span>], aHeader[<span class="n">2</span>] + aBody[<span class="n">2</span>] ]
 
 <span class="k">func</span> <span class="f">hexText</span> cBytes
+
 	cText = <span class="s">""</span>
 	<span class="k">for</span> i = <span class="n">1</span> <span class="k">to</span> len(cBytes)
 		cText += right(<span class="s">"0"</span> + upper(hex(ascii(substr(cBytes,i,<span class="n">1</span>)))),<span class="n">2</span>) + <span class="s">" "</span>
@@ -359,12 +367,14 @@ using {
 	<span class="k">return</span> trim(cText)
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> <span class="s">"no"</span>
 
 <span class="k">func</span> <span class="f">padLeft</span> cText,nWidth
+
 	<span class="k">return</span> copy(<span class="s">" "</span>,nWidth - len(cText)) + cText</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. connected
 

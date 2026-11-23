@@ -1,6 +1,7 @@
 # A track bar and a numeric box that follow each other
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

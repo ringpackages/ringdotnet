@@ -53,5 +53,6 @@ oScope.Dispose()
 dnTestSummary()
 
 func makeBuilder aArgs
+
 	nMade++
 	return new StringBuilder("made " + nMade)

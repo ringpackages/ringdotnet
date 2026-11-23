@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch06_tasks_waiting.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># tasks that wait - Task.Delay, WhenAll, WhenAny, time limits and cancellation (System.Threading.Tasks)</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Diagnostics"</span>
@@ -264,6 +265,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oTasks = <span class="k">new</span> <span class="t">Task</span>()
 
 	<span class="c"># 1. A Task is "something that finishes later". Task.Delay(ms) is a task that finishes after that time, without using a thread to sleep.</span>
@@ -321,6 +323,7 @@ using {
 	? nl + <span class="s">"6. five waits that add up to "</span> + nTotal + <span class="s">" ms were over in less than that: "</span> + yesNo(oWatch.ElapsedMilliseconds &lt; nTotal)
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>

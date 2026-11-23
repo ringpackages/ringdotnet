@@ -1,5 +1,6 @@
 # Your first window, step 4: the same window without the helper functions - what uiForm, uiLabel and uiButton do
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -11,6 +12,7 @@ oButton = ""
 nClicks = 0
 
 func main
+
 	# every control is an object of a class, configured with properties inside braces
 	oForm = new Form() {
 		Text = "Click counter (no helpers)"
@@ -37,5 +39,6 @@ func main
 	uiEnd()
 
 func clicked
+
 	nClicks++
 	oLabel.Text = "Clicked " + nClicks + " times"

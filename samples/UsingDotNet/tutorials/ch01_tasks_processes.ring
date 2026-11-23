@@ -1,5 +1,6 @@
 # time, tasks and other programs - Stopwatch, Task, Process, Environment
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Diagnostics"
@@ -8,6 +9,7 @@ using {
 }
 
 func main
+
 	# Measuring time: Stopwatch
 	oWatch = new Stopwatch()
 	oWatch.Start()

@@ -1,6 +1,7 @@
 # images - create, draw, read pixels, resize, convert to gray and save (no window needed)
 #   ring ch10_images.ring [output folder]
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -9,6 +10,7 @@ using {
 }
 
 func main
+
 	cFolder = new Path().GetTempPath()
 	if len(sysargv) >= 3 and left(sysargv[3],2) != "--"           # an option such as --selftest is not a folder
 		cFolder = sysargv[3]

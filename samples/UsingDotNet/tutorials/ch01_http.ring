@@ -1,5 +1,6 @@
 # HTTP - a web server and a web client in one program
 load "dotnet.ring"
+
 using {
 	"System.Net.Http"
 	"System.Threading.Tasks"
@@ -11,6 +12,7 @@ oClient = ""
 cUrl = ""
 
 func main
+
 	# 1. A web server: a Ring function answers each address
 	oServer = new WebServer("http://127.0.0.1:0")          # port 0: the system picks a free port
 	oServer.onGet("/hello","hello")
@@ -29,17 +31,21 @@ func main
 
 # The handlers: each gets the request and returns the answer
 func hello oRequest
+
 	return "Hello from a Ring handler"
 
 func clock oRequest
+
 	return webJson([["hour",12],["minute",30]])
 
 func echo oRequest
+
 	return [201,"text/plain","you sent: " + oRequest.body()]
 
 # Send one request and return the answer. The server runs on .NET threads, but Ring code may only run on the Ring thread:
 # serveOne() hands one waiting request to its Ring handler.
 func fetch cMethod, cPath, cBody
+
 	if cMethod = "GET"
 		oTask = oClient.GetAsync(cUrl + cPath)
 	else

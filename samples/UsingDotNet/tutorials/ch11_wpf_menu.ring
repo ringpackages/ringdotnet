@@ -1,5 +1,6 @@
 # WPF menus and tabs - Menu and MenuItem, a checkable item, a TabControl, an Expander, a ComboBox and a DatePicker in XAML
 load "dotnet.ring"
+
 using {
 	"System.Windows"
 	"System.Windows.Controls"
@@ -10,6 +11,7 @@ oWindow = ""
 nNew = 0
 
 func main
+
 	# XAML describes the window as a tree: a DockPanel puts the menu at the top, a StatusBar at the bottom and the rest in the middle.
 	# Every element that the program uses has an x:Name, and wpfFind(oWindow,"name") finds it.
 	cXaml = '<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Menus and tabs" Width="460" Height="380" Background="#F4F2FB">'
@@ -44,9 +46,11 @@ func main
 	wpfRun(oWindow)
 
 func say cText
+
 	wpfFind(oWindow,"message").Text = cText
 
 func newOrder
+
 	nNew++
 	say("New order " + nNew)
 	wpfFind(oWindow,"gift").IsChecked = False
@@ -54,6 +58,7 @@ func newOrder
 
 # Visibility is Visible or Collapsed (the space of a collapsed element is not kept)
 func showStatusBar lVisible
+
 	if lVisible
 		wpfFind(oWindow,"status").Visibility = "Visible"
 	else

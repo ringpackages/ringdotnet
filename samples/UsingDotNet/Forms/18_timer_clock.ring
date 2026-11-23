@@ -1,6 +1,7 @@
 # A digital clock with a timer
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -21,5 +22,6 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func tick
+
 	oNow = new DateTime(2000,1,1).Now
 	oClock.Text = oNow.Format("HH:mm:ss")

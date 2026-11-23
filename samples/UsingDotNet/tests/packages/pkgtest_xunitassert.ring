@@ -66,4 +66,5 @@ dnAssert("the exception that was thrown is returned (a Ring error becomes the .N
 dnTestSummary()
 
 func failing aArgs
+
 	raise("boom")

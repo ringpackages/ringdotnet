@@ -1,5 +1,6 @@
 # a folder browser - a TreeView of folders, a ListView of files, and the details of a file
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -14,6 +15,7 @@ oStatus = ""
 cRoot = ""
 
 func main
+
 	# The folder to browse: this program makes a small demo folder (give another folder as the first argument to browse it)
 	cRoot = makeDemoFolder()
 	if len(sysargv) >= 3 and sysargv[3] != "--selftest"
@@ -58,6 +60,7 @@ func main
 
 # A node for a folder, with a node for each subfolder below it. The Tag of a node remembers the full path.
 func addFolderNode oNodes, cFolder
+
 	oNode = oNodes.Add(new Path().GetFileName(cFolder))
 	oNode.Tag = cFolder
 	for cSub in sort(new Directory().GetDirectories(cFolder).toList())
@@ -67,6 +70,7 @@ func addFolderNode oNodes, cFolder
 
 # The user picked a folder: list its files
 func folderChosen
+
 	cFolder = oTree.SelectedNode.Tag
 	oList.Items.Clear()
 	nFiles = 0
@@ -84,6 +88,7 @@ func folderChosen
 
 # a size in bytes as text: 1536 -> 1.5 KB
 func sizeText nBytes
+
 	if nBytes < 1024
 		return "" + nBytes + " B"
 	ok
@@ -94,6 +99,7 @@ func sizeText nBytes
 
 # a demo folder with folders and files
 func makeDemoFolder
+
 	cBase = new Path().Combine([new Path().GetTempPath(),"ringdotnet_browser"])
 	if new Directory().Exists(cBase)
 		new Directory().Delete([ :path = cBase, :recursive = True ])
@@ -109,6 +115,7 @@ func makeDemoFolder
 	return cBase
 
 func copies cText, nTimes
+
 	cResult = ""
 	for nIndex = 1 to nTimes
 		cResult += cText

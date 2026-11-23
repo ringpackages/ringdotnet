@@ -1,5 +1,6 @@
 # WPF data binding - controls that follow each other: a slider, a text box, a progress bar, a check box and a list, all in XAML
 load "dotnet.ring"
+
 using {
 	"System.Windows"
 	"System.Windows.Controls"
@@ -9,6 +10,7 @@ using {
 oWindow = ""
 
 func main
+
 	# A BINDING connects a property of one control to a property of another: when one changes, the other follows, and no Ring code runs.
 	#   {Binding ElementName=amount, Path=Value}   the property Value of the element named "amount"
 	#   Mode=TwoWay                                the change goes both ways (a text box writes back to the slider)

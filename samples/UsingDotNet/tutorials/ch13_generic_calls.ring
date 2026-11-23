@@ -1,5 +1,6 @@
 # the generic functions - dnType, dnNew, dnStatic, dnNewGeneric, callMethod, getProp, dnNull and dnBuffer: what to use when there is no class
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -7,6 +8,7 @@ using {
 }
 
 func main
+
 	# The tutorials so far wrote OBJECT code: new makes an object, the dot calls a method or reads a property, and braces set properties.
 	# That works for every class that was generated, and nearly everything is. A few cases have no class, and for them there are
 	# generic functions. They do the same work with the names as texts.
@@ -55,6 +57,7 @@ func main
 	? nl + "7. the same call in two styles: " + new Math().Max(3,9) + " and " + dnStatic("System.Math","Max",[3,9])
 
 func joinList aList
+
 	cText = ""
 	for item in aList
 		if cText != ""

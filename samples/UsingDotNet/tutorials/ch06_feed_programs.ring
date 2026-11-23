@@ -1,6 +1,7 @@
 # working with other programs - feeding standard input, environment variables, errors and exit codes, a time limit and Kill
 #   (the commands are chosen for the system: sort, find and cmd on Windows; sort, grep and sh on Linux and macOS)
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -12,6 +13,7 @@ cShell = ""
 cShellOption = ""
 
 func main
+
 	# the program that keeps the lines with an "e", and the shell, for this system
 	cFilter = "grep"
 	cFilterArgs = "e"
@@ -92,10 +94,12 @@ func main
 
 # the arguments that make the shell run a command: cmd /c "command" or sh -c "command"
 func shellArgs cCommand
+
 	return cShellOption + ' "' + cCommand + '"'
 
 # start a program; lRedirect = True gives the program's three streams to this program (input, output, error)
 func startProgram cFile, cArguments, lRedirect
+
 	oInfo = new ProcessStartInfo().@New([ :fileName = cFile, :arguments = cArguments ])
 	oInfo.UseShellExecute = False
 	oInfo.CreateNoWindow = True
@@ -108,6 +112,7 @@ func startProgram cFile, cArguments, lRedirect
 
 # the lines of a text as one line: "apple, fig, pear"
 func lines cText
+
 	cResult = ""
 	for cLine in str2list(substr(substr(cText,char(13),""),char(10),nl))
 		if trim(cLine) != ""
@@ -120,12 +125,14 @@ func lines cText
 	return cResult
 
 func chomp cText
+
 	while right(cText,1) = char(10) or right(cText,1) = char(13) or right(cText,1) = " "
 		cText = left(cText,len(cText) - 1)
 	end
 	return cText
 
 func yesNo lValue
+
 	if lValue
 		return "yes"
 	ok

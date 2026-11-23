@@ -254,6 +254,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch12_maze.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a maze - make it with a stack (depth-first), solve it with a queue (breadth-first), draw it on a canvas</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -272,6 +273,7 @@ aPath = []                <span class="c"># the solution: a list of [row, column
 nSeed = <span class="n">2024</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Maze"</span>,C_COLUMNS * C_CELL + <span class="n">30</span>,C_ROWS * C_CELL + <span class="n">100</span>)
 	oPicture = <span class="f">uiPictureBox</span>(oForm,<span class="n">5</span>,<span class="n">5</span>,C_COLUMNS * C_CELL,C_ROWS * C_CELL)
 	oCanvas = <span class="k">new</span> <span class="t">UiCanvas</span>(oPicture)
@@ -282,6 +284,7 @@ nSeed = <span class="n">2024</span>
 	<span class="f">uiRun</span>(oForm)
 
 <span class="k">func</span> <span class="f">nextRandom</span> nLimit
+
 	nSeed = (nSeed * <span class="n">1103515245</span> + <span class="n">12345</span>) % <span class="n">2147483648</span>
 	<span class="k">return</span> (floor(nSeed / <span class="n">65536</span>) % nLimit) + <span class="n">1</span>
 
@@ -290,6 +293,7 @@ nSeed = <span class="n">2024</span>
 <span class="c"># Start with all walls. Walk to a random neighbor that has not been visited, opening the wall between the two cells; when</span>
 <span class="c"># there is no such neighbor go back (pop the stack). Every cell is visited once, so there is exactly one path between any two cells.</span>
 <span class="k">func</span> <span class="f">newMaze</span>
+
 	aOpen = []
 	aSeen = []
 	<span class="k">for</span> nRow = <span class="n">1</span> <span class="k">to</span> C_ROWS
@@ -320,6 +324,7 @@ nSeed = <span class="n">2024</span>
 
 <span class="c"># the four neighbors [row, column] that exist and were not visited</span>
 <span class="k">func</span> <span class="f">freeNeighbors</span> aCell, aSeen
+
 	aList = []
 	<span class="k">for</span> aMove <span class="k">in</span> [[-<span class="n">1</span>,<span class="n">0</span>],[<span class="n">0</span>,<span class="n">1</span>],[<span class="n">1</span>,<span class="n">0</span>],[<span class="n">0</span>,-<span class="n">1</span>]]
 		nRow = aCell[<span class="n">1</span>] + aMove[<span class="n">1</span>]
@@ -333,6 +338,7 @@ nSeed = <span class="n">2024</span>
 	<span class="k">return</span> aList
 
 <span class="k">func</span> <span class="f">openBetween</span> aFrom, aTo
+
 	<span class="k">if</span> aTo[<span class="n">1</span>] &lt; aFrom[<span class="n">1</span>]
 		aOpen[aFrom[<span class="n">1</span>]][aFrom[<span class="n">2</span>]] += <span class="s">"N"</span>
 		aOpen[aTo[<span class="n">1</span>]][aTo[<span class="n">2</span>]] += <span class="s">"S"</span>
@@ -352,6 +358,7 @@ nSeed = <span class="n">2024</span>
 <span class="c"># Visit the cells in rings around the start: first the cells 1 step away, then 2 steps... The first time the exit is reached, the way</span>
 <span class="c"># there is the SHORTEST path. Each cell remembers the cell it was reached from, and the path is followed back from the exit.</span>
 <span class="k">func</span> <span class="f">solve</span>
+
 	aFrom = []
 	<span class="k">for</span> nRow = <span class="n">1</span> <span class="k">to</span> C_ROWS
 		aFrom + list(C_COLUMNS)
@@ -392,6 +399,7 @@ nSeed = <span class="n">2024</span>
 <span class="c"># ---------------------------------------------------------------- drawing</span>
 
 <span class="k">func</span> <span class="f">draw</span>
+
 	oCanvas.<span class="f">clear</span>(<span class="s">"White"</span>)
 	<span class="k">for</span> aCell <span class="k">in</span> aPath
 		oCanvas.<span class="f">fillRect</span>((aCell[<span class="n">2</span>] - <span class="n">1</span>) * C_CELL + <span class="n">4</span>,(aCell[<span class="n">1</span>] - <span class="n">1</span>) * C_CELL + <span class="n">4</span>,C_CELL - <span class="n">8</span>,C_CELL - <span class="n">8</span>,<span class="s">"Orange"</span>)
@@ -436,6 +444,7 @@ nSeed = <span class="n">2024</span>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/selftest/ch12_maze.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># the checks of ch12_maze.ring: run with  ring ch12_maze.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	<span class="c"># a perfect maze: C_COLUMNS * C_ROWS cells joined by exactly (cells - 1) openings</span>
 	nOpenings = <span class="n">0</span>
 	<span class="k">for</span> nRow = <span class="n">1</span> <span class="k">to</span> C_ROWS

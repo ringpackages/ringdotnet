@@ -255,12 +255,14 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch05_disks.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># disks and free space - DriveInfo: the drives of the computer, size, free space, and a check before a big write</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
 }
 
 <span class="k">func</span> <span class="f">main</span>
+
 	<span class="c"># Drive names, sizes and formats are different on each computer, so this program prints what is true on every computer (counts, yes/no)</span>
 	<span class="c"># and a few sizes that come from its own functions.</span>
 
@@ -313,6 +315,7 @@ using {
 	<span class="k">done</span>
 
 <span class="k">func</span> <span class="f">fits</span> oDrive,nBytes
+
 	nAvailable = oDrive.AvailableFreeSpace
 	<span class="k">if</span> nBytes &lt;= nAvailable
 		<span class="k">return</span> <span class="s">"fits"</span>
@@ -321,6 +324,7 @@ using {
 
 <span class="c"># 1024 bytes = 1 KB, 1024 KB = 1 MB, ... one decimal, and no decimal for whole bytes</span>
 <span class="k">func</span> <span class="f">formatSize</span> nBytes
+
 	aUnits = [ <span class="s">"bytes"</span>, <span class="s">"KB"</span>, <span class="s">"MB"</span>, <span class="s">"GB"</span>, <span class="s">"TB"</span>, <span class="s">"PB"</span> ]
 	nValue = nBytes
 	nUnit = <span class="n">1</span>
@@ -335,15 +339,18 @@ using {
 	<span class="k">return</span> <span class="s">""</span> + floor(nTenths / <span class="n">10</span>) + <span class="s">"."</span> + (nTenths % <span class="n">10</span>) + <span class="s">" "</span> + aUnits[nUnit]
 
 <span class="k">func</span> <span class="f">yesNo</span> lValue
+
 	<span class="k">if</span> lValue
 		<span class="k">return</span> <span class="s">"yes"</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> <span class="s">"no"</span>
 
 <span class="k">func</span> <span class="f">padRight</span> cText,nWidth
+
 	<span class="k">return</span> cText + copy(<span class="s">" "</span>,nWidth - len(cText))
 
 <span class="k">func</span> <span class="f">errorKind</span> cMessage
+
 	cText = trim(cMessage)
 	nStart = substr(cText,<span class="s">"DotNet Error: "</span>)
 	<span class="k">if</span> nStart &gt; <span class="n">0</span>

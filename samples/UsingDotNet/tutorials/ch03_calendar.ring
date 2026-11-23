@@ -1,10 +1,12 @@
 # calendars - month tables, ages, business days and birthdays with DateTime
 load "dotnet.ring"
+
 using {
 	"System"
 }
 
 func main
+
 	# 1. A text calendar of a month: how many days it has, and on which weekday the 1st falls
 	? monthCalendar(2024,2)
 
@@ -33,6 +35,7 @@ func main
 
 # A month as text: a title, the weekday names, then the days in rows of seven (the week starts on Monday)
 func monthCalendar nYear, nMonth
+
 	oFirst = new DateTime(nYear,nMonth,1)
 	nDays = new DateTime(nYear,nMonth,1).DaysInMonth(nYear,nMonth)
 	cText = "" + oFirst.Format("MMMM yyyy") + " (" + nDays + " days)" + nl
@@ -52,6 +55,7 @@ func monthCalendar nYear, nMonth
 	return cText
 
 func copies cText, nTimes
+
 	cResult = ""
 	for nIndex = 1 to nTimes
 		cResult += cText
@@ -60,6 +64,7 @@ func copies cText, nTimes
 
 # complete years, months and days between a birth date and a date
 func ageText nBirthYear, nBirthMonth, nBirthDay, nYear, nMonth, nDay
+
 	nYears = nYear - nBirthYear
 	nMonths = nMonth - nBirthMonth
 	nDays = nDay - nBirthDay
@@ -76,6 +81,7 @@ func ageText nBirthYear, nBirthMonth, nBirthDay, nYear, nMonth, nDay
 
 # the days from oFrom up to (not including) oTo that are not Saturday or Sunday
 func businessDays oFrom, oTo
+
 	nCount = 0
 	oDay = oFrom
 	while oDay.CompareTo(oTo) < 0
@@ -88,6 +94,7 @@ func businessDays oFrom, oTo
 	return nCount
 
 func daysUntilBirthday nMonth, nDay, nYear, nTodayMonth, nTodayDay
+
 	oToday = new DateTime(nYear,nTodayMonth,nTodayDay)
 	oBirthday = new DateTime(nYear,nMonth,nDay)
 	if oBirthday.CompareTo(oToday) < 0

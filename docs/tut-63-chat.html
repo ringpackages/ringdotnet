@@ -256,6 +256,7 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tutorials/ch12_chat.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># a chat over TCP - a server that relays lines, two clients, and a timer that polls the sockets</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -274,6 +275,7 @@ aInputs = []              <span class="c"># the two text boxes where the user ty
 oTimer = <span class="s">""</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oServer = <span class="k">new</span> <span class="t">ChatServer</span>()
 	nPort = oServer.<span class="f">start</span>()
 	oForm = <span class="f">uiForm</span>(<span class="s">"Chat on port "</span> + nPort,<span class="n">620</span>,<span class="n">380</span>)
@@ -301,6 +303,7 @@ oTimer = <span class="s">""</span>
 
 <span class="c"># the user pressed Send in window nIndex: send the text to the server</span>
 <span class="k">func</span> <span class="f">sendFrom</span> nIndex
+
 	cText = trim(aInputs[nIndex].Text)
 	<span class="k">if</span> cText != <span class="s">""</span>
 		aClients[nIndex].<span class="f">send</span>(cText)
@@ -309,6 +312,7 @@ oTimer = <span class="s">""</span>
 
 <span class="c"># one round: the server relays what it has received, and each client shows what it has received</span>
 <span class="k">func</span> <span class="f">pump</span>
+
 	oServer.<span class="f">poll</span>()
 	<span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> <span class="n">2</span>
 		aNew = aClients[nIndex].<span class="f">poll</span>()
@@ -325,10 +329,12 @@ oTimer = <span class="s">""</span>
 	cPartial = <span class="s">""</span>
 
 	<span class="k">func</span> <span class="f">init</span> oNetworkStream
+
 		oStream = oNetworkStream
 		<span class="k">return</span> <span class="k">self</span>
 
 	<span class="k">func</span> <span class="f">lines</span>
+
 		aList = []
 		<span class="k">while</span> oStream.DataAvailable
 			nByte = oStream.<span class="f">ReadByte</span>()
@@ -350,18 +356,22 @@ oTimer = <span class="s">""</span>
 	aConnections = []         <span class="c"># [TcpClient, LineReader, StreamWriter]</span>
 
 	<span class="k">func</span> <span class="f">init</span>
+
 		<span class="k">return</span> <span class="k">self</span>
 
 	<span class="k">func</span> <span class="f">start</span>
+
 		oListener = <span class="k">new</span> <span class="t">TcpListener</span>(<span class="k">new</span> <span class="t">IPAddress</span>().Loopback,<span class="n">0</span>)
 		oListener.<span class="f">Start</span>(<span class="k">NULL</span>)
 		<span class="k">return</span> oListener.LocalEndpoint.Port
 
 	<span class="k">func</span> <span class="f">count</span>
+
 		<span class="k">return</span> len(aConnections)
 
 	<span class="c"># called often: accept new clients, read the lines that are waiting, relay them</span>
 	<span class="k">func</span> <span class="f">poll</span>
+
 		<span class="k">while</span> oListener.<span class="f">Pending</span>()
 			oSocket = oListener.<span class="f">AcceptTcpClient</span>()
 			oStream = oSocket.<span class="f">GetStream</span>()
@@ -385,6 +395,7 @@ oTimer = <span class="s">""</span>
 		<span class="k">next</span>
 
 	<span class="k">func</span> <span class="f">stop</span>
+
 		<span class="k">for</span> aConnection <span class="k">in</span> aConnections
 			aConnection[<span class="n">3</span>].<span class="f">Dispose</span>()
 		<span class="k">next</span>
@@ -402,6 +413,7 @@ oTimer = <span class="s">""</span>
 	aSent = []
 
 	<span class="k">func</span> <span class="f">init</span> cWho, nPort
+
 		cName = cWho
 		oSocket = <span class="k">new</span> <span class="t">TcpClient</span>()
 		oSocket.<span class="f">Connect</span>([ :hostname = <span class="s">"127.0.0.1"</span>, :port = nPort ])
@@ -413,17 +425,21 @@ oTimer = <span class="s">""</span>
 
 	<span class="c"># the line that is sent to the server starts with the name: "Alice: Hello"</span>
 	<span class="k">func</span> <span class="f">send</span> cText
+
 		oWriter.<span class="f">WriteLine</span>(cName + <span class="s">": "</span> + cText)
 		aSent + cText
 
 	<span class="k">func</span> <span class="f">sent</span>
+
 		<span class="k">return</span> aSent
 
 	<span class="c"># the lines that have arrived since the last call</span>
 	<span class="k">func</span> <span class="f">poll</span>
+
 		<span class="k">return</span> oReader.<span class="f">lines</span>()
 
 	<span class="k">func</span> <span class="f">close</span>
+
 		oWriter.<span class="f">Dispose</span>()
 		oSocket.<span class="f">Close</span>()</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g64.png" alt="The chat" loading="lazy"><figcaption>Two clients and one server in one program; the title shows the port that the server chose</figcaption></figure>
@@ -443,6 +459,7 @@ oTimer = <span class="s">""</span>
 
 <span class="c"># wait (at most about a second) until the logs have changed: network messages arrive a little later</span>
 <span class="k">func</span> <span class="f">waitForText</span> cText
+
 	<span class="k">for</span> nTry = <span class="n">1</span> <span class="k">to</span> <span class="n">50</span>
 		pump()
 		<span class="k">if</span> substr(aLogs[<span class="n">1</span>].Text,cText) &gt; <span class="n">0</span> <span class="k">and</span> substr(aLogs[<span class="n">2</span>].Text,cText) &gt; <span class="n">0</span>
@@ -453,6 +470,7 @@ oTimer = <span class="s">""</span>
 	<span class="k">return</span> <span class="k">False</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
+
 	oTimer.<span class="f">Stop</span>()
 	aInputs[<span class="n">1</span>].Text = <span class="s">"Hello Bob"</span>
 	sendFrom(<span class="n">1</span>)

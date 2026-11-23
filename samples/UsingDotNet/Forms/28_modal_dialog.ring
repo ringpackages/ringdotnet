@@ -1,6 +1,7 @@
 # A modal dialog form that returns a value
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -19,6 +20,7 @@ uiRun(oForm)
 
 # builds a small dialog; returns the text when OK was pressed, "" otherwise
 func askNameDialog cPreset
+
 	# (global variables: the code of an event runs outside this function)
 	oDialog = uiForm("What is your name?",300,120)
 	oDialog {
@@ -40,6 +42,7 @@ func askNameDialog cPreset
 	return ""
 
 func askName
+
 	cName = askNameDialog("")
 	if cName != ""
 		oResult.Text = "Hello, " + cName + "!"

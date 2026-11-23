@@ -1,5 +1,6 @@
 # Your first window, step 1: the smallest window
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

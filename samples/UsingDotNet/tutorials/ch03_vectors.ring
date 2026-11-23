@@ -1,11 +1,13 @@
 # vectors and matrices - Vector3 (length, dot and cross product, distance), Vector2 and a rotation with Matrix3x2
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Numerics"
 }
 
 func main
+
 	# 1. A Vector3 holds three numbers (X, Y, Z): a point or a direction in space (Vector2 has two numbers, Vector4 four).
 	#    The numbers are single-precision floats, so results are shown rounded.
 	oA = new Vector3().@New([ :x = 3, :y = 4, :z = 0 ])
@@ -45,10 +47,12 @@ func main
 	? "   turned and then moved: (" + roundNumber(oResult.X) + ", " + roundNumber(oResult.Y) + ")"
 
 func show3 oVector
+
 	return "(" + roundNumber(oVector.X) + ", " + roundNumber(oVector.Y) + ", " + roundNumber(oVector.Z) + ")"
 
 # a number rounded to 3 decimals (a float has about 7 digits, so 1E-8 is "zero")
 func roundNumber nValue
+
 	nRounded = floor(nValue * 1000 + 0.5) / 1000
 	if nRounded = 0
 		nRounded = 0
