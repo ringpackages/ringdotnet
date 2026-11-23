@@ -35,29 +35,6 @@ It includes over one million lines of generated Ring code, more than 6,000 pages
 
 URL: https://ringpackages.github.io/ringdotnet/
 
-## Features
-
-* **Object code.** The .NET types are generated Ring classes with the .NET names: `new` makes an object, the dot calls a method or reads a property, and braces `{ }` set several properties at once. Properties are attributes (`oForm.Text = "Hello"`), enums are texts (`"Maximized"`), and `out` / `ref` parameters come back in a list.
-* **Overloads in one Ring method.** `Name(NULL)` calls the parameterless overload, `Name(value)` the one with one parameter, and `Name([ :param = value ])` chooses the overload by the .NET parameter names.
-* **Callbacks and events.** `dnCallback("code")` is a .NET delegate, and `oButton.setClickEvent("clicked()")` handles an event, as in RingQt.
-* **LINQ.** `dnQuery(aList).Where(...).OrderBy(...).ToList()` works on Ring lists and .NET collections.
-* **Windows Forms and WPF** with short helpers (`uiForm()`, `uiButton()`, `wpfXaml()`...), keyboard handling for games, and programs that test themselves (`--selftest`).
-* **ASP.NET Core.** A web server whose requests are handled by Ring functions (`WebServer`).
-* **Entity Framework Core** with SQLite from data written as Ring lists (`RingDatabase`, `RingEntityDb`).
-* **Your own assemblies and NuGet packages**, wrapped by one command (`wrapassembly.ring`).
-
-## Requirements
-
-| You need | Why |
-|---|---|
-| **Ring** 1.28 or newer | The language. |
-| **.NET 6 or newer** runtime (tested with .NET 9) | The runtime that the package hosts. |
-| Windows Desktop runtime | Only for Windows Forms and WPF programs. |
-| ASP.NET Core runtime | Only for web programs. |
-| .NET SDK | Only to build C# libraries and to restore NuGet packages. |
-
-Windows is the tested platform. Linux (x64, Ubuntu 24.04, .NET 9) is tested too, except the Windows Forms and WPF programs, which need the Windows Desktop runtime. 
-
 ## Architecture
 
 ![Architecture of RingDotNet: your Ring program, dotnetlib, the C extension ring_dotnet.dll, and the C# bridge that reaches the .NET class library, WinForms, WPF, ASP.NET, EF and your own DLLs](docs/img/architecture.svg)
