@@ -1,6 +1,7 @@
 # the checks of Pong.ring: run with  ring Pong.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	oTimer.Stop()
 	# keys
 	keyChanged("Down",true)
