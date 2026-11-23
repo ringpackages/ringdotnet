@@ -1,6 +1,7 @@
 # the checks of AnalogClock.ring: run with  ring AnalogClock.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	oTimer.Stop()
 	drawClock(3,0,30)
 	dnAssert("hour hand points right at 3:00",oCanvas.pixel(C_CENTER + 40,C_CENTER),"ff000000")
