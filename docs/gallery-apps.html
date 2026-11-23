@@ -2049,6 +2049,7 @@ oInfoText.Text = <span class="s">"No picture"</span>
 oInfo.Items.<span class="f">Add</span>(oInfoText)
 oForm.Controls.<span class="f">Add</span>(oInfo)
 oPanel.<span class="f">BringToFront</span>()
+oForm.<span class="f">setMouseWheelEvent</span>(<span class="s">"wheelZoom(aDotNetArgs[2].Delta)"</span>)
 
 <span class="f">uiRun</span>(oForm)
 
@@ -2138,6 +2139,15 @@ oPanel.<span class="f">BringToFront</span>()
 
 	nZoom = nPercent
 	showImage()
+
+<span class="c"># the mouse wheel: turn it away from you to zoom in, towards you to zoom out</span>
+<span class="k">func</span> <span class="f">wheelZoom</span> nDelta
+
+	<span class="k">if</span> nDelta &gt; <span class="n">0</span>
+		zoomBy(<span class="n">25</span>)
+	<span class="k">but</span> nDelta &lt; <span class="n">0</span>
+		zoomBy(-<span class="n">25</span>)
+	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">zoomBy</span> nDelta
 

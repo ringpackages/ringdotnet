@@ -37,6 +37,7 @@ oInfoText.Text = "No picture"
 oInfo.Items.Add(oInfoText)
 oForm.Controls.Add(oInfo)
 oPanel.BringToFront()
+oForm.setMouseWheelEvent("wheelZoom(aDotNetArgs[2].Delta)")
 
 uiRun(oForm)
 
@@ -126,6 +127,15 @@ func setZoom nPercent
 
 	nZoom = nPercent
 	showImage()
+
+# the mouse wheel: turn it away from you to zoom in, towards you to zoom out
+func wheelZoom nDelta
+
+	if nDelta > 0
+		zoomBy(25)
+	but nDelta < 0
+		zoomBy(-25)
+	ok
 
 func zoomBy nDelta
 
