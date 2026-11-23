@@ -2,8 +2,7 @@
 
 RingDotNet is a package for the Ring programming language that enables developers to use .NET classes and methods directly from Ring. 
 The package hosts the .NET runtime inside the Ring process and talks to it through a small managed bridge. 
-
-The .NET base class library, Windows Forms, WPF, ASP.NET Core, Entity Framework Core and any assembly (the framework's or your own `.dll`, or a NuGet package) can be used from Ring with the same simple syntax.
+The .NET base class library, Windows Forms, WPF, ASP.NET Core, Entity Framework Core and any assembly (the framework's or your own dll, or a NuGet package) can be used from Ring with the same simple syntax.
 
 ```ring
 load "dotnet.ring"
