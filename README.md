@@ -52,47 +52,7 @@ It includes over one million lines of generated Ring code, more than 6,000 pages
 | ASP.NET Core runtime | Only for web programs. |
 | .NET SDK | Only to build C# libraries and to restore NuGet packages. |
 
-Windows is the tested platform. Linux (x64, Ubuntu 24.04, .NET 9) is tested too, except the Windows Forms and WPF programs, which need the Windows Desktop runtime. macOS and arm64 have not been tested yet.
-
-## Samples and tests
-
-`samples/UsingDotNet` has:
-
-* `introduction`: short programs for each area,
-* `Forms` and `Wpf`: one small window program for each feature,
-* `applications`: complete programs (a calculator, an editor, games, a web API, a contacts book...). Each is the folder `<Name>` with the program `<Name>.ring`,
-* `tutorials`: the programs of the lessons, named by chapter (`chNN_name.ring`),
-* `tests`: the automated tests, including tests against real NuGet packages.
-
-```
-sh samples/UsingDotNet/tests/run.sh ring.exe          # everything
-sh samples/UsingDotNet/tests/run.sh ring.exe --quick  # only the tests and the introduction samples
-```
-
-`run.sh` takes the path of `ring` and adds the package `bin` folder to the PATH itself. Options: `--quick`, `--no-packages`, `--packages-only`, `--jobs N`, `--show` (see *Testing* in the manual).
-
-## Your own assemblies and NuGet packages
-
-```
-cd tools/dotnettools
-ring wrapassembly.ring path/to/MyLibrary.dll ../../myclasses
-```
-
-generates Ring classes (with inheritance, properties, events, enums as strings and the extension methods of the types) for every public class of the assembly, a loader and a class file for each namespace. Use them with:
-
-```ring
-load "dotnet.ring"
-
-dnLoad("path/to/MyLibrary.dll")                  # dependencies are found next to the dll
-dnImportFrom("myclasses/","MyCompany.Tools")
-oCalc = new Calculator()
-```
-
-A NuGet package comes to Ring in four steps: a project file with a `PackageReference`, `dotnet publish`, `wrapassembly.ring`, then `dnLoad` and `dnImportFrom`. Without generated classes any assembly is usable through `dnType("Namespace.Type")`, `dnNew()` and `callMethod()`. See *Your own assemblies* in the manual; `samples/UsingDotNet/tests/UserLib` is a complete example.
-
-## The wrapped classes
-
-The namespaces that have Ring classes are listed in `tools/dotnettools/dotnetmanifest.ring`: the base class library (`System`, `System.Text`, `System.IO`, `System.Net`, `System.Xml`, `System.Data`...), Windows Forms and `System.Drawing`, WPF, ASP.NET Core with `Microsoft.Extensions.*`, and Entity Framework Core with SQLite. `tools/dotnettools/gendotnet.ring` generates the classes into `libraries/dotnetlib/generated` (run it without namespace names for the library; a run with names is for trying a change), and `dnImport("Namespace")` or a `using { }` block loads them on demand.
+Windows is the tested platform. Linux (x64, Ubuntu 24.04, .NET 9) is tested too, except the Windows Forms and WPF programs, which need the Windows Desktop runtime. 
 
 ## Architecture
 
@@ -110,6 +70,16 @@ RingDotNet.Bridge.dll (C#, reflection)
 | `tools/dotnettools` | The generators (`gendotnet.ring`, `wrapassembly.ring`), the manifest and the package script. |
 | `samples/UsingDotNet` | Samples, applications, tutorials and tests. |
 | `docs` | The manual (`docs/src` is the source) and its tools. |
+
+## Samples and tests
+
+`samples/UsingDotNet` has:
+
+* `introduction`: short programs for each area,
+* `Forms` and `Wpf`: one small window program for each feature,
+* `applications`: complete programs (a calculator, an editor, games, a web API, a contacts book...). Each is the folder `<Name>` with the program `<Name>.ring`,
+* `tutorials`: the programs of the lessons, named by chapter (`chNN_name.ring`),
+* `tests`: the automated tests, including tests against real NuGet packages.
 
 ## License
 
