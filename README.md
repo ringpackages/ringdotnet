@@ -2,10 +2,6 @@
 
 RingDotNet is a package for the Ring programming language that enables developers to use .NET classes and methods directly from Ring. 
 
-It includes over one million lines of generated Ring code, more than 6,000 pages of documentation, and a large collection of samples and applications.
-
-![RingDotNet: the cover of the PDF manual, and the size of the package](docs/img/ringdotnet.png)
-
 The package hosts the .NET runtime inside the Ring process and talks to it through a small managed bridge. 
 
 The .NET base class library, Windows Forms, WPF, ASP.NET Core, Entity Framework Core and any assembly (the framework's or your own `.dll`, or a NuGet package) can be used from Ring with the same simple syntax.
@@ -25,6 +21,11 @@ oSB.Append(", Ring!")
 ? oSB.ToString()                                # Hello, Ring!
 ? oSB.Length                                    # 12
 ```
+
+It includes over one million lines of generated Ring code, more than 6,000 pages of documentation, and a large collection of samples and applications.
+
+![RingDotNet: the cover of the PDF manual, and the size of the package](docs/img/ringdotnet.png)
+
 
 ## What you get
 
