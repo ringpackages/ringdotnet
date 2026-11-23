@@ -1,6 +1,7 @@
 # ASCII table in a ListView with a filter (a port of ring/applications/asciitable)
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -32,6 +33,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func charName nCode
+
 	if nCode < 32
 		return aNames[nCode + 1]
 	but nCode = 32
@@ -42,6 +44,7 @@ func charName nCode
 	return char(nCode)
 
 func binary nCode
+
 	cBits = ""
 	for nBit = 7 to 0 step -1
 		if floor(nCode / pow(2,nBit)) % 2 = 1
@@ -53,6 +56,7 @@ func binary nCode
 	return cBits
 
 func fillTable
+
 	cFilter = lower(oFilter.Text)
 	oList.BeginUpdate()
 	oList.Items.Clear()
