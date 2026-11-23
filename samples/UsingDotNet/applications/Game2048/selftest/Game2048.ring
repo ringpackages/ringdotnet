@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of Game2048.ring: run with  ring Game2048.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
 	aResult = slideLine([2,2,4,0])
