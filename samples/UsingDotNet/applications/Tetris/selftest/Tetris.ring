@@ -1,6 +1,7 @@
 # the checks of Tetris.ring: run with  ring Tetris.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	oTimer.Stop()
 	# a flat I piece falls to the bottom
 	aBoard = list(C_COLUMNS * C_ROWS)
