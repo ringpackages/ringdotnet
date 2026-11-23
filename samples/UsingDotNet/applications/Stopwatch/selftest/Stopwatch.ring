@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of Stopwatch.ring: run with  ring Stopwatch.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 # let the form process the timer messages for a while
 func waitMs nMilliseconds
