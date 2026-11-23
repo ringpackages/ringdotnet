@@ -48,7 +48,7 @@ oSB.Append(", Ring!")
 
 * `introduction`: short programs for each area,
 * `Forms` and `Wpf`: one small window program for each feature,
-* `applications`: complete programs (a calculator, an editor, games, a web API, a contacts book...). Each is the folder `<Name>` with the program `<Name>.ring`,
+* `applications`: complete programs (a calculator, an editor, games, a web API, a contacts book...),
 * `tutorials`: the programs of the lessons, named by chapter (`chNN_name.ring`),
 * `tests`: the automated tests, including tests against real NuGet packages.
 
