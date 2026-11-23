@@ -2,6 +2,7 @@
 # (a port of ring/applications/gameoflife to RingDotNet)
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -36,15 +37,18 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func cellIndex nColumn, nRow
+
 	return nRow * C_COLUMNS + nColumn + 1
 
 func isAlive nColumn, nRow
+
 	# the world wraps around
 	nColumn = (nColumn + C_COLUMNS) % C_COLUMNS
 	nRow = (nRow + C_ROWS) % C_ROWS
 	return aCells[cellIndex(nColumn,nRow)]
 
 func countNeighbors nColumn, nRow
+
 	nTotal = 0
 	for nDy = -1 to 1
 		for nDx = -1 to 1
@@ -56,6 +60,7 @@ func countNeighbors nColumn, nRow
 	return nTotal
 
 func nextGeneration
+
 	aNext = list(C_COLUMNS * C_ROWS)
 	for nRow = 0 to C_ROWS - 1
 		for nColumn = 0 to C_COLUMNS - 1
@@ -72,6 +77,7 @@ func nextGeneration
 	draw()
 
 func population
+
 	nTotal = 0
 	for nCell in aCells
 		nTotal += nCell
@@ -79,6 +85,7 @@ func population
 	return nTotal
 
 func draw
+
 	oCanvas.clear("White")
 	for nRow = 0 to C_ROWS - 1
 		for nColumn = 0 to C_COLUMNS - 1
@@ -91,6 +98,7 @@ func draw
 	oCanvas.show()
 
 func clickCell nMouseX, nMouseY
+
 	nColumn = floor(nMouseX / C_CELL)
 	nRow = floor(nMouseY / C_CELL)
 	nIndex = cellIndex(nColumn,nRow)
@@ -98,6 +106,7 @@ func clickCell nMouseX, nMouseY
 	draw()
 
 func startStop
+
 	if oRun.Text = "Start"
 		oRun.Text = "Stop"
 		oTimer.Start()
@@ -107,11 +116,13 @@ func startStop
 	ok
 
 func clearAll
+
 	aCells = list(C_COLUMNS * C_ROWS)
 	nGeneration = 0
 	draw()
 
 func randomFill
+
 	for nCell = 1 to len(aCells)
 		aCells[nCell] = (random(3) = 0)
 	next
@@ -119,6 +130,7 @@ func randomFill
 	draw()
 
 func glider
+
 	aCells = list(C_COLUMNS * C_ROWS)
 	for aPoint in [[1,0],[2,1],[0,2],[1,2],[2,2]]
 		aCells[cellIndex(aPoint[1] + 5,aPoint[2] + 5)] = 1
