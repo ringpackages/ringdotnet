@@ -1,6 +1,7 @@
 # Sudoku - type the digits, "Check" finds mistakes, "Solve" uses backtracking (a port of ring/applications/sudoku)
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -43,6 +44,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func loadPuzzle cDigits
+
 	lLoading = true
 	for nCell = 1 to 81
 		aGrid[nCell] = number(cDigits[nCell])
@@ -63,6 +65,7 @@ func loadPuzzle cDigits
 	oInfo.Text = "Fill the empty squares"
 
 func typed nCell
+
 	if lLoading or aFixed[nCell]
 		return
 	ok
@@ -83,6 +86,7 @@ func typed nCell
 
 # can nDigit go in the cell without breaking a rule
 func canPlace aCells, nCell, nDigit
+
 	nRow = floor((nCell - 1) / 9)
 	nColumn = (nCell - 1) % 9
 	for nOther = 0 to 8
@@ -107,6 +111,7 @@ func canPlace aCells, nCell, nDigit
 
 # backtracking solver; fills aCells and returns true when the puzzle has a solution
 func solve aCells
+
 	nEmpty = 0
 	for nCell = 1 to 81
 		if aCells[nCell] = 0
@@ -129,6 +134,7 @@ func solve aCells
 	return false
 
 func solveBoard
+
 	aWork = aGrid
 	if solve(aWork)
 		lLoading = true
@@ -144,6 +150,7 @@ func solveBoard
 
 # mark the digits that break a rule
 func checkBoard
+
 	nWrong = 0
 	for nCell = 1 to 81
 		if aGrid[nCell] > 0 and not canPlace(aGrid,nCell,aGrid[nCell])
