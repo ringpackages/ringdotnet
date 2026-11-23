@@ -3,6 +3,7 @@
 #   GET /api/todos   POST /api/todos (the text is the body)   DELETE /api/todos?id=1
 
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Net.Http"
@@ -17,6 +18,7 @@ oClient = ""
 cUrl = ""
 
 func main
+
 	cAddress = "http://localhost:5080"
 	if isSelfTest()
 		cAddress = "http://127.0.0.1:0"
@@ -35,11 +37,13 @@ func main
 	ok
 
 func isSelfTest
+
 	return find(sysargv,"--selftest") > 0
 
 # ---------------------------------------------------------------- handlers
 
 func page oRequest
+
 	cHtml = "<html><body><h1>To-do list</h1><ul>"
 	for aTodo in aTodos
 		cHtml += "<li>" + aTodo[2] + " <a href='/api/todos?id=" + aTodo[1] + "'>(json)</a></li>"
@@ -48,6 +52,7 @@ func page oRequest
 	return cHtml
 
 func listTodos oRequest
+
 	aList = []
 	for aTodo in aTodos
 		aList + [["id",aTodo[1]],["text",aTodo[2]]]
@@ -55,6 +60,7 @@ func listTodos oRequest
 	return webJson(aList)
 
 func addTodo oRequest
+
 	cText = trim(oRequest.body())
 	if cText = ""
 		return [400,"text/plain","The text of the to-do is empty"]
@@ -64,6 +70,7 @@ func addTodo oRequest
 	return [201,"text/plain","added " + (nNextId - 1)]
 
 func deleteTodo oRequest
+
 	nId = number(oRequest.query("id"))
 	for nIndex = 1 to len(aTodos)
 		if aTodos[nIndex][1] = nId
@@ -76,6 +83,7 @@ func deleteTodo oRequest
 # ---------------------------------------------------------------- self test: a .NET client talks to the server
 
 func request cMethod, cPath, cBody
+
 	oMessage = new HttpRequestMessage().@New([ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
 	if cBody != ""
 		oMessage.Content = new StringContent(cBody)
@@ -95,6 +103,7 @@ func request cMethod, cPath, cBody
 
 # enums are strings: the status names the example uses
 func statusNumber cName
+
 	switch cName
 	on "OK"			return 200
 	on "Created"		return 201
@@ -104,6 +113,7 @@ func statusNumber cName
 	return 0
 
 func selfTest
+
 	aResult = request("GET","/api/todos","")
 	dnAssert("empty list",aResult[2],"[]")
 	aResult = request("POST","/api/todos","write Ring code")
@@ -123,6 +133,7 @@ func selfTest
 	? "SELFTEST " + iif(nDotNetFail = 0,"OK (" + nDotNetPass + " checks)","FAILED")
 
 func iif lCondition, xYes, xNo
+
 	if lCondition
 		return xYes
 	ok
