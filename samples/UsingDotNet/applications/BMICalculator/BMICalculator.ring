@@ -1,6 +1,7 @@
 # BMI calculator with history (a port of ring/applications/bmicalculator to RingDotNet)
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -32,9 +33,11 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func bmi nKilograms, nMeters
+
 	return nKilograms / (nMeters * nMeters)
 
 func category nBmi
+
 	if nBmi < 18.5
 		return "Underweight"
 	but nBmi < 25
@@ -45,6 +48,7 @@ func category nBmi
 	return "Obese"
 
 func unitsChanged
+
 	if oUnits.SelectedIndex = 0
 		oWeightLabel.Text = "Weight (kg)"
 		oHeightLabel.Text = "Height (cm)"
@@ -54,6 +58,7 @@ func unitsChanged
 	ok
 
 func calculate
+
 	nWeight = number(oWeight.Text)
 	nHeight = number(oHeight.Text)
 	if nWeight <= 0 or nHeight <= 0
