@@ -1,6 +1,7 @@
 # the checks of EpochTime.ring: run with  ring EpochTime.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	oEpoch.Text = "0"
 	epochToDate()
 	dnAssert("epoch 0",oUtc.Text,"1970-01-01 00:00:00")
