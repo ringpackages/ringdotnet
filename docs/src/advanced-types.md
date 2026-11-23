@@ -142,4 +142,4 @@ oEnum.asyncDispose()
 - [Core concepts](concepts.html): the names, overloads, properties and enums that every program uses.
 - [Collections & LINQ](collections-linq.html): the generic collections, and the generic methods of LINQ.
 - [The generator](generator.html): how the classes are made, and the audit that counts what Ring can and cannot use.
-- [Rules and limits](gotchas.html): read it before a long program.
+- [Rules and limits](rules-and-limits.html): read it before a long program.

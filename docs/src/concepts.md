@@ -321,4 +321,4 @@ When no class exists for a type, or when you want the generic style, every wrapp
 - [Core functions](core-api.html): every function of the bridge in one place.
 - [Advanced .NET types](advanced-types.html): generic types and methods, operators, spans, ref structs, pointers.
 - [Collections & LINQ](collections-linq.html) and [Callbacks & events](callbacks-events.html): the two topics that need the most explanation.
-- [Rules and limits](gotchas.html): read it before a long program.
+- [Rules and limits](rules-and-limits.html): read it before a long program.

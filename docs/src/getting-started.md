@@ -123,4 +123,4 @@ Read [Testing](testing.html) for how the self tests work.
 - [Core concepts](concepts.html): how .NET names, overloads, properties, enums and events look in Ring.
 - [Windows Forms](winforms.html) and the [applications](gallery-apps.html).
 - [ASP.NET Core](aspnet.html) and [Entity Framework Core](ef.html) for servers and databases.
-- [Rules and limits](gotchas.html) before you write a long program.
+- [Rules and limits](rules-and-limits.html) before you write a long program.

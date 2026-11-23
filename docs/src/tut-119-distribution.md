@@ -93,4 +93,4 @@ The same options work (`ring ring2exe.ring myprogram.ring -dist -dotnet`), and t
 
 ## Where to go next
 
-This was the last tutorial of the last chapter. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Rules and limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+This was the last tutorial of the last chapter. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Rules and limits](rules-and-limits.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.

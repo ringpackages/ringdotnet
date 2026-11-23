@@ -40,7 +40,7 @@ Step 2 is the shell's `sort | find "e"` written by hand: the output of the first
 
 ### Environment and folder
 
-A new program gets a copy of the environment of its parent. `oInfo.EnvironmentVariables.Add("GREETING", "…")` adds a variable that only the child sees; `cmd /c echo %GREETING%` prints it. `WorkingDirectory` sets the folder in which the program starts. The folder is put into a variable first because a `new` on the right side of a property assignment does not keep the assignment ([Rules and limits](gotchas.html)).
+A new program gets a copy of the environment of its parent. `oInfo.EnvironmentVariables.Add("GREETING", "…")` adds a variable that only the child sees; `cmd /c echo %GREETING%` prints it. `WorkingDirectory` sets the folder in which the program starts. The folder is put into a variable first because a `new` on the right side of a property assignment does not keep the assignment ([Rules and limits](rules-and-limits.html)).
 
 ### Exit codes and errors
 

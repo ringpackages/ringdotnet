@@ -56,7 +56,7 @@ When a method returns an object, the bridge sends the list of its type, its base
 
 ## Callbacks: Ring code called from .NET
 
-`dnCallback("...")` passes Ring code where .NET expects a delegate. The bridge builds a delegate of the exact type with a compiled expression; when .NET invokes it, the C extension runs the Ring function on the **Ring thread** and returns its result. Callbacks run synchronously during a call, which is why events from timers on other threads are ignored (see [Rules and limits](gotchas.html)).
+`dnCallback("...")` passes Ring code where .NET expects a delegate. The bridge builds a delegate of the exact type with a compiled expression; when .NET invokes it, the C extension runs the Ring function on the **Ring thread** and returns its result. Callbacks run synchronously during a call, which is why events from timers on other threads are ignored (see [Rules and limits](rules-and-limits.html)).
 
 ## Threads
 

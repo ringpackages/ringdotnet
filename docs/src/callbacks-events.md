@@ -73,7 +73,7 @@ func clicked
 	oCount.Text = "" + nClicks + " clicks"
 ```
 
-> [!WARNING] The code of an event runs **outside** the function that set it up, so it can only see **global variables**. Create the widgets and the state of the program as globals at the top, then assign them inside `func main`. See [Rules and limits](gotchas.html).
+> [!WARNING] The code of an event runs **outside** the function that set it up, so it can only see **global variables**. Create the widgets and the state of the program as globals at the top, then assign them inside `func main`. See [Rules and limits](rules-and-limits.html).
 
 ### Mouse and keyboard events
 

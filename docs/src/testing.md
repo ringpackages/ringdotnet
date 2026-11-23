@@ -116,5 +116,5 @@ The screenshots in this documentation are made by `docs/tools/shoot_all.sh`: it 
 
 ## Where to go next
 
-- [Rules and limits](gotchas.html): the points to know before a long program.
+- [Rules and limits](rules-and-limits.html): the points to know before a long program.
 - The tutorial chapter [Testing and release](tutorials.html#testing-and-release) shows tests in a real project.
