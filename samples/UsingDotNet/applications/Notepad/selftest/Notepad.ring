@@ -1,6 +1,7 @@
 # the checks of Notepad.ring: run with  ring Notepad.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	oEditor.Text = "Hello" + windowsnl() + "Ring and .NET"
 	dnAssert("modified after typing",lModified,1)
 	dnAssert("title has a star","*" = right(left(oForm.Text,len("Untitled*")),1),True)
