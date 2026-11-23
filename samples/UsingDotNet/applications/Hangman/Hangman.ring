@@ -1,6 +1,7 @@
 # Hangman - guess the word letter by letter
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -36,6 +37,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func newGame
+
 	cWord = aWords[random(len(aWords) - 1) + 1]
 	cGuessed = ""
 	nWrong = 0
@@ -46,6 +48,7 @@ func newGame
 
 # the word with the unknown letters as underscores
 func maskedWord
+
 	cMask = ""
 	for x = 1 to len(cWord)
 		if substr(cGuessed,cWord[x])
@@ -57,9 +60,11 @@ func maskedWord
 	return trim(cMask)
 
 func isWon
+
 	return substr(maskedWord(),"_") = 0
 
 func letter cLetter
+
 	if substr(cGuessed,cLetter) or nWrong >= C_MAXWRONG or isWon()
 		return
 	ok
@@ -71,6 +76,7 @@ func letter cLetter
 	showState()
 
 func drawGallows
+
 	oCanvas.clear("White")
 	oCanvas.line(20,190,180,190,"Black",4)
 	oCanvas.line(60,190,60,20,"Black",4)
@@ -85,6 +91,7 @@ func drawGallows
 	oCanvas.show()
 
 func showState
+
 	oWord.Text = maskedWord()
 	if isWon()
 		oInfo.Text = "You won!"
