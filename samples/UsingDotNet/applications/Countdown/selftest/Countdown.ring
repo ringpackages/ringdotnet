@@ -1,6 +1,7 @@
 # the checks of Countdown.ring: run with  ring Countdown.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func waitMs nMilliseconds
+
 	oClock = new Stopwatch()
 	oClock.Start()
 	while oClock.ElapsedMilliseconds < nMilliseconds
@@ -9,6 +10,7 @@ func waitMs nMilliseconds
 	end
 
 func selfTest
+
 	oMinutes.Value = 0
 	oSeconds.Value = 3
 	resetTimer()
