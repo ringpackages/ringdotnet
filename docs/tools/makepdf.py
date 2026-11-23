@@ -3,9 +3,10 @@
 
 All the pages of docs/*.html (the pages listed in build.py, in the order of the navigation) are put into one HTML file
 (docs/pdf/RingDotNet-documentation.html) and printed by headless Chrome or Edge. The links between pages become links inside the PDF,
-and the PDF has bookmarks. The class reference (docs/api/, one page per namespace, thousands of pages in print) is not included.
+and the PDF has bookmarks. The class reference (docs/api/, one page per namespace) is the last part: thousands of pages in print.
+With --no-api the PDF is the manual without the class reference.
 
-    python docs/tools/makepdf.py
+    python docs/tools/makepdf.py [--no-api]
 """
 import html
 import base64
@@ -25,7 +26,8 @@ BROWSERS = [
     "/usr/bin/google-chrome", "/usr/bin/chromium", "/usr/bin/chromium-browser",
     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
 ]
-SKIP = {"api"}          # the class reference index only links to the namespace pages
+SKIP = set()
+WITH_API = "--no-api" not in sys.argv
 
 
 def pages():
@@ -36,7 +38,9 @@ def pages():
 
 
 def article_of(name):
-    text = open(os.path.join(DOCS, name + ".html"), encoding="utf-8").read()
+    # a page of the manual is docs/<name>.html; a namespace of the class reference is named api-<namespace> and is docs/api/<namespace>.html
+    path = os.path.join(DOCS, "api", name[4:] + ".html") if name.startswith("api-") else os.path.join(DOCS, name + ".html")
+    text = open(path, encoding="utf-8").read()
     a = text.index("<article>") + len("<article>")
     b = text.index("</article>")
     return text[a:b]
@@ -75,6 +79,12 @@ def rewrite(body, name, known):
         if href.startswith("#"):
             return 'href="#p-%s-%s"' % (name, href[1:])
         page, _, frag = href.partition("#")
+        if page.startswith("api/"):
+            page = "api-" + page[4:]                  # api/System.Text.html: a namespace of the class reference
+        elif name.startswith("api-") and not page.startswith("../") and page.endswith(".html"):
+            page = "api-" + page                      # a link of a namespace page to another namespace page
+        elif page.startswith("../"):
+            page = page[3:]
         if page.endswith(".html") and page[:-5] in known:
             target = page[:-5]
             return 'href="#p-%s-%s"' % (target, frag) if frag else 'href="#p-%s"' % target
@@ -136,6 +146,17 @@ article h2[id$='-next']::before, article h2[id$='-where-to-go-next']::before { m
 p, li { orphans: 3; widows: 3; }
 .stattable th { font-size: 8.5px !important; letter-spacing: 0 !important; word-break: normal !important; overflow-wrap: normal !important; text-align: center; }
 .stattable td { font-size: 17px; text-align: center; }
+.apipart table { font-size: 10px; }
+.apipart table.api td:first-child, .apipart table.api th:first-child { width: 38mm; min-width: 38mm; }
+.apipart td code, .apipart th code, .apipart p code, .apipart summary code { background: none !important; border: 0 !important; padding: 0 !important; box-shadow: none !important; border-radius: 0 !important; }
+.apipart td code { color: #2a2160; }
+.apipart tr, .apipart td, .apipart th { background: none !important; }
+.apipart .tablewrap { border: 0 !important; border-top: 1px solid #d9dcea !important; border-radius: 0 !important; box-shadow: none !important; }
+.apipart .chips { font-size: 9.5px; line-height: 1.35; }
+.apipart details.cls { margin: 0 0 6px; }
+.apipart details.cls > summary { font-size: 13px; font-weight: 700; margin: 12px 0 2px; border-top: 1px solid #d9dcea; padding-top: 6px; break-after: avoid; list-style: none; }
+.apipart h4 { margin: 8px 0 3px; font-size: 11px; break-after: avoid; }
+.apipart p { margin: 2px 0; font-size: 10.5px; }
 .cardtable td.cardname { width: 32%; font-weight: 600; }
 .cards { display: block !important; }
 .cards .card { display: block !important; margin: 2px 0; padding: 2px 0; box-shadow: none !important; border: 0 !important; background: none !important; }
@@ -156,6 +177,8 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     allp = [(n, t, s) for n, t, s in pages() if n not in SKIP and os.path.exists(os.path.join(DOCS, n + ".html"))]
     known = {n for n, _, _ in allp}
+    namespaces = sorted(f[:-5] for f in os.listdir(os.path.join(DOCS, "api")) if f.endswith(".html")) if WITH_API else []
+    known |= {"api-" + ns for ns in namespaces}
     parts = []
     toc = []
     section = None
@@ -168,6 +191,12 @@ def main():
         body = rewrite(article_of(name), name, known)
         parts.append('<section class="part" id="p-%s"><article>%s</article></section>' % (name, body))
     toc.append("</ol>")
+    if namespaces:
+        toc.append("<h2>Class reference: namespaces</h2><ol>")
+        for ns in namespaces:
+            toc.append('<li><a href="#p-api-%s">%s</a></li>' % (ns, html.escape(ns)))
+            parts.append('<section class="part apipart" id="p-api-%s"><article>%s</article></section>' % (ns, rewrite(article_of("api-" + ns), "api-" + ns, known)))
+        toc.append("</ol>")
     doc = """<!doctype html><html lang="en"><head><meta charset="utf-8"><title>RingDotNet documentation</title>
 <base href="../"><link rel="stylesheet" href="assets/style.css"><style>%s</style></head><body>
 <section class="cover">%s</section>
@@ -186,7 +215,11 @@ document.querySelectorAll('.code').forEach(function (c) { if (c.offsetHeight < 4
         os.remove(pdf)
     cmd = [browser, "--headless=new", "--disable-gpu", "--no-pdf-header-footer", "--generate-pdf-document-outline",
            "--virtual-time-budget=60000", "--print-to-pdf=" + pdf, "file:///" + page.replace("\\", "/")]
-    subprocess.run(cmd, check=False, timeout=900, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    try:
+        subprocess.run(cmd, check=False, timeout=7200, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    except subprocess.TimeoutExpired:
+        print("The browser needs more than two hours: use --no-api (without the class reference)")
+        return 1
     if os.path.exists(pdf):
         print("the documentation -> %s (%.1f MB)" % (pdf, os.path.getsize(pdf) / 1048576))
         return 0
