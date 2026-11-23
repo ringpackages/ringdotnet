@@ -56,12 +56,7 @@ Windows is the tested platform. Linux (x64, Ubuntu 24.04, .NET 9) is tested too,
 
 ## Architecture
 
-```
-Ring program
-dotnetlib (Ring)
-ring_dotnet.dll (C, hosts the CLR)
-RingDotNet.Bridge.dll (C#, reflection)
-```
+![Architecture of RingDotNet: your Ring program, dotnetlib, the C extension ring_dotnet.dll, and the C# bridge that reaches the .NET class library, WinForms, WPF, ASP.NET, EF and your own DLLs](docs/img/architecture.svg)
 
 | Folder | Contents |
 |---|---|
