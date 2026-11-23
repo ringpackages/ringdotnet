@@ -1,6 +1,7 @@
 # Epoch (Unix) time converter - both directions, UTC and local time (a port of ring/applications/epochtime)
 
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Globalization"
@@ -34,13 +35,16 @@ uiRun(oForm)
 
 # the epoch (seconds) of a UTC date text, raises an error for invalid text
 func epochOf cDateText
+
 	oDate = new DateTimeOffset().Parse([ :input = cDateText, :formatProvider = new CultureInfo("en-US").InvariantCulture, :styles = "AssumeUniversal" ])
 	return oDate.ToUnixTimeSeconds()
 
 func dateOf nEpoch
+
 	return new DateTimeOffset().FromUnixTimeSeconds(nEpoch)
 
 func epochToDate
+
 	oMessage.Text = ""
 	try
 		oDate = dateOf(number(oEpoch.Text))
@@ -51,6 +55,7 @@ func epochToDate
 	done
 
 func dateToEpoch
+
 	oMessage.Text = ""
 	try
 		nEpoch = epochOf(oUtc.Text)
@@ -61,6 +66,7 @@ func dateToEpoch
 	done
 
 func showNow
+
 	# the current time as Unix seconds
 	nNow = new DateTimeOffset().UtcNow.ToUnixTimeSeconds()
 	oEpoch.Text = "" + floor(nNow)
