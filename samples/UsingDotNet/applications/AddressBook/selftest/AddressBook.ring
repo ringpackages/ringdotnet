@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of AddressBook.ring: run with  ring AddressBook.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
 	for aContact in [["Ann Lee","555-0101","Cairo"],["Bob Stone","555-0102","Oslo"],["Cy Young","555-0103","Cairo"]]
