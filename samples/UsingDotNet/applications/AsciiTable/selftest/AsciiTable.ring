@@ -1,6 +1,7 @@
 # the checks of AsciiTable.ring: run with  ring AsciiTable.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	dnAssert("all 128 rows",oList.Items.Count,128)
 	dnAssert("row 65 is A",oList.Items.Item(65).SubItems.Item(3).Text,"A")
 	dnAssert("hex of 65",oList.Items.Item(65).SubItems.Item(1).Text,"41")
