@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of ImageViewer.ring: run with  ring ImageViewer.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
 	# make a small picture: red on the left half, blue on the right half
