@@ -1,6 +1,7 @@
 # the checks of TowersOfHanoi.ring: run with  ring TowersOfHanoi.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	oCount.Value = 3
 	newGame()
 	dnAssert("three disks on the first peg",len(aPegs[1]),3)
