@@ -1,5 +1,5 @@
 # Starts a Ring program, captures its main window to a PNG and closes it.
-#   powershell -File shot.ps1 -Dir <folder> -Script main.ring -Out out.png [-Delay 2500] [-Args "..."]
+#   powershell -File shot.ps1 -Dir <folder> -Script Calculator.ring -Out out.png [-Delay 2500] [-Args "..."]
 param(
 	[string]$Dir,
 	[string]$Script,

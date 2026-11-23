@@ -462,9 +462,6 @@ def gallery(kind):
             # the program of an application is <Name>/<Name>.ring
             mainname = d + ".ring"
             main = os.path.join(folder, d, mainname)
-            if not os.path.exists(main):
-                mainname = "main.ring"
-                main = os.path.join(folder, d, mainname)
             if not os.path.exists(main) or d in ("WebApi",):
                 continue
             src = read(main)
@@ -585,7 +582,7 @@ def stats():
     def count(p, ext=".ring"):
         p = os.path.join(ROOT, p)
         return len([f for f in os.listdir(p) if f.endswith(ext)]) if os.path.isdir(p) else 0
-    apps = len([d for d in os.listdir(os.path.join(ROOT, "samples", "UsingDotNet", "applications")) if os.path.exists(os.path.join(ROOT, "samples", "UsingDotNet", "applications", d, d + ".ring")) or os.path.exists(os.path.join(ROOT, "samples", "UsingDotNet", "applications", d, "main.ring"))])
+    apps = len([d for d in os.listdir(os.path.join(ROOT, "samples", "UsingDotNet", "applications")) if os.path.exists(os.path.join(ROOT, "samples", "UsingDotNet", "applications", d, d + ".ring"))])
     tests = len([f for f in os.listdir(os.path.join(ROOT, "samples", "UsingDotNet", "tests")) if f.startswith("test_")])
     return {"namespaces": with_classes, "classes": "{:,}".format(classes), "forms": count("samples/UsingDotNet/Forms"), "wpf": count("samples/UsingDotNet/Wpf"), "apps": apps, "tests": tests}
 

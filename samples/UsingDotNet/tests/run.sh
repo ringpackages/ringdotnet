@@ -79,7 +79,7 @@ if [ "$QUICK" = "0" ] && [ "$ONLYPACKAGES" = "0" ]; then
 	for f in "$HERE"/../Forms/*.ring; do echo "s|$HERE/../Forms|$(basename "$f")|samples/UsingDotNet/Forms/$(basename "$f")" >> "$LIST"; done
 	for f in "$HERE"/../Wpf/*.ring; do echo "s|$HERE/../Wpf|$(basename "$f")|samples/UsingDotNet/Wpf/$(basename "$f")" >> "$LIST"; done
 	# an application is the folder <Name> with <Name>.ring in it
-	for d in "$HERE"/../applications/*/; do d="${d%/}"; n=$(basename "$d"); f="$n.ring"; [ -f "$d/$f" ] || f="main.ring"; [ -f "$d/$f" ] && echo "s|$d|$f|application $n" >> "$LIST"; done
+	for d in "$HERE"/../applications/*/; do d="${d%/}"; n=$(basename "$d"); f="$n.ring"; [ -f "$d/$f" ] && echo "s|$d|$f|application $n" >> "$LIST"; done
 	rungroup
 fi
 

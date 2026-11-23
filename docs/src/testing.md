@@ -83,7 +83,7 @@ A failing assertion prints `FAIL: name expected <9> got <3>` and counts a failur
 
 ## Programs that test themselves
 
-The checks of a window program are kept in a file of their own, so the program stays as short as the lesson that shows it. The program is the usual one:
+The checks of a window program are kept in a file of their own, so the program stays as short as the lesson that shows it. The program is the usual one (here it is the file `counter.ring`):
 
 ```ring
 oForm = uiForm("Click counter",260,130)
@@ -91,7 +91,7 @@ oForm = uiForm("Click counter",260,130)
 uiRun(oForm)
 ```
 
-and next to it, in the folder `selftest`, the file with the same name (`selftest/main.ring`) holds the checks:
+and next to it, in the folder `selftest`, the file with the same name (`selftest/counter.ring`) holds the checks:
 
 ```ring
 func selfTest
@@ -100,8 +100,8 @@ func selfTest
 ```
 
 ```bash
-ring main.ring               # the normal program
-ring main.ring --selftest    # the test: prints SELFTEST OK
+ring counter.ring               # the normal program
+ring counter.ring --selftest    # the test: prints SELFTEST OK
 ```
 
 With `--selftest`, `uiRun` loads that file, shows the form, runs `selfTest()` once the form is shown, closes the form and prints the result. The form must be in the global variable `oForm` (WPF: `oWindow`, with `wpfRun`). A program without a `selftest` file runs normally; the functions `uiTest(oForm, code)` and `uiEnd()` (`wpfTest`, `wpfEnd`) do the same steps by hand for a program that keeps its checks inside. `uiMessage()` prints instead of showing a dialog in a test, and `uiAsk()` prints the question and answers yes.
