@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of TicTacToe.ring: run with  ring TicTacToe.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
 	# X plays 1 and 2: the computer takes the center, then must block at 3
