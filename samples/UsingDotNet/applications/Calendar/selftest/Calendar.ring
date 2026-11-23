@@ -1,6 +1,7 @@
 # the checks of Calendar.ring: run with  ring Calendar.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	oCalendar.SetDate(new DateTime(2024,2,29))
 	dnAssert("selected year",oCalendar.SelectionStart.Year,2024)
 	dnAssert("event updated the facts",substr(oFacts.Text,"Thursday, February 29, 2024") > 0,True)
