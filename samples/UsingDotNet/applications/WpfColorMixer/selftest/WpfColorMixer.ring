@@ -1,6 +1,7 @@
 # the checks of WpfColorMixer.ring: run with  ring WpfColorMixer.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	aSliders[1].Value = 255
 	aSliders[2].Value = 0
 	aSliders[3].Value = 0
