@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of Sokoban.ring: run with  ring Sokoban.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
 	# real key presses with the Restart button focused
