@@ -2,6 +2,8 @@
 
 Use .NET classes and methods from Ring programs.
 
+![RingDotNet: the cover of the PDF manual, and the size of the package](docs/img/ringdotnet.png)
+
 The package hosts the .NET runtime inside the Ring process (through `hostfxr`) and talks to it through a small managed bridge. The .NET base class library, Windows Forms, WPF, ASP.NET Core, Entity Framework Core and any assembly (the framework's or your own `.dll`, or a NuGet package) can be used from Ring with the same simple syntax.
 
 ```ring
