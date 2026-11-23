@@ -9,10 +9,6 @@ lead: How Ring behaves when it works with .NET objects, why, and what to write â
 
 `new StringBuilder("x")` â€” **with** parentheses, because Ring calls `init()` only then. A class without arguments works both ways (`new MemoryStream`, `new MemoryStream()`). For `StringBuilder`, `Random` and `Version`, which take an optional first argument, write `new StringBuilder` or `new StringBuilder("x")`, not `new StringBuilder()`.
 
-### Strings and numbers
-
-`"text" + number` works. `number + "text"` needs the number as text first: write `string(n) + " items"`.
-
 ### Event code can only see global variables
 
 The code of an event (`setClickEvent("...")`) runs outside the function that set it up. Create the widgets and the program state as **globals** at the top, then assign them inside `func main`:

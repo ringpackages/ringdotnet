@@ -252,8 +252,6 @@
 <h2 id="ring-rules-for-net-code">Ring rules for .NET code<a class="anchor" href="#ring-rules-for-net-code">#</a></h2>
 <h3 id="use-parentheses-with-new-when-you-pass-arguments">Use parentheses with <code>new</code> when you pass arguments<a class="anchor" href="#use-parentheses-with-new-when-you-pass-arguments">#</a></h3>
 <p><code>new StringBuilder("x")</code> — <strong>with</strong> parentheses, because Ring calls <code>init()</code> only then. A class without arguments works both ways (<code>new MemoryStream</code>, <code>new MemoryStream()</code>). For <code>StringBuilder</code>, <code>Random</code> and <code>Version</code>, which take an optional first argument, write <code>new StringBuilder</code> or <code>new StringBuilder("x")</code>, not <code>new StringBuilder()</code>.</p>
-<h3 id="strings-and-numbers">Strings and numbers<a class="anchor" href="#strings-and-numbers">#</a></h3>
-<p><code>"text" + number</code> works. <code>number + "text"</code> needs the number as text first: write <code>string(n) + " items"</code>.</p>
 <h3 id="event-code-can-only-see-global-variables">Event code can only see global variables<a class="anchor" href="#event-code-can-only-see-global-variables">#</a></h3>
 <p>The code of an event (<code>setClickEvent("...")</code>) runs outside the function that set it up. Create the widgets and the program state as <strong>globals</strong> at the top, then assign them inside <code>func main</code>:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oForm = <span class="s">""</span>

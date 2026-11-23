@@ -162,7 +162,6 @@ oForm { Height = 300  Text += "!" }
 
 ## Ring rules for GUI programs
 
-* `"text" + number` works; `number + "text"` needs the number as text first (`string(n) + " items"`).
 * The code of an event runs outside the function that set it up: it can only use global variables (create them at the top of the program, then assign them in the function).
 * Put the program in functions (`func main`, or functions called from the top) so that loop variables and temporaries are local: in Ring a global variable named like an attribute (`x`, `width`...) is read before `obj.x` is evaluated, and a function that assigns a name that exists as a global changes the global. Keep global only what the code of events needs (the widgets and the state): the code of an event can see globals only.
 * Ring keywords are not used as variable or function names, in any letter case: `oK` is `ok`, `step()` is `step`, `To`, `From`, `Load`... Do not define functions named like the built-ins the library uses (`isNumber`, `len`, ...).
