@@ -1,6 +1,7 @@
 # Color mixer - three track bars, the color, its #RRGGBB code and HSV values
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -49,6 +50,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func hex2 nValue
+
 	cText = upper(hex(nValue))
 	if len(cText) < 2
 		cText = "0" + cText
@@ -56,6 +58,7 @@ func hex2 nValue
 	return cText
 
 func mix
+
 	nRed = aBars[1].Value
 	nGreen = aBars[2].Value
 	nBlue = aBars[3].Value
@@ -68,6 +71,7 @@ func mix
 	oHsv.Text = "H " + floor(oColor.GetHue()) + "   S " + floor(oColor.GetSaturation() * 100) + "%   V " + floor(oColor.GetBrightness() * 100) + "% (HSL lightness)"
 
 func randomColor
+
 	for oBar in aBars
 		oBar.Value = random(255)
 	next
