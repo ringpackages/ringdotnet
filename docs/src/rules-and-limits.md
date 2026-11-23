@@ -65,17 +65,6 @@ Write the result to a **different** variable (see the tutorial [A project: Markd
 
 A method with overloads reads a single list of `[text, value]` pairs as **named arguments**. `Serialize([["Buy milk",1],["Walk",0]])` would look for a parameter called "Buy milk". Put something that is not a text first in each pair, or wrap the list in another list, so that it is passed as a value (the tutorial [A project: a to-do list that remembers](tut-24-todo.html)).
 
-### Side effects inside `for ... in call()`
-
-When the expression of a `for x in oDb.migrate()` has side effects, assign it to a variable first:
-
-```ring
-aChanges = oDb.migrate()
-for cChange in aChanges
-	? cChange
-next
-```
-
 ### `dnNull()`
 
 `dnNull()` is the .NET null: `oPictureBox.Image = dnNull()`. A method that returns null gives an object that is the null: `dnIsNull(value)` is true for it and false for any other value, whatever its type.
