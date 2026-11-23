@@ -1,6 +1,7 @@
 # Pong - Up/Down (or W/S) move your paddle, the computer plays the other one (a port of ring/applications/pong)
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -43,6 +44,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func keyChanged cKey, lDown
+
 	nKeyEvents++
 	if cKey = "Up" or cKey = "W"
 		if lDown
@@ -59,6 +61,7 @@ func keyChanged cKey, lDown
 	ok
 
 func clampPaddle nY
+
 	if nY < 0
 		return 0
 	but nY > C_HEIGHT - C_PADDLE_HEIGHT
@@ -67,6 +70,7 @@ func clampPaddle nY
 	return nY
 
 func serve nDirection
+
 	nBallX = C_WIDTH / 2
 	nBallY = C_HEIGHT / 2
 	nBallDX = 5 * nDirection
@@ -74,6 +78,7 @@ func serve nDirection
 
 # one step of the game
 func tick
+
 	nPlayerY = clampPaddle(nPlayerY + nPlayerMove * 7)
 	# the computer follows the ball slowly
 	nTarget = nBallY - C_PADDLE_HEIGHT / 2
@@ -107,6 +112,7 @@ func tick
 	draw()
 
 func draw
+
 	oCanvas.clear("Black")
 	for nY = 0 to C_HEIGHT step 24
 		oCanvas.fillRect(C_WIDTH / 2 - 2,nY,4,12,"DimGray")
