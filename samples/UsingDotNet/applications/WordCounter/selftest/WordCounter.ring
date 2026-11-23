@@ -1,6 +1,7 @@
 # the checks of WordCounter.ring: run with  ring WordCounter.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	oText.Text = "the cat and the hat" + windowsnl() + "The end"
 	dnAssert("word count",len(wordsOf(oText.Text)),7)
 	dnAssert("unique words",len(uniqueWords(wordsOf(oText.Text))),5)
