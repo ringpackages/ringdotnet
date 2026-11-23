@@ -1,9 +1,11 @@
 # A contacts book stored in a SQLite database with Entity Framework Core
 #   ring Contacts.ring                 (console menu)      ring Contacts.ring --selftest
 load "dotnet.ring"
+
 using { "RingDotNet.Data" }
 
 func main
+
 	aSchema = [["Contacts",[["Id","int",1],["Name","string",0],["Phone","string",0],["City","string",0]]]]
 	lTest = find(sysargv,"--selftest") > 0
 	cConnection = "Data Source=contacts.db"
@@ -39,17 +41,20 @@ func main
 
 # show a prompt and read a line
 func ask cPrompt
+
 	see cPrompt
 	give cLine
 	return cLine
 
 func showRows aRows
+
 	for aRow in aRows
 		? "" + dbValue(aRow,"Id") + "  " + dbValue(aRow,"Name") + "  " + dbValue(aRow,"Phone") + "  " + dbValue(aRow,"City")
 	next
 	? "" + len(aRows) + " contact(s)"
 
 func selfTest oDb
+
 	oDb.insert("Contacts",[["Name","Ann"],["Phone","111"],["City","Cairo"]])
 	nBob = oDb.insert("Contacts",[["Name","Bob"],["Phone","222"],["City","Giza"]])
 	oDb.insert("Contacts",[["Name","Cy"],["Phone","333"],["City","Cairo"]])
@@ -62,6 +67,7 @@ func selfTest oDb
 	? "SELFTEST " + iif(nDotNetFail = 0,"OK (" + nDotNetPass + " checks)","FAILED")
 
 func iif lCondition, xYes, xNo
+
 	if lCondition
 		return xYes
 	ok
