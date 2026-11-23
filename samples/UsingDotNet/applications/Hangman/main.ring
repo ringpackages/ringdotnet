@@ -13,7 +13,7 @@ nWrong = 0
 C_MAXWRONG = 6
 aLetterButtons = []
 
-oForm = uiForm("Hangman",420,380)
+oForm = uiForm("Hangman",420,395)
 oForm {
 	FormBorderStyle = "FixedSingle"
 	MaximizeBox = False
@@ -28,7 +28,7 @@ for nLetter = 0 to 25
 	oButton = uiButton(oForm,cLetter,10 + (nLetter % 9) * 44,225 + floor(nLetter / 9) * 40,40,36,"letter('" + cLetter + "')")
 	aLetterButtons + oButton
 next
-uiButton(oForm,"New word",290,330,110,30,"newGame()")
+uiButton(oForm,"New word",290,352,110,30,"newGame()")
 newGame()
 
 uiRun(oForm)

@@ -1822,7 +1822,7 @@ nWrong = <span class="n">0</span>
 C_MAXWRONG = <span class="n">6</span>
 aLetterButtons = []
 
-oForm = <span class="f">uiForm</span>(<span class="s">"Hangman"</span>,<span class="n">420</span>,<span class="n">380</span>)
+oForm = <span class="f">uiForm</span>(<span class="s">"Hangman"</span>,<span class="n">420</span>,<span class="n">395</span>)
 oForm {
 	FormBorderStyle = <span class="s">"FixedSingle"</span>
 	MaximizeBox = <span class="k">False</span>
@@ -1837,7 +1837,7 @@ oInfo = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span cla
 	oButton = <span class="f">uiButton</span>(oForm,cLetter,<span class="n">10</span> + (nLetter % <span class="n">9</span>) * <span class="n">44</span>,<span class="n">225</span> + floor(nLetter / <span class="n">9</span>) * <span class="n">40</span>,<span class="n">40</span>,<span class="n">36</span>,<span class="s">"letter('"</span> + cLetter + <span class="s">"')"</span>)
 	aLetterButtons + oButton
 <span class="k">next</span>
-<span class="f">uiButton</span>(oForm,<span class="s">"New word"</span>,<span class="n">290</span>,<span class="n">330</span>,<span class="n">110</span>,<span class="n">30</span>,<span class="s">"newGame()"</span>)
+<span class="f">uiButton</span>(oForm,<span class="s">"New word"</span>,<span class="n">290</span>,<span class="n">352</span>,<span class="n">110</span>,<span class="n">30</span>,<span class="s">"newGame()"</span>)
 newGame()
 
 <span class="f">uiRun</span>(oForm)
