@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of JulianDay.ring: run with  ring JulianDay.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
 	dnAssert("Julian day of 2000-01-01",julianDay(2000,1,1),2451545)
