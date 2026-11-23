@@ -1,6 +1,7 @@
 # the checks of PasswordGenerator.ring: run with  ring PasswordGenerator.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	dnAssert("default length",len(oPassword.Text),16)
 	dnAssert("strong by default",oStrengthText.Text,"Strong")
 	oLength.Value = 30
