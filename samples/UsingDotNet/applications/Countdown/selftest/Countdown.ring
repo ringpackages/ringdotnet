@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of Countdown.ring: run with  ring Countdown.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func waitMs nMilliseconds
 	oClock = new Stopwatch()
