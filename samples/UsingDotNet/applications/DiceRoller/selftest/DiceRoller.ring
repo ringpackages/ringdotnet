@@ -1,6 +1,7 @@
 # the checks of DiceRoller.ring: run with  ring DiceRoller.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	aDice = [1,2,3,4,6]
 	draw()
 	dnAssert("total",oTotal.Text,"Total: 16")
