@@ -1,6 +1,7 @@
 # File explorer - a folder tree on the left, the files of the selected folder on the right
 
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -46,6 +47,7 @@ uiRun(oForm)
 
 # the tree starts at a folder; its sub folders are loaded when a node is expanded
 func setRoot cFolder
+
 	cRoot = cFolder
 	oTree.Nodes.Clear()
 	oNode = oTree.Nodes.Add(cFolder)
@@ -54,6 +56,7 @@ func setRoot cFolder
 	oNode.Expand()
 
 func addChildren oNode
+
 	oNode.Nodes.Clear()
 	try
 		for cFolder in new Directory().GetDirectories(oNode.Tag).toList()
@@ -67,11 +70,13 @@ func addChildren oNode
 	done
 
 func expandNode oNode
+
 	if oNode.Nodes.Count = 1 and oNode.Nodes.Item(0).Text = "..."
 		addChildren(oNode)
 	ok
 
 func sizeText nBytes
+
 	if nBytes < 1024
 		return "" + nBytes + " B"
 	but nBytes < 1024 * 1024
@@ -80,6 +85,7 @@ func sizeText nBytes
 	return "" + floor(nBytes / 1048576) + " MB"
 
 func showFolder
+
 	oList.Items.Clear()
 	if not isobject(oTree.SelectedNode)
 		return
