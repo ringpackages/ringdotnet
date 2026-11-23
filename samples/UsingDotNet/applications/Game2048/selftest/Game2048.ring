@@ -1,6 +1,7 @@
 # the checks of Game2048.ring: run with  ring Game2048.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	aResult = slideLine([2,2,4,0])
 	dnAssert("slide merges",list2str(aResult[1]),list2str([4,4,0,0]))
 	dnAssert("slide score",aResult[2],4)
