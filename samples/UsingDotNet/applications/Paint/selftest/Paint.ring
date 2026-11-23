@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of Paint.ring: run with  ring Paint.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
 	# a stroke from (50,50) to (150,50), then a red dot
