@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of Calendar.ring: run with  ring Calendar.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
 	oCalendar.SetDate(new DateTime(2024,2,29))
