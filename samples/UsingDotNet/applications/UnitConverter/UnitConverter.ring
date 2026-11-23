@@ -1,6 +1,7 @@
 # Unit converter - length, weight, volume and temperature
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -44,6 +45,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func fillUnits
+
 	aUnits = aCategories[oCategory.SelectedIndex + 1][2]
 	oFrom.Items.Clear()
 	oTo.Items.Clear()
@@ -56,6 +58,7 @@ func fillUnits
 	convert()
 
 func toCelsius cUnit, nValue
+
 	switch cUnit
 	on "Celsius"	return nValue
 	on "Fahrenheit"	return (nValue - 32) * 5 / 9
@@ -63,6 +66,7 @@ func toCelsius cUnit, nValue
 	off
 
 func fromCelsius cUnit, nValue
+
 	switch cUnit
 	on "Celsius"	return nValue
 	on "Fahrenheit"	return nValue * 9 / 5 + 32
@@ -71,6 +75,7 @@ func fromCelsius cUnit, nValue
 
 # convert nValue between two units of a category
 func convertValue cCategory, cFromUnit, cToUnit, nValue
+
 	if cCategory = "Temperature"
 		return fromCelsius(cToUnit,toCelsius(cFromUnit,nValue))
 	ok
@@ -91,6 +96,7 @@ func convertValue cCategory, cFromUnit, cToUnit, nValue
 	next
 
 func isNumeric cText
+
 	cText = trim(cText)
 	if cText = "" or cText = "-" or cText = "."
 		return false
@@ -104,6 +110,7 @@ func isNumeric cText
 	return true
 
 func convert
+
 	if oFrom.SelectedIndex < 0 or oTo.SelectedIndex < 0 or not isNumeric(oValue.Text)
 		oResult.Text = ""
 		return
