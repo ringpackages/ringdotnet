@@ -1,6 +1,7 @@
 # Loan calculator - monthly payment, total interest and the first rows of the amortization table
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -39,10 +40,12 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func money nValue
+
 	return uiNumber(floor(nValue * 100 + 0.5) / 100)
 
 # the monthly payment of a loan
 func monthlyPayment nAmount, nYearlyRate, nYears
+
 	nMonths = nYears * 12
 	nMonthlyRate = nYearlyRate / 100 / 12
 	if nMonthlyRate = 0
@@ -51,6 +54,7 @@ func monthlyPayment nAmount, nYearlyRate, nYears
 	return nAmount * nMonthlyRate / (1 - pow(1 + nMonthlyRate,-nMonths))
 
 func calculate
+
 	nAmount = number(oAmount.Text)
 	nRate = number(oRate.Text)
 	nYears = number(oYears.Text)
