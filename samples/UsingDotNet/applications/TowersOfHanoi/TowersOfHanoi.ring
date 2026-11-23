@@ -2,6 +2,7 @@
 # (a port of ring/applications/towersofhanoi to RingDotNet)
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -42,6 +43,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func newGame
+
 	oSolver.Stop()
 	nDisks = number(oCount.Value)
 	aPegs = [[],[],[]]
@@ -53,6 +55,7 @@ func newGame
 	draw()
 
 func draw
+
 	oCanvas.clear("White")
 	for nPeg = 1 to 3
 		nX = 100 + (nPeg - 1) * 200
@@ -76,14 +79,17 @@ func draw
 	oCanvas.show()
 
 func diskColor nSize
+
 	aColors = ["#e6194b","#f58231","#ffe119","#3cb44b","#4363d8","#911eb4","#f032e6","#808000"]
 	return aColors[nSize]
 
 func isSolved
+
 	return len(aPegs[3]) = nDisks
 
 # can the top disk of nFrom go to nTo
 func canMove nFrom, nTo
+
 	if nFrom = nTo or len(aPegs[nFrom]) = 0
 		return false
 	ok
@@ -93,6 +99,7 @@ func canMove nFrom, nTo
 	return aPegs[nFrom][len(aPegs[nFrom])] < aPegs[nTo][len(aPegs[nTo])]
 
 func moveDisk nFrom, nTo
+
 	if not canMove(nFrom,nTo)
 		return false
 	ok
@@ -102,6 +109,7 @@ func moveDisk nFrom, nTo
 	return true
 
 func clicked nMouseX
+
 	nPeg = floor(nMouseX / 200) + 1
 	if nPeg > 3
 		nPeg = 3
@@ -118,6 +126,7 @@ func clicked nMouseX
 
 # the recursive solution, collected as a list of moves
 func solve nCount, nFrom, nTo, nVia
+
 	if nCount = 0
 		return
 	ok
@@ -126,6 +135,7 @@ func solve nCount, nFrom, nTo, nVia
 	solve(nCount - 1,nVia,nTo,nFrom)
 
 func startSolver
+
 	newGame()
 	aPlan = []
 	solve(nDisks,1,3,2)
@@ -133,6 +143,7 @@ func startSolver
 	oSolver.Start()
 
 func solverStep
+
 	nPlanned++
 	if nPlanned > len(aPlan)
 		oSolver.Stop()
