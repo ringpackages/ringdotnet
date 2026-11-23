@@ -145,14 +145,8 @@ p, li { orphans: 3; widows: 3; }
 
 
 def cover_svg():
-    """the cover (docs/tools/cover.svg) with the version of the package and the Ring version it needs"""
+    """the cover (docs/tools/cover.svg) with the Ring logo (ring-logo.png) embedded"""
     svg = open(os.path.join(HERE, "cover.svg"), encoding="utf-8").read()
-    info = open(os.path.join(os.path.dirname(DOCS), "package.ring"), encoding="utf-8").read()
-    version = re.search(r':version\s*=\s*"([\d.]+)"', info)
-    ring = re.search(r':ringversion\s*=\s*"([\d.]+)"', info)
-    if version and ring:
-        short = ".".join(version.group(1).split(".")[:2])
-        svg = svg.replace("Version 1.0  ·  Ring 1.28", "Version %s  ·  Ring %s" % (short, ring.group(1)))
     logo = base64.b64encode(open(os.path.join(HERE, "ring-logo.png"), "rb").read()).decode("ascii")
     svg = svg.replace("@RINGLOGO@", "data:image/png;base64," + logo)
     return re.sub(r"<\?xml[^>]*\?>", "", svg)

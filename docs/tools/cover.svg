@@ -57,7 +57,8 @@
     <circle cx="150" cy="170" r="1" fill="#7cf3ff" fill-opacity="0.6"/>
   </g>
 
-  <!-- the Ring logo (B:ing\marketing\graphics	hering.jpg, enlarged in ring-logo.png) on a white card -->
+  <!-- the Ring logo (B:
+ing\marketing\graphics	hering.jpg, enlarged in ring-logo.png) on a white card -->
   <rect x="42" y="66" width="136" height="80" rx="9" fill="#0b0827" fill-opacity="0.55" filter="url(#shadow)"/>
   <rect x="38" y="60" width="136" height="80" rx="9" fill="#00c2d4" fill-opacity="0.35" filter="url(#glowblur)"/>
   <rect x="40" y="62" width="130" height="76" rx="8" fill="#ffffff"/>
@@ -87,6 +88,5 @@
   <g font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" fill="#ffffff">
     <line x1="20" y1="276" x2="190" y2="276" stroke="#ffffff" stroke-opacity="0.22" stroke-width="0.3"/>
     <text x="20" y="284" font-size="3.8" font-weight="600" letter-spacing="0.5" fill-opacity="0.95">DOCUMENTATION</text>
-    <text x="190" y="284" font-size="3.8" text-anchor="end" fill-opacity="0.8">Version 1.0  ·  Ring 1.28  ·  .NET 9</text>
   </g>
 </svg>
