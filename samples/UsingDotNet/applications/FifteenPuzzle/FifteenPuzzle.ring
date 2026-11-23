@@ -1,6 +1,7 @@
 # Fifteen puzzle (sliding tiles) - a port of ring/applications/fifteenpuzzle to RingDotNet
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -35,6 +36,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func showBoard
+
 	for nCell = 1 to len(aTiles)
 		if aTiles[nCell] = 0
 			aCells[nCell].Text = ""
@@ -47,10 +49,12 @@ func showBoard
 	oMoves.Text = "Moves: " + nMoves
 
 func emptyCell
+
 	return find(aTiles,0)
 
 # cells that touch the cell
 func neighbors nCell
+
 	aList = []
 	nRow = floor((nCell - 1) / C_SIZE)
 	nCol = (nCell - 1) % C_SIZE
@@ -61,6 +65,7 @@ func neighbors nCell
 	return aList
 
 func slideTile nCell
+
 	nEmpty = emptyCell()
 	if find(neighbors(nEmpty),nCell) > 0
 		aTiles[nEmpty] = aTiles[nCell]
@@ -70,6 +75,7 @@ func slideTile nCell
 	return false
 
 func clickCell nCell
+
 	if slideTile(nCell)
 		nMoves++
 		showBoard()
@@ -79,6 +85,7 @@ func clickCell nCell
 	ok
 
 func isSolved
+
 	for nCell = 1 to len(aTiles) - 1
 		if aTiles[nCell] != nCell
 			return false
@@ -88,6 +95,7 @@ func isSolved
 
 # shuffle with legal moves only, so the puzzle is always solvable
 func shuffleBoard
+
 	for nCell = 1 to len(aTiles)
 		aTiles[nCell] = nCell % len(aTiles)
 	next
