@@ -1,6 +1,7 @@
 # Tic-Tac-Toe against the computer - a port of ring/applications/tictactoe to RingDotNet
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -39,9 +40,11 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func showScore
+
 	oScore.Text = "You " + nWinsX + "   Computer " + nWinsO + "   Draws " + nDraws
 
 func newGame
+
 	aBoard = list(9)
 	lGameOver = false
 	for oButton in aButtons
@@ -53,6 +56,7 @@ func newGame
 	oStatus.Text = "Your turn (X)"
 
 func move nIndex
+
 	if lGameOver or aBoard[nIndex] != 0
 		return
 	ok
@@ -62,6 +66,7 @@ func move nIndex
 	ok
 
 func place nIndex, nPlayer
+
 	aBoard[nIndex] = nPlayer
 	if nPlayer = 1
 		aButtons[nIndex].Text = "X"
@@ -95,6 +100,7 @@ func place nIndex, nPlayer
 
 # index of the winning line (0 = none)
 func winner aCells
+
 	for nLine = 1 to len(aLines)
 		nA = aCells[aLines[nLine][1]]
 		if nA != 0 and nA = aCells[aLines[nLine][2]] and nA = aCells[aLines[nLine][3]]
@@ -104,6 +110,7 @@ func winner aCells
 	return 0
 
 func isFull aCells
+
 	for nCell in aCells
 		if nCell = 0
 			return false
@@ -113,6 +120,7 @@ func isFull aCells
 
 # a cell that wins or blocks, else the center, a corner, any cell
 func computerMove
+
 	for nPlayer in [2,1]
 		for nCell = 1 to 9
 			if aBoard[nCell] = 0
