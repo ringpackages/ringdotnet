@@ -1,6 +1,7 @@
 # the checks of Snake.ring: run with  ring Snake.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	oTimer.Stop()
 	aSnake = [[5,5],[4,5],[3,5]]
 	cDirection = "Right"
