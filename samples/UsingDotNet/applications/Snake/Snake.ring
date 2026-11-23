@@ -1,6 +1,7 @@
 # Snake - arrow keys, eat the food, do not hit the walls or yourself (a port of ring/applications/snake)
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -36,6 +37,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func newGame
+
 	aSnake = [[12,9],[11,9],[10,9]]
 	cDirection = "Right"
 	cNextDirection = "Right"
@@ -46,6 +48,7 @@ func newGame
 	oTimer.Start()
 
 func placeFood
+
 	while true
 		aFood = [random(C_COLUMNS - 1),random(C_ROWS - 1)]
 		if not onSnake(aFood[1],aFood[2])
@@ -54,6 +57,7 @@ func placeFood
 	end
 
 func onSnake nX, nY
+
 	for aPart in aSnake
 		if aPart[1] = nX and aPart[2] = nY
 			return true
@@ -62,6 +66,7 @@ func onSnake nX, nY
 	return false
 
 func keyPressed cKey
+
 	if cKey = "Left" and cDirection != "Right"
 		cNextDirection = "Left"
 	but cKey = "Right" and cDirection != "Left"
@@ -76,6 +81,7 @@ func keyPressed cKey
 
 # one step of the game
 func tick
+
 	if not lAlive
 		return
 	ok
@@ -104,6 +110,7 @@ func tick
 	draw()
 
 func draw
+
 	oCanvas.clear("#202020")
 	oCanvas.fillRect(aFood[1] * C_CELL + 2,aFood[2] * C_CELL + 2,C_CELL - 4,C_CELL - 4,"Red")
 	for nIndex = 1 to len(aSnake)
