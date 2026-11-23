@@ -1,6 +1,7 @@
 # Notepad - a text editor (menu, file dialogs, status bar, find) written with RingDotNet
 
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -55,6 +56,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func textChanged
+
 	if not lLoading
 		lModified = true
 	ok
@@ -62,6 +64,7 @@ func textChanged
 	showPosition()
 
 func updateTitle
+
 	cName = "Untitled"
 	if cFileName != ""
 		cName = new Path().GetFileName(cFileName)
@@ -72,6 +75,7 @@ func updateTitle
 	oForm.Text = cName + " - Notepad"
 
 func showPosition
+
 	nIndex = oEditor.SelectionStart
 	nLine = oEditor.GetLineFromCharIndex(nIndex)
 	nColumn = nIndex - oEditor.GetFirstCharIndexFromLine(nLine)
@@ -79,12 +83,14 @@ func showPosition
 
 # true when it is fine to throw away the current text
 func canDiscard
+
 	if not lModified
 		return true
 	ok
 	return uiAsk("Discard the changes?","Notepad")
 
 func newFile
+
 	if canDiscard()
 		setText("")
 		cFileName = ""
@@ -93,11 +99,13 @@ func newFile
 	ok
 
 func setText cText
+
 	lLoading = true
 	oEditor.Text = cText
 	lLoading = false
 
 func openDialog
+
 	if canDiscard()
 		cName = uiOpenFileName("Open","Text files (*.txt)|*.txt|All files (*.*)|*.*")
 		if cName != ""
@@ -106,6 +114,7 @@ func openDialog
 	ok
 
 func loadFile cName
+
 	try
 		cContent = new File().ReadAllText(cName)
 	catch
@@ -118,6 +127,7 @@ func loadFile cName
 	updateTitle()
 
 func saveFile
+
 	if cFileName = ""
 		saveAsDialog()
 	else
@@ -125,12 +135,14 @@ func saveFile
 	ok
 
 func saveAsDialog
+
 	cName = uiSaveFileName("Save As","Text files (*.txt)|*.txt|All files (*.*)|*.*")
 	if cName != ""
 		saveTo(cName)
 	ok
 
 func saveTo cName
+
 	try
 		new File().WriteAllText([ :path = cName, :contents = oEditor.Text ])
 	catch
@@ -142,6 +154,7 @@ func saveTo cName
 	updateTitle()
 
 func toggleWrap
+
 	oEditor.WordWrap = not oEditor.WordWrap
 	if oEditor.WordWrap
 		oEditor.ScrollBars = "Vertical"
@@ -150,12 +163,14 @@ func toggleWrap
 	ok
 
 func toggleFind
+
 	oFindPanel.Visible = not oFindPanel.Visible
 	if oFindPanel.Visible
 		oFindText.Focus()
 	ok
 
 func findNext
+
 	cWhat = oFindText.Text
 	if cWhat = ""
 		return
@@ -177,6 +192,7 @@ func findNext
 
 # 0-based position of cWhat in cText at or after nStart (-1 = not found); positions are bytes, so it is meant for ASCII text
 func findFrom cText, cWhat, nStart
+
 	if nStart >= len(cText)
 		return -1
 	ok
@@ -188,6 +204,7 @@ func findFrom cText, cWhat, nStart
 	return nStart + nPos - 1
 
 func closing oArgs
+
 	if not canDiscard()
 		oArgs.Cancel = True
 	ok
