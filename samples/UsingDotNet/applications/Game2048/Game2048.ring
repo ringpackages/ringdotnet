@@ -1,6 +1,7 @@
 # 2048 - use the arrow keys (a port of ring/applications/game2048 to RingDotNet)
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -43,6 +44,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func tileColor nValue
+
 	switch nValue
 	on 0	return uiRGB(205,193,180)
 	on 2	return uiRGB(238,228,218)
@@ -58,6 +60,7 @@ func tileColor nValue
 	off
 
 func showBoard
+
 	for nCell = 1 to len(aBoard)
 		if aBoard[nCell] = 0
 			aTileLabels[nCell].Text = ""
@@ -70,6 +73,7 @@ func showBoard
 
 # slide one line to the left: [new line, points gained]
 func slideLine aLine
+
 	aKept = []
 	for nValue in aLine
 		if nValue != 0
@@ -96,6 +100,7 @@ func slideLine aLine
 
 # move the whole board: "Left" "Right" "Up" "Down"; true when something moved
 func moveBoard cDirection
+
 	lMoved = false
 	for nLine = 1 to C_SIZE
 		aLine = []
@@ -116,6 +121,7 @@ func moveBoard cDirection
 
 # the cell that is the nStep-th of line nLine when sliding in cDirection (nStep 1 = the cell the tiles slide to)
 func cellIndex nLine, nStep, cDirection
+
 	switch cDirection
 	on "Left"
 		return (nLine - 1) * C_SIZE + nStep
@@ -128,6 +134,7 @@ func cellIndex nLine, nStep, cDirection
 	off
 
 func addRandomTile
+
 	aFree = []
 	for nCell = 1 to len(aBoard)
 		if aBoard[nCell] = 0
@@ -143,6 +150,7 @@ func addRandomTile
 	ok
 
 func canMove
+
 	for cDirection in ["Left","Right","Up","Down"]
 		aSaved = aBoard
 		nSavedScore = nScore
@@ -156,6 +164,7 @@ func canMove
 	return false
 
 func keyPressed cKey
+
 	if lGameOver or find(["Left","Right","Up","Down"],cKey) = 0
 		return
 	ok
@@ -169,6 +178,7 @@ func keyPressed cKey
 	showBoard()
 
 func newGame
+
 	aBoard = list(C_SIZE * C_SIZE)
 	nScore = 0
 	lGameOver = false
