@@ -1,6 +1,7 @@
 # Dice roller - draws five dice with their pips and keeps statistics
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -31,6 +32,7 @@ uiRun(oForm)
 
 # the pips of a die face: positions in a 3x3 grid
 func pips nFace
+
 	switch nFace
 	on 1	return [5]
 	on 2	return [1,9]
@@ -41,6 +43,7 @@ func pips nFace
 	off
 
 func drawDie nIndex, nFace
+
 	nX = 10 + (nIndex - 1) * 80
 	oCanvas.fillRect(nX,10,70,70,"White")
 	oCanvas.drawRect(nX,10,70,70,"Black")
@@ -51,6 +54,7 @@ func drawDie nIndex, nFace
 	next
 
 func draw
+
 	oCanvas.clear("#2e7d32")
 	for nIndex = 1 to C_DICE
 		drawDie(nIndex,aDice[nIndex])
@@ -72,6 +76,7 @@ func draw
 	oCanvas.show()
 
 func rollAll
+
 	for nIndex = 1 to C_DICE
 		aDice[nIndex] = random(5) + 1
 		aCounts[aDice[nIndex]]++
@@ -80,6 +85,7 @@ func rollAll
 	draw()
 
 func rollMany nTimes
+
 	for nTime = 1 to nTimes
 		nFace = random(5) + 1
 		aCounts[nFace]++
