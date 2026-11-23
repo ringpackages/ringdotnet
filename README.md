@@ -32,9 +32,7 @@ It includes over one million lines of generated Ring code, more than 6,000 pages
 ringpm install ringdotnet from ringpackages
 ```
 
-The package is one zip file, `extensions/ringdotnet.zip`: `setup.ring` extracts it into the Ring folder (`uninstall.ring` removes it). Then a program starts with `load "dotnet.ring"`. On Linux and macOS the C extension is built once for the system (`extensions/ringdotnet/buildgcc.sh` or `buildclang.sh`); see *Getting started* in the manual.
-
-## What you get
+## Features
 
 * **Object code.** The .NET types are generated Ring classes with the .NET names: `new` makes an object, the dot calls a method or reads a property, and braces `{ }` set several properties at once. Properties are attributes (`oForm.Text = "Hello"`), enums are texts (`"Maximized"`), and `out` / `ref` parameters come back in a list.
 * **Overloads in one Ring method.** `Name(NULL)` calls the parameterless overload, `Name(value)` the one with one parameter, and `Name([ :param = value ])` chooses the overload by the .NET parameter names.
