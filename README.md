@@ -4,22 +4,6 @@ RingDotNet is a package for the Ring programming language that enables developer
 The package hosts the .NET runtime inside the Ring process and talks to it through a small managed bridge. 
 The .NET base class library, Windows Forms, WPF, ASP.NET Core, Entity Framework Core and any assembly (the framework's or your own dll, or a NuGet package) can be used from Ring with the same simple syntax.
 
-```ring
-load "dotnet.ring"
-
-using {
-	"System"
-	"System.Text"
-}
-
-? new Math().Max(3,9)                           # 9: a static method
-
-oSB = new StringBuilder("Hello")
-oSB.Append(", Ring!")
-? oSB.ToString()                                # Hello, Ring!
-? oSB.Length                                    # 12
-```
-
 ## Install
 
 ```
@@ -35,6 +19,24 @@ The package is tested with Ring 1.28 and .NET 9.
 ## Online Documentation
 
 URL: https://ringpackages.github.io/ringdotnet/
+
+## Example
+
+```ring
+load "dotnet.ring"
+
+using {
+	"System"
+	"System.Text"
+}
+
+? new Math().Max(3,9)                           # 9: a static method
+
+oSB = new StringBuilder("Hello")
+oSB.Append(", Ring!")
+? oSB.ToString()                                # Hello, Ring!
+? oSB.Length                                    # 12
+```
 
 ## Architecture
 
