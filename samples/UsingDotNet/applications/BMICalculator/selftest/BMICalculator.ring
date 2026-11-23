@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of BMICalculator.ring: run with  ring BMICalculator.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
 	dnAssert("category underweight",category(17),"Underweight")
