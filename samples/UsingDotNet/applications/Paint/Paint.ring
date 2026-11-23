@@ -1,6 +1,7 @@
 # Paint - draw with the mouse (mouse events and UiCanvas), save the picture as PNG
 
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -50,6 +51,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func mouseDown nX, nY
+
 	lDrawing = true
 	nLastX = nX
 	nLastY = nY
@@ -57,6 +59,7 @@ func mouseDown nX, nY
 	oCanvas.show()
 
 func mouseMove nX, nY
+
 	if lDrawing
 		oCanvas.line(nLastX,nLastY,nX,nY,cColor,nPenSize)
 		oCanvas.fillCircle(nX,nY,nPenSize / 2,cColor)
@@ -66,13 +69,16 @@ func mouseMove nX, nY
 	ok
 
 func clearCanvas
+
 	oCanvas.clear("White")
 	oCanvas.show()
 
 func saveTo cFile
+
 	oCanvas.oBitmap.Save([ :filename = cFile, :format = new ImageFormat().Png ])
 
 func saveDialog
+
 	cFile = uiSaveFileName("Save picture","PNG image (*.png)|*.png")
 	if cFile != ""
 		saveTo(cFile)
