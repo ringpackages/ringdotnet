@@ -1,6 +1,7 @@
 # Calculator - a port of ring/applications/calculator to RingDotNet (Windows Forms)
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -64,6 +65,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func keyTyped oArgs
+
 	cChar = oArgs.KeyChar
 	if find(["0","1","2","3","4","5","6","7","8","9",".","+","-","*","/","%"],cChar) > 0
 		press(cChar)
@@ -77,6 +79,7 @@ func keyTyped oArgs
 	ok
 
 func specialKey oArgs
+
 	cKey = oArgs.KeyCode
 	if cKey = "Return" or cKey = "Enter"
 		press("=")
@@ -93,6 +96,7 @@ func specialKey oArgs
 	}
 
 func backspace
+
 	if not lFresh and len(cDisplay) > 0
 		cDisplay = left(cDisplay,len(cDisplay) - 1)
 		if cDisplay = "" or cDisplay = "-"
@@ -103,6 +107,7 @@ func backspace
 	ok
 
 func press cKey
+
 	if find(["0","1","2","3","4","5","6","7","8","9"],cKey) > 0
 		if lFresh
 			cDisplay = cKey
@@ -164,6 +169,7 @@ func press cKey
 	oHistory.Text = cHistory
 
 func calculate
+
 	nRight = number(cDisplay)
 	switch cOperator
 	on "+"
