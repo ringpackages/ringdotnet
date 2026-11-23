@@ -1,11 +1,13 @@
 # the checks of Calculator.ring: run with  ring Calculator.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func typeKeys cKeys
+
 	for x = 1 to len(cKeys)
 		press(cKeys[x])
 	next
 
 func selfTest
+
 	typeKeys("12+30=")
 	dnAssert("12+30",oScreen.Text,"42")
 	press("C")
