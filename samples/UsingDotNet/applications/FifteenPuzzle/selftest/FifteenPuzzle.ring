@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of FifteenPuzzle.ring: run with  ring FifteenPuzzle.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
 	# a position one move from solved
