@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of Minesweeper.ring: run with  ring Minesweeper.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
 	# a known layout: mines in the top row, cells 1 to 9, except 5
