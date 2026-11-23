@@ -1,6 +1,7 @@
 # the checks of MemoryGame.ring: run with  ring MemoryGame.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func waitMs nMilliseconds
+
 	oClock = new Stopwatch()
 	oClock.Start()
 	while oClock.ElapsedMilliseconds < nMilliseconds
@@ -9,6 +10,7 @@ func waitMs nMilliseconds
 	end
 
 func selfTest
+
 	# a known layout: pairs next to each other
 	aSymbols = ["A","A","B","B","C","C","D","D","E","E","F","F","G","G","H","H"]
 	aCardButtons[1].PerformClick()
