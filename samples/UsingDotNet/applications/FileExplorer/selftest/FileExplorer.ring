@@ -1,6 +1,7 @@
 # the checks of FileExplorer.ring: run with  ring FileExplorer.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	# a small folder tree in the temp folder
 	oPath = new Path()
 	cBase = oPath.Combine([oPath.GetTempPath(),"explorer_selftest"])
