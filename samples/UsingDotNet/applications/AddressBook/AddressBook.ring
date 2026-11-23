@@ -1,6 +1,7 @@
 # Address book - a DataGridView bound to a DataTable, search, edit, delete and save/load as XML
 
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -57,9 +58,11 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func showCount
+
 	oCount.Text = string(oTable.DefaultView.Count) + " of " + oTable.Rows.Count + " contacts"
 
 func addContact
+
 	if trim(oName.Text) = ""
 		return
 	ok
@@ -70,6 +73,7 @@ func addContact
 	showCount()
 
 func deleteSelected
+
 	if oGrid.SelectedRows.Count > 0
 		nIndex = oGrid.SelectedRows.Item(0).Index
 		oTable.DefaultView.Delete(nIndex)
@@ -77,6 +81,7 @@ func deleteSelected
 	ok
 
 func applyFilter
+
 	cText = trim(oSearch.Text)
 	if cText = ""
 		oTable.DefaultView.RowFilter = ""
@@ -88,6 +93,7 @@ func applyFilter
 	showCount()
 
 func saveBook
+
 	try
 		oTable.WriteXml(cFile)
 		oMessage.Text = "Saved " + oTable.Rows.Count + " contacts to " + cFile
@@ -96,6 +102,7 @@ func saveBook
 	done
 
 func loadBook
+
 	if not new File().Exists(cFile)
 		oMessage.Text = "Nothing to load yet: save the address book first (" + cFile + ")"
 		return
