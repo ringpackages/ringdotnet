@@ -1,6 +1,7 @@
 # To-do list with check boxes, saved to a text file
 
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -38,10 +39,12 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func updateInfo
+
 	nDone = oList.CheckedItems.Count
 	oInfo.Text = string(oList.Items.Count) + " tasks, " + nDone + " done"
 
 func addTask
+
 	cTask = trim(oInput.Text)
 	if cTask != ""
 		oList.Items.Add([ :item = cTask, :isChecked = False ])
@@ -50,6 +53,7 @@ func addTask
 	ok
 
 func removeDone
+
 	for nIndex = oList.Items.Count - 1 to 0 step -1
 		if oList.GetItemChecked(nIndex)
 			oList.Items.RemoveAt(nIndex)
@@ -59,6 +63,7 @@ func removeDone
 
 # one line per task: "[x] text" or "[ ] text"
 func saveTasks
+
 	cText = ""
 	for nIndex = 0 to oList.Items.Count - 1
 		if oList.GetItemChecked(nIndex)
@@ -71,6 +76,7 @@ func saveTasks
 	new File().WriteAllText([ :path = cFile, :contents = cText ])
 
 func loadTasks
+
 	oList.Items.Clear()
 	if new File().Exists(cFile)
 		for cLine in str2list(new File().ReadAllText(cFile))
