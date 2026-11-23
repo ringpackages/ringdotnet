@@ -2,6 +2,7 @@
 # Click a square to put or remove a queen; "Solve" finds a solution with backtracking.
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -37,10 +38,12 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func squareOf nRow, nColumn
+
 	return (nRow - 1) * C_SIZE + nColumn
 
 # do two queens (row, column) attack each other
 func attacks nRow1, nColumn1, nRow2, nColumn2
+
 	if nRow1 = nRow2 or nColumn1 = nColumn2
 		return true
 	ok
@@ -48,6 +51,7 @@ func attacks nRow1, nColumn1, nRow2, nColumn2
 
 # the columns whose queen is attacked by another queen
 func conflicts
+
 	aBad = list(C_SIZE)
 	for nA = 1 to C_SIZE
 		for nB = nA + 1 to C_SIZE
@@ -60,6 +64,7 @@ func conflicts
 	return aBad
 
 func showBoard
+
 	aBad = conflicts()
 	nPlaced = 0
 	for nRow = 1 to C_SIZE
@@ -94,6 +99,7 @@ func showBoard
 	ok
 
 func toggle nRow, nColumn
+
 	if aQueens[nColumn] = nRow
 		aQueens[nColumn] = 0
 	else
@@ -102,11 +108,13 @@ func toggle nRow, nColumn
 	showBoard()
 
 func clearBoard
+
 	aQueens = list(C_SIZE)
 	showBoard()
 
 # the number of ways to complete the board from column nColumn (backtracking)
 func countSolutions nColumn, aPlaced
+
 	if nColumn > C_SIZE
 		return 1
 	ok
@@ -128,17 +136,20 @@ func countSolutions nColumn, aPlaced
 	return nTotal
 
 func solveIt
+
 	aQueens = firstSolution()
 	showBoard()
 	oCount.Text = "92 solutions exist"
 
 # a solution found by backtracking
 func firstSolution
+
 	aResult = list(C_SIZE)
 	findOne(1,aResult)
 	return aResult
 
 func findOne nColumn, aPlaced
+
 	if nColumn > C_SIZE
 		return true
 	ok
