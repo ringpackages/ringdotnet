@@ -2,6 +2,7 @@
 
 # let the form process the timer messages for a while
 func waitMs nMilliseconds
+
 	oClock = new Stopwatch()
 	oClock.Start()
 	while oClock.ElapsedMilliseconds < nMilliseconds
@@ -10,6 +11,7 @@ func waitMs nMilliseconds
 	end
 
 func selfTest
+
 	dnAssert("format",formatTime(83450),"01:23.45")
 	oStart.PerformClick()
 	dnAssert("running",oWatch.IsRunning,1)
