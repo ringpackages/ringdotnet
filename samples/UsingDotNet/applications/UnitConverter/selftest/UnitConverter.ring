@@ -1,6 +1,7 @@
 # the checks of UnitConverter.ring: run with  ring UnitConverter.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	dnAssert("default is meter to kilometer",oFormula.Text,"1 Meter = 0.001 Kilometer")
 	oValue.Text = "5"
 	oTo.SelectedIndex = 4
