@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of WpfCalculator.ring: run with  ring WpfCalculator.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func typeKeys cKeys
 	for nIndex = 1 to len(cKeys)
