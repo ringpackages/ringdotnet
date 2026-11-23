@@ -1,6 +1,7 @@
 # Temperature converter: type in any box and the others follow (TextChanged events)
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -29,6 +30,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func isValidNumber cText
+
 	cText = trim(cText)
 	if cText = "" or cText = "-" or cText = "."
 		return false
@@ -42,11 +44,13 @@ func isValidNumber cText
 	return true
 
 func show oBox, nValue
+
 	lUpdating = true
 	oBox.Text = uiNumber(floor(nValue * 100 + 0.5) / 100)
 	lUpdating = false
 
 func fromCelsius
+
 	if lUpdating or not isValidNumber(oCelsius.Text)
 		return
 	ok
@@ -55,6 +59,7 @@ func fromCelsius
 	show(oKelvin,nValue + 273.15)
 
 func fromFahrenheit
+
 	if lUpdating or not isValidNumber(oFahrenheit.Text)
 		return
 	ok
@@ -63,6 +68,7 @@ func fromFahrenheit
 	show(oKelvin,nValue + 273.15)
 
 func fromKelvin
+
 	if lUpdating or not isValidNumber(oKelvin.Text)
 		return
 	ok
