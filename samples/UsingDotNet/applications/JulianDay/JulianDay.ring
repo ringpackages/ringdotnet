@@ -1,6 +1,7 @@
 # Julian day converter - dates and Julian day numbers in both directions (a port of ring/applications/juliandaycalendar)
 
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Drawing"
@@ -32,6 +33,7 @@ uiRun(oForm)
 
 # Julian day number of a calendar date (at noon)
 func julianDay nYear, nMonth, nDay
+
 	nA = floor((14 - nMonth) / 12)
 	nY = nYear + 4800 - nA
 	nM = nMonth + 12 * nA - 3
@@ -39,6 +41,7 @@ func julianDay nYear, nMonth, nDay
 
 # the calendar date of a Julian day number: [year, month, day]
 func calendarDate nJulian
+
 	nA = nJulian + 32044
 	nB = floor((4 * nA + 3) / 146097)
 	nC = nA - floor(146097 * nB / 4)
@@ -51,12 +54,14 @@ func calendarDate nJulian
 	return [nYear,nMonth,nDay]
 
 func fromDate
+
 	oDate = oPicker.Value
 	nJulian = julianDay(oDate.Year,oDate.Month,oDate.Day)
 	oJulian.Text = "" + nJulian
 	oInfo.Text = oDate.DayOfWeek + nl + "Modified Julian day: " + (nJulian - 2400001) + nl + "Day of the year: " + oDate.DayOfYear
 
 func fromJulian
+
 	nJulian = floor(number(oJulian.Text))
 	aDate = calendarDate(nJulian)
 	oDate = new DateTime(aDate[1],aDate[2],aDate[3])
