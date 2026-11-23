@@ -1,6 +1,7 @@
 # Minesweeper - left click reveals, right click flags (a port of ring/applications/minesweeper)
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -44,6 +45,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func neighbors nCell
+
 	aList = []
 	nRow = floor((nCell - 1) / C_COLUMNS)
 	nColumn = (nCell - 1) % C_COLUMNS
@@ -61,6 +63,7 @@ func neighbors nCell
 	return aList
 
 func mineCount nCell
+
 	nTotal = 0
 	for nNear in neighbors(nCell)
 		nTotal += aMine[nNear]
@@ -68,6 +71,7 @@ func mineCount nCell
 	return nTotal
 
 func newGame
+
 	aMine = list(C_COLUMNS * C_ROWS)
 	aRevealed = list(C_COLUMNS * C_ROWS)
 	aFlagged = list(C_COLUMNS * C_ROWS)
@@ -82,6 +86,7 @@ func newGame
 	startPlay()
 
 func startPlay
+
 	lPlaying = true
 	nFlags = 0
 	for oButton in aButtons
@@ -94,11 +99,13 @@ func startPlay
 	showInfo()
 
 func showInfo
+
 	if lPlaying
 		oInfo.Text = "Mines left: " + (C_MINES - nFlags)
 	ok
 
 func cellClicked nCell, cButton
+
 	if not lPlaying
 		return
 	ok
@@ -109,6 +116,7 @@ func cellClicked nCell, cButton
 	ok
 
 func toggleFlag nCell
+
 	if aRevealed[nCell]
 		return
 	ok
@@ -124,6 +132,7 @@ func toggleFlag nCell
 	showInfo()
 
 func reveal nCell
+
 	if aRevealed[nCell] or aFlagged[nCell]
 		return
 	ok
@@ -157,10 +166,12 @@ func reveal nCell
 	checkWin()
 
 func numberColor nNear
+
 	aColors = ["Blue","Green","Red","DarkBlue","Brown","Teal","Black","Gray"]
 	return uiColor(aColors[nNear])
 
 func checkWin
+
 	nHidden = 0
 	for nCell = 1 to len(aRevealed)
 		if not aRevealed[nCell]
@@ -173,6 +184,7 @@ func checkWin
 	ok
 
 func gameOver
+
 	lPlaying = false
 	for nCell = 1 to len(aMine)
 		if aMine[nCell]
