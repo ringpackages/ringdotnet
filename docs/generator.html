@@ -289,11 +289,13 @@ ring gendotnet.ring System.Text System.IO # only these</code></pre></div>
 	Length
 
 	<span class="k">Func</span> <span class="f">Equals</span> P1
+
 		dn_x = dotnet_call(<span class="s">"s4:call"</span>,nHandle,<span class="s">"s6:Equals"</span>,P1)
 		<span class="k">if</span> islist(dn_x) <span class="k">return</span> <span class="f">dnFinish</span>(dn_x[<span class="n">2</span>]) <span class="k">ok</span>
 		<span class="k">return</span> dn_x
 
 	<span class="k">Func</span> <span class="f">Append</span> P1
+
 		<span class="k">if</span> dotnet_isnamed(P1)
 			dn_x = dotnet_calla(<span class="s">"s9:callnamed"</span>,nHandle,<span class="s">"s6:Append"</span>,P1)
 		<span class="k">if</span> islist(dn_x) <span class="k">return</span> <span class="f">dnAny</span>(dn_x) <span class="k">ok</span>
@@ -302,6 +304,7 @@ ring gendotnet.ring System.Text System.IO # only these</code></pre></div>
 		<span class="k">return</span> <span class="f">dnObj</span>(dotnet_callo(<span class="s">"s4:call"</span>,nHandle,<span class="s">"s6:Append"</span>,P1))
 
 	<span class="k">Func</span> <span class="f">getLength</span>
+
 		dn_x = dotnet_call(<span class="s">"s3:get"</span>,nHandle,<span class="s">"s6:Length"</span>)
 		<span class="k">if</span> islist(dn_x) <span class="k">return</span> <span class="f">dnFinish</span>(dn_x[<span class="n">2</span>]) <span class="k">ok</span>
 		<span class="k">return</span> dn_x</code></pre></div>

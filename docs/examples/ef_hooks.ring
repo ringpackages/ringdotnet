@@ -1,10 +1,12 @@
 # Entity Framework Core: hooks, query filters, converters, transactions
 load "dotnet.ring"
+
 using { "RingDotNet.Data" }
 
 aSql = []
 
 func main
+
 	oDb = new RingDatabase("Data Source=:memory:",[
 		["Notes",[["Id","int",1],["Text","string",0,[["convert","upper"]]],["Deleted","int",0]],[["filter",["Deleted","=",0]]]]
 	])
@@ -32,6 +34,7 @@ func main
 	oDb.close()
 
 func beforeSave aArgs
+
 	for aChange in aArgs[1]
 		if dbValue(aChange[3],"Text") = "forbidden"
 			return "forbidden text"
@@ -40,4 +43,5 @@ func beforeSave aArgs
 	return ""
 
 func logSql aArgs
+
 	aSql + aArgs[1]

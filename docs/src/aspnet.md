@@ -7,6 +7,7 @@ lead: A Kestrel web server whose routes are Ring functions — HTML pages, JSON 
 
 ```ring
 load "dotnet.ring"
+
 using { "RingDotNet.Web" }                       # starts the ASP.NET Core mode and loads the web server
 
 oServer = new WebServer("http://localhost:5080")
@@ -15,9 +16,11 @@ oServer.onPost("/api/echo","echo")
 oServer.run()                                  # serves until stop()
 
 func home oRequest
+
 	return "<h1>Hello</h1>" + oRequest.path()
 
 func echo oRequest
+
 	return [201,"text/plain","you sent " + oRequest.body()]
 ```
 
@@ -39,6 +42,7 @@ A handler returns one of:
 
 ```ring
 func listTodos oRequest
+
 	aList = []
 	for aTodo in aTodos
 		aList + [["id",aTodo[1]],["text",aTodo[2]]]

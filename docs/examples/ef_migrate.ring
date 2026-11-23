@@ -1,8 +1,10 @@
 # Entity Framework Core: migrations of an existing database file
 load "dotnet.ring"
+
 using { "System.IO" "RingDotNet.Data" }
 
 func main
+
 	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_docs_migrate.db"])
 	if new File().Exists(cFile)
 		new File().Delete(cFile)

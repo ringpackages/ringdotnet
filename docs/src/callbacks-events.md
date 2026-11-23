@@ -22,6 +22,7 @@ If the text is just a **function name**, that function is called with the argume
 oList.@ForEach(dnCallback("show"))
 
 func show aArgs
+
 	? aArgs[1]
 ```
 
@@ -69,6 +70,7 @@ The same event can be set with a function name, which is cleaner for longer hand
 oButton.setClickEvent("clicked()")
 ...
 func clicked
+
 	nClicks++
 	oCount.Text = "" + nClicks + " clicks"
 ```

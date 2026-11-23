@@ -40,6 +40,7 @@ You give it a **callback**: code that .NET *calls back* when it needs the answer
 
 ```ring
 func showItem aArgs
+
 	? "   item: " + aArgs[1]
 ```
 

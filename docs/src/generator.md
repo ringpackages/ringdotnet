@@ -92,11 +92,13 @@ Class StringBuilder from Object
 	Length
 
 	Func Equals P1
+
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func Append P1
+
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_calla("s9:callnamed",nHandle,"s6:Append",P1)
 		if islist(dn_x) return dnAny(dn_x) ok
@@ -105,6 +107,7 @@ Class StringBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Append",P1))
 
 	Func getLength
+
 		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x

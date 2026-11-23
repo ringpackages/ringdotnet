@@ -1,8 +1,10 @@
 # Entity Framework Core: a table, rows, SQL conditions
 load "dotnet.ring"
+
 using { "RingDotNet.Data" }
 
 func main
+
 	oDb = new RingDatabase("Data Source=:memory:",[
 		["Customers",[
 			["Id","int",1],

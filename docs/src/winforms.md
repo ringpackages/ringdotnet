@@ -7,6 +7,7 @@ lead: Build desktop programs with every Windows Forms control, plus a few short 
 
 ```ring
 load "dotnet.ring"
+
 using {                                   # the names start the Windows Desktop runtime and make the Ring thread an STA thread
 	"System.Drawing"
 	"System.Windows.Forms"             # also loads the GUI helpers
@@ -17,12 +18,14 @@ oCount = ""
 nClicks = 0
 
 func main
+
 	oForm = uiForm("Click counter",260,130)
 	oCount = uiLabel(oForm,"0 clicks",20,15,220,24)
 	uiButton(oForm,"Click me",20,50,100,32,"clicked()")
 	uiRun(oForm)
 
 func clicked
+
 	nClicks++
 	oCount.Text = "" + nClicks + " clicks"
 ```
@@ -156,6 +159,7 @@ Every sample and application can drive itself and check its results. The checks 
 
 ```ring
 func selfTest
+
 	oForm.Controls.Item(1).PerformClick()
 	dnAssert("one click",oCount.Text,"1 clicks")
 ```

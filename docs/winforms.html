@@ -251,6 +251,7 @@
 <h1>Windows Forms</h1><p class="lead">Build desktop programs with every Windows Forms control, plus a few short helpers that keep small programs small.</p>
 <h2 id="the-shape-of-a-program">The shape of a program<a class="anchor" href="#the-shape-of-a-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using {                                   <span class="c"># the names start the Windows Desktop runtime and make the Ring thread an STA thread</span>
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>             <span class="c"># also loads the GUI helpers</span>
@@ -261,12 +262,14 @@ oCount = <span class="s">""</span>
 nClicks = <span class="n">0</span>
 
 <span class="k">func</span> <span class="f">main</span>
+
 	oForm = <span class="f">uiForm</span>(<span class="s">"Click counter"</span>,<span class="n">260</span>,<span class="n">130</span>)
 	oCount = <span class="f">uiLabel</span>(oForm,<span class="s">"0 clicks"</span>,<span class="n">20</span>,<span class="n">15</span>,<span class="n">220</span>,<span class="n">24</span>)
 	<span class="f">uiButton</span>(oForm,<span class="s">"Click me"</span>,<span class="n">20</span>,<span class="n">50</span>,<span class="n">100</span>,<span class="n">32</span>,<span class="s">"clicked()"</span>)
 	<span class="f">uiRun</span>(oForm)
 
 <span class="k">func</span> <span class="f">clicked</span>
+
 	nClicks++
 	oCount.Text = <span class="s">""</span> + nClicks + <span class="s">" clicks"</span></code></pre></div>
 <figure class="shot"><img src="img/shots/forms-02_button_click.png" alt="A form with a label and a button" loading="lazy"><figcaption>A label and a button: the whole program is about 15 lines</figcaption></figure>
@@ -322,6 +325,7 @@ oPicture.<span class="f">setMouseDownEvent</span>(<span class="s">"? aDotNetArgs
 <h2 id="self-testing-programs">Self-testing programs<a class="anchor" href="#self-testing-programs">#</a></h2>
 <p>Every sample and application can drive itself and check its results. The checks are in the file <code>selftest/&lt;program&gt;.ring</code> next to the program, and <code>uiRun</code> runs them when the program starts with <code>--selftest</code>:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">func</span> <span class="f">selfTest</span>
+
 	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()
 	<span class="f">dnAssert</span>(<span class="s">"one click"</span>,oCount.Text,<span class="s">"1 clicks"</span>)</code></pre></div>
 <p><code>uiSendKeys(oForm,"12{+}30{ENTER}")</code> types into the focused control <strong>through the real key processing</strong> by posting window messages to your own form — it can never type into another program. See <a href="testing.html">Testing</a>.</p>

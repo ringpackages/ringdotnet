@@ -260,6 +260,7 @@ oList.<span class="f">FindAll</span>(<span class="f">dnCallback</span>(<span cla
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oList.@ForEach(<span class="f">dnCallback</span>(<span class="s">"show"</span>))
 
 <span class="k">func</span> <span class="f">show</span> aArgs
+
 	? aArgs[<span class="n">1</span>]</code></pre></div>
 <h3 id="good-to-know">Good to know<a class="anchor" href="#good-to-know">#</a></h3>
 <ul><li>The code is compiled <strong>once</strong> into a function (<code>dncallbackN</code>); the same text reuses it, so a callback in a loop or timer costs nothing extra.</li><li>An error raised by the Ring code reaches the .NET caller as an exception, and then your Ring <code>try</code> / <code>catch</code>.</li><li>The Ring function can <strong>return a .NET object</strong> where the delegate returns one (a <code>Func&lt;T&gt;</code> that makes the objects of a container): <code>return dnNew("System.Text.StringBuilder",[])</code>. The code is Ring code, so the object is made the way every program makes it.</li><li>Callbacks run <strong>synchronously on the Ring thread during a call</strong>. A callback fired later or from another thread (timers, tasks) is ignored with a message on stderr.</li></ul>
@@ -364,6 +365,7 @@ oForm.Controls.<span class="f">Add</span>(oButton)</code></pre></div>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oButton.<span class="f">setClickEvent</span>(<span class="s">"clicked()"</span>)
 ...
 <span class="k">func</span> <span class="f">clicked</span>
+
 	nClicks++
 	oCount.Text = <span class="s">""</span> + nClicks + <span class="s">" clicks"</span></code></pre></div>
 <div class="callout warn"><span class="t">Warning</span><p>The code of an event runs <strong>outside</strong> the function that set it up, so it can only see <strong>global variables</strong>. Create the widgets and the state of the program as globals at the top, then assign them inside <code>func main</code>. See <a href="rules-and-limits.html">Rules and limits</a>.</p></div>

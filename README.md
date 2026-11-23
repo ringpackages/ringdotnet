@@ -8,6 +8,7 @@ The package hosts the .NET runtime inside the Ring process (through `hostfxr`) a
 
 ```ring
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Text"
@@ -67,6 +68,7 @@ A NuGet package comes to Ring in four steps: a project file with a `PackageRefer
 
 ```ring
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Text"
@@ -181,6 +183,7 @@ A `using { "System.Windows" ... }` block (it starts the desktop mode with `dnUse
 
 ```ring
 load "dotnet.ring"
+
 using { "RingDotNet.Data" }
 oDb = new RingDatabase("Data Source=people.db",[
 	["Customers",[ ["Id","int",1], ["Name","string",0,[["required",1],["unique",1],["maxlength",40]]], ["Age","int",0,[["nullable",1]]], ["City","string",0,[["index",1]]] ]]
@@ -222,8 +225,10 @@ oServer.onPost("/api/echo","echo")
 oServer.run()                                  # serves until stop(); or call serveOne(100) in your own loop
 
 func home oRequest
+
 	return "<h1>Hello</h1>" + oRequest.path()
 func echo oRequest
+
 	return [201,"text/plain","you sent " + oRequest.body()]     # or webJson(list)
 ```
 
@@ -249,6 +254,7 @@ If the text is just a function name, that function is called with the argument l
 ```ring
 oList.@ForEach(dnCallback("show"))
 func show aArgs
+
 	? aArgs[1]
 ```
 

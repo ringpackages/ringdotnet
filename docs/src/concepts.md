@@ -32,12 +32,14 @@ A class such as `Math`, `Path` or `File` has only static members, so `new Math()
 
 ```ring
 load "dotnet.ring"
+
 using { "System" "System.IO" }
 
 Math = new Math()
 Path = new Path()
 
 func main
+
 	? Math.Max(3,9)                          # 9
 	? Path.Combine(["a","b"])                # a\b
 	? new Math().Min(3,9)                    # the class is still there: 3
@@ -47,6 +49,7 @@ The names of Ring variables are not case sensitive, so a variable `path` is the 
 
 ```ring
 func fileName
+
 	path = "C:/temp/x.txt"
 	return Path.GetFileName(path)            # Error (R13): Object is required (Path is now the text)
 ```

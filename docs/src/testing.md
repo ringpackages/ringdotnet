@@ -68,6 +68,7 @@ pkgImport("markdig","Markdig.dll","Markdig")
 
 ```ring
 load "dotnet.ring"
+
 using { "System" }
 
 dnAssert("max",new Math().Max(3,9),9)
@@ -95,6 +96,7 @@ and next to it, in the folder `selftest`, the file with the same name (`selftest
 
 ```ring
 func selfTest
+
 	oForm.Controls.Item(1).PerformClick()
 	dnAssert("one click",oCount.Text,"1 clicks")
 ```

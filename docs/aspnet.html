@@ -251,6 +251,7 @@
 <h1>ASP.NET Core</h1><p class="lead">A Kestrel web server whose routes are Ring functions — HTML pages, JSON APIs, forms — plus all of the ASP.NET Core classes for everything else.</p>
 <h2 id="a-web-server-in-a-few-lines">A web server in a few lines<a class="anchor" href="#a-web-server-in-a-few-lines">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using { <span class="s">"RingDotNet.Web"</span> }                       <span class="c"># starts the ASP.NET Core mode and loads the web server</span>
 
 oServer = <span class="k">new</span> <span class="t">WebServer</span>(<span class="s">"http://localhost:5080"</span>)
@@ -259,9 +260,11 @@ oServer.<span class="f">onPost</span>(<span class="s">"/api/echo"</span>,<span c
 oServer.<span class="f">run</span>()                                  <span class="c"># serves until stop()</span>
 
 <span class="k">func</span> <span class="f">home</span> oRequest
+
 	<span class="k">return</span> <span class="s">"&lt;h1&gt;Hello&lt;/h1&gt;"</span> + oRequest.<span class="f">path</span>()
 
 <span class="k">func</span> <span class="f">echo</span> oRequest
+
 	<span class="k">return</span> [<span class="n">201</span>,<span class="s">"text/plain"</span>,<span class="s">"you sent "</span> + oRequest.<span class="f">body</span>()]</code></pre></div>
 <p><code>using { "RingDotNet.Web" }</code> starts the ASP.NET Core runtime and loads the web server of RingDotNet (it calls <code>dnUseWeb()</code> for you). A <strong>handler</strong> is a Ring function that receives the request and returns the response.</p>
 <figure class="shot"><img src="img/shots/web-page.png" alt="The page served by the Ring web server" loading="lazy"><figcaption>samples/UsingDotNet/applications/WebApi — a page rendered by a Ring handler</figcaption></figure>
@@ -270,6 +273,7 @@ oServer.<span class="f">run</span>()                                  <span clas
 <div class="tablewrap"><table><thead><tr><th>Return value</th><th>Response</th></tr></thead><tbody><tr><td>a text</td><td>status 200, <code>text/html</code></td></tr><tr><td><code>[status, contentType, text]</code></td><td>exactly that</td></tr><tr><td><code>webJson(value)</code></td><td>status 200, <code>application/json</code></td></tr></tbody></table></div>
 <p><code>webJson</code> turns a Ring list into a JSON array and a list of <code>[name, value]</code> pairs into a JSON object (nested values too):</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">func</span> <span class="f">listTodos</span> oRequest
+
 	aList = []
 	<span class="k">for</span> aTodo <span class="k">in</span> aTodos
 		aList + [[<span class="s">"id"</span>,aTodo[<span class="n">1</span>]],[<span class="s">"text"</span>,aTodo[<span class="n">2</span>]]]

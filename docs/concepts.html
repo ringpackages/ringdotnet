@@ -277,17 +277,20 @@ file.txt
 <h2 id="short-names-for-static-classes">Short names for static classes<a class="anchor" href="#short-names-for-static-classes">#</a></h2>
 <p>A class such as <code>Math</code>, <code>Path</code> or <code>File</code> has only static members, so <code>new Math()</code> just makes an object that gives access to them. If you prefer the .NET style, make that object once at the top of the program and give it the name of the class:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
 using { <span class="s">"System"</span> <span class="s">"System.IO"</span> }
 
 Math = <span class="k">new</span> <span class="t">Math</span>()
 Path = <span class="k">new</span> <span class="t">Path</span>()
 
 <span class="k">func</span> <span class="f">main</span>
+
 	? Math.<span class="f">Max</span>(<span class="n">3</span>,<span class="n">9</span>)                          <span class="c"># 9</span>
 	? Path.<span class="f">Combine</span>([<span class="s">"a"</span>,<span class="s">"b"</span>])                <span class="c"># a\b</span>
 	? <span class="k">new</span> <span class="t">Math</span>().<span class="f">Min</span>(<span class="n">3</span>,<span class="n">9</span>)                    <span class="c"># the class is still there: 3</span></code></pre></div>
 <p>The names of Ring variables are not case sensitive, so a variable <code>path</code> is the same name as <code>Path</code>, and a local variable with that name <strong>hides</strong> the object in its function:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">func</span> <span class="f">fileName</span>
+
 	path = <span class="s">"C:/temp/x.txt"</span>
 	<span class="k">return</span> Path.<span class="f">GetFileName</span>(path)            <span class="c"># Error (R13): Object is required (Path is now the text)</span></code></pre></div>
 <p>Names such as <code>Path</code>, <code>File</code>, <code>Directory</code>, <code>Console</code>, <code>Environment</code> and <code>Convert</code> are also the names that programs use for variables, so use this style only when you keep those names for the .NET classes. Only classes that have just static members suit it: <code>DateTime</code>, <code>String</code>, <code>Task</code> and <code>Process</code> also have instance members, and <code>new DateTime(...)</code> is how you make a value.</p>

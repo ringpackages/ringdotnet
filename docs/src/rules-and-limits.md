@@ -19,6 +19,7 @@ oCount = ""
 nClicks = 0
 
 func main
+
 	oForm = uiForm("Counter",260,130)
 	oCount = uiLabel(oForm,"0",20,15,220,24)
 	uiButton(oForm,"Click",20,50,100,32,"nClicks++ oCount.Text = '' + nClicks")

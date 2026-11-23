@@ -1,8 +1,10 @@
 # Entity Framework Core: queries as LINQ expression trees, aggregates and SQL of any shape
 load "dotnet.ring"
+
 using { "RingDotNet.Data" }
 
 func main
+
 	oDb = new RingDatabase("Data Source=:memory:",[
 		["People",[["Id","int",1],["Name","string",0],["Age","int",0],["City","string",0],["Score","double",0]]]
 	])

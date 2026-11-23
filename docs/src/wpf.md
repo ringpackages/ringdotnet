@@ -7,6 +7,7 @@ lead: Windows Presentation Foundation from Ring — windows, panels, controls, X
 
 ```ring
 load "dotnet.ring"
+
 using {                                   # System.Windows* starts the desktop runtime
 	"System.Windows"
 	"System.Windows.Controls"

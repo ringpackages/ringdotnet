@@ -1,8 +1,10 @@
 # Entity Framework Core: foreign keys, children, parent, include and delete behaviors
 load "dotnet.ring"
+
 using { "RingDotNet.Data" }
 
 func main
+
 	oDb = new RingDatabase("Data Source=:memory:",[
 		["Authors",[["Id","int",1],["Name","string",0]]],
 		["Books",[["Id","int",1],["Title","string",0],["AuthorId","int",0,[["references","Authors"],["ondelete","cascade"]]]]]

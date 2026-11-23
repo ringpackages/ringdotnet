@@ -1,8 +1,10 @@
 # Entity Framework Core with real entity classes: navigation properties, tracking, include
 load "dotnet.ring"
+
 using { "RingDotNet.Data" }
 
 func main
+
 	oDb = new RingEntityDb("Data Source=:memory:",[
 		["Authors",[["Id","int",1],["Name","string",0]]],
 		["Books",[["Id","int",1],["Title","string",0],["Year","int",0],["AuthorId","int",0,[["references","Authors"]]]]]
