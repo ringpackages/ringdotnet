@@ -6,7 +6,7 @@ All the pages of docs/*.html (the pages listed in build.py, in the order of the 
 and the PDF has bookmarks. The class reference (docs/api/, one page per namespace) is the last part: thousands of pages in print.
 With --no-api the PDF is the manual without the class reference.
 
-    python docs/tools/makepdf.py [--no-api]
+    python docs/tools/makepdf.py [--no-api] [--html-only]
 """
 import html
 import base64
@@ -146,6 +146,12 @@ article h2[id$='-next']::before, article h2[id$='-where-to-go-next']::before { m
 p, li { orphans: 3; widows: 3; }
 .stattable th { font-size: 8.5px !important; letter-spacing: 0 !important; word-break: normal !important; overflow-wrap: normal !important; text-align: center; }
 .stattable td { font-size: 17px; text-align: center; }
+/* nothing may be wider than the page: one wide element makes the browser shrink every page of the PDF */
+pre, pre code, #p-api td code, #p-api td { overflow-wrap: anywhere !important; word-break: break-word; }
+h1, h2, h3, h4 { overflow-wrap: anywhere; word-break: break-word; }
+.apipart h1 { font-size: 22px; }
+.doc-contents li, .doc-contents a { overflow-wrap: anywhere; }
+#p-api td:last-child code { white-space: pre-wrap; }
 .apipart table { font-size: 10px; }
 .apipart table.api td:first-child, .apipart table.api th:first-child { width: 38mm; min-width: 38mm; }
 .apipart td code, .apipart th code, .apipart p code, .apipart summary code { background: none !important; border: 0 !important; padding: 0 !important; box-shadow: none !important; border-radius: 0 !important; }
@@ -206,6 +212,9 @@ def main():
 document.querySelectorAll('.code').forEach(function (c) { if (c.offsetHeight < 480) { c.classList.add('keep'); } });</script></body></html>""" % (CSS, cover_svg(), "".join(toc), "".join(parts))
     page = os.path.join(OUT, "RingDotNet-documentation.html")
     open(page, "w", encoding="utf-8").write(doc)
+    if "--html-only" in sys.argv:
+        print("the page -> %s" % page)
+        return 0
     pdf = os.path.join(OUT, "RingDotNet-documentation.pdf")
     browser = next((b for b in BROWSERS if os.path.exists(b)), None)
     if not browser:
