@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of DiceRoller.ring: run with  ring DiceRoller.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
 	aDice = [1,2,3,4,6]
