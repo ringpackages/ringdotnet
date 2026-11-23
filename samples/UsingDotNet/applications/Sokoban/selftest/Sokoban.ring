@@ -13,6 +13,9 @@ func selfTest
 		dnAssert("Space does not press the Restart button",nMoves,2)
 	ok
 	loadLevel(1)
+	dnAssert("the pictures are loaded (a wall picture is drawn at the corner)",oCanvas.pixel(5,5),imageOf("#").GetPixel(5,5).Name)
+	dnAssert("the pictures are not scaled",imageOf("#").Width,C_CELL)
+	dnAssert("the player picture is drawn at his square",oCanvas.pixel(2 * C_CELL + 5,C_CELL + 5),imageOf("@").GetPixel(5,5).Name)
 	dnAssert("player found",nPlayerColumn,3)
 	keyPressed("Left")
 	dnAssert("the target square is entered",tileAt(2,2),"+")

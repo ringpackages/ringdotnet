@@ -1,4 +1,4 @@
-# Sokoban - push every box onto a target with the arrow keys (a port of ring/applications/sokoban)
+# Sokoban - push every box onto a target with the arrow keys (a port of ring/applications/sokoban, with its pictures: the folder images)
 #   # wall   @ player   $ box   . target   * box on a target   + player on a target
 
 load "dotnet.ring"
@@ -8,7 +8,7 @@ using {
 	"System.Windows.Forms"
 }
 
-C_CELL = 40
+C_CELL = 33		# the size of the pictures in the folder images
 
 aLevels = [
 	["#######",
@@ -35,7 +35,9 @@ aMap = []		# list of strings
 nPlayerColumn = 0
 nPlayerRow = 0
 nMoves = 0
+aImages = []		# [tile, picture] for every kind of square: loaded once
 
+loadImages()
 oForm = uiForm("Sokoban",400,300)
 oForm {
 	KeyPreview = True
@@ -54,6 +56,28 @@ loadLevel(1)
 uiRun(oForm)
 
 # --------------------------------------------------------------------------
+
+# the pictures are in the folder images next to the program
+func loadImages
+
+	cFolder = ""
+	if len(sysargv) > 1
+		cScript = substr(sysargv[2],"\\","/")
+		for nPos = len(cScript) to 1 step -1
+			if cScript[nPos] = "/"
+				cFolder = left(cScript,nPos)
+				exit
+			ok
+		next
+	ok
+	aImages = []
+	for aTile in [[" ","empty"],["#","wall"],["@","player"],["+","player"],[".","door"],["$","box"],["*","boxondoor"]]
+		aImages + [aTile[1],new Bitmap(cFolder + "images/" + aTile[2] + ".jpg",0)]
+	next
+
+func imageOf cTile
+
+	return aImages[find(aImages,cTile,1)][2]
 
 func loadLevel nNumber
 
@@ -185,24 +209,7 @@ func draw
 	oCanvas.clear("#222222")
 	for nRow = 1 to len(aMap)
 		for nColumn = 1 to len(aMap[nRow])
-			nX = (nColumn - 1) * C_CELL
-			nY = (nRow - 1) * C_CELL
-			cTile = aMap[nRow][nColumn]
-			if cTile = "#"
-				oCanvas.fillRect(nX,nY,C_CELL - 1,C_CELL - 1,"SlateGray")
-			but cTile != " "
-				oCanvas.fillRect(nX,nY,C_CELL - 1,C_CELL - 1,"#3a3a3a")
-			ok
-			if isTarget(cTile)
-				oCanvas.fillCircle(nX + C_CELL / 2,nY + C_CELL / 2,6,"Gold")
-			ok
-			if cTile = "$"
-				oCanvas.fillRect(nX + 5,nY + 5,C_CELL - 11,C_CELL - 11,"Peru")
-			but cTile = "*"
-				oCanvas.fillRect(nX + 5,nY + 5,C_CELL - 11,C_CELL - 11,"ForestGreen")
-			but cTile = "@" or cTile = "+"
-				oCanvas.fillCircle(nX + C_CELL / 2,nY + C_CELL / 2,13,"DodgerBlue")
-			ok
+			oCanvas.oGraphics.DrawImage([ :image = imageOf(aMap[nRow][nColumn]), :x = (nColumn - 1) * C_CELL, :y = (nRow - 1) * C_CELL, :width = C_CELL, :height = C_CELL ])
 		next
 	next
 	if boxesLeft() = 0

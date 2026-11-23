@@ -3626,7 +3626,7 @@ newGame()
 	<span class="k">else</span>
 		oInfo.Text = <span class="s">"Game over - score "</span> + nScore + <span class="s">" (Space = new game)"</span>
 	<span class="k">ok</span>
-	oCanvas.<span class="f">show</span>()</code></pre></div></details></div></div><div class="item" id="sokoban"><div class="pic"><img src="img/shots/app-Sokoban.png" alt="Sokoban" loading="lazy"></div><div class="info"><h3>Sokoban</h3><p>Sokoban - push every box onto a target with the arrow keys (a port of ring/applications/sokoban) # wall   @ player   $ box   . target   * box on a target   + player on a target</p><div class="run"><code>cd samples/UsingDotNet/applications/Sokoban  then  ring Sokoban.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Sokoban - push every box onto a target with the arrow keys (a port of ring/applications/sokoban)</span>
+	oCanvas.<span class="f">show</span>()</code></pre></div></details></div></div><div class="item" id="sokoban"><div class="pic"><img src="img/shots/app-Sokoban.png" alt="Sokoban" loading="lazy"></div><div class="info"><h3>Sokoban</h3><p>Sokoban - push every box onto a target with the arrow keys (a port of ring/applications/sokoban, with its pictures: the folder images) # wall   @ player   $ box   . target   * box on a target   + player on a target</p><div class="run"><code>cd samples/UsingDotNet/applications/Sokoban  then  ring Sokoban.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Sokoban - push every box onto a target with the arrow keys (a port of ring/applications/sokoban, with its pictures: the folder images)</span>
 <span class="c">#   # wall   @ player   $ box   . target   * box on a target   + player on a target</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
@@ -3636,7 +3636,7 @@ using {
 	<span class="s">"System.Windows.Forms"</span>
 }
 
-C_CELL = <span class="n">40</span>
+C_CELL = <span class="n">33</span>		<span class="c"># the size of the pictures in the folder images</span>
 
 aLevels = [
 	[<span class="s">"#######"</span>,
@@ -3663,7 +3663,9 @@ aMap = []		<span class="c"># list of strings</span>
 nPlayerColumn = <span class="n">0</span>
 nPlayerRow = <span class="n">0</span>
 nMoves = <span class="n">0</span>
+aImages = []		<span class="c"># [tile, picture] for every kind of square: loaded once</span>
 
+loadImages()
 oForm = <span class="f">uiForm</span>(<span class="s">"Sokoban"</span>,<span class="n">400</span>,<span class="n">300</span>)
 oForm {
 	KeyPreview = <span class="k">True</span>
@@ -3682,6 +3684,28 @@ loadLevel(<span class="n">1</span>)
 <span class="f">uiRun</span>(oForm)
 
 <span class="c"># --------------------------------------------------------------------------</span>
+
+<span class="c"># the pictures are in the folder images next to the program</span>
+<span class="k">func</span> <span class="f">loadImages</span>
+
+	cFolder = <span class="s">""</span>
+	<span class="k">if</span> len(sysargv) &gt; <span class="n">1</span>
+		cScript = substr(sysargv[<span class="n">2</span>],<span class="s">"\\"</span>,<span class="s">"/"</span>)
+		<span class="k">for</span> nPos = len(cScript) <span class="k">to</span> <span class="n">1</span> <span class="k">step</span> -<span class="n">1</span>
+			<span class="k">if</span> cScript[nPos] = <span class="s">"/"</span>
+				cFolder = left(cScript,nPos)
+				<span class="k">exit</span>
+			<span class="k">ok</span>
+		<span class="k">next</span>
+	<span class="k">ok</span>
+	aImages = []
+	<span class="k">for</span> aTile <span class="k">in</span> [[<span class="s">" "</span>,<span class="s">"empty"</span>],[<span class="s">"#"</span>,<span class="s">"wall"</span>],[<span class="s">"@"</span>,<span class="s">"player"</span>],[<span class="s">"+"</span>,<span class="s">"player"</span>],[<span class="s">"."</span>,<span class="s">"door"</span>],[<span class="s">"$"</span>,<span class="s">"box"</span>],[<span class="s">"*"</span>,<span class="s">"boxondoor"</span>]]
+		aImages + [aTile[<span class="n">1</span>],<span class="k">new</span> <span class="t">Bitmap</span>(cFolder + <span class="s">"images/"</span> + aTile[<span class="n">2</span>] + <span class="s">".jpg"</span>,<span class="n">0</span>)]
+	<span class="k">next</span>
+
+<span class="k">func</span> <span class="f">imageOf</span> cTile
+
+	<span class="k">return</span> aImages[find(aImages,cTile,<span class="n">1</span>)][<span class="n">2</span>]
 
 <span class="k">func</span> <span class="f">loadLevel</span> nNumber
 
@@ -3813,24 +3837,7 @@ loadLevel(<span class="n">1</span>)
 	oCanvas.<span class="f">clear</span>(<span class="s">"#222222"</span>)
 	<span class="k">for</span> nRow = <span class="n">1</span> <span class="k">to</span> len(aMap)
 		<span class="k">for</span> nColumn = <span class="n">1</span> <span class="k">to</span> len(aMap[nRow])
-			nX = (nColumn - <span class="n">1</span>) * C_CELL
-			nY = (nRow - <span class="n">1</span>) * C_CELL
-			cTile = aMap[nRow][nColumn]
-			<span class="k">if</span> cTile = <span class="s">"#"</span>
-				oCanvas.<span class="f">fillRect</span>(nX,nY,C_CELL - <span class="n">1</span>,C_CELL - <span class="n">1</span>,<span class="s">"SlateGray"</span>)
-			<span class="k">but</span> cTile != <span class="s">" "</span>
-				oCanvas.<span class="f">fillRect</span>(nX,nY,C_CELL - <span class="n">1</span>,C_CELL - <span class="n">1</span>,<span class="s">"#3a3a3a"</span>)
-			<span class="k">ok</span>
-			<span class="k">if</span> isTarget(cTile)
-				oCanvas.<span class="f">fillCircle</span>(nX + C_CELL / <span class="n">2</span>,nY + C_CELL / <span class="n">2</span>,<span class="n">6</span>,<span class="s">"Gold"</span>)
-			<span class="k">ok</span>
-			<span class="k">if</span> cTile = <span class="s">"$"</span>
-				oCanvas.<span class="f">fillRect</span>(nX + <span class="n">5</span>,nY + <span class="n">5</span>,C_CELL - <span class="n">11</span>,C_CELL - <span class="n">11</span>,<span class="s">"Peru"</span>)
-			<span class="k">but</span> cTile = <span class="s">"*"</span>
-				oCanvas.<span class="f">fillRect</span>(nX + <span class="n">5</span>,nY + <span class="n">5</span>,C_CELL - <span class="n">11</span>,C_CELL - <span class="n">11</span>,<span class="s">"ForestGreen"</span>)
-			<span class="k">but</span> cTile = <span class="s">"@"</span> <span class="k">or</span> cTile = <span class="s">"+"</span>
-				oCanvas.<span class="f">fillCircle</span>(nX + C_CELL / <span class="n">2</span>,nY + C_CELL / <span class="n">2</span>,<span class="n">13</span>,<span class="s">"DodgerBlue"</span>)
-			<span class="k">ok</span>
+			oCanvas.oGraphics.<span class="f">DrawImage</span>([ :image = imageOf(aMap[nRow][nColumn]), :x = (nColumn - <span class="n">1</span>) * C_CELL, :y = (nRow - <span class="n">1</span>) * C_CELL, :width = C_CELL, :height = C_CELL ])
 		<span class="k">next</span>
 	<span class="k">next</span>
 	<span class="k">if</span> boxesLeft() = <span class="n">0</span>
