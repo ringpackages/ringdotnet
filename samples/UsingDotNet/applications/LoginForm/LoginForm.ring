@@ -1,6 +1,7 @@
 # Login form with validation, a password hash and an error provider
 
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Text"
@@ -36,10 +37,12 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func hashOf cPassword
+
 	cBytes = new SHA256().HashData(cPassword)
 	return lower(new Convert().ToHexString(cBytes))
 
 func register cName, cPassword
+
 	for aUser in aUsers
 		if aUser[1] = lower(cName)
 			return false
@@ -49,6 +52,7 @@ func register cName, cPassword
 	return true
 
 func checkLogin cName, cPassword
+
 	for aUser in aUsers
 		if aUser[1] = lower(cName) and aUser[2] = hashOf(cPassword)
 			return true
@@ -57,10 +61,12 @@ func checkLogin cName, cPassword
 	return false
 
 func togglePassword
+
 	oPassword.UseSystemPasswordChar = not oShow.Checked
 
 # true when the fields are filled (the error provider shows an icon next to an empty one)
 func validate
+
 	lValid = true
 	if trim(oUser.Text) = ""
 		oErrors.SetError(oUser,"Enter the user name")
@@ -77,6 +83,7 @@ func validate
 	return lValid
 
 func signIn
+
 	if not validate()
 		oMessage.Text = "Please fill in both fields"
 		return
@@ -100,6 +107,7 @@ func signIn
 	ok
 
 func registerUser
+
 	if validate()
 		if register(oUser.Text,oPassword.Text)
 			oMessage {
