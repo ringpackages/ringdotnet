@@ -41,7 +41,7 @@ rungroup() {
 	SERIAL=$(mktemp)
 	PARALLEL=$(mktemp)
 	while IFS='|' read -r KIND DIR FILE LABEL; do
-		if [ "$FILE" = "main.ring" ]; then USES=$(grep -rlE "Clipboard|uiSendKeys|uiGameKeys|uiInputKeys" "$DIR" 2>/dev/null); else USES=$(grep -lE "Clipboard|uiSendKeys|uiGameKeys|uiInputKeys|dotnet publish|dotnet build" "$DIR/$FILE" 2>/dev/null); fi
+		if [ "$(basename "$(dirname "$DIR")")" = "applications" ]; then USES=$(grep -rlE "Clipboard|uiSendKeys|uiGameKeys|uiInputKeys" "$DIR" 2>/dev/null); else USES=$(grep -lE "Clipboard|uiSendKeys|uiGameKeys|uiInputKeys|dotnet publish|dotnet build" "$DIR/$FILE" 2>/dev/null); fi
 		if [ "$KIND" = "p" ]; then USES=package; fi
 		if [ -n "$USES" ]; then echo "$KIND|$DIR|$FILE|$LABEL" >> "$SERIAL"; else echo "$KIND|$DIR|$FILE|$LABEL" >> "$PARALLEL"; fi
 	done < "$LIST"
@@ -78,7 +78,8 @@ if [ "$QUICK" = "0" ] && [ "$ONLYPACKAGES" = "0" ]; then
 	# 3. samples and applications with a window: each one runs itself (--selftest) and prints SELFTEST OK
 	for f in "$HERE"/../Forms/*.ring; do echo "s|$HERE/../Forms|$(basename "$f")|samples/UsingDotNet/Forms/$(basename "$f")" >> "$LIST"; done
 	for f in "$HERE"/../Wpf/*.ring; do echo "s|$HERE/../Wpf|$(basename "$f")|samples/UsingDotNet/Wpf/$(basename "$f")" >> "$LIST"; done
-	for f in "$HERE"/../applications/*/main.ring; do echo "s|$(dirname "$f")|main.ring|application $(basename "$(dirname "$f")")" >> "$LIST"; done
+	# an application is the folder <Name> with <Name>.ring in it
+	for d in "$HERE"/../applications/*/; do d="${d%/}"; n=$(basename "$d"); f="$n.ring"; [ -f "$d/$f" ] || f="main.ring"; [ -f "$d/$f" ] && echo "s|$d|$f|application $n" >> "$LIST"; done
 	rungroup
 fi
 

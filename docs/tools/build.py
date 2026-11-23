@@ -459,13 +459,18 @@ def gallery(kind):
     else:
         folder = os.path.join(ROOT, "samples", "UsingDotNet", "applications")
         for d in sorted(os.listdir(folder)):
-            main = os.path.join(folder, d, "main.ring")
+            # the program of an application is <Name>/<Name>.ring
+            mainname = d + ".ring"
+            main = os.path.join(folder, d, mainname)
+            if not os.path.exists(main):
+                mainname = "main.ring"
+                main = os.path.join(folder, d, mainname)
             if not os.path.exists(main) or d in ("WebApi",):
                 continue
             src = read(main)
             if '"System.Windows' not in src and "dnUseDesktop" not in src:      # a window program: its using block names System.Windows.Forms or WPF
                 continue
-            items.append((pretty(d), first_comment(src), "app-%s.png" % d, src, "cd samples/UsingDotNet/applications/%s  then  ring main.ring" % d))
+            items.append((pretty(d), first_comment(src), "app-%s.png" % d, src, "cd samples/UsingDotNet/applications/%s  then  ring %s" % (d, mainname)))
     cards = []
     for title, desc, png, src, run in items:
         cards.append(
@@ -580,7 +585,7 @@ def stats():
     def count(p, ext=".ring"):
         p = os.path.join(ROOT, p)
         return len([f for f in os.listdir(p) if f.endswith(ext)]) if os.path.isdir(p) else 0
-    apps = len([d for d in os.listdir(os.path.join(ROOT, "samples", "UsingDotNet", "applications")) if os.path.exists(os.path.join(ROOT, "samples", "UsingDotNet", "applications", d, "main.ring"))])
+    apps = len([d for d in os.listdir(os.path.join(ROOT, "samples", "UsingDotNet", "applications")) if os.path.exists(os.path.join(ROOT, "samples", "UsingDotNet", "applications", d, d + ".ring")) or os.path.exists(os.path.join(ROOT, "samples", "UsingDotNet", "applications", d, "main.ring"))])
     tests = len([f for f in os.listdir(os.path.join(ROOT, "samples", "UsingDotNet", "tests")) if f.startswith("test_")])
     return {"namespaces": with_classes, "classes": "{:,}".format(classes), "forms": count("samples/UsingDotNet/Forms"), "wpf": count("samples/UsingDotNet/Wpf"), "apps": apps, "tests": tests}
 

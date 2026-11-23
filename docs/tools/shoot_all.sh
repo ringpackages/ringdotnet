@@ -9,4 +9,5 @@ shot() { # dir script out
 for f in "$ROOT"/samples/UsingDotNet/Forms/*.ring; do n=$(basename "$f" .ring); shot "$ROOT/samples/UsingDotNet/Forms" "$n.ring" "$HERE/img/shots/forms-$n.png"; done
 for f in "$ROOT"/samples/UsingDotNet/Wpf/*.ring; do n=$(basename "$f" .ring); shot "$ROOT/samples/UsingDotNet/Wpf" "$n.ring" "$HERE/img/shots/wpf-$n.png" 3500; done
 for d in "$ROOT"/samples/UsingDotNet/applications/*/; do n=$(basename "$d"); case "$n" in WebApi|Contacts) continue;; esac
-	if grep -q "dnUseDesktop" "$d/main.ring"; then shot "$d" main.ring "$HERE/img/shots/app-$n.png" 3500; fi; done
+	f="$n.ring"; [ -f "$d/$f" ] || f="main.ring"
+	if grep -q "dnUseDesktop" "$d/$f"; then shot "$d" "$f" "$HERE/img/shots/app-$n.png" 3500; fi; done
