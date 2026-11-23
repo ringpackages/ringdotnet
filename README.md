@@ -26,7 +26,7 @@ oSB.Append(", Ring!")
 ringpm install ringdotnet from ringpackages
 ```
 
-It includes over one million lines of generated Ring code, more than 6,000 pages of documentation, and a large collection of samples and applications.
+RingDotNet includes over one million lines of generated Ring code, more than 6,000 pages of documentation, and a large collection of samples and applications.
 
 ![RingDotNet: the cover of the PDF manual, and the size of the package](docs/img/ringdotnet.png)
 
