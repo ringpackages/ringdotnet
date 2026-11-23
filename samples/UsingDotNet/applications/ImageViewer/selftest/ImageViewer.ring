@@ -26,6 +26,8 @@ func selfTest
 	grayscale()
 	oGray = oImage.GetPixel(5,5)
 	dnAssert("gray has equal channels",oGray.R = oGray.G and oGray.G = oGray.B,True)
+	dnAssert("gray of blue",oGray.R,29)
+	dnAssert("the picture keeps its size",oInfoText.Text,"20 x 40   zoom 100%")
 	zoomBy(50)
 	dnAssert("zoom",nZoom,150)
 	zoomBy(-500)

@@ -88,18 +88,29 @@ func flip
 		showImage()
 	ok
 
+# One call to .NET for the whole picture: a color matrix gives every pixel its gray value
+# (a loop with GetPixel and SetPixel would cross from Ring to .NET several times for every pixel)
 func grayscale
 
 	if not isobject(oImage)
 		return
 	ok
-	for nY = 0 to oImage.Height - 1
-		for nX = 0 to oImage.Width - 1
-			oPixel = oImage.GetPixel(nX,nY)
-			nGray = floor(oPixel.R * 0.299 + oPixel.G * 0.587 + oPixel.B * 0.114)
-			oImage.SetPixel(nX,nY,uiRGB(nGray,nGray,nGray))
-		next
-	next
+	nWidth = oImage.Width
+	nHeight = oImage.Height
+	oMatrix = dnNew("ColorMatrix",[ [
+		[0.299,0.299,0.299,0,0],
+		[0.587,0.587,0.587,0,0],
+		[0.114,0.114,0.114,0,0],
+		[0,0,0,1,0],
+		[0,0,0,0,1] ] ])
+	oAttributes = new ImageAttributes()
+	oAttributes.SetColorMatrix(oMatrix)
+	oGray = new Bitmap(nWidth,nHeight)
+	oGraphics = new Graphics().FromImage(oGray)
+	oGraphics.callMethod("DrawImage",[oImage,new Rectangle(0,0,nWidth,nHeight),0,0,nWidth,nHeight,"Pixel",oAttributes])
+	oGraphics.Dispose()
+	oImage.Dispose()
+	oImage = oGray
 	showImage()
 
 func setZoom nPercent

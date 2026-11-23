@@ -2100,18 +2100,29 @@ oBox.<span class="f">BringToFront</span>()
 		showImage()
 	<span class="k">ok</span>
 
+<span class="c"># One call to .NET for the whole picture: a color matrix gives every pixel its gray value</span>
+<span class="c"># (a loop with GetPixel and SetPixel would cross from Ring to .NET several times for every pixel)</span>
 <span class="k">func</span> <span class="f">grayscale</span>
 
 	<span class="k">if</span> <span class="k">not</span> isobject(oImage)
 		<span class="k">return</span>
 	<span class="k">ok</span>
-	<span class="k">for</span> nY = <span class="n">0</span> <span class="k">to</span> oImage.Height - <span class="n">1</span>
-		<span class="k">for</span> nX = <span class="n">0</span> <span class="k">to</span> oImage.Width - <span class="n">1</span>
-			oPixel = oImage.<span class="f">GetPixel</span>(nX,nY)
-			nGray = floor(oPixel.R * <span class="n">0.299</span> + oPixel.G * <span class="n">0.587</span> + oPixel.B * <span class="n">0.114</span>)
-			oImage.<span class="f">SetPixel</span>(nX,nY,<span class="f">uiRGB</span>(nGray,nGray,nGray))
-		<span class="k">next</span>
-	<span class="k">next</span>
+	nWidth = oImage.Width
+	nHeight = oImage.Height
+	oMatrix = <span class="f">dnNew</span>(<span class="s">"ColorMatrix"</span>,[ [
+		[<span class="n">0.299</span>,<span class="n">0.299</span>,<span class="n">0.299</span>,<span class="n">0</span>,<span class="n">0</span>],
+		[<span class="n">0.587</span>,<span class="n">0.587</span>,<span class="n">0.587</span>,<span class="n">0</span>,<span class="n">0</span>],
+		[<span class="n">0.114</span>,<span class="n">0.114</span>,<span class="n">0.114</span>,<span class="n">0</span>,<span class="n">0</span>],
+		[<span class="n">0</span>,<span class="n">0</span>,<span class="n">0</span>,<span class="n">1</span>,<span class="n">0</span>],
+		[<span class="n">0</span>,<span class="n">0</span>,<span class="n">0</span>,<span class="n">0</span>,<span class="n">1</span>] ] ])
+	oAttributes = <span class="k">new</span> <span class="t">ImageAttributes</span>()
+	oAttributes.<span class="f">SetColorMatrix</span>(oMatrix)
+	oGray = <span class="k">new</span> <span class="t">Bitmap</span>(nWidth,nHeight)
+	oGraphics = <span class="k">new</span> <span class="t">Graphics</span>().<span class="f">FromImage</span>(oGray)
+	oGraphics.<span class="f">callMethod</span>(<span class="s">"DrawImage"</span>,[oImage,<span class="k">new</span> <span class="t">Rectangle</span>(<span class="n">0</span>,<span class="n">0</span>,nWidth,nHeight),<span class="n">0</span>,<span class="n">0</span>,nWidth,nHeight,<span class="s">"Pixel"</span>,oAttributes])
+	oGraphics.<span class="f">Dispose</span>()
+	oImage.<span class="f">Dispose</span>()
+	oImage = oGray
 	showImage()
 
 <span class="k">func</span> <span class="f">setZoom</span> nPercent
