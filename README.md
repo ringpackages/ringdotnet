@@ -54,18 +54,6 @@ It includes over one million lines of generated Ring code, more than 6,000 pages
 
 Windows is the tested platform. Linux (x64, Ubuntu 24.04, .NET 9) is tested too, except the Windows Forms and WPF programs, which need the Windows Desktop runtime. macOS and arm64 have not been tested yet.
 
-## Documentation
-
-| | |
-|---|---|
-| [`docs/index.html`](docs/index.html) | The manual: start with *Getting started*, then *Core concepts*. It has guides for Windows Forms, WPF, ASP.NET Core and Entity Framework, callbacks and events, advanced .NET types, your own assemblies, the generator, testing, and the rules and limits. |
-| [`docs/tutorials.html`](docs/tutorials.html) | Step-by-step lessons in chapters, from the basics to projects. Each lesson has a program in `samples/UsingDotNet/tutorials`. |
-| [`docs/api.html`](docs/api.html) | The class reference: every wrapped class with its constructors, properties, methods (with the way to call each from Ring) and events. |
-| [`docs/reference.html`](docs/reference.html) | The function index of the Ring library. |
-| PDF | `python docs/tools/makepdf.py` makes `docs/pdf/RingDotNet-documentation.pdf`, the manual with the class reference (several thousand pages). `--no-api` makes the manual alone. |
-
-Rebuild the HTML manual with `python docs/tools/build.py` (after `python docs/tools/dumpapi.py` when the classes changed).
-
 ## Samples and tests
 
 `samples/UsingDotNet` has:
@@ -106,14 +94,7 @@ A NuGet package comes to Ring in four steps: a project file with a `PackageRefer
 
 The namespaces that have Ring classes are listed in `tools/dotnettools/dotnetmanifest.ring`: the base class library (`System`, `System.Text`, `System.IO`, `System.Net`, `System.Xml`, `System.Data`...), Windows Forms and `System.Drawing`, WPF, ASP.NET Core with `Microsoft.Extensions.*`, and Entity Framework Core with SQLite. `tools/dotnettools/gendotnet.ring` generates the classes into `libraries/dotnetlib/generated` (run it without namespace names for the library; a run with names is for trying a change), and `dnImport("Namespace")` or a `using { }` block loads them on demand.
 
-## Limits
-
-* Ring code runs on one thread: a callback that .NET invokes from another thread is not run, and web handlers do not run in parallel (see *Rules and limits* in the manual).
-* A class written in C# cannot be declared in Ring: write it in C#, build a DLL and wrap it.
-* Windows Forms and WPF need Windows; everything else runs on Windows, Linux and macOS (macOS and arm64 are not tested yet).
-* .NET objects are released when Ring drops them; `release()` releases one at once.
-
-## How it is made
+## Architecture
 
 ```
 Ring program
@@ -129,14 +110,6 @@ RingDotNet.Bridge.dll (C#, reflection)
 | `tools/dotnettools` | The generators (`gendotnet.ring`, `wrapassembly.ring`), the manifest and the package script. |
 | `samples/UsingDotNet` | Samples, applications, tutorials and tests. |
 | `docs` | The manual (`docs/src` is the source) and its tools. |
-
-## Packaging
-
-After changing the library, the samples, the DLLs, the tests or the documentation, rebuild the zip before you commit:
-
-```
-python tools/dotnettools/makepackage.py
-```
 
 ## License
 
