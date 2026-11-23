@@ -1,6 +1,7 @@
 # Typing quiz - type the sentence, the quiz measures the speed and the mistakes (a port of ring/applications/typingquiz)
 
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.Diagnostics"
@@ -42,6 +43,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func newSentence
+
 	cTarget = aSentences[random(len(aSentences) - 1) + 1]
 	showTarget(cTarget)
 	oInput.Text = ""
@@ -54,11 +56,13 @@ func newSentence
 	oInput.Focus()
 
 func showTarget cText
+
 	cTarget = cText
 	oSentence.Text = cText
 
 # the number of typed characters that differ from the target (the part that is not typed yet does not count)
 func mistakes cTyped
+
 	nWrong = 0
 	for x = 1 to len(cTarget)
 		if x <= len(cTyped) and cTyped[x] != cTarget[x]
@@ -72,12 +76,14 @@ func mistakes cTyped
 
 # words per minute: five characters make a word
 func wordsPerMinute nCharacters, nMilliseconds
+
 	if nMilliseconds <= 0
 		return 0
 	ok
 	return floor((nCharacters / 5) / (nMilliseconds / 60000))
 
 func typed
+
 	cTyped = oInput.Text
 	if cTyped = "" or cTarget = ""
 		return
