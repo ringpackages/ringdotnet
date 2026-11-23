@@ -1,4 +1,4 @@
-# the checks of main.ring: run with  ring main.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
+# the checks of LightsOut.ring: run with  ring LightsOut.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
 	aLights = list(C_SIZE * C_SIZE)
