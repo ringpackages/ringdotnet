@@ -1,6 +1,7 @@
 # Color mixer in WPF: three sliders, a rectangle that shows the color and its #RRGGBB code
 
 load "dotnet.ring"
+
 using {
 	"System"
 	"System.IO"
@@ -19,6 +20,7 @@ oSwatch = ""
 oCode = ""
 
 func main
+
 	oWindow = wpfWindow("Color mixer",380,300)
 	oGrid = new Grid()
 	oGrid.Margin = new Thickness(15,15,15,15)
@@ -65,6 +67,7 @@ func main
 	wpfRun(oWindow)
 
 func hex2 nValue
+
 	cText = upper(hex(floor(nValue)))
 	if len(cText) < 2
 		cText = "0" + cText
@@ -72,6 +75,7 @@ func hex2 nValue
 	return cText
 
 func mix
+
 	if len(aSliders) < 3 or not isobject(oSwatch)
 		return
 	ok
