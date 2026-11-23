@@ -1,6 +1,7 @@
 # the checks of TodoList.ring: run with  ring TodoList.ring --selftest  (the program loads this file and runs selfTest() once its window is shown)
 
 func selfTest
+
 	if new File().Exists(cFile)
 		new File().Delete(cFile)
 	ok
