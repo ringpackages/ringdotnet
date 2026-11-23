@@ -1,6 +1,7 @@
 # Guess the number between 1 and 100 - higher/lower hints and an attempts counter
 
 load "dotnet.ring"
+
 using {
 	"System.Drawing"
 	"System.Windows.Forms"
@@ -36,6 +37,7 @@ uiRun(oForm)
 # --------------------------------------------------------------------------
 
 func newGame
+
 	nSecret = random(99) + 1
 	nAttempts = 0
 	oHint.Text = "Take a guess"
@@ -43,6 +45,7 @@ func newGame
 	oGuess.Value = 50
 
 func guess
+
 	nNumber = number(oGuess.Value)
 	nAttempts++
 	if nNumber < nSecret
