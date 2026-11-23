@@ -93,9 +93,9 @@ end
 
 `samples/UsingDotNet/applications/WebApi` is a to-do list with a web page and a JSON API. It tests itself by calling its own server with `HttpClient`:
 
-{{source:samples/UsingDotNet/applications/WebApi/main.ring}}
+{{source:samples/UsingDotNet/applications/WebApi/WebApi.ring}}
 
-{{output:samples/UsingDotNet/applications/WebApi/main.ring --selftest}}
+{{output:samples/UsingDotNet/applications/WebApi/WebApi.ring --selftest}}
 
 ## All of ASP.NET Core
 

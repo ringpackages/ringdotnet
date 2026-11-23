@@ -1,5 +1,5 @@
 # A small web application written in Ring on ASP.NET Core: a to-do list with a web page and a JSON API
-#   ring main.ring            then open http://localhost:5080/
+#   ring WebApi.ring            then open http://localhost:5080/
 #   GET /api/todos   POST /api/todos (the text is the body)   DELETE /api/todos?id=1
 
 load "dotnet.ring"
