@@ -198,7 +198,16 @@ func dnStatic  cTypeName, cMethod, aParameters
 	if not islist(aParameters)
 		aParameters = []
 	ok
-	return dnExchange("s4:call" + dnTypeItem(cTypeName) + dnPackItem(cMethod) + dnPack(aParameters))
+	return dnCallNamed(dnTypeHandle(cTypeName),cMethod,aParameters)
+
+# A call by the name of the method (callMethod, dnStatic): the extension packs the arguments and reads any answer.
+# nTarget is the handle of the object or of the type.
+func dnCallNamed  nTarget, cMethod, aParameters
+	dn_xAnswer = dotnet_callmethod("s4:call",nTarget,dnPackItem(cMethod),aParameters)
+	if islist(dn_xAnswer)
+		return dnAny(dn_xAnswer)
+	ok
+	return dn_xAnswer
 
 # Append the items of one list to another (in Ring, list + list adds a nested list)
 func dnJoin  aFirst, aRest

@@ -588,6 +588,7 @@ RING_FUNC(ring_dotnet_info)
 **  dotnet_call(cOperation, nHandle or cTypeName, cName, arg1, arg2, ...)     the answer is a text, a number or a yes/no
 **  dotnet_callv(...)                                                         a method that returns nothing: 1
 **  dotnet_callo(...)                                                         a method that returns an object
+**  dotnet_callmethod(cOperation, target, cName, aArguments)                  any answer (like dotnet_calla), the arguments are the items of one list
 **    cOperation and cName are ready wire items ("s4:call", "s8:Contains"), the target is the handle of the object (0: the null object) or,
 **    for a static method, the name of the type (the handle is remembered in this file). The arguments are packed here: texts, numbers,
 **    lists (also lists of lists), .NET objects (their handle) and callbacks (their code), like the Ring function dnPackItem does.
@@ -731,24 +732,32 @@ static int dn_packsub ( DnBuf *b, List *pSub )
 	return dn_packlist(b,pSub) ;
 }
 
-/* a list: the item 'l' with the items inside */
-static int dn_packlist ( DnBuf *b, List *pList )
+/* the items of a list, one after the other: 1 packed, 0 no memory, -1 an item that can not be sent */
+static int dn_packitems ( DnBuf *b, List *pList )
 {
-	DnBuf oInner ;
 	unsigned int x, nSize = ring_list_getsize(pList) ;
 	int nResult = 1 ;
-	dnbuf_init(&oInner);
 	for ( x = 1 ; x <= nSize && nResult > 0 ; x++ ) {
 		if ( ring_list_isstring(pList,x) ) {
-			nResult = dnbuf_item(&oInner,'s',ring_list_getstring(pList,x),(size_t) ring_list_getstringsize(pList,x)) ;
+			nResult = dnbuf_item(b,'s',ring_list_getstring(pList,x),(size_t) ring_list_getstringsize(pList,x)) ;
 		} else if ( ring_list_isnumber(pList,x) ) {
-			nResult = dnbuf_number(&oInner,ring_list_getdouble(pList,x)) ;
+			nResult = dnbuf_number(b,ring_list_getdouble(pList,x)) ;
 		} else if ( ring_list_islist(pList,x) ) {
-			nResult = dn_packsub(&oInner,ring_list_getlist(pList,x)) ;
+			nResult = dn_packsub(b,ring_list_getlist(pList,x)) ;
 		} else {
 			nResult = -1 ;
 		}
 	}
+	return nResult ;
+}
+
+/* a list: the item 'l' with the items inside */
+static int dn_packlist ( DnBuf *b, List *pList )
+{
+	DnBuf oInner ;
+	int nResult ;
+	dnbuf_init(&oInner);
+	nResult = dn_packitems(&oInner,pList) ;
 	if ( nResult > 0 ) {
 		nResult = dnbuf_item(b,'l',oInner.p,oInner.nSize) ;
 	}
@@ -850,7 +859,7 @@ static int ringdotnet_typehandle ( const char *cName, int nLen, double *pHandle 
 #define DN_MODE_OBJECT 2
 #define DN_MODE_ANY 3
 
-static void ringdotnet_docall ( void *pPointer, int nMode )
+static void ringdotnet_docall ( void *pPointer, int nMode, int nArgsList )
 {
 	int nPara, x, nOutSize = 0, nLen, nColon, nPacked ;
 	double nTarget ;
@@ -858,6 +867,10 @@ static void ringdotnet_docall ( void *pPointer, int nMode )
 	const unsigned char *pOut ;
 	char cTag, cNum[48] ;
 	nPara = RING_API_PARACOUNT ;
+	if ( nArgsList && ((nPara != 4) || (! RING_API_ISLIST(4)) || ring_list_isobject(RING_API_GETLIST(4))) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	if ( (nPara < 3) || (! RING_API_ISSTRING(1)) || ((! RING_API_ISNUMBER(2)) && (! RING_API_ISSTRING(2))) || (! RING_API_ISSTRING(3)) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -879,8 +892,12 @@ static void ringdotnet_docall ( void *pPointer, int nMode )
 	dnbuf_init(&oRequest);
 	nPacked = dnbuf_add(&oRequest,RING_API_GETSTRING(1),(size_t) RING_API_GETSTRINGSIZE(1)) && dnbuf_handle(&oRequest,nTarget) &&
 	          dnbuf_add(&oRequest,RING_API_GETSTRING(3),(size_t) RING_API_GETSTRINGSIZE(3)) ;
-	for ( x = 4 ; x <= nPara && nPacked > 0 ; x++ ) {
-		nPacked = dn_packparam(&oRequest,pPointer,x) ;
+	if ( nArgsList ) {
+		nPacked = dn_packitems(&oRequest,RING_API_GETLIST(4)) ;
+	} else {
+		for ( x = 4 ; x <= nPara && nPacked > 0 ; x++ ) {
+			nPacked = dn_packparam(&oRequest,pPointer,x) ;
+		}
 	}
 	if ( nPacked == 0 ) {
 		dnbuf_free(&oRequest);
@@ -991,22 +1008,29 @@ static void ringdotnet_docall ( void *pPointer, int nMode )
 
 RING_FUNC(ring_dotnet_call)
 {
-	ringdotnet_docall(pPointer,DN_MODE_VALUE);
+	ringdotnet_docall(pPointer,DN_MODE_VALUE,0);
 }
 
 RING_FUNC(ring_dotnet_callv)
 {
-	ringdotnet_docall(pPointer,DN_MODE_VOID);
+	ringdotnet_docall(pPointer,DN_MODE_VOID,0);
 }
 
 RING_FUNC(ring_dotnet_callo)
 {
-	ringdotnet_docall(pPointer,DN_MODE_OBJECT);
+	ringdotnet_docall(pPointer,DN_MODE_OBJECT,0);
 }
 
 RING_FUNC(ring_dotnet_calla)
 {
-	ringdotnet_docall(pPointer,DN_MODE_ANY);
+	ringdotnet_docall(pPointer,DN_MODE_ANY,0);
+}
+
+/* dotnet_callmethod(cOperation, nHandle or cTypeName, cName, aArguments): like dotnet_calla, with the arguments in one list
+   (callMethod and dnStatic: the number of arguments is known when the program runs) */
+RING_FUNC(ring_dotnet_callmethod)
+{
+	ringdotnet_docall(pPointer,DN_MODE_ANY,1);
 }
 
 /* dotnet_isnamed(xValue): 1 for a list of [name, value] pairs, the way Ring passes named arguments: [ :server = "x", :port = 80 ]  ([] too) */
@@ -1193,6 +1217,7 @@ RING_LIBINIT
 	RING_API_REGISTER("dotnet_callv",ring_dotnet_callv);
 	RING_API_REGISTER("dotnet_callo",ring_dotnet_callo);
 	RING_API_REGISTER("dotnet_calla",ring_dotnet_calla);
+	RING_API_REGISTER("dotnet_callmethod",ring_dotnet_callmethod);
 	RING_API_REGISTER("dotnet_isnamed",ring_dotnet_isnamed);
 	RING_API_REGISTER("dotnet_unpack",ring_dotnet_unpack);
 	RING_API_REGISTER("dotnet_unpacklist",ring_dotnet_unpacklist);
