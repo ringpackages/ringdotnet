@@ -49,17 +49,20 @@ func resolveNamespace aEntry
 	aExclude = optValue(aEntry,"exclude",[])
 	aOut = []
 	aNamed = []          # the types of the manifest with a name of their own: :all does not add them again under another name
-	for aListed in optValue(aEntry,"types",[])
+	aListedTypes = optValue(aEntry,"types",[])
+	for aListed in aListedTypes
 		aNamed + aListed[1]
 	next
 	if optValue(aEntry,"all",false)
-		for cName in dnRequest("listtypes",dnJoin([cNs],aAssemblies))
+		aListedNames = dnRequest("listtypes",dnJoin([cNs],aAssemblies))
+		for cName in aListedNames
 			if find(aExclude,cName) = 0 and find(aNamed,cName) = 0
 				aOut + [cName,"",-1,cName]
 			ok
 		next
 	ok
-	for aType in optValue(aEntry,"types",[])
+	aTypes = optValue(aEntry,"types",[])
+	for aType in aTypes
 		cRing = ""
 		nInit = -1
 		if len(aType) >= 2 cRing = aType[2] ok
@@ -1321,7 +1324,8 @@ func genAll aWanted
 	# Pass 1: resolve the types of every namespace and choose the Ring class names (global, so names never clash)
 	# explicit Ring class names are reserved first, so an automatic name never takes one of them
 	for aEntry in aDotNetManifest
-		for aType in optValue(aEntry,"types",[])
+		aTypes = optValue(aEntry,"types",[])
+		for aType in aTypes
 			if len(aType) >= 2 and aType[2] != ""
 				cCanonical = aType[1]
 				if substr(cCanonical,"`")

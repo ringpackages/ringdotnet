@@ -98,7 +98,8 @@ func generate
 		return
 	ok
 	cPassword = ""
-	for x = 1 to number(oLength.Value)
+	nPasswordLength = number(oLength.Value)
+	for x = 1 to nPasswordLength
 		cPassword += cChars[secureRandom(len(cChars)) + 1]
 	next
 	oPassword.Text = cPassword

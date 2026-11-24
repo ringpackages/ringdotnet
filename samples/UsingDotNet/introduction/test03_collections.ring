@@ -14,7 +14,8 @@ oList.Sort(NULL)
 ? "First = " + oList.Item(0)
 oList.SetItem(0,"avocado")
 ? "Contains(apple) = " + oList.Contains("apple")
-for cItem in oList.toList()
+aItems = oList.toList()
+for cItem in aItems
 	? "  " + cItem
 next
 

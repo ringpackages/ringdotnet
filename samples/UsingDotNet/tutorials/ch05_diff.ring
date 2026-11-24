@@ -44,7 +44,8 @@ func main
 
 	# 5. Only the changes, with one line of context around them. A long file has few changes, and a person wants to see only those.
 	? nl + "5. changes with 1 line of context:"
-	for cLine in withContext(aDiff,1)
+	aLines = withContext(aDiff,1)
+	for cLine in aLines
 		? "   " + cLine
 	next
 

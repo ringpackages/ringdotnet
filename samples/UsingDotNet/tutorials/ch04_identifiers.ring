@@ -39,7 +39,8 @@ func main
 	next
 	oList.callMethod("Sort",[])
 	cSorted = ""
-	for oItem in oList.toList()
+	aItems = oList.toList()
+	for oItem in aItems
 		cSorted += oItem.ToString() + " "
 	next
 	? nl + "4. sorted versions: " + cSorted

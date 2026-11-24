@@ -24,7 +24,8 @@ oZ = new Complex().@New([ :real = 3, :imaginary = 4 ])
 # Reflection: explore a type
 oMath = new Type().GetType([ :typeName = "System.Math" ])
 aNames = []
-for oMethod in oMath.GetMethods(NULL).toList()
+aMethods = oMath.GetMethods(NULL).toList()
+for oMethod in aMethods
 	if find(aNames,oMethod.Name) = 0 aNames + oMethod.Name ok
 next
 ? "Math methods   : " + len(aNames) + " names, e.g. " + aNames[1] + ", " + aNames[2] + ", " + aNames[3]

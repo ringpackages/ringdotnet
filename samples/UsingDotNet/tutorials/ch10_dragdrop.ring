@@ -93,7 +93,8 @@ func dropFiles oArgs
 	if not oArgs.Data.GetDataPresent("FileDrop")
 		return
 	ok
-	for cPath in oArgs.Data.GetData("FileDrop").toList()
+	aPaths = oArgs.Data.GetData("FileDrop").toList()
+	for cPath in aPaths
 		oFilesList.Items.Add(new Path().GetFileName(cPath))
 	next
 	oStatus.Text = "" + oFilesList.Items.Count + " files dropped"

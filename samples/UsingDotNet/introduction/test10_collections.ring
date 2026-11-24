@@ -9,7 +9,8 @@ using {
 
 # Word frequency with Dictionary<string,double> (entries are wrapped KeyValuePair objects)
 oCount = new NumberDictionary()
-for cWord in split("the quick brown fox jumps over the lazy dog the end"," ")
+aWords = split("the quick brown fox jumps over the lazy dog the end"," ")
+for cWord in aWords
 	aGot = oCount.TryGetValue(cWord)
 	nOld = 0
 	if aGot[1] nOld = aGot[2] ok
@@ -17,7 +18,8 @@ for cWord in split("the quick brown fox jumps over the lazy dog the end"," ")
 next
 ? "Distinct words : " + oCount.Count
 ? "'the' appears  : " + oCount.Item("the") + " times"
-for oPair in oCount.toList()
+aPairs = oCount.toList()
+for oPair in aPairs
 	if oPair.Value > 1 ? "  " + oPair.Key + " = " + oPair.Value ok
 next
 

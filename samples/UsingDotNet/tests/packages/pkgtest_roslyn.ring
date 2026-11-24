@@ -19,7 +19,8 @@ dnAssert("the text of the tree",oTree.ToString(),cCode)
 
 # walk the nodes: the methods of the class
 aMethods = []
-for oNode in oRoot.DescendantNodes(NULL).toList()
+aNodes = oRoot.DescendantNodes(NULL).toList()
+for oNode in aNodes
 	if dnStatic("Microsoft.CodeAnalysis.CSharp.CSharpExtensions","Kind",[oNode]) = "MethodDeclaration"
 		add(aMethods,oNode.Identifier.Text)
 	ok

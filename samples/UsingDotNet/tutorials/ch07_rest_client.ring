@@ -32,7 +32,8 @@ func main
 	? "1. GET /api/books -> status " + aAnswer[1]
 	oDocument = new JsonDocument().Parse(aAnswer[2])
 	oList = oDocument.RootElement
-	for nIndex = 0 to oList.GetArrayLength() - 1
+	nLastIndex = oList.GetArrayLength() - 1
+	for nIndex = 0 to nLastIndex
 		oBook = oList.Item(nIndex)
 		? "   " + oBook.GetProperty("id").GetInt32() + "  " + oBook.GetProperty("title").GetString() + " (" + oBook.GetProperty("year").GetInt32() + ")"
 	next

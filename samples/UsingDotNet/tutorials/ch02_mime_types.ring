@@ -64,7 +64,8 @@ func contentTypeOf oProvider,cFile
 func parseAccept cAccept
 
 	aItems = []
-	for cPart in str2list(substr(cAccept,",",nl))
+	aParts = str2list(substr(cAccept,",",nl))
+	for cPart in aParts
 		oValue = dnStatic(cHeaders + "MediaTypeHeaderValue","Parse",[trim(cPart)])
 		nQuality = oValue.Quality
 		if isObject(nQuality)

@@ -32,7 +32,8 @@ func wordsOf cText
 
 	oMatches = new Regex("[\p{L}\p{N}']+").Matches(cText)
 	aWords = []
-	for oMatch in oMatches.toList()
+	aMatches = oMatches.toList()
+	for oMatch in aMatches
 		aWords + lower(oMatch.Value)
 	next
 	return aWords
@@ -74,7 +75,8 @@ func countWords aWords
 		oCounts.SetItem(cWord,nOld + 1)
 	next
 	aList = []
-	for oPair in oCounts.toList()
+	aPairs = oCounts.toList()
+	for oPair in aPairs
 		aList + [oPair.Key,oPair.Value]
 	next
 	return sort(aList,2)

@@ -78,7 +78,8 @@ func main
 	# 4. A query: the rows with 9 units or more. The condition is a text in the query language of LiteDB.
 	oBig = oSales.callMethod("Find",[ new BsonExpression().Create("$.units >= 9") ])
 	aBig = []
-	for oRow in oBig.toList()
+	aRows = oBig.toList()
+	for oRow in aRows
 		aBig + [oRow.Item("region").AsString,oRow.Item("product").AsString,oRow.Item("units").AsInt32]
 	next
 	aBig = sort(aBig,1)
@@ -90,7 +91,8 @@ func main
 	# 5. Totals by region: the rows come out of the database as documents and Ring adds them up
 	aTotals = []          # [region, amount]
 	aAll = []
-	for oRow in oSales.callMethod("FindAll",[]).toList()
+	aRows = oSales.callMethod("FindAll",[]).toList()
+	for oRow in aRows
 		cRegion = oRow.Item("region").AsString
 		nAmount = oRow.Item("units").AsInt32 * oRow.Item("price").AsDouble
 		nPos = find(aTotals,cRegion,1)

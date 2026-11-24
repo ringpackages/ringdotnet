@@ -42,7 +42,8 @@ func main
 	aPaths = ["src/main.ring","src/old_main.ring","README.md","docs/guide/intro.md","docs/logo.png"]
 	oResult = dnStatic(cExt,"Match",[oMatcher3,".",aPaths])
 	? nl + "4. which of the names are matched: has matches = " + oResult.getProp("HasMatches")
-	for oFile in oResult.getProp("Files").toList()
+	aFiles = oResult.getProp("Files").toList()
+	for oFile in aFiles
 		? "   " + oFile.getProp("Path")
 	next
 
@@ -59,10 +60,12 @@ func showFiles oMatcher,cBase
 
 	oResult = dnStatic("Microsoft.Extensions.FileSystemGlobbing.MatcherExtensions","GetResultsInFullPath",[oMatcher,cBase])
 	aNames = []
-	for cFull in oResult.toList()
+	aFullNames = oResult.toList()
+	for cFull in aFullNames
 		aNames + substr(substr(cFull,cBase + "\",""),cBase + "/","")
 	next
-	for cName in sort(aNames)
+	aSortedNames = sort(aNames)
+	for cName in aSortedNames
 		? "   " + substr(cName,"\","/")
 	next
 	? "   (" + len(aNames) + " files)"

@@ -40,7 +40,8 @@ func selfTest
 	dnAssert("the history is empty after a sign change",oHistory.Text,"")
 	press("C")
 	# the buttons work as well
-	for oControl in oForm.Controls.toList()
+	aControls = oForm.Controls.toList()
+	for oControl in aControls
 		if classname(oControl) = "button" and oControl.Text = "7"
 			oControl.PerformClick()
 			exit
@@ -50,7 +51,8 @@ func selfTest
 	press("C")
 	# real key presses while a button has the focus (Enter used to press that button again)
 	oFocused = ""
-	for oControl in oForm.Controls.toList()
+	aControls = oForm.Controls.toList()
+	for oControl in aControls
 		if classname(oControl) = "button" and oControl.Text = "7"
 			oFocused = oControl
 		ok

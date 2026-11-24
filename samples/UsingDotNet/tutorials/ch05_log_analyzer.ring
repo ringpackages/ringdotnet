@@ -24,7 +24,8 @@ func main
 	oParts = new NumberDictionary()           # part with errors -> how many
 	aErrors = []                              # the texts of the errors
 	nLines = 0
-	for cLine in new File().ReadAllLines(cLog).toList()
+	aLogLines = new File().ReadAllLines(cLog).toList()
+	for cLine in aLogLines
 		oMatch = oLine.Match(cLine)
 		if not oMatch.Success
 			loop

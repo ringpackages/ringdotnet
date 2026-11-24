@@ -4,7 +4,8 @@
 func itemsText
 
 	cText = ""
-	for i = 0 to listBox().Items.Count - 1
+	nLastItem = listBox().Items.Count - 1
+	for i = 0 to nLastItem
 		if cText != ""
 			cText += ","
 		ok

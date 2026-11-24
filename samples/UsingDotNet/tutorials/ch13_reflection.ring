@@ -18,13 +18,15 @@ func main
 
 	# Its public properties
 	? nl + "Properties:"
-	for oProperty in oType.GetProperties(NULL).toList()
+	aProperties = oType.GetProperties(NULL).toList()
+	for oProperty in aProperties
 		? "  " + oProperty.Name + " : " + oProperty.PropertyType.Name + iif(oProperty.CanWrite," (read/write)"," (read only)")
 	next
 
 	# Its methods: many names appear several times (overloads), so list each name once
 	aNames = []
-	for oMethod in oType.GetMethods(NULL).toList()
+	aMethods = oType.GetMethods(NULL).toList()
+	for oMethod in aMethods
 		if find(aNames,oMethod.Name) = 0
 			aNames + oMethod.Name
 		ok
@@ -37,7 +39,8 @@ func main
 
 	# The overloads of one method, with their parameters
 	aVersions = []
-	for oMethod in oType.GetMethods(NULL).toList()
+	aMethods = oType.GetMethods(NULL).toList()
+	for oMethod in aMethods
 		if oMethod.Name = "Append"
 			aParameters = oMethod.GetParameters().toList()
 			if len(aParameters) = 1

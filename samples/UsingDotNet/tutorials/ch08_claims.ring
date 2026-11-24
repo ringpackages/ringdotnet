@@ -19,14 +19,16 @@ func main
 
 	? "1. authentication type: " + oIdentity.AuthenticationType + ", authenticated: " + oIdentity.IsAuthenticated
 	? "   claims: " + len(oIdentity.Claims.toList())
-	for oClaim in oIdentity.Claims.toList()
+	aClaims = oIdentity.Claims.toList()
+	for oClaim in aClaims
 		? "      " + oClaim.Type + " = " + oClaim.Value
 	next
 
 	# 2. Find a claim: FindFirst gives the first claim of a type, FindAll all of them, HasClaim answers yes or no
 	? nl + "2. email: " + oPrincipal.FindFirst("Email").Value
 	cRoles = ""
-	for oRole in oPrincipal.FindAll("Role").toList()
+	aRoles = oPrincipal.FindAll("Role").toList()
+	for oRole in aRoles
 		cRoles += oRole.Value + " "
 	next
 	? "   roles: " + cRoles
@@ -50,7 +52,8 @@ func main
 # True when one of the roles of the principal allows the action
 func mayDo oPrincipal, aRules, cAction
 
-	for oRole in oPrincipal.FindAll("Role").toList()
+	aRoles = oPrincipal.FindAll("Role").toList()
+	for oRole in aRoles
 		aAllowed = aRules[lower(oRole.Value)]
 		if not islist(aAllowed) loop ok
 		if find(aAllowed,cAction) > 0

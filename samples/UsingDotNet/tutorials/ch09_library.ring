@@ -38,7 +38,8 @@ func main
 
 	# STEP 4. Search with a SQL condition: {0} and {1} are parameters, never paste text into SQL yourself
 	? nl + "STEP 4: books after 1940:"
-	for aBook in oDb.where("Books","Year > {0}",[1940])
+	aBooks = oDb.where("Books","Year > {0}",[1940])
+	for aBook in aBooks
 		? "        " + dbValue(aBook,"Title") + " (" + dbValue(aBook,"Year") + ")"
 	next
 

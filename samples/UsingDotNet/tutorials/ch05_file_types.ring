@@ -145,7 +145,8 @@ func isPicture cFile
 func sortNames cFolder
 
 	aList = []
-	for oItem in new DirectoryInfo(cFolder).GetFiles(NULL).toList()
+	aItems = new DirectoryInfo(cFolder).GetFiles(NULL).toList()
+	for oItem in aItems
 		aList + oItem.Name
 	next
 	return sort(aList)

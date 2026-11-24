@@ -62,7 +62,8 @@ func pkgWrapAndLoad cFolder, aWraps
 		ok
 		dnLoad(cDll)
 	next
-	for cExtra in pkgExtraDlls(cLibs)
+	aExtras = pkgExtraDlls(cLibs)
+	for cExtra in aExtras
 		dnLoad(cExtra)
 	next
 
@@ -83,7 +84,8 @@ func pkgUseProject cName, cProject, aWraps
 	cFolder = cPkgCache + cName + "/"
 	cProjectFolder = cPkgHere + "/" + cProject + "/"
 	cSpec = ""
-	for aFile in dir(cProjectFolder)
+	aFiles = dir(cProjectFolder)
+	for aFile in aFiles
 		if not aFile[2] and (right(aFile[1],3) = ".cs" or right(aFile[1],7) = ".csproj")
 			cSpec += aFile[1] + ":" + read(cProjectFolder + aFile[1]) + ";"
 		ok

@@ -13,12 +13,14 @@ func main
 
 	# The generated class has a property for every column, plus navigations that follow the foreign keys
 	cProperties = ""
-	for cProperty in oDb.properties("Players")
+	aProperties = oDb.properties("Players")
+	for cProperty in aProperties
 		cProperties += cProperty + " "
 	next
 	? "Properties of a Player : " + cProperties
 	cProperties = ""
-	for cProperty in oDb.properties("Teams")
+	aProperties = oDb.properties("Teams")
+	for cProperty in aProperties
 		cProperties += cProperty + " "
 	next
 	? "Properties of a Team   : " + cProperties
@@ -42,7 +44,8 @@ func main
 
 	# STEP 2. Read objects, with the related object loaded (include)
 	? nl + "STEP 2: players with goals >= 3, with their team:"
-	for oPlayer in oDb.query("Players",[ ["where",["Goals",">=",3]], ["include",["Team"]] ])
+	aPlayers = oDb.query("Players",[ ["where",["Goals",">=",3]], ["include",["Team"]] ])
+	for oPlayer in aPlayers
 		? "        " + oPlayer.getProp("Name") + " plays for " + oPlayer.getProp("Team").getProp("Name")
 	next
 
@@ -53,7 +56,8 @@ func main
 	? nl + "STEP 3: Ann's goals in the database: " + oDb.getValue(oDb.find("Players",1),"Goals")
 
 	# STEP 4. The other direction: a team with its players
-	for oTeam in oDb.query("Teams",[ ["include",["Players"]] ])
+	aTeams = oDb.query("Teams",[ ["include",["Players"]] ])
+	for oTeam in aTeams
 		? nl + "STEP 4: team " + oTeam.getProp("Name") + " has " + oTeam.getProp("Players").getProp("Count") + " players"
 	next
 

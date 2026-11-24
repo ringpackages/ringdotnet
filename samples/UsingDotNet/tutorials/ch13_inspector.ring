@@ -59,7 +59,8 @@ func inspect n
 	nShown = 0
 	nFailed = 0
 	aRows = []
-	for oProperty in oObject.GetType().GetProperties(NULL).toList()
+	aProperties = oObject.GetType().GetProperties(NULL).toList()
+	for oProperty in aProperties
 		if len(oProperty.GetIndexParameters().toList()) > 0
 			loop
 		ok
@@ -72,7 +73,8 @@ func inspect n
 		done
 		aRows + [ oProperty.Name, oProperty.PropertyType.Name, cValue ]
 	next
-	for aRow in sortRows(aRows)
+	aSortedRows = sortRows(aRows)
+	for aRow in aSortedRows
 		oItem = new ListViewItem().@New([ :text = aRow[1] ])
 		oItem.SubItems.Add(aRow[2])
 		oItem.SubItems.Add(aRow[3])

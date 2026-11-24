@@ -83,7 +83,8 @@ func main
 # the lines of a text, each one indented by three spaces (the trace output has the line ending of the system)
 func showLines cText
 
-	for cLine in str2list(substr(cText,char(13),""))
+	aLines = str2list(substr(cText,char(13),""))
+	for cLine in aLines
 		if cLine != ""
 			? "   [" + cLine + "]"
 		ok

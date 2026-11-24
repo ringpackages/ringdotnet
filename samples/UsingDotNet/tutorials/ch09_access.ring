@@ -60,20 +60,23 @@ func main
 
 	# 4. A query gives rows. Reading goes through a reader: Read() moves to the next row and GetValue(n) reads a column (0 is the first).
 	? nl + "4. the customers in Cairo, by name:"
-	for aRow in rows(oConnection,"SELECT Id, Name, City FROM Customers WHERE City = ? ORDER BY Name",["Cairo"])
+	aCityRows = rows(oConnection,"SELECT Id, Name, City FROM Customers WHERE City = ? ORDER BY Name",["Cairo"])
+	for aRow in aCityRows
 		? "   " + aRow[1] + ": " + aRow[2] + " (" + aRow[3] + ")"
 	next
 	? "   the apostrophe and the Arabic name came back as they went in: " + (scalar(oConnection,"SELECT Name FROM Customers WHERE Id = ?",[2]) = "Bob O'Neil") + ", " + (scalar(oConnection,"SELECT Name FROM Customers WHERE Id = ?",[3]) = arabicName())
 
 	# 5. A join puts the data of two tables side by side
 	? nl + "5. each order with its customer (INNER JOIN):"
-	for aRow in rows(oConnection,"SELECT c.Name, o.Total, o.Ordered FROM Customers AS c INNER JOIN Orders AS o ON c.Id = o.CustomerId ORDER BY o.Ordered",[])
+	aOrderRows = rows(oConnection,"SELECT c.Name, o.Total, o.Ordered FROM Customers AS c INNER JOIN Orders AS o ON c.Id = o.CustomerId ORDER BY o.Ordered",[])
+	for aRow in aOrderRows
 		? "   " + padRight(shortName(aRow[1]),12) + padLeft(money(aRow[2]),8) + "   " + aRow[3]
 	next
 
 	# 6. Totals: GROUP BY makes one row for each customer, with SUM, COUNT and AVG. HAVING filters the groups.
 	? nl + "6. orders for each customer (customers with 2 orders or more):"
-	for aRow in rows(oConnection,"SELECT c.Name, COUNT(*) AS Orders, SUM(o.Total) AS Total, AVG(o.Total) AS Average FROM Customers AS c INNER JOIN Orders AS o ON c.Id = o.CustomerId GROUP BY c.Name HAVING COUNT(*) >= ? ORDER BY SUM(o.Total) DESC",[2])
+	aTotalRows = rows(oConnection,"SELECT c.Name, COUNT(*) AS Orders, SUM(o.Total) AS Total, AVG(o.Total) AS Average FROM Customers AS c INNER JOIN Orders AS o ON c.Id = o.CustomerId GROUP BY c.Name HAVING COUNT(*) >= ? ORDER BY SUM(o.Total) DESC",[2])
+	for aRow in aTotalRows
 		? "   " + padRight(shortName(aRow[1]),12) + aRow[2] + " orders, total " + money(aRow[3]) + ", average " + money(aRow[4])
 	next
 
@@ -83,7 +86,8 @@ func main
 
 	# 8. Dates. A DateTime object goes in as a parameter and comes back as a DateTime. Access has date functions: Year, Month, Format.
 	? nl + "8. the total of each month (Month function):"
-	for aRow in rows(oConnection,"SELECT Month(Ordered) AS M, SUM(Total) FROM Orders GROUP BY Month(Ordered) ORDER BY Month(Ordered)",[])
+	aMonthRows = rows(oConnection,"SELECT Month(Ordered) AS M, SUM(Total) FROM Orders GROUP BY Month(Ordered) ORDER BY Month(Ordered)",[])
+	for aRow in aMonthRows
 		? "   month " + aRow[1] + ": " + money(aRow[2])
 	next
 	? "   orders after 15 February: " + scalar(oConnection,"SELECT COUNT(*) FROM Orders WHERE Ordered > ?",[new DateTime(2024,2,15)])
@@ -205,7 +209,8 @@ func rows oConnection,cSql,aValues
 func tableNames oConnection
 
 	aNames = []
-	for oRow in oConnection.GetSchema("Tables").Rows.toList()
+	aTableRows = oConnection.GetSchema("Tables").Rows.toList()
+	for oRow in aTableRows
 		if oRow.callMethod("get_Item",["TABLE_TYPE"]) = "TABLE"
 			aNames + oRow.callMethod("get_Item",["TABLE_NAME"])
 		ok

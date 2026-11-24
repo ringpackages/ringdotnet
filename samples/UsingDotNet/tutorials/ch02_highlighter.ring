@@ -55,7 +55,8 @@ func tokens cCode,cPattern
 
 	aList = []
 	aKinds = [ "comment","string","number","word","other" ]
-	for oMatch in dnStatic("System.Text.RegularExpressions.Regex","Matches",[ cCode, cPattern ]).toList()
+	aMatches = dnStatic("System.Text.RegularExpressions.Regex","Matches",[ cCode, cPattern ]).toList()
+	for oMatch in aMatches
 		for cKind in aKinds
 			if oMatch.Groups.Item(cKind).Success
 				aList + [ cKind, oMatch.Value ]

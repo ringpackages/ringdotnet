@@ -26,7 +26,8 @@ func main
 	oMemory.Position = 0
 	oRead = dnNew("ZipArchive",[ :stream = oMemory, :mode = "Read", :leaveOpen = True ])
 	? nl + "2. the entries:"
-	for oEntry in oRead.Entries.toList()
+	aEntries = oRead.Entries.toList()
+	for oEntry in aEntries
 		? "   " + padRight(oEntry.FullName,18) + padLeft("" + oEntry.Length,6) + " bytes, packed smaller than the original: " + (oEntry.CompressedLength < oEntry.Length)
 	next
 
@@ -59,7 +60,8 @@ func main
 	oMemory.Position = 0
 	oCheck = dnNew("ZipArchive",[ :stream = oMemory, :mode = "Read" ])
 	cNames = ""
-	for oItem in oCheck.Entries.toList()
+	aItems = oCheck.Entries.toList()
+	for oItem in aItems
 		cNames += oItem.FullName + " "
 	next
 	? nl + "5. after the update: " + cNames

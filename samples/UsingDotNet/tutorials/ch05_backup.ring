@@ -61,7 +61,8 @@ func listBackups cBackups
 
 func showBackups cBackups
 
-	for cFile in listBackups(cBackups)
+	aFiles = listBackups(cBackups)
+	for cFile in aFiles
 		? "   " + new Path().GetFileName(cFile)
 	next
 

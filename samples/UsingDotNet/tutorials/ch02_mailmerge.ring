@@ -63,7 +63,8 @@ func main
 func fieldNames cTemplate
 
 	aNames = []
-	for oMatch in dnStatic("System.Text.RegularExpressions.Regex","Matches",[ cTemplate, cPattern() ]).toList()
+	aMatches = dnStatic("System.Text.RegularExpressions.Regex","Matches",[ cTemplate, cPattern() ]).toList()
+	for oMatch in aMatches
 		aNames + oMatch.Groups.Item(1).Value
 	next
 	return aNames
@@ -156,7 +157,8 @@ func first cLetter
 func indent cText
 
 	cOut = ""
-	for cLine in str2list(cText)
+	aTextLines = str2list(cText)
+	for cLine in aTextLines
 		cOut += "   | " + cLine + nl
 	next
 	return left(cOut,len(cOut) - 1)

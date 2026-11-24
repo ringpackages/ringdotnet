@@ -46,13 +46,15 @@ func main
 	# STEP 4. Report the contents that exist more than once
 	? nl + "STEP 4: duplicates"
 	nWasted = 0
-	for cHash in oGroups.Keys.toList()
+	aHashes = oGroups.Keys.toList()
+	for cHash in aHashes
 		aPaths = str2list(substr(oGroups.Item(cHash),"|",nl))
 		if len(aPaths) > 1
 			nSize = new FileInfo(aPaths[1]).Length
 			nWasted += nSize * (len(aPaths) - 1)
 			? "   " + len(aPaths) + " copies of the same " + nSize + " bytes:"
-			for cPath in sort(aPaths)
+			aSortedPaths = sort(aPaths)
+			for cPath in aSortedPaths
 				? "      " + substr(cPath,cFolder + "\","")
 			next
 		ok

@@ -114,7 +114,8 @@ func startProgram cFile, cArguments, lRedirect
 func lines cText
 
 	cResult = ""
-	for cLine in str2list(substr(substr(cText,char(13),""),char(10),nl))
+	aLines = str2list(substr(substr(cText,char(13),""),char(10),nl))
+	for cLine in aLines
 		if trim(cLine) != ""
 			if cResult != ""
 				cResult += ", "

@@ -30,7 +30,8 @@ func main
 	oStrict = new IdnMapping()
 	oStrict.UseStd3AsciiRules = True                       # only letters, digits and hyphens are allowed in a name (a space is refused)
 	? nl + "3. checking names (the second answer is with UseStd3AsciiRules):"
-	for cName in ["good-name.example","-bad.example","empty..label.example",copy("a",64) + ".example","has space.example"]
+	aNames = ["good-name.example","-bad.example","empty..label.example",copy("a",64) + ".example","has space.example"]
+	for cName in aNames
 		? "   " + padRight(shortText(cName),24) + padRight(checkName(oIdn,cName),32) + checkName(oStrict,cName)
 	next
 
@@ -46,7 +47,8 @@ func main
 	# 5. A defense: look at the SCRIPTS (alphabets) of the letters in each part. A normal name uses one script; a name that mixes
 	#    Latin and Cyrillic letters is suspicious. Browsers show such names in Punycode instead of the letters.
 	? nl + "5. the alphabets in each part of the name (the parts are separated by dots):"
-	for cName in [cLatin,cLookAlike,cGerman,cArabic,"dom" + char(208) + char(176) + "in.com"]
+	aNames = [cLatin,cLookAlike,cGerman,cArabic,"dom" + char(208) + char(176) + "in.com"]
+	for cName in aNames
 		? "   " + padRight(oIdn.GetAscii(cName),26) + padRight(scriptsOf(cName),18) + decision(cName)
 	next
 
@@ -93,7 +95,8 @@ func scriptOf nCode
 func scriptList cLabel
 
 	aScripts = []
-	for nCode in codePoints(cLabel)
+	aCodePoints = codePoints(cLabel)
+	for nCode in aCodePoints
 		cScript = scriptOf(nCode)
 		if cScript != "other" and find(aScripts,cScript) = 0
 			aScripts + cScript
@@ -109,14 +112,16 @@ func labels cName
 func scriptsOf cName
 
 	cText = ""
-	for cLabel in labels(cName)
+	aLabels = labels(cName)
+	for cLabel in aLabels
 		cText += joinWith(scriptList(cLabel),"+") + " "
 	next
 	return cText
 
 func isMixed cName
 
-	for cLabel in labels(cName)
+	aLabels = labels(cName)
+	for cLabel in aLabels
 		if len(scriptList(cLabel)) > 1
 			return True
 		ok

@@ -79,7 +79,8 @@ func loadTasks
 
 	oList.Items.Clear()
 	if new File().Exists(cFile)
-		for cLine in str2list(new File().ReadAllText(cFile))
+		aLines = str2list(new File().ReadAllText(cFile))
+		for cLine in aLines
 			cLine = trim(cLine)
 			if len(cLine) > 4
 				oList.Items.Add([ :item = substr(cLine,5), :isChecked = (left(cLine,3) = "[x]") ])

@@ -39,7 +39,8 @@ func main
 		aLines + (padRight(oEntry.EntryType,16) + padRight(oEntry.Name,18) + oEntry.Length + " bytes")
 	end
 	? nl + "2. " + len(aLines) + " entries (sorted here, because the order in a tar file is the order of the folder):"
-	for cLine in sort(aLines)
+	aSortedLines = sort(aLines)
+	for cLine in aSortedLines
 		? "   " + cLine
 	next
 	oReader.Dispose()

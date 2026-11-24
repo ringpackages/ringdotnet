@@ -43,7 +43,8 @@ func main
 func listNotes oRequest
 
 	aList = []
-	for aRow in oDb.all("Notes")
+	aRows = oDb.all("Notes")
+	for aRow in aRows
 		aList + [["id",dbValue(aRow,"Id")],["text",dbValue(aRow,"Text")]]
 	next
 	return webJson(aList)

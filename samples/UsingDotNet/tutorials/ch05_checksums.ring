@@ -65,7 +65,8 @@ func relativeFiles cFolder
 
 	aPaths = []
 	nCut = len(cFolder) + 2
-	for cFile in new Directory().GetFiles([ :path = cFolder, :searchPattern = "*", :searchOption = "AllDirectories" ]).toList()
+	aFiles = new Directory().GetFiles([ :path = cFolder, :searchPattern = "*", :searchOption = "AllDirectories" ]).toList()
+	for cFile in aFiles
 		cRelative = substr(substr(cFile,"\","/"),nCut)
 		if cRelative != "checksums.txt"
 			aPaths + cRelative
@@ -76,7 +77,8 @@ func relativeFiles cFolder
 func makeList cFolder
 
 	aList = []
-	for cRelative in relativeFiles(cFolder)
+	aRelatives = relativeFiles(cFolder)
+	for cRelative in aRelatives
 		aList + [ checksumOf(cFolder + "/" + cRelative), cRelative ]
 	next
 	return aList
@@ -93,7 +95,8 @@ func listText aList
 func readList cListFile
 
 	aList = []
-	for cLine in new File().ReadAllLines(cListFile).toList()
+	aLines = new File().ReadAllLines(cListFile).toList()
+	for cLine in aLines
 		if len(cLine) > 66 and left(cLine,1) != "#"
 			aList + [ left(cLine,64), substr(cLine,67) ]
 		ok
@@ -114,7 +117,8 @@ func verify cFolder,aList
 			aProblems + [ "CHANGED",aItem[2] ]
 		ok
 	next
-	for cRelative in relativeFiles(cFolder)
+	aRelatives = relativeFiles(cFolder)
+	for cRelative in aRelatives
 		if find(aKnown,cRelative) = 0
 			aProblems + [ "NEW",cRelative ]
 		ok

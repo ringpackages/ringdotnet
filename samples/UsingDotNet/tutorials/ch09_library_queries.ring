@@ -27,12 +27,14 @@ func main
 
 	# RELATIONS: the rows that belong to a row
 	? "Books by Tolkien:"
-	for aBook in oDb.children("Authors",nTolkien,"Books")
+	aBooks = oDb.children("Authors",nTolkien,"Books")
+	for aBook in aBooks
 		? "  " + dbValue(aBook,"Title")
 	next
 	? "Narnia was written by " + dbValue(oDb.parent("Books",4,"Authors"),"Name")
 	? nl + "Authors with their books:"
-	for aItem in oDb.include("Authors","Books")
+	aItems = oDb.include("Authors","Books")
+	for aItem in aItems
 		? "  " + dbValue(aItem[1],"Name") + ": " + len(aItem[2]) + " book(s)"
 	next
 
@@ -49,7 +51,8 @@ func main
 	? nl + "Average stars : " + oDb.average("Books","Stars",[])
 	? "Best rating   : " + oDb.max("Books","Stars",[])
 	? "Books per author:"
-	for aGroup in oDb.groupCount("Books","AuthorId",[])
+	aGroups = oDb.groupCount("Books","AuthorId",[])
+	for aGroup in aGroups
 		? "  author " + aGroup[1] + " -> " + aGroup[2]
 	next
 

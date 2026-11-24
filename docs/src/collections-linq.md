@@ -21,7 +21,8 @@ oList = new StringList()
 oList.Add("banana") oList.Add("apple") oList.Add("cherry")
 oList.Sort(NULL)
 ? oList.Count
-for cItem in oList.toList()            # toList() copies the collection to a Ring list
+aItems = oList.toList()                # toList() copies the collection to a Ring list
+for cItem in aItems
 	? cItem
 next
 

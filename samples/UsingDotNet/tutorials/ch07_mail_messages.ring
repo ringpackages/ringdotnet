@@ -29,7 +29,8 @@ func main
 	oMessage.Body = "Hello," + nl + "the meeting is on Friday at 10:00." + nl + "Ann"
 	? nl + "2. from: " + oMessage.From.Address
 	? "   to: " + oMessage.To.Count + " people, cc: " + oMessage.CC.Count + " person"
-	for oPerson in oMessage.To.toList()
+	aPersons = oMessage.To.toList()
+	for oPerson in aPersons
 		? "      " + oPerson.DisplayName + " <" + oPerson.Address + ">"
 	next
 	? "   subject: " + oMessage.Subject

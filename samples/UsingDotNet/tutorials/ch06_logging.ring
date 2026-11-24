@@ -49,7 +49,8 @@ func main
 		oSmall.info("message number " + nLine + " with some more text to fill the file")
 	next
 	? nl + "4. Files in the folder after 12 messages with a limit of 300 bytes:"
-	for cName in sort(new Directory().GetFiles([ :path = cFolder, :searchPattern = "small*" ]).toList())
+	aNames = sort(new Directory().GetFiles([ :path = cFolder, :searchPattern = "small*" ]).toList())
+	for cName in aNames
 		? "   " + new Path().GetFileName(cName)
 	next
 	new Directory().Delete([ :path = cFolder, :recursive = True ])

@@ -38,7 +38,8 @@ func markdownToHtml cMarkdown
 
 	oHtml = new StringBuilder("")
 	lInList = False
-	for cLine in str2list(cMarkdown)
+	aLines = str2list(cMarkdown)
+	for cLine in aLines
 		cLine = trim(cLine)
 		# an empty line ends a list and a paragraph
 		if cLine = ""

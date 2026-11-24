@@ -21,7 +21,8 @@ func main
 	for cRoute in ["users/{id}/orders/{orderId?}","products/{category}/{page=1}","files/{*path}","items/{id:int}"]
 		oTemplate = dnStatic(cRouting + "Template.TemplateParser","Parse",[cRoute])
 		cParts = ""
-		for oPart in oTemplate.getProp("Parameters").toList()
+		aParts = oTemplate.getProp("Parameters").toList()
+		for oPart in aParts
 			cKind = "required"
 			if oPart.getProp("IsOptional")
 				cKind = "optional"
@@ -69,7 +70,8 @@ func showMatch cTemplate,cPath
 		return "no match"
 	ok
 	cText = ""
-	for cKey in sort(oValues.Keys.toList())
+	aKeys = sort(oValues.Keys.toList())
+	for cKey in aKeys
 		cText += cKey + " = " + oValues.callMethod("get_Item",[cKey]) + "   "
 	next
 	return "match   " + cText
@@ -79,7 +81,8 @@ func matches cTemplate,cPath,oValues
 	oTemplate = dnStatic(cRouting + "Template.TemplateParser","Parse",[cTemplate])
 	# the defaults of the template ({page=1}) are given to the matcher: a part with a default may be missing at the END of the path
 	oDefaults = dnNew(cRouting + "RouteValueDictionary",[])
-	for oPart in oTemplate.getProp("Parameters").toList()
+	aParts = oTemplate.getProp("Parameters").toList()
+	for oPart in aParts
 		xDefault = oPart.getProp("DefaultValue")
 		if not isObject(xDefault)
 			oDefaults.Add(oPart.getProp("Name"),xDefault)

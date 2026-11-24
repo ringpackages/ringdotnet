@@ -65,7 +65,8 @@ func neighbors nCell
 func mineCount nCell
 
 	nTotal = 0
-	for nNear in neighbors(nCell)
+	aNears = neighbors(nCell)
+	for nNear in aNears
 		nTotal += aMine[nNear]
 	next
 	return nTotal
@@ -156,7 +157,8 @@ func reveal nCell
 			aButtons[nCurrent].ForeColor = numberColor(nNear)
 		else
 			aButtons[nCurrent].Text = ""
-			for nOther in neighbors(nCurrent)
+			aOthers = neighbors(nCurrent)
+			for nOther in aOthers
 				if not aRevealed[nOther] and not aFlagged[nOther]
 					aQueue + nOther
 				ok

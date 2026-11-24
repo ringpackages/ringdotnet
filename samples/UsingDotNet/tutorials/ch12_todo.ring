@@ -103,7 +103,8 @@ func loadTasks
 	lLoading = True
 	oDocument = new JsonDocument().Parse(new File().ReadAllText(cFile))
 	oRoot = oDocument.RootElement
-	for nIndex = 0 to oRoot.GetArrayLength() - 1
+	nLastIndex = oRoot.GetArrayLength() - 1
+	for nIndex = 0 to nLastIndex
 		oTask = oRoot.Item(nIndex)
 		oTasks.Items.Add([ :item = oTask.Item(1).GetString(), :isChecked = oTask.Item(0).GetInt32() = 1 ])
 	next

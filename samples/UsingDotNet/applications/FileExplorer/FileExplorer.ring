@@ -59,7 +59,8 @@ func addChildren oNode
 
 	oNode.Nodes.Clear()
 	try
-		for cFolder in new Directory().GetDirectories(oNode.Tag).toList()
+		aFolders = new Directory().GetDirectories(oNode.Tag).toList()
+		for cFolder in aFolders
 			oChild = oNode.Nodes.Add(new Path().GetFileName(cFolder))
 			oChild.Tag = cFolder
 			# a placeholder child makes the "+" visible
@@ -93,7 +94,8 @@ func showFolder
 	cFolder = oTree.SelectedNode.Tag
 	nFiles = 0
 	try
-		for cFile in new Directory().GetFiles(cFolder).toList()
+		aFiles = new Directory().GetFiles(cFolder).toList()
+		for cFile in aFiles
 			oInfo = new FileInfo(cFile)
 			oItem = new ListViewItem().@New([ :text = oInfo.Name ])
 			oItem.SubItems.Add(sizeText(oInfo.Length))

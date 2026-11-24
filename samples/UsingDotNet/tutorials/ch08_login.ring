@@ -109,7 +109,8 @@ func logoutUser oRequest
 func tokenOf oRequest
 
 	cHeader = oRequest.header("Cookie")
-	for cPart in str2list(substr(cHeader,";",nl))
+	aParts = str2list(substr(cHeader,";",nl))
+	for cPart in aParts
 		cPart = trim(cPart)
 		if left(cPart,8) = "session="
 			return substr(cPart,9)

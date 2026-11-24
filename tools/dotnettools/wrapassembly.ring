@@ -34,7 +34,8 @@ func main
 	for x = 5 to len(sysargv)
 		aWanted + sysargv[x]
 	next
-	for cNamespace in dnRequest("listnamespaces",[cAssembly])
+	aNamespaces = dnRequest("listnamespaces",[cAssembly])
+	for cNamespace in aNamespaces
 		aDotNetManifest + [ :namespace = cNamespace, :assemblies = [cAssembly], :all = true ]
 	next
 	? "Assembly " + cAssembly
@@ -57,7 +58,8 @@ func reserveLibraryNames
 	next
 	rl_cFolder = "../../libraries/dotnetlib/generated/"
 	rl_aLines = []
-	for rl_aFile in dir(rl_cFolder)
+	rl_aFiles = dir(rl_cFolder)
+	for rl_aFile in rl_aFiles
 		rl_cName = rl_aFile[1]
 		if right(rl_cName,5) = ".ring" and not substr(rl_cName,".classes.ring")
 			if find(rl_aSkip,left(rl_cName,len(rl_cName) - 5)) = 0
@@ -78,7 +80,8 @@ func reserveLibraryNames
 		rl_aOwn + rl_aEntry[:namespace]
 	next
 	if direxists(C_OUTDIR)
-		for rl_aFile in dir(C_OUTDIR)
+		rl_aFiles = dir(C_OUTDIR)
+		for rl_aFile in rl_aFiles
 			rl_cName = rl_aFile[1]
 			if right(rl_cName,5) = ".ring" and not substr(rl_cName,".classes.ring") and rl_cName != "classindex.ring"
 				if find(rl_aOwn,left(rl_cName,len(rl_cName) - 5)) = 0

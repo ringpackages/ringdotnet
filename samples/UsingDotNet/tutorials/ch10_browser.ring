@@ -63,7 +63,8 @@ func addFolderNode oNodes, cFolder
 
 	oNode = oNodes.Add(new Path().GetFileName(cFolder))
 	oNode.Tag = cFolder
-	for cSub in sort(new Directory().GetDirectories(cFolder).toList())
+	aSubs = sort(new Directory().GetDirectories(cFolder).toList())
+	for cSub in aSubs
 		addFolderNode(oNode.Nodes,cSub)
 	next
 	return oNode
@@ -75,7 +76,8 @@ func folderChosen
 	oList.Items.Clear()
 	nFiles = 0
 	nBytes = 0
-	for cFile in sort(new Directory().GetFiles(cFolder).toList())
+	aFiles = sort(new Directory().GetFiles(cFolder).toList())
+	for cFile in aFiles
 		oInfo = new FileInfo(cFile)
 		oItem = new ListViewItem().@New([ :text = oInfo.Name ])
 		oItem.SubItems.Add(sizeText(oInfo.Length))

@@ -38,7 +38,8 @@ func main
 		oDict.callMethod("Add",[cName,len(cName)])
 	next
 	cKeys = ""
-	for cKey in oDict.getProp("Keys").toList()
+	aKeys = oDict.getProp("Keys").toList()
+	for cKey in aKeys
 		cKeys += cKey + " "
 	next
 	? nl + "3. sorted dictionary, keys in order: " + cKeys

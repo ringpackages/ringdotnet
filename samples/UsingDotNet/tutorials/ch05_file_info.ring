@@ -67,11 +67,13 @@ func main
 	# 7. The files of a folder with their sizes, from DirectoryInfo (the names are sorted so that the output is always the same)
 	oFolder = new DirectoryInfo(cFolder)
 	aNames = []
-	for oItem in oFolder.GetFiles(NULL).toList()
+	aItems = oFolder.GetFiles(NULL).toList()
+	for oItem in aItems
 		aNames + (oItem.Name + " (" + oItem.Length + " bytes)")
 	next
 	? nl + "7. in the folder:"
-	for cName in sort(aNames)
+	aSortedNames = sort(aNames)
+	for cName in aSortedNames
 		? "   " + cName
 	next
 

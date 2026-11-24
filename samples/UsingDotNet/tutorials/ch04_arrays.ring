@@ -78,7 +78,8 @@ func makeIntArray aList
 func arrayText oArray
 
 	cText = ""
-	for item in oArray.toList()
+	aItems = oArray.toList()
+	for item in aItems
 		cText += "" + item + " "
 	next
 	return cText

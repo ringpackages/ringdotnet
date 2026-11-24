@@ -74,7 +74,8 @@ func pretty oNode
 # copy the keys of oSource into oTarget; where both are objects, merge them
 func merge oTarget, oSource
 
-	for cKey in keysOf(oSource)
+	aSourceKeys = keysOf(oSource)
+	for cKey in aSourceKeys
 		oValue = oSource.Item(cKey)
 		if oTarget.ContainsKey(cKey) and oTarget.Item(cKey).GetValueKind() = "Object" and oValue.GetValueKind() = "Object"
 			merge(oTarget.Item(cKey).AsObject(),oValue.AsObject())

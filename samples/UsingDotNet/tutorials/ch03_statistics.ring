@@ -25,7 +25,8 @@ func main
 	# 3. A histogram: how often each value occurs, as bars of #
 	? nl + "Histogram:"
 	aValues = []
-	for nValue in sort(aData)
+	aSortedValues = sort(aData)
+	for nValue in aSortedValues
 		if find(aValues,nValue) = 0
 			aValues + nValue
 		ok

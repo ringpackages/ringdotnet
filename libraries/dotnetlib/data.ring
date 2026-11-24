@@ -10,7 +10,8 @@
 	nId = oDb.insert("Customers",[["Name","Ann"],["Age",31],["City","Cairo"]])
 	aRow = oDb.byKey("Customers",nId)			# [["Id",1],["Name","Ann"],["Age",31],["City","Cairo"]]
 	? dbValue(aRow,"Name")
-	for aCustomer in oDb.where("Customers","Age > {0} AND City = {1}",[18,"Cairo"])
+	aCustomers = oDb.where("Customers","Age > {0} AND City = {1}",[18,"Cairo"])
+	for aCustomer in aCustomers
 		? dbValue(aCustomer,"Name")
 	next
 	oDb.update("Customers",nId,[["Age",32]])

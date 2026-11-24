@@ -11,11 +11,13 @@ oList.@ForEach(dnCallback("printItem"))
 
 ? "Sort by length (Comparison<string>):"
 oList.Sort([ :comparison = dnCallback("compareLength") ])
-for cItem in oList.toList() ? "  " + cItem next
+aItems = oList.toList()
+for cItem in aItems ? "  " + cItem next
 
 ? "FindAll starting with a (Predicate<string>):"
 oFound = oList.FindAll(dnCallback("startsWithA"))
-for cItem in oFound.toList() ? "  " + cItem next
+aItems = oFound.toList()
+for cItem in aItems ? "  " + cItem next
 ? "Exists(startsWithA) = " + oList.Exists(dnCallback("startsWithA"))
 
 # Callbacks can be any Ring code (as in RingQt events): aDotNetArgs holds the arguments, xDotNetResult the result

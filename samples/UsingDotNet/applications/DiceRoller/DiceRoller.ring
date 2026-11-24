@@ -47,7 +47,8 @@ func drawDie nIndex, nFace
 	nX = 10 + (nIndex - 1) * 80
 	oCanvas.fillRect(nX,10,70,70,"White")
 	oCanvas.drawRect(nX,10,70,70,"Black")
-	for nPip in pips(nFace)
+	aPips = pips(nFace)
+	for nPip in aPips
 		nRow = floor((nPip - 1) / 3)
 		nCol = (nPip - 1) % 3
 		oCanvas.fillCircle(nX + 15 + nCol * 20,25 + nRow * 20,6,"Black")

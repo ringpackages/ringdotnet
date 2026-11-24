@@ -133,7 +133,8 @@ func bestScores nCount
 
 	aScores = []
 	if new File().Exists(cScoreFile)
-		for cLine in new File().ReadAllLines(cScoreFile).toList()
+		aLines = new File().ReadAllLines(cScoreFile).toList()
+		for cLine in aLines
 			if trim(cLine) != ""
 				aScores + (0 + trim(cLine))
 			ok

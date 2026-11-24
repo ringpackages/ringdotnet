@@ -67,7 +67,8 @@ func main
 	? nl + "6. the rule of step 2: " + len(aProblems) + " problems"
 	aLog = applyPlan(cFolder,aPlan)
 	? "   renamed " + len(aLog) + " files; now the folder has:"
-	for cName in fileNames(cFolder)
+	aFileNames = fileNames(cFolder)
+	for cName in aFileNames
 		? "   " + cName
 	next
 
@@ -81,7 +82,8 @@ func main
 func fileNames cFolder
 
 	aList = []
-	for oItem in new DirectoryInfo(cFolder).GetFiles(NULL).toList()
+	aItems = new DirectoryInfo(cFolder).GetFiles(NULL).toList()
+	for oItem in aItems
 		aList + oItem.Name
 	next
 	return sort(aList)
@@ -147,7 +149,8 @@ func makePlan aNames,aRule
 
 func showPreview aNames,aRule
 
-	for aItem in makePlan(aNames,aRule)
+	aItems = makePlan(aNames,aRule)
+	for aItem in aItems
 		? "   " + padRight(aItem[1],26) + "-> " + aItem[2]
 	next
 

@@ -36,7 +36,8 @@ func main
 	# 3. A section: GetSection gives a part of the tree. Its Key is the last name; GetChildren lists what is directly inside
 	oSection = oConfig.GetSection("Database")
 	? nl + "3. the section " + oSection.Key + " has:"
-	for oChild in oSection.GetChildren().toList()
+	aChildren = oSection.GetChildren().toList()
+	for oChild in aChildren
 		? "   " + oChild.Key + " = " + oChild.Value
 	next
 

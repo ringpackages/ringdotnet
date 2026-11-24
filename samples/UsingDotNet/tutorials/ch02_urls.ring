@@ -36,7 +36,8 @@ func main
 	# 5. Read a query string: split on & and =, then decode each part
 	cQuery = "q=rock+%26+roll&page=2&lang=ar"
 	? nl + "5. the parameters of " + cQuery + ":"
-	for aPair in parseQuery(cQuery)
+	aPairs = parseQuery(cQuery)
+	for aPair in aPairs
 		? "   " + aPair[1] + " = " + aPair[2]
 	next
 
@@ -70,7 +71,8 @@ func buildUrl cBase, aParameters
 func parseQuery cQuery
 
 	aList = []
-	for cPart in str2list(substr(cQuery,"&",nl))
+	aParts = str2list(substr(cQuery,"&",nl))
+	for cPart in aParts
 		nPos = substr(cPart,"=")
 		aList + [left(cPart,nPos - 1),new WebUtility().UrlDecode(substr(cPart,nPos + 1))]
 	next
