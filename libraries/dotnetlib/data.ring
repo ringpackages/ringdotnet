@@ -59,7 +59,8 @@ class RingDatabase
 	# next to RingDotNet.Data.dll)
 	func init  cConnection, aSchema
 		db_cProvider = "sqlite"
-		for db_cName in ["sqlite","inmemory","sqlserver","postgres","mysql"]
+		db_aProviders = ["sqlite","inmemory","sqlserver","postgres","mysql"]
+		for db_cName in db_aProviders
 			if left(lower(cConnection),len(db_cName) + 1) = db_cName + ":"
 				db_cProvider = db_cName
 				cConnection = substr(cConnection,len(db_cName) + 2)
@@ -286,7 +287,8 @@ class RingEntityDb
 	# open the database; aSchema describes the tables, which become .NET classes (the same schema lists as RingDatabase)
 	func init  cConnection, aSchema
 		db_cProvider = "sqlite"
-		for db_cName in ["sqlite","inmemory","sqlserver","postgres","mysql"]
+		db_aProviders = ["sqlite","inmemory","sqlserver","postgres","mysql"]
+		for db_cName in db_aProviders
 			if left(lower(cConnection),len(db_cName) + 1) = db_cName + ":"
 				db_cProvider = db_cName
 				cConnection = substr(cConnection,len(db_cName) + 2)

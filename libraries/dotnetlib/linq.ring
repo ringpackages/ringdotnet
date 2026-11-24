@@ -137,7 +137,8 @@ class DotNetQuery
 	# Sum, Min, Max and Average are computed on the selected values (cCode = "" for the items themselves)
 	func Sum  cCode
 		nTotal = 0
-		for xItem in dnSelected(cCode)
+		aSelected = dnSelected(cCode)
+		for xItem in aSelected
 			nTotal += xItem
 		next
 		return nTotal

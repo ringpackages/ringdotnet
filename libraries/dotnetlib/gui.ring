@@ -124,7 +124,8 @@ func uiMenu  oForm, aMenus
 	ui_oStrip = new MenuStrip()
 	for ui_aMenu in aMenus
 		ui_oTop = new ToolStripMenuItem().@New([ :text = ui_aMenu[1] ])
-		for ui_aItem in ui_aMenu[2]
+		ui_aSubmenu = ui_aMenu[2]
+		for ui_aItem in ui_aSubmenu
 			if ui_aItem[1] = "-"
 				ui_oTop.DropDownItems.Add(new ToolStripSeparator())
 			else
@@ -161,7 +162,8 @@ func uiGameKeys  oForm, cCode
 
 # Make the arrow keys (and Enter, Escape) arrive as KeyDown events on every control of the container
 func uiInputKeys  oParent
-	for ui_oControl in oParent.Controls.toList()
+	ui_aControls = oParent.Controls.toList()
+	for ui_oControl in ui_aControls
 		ui_oControl.setPreviewKeyDownEvent("aDotNetArgs[2].IsInputKey = 1")
 		uiInputKeys(ui_oControl)
 	next
@@ -174,7 +176,8 @@ func uiSendKeys  oForm, cKeys
 	if not isobject(ui_oTarget) or ui_oTarget.nHandle = 0
 		ui_oTarget = oForm
 	ok
-	for ui_cToken in dnRequest("keytokens",[cKeys])
+	ui_aTokens = dnRequest("keytokens",[cKeys])
+	for ui_cToken in ui_aTokens
 		# the focus may move with a key (Tab, an arrow on a button): the target is looked up again for every key
 		ui_oTarget = oForm.ActiveControl
 		if not isobject(ui_oTarget) or ui_oTarget.nHandle = 0

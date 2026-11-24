@@ -359,7 +359,8 @@ func dnCallback  cCode
 func dnDispatchCallback
 	dn_aItems = dnUnpack(dotnet_callbackrequest())
 	aDotNetArgs = []
-	for dn_x = 2 to len(dn_aItems)
+	dn_nItems = len(dn_aItems)
+	for dn_x = 2 to dn_nItems
 		aDotNetArgs + dn_aItems[dn_x]
 	next
 	try
@@ -377,7 +378,8 @@ func dnIsIdentifier  cText
 	if cText = ""
 		return false
 	ok
-	for dn_x = 1 to len(cText)
+	dn_nLength = len(cText)
+	for dn_x = 1 to dn_nLength
 		dn_n = ascii(cText[dn_x])
 		dn_lLetter = (dn_n >= 65 and dn_n <= 90) or (dn_n >= 97 and dn_n <= 122) or dn_n = 95
 		dn_lDigit = (dn_n >= 48 and dn_n <= 57)
@@ -451,8 +453,9 @@ func dnImportFrom  cFolder, cNamespace
 
 # Name of a closed generic type: dnGenericName("System.Collections.Generic.List",["System.Int32"])
 func dnGenericName  cType, aArguments
-	dn_cName = cType + "`" + len(aArguments) + "["
-	for dn_x = 1 to len(aArguments)
+	dn_nArguments = len(aArguments)
+	dn_cName = cType + "`" + dn_nArguments + "["
+	for dn_x = 1 to dn_nArguments
 		if dn_x > 1 dn_cName += "," ok
 		dn_cName += "[" + aArguments[dn_x] + "]"
 	next
@@ -565,11 +568,13 @@ func dnFindFactory  dn_cChain
 		dnBuildIndexMap()
 	ok
 	dn_aParts = str2list(substr(dn_cChain,"|",nl))
-	for dn_x = 1 to len(dn_aParts)
+	dn_nParts = len(dn_aParts)
+	for dn_x = 1 to dn_nParts
 		# interfaces that can not be told apart (a class that is not public implements IElement and IContainer) come as one part: "A&B"
 		if substr(dn_aParts[dn_x],"&") > 0
 			dn_aClasses = []
-			for dn_cType in str2list(substr(dn_aParts[dn_x],"&",nl))
+			dn_aTypes = str2list(substr(dn_aParts[dn_x],"&",nl))
+			for dn_cType in dn_aTypes
 				dn_cClass = dnClassOfType(dn_cType)
 				if dn_cClass != ""
 					dn_aClasses + dn_cClass
@@ -621,8 +626,10 @@ func dnMakeMix  dn_cMix, dn_aClasses
 	# the properties of the other classes are attributes of the object (a property is read and set as an attribute: its getX/setX methods are merged)
 	dn_aHave = dnClassAttributes(dn_aClasses[1])
 	dn_cExtra = ""
-	for dn_x = 2 to len(dn_aClasses)
-		for dn_cAttribute in dnClassAttributes(dn_aClasses[dn_x])
+	dn_nClasses = len(dn_aClasses)
+	for dn_x = 2 to dn_nClasses
+		dn_aOther = dnClassAttributes(dn_aClasses[dn_x])
+		for dn_cAttribute in dn_aOther
 			if find(dn_aHave,dn_cAttribute) = 0
 				dn_aHave + dn_cAttribute
 				if dn_cExtra != ""
