@@ -1055,6 +1055,136 @@ RING_FUNC(ring_dotnet_callbackresult)
 	ringdotnet_setresult(RING_API_GETSTRING(1),(int) RING_API_GETSTRINGSIZE(1));
 }
 
+/* ---------------------------------------------------------------- dotnet_unpack: the answer of the bridge as a Ring list, read in C
+**
+**  dotnet_unpack(cItems)       the wire items of cItems as a list: [ item, item, ... ]
+**  dotnet_unpacklist(cItem)    cItem is ONE list item ("l...:..."): the list that it holds (no outer list, so Ring does not copy it)
+**    Only texts (s), numbers (n), yes/no (b) and lists of them (l) are read here. Any other item (an object, null, an error, a number
+**    that is not plain) or any malformed text makes the answer 0, and the Ring function dnUnpack reads the items itself.
+*/
+
+#define DN_UNPACK_DEPTH 64
+
+/* Read the items of p[0..nSize) into pList (NULL: only check them). Returns 1 when every item can be read here */
+static int dn_unpackitems ( List *pList, const char *p, size_t nSize, int nDepth )
+{
+	size_t nPos = 0, nLen, nDigits, x ;
+	char cTag, cNum[48] ;
+	while ( nPos < nSize ) {
+		cTag = p[nPos++] ;
+		nLen = 0 ;
+		nDigits = 0 ;
+		while ( (nPos < nSize) && (p[nPos] >= '0') && (p[nPos] <= '9') ) {
+			nLen = nLen * 10 + (size_t) (p[nPos] - '0') ;
+			nPos++ ;
+			nDigits++ ;
+			if ( nDigits > 9 ) {
+				return 0 ;
+			}
+		}
+		if ( (nDigits == 0) || (nPos >= nSize) || (p[nPos] != ':') ) {
+			return 0 ;
+		}
+		nPos++ ;
+		if ( nLen > nSize - nPos ) {
+			return 0 ;
+		}
+		switch ( cTag ) {
+			case 's' :
+				if ( pList ) {
+					ring_list_addstring2(pList,p + nPos,(unsigned int) nLen);
+				}
+				break ;
+			case 'n' :
+				/* a plain number only: digits, a sign, a point and an exponent (what number() of Ring reads) */
+				if ( (nLen == 0) || (nLen >= sizeof(cNum)) ) {
+					return 0 ;
+				}
+				for ( x = 0 ; x < nLen ; x++ ) {
+					char c = p[nPos + x] ;
+					if ( ! ((c >= '0' && c <= '9') || c == '-' || c == '+' || c == '.' || c == 'e' || c == 'E') ) {
+						return 0 ;
+					}
+				}
+				if ( pList ) {
+					memcpy(cNum,p + nPos,nLen);
+					cNum[nLen] = 0 ;
+					ring_list_adddouble(pList,strtod(cNum,NULL));
+				}
+				break ;
+			case 'b' :
+				if ( pList ) {
+					ring_list_adddouble(pList,((nLen > 0) && (p[nPos] == '1')) ? 1 : 0);
+				}
+				break ;
+			case 'l' :
+				if ( nDepth >= DN_UNPACK_DEPTH ) {
+					return 0 ;
+				}
+				if ( ! dn_unpackitems(pList ? ring_list_newlist(pList) : NULL,p + nPos,nLen,nDepth + 1) ) {
+					return 0 ;
+				}
+				break ;
+			default :
+				return 0 ;
+		}
+		nPos += nLen ;
+	}
+	return 1 ;
+}
+
+RING_FUNC(ring_dotnet_unpack)
+{
+	List *pList ;
+	if ( (RING_API_PARACOUNT != 1) || (! RING_API_ISSTRING(1)) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	/* check first, then build: a list that is not used is not made */
+	if ( ! dn_unpackitems(NULL,RING_API_GETSTRING(1),(size_t) RING_API_GETSTRINGSIZE(1),0) ) {
+		RING_API_RETNUMBER(0);
+		return ;
+	}
+	pList = RING_API_NEWLIST ;
+	dn_unpackitems(pList,RING_API_GETSTRING(1),(size_t) RING_API_GETSTRINGSIZE(1),0);
+	RING_API_RETLISTBYREF(pList);
+}
+
+RING_FUNC(ring_dotnet_unpacklist)
+{
+	const char *p ;
+	size_t nSize, nPos = 1, nLen = 0, nDigits = 0 ;
+	List *pList ;
+	if ( (RING_API_PARACOUNT != 1) || (! RING_API_ISSTRING(1)) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	p = RING_API_GETSTRING(1) ;
+	nSize = (size_t) RING_API_GETSTRINGSIZE(1) ;
+	/* exactly one list item: l<length>:<items> */
+	if ( (nSize < 3) || (p[0] != 'l') ) {
+		RING_API_RETNUMBER(0);
+		return ;
+	}
+	while ( (nPos < nSize) && (p[nPos] >= '0') && (p[nPos] <= '9') && (nDigits < 10) ) {
+		nLen = nLen * 10 + (size_t) (p[nPos] - '0') ;
+		nPos++ ;
+		nDigits++ ;
+	}
+	if ( (nDigits == 0) || (nDigits > 9) || (nPos >= nSize) || (p[nPos] != ':') || (nSize != nPos + 1 + nLen) ) {
+		RING_API_RETNUMBER(0);
+		return ;
+	}
+	nPos++ ;
+	if ( ! dn_unpackitems(NULL,p + nPos,nLen,1) ) {
+		RING_API_RETNUMBER(0);
+		return ;
+	}
+	pList = RING_API_NEWLIST ;
+	dn_unpackitems(pList,p + nPos,nLen,1);
+	RING_API_RETLISTBYREF(pList);
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("dotnet_start",ring_dotnet_start);
@@ -1064,6 +1194,8 @@ RING_LIBINIT
 	RING_API_REGISTER("dotnet_callo",ring_dotnet_callo);
 	RING_API_REGISTER("dotnet_calla",ring_dotnet_calla);
 	RING_API_REGISTER("dotnet_isnamed",ring_dotnet_isnamed);
+	RING_API_REGISTER("dotnet_unpack",ring_dotnet_unpack);
+	RING_API_REGISTER("dotnet_unpacklist",ring_dotnet_unpacklist);
 	RING_API_REGISTER("dotnet_guard",ring_dotnet_guard);
 	RING_API_REGISTER("dotnet_unguard",ring_dotnet_unguard);
 	RING_API_REGISTER("dotnet_pending",ring_dotnet_pending);

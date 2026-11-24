@@ -30,7 +30,7 @@ class DotNetObject
 		if not islist(aParameters)
 			aParameters = []
 		ok
-		return dnRequest("call",dnJoin([self,cMethod],aParameters))
+		return dnSend("s4:call",nHandle,dnPackItem(cMethod),dnPack(aParameters))
 
 	# Call a generic method whose type argument only its result shows (JsonConvert.DeserializeObject<T>(json)): the type arguments are a list of
 	# type names, then the arguments: oType.callGeneric("DeserializeObject",["System.Collections.Generic.List`1[[System.String]]"],[cJson])

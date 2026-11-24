@@ -47,8 +47,13 @@ func dnPack  aValues
 	next
 	return dn_cData
 
-# Unpack wire items to a Ring list
+# Unpack wire items to a Ring list. The extension reads items that are texts, numbers, yes/no and lists of them (a loop in Ring costs
+# more than the call that brought the answer); for anything else (objects, null, an error) the loop below reads the items.
 func dnUnpack  dn_cData
+	dn_aItems = dotnet_unpack(dn_cData)
+	if islist(dn_aItems)
+		return dn_aItems
+	ok
 	dn_aItems = []
 	dn_nPos = 1
 	dn_nSize = len(dn_cData)
@@ -134,6 +139,12 @@ func dnFinish  dn_cResponse
 			off
 		ok
 	ok
+	if dn_cTag = C_DOTNET_LIST
+		dn_aList = dotnet_unpacklist(dn_cResponse)          # one list: read in C, and returned as it is (the outer list would be copied)
+		if islist(dn_aList)
+			return dn_aList
+		ok
+	ok
 	dn_aItems = dnUnpack(dn_cResponse)
 	return dn_aItems[1]
 
@@ -187,7 +198,7 @@ func dnStatic  cTypeName, cMethod, aParameters
 	if not islist(aParameters)
 		aParameters = []
 	ok
-	return dnType(cTypeName).callMethod(cMethod,aParameters)
+	return dnExchange("s4:call" + dnTypeItem(cTypeName) + dnPackItem(cMethod) + dnPack(aParameters))
 
 # Append the items of one list to another (in Ring, list + list adds a nested list)
 func dnJoin  aFirst, aRest
