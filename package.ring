@@ -23,7 +23,6 @@ aPackageInfo = [
 	:files = 	[
 		"main.ring",
 		"README.md",
-		"CHANGELOG.md",
 		"setup.ring",
 		"uninstall.ring"
 	],
