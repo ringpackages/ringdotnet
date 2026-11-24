@@ -54,6 +54,8 @@ Values travel as a compact tagged text: `s5:Hello` (string), `n2:42` (number), `
 
 When a method returns an object, the bridge sends the list of its type, its base types and its interfaces (the interface named after the class first, then the ones that inherit the most interfaces: a class that is not public is wrapped as its interface). `dnWrapObject` looks for the **most specific** generated class (importing its namespace if needed) and creates it. If no class exists the result is a plain `DotNetObject` — use `callMethod` and `getProp` on it. (A delegate type is a callback and has a class only when extension methods extend it.)
 
+A class that is not public can be two interfaces at once, with no interface named after it (the elements of a fluent API are `IElement` and `IContainer`: `Text()` is a method of the second). When two or more interfaces of the object's own assembly rank the same, the bridge sends them as one group, and Ring wraps the object with a class made for that combination (its name starts with `DnMix_`). It derives from the first class and has the methods of the others merged in, so the object has the members of all of its interfaces. The class is made the first time it is needed and reused.
+
 ## Callbacks: Ring code called from .NET
 
 `dnCallback("...")` passes Ring code where .NET expects a delegate. The bridge builds a delegate of the exact type with a compiled expression; when .NET invokes it, the C extension runs the Ring function on the **Ring thread** and returns its result. Callbacks run synchronously during a call, which is why events from timers on other threads are ignored (see [Rules and limits](rules-and-limits.html)).

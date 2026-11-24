@@ -566,19 +566,107 @@ func dnFindFactory  dn_cChain
 	ok
 	dn_aParts = str2list(substr(dn_cChain,"|",nl))
 	for dn_x = 1 to len(dn_aParts)
-		dn_cClass = aDotNetClassMap[dn_aParts[dn_x]]
-		if dn_cClass = ""
-			dn_cNamespace = aDotNetIndexMap[dn_aParts[dn_x]]
-			if dn_cNamespace != "" and find(aDotNetImported,dn_cNamespace) = 0
-				dnImport(dn_cNamespace)
-				dn_cClass = aDotNetClassMap[dn_aParts[dn_x]]
+		# interfaces that can not be told apart (a class that is not public implements IElement and IContainer) come as one part: "A&B"
+		if substr(dn_aParts[dn_x],"&") > 0
+			dn_aClasses = []
+			for dn_cType in str2list(substr(dn_aParts[dn_x],"&",nl))
+				dn_cClass = dnClassOfType(dn_cType)
+				if dn_cClass != ""
+					dn_aClasses + dn_cClass
+				ok
+			next
+			if len(dn_aClasses) > 1
+				return dnCombinedFactory(dn_aClasses)
 			ok
+			if len(dn_aClasses) = 1
+				return "dotnetnew_" + dn_aClasses[1]
+			ok
+			loop
 		ok
+		dn_cClass = dnClassOfType(dn_aParts[dn_x])
 		if dn_cClass != ""
 			return "dotnetnew_" + dn_cClass
 		ok
 	next
 	return "-"
+
+# The Ring class of a .NET type name: the namespace of the type is imported when it is not loaded yet; "" when there is no class
+func dnClassOfType  dn_cType
+	dn_cClass = aDotNetClassMap[dn_cType]
+	if dn_cClass = ""
+		dn_cNamespace = aDotNetIndexMap[dn_cType]
+		if dn_cNamespace != "" and find(aDotNetImported,dn_cNamespace) = 0
+			dnImport(dn_cNamespace)
+			dn_cClass = aDotNetClassMap[dn_cType]
+		ok
+	ok
+	return dn_cClass
+
+# The factory of a combined class. Ring has one parent for a class, and an object that is two interfaces at once (IElement and IContainer: Text()
+# is a method of the second) needs the members of both, so a class is made once for the list of classes: it derives from the first, and the
+# methods of the others are merged into it. A wrapper method does nothing but send the name of its method to the bridge, so a method works on
+# any object that has it, whichever interface it was made for.
+func dnCombinedFactory  dn_aClasses
+	dn_cMix = "DnMix"
+	for dn_cClass in dn_aClasses
+		dn_cMix += "_" + dn_cClass
+	next
+	if find(aDotNetMixes,lower(dn_cMix)) = 0
+		aDotNetMixes + lower(dn_cMix)
+		dnMakeMix(dn_cMix,dn_aClasses)
+	ok
+	return "dotnetnew_" + dn_cMix
+
+func dnMakeMix  dn_cMix, dn_aClasses
+	# the properties of the other classes are attributes of the object (a property is read and set as an attribute: its getX/setX methods are merged)
+	dn_aHave = dnClassAttributes(dn_aClasses[1])
+	dn_cExtra = ""
+	for dn_x = 2 to len(dn_aClasses)
+		for dn_cAttribute in dnClassAttributes(dn_aClasses[dn_x])
+			if find(dn_aHave,dn_cAttribute) = 0
+				dn_aHave + dn_cAttribute
+				if dn_cExtra != ""
+					dn_cExtra += ","
+				ok
+				dn_cExtra += '"' + dn_cAttribute + '"'
+			ok
+		next
+	next
+	dn_cCode = "Func DotNetNew_" + dn_cMix + nl +
+	           "	oDotNetNew = new " + dn_cMix + "()" + nl + nl +
+	           "Class " + dn_cMix + " from " + dn_aClasses[1] + nl + nl +
+	           "	Func init" + nl +
+	           "		if nDotNetWrapHandle != 0" + nl +
+	           "			nHandle = nDotNetWrapHandle" + nl +
+	           "			nDotNetWrapHandle = 0" + nl +
+	           "			oDotNetGuard = dotnet_guard(nHandle)" + nl +
+	           "		ok" + nl
+	if dn_cExtra != ""
+		dn_cCode += "		addattribute(self,[" + dn_cExtra + "])" + nl
+	ok
+	dn_cCode += "		return self" + nl
+	eval(dn_cCode)
+	# the methods of the classes (and of the classes they derive from) are merged in the order of the list: a method that two of them have is the one of
+	# the first, and a method of the combined class itself (init) is never replaced
+	for dn_cClass in dn_aClasses
+		dnMergeClass(dn_cMix,dn_cClass)
+	next
+
+# The attributes of a generated class (the names in lower case)
+func dnClassAttributes  dn_cClass
+	eval("dn_oSample = new " + dn_cClass)
+	return attributes(dn_oSample)
+
+# Merge the methods of a class, then of the class it derives from..., into another class (the classes of DotNetObject are in every class already)
+func dnMergeClass  dn_cDestination, dn_cClass
+	dn_cCurrent = dn_cClass
+	dn_nDepth = 0
+	while dn_cCurrent != "" and lower(dn_cCurrent) != "dotnetobject" and dn_nDepth < 20
+		mergemethods(dn_cDestination,dn_cCurrent)
+		eval("dn_oSample = new " + dn_cCurrent)
+		dn_cCurrent = parentclassname(dn_oSample)
+		dn_nDepth++
+	end
 
 # The static class with the extension methods that a generated method calls: its assembly is loaded by the bridge the first time
 func dnEnsureExt  dn_cClass

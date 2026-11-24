@@ -229,6 +229,41 @@ namespace MyCompany.Tools
 	{
 		public static IBox NewBox(double side) { return new Box(side); }
 	}
+
+	// A class that is not public and implements two interfaces that do not inherit each other (the elements of a fluent API are like this). No interface
+	// is named after the class, so Ring wraps the object with a class that has the members of both interfaces, and of their extension methods.
+	public interface IChannelSource
+	{
+		string Read();
+		int Position { get; }
+	}
+
+	public interface IChannelSink
+	{
+		void Write(string text);
+		string Name { get; set; }
+	}
+
+	internal class Channel : IChannelSource, IChannelSink
+	{
+		private string data = "";
+		public string Name { get; set; } = "channel";
+		public int Position { get { return data.Length; } }
+		public string Read() { return data; }
+		public void Write(string text) { data += text; }
+	}
+
+	public static class ChannelExtensions
+	{
+		public static string Shout(this IChannelSource source) { return source.Read().ToUpperInvariant() + "!"; }
+		public static IChannelSink Tag(this IChannelSink sink, string tag) { sink.Write("[" + tag + "]"); return sink; }
+	}
+
+	public static class Channels
+	{
+		public static IChannelSink NewChannel() { return new Channel(); }
+		public static IChannelSource AsSource(IChannelSink sink) { return (IChannelSource) sink; }
+	}
 	// A class that is not public and implements a public interface explicitly (a row of Dapper is like this): the methods of the interface
 	// are called on the object although the class has no public method of that name.
 	public interface IGetter

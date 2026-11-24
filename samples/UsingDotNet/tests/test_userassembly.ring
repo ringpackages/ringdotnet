@@ -159,6 +159,23 @@ dnAssert("an inherited property can be set",oBox.Name,"big")
 dnAssert("a class gets the extension methods of its interface",new Circle().Label("a "),"a circle")
 dnAssert("an interface gets the extension methods of the interface it inherits",oBox.Label("a "),"a big")
 
+# a class that is not public and is two interfaces at once (neither is named after it): the wrapper has the members of both, with their properties
+# and the extension methods of each
+oChannel = new Channels().NewChannel()
+oChannel.Write("ab")          # a method of the interface that was asked for
+dnAssert("a method of the other interface",oChannel.Read(),"ab")
+dnAssert("a property of the other interface",oChannel.Position,2)
+dnAssert("a property of the first interface",oChannel.Name,"channel")
+oChannel.Name = "changed"
+dnAssert("a property of the first interface can be set",oChannel.Name,"changed")
+dnAssert("an extension method of the other interface",oChannel.Shout(),"AB!")
+dnAssert("an extension method of the first interface, and it answers the same object",oChannel.Tag("x").Read(),"ab[x]")
+dnAssert("a chain of calls goes on",oChannel.Tag("y").Tag("z").Shout(),"AB[X][Y][Z]!")
+oSource = new Channels().AsSource(oChannel)
+dnAssert("the same object as the other interface",oSource.Read(),"ab[x][y][z]")
+dnAssert("it has the members of both again",oSource.Name,"changed")
+dnAssert("and a copy of the object keeps them",classname(oSource),classname(oChannel))
+
 oCounter = new Counter()
 oCounter.Increment()
 oCounter.Increment()

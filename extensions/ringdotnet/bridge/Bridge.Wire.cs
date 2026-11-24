@@ -108,14 +108,39 @@ namespace RingDotNet
 			   then the ones that inherit the most interfaces. GetInterfaces gives no useful order, and a class that is not public
 			   (it is returned as the interface) would be wrapped as the first interface that has a wrapper, often a general one. */
 			string conventional = "I" + type.Name;
-			Type[] interfaces = type.GetInterfaces().OrderBy(i => i.Name == conventional ? 0 : 1).ThenByDescending(i => i.GetInterfaces().Length).ToArray();
-			foreach (Type i in interfaces)
+			Type[] interfaces = type.GetInterfaces().Where(i => i.IsVisible).OrderBy(i => i.Name == conventional ? 0 : 1).ThenByDescending(i => i.GetInterfaces().Length).ToArray();
+			/* Interfaces that rank the same (neither is the one named after the class, and they inherit as many interfaces) can not be told apart: a
+			   class that is not public and implements IElement and IContainer (the elements of a fluent API) is both. When two or more of them are
+			   interfaces of the assembly of the class itself, they are one part of the chain, joined with '&', and Ring wraps the object with a class that
+			   has the members of all of them. The interfaces of the framework (IDisposable ...) stay separate parts, after them. */
+			for (int start = 0; start < interfaces.Length;)
 			{
-				if (i.IsVisible && count++ < 40)
+				int end = start;
+				while (end < interfaces.Length && interfaces[end].Name == conventional == (interfaces[start].Name == conventional)
+					&& interfaces[end].GetInterfaces().Length == interfaces[start].GetInterfaces().Length) end++;
+				List<Type> group = new List<Type>();
+				List<Type> own = new List<Type>();
+				for (int k = start; k < end; k++)
 				{
+					if (!interfaces[k].IsGenericType && interfaces[k].Assembly == type.Assembly) own.Add(interfaces[k]); else group.Add(interfaces[k]);
+				}
+				if (own.Count >= 2 && count < 40)
+				{
+					sb.Append('|').Append(string.Join("&", own.Select(i => i.FullName ?? i.Name)));
+					count += own.Count;
+				}
+				else
+				{
+					group.InsertRange(0, own);
+					own.Clear();
+				}
+				foreach (Type i in group)
+				{
+					if (count++ >= 40) break;
 					sb.Append('|').Append(i.FullName ?? i.Name);
 					if (i.IsGenericType) sb.Append('|').Append(i.GetGenericTypeDefinition().FullName);
 				}
+				start = end;
 			}
 			return sb.ToString();
 		}

@@ -1,7 +1,5 @@
 # QuestPDF: a PDF made from a description in code (a document, pages, text, columns, rows and a table); the pieces are Ring functions that .NET
 # calls while the document is made, and PdfPig reads the file back to check what is in it.
-# Some members answer an object of an internal class (Alignment, TableCell...) that implements IElement and IContainer, and Ring wraps it as one of them
-# (IElement): Text() is an extension method of IContainer, so on that object it is called by its name with callMethod.
 # QuestPDF needs a license choice before it makes a document: the Community license is set below, as the owner of this package decided (the terms are in
 # the QuestPDF repository: https://github.com/QuestPDF/QuestPDF).
 load "pkg.ring"
@@ -63,7 +61,7 @@ func qpHelloPage aArgs
 	oPage.Size(dnType("QuestPDF.Helpers.PageSizes").getProp("A4"))
 	oPage.Margin(2)
 	oPage.Content().Text("Hello from Ring")
-	oPage.Footer().AlignCenter().callMethod("Text",[dnCallback("qpFooter")])
+	oPage.Footer().AlignCenter().Text(dnCallback("qpFooter"))
 
 func qpFooter aArgs
 
@@ -81,7 +79,7 @@ func qpLongPage aArgs
 	oPage.Size(dnType("QuestPDF.Helpers.PageSizes").getProp("A4"))
 	oPage.Margin(2)
 	oPage.Content().Column(dnCallback("qpColumn"))
-	oPage.Footer().AlignCenter().callMethod("Text",[dnCallback("qpFooterOf")])
+	oPage.Footer().AlignCenter().Text(dnCallback("qpFooterOf"))
 
 func qpColumn aArgs
 
@@ -95,17 +93,17 @@ func qpColumn aArgs
 func qpRow aArgs
 
 	oRow = aArgs[1]
-	oRow.RelativeItem(NULL).callMethod("Text",["left"])
-	oRow.RelativeItem(NULL).callMethod("AlignRight",[]).callMethod("Text",["right"])
+	oRow.RelativeItem(NULL).Text("left")
+	oRow.RelativeItem(NULL).AlignRight().Text("right")
 
 func qpTable aArgs
 
 	oTable = aArgs[1]
 	oTable.ColumnsDefinition(dnCallback("qpColumns"))
-	oTable.Cell().callMethod("Text",["Name"])
-	oTable.Cell().callMethod("Text",["Language"])
-	oTable.Cell().callMethod("Text",["RingDotNet"])
-	oTable.Cell().callMethod("Text",["Ring"])
+	oTable.Cell().Text("Name")
+	oTable.Cell().Text("Language")
+	oTable.Cell().Text("RingDotNet")
+	oTable.Cell().Text("Ring")
 
 func qpColumns aArgs
 

@@ -23,6 +23,7 @@ aDotNetExtLoaded = []          # the static classes of extension methods that th
 aDotNetUserFolders = []          # the folders of dnImportFrom: a namespace of a wrapped assembly may need another namespace of the same assembly
 aDotNetPrototypes = []          # factory function --> a ready object of its class (see dnPrototype)
 aDotNetTypeItems = []          # type name --> its wire item (see dnTypeItem)
+aDotNetMixes = []          # the combined classes that were made (lower case names, see dnCombinedFactory)
 
 # Arguments (a list) and result of the Ring callback that .NET is running now;
 # callback code can read aDotNetArgs and set xDotNetResult
