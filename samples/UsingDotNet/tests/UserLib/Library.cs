@@ -416,6 +416,33 @@ namespace MyCompany.Tools
 		public int this[string text] { get { return text.Length; } set { texts[0] = text; } }
 	}
 
+	// Collections of every kind for toList(): items that are all texts, numbers or yes/nos are made into a Ring list in C; a null, an object, a list that
+	// holds one, bytes, or an error while the items are read are the generic answer
+	public class TypedLists
+	{
+		public List<string> Texts() { return new List<string> { "a", "", "héllo ✓", "line\nbreak", "tab\t", "nul\0nul" }; }
+		public List<int> Numbers() { return new List<int> { 0, 1, -1, 2147483647, -2147483648 }; }
+		public List<long> Longs() { return new List<long> { 9007199254740993, -9007199254740993, long.MaxValue }; }
+		public List<double> Doubles() { return new List<double> { 0.1, -2.5, 1e300, double.Epsilon }; }
+		public List<float> Floats() { return new List<float> { 0.1f, 1.5f }; }
+		public List<decimal> Decimals() { return new List<decimal> { 1.5m, 12345678.9m }; }
+		public List<bool> Bools() { return new List<bool> { true, false, true }; }
+		public List<object> Mixed() { return new List<object> { 1, "two", 3.5, true }; }
+		public List<object> WithNull() { return new List<object> { 1, null, "x" }; }
+		public List<object> WithObject() { return new List<object> { 1, new TypedBox { IntValue = 7 } }; }
+		public List<string> Nulls() { return new List<string> { "a", null, "b" }; }
+		public List<string> Empty() { return new List<string>(); }
+		public List<byte[]> Bytes() { return new List<byte[]> { new byte[] { 1, 2, 3 }, new byte[] { 255, 254 } }; }
+		public List<List<string>> Nested() { return new List<List<string>> { new List<string> { "x" } }; }
+		public Dictionary<string, int> Dict() { return new Dictionary<string, int> { { "a", 1 }, { "b", 2 } }; }
+		public string[] Array() { return new[] { "p", "q" }; }
+		public int[] Ints() { return new[] { 4, 5, 6 }; }
+		public List<int> Big() { List<int> list = new List<int>(); for (int i = 0; i < 20000; i++) list.Add(i); return list; }
+		public List<string> BigTexts() { List<string> list = new List<string>(); for (int i = 0; i < 5000; i++) list.Add("item number " + i); return list; }
+		public IEnumerable<int> Throws() { yield return 1; yield return 2; throw new InvalidOperationException("enumeration failed"); }
+		public IEnumerable<int> Lazy() { yield return 10; yield return 20; }
+	}
+
 	public static class Channels
 	{
 		public static IChannelSink NewChannel() { return new Channel(); }

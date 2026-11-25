@@ -63,7 +63,12 @@ class DotNetObject
 
 	# Copy the items of an array or collection to a Ring list
 	func toList
-		return dnRequest("tolist",[self])
+		# the extension asks for the items and keeps the answer; a list of texts, numbers and yes/nos is made in C and returned as it is (a Ring function that
+		# held or passed the list would copy it), any other answer (objects, null...) is read by dnFinish from the answer that was kept
+		if dotnet_tolistok(nHandle)
+			return dotnet_tolistget()
+		ok
+		return dnFinish(dotnet_tolistraw())
 
 	# An IAsyncEnumerable (a method that returns one has no await foreach in Ring): toList() reads all the items. One item at a time:
 	#   oEnum = oStream.asyncEnumerator()    while oEnum.asyncNext()  ? oEnum.Current  end    oEnum.asyncDispose()

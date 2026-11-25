@@ -1550,6 +1550,114 @@ RING_FUNC(ring_dotnet_unpacklist)
 	RING_API_RETLISTBYREF(pList);
 }
 
+/* dotnet_tolistok(nHandle), dotnet_tolistget(), dotnet_tolistraw(): the items of a collection or an array as a Ring list, in two steps.
+   dotnet_tolistok makes the request "tolist" and keeps the answer here: it answers 1 when every item is a text, a number, a yes/no or a list of them, and 0
+   otherwise (an object, a null...); an error of .NET is raised. Then dotnet_tolistget makes the Ring list from the kept answer in C and returns it as it is
+   (a Ring function that held or passed the list would copy it), and dotnet_tolistraw returns the kept answer as a text, which dnFinish reads (the objects are
+   wrapped by Ring), so a collection of objects is not asked twice. */
+static unsigned char *g_pListAnswer = NULL ;
+static int g_nListAnswerSize = 0 ;
+
+static void ringdotnet_dropanswer ( void )
+{
+	if ( g_pListAnswer ) {
+		g_pFree((void *) g_pListAnswer);
+		g_pListAnswer = NULL ;
+	}
+	g_nListAnswerSize = 0 ;
+}
+
+/* the position and the length of the items of an answer that is exactly one list item (l<length>:<items>), or 0 */
+static int ringdotnet_listitems ( const unsigned char *p, int nSize, size_t *pPos, size_t *pLen )
+{
+	size_t nPos = 1, nLen = 0, nDigits = 0 ;
+	if ( (nSize < 3) || (p[0] != 'l') ) {
+		return 0 ;
+	}
+	while ( (nPos < (size_t) nSize) && (p[nPos] >= '0') && (p[nPos] <= '9') && (nDigits < 10) ) {
+		nLen = nLen * 10 + (size_t) (p[nPos] - '0') ;
+		nPos++ ;
+		nDigits++ ;
+	}
+	if ( (nDigits == 0) || (nDigits > 9) || (nPos >= (size_t) nSize) || (p[nPos] != ':') || ((size_t) nSize != nPos + 1 + nLen) ) {
+		return 0 ;
+	}
+	*pPos = nPos + 1 ;
+	*pLen = nLen ;
+	return 1 ;
+}
+
+RING_FUNC(ring_dotnet_tolistok)
+{
+	DnBuf oRequest ;
+	const unsigned char *pOut ;
+	int nOutSize = 0, nPacked ;
+	void *pOldVM ;
+	size_t nPos, nLen ;
+	if ( (RING_API_PARACOUNT != 1) || (! RING_API_ISNUMBER(1)) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! ringdotnet_startruntime(NULL) ) {
+		RING_API_ERROR(g_cError);
+		return ;
+	}
+	ringdotnet_dropanswer();
+	dnbuf_init(&oRequest);
+	nPacked = dnbuf_add(&oRequest,"s6:tolist",9) && dnbuf_handle(&oRequest,RING_API_GETNUMBER(1)) ;
+	if ( nPacked == 0 ) {
+		dnbuf_free(&oRequest);
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	fflush(stdout);
+	if ( g_nPending >= DN_FLUSH_AT ) {
+		ringdotnet_flushpending();
+	}
+	pOldVM = g_pVM ;
+	g_pVM = pPointer ;
+	g_nDepth++ ;
+	pOut = g_pInvoke((const unsigned char *) oRequest.p,(int) oRequest.nSize,&nOutSize);
+	g_nDepth-- ;
+	g_pVM = pOldVM ;
+	dnbuf_free(&oRequest);
+	if ( ! pOut ) {
+		RING_API_ERROR("The .NET bridge returned no response");
+		return ;
+	}
+	if ( (nOutSize > 0) && (pOut[0] == 'e') ) {
+		/* an error of .NET: raised here, as the generic request raises it */
+		ringdotnet_answer(pPointer,DN_MODE_VALUE,pOut,nOutSize);
+		return ;
+	}
+	g_pListAnswer = (unsigned char *) pOut ;
+	g_nListAnswerSize = nOutSize ;
+	RING_API_RETNUMBER((ringdotnet_listitems(pOut,nOutSize,&nPos,&nLen) && dn_unpackitems(NULL,(const char *) pOut + nPos,nLen,1)) ? 1 : 0);
+}
+
+RING_FUNC(ring_dotnet_tolistget)
+{
+	size_t nPos, nLen ;
+	if ( g_pListAnswer && ringdotnet_listitems(g_pListAnswer,g_nListAnswerSize,&nPos,&nLen) ) {
+		List *pList = RING_API_NEWLIST ;
+		dn_unpackitems(pList,(const char *) g_pListAnswer + nPos,nLen,1);
+		RING_API_RETLISTBYREF(pList);
+		ringdotnet_dropanswer();
+		return ;
+	}
+	RING_API_ERROR("DotNet Error: no list was kept");
+}
+
+RING_FUNC(ring_dotnet_tolistraw)
+{
+	if ( g_pListAnswer ) {
+		RING_API_RETSTRING2((const char *) g_pListAnswer,g_nListAnswerSize);
+		ringdotnet_dropanswer();
+		return ;
+	}
+	RING_API_ERROR("DotNet Error: no list was kept");
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("dotnet_start",ring_dotnet_start);
@@ -1561,6 +1669,9 @@ RING_LIBINIT
 	RING_API_REGISTER("dotnet_callmethod",ring_dotnet_callmethod);
 	RING_API_REGISTER("dotnet_isnamed",ring_dotnet_isnamed);
 	RING_API_REGISTER("dotnet_getp",ring_dotnet_getp);
+	RING_API_REGISTER("dotnet_tolistok",ring_dotnet_tolistok);
+	RING_API_REGISTER("dotnet_tolistget",ring_dotnet_tolistget);
+	RING_API_REGISTER("dotnet_tolistraw",ring_dotnet_tolistraw);
 	RING_API_REGISTER("dotnet_setp",ring_dotnet_setp);
 	RING_API_REGISTER("dotnet_callt",ring_dotnet_callt);
 	RING_API_REGISTER("dotnet_calltv",ring_dotnet_calltv);
