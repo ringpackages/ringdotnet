@@ -89,6 +89,29 @@ namespace RingDotNet
 			/* Native libraries of a package (SkiaSharp, for example) are in runtimes/<system>-<architecture>/native next to its DLL after dotnet publish.
 			   A program that is not started from its own folder does not look there, so this finds them. */
 			System.Runtime.Loader.AssemblyLoadContext.Default.ResolvingUnmanagedDll += FindNativeLibrary;
+			FillCommandLineArgs();
+		}
+
+		/* The program is started by Ring, not by the .NET host: on Linux and macOS Environment.GetCommandLineArgs() is then empty, and a library that reads its
+		   first item (System.CommandLine's RootCommand takes the name of the program from it) fails with an index error. Windows gives the command line of
+		   the process. An empty answer is made the path of the program, which is what the first item is for a .NET program. */
+		private static void FillCommandLineArgs()
+		{
+			try
+			{
+				if (Environment.GetCommandLineArgs().Length > 0 || string.IsNullOrEmpty(Environment.ProcessPath)) return;
+				foreach (FieldInfo field in typeof(Environment).GetFields(BindingFlags.NonPublic | BindingFlags.Static))
+				{
+					if (field.FieldType == typeof(string[]) && !field.IsInitOnly)
+					{
+						field.SetValue(null, new[] { Environment.ProcessPath });
+						if (Environment.GetCommandLineArgs().Length > 0) return;
+					}
+				}
+			}
+			catch (Exception)
+			{
+			}
 		}
 
 		private static IntPtr FindNativeLibrary(Assembly assembly, string name)

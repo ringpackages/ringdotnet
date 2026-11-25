@@ -69,4 +69,7 @@ cData = "mine"  aItems = [1,2]  nPos = 5  x = 9  xResult = "keep"
 new StringBuilder("q").Append("r").ToString()
 dnAssert("user globals untouched",cData + aItems[2] + nPos + x + xResult,"mine259keep")
 
+# the command line of the program: a library that reads its first item (System.CommandLine) needs one on every system
+dnAssert("the command line has the program",len(dnStatic("System.Environment","GetCommandLineArgs",[]).toList()) >= 1,1)
+
 nFail = dnTestSummary()
