@@ -262,7 +262,7 @@ Class CompositeFormat from Object
 		return dnObj(dotnet_callo("s4:call",'System.Text.CompositeFormat, System.Private.CoreLib',"s5:Parse",P1))
 
 	Func getFormat
-		return dnText(dotnet_getp(nHandle,"Format"))
+		return dnAnswer(dotnet_getp(nHandle,"Format"))
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
@@ -289,8 +289,7 @@ Class Decoder from Object
 		return self
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func GetCharCount P1
@@ -395,13 +394,10 @@ Class DecoderFallbackBuffer from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetNextChar"))
 
 	Func MovePrevious 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:MovePrevious")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MovePrevious"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func Equals P1
@@ -483,8 +479,7 @@ Class Encoder from Object
 		return self
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func GetByteCount P1,P2,P3,P4
@@ -586,13 +581,10 @@ Class EncoderFallbackBuffer from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetNextChar"))
 
 	Func MovePrevious 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:MovePrevious")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MovePrevious"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func Equals P1
@@ -649,9 +641,7 @@ Class EncoderFallbackException from ArgumentException
 		return self
 
 	Func IsUnknownSurrogate 
-		dn_x = dotnet_call("s4:call",nHandle,"s18:IsUnknownSurrogate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsUnknownSurrogate"))
 
 	Func getCharUnknown
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:CharUnknown"))
@@ -720,14 +710,7 @@ Class Encoding from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func GetByteCount P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:GetByteCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetByteCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"GetByteCount",P1))
 
 	Func GetBytes P1
 		if dotnet_isnamed(P1)
@@ -741,14 +724,7 @@ Class Encoding from Object
 		return dnSend("s4:call",nHandle,"s11:TryGetBytes",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetCharCount P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:GetCharCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetCharCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"GetCharCount",P1))
 
 	Func GetChars P1
 		if dotnet_isnamed(P1)
@@ -762,19 +738,7 @@ Class Encoding from Object
 		return dnSend("s4:call",nHandle,"s11:TryGetChars",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsAlwaysNormalized P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s18:IsAlwaysNormalized",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s18:IsAlwaysNormalized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s18:IsAlwaysNormalized",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"IsAlwaysNormalized",P1))
 
 	Func GetDecoder 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetDecoder"))
@@ -783,24 +747,13 @@ Class Encoding from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetEncoder"))
 
 	Func GetMaxByteCount P1
-		dn_x = dotnet_call("s4:call",nHandle,"s15:GetMaxByteCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetMaxByteCount",P1))
 
 	Func GetMaxCharCount P1
-		dn_x = dotnet_call("s4:call",nHandle,"s15:GetMaxCharCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetMaxCharCount",P1))
 
 	Func GetString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:GetString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"GetString",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -840,25 +793,25 @@ Class Encoding from Object
 		raise("DotNet Error: Preamble is a read-only property")
 
 	Func getBodyName
-		return dnText(dotnet_getp(nHandle,"BodyName"))
+		return dnAnswer(dotnet_getp(nHandle,"BodyName"))
 
 	Func setBodyName P1
 		raise("DotNet Error: BodyName is a read-only property")
 
 	Func getEncodingName
-		return dnText(dotnet_getp(nHandle,"EncodingName"))
+		return dnAnswer(dotnet_getp(nHandle,"EncodingName"))
 
 	Func setEncodingName P1
 		raise("DotNet Error: EncodingName is a read-only property")
 
 	Func getHeaderName
-		return dnText(dotnet_getp(nHandle,"HeaderName"))
+		return dnAnswer(dotnet_getp(nHandle,"HeaderName"))
 
 	Func setHeaderName P1
 		raise("DotNet Error: HeaderName is a read-only property")
 
 	Func getWebName
-		return dnText(dotnet_getp(nHandle,"WebName"))
+		return dnAnswer(dotnet_getp(nHandle,"WebName"))
 
 	Func setWebName P1
 		raise("DotNet Error: WebName is a read-only property")
@@ -1006,13 +959,13 @@ Class EncodingInfo from Object
 		raise("DotNet Error: CodePage is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDisplayName
-		return dnText(dotnet_getp(nHandle,"DisplayName"))
+		return dnAnswer(dotnet_getp(nHandle,"DisplayName"))
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
@@ -1295,17 +1248,11 @@ Class StringBuilderAppendInterpolatedStringHandler from ValueType
 		return self
 
 	Func AppendLiteral P1
-		dotnet_callv("s4:call",nHandle,"s13:AppendLiteral",P1)
-
+		dotnet_calltv(nHandle,"AppendLiteral",P1)
 		return self
 
 	Func AppendFormatted P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s15:AppendFormatted",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s15:AppendFormatted",P1)
-
+		dotnet_calltd1v(nHandle,"AppendFormatted",P1)
 		return self
 
 
@@ -1335,9 +1282,7 @@ Class StringBuilderChunkEnumerator from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func getCurrent
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Current"))
@@ -1372,9 +1317,7 @@ Class StringRuneEnumerator from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -1448,9 +1391,7 @@ Class StringBuilder from Object
 		return self
 
 	Func EnsureCapacity P1
-		dn_x = dotnet_call("s4:call",nHandle,"s14:EnsureCapacity",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"EnsureCapacity",P1))
 
 	Func Format P1
 		if dotnet_isnamed(P1)
@@ -1649,7 +1590,7 @@ Class DecoderReplacementFallback from DecoderFallback
 		return self
 
 	Func getDefaultString
-		return dnText(dotnet_getp(nHandle,"DefaultString"))
+		return dnAnswer(dotnet_getp(nHandle,"DefaultString"))
 
 	Func setDefaultString P1
 		raise("DotNet Error: DefaultString is a read-only property")
@@ -1750,7 +1691,7 @@ Class EncoderReplacementFallback from EncoderFallback
 		return self
 
 	Func getDefaultString
-		return dnText(dotnet_getp(nHandle,"DefaultString"))
+		return dnAnswer(dotnet_getp(nHandle,"DefaultString"))
 
 	Func setDefaultString P1
 		raise("DotNet Error: DefaultString is a read-only property")

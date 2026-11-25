@@ -483,17 +483,7 @@ Class AdornerLayer from FrameworkElement
 		return self
 
 	Func Update P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:Update",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s6:Update")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:Update",P1)
-
+		dotnet_calltdv(nHandle,"Update",P1)
 		return self
 
 	Func GetAdorners P1
@@ -566,8 +556,7 @@ Class DocumentPage from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -634,31 +623,15 @@ Class DocumentPaginator from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetPage",P1))
 
 	Func GetPageAsync P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s12:GetPageAsync",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s12:GetPageAsync",P1)
-
+		dotnet_calltd1v(nHandle,"GetPageAsync",P1)
 		return self
 
 	Func ComputePageCount 
-		dotnet_callv("s4:call",nHandle,"s16:ComputePageCount")
-
+		dotnet_calltv(nHandle,"ComputePageCount")
 		return self
 
 	Func ComputePageCountAsync P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s21:ComputePageCountAsync",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s21:ComputePageCountAsync")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s21:ComputePageCountAsync",P1)
-
+		dotnet_calltdv(nHandle,"ComputePageCountAsync",P1)
 		return self
 
 	Func CancelAsync P1
@@ -2318,21 +2291,21 @@ Class Glyphs from FrameworkElement
 		return self
 
 	Func getIndices
-		return dnText(dotnet_getp(nHandle,"Indices"))
+		return dnAnswer(dotnet_getp(nHandle,"Indices"))
 
 	Func setIndices P1
 		dotnet_setp(nHandle,"Indices",P1)
 		return self
 
 	Func getUnicodeString
-		return dnText(dotnet_getp(nHandle,"UnicodeString"))
+		return dnAnswer(dotnet_getp(nHandle,"UnicodeString"))
 
 	Func setUnicodeString P1
 		dotnet_setp(nHandle,"UnicodeString",P1)
 		return self
 
 	Func getCaretStops
-		return dnText(dotnet_getp(nHandle,"CaretStops"))
+		return dnAnswer(dotnet_getp(nHandle,"CaretStops"))
 
 	Func setCaretStops P1
 		dotnet_setp(nHandle,"CaretStops",P1)
@@ -2388,7 +2361,7 @@ Class Glyphs from FrameworkElement
 		return self
 
 	Func getDeviceFontName
-		return dnText(dotnet_getp(nHandle,"DeviceFontName"))
+		return dnAnswer(dotnet_getp(nHandle,"DeviceFontName"))
 
 	Func setDeviceFontName P1
 		dotnet_setp(nHandle,"DeviceFontName",P1)
@@ -2515,7 +2488,7 @@ Class LinkTarget from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -2609,13 +2582,11 @@ Class PageContent from FrameworkElement
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetPageRoot",P1))
 
 	Func GetPageRootAsync P1
-		dotnet_callv("s4:call",nHandle,"s16:GetPageRootAsync",P1)
-
+		dotnet_calltv(nHandle,"GetPageRootAsync",P1)
 		return self
 
 	Func GetPageRootAsyncCancel 
-		dotnet_callv("s4:call",nHandle,"s22:GetPageRootAsyncCancel")
-
+		dotnet_calltv(nHandle,"GetPageRootAsyncCancel")
 		return self
 
 	Func ShouldSerializeChild P1
@@ -2800,8 +2771,7 @@ Class TableCellCollection from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -2825,18 +2795,15 @@ Class TableCellCollection from Object
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func RemoveRange P1,P2
-		dotnet_callv("s4:call",nHandle,"s11:RemoveRange",P1,P2)
-
+		dotnet_calltv(nHandle,"RemoveRange",P1,P2)
 		return self
 
 	Func TrimToSize 
-		dotnet_callv("s4:call",nHandle,"s10:TrimToSize")
-
+		dotnet_calltv(nHandle,"TrimToSize")
 		return self
 
 	Func Equals P1
@@ -2983,8 +2950,7 @@ Class TableColumnCollection from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -3008,18 +2974,15 @@ Class TableColumnCollection from Object
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func RemoveRange P1,P2
-		dotnet_callv("s4:call",nHandle,"s11:RemoveRange",P1,P2)
-
+		dotnet_calltv(nHandle,"RemoveRange",P1,P2)
 		return self
 
 	Func TrimToSize 
-		dotnet_callv("s4:call",nHandle,"s10:TrimToSize")
-
+		dotnet_calltv(nHandle,"TrimToSize")
 		return self
 
 	Func Equals P1
@@ -3114,8 +3077,7 @@ Class TableRowCollection from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -3139,18 +3101,15 @@ Class TableRowCollection from Object
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func RemoveRange P1,P2
-		dotnet_callv("s4:call",nHandle,"s11:RemoveRange",P1,P2)
-
+		dotnet_calltv(nHandle,"RemoveRange",P1,P2)
 		return self
 
 	Func TrimToSize 
-		dotnet_callv("s4:call",nHandle,"s10:TrimToSize")
-
+		dotnet_calltv(nHandle,"TrimToSize")
 		return self
 
 	Func Equals P1
@@ -3245,8 +3204,7 @@ Class TableRowGroupCollection from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -3270,18 +3228,15 @@ Class TableRowGroupCollection from Object
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func RemoveRange P1,P2
-		dotnet_callv("s4:call",nHandle,"s11:RemoveRange",P1,P2)
-
+		dotnet_calltv(nHandle,"RemoveRange",P1,P2)
 		return self
 
 	Func TrimToSize 
-		dotnet_callv("s4:call",nHandle,"s10:TrimToSize")
-
+		dotnet_calltv(nHandle,"TrimToSize")
 		return self
 
 	Func Equals P1
@@ -3384,13 +3339,11 @@ Class TextEffectTarget from Object
 		return self
 
 	Func Enable 
-		dotnet_callv("s4:call",nHandle,"s6:Enable")
-
+		dotnet_calltv(nHandle,"Enable")
 		return self
 
 	Func Disable 
-		dotnet_callv("s4:call",nHandle,"s7:Disable")
-
+		dotnet_calltv(nHandle,"Disable")
 		return self
 
 	Func Equals P1
@@ -3659,8 +3612,7 @@ Class TextElementCollection from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -3805,22 +3757,17 @@ Class TextRange from Object
 		return self
 
 	Func ClearAllProperties 
-		dotnet_callv("s4:call",nHandle,"s18:ClearAllProperties")
-
+		dotnet_calltv(nHandle,"ClearAllProperties")
 		return self
 
 	Func GetPropertyValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetPropertyValue",P1))
 
 	Func CanSave P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:CanSave",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CanSave",P1))
 
 	Func CanLoad P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:CanLoad",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CanLoad",P1))
 
 	Func Save P1
 		if dotnet_isnamed(P1)
@@ -3863,7 +3810,7 @@ Class TextRange from Object
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getText
-		return dnText(dotnet_getp(nHandle,"Text"))
+		return dnAnswer(dotnet_getp(nHandle,"Text"))
 
 	Func setText P1
 		dotnet_setp(nHandle,"Text",P1)
@@ -5277,12 +5224,7 @@ Class DynamicDocumentPaginator from DocumentPaginator
 		return dn_x
 
 	Func GetPageNumberAsync P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s18:GetPageNumberAsync",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s18:GetPageNumberAsync",P1)
-
+		dotnet_calltd1v(nHandle,"GetPageNumberAsync",P1)
 		return self
 
 	Func GetPagePosition P1
@@ -5455,6 +5397,10 @@ Class InlineCollection from TextElementCollection
 			oDotNetGuard = dotnet_guard(nHandle)          # this object owns the handle: it is released when the last copy is gone
 			return self
 		ok
+		return self
+
+	Func Add P1
+		dotnet_calltv(nHandle,"Add",P1)
 		return self
 
 	Func getFirstInline
@@ -5898,9 +5844,7 @@ Class TableRow from TextElement
 		return self
 
 	Func ShouldSerializeCells 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:ShouldSerializeCells")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeCells"))
 
 	Func getCells
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Cells"))
@@ -5932,9 +5876,7 @@ Class TableRowGroup from TextElement
 		return self
 
 	Func ShouldSerializeRows 
-		dn_x = dotnet_call("s4:call",nHandle,"s19:ShouldSerializeRows")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeRows"))
 
 	Func getRows
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Rows"))
@@ -5987,14 +5929,7 @@ Class TextPointer from ContentPosition
 		return dn_x
 
 	Func GetTextInRun P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:GetTextInRun",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetTextInRun",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"GetTextInRun",P1))
 
 	Func GetAdjacentElement P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetAdjacentElement",P1))
@@ -6021,14 +5956,11 @@ Class TextPointer from ContentPosition
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetCharacterRect",P1))
 
 	Func InsertTextInRun P1
-		dotnet_callv("s4:call",nHandle,"s15:InsertTextInRun",P1)
-
+		dotnet_calltv(nHandle,"InsertTextInRun",P1)
 		return self
 
 	Func DeleteTextInRun P1
-		dn_x = dotnet_call("s4:call",nHandle,"s15:DeleteTextInRun",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"DeleteTextInRun",P1))
 
 	Func InsertParagraphBreak 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:InsertParagraphBreak"))
@@ -6631,7 +6563,7 @@ Class Run from Inline
 		return dn_x
 
 	Func getText
-		return dnText(dotnet_getp(nHandle,"Text"))
+		return dnAnswer(dotnet_getp(nHandle,"Text"))
 
 	Func setText P1
 		dotnet_setp(nHandle,"Text",P1)
@@ -6778,9 +6710,7 @@ Class Table from Block
 		return self
 
 	Func ShouldSerializeColumns 
-		dn_x = dotnet_call("s4:call",nHandle,"s22:ShouldSerializeColumns")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeColumns"))
 
 	Func getColumns
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Columns"))
@@ -7121,8 +7051,7 @@ Class Hyperlink from Span
 		return self
 
 	Func DoClick 
-		dotnet_callv("s4:call",nHandle,"s7:DoClick")
-
+		dotnet_calltv(nHandle,"DoClick")
 		return self
 
 	Func setRequestNavigateEvent P1
@@ -7170,7 +7099,7 @@ Class Hyperlink from Span
 		return self
 
 	Func getTargetName
-		return dnText(dotnet_getp(nHandle,"TargetName"))
+		return dnAnswer(dotnet_getp(nHandle,"TargetName"))
 
 	Func setTargetName P1
 		dotnet_setp(nHandle,"TargetName",P1)

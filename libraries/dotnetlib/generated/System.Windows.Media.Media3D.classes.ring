@@ -464,14 +464,7 @@ Class Camera from Animatable
 		return self
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func getTransform
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Transform"))
@@ -557,14 +550,7 @@ Class GeneralTransform3D from Animatable
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:TransformBounds",P1))
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func getInverse
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Inverse"))
@@ -617,8 +603,7 @@ Class GeneralTransform3DCollection from Animatable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -642,8 +627,7 @@ Class GeneralTransform3DCollection from Animatable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -711,13 +695,10 @@ Class GeneralTransform3DCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -797,14 +778,7 @@ Class Material from Animatable
 		return self
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 
 Class MaterialCollection from Animatable
@@ -851,8 +825,7 @@ Class MaterialCollection from Animatable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -876,8 +849,7 @@ Class MaterialCollection from Animatable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -945,13 +917,10 @@ Class MaterialCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -1020,8 +989,7 @@ Class Matrix3D from ValueType
 		return self
 
 	Func SetIdentity 
-		dotnet_callv("s4:call",nHandle,"s11:SetIdentity")
-
+		dotnet_calltv(nHandle,"SetIdentity")
 		return self
 
 	Func Prepend P1
@@ -1088,8 +1056,7 @@ Class Matrix3D from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Transform",P1))
 
 	Func Invert 
-		dotnet_callv("s4:call",nHandle,"s6:Invert")
-
+		dotnet_calltv(nHandle,"Invert")
 		return self
 
 	Func Equals P1
@@ -1108,14 +1075,7 @@ Class Matrix3D from ValueType
 		return dn_x
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Multiply P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Matrix3D, PresentationCore',"s8:Multiply",P1,P2))
@@ -1304,14 +1264,7 @@ Class Model3D from Animatable
 		return self
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func getBounds
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Bounds"))
@@ -1377,8 +1330,7 @@ Class Model3DCollection from Animatable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -1402,8 +1354,7 @@ Class Model3DCollection from Animatable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -1471,13 +1422,10 @@ Class Model3DCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -1565,8 +1513,7 @@ Class Point3D from ValueType
 		return self
 
 	Func Offset P1,P2,P3
-		dotnet_callv("s4:call",nHandle,"s6:Offset",P1,P2,P3)
-
+		dotnet_calltv(nHandle,"Offset",P1,P2,P3)
 		return self
 
 	Func Equals P1
@@ -1585,14 +1532,7 @@ Class Point3D from ValueType
 		return dn_x
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Add P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Point3D, PresentationCore',"s3:Add",P1,P2))
@@ -1676,8 +1616,7 @@ Class Point3DCollection from Freezable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -1701,8 +1640,7 @@ Class Point3DCollection from Freezable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -1714,14 +1652,7 @@ Class Point3DCollection from Freezable
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Point3DCollection, PresentationCore',"s5:Parse",P1))
@@ -1783,13 +1714,10 @@ Class Point3DCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -1883,8 +1811,7 @@ Class Point4D from ValueType
 		return self
 
 	Func Offset P1,P2,P3,P4
-		dotnet_callv("s4:call",nHandle,"s6:Offset",P1,P2,P3,P4)
-
+		dotnet_calltv(nHandle,"Offset",P1,P2,P3,P4)
 		return self
 
 	Func Equals P1
@@ -1903,14 +1830,7 @@ Class Point4D from ValueType
 		return dn_x
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Add P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Point4D, PresentationCore',"s3:Add",P1,P2))
@@ -2025,18 +1945,15 @@ Class WpfQuaternion from ValueType
 		return self
 
 	Func Conjugate 
-		dotnet_callv("s4:call",nHandle,"s9:Conjugate")
-
+		dotnet_calltv(nHandle,"Conjugate")
 		return self
 
 	Func Invert 
-		dotnet_callv("s4:call",nHandle,"s6:Invert")
-
+		dotnet_calltv(nHandle,"Invert")
 		return self
 
 	Func Normalize 
-		dotnet_callv("s4:call",nHandle,"s9:Normalize")
-
+		dotnet_calltv(nHandle,"Normalize")
 		return self
 
 	Func Equals P1
@@ -2055,14 +1972,7 @@ Class WpfQuaternion from ValueType
 		return dn_x
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Add P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Quaternion, PresentationCore',"s3:Add",P1,P2))
@@ -2248,14 +2158,7 @@ Class Rect3D from ValueType
 		return self
 
 	Func Contains P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Contains",P1))
 
 	Func IntersectsWith P1
 		dn_x = dotnet_call("s4:call",nHandle,"s14:IntersectsWith",P1)
@@ -2323,14 +2226,7 @@ Class Rect3D from ValueType
 		return dn_x
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Rect3D, PresentationCore',"s5:Parse",P1))
@@ -2443,14 +2339,7 @@ Class Rotation3D from Animatable
 		return self
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func getIdentity
 		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.Media3D.Rotation3D, PresentationCore',"s8:Identity"))
@@ -2517,14 +2406,7 @@ Class Size3D from ValueType
 		return dn_x
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Size3D, PresentationCore',"s5:Parse",P1))
@@ -2632,8 +2514,7 @@ Class Transform3DCollection from Animatable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -2657,8 +2538,7 @@ Class Transform3DCollection from Animatable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -2726,13 +2606,10 @@ Class Transform3DCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -2785,13 +2662,11 @@ Class Vector3D from ValueType
 		return self
 
 	Func Normalize 
-		dotnet_callv("s4:call",nHandle,"s9:Normalize")
-
+		dotnet_calltv(nHandle,"Normalize")
 		return self
 
 	Func Negate 
-		dotnet_callv("s4:call",nHandle,"s6:Negate")
-
+		dotnet_calltv(nHandle,"Negate")
 		return self
 
 	Func Equals P1
@@ -2810,14 +2685,7 @@ Class Vector3D from ValueType
 		return dn_x
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func AngleBetween P1,P2
 		dn_x = dotnet_call("s4:call",'System.Windows.Media.Media3D.Vector3D, PresentationCore',"s12:AngleBetween",P1,P2)
@@ -2929,8 +2797,7 @@ Class Vector3DCollection from Freezable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -2954,8 +2821,7 @@ Class Vector3DCollection from Freezable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -2967,14 +2833,7 @@ Class Vector3DCollection from Freezable
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Vector3DCollection, PresentationCore',"s5:Parse",P1))
@@ -3036,13 +2895,10 @@ Class Vector3DCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -3338,13 +3194,11 @@ Class Visual3DCollection from Object
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func CopyTo P1,P2
@@ -3427,13 +3281,10 @@ Class Visual3DCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent

@@ -78,13 +78,11 @@ Class ClientWebSocketOptions from Object
 		return self
 
 	Func SetRequestHeader P1,P2
-		dotnet_callv("s4:call",nHandle,"s16:SetRequestHeader",P1,P2)
-
+		dotnet_calltv(nHandle,"SetRequestHeader",P1,P2)
 		return self
 
 	Func AddSubProtocol P1
-		dotnet_callv("s4:call",nHandle,"s14:AddSubProtocol",P1)
-
+		dotnet_calltv(nHandle,"AddSubProtocol",P1)
 		return self
 
 	Func SetBuffer P1
@@ -261,8 +259,7 @@ Class WebSocket from Object
 		return self
 
 	Func Abort 
-		dotnet_callv("s4:call",nHandle,"s5:Abort")
-
+		dotnet_calltv(nHandle,"Abort")
 		return self
 
 	Func CloseAsync P1,P2,P3
@@ -272,8 +269,7 @@ Class WebSocket from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CloseOutputAsync",P1,P2,P3))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func ReceiveAsync P1,P2
@@ -322,13 +318,13 @@ Class WebSocket from Object
 		raise("DotNet Error: CloseStatus is a read-only property")
 
 	Func getCloseStatusDescription
-		return dnText(dotnet_getp(nHandle,"CloseStatusDescription"))
+		return dnAnswer(dotnet_getp(nHandle,"CloseStatusDescription"))
 
 	Func setCloseStatusDescription P1
 		raise("DotNet Error: CloseStatusDescription is a read-only property")
 
 	Func getSubProtocol
-		return dnText(dotnet_getp(nHandle,"SubProtocol"))
+		return dnAnswer(dotnet_getp(nHandle,"SubProtocol"))
 
 	Func setSubProtocol P1
 		raise("DotNet Error: SubProtocol is a read-only property")
@@ -388,7 +384,7 @@ Class WebSocketContext from Object
 		raise("DotNet Error: Headers is a read-only property")
 
 	Func getOrigin
-		return dnText(dotnet_getp(nHandle,"Origin"))
+		return dnAnswer(dotnet_getp(nHandle,"Origin"))
 
 	Func setOrigin P1
 		raise("DotNet Error: Origin is a read-only property")
@@ -400,13 +396,13 @@ Class WebSocketContext from Object
 		raise("DotNet Error: SecWebSocketProtocols is a read-only property")
 
 	Func getSecWebSocketVersion
-		return dnText(dotnet_getp(nHandle,"SecWebSocketVersion"))
+		return dnAnswer(dotnet_getp(nHandle,"SecWebSocketVersion"))
 
 	Func setSecWebSocketVersion P1
 		raise("DotNet Error: SecWebSocketVersion is a read-only property")
 
 	Func getSecWebSocketKey
-		return dnText(dotnet_getp(nHandle,"SecWebSocketKey"))
+		return dnAnswer(dotnet_getp(nHandle,"SecWebSocketKey"))
 
 	Func setSecWebSocketKey P1
 		raise("DotNet Error: SecWebSocketKey is a read-only property")
@@ -487,7 +483,7 @@ Class WebSocketCreationOptions from Object
 		return self
 
 	Func getSubProtocol
-		return dnText(dotnet_getp(nHandle,"SubProtocol"))
+		return dnAnswer(dotnet_getp(nHandle,"SubProtocol"))
 
 	Func setSubProtocol P1
 		dotnet_setp(nHandle,"SubProtocol",P1)
@@ -683,7 +679,7 @@ Class WebSocketReceiveResult from Object
 		raise("DotNet Error: CloseStatus is a read-only property")
 
 	Func getCloseStatusDescription
-		return dnText(dotnet_getp(nHandle,"CloseStatusDescription"))
+		return dnAnswer(dotnet_getp(nHandle,"CloseStatusDescription"))
 
 	Func setCloseStatusDescription P1
 		raise("DotNet Error: CloseStatusDescription is a read-only property")

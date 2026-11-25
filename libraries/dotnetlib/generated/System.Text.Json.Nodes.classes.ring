@@ -54,9 +54,7 @@ Class JsonNode from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AsValue"))
 
 	Func GetPath 
-		dn_x = dotnet_call("s4:call",nHandle,"s7:GetPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetPath"))
 
 	Func GetValue P1
 		if dotnet_isnamed(P1)
@@ -74,14 +72,10 @@ Class JsonNode from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetValueKind"))
 
 	Func GetPropertyName 
-		dn_x = dotnet_call("s4:call",nHandle,"s15:GetPropertyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetPropertyName"))
 
 	Func GetElementIndex 
-		dn_x = dotnet_call("s4:call",nHandle,"s15:GetElementIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetElementIndex"))
 
 	Func ReplaceWith P1
 		dotnet_callv("s4:call",nHandle,"s11:ReplaceWith",P1)
@@ -89,27 +83,10 @@ Class JsonNode from Object
 		return self
 
 	Func ToJsonString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:ToJsonString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s12:ToJsonString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s12:ToJsonString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToJsonString",P1))
 
 	Func WriteTo P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s7:WriteTo",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
-
+		dotnet_calltd1v(nHandle,"WriteTo",P1)
 		return self
 
 	Func Equals P1
@@ -253,8 +230,7 @@ Class JsonArray from JsonNode
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -278,8 +254,7 @@ Class JsonArray from JsonNode
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func GetEnumerator 
@@ -360,28 +335,18 @@ Class JsonObject from JsonNode
 		return dnSend("s4:call",nHandle,"s19:TryGetPropertyValue",dnPackItem(P1))
 
 	Func Add P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-
+		dotnet_calltd1v(nHandle,"Add",P1)
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func ContainsKey P1
-		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsKey",P1))
 
 	Func Remove P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Remove",P1))
 
 	Func GetEnumerator 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
@@ -397,9 +362,7 @@ Class JsonObject from JsonNode
 		raise("DotNet Error: SetAt does not take one argument: use named arguments, SetAt([ :parameter = value, ... ])")
 
 	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IndexOf",P1))
 
 	Func Insert P1,P2,P3
 		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2,P3)
@@ -407,8 +370,7 @@ Class JsonObject from JsonNode
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Create P1

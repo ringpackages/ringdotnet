@@ -81,28 +81,23 @@ Class TimersTimer from Component
 		return self
 
 	Func BeginInit 
-		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-
+		dotnet_calltv(nHandle,"BeginInit")
 		return self
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func EndInit 
-		dotnet_callv("s4:call",nHandle,"s7:EndInit")
-
+		dotnet_calltv(nHandle,"EndInit")
 		return self
 
 	Func Start 
-		dotnet_callv("s4:call",nHandle,"s5:Start")
-
+		dotnet_calltv(nHandle,"Start")
 		return self
 
 	Func Stop 
-		dotnet_callv("s4:call",nHandle,"s4:Stop")
-
+		dotnet_calltv(nHandle,"Stop")
 		return self
 
 	Func setElapsedEvent P1

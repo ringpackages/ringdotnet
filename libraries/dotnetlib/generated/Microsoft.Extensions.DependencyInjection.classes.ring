@@ -784,8 +784,7 @@ Class AsyncServiceScope from ValueType
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func DisposeAsync 
@@ -1659,7 +1658,7 @@ Class IHttpClientBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddDefaultLogger"))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2198,8 +2197,7 @@ Class IServiceCollection from DotNetObject
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Add P1
@@ -2208,8 +2206,7 @@ Class IServiceCollection from DotNetObject
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -2924,8 +2921,7 @@ Class IServiceScope from DotNetObject
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func getServiceProvider
@@ -2973,7 +2969,7 @@ Class ISocketsHttpHandlerBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -4289,8 +4285,7 @@ Class ServiceCollection from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -4322,13 +4317,11 @@ Class ServiceCollection from Object
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func MakeReadOnly 
-		dotnet_callv("s4:call",nHandle,"s12:MakeReadOnly")
-
+		dotnet_calltv(nHandle,"MakeReadOnly")
 		return self
 
 	Func Equals P1
@@ -5259,8 +5252,7 @@ Class ServiceProvider from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1,P2))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func DisposeAsync 

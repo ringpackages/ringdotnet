@@ -144,9 +144,10 @@ func dnFinish  dn_cResponse
 	dn_aItems = dnUnpack(dn_cResponse)
 	return dn_aItems[1]
 
-# The text that dotnet_getp answers: a null text comes as the marker list that dnFinish reads (a call to this function costs less than the same
-# statements in the generated getter)
-func dnText  dn_xAnswer
+# The answer of a typed call (dotnet_getp, dotnet_callt, dotnet_calltd): a number or a text as it is; anything else (a null text, an object, from the generic
+# request that the extension made) comes as the marker list that dnFinish reads. A call to this function costs less than the same statements in the
+# generated method.
+func dnAnswer  dn_xAnswer
 	if islist(dn_xAnswer)
 		return dnFinish(dn_xAnswer[2])
 	ok

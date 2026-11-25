@@ -828,7 +828,7 @@ Class AcceptVerbsAttribute from Attribute
 		raise("DotNet Error: HttpMethods is a read-only property")
 
 	Func getRoute
-		return dnText(dotnet_getp(nHandle,"Route"))
+		return dnAnswer(dotnet_getp(nHandle,"Route"))
 
 	Func setRoute P1
 		dotnet_setp(nHandle,"Route",P1)
@@ -842,7 +842,7 @@ Class AcceptVerbsAttribute from Attribute
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -960,7 +960,7 @@ Class ActionNameAttribute from Attribute
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1201,7 +1201,7 @@ Class ApiDescriptionActionData from Object
 		return dn_x
 
 	Func getGroupName
-		return dnText(dotnet_getp(nHandle,"GroupName"))
+		return dnAnswer(dotnet_getp(nHandle,"GroupName"))
 
 	Func setGroupName P1
 		dotnet_setp(nHandle,"GroupName",P1)
@@ -1232,7 +1232,7 @@ Class ApiExplorerSettingsAttribute from Attribute
 		return self
 
 	Func getGroupName
-		return dnText(dotnet_getp(nHandle,"GroupName"))
+		return dnAnswer(dotnet_getp(nHandle,"GroupName"))
 
 	Func setGroupName P1
 		dotnet_setp(nHandle,"GroupName",P1)
@@ -1324,7 +1324,7 @@ Class BindAttribute from Attribute
 		raise("DotNet Error: Include is a read-only property")
 
 	Func getPrefix
-		return dnText(dotnet_getp(nHandle,"Prefix"))
+		return dnAnswer(dotnet_getp(nHandle,"Prefix"))
 
 	Func setPrefix P1
 		dotnet_setp(nHandle,"Prefix",P1)
@@ -1413,7 +1413,7 @@ Class BindPropertyAttribute from Attribute
 		raise("DotNet Error: BindingSource is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -1473,7 +1473,7 @@ Class CacheProfile from Object
 		return self
 
 	Func getVaryByHeader
-		return dnText(dotnet_getp(nHandle,"VaryByHeader"))
+		return dnAnswer(dotnet_getp(nHandle,"VaryByHeader"))
 
 	Func setVaryByHeader P1
 		dotnet_setp(nHandle,"VaryByHeader",P1)
@@ -1516,14 +1516,14 @@ Class ClientErrorData from Object
 		return dn_x
 
 	Func getLink
-		return dnText(dotnet_getp(nHandle,"Link"))
+		return dnAnswer(dotnet_getp(nHandle,"Link"))
 
 	Func setLink P1
 		dotnet_setp(nHandle,"Link",P1)
 		return self
 
 	Func getTitle
-		return dnText(dotnet_getp(nHandle,"Title"))
+		return dnAnswer(dotnet_getp(nHandle,"Title"))
 
 	Func setTitle P1
 		dotnet_setp(nHandle,"Title",P1)
@@ -1941,14 +1941,7 @@ Class ControllerBase from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:TryUpdateModelAsync",P1))
 
 	Func TryValidateModel P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:TryValidateModel",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s16:TryValidateModel",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"TryValidateModel",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2292,7 +2285,7 @@ Class FromFormAttribute from Attribute
 		raise("DotNet Error: BindingSource is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -2329,7 +2322,7 @@ Class FromHeaderAttribute from Attribute
 		raise("DotNet Error: BindingSource is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -2366,7 +2359,7 @@ Class FromQueryAttribute from Attribute
 		raise("DotNet Error: BindingSource is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -2403,7 +2396,7 @@ Class FromRouteAttribute from Attribute
 		raise("DotNet Error: BindingSource is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -2803,14 +2796,10 @@ Class IUrlHelper from DotNetObject
 		return dn_x
 
 	Func Content P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:Content",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Content",P1))
 
 	Func IsLocalUrl P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:IsLocalUrl",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsLocalUrl",P1))
 
 	Func RouteUrl P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:RouteUrl",P1)
@@ -3073,7 +3062,7 @@ Class ModelBinderAttribute from Attribute
 		raise("DotNet Error: BindingSource is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -3530,14 +3519,14 @@ Class ProblemDetails from Object
 		return dn_x
 
 	Func getType
-		return dnText(dotnet_getp(nHandle,"Type"))
+		return dnAnswer(dotnet_getp(nHandle,"Type"))
 
 	Func setType P1
 		dotnet_setp(nHandle,"Type",P1)
 		return self
 
 	Func getTitle
-		return dnText(dotnet_getp(nHandle,"Title"))
+		return dnAnswer(dotnet_getp(nHandle,"Title"))
 
 	Func setTitle P1
 		dotnet_setp(nHandle,"Title",P1)
@@ -3551,14 +3540,14 @@ Class ProblemDetails from Object
 		return self
 
 	Func getDetail
-		return dnText(dotnet_getp(nHandle,"Detail"))
+		return dnAnswer(dotnet_getp(nHandle,"Detail"))
 
 	Func setDetail P1
 		dotnet_setp(nHandle,"Detail",P1)
 		return self
 
 	Func getInstance
-		return dnText(dotnet_getp(nHandle,"Instance"))
+		return dnAnswer(dotnet_getp(nHandle,"Instance"))
 
 	Func setInstance P1
 		dotnet_setp(nHandle,"Instance",P1)
@@ -3795,9 +3784,7 @@ Class RemoteAttributeBase from ValidationAttribute
 		return self
 
 	Func FormatAdditionalFieldsForClientValidation P1
-		dn_x = dotnet_call("s4:call",nHandle,"s41:FormatAdditionalFieldsForClientValidation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"FormatAdditionalFieldsForClientValidation",P1))
 
 	Func AddValidation P1
 		dotnet_callv("s4:call",nHandle,"s13:AddValidation",P1)
@@ -3810,14 +3797,14 @@ Class RemoteAttributeBase from ValidationAttribute
 		return dn_x
 
 	Func getHttpMethod
-		return dnText(dotnet_getp(nHandle,"HttpMethod"))
+		return dnAnswer(dotnet_getp(nHandle,"HttpMethod"))
 
 	Func setHttpMethod P1
 		dotnet_setp(nHandle,"HttpMethod",P1)
 		return self
 
 	Func getAdditionalFields
-		return dnText(dotnet_getp(nHandle,"AdditionalFields"))
+		return dnAnswer(dotnet_getp(nHandle,"AdditionalFields"))
 
 	Func setAdditionalFields P1
 		dotnet_setp(nHandle,"AdditionalFields",P1)
@@ -4077,7 +4064,7 @@ Class ResponseCacheAttribute from Attribute
 		return self
 
 	Func getVaryByHeader
-		return dnText(dotnet_getp(nHandle,"VaryByHeader"))
+		return dnAnswer(dotnet_getp(nHandle,"VaryByHeader"))
 
 	Func setVaryByHeader P1
 		dotnet_setp(nHandle,"VaryByHeader",P1)
@@ -4091,7 +4078,7 @@ Class ResponseCacheAttribute from Attribute
 		return self
 
 	Func getCacheProfileName
-		return dnText(dotnet_getp(nHandle,"CacheProfileName"))
+		return dnAnswer(dotnet_getp(nHandle,"CacheProfileName"))
 
 	Func setCacheProfileName P1
 		dotnet_setp(nHandle,"CacheProfileName",P1)
@@ -4129,7 +4116,7 @@ Class RouteAttribute from Attribute
 		return self
 
 	Func getTemplate
-		return dnText(dotnet_getp(nHandle,"Template"))
+		return dnAnswer(dotnet_getp(nHandle,"Template"))
 
 	Func setTemplate P1
 		raise("DotNet Error: Template is a read-only property")
@@ -4142,7 +4129,7 @@ Class RouteAttribute from Attribute
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -4184,6 +4171,12 @@ Class SerializableError from Dictionary
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SerializableError, Microsoft.AspNetCore.Mvc.Core',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ContainsKey P1
+		return dnAnswer(dotnet_callt(nHandle,"ContainsKey",P1))
+
+	Func Remove P1
+		return dnAnswer(dotnet_callt(nHandle,"Remove",P1))
 
 
 Class ServiceFilterAttribute from Attribute
@@ -4281,7 +4274,7 @@ Class TempDataAttribute from Attribute
 		return self
 
 	Func getKey
-		return dnText(dotnet_getp(nHandle,"Key"))
+		return dnAnswer(dotnet_getp(nHandle,"Key"))
 
 	Func setKey P1
 		dotnet_setp(nHandle,"Key",P1)
@@ -4624,7 +4617,7 @@ Class ViewComponentAttribute from Attribute
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -4654,7 +4647,7 @@ Class ViewDataAttribute from Attribute
 		return self
 
 	Func getKey
-		return dnText(dotnet_getp(nHandle,"Key"))
+		return dnAnswer(dotnet_getp(nHandle,"Key"))
 
 	Func setKey P1
 		dotnet_setp(nHandle,"Key",P1)
@@ -4761,14 +4754,14 @@ Class ContentResult from ActionResult
 		return self
 
 	Func getContent
-		return dnText(dotnet_getp(nHandle,"Content"))
+		return dnAnswer(dotnet_getp(nHandle,"Content"))
 
 	Func setContent P1
 		dotnet_setp(nHandle,"Content",P1)
 		return self
 
 	Func getContentType
-		return dnText(dotnet_getp(nHandle,"ContentType"))
+		return dnAnswer(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
 		dotnet_setp(nHandle,"ContentType",P1)
@@ -4841,8 +4834,7 @@ Class Controller from ControllerBase
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:OnActionExecutionAsync",P1,P2))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func getViewData
@@ -4951,13 +4943,13 @@ Class FileResult from ActionResult
 		return self
 
 	Func getContentType
-		return dnText(dotnet_getp(nHandle,"ContentType"))
+		return dnAnswer(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getFileDownloadName
-		return dnText(dotnet_getp(nHandle,"FileDownloadName"))
+		return dnAnswer(dotnet_getp(nHandle,"FileDownloadName"))
 
 	Func setFileDownloadName P1
 		dotnet_setp(nHandle,"FileDownloadName",P1)
@@ -5073,7 +5065,7 @@ Class JsonResult from ActionResult
 		return self
 
 	Func getContentType
-		return dnText(dotnet_getp(nHandle,"ContentType"))
+		return dnAnswer(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
 		dotnet_setp(nHandle,"ContentType",P1)
@@ -5149,7 +5141,7 @@ Class LocalRedirectResult from ActionResult
 		return self
 
 	Func getUrl
-		return dnText(dotnet_getp(nHandle,"Url"))
+		return dnAnswer(dotnet_getp(nHandle,"Url"))
 
 	Func setUrl P1
 		dotnet_setp(nHandle,"Url",P1)
@@ -5295,14 +5287,14 @@ Class PageRemoteAttribute from RemoteAttributeBase
 		return self
 
 	Func getPageHandler
-		return dnText(dotnet_getp(nHandle,"PageHandler"))
+		return dnAnswer(dotnet_getp(nHandle,"PageHandler"))
 
 	Func setPageHandler P1
 		dotnet_setp(nHandle,"PageHandler",P1)
 		return self
 
 	Func getPageName
-		return dnText(dotnet_getp(nHandle,"PageName"))
+		return dnAnswer(dotnet_getp(nHandle,"PageName"))
 
 	Func setPageName P1
 		dotnet_setp(nHandle,"PageName",P1)
@@ -5345,7 +5337,7 @@ Class PartialViewResult from ActionResult
 		return self
 
 	Func getViewName
-		return dnText(dotnet_getp(nHandle,"ViewName"))
+		return dnAnswer(dotnet_getp(nHandle,"ViewName"))
 
 	Func setViewName P1
 		dotnet_setp(nHandle,"ViewName",P1)
@@ -5379,7 +5371,7 @@ Class PartialViewResult from ActionResult
 		return self
 
 	Func getContentType
-		return dnText(dotnet_getp(nHandle,"ContentType"))
+		return dnAnswer(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
 		dotnet_setp(nHandle,"ContentType",P1)
@@ -5466,7 +5458,7 @@ Class RedirectResult from ActionResult
 		return self
 
 	Func getUrl
-		return dnText(dotnet_getp(nHandle,"Url"))
+		return dnAnswer(dotnet_getp(nHandle,"Url"))
 
 	Func setUrl P1
 		dotnet_setp(nHandle,"Url",P1)
@@ -5524,14 +5516,14 @@ Class RedirectToActionResult from ActionResult
 		return self
 
 	Func getActionName
-		return dnText(dotnet_getp(nHandle,"ActionName"))
+		return dnAnswer(dotnet_getp(nHandle,"ActionName"))
 
 	Func setActionName P1
 		dotnet_setp(nHandle,"ActionName",P1)
 		return self
 
 	Func getControllerName
-		return dnText(dotnet_getp(nHandle,"ControllerName"))
+		return dnAnswer(dotnet_getp(nHandle,"ControllerName"))
 
 	Func setControllerName P1
 		dotnet_setp(nHandle,"ControllerName",P1)
@@ -5559,7 +5551,7 @@ Class RedirectToActionResult from ActionResult
 		return self
 
 	Func getFragment
-		return dnText(dotnet_getp(nHandle,"Fragment"))
+		return dnAnswer(dotnet_getp(nHandle,"Fragment"))
 
 	Func setFragment P1
 		dotnet_setp(nHandle,"Fragment",P1)
@@ -5612,14 +5604,14 @@ Class RedirectToPageResult from ActionResult
 		return self
 
 	Func getPageName
-		return dnText(dotnet_getp(nHandle,"PageName"))
+		return dnAnswer(dotnet_getp(nHandle,"PageName"))
 
 	Func setPageName P1
 		dotnet_setp(nHandle,"PageName",P1)
 		return self
 
 	Func getPageHandler
-		return dnText(dotnet_getp(nHandle,"PageHandler"))
+		return dnAnswer(dotnet_getp(nHandle,"PageHandler"))
 
 	Func setPageHandler P1
 		dotnet_setp(nHandle,"PageHandler",P1)
@@ -5647,21 +5639,21 @@ Class RedirectToPageResult from ActionResult
 		return self
 
 	Func getFragment
-		return dnText(dotnet_getp(nHandle,"Fragment"))
+		return dnAnswer(dotnet_getp(nHandle,"Fragment"))
 
 	Func setFragment P1
 		dotnet_setp(nHandle,"Fragment",P1)
 		return self
 
 	Func getProtocol
-		return dnText(dotnet_getp(nHandle,"Protocol"))
+		return dnAnswer(dotnet_getp(nHandle,"Protocol"))
 
 	Func setProtocol P1
 		dotnet_setp(nHandle,"Protocol",P1)
 		return self
 
 	Func getHost
-		return dnText(dotnet_getp(nHandle,"Host"))
+		return dnAnswer(dotnet_getp(nHandle,"Host"))
 
 	Func setHost P1
 		dotnet_setp(nHandle,"Host",P1)
@@ -5711,7 +5703,7 @@ Class RedirectToRouteResult from ActionResult
 		return self
 
 	Func getRouteName
-		return dnText(dotnet_getp(nHandle,"RouteName"))
+		return dnAnswer(dotnet_getp(nHandle,"RouteName"))
 
 	Func setRouteName P1
 		dotnet_setp(nHandle,"RouteName",P1)
@@ -5739,7 +5731,7 @@ Class RedirectToRouteResult from ActionResult
 		return self
 
 	Func getFragment
-		return dnText(dotnet_getp(nHandle,"Fragment"))
+		return dnAnswer(dotnet_getp(nHandle,"Fragment"))
 
 	Func setFragment P1
 		dotnet_setp(nHandle,"Fragment",P1)
@@ -5824,7 +5816,7 @@ Class SignInResult from ActionResult
 		return self
 
 	Func getAuthenticationScheme
-		return dnText(dotnet_getp(nHandle,"AuthenticationScheme"))
+		return dnAnswer(dotnet_getp(nHandle,"AuthenticationScheme"))
 
 	Func setAuthenticationScheme P1
 		dotnet_setp(nHandle,"AuthenticationScheme",P1)
@@ -5981,7 +5973,7 @@ Class ViewComponentResult from ActionResult
 		return self
 
 	Func getViewComponentName
-		return dnText(dotnet_getp(nHandle,"ViewComponentName"))
+		return dnAnswer(dotnet_getp(nHandle,"ViewComponentName"))
 
 	Func setViewComponentName P1
 		dotnet_setp(nHandle,"ViewComponentName",P1)
@@ -6015,7 +6007,7 @@ Class ViewComponentResult from ActionResult
 		return self
 
 	Func getContentType
-		return dnText(dotnet_getp(nHandle,"ContentType"))
+		return dnAnswer(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
 		dotnet_setp(nHandle,"ContentType",P1)
@@ -6058,7 +6050,7 @@ Class ViewResult from ActionResult
 		return self
 
 	Func getViewName
-		return dnText(dotnet_getp(nHandle,"ViewName"))
+		return dnAnswer(dotnet_getp(nHandle,"ViewName"))
 
 	Func setViewName P1
 		dotnet_setp(nHandle,"ViewName",P1)
@@ -6092,7 +6084,7 @@ Class ViewResult from ActionResult
 		return self
 
 	Func getContentType
-		return dnText(dotnet_getp(nHandle,"ContentType"))
+		return dnAnswer(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
 		dotnet_setp(nHandle,"ContentType",P1)
@@ -6125,14 +6117,14 @@ Class AcceptedAtActionResult from ObjectResult
 		return self
 
 	Func getActionName
-		return dnText(dotnet_getp(nHandle,"ActionName"))
+		return dnAnswer(dotnet_getp(nHandle,"ActionName"))
 
 	Func setActionName P1
 		dotnet_setp(nHandle,"ActionName",P1)
 		return self
 
 	Func getControllerName
-		return dnText(dotnet_getp(nHandle,"ControllerName"))
+		return dnAnswer(dotnet_getp(nHandle,"ControllerName"))
 
 	Func setControllerName P1
 		dotnet_setp(nHandle,"ControllerName",P1)
@@ -6186,7 +6178,7 @@ Class AcceptedAtRouteResult from ObjectResult
 		return self
 
 	Func getRouteName
-		return dnText(dotnet_getp(nHandle,"RouteName"))
+		return dnAnswer(dotnet_getp(nHandle,"RouteName"))
 
 	Func setRouteName P1
 		dotnet_setp(nHandle,"RouteName",P1)
@@ -6239,7 +6231,7 @@ Class AcceptedResult from ObjectResult
 		return self
 
 	Func getLocation
-		return dnText(dotnet_getp(nHandle,"Location"))
+		return dnAnswer(dotnet_getp(nHandle,"Location"))
 
 	Func setLocation P1
 		dotnet_setp(nHandle,"Location",P1)
@@ -6342,14 +6334,14 @@ Class CreatedAtActionResult from ObjectResult
 		return self
 
 	Func getActionName
-		return dnText(dotnet_getp(nHandle,"ActionName"))
+		return dnAnswer(dotnet_getp(nHandle,"ActionName"))
 
 	Func setActionName P1
 		dotnet_setp(nHandle,"ActionName",P1)
 		return self
 
 	Func getControllerName
-		return dnText(dotnet_getp(nHandle,"ControllerName"))
+		return dnAnswer(dotnet_getp(nHandle,"ControllerName"))
 
 	Func setControllerName P1
 		dotnet_setp(nHandle,"ControllerName",P1)
@@ -6403,7 +6395,7 @@ Class CreatedAtRouteResult from ObjectResult
 		return self
 
 	Func getRouteName
-		return dnText(dotnet_getp(nHandle,"RouteName"))
+		return dnAnswer(dotnet_getp(nHandle,"RouteName"))
 
 	Func setRouteName P1
 		dotnet_setp(nHandle,"RouteName",P1)
@@ -6456,7 +6448,7 @@ Class CreatedResult from ObjectResult
 		return self
 
 	Func getLocation
-		return dnText(dotnet_getp(nHandle,"Location"))
+		return dnAnswer(dotnet_getp(nHandle,"Location"))
 
 	Func setLocation P1
 		dotnet_setp(nHandle,"Location",P1)
@@ -6616,7 +6608,7 @@ Class PhysicalFileResult from FileResult
 		return self
 
 	Func getFileName
-		return dnText(dotnet_getp(nHandle,"FileName"))
+		return dnAnswer(dotnet_getp(nHandle,"FileName"))
 
 	Func setFileName P1
 		dotnet_setp(nHandle,"FileName",P1)
@@ -6731,7 +6723,7 @@ Class VirtualFileResult from FileResult
 		return self
 
 	Func getFileName
-		return dnText(dotnet_getp(nHandle,"FileName"))
+		return dnAnswer(dotnet_getp(nHandle,"FileName"))
 
 	Func setFileName P1
 		dotnet_setp(nHandle,"FileName",P1)

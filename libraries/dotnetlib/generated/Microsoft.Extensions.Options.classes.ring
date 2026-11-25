@@ -313,7 +313,7 @@ Class ConfigurationChangeTokenSource from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -338,12 +338,7 @@ Class ConfigureNamedOptions from Object
 		return self
 
 	Func Configure P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s9:Configure",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s9:Configure",P1)
-
+		dotnet_calltd1v(nHandle,"Configure",P1)
 		return self
 
 	Func Equals P1
@@ -352,7 +347,7 @@ Class ConfigureNamedOptions from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -384,12 +379,7 @@ Class ConfigureNamedOptions2 from Object
 		return self
 
 	Func Configure P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s9:Configure",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s9:Configure",P1)
-
+		dotnet_calltd1v(nHandle,"Configure",P1)
 		return self
 
 	Func Equals P1
@@ -398,7 +388,7 @@ Class ConfigureNamedOptions2 from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -437,12 +427,7 @@ Class ConfigureNamedOptions3 from Object
 		return self
 
 	Func Configure P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s9:Configure",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s9:Configure",P1)
-
+		dotnet_calltd1v(nHandle,"Configure",P1)
 		return self
 
 	Func Equals P1
@@ -451,7 +436,7 @@ Class ConfigureNamedOptions3 from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -497,12 +482,7 @@ Class ConfigureNamedOptions4 from Object
 		return self
 
 	Func Configure P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s9:Configure",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s9:Configure",P1)
-
+		dotnet_calltd1v(nHandle,"Configure",P1)
 		return self
 
 	Func Equals P1
@@ -511,7 +491,7 @@ Class ConfigureNamedOptions4 from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -564,12 +544,7 @@ Class ConfigureNamedOptions5 from Object
 		return self
 
 	Func Configure P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s9:Configure",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s9:Configure",P1)
-
+		dotnet_calltd1v(nHandle,"Configure",P1)
 		return self
 
 	Func Equals P1
@@ -578,7 +553,7 @@ Class ConfigureNamedOptions5 from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -638,12 +613,7 @@ Class ConfigureNamedOptions6 from Object
 		return self
 
 	Func Configure P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s9:Configure",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s9:Configure",P1)
-
+		dotnet_calltd1v(nHandle,"Configure",P1)
 		return self
 
 	Func Equals P1
@@ -652,7 +622,7 @@ Class ConfigureNamedOptions6 from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -754,7 +724,7 @@ Class DataAnnotationValidateOptions from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -776,12 +746,7 @@ Class IConfigureNamedOptions from DotNetObject
 		return self
 
 	Func Configure P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s9:Configure",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s9:Configure",P1)
-
+		dotnet_calltd1v(nHandle,"Configure",P1)
 		return self
 
 
@@ -827,7 +792,7 @@ Class IOptionsChangeTokenSource from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetChangeToken"))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -876,13 +841,10 @@ Class IOptionsMonitorCache from DotNetObject
 		return dn_x
 
 	Func TryRemove P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:TryRemove",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"TryRemove",P1))
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 
@@ -1000,8 +962,7 @@ Class IStartupValidator from DotNetObject
 		return self
 
 	Func Validate 
-		dotnet_callv("s4:call",nHandle,"s8:Validate")
-
+		dotnet_calltv(nHandle,"Validate")
 		return self
 
 
@@ -1112,7 +1073,7 @@ Class OptionsBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ValidateOnStart"))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1140,8 +1101,7 @@ Class OptionsCache from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func GetOrAdd P1,P2
@@ -1153,9 +1113,7 @@ Class OptionsCache from Object
 		return dn_x
 
 	Func TryRemove P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:TryRemove",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"TryRemove",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1263,8 +1221,7 @@ Class OptionsMonitor from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:OnChange",P1))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -1297,7 +1254,7 @@ Class OptionsValidationException from Exception
 		return self
 
 	Func getOptionsName
-		return dnText(dotnet_getp(nHandle,"OptionsName"))
+		return dnAnswer(dotnet_getp(nHandle,"OptionsName"))
 
 	Func setOptionsName P1
 		raise("DotNet Error: OptionsName is a read-only property")
@@ -1394,7 +1351,7 @@ Class PostConfigureOptions from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1426,12 +1383,7 @@ Class PostConfigureOptions2 from Object
 		return self
 
 	Func PostConfigure P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s13:PostConfigure",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s13:PostConfigure",P1)
-
+		dotnet_calltd1v(nHandle,"PostConfigure",P1)
 		return self
 
 	Func Equals P1
@@ -1440,7 +1392,7 @@ Class PostConfigureOptions2 from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1479,12 +1431,7 @@ Class PostConfigureOptions3 from Object
 		return self
 
 	Func PostConfigure P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s13:PostConfigure",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s13:PostConfigure",P1)
-
+		dotnet_calltd1v(nHandle,"PostConfigure",P1)
 		return self
 
 	Func Equals P1
@@ -1493,7 +1440,7 @@ Class PostConfigureOptions3 from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1539,12 +1486,7 @@ Class PostConfigureOptions4 from Object
 		return self
 
 	Func PostConfigure P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s13:PostConfigure",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s13:PostConfigure",P1)
-
+		dotnet_calltd1v(nHandle,"PostConfigure",P1)
 		return self
 
 	Func Equals P1
@@ -1553,7 +1495,7 @@ Class PostConfigureOptions4 from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1606,12 +1548,7 @@ Class PostConfigureOptions5 from Object
 		return self
 
 	Func PostConfigure P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s13:PostConfigure",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s13:PostConfigure",P1)
-
+		dotnet_calltd1v(nHandle,"PostConfigure",P1)
 		return self
 
 	Func Equals P1
@@ -1620,7 +1557,7 @@ Class PostConfigureOptions5 from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1680,12 +1617,7 @@ Class PostConfigureOptions6 from Object
 		return self
 
 	Func PostConfigure P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s13:PostConfigure",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s13:PostConfigure",P1)
-
+		dotnet_calltd1v(nHandle,"PostConfigure",P1)
 		return self
 
 	Func Equals P1
@@ -1694,7 +1626,7 @@ Class PostConfigureOptions6 from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1881,7 +1813,7 @@ Class ValidateOptionsResult from Object
 		raise("DotNet Error: Failed is a read-only property")
 
 	Func getFailureMessage
-		return dnText(dotnet_getp(nHandle,"FailureMessage"))
+		return dnAnswer(dotnet_getp(nHandle,"FailureMessage"))
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
@@ -1926,12 +1858,7 @@ Class ValidateOptionsResultBuilder from Object
 		return self
 
 	Func AddError P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s8:AddError",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s8:AddError",P1)
-
+		dotnet_calltd1v(nHandle,"AddError",P1)
 		return self
 
 	Func AddResult P1
@@ -1948,8 +1875,7 @@ Class ValidateOptionsResultBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Equals P1
@@ -1986,7 +1912,7 @@ Class ValidateOptions from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1998,7 +1924,7 @@ Class ValidateOptions from Object
 		raise("DotNet Error: Validation is a read-only property")
 
 	Func getFailureMessage
-		return dnText(dotnet_getp(nHandle,"FailureMessage"))
+		return dnAnswer(dotnet_getp(nHandle,"FailureMessage"))
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
@@ -2033,7 +1959,7 @@ Class ValidateOptions2 from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2045,7 +1971,7 @@ Class ValidateOptions2 from Object
 		raise("DotNet Error: Validation is a read-only property")
 
 	Func getFailureMessage
-		return dnText(dotnet_getp(nHandle,"FailureMessage"))
+		return dnAnswer(dotnet_getp(nHandle,"FailureMessage"))
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
@@ -2087,7 +2013,7 @@ Class ValidateOptions3 from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2099,7 +2025,7 @@ Class ValidateOptions3 from Object
 		raise("DotNet Error: Validation is a read-only property")
 
 	Func getFailureMessage
-		return dnText(dotnet_getp(nHandle,"FailureMessage"))
+		return dnAnswer(dotnet_getp(nHandle,"FailureMessage"))
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
@@ -2148,7 +2074,7 @@ Class ValidateOptions4 from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2160,7 +2086,7 @@ Class ValidateOptions4 from Object
 		raise("DotNet Error: Validation is a read-only property")
 
 	Func getFailureMessage
-		return dnText(dotnet_getp(nHandle,"FailureMessage"))
+		return dnAnswer(dotnet_getp(nHandle,"FailureMessage"))
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
@@ -2216,7 +2142,7 @@ Class ValidateOptions5 from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2228,7 +2154,7 @@ Class ValidateOptions5 from Object
 		raise("DotNet Error: Validation is a read-only property")
 
 	Func getFailureMessage
-		return dnText(dotnet_getp(nHandle,"FailureMessage"))
+		return dnAnswer(dotnet_getp(nHandle,"FailureMessage"))
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
@@ -2291,7 +2217,7 @@ Class ValidateOptions6 from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2303,7 +2229,7 @@ Class ValidateOptions6 from Object
 		raise("DotNet Error: Validation is a read-only property")
 
 	Func getFailureMessage
-		return dnText(dotnet_getp(nHandle,"FailureMessage"))
+		return dnAnswer(dotnet_getp(nHandle,"FailureMessage"))
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")

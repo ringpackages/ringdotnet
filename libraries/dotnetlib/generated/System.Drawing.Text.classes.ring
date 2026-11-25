@@ -31,8 +31,7 @@ Class FontCollection from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -89,8 +88,7 @@ Class PrivateFontCollection from FontCollection
 		return self
 
 	Func AddFontFile P1
-		dotnet_callv("s4:call",nHandle,"s11:AddFontFile",P1)
-
+		dotnet_calltv(nHandle,"AddFontFile",P1)
 		return self
 
 	Func AddMemoryFont P1,P2

@@ -84,8 +84,7 @@ Class TarEntry from Object
 		return self
 
 	Func ExtractToFile P1,P2
-		dotnet_callv("s4:call",nHandle,"s13:ExtractToFile",P1,P2)
-
+		dotnet_calltv(nHandle,"ExtractToFile",P1,P2)
 		return self
 
 	Func ExtractToFileAsync P1
@@ -138,7 +137,7 @@ Class TarEntry from Object
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getLinkName
-		return dnText(dotnet_getp(nHandle,"LinkName"))
+		return dnAnswer(dotnet_getp(nHandle,"LinkName"))
 
 	Func setLinkName P1
 		dotnet_setp(nHandle,"LinkName",P1)
@@ -152,7 +151,7 @@ Class TarEntry from Object
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -247,8 +246,7 @@ Class TarReader from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func DisposeAsync 
@@ -313,20 +311,14 @@ Class TarWriter from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func DisposeAsync 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
 
 	Func WriteEntry P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s10:WriteEntry",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s10:WriteEntry",P1)
-
+		dotnet_calltd1v(nHandle,"WriteEntry",P1)
 		return self
 
 	Func WriteEntryAsync P1
@@ -382,14 +374,14 @@ Class PosixTarEntry from TarEntry
 		return self
 
 	Func getGroupName
-		return dnText(dotnet_getp(nHandle,"GroupName"))
+		return dnAnswer(dotnet_getp(nHandle,"GroupName"))
 
 	Func setGroupName P1
 		dotnet_setp(nHandle,"GroupName",P1)
 		return self
 
 	Func getUserName
-		return dnText(dotnet_getp(nHandle,"UserName"))
+		return dnAnswer(dotnet_getp(nHandle,"UserName"))
 
 	Func setUserName P1
 		dotnet_setp(nHandle,"UserName",P1)

@@ -190,8 +190,7 @@ Class KestrelServer from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:StopAsync",P1))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -402,57 +401,27 @@ Class KestrelServerOptions from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
 
 	Func Listen P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:Listen",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:Listen",P1)
-
+		dotnet_calltd1v(nHandle,"Listen",P1)
 		return self
 
 	Func ListenLocalhost P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s15:ListenLocalhost",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s15:ListenLocalhost",P1)
-
+		dotnet_calltd1v(nHandle,"ListenLocalhost",P1)
 		return self
 
 	Func ListenAnyIP P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s11:ListenAnyIP",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s11:ListenAnyIP",P1)
-
+		dotnet_calltd1v(nHandle,"ListenAnyIP",P1)
 		return self
 
 	Func ListenUnixSocket P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s16:ListenUnixSocket",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s16:ListenUnixSocket",P1)
-
+		dotnet_calltd1v(nHandle,"ListenUnixSocket",P1)
 		return self
 
 	Func ListenHandle P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s12:ListenHandle",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s12:ListenHandle",P1)
-
+		dotnet_calltd1v(nHandle,"ListenHandle",P1)
 		return self
 
 	Func ListenNamedPipe P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s15:ListenNamedPipe",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s15:ListenNamedPipe",P1)
-
+		dotnet_calltd1v(nHandle,"ListenNamedPipe",P1)
 		return self
 
 	Func Equals P1
@@ -619,13 +588,13 @@ Class ListenOptions from Object
 		raise("DotNet Error: IPEndPoint is a read-only property")
 
 	Func getSocketPath
-		return dnText(dotnet_getp(nHandle,"SocketPath"))
+		return dnAnswer(dotnet_getp(nHandle,"SocketPath"))
 
 	Func setSocketPath P1
 		raise("DotNet Error: SocketPath is a read-only property")
 
 	Func getPipeName
-		return dnText(dotnet_getp(nHandle,"PipeName"))
+		return dnAnswer(dotnet_getp(nHandle,"PipeName"))
 
 	Func setPipeName P1
 		raise("DotNet Error: PipeName is a read-only property")

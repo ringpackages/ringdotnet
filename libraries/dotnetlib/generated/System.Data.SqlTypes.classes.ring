@@ -678,13 +678,11 @@ Class SqlBytes from Object
 		return self
 
 	Func SetNull 
-		dotnet_callv("s4:call",nHandle,"s7:SetNull")
-
+		dotnet_calltv(nHandle,"SetNull")
 		return self
 
 	Func SetLength P1
-		dotnet_callv("s4:call",nHandle,"s9:SetLength",P1)
-
+		dotnet_calltv(nHandle,"SetLength",P1)
 		return self
 
 	Func Read P1,P2,P3,P4
@@ -802,13 +800,11 @@ Class SqlChars from Object
 		return self
 
 	Func SetNull 
-		dotnet_callv("s4:call",nHandle,"s7:SetNull")
-
+		dotnet_calltv(nHandle,"SetNull")
 		return self
 
 	Func SetLength P1
-		dotnet_callv("s4:call",nHandle,"s9:SetLength",P1)
-
+		dotnet_calltv(nHandle,"SetLength",P1)
 		return self
 
 	Func Read P1,P2,P3,P4
@@ -1080,9 +1076,7 @@ Class SqlDecimal from ValueType
 		return self
 
 	Func ToDouble 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToDouble")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToDouble"))
 
 	Func WriteTdsValue P1
 		return dnSend("s4:call",nHandle,"s13:WriteTdsValue",dnPackItem(P1))
@@ -2114,29 +2108,19 @@ Class SqlMoney from ValueType
 		return self
 
 	Func ToDecimal 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ToDecimal")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToDecimal"))
 
 	Func ToInt64 
-		dn_x = dotnet_call("s4:call",nHandle,"s7:ToInt64")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToInt64"))
 
 	Func ToInt32 
-		dn_x = dotnet_call("s4:call",nHandle,"s7:ToInt32")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToInt32"))
 
 	Func ToDouble 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToDouble")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToDouble"))
 
 	Func GetTdsValue 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetTdsValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetTdsValue"))
 
 	Func ToSqlBoolean 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlBoolean"))
@@ -2561,7 +2545,7 @@ Class SqlString from ValueType
 		return dotnet_getp(nHandle,"IsNull")
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -2728,7 +2712,7 @@ Class SqlXml from Object
 		return dotnet_getp(nHandle,"IsNull")
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

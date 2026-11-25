@@ -190,8 +190,7 @@ Class CachedBitmap from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -690,8 +689,7 @@ Class EncoderParameter from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func @GetType 
@@ -767,8 +765,7 @@ Class EncoderParameters from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -853,34 +850,18 @@ Class ImageAttributes from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Clone 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func SetColorMatrix P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:SetColorMatrix",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:SetColorMatrix",P1)
-
+		dotnet_calltd1v(nHandle,"SetColorMatrix",P1)
 		return self
 
 	Func ClearColorMatrix P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s16:ClearColorMatrix",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s16:ClearColorMatrix")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s16:ClearColorMatrix",P1)
-
+		dotnet_calltdv(nHandle,"ClearColorMatrix",P1)
 		return self
 
 	Func SetColorMatrices P1
@@ -891,77 +872,27 @@ Class ImageAttributes from Object
 		raise("DotNet Error: SetColorMatrices does not take one argument: use named arguments, SetColorMatrices([ :parameter = value, ... ])")
 
 	Func SetThreshold P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s12:SetThreshold",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s12:SetThreshold",P1)
-
+		dotnet_calltd1v(nHandle,"SetThreshold",P1)
 		return self
 
 	Func ClearThreshold P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:ClearThreshold",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s14:ClearThreshold")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:ClearThreshold",P1)
-
+		dotnet_calltdv(nHandle,"ClearThreshold",P1)
 		return self
 
 	Func SetGamma P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s8:SetGamma",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s8:SetGamma",P1)
-
+		dotnet_calltd1v(nHandle,"SetGamma",P1)
 		return self
 
 	Func ClearGamma P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s10:ClearGamma",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s10:ClearGamma")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s10:ClearGamma",P1)
-
+		dotnet_calltdv(nHandle,"ClearGamma",P1)
 		return self
 
 	Func SetNoOp P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s7:SetNoOp",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s7:SetNoOp")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s7:SetNoOp",P1)
-
+		dotnet_calltdv(nHandle,"SetNoOp",P1)
 		return self
 
 	Func ClearNoOp P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s9:ClearNoOp",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s9:ClearNoOp")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s9:ClearNoOp",P1)
-
+		dotnet_calltdv(nHandle,"ClearNoOp",P1)
 		return self
 
 	Func SetColorKey P1
@@ -972,86 +903,31 @@ Class ImageAttributes from Object
 		raise("DotNet Error: SetColorKey does not take one argument: use named arguments, SetColorKey([ :parameter = value, ... ])")
 
 	Func ClearColorKey P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s13:ClearColorKey",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s13:ClearColorKey")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s13:ClearColorKey",P1)
-
+		dotnet_calltdv(nHandle,"ClearColorKey",P1)
 		return self
 
 	Func SetOutputChannel P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s16:SetOutputChannel",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s16:SetOutputChannel",P1)
-
+		dotnet_calltd1v(nHandle,"SetOutputChannel",P1)
 		return self
 
 	Func ClearOutputChannel P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s18:ClearOutputChannel",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s18:ClearOutputChannel")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s18:ClearOutputChannel",P1)
-
+		dotnet_calltdv(nHandle,"ClearOutputChannel",P1)
 		return self
 
 	Func SetOutputChannelColorProfile P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s28:SetOutputChannelColorProfile",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s28:SetOutputChannelColorProfile",P1)
-
+		dotnet_calltd1v(nHandle,"SetOutputChannelColorProfile",P1)
 		return self
 
 	Func ClearOutputChannelColorProfile P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s30:ClearOutputChannelColorProfile",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s30:ClearOutputChannelColorProfile")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s30:ClearOutputChannelColorProfile",P1)
-
+		dotnet_calltdv(nHandle,"ClearOutputChannelColorProfile",P1)
 		return self
 
 	Func SetRemapTable P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s13:SetRemapTable",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s13:SetRemapTable",P1)
-
+		dotnet_calltd1v(nHandle,"SetRemapTable",P1)
 		return self
 
 	Func ClearRemapTable P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s15:ClearRemapTable",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s15:ClearRemapTable")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s15:ClearRemapTable",P1)
-
+		dotnet_calltdv(nHandle,"ClearRemapTable",P1)
 		return self
 
 	Func SetBrushRemapTable P1
@@ -1060,17 +936,11 @@ Class ImageAttributes from Object
 		return self
 
 	Func ClearBrushRemapTable 
-		dotnet_callv("s4:call",nHandle,"s20:ClearBrushRemapTable")
-
+		dotnet_calltv(nHandle,"ClearBrushRemapTable")
 		return self
 
 	Func SetWrapMode P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s11:SetWrapMode",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s11:SetWrapMode",P1)
-
+		dotnet_calltd1v(nHandle,"SetWrapMode",P1)
 		return self
 
 	Func GetAdjustedPalette P1,P2
@@ -1133,35 +1003,35 @@ Class ImageCodecInfo from Object
 		return self
 
 	Func getCodecName
-		return dnText(dotnet_getp(nHandle,"CodecName"))
+		return dnAnswer(dotnet_getp(nHandle,"CodecName"))
 
 	Func setCodecName P1
 		dotnet_setp(nHandle,"CodecName",P1)
 		return self
 
 	Func getDllName
-		return dnText(dotnet_getp(nHandle,"DllName"))
+		return dnAnswer(dotnet_getp(nHandle,"DllName"))
 
 	Func setDllName P1
 		dotnet_setp(nHandle,"DllName",P1)
 		return self
 
 	Func getFormatDescription
-		return dnText(dotnet_getp(nHandle,"FormatDescription"))
+		return dnAnswer(dotnet_getp(nHandle,"FormatDescription"))
 
 	Func setFormatDescription P1
 		dotnet_setp(nHandle,"FormatDescription",P1)
 		return self
 
 	Func getFilenameExtension
-		return dnText(dotnet_getp(nHandle,"FilenameExtension"))
+		return dnAnswer(dotnet_getp(nHandle,"FilenameExtension"))
 
 	Func setFilenameExtension P1
 		dotnet_setp(nHandle,"FilenameExtension",P1)
 		return self
 
 	Func getMimeType
-		return dnText(dotnet_getp(nHandle,"MimeType"))
+		return dnAnswer(dotnet_getp(nHandle,"MimeType"))
 
 	Func setMimeType P1
 		dotnet_setp(nHandle,"MimeType",P1)
@@ -1354,44 +1224,28 @@ Class MetafileHeader from Object
 		return self
 
 	Func IsWmf 
-		dn_x = dotnet_call("s4:call",nHandle,"s5:IsWmf")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsWmf"))
 
 	Func IsWmfPlaceable 
-		dn_x = dotnet_call("s4:call",nHandle,"s14:IsWmfPlaceable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsWmfPlaceable"))
 
 	Func IsEmf 
-		dn_x = dotnet_call("s4:call",nHandle,"s5:IsEmf")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsEmf"))
 
 	Func IsEmfOrEmfPlus 
-		dn_x = dotnet_call("s4:call",nHandle,"s14:IsEmfOrEmfPlus")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsEmfOrEmfPlus"))
 
 	Func IsEmfPlus 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:IsEmfPlus")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsEmfPlus"))
 
 	Func IsEmfPlusDual 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:IsEmfPlusDual")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsEmfPlusDual"))
 
 	Func IsEmfPlusOnly 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:IsEmfPlusOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsEmfPlusOnly"))
 
 	Func IsDisplay 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:IsDisplay")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsDisplay"))
 
 	Func @GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))

@@ -199,19 +199,7 @@ Class BufferedReadStream from Stream
 		raise("DotNet Error: ReadAsync does not take one argument: use named arguments, ReadAsync([ :parameter = value, ... ])")
 
 	Func EnsureBuffered P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:EnsureBuffered",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s14:EnsureBuffered")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s14:EnsureBuffered",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"EnsureBuffered",P1))
 
 	Func EnsureBufferedAsync P1
 		if dotnet_isnamed(P1)
@@ -220,9 +208,7 @@ Class BufferedReadStream from Stream
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:EnsureBufferedAsync",P1))
 
 	Func ReadLine P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ReadLine",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadLine",P1))
 
 	Func ReadLineAsync P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadLineAsync",P1,P2))
@@ -285,7 +271,7 @@ Class FileBufferingReadStream from Stream
 		raise("DotNet Error: InMemory is a read-only property")
 
 	Func getTempFileName
-		return dnText(dotnet_getp(nHandle,"TempFileName"))
+		return dnAnswer(dotnet_getp(nHandle,"TempFileName"))
 
 	Func setTempFileName P1
 		raise("DotNet Error: TempFileName is a read-only property")
@@ -399,13 +385,13 @@ Class FileMultipartSection from Object
 		raise("DotNet Error: FileStream is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getFileName
-		return dnText(dotnet_getp(nHandle,"FileName"))
+		return dnAnswer(dotnet_getp(nHandle,"FileName"))
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
@@ -463,7 +449,7 @@ Class FormMultipartSection from Object
 		raise("DotNet Error: Section is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -597,8 +583,7 @@ Class FormReader from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadFormAsync",P1))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -729,8 +714,7 @@ Class KeyValueAccumulator from ValueType
 		return self
 
 	Func Append P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:Append",P1,P2)
-
+		dotnet_calltv(nHandle,"Append",P1,P2)
 		return self
 
 	Func GetResults 
@@ -891,13 +875,13 @@ Class MultipartSection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadAsStringAsync",P1))
 
 	Func getContentType
-		return dnText(dotnet_getp(nHandle,"ContentType"))
+		return dnAnswer(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getContentDisposition
-		return dnText(dotnet_getp(nHandle,"ContentDisposition"))
+		return dnAnswer(dotnet_getp(nHandle,"ContentDisposition"))
 
 	Func setContentDisposition P1
 		raise("DotNet Error: ContentDisposition is a read-only property")
@@ -1109,9 +1093,7 @@ Class QueryStringEnumerableEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func getCurrent
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Current"))

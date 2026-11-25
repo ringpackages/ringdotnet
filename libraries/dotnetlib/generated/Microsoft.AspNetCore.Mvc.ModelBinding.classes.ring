@@ -539,7 +539,7 @@ Class BindingInfo from Object
 		return self
 
 	Func getBinderModelName
-		return dnText(dotnet_getp(nHandle,"BinderModelName"))
+		return dnAnswer(dotnet_getp(nHandle,"BinderModelName"))
 
 	Func setBinderModelName P1
 		dotnet_setp(nHandle,"BinderModelName",P1)
@@ -620,13 +620,13 @@ Class AspBindingSource from Object
 		return dn_x
 
 	Func getDisplayName
-		return dnText(dotnet_getp(nHandle,"DisplayName"))
+		return dnAnswer(dotnet_getp(nHandle,"DisplayName"))
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getId
-		return dnText(dotnet_getp(nHandle,"Id"))
+		return dnAnswer(dotnet_getp(nHandle,"Id"))
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -720,9 +720,7 @@ Class BindingSourceValueProvider from Object
 		return self
 
 	Func ContainsPrefix P1
-		dn_x = dotnet_call("s4:call",nHandle,"s14:ContainsPrefix",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsPrefix",P1))
 
 	Func GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
@@ -773,9 +771,7 @@ Class CompositeValueProvider from Collection
 		return self
 
 	Func ContainsPrefix P1
-		dn_x = dotnet_call("s4:call",nHandle,"s14:ContainsPrefix",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsPrefix",P1))
 
 	Func GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
@@ -824,7 +820,7 @@ Class DefaultPropertyFilterProvider from Object
 		return dn_x
 
 	Func getPrefix
-		return dnText(dotnet_getp(nHandle,"Prefix"))
+		return dnAnswer(dotnet_getp(nHandle,"Prefix"))
 
 	Func setPrefix P1
 		raise("DotNet Error: Prefix is a read-only property")
@@ -884,9 +880,7 @@ Class EmptyModelMetadataProvider from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToString"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -894,9 +888,7 @@ Class EmptyModelMetadataProvider from DotNetObject
 		return dn_x
 
 	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 
 Class EnumGroupAndName from ValueType
@@ -939,13 +931,13 @@ Class EnumGroupAndName from ValueType
 		return self
 
 	Func getGroup
-		return dnText(dotnet_getp(nHandle,"Group"))
+		return dnAnswer(dotnet_getp(nHandle,"Group"))
 
 	Func setGroup P1
 		raise("DotNet Error: Group is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -965,9 +957,7 @@ Class FormFileValueProvider from Object
 		return self
 
 	Func ContainsPrefix P1
-		dn_x = dotnet_call("s4:call",nHandle,"s14:ContainsPrefix",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsPrefix",P1))
 
 	Func GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
@@ -1098,9 +1088,7 @@ Class IBindingSourceValueProvider from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter",P1))
 
 	Func ContainsPrefix P1
-		dn_x = dotnet_call("s4:call",nHandle,"s14:ContainsPrefix",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsPrefix",P1))
 
 	Func GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
@@ -1141,9 +1129,7 @@ Class IEnumerableValueProvider from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetKeysFromPrefix",P1))
 
 	Func ContainsPrefix P1
-		dn_x = dotnet_call("s4:call",nHandle,"s14:ContainsPrefix",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsPrefix",P1))
 
 	Func GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
@@ -1164,9 +1150,7 @@ Class IKeyRewriterValueProvider from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter"))
 
 	Func ContainsPrefix P1
-		dn_x = dotnet_call("s4:call",nHandle,"s14:ContainsPrefix",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsPrefix",P1))
 
 	Func GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
@@ -1253,7 +1237,7 @@ Class IModelNameProvider from DotNetObject
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1311,9 +1295,7 @@ Class IValueProvider from DotNetObject
 		return self
 
 	Func ContainsPrefix P1
-		dn_x = dotnet_call("s4:call",nHandle,"s14:ContainsPrefix",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsPrefix",P1))
 
 	Func GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
@@ -1654,7 +1636,7 @@ Class ModelBindingContext from Object
 		return self
 
 	Func getBinderModelName
-		return dnText(dotnet_getp(nHandle,"BinderModelName"))
+		return dnAnswer(dotnet_getp(nHandle,"BinderModelName"))
 
 	Func setBinderModelName P1
 		dotnet_setp(nHandle,"BinderModelName",P1)
@@ -1668,7 +1650,7 @@ Class ModelBindingContext from Object
 		return self
 
 	Func getFieldName
-		return dnText(dotnet_getp(nHandle,"FieldName"))
+		return dnAnswer(dotnet_getp(nHandle,"FieldName"))
 
 	Func setFieldName P1
 		dotnet_setp(nHandle,"FieldName",P1)
@@ -1702,14 +1684,14 @@ Class ModelBindingContext from Object
 		return self
 
 	Func getModelName
-		return dnText(dotnet_getp(nHandle,"ModelName"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
 
 	Func setModelName P1
 		dotnet_setp(nHandle,"ModelName",P1)
 		return self
 
 	Func getOriginalModelName
-		return dnText(dotnet_getp(nHandle,"OriginalModelName"))
+		return dnAnswer(dotnet_getp(nHandle,"OriginalModelName"))
 
 	Func setOriginalModelName P1
 		raise("DotNet Error: OriginalModelName is a read-only property")
@@ -1793,8 +1775,7 @@ Class ModelBindingContextNestedScope from ValueType
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 
@@ -1887,7 +1868,7 @@ Class ModelError from Object
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getErrorMessage
-		return dnText(dotnet_getp(nHandle,"ErrorMessage"))
+		return dnAnswer(dotnet_getp(nHandle,"ErrorMessage"))
 
 	Func setErrorMessage P1
 		raise("DotNet Error: ErrorMessage is a read-only property")
@@ -1983,9 +1964,7 @@ Class ModelMetadata from Object
 		return self
 
 	Func @GetDisplayName 
-		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDisplayName"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2027,19 +2006,19 @@ Class ModelMetadata from Object
 		raise("DotNet Error: ModelType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getParameterName
-		return dnText(dotnet_getp(nHandle,"ParameterName"))
+		return dnAnswer(dotnet_getp(nHandle,"ParameterName"))
 
 	Func setParameterName P1
 		raise("DotNet Error: ParameterName is a read-only property")
 
 	Func getPropertyName
-		return dnText(dotnet_getp(nHandle,"PropertyName"))
+		return dnAnswer(dotnet_getp(nHandle,"PropertyName"))
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
@@ -2069,7 +2048,7 @@ Class ModelMetadata from Object
 		raise("DotNet Error: BoundConstructorParameters is a read-only property")
 
 	Func getBinderModelName
-		return dnText(dotnet_getp(nHandle,"BinderModelName"))
+		return dnAnswer(dotnet_getp(nHandle,"BinderModelName"))
 
 	Func setBinderModelName P1
 		raise("DotNet Error: BinderModelName is a read-only property")
@@ -2093,31 +2072,31 @@ Class ModelMetadata from Object
 		raise("DotNet Error: ConvertEmptyStringToNull is a read-only property")
 
 	Func getDataTypeName
-		return dnText(dotnet_getp(nHandle,"DataTypeName"))
+		return dnAnswer(dotnet_getp(nHandle,"DataTypeName"))
 
 	Func setDataTypeName P1
 		raise("DotNet Error: DataTypeName is a read-only property")
 
 	Func getDescription
-		return dnText(dotnet_getp(nHandle,"Description"))
+		return dnAnswer(dotnet_getp(nHandle,"Description"))
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getDisplayFormatString
-		return dnText(dotnet_getp(nHandle,"DisplayFormatString"))
+		return dnAnswer(dotnet_getp(nHandle,"DisplayFormatString"))
 
 	Func setDisplayFormatString P1
 		raise("DotNet Error: DisplayFormatString is a read-only property")
 
 	Func getDisplayName
-		return dnText(dotnet_getp(nHandle,"DisplayName"))
+		return dnAnswer(dotnet_getp(nHandle,"DisplayName"))
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getEditFormatString
-		return dnText(dotnet_getp(nHandle,"EditFormatString"))
+		return dnAnswer(dotnet_getp(nHandle,"EditFormatString"))
 
 	Func setEditFormatString P1
 		raise("DotNet Error: EditFormatString is a read-only property")
@@ -2207,13 +2186,13 @@ Class ModelMetadata from Object
 		raise("DotNet Error: Order is a read-only property")
 
 	Func getPlaceholder
-		return dnText(dotnet_getp(nHandle,"Placeholder"))
+		return dnAnswer(dotnet_getp(nHandle,"Placeholder"))
 
 	Func setPlaceholder P1
 		raise("DotNet Error: Placeholder is a read-only property")
 
 	Func getNullDisplayText
-		return dnText(dotnet_getp(nHandle,"NullDisplayText"))
+		return dnAnswer(dotnet_getp(nHandle,"NullDisplayText"))
 
 	Func setNullDisplayText P1
 		raise("DotNet Error: NullDisplayText is a read-only property")
@@ -2237,13 +2216,13 @@ Class ModelMetadata from Object
 		raise("DotNet Error: ShowForEdit is a read-only property")
 
 	Func getSimpleDisplayProperty
-		return dnText(dotnet_getp(nHandle,"SimpleDisplayProperty"))
+		return dnAnswer(dotnet_getp(nHandle,"SimpleDisplayProperty"))
 
 	Func setSimpleDisplayProperty P1
 		raise("DotNet Error: SimpleDisplayProperty is a read-only property")
 
 	Func getTemplateHint
-		return dnText(dotnet_getp(nHandle,"TemplateHint"))
+		return dnAnswer(dotnet_getp(nHandle,"TemplateHint"))
 
 	Func setTemplateHint P1
 		raise("DotNet Error: TemplateHint is a read-only property")
@@ -2509,13 +2488,11 @@ Class ModelStateDictionary from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetValidationState",P1))
 
 	Func MarkFieldValid P1
-		dotnet_callv("s4:call",nHandle,"s14:MarkFieldValid",P1)
-
+		dotnet_calltv(nHandle,"MarkFieldValid",P1)
 		return self
 
 	Func MarkFieldSkipped P1
-		dotnet_callv("s4:call",nHandle,"s16:MarkFieldSkipped",P1)
-
+		dotnet_calltv(nHandle,"MarkFieldSkipped",P1)
 		return self
 
 	Func Merge P1
@@ -2531,24 +2508,18 @@ Class ModelStateDictionary from Object
 		raise("DotNet Error: SetModelValue does not take one argument: use named arguments, SetModelValue([ :parameter = value, ... ])")
 
 	Func ClearValidationState P1
-		dotnet_callv("s4:call",nHandle,"s20:ClearValidationState",P1)
-
+		dotnet_calltv(nHandle,"ClearValidationState",P1)
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func ContainsKey P1
-		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsKey",P1))
 
 	Func Remove P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Remove",P1))
 
 	Func TryGetValue P1
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
@@ -2699,18 +2670,14 @@ Class ModelStateDictionaryEnumerator from ValueType
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -2819,22 +2786,18 @@ Class ModelStateDictionaryKeyEnumerator from ValueType
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
-		return dnText(dotnet_getp(nHandle,"Current"))
+		return dnAnswer(dotnet_getp(nHandle,"Current"))
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -2999,18 +2962,14 @@ Class ModelStateDictionaryValueEnumerator from ValueType
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -3093,7 +3052,7 @@ Class ModelStateEntry from Object
 		return self
 
 	Func getAttemptedValue
-		return dnText(dotnet_getp(nHandle,"AttemptedValue"))
+		return dnAnswer(dotnet_getp(nHandle,"AttemptedValue"))
 
 	Func setAttemptedValue P1
 		dotnet_setp(nHandle,"AttemptedValue",P1)
@@ -3191,9 +3150,7 @@ Class PrefixContainer from Object
 		return self
 
 	Func ContainsPrefix P1
-		dn_x = dotnet_call("s4:call",nHandle,"s14:ContainsPrefix",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsPrefix",P1))
 
 	Func GetKeysFromPrefix P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetKeysFromPrefix",P1))
@@ -3298,7 +3255,7 @@ Class SuppressChildValidationMetadataProvider from Object
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getFullTypeName
-		return dnText(dotnet_getp(nHandle,"FullTypeName"))
+		return dnAnswer(dotnet_getp(nHandle,"FullTypeName"))
 
 	Func setFullTypeName P1
 		raise("DotNet Error: FullTypeName is a read-only property")
@@ -3544,7 +3501,7 @@ Class ValueProviderResult from ValueType
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getFirstValue
-		return dnText(dotnet_getp(nHandle,"FirstValue"))
+		return dnAnswer(dotnet_getp(nHandle,"FirstValue"))
 
 	Func setFirstValue P1
 		raise("DotNet Error: FirstValue is a read-only property")

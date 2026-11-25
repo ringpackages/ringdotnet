@@ -961,44 +961,35 @@ Class DocumentViewerBase from WpfControl
 		return self
 
 	Func PreviousPage 
-		dotnet_callv("s4:call",nHandle,"s12:PreviousPage")
-
+		dotnet_calltv(nHandle,"PreviousPage")
 		return self
 
 	Func NextPage 
-		dotnet_callv("s4:call",nHandle,"s8:NextPage")
-
+		dotnet_calltv(nHandle,"NextPage")
 		return self
 
 	Func FirstPage 
-		dotnet_callv("s4:call",nHandle,"s9:FirstPage")
-
+		dotnet_calltv(nHandle,"FirstPage")
 		return self
 
 	Func LastPage 
-		dotnet_callv("s4:call",nHandle,"s8:LastPage")
-
+		dotnet_calltv(nHandle,"LastPage")
 		return self
 
 	Func GoToPage P1
-		dotnet_callv("s4:call",nHandle,"s8:GoToPage",P1)
-
+		dotnet_calltv(nHandle,"GoToPage",P1)
 		return self
 
 	Func Print 
-		dotnet_callv("s4:call",nHandle,"s5:Print")
-
+		dotnet_calltv(nHandle,"Print")
 		return self
 
 	Func CancelPrint 
-		dotnet_callv("s4:call",nHandle,"s11:CancelPrint")
-
+		dotnet_calltv(nHandle,"CancelPrint")
 		return self
 
 	Func CanGoToPage P1
-		dn_x = dotnet_call("s4:call",nHandle,"s11:CanGoToPage",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CanGoToPage",P1))
 
 	Func GetIsMasterPage P1
 		dn_x = dotnet_call("s4:call",'System.Windows.Controls.Primitives.DocumentViewerBase, PresentationFramework',"s15:GetIsMasterPage",P1)
@@ -1361,8 +1352,7 @@ Class IContainItemStorage from DotNetObject
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 
@@ -1454,8 +1444,7 @@ Class IItemContainerGenerator from DotNetObject
 		return self
 
 	Func RemoveAll 
-		dotnet_callv("s4:call",nHandle,"s9:RemoveAll")
-
+		dotnet_calltv(nHandle,"RemoveAll")
 		return self
 
 	Func Remove P1,P2
@@ -1506,8 +1495,7 @@ Class IRecyclingItemContainerGenerator from DotNetObject
 		return self
 
 	Func RemoveAll 
-		dotnet_callv("s4:call",nHandle,"s9:RemoveAll")
-
+		dotnet_calltv(nHandle,"RemoveAll")
 		return self
 
 	Func Remove P1,P2
@@ -1546,73 +1534,59 @@ Class IScrollInfo from DotNetObject
 		return self
 
 	Func LineUp 
-		dotnet_callv("s4:call",nHandle,"s6:LineUp")
-
+		dotnet_calltv(nHandle,"LineUp")
 		return self
 
 	Func LineDown 
-		dotnet_callv("s4:call",nHandle,"s8:LineDown")
-
+		dotnet_calltv(nHandle,"LineDown")
 		return self
 
 	Func LineLeft 
-		dotnet_callv("s4:call",nHandle,"s8:LineLeft")
-
+		dotnet_calltv(nHandle,"LineLeft")
 		return self
 
 	Func LineRight 
-		dotnet_callv("s4:call",nHandle,"s9:LineRight")
-
+		dotnet_calltv(nHandle,"LineRight")
 		return self
 
 	Func PageUp 
-		dotnet_callv("s4:call",nHandle,"s6:PageUp")
-
+		dotnet_calltv(nHandle,"PageUp")
 		return self
 
 	Func PageDown 
-		dotnet_callv("s4:call",nHandle,"s8:PageDown")
-
+		dotnet_calltv(nHandle,"PageDown")
 		return self
 
 	Func PageLeft 
-		dotnet_callv("s4:call",nHandle,"s8:PageLeft")
-
+		dotnet_calltv(nHandle,"PageLeft")
 		return self
 
 	Func PageRight 
-		dotnet_callv("s4:call",nHandle,"s9:PageRight")
-
+		dotnet_calltv(nHandle,"PageRight")
 		return self
 
 	Func MouseWheelUp 
-		dotnet_callv("s4:call",nHandle,"s12:MouseWheelUp")
-
+		dotnet_calltv(nHandle,"MouseWheelUp")
 		return self
 
 	Func MouseWheelDown 
-		dotnet_callv("s4:call",nHandle,"s14:MouseWheelDown")
-
+		dotnet_calltv(nHandle,"MouseWheelDown")
 		return self
 
 	Func MouseWheelLeft 
-		dotnet_callv("s4:call",nHandle,"s14:MouseWheelLeft")
-
+		dotnet_calltv(nHandle,"MouseWheelLeft")
 		return self
 
 	Func MouseWheelRight 
-		dotnet_callv("s4:call",nHandle,"s15:MouseWheelRight")
-
+		dotnet_calltv(nHandle,"MouseWheelRight")
 		return self
 
 	Func SetHorizontalOffset P1
-		dotnet_callv("s4:call",nHandle,"s19:SetHorizontalOffset",P1)
-
+		dotnet_calltv(nHandle,"SetHorizontalOffset",P1)
 		return self
 
 	Func SetVerticalOffset P1
-		dotnet_callv("s4:call",nHandle,"s17:SetVerticalOffset",P1)
-
+		dotnet_calltv(nHandle,"SetVerticalOffset",P1)
 		return self
 
 	Func MakeVisible P1,P2
@@ -2309,7 +2283,7 @@ Class Selector from ItemsControl
 		return self
 
 	Func getSelectedValuePath
-		return dnText(dotnet_getp(nHandle,"SelectedValuePath"))
+		return dnAnswer(dotnet_getp(nHandle,"SelectedValuePath"))
 
 	Func setSelectedValuePath P1
 		dotnet_setp(nHandle,"SelectedValuePath",P1)
@@ -2531,113 +2505,89 @@ Class WpfTextBoxBase from WpfControl
 		return self
 
 	Func AppendText P1
-		dotnet_callv("s4:call",nHandle,"s10:AppendText",P1)
-
+		dotnet_calltv(nHandle,"AppendText",P1)
 		return self
 
 	Func Copy 
-		dotnet_callv("s4:call",nHandle,"s4:Copy")
-
+		dotnet_calltv(nHandle,"Copy")
 		return self
 
 	Func Cut 
-		dotnet_callv("s4:call",nHandle,"s3:Cut")
-
+		dotnet_calltv(nHandle,"Cut")
 		return self
 
 	Func Paste 
-		dotnet_callv("s4:call",nHandle,"s5:Paste")
-
+		dotnet_calltv(nHandle,"Paste")
 		return self
 
 	Func SelectAll 
-		dotnet_callv("s4:call",nHandle,"s9:SelectAll")
-
+		dotnet_calltv(nHandle,"SelectAll")
 		return self
 
 	Func LineLeft 
-		dotnet_callv("s4:call",nHandle,"s8:LineLeft")
-
+		dotnet_calltv(nHandle,"LineLeft")
 		return self
 
 	Func LineRight 
-		dotnet_callv("s4:call",nHandle,"s9:LineRight")
-
+		dotnet_calltv(nHandle,"LineRight")
 		return self
 
 	Func PageLeft 
-		dotnet_callv("s4:call",nHandle,"s8:PageLeft")
-
+		dotnet_calltv(nHandle,"PageLeft")
 		return self
 
 	Func PageRight 
-		dotnet_callv("s4:call",nHandle,"s9:PageRight")
-
+		dotnet_calltv(nHandle,"PageRight")
 		return self
 
 	Func LineUp 
-		dotnet_callv("s4:call",nHandle,"s6:LineUp")
-
+		dotnet_calltv(nHandle,"LineUp")
 		return self
 
 	Func LineDown 
-		dotnet_callv("s4:call",nHandle,"s8:LineDown")
-
+		dotnet_calltv(nHandle,"LineDown")
 		return self
 
 	Func PageUp 
-		dotnet_callv("s4:call",nHandle,"s6:PageUp")
-
+		dotnet_calltv(nHandle,"PageUp")
 		return self
 
 	Func PageDown 
-		dotnet_callv("s4:call",nHandle,"s8:PageDown")
-
+		dotnet_calltv(nHandle,"PageDown")
 		return self
 
 	Func ScrollToHome 
-		dotnet_callv("s4:call",nHandle,"s12:ScrollToHome")
-
+		dotnet_calltv(nHandle,"ScrollToHome")
 		return self
 
 	Func ScrollToEnd 
-		dotnet_callv("s4:call",nHandle,"s11:ScrollToEnd")
-
+		dotnet_calltv(nHandle,"ScrollToEnd")
 		return self
 
 	Func ScrollToHorizontalOffset P1
-		dotnet_callv("s4:call",nHandle,"s24:ScrollToHorizontalOffset",P1)
-
+		dotnet_calltv(nHandle,"ScrollToHorizontalOffset",P1)
 		return self
 
 	Func ScrollToVerticalOffset P1
-		dotnet_callv("s4:call",nHandle,"s22:ScrollToVerticalOffset",P1)
-
+		dotnet_calltv(nHandle,"ScrollToVerticalOffset",P1)
 		return self
 
 	Func Undo 
-		dn_x = dotnet_call("s4:call",nHandle,"s4:Undo")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Undo"))
 
 	Func Redo 
-		dn_x = dotnet_call("s4:call",nHandle,"s4:Redo")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Redo"))
 
 	Func LockCurrentUndoUnit 
-		dotnet_callv("s4:call",nHandle,"s19:LockCurrentUndoUnit")
-
+		dotnet_calltv(nHandle,"LockCurrentUndoUnit")
 		return self
 
 	Func BeginChange 
-		dotnet_callv("s4:call",nHandle,"s11:BeginChange")
-
+		dotnet_calltv(nHandle,"BeginChange")
 		return self
 
 	Func EndChange 
-		dotnet_callv("s4:call",nHandle,"s9:EndChange")
-
+		dotnet_calltv(nHandle,"EndChange")
 		return self
 
 	Func DeclareChangeBlock 
@@ -2941,8 +2891,7 @@ Class Thumb from WpfControl
 		return self
 
 	Func CancelDrag 
-		dotnet_callv("s4:call",nHandle,"s10:CancelDrag")
-
+		dotnet_calltv(nHandle,"CancelDrag")
 		return self
 
 	Func setDragStartedEvent P1
@@ -3278,9 +3227,7 @@ Class Track from FrameworkElement
 		return dn_x
 
 	Func ValueFromDistance P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s17:ValueFromDistance",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ValueFromDistance",P1,P2))
 
 	Func @GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
@@ -3666,13 +3613,11 @@ Class MultiSelector from Selector
 		return self
 
 	Func SelectAll 
-		dotnet_callv("s4:call",nHandle,"s9:SelectAll")
-
+		dotnet_calltv(nHandle,"SelectAll")
 		return self
 
 	Func UnselectAll 
-		dotnet_callv("s4:call",nHandle,"s11:UnselectAll")
-
+		dotnet_calltv(nHandle,"UnselectAll")
 		return self
 
 	Func getSelectedItems

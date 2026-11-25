@@ -51,9 +51,7 @@ Class TextEncoder from Object
 		return dn_x
 
 	Func WillEncode P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:WillEncode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"WillEncode",P1))
 
 	Func Encode P1
 		if dotnet_isnamed(P1)
@@ -152,8 +150,7 @@ Class TextEncoderSettings from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func ForbidCharacter P1

@@ -186,35 +186,15 @@ Class SqliteConnection from DbConnection
 		raise("DotNet Error: CreateCollation does not take one argument: use named arguments, CreateCollation([ :parameter = value, ... ])")
 
 	Func EnableExtensions P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s16:EnableExtensions",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s16:EnableExtensions")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s16:EnableExtensions",P1)
-
+		dotnet_calltdv(nHandle,"EnableExtensions",P1)
 		return self
 
 	Func LoadExtension P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s13:LoadExtension",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s13:LoadExtension",P1)
-
+		dotnet_calltd1v(nHandle,"LoadExtension",P1)
 		return self
 
 	Func BackupDatabase P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:BackupDatabase",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:BackupDatabase",P1)
-
+		dotnet_calltd1v(nHandle,"BackupDatabase",P1)
 		return self
 
 	Func ClearAllPools 
@@ -287,7 +267,7 @@ Class SqliteConnectionStringBuilder from DbConnectionStringBuilder
 		return self
 
 	Func getDataSource
-		return dnText(dotnet_getp(nHandle,"DataSource"))
+		return dnAnswer(dotnet_getp(nHandle,"DataSource"))
 
 	Func setDataSource P1
 		dotnet_setp(nHandle,"DataSource",P1)
@@ -308,7 +288,7 @@ Class SqliteConnectionStringBuilder from DbConnectionStringBuilder
 		return self
 
 	Func getPassword
-		return dnText(dotnet_getp(nHandle,"Password"))
+		return dnAnswer(dotnet_getp(nHandle,"Password"))
 
 	Func setPassword P1
 		dotnet_setp(nHandle,"Password",P1)
@@ -483,8 +463,7 @@ Class SqliteParameter from DbParameter
 		return self
 
 	Func ResetSqliteType 
-		dotnet_callv("s4:call",nHandle,"s15:ResetSqliteType")
-
+		dotnet_calltv(nHandle,"ResetSqliteType")
 		return self
 
 	Func getSqliteType

@@ -483,7 +483,7 @@ Class ContentEncodingMetadata from Object
 		return dn_x
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -624,7 +624,7 @@ Class EndpointGroupNameAttribute from Attribute
 		return self
 
 	Func getEndpointGroupName
-		return dnText(dotnet_getp(nHandle,"EndpointGroupName"))
+		return dnAnswer(dotnet_getp(nHandle,"EndpointGroupName"))
 
 	Func setEndpointGroupName P1
 		raise("DotNet Error: EndpointGroupName is a read-only property")
@@ -646,7 +646,7 @@ Class EndpointNameAttribute from Attribute
 		return self
 
 	Func getEndpointName
-		return dnText(dotnet_getp(nHandle,"EndpointName"))
+		return dnAnswer(dotnet_getp(nHandle,"EndpointName"))
 
 	Func setEndpointName P1
 		raise("DotNet Error: EndpointName is a read-only property")
@@ -673,7 +673,7 @@ Class EndpointNameMetadata from Object
 		return dn_x
 
 	Func getEndpointName
-		return dnText(dotnet_getp(nHandle,"EndpointName"))
+		return dnAnswer(dotnet_getp(nHandle,"EndpointName"))
 
 	Func setEndpointName P1
 		raise("DotNet Error: EndpointName is a read-only property")
@@ -853,7 +853,7 @@ Class IEndpointGroupNameMetadata from DotNetObject
 		return self
 
 	Func getEndpointGroupName
-		return dnText(dotnet_getp(nHandle,"EndpointGroupName"))
+		return dnAnswer(dotnet_getp(nHandle,"EndpointGroupName"))
 
 	Func setEndpointGroupName P1
 		raise("DotNet Error: EndpointGroupName is a read-only property")
@@ -873,7 +873,7 @@ Class IEndpointNameMetadata from DotNetObject
 		return self
 
 	Func getEndpointName
-		return dnText(dotnet_getp(nHandle,"EndpointName"))
+		return dnAnswer(dotnet_getp(nHandle,"EndpointName"))
 
 	Func setEndpointName P1
 		raise("DotNet Error: EndpointName is a read-only property")
@@ -1204,7 +1204,7 @@ Class INamedRouter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetVirtualPath",P1))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1411,7 +1411,7 @@ Class IRouteNameMetadata from DotNetObject
 		return self
 
 	Func getRouteName
-		return dnText(dotnet_getp(nHandle,"RouteName"))
+		return dnAnswer(dotnet_getp(nHandle,"RouteName"))
 
 	Func setRouteName P1
 		raise("DotNet Error: RouteName is a read-only property")
@@ -1995,7 +1995,7 @@ Class RouteBase from Object
 		raise("DotNet Error: Defaults is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2197,13 +2197,11 @@ Class RouteConstraintBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
 
 	Func AddResolvedConstraint P1,P2
-		dotnet_callv("s4:call",nHandle,"s21:AddResolvedConstraint",P1,P2)
-
+		dotnet_calltv(nHandle,"AddResolvedConstraint",P1,P2)
 		return self
 
 	Func SetOptional P1
-		dotnet_callv("s4:call",nHandle,"s11:SetOptional",P1)
-
+		dotnet_calltv(nHandle,"SetOptional",P1)
 		return self
 
 	Func Equals P1
@@ -2410,8 +2408,7 @@ Class RouteDataRouteDataSnapshot from ValueType
 		return self
 
 	Func Restore 
-		dotnet_callv("s4:call",nHandle,"s7:Restore")
-
+		dotnet_calltv(nHandle,"Restore")
 		return self
 
 
@@ -2878,7 +2875,7 @@ Class RouteNameMetadata from Object
 		return dn_x
 
 	Func getRouteName
-		return dnText(dotnet_getp(nHandle,"RouteName"))
+		return dnAnswer(dotnet_getp(nHandle,"RouteName"))
 
 	Func setRouteName P1
 		raise("DotNet Error: RouteName is a read-only property")
@@ -2907,12 +2904,7 @@ Class RouteOptions from Object
 		return self
 
 	Func SetParameterPolicy P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s18:SetParameterPolicy",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s18:SetParameterPolicy",P1)
-
+		dotnet_calltd1v(nHandle,"SetParameterPolicy",P1)
 		return self
 
 	Func Equals P1
@@ -2995,22 +2987,17 @@ Class RouteValueDictionary from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func ContainsKey P1
-		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsKey",P1))
 
 	Func GetEnumerator 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Remove P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Remove",P1))
 
 	Func TryAdd P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s6:TryAdd",P1,P2)
@@ -3119,18 +3106,14 @@ Class RouteValueDictionaryEnumerator from ValueType
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -3163,29 +3146,10 @@ Class RouteValueEqualityComparer from Object
 		return self
 
 	Func Equals P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Equals",P1))
 
 	Func GetHashCode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetHashCode",P1))
 
 	Func getDefault
 		return dnObj(dotnet_callo("s3:get",'Microsoft.AspNetCore.Routing.RouteValueEqualityComparer, Microsoft.AspNetCore.Components',"s7:Default"))
@@ -3224,7 +3188,7 @@ Class RouteValuesAddress from Object
 		return dn_x
 
 	Func getRouteName
-		return dnText(dotnet_getp(nHandle,"RouteName"))
+		return dnAnswer(dotnet_getp(nHandle,"RouteName"))
 
 	Func setRouteName P1
 		dotnet_setp(nHandle,"RouteName",P1)
@@ -3422,7 +3386,7 @@ Class VirtualPathContext from Object
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getRouteName
-		return dnText(dotnet_getp(nHandle,"RouteName"))
+		return dnAnswer(dotnet_getp(nHandle,"RouteName"))
 
 	Func setRouteName P1
 		raise("DotNet Error: RouteName is a read-only property")
@@ -3486,7 +3450,7 @@ Class VirtualPathData from Object
 		return self
 
 	Func getVirtualPath
-		return dnText(dotnet_getp(nHandle,"VirtualPath"))
+		return dnAnswer(dotnet_getp(nHandle,"VirtualPath"))
 
 	Func setVirtualPath P1
 		dotnet_setp(nHandle,"VirtualPath",P1)
@@ -3509,8 +3473,7 @@ Class CompositeEndpointDataSource from EndpointDataSource
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func getDataSources
@@ -3565,7 +3528,7 @@ Class Route from RouteBase
 		return self
 
 	Func getRouteTemplate
-		return dnText(dotnet_getp(nHandle,"RouteTemplate"))
+		return dnAnswer(dotnet_getp(nHandle,"RouteTemplate"))
 
 	Func setRouteTemplate P1
 		raise("DotNet Error: RouteTemplate is a read-only property")

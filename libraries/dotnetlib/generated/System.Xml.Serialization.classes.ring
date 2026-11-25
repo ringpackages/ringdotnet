@@ -439,28 +439,21 @@ Class CodeIdentifiers from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func MakeRightCase P1
-		dn_x = dotnet_call("s4:call",nHandle,"s13:MakeRightCase",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MakeRightCase",P1))
 
 	Func MakeUnique P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:MakeUnique",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MakeUnique",P1))
 
 	Func AddReserved P1
-		dotnet_callv("s4:call",nHandle,"s11:AddReserved",P1)
-
+		dotnet_calltv(nHandle,"AddReserved",P1)
 		return self
 
 	Func RemoveReserved P1
-		dotnet_callv("s4:call",nHandle,"s14:RemoveReserved",P1)
-
+		dotnet_calltv(nHandle,"RemoveReserved",P1)
 		return self
 
 	Func AddUnique P1,P2
@@ -469,9 +462,7 @@ Class CodeIdentifiers from Object
 		return dn_x
 
 	Func IsInUse P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IsInUse",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsInUse",P1))
 
 	Func Add P1,P2
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1,P2)
@@ -479,8 +470,7 @@ Class CodeIdentifiers from Object
 		return self
 
 	Func Remove P1
-		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
-
+		dotnet_calltv(nHandle,"Remove",P1)
 		return self
 
 	Func ToArray P1
@@ -652,21 +642,21 @@ Class SoapAttributeAttribute from Attribute
 		return self
 
 	Func getAttributeName
-		return dnText(dotnet_getp(nHandle,"AttributeName"))
+		return dnAnswer(dotnet_getp(nHandle,"AttributeName"))
 
 	Func setAttributeName P1
 		dotnet_setp(nHandle,"AttributeName",P1)
 		return self
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
 		return self
 
 	Func getDataType
-		return dnText(dotnet_getp(nHandle,"DataType"))
+		return dnAnswer(dotnet_getp(nHandle,"DataType"))
 
 	Func setDataType P1
 		dotnet_setp(nHandle,"DataType",P1)
@@ -844,14 +834,14 @@ Class SoapElementAttribute from Attribute
 		return self
 
 	Func getElementName
-		return dnText(dotnet_getp(nHandle,"ElementName"))
+		return dnAnswer(dotnet_getp(nHandle,"ElementName"))
 
 	Func setElementName P1
 		dotnet_setp(nHandle,"ElementName",P1)
 		return self
 
 	Func getDataType
-		return dnText(dotnet_getp(nHandle,"DataType"))
+		return dnAnswer(dotnet_getp(nHandle,"DataType"))
 
 	Func setDataType P1
 		dotnet_setp(nHandle,"DataType",P1)
@@ -904,7 +894,7 @@ Class SoapEnumAttribute from Attribute
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -1058,7 +1048,7 @@ Class SoapSchemaMember from Object
 		return self
 
 	Func getMemberName
-		return dnText(dotnet_getp(nHandle,"MemberName"))
+		return dnAnswer(dotnet_getp(nHandle,"MemberName"))
 
 	Func setMemberName P1
 		dotnet_setp(nHandle,"MemberName",P1)
@@ -1112,14 +1102,14 @@ Class SoapTypeAttribute from Attribute
 		return self
 
 	Func getTypeName
-		return dnText(dotnet_getp(nHandle,"TypeName"))
+		return dnAnswer(dotnet_getp(nHandle,"TypeName"))
 
 	Func setTypeName P1
 		dotnet_setp(nHandle,"TypeName",P1)
 		return self
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
@@ -1149,7 +1139,7 @@ Class UnreferencedObjectEventArgs from EventArgs
 		raise("DotNet Error: UnreferencedObject is a read-only property")
 
 	Func getUnreferencedId
-		return dnText(dotnet_getp(nHandle,"UnreferencedId"))
+		return dnAnswer(dotnet_getp(nHandle,"UnreferencedId"))
 
 	Func setUnreferencedId P1
 		raise("DotNet Error: UnreferencedId is a read-only property")
@@ -1217,14 +1207,14 @@ Class XmlAnyElementAttribute from Attribute
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
@@ -1339,14 +1329,14 @@ Class XmlArrayAttribute from Attribute
 		return self
 
 	Func getElementName
-		return dnText(dotnet_getp(nHandle,"ElementName"))
+		return dnAnswer(dotnet_getp(nHandle,"ElementName"))
 
 	Func setElementName P1
 		dotnet_setp(nHandle,"ElementName",P1)
 		return self
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
@@ -1429,14 +1419,14 @@ Class XmlArrayItemAttribute from Attribute
 		return self
 
 	Func getElementName
-		return dnText(dotnet_getp(nHandle,"ElementName"))
+		return dnAnswer(dotnet_getp(nHandle,"ElementName"))
 
 	Func setElementName P1
 		dotnet_setp(nHandle,"ElementName",P1)
 		return self
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
@@ -1450,7 +1440,7 @@ Class XmlArrayItemAttribute from Attribute
 		return self
 
 	Func getDataType
-		return dnText(dotnet_getp(nHandle,"DataType"))
+		return dnAnswer(dotnet_getp(nHandle,"DataType"))
 
 	Func setDataType P1
 		dotnet_setp(nHandle,"DataType",P1)
@@ -1582,21 +1572,21 @@ Class XmlAttributeAttribute from Attribute
 		return self
 
 	Func getAttributeName
-		return dnText(dotnet_getp(nHandle,"AttributeName"))
+		return dnAnswer(dotnet_getp(nHandle,"AttributeName"))
 
 	Func setAttributeName P1
 		dotnet_setp(nHandle,"AttributeName",P1)
 		return self
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
 		return self
 
 	Func getDataType
-		return dnText(dotnet_getp(nHandle,"DataType"))
+		return dnAnswer(dotnet_getp(nHandle,"DataType"))
 
 	Func setDataType P1
 		dotnet_setp(nHandle,"DataType",P1)
@@ -1652,7 +1642,7 @@ Class XmlAttributeEventArgs from EventArgs
 		raise("DotNet Error: LinePosition is a read-only property")
 
 	Func getExpectedAttributes
-		return dnText(dotnet_getp(nHandle,"ExpectedAttributes"))
+		return dnAnswer(dotnet_getp(nHandle,"ExpectedAttributes"))
 
 	Func setExpectedAttributes P1
 		raise("DotNet Error: ExpectedAttributes is a read-only property")
@@ -1887,7 +1877,7 @@ Class XmlChoiceIdentifierAttribute from Attribute
 		return self
 
 	Func getMemberName
-		return dnText(dotnet_getp(nHandle,"MemberName"))
+		return dnAnswer(dotnet_getp(nHandle,"MemberName"))
 
 	Func setMemberName P1
 		dotnet_setp(nHandle,"MemberName",P1)
@@ -2003,21 +1993,21 @@ Class XmlElementAttribute from Attribute
 		return self
 
 	Func getElementName
-		return dnText(dotnet_getp(nHandle,"ElementName"))
+		return dnAnswer(dotnet_getp(nHandle,"ElementName"))
 
 	Func setElementName P1
 		dotnet_setp(nHandle,"ElementName",P1)
 		return self
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
 		return self
 
 	Func getDataType
-		return dnText(dotnet_getp(nHandle,"DataType"))
+		return dnAnswer(dotnet_getp(nHandle,"DataType"))
 
 	Func setDataType P1
 		dotnet_setp(nHandle,"DataType",P1)
@@ -2145,7 +2135,7 @@ Class XmlElementEventArgs from EventArgs
 		raise("DotNet Error: LinePosition is a read-only property")
 
 	Func getExpectedElements
-		return dnText(dotnet_getp(nHandle,"ExpectedElements"))
+		return dnAnswer(dotnet_getp(nHandle,"ExpectedElements"))
 
 	Func setExpectedElements P1
 		raise("DotNet Error: ExpectedElements is a read-only property")
@@ -2190,7 +2180,7 @@ Class XmlEnumAttribute from Attribute
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -2260,8 +2250,7 @@ Class XmlMapping from Object
 		return self
 
 	Func SetKey P1
-		dotnet_callv("s4:call",nHandle,"s6:SetKey",P1)
-
+		dotnet_calltv(nHandle,"SetKey",P1)
 		return self
 
 	Func Equals P1
@@ -2270,19 +2259,19 @@ Class XmlMapping from Object
 		return dn_x
 
 	Func getElementName
-		return dnText(dotnet_getp(nHandle,"ElementName"))
+		return dnAnswer(dotnet_getp(nHandle,"ElementName"))
 
 	Func setElementName P1
 		raise("DotNet Error: ElementName is a read-only property")
 
 	Func getXsdElementName
-		return dnText(dotnet_getp(nHandle,"XsdElementName"))
+		return dnAnswer(dotnet_getp(nHandle,"XsdElementName"))
 
 	Func setXsdElementName P1
 		raise("DotNet Error: XsdElementName is a read-only property")
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		raise("DotNet Error: Namespace is a read-only property")
@@ -2320,40 +2309,40 @@ Class XmlMemberMapping from Object
 		raise("DotNet Error: Any is a read-only property")
 
 	Func getElementName
-		return dnText(dotnet_getp(nHandle,"ElementName"))
+		return dnAnswer(dotnet_getp(nHandle,"ElementName"))
 
 	Func setElementName P1
 		raise("DotNet Error: ElementName is a read-only property")
 
 	Func getXsdElementName
-		return dnText(dotnet_getp(nHandle,"XsdElementName"))
+		return dnAnswer(dotnet_getp(nHandle,"XsdElementName"))
 
 	Func setXsdElementName P1
 		raise("DotNet Error: XsdElementName is a read-only property")
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		raise("DotNet Error: Namespace is a read-only property")
 
 	Func getMemberName
-		return dnText(dotnet_getp(nHandle,"MemberName"))
+		return dnAnswer(dotnet_getp(nHandle,"MemberName"))
 
 	Func setMemberName P1
 		raise("DotNet Error: MemberName is a read-only property")
 
 	Func getTypeName
-		return dnText(dotnet_getp(nHandle,"TypeName"))
+		return dnAnswer(dotnet_getp(nHandle,"TypeName"))
 
 	Func getTypeNamespace
-		return dnText(dotnet_getp(nHandle,"TypeNamespace"))
+		return dnAnswer(dotnet_getp(nHandle,"TypeNamespace"))
 
 	Func setTypeNamespace P1
 		raise("DotNet Error: TypeNamespace is a read-only property")
 
 	Func getTypeFullName
-		return dnText(dotnet_getp(nHandle,"TypeFullName"))
+		return dnAnswer(dotnet_getp(nHandle,"TypeFullName"))
 
 	Func setTypeFullName P1
 		raise("DotNet Error: TypeFullName is a read-only property")
@@ -2419,25 +2408,25 @@ Class XmlNodeEventArgs from EventArgs
 		raise("DotNet Error: NodeType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getLocalName
-		return dnText(dotnet_getp(nHandle,"LocalName"))
+		return dnAnswer(dotnet_getp(nHandle,"LocalName"))
 
 	Func setLocalName P1
 		raise("DotNet Error: LocalName is a read-only property")
 
 	Func getNamespaceURI
-		return dnText(dotnet_getp(nHandle,"NamespaceURI"))
+		return dnAnswer(dotnet_getp(nHandle,"NamespaceURI"))
 
 	Func setNamespaceURI P1
 		raise("DotNet Error: NamespaceURI is a read-only property")
 
 	Func getText
-		return dnText(dotnet_getp(nHandle,"Text"))
+		return dnAnswer(dotnet_getp(nHandle,"Text"))
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
@@ -2573,7 +2562,7 @@ Class XmlReflectionMember from Object
 		return self
 
 	Func getMemberName
-		return dnText(dotnet_getp(nHandle,"MemberName"))
+		return dnAnswer(dotnet_getp(nHandle,"MemberName"))
 
 	Func setMemberName P1
 		dotnet_setp(nHandle,"MemberName",P1)
@@ -2636,21 +2625,21 @@ Class XmlRootAttribute from Attribute
 		return self
 
 	Func getElementName
-		return dnText(dotnet_getp(nHandle,"ElementName"))
+		return dnAnswer(dotnet_getp(nHandle,"ElementName"))
 
 	Func setElementName P1
 		dotnet_setp(nHandle,"ElementName",P1)
 		return self
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
 		return self
 
 	Func getDataType
-		return dnText(dotnet_getp(nHandle,"DataType"))
+		return dnAnswer(dotnet_getp(nHandle,"DataType"))
 
 	Func setDataType P1
 		dotnet_setp(nHandle,"DataType",P1)
@@ -2680,14 +2669,11 @@ Class XmlSchemaEnumerator from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2720,18 +2706,11 @@ Class XmlSchemaExporter from Object
 		return self
 
 	Func ExportMembersMapping P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s20:ExportMembersMapping",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s20:ExportMembersMapping",P1)
-
+		dotnet_calltd1v(nHandle,"ExportMembersMapping",P1)
 		return self
 
 	Func ExportAnyType P1
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ExportAnyType",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ExportAnyType",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2756,7 +2735,7 @@ Class XmlSchemaProviderAttribute from Attribute
 		return self
 
 	Func getMethodName
-		return dnText(dotnet_getp(nHandle,"MethodName"))
+		return dnAnswer(dotnet_getp(nHandle,"MethodName"))
 
 	Func setMethodName P1
 		raise("DotNet Error: MethodName is a read-only property")
@@ -3021,14 +3000,14 @@ Class XmlSerializerAssemblyAttribute from Attribute
 		return self
 
 	Func getCodeBase
-		return dnText(dotnet_getp(nHandle,"CodeBase"))
+		return dnAnswer(dotnet_getp(nHandle,"CodeBase"))
 
 	Func setCodeBase P1
 		dotnet_setp(nHandle,"CodeBase",P1)
 		return self
 
 	Func getAssemblyName
-		return dnText(dotnet_getp(nHandle,"AssemblyName"))
+		return dnAnswer(dotnet_getp(nHandle,"AssemblyName"))
 
 	Func setAssemblyName P1
 		dotnet_setp(nHandle,"AssemblyName",P1)
@@ -3167,8 +3146,7 @@ Class XmlSerializerNamespaces from Object
 		return self
 
 	Func Add P1,P2
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1,P2)
-
+		dotnet_calltv(nHandle,"Add",P1,P2)
 		return self
 
 	Func ToArray 
@@ -3231,21 +3209,21 @@ Class XmlSerializerVersionAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func getParentAssemblyId
-		return dnText(dotnet_getp(nHandle,"ParentAssemblyId"))
+		return dnAnswer(dotnet_getp(nHandle,"ParentAssemblyId"))
 
 	Func setParentAssemblyId P1
 		dotnet_setp(nHandle,"ParentAssemblyId",P1)
 		return self
 
 	Func getVersion
-		return dnText(dotnet_getp(nHandle,"Version"))
+		return dnAnswer(dotnet_getp(nHandle,"Version"))
 
 	Func setVersion P1
 		dotnet_setp(nHandle,"Version",P1)
 		return self
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
@@ -3309,7 +3287,7 @@ Class XmlTextAttribute from Attribute
 		return self
 
 	Func getDataType
-		return dnText(dotnet_getp(nHandle,"DataType"))
+		return dnAnswer(dotnet_getp(nHandle,"DataType"))
 
 	Func setDataType P1
 		dotnet_setp(nHandle,"DataType",P1)
@@ -3371,14 +3349,14 @@ Class XmlTypeAttribute from Attribute
 		return self
 
 	Func getTypeName
-		return dnText(dotnet_getp(nHandle,"TypeName"))
+		return dnAnswer(dotnet_getp(nHandle,"TypeName"))
 
 	Func setTypeName P1
 		dotnet_setp(nHandle,"TypeName",P1)
 		return self
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
@@ -3403,10 +3381,10 @@ Class XmlMembersMapping from XmlMapping
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getTypeName
-		return dnText(dotnet_getp(nHandle,"TypeName"))
+		return dnAnswer(dotnet_getp(nHandle,"TypeName"))
 
 	Func getTypeNamespace
-		return dnText(dotnet_getp(nHandle,"TypeNamespace"))
+		return dnAnswer(dotnet_getp(nHandle,"TypeNamespace"))
 
 	Func setTypeNamespace P1
 		raise("DotNet Error: TypeNamespace is a read-only property")
@@ -3511,22 +3489,22 @@ Class XmlTypeMapping from XmlMapping
 		return self
 
 	Func getTypeName
-		return dnText(dotnet_getp(nHandle,"TypeName"))
+		return dnAnswer(dotnet_getp(nHandle,"TypeName"))
 
 	Func getTypeFullName
-		return dnText(dotnet_getp(nHandle,"TypeFullName"))
+		return dnAnswer(dotnet_getp(nHandle,"TypeFullName"))
 
 	Func setTypeFullName P1
 		raise("DotNet Error: TypeFullName is a read-only property")
 
 	Func getXsdTypeName
-		return dnText(dotnet_getp(nHandle,"XsdTypeName"))
+		return dnAnswer(dotnet_getp(nHandle,"XsdTypeName"))
 
 	Func setXsdTypeName P1
 		raise("DotNet Error: XsdTypeName is a read-only property")
 
 	Func getXsdTypeNamespace
-		return dnText(dotnet_getp(nHandle,"XsdTypeNamespace"))
+		return dnAnswer(dotnet_getp(nHandle,"XsdTypeNamespace"))
 
 	Func setXsdTypeNamespace P1
 		raise("DotNet Error: XsdTypeNamespace is a read-only property")

@@ -659,7 +659,7 @@ Class Assembly from Object
 		raise("DotNet Error: ExportedTypes is a read-only property")
 
 	Func getCodeBase
-		return dnText(dotnet_getp(nHandle,"CodeBase"))
+		return dnAnswer(dotnet_getp(nHandle,"CodeBase"))
 
 	Func setCodeBase P1
 		raise("DotNet Error: CodeBase is a read-only property")
@@ -671,13 +671,13 @@ Class Assembly from Object
 		raise("DotNet Error: EntryPoint is a read-only property")
 
 	Func getFullName
-		return dnText(dotnet_getp(nHandle,"FullName"))
+		return dnAnswer(dotnet_getp(nHandle,"FullName"))
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")
 
 	Func getImageRuntimeVersion
-		return dnText(dotnet_getp(nHandle,"ImageRuntimeVersion"))
+		return dnAnswer(dotnet_getp(nHandle,"ImageRuntimeVersion"))
 
 	Func setImageRuntimeVersion P1
 		raise("DotNet Error: ImageRuntimeVersion is a read-only property")
@@ -689,7 +689,7 @@ Class Assembly from Object
 		raise("DotNet Error: IsDynamic is a read-only property")
 
 	Func getLocation
-		return dnText(dotnet_getp(nHandle,"Location"))
+		return dnAnswer(dotnet_getp(nHandle,"Location"))
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")
@@ -719,7 +719,7 @@ Class Assembly from Object
 		raise("DotNet Error: CustomAttributes is a read-only property")
 
 	Func getEscapedCodeBase
-		return dnText(dotnet_getp(nHandle,"EscapedCodeBase"))
+		return dnAnswer(dotnet_getp(nHandle,"EscapedCodeBase"))
 
 	Func setEscapedCodeBase P1
 		raise("DotNet Error: EscapedCodeBase is a read-only property")
@@ -797,7 +797,7 @@ Class AssemblyCompanyAttribute from Attribute
 		return self
 
 	Func getCompany
-		return dnText(dotnet_getp(nHandle,"Company"))
+		return dnAnswer(dotnet_getp(nHandle,"Company"))
 
 	Func setCompany P1
 		raise("DotNet Error: Company is a read-only property")
@@ -819,7 +819,7 @@ Class AssemblyConfigurationAttribute from Attribute
 		return self
 
 	Func getConfiguration
-		return dnText(dotnet_getp(nHandle,"Configuration"))
+		return dnAnswer(dotnet_getp(nHandle,"Configuration"))
 
 	Func setConfiguration P1
 		raise("DotNet Error: Configuration is a read-only property")
@@ -841,7 +841,7 @@ Class AssemblyCopyrightAttribute from Attribute
 		return self
 
 	Func getCopyright
-		return dnText(dotnet_getp(nHandle,"Copyright"))
+		return dnAnswer(dotnet_getp(nHandle,"Copyright"))
 
 	Func setCopyright P1
 		raise("DotNet Error: Copyright is a read-only property")
@@ -863,7 +863,7 @@ Class AssemblyCultureAttribute from Attribute
 		return self
 
 	Func getCulture
-		return dnText(dotnet_getp(nHandle,"Culture"))
+		return dnAnswer(dotnet_getp(nHandle,"Culture"))
 
 	Func setCulture P1
 		raise("DotNet Error: Culture is a read-only property")
@@ -885,7 +885,7 @@ Class AssemblyDefaultAliasAttribute from Attribute
 		return self
 
 	Func getDefaultAlias
-		return dnText(dotnet_getp(nHandle,"DefaultAlias"))
+		return dnAnswer(dotnet_getp(nHandle,"DefaultAlias"))
 
 	Func setDefaultAlias P1
 		raise("DotNet Error: DefaultAlias is a read-only property")
@@ -929,7 +929,7 @@ Class AssemblyDescriptionAttribute from Attribute
 		return self
 
 	Func getDescription
-		return dnText(dotnet_getp(nHandle,"Description"))
+		return dnAnswer(dotnet_getp(nHandle,"Description"))
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
@@ -951,7 +951,7 @@ Class AssemblyFileVersionAttribute from Attribute
 		return self
 
 	Func getVersion
-		return dnText(dotnet_getp(nHandle,"Version"))
+		return dnAnswer(dotnet_getp(nHandle,"Version"))
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
@@ -1002,7 +1002,7 @@ Class AssemblyInformationalVersionAttribute from Attribute
 		return self
 
 	Func getInformationalVersion
-		return dnText(dotnet_getp(nHandle,"InformationalVersion"))
+		return dnAnswer(dotnet_getp(nHandle,"InformationalVersion"))
 
 	Func setInformationalVersion P1
 		raise("DotNet Error: InformationalVersion is a read-only property")
@@ -1024,7 +1024,7 @@ Class AssemblyKeyFileAttribute from Attribute
 		return self
 
 	Func getKeyFile
-		return dnText(dotnet_getp(nHandle,"KeyFile"))
+		return dnAnswer(dotnet_getp(nHandle,"KeyFile"))
 
 	Func setKeyFile P1
 		raise("DotNet Error: KeyFile is a read-only property")
@@ -1046,7 +1046,7 @@ Class AssemblyKeyNameAttribute from Attribute
 		return self
 
 	Func getKeyName
-		return dnText(dotnet_getp(nHandle,"KeyName"))
+		return dnAnswer(dotnet_getp(nHandle,"KeyName"))
 
 	Func setKeyName P1
 		raise("DotNet Error: KeyName is a read-only property")
@@ -1069,13 +1069,13 @@ Class AssemblyMetadataAttribute from Attribute
 		return self
 
 	Func getKey
-		return dnText(dotnet_getp(nHandle,"Key"))
+		return dnAnswer(dotnet_getp(nHandle,"Key"))
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1174,7 +1174,7 @@ Class AssemblyName from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -1195,21 +1195,21 @@ Class AssemblyName from Object
 		return self
 
 	Func getCultureName
-		return dnText(dotnet_getp(nHandle,"CultureName"))
+		return dnAnswer(dotnet_getp(nHandle,"CultureName"))
 
 	Func setCultureName P1
 		dotnet_setp(nHandle,"CultureName",P1)
 		return self
 
 	Func getCodeBase
-		return dnText(dotnet_getp(nHandle,"CodeBase"))
+		return dnAnswer(dotnet_getp(nHandle,"CodeBase"))
 
 	Func setCodeBase P1
 		dotnet_setp(nHandle,"CodeBase",P1)
 		return self
 
 	Func getEscapedCodeBase
-		return dnText(dotnet_getp(nHandle,"EscapedCodeBase"))
+		return dnAnswer(dotnet_getp(nHandle,"EscapedCodeBase"))
 
 	Func setEscapedCodeBase P1
 		raise("DotNet Error: EscapedCodeBase is a read-only property")
@@ -1257,7 +1257,7 @@ Class AssemblyName from Object
 		return self
 
 	Func getFullName
-		return dnText(dotnet_getp(nHandle,"FullName"))
+		return dnAnswer(dotnet_getp(nHandle,"FullName"))
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")
@@ -1303,7 +1303,7 @@ Class AssemblyProductAttribute from Attribute
 		return self
 
 	Func getProduct
-		return dnText(dotnet_getp(nHandle,"Product"))
+		return dnAnswer(dotnet_getp(nHandle,"Product"))
 
 	Func setProduct P1
 		raise("DotNet Error: Product is a read-only property")
@@ -1326,13 +1326,13 @@ Class AssemblySignatureKeyAttribute from Attribute
 		return self
 
 	Func getPublicKey
-		return dnText(dotnet_getp(nHandle,"PublicKey"))
+		return dnAnswer(dotnet_getp(nHandle,"PublicKey"))
 
 	Func setPublicKey P1
 		raise("DotNet Error: PublicKey is a read-only property")
 
 	Func getCountersignature
-		return dnText(dotnet_getp(nHandle,"Countersignature"))
+		return dnAnswer(dotnet_getp(nHandle,"Countersignature"))
 
 	Func setCountersignature P1
 		raise("DotNet Error: Countersignature is a read-only property")
@@ -1354,7 +1354,7 @@ Class AssemblyTitleAttribute from Attribute
 		return self
 
 	Func getTitle
-		return dnText(dotnet_getp(nHandle,"Title"))
+		return dnAnswer(dotnet_getp(nHandle,"Title"))
 
 	Func setTitle P1
 		raise("DotNet Error: Title is a read-only property")
@@ -1376,7 +1376,7 @@ Class AssemblyTrademarkAttribute from Attribute
 		return self
 
 	Func getTrademark
-		return dnText(dotnet_getp(nHandle,"Trademark"))
+		return dnAnswer(dotnet_getp(nHandle,"Trademark"))
 
 	Func setTrademark P1
 		raise("DotNet Error: Trademark is a read-only property")
@@ -1398,7 +1398,7 @@ Class AssemblyVersionAttribute from Attribute
 		return self
 
 	Func getVersion
-		return dnText(dotnet_getp(nHandle,"Version"))
+		return dnAnswer(dotnet_getp(nHandle,"Version"))
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
@@ -1645,7 +1645,7 @@ Class CustomAttributeNamedArgument from ValueType
 		raise("DotNet Error: TypedValue is a read-only property")
 
 	Func getMemberName
-		return dnText(dotnet_getp(nHandle,"MemberName"))
+		return dnAnswer(dotnet_getp(nHandle,"MemberName"))
 
 	Func setMemberName P1
 		raise("DotNet Error: MemberName is a read-only property")
@@ -1733,7 +1733,7 @@ Class DefaultMemberAttribute from Attribute
 		return self
 
 	Func getMemberName
-		return dnText(dotnet_getp(nHandle,"MemberName"))
+		return dnAnswer(dotnet_getp(nHandle,"MemberName"))
 
 	Func setMemberName P1
 		raise("DotNet Error: MemberName is a read-only property")
@@ -2076,7 +2076,7 @@ Class ManifestResourceInfo from Object
 		raise("DotNet Error: ReferencedAssembly is a read-only property")
 
 	Func getFileName
-		return dnText(dotnet_getp(nHandle,"FileName"))
+		return dnAnswer(dotnet_getp(nHandle,"FileName"))
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
@@ -2149,7 +2149,7 @@ Class MemberInfo from Object
 		raise("DotNet Error: MemberType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2329,9 +2329,7 @@ Class Module from Object
 		return dnSend("s4:call",nHandle,"s9:GetPEKind","")
 
 	Func IsResource 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:IsResource")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsResource"))
 
 	Func IsDefined P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s9:IsDefined",P1,P2)
@@ -2414,9 +2412,7 @@ Class Module from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ResolveSignature",P1))
 
 	Func ResolveString P1
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ResolveString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ResolveString",P1))
 
 	Func ResolveType P1
 		if dotnet_isnamed(P1)
@@ -2451,13 +2447,13 @@ Class Module from Object
 		raise("DotNet Error: Assembly is a read-only property")
 
 	Func getFullyQualifiedName
-		return dnText(dotnet_getp(nHandle,"FullyQualifiedName"))
+		return dnAnswer(dotnet_getp(nHandle,"FullyQualifiedName"))
 
 	Func setFullyQualifiedName P1
 		raise("DotNet Error: FullyQualifiedName is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2475,7 +2471,7 @@ Class Module from Object
 		raise("DotNet Error: ModuleVersionId is a read-only property")
 
 	Func getScopeName
-		return dnText(dotnet_getp(nHandle,"ScopeName"))
+		return dnAnswer(dotnet_getp(nHandle,"ScopeName"))
 
 	Func setScopeName P1
 		raise("DotNet Error: ScopeName is a read-only property")
@@ -2677,7 +2673,7 @@ Class ObfuscationAttribute from Attribute
 		return self
 
 	Func getFeature
-		return dnText(dotnet_getp(nHandle,"Feature"))
+		return dnAnswer(dotnet_getp(nHandle,"Feature"))
 
 	Func setFeature P1
 		dotnet_setp(nHandle,"Feature",P1)
@@ -2765,7 +2761,7 @@ Class ParameterInfo from Object
 		raise("DotNet Error: Member is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

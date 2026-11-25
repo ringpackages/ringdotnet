@@ -110,23 +110,11 @@ Class BlockingCollection from Object
 		return self
 
 	Func Add P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-
+		dotnet_calltd1v(nHandle,"Add",P1)
 		return self
 
 	Func TryAdd P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:TryAdd",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s6:TryAdd",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"TryAdd",P1))
 
 	Func Take P1
 		if dotnet_isnamed(P1)
@@ -149,13 +137,11 @@ Class BlockingCollection from Object
 		return dnSend("s4:call",nHandle,"s7:TryTake",dnPackItem(P1))
 
 	Func CompleteAdding 
-		dotnet_callv("s4:call",nHandle,"s14:CompleteAdding")
-
+		dotnet_calltv(nHandle,"CompleteAdding")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func ToArray 
@@ -263,8 +249,7 @@ Class ConcurrentBag from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func GetEnumerator 
@@ -363,8 +348,7 @@ Class ConcurrentDictionary from Object
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func ToArray 
@@ -514,8 +498,7 @@ Class ConcurrentStack from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func CopyTo P1,P2
@@ -529,12 +512,7 @@ Class ConcurrentStack from Object
 		return self
 
 	Func PushRange P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s9:PushRange",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s9:PushRange",P1)
-
+		dotnet_calltd1v(nHandle,"PushRange",P1)
 		return self
 
 	Func TryPeek 
@@ -544,14 +522,7 @@ Class ConcurrentStack from Object
 		return dnSend("s4:call",nHandle,"s6:TryPop","")
 
 	Func TryPopRange P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:TryPopRange",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:TryPopRange",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"TryPopRange",P1))
 
 	Func ToArray 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
@@ -706,8 +677,7 @@ Class ConcurrentStringQueue from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Enqueue P1
-		dotnet_callv("s4:call",nHandle,"s7:Enqueue",P1)
-
+		dotnet_calltv(nHandle,"Enqueue",P1)
 		return self
 
 	Func TryDequeue 
@@ -717,8 +687,7 @@ Class ConcurrentStringQueue from Object
 		return dnSend("s4:call",nHandle,"s7:TryPeek","")
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Equals P1
@@ -821,8 +790,7 @@ Class ConcurrentObjectQueue from Object
 		return dnSend("s4:call",nHandle,"s7:TryPeek","")
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Equals P1
@@ -903,8 +871,7 @@ Class ConcurrentObjectStack from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func CopyTo P1,P2
@@ -918,12 +885,7 @@ Class ConcurrentObjectStack from Object
 		return self
 
 	Func PushRange P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s9:PushRange",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s9:PushRange",P1)
-
+		dotnet_calltd1v(nHandle,"PushRange",P1)
 		return self
 
 	Func TryPeek 
@@ -933,14 +895,7 @@ Class ConcurrentObjectStack from Object
 		return dnSend("s4:call",nHandle,"s6:TryPop","")
 
 	Func TryPopRange P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:TryPopRange",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:TryPopRange",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"TryPopRange",P1))
 
 	Func ToArray 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
@@ -1045,8 +1000,7 @@ Class ConcurrentObjectBag from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func GetEnumerator 
@@ -1150,9 +1104,7 @@ Class ConcurrentObjectDictionary from Object
 		return dn_x
 
 	Func ContainsKey P1
-		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsKey",P1))
 
 	Func TryRemove P1
 		return dnSend("s4:call",nHandle,"s9:TryRemove",dnPackItem(P1))
@@ -1166,8 +1118,7 @@ Class ConcurrentObjectDictionary from Object
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func ToArray 
@@ -1306,14 +1257,10 @@ Class ConcurrentStringDictionary from Object
 		return dnSend("s4:call",nHandle,"s21:TryGetAlternateLookup","")
 
 	Func TryAdd P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s6:TryAdd",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"TryAdd",P1,P2))
 
 	Func ContainsKey P1
-		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsKey",P1))
 
 	Func TryRemove P1
 		return dnSend("s4:call",nHandle,"s9:TryRemove",dnPackItem(P1))
@@ -1322,13 +1269,10 @@ Class ConcurrentStringDictionary from Object
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func TryUpdate P1,P2,P3
-		dn_x = dotnet_call("s4:call",nHandle,"s9:TryUpdate",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"TryUpdate",P1,P2,P3))
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func ToArray 
@@ -1460,23 +1404,11 @@ Class BlockingObjectCollection from Object
 		return self
 
 	Func Add P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-
+		dotnet_calltd1v(nHandle,"Add",P1)
 		return self
 
 	Func TryAdd P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:TryAdd",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s6:TryAdd",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"TryAdd",P1))
 
 	Func Take P1
 		if dotnet_isnamed(P1)
@@ -1499,13 +1431,11 @@ Class BlockingObjectCollection from Object
 		return dnSend("s4:call",nHandle,"s7:TryTake",dnPackItem(P1))
 
 	Func CompleteAdding 
-		dotnet_callv("s4:call",nHandle,"s14:CompleteAdding")
-
+		dotnet_calltv(nHandle,"CompleteAdding")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func ToArray 

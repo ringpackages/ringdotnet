@@ -443,7 +443,7 @@ Class PaperSize from Object
 		raise("DotNet Error: Kind is a read-only property")
 
 	Func getPaperName
-		return dnText(dotnet_getp(nHandle,"PaperName"))
+		return dnAnswer(dotnet_getp(nHandle,"PaperName"))
 
 	Func setPaperName P1
 		dotnet_setp(nHandle,"PaperName",P1)
@@ -507,7 +507,7 @@ Class PaperSource from Object
 		return self
 
 	Func getSourceName
-		return dnText(dotnet_getp(nHandle,"SourceName"))
+		return dnAnswer(dotnet_getp(nHandle,"SourceName"))
 
 	Func setSourceName P1
 		dotnet_setp(nHandle,"SourceName",P1)
@@ -618,8 +618,7 @@ Class PrintDocument from Component
 		return self
 
 	Func Print 
-		dotnet_callv("s4:call",nHandle,"s5:Print")
-
+		dotnet_calltv(nHandle,"Print")
 		return self
 
 	Func setBeginPrintEvent P1
@@ -662,7 +661,7 @@ Class PrintDocument from Component
 		return self
 
 	Func getDocumentName
-		return dnText(dotnet_getp(nHandle,"DocumentName"))
+		return dnAnswer(dotnet_getp(nHandle,"DocumentName"))
 
 	Func setDocumentName P1
 		dotnet_setp(nHandle,"DocumentName",P1)
@@ -1002,7 +1001,7 @@ Class PrinterSettings from Object
 		return self
 
 	Func getPrintFileName
-		return dnText(dotnet_getp(nHandle,"PrintFileName"))
+		return dnAnswer(dotnet_getp(nHandle,"PrintFileName"))
 
 	Func setPrintFileName P1
 		dotnet_setp(nHandle,"PrintFileName",P1)
@@ -1035,7 +1034,7 @@ Class PrinterSettings from Object
 		return self
 
 	Func getPrinterName
-		return dnText(dotnet_getp(nHandle,"PrinterName"))
+		return dnAnswer(dotnet_getp(nHandle,"PrinterName"))
 
 	Func setPrinterName P1
 		dotnet_setp(nHandle,"PrinterName",P1)
@@ -1280,9 +1279,7 @@ Class PrinterSettingsStringCollection from Object
 		return self
 
 	Func Add P1
-		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Add",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

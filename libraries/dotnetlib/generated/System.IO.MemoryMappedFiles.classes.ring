@@ -49,8 +49,7 @@ Class MemoryMappedFile from Object
 		raise("DotNet Error: CreateViewAccessor does not take one argument: use named arguments, CreateViewAccessor([ :parameter = value, ... ])")
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -104,8 +103,7 @@ Class MemoryMappedViewAccessor from UnmanagedMemoryAccessor
 		return self
 
 	Func Flush 
-		dotnet_callv("s4:call",nHandle,"s5:Flush")
-
+		dotnet_calltv(nHandle,"Flush")
 		return self
 
 	Func getSafeMemoryMappedViewHandle

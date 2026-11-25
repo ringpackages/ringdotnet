@@ -1098,32 +1098,10 @@ Class WpfApplication from DispatcherObject
 		return self
 
 	Func Run P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s3:Run",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s3:Run")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s3:Run",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"Run",P1))
 
 	Func Shutdown P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s8:Shutdown",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s8:Shutdown")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s8:Shutdown",P1)
-
+		dotnet_calltdv(nHandle,"Shutdown",P1)
 		return self
 
 	Func FindResource P1
@@ -1658,7 +1636,7 @@ Class Condition from Object
 		return self
 
 	Func getSourceName
-		return dnText(dotnet_getp(nHandle,"SourceName"))
+		return dnAnswer(dotnet_getp(nHandle,"SourceName"))
 
 	Func setSourceName P1
 		dotnet_setp(nHandle,"SourceName",P1)
@@ -1817,7 +1795,7 @@ Class DataFormat from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2104,14 +2082,7 @@ Class WpfDataObject from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetData",P1))
 
 	Func GetDataPresent P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:GetDataPresent",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDataPresent",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"GetDataPresent",P1))
 
 	Func GetFormats P1
 		if dotnet_isnamed(P1)
@@ -2123,43 +2094,20 @@ Class WpfDataObject from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetFormats",P1))
 
 	Func SetData P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s7:SetData",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s7:SetData",P1)
-
+		dotnet_calltd1v(nHandle,"SetData",P1)
 		return self
 
 	Func ContainsAudio 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ContainsAudio")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsAudio"))
 
 	Func ContainsFileDropList 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:ContainsFileDropList")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsFileDropList"))
 
 	Func ContainsImage 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ContainsImage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsImage"))
 
 	Func ContainsText P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:ContainsText",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s12:ContainsText")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s12:ContainsText",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ContainsText",P1))
 
 	Func GetAudioStream 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAudioStream"))
@@ -2171,19 +2119,7 @@ Class WpfDataObject from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetImage"))
 
 	Func GetText P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:GetText",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s7:GetText")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s7:GetText",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetText",P1))
 
 	Func SetAudio P1
 		dotnet_callv("s4:call",nHandle,"s8:SetAudio",P1)
@@ -2201,12 +2137,7 @@ Class WpfDataObject from Object
 		return self
 
 	Func SetText P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s7:SetText",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s7:SetText",P1)
-
+		dotnet_calltd1v(nHandle,"SetText",P1)
 		return self
 
 	Func Equals P1
@@ -2424,7 +2355,7 @@ Class DependencyObjectType from Object
 		raise("DotNet Error: BaseType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2506,7 +2437,7 @@ Class DependencyProperty from Object
 		raise("DotNet Error: RegisterAttached does not take one argument: use named arguments, RegisterAttached([ :parameter = value, ... ])")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -3488,9 +3419,7 @@ Class FontStretch from ValueType
 		return self
 
 	Func ToOpenTypeStretch 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:ToOpenTypeStretch")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToOpenTypeStretch"))
 
 	Func FromOpenTypeStretch P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.FontStretch, PresentationCore',"s19:FromOpenTypeStretch",P1))
@@ -3720,9 +3649,7 @@ Class FontWeight from ValueType
 		return self
 
 	Func ToOpenTypeWeight 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:ToOpenTypeWeight")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToOpenTypeWeight"))
 
 	Func FromOpenTypeWeight P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.FontWeight, PresentationCore',"s18:FromOpenTypeWeight",P1))
@@ -4022,14 +3949,14 @@ Class FrameworkElementFactory from Object
 		return self
 
 	Func getText
-		return dnText(dotnet_getp(nHandle,"Text"))
+		return dnAnswer(dotnet_getp(nHandle,"Text"))
 
 	Func setText P1
 		dotnet_setp(nHandle,"Text",P1)
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -4078,9 +4005,7 @@ Class FrameworkTemplate from DispatcherObject
 		return self
 
 	Func ShouldSerializeVisualTree 
-		dn_x = dotnet_call("s4:call",nHandle,"s25:ShouldSerializeVisualTree")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeVisualTree"))
 
 	Func FindName P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:FindName",P1,P2))
@@ -4091,13 +4016,11 @@ Class FrameworkTemplate from DispatcherObject
 		return self
 
 	Func UnregisterName P1
-		dotnet_callv("s4:call",nHandle,"s14:UnregisterName",P1)
-
+		dotnet_calltv(nHandle,"UnregisterName",P1)
 		return self
 
 	Func Seal 
-		dotnet_callv("s4:call",nHandle,"s4:Seal")
-
+		dotnet_calltv(nHandle,"Seal")
 		return self
 
 	Func LoadContent 
@@ -4165,8 +4088,7 @@ Class FreezableCollection from Animatable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -4190,8 +4112,7 @@ Class FreezableCollection from Animatable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -4254,13 +4175,10 @@ Class FreezableCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -4374,14 +4292,7 @@ Class WpfIDataObject from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetData",P1))
 
 	Func GetDataPresent P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:GetDataPresent",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDataPresent",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"GetDataPresent",P1))
 
 	Func GetFormats P1
 		if dotnet_isnamed(P1)
@@ -4393,12 +4304,7 @@ Class WpfIDataObject from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetFormats",P1))
 
 	Func SetData P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s7:SetData",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s7:SetData",P1)
-
+		dotnet_calltd1v(nHandle,"SetData",P1)
 		return self
 
 
@@ -4441,29 +4347,21 @@ Class IFrameworkInputElement from DotNetObject
 		return self
 
 	Func CaptureMouse 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:CaptureMouse")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CaptureMouse"))
 
 	Func ReleaseMouseCapture 
-		dotnet_callv("s4:call",nHandle,"s19:ReleaseMouseCapture")
-
+		dotnet_calltv(nHandle,"ReleaseMouseCapture")
 		return self
 
 	Func CaptureStylus 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:CaptureStylus")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CaptureStylus"))
 
 	Func ReleaseStylusCapture 
-		dotnet_callv("s4:call",nHandle,"s20:ReleaseStylusCapture")
-
+		dotnet_calltv(nHandle,"ReleaseStylusCapture")
 		return self
 
 	Func Focus 
-		dn_x = dotnet_call("s4:call",nHandle,"s5:Focus")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Focus"))
 
 	Func setPreviewMouseLeftButtonDownEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"PreviewMouseLeftButtonDown",dnCallback(P1)])
@@ -4850,7 +4748,7 @@ Class IFrameworkInputElement from DotNetObject
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -4956,29 +4854,21 @@ Class IInputElement from DotNetObject
 		return self
 
 	Func CaptureMouse 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:CaptureMouse")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CaptureMouse"))
 
 	Func ReleaseMouseCapture 
-		dotnet_callv("s4:call",nHandle,"s19:ReleaseMouseCapture")
-
+		dotnet_calltv(nHandle,"ReleaseMouseCapture")
 		return self
 
 	Func CaptureStylus 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:CaptureStylus")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CaptureStylus"))
 
 	Func ReleaseStylusCapture 
-		dotnet_callv("s4:call",nHandle,"s20:ReleaseStylusCapture")
-
+		dotnet_calltv(nHandle,"ReleaseStylusCapture")
 		return self
 
 	Func Focus 
-		dn_x = dotnet_call("s4:call",nHandle,"s5:Focus")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Focus"))
 
 	Func setPreviewMouseLeftButtonDownEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"PreviewMouseLeftButtonDown",dnCallback(P1)])
@@ -5503,14 +5393,7 @@ Class Int32Rect from ValueType
 		return dn_x
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Int32Rect, WindowsBase',"s5:Parse",P1))
@@ -5714,13 +5597,10 @@ Class LocalValueEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -5916,16 +5796,14 @@ Class NameScope from Object
 		return self
 
 	Func UnregisterName P1
-		dotnet_callv("s4:call",nHandle,"s14:UnregisterName",P1)
-
+		dotnet_calltv(nHandle,"UnregisterName",P1)
 		return self
 
 	Func FindName P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:FindName",P1))
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func CopyTo P1,P2
@@ -5939,12 +5817,7 @@ Class NameScope from Object
 		return dn_x
 
 	Func Add P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-
+		dotnet_calltd1v(nHandle,"Add",P1)
 		return self
 
 	Func Contains P1
@@ -5953,9 +5826,7 @@ Class NameScope from Object
 		return dn_x
 
 	Func ContainsKey P1
-		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsKey",P1))
 
 	Func TryGetValue P1
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
@@ -6243,7 +6114,7 @@ Class PropertyPath from Object
 		return dn_x
 
 	Func getPath
-		return dnText(dotnet_getp(nHandle,"Path"))
+		return dnAnswer(dotnet_getp(nHandle,"Path"))
 
 	Func setPath P1
 		dotnet_setp(nHandle,"Path",P1)
@@ -6339,8 +6210,7 @@ Class ResourceDictionary from Object
 		return self
 
 	Func UnregisterName P1
-		dotnet_callv("s4:call",nHandle,"s14:UnregisterName",P1)
-
+		dotnet_calltv(nHandle,"UnregisterName",P1)
 		return self
 
 	Func FindName P1
@@ -6352,8 +6222,7 @@ Class ResourceDictionary from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -6370,13 +6239,11 @@ Class ResourceDictionary from Object
 		return self
 
 	Func BeginInit 
-		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-
+		dotnet_calltv(nHandle,"BeginInit")
 		return self
 
 	Func EndInit 
-		dotnet_callv("s4:call",nHandle,"s7:EndInit")
-
+		dotnet_calltv(nHandle,"EndInit")
 		return self
 
 	Func Equals P1
@@ -6559,7 +6426,7 @@ Class RoutedEvent from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -6864,12 +6731,7 @@ Class SplashScreen from Object
 		return self
 
 	Func Show P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Show",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Show",P1)
-
+		dotnet_calltd1v(nHandle,"Show",P1)
 		return self
 
 	Func Close P1
@@ -7019,13 +6881,11 @@ Class Style from DispatcherObject
 		return self
 
 	Func UnregisterName P1
-		dotnet_callv("s4:call",nHandle,"s14:UnregisterName",P1)
-
+		dotnet_calltv(nHandle,"UnregisterName",P1)
 		return self
 
 	Func Seal 
-		dotnet_callv("s4:call",nHandle,"s4:Seal")
-
+		dotnet_calltv(nHandle,"Seal")
 		return self
 
 	Func getIsSealed
@@ -7092,7 +6952,7 @@ Class StyleTypedPropertyAttribute from Attribute
 		return self
 
 	Func getProperty
-		return dnText(dotnet_getp(nHandle,"Property"))
+		return dnAnswer(dotnet_getp(nHandle,"Property"))
 
 	Func setProperty P1
 		dotnet_setp(nHandle,"Property",P1)
@@ -10642,9 +10502,7 @@ Class TemplateContentLoader from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToString"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -10652,9 +10510,7 @@ Class TemplateContentLoader from DotNetObject
 		return dn_x
 
 	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 
 Class TemplatePartAttribute from Attribute
@@ -10684,7 +10540,7 @@ Class TemplatePartAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -10722,14 +10578,14 @@ Class TemplateVisualStateAttribute from Attribute
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getGroupName
-		return dnText(dotnet_getp(nHandle,"GroupName"))
+		return dnAnswer(dotnet_getp(nHandle,"GroupName"))
 
 	Func setGroupName P1
 		dotnet_setp(nHandle,"GroupName",P1)
@@ -10893,8 +10749,7 @@ Class TextDecorationCollection from Animatable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -10918,8 +10773,7 @@ Class TextDecorationCollection from Animatable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -10990,13 +10844,10 @@ Class TextDecorationCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -11124,7 +10975,7 @@ Class ThemeDictionaryExtension from MarkupExtension
 		return self
 
 	Func getAssemblyName
-		return dnText(dotnet_getp(nHandle,"AssemblyName"))
+		return dnAnswer(dotnet_getp(nHandle,"AssemblyName"))
 
 	Func setAssemblyName P1
 		dotnet_setp(nHandle,"AssemblyName",P1)
@@ -11203,7 +11054,7 @@ Class ThemeMode from ValueType
 		return self
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -11319,13 +11170,11 @@ Class TriggerActionCollection from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Add P1
@@ -11629,14 +11478,10 @@ Class UIElement from Visual
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetAnimationBaseValue",P1))
 
 	Func ShouldSerializeInputBindings 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:ShouldSerializeInputBindings")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeInputBindings"))
 
 	Func ShouldSerializeCommandBindings 
-		dn_x = dotnet_call("s4:call",nHandle,"s30:ShouldSerializeCommandBindings")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeCommandBindings"))
 
 	Func RaiseEvent P1
 		dotnet_callv("s4:call",nHandle,"s10:RaiseEvent",P1)
@@ -11661,18 +11506,15 @@ Class UIElement from Visual
 		return self
 
 	Func InvalidateMeasure 
-		dotnet_callv("s4:call",nHandle,"s17:InvalidateMeasure")
-
+		dotnet_calltv(nHandle,"InvalidateMeasure")
 		return self
 
 	Func InvalidateArrange 
-		dotnet_callv("s4:call",nHandle,"s17:InvalidateArrange")
-
+		dotnet_calltv(nHandle,"InvalidateArrange")
 		return self
 
 	Func InvalidateVisual 
-		dotnet_callv("s4:call",nHandle,"s16:InvalidateVisual")
-
+		dotnet_calltv(nHandle,"InvalidateVisual")
 		return self
 
 	Func Measure P1
@@ -11686,8 +11528,7 @@ Class UIElement from Visual
 		return self
 
 	Func UpdateLayout 
-		dotnet_callv("s4:call",nHandle,"s12:UpdateLayout")
-
+		dotnet_calltv(nHandle,"UpdateLayout")
 		return self
 
 	Func TranslatePoint P1,P2
@@ -11697,29 +11538,21 @@ Class UIElement from Visual
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:InputHitTest",P1))
 
 	Func CaptureMouse 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:CaptureMouse")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CaptureMouse"))
 
 	Func ReleaseMouseCapture 
-		dotnet_callv("s4:call",nHandle,"s19:ReleaseMouseCapture")
-
+		dotnet_calltv(nHandle,"ReleaseMouseCapture")
 		return self
 
 	Func CaptureStylus 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:CaptureStylus")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CaptureStylus"))
 
 	Func ReleaseStylusCapture 
-		dotnet_callv("s4:call",nHandle,"s20:ReleaseStylusCapture")
-
+		dotnet_calltv(nHandle,"ReleaseStylusCapture")
 		return self
 
 	Func Focus 
-		dn_x = dotnet_call("s4:call",nHandle,"s5:Focus")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Focus"))
 
 	Func MoveFocus P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:MoveFocus",P1)
@@ -11740,8 +11573,7 @@ Class UIElement from Visual
 		return dn_x
 
 	Func ReleaseAllTouchCaptures 
-		dotnet_callv("s4:call",nHandle,"s23:ReleaseAllTouchCaptures")
-
+		dotnet_calltv(nHandle,"ReleaseAllTouchCaptures")
 		return self
 
 	Func setPreviewMouseDownEvent P1
@@ -12685,7 +12517,7 @@ Class UIElement from Visual
 		return self
 
 	Func getUid
-		return dnText(dotnet_getp(nHandle,"Uid"))
+		return dnAnswer(dotnet_getp(nHandle,"Uid"))
 
 	Func setUid P1
 		dotnet_setp(nHandle,"Uid",P1)
@@ -13406,14 +13238,10 @@ Class UIElement3D from Visual3D
 		return self
 
 	Func ShouldSerializeInputBindings 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:ShouldSerializeInputBindings")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeInputBindings"))
 
 	Func ShouldSerializeCommandBindings 
-		dn_x = dotnet_call("s4:call",nHandle,"s30:ShouldSerializeCommandBindings")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeCommandBindings"))
 
 	Func RaiseEvent P1
 		dotnet_callv("s4:call",nHandle,"s10:RaiseEvent",P1)
@@ -13438,34 +13266,25 @@ Class UIElement3D from Visual3D
 		return self
 
 	Func InvalidateModel 
-		dotnet_callv("s4:call",nHandle,"s15:InvalidateModel")
-
+		dotnet_calltv(nHandle,"InvalidateModel")
 		return self
 
 	Func CaptureMouse 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:CaptureMouse")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CaptureMouse"))
 
 	Func ReleaseMouseCapture 
-		dotnet_callv("s4:call",nHandle,"s19:ReleaseMouseCapture")
-
+		dotnet_calltv(nHandle,"ReleaseMouseCapture")
 		return self
 
 	Func CaptureStylus 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:CaptureStylus")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CaptureStylus"))
 
 	Func ReleaseStylusCapture 
-		dotnet_callv("s4:call",nHandle,"s20:ReleaseStylusCapture")
-
+		dotnet_calltv(nHandle,"ReleaseStylusCapture")
 		return self
 
 	Func Focus 
-		dn_x = dotnet_call("s4:call",nHandle,"s5:Focus")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Focus"))
 
 	Func MoveFocus P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:MoveFocus",P1)
@@ -13486,8 +13305,7 @@ Class UIElement3D from Visual3D
 		return dn_x
 
 	Func ReleaseAllTouchCaptures 
-		dotnet_callv("s4:call",nHandle,"s23:ReleaseAllTouchCaptures")
-
+		dotnet_calltv(nHandle,"ReleaseAllTouchCaptures")
 		return self
 
 	Func setPreviewMouseDownEvent P1
@@ -14981,14 +14799,7 @@ Class WpfSize from ValueType
 		return dn_x
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Size, WindowsBase',"s5:Parse",P1))
@@ -15056,18 +14867,10 @@ Class WpfPoint from ValueType
 		return dn_x
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Offset P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:Offset",P1,P2)
-
+		dotnet_calltv(nHandle,"Offset",P1,P2)
 		return self
 
 	Func Parse P1
@@ -15162,24 +14965,10 @@ Class Rect from ValueType
 		return dn_x
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Contains P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Contains",P1))
 
 	Func IntersectsWith P1
 		dn_x = dotnet_call("s4:call",nHandle,"s14:IntersectsWith",P1)
@@ -15262,8 +15051,7 @@ Class Rect from ValueType
 		return self
 
 	Func Scale P1,P2
-		dotnet_callv("s4:call",nHandle,"s5:Scale",P1,P2)
-
+		dotnet_calltv(nHandle,"Scale",P1,P2)
 		return self
 
 	Func Parse P1
@@ -15476,23 +15264,14 @@ Class WpfVector from ValueType
 		return dn_x
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Normalize 
-		dotnet_callv("s4:call",nHandle,"s9:Normalize")
-
+		dotnet_calltv(nHandle,"Normalize")
 		return self
 
 	Func Negate 
-		dotnet_callv("s4:call",nHandle,"s6:Negate")
-
+		dotnet_calltv(nHandle,"Negate")
 		return self
 
 	Func Parse P1
@@ -15755,32 +15534,26 @@ Class Window from ContentControl
 		return self
 
 	Func Show 
-		dotnet_callv("s4:call",nHandle,"s4:Show")
-
+		dotnet_calltv(nHandle,"Show")
 		return self
 
 	Func Hide 
-		dotnet_callv("s4:call",nHandle,"s4:Hide")
-
+		dotnet_calltv(nHandle,"Hide")
 		return self
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func DragMove 
-		dotnet_callv("s4:call",nHandle,"s8:DragMove")
-
+		dotnet_calltv(nHandle,"DragMove")
 		return self
 
 	Func ShowDialog 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ShowDialog"))
 
 	Func Activate 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Activate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Activate"))
 
 	Func GetWindow P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Window, PresentationFramework',"s9:GetWindow",P1))
@@ -15879,7 +15652,7 @@ Class Window from ContentControl
 		return self
 
 	Func getTitle
-		return dnText(dotnet_getp(nHandle,"Title"))
+		return dnAnswer(dotnet_getp(nHandle,"Title"))
 
 	Func setTitle P1
 		dotnet_setp(nHandle,"Title",P1)
@@ -16370,14 +16143,10 @@ Class ContentElement from DependencyObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetAnimationBaseValue",P1))
 
 	Func ShouldSerializeInputBindings 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:ShouldSerializeInputBindings")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeInputBindings"))
 
 	Func ShouldSerializeCommandBindings 
-		dn_x = dotnet_call("s4:call",nHandle,"s30:ShouldSerializeCommandBindings")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeCommandBindings"))
 
 	Func RaiseEvent P1
 		dotnet_callv("s4:call",nHandle,"s10:RaiseEvent",P1)
@@ -16402,29 +16171,21 @@ Class ContentElement from DependencyObject
 		return self
 
 	Func CaptureMouse 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:CaptureMouse")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CaptureMouse"))
 
 	Func ReleaseMouseCapture 
-		dotnet_callv("s4:call",nHandle,"s19:ReleaseMouseCapture")
-
+		dotnet_calltv(nHandle,"ReleaseMouseCapture")
 		return self
 
 	Func CaptureStylus 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:CaptureStylus")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CaptureStylus"))
 
 	Func ReleaseStylusCapture 
-		dotnet_callv("s4:call",nHandle,"s20:ReleaseStylusCapture")
-
+		dotnet_calltv(nHandle,"ReleaseStylusCapture")
 		return self
 
 	Func Focus 
-		dn_x = dotnet_call("s4:call",nHandle,"s5:Focus")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Focus"))
 
 	Func MoveFocus P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:MoveFocus",P1)
@@ -16445,8 +16206,7 @@ Class ContentElement from DependencyObject
 		return dn_x
 
 	Func ReleaseAllTouchCaptures 
-		dotnet_callv("s4:call",nHandle,"s23:ReleaseAllTouchCaptures")
-
+		dotnet_calltv(nHandle,"ReleaseAllTouchCaptures")
 		return self
 
 	Func setPreviewMouseDownEvent P1
@@ -17659,8 +17419,7 @@ Class DataObjectEventArgs from RoutedEventArgs
 		return self
 
 	Func CancelCommand 
-		dotnet_callv("s4:call",nHandle,"s13:CancelCommand")
-
+		dotnet_calltv(nHandle,"CancelCommand")
 		return self
 
 	Func getIsDragDrop
@@ -17980,38 +17739,24 @@ Class FrameworkElement from UIElement
 		return self
 
 	Func ShouldSerializeStyle 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:ShouldSerializeStyle")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeStyle"))
 
 	Func ApplyTemplate 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ApplyTemplate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ApplyTemplate"))
 
 	Func OnApplyTemplate 
-		dotnet_callv("s4:call",nHandle,"s15:OnApplyTemplate")
-
+		dotnet_calltv(nHandle,"OnApplyTemplate")
 		return self
 
 	Func BeginStoryboard P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s15:BeginStoryboard",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s15:BeginStoryboard",P1)
-
+		dotnet_calltd1v(nHandle,"BeginStoryboard",P1)
 		return self
 
 	Func ShouldSerializeTriggers 
-		dn_x = dotnet_call("s4:call",nHandle,"s23:ShouldSerializeTriggers")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeTriggers"))
 
 	Func ShouldSerializeResources 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeResources")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeResources"))
 
 	Func FindResource P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindResource",P1))
@@ -18031,27 +17776,15 @@ Class FrameworkElement from UIElement
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:SetBinding",P1,P2))
 
 	Func BringIntoView P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s13:BringIntoView",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s13:BringIntoView")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s13:BringIntoView",P1)
-
+		dotnet_calltdv(nHandle,"BringIntoView",P1)
 		return self
 
 	Func BeginInit 
-		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-
+		dotnet_calltv(nHandle,"BeginInit")
 		return self
 
 	Func EndInit 
-		dotnet_callv("s4:call",nHandle,"s7:EndInit")
-
+		dotnet_calltv(nHandle,"EndInit")
 		return self
 
 	Func RegisterName P1,P2
@@ -18060,16 +17793,14 @@ Class FrameworkElement from UIElement
 		return self
 
 	Func UnregisterName P1
-		dotnet_callv("s4:call",nHandle,"s14:UnregisterName",P1)
-
+		dotnet_calltv(nHandle,"UnregisterName",P1)
 		return self
 
 	Func FindName P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:FindName",P1))
 
 	Func UpdateDefaultStyle 
-		dotnet_callv("s4:call",nHandle,"s18:UpdateDefaultStyle")
-
+		dotnet_calltv(nHandle,"UpdateDefaultStyle")
 		return self
 
 	Func @GetFlowDirection P1
@@ -18238,7 +17969,7 @@ Class FrameworkElement from UIElement
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -18614,8 +18345,7 @@ Class Freezable from DependencyObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCurrentValueAsFrozen"))
 
 	Func Freeze 
-		dotnet_callv("s4:call",nHandle,"s6:Freeze")
-
+		dotnet_calltv(nHandle,"Freeze")
 		return self
 
 	Func setChangedEvent P1
@@ -18714,13 +18444,13 @@ Class MediaScriptCommandRoutedEventArgs from RoutedEventArgs
 		return self
 
 	Func getParameterType
-		return dnText(dotnet_getp(nHandle,"ParameterType"))
+		return dnAnswer(dotnet_getp(nHandle,"ParameterType"))
 
 	Func setParameterType P1
 		raise("DotNet Error: ParameterType is a read-only property")
 
 	Func getParameterValue
-		return dnText(dotnet_getp(nHandle,"ParameterValue"))
+		return dnAnswer(dotnet_getp(nHandle,"ParameterValue"))
 
 	Func setParameterValue P1
 		raise("DotNet Error: ParameterValue is a read-only property")
@@ -18884,7 +18614,7 @@ Class Setter from SetterBase
 		return self
 
 	Func getTargetName
-		return dnText(dotnet_getp(nHandle,"TargetName"))
+		return dnAnswer(dotnet_getp(nHandle,"TargetName"))
 
 	Func setTargetName P1
 		dotnet_setp(nHandle,"TargetName",P1)
@@ -19140,7 +18870,7 @@ Class VisualState from DependencyObject
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -19196,7 +18926,7 @@ Class VisualStateGroup from DependencyObject
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -19305,14 +19035,14 @@ Class VisualTransition from DependencyObject
 		return self
 
 	Func getFrom
-		return dnText(dotnet_getp(nHandle,"From"))
+		return dnAnswer(dotnet_getp(nHandle,"From"))
 
 	Func setFrom P1
 		dotnet_setp(nHandle,"From",P1)
 		return self
 
 	Func getTo
-		return dnText(dotnet_getp(nHandle,"To"))
+		return dnAnswer(dotnet_getp(nHandle,"To"))
 
 	Func setTo P1
 		dotnet_setp(nHandle,"To",P1)
@@ -19409,7 +19139,7 @@ Class DataObjectPastingEventArgs from DataObjectEventArgs
 		return self
 
 	Func getFormatToApply
-		return dnText(dotnet_getp(nHandle,"FormatToApply"))
+		return dnAnswer(dotnet_getp(nHandle,"FormatToApply"))
 
 	Func setFormatToApply P1
 		dotnet_setp(nHandle,"FormatToApply",P1)
@@ -19439,7 +19169,7 @@ Class DataObjectSettingDataEventArgs from DataObjectEventArgs
 		raise("DotNet Error: DataObject is a read-only property")
 
 	Func getFormat
-		return dnText(dotnet_getp(nHandle,"Format"))
+		return dnAnswer(dotnet_getp(nHandle,"Format"))
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
@@ -19581,9 +19311,7 @@ Class EventTrigger from TriggerBase
 		return self
 
 	Func ShouldSerializeActions 
-		dn_x = dotnet_call("s4:call",nHandle,"s22:ShouldSerializeActions")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeActions"))
 
 	Func getRoutedEvent
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:RoutedEvent"))
@@ -19593,7 +19321,7 @@ Class EventTrigger from TriggerBase
 		return self
 
 	Func getSourceName
-		return dnText(dotnet_getp(nHandle,"SourceName"))
+		return dnAnswer(dotnet_getp(nHandle,"SourceName"))
 
 	Func setSourceName P1
 		dotnet_setp(nHandle,"SourceName",P1)
@@ -19665,14 +19393,10 @@ Class FrameworkContentElement from ContentElement
 		return self
 
 	Func ShouldSerializeStyle 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:ShouldSerializeStyle")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeStyle"))
 
 	Func ShouldSerializeResources 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeResources")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeResources"))
 
 	Func FindResource P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindResource",P1))
@@ -19686,17 +19410,11 @@ Class FrameworkContentElement from ContentElement
 		return self
 
 	Func BeginStoryboard P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s15:BeginStoryboard",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s15:BeginStoryboard",P1)
-
+		dotnet_calltd1v(nHandle,"BeginStoryboard",P1)
 		return self
 
 	Func BringIntoView 
-		dotnet_callv("s4:call",nHandle,"s13:BringIntoView")
-
+		dotnet_calltv(nHandle,"BringIntoView")
 		return self
 
 	Func GetBindingExpression P1
@@ -19706,13 +19424,11 @@ Class FrameworkContentElement from ContentElement
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:SetBinding",P1,P2))
 
 	Func BeginInit 
-		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-
+		dotnet_calltv(nHandle,"BeginInit")
 		return self
 
 	Func EndInit 
-		dotnet_callv("s4:call",nHandle,"s7:EndInit")
-
+		dotnet_calltv(nHandle,"EndInit")
 		return self
 
 	Func RegisterName P1,P2
@@ -19721,16 +19437,14 @@ Class FrameworkContentElement from ContentElement
 		return self
 
 	Func UnregisterName P1
-		dotnet_callv("s4:call",nHandle,"s14:UnregisterName",P1)
-
+		dotnet_calltv(nHandle,"UnregisterName",P1)
 		return self
 
 	Func FindName P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:FindName",P1))
 
 	Func UpdateDefaultStyle 
-		dotnet_callv("s4:call",nHandle,"s18:UpdateDefaultStyle")
-
+		dotnet_calltv(nHandle,"UpdateDefaultStyle")
 		return self
 
 	Func setTargetUpdatedEvent P1
@@ -19841,7 +19555,7 @@ Class FrameworkContentElement from ContentElement
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -20254,7 +19968,7 @@ Class HierarchicalDataTemplate from DataTemplate
 		return self
 
 	Func getItemStringFormat
-		return dnText(dotnet_getp(nHandle,"ItemStringFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"ItemStringFormat"))
 
 	Func setItemStringFormat P1
 		dotnet_setp(nHandle,"ItemStringFormat",P1)
@@ -20400,7 +20114,7 @@ Class Trigger from TriggerBase
 		return self
 
 	Func getSourceName
-		return dnText(dotnet_getp(nHandle,"SourceName"))
+		return dnAnswer(dotnet_getp(nHandle,"SourceName"))
 
 	Func setSourceName P1
 		dotnet_setp(nHandle,"SourceName",P1)

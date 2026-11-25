@@ -221,21 +221,21 @@ Class XDeclaration from Object
 		return dn_x
 
 	Func getEncoding
-		return dnText(dotnet_getp(nHandle,"Encoding"))
+		return dnAnswer(dotnet_getp(nHandle,"Encoding"))
 
 	Func setEncoding P1
 		dotnet_setp(nHandle,"Encoding",P1)
 		return self
 
 	Func getStandalone
-		return dnText(dotnet_getp(nHandle,"Standalone"))
+		return dnAnswer(dotnet_getp(nHandle,"Standalone"))
 
 	Func setStandalone P1
 		dotnet_setp(nHandle,"Standalone",P1)
 		return self
 
 	Func getVersion
-		return dnText(dotnet_getp(nHandle,"Version"))
+		return dnAnswer(dotnet_getp(nHandle,"Version"))
 
 	Func setVersion P1
 		dotnet_setp(nHandle,"Version",P1)
@@ -269,7 +269,7 @@ Class XName from Object
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.XName, System.Private.Xml.Linq',"s3:Get",P1))
 
 	Func getLocalName
-		return dnText(dotnet_getp(nHandle,"LocalName"))
+		return dnAnswer(dotnet_getp(nHandle,"LocalName"))
 
 	Func setLocalName P1
 		raise("DotNet Error: LocalName is a read-only property")
@@ -281,7 +281,7 @@ Class XName from Object
 		raise("DotNet Error: Namespace is a read-only property")
 
 	Func getNamespaceName
-		return dnText(dotnet_getp(nHandle,"NamespaceName"))
+		return dnAnswer(dotnet_getp(nHandle,"NamespaceName"))
 
 	Func setNamespaceName P1
 		raise("DotNet Error: NamespaceName is a read-only property")
@@ -319,7 +319,7 @@ Class XNamespace from Object
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.XNamespace, System.Private.Xml.Linq',"s3:Get",P1))
 
 	Func getNamespaceName
-		return dnText(dotnet_getp(nHandle,"NamespaceName"))
+		return dnAnswer(dotnet_getp(nHandle,"NamespaceName"))
 
 	Func setNamespaceName P1
 		raise("DotNet Error: NamespaceName is a read-only property")
@@ -399,29 +399,10 @@ Class XNodeEqualityComparer from Object
 		return self
 
 	Func Equals P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Equals",P1))
 
 	Func GetHashCode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetHashCode",P1))
 
 
 Class XObject from Object
@@ -464,17 +445,7 @@ Class XObject from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:Annotations",P1))
 
 	Func RemoveAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s17:RemoveAnnotations",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s17:RemoveAnnotations")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s17:RemoveAnnotations",P1)
-
+		dotnet_calltdv(nHandle,"RemoveAnnotations",P1)
 		return self
 
 	Func Equals P1
@@ -499,7 +470,7 @@ Class XObject from Object
 		return self
 
 	Func getBaseUri
-		return dnText(dotnet_getp(nHandle,"BaseUri"))
+		return dnAnswer(dotnet_getp(nHandle,"BaseUri"))
 
 	Func setBaseUri P1
 		raise("DotNet Error: BaseUri is a read-only property")
@@ -609,23 +580,11 @@ Class XStreamingElement from Object
 		return self
 
 	Func Save P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Save",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Save",P1)
-
+		dotnet_calltd1v(nHandle,"Save",P1)
 		return self
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func WriteTo P1
 		dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
@@ -724,8 +683,7 @@ Class XNode from XObject
 		return dn_x
 
 	Func Remove 
-		dotnet_callv("s4:call",nHandle,"s6:Remove")
-
+		dotnet_calltv(nHandle,"Remove")
 		return self
 
 	Func ReplaceWith P1
@@ -734,14 +692,7 @@ Class XNode from XObject
 		return self
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func WriteTo P1
 		dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
@@ -828,8 +779,7 @@ Class XAttribute from XObject
 		return self
 
 	Func Remove 
-		dotnet_callv("s4:call",nHandle,"s6:Remove")
-
+		dotnet_calltv(nHandle,"Remove")
 		return self
 
 	Func @SetValue P1
@@ -862,7 +812,7 @@ Class XAttribute from XObject
 		raise("DotNet Error: PreviousAttribute is a read-only property")
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		dotnet_setp(nHandle,"Value",P1)
@@ -891,7 +841,7 @@ Class XComment from XNode
 		return self
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		dotnet_setp(nHandle,"Value",P1)
@@ -953,8 +903,7 @@ Class XContainer from XNode
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Nodes"))
 
 	Func RemoveNodes 
-		dotnet_callv("s4:call",nHandle,"s11:RemoveNodes")
-
+		dotnet_calltv(nHandle,"RemoveNodes")
 		return self
 
 	Func ReplaceNodes P1
@@ -1009,28 +958,28 @@ Class XDocumentType from XNode
 		return self
 
 	Func getInternalSubset
-		return dnText(dotnet_getp(nHandle,"InternalSubset"))
+		return dnAnswer(dotnet_getp(nHandle,"InternalSubset"))
 
 	Func setInternalSubset P1
 		dotnet_setp(nHandle,"InternalSubset",P1)
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getPublicId
-		return dnText(dotnet_getp(nHandle,"PublicId"))
+		return dnAnswer(dotnet_getp(nHandle,"PublicId"))
 
 	Func setPublicId P1
 		dotnet_setp(nHandle,"PublicId",P1)
 		return self
 
 	Func getSystemId
-		return dnText(dotnet_getp(nHandle,"SystemId"))
+		return dnAnswer(dotnet_getp(nHandle,"SystemId"))
 
 	Func setSystemId P1
 		dotnet_setp(nHandle,"SystemId",P1)
@@ -1069,14 +1018,14 @@ Class XProcessingInstruction from XNode
 		return self
 
 	Func getData
-		return dnText(dotnet_getp(nHandle,"Data"))
+		return dnAnswer(dotnet_getp(nHandle,"Data"))
 
 	Func setData P1
 		dotnet_setp(nHandle,"Data",P1)
 		return self
 
 	Func getTarget
-		return dnText(dotnet_getp(nHandle,"Target"))
+		return dnAnswer(dotnet_getp(nHandle,"Target"))
 
 	Func setTarget P1
 		dotnet_setp(nHandle,"Target",P1)
@@ -1099,7 +1048,7 @@ Class XText from XNode
 		return self
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		dotnet_setp(nHandle,"Value",P1)
@@ -1161,12 +1110,7 @@ Class XDocument from XContainer
 		return self
 
 	Func Save P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Save",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Save",P1)
-
+		dotnet_calltd1v(nHandle,"Save",P1)
 		return self
 
 	Func SaveAsync P1
@@ -1248,12 +1192,7 @@ Class XElement from XContainer
 		return self
 
 	Func Save P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Save",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Save",P1)
-
+		dotnet_calltd1v(nHandle,"Save",P1)
 		return self
 
 	Func AncestorsAndSelf P1
@@ -1301,13 +1240,11 @@ Class XElement from XContainer
 		return dn_x
 
 	Func RemoveAll 
-		dotnet_callv("s4:call",nHandle,"s9:RemoveAll")
-
+		dotnet_calltv(nHandle,"RemoveAll")
 		return self
 
 	Func RemoveAttributes 
-		dotnet_callv("s4:call",nHandle,"s16:RemoveAttributes")
-
+		dotnet_calltv(nHandle,"RemoveAttributes")
 		return self
 
 	Func ReplaceAll P1
@@ -1394,7 +1331,7 @@ Class XElement from XContainer
 		return self
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		dotnet_setp(nHandle,"Value",P1)

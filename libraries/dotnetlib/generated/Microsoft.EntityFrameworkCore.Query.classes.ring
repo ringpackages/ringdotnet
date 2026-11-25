@@ -974,7 +974,7 @@ Class EntityMaterializerSourceParameters from ValueType
 		return self
 
 	Func getInstanceName
-		return dnText(dotnet_getp(nHandle,"InstanceName"))
+		return dnAnswer(dotnet_getp(nHandle,"InstanceName"))
 
 	Func setInstanceName P1
 		dotnet_setp(nHandle,"InstanceName",P1)
@@ -1125,29 +1125,10 @@ Class ExpressionEqualityComparer from Object
 		return self
 
 	Func GetHashCode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetHashCode",P1))
 
 	Func Equals P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Equals",P1))
 
 	Func getInstance
 		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Query.ExpressionEqualityComparer, Microsoft.EntityFrameworkCore',"s8:Instance"))
@@ -1218,14 +1199,7 @@ Class ExpressionPrinter from ExpressionVisitor
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Append",P1))
 
 	Func PrintExpression P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:PrintExpression",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s15:PrintExpression",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"PrintExpression",P1))
 
 	Func PrintExpressionDebug P1
 		dn_x = dotnet_call("s4:call",nHandle,"s20:PrintExpressionDebug",P1)
@@ -1238,12 +1212,7 @@ Class ExpressionPrinter from ExpressionVisitor
 		return dn_x
 
 	Func VisitCollection P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s15:VisitCollection",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s15:VisitCollection",P1)
-
+		dotnet_calltd1v(nHandle,"VisitCollection",P1)
 		return self
 
 	Func Visit P1
@@ -1807,9 +1776,7 @@ Class IQueryingEnumerable from DotNetObject
 		return self
 
 	Func ToQueryString 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToQueryString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToQueryString"))
 
 
 Class IRelationalLiftableConstantFactory from DotNetObject
@@ -2251,7 +2218,7 @@ Class LiftableConstantExpression from ExpressionsExpression
 		raise("DotNet Error: ResolverExpression is a read-only property")
 
 	Func getVariableName
-		return dnText(dotnet_getp(nHandle,"VariableName"))
+		return dnAnswer(dotnet_getp(nHandle,"VariableName"))
 
 	Func setVariableName P1
 		raise("DotNet Error: VariableName is a read-only property")
@@ -2639,7 +2606,7 @@ Class EfPathSegment from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Quote"))
 
 	Func getPropertyName
-		return dnText(dotnet_getp(nHandle,"PropertyName"))
+		return dnAnswer(dotnet_getp(nHandle,"PropertyName"))
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
@@ -2775,8 +2742,7 @@ Class QueryCompilationContext from Object
 		return self
 
 	Func AddTag P1
-		dotnet_callv("s4:call",nHandle,"s6:AddTag",P1)
-
+		dotnet_calltv(nHandle,"AddTag",P1)
 		return self
 
 	Func CreateQueryExecutor P1
@@ -3073,17 +3039,7 @@ Class QueryContext from Object
 		return self
 
 	Func InitializeStateManager P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s22:InitializeStateManager",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s22:InitializeStateManager")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s22:InitializeStateManager",P1)
-
+		dotnet_calltdv(nHandle,"InitializeStateManager",P1)
 		return self
 
 	Func TryGetEntry P1,P2,P3
@@ -3461,7 +3417,7 @@ Class QueryableMethodTranslatingExpressionVisitor from ExpressionVisitor
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
 
 	Func getTranslationErrorDetails
-		return dnText(dotnet_getp(nHandle,"TranslationErrorDetails"))
+		return dnAnswer(dotnet_getp(nHandle,"TranslationErrorDetails"))
 
 	Func setTranslationErrorDetails P1
 		raise("DotNet Error: TranslationErrorDetails is a read-only property")
@@ -5009,7 +4965,7 @@ Class RelationalSqlTranslatingExpressionVisitor from ExpressionVisitor
 		raise("DotNet Error: ParameterListValueExtractor needs its type arguments: ParameterListValueExtractor([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getTranslationErrorDetails
-		return dnText(dotnet_getp(nHandle,"TranslationErrorDetails"))
+		return dnAnswer(dotnet_getp(nHandle,"TranslationErrorDetails"))
 
 	Func setTranslationErrorDetails P1
 		raise("DotNet Error: TranslationErrorDetails is a read-only property")
@@ -5367,9 +5323,7 @@ Class SqlAliasManager from Object
 		return self
 
 	Func GenerateTableAlias P1
-		dn_x = dotnet_call("s4:call",nHandle,"s18:GenerateTableAlias",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GenerateTableAlias",P1))
 
 	Func PostprocessAliases P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:PostprocessAliases",P1))
@@ -5791,9 +5745,7 @@ Class StructuralTypeShaperExpression from ExpressionsExpression
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
 
 	Func DebuggerDisplay 
-		dn_x = dotnet_call("s4:call",nHandle,"s15:DebuggerDisplay")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"DebuggerDisplay"))
 
 	Func CreateUnableToDiscriminateException P1,P2
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.StructuralTypeShaperExpression, Microsoft.EntityFrameworkCore',"s35:CreateUnableToDiscriminateException",P1,P2))

@@ -312,7 +312,7 @@ Class AuthorizationFailureReason from Object
 		return dn_x
 
 	Func getMessage
-		return dnText(dotnet_getp(nHandle,"Message"))
+		return dnAnswer(dotnet_getp(nHandle,"Message"))
 
 	Func setMessage P1
 		raise("DotNet Error: Message is a read-only property")
@@ -346,17 +346,7 @@ Class AuthorizationHandlerContext from Object
 		return self
 
 	Func Fail P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Fail",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s4:Fail")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Fail",P1)
-
+		dotnet_calltdv(nHandle,"Fail",P1)
 		return self
 
 	Func Succeed P1
@@ -773,21 +763,21 @@ Class AuthorizeAttribute from Attribute
 		return self
 
 	Func getPolicy
-		return dnText(dotnet_getp(nHandle,"Policy"))
+		return dnAnswer(dotnet_getp(nHandle,"Policy"))
 
 	Func setPolicy P1
 		dotnet_setp(nHandle,"Policy",P1)
 		return self
 
 	Func getRoles
-		return dnText(dotnet_getp(nHandle,"Roles"))
+		return dnAnswer(dotnet_getp(nHandle,"Roles"))
 
 	Func setRoles P1
 		dotnet_setp(nHandle,"Roles",P1)
 		return self
 
 	Func getAuthenticationSchemes
-		return dnText(dotnet_getp(nHandle,"AuthenticationSchemes"))
+		return dnAnswer(dotnet_getp(nHandle,"AuthenticationSchemes"))
 
 	Func setAuthenticationSchemes P1
 		dotnet_setp(nHandle,"AuthenticationSchemes",P1)
@@ -1106,21 +1096,21 @@ Class IAuthorizeData from DotNetObject
 		return self
 
 	Func getPolicy
-		return dnText(dotnet_getp(nHandle,"Policy"))
+		return dnAnswer(dotnet_getp(nHandle,"Policy"))
 
 	Func setPolicy P1
 		dotnet_setp(nHandle,"Policy",P1)
 		return self
 
 	Func getRoles
-		return dnText(dotnet_getp(nHandle,"Roles"))
+		return dnAnswer(dotnet_getp(nHandle,"Roles"))
 
 	Func setRoles P1
 		dotnet_setp(nHandle,"Roles",P1)
 		return self
 
 	Func getAuthenticationSchemes
-		return dnText(dotnet_getp(nHandle,"AuthenticationSchemes"))
+		return dnAnswer(dotnet_getp(nHandle,"AuthenticationSchemes"))
 
 	Func setAuthenticationSchemes P1
 		dotnet_setp(nHandle,"AuthenticationSchemes",P1)

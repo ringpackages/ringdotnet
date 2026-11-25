@@ -88,13 +88,13 @@ Class Claim from Object
 		return dn_x
 
 	Func getIssuer
-		return dnText(dotnet_getp(nHandle,"Issuer"))
+		return dnAnswer(dotnet_getp(nHandle,"Issuer"))
 
 	Func setIssuer P1
 		raise("DotNet Error: Issuer is a read-only property")
 
 	Func getOriginalIssuer
-		return dnText(dotnet_getp(nHandle,"OriginalIssuer"))
+		return dnAnswer(dotnet_getp(nHandle,"OriginalIssuer"))
 
 	Func setOriginalIssuer P1
 		raise("DotNet Error: OriginalIssuer is a read-only property")
@@ -112,19 +112,19 @@ Class Claim from Object
 		raise("DotNet Error: Subject is a read-only property")
 
 	Func getType
-		return dnText(dotnet_getp(nHandle,"Type"))
+		return dnAnswer(dotnet_getp(nHandle,"Type"))
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getValueType
-		return dnText(dotnet_getp(nHandle,"ValueType"))
+		return dnAnswer(dotnet_getp(nHandle,"ValueType"))
 
 	Func setValueType P1
 		raise("DotNet Error: ValueType is a read-only property")
@@ -974,14 +974,7 @@ Class ClaimsIdentity from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:FindFirst",P1))
 
 	Func HasClaim P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:HasClaim",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:HasClaim",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"HasClaim",P1))
 
 	Func WriteTo P1
 		dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
@@ -994,7 +987,7 @@ Class ClaimsIdentity from Object
 		return dn_x
 
 	Func getAuthenticationType
-		return dnText(dotnet_getp(nHandle,"AuthenticationType"))
+		return dnAnswer(dotnet_getp(nHandle,"AuthenticationType"))
 
 	Func setAuthenticationType P1
 		raise("DotNet Error: AuthenticationType is a read-only property")
@@ -1026,26 +1019,26 @@ Class ClaimsIdentity from Object
 		raise("DotNet Error: Claims is a read-only property")
 
 	Func getLabel
-		return dnText(dotnet_getp(nHandle,"Label"))
+		return dnAnswer(dotnet_getp(nHandle,"Label"))
 
 	Func setLabel P1
 		dotnet_setp(nHandle,"Label",P1)
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getNameClaimType
-		return dnText(dotnet_getp(nHandle,"NameClaimType"))
+		return dnAnswer(dotnet_getp(nHandle,"NameClaimType"))
 
 	Func setNameClaimType P1
 		raise("DotNet Error: NameClaimType is a read-only property")
 
 	Func getRoleClaimType
-		return dnText(dotnet_getp(nHandle,"RoleClaimType"))
+		return dnAnswer(dotnet_getp(nHandle,"RoleClaimType"))
 
 	Func setRoleClaimType P1
 		raise("DotNet Error: RoleClaimType is a read-only property")
@@ -1138,19 +1131,10 @@ Class ClaimsPrincipal from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:FindFirst",P1))
 
 	Func HasClaim P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:HasClaim",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:HasClaim",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"HasClaim",P1))
 
 	Func IsInRole P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:IsInRole",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsInRole",P1))
 
 	Func WriteTo P1
 		dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)

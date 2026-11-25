@@ -105,7 +105,7 @@ Class Capture from Object
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -228,7 +228,7 @@ Class GeneratedRegexAttribute from Attribute
 		return self
 
 	Func getPattern
-		return dnText(dotnet_getp(nHandle,"Pattern"))
+		return dnAnswer(dotnet_getp(nHandle,"Pattern"))
 
 	Func setPattern P1
 		raise("DotNet Error: Pattern is a read-only property")
@@ -246,7 +246,7 @@ Class GeneratedRegexAttribute from Attribute
 		raise("DotNet Error: MatchTimeoutMilliseconds is a read-only property")
 
 	Func getCultureName
-		return dnText(dotnet_getp(nHandle,"CultureName"))
+		return dnAnswer(dotnet_getp(nHandle,"CultureName"))
 
 	Func setCultureName P1
 		raise("DotNet Error: CultureName is a read-only property")
@@ -282,9 +282,7 @@ Class GroupCollection from Object
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func ContainsKey P1
-		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsKey",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -469,14 +467,10 @@ Class Regex from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetGroupNumbers"))
 
 	Func GroupNameFromNumber P1
-		dn_x = dotnet_call("s4:call",nHandle,"s19:GroupNameFromNumber",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GroupNameFromNumber",P1))
 
 	Func GroupNumberFromName P1
-		dn_x = dotnet_call("s4:call",nHandle,"s19:GroupNumberFromName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GroupNumberFromName",P1))
 
 	Func Count P1
 		if dotnet_isnamed(P1)
@@ -661,13 +655,13 @@ Class RegexMatchTimeoutException from TimeoutException
 		return self
 
 	Func getInput
-		return dnText(dotnet_getp(nHandle,"Input"))
+		return dnAnswer(dotnet_getp(nHandle,"Input"))
 
 	Func setInput P1
 		raise("DotNet Error: Input is a read-only property")
 
 	Func getPattern
-		return dnText(dotnet_getp(nHandle,"Pattern"))
+		return dnAnswer(dotnet_getp(nHandle,"Pattern"))
 
 	Func setPattern P1
 		raise("DotNet Error: Pattern is a read-only property")
@@ -770,7 +764,7 @@ Class Group from Capture
 		raise("DotNet Error: Success is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -800,9 +794,7 @@ Class Match from Group
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:NextMatch"))
 
 	Func Result P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Result",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Result",P1))
 
 	Func Synchronized P1
 		return dnObj(dotnet_callo("s4:call",'System.Text.RegularExpressions.Match, System.Text.RegularExpressions',"s12:Synchronized",P1))

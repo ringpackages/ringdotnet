@@ -155,8 +155,7 @@ Class Enlistment from Object
 		return self
 
 	Func Done 
-		dotnet_callv("s4:call",nHandle,"s4:Done")
-
+		dotnet_calltv(nHandle,"Done")
 		return self
 
 	Func Equals P1
@@ -177,8 +176,7 @@ Class IDtcTransaction from DotNetObject
 		return self
 
 	Func Commit P1,P2,P3
-		dotnet_callv("s4:call",nHandle,"s6:Commit",P1,P2,P3)
-
+		dotnet_calltv(nHandle,"Commit",P1,P2,P3)
 		return self
 
 	Func Abort P1,P2,P3
@@ -236,8 +234,7 @@ Class IPromotableSinglePhaseNotification from DotNetObject
 		return self
 
 	Func Initialize 
-		dotnet_callv("s4:call",nHandle,"s10:Initialize")
-
+		dotnet_calltv(nHandle,"Initialize")
 		return self
 
 	Func SinglePhaseCommit P1
@@ -266,8 +263,7 @@ Class ISimpleTransactionSuperior from DotNetObject
 		return self
 
 	Func Rollback 
-		dotnet_callv("s4:call",nHandle,"s8:Rollback")
-
+		dotnet_calltv(nHandle,"Rollback")
 		return self
 
 	Func Promote 
@@ -354,17 +350,7 @@ Class Transaction from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:EnlistDurable",P1,P2,P3))
 
 	Func Rollback P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s8:Rollback",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s8:Rollback")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s8:Rollback",P1)
-
+		dotnet_calltdv(nHandle,"Rollback",P1)
 		return self
 
 	Func EnlistVolatile P1,P2
@@ -377,19 +363,11 @@ Class Transaction from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:DependentClone",P1))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func EnlistPromotableSinglePhase P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s27:EnlistPromotableSinglePhase",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s27:EnlistPromotableSinglePhase",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"EnlistPromotableSinglePhase",P1))
 
 	Func PromoteAndEnlistDurable P1,P2,P3,P4
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:PromoteAndEnlistDurable",P1,P2,P3,P4))
@@ -525,7 +503,7 @@ Class TransactionInformation from Object
 		return dn_x
 
 	Func getLocalIdentifier
-		return dnText(dotnet_getp(nHandle,"LocalIdentifier"))
+		return dnAnswer(dotnet_getp(nHandle,"LocalIdentifier"))
 
 	Func setLocalIdentifier P1
 		raise("DotNet Error: LocalIdentifier is a read-only property")
@@ -740,13 +718,11 @@ Class TransactionScope from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Complete 
-		dotnet_callv("s4:call",nHandle,"s8:Complete")
-
+		dotnet_calltv(nHandle,"Complete")
 		return self
 
 	Func Equals P1
@@ -795,8 +771,7 @@ Class CommittableTransaction from Transaction
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:BeginCommit",P1,P2))
 
 	Func Commit 
-		dotnet_callv("s4:call",nHandle,"s6:Commit")
-
+		dotnet_calltv(nHandle,"Commit")
 		return self
 
 	Func EndCommit P1
@@ -817,8 +792,7 @@ Class DependentTransaction from Transaction
 		return self
 
 	Func Complete 
-		dotnet_callv("s4:call",nHandle,"s8:Complete")
-
+		dotnet_calltv(nHandle,"Complete")
 		return self
 
 
@@ -834,22 +808,11 @@ Class PreparingEnlistment from Enlistment
 		return self
 
 	Func Prepared 
-		dotnet_callv("s4:call",nHandle,"s8:Prepared")
-
+		dotnet_calltv(nHandle,"Prepared")
 		return self
 
 	Func ForceRollback P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s13:ForceRollback",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s13:ForceRollback")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s13:ForceRollback",P1)
-
+		dotnet_calltdv(nHandle,"ForceRollback",P1)
 		return self
 
 	Func RecoveryInformation 
@@ -868,36 +831,15 @@ Class SinglePhaseEnlistment from Enlistment
 		return self
 
 	Func Aborted P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s7:Aborted",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s7:Aborted")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s7:Aborted",P1)
-
+		dotnet_calltdv(nHandle,"Aborted",P1)
 		return self
 
 	Func Committed 
-		dotnet_callv("s4:call",nHandle,"s9:Committed")
-
+		dotnet_calltv(nHandle,"Committed")
 		return self
 
 	Func InDoubt P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s7:InDoubt",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s7:InDoubt")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s7:InDoubt",P1)
-
+		dotnet_calltdv(nHandle,"InDoubt",P1)
 		return self
 
 

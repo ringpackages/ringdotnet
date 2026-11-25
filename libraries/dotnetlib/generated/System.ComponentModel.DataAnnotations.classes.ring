@@ -296,29 +296,19 @@ Class DisplayAttribute from Attribute
 		return self
 
 	Func @GetShortName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetShortName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetShortName"))
 
 	Func @GetName 
-		dn_x = dotnet_call("s4:call",nHandle,"s7:GetName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetName"))
 
 	Func @GetDescription 
-		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDescription")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDescription"))
 
 	Func @GetPrompt 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:GetPrompt")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetPrompt"))
 
 	Func @GetGroupName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetGroupName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetGroupName"))
 
 	Func @GetAutoGenerateField 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetAutoGenerateField"))
@@ -330,35 +320,35 @@ Class DisplayAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetOrder"))
 
 	Func getShortName
-		return dnText(dotnet_getp(nHandle,"ShortName"))
+		return dnAnswer(dotnet_getp(nHandle,"ShortName"))
 
 	Func setShortName P1
 		dotnet_setp(nHandle,"ShortName",P1)
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getDescription
-		return dnText(dotnet_getp(nHandle,"Description"))
+		return dnAnswer(dotnet_getp(nHandle,"Description"))
 
 	Func setDescription P1
 		dotnet_setp(nHandle,"Description",P1)
 		return self
 
 	Func getPrompt
-		return dnText(dotnet_getp(nHandle,"Prompt"))
+		return dnAnswer(dotnet_getp(nHandle,"Prompt"))
 
 	Func setPrompt P1
 		dotnet_setp(nHandle,"Prompt",P1)
 		return self
 
 	Func getGroupName
-		return dnText(dotnet_getp(nHandle,"GroupName"))
+		return dnAnswer(dotnet_getp(nHandle,"GroupName"))
 
 	Func setGroupName P1
 		dotnet_setp(nHandle,"GroupName",P1)
@@ -426,13 +416,13 @@ Class DisplayColumnAttribute from Attribute
 		return self
 
 	Func getDisplayColumn
-		return dnText(dotnet_getp(nHandle,"DisplayColumn"))
+		return dnAnswer(dotnet_getp(nHandle,"DisplayColumn"))
 
 	Func setDisplayColumn P1
 		raise("DotNet Error: DisplayColumn is a read-only property")
 
 	Func getSortColumn
-		return dnText(dotnet_getp(nHandle,"SortColumn"))
+		return dnAnswer(dotnet_getp(nHandle,"SortColumn"))
 
 	Func setSortColumn P1
 		raise("DotNet Error: SortColumn is a read-only property")
@@ -472,19 +462,17 @@ Class DisplayFormatAttribute from Attribute
 		return self
 
 	Func @GetNullDisplayText 
-		dn_x = dotnet_call("s4:call",nHandle,"s18:GetNullDisplayText")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetNullDisplayText"))
 
 	Func getDataFormatString
-		return dnText(dotnet_getp(nHandle,"DataFormatString"))
+		return dnAnswer(dotnet_getp(nHandle,"DataFormatString"))
 
 	Func setDataFormatString P1
 		dotnet_setp(nHandle,"DataFormatString",P1)
 		return self
 
 	Func getNullDisplayText
-		return dnText(dotnet_getp(nHandle,"NullDisplayText"))
+		return dnAnswer(dotnet_getp(nHandle,"NullDisplayText"))
 
 	Func setNullDisplayText P1
 		dotnet_setp(nHandle,"NullDisplayText",P1)
@@ -683,13 +671,13 @@ Class UIHintAttribute from Attribute
 		return self
 
 	Func getUIHint
-		return dnText(dotnet_getp(nHandle,"UIHint"))
+		return dnAnswer(dotnet_getp(nHandle,"UIHint"))
 
 	Func setUIHint P1
 		raise("DotNet Error: UIHint is a read-only property")
 
 	Func getPresentationLayer
-		return dnText(dotnet_getp(nHandle,"PresentationLayer"))
+		return dnAnswer(dotnet_getp(nHandle,"PresentationLayer"))
 
 	Func setPresentationLayer P1
 		raise("DotNet Error: PresentationLayer is a read-only property")
@@ -718,9 +706,7 @@ Class ValidationAttribute from Attribute
 		return self
 
 	Func FormatErrorMessage P1
-		dn_x = dotnet_call("s4:call",nHandle,"s18:FormatErrorMessage",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"FormatErrorMessage",P1))
 
 	Func IsValid P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IsValid",P1)
@@ -742,14 +728,14 @@ Class ValidationAttribute from Attribute
 		raise("DotNet Error: RequiresValidationContext is a read-only property")
 
 	Func getErrorMessage
-		return dnText(dotnet_getp(nHandle,"ErrorMessage"))
+		return dnAnswer(dotnet_getp(nHandle,"ErrorMessage"))
 
 	Func setErrorMessage P1
 		dotnet_setp(nHandle,"ErrorMessage",P1)
 		return self
 
 	Func getErrorMessageResourceName
-		return dnText(dotnet_getp(nHandle,"ErrorMessageResourceName"))
+		return dnAnswer(dotnet_getp(nHandle,"ErrorMessageResourceName"))
 
 	Func setErrorMessageResourceName P1
 		dotnet_setp(nHandle,"ErrorMessageResourceName",P1)
@@ -872,14 +858,14 @@ Class ValidationContext from Object
 		raise("DotNet Error: ObjectType is a read-only property")
 
 	Func getDisplayName
-		return dnText(dotnet_getp(nHandle,"DisplayName"))
+		return dnAnswer(dotnet_getp(nHandle,"DisplayName"))
 
 	Func setDisplayName P1
 		dotnet_setp(nHandle,"DisplayName",P1)
 		return self
 
 	Func getMemberName
-		return dnText(dotnet_getp(nHandle,"MemberName"))
+		return dnAnswer(dotnet_getp(nHandle,"MemberName"))
 
 	Func setMemberName P1
 		dotnet_setp(nHandle,"MemberName",P1)
@@ -995,7 +981,7 @@ Class DataAnnotationsValidationResult from Object
 		raise("DotNet Error: MemberNames is a read-only property")
 
 	Func getErrorMessage
-		return dnText(dotnet_getp(nHandle,"ErrorMessage"))
+		return dnAnswer(dotnet_getp(nHandle,"ErrorMessage"))
 
 	Func setErrorMessage P1
 		dotnet_setp(nHandle,"ErrorMessage",P1)
@@ -1120,13 +1106,13 @@ Class CompareAttribute from ValidationAttribute
 		return self
 
 	Func getOtherProperty
-		return dnText(dotnet_getp(nHandle,"OtherProperty"))
+		return dnAnswer(dotnet_getp(nHandle,"OtherProperty"))
 
 	Func setOtherProperty P1
 		raise("DotNet Error: OtherProperty is a read-only property")
 
 	Func getOtherPropertyDisplayName
-		return dnText(dotnet_getp(nHandle,"OtherPropertyDisplayName"))
+		return dnAnswer(dotnet_getp(nHandle,"OtherPropertyDisplayName"))
 
 	Func setOtherPropertyDisplayName P1
 		raise("DotNet Error: OtherPropertyDisplayName is a read-only property")
@@ -1155,7 +1141,7 @@ Class CustomValidationAttribute from ValidationAttribute
 		raise("DotNet Error: ValidatorType is a read-only property")
 
 	Func getMethod
-		return dnText(dotnet_getp(nHandle,"Method"))
+		return dnAnswer(dotnet_getp(nHandle,"Method"))
 
 	Func setMethod P1
 		raise("DotNet Error: Method is a read-only property")
@@ -1179,9 +1165,7 @@ Class DataTypeAttribute from ValidationAttribute
 		return self
 
 	Func GetDataTypeName 
-		dn_x = dotnet_call("s4:call",nHandle,"s15:GetDataTypeName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDataTypeName"))
 
 	Func getDataType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:DataType"))
@@ -1190,7 +1174,7 @@ Class DataTypeAttribute from ValidationAttribute
 		raise("DotNet Error: DataType is a read-only property")
 
 	Func getCustomDataType
-		return dnText(dotnet_getp(nHandle,"CustomDataType"))
+		return dnAnswer(dotnet_getp(nHandle,"CustomDataType"))
 
 	Func setCustomDataType P1
 		raise("DotNet Error: CustomDataType is a read-only property")
@@ -1434,7 +1418,7 @@ Class RegularExpressionAttribute from ValidationAttribute
 		raise("DotNet Error: MatchTimeout is a read-only property")
 
 	Func getPattern
-		return dnText(dotnet_getp(nHandle,"Pattern"))
+		return dnAnswer(dotnet_getp(nHandle,"Pattern"))
 
 	Func setPattern P1
 		raise("DotNet Error: Pattern is a read-only property")
@@ -1587,7 +1571,7 @@ Class FileExtensionsAttribute from DataTypeAttribute
 		return self
 
 	Func getExtensions
-		return dnText(dotnet_getp(nHandle,"Extensions"))
+		return dnAnswer(dotnet_getp(nHandle,"Extensions"))
 
 	Func setExtensions P1
 		dotnet_setp(nHandle,"Extensions",P1)

@@ -132,9 +132,7 @@ Class PipeAccessRule from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToString"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -142,9 +140,7 @@ Class PipeAccessRule from DotNetObject
 		return dn_x
 
 	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func getPipeAccessRights
 		return dnObj(dotnet_callo("s3:get",nHandle,"s16:PipeAccessRights"))
@@ -207,9 +203,7 @@ Class PipeAuditRule from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToString"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -217,9 +211,7 @@ Class PipeAuditRule from DotNetObject
 		return dn_x
 
 	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func getPipeAccessRights
 		return dnObj(dotnet_callo("s3:get",nHandle,"s16:PipeAccessRights"))
@@ -375,13 +367,11 @@ Class PipeSecurity from DotNetObject
 		return self
 
 	Func SetAccessRuleProtection P1,P2
-		dotnet_callv("s4:call",nHandle,"s23:SetAccessRuleProtection",P1,P2)
-
+		dotnet_calltv(nHandle,"SetAccessRuleProtection",P1,P2)
 		return self
 
 	Func SetAuditRuleProtection P1,P2
-		dotnet_callv("s4:call",nHandle,"s22:SetAuditRuleProtection",P1,P2)
-
+		dotnet_calltv(nHandle,"SetAuditRuleProtection",P1,P2)
 		return self
 
 	Func GetSecurityDescriptorSddlForm P1
@@ -390,24 +380,14 @@ Class PipeSecurity from DotNetObject
 		return dn_x
 
 	Func SetSecurityDescriptorSddlForm P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s29:SetSecurityDescriptorSddlForm",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s29:SetSecurityDescriptorSddlForm",P1)
-
+		dotnet_calltd1v(nHandle,"SetSecurityDescriptorSddlForm",P1)
 		return self
 
 	Func GetSecurityDescriptorBinaryForm 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetSecurityDescriptorBinaryForm"))
 
 	Func SetSecurityDescriptorBinaryForm P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s31:SetSecurityDescriptorBinaryForm",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s31:SetSecurityDescriptorBinaryForm",P1)
-
+		dotnet_calltd1v(nHandle,"SetSecurityDescriptorBinaryForm",P1)
 		return self
 
 	Func ModifyAccessRule P1,P2
@@ -420,9 +400,7 @@ Class PipeSecurity from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToString"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -430,9 +408,7 @@ Class PipeSecurity from DotNetObject
 		return dn_x
 
 	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func getAccessRightType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:AccessRightType"))
@@ -498,8 +474,7 @@ Class PipeStream from Stream
 		return self
 
 	Func WaitForPipeDrain 
-		dotnet_callv("s4:call",nHandle,"s16:WaitForPipeDrain")
-
+		dotnet_calltv(nHandle,"WaitForPipeDrain")
 		return self
 
 	Func GetAccessControl 
@@ -655,13 +630,10 @@ Class AnonymousPipeServerStream from PipeStream
 		return self
 
 	Func GetClientHandleAsString 
-		dn_x = dotnet_call("s4:call",nHandle,"s23:GetClientHandleAsString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetClientHandleAsString"))
 
 	Func DisposeLocalCopyOfClientHandle 
-		dotnet_callv("s4:call",nHandle,"s30:DisposeLocalCopyOfClientHandle")
-
+		dotnet_calltv(nHandle,"DisposeLocalCopyOfClientHandle")
 		return self
 
 	Func getClientSafePipeHandle
@@ -719,19 +691,15 @@ Class NamedPipeServerStream from PipeStream
 		return self
 
 	Func WaitForConnection 
-		dotnet_callv("s4:call",nHandle,"s17:WaitForConnection")
-
+		dotnet_calltv(nHandle,"WaitForConnection")
 		return self
 
 	Func Disconnect 
-		dotnet_callv("s4:call",nHandle,"s10:Disconnect")
-
+		dotnet_calltv(nHandle,"Disconnect")
 		return self
 
 	Func GetImpersonationUserName 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:GetImpersonationUserName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetImpersonationUserName"))
 
 	Func RunAsClient P1
 		dotnet_callv("s4:call",nHandle,"s11:RunAsClient",P1)
@@ -776,17 +744,7 @@ Class NamedPipeClientStream from PipeStream
 		return self
 
 	Func Connect P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s7:Connect",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s7:Connect")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s7:Connect",P1)
-
+		dotnet_calltdv(nHandle,"Connect",P1)
 		return self
 
 	Func ConnectAsync P1

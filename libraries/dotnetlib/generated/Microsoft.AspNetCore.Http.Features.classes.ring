@@ -552,12 +552,7 @@ Class FeatureReferences from ValueType
 		return self
 
 	Func Initalize P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s9:Initalize",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s9:Initalize",P1)
-
+		dotnet_calltd1v(nHandle,"Initalize",P1)
 		return self
 
 	Func Fetch P1
@@ -817,7 +812,7 @@ Class HttpConnectionFeature from Object
 		return dn_x
 
 	Func getConnectionId
-		return dnText(dotnet_getp(nHandle,"ConnectionId"))
+		return dnAnswer(dotnet_getp(nHandle,"ConnectionId"))
 
 	Func setConnectionId P1
 		dotnet_setp(nHandle,"ConnectionId",P1)
@@ -888,49 +883,49 @@ Class HttpRequestFeature from Object
 		return dn_x
 
 	Func getProtocol
-		return dnText(dotnet_getp(nHandle,"Protocol"))
+		return dnAnswer(dotnet_getp(nHandle,"Protocol"))
 
 	Func setProtocol P1
 		dotnet_setp(nHandle,"Protocol",P1)
 		return self
 
 	Func getScheme
-		return dnText(dotnet_getp(nHandle,"Scheme"))
+		return dnAnswer(dotnet_getp(nHandle,"Scheme"))
 
 	Func setScheme P1
 		dotnet_setp(nHandle,"Scheme",P1)
 		return self
 
 	Func getMethod
-		return dnText(dotnet_getp(nHandle,"Method"))
+		return dnAnswer(dotnet_getp(nHandle,"Method"))
 
 	Func setMethod P1
 		dotnet_setp(nHandle,"Method",P1)
 		return self
 
 	Func getPathBase
-		return dnText(dotnet_getp(nHandle,"PathBase"))
+		return dnAnswer(dotnet_getp(nHandle,"PathBase"))
 
 	Func setPathBase P1
 		dotnet_setp(nHandle,"PathBase",P1)
 		return self
 
 	Func getPath
-		return dnText(dotnet_getp(nHandle,"Path"))
+		return dnAnswer(dotnet_getp(nHandle,"Path"))
 
 	Func setPath P1
 		dotnet_setp(nHandle,"Path",P1)
 		return self
 
 	Func getQueryString
-		return dnText(dotnet_getp(nHandle,"QueryString"))
+		return dnAnswer(dotnet_getp(nHandle,"QueryString"))
 
 	Func setQueryString P1
 		dotnet_setp(nHandle,"QueryString",P1)
 		return self
 
 	Func getRawTarget
-		return dnText(dotnet_getp(nHandle,"RawTarget"))
+		return dnAnswer(dotnet_getp(nHandle,"RawTarget"))
 
 	Func setRawTarget P1
 		dotnet_setp(nHandle,"RawTarget",P1)
@@ -979,7 +974,7 @@ Class HttpRequestIdentifierFeature from Object
 		return dn_x
 
 	Func getTraceIdentifier
-		return dnText(dotnet_getp(nHandle,"TraceIdentifier"))
+		return dnAnswer(dotnet_getp(nHandle,"TraceIdentifier"))
 
 	Func setTraceIdentifier P1
 		dotnet_setp(nHandle,"TraceIdentifier",P1)
@@ -1009,8 +1004,7 @@ Class HttpRequestLifetimeFeature from Object
 		return self
 
 	Func Abort 
-		dotnet_callv("s4:call",nHandle,"s5:Abort")
-
+		dotnet_calltv(nHandle,"Abort")
 		return self
 
 	Func Equals P1
@@ -1075,7 +1069,7 @@ Class HttpResponseFeature from Object
 		return self
 
 	Func getReasonPhrase
-		return dnText(dotnet_getp(nHandle,"ReasonPhrase"))
+		return dnAnswer(dotnet_getp(nHandle,"ReasonPhrase"))
 
 	Func setReasonPhrase P1
 		dotnet_setp(nHandle,"ReasonPhrase",P1)
@@ -1318,7 +1312,7 @@ Class IHttpConnectionFeature from DotNetObject
 		return self
 
 	Func getConnectionId
-		return dnText(dotnet_getp(nHandle,"ConnectionId"))
+		return dnAnswer(dotnet_getp(nHandle,"ConnectionId"))
 
 	Func setConnectionId P1
 		dotnet_setp(nHandle,"ConnectionId",P1)
@@ -1377,7 +1371,7 @@ Class IHttpExtendedConnectFeature from DotNetObject
 		raise("DotNet Error: IsExtendedConnect is a read-only property")
 
 	Func getProtocol
-		return dnText(dotnet_getp(nHandle,"Protocol"))
+		return dnAnswer(dotnet_getp(nHandle,"Protocol"))
 
 	Func setProtocol P1
 		raise("DotNet Error: Protocol is a read-only property")
@@ -1481,49 +1475,49 @@ Class IHttpRequestFeature from DotNetObject
 		return self
 
 	Func getProtocol
-		return dnText(dotnet_getp(nHandle,"Protocol"))
+		return dnAnswer(dotnet_getp(nHandle,"Protocol"))
 
 	Func setProtocol P1
 		dotnet_setp(nHandle,"Protocol",P1)
 		return self
 
 	Func getScheme
-		return dnText(dotnet_getp(nHandle,"Scheme"))
+		return dnAnswer(dotnet_getp(nHandle,"Scheme"))
 
 	Func setScheme P1
 		dotnet_setp(nHandle,"Scheme",P1)
 		return self
 
 	Func getMethod
-		return dnText(dotnet_getp(nHandle,"Method"))
+		return dnAnswer(dotnet_getp(nHandle,"Method"))
 
 	Func setMethod P1
 		dotnet_setp(nHandle,"Method",P1)
 		return self
 
 	Func getPathBase
-		return dnText(dotnet_getp(nHandle,"PathBase"))
+		return dnAnswer(dotnet_getp(nHandle,"PathBase"))
 
 	Func setPathBase P1
 		dotnet_setp(nHandle,"PathBase",P1)
 		return self
 
 	Func getPath
-		return dnText(dotnet_getp(nHandle,"Path"))
+		return dnAnswer(dotnet_getp(nHandle,"Path"))
 
 	Func setPath P1
 		dotnet_setp(nHandle,"Path",P1)
 		return self
 
 	Func getQueryString
-		return dnText(dotnet_getp(nHandle,"QueryString"))
+		return dnAnswer(dotnet_getp(nHandle,"QueryString"))
 
 	Func setQueryString P1
 		dotnet_setp(nHandle,"QueryString",P1)
 		return self
 
 	Func getRawTarget
-		return dnText(dotnet_getp(nHandle,"RawTarget"))
+		return dnAnswer(dotnet_getp(nHandle,"RawTarget"))
 
 	Func setRawTarget P1
 		dotnet_setp(nHandle,"RawTarget",P1)
@@ -1558,7 +1552,7 @@ Class IHttpRequestIdentifierFeature from DotNetObject
 		return self
 
 	Func getTraceIdentifier
-		return dnText(dotnet_getp(nHandle,"TraceIdentifier"))
+		return dnAnswer(dotnet_getp(nHandle,"TraceIdentifier"))
 
 	Func setTraceIdentifier P1
 		dotnet_setp(nHandle,"TraceIdentifier",P1)
@@ -1579,8 +1573,7 @@ Class IHttpRequestLifetimeFeature from DotNetObject
 		return self
 
 	Func Abort 
-		dotnet_callv("s4:call",nHandle,"s5:Abort")
-
+		dotnet_calltv(nHandle,"Abort")
 		return self
 
 	Func getRequestAborted
@@ -1630,8 +1623,7 @@ Class IHttpResetFeature from DotNetObject
 		return self
 
 	Func Reset P1
-		dotnet_callv("s4:call",nHandle,"s5:Reset",P1)
-
+		dotnet_calltv(nHandle,"Reset",P1)
 		return self
 
 
@@ -1650,8 +1642,7 @@ Class IHttpResponseBodyFeature from DotNetObject
 		return self
 
 	Func DisableBuffering 
-		dotnet_callv("s4:call",nHandle,"s16:DisableBuffering")
-
+		dotnet_calltv(nHandle,"DisableBuffering")
 		return self
 
 	Func StartAsync P1
@@ -1720,7 +1711,7 @@ Class IHttpResponseFeature from DotNetObject
 		return self
 
 	Func getReasonPhrase
-		return dnText(dotnet_getp(nHandle,"ReasonPhrase"))
+		return dnAnswer(dotnet_getp(nHandle,"ReasonPhrase"))
 
 	Func setReasonPhrase P1
 		dotnet_setp(nHandle,"ReasonPhrase",P1)
@@ -2109,19 +2100,15 @@ Class ITrackingConsentFeature from DotNetObject
 		return self
 
 	Func GrantConsent 
-		dotnet_callv("s4:call",nHandle,"s12:GrantConsent")
-
+		dotnet_calltv(nHandle,"GrantConsent")
 		return self
 
 	Func WithdrawConsent 
-		dotnet_callv("s4:call",nHandle,"s15:WithdrawConsent")
-
+		dotnet_calltv(nHandle,"WithdrawConsent")
 		return self
 
 	Func CreateConsentCookie 
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CreateConsentCookie")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CreateConsentCookie"))
 
 	Func getIsConsentNeeded
 		return dotnet_getp(nHandle,"IsConsentNeeded")
@@ -2156,8 +2143,7 @@ Class IWebTransportSession from DotNetObject
 		return self
 
 	Func Abort P1
-		dotnet_callv("s4:call",nHandle,"s5:Abort",P1)
-
+		dotnet_calltv(nHandle,"Abort",P1)
 		return self
 
 	Func AcceptStreamAsync P1
@@ -2322,8 +2308,7 @@ Class RequestServicesFeature from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1

@@ -282,18 +282,14 @@ Class ChangeTracker from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Entries"))
 
 	Func HasChanges 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:HasChanges")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"HasChanges"))
 
 	Func DetectChanges 
-		dotnet_callv("s4:call",nHandle,"s13:DetectChanges")
-
+		dotnet_calltv(nHandle,"DetectChanges")
 		return self
 
 	Func AcceptAllChanges 
-		dotnet_callv("s4:call",nHandle,"s16:AcceptAllChanges")
-
+		dotnet_calltv(nHandle,"AcceptAllChanges")
 		return self
 
 	Func TrackGraph P1
@@ -304,13 +300,11 @@ Class ChangeTracker from Object
 		raise("DotNet Error: TrackGraph does not take one argument: use named arguments, TrackGraph([ :parameter = value, ... ])")
 
 	Func CascadeChanges 
-		dotnet_callv("s4:call",nHandle,"s14:CascadeChanges")
-
+		dotnet_calltv(nHandle,"CascadeChanges")
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Equals P1
@@ -518,8 +512,7 @@ Class EntityEntry from Object
 		return self
 
 	Func DetectChanges 
-		dotnet_callv("s4:call",nHandle,"s13:DetectChanges")
-
+		dotnet_calltv(nHandle,"DetectChanges")
 		return self
 
 	Func Member P1
@@ -553,8 +546,7 @@ Class EntityEntry from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetDatabaseValuesAsync",P1))
 
 	Func Reload 
-		dotnet_callv("s4:call",nHandle,"s6:Reload")
-
+		dotnet_calltv(nHandle,"Reload")
 		return self
 
 	Func ReloadAsync P1
@@ -752,29 +744,10 @@ Class EntryCurrentValueComparer from Object
 		return dn_x
 
 	Func Equals P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Equals",P1))
 
 	Func GetHashCode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetHashCode",P1))
 
 
 Class IDependentKeyValueFactory from DotNetObject
@@ -974,8 +947,7 @@ Class LocalView from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -997,8 +969,7 @@ Class LocalView from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ToBindingList"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func FindEntry P1
@@ -1163,8 +1134,7 @@ Class ObservableHashSet from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -1173,12 +1143,7 @@ Class ObservableHashSet from Object
 		return dn_x
 
 	Func CopyTo P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:CopyTo",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
-
+		dotnet_calltd1v(nHandle,"CopyTo",P1)
 		return self
 
 	Func Remove P1
@@ -1250,8 +1215,7 @@ Class ObservableHashSet from Object
 		return dn_x
 
 	Func TrimExcess 
-		dotnet_callv("s4:call",nHandle,"s10:TrimExcess")
-
+		dotnet_calltv(nHandle,"TrimExcess")
 		return self
 
 	Func Equals P1
@@ -1400,29 +1364,10 @@ Class ValueComparer from Object
 		return self
 
 	Func Equals P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Equals",P1))
 
 	Func GetHashCode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetHashCode",P1))
 
 	Func Snapshot P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Snapshot",P1))
@@ -1759,17 +1704,7 @@ Class NavigationEntry from MemberEntry
 		return self
 
 	Func @Load P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s4:Load")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Load",P1)
-
+		dotnet_calltdv(nHandle,"Load",P1)
 		return self
 
 	Func LoadAsync P1

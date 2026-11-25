@@ -103,8 +103,7 @@ Class JsonDocument from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func WriteTo P1
@@ -221,14 +220,10 @@ Class JsonElement from ValueType
 		return self
 
 	Func GetArrayLength 
-		dn_x = dotnet_call("s4:call",nHandle,"s14:GetArrayLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetArrayLength"))
 
 	Func GetPropertyCount 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:GetPropertyCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetPropertyCount"))
 
 	Func GetProperty P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetProperty",P1))
@@ -237,14 +232,10 @@ Class JsonElement from ValueType
 		return dnSend("s4:call",nHandle,"s14:TryGetProperty",dnPackItem(P1))
 
 	Func GetBoolean 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:GetBoolean")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetBoolean"))
 
 	Func GetString 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetString"))
 
 	Func TryGetBytesFromBase64 
 		return dnSend("s4:call",nHandle,"s21:TryGetBytesFromBase64","")
@@ -256,89 +247,67 @@ Class JsonElement from ValueType
 		return dnSend("s4:call",nHandle,"s11:TryGetSByte","")
 
 	Func GetSByte 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetSByte")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetSByte"))
 
 	Func TryGetByte 
 		return dnSend("s4:call",nHandle,"s10:TryGetByte","")
 
 	Func GetByte 
-		dn_x = dotnet_call("s4:call",nHandle,"s7:GetByte")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetByte"))
 
 	Func TryGetInt16 
 		return dnSend("s4:call",nHandle,"s11:TryGetInt16","")
 
 	Func GetInt16 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt16")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetInt16"))
 
 	Func TryGetUInt16 
 		return dnSend("s4:call",nHandle,"s12:TryGetUInt16","")
 
 	Func GetUInt16 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:GetUInt16")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetUInt16"))
 
 	Func TryGetInt32 
 		return dnSend("s4:call",nHandle,"s11:TryGetInt32","")
 
 	Func GetInt32 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt32")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetInt32"))
 
 	Func TryGetUInt32 
 		return dnSend("s4:call",nHandle,"s12:TryGetUInt32","")
 
 	Func GetUInt32 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:GetUInt32")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetUInt32"))
 
 	Func TryGetInt64 
 		return dnSend("s4:call",nHandle,"s11:TryGetInt64","")
 
 	Func GetInt64 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt64")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetInt64"))
 
 	Func TryGetUInt64 
 		return dnSend("s4:call",nHandle,"s12:TryGetUInt64","")
 
 	Func GetUInt64 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:GetUInt64")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetUInt64"))
 
 	Func TryGetDouble 
 		return dnSend("s4:call",nHandle,"s12:TryGetDouble","")
 
 	Func GetDouble 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:GetDouble")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDouble"))
 
 	Func TryGetSingle 
 		return dnSend("s4:call",nHandle,"s12:TryGetSingle","")
 
 	Func GetSingle 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:GetSingle")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetSingle"))
 
 	Func TryGetDecimal 
 		return dnSend("s4:call",nHandle,"s13:TryGetDecimal","")
 
 	Func GetDecimal 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:GetDecimal")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDecimal"))
 
 	Func TryGetDateTime 
 		return dnSend("s4:call",nHandle,"s14:TryGetDateTime","")
@@ -359,14 +328,10 @@ Class JsonElement from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetGuid"))
 
 	Func GetRawText 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:GetRawText")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetRawText"))
 
 	Func ValueEquals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s11:ValueEquals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ValueEquals",P1))
 
 	Func WriteTo P1
 		dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
@@ -439,19 +404,15 @@ Class JsonElementArrayEnumerator from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -506,19 +467,15 @@ Class JsonElementObjectEnumerator from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -583,7 +540,7 @@ Class JsonEncodedText from ValueType
 		raise("DotNet Error: EncodedUtf8Bytes is a read-only property")
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -642,7 +599,7 @@ Class JsonException from Exception
 		raise("DotNet Error: BytePositionInLine is a read-only property")
 
 	Func getPath
-		return dnText(dotnet_getp(nHandle,"Path"))
+		return dnAnswer(dotnet_getp(nHandle,"Path"))
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
@@ -666,9 +623,7 @@ Class JsonNamingPolicy from Object
 		return self
 
 	Func ConvertName P1
-		dn_x = dotnet_call("s4:call",nHandle,"s11:ConvertName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ConvertName",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -730,9 +685,7 @@ Class JsonProperty from ValueType
 		return self
 
 	Func NameEquals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:NameEquals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"NameEquals",P1))
 
 	Func WriteTo P1
 		dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
@@ -746,7 +699,7 @@ Class JsonProperty from ValueType
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1024,17 +977,7 @@ Class JsonSerializerOptions from Object
 		raise("DotNet Error: AddContext needs its type arguments: AddContext([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func MakeReadOnly P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s12:MakeReadOnly",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s12:MakeReadOnly")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s12:MakeReadOnly",P1)
-
+		dotnet_calltdv(nHandle,"MakeReadOnly",P1)
 		return self
 
 	Func Equals P1
@@ -1216,7 +1159,7 @@ Class JsonSerializerOptions from Object
 		return self
 
 	Func getNewLine
-		return dnText(dotnet_getp(nHandle,"NewLine"))
+		return dnAnswer(dotnet_getp(nHandle,"NewLine"))
 
 	Func setNewLine P1
 		dotnet_setp(nHandle,"NewLine",P1)
@@ -1326,7 +1269,7 @@ Class JsonWriterOptions from ValueType
 		return self
 
 	Func getNewLine
-		return dnText(dotnet_getp(nHandle,"NewLine"))
+		return dnAnswer(dotnet_getp(nHandle,"NewLine"))
 
 	Func setNewLine P1
 		dotnet_setp(nHandle,"NewLine",P1)
@@ -1367,27 +1310,15 @@ Class Utf8JsonWriter from Object
 		return self
 
 	Func Reset P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Reset",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s5:Reset")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Reset",P1)
-
+		dotnet_calltdv(nHandle,"Reset",P1)
 		return self
 
 	Func Flush 
-		dotnet_callv("s4:call",nHandle,"s5:Flush")
-
+		dotnet_calltv(nHandle,"Flush")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func DisposeAsync 
@@ -1403,41 +1334,19 @@ Class Utf8JsonWriter from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FlushAsync",P1))
 
 	Func WriteStartArray P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s15:WriteStartArray",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s15:WriteStartArray")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s15:WriteStartArray",P1)
-
+		dotnet_calltdv(nHandle,"WriteStartArray",P1)
 		return self
 
 	Func WriteStartObject P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s16:WriteStartObject",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s16:WriteStartObject")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s16:WriteStartObject",P1)
-
+		dotnet_calltdv(nHandle,"WriteStartObject",P1)
 		return self
 
 	Func WriteEndArray 
-		dotnet_callv("s4:call",nHandle,"s13:WriteEndArray")
-
+		dotnet_calltv(nHandle,"WriteEndArray")
 		return self
 
 	Func WriteEndObject 
-		dotnet_callv("s4:call",nHandle,"s14:WriteEndObject")
-
+		dotnet_calltv(nHandle,"WriteEndObject")
 		return self
 
 	Func WriteBase64String P1,P2
@@ -1476,8 +1385,7 @@ Class Utf8JsonWriter from Object
 		return self
 
 	Func WriteCommentValue P1
-		dotnet_callv("s4:call",nHandle,"s17:WriteCommentValue",P1)
-
+		dotnet_calltv(nHandle,"WriteCommentValue",P1)
 		return self
 
 	Func WriteStringValue P1
@@ -1491,22 +1399,15 @@ Class Utf8JsonWriter from Object
 		return self
 
 	Func WriteNullValue 
-		dotnet_callv("s4:call",nHandle,"s14:WriteNullValue")
-
+		dotnet_calltv(nHandle,"WriteNullValue")
 		return self
 
 	Func WriteBooleanValue P1
-		dotnet_callv("s4:call",nHandle,"s17:WriteBooleanValue",P1)
-
+		dotnet_calltv(nHandle,"WriteBooleanValue",P1)
 		return self
 
 	Func WriteRawValue P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s13:WriteRawValue",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s13:WriteRawValue",P1)
-
+		dotnet_calltd1v(nHandle,"WriteRawValue",P1)
 		return self
 
 	Func Equals P1

@@ -698,7 +698,7 @@ Class AccessKeyEventArgs from EventArgs
 		return self
 
 	Func getKey
-		return dnText(dotnet_getp(nHandle,"Key"))
+		return dnAnswer(dotnet_getp(nHandle,"Key"))
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
@@ -820,7 +820,7 @@ Class AccessKeyPressedEventArgs from RoutedEventArgs
 		return self
 
 	Func getKey
-		return dnText(dotnet_getp(nHandle,"Key"))
+		return dnAnswer(dotnet_getp(nHandle,"Key"))
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
@@ -1212,13 +1212,11 @@ Class CommandBindingCollection from Object
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func IndexOf P1
@@ -1668,8 +1666,7 @@ Class WpfCursor from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -2076,13 +2073,11 @@ Class IInputLanguageSource from DotNetObject
 		return self
 
 	Func Initialize 
-		dotnet_callv("s4:call",nHandle,"s10:Initialize")
-
+		dotnet_calltv(nHandle,"Initialize")
 		return self
 
 	Func Uninitialize 
-		dotnet_callv("s4:call",nHandle,"s12:Uninitialize")
-
+		dotnet_calltv(nHandle,"Uninitialize")
 		return self
 
 	Func getCurrentInputLanguage
@@ -2116,8 +2111,7 @@ Class IManipulator from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetPosition",P1))
 
 	Func ManipulationEnded P1
-		dotnet_callv("s4:call",nHandle,"s17:ManipulationEnded",P1)
-
+		dotnet_calltv(nHandle,"ManipulationEnded",P1)
 		return self
 
 	Func setUpdatedEvent P1
@@ -2432,13 +2426,11 @@ Class InputBindingCollection from Object
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func GetEnumerator 
@@ -2646,8 +2638,7 @@ Class InputGestureCollection from Object
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Add P1
@@ -2671,8 +2662,7 @@ Class InputGestureCollection from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -2686,8 +2676,7 @@ Class InputGestureCollection from Object
 		return self
 
 	Func Seal 
-		dotnet_callv("s4:call",nHandle,"s4:Seal")
-
+		dotnet_calltv(nHandle,"Seal")
 		return self
 
 	Func Equals P1
@@ -3032,31 +3021,11 @@ Class InputMethod from DispatcherObject
 		return self
 
 	Func ShowConfigureUI P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s15:ShowConfigureUI",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s15:ShowConfigureUI")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s15:ShowConfigureUI",P1)
-
+		dotnet_calltdv(nHandle,"ShowConfigureUI",P1)
 		return self
 
 	Func ShowRegisterWordUI P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s18:ShowRegisterWordUI",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s18:ShowRegisterWordUI")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s18:ShowRegisterWordUI",P1)
-
+		dotnet_calltdv(nHandle,"ShowRegisterWordUI",P1)
 		return self
 
 	Func SetIsInputMethodEnabled P1,P2
@@ -3308,14 +3277,14 @@ Class InputScope from Object
 		raise("DotNet Error: Names is a read-only property")
 
 	Func getSrgsMarkup
-		return dnText(dotnet_getp(nHandle,"SrgsMarkup"))
+		return dnAnswer(dotnet_getp(nHandle,"SrgsMarkup"))
 
 	Func setSrgsMarkup P1
 		dotnet_setp(nHandle,"SrgsMarkup",P1)
 		return self
 
 	Func getRegularExpression
-		return dnText(dotnet_getp(nHandle,"RegularExpression"))
+		return dnAnswer(dotnet_getp(nHandle,"RegularExpression"))
 
 	Func setRegularExpression P1
 		dotnet_setp(nHandle,"RegularExpression",P1)
@@ -3393,8 +3362,7 @@ Class InputScopeName from Object
 		return self
 
 	Func AddText P1
-		dotnet_callv("s4:call",nHandle,"s7:AddText",P1)
-
+		dotnet_calltv(nHandle,"AddText",P1)
 		return self
 
 	Func Equals P1
@@ -3475,8 +3443,7 @@ Class InputScopePhrase from Object
 		return self
 
 	Func AddText P1
-		dotnet_callv("s4:call",nHandle,"s7:AddText",P1)
-
+		dotnet_calltv(nHandle,"AddText",P1)
 		return self
 
 	Func Equals P1
@@ -3485,7 +3452,7 @@ Class InputScopePhrase from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -5092,7 +5059,7 @@ Class RoutedCommand from Object
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -5673,7 +5640,7 @@ Class StylusButton from Object
 		raise("DotNet Error: StylusButtonState is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -6318,36 +6285,35 @@ Class TextComposition from DispatcherObject
 		return self
 
 	Func Complete 
-		dotnet_callv("s4:call",nHandle,"s8:Complete")
-
+		dotnet_calltv(nHandle,"Complete")
 		return self
 
 	Func getText
-		return dnText(dotnet_getp(nHandle,"Text"))
+		return dnAnswer(dotnet_getp(nHandle,"Text"))
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getCompositionText
-		return dnText(dotnet_getp(nHandle,"CompositionText"))
+		return dnAnswer(dotnet_getp(nHandle,"CompositionText"))
 
 	Func setCompositionText P1
 		raise("DotNet Error: CompositionText is a read-only property")
 
 	Func getSystemText
-		return dnText(dotnet_getp(nHandle,"SystemText"))
+		return dnAnswer(dotnet_getp(nHandle,"SystemText"))
 
 	Func setSystemText P1
 		raise("DotNet Error: SystemText is a read-only property")
 
 	Func getControlText
-		return dnText(dotnet_getp(nHandle,"ControlText"))
+		return dnAnswer(dotnet_getp(nHandle,"ControlText"))
 
 	Func setControlText P1
 		raise("DotNet Error: ControlText is a read-only property")
 
 	Func getSystemCompositionText
-		return dnText(dotnet_getp(nHandle,"SystemCompositionText"))
+		return dnAnswer(dotnet_getp(nHandle,"SystemCompositionText"))
 
 	Func setSystemCompositionText P1
 		raise("DotNet Error: SystemCompositionText is a read-only property")
@@ -6534,8 +6500,7 @@ Class TouchFrameEventArgs from EventArgs
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetPrimaryTouchPoint",P1))
 
 	Func SuspendMousePromotionUntilTouchUp 
-		dotnet_callv("s4:call",nHandle,"s33:SuspendMousePromotionUntilTouchUp")
-
+		dotnet_calltv(nHandle,"SuspendMousePromotionUntilTouchUp")
 		return self
 
 	Func getTimestamp
@@ -6811,7 +6776,7 @@ Class KeyGesture from InputGesture
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getDisplayString
-		return dnText(dotnet_getp(nHandle,"DisplayString"))
+		return dnAnswer(dotnet_getp(nHandle,"DisplayString"))
 
 	Func setDisplayString P1
 		raise("DotNet Error: DisplayString is a read-only property")
@@ -6833,8 +6798,7 @@ Class KeyboardDevice from InputDevice
 		return self
 
 	Func ClearFocus 
-		dotnet_callv("s4:call",nHandle,"s10:ClearFocus")
-
+		dotnet_calltv(nHandle,"ClearFocus")
 		return self
 
 	Func Focus P1
@@ -6953,9 +6917,7 @@ Class ManipulationCompletedEventArgs from InputEventArgs
 		return self
 
 	Func Cancel 
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Cancel")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Cancel"))
 
 	Func getIsInertial
 		return dotnet_getp(nHandle,"IsInertial")
@@ -7019,19 +6981,15 @@ Class ManipulationDeltaEventArgs from InputEventArgs
 		return self
 
 	Func Complete 
-		dotnet_callv("s4:call",nHandle,"s8:Complete")
-
+		dotnet_calltv(nHandle,"Complete")
 		return self
 
 	Func StartInertia 
-		dotnet_callv("s4:call",nHandle,"s12:StartInertia")
-
+		dotnet_calltv(nHandle,"StartInertia")
 		return self
 
 	Func Cancel 
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Cancel")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Cancel"))
 
 	Func getIsInertial
 		return dotnet_getp(nHandle,"IsInertial")
@@ -7096,9 +7054,7 @@ Class ManipulationInertiaStartingEventArgs from InputEventArgs
 		return self
 
 	Func Cancel 
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Cancel")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Cancel"))
 
 	Func SetInertiaParameter P1
 		dotnet_callv("s4:call",nHandle,"s19:SetInertiaParameter",P1)
@@ -7168,14 +7124,11 @@ Class ManipulationStartedEventArgs from InputEventArgs
 		return self
 
 	Func Complete 
-		dotnet_callv("s4:call",nHandle,"s8:Complete")
-
+		dotnet_calltv(nHandle,"Complete")
 		return self
 
 	Func Cancel 
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Cancel")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Cancel"))
 
 	Func getManipulationContainer
 		return dnObj(dotnet_callo("s3:get",nHandle,"s21:ManipulationContainer"))
@@ -7214,9 +7167,7 @@ Class ManipulationStartingEventArgs from InputEventArgs
 		return self
 
 	Func Cancel 
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Cancel")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Cancel"))
 
 	Func SetManipulationParameter P1
 		dotnet_callv("s4:call",nHandle,"s24:SetManipulationParameter",P1)
@@ -7332,14 +7283,7 @@ Class MouseDevice from InputDevice
 		return self
 
 	Func Capture P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:Capture",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s7:Capture",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Capture",P1))
 
 	Func SetCursor P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:SetCursor",P1)
@@ -7350,13 +7294,11 @@ Class MouseDevice from InputDevice
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetPosition",P1))
 
 	Func Synchronize 
-		dotnet_callv("s4:call",nHandle,"s11:Synchronize")
-
+		dotnet_calltv(nHandle,"Synchronize")
 		return self
 
 	Func UpdateCursor 
-		dotnet_callv("s4:call",nHandle,"s12:UpdateCursor")
-
+		dotnet_calltv(nHandle,"UpdateCursor")
 		return self
 
 	Func getDirectlyOver
@@ -7608,7 +7550,7 @@ Class RoutedUICommand from RoutedCommand
 		return self
 
 	Func getText
-		return dnText(dotnet_getp(nHandle,"Text"))
+		return dnAnswer(dotnet_getp(nHandle,"Text"))
 
 	Func setText P1
 		dotnet_setp(nHandle,"Text",P1)
@@ -7638,18 +7580,10 @@ Class StylusDevice from InputDevice
 		return self
 
 	Func Capture P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:Capture",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s7:Capture",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Capture",P1))
 
 	Func Synchronize 
-		dotnet_callv("s4:call",nHandle,"s11:Synchronize")
-
+		dotnet_calltv(nHandle,"Synchronize")
 		return self
 
 	Func GetStylusPoints P1
@@ -7686,7 +7620,7 @@ Class StylusDevice from InputDevice
 		raise("DotNet Error: TabletDevice is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -7854,13 +7788,13 @@ Class TabletDevice from InputDevice
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getProductId
-		return dnText(dotnet_getp(nHandle,"ProductId"))
+		return dnAnswer(dotnet_getp(nHandle,"ProductId"))
 
 	Func setProductId P1
 		raise("DotNet Error: ProductId is a read-only property")
@@ -7915,19 +7849,19 @@ Class TextCompositionEventArgs from InputEventArgs
 		raise("DotNet Error: TextComposition is a read-only property")
 
 	Func getText
-		return dnText(dotnet_getp(nHandle,"Text"))
+		return dnAnswer(dotnet_getp(nHandle,"Text"))
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getSystemText
-		return dnText(dotnet_getp(nHandle,"SystemText"))
+		return dnAnswer(dotnet_getp(nHandle,"SystemText"))
 
 	Func setSystemText P1
 		raise("DotNet Error: SystemText is a read-only property")
 
 	Func getControlText
-		return dnText(dotnet_getp(nHandle,"ControlText"))
+		return dnAnswer(dotnet_getp(nHandle,"ControlText"))
 
 	Func setControlText P1
 		raise("DotNet Error: ControlText is a read-only property")
@@ -7957,18 +7891,10 @@ Class TouchDevice from InputDevice
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetIntermediateTouchPoints",P1))
 
 	Func Capture P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:Capture",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s7:Capture",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Capture",P1))
 
 	Func Synchronize 
-		dotnet_callv("s4:call",nHandle,"s11:Synchronize")
-
+		dotnet_calltv(nHandle,"Synchronize")
 		return self
 
 	Func setActivatedEvent P1
@@ -8277,8 +8203,7 @@ Class PreProcessInputEventArgs from ProcessInputEventArgs
 		return self
 
 	Func Cancel 
-		dotnet_callv("s4:call",nHandle,"s6:Cancel")
-
+		dotnet_calltv(nHandle,"Cancel")
 		return self
 
 	Func getCanceled

@@ -59,16 +59,14 @@ Class IResourceReader from DotNetObject
 		return self
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func GetEnumerator 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Cast P1
@@ -168,7 +166,7 @@ Class MissingSatelliteAssemblyException from SystemException
 		return self
 
 	Func getCultureName
-		return dnText(dotnet_getp(nHandle,"CultureName"))
+		return dnAnswer(dotnet_getp(nHandle,"CultureName"))
 
 	Func setCultureName P1
 		raise("DotNet Error: CultureName is a read-only property")
@@ -206,7 +204,7 @@ Class NeutralResourcesLanguageAttribute from Attribute
 		return self
 
 	Func getCultureName
-		return dnText(dotnet_getp(nHandle,"CultureName"))
+		return dnAnswer(dotnet_getp(nHandle,"CultureName"))
 
 	Func setCultureName P1
 		raise("DotNet Error: CultureName is a read-only property")
@@ -253,22 +251,14 @@ Class ResourceManager from Object
 		return self
 
 	Func ReleaseAllResources 
-		dotnet_callv("s4:call",nHandle,"s19:ReleaseAllResources")
-
+		dotnet_calltv(nHandle,"ReleaseAllResources")
 		return self
 
 	Func GetResourceSet P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetResourceSet",P1,P2,P3))
 
 	Func GetString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:GetString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"GetString",P1))
 
 	Func GetObject P1
 		if dotnet_isnamed(P1)
@@ -291,7 +281,7 @@ Class ResourceManager from Object
 		return dnObj(dotnet_callo("s4:call",'System.Resources.ResourceManager, System.Private.CoreLib',"s30:CreateFileBasedResourceManager",P1,P2,P3))
 
 	Func getBaseName
-		return dnText(dotnet_getp(nHandle,"BaseName"))
+		return dnAnswer(dotnet_getp(nHandle,"BaseName"))
 
 	Func setBaseName P1
 		raise("DotNet Error: BaseName is a read-only property")
@@ -339,13 +329,11 @@ Class ResourceReader from Object
 		return dnSend("s4:call",nHandle,"s15:GetResourceData",dnPackItem(P1))
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func GetEnumerator 
@@ -391,13 +379,11 @@ Class ResourceSet from Object
 		return self
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func GetDefaultReader 
@@ -410,14 +396,7 @@ Class ResourceSet from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func GetString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:GetString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"GetString",P1))
 
 	Func GetObject P1
 		if dotnet_isnamed(P1)
@@ -467,7 +446,7 @@ Class SatelliteContractVersionAttribute from Attribute
 		return self
 
 	Func getVersion
-		return dnText(dotnet_getp(nHandle,"Version"))
+		return dnAnswer(dotnet_getp(nHandle,"Version"))
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")

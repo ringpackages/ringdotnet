@@ -242,8 +242,7 @@ Class GatewayIPAddressInformationCollection from Object
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Equals P1
@@ -364,8 +363,7 @@ Class IPAddressInformationCollection from Object
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Equals P1
@@ -480,19 +478,19 @@ Class IPGlobalProperties from Object
 		return dnObj(dotnet_callo("s4:call",'System.Net.NetworkInformation.IPGlobalProperties, System.Net.NetworkInformation',"s21:GetIPGlobalProperties"))
 
 	Func getDhcpScopeName
-		return dnText(dotnet_getp(nHandle,"DhcpScopeName"))
+		return dnAnswer(dotnet_getp(nHandle,"DhcpScopeName"))
 
 	Func setDhcpScopeName P1
 		raise("DotNet Error: DhcpScopeName is a read-only property")
 
 	Func getDomainName
-		return dnText(dotnet_getp(nHandle,"DomainName"))
+		return dnAnswer(dotnet_getp(nHandle,"DomainName"))
 
 	Func setDomainName P1
 		raise("DotNet Error: DomainName is a read-only property")
 
 	Func getHostName
-		return dnText(dotnet_getp(nHandle,"HostName"))
+		return dnAnswer(dotnet_getp(nHandle,"HostName"))
 
 	Func setHostName P1
 		raise("DotNet Error: HostName is a read-only property")
@@ -722,7 +720,7 @@ Class IPInterfaceProperties from Object
 		raise("DotNet Error: IsDnsEnabled is a read-only property")
 
 	Func getDnsSuffix
-		return dnText(dotnet_getp(nHandle,"DnsSuffix"))
+		return dnAnswer(dotnet_getp(nHandle,"DnsSuffix"))
 
 	Func setDnsSuffix P1
 		raise("DotNet Error: DnsSuffix is a read-only property")
@@ -1564,8 +1562,7 @@ Class MulticastIPAddressInformationCollection from Object
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Equals P1
@@ -1766,19 +1763,19 @@ Class NetworkInterface from Object
 		return dn_x
 
 	Func getId
-		return dnText(dotnet_getp(nHandle,"Id"))
+		return dnAnswer(dotnet_getp(nHandle,"Id"))
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDescription
-		return dnText(dotnet_getp(nHandle,"Description"))
+		return dnAnswer(dotnet_getp(nHandle,"Description"))
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
@@ -1902,8 +1899,7 @@ Class Ping from Component
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SendPingAsync",P1))
 
 	Func SendAsyncCancel 
-		dotnet_callv("s4:call",nHandle,"s15:SendAsyncCancel")
-
+		dotnet_calltv(nHandle,"SendAsyncCancel")
 		return self
 
 	Func setPingCompletedEvent P1
@@ -2322,8 +2318,7 @@ Class UnicastIPAddressInformationCollection from Object
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Equals P1

@@ -179,12 +179,7 @@ Class XslCompiledTransform from Object
 		return self
 
 	Func @Load P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Load",P1)
-
+		dotnet_calltd1v(nHandle,"Load",P1)
 		return self
 
 	Func Transform P1
@@ -229,12 +224,7 @@ Class XslTransform from Object
 		return self
 
 	Func @Load P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Load",P1)
-
+		dotnet_calltd1v(nHandle,"Load",P1)
 		return self
 
 	Func Transform P1
@@ -298,8 +288,7 @@ Class XsltArgumentList from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:RemoveExtensionObject",P1))
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Equals P1
@@ -341,9 +330,7 @@ Class XsltContext from XmlNamespaceManager
 		return dn_x
 
 	Func CompareDocument P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s15:CompareDocument",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CompareDocument",P1,P2))
 
 	Func getWhitespace
 		return dotnet_getp(nHandle,"Whitespace")
@@ -393,7 +380,7 @@ Class XsltException from SystemException
 		return self
 
 	Func getSourceUri
-		return dnText(dotnet_getp(nHandle,"SourceUri"))
+		return dnAnswer(dotnet_getp(nHandle,"SourceUri"))
 
 	Func setSourceUri P1
 		raise("DotNet Error: SourceUri is a read-only property")
@@ -425,7 +412,7 @@ Class XsltMessageEncounteredEventArgs from EventArgs
 		return self
 
 	Func getMessage
-		return dnText(dotnet_getp(nHandle,"Message"))
+		return dnAnswer(dotnet_getp(nHandle,"Message"))
 
 	Func setMessage P1
 		raise("DotNet Error: Message is a read-only property")

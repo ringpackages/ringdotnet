@@ -197,18 +197,10 @@ Class ArrayList from Object
 		return self
 
 	Func BinarySearch P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:BinarySearch",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s12:BinarySearch",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"BinarySearch",P1))
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Clone 
@@ -220,12 +212,7 @@ Class ArrayList from Object
 		return dn_x
 
 	Func CopyTo P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:CopyTo",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
-
+		dotnet_calltd1v(nHandle,"CopyTo",P1)
 		return self
 
 	Func GetEnumerator P1
@@ -238,14 +225,7 @@ Class ArrayList from Object
 		raise("DotNet Error: GetEnumerator does not take one argument: use named arguments, GetEnumerator([ :parameter = value, ... ])")
 
 	Func IndexOf P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"IndexOf",P1))
 
 	Func Insert P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
@@ -258,14 +238,7 @@ Class ArrayList from Object
 		return self
 
 	Func LastIndexOf P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:LastIndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:LastIndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"LastIndexOf",P1))
 
 	Func Remove P1
 		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
@@ -273,13 +246,11 @@ Class ArrayList from Object
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func RemoveRange P1,P2
-		dotnet_callv("s4:call",nHandle,"s11:RemoveRange",P1,P2)
-
+		dotnet_calltv(nHandle,"RemoveRange",P1,P2)
 		return self
 
 	Func Reverse P1
@@ -303,17 +274,7 @@ Class ArrayList from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetRange",P1,P2))
 
 	Func Sort P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Sort",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s4:Sort")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Sort",P1)
-
+		dotnet_calltdv(nHandle,"Sort",P1)
 		return self
 
 	Func ToArray P1
@@ -326,8 +287,7 @@ Class ArrayList from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray",P1))
 
 	Func TrimToSize 
-		dotnet_callv("s4:call",nHandle,"s10:TrimToSize")
-
+		dotnet_calltv(nHandle,"TrimToSize")
 		return self
 
 	Func Equals P1
@@ -450,18 +410,14 @@ Class BitArray from Object
 		return self
 
 	Func @Get P1
-		dn_x = dotnet_call("s4:call",nHandle,"s3:Get",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Get",P1))
 
 	Func Set P1,P2
-		dotnet_callv("s4:call",nHandle,"s3:Set",P1,P2)
-
+		dotnet_calltv(nHandle,"Set",P1,P2)
 		return self
 
 	Func SetAll P1
-		dotnet_callv("s4:call",nHandle,"s6:SetAll",P1)
-
+		dotnet_calltv(nHandle,"SetAll",P1)
 		return self
 
 	Func @And P1
@@ -488,14 +444,10 @@ Class BitArray from Object
 		return self
 
 	Func HasAllSet 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:HasAllSet")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"HasAllSet"))
 
 	Func HasAnySet 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:HasAnySet")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"HasAnySet"))
 
 	Func Clone 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
@@ -646,13 +598,11 @@ Class CollectionBase from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func GetEnumerator 
@@ -760,8 +710,7 @@ Class DictionaryBase from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func GetEnumerator 
@@ -906,8 +855,7 @@ Class Hashtable from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Clone 
@@ -1138,8 +1086,7 @@ Class IDictionary from DotNetObject
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func GetEnumerator 
@@ -1242,13 +1189,10 @@ Class IDictionaryEnumerator from DotNetObject
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getKey
@@ -1325,13 +1269,10 @@ Class IEnumerator from DotNetObject
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -1391,8 +1332,7 @@ Class IList from DotNetObject
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func IndexOf P1
@@ -1411,8 +1351,7 @@ Class IList from DotNetObject
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -1554,8 +1493,7 @@ Class ListDictionaryInternal from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -1695,8 +1633,7 @@ Class Queue from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func CopyTo P1,P2
@@ -1727,8 +1664,7 @@ Class Queue from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
 
 	Func TrimToSize 
-		dotnet_callv("s4:call",nHandle,"s10:TrimToSize")
-
+		dotnet_calltv(nHandle,"TrimToSize")
 		return self
 
 	Func Equals P1
@@ -1877,8 +1813,7 @@ Class SortedList from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Clone 
@@ -1930,8 +1865,7 @@ Class SortedList from Object
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Remove P1
@@ -1945,8 +1879,7 @@ Class SortedList from Object
 		return self
 
 	Func TrimToSize 
-		dotnet_callv("s4:call",nHandle,"s10:TrimToSize")
-
+		dotnet_calltv(nHandle,"TrimToSize")
 		return self
 
 	Func Equals P1
@@ -2075,8 +2008,7 @@ Class Stack from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Clone 

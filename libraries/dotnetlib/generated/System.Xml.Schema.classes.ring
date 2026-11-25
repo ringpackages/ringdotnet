@@ -533,7 +533,7 @@ Class ValidationEventArgs from EventArgs
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getMessage
-		return dnText(dotnet_getp(nHandle,"Message"))
+		return dnAnswer(dotnet_getp(nHandle,"Message"))
 
 	Func setMessage P1
 		raise("DotNet Error: Message is a read-only property")
@@ -568,9 +568,7 @@ Class XmlSchemaCollectionEnumerator from Object
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -721,7 +719,7 @@ Class XmlSchemaException from SystemException
 		return self
 
 	Func getSourceUri
-		return dnText(dotnet_getp(nHandle,"SourceUri"))
+		return dnAnswer(dotnet_getp(nHandle,"SourceUri"))
 
 	Func setSourceUri P1
 		raise("DotNet Error: SourceUri is a read-only property")
@@ -922,7 +920,7 @@ Class XmlSchemaObject from Object
 		return self
 
 	Func getSourceUri
-		return dnText(dotnet_getp(nHandle,"SourceUri"))
+		return dnAnswer(dotnet_getp(nHandle,"SourceUri"))
 
 	Func setSourceUri P1
 		dotnet_setp(nHandle,"SourceUri",P1)
@@ -1031,14 +1029,11 @@ Class XmlSchemaObjectEnumerator from Object
 		return self
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1166,13 +1161,10 @@ Class XmlSchemaSet from Object
 		return dn_x
 
 	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func Compile 
-		dotnet_callv("s4:call",nHandle,"s7:Compile")
-
+		dotnet_calltv(nHandle,"Compile")
 		return self
 
 	Func Reprocess P1
@@ -1277,17 +1269,7 @@ Class XmlSchemaValidator from Object
 		return self
 
 	Func Initialize P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s10:Initialize",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s10:Initialize")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s10:Initialize",P1)
-
+		dotnet_calltdv(nHandle,"Initialize",P1)
 		return self
 
 	Func ValidateElement P1
@@ -1311,13 +1293,11 @@ Class XmlSchemaValidator from Object
 		return self
 
 	Func ValidateText P1
-		dotnet_callv("s4:call",nHandle,"s12:ValidateText",P1)
-
+		dotnet_calltv(nHandle,"ValidateText",P1)
 		return self
 
 	Func ValidateWhitespace P1
-		dotnet_callv("s4:call",nHandle,"s18:ValidateWhitespace",P1)
-
+		dotnet_calltv(nHandle,"ValidateWhitespace",P1)
 		return self
 
 	Func ValidateEndElement P1
@@ -1332,8 +1312,7 @@ Class XmlSchemaValidator from Object
 		return self
 
 	Func EndValidation 
-		dotnet_callv("s4:call",nHandle,"s13:EndValidation")
-
+		dotnet_calltv(nHandle,"EndValidation")
 		return self
 
 	Func GetExpectedParticles 
@@ -1422,21 +1401,11 @@ Class XmlSchema from XmlSchemaObject
 		return self
 
 	Func Write P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Write",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Write",P1)
-
+		dotnet_calltd1v(nHandle,"Write",P1)
 		return self
 
 	Func Compile P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s7:Compile",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s7:Compile",P1)
-
+		dotnet_calltd1v(nHandle,"Compile",P1)
 		return self
 
 	Func Read P1,P2
@@ -1471,14 +1440,14 @@ Class XmlSchema from XmlSchemaObject
 		return self
 
 	Func getTargetNamespace
-		return dnText(dotnet_getp(nHandle,"TargetNamespace"))
+		return dnAnswer(dotnet_getp(nHandle,"TargetNamespace"))
 
 	Func setTargetNamespace P1
 		dotnet_setp(nHandle,"TargetNamespace",P1)
 		return self
 
 	Func getVersion
-		return dnText(dotnet_getp(nHandle,"Version"))
+		return dnAnswer(dotnet_getp(nHandle,"Version"))
 
 	Func setVersion P1
 		dotnet_setp(nHandle,"Version",P1)
@@ -1527,7 +1496,7 @@ Class XmlSchema from XmlSchemaObject
 		raise("DotNet Error: Elements is a read-only property")
 
 	Func getId
-		return dnText(dotnet_getp(nHandle,"Id"))
+		return dnAnswer(dotnet_getp(nHandle,"Id"))
 
 	Func setId P1
 		dotnet_setp(nHandle,"Id",P1)
@@ -1594,7 +1563,7 @@ Class XmlSchemaAnnotated from XmlSchemaObject
 		return self
 
 	Func getId
-		return dnText(dotnet_getp(nHandle,"Id"))
+		return dnAnswer(dotnet_getp(nHandle,"Id"))
 
 	Func setId P1
 		dotnet_setp(nHandle,"Id",P1)
@@ -1640,7 +1609,7 @@ Class XmlSchemaAnnotation from XmlSchemaObject
 		return self
 
 	Func getId
-		return dnText(dotnet_getp(nHandle,"Id"))
+		return dnAnswer(dotnet_getp(nHandle,"Id"))
 
 	Func setId P1
 		dotnet_setp(nHandle,"Id",P1)
@@ -1684,7 +1653,7 @@ Class XmlSchemaAppInfo from XmlSchemaObject
 		return self
 
 	Func getSource
-		return dnText(dotnet_getp(nHandle,"Source"))
+		return dnAnswer(dotnet_getp(nHandle,"Source"))
 
 	Func setSource P1
 		dotnet_setp(nHandle,"Source",P1)
@@ -1723,14 +1692,14 @@ Class XmlSchemaDocumentation from XmlSchemaObject
 		return self
 
 	Func getSource
-		return dnText(dotnet_getp(nHandle,"Source"))
+		return dnAnswer(dotnet_getp(nHandle,"Source"))
 
 	Func setSource P1
 		dotnet_setp(nHandle,"Source",P1)
 		return self
 
 	Func getLanguage
-		return dnText(dotnet_getp(nHandle,"Language"))
+		return dnAnswer(dotnet_getp(nHandle,"Language"))
 
 	Func setLanguage P1
 		dotnet_setp(nHandle,"Language",P1)
@@ -1761,7 +1730,7 @@ Class XmlSchemaExternal from XmlSchemaObject
 		return self
 
 	Func getSchemaLocation
-		return dnText(dotnet_getp(nHandle,"SchemaLocation"))
+		return dnAnswer(dotnet_getp(nHandle,"SchemaLocation"))
 
 	Func setSchemaLocation P1
 		dotnet_setp(nHandle,"SchemaLocation",P1)
@@ -1775,7 +1744,7 @@ Class XmlSchemaExternal from XmlSchemaObject
 		return self
 
 	Func getId
-		return dnText(dotnet_getp(nHandle,"Id"))
+		return dnAnswer(dotnet_getp(nHandle,"Id"))
 
 	Func setId P1
 		dotnet_setp(nHandle,"Id",P1)
@@ -1895,7 +1864,7 @@ Class XmlSchemaAnyAttribute from XmlSchemaAnnotated
 		return self
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
@@ -1942,14 +1911,14 @@ Class XmlSchemaAttribute from XmlSchemaAnnotated
 		return self
 
 	Func getDefaultValue
-		return dnText(dotnet_getp(nHandle,"DefaultValue"))
+		return dnAnswer(dotnet_getp(nHandle,"DefaultValue"))
 
 	Func setDefaultValue P1
 		dotnet_setp(nHandle,"DefaultValue",P1)
 		return self
 
 	Func getFixedValue
-		return dnText(dotnet_getp(nHandle,"FixedValue"))
+		return dnAnswer(dotnet_getp(nHandle,"FixedValue"))
 
 	Func setFixedValue P1
 		dotnet_setp(nHandle,"FixedValue",P1)
@@ -1963,7 +1932,7 @@ Class XmlSchemaAttribute from XmlSchemaAnnotated
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -2043,7 +2012,7 @@ Class XmlSchemaAttributeGroup from XmlSchemaAnnotated
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -2153,7 +2122,7 @@ Class XmlSchemaFacet from XmlSchemaAnnotated
 		return self
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		dotnet_setp(nHandle,"Value",P1)
@@ -2192,7 +2161,7 @@ Class XmlSchemaGroup from XmlSchemaAnnotated
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -2238,7 +2207,7 @@ Class XmlSchemaIdentityConstraint from XmlSchemaAnnotated
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -2288,7 +2257,7 @@ Class XmlSchemaImport from XmlSchemaExternal
 		return self
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
@@ -2357,21 +2326,21 @@ Class XmlSchemaNotation from XmlSchemaAnnotated
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getPublic
-		return dnText(dotnet_getp(nHandle,"Public"))
+		return dnAnswer(dotnet_getp(nHandle,"Public"))
 
 	Func setPublic P1
 		dotnet_setp(nHandle,"Public",P1)
 		return self
 
 	Func getSystem
-		return dnText(dotnet_getp(nHandle,"System"))
+		return dnAnswer(dotnet_getp(nHandle,"System"))
 
 	Func setSystem P1
 		dotnet_setp(nHandle,"System",P1)
@@ -2395,14 +2364,14 @@ Class XmlSchemaParticle from XmlSchemaAnnotated
 		return self
 
 	Func getMinOccursString
-		return dnText(dotnet_getp(nHandle,"MinOccursString"))
+		return dnAnswer(dotnet_getp(nHandle,"MinOccursString"))
 
 	Func setMinOccursString P1
 		dotnet_setp(nHandle,"MinOccursString",P1)
 		return self
 
 	Func getMaxOccursString
-		return dnText(dotnet_getp(nHandle,"MaxOccursString"))
+		return dnAnswer(dotnet_getp(nHandle,"MaxOccursString"))
 
 	Func setMaxOccursString P1
 		dotnet_setp(nHandle,"MaxOccursString",P1)
@@ -2528,7 +2497,7 @@ Class XmlSchemaType from XmlSchemaAnnotated
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -2614,7 +2583,7 @@ Class XmlSchemaXPath from XmlSchemaAnnotated
 		return self
 
 	Func getXPath
-		return dnText(dotnet_getp(nHandle,"XPath"))
+		return dnAnswer(dotnet_getp(nHandle,"XPath"))
 
 	Func setXPath P1
 		dotnet_setp(nHandle,"XPath",P1)
@@ -2645,7 +2614,7 @@ Class XmlSchemaAny from XmlSchemaParticle
 		return self
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
@@ -2953,7 +2922,7 @@ Class XmlSchemaElement from XmlSchemaParticle
 		return self
 
 	Func getDefaultValue
-		return dnText(dotnet_getp(nHandle,"DefaultValue"))
+		return dnAnswer(dotnet_getp(nHandle,"DefaultValue"))
 
 	Func setDefaultValue P1
 		dotnet_setp(nHandle,"DefaultValue",P1)
@@ -2967,7 +2936,7 @@ Class XmlSchemaElement from XmlSchemaParticle
 		return self
 
 	Func getFixedValue
-		return dnText(dotnet_getp(nHandle,"FixedValue"))
+		return dnAnswer(dotnet_getp(nHandle,"FixedValue"))
 
 	Func setFixedValue P1
 		dotnet_setp(nHandle,"FixedValue",P1)
@@ -2981,7 +2950,7 @@ Class XmlSchemaElement from XmlSchemaParticle
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)

@@ -93,7 +93,7 @@ Class CollectionDataContractAttribute from Attribute
 		return self
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
@@ -106,7 +106,7 @@ Class CollectionDataContractAttribute from Attribute
 		raise("DotNet Error: IsNamespaceSetExplicitly is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -119,7 +119,7 @@ Class CollectionDataContractAttribute from Attribute
 		raise("DotNet Error: IsNameSetExplicitly is a read-only property")
 
 	Func getItemName
-		return dnText(dotnet_getp(nHandle,"ItemName"))
+		return dnAnswer(dotnet_getp(nHandle,"ItemName"))
 
 	Func setItemName P1
 		dotnet_setp(nHandle,"ItemName",P1)
@@ -132,7 +132,7 @@ Class CollectionDataContractAttribute from Attribute
 		raise("DotNet Error: IsItemNameSetExplicitly is a read-only property")
 
 	Func getKeyName
-		return dnText(dotnet_getp(nHandle,"KeyName"))
+		return dnAnswer(dotnet_getp(nHandle,"KeyName"))
 
 	Func setKeyName P1
 		dotnet_setp(nHandle,"KeyName",P1)
@@ -158,7 +158,7 @@ Class CollectionDataContractAttribute from Attribute
 		raise("DotNet Error: IsReferenceSetExplicitly is a read-only property")
 
 	Func getValueName
-		return dnText(dotnet_getp(nHandle,"ValueName"))
+		return dnAnswer(dotnet_getp(nHandle,"ValueName"))
 
 	Func setValueName P1
 		dotnet_setp(nHandle,"ValueName",P1)
@@ -188,14 +188,14 @@ Class ContractNamespaceAttribute from Attribute
 		return self
 
 	Func getClrNamespace
-		return dnText(dotnet_getp(nHandle,"ClrNamespace"))
+		return dnAnswer(dotnet_getp(nHandle,"ClrNamespace"))
 
 	Func setClrNamespace P1
 		dotnet_setp(nHandle,"ClrNamespace",P1)
 		return self
 
 	Func getContractNamespace
-		return dnText(dotnet_getp(nHandle,"ContractNamespace"))
+		return dnAnswer(dotnet_getp(nHandle,"ContractNamespace"))
 
 	Func setContractNamespace P1
 		raise("DotNet Error: ContractNamespace is a read-only property")
@@ -242,7 +242,7 @@ Class DataContractAttribute from Attribute
 		raise("DotNet Error: IsReferenceSetExplicitly is a read-only property")
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
@@ -255,7 +255,7 @@ Class DataContractAttribute from Attribute
 		raise("DotNet Error: IsNamespaceSetExplicitly is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -295,7 +295,7 @@ Class DataMemberAttribute from Attribute
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -353,7 +353,7 @@ Class EnumMemberAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		dotnet_setp(nHandle,"Value",P1)
@@ -497,7 +497,7 @@ Class KnownTypeAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func getMethodName
-		return dnText(dotnet_getp(nHandle,"MethodName"))
+		return dnAnswer(dotnet_getp(nHandle,"MethodName"))
 
 	Func setMethodName P1
 		raise("DotNet Error: MethodName is a read-only property")

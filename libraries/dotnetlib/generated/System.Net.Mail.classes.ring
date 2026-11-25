@@ -95,8 +95,7 @@ Class AlternateViewCollection from Collection
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 
@@ -117,8 +116,7 @@ Class AttachmentBase from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -133,7 +131,7 @@ Class AttachmentBase from Object
 		raise("DotNet Error: ContentStream is a read-only property")
 
 	Func getContentId
-		return dnText(dotnet_getp(nHandle,"ContentId"))
+		return dnAnswer(dotnet_getp(nHandle,"ContentId"))
 
 	Func setContentId P1
 		dotnet_setp(nHandle,"ContentId",P1)
@@ -166,8 +164,7 @@ Class AttachmentCollection from Collection
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 
@@ -183,8 +180,7 @@ Class LinkedResourceCollection from Collection
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 
@@ -235,25 +231,25 @@ Class MailAddress from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Mail.MailAddress, System.Net.Mail'),"s9:TryCreate",dnPackItem(P1))
 
 	Func getDisplayName
-		return dnText(dotnet_getp(nHandle,"DisplayName"))
+		return dnAnswer(dotnet_getp(nHandle,"DisplayName"))
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getUser
-		return dnText(dotnet_getp(nHandle,"User"))
+		return dnAnswer(dotnet_getp(nHandle,"User"))
 
 	Func setUser P1
 		raise("DotNet Error: User is a read-only property")
 
 	Func getHost
-		return dnText(dotnet_getp(nHandle,"Host"))
+		return dnAnswer(dotnet_getp(nHandle,"Host"))
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
 
 	Func getAddress
-		return dnText(dotnet_getp(nHandle,"Address"))
+		return dnAnswer(dotnet_getp(nHandle,"Address"))
 
 	Func setAddress P1
 		raise("DotNet Error: Address is a read-only property")
@@ -277,6 +273,10 @@ Class MailAddressCollection from Collection
 		ok
 		nHandle = dnCreate('System.Net.Mail.MailAddressCollection, System.Net.Mail',[])
 		oDotNetGuard = dotnet_guard(nHandle)
+		return self
+
+	Func Add P1
+		dotnet_calltv(nHandle,"Add",P1)
 		return self
 
 
@@ -337,8 +337,7 @@ Class MailMessage from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -406,7 +405,7 @@ Class MailMessage from Object
 		return self
 
 	Func getSubject
-		return dnText(dotnet_getp(nHandle,"Subject"))
+		return dnAnswer(dotnet_getp(nHandle,"Subject"))
 
 	Func setSubject P1
 		dotnet_setp(nHandle,"Subject",P1)
@@ -433,7 +432,7 @@ Class MailMessage from Object
 		return self
 
 	Func getBody
-		return dnText(dotnet_getp(nHandle,"Body"))
+		return dnAnswer(dotnet_getp(nHandle,"Body"))
 
 	Func setBody P1
 		dotnet_setp(nHandle,"Body",P1)
@@ -523,12 +522,7 @@ Class SmtpClient from Object
 		return self
 
 	Func Send P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Send",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Send",P1)
-
+		dotnet_calltd1v(nHandle,"Send",P1)
 		return self
 
 	Func SendAsync P1
@@ -539,8 +533,7 @@ Class SmtpClient from Object
 		raise("DotNet Error: SendAsync does not take one argument: use named arguments, SendAsync([ :parameter = value, ... ])")
 
 	Func SendAsyncCancel 
-		dotnet_callv("s4:call",nHandle,"s15:SendAsyncCancel")
-
+		dotnet_calltv(nHandle,"SendAsyncCancel")
 		return self
 
 	Func SendMailAsync P1
@@ -550,8 +543,7 @@ Class SmtpClient from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SendMailAsync",P1))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -568,7 +560,7 @@ Class SmtpClient from Object
 		return self
 
 	Func getHost
-		return dnText(dotnet_getp(nHandle,"Host"))
+		return dnAnswer(dotnet_getp(nHandle,"Host"))
 
 	Func setHost P1
 		dotnet_setp(nHandle,"Host",P1)
@@ -623,7 +615,7 @@ Class SmtpClient from Object
 		return self
 
 	Func getPickupDirectoryLocation
-		return dnText(dotnet_getp(nHandle,"PickupDirectoryLocation"))
+		return dnAnswer(dotnet_getp(nHandle,"PickupDirectoryLocation"))
 
 	Func setPickupDirectoryLocation P1
 		dotnet_setp(nHandle,"PickupDirectoryLocation",P1)
@@ -643,7 +635,7 @@ Class SmtpClient from Object
 		raise("DotNet Error: ClientCertificates is a read-only property")
 
 	Func getTargetName
-		return dnText(dotnet_getp(nHandle,"TargetName"))
+		return dnAnswer(dotnet_getp(nHandle,"TargetName"))
 
 	Func setTargetName P1
 		dotnet_setp(nHandle,"TargetName",P1)
@@ -786,7 +778,7 @@ Class Attachment from AttachmentBase
 		raise("DotNet Error: CreateAttachmentFromString does not take one argument: use named arguments, CreateAttachmentFromString([ :parameter = value, ... ])")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -889,7 +881,7 @@ Class SmtpFailedRecipientException from SmtpException
 		return self
 
 	Func getFailedRecipient
-		return dnText(dotnet_getp(nHandle,"FailedRecipient"))
+		return dnAnswer(dotnet_getp(nHandle,"FailedRecipient"))
 
 	Func setFailedRecipient P1
 		raise("DotNet Error: FailedRecipient is a read-only property")

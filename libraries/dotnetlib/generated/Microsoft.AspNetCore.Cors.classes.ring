@@ -104,7 +104,7 @@ Class EnableCorsAttribute from Attribute
 		return self
 
 	Func getPolicyName
-		return dnText(dotnet_getp(nHandle,"PolicyName"))
+		return dnAnswer(dotnet_getp(nHandle,"PolicyName"))
 
 	Func setPolicyName P1
 		dotnet_setp(nHandle,"PolicyName",P1)

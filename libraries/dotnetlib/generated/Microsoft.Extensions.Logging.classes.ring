@@ -277,7 +277,7 @@ Class EventId from ValueType
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -466,8 +466,7 @@ Class ILoggerFactory from DotNetObject
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func AddConsole P1
@@ -527,8 +526,7 @@ Class ILoggerProvider from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateLogger",P1))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 
@@ -927,8 +925,7 @@ Class LoggerFactory from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -1120,13 +1117,13 @@ Class LoggerFilterRule from Object
 		return dn_x
 
 	Func getProviderName
-		return dnText(dotnet_getp(nHandle,"ProviderName"))
+		return dnAnswer(dotnet_getp(nHandle,"ProviderName"))
 
 	Func setProviderName P1
 		raise("DotNet Error: ProviderName is a read-only property")
 
 	Func getCategoryName
-		return dnText(dotnet_getp(nHandle,"CategoryName"))
+		return dnAnswer(dotnet_getp(nHandle,"CategoryName"))
 
 	Func setCategoryName P1
 		raise("DotNet Error: CategoryName is a read-only property")
@@ -1220,7 +1217,7 @@ Class LoggerMessageAttribute from Attribute
 		return self
 
 	Func getEventName
-		return dnText(dotnet_getp(nHandle,"EventName"))
+		return dnAnswer(dotnet_getp(nHandle,"EventName"))
 
 	Func setEventName P1
 		dotnet_setp(nHandle,"EventName",P1)
@@ -1234,7 +1231,7 @@ Class LoggerMessageAttribute from Attribute
 		return self
 
 	Func getMessage
-		return dnText(dotnet_getp(nHandle,"Message"))
+		return dnAnswer(dotnet_getp(nHandle,"Message"))
 
 	Func setMessage P1
 		dotnet_setp(nHandle,"Message",P1)
@@ -1374,7 +1371,7 @@ Class ProviderAliasAttribute from Attribute
 		return self
 
 	Func getAlias
-		return dnText(dotnet_getp(nHandle,"Alias"))
+		return dnAnswer(dotnet_getp(nHandle,"Alias"))
 
 	Func setAlias P1
 		raise("DotNet Error: Alias is a read-only property")

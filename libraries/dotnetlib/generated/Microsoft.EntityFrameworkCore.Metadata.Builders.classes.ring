@@ -1325,17 +1325,7 @@ Class ConventionSetBuilder from Object
 		return self
 
 	Func Remove P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:Remove",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s6:Remove")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
-
+		dotnet_calltdv(nHandle,"Remove",P1)
 		return self
 
 	Func Equals P1
@@ -1874,14 +1864,7 @@ Class IConventionAnnotatableBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:HasNoAnnotation",P1))
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -1935,14 +1918,7 @@ Class IConventionCheckConstraintBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:HasName",P1))
 
 	Func CanSetName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:CanSetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s10:CanSetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetName",P1))
 
 	Func CanSetAnnotation P1
 		if dotnet_isnamed(P1)
@@ -1953,14 +1929,7 @@ Class IConventionCheckConstraintBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -1996,14 +1965,7 @@ Class IConventionComplexPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:IsRequired",P1))
 
 	Func CanSetIsRequired P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetIsRequired",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s16:CanSetIsRequired",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetIsRequired",P1))
 
 	Func HasAnnotation P1
 		if dotnet_isnamed(P1)
@@ -2030,14 +1992,7 @@ Class IConventionComplexPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:HasField",P1))
 
 	Func CanSetField P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:CanSetField",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:CanSetField",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetField",P1))
 
 	Func UsePropertyAccessMode P1
 		if dotnet_isnamed(P1)
@@ -2046,14 +2001,7 @@ Class IConventionComplexPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UsePropertyAccessMode",P1))
 
 	Func CanSetPropertyAccessMode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetPropertyAccessMode",P1))
 
 	Func CanSetAnnotation P1
 		if dotnet_isnamed(P1)
@@ -2064,14 +2012,7 @@ Class IConventionComplexPropertyBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -2158,14 +2099,7 @@ Class IConventionComplexTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Property",P1))
 
 	Func CanHaveProperty P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:CanHaveProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s15:CanHaveProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanHaveProperty",P1))
 
 	Func IndexerProperty P1
 		if dotnet_isnamed(P1)
@@ -2191,14 +2125,7 @@ Class IConventionComplexTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetOrCreateProperties",P1))
 
 	Func CanRemoveProperty P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:CanRemoveProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s17:CanRemoveProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveProperty",P1))
 
 	Func ComplexProperty P1
 		if dotnet_isnamed(P1)
@@ -2207,14 +2134,7 @@ Class IConventionComplexTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ComplexProperty",P1))
 
 	Func CanHaveComplexProperty P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:CanHaveComplexProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s22:CanHaveComplexProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanHaveComplexProperty",P1))
 
 	Func ComplexIndexerProperty P1
 		if dotnet_isnamed(P1)
@@ -2231,54 +2151,19 @@ Class IConventionComplexTypeBuilder from DotNetObject
 		raise("DotNet Error: CanHaveComplexIndexerProperty does not take one argument: use named arguments, CanHaveComplexIndexerProperty([ :parameter = value, ... ])")
 
 	Func CanRemoveComplexProperty P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanRemoveComplexProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:CanRemoveComplexProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveComplexProperty",P1))
 
 	Func IsIgnored P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:IsIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:IsIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"IsIgnored",P1))
 
 	Func CanIgnore P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:CanIgnore",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:CanIgnore",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanIgnore",P1))
 
 	Func CanSetChangeTrackingStrategy P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s28:CanSetChangeTrackingStrategy",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s28:CanSetChangeTrackingStrategy",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetChangeTrackingStrategy",P1))
 
 	Func CanSetPropertyAccessMode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetPropertyAccessMode",P1))
 
 	Func CanSetAnnotation P1
 		if dotnet_isnamed(P1)
@@ -2289,14 +2174,7 @@ Class IConventionComplexTypeBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -2350,14 +2228,7 @@ Class IConventionDbFunctionBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:HasName",P1))
 
 	Func CanSetName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:CanSetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s10:CanSetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetName",P1))
 
 	Func HasSchema P1
 		if dotnet_isnamed(P1)
@@ -2366,14 +2237,7 @@ Class IConventionDbFunctionBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:HasSchema",P1))
 
 	Func CanSetSchema P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:CanSetSchema",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s12:CanSetSchema",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetSchema",P1))
 
 	Func IsBuiltIn P1
 		if dotnet_isnamed(P1)
@@ -2382,14 +2246,7 @@ Class IConventionDbFunctionBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:IsBuiltIn",P1))
 
 	Func CanSetIsBuiltIn P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:CanSetIsBuiltIn",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s15:CanSetIsBuiltIn",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetIsBuiltIn",P1))
 
 	Func IsNullable P1
 		if dotnet_isnamed(P1)
@@ -2398,14 +2255,7 @@ Class IConventionDbFunctionBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:IsNullable",P1))
 
 	Func CanSetIsNullable P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetIsNullable",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s16:CanSetIsNullable",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetIsNullable",P1))
 
 	Func HasStoreType P1
 		if dotnet_isnamed(P1)
@@ -2414,14 +2264,7 @@ Class IConventionDbFunctionBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:HasStoreType",P1))
 
 	Func CanSetStoreType P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:CanSetStoreType",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s15:CanSetStoreType",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetStoreType",P1))
 
 	Func HasTypeMapping P1
 		if dotnet_isnamed(P1)
@@ -2430,14 +2273,7 @@ Class IConventionDbFunctionBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:HasTypeMapping",P1))
 
 	Func CanSetTypeMapping P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:CanSetTypeMapping",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s17:CanSetTypeMapping",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetTypeMapping",P1))
 
 	Func HasTranslation P1
 		if dotnet_isnamed(P1)
@@ -2446,14 +2282,7 @@ Class IConventionDbFunctionBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:HasTranslation",P1))
 
 	Func CanSetTranslation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:CanSetTranslation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s17:CanSetTranslation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetTranslation",P1))
 
 	Func HasParameter P1
 		if dotnet_isnamed(P1)
@@ -2470,14 +2299,7 @@ Class IConventionDbFunctionBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -2531,14 +2353,7 @@ Class IConventionDbFunctionParameterBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:HasStoreType",P1))
 
 	Func CanSetStoreType P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:CanSetStoreType",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s15:CanSetStoreType",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetStoreType",P1))
 
 	Func HasTypeMapping P1
 		if dotnet_isnamed(P1)
@@ -2547,14 +2362,7 @@ Class IConventionDbFunctionParameterBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:HasTypeMapping",P1))
 
 	Func CanSetTypeMapping P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:CanSetTypeMapping",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s17:CanSetTypeMapping",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetTypeMapping",P1))
 
 	Func CanSetAnnotation P1
 		if dotnet_isnamed(P1)
@@ -2565,14 +2373,7 @@ Class IConventionDbFunctionParameterBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -2607,14 +2408,7 @@ Class IConventionDiscriminatorBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:IsComplete",P1))
 
 	Func CanSetIsComplete P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetIsComplete",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s16:CanSetIsComplete",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetIsComplete",P1))
 
 	Func HasValue P1
 		if dotnet_isnamed(P1)
@@ -2623,14 +2417,7 @@ Class IConventionDiscriminatorBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:HasValue",P1))
 
 	Func CanSetValue P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:CanSetValue",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:CanSetValue",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetValue",P1))
 
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
@@ -2678,14 +2465,7 @@ Class IConventionElementTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:IsRequired",P1))
 
 	Func CanSetIsRequired P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetIsRequired",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s16:CanSetIsRequired",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetIsRequired",P1))
 
 	Func HasMaxLength P1
 		if dotnet_isnamed(P1)
@@ -2694,14 +2474,7 @@ Class IConventionElementTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:HasMaxLength",P1))
 
 	Func CanSetMaxLength P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:CanSetMaxLength",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s15:CanSetMaxLength",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetMaxLength",P1))
 
 	Func IsUnicode P1
 		if dotnet_isnamed(P1)
@@ -2710,14 +2483,7 @@ Class IConventionElementTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:IsUnicode",P1))
 
 	Func CanSetIsUnicode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:CanSetIsUnicode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s15:CanSetIsUnicode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetIsUnicode",P1))
 
 	Func HasPrecision P1
 		if dotnet_isnamed(P1)
@@ -2726,14 +2492,7 @@ Class IConventionElementTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:HasPrecision",P1))
 
 	Func CanSetPrecision P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:CanSetPrecision",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s15:CanSetPrecision",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetPrecision",P1))
 
 	Func HasScale P1
 		if dotnet_isnamed(P1)
@@ -2742,14 +2501,7 @@ Class IConventionElementTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:HasScale",P1))
 
 	Func CanSetScale P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:CanSetScale",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:CanSetScale",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetScale",P1))
 
 	Func HasConversion P1
 		if dotnet_isnamed(P1)
@@ -2758,14 +2510,7 @@ Class IConventionElementTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:HasConversion",P1))
 
 	Func CanSetConversion P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetConversion",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s16:CanSetConversion",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetConversion",P1))
 
 	Func HasConverter P1
 		if dotnet_isnamed(P1)
@@ -2774,14 +2519,7 @@ Class IConventionElementTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:HasConverter",P1))
 
 	Func CanSetConverter P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:CanSetConverter",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s15:CanSetConverter",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetConverter",P1))
 
 	Func HasTypeMapping P1
 		if dotnet_isnamed(P1)
@@ -2790,14 +2528,7 @@ Class IConventionElementTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:HasTypeMapping",P1))
 
 	Func CanSetTypeMapping P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:CanSetTypeMapping",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s17:CanSetTypeMapping",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetTypeMapping",P1))
 
 	Func HasValueComparer P1
 		if dotnet_isnamed(P1)
@@ -2806,14 +2537,7 @@ Class IConventionElementTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:HasValueComparer",P1))
 
 	Func CanSetValueComparer P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanSetValueComparer",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanSetValueComparer",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetValueComparer",P1))
 
 	Func CanSetAnnotation P1
 		if dotnet_isnamed(P1)
@@ -2824,14 +2548,7 @@ Class IConventionElementTypeBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func HasStoreType P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -2921,14 +2638,7 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:HasBaseType",P1))
 
 	Func CanSetBaseType P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:CanSetBaseType",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s14:CanSetBaseType",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetBaseType",P1))
 
 	Func RemoveUnusedImplicitProperties P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:RemoveUnusedImplicitProperties",P1))
@@ -2952,14 +2662,7 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ServiceProperty",P1))
 
 	Func CanHaveServiceProperty P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:CanHaveServiceProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s22:CanHaveServiceProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanHaveServiceProperty",P1))
 
 	Func HasNoServiceProperty P1
 		if dotnet_isnamed(P1)
@@ -2968,14 +2671,7 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:HasNoServiceProperty",P1))
 
 	Func CanRemoveServiceProperty P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanRemoveServiceProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:CanRemoveServiceProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveServiceProperty",P1))
 
 	Func Ignore P1
 		if dotnet_isnamed(P1)
@@ -2990,14 +2686,7 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:PrimaryKey",P1))
 
 	Func CanSetPrimaryKey P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetPrimaryKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s16:CanSetPrimaryKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetPrimaryKey",P1))
 
 	Func HasKey P1
 		if dotnet_isnamed(P1)
@@ -3015,19 +2704,7 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:HasNoKey",P1))
 
 	Func CanRemoveKey P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:CanRemoveKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s12:CanRemoveKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s12:CanRemoveKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"CanRemoveKey",P1))
 
 	Func HasIndex P1
 		if dotnet_isnamed(P1)
@@ -3036,14 +2713,7 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:HasIndex",P1))
 
 	Func CanHaveIndex P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:CanHaveIndex",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s12:CanHaveIndex",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanHaveIndex",P1))
 
 	Func HasNoIndex P1
 		if dotnet_isnamed(P1)
@@ -3052,14 +2722,7 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:HasNoIndex",P1))
 
 	Func CanRemoveIndex P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:CanRemoveIndex",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s14:CanRemoveIndex",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveIndex",P1))
 
 	Func HasRelationship P1
 		if dotnet_isnamed(P1)
@@ -3080,24 +2743,10 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:HasNoRelationship",P1))
 
 	Func CanRemoveRelationship P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s21:CanRemoveRelationship",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s21:CanRemoveRelationship",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveRelationship",P1))
 
 	Func CanHaveNavigation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:CanHaveNavigation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s17:CanHaveNavigation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanHaveNavigation",P1))
 
 	Func HasNoNavigation P1
 		if dotnet_isnamed(P1)
@@ -3106,24 +2755,10 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:HasNoNavigation",P1))
 
 	Func CanRemoveNavigation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveNavigation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveNavigation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveNavigation",P1))
 
 	Func CanHaveSkipNavigation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s21:CanHaveSkipNavigation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s21:CanHaveSkipNavigation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanHaveSkipNavigation",P1))
 
 	Func HasSkipNavigation P1
 		if dotnet_isnamed(P1)
@@ -3138,14 +2773,7 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:HasNoSkipNavigation",P1))
 
 	Func CanRemoveSkipNavigation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s23:CanRemoveSkipNavigation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s23:CanRemoveSkipNavigation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveSkipNavigation",P1))
 
 	Func HasTrigger P1
 		if dotnet_isnamed(P1)
@@ -3154,14 +2782,7 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:HasTrigger",P1))
 
 	Func CanHaveTrigger P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:CanHaveTrigger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s14:CanHaveTrigger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanHaveTrigger",P1))
 
 	Func HasQueryFilter P1
 		if dotnet_isnamed(P1)
@@ -3170,14 +2791,7 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:HasQueryFilter",P1))
 
 	Func CanSetQueryFilter P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:CanSetQueryFilter",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s17:CanSetQueryFilter",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetQueryFilter",P1))
 
 	Func HasDefiningQuery P1
 		if dotnet_isnamed(P1)
@@ -3186,14 +2800,7 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:HasDefiningQuery",P1))
 
 	Func CanSetDefiningQuery P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanSetDefiningQuery",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanSetDefiningQuery",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetDefiningQuery",P1))
 
 	Func HasChangeTrackingStrategy P1
 		if dotnet_isnamed(P1)
@@ -3226,29 +2833,10 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:HasNoDiscriminator",P1))
 
 	Func CanSetDiscriminator P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanSetDiscriminator",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanSetDiscriminator",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetDiscriminator",P1))
 
 	Func CanRemoveDiscriminator P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:CanRemoveDiscriminator",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s22:CanRemoveDiscriminator")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s22:CanRemoveDiscriminator",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"CanRemoveDiscriminator",P1))
 
 	Func GetTargetEntityTypeBuilder P1
 		if dotnet_isnamed(P1)
@@ -3263,14 +2851,7 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Property",P1))
 
 	Func CanHaveProperty P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:CanHaveProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s15:CanHaveProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanHaveProperty",P1))
 
 	Func IndexerProperty P1
 		if dotnet_isnamed(P1)
@@ -3296,14 +2877,7 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetOrCreateProperties",P1))
 
 	Func CanRemoveProperty P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:CanRemoveProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s17:CanRemoveProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveProperty",P1))
 
 	Func ComplexProperty P1
 		if dotnet_isnamed(P1)
@@ -3312,14 +2886,7 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ComplexProperty",P1))
 
 	Func CanHaveComplexProperty P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:CanHaveComplexProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s22:CanHaveComplexProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanHaveComplexProperty",P1))
 
 	Func ComplexIndexerProperty P1
 		if dotnet_isnamed(P1)
@@ -3336,54 +2903,19 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		raise("DotNet Error: CanHaveComplexIndexerProperty does not take one argument: use named arguments, CanHaveComplexIndexerProperty([ :parameter = value, ... ])")
 
 	Func CanRemoveComplexProperty P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanRemoveComplexProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:CanRemoveComplexProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveComplexProperty",P1))
 
 	Func IsIgnored P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:IsIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:IsIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"IsIgnored",P1))
 
 	Func CanIgnore P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:CanIgnore",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:CanIgnore",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanIgnore",P1))
 
 	Func CanSetChangeTrackingStrategy P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s28:CanSetChangeTrackingStrategy",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s28:CanSetChangeTrackingStrategy",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetChangeTrackingStrategy",P1))
 
 	Func CanSetPropertyAccessMode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetPropertyAccessMode",P1))
 
 	Func CanSetAnnotation P1
 		if dotnet_isnamed(P1)
@@ -3394,14 +2926,7 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func UseMappingStrategy P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -3701,14 +3226,7 @@ Class IConventionEntityTypeMappingFragmentBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:HasNoAnnotation",P1))
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -3770,14 +3288,7 @@ Class IConventionForeignKeyBuilder from DotNetObject
 		raise("DotNet Error: CanSetEntityTypes does not take one argument: use named arguments, CanSetEntityTypes([ :parameter = value, ... ])")
 
 	Func CanInvert P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:CanInvert",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:CanInvert",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanInvert",P1))
 
 	Func HasForeignKey P1
 		if dotnet_isnamed(P1)
@@ -3786,14 +3297,7 @@ Class IConventionForeignKeyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:HasForeignKey",P1))
 
 	Func CanSetForeignKey P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetForeignKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s16:CanSetForeignKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetForeignKey",P1))
 
 	Func HasPrincipalKey P1
 		if dotnet_isnamed(P1)
@@ -3802,14 +3306,7 @@ Class IConventionForeignKeyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:HasPrincipalKey",P1))
 
 	Func CanSetPrincipalKey P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s18:CanSetPrincipalKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s18:CanSetPrincipalKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetPrincipalKey",P1))
 
 	Func HasNavigation P1
 		if dotnet_isnamed(P1)
@@ -3846,14 +3343,7 @@ Class IConventionForeignKeyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:IsRequired",P1))
 
 	Func CanSetIsRequired P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetIsRequired",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s16:CanSetIsRequired",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetIsRequired",P1))
 
 	Func IsRequiredDependent P1
 		if dotnet_isnamed(P1)
@@ -3862,14 +3352,7 @@ Class IConventionForeignKeyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:IsRequiredDependent",P1))
 
 	Func CanSetIsRequiredDependent P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s25:CanSetIsRequiredDependent",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s25:CanSetIsRequiredDependent",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetIsRequiredDependent",P1))
 
 	Func IsOwnership P1
 		if dotnet_isnamed(P1)
@@ -3878,14 +3361,7 @@ Class IConventionForeignKeyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:IsOwnership",P1))
 
 	Func CanSetIsOwnership P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:CanSetIsOwnership",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s17:CanSetIsOwnership",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetIsOwnership",P1))
 
 	Func IsUnique P1
 		if dotnet_isnamed(P1)
@@ -3894,14 +3370,7 @@ Class IConventionForeignKeyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:IsUnique",P1))
 
 	Func CanSetIsUnique P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:CanSetIsUnique",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s14:CanSetIsUnique",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetIsUnique",P1))
 
 	Func OnDelete P1
 		if dotnet_isnamed(P1)
@@ -3910,14 +3379,7 @@ Class IConventionForeignKeyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:OnDelete",P1))
 
 	Func CanSetOnDelete P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:CanSetOnDelete",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s14:CanSetOnDelete",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetOnDelete",P1))
 
 	Func CanSetAnnotation P1
 		if dotnet_isnamed(P1)
@@ -3928,14 +3390,7 @@ Class IConventionForeignKeyBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func HasConstraintName P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -4007,14 +3462,7 @@ Class IConventionIndexBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:IsUnique",P1))
 
 	Func CanSetIsUnique P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:CanSetIsUnique",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s14:CanSetIsUnique",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetIsUnique",P1))
 
 	Func IsDescending P1
 		if dotnet_isnamed(P1)
@@ -4023,14 +3471,7 @@ Class IConventionIndexBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:IsDescending",P1))
 
 	Func CanSetIsDescending P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s18:CanSetIsDescending",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s18:CanSetIsDescending",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetIsDescending",P1))
 
 	Func CanSetAnnotation P1
 		if dotnet_isnamed(P1)
@@ -4041,14 +3482,7 @@ Class IConventionIndexBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func HasDatabaseName P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -4140,14 +3574,7 @@ Class IConventionKeyBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func HasName P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -4237,14 +3664,7 @@ Class IConventionModelBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ComplexType",P1))
 
 	Func IsIgnored P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:IsIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:IsIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"IsIgnored",P1))
 
 	Func Ignore P1
 		if dotnet_isnamed(P1)
@@ -4253,14 +3673,7 @@ Class IConventionModelBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Ignore",P1))
 
 	Func CanHaveEntity P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:CanHaveEntity",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:CanHaveEntity",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanHaveEntity",P1))
 
 	Func CanHaveSharedTypeEntity P1
 		if dotnet_isnamed(P1)
@@ -4277,24 +3690,10 @@ Class IConventionModelBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:HasNoEntityType",P1))
 
 	Func CanRemoveEntity P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:CanRemoveEntity",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s15:CanRemoveEntity",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveEntity",P1))
 
 	Func CanIgnore P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:CanIgnore",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:CanIgnore",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanIgnore",P1))
 
 	Func HasChangeTrackingStrategy P1
 		if dotnet_isnamed(P1)
@@ -4303,14 +3702,7 @@ Class IConventionModelBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:HasChangeTrackingStrategy",P1))
 
 	Func CanSetChangeTrackingStrategy P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s28:CanSetChangeTrackingStrategy",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s28:CanSetChangeTrackingStrategy",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetChangeTrackingStrategy",P1))
 
 	Func UsePropertyAccessMode P1
 		if dotnet_isnamed(P1)
@@ -4319,14 +3711,7 @@ Class IConventionModelBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UsePropertyAccessMode",P1))
 
 	Func CanSetPropertyAccessMode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetPropertyAccessMode",P1))
 
 	Func HasEmbeddedDiscriminatorName P1
 		if dotnet_isnamed(P1)
@@ -4335,14 +3720,7 @@ Class IConventionModelBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:HasEmbeddedDiscriminatorName",P1))
 
 	Func CanSetEmbeddedDiscriminatorName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s31:CanSetEmbeddedDiscriminatorName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s31:CanSetEmbeddedDiscriminatorName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetEmbeddedDiscriminatorName",P1))
 
 	Func CanSetAnnotation P1
 		if dotnet_isnamed(P1)
@@ -4353,14 +3731,7 @@ Class IConventionModelBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func HasSequence P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -4464,14 +3835,7 @@ Class IConventionNavigationBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AutoInclude",P1))
 
 	Func CanSetAutoInclude P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:CanSetAutoInclude",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s17:CanSetAutoInclude",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetAutoInclude",P1))
 
 	Func EnableLazyLoading P1
 		if dotnet_isnamed(P1)
@@ -4480,14 +3844,7 @@ Class IConventionNavigationBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:EnableLazyLoading",P1))
 
 	Func CanSetLazyLoadingEnabled P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetLazyLoadingEnabled",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetLazyLoadingEnabled",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetLazyLoadingEnabled",P1))
 
 	Func IsRequired P1
 		if dotnet_isnamed(P1)
@@ -4496,14 +3853,7 @@ Class IConventionNavigationBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:IsRequired",P1))
 
 	Func CanSetIsRequired P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetIsRequired",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s16:CanSetIsRequired",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetIsRequired",P1))
 
 	Func HasAnnotation P1
 		if dotnet_isnamed(P1)
@@ -4530,14 +3880,7 @@ Class IConventionNavigationBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:HasField",P1))
 
 	Func CanSetField P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:CanSetField",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:CanSetField",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetField",P1))
 
 	Func UsePropertyAccessMode P1
 		if dotnet_isnamed(P1)
@@ -4546,14 +3889,7 @@ Class IConventionNavigationBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UsePropertyAccessMode",P1))
 
 	Func CanSetPropertyAccessMode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetPropertyAccessMode",P1))
 
 	Func CanSetAnnotation P1
 		if dotnet_isnamed(P1)
@@ -4564,14 +3900,7 @@ Class IConventionNavigationBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -4641,14 +3970,7 @@ Class IConventionPropertyBaseBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:HasField",P1))
 
 	Func CanSetField P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:CanSetField",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:CanSetField",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetField",P1))
 
 	Func UsePropertyAccessMode P1
 		if dotnet_isnamed(P1)
@@ -4657,14 +3979,7 @@ Class IConventionPropertyBaseBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UsePropertyAccessMode",P1))
 
 	Func CanSetPropertyAccessMode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetPropertyAccessMode",P1))
 
 	Func CanSetAnnotation P1
 		if dotnet_isnamed(P1)
@@ -4675,14 +3990,7 @@ Class IConventionPropertyBaseBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -4718,14 +4026,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:IsRequired",P1))
 
 	Func CanSetIsRequired P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetIsRequired",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s16:CanSetIsRequired",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetIsRequired",P1))
 
 	Func ValueGenerated P1
 		if dotnet_isnamed(P1)
@@ -4734,14 +4035,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ValueGenerated",P1))
 
 	Func CanSetValueGenerated P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s20:CanSetValueGenerated",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s20:CanSetValueGenerated",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetValueGenerated",P1))
 
 	Func IsConcurrencyToken P1
 		if dotnet_isnamed(P1)
@@ -4750,14 +4044,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:IsConcurrencyToken",P1))
 
 	Func CanSetIsConcurrencyToken P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetIsConcurrencyToken",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetIsConcurrencyToken",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetIsConcurrencyToken",P1))
 
 	Func HasSentinel P1
 		if dotnet_isnamed(P1)
@@ -4766,14 +4053,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:HasSentinel",P1))
 
 	Func CanSetSentinel P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:CanSetSentinel",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s14:CanSetSentinel",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetSentinel",P1))
 
 	Func HasMaxLength P1
 		if dotnet_isnamed(P1)
@@ -4782,14 +4062,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:HasMaxLength",P1))
 
 	Func CanSetMaxLength P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:CanSetMaxLength",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s15:CanSetMaxLength",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetMaxLength",P1))
 
 	Func IsUnicode P1
 		if dotnet_isnamed(P1)
@@ -4798,14 +4071,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:IsUnicode",P1))
 
 	Func CanSetIsUnicode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:CanSetIsUnicode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s15:CanSetIsUnicode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetIsUnicode",P1))
 
 	Func HasPrecision P1
 		if dotnet_isnamed(P1)
@@ -4814,14 +4080,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:HasPrecision",P1))
 
 	Func CanSetPrecision P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:CanSetPrecision",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s15:CanSetPrecision",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetPrecision",P1))
 
 	Func HasScale P1
 		if dotnet_isnamed(P1)
@@ -4830,14 +4089,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:HasScale",P1))
 
 	Func CanSetScale P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:CanSetScale",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:CanSetScale",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetScale",P1))
 
 	Func BeforeSave P1
 		if dotnet_isnamed(P1)
@@ -4846,14 +4098,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:BeforeSave",P1))
 
 	Func CanSetBeforeSave P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetBeforeSave",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s16:CanSetBeforeSave",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetBeforeSave",P1))
 
 	Func AfterSave P1
 		if dotnet_isnamed(P1)
@@ -4862,14 +4107,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AfterSave",P1))
 
 	Func CanSetAfterSave P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:CanSetAfterSave",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s15:CanSetAfterSave",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetAfterSave",P1))
 
 	Func HasValueGenerator P1
 		if dotnet_isnamed(P1)
@@ -4884,24 +4122,10 @@ Class IConventionPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:HasValueGeneratorFactory",P1))
 
 	Func CanSetValueGenerator P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s20:CanSetValueGenerator",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s20:CanSetValueGenerator",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetValueGenerator",P1))
 
 	Func CanSetValueGeneratorFactory P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s27:CanSetValueGeneratorFactory",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s27:CanSetValueGeneratorFactory",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetValueGeneratorFactory",P1))
 
 	Func HasConversion P1
 		if dotnet_isnamed(P1)
@@ -4910,14 +4134,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:HasConversion",P1))
 
 	Func CanSetConversion P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetConversion",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s16:CanSetConversion",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetConversion",P1))
 
 	Func HasConverter P1
 		if dotnet_isnamed(P1)
@@ -4926,14 +4143,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:HasConverter",P1))
 
 	Func CanSetConverter P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:CanSetConverter",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s15:CanSetConverter",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetConverter",P1))
 
 	Func HasTypeMapping P1
 		if dotnet_isnamed(P1)
@@ -4942,14 +4152,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:HasTypeMapping",P1))
 
 	Func CanSetTypeMapping P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:CanSetTypeMapping",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s17:CanSetTypeMapping",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetTypeMapping",P1))
 
 	Func HasValueComparer P1
 		if dotnet_isnamed(P1)
@@ -4958,14 +4161,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:HasValueComparer",P1))
 
 	Func CanSetValueComparer P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanSetValueComparer",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanSetValueComparer",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetValueComparer",P1))
 
 	Func HasProviderValueComparer P1
 		if dotnet_isnamed(P1)
@@ -4974,14 +4170,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:HasProviderValueComparer",P1))
 
 	Func CanSetProviderValueComparer P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s27:CanSetProviderValueComparer",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s27:CanSetProviderValueComparer",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetProviderValueComparer",P1))
 
 	Func SetElementType P1
 		if dotnet_isnamed(P1)
@@ -4990,14 +4179,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:SetElementType",P1))
 
 	Func CanSetElementType P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:CanSetElementType",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s17:CanSetElementType",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetElementType",P1))
 
 	Func HasAnnotation P1
 		if dotnet_isnamed(P1)
@@ -5024,14 +4206,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:HasField",P1))
 
 	Func CanSetField P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:CanSetField",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:CanSetField",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetField",P1))
 
 	Func UsePropertyAccessMode P1
 		if dotnet_isnamed(P1)
@@ -5040,14 +4215,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UsePropertyAccessMode",P1))
 
 	Func CanSetPropertyAccessMode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetPropertyAccessMode",P1))
 
 	Func CanSetAnnotation P1
 		if dotnet_isnamed(P1)
@@ -5058,14 +4226,7 @@ Class IConventionPropertyBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func HasColumnName P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -5337,14 +4498,7 @@ Class IConventionRelationalPropertyOverridesBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:HasNoAnnotation",P1))
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -5398,14 +4552,7 @@ Class IConventionSequenceBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:HasType",P1))
 
 	Func CanSetType P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:CanSetType",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s10:CanSetType",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetType",P1))
 
 	Func IncrementsBy P1
 		if dotnet_isnamed(P1)
@@ -5414,14 +4561,7 @@ Class IConventionSequenceBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:IncrementsBy",P1))
 
 	Func CanSetIncrementsBy P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s18:CanSetIncrementsBy",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s18:CanSetIncrementsBy",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetIncrementsBy",P1))
 
 	Func StartsAt P1
 		if dotnet_isnamed(P1)
@@ -5430,14 +4570,7 @@ Class IConventionSequenceBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:StartsAt",P1))
 
 	Func CanSetStartsAt P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:CanSetStartsAt",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s14:CanSetStartsAt",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetStartsAt",P1))
 
 	Func HasMax P1
 		if dotnet_isnamed(P1)
@@ -5446,14 +4579,7 @@ Class IConventionSequenceBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:HasMax",P1))
 
 	Func CanSetMax P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:CanSetMax",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:CanSetMax",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetMax",P1))
 
 	Func HasMin P1
 		if dotnet_isnamed(P1)
@@ -5462,14 +4588,7 @@ Class IConventionSequenceBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:HasMin",P1))
 
 	Func CanSetMin P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:CanSetMin",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:CanSetMin",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetMin",P1))
 
 	Func IsCyclic P1
 		if dotnet_isnamed(P1)
@@ -5478,14 +4597,7 @@ Class IConventionSequenceBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:IsCyclic",P1))
 
 	Func CanSetIsCyclic P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:CanSetIsCyclic",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s14:CanSetIsCyclic",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetIsCyclic",P1))
 
 	Func CanSetAnnotation P1
 		if dotnet_isnamed(P1)
@@ -5496,14 +4608,7 @@ Class IConventionSequenceBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -5539,14 +4644,7 @@ Class IConventionServicePropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:HasParameterBinding",P1))
 
 	Func CanSetParameterBinding P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:CanSetParameterBinding",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s22:CanSetParameterBinding",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetParameterBinding",P1))
 
 	Func HasAnnotation P1
 		if dotnet_isnamed(P1)
@@ -5573,14 +4671,7 @@ Class IConventionServicePropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:HasField",P1))
 
 	Func CanSetField P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:CanSetField",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:CanSetField",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetField",P1))
 
 	Func UsePropertyAccessMode P1
 		if dotnet_isnamed(P1)
@@ -5589,14 +4680,7 @@ Class IConventionServicePropertyBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UsePropertyAccessMode",P1))
 
 	Func CanSetPropertyAccessMode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetPropertyAccessMode",P1))
 
 	Func CanSetAnnotation P1
 		if dotnet_isnamed(P1)
@@ -5607,14 +4691,7 @@ Class IConventionServicePropertyBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -5650,14 +4727,7 @@ Class IConventionSkipNavigationBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:HasForeignKey",P1))
 
 	Func CanSetForeignKey P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanSetForeignKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s16:CanSetForeignKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetForeignKey",P1))
 
 	Func HasInverse P1
 		if dotnet_isnamed(P1)
@@ -5666,24 +4736,10 @@ Class IConventionSkipNavigationBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:HasInverse",P1))
 
 	Func CanSetInverse P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:CanSetInverse",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:CanSetInverse",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetInverse",P1))
 
 	Func CanSetAutoInclude P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:CanSetAutoInclude",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s17:CanSetAutoInclude",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetAutoInclude",P1))
 
 	Func AutoInclude P1
 		if dotnet_isnamed(P1)
@@ -5692,14 +4748,7 @@ Class IConventionSkipNavigationBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AutoInclude",P1))
 
 	Func CanSetLazyLoadingEnabled P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetLazyLoadingEnabled",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetLazyLoadingEnabled",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetLazyLoadingEnabled",P1))
 
 	Func EnableLazyLoading P1
 		if dotnet_isnamed(P1)
@@ -5732,14 +4781,7 @@ Class IConventionSkipNavigationBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:HasField",P1))
 
 	Func CanSetField P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:CanSetField",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:CanSetField",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetField",P1))
 
 	Func UsePropertyAccessMode P1
 		if dotnet_isnamed(P1)
@@ -5748,14 +4790,7 @@ Class IConventionSkipNavigationBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UsePropertyAccessMode",P1))
 
 	Func CanSetPropertyAccessMode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetPropertyAccessMode",P1))
 
 	Func CanSetAnnotation P1
 		if dotnet_isnamed(P1)
@@ -5766,14 +4801,7 @@ Class IConventionSkipNavigationBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -5827,14 +4855,7 @@ Class IConventionStoredProcedureBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:HasName",P1))
 
 	Func CanSetName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:CanSetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s10:CanSetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetName",P1))
 
 	Func HasSchema P1
 		if dotnet_isnamed(P1)
@@ -5843,14 +4864,7 @@ Class IConventionStoredProcedureBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:HasSchema",P1))
 
 	Func CanSetSchema P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:CanSetSchema",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s12:CanSetSchema",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetSchema",P1))
 
 	Func HasParameter P1
 		if dotnet_isnamed(P1)
@@ -5859,14 +4873,7 @@ Class IConventionStoredProcedureBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:HasParameter",P1))
 
 	Func CanHaveParameter P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s16:CanHaveParameter",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s16:CanHaveParameter",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanHaveParameter",P1))
 
 	Func HasOriginalValueParameter P1
 		if dotnet_isnamed(P1)
@@ -5875,14 +4882,7 @@ Class IConventionStoredProcedureBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:HasOriginalValueParameter",P1))
 
 	Func CanHaveOriginalValueParameter P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s29:CanHaveOriginalValueParameter",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s29:CanHaveOriginalValueParameter",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanHaveOriginalValueParameter",P1))
 
 	Func HasRowsAffectedParameter P1
 		if dotnet_isnamed(P1)
@@ -5894,19 +4894,7 @@ Class IConventionStoredProcedureBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:HasRowsAffectedParameter",P1))
 
 	Func CanHaveRowsAffectedParameter P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s28:CanHaveRowsAffectedParameter",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s28:CanHaveRowsAffectedParameter")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s28:CanHaveRowsAffectedParameter",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"CanHaveRowsAffectedParameter",P1))
 
 	Func HasResultColumn P1
 		if dotnet_isnamed(P1)
@@ -5915,14 +4903,7 @@ Class IConventionStoredProcedureBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:HasResultColumn",P1))
 
 	Func CanHaveResultColumn P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanHaveResultColumn",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanHaveResultColumn",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanHaveResultColumn",P1))
 
 	Func HasRowsAffectedResultColumn P1
 		if dotnet_isnamed(P1)
@@ -5934,19 +4915,7 @@ Class IConventionStoredProcedureBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:HasRowsAffectedResultColumn",P1))
 
 	Func CanHaveRowsAffectedResultColumn P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s31:CanHaveRowsAffectedResultColumn",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s31:CanHaveRowsAffectedResultColumn")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s31:CanHaveRowsAffectedResultColumn",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"CanHaveRowsAffectedResultColumn",P1))
 
 	Func CanSetAnnotation P1
 		if dotnet_isnamed(P1)
@@ -5957,14 +4926,7 @@ Class IConventionStoredProcedureBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -6018,14 +4980,7 @@ Class IConventionStoredProcedureParameterBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:HasName",P1))
 
 	Func CanSetName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:CanSetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s10:CanSetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetName",P1))
 
 	Func HasDirection P1
 		if dotnet_isnamed(P1)
@@ -6034,14 +4989,7 @@ Class IConventionStoredProcedureParameterBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:HasDirection",P1))
 
 	Func CanSetDirection P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:CanSetDirection",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s15:CanSetDirection",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetDirection",P1))
 
 	Func CanSetAnnotation P1
 		if dotnet_isnamed(P1)
@@ -6052,14 +5000,7 @@ Class IConventionStoredProcedureParameterBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -6113,14 +5054,7 @@ Class IConventionStoredProcedureResultColumnBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:HasName",P1))
 
 	Func CanSetName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:CanSetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s10:CanSetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetName",P1))
 
 	Func CanSetAnnotation P1
 		if dotnet_isnamed(P1)
@@ -6131,14 +5065,7 @@ Class IConventionStoredProcedureResultColumnBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -6194,14 +5121,7 @@ Class IConventionTriggerBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func HasDatabaseName P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -6309,14 +5229,7 @@ Class IConventionTypeBaseBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Property",P1))
 
 	Func CanHaveProperty P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s15:CanHaveProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s15:CanHaveProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanHaveProperty",P1))
 
 	Func IndexerProperty P1
 		if dotnet_isnamed(P1)
@@ -6351,14 +5264,7 @@ Class IConventionTypeBaseBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:HasNoProperty",P1))
 
 	Func CanRemoveProperty P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:CanRemoveProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s17:CanRemoveProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveProperty",P1))
 
 	Func ComplexProperty P1
 		if dotnet_isnamed(P1)
@@ -6367,14 +5273,7 @@ Class IConventionTypeBaseBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ComplexProperty",P1))
 
 	Func CanHaveComplexProperty P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:CanHaveComplexProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s22:CanHaveComplexProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanHaveComplexProperty",P1))
 
 	Func ComplexIndexerProperty P1
 		if dotnet_isnamed(P1)
@@ -6397,24 +5296,10 @@ Class IConventionTypeBaseBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:HasNoComplexProperty",P1))
 
 	Func CanRemoveComplexProperty P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanRemoveComplexProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:CanRemoveComplexProperty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveComplexProperty",P1))
 
 	Func IsIgnored P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:IsIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:IsIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"IsIgnored",P1))
 
 	Func Ignore P1
 		if dotnet_isnamed(P1)
@@ -6423,14 +5308,7 @@ Class IConventionTypeBaseBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Ignore",P1))
 
 	Func CanIgnore P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:CanIgnore",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:CanIgnore",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanIgnore",P1))
 
 	Func HasChangeTrackingStrategy P1
 		if dotnet_isnamed(P1)
@@ -6439,14 +5317,7 @@ Class IConventionTypeBaseBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:HasChangeTrackingStrategy",P1))
 
 	Func CanSetChangeTrackingStrategy P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s28:CanSetChangeTrackingStrategy",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s28:CanSetChangeTrackingStrategy",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetChangeTrackingStrategy",P1))
 
 	Func UsePropertyAccessMode P1
 		if dotnet_isnamed(P1)
@@ -6455,14 +5326,7 @@ Class IConventionTypeBaseBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UsePropertyAccessMode",P1))
 
 	Func CanSetPropertyAccessMode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:CanSetPropertyAccessMode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanSetPropertyAccessMode",P1))
 
 	Func CanSetAnnotation P1
 		if dotnet_isnamed(P1)
@@ -6473,14 +5337,7 @@ Class IConventionTypeBaseBuilder from DotNetObject
 		raise("DotNet Error: CanSetAnnotation does not take one argument: use named arguments, CanSetAnnotation([ :parameter = value, ... ])")
 
 	Func CanRemoveAnnotation P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s19:CanRemoveAnnotation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"CanRemoveAnnotation",P1))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -6950,13 +5807,13 @@ Class OwnedNavigationSplitTableBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -7007,13 +5864,13 @@ Class OwnedNavigationSplitViewBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -7162,13 +6019,13 @@ Class OwnedNavigationTableBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -7209,13 +6066,13 @@ Class OwnedNavigationViewBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -7843,13 +6700,13 @@ Class SplitTableBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -7900,13 +6757,13 @@ Class SplitViewBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -8135,13 +6992,13 @@ Class TableBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -8282,13 +7139,13 @@ Class ViewBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")

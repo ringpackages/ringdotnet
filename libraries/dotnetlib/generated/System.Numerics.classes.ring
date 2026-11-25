@@ -315,9 +315,7 @@ Class BigInteger from ValueType
 		return self
 
 	Func CompareTo P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CompareTo",P1))
 
 	Func ToByteArray P1
 		if dotnet_isnamed(P1)
@@ -337,29 +335,10 @@ Class BigInteger from ValueType
 		return dnSend("s4:call",nHandle,"s13:TryWriteBytes",dnPackItem(P1))
 
 	Func GetByteCount P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:GetByteCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s12:GetByteCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetByteCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetByteCount",P1))
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -370,9 +349,7 @@ Class BigInteger from ValueType
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1))
 
 	Func GetBitLength 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetBitLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetBitLength"))
 
 	Func Parse P1
 		if dotnet_isnamed(P1)
@@ -673,14 +650,7 @@ Class Complex from ValueType
 		return self
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -996,24 +966,16 @@ Class IBinaryFloatingPointIeee754 from DotNetObject
 		raise("DotNet Error: ToString does not take one argument: use named arguments, ToString([ :parameter = value, ... ])")
 
 	Func GetExponentByteCount 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:GetExponentByteCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetExponentByteCount"))
 
 	Func GetExponentShortestBitLength 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:GetExponentShortestBitLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetExponentShortestBitLength"))
 
 	Func GetSignificandBitLength 
-		dn_x = dotnet_call("s4:call",nHandle,"s23:GetSignificandBitLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetSignificandBitLength"))
 
 	Func GetSignificandByteCount 
-		dn_x = dotnet_call("s4:call",nHandle,"s23:GetSignificandByteCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetSignificandByteCount"))
 
 	Func TryWriteExponentBigEndian P1
 		return dnSend("s4:call",nHandle,"s25:TryWriteExponentBigEndian",dnPackItem(P1))
@@ -1028,44 +990,16 @@ Class IBinaryFloatingPointIeee754 from DotNetObject
 		return dnSend("s4:call",nHandle,"s31:TryWriteSignificandLittleEndian",dnPackItem(P1))
 
 	Func WriteExponentBigEndian P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:WriteExponentBigEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s22:WriteExponentBigEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"WriteExponentBigEndian",P1))
 
 	Func WriteExponentLittleEndian P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s25:WriteExponentLittleEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s25:WriteExponentLittleEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"WriteExponentLittleEndian",P1))
 
 	Func WriteSignificandBigEndian P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s25:WriteSignificandBigEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s25:WriteSignificandBigEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"WriteSignificandBigEndian",P1))
 
 	Func WriteSignificandLittleEndian P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s28:WriteSignificandLittleEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s28:WriteSignificandLittleEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"WriteSignificandLittleEndian",P1))
 
 
 Class IBinaryInteger from DotNetObject
@@ -1084,14 +1018,10 @@ Class IBinaryInteger from DotNetObject
 		return self
 
 	Func GetByteCount 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetByteCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetByteCount"))
 
 	Func GetShortestBitLength 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:GetShortestBitLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetShortestBitLength"))
 
 	Func TryWriteBigEndian P1
 		return dnSend("s4:call",nHandle,"s17:TryWriteBigEndian",dnPackItem(P1))
@@ -1100,24 +1030,10 @@ Class IBinaryInteger from DotNetObject
 		return dnSend("s4:call",nHandle,"s20:TryWriteLittleEndian",dnPackItem(P1))
 
 	Func WriteBigEndian P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:WriteBigEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s14:WriteBigEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"WriteBigEndian",P1))
 
 	Func WriteLittleEndian P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s17:WriteLittleEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s17:WriteLittleEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"WriteLittleEndian",P1))
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -1125,9 +1041,7 @@ Class IBinaryInteger from DotNetObject
 		return dn_x
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func TryFormat P1,P2,P3
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -1162,9 +1076,7 @@ Class IBinaryNumber from DotNetObject
 		return dn_x
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func TryFormat P1,P2,P3
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -1354,24 +1266,16 @@ Class IFloatingPointIeee754 from DotNetObject
 		raise("DotNet Error: ToString does not take one argument: use named arguments, ToString([ :parameter = value, ... ])")
 
 	Func GetExponentByteCount 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:GetExponentByteCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetExponentByteCount"))
 
 	Func GetExponentShortestBitLength 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:GetExponentShortestBitLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetExponentShortestBitLength"))
 
 	Func GetSignificandBitLength 
-		dn_x = dotnet_call("s4:call",nHandle,"s23:GetSignificandBitLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetSignificandBitLength"))
 
 	Func GetSignificandByteCount 
-		dn_x = dotnet_call("s4:call",nHandle,"s23:GetSignificandByteCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetSignificandByteCount"))
 
 	Func TryWriteExponentBigEndian P1
 		return dnSend("s4:call",nHandle,"s25:TryWriteExponentBigEndian",dnPackItem(P1))
@@ -1386,44 +1290,16 @@ Class IFloatingPointIeee754 from DotNetObject
 		return dnSend("s4:call",nHandle,"s31:TryWriteSignificandLittleEndian",dnPackItem(P1))
 
 	Func WriteExponentBigEndian P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:WriteExponentBigEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s22:WriteExponentBigEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"WriteExponentBigEndian",P1))
 
 	Func WriteExponentLittleEndian P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s25:WriteExponentLittleEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s25:WriteExponentLittleEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"WriteExponentLittleEndian",P1))
 
 	Func WriteSignificandBigEndian P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s25:WriteSignificandBigEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s25:WriteSignificandBigEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"WriteSignificandBigEndian",P1))
 
 	Func WriteSignificandLittleEndian P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s28:WriteSignificandLittleEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s28:WriteSignificandLittleEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"WriteSignificandLittleEndian",P1))
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -1447,24 +1323,16 @@ Class IFloatingPoint from DotNetObject
 		return self
 
 	Func GetExponentByteCount 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:GetExponentByteCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetExponentByteCount"))
 
 	Func GetExponentShortestBitLength 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:GetExponentShortestBitLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetExponentShortestBitLength"))
 
 	Func GetSignificandBitLength 
-		dn_x = dotnet_call("s4:call",nHandle,"s23:GetSignificandBitLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetSignificandBitLength"))
 
 	Func GetSignificandByteCount 
-		dn_x = dotnet_call("s4:call",nHandle,"s23:GetSignificandByteCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetSignificandByteCount"))
 
 	Func TryWriteExponentBigEndian P1
 		return dnSend("s4:call",nHandle,"s25:TryWriteExponentBigEndian",dnPackItem(P1))
@@ -1479,44 +1347,16 @@ Class IFloatingPoint from DotNetObject
 		return dnSend("s4:call",nHandle,"s31:TryWriteSignificandLittleEndian",dnPackItem(P1))
 
 	Func WriteExponentBigEndian P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s22:WriteExponentBigEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s22:WriteExponentBigEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"WriteExponentBigEndian",P1))
 
 	Func WriteExponentLittleEndian P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s25:WriteExponentLittleEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s25:WriteExponentLittleEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"WriteExponentLittleEndian",P1))
 
 	Func WriteSignificandBigEndian P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s25:WriteSignificandBigEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s25:WriteSignificandBigEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"WriteSignificandBigEndian",P1))
 
 	Func WriteSignificandLittleEndian P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s28:WriteSignificandLittleEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s28:WriteSignificandLittleEndian",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"WriteSignificandLittleEndian",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1700,9 +1540,7 @@ Class INumberBase from DotNetObject
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func TryFormat P1,P2,P3
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -1737,9 +1575,7 @@ Class INumber from DotNetObject
 		return dn_x
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func TryFormat P1,P2,P3
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -1849,9 +1685,7 @@ Class ISignedNumber from DotNetObject
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func TryFormat P1,P2,P3
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -2024,9 +1858,7 @@ Class Matrix3x2 from ValueType
 		return self
 
 	Func GetDeterminant 
-		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDeterminant")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDeterminant"))
 
 	Func Add P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s3:Add",P1,P2))
@@ -2208,9 +2040,7 @@ Class Matrix4x4 from ValueType
 		return self
 
 	Func GetDeterminant 
-		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDeterminant")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDeterminant"))
 
 	Func Add P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s3:Add",P1,P2))
@@ -2623,14 +2453,10 @@ Class Quaternion from ValueType
 		return self
 
 	Func Length 
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Length")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Length"))
 
 	Func LengthSquared 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:LengthSquared")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"LengthSquared"))
 
 	Func Add P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s3:Add",P1,P2))
@@ -2764,29 +2590,10 @@ Class TotalOrderIeee754Comparer from ValueType
 		return dn_x
 
 	Func Equals P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Equals",P1))
 
 	Func GetHashCode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetHashCode",P1))
 
 
 Class Vector from Object
@@ -3252,36 +3059,20 @@ Class Vector2 from ValueType
 		return self
 
 	Func CopyTo P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:CopyTo",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
-
+		dotnet_calltd1v(nHandle,"CopyTo",P1)
 		return self
 
 	Func TryCopyTo P1
 		return dnSend("s4:call",nHandle,"s9:TryCopyTo",dnPackItem(P1))
 
 	Func Length 
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Length")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Length"))
 
 	Func LengthSquared 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:LengthSquared")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"LengthSquared"))
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Abs P1
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s3:Abs",P1))
@@ -3583,36 +3374,20 @@ Class Vector3 from ValueType
 		return self
 
 	Func CopyTo P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:CopyTo",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
-
+		dotnet_calltd1v(nHandle,"CopyTo",P1)
 		return self
 
 	Func TryCopyTo P1
 		return dnSend("s4:call",nHandle,"s9:TryCopyTo",dnPackItem(P1))
 
 	Func Length 
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Length")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Length"))
 
 	Func LengthSquared 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:LengthSquared")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"LengthSquared"))
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Abs P1
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s3:Abs",P1))
@@ -3932,36 +3707,20 @@ Class Vector4 from ValueType
 		return self
 
 	Func CopyTo P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:CopyTo",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
-
+		dotnet_calltd1v(nHandle,"CopyTo",P1)
 		return self
 
 	Func TryCopyTo P1
 		return dnSend("s4:call",nHandle,"s9:TryCopyTo",dnPackItem(P1))
 
 	Func Length 
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Length")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Length"))
 
 	Func LengthSquared 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:LengthSquared")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"LengthSquared"))
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Abs P1
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s3:Abs",P1))
@@ -4253,23 +4012,11 @@ Class Vector1 from ValueType
 		return self
 
 	Func CopyTo P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:CopyTo",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
-
+		dotnet_calltd1v(nHandle,"CopyTo",P1)
 		return self
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func TryCopyTo P1
 		return dnSend("s4:call",nHandle,"s9:TryCopyTo",dnPackItem(P1))

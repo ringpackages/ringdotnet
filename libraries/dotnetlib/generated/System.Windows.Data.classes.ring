@@ -215,14 +215,10 @@ Class BindingBase from MarkupExtension
 		return self
 
 	Func ShouldSerializeFallbackValue 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:ShouldSerializeFallbackValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeFallbackValue"))
 
 	Func ShouldSerializeTargetNullValue 
-		dn_x = dotnet_call("s4:call",nHandle,"s30:ShouldSerializeTargetNullValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeTargetNullValue"))
 
 	Func getFallbackValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:FallbackValue"))
@@ -232,7 +228,7 @@ Class BindingBase from MarkupExtension
 		return self
 
 	Func getStringFormat
-		return dnText(dotnet_getp(nHandle,"StringFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"StringFormat"))
 
 	Func setStringFormat P1
 		dotnet_setp(nHandle,"StringFormat",P1)
@@ -246,7 +242,7 @@ Class BindingBase from MarkupExtension
 		return self
 
 	Func getBindingGroupName
-		return dnText(dotnet_getp(nHandle,"BindingGroupName"))
+		return dnAnswer(dotnet_getp(nHandle,"BindingGroupName"))
 
 	Func setBindingGroupName P1
 		dotnet_setp(nHandle,"BindingGroupName",P1)
@@ -283,19 +279,15 @@ Class BindingExpressionBase from Expression
 		return self
 
 	Func UpdateTarget 
-		dotnet_callv("s4:call",nHandle,"s12:UpdateTarget")
-
+		dotnet_calltv(nHandle,"UpdateTarget")
 		return self
 
 	Func UpdateSource 
-		dotnet_callv("s4:call",nHandle,"s12:UpdateSource")
-
+		dotnet_calltv(nHandle,"UpdateSource")
 		return self
 
 	Func ValidateWithoutUpdate 
-		dn_x = dotnet_call("s4:call",nHandle,"s21:ValidateWithoutUpdate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ValidateWithoutUpdate"))
 
 	Func getTarget
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Target"))
@@ -392,29 +384,21 @@ Class BindingGroup from DependencyObject
 		return self
 
 	Func BeginEdit 
-		dotnet_callv("s4:call",nHandle,"s9:BeginEdit")
-
+		dotnet_calltv(nHandle,"BeginEdit")
 		return self
 
 	Func CommitEdit 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:CommitEdit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CommitEdit"))
 
 	Func CancelEdit 
-		dotnet_callv("s4:call",nHandle,"s10:CancelEdit")
-
+		dotnet_calltv(nHandle,"CancelEdit")
 		return self
 
 	Func ValidateWithoutUpdate 
-		dn_x = dotnet_call("s4:call",nHandle,"s21:ValidateWithoutUpdate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ValidateWithoutUpdate"))
 
 	Func UpdateSources 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:UpdateSources")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"UpdateSources"))
 
 	Func GetValue P1
 		if dotnet_isnamed(P1)
@@ -444,7 +428,7 @@ Class BindingGroup from DependencyObject
 		raise("DotNet Error: BindingExpressions is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -632,9 +616,7 @@ Class CollectionContainer from DependencyObject
 		return self
 
 	Func ShouldSerializeCollection 
-		dn_x = dotnet_call("s4:call",nHandle,"s25:ShouldSerializeCollection")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeCollection"))
 
 	Func getCollection
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Collection"))
@@ -716,32 +698,23 @@ Class CollectionView from DispatcherObject
 		return dn_x
 
 	Func Refresh 
-		dotnet_callv("s4:call",nHandle,"s7:Refresh")
-
+		dotnet_calltv(nHandle,"Refresh")
 		return self
 
 	Func DeferRefresh 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DeferRefresh"))
 
 	Func MoveCurrentToFirst 
-		dn_x = dotnet_call("s4:call",nHandle,"s18:MoveCurrentToFirst")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveCurrentToFirst"))
 
 	Func MoveCurrentToLast 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:MoveCurrentToLast")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveCurrentToLast"))
 
 	Func MoveCurrentToNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:MoveCurrentToNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveCurrentToNext"))
 
 	Func MoveCurrentToPrevious 
-		dn_x = dotnet_call("s4:call",nHandle,"s21:MoveCurrentToPrevious")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveCurrentToPrevious"))
 
 	Func MoveCurrentTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s13:MoveCurrentTo",P1)
@@ -749,9 +722,7 @@ Class CollectionView from DispatcherObject
 		return dn_x
 
 	Func MoveCurrentToPosition P1
-		dn_x = dotnet_call("s4:call",nHandle,"s21:MoveCurrentToPosition",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveCurrentToPosition",P1))
 
 	Func PassesFilter P1
 		dn_x = dotnet_call("s4:call",nHandle,"s12:PassesFilter",P1)
@@ -767,8 +738,7 @@ Class CollectionView from DispatcherObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetItemAt",P1))
 
 	Func DetachFromSourceCollection 
-		dotnet_callv("s4:call",nHandle,"s26:DetachFromSourceCollection")
-
+		dotnet_calltv(nHandle,"DetachFromSourceCollection")
 		return self
 
 	Func Cast P1
@@ -1296,8 +1266,7 @@ Class CompositeCollection from Object
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -1321,8 +1290,7 @@ Class CompositeCollection from Object
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Equals P1
@@ -1412,13 +1380,11 @@ Class DataSourceProvider from Object
 		return self
 
 	Func InitialLoad 
-		dotnet_callv("s4:call",nHandle,"s11:InitialLoad")
-
+		dotnet_calltv(nHandle,"InitialLoad")
 		return self
 
 	Func Refresh 
-		dotnet_callv("s4:call",nHandle,"s7:Refresh")
-
+		dotnet_calltv(nHandle,"Refresh")
 		return self
 
 	Func DeferRefresh 
@@ -1602,22 +1568,16 @@ Class PropertyGroupDescription from DotNetObject
 		return dn_x
 
 	Func ShouldSerializeGroupNames 
-		dn_x = dotnet_call("s4:call",nHandle,"s25:ShouldSerializeGroupNames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeGroupNames"))
 
 	Func ShouldSerializeSortDescriptions 
-		dn_x = dotnet_call("s4:call",nHandle,"s31:ShouldSerializeSortDescriptions")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeSortDescriptions"))
 
 	Func GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToString"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1625,12 +1585,10 @@ Class PropertyGroupDescription from DotNetObject
 		return dn_x
 
 	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func getPropertyName
-		return dnText(dotnet_getp(nHandle,"PropertyName"))
+		return dnAnswer(dotnet_getp(nHandle,"PropertyName"))
 
 	Func setPropertyName P1
 		dotnet_setp(nHandle,"PropertyName",P1)
@@ -1725,14 +1683,10 @@ Class RelativeSource from MarkupExtension
 		return self
 
 	Func ShouldSerializeAncestorType 
-		dn_x = dotnet_call("s4:call",nHandle,"s27:ShouldSerializeAncestorType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeAncestorType"))
 
 	Func ShouldSerializeAncestorLevel 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:ShouldSerializeAncestorLevel")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeAncestorLevel"))
 
 	Func getMode
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Mode"))
@@ -1890,7 +1844,7 @@ Class XmlNamespaceMapping from Object
 		return dn_x
 
 	Func getPrefix
-		return dnText(dotnet_getp(nHandle,"Prefix"))
+		return dnAnswer(dotnet_getp(nHandle,"Prefix"))
 
 	Func setPrefix P1
 		dotnet_setp(nHandle,"Prefix",P1)
@@ -1937,8 +1891,7 @@ Class XmlNamespaceMappingCollection from XmlNamespaceManager
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -2033,19 +1986,13 @@ Class WpfBinding from BindingBase
 		return self
 
 	Func ShouldSerializeValidationRules 
-		dn_x = dotnet_call("s4:call",nHandle,"s30:ShouldSerializeValidationRules")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeValidationRules"))
 
 	Func ShouldSerializePath 
-		dn_x = dotnet_call("s4:call",nHandle,"s19:ShouldSerializePath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializePath"))
 
 	Func ShouldSerializeSource 
-		dn_x = dotnet_call("s4:call",nHandle,"s21:ShouldSerializeSource")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeSource"))
 
 	Func AddSourceUpdatedHandler P1,P2
 		dotnet_callv("s4:call",'System.Windows.Data.Binding, PresentationFramework',"s23:AddSourceUpdatedHandler",P1,P2)
@@ -2110,7 +2057,7 @@ Class WpfBinding from BindingBase
 		return self
 
 	Func getXPath
-		return dnText(dotnet_getp(nHandle,"XPath"))
+		return dnAnswer(dotnet_getp(nHandle,"XPath"))
 
 	Func setXPath P1
 		dotnet_setp(nHandle,"XPath",P1)
@@ -2187,7 +2134,7 @@ Class WpfBinding from BindingBase
 		return self
 
 	Func getElementName
-		return dnText(dotnet_getp(nHandle,"ElementName"))
+		return dnAnswer(dotnet_getp(nHandle,"ElementName"))
 
 	Func setElementName P1
 		dotnet_setp(nHandle,"ElementName",P1)
@@ -2289,7 +2236,7 @@ Class BindingExpression from BindingExpressionBase
 		raise("DotNet Error: ResolvedSource is a read-only property")
 
 	Func getResolvedSourcePropertyName
-		return dnText(dotnet_getp(nHandle,"ResolvedSourcePropertyName"))
+		return dnAnswer(dotnet_getp(nHandle,"ResolvedSourcePropertyName"))
 
 	Func setResolvedSourcePropertyName P1
 		raise("DotNet Error: ResolvedSourcePropertyName is a read-only property")
@@ -2335,18 +2282,15 @@ Class BindingListCollectionView from CollectionView
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AddNew"))
 
 	Func CommitNew 
-		dotnet_callv("s4:call",nHandle,"s9:CommitNew")
-
+		dotnet_calltv(nHandle,"CommitNew")
 		return self
 
 	Func CancelNew 
-		dotnet_callv("s4:call",nHandle,"s9:CancelNew")
-
+		dotnet_calltv(nHandle,"CancelNew")
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Remove P1
@@ -2360,17 +2304,15 @@ Class BindingListCollectionView from CollectionView
 		return self
 
 	Func CommitEdit 
-		dotnet_callv("s4:call",nHandle,"s10:CommitEdit")
-
+		dotnet_calltv(nHandle,"CommitEdit")
 		return self
 
 	Func CancelEdit 
-		dotnet_callv("s4:call",nHandle,"s10:CancelEdit")
-
+		dotnet_calltv(nHandle,"CancelEdit")
 		return self
 
 	Func getCustomFilter
-		return dnText(dotnet_getp(nHandle,"CustomFilter"))
+		return dnAnswer(dotnet_getp(nHandle,"CustomFilter"))
 
 	Func setCustomFilter P1
 		dotnet_setp(nHandle,"CustomFilter",P1)
@@ -2552,18 +2494,15 @@ Class ListCollectionView from CollectionView
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddNewItem",P1))
 
 	Func CommitNew 
-		dotnet_callv("s4:call",nHandle,"s9:CommitNew")
-
+		dotnet_calltv(nHandle,"CommitNew")
 		return self
 
 	Func CancelNew 
-		dotnet_callv("s4:call",nHandle,"s9:CancelNew")
-
+		dotnet_calltv(nHandle,"CancelNew")
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Remove P1
@@ -2577,13 +2516,11 @@ Class ListCollectionView from CollectionView
 		return self
 
 	Func CommitEdit 
-		dotnet_callv("s4:call",nHandle,"s10:CommitEdit")
-
+		dotnet_calltv(nHandle,"CommitEdit")
 		return self
 
 	Func CancelEdit 
-		dotnet_callv("s4:call",nHandle,"s10:CancelEdit")
-
+		dotnet_calltv(nHandle,"CancelEdit")
 		return self
 
 	Func getCustomSort
@@ -2762,14 +2699,10 @@ Class MultiBinding from BindingBase
 		return self
 
 	Func ShouldSerializeBindings 
-		dn_x = dotnet_call("s4:call",nHandle,"s23:ShouldSerializeBindings")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeBindings"))
 
 	Func ShouldSerializeValidationRules 
-		dn_x = dotnet_call("s4:call",nHandle,"s30:ShouldSerializeValidationRules")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeValidationRules"))
 
 	Func getBindings
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Bindings"))
@@ -2923,24 +2856,16 @@ Class ObjectDataProvider from DataSourceProvider
 		return self
 
 	Func ShouldSerializeObjectType 
-		dn_x = dotnet_call("s4:call",nHandle,"s25:ShouldSerializeObjectType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeObjectType"))
 
 	Func ShouldSerializeObjectInstance 
-		dn_x = dotnet_call("s4:call",nHandle,"s29:ShouldSerializeObjectInstance")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeObjectInstance"))
 
 	Func ShouldSerializeConstructorParameters 
-		dn_x = dotnet_call("s4:call",nHandle,"s36:ShouldSerializeConstructorParameters")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeConstructorParameters"))
 
 	Func ShouldSerializeMethodParameters 
-		dn_x = dotnet_call("s4:call",nHandle,"s31:ShouldSerializeMethodParameters")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeMethodParameters"))
 
 	Func getObjectType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:ObjectType"))
@@ -2957,7 +2882,7 @@ Class ObjectDataProvider from DataSourceProvider
 		return self
 
 	Func getMethodName
-		return dnText(dotnet_getp(nHandle,"MethodName"))
+		return dnAnswer(dotnet_getp(nHandle,"MethodName"))
 
 	Func setMethodName P1
 		dotnet_setp(nHandle,"MethodName",P1)
@@ -3006,9 +2931,7 @@ Class PriorityBinding from BindingBase
 		return self
 
 	Func ShouldSerializeBindings 
-		dn_x = dotnet_call("s4:call",nHandle,"s23:ShouldSerializeBindings")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeBindings"))
 
 	Func getBindings
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Bindings"))
@@ -3079,19 +3002,13 @@ Class XmlDataProvider from DataSourceProvider
 		return self
 
 	Func ShouldSerializeSource 
-		dn_x = dotnet_call("s4:call",nHandle,"s21:ShouldSerializeSource")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeSource"))
 
 	Func ShouldSerializeXPath 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:ShouldSerializeXPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeXPath"))
 
 	Func ShouldSerializeXmlSerializer 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:ShouldSerializeXmlSerializer")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeXmlSerializer"))
 
 	Func getSource
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Source"))
@@ -3108,7 +3025,7 @@ Class XmlDataProvider from DataSourceProvider
 		return self
 
 	Func getXPath
-		return dnText(dotnet_getp(nHandle,"XPath"))
+		return dnAnswer(dotnet_getp(nHandle,"XPath"))
 
 	Func setXPath P1
 		dotnet_setp(nHandle,"XPath",P1)

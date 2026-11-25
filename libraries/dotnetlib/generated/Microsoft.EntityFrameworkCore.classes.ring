@@ -555,7 +555,7 @@ Class BackingFieldAttribute from Attribute
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -604,7 +604,7 @@ Class CommentAttribute from Attribute
 		return self
 
 	Func getComment
-		return dnText(dotnet_getp(nHandle,"Comment"))
+		return dnAnswer(dotnet_getp(nHandle,"Comment"))
 
 	Func setComment P1
 		raise("DotNet Error: Comment is a read-only property")
@@ -638,19 +638,7 @@ Class DbContext from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Set",P1))
 
 	Func SaveChanges P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:SaveChanges",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:SaveChanges")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:SaveChanges",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"SaveChanges",P1))
 
 	Func SaveChangesAsync P1
 		if dotnet_isnamed(P1)
@@ -662,8 +650,7 @@ Class DbContext from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SaveChangesAsync",P1))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func DisposeAsync 
@@ -886,8 +873,7 @@ Class DbContextOptions from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:WithExtension",P1))
 
 	Func Freeze 
-		dotnet_callv("s4:call",nHandle,"s6:Freeze")
-
+		dotnet_calltv(nHandle,"Freeze")
 		return self
 
 	Func Equals P1
@@ -1117,14 +1103,14 @@ Class DbFunctionAttribute from Attribute
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		dotnet_setp(nHandle,"Schema",P1)
@@ -2182,7 +2168,7 @@ Class IndexAttribute from Attribute
 		raise("DotNet Error: PropertyNames is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)

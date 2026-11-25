@@ -894,14 +894,7 @@ Class WpfBrush from Animatable
 		return self
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func getOpacity
 		return dotnet_getp(nHandle,"Opacity")
@@ -2053,7 +2046,7 @@ Class CharacterMetrics from Object
 		return dn_x
 
 	Func getMetrics
-		return dnText(dotnet_getp(nHandle,"Metrics"))
+		return dnAnswer(dotnet_getp(nHandle,"Metrics"))
 
 	Func setMetrics P1
 		dotnet_setp(nHandle,"Metrics",P1)
@@ -2125,17 +2118,11 @@ Class CharacterMetricsDictionary from Object
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func Add P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-
+		dotnet_calltd1v(nHandle,"Add",P1)
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -2154,9 +2141,7 @@ Class CharacterMetricsDictionary from Object
 		return dn_x
 
 	Func ContainsKey P1
-		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsKey",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2246,18 +2231,10 @@ Class WpfColor from ValueType
 		return self
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Clamp 
-		dotnet_callv("s4:call",nHandle,"s5:Clamp")
-
+		dotnet_calltv(nHandle,"Clamp")
 		return self
 
 	Func GetNativeColorValues 
@@ -3462,8 +3439,7 @@ Class CompositionTarget from DispatcherObject
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func setRenderingEvent P1
@@ -3675,38 +3651,28 @@ Class DoubleCollection from Freezable
 		return self
 
 	Func Add P1
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-
+		dotnet_calltv(nHandle,"Add",P1)
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IndexOf",P1))
 
 	Func Insert P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-
+		dotnet_calltv(nHandle,"Insert",P1,P2)
 		return self
 
 	Func Remove P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Remove",P1))
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -3718,14 +3684,7 @@ Class DoubleCollection from Freezable
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.DoubleCollection, PresentationCore',"s5:Parse",P1))
@@ -3789,13 +3748,10 @@ Class DoubleCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -3890,8 +3846,7 @@ Class DrawingCollection from Animatable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -3915,8 +3870,7 @@ Class DrawingCollection from Animatable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -3984,13 +3938,10 @@ Class DrawingCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -4017,8 +3968,7 @@ Class DrawingContext from DispatcherObject
 		return self
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func DrawLine P1
@@ -4089,12 +4039,7 @@ Class DrawingContext from DispatcherObject
 		return self
 
 	Func PushOpacity P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s11:PushOpacity",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s11:PushOpacity",P1)
-
+		dotnet_calltd1v(nHandle,"PushOpacity",P1)
 		return self
 
 	Func PushTransform P1
@@ -4113,8 +4058,7 @@ Class DrawingContext from DispatcherObject
 		return self
 
 	Func Pop 
-		dotnet_callv("s4:call",nHandle,"s3:Pop")
-
+		dotnet_calltv(nHandle,"Pop")
 		return self
 
 
@@ -4246,7 +4190,7 @@ Class FamilyTypeface from Object
 		raise("DotNet Error: AdjustedFaceNames is a read-only property")
 
 	Func getDeviceFontName
-		return dnText(dotnet_getp(nHandle,"DeviceFontName"))
+		return dnAnswer(dotnet_getp(nHandle,"DeviceFontName"))
 
 	Func setDeviceFontName P1
 		dotnet_setp(nHandle,"DeviceFontName",P1)
@@ -4282,8 +4226,7 @@ Class FamilyTypefaceCollection from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -4312,8 +4255,7 @@ Class FamilyTypefaceCollection from Object
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Equals P1
@@ -4474,7 +4416,7 @@ Class WpfFontFamily from Object
 		raise("DotNet Error: FamilyMaps is a read-only property")
 
 	Func getSource
-		return dnText(dotnet_getp(nHandle,"Source"))
+		return dnAnswer(dotnet_getp(nHandle,"Source"))
 
 	Func setSource P1
 		raise("DotNet Error: Source is a read-only property")
@@ -4552,14 +4494,14 @@ Class FontFamilyMap from Object
 		return dn_x
 
 	Func getUnicode
-		return dnText(dotnet_getp(nHandle,"Unicode"))
+		return dnAnswer(dotnet_getp(nHandle,"Unicode"))
 
 	Func setUnicode P1
 		dotnet_setp(nHandle,"Unicode",P1)
 		return self
 
 	Func getTarget
-		return dnText(dotnet_getp(nHandle,"Target"))
+		return dnAnswer(dotnet_getp(nHandle,"Target"))
 
 	Func setTarget P1
 		dotnet_setp(nHandle,"Target",P1)
@@ -4603,8 +4545,7 @@ Class FontFamilyMapCollection from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -4633,8 +4574,7 @@ Class FontFamilyMapCollection from Object
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Equals P1
@@ -4795,93 +4735,43 @@ Class FormattedText from Object
 		return self
 
 	Func SetForegroundBrush P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s18:SetForegroundBrush",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s18:SetForegroundBrush",P1)
-
+		dotnet_calltd1v(nHandle,"SetForegroundBrush",P1)
 		return self
 
 	Func SetFontFamily P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s13:SetFontFamily",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s13:SetFontFamily",P1)
-
+		dotnet_calltd1v(nHandle,"SetFontFamily",P1)
 		return self
 
 	Func SetFontSize P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s11:SetFontSize",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s11:SetFontSize",P1)
-
+		dotnet_calltd1v(nHandle,"SetFontSize",P1)
 		return self
 
 	Func SetCulture P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s10:SetCulture",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s10:SetCulture",P1)
-
+		dotnet_calltd1v(nHandle,"SetCulture",P1)
 		return self
 
 	Func SetNumberSubstitution P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s21:SetNumberSubstitution",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s21:SetNumberSubstitution",P1)
-
+		dotnet_calltd1v(nHandle,"SetNumberSubstitution",P1)
 		return self
 
 	Func SetFontWeight P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s13:SetFontWeight",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s13:SetFontWeight",P1)
-
+		dotnet_calltd1v(nHandle,"SetFontWeight",P1)
 		return self
 
 	Func SetFontStyle P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s12:SetFontStyle",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s12:SetFontStyle",P1)
-
+		dotnet_calltd1v(nHandle,"SetFontStyle",P1)
 		return self
 
 	Func SetFontStretch P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:SetFontStretch",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:SetFontStretch",P1)
-
+		dotnet_calltd1v(nHandle,"SetFontStretch",P1)
 		return self
 
 	Func SetFontTypeface P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s15:SetFontTypeface",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s15:SetFontTypeface",P1)
-
+		dotnet_calltd1v(nHandle,"SetFontTypeface",P1)
 		return self
 
 	Func SetTextDecorations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s18:SetTextDecorations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s18:SetTextDecorations",P1)
-
+		dotnet_calltd1v(nHandle,"SetTextDecorations",P1)
 		return self
 
 	Func SetMaxTextWidths P1
@@ -4907,7 +4797,7 @@ Class FormattedText from Object
 		return dn_x
 
 	Func getText
-		return dnText(dotnet_getp(nHandle,"Text"))
+		return dnAnswer(dotnet_getp(nHandle,"Text"))
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
@@ -5046,14 +4936,7 @@ Class GeneralTransform from Animatable
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:TransformBounds",P1))
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func getInverse
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Inverse"))
@@ -5106,8 +4989,7 @@ Class GeneralTransformCollection from Animatable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -5131,8 +5013,7 @@ Class GeneralTransformCollection from Animatable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -5200,13 +5081,10 @@ Class GeneralTransformCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -5240,9 +5118,7 @@ Class Geometry from Animatable
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetRenderBounds",P1))
 
 	Func ShouldSerializeTransform 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeTransform")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeTransform"))
 
 	Func GetArea P1
 		if dotnet_isnamed(P1)
@@ -5258,24 +5134,13 @@ Class Geometry from Animatable
 		raise("DotNet Error: GetArea does not take one argument: use named arguments, GetArea([ :parameter = value, ... ])")
 
 	Func IsEmpty 
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsEmpty"))
 
 	Func MayHaveCurves 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:MayHaveCurves")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MayHaveCurves"))
 
 	Func FillContains P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:FillContains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s12:FillContains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"FillContains",P1))
 
 	Func StrokeContains P1
 		if dotnet_isnamed(P1)
@@ -5322,14 +5187,7 @@ Class Geometry from Animatable
 		raise("DotNet Error: GetOutlinedPathGeometry does not take one argument: use named arguments, GetOutlinedPathGeometry([ :parameter = value, ... ])")
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Combine P1
 		if dotnet_isnamed(P1)
@@ -5416,8 +5274,7 @@ Class GeometryCollection from Animatable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -5441,8 +5298,7 @@ Class GeometryCollection from Animatable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -5510,13 +5366,10 @@ Class GeometryCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -5725,7 +5578,7 @@ Class GlyphRun from Object
 		return self
 
 	Func getDeviceFontName
-		return dnText(dotnet_getp(nHandle,"DeviceFontName"))
+		return dnAnswer(dotnet_getp(nHandle,"DeviceFontName"))
 
 	Func setDeviceFontName P1
 		dotnet_setp(nHandle,"DeviceFontName",P1)
@@ -6101,14 +5954,7 @@ Class GradientStop from Animatable
 		return self
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func getColor
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Color"))
@@ -6181,8 +6027,7 @@ Class GradientStopCollection from Animatable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -6206,8 +6051,7 @@ Class GradientStopCollection from Animatable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -6219,14 +6063,7 @@ Class GradientStopCollection from Animatable
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.GradientStopCollection, PresentationCore',"s5:Parse",P1))
@@ -6288,13 +6125,10 @@ Class GradientStopCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -6442,14 +6276,7 @@ Class ImageSource from Animatable
 		return self
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func getWidth
 		return dotnet_getp(nHandle,"Width")
@@ -6551,38 +6378,28 @@ Class Int32Collection from Freezable
 		return self
 
 	Func Add P1
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-
+		dotnet_calltv(nHandle,"Add",P1)
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IndexOf",P1))
 
 	Func Insert P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-
+		dotnet_calltv(nHandle,"Insert",P1,P2)
 		return self
 
 	Func Remove P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Remove",P1))
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -6594,14 +6411,7 @@ Class Int32Collection from Freezable
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Int32Collection, PresentationCore',"s5:Parse",P1))
@@ -6665,13 +6475,10 @@ Class Int32CollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -6762,17 +6569,11 @@ Class LanguageSpecificStringDictionary from Object
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func Add P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-
+		dotnet_calltd1v(nHandle,"Add",P1)
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -6902,8 +6703,7 @@ Class WpfMatrix from ValueType
 		return self
 
 	Func SetIdentity 
-		dotnet_callv("s4:call",nHandle,"s11:SetIdentity")
-
+		dotnet_calltv(nHandle,"SetIdentity")
 		return self
 
 	Func Append P1
@@ -6917,71 +6717,58 @@ Class WpfMatrix from ValueType
 		return self
 
 	Func Rotate P1
-		dotnet_callv("s4:call",nHandle,"s6:Rotate",P1)
-
+		dotnet_calltv(nHandle,"Rotate",P1)
 		return self
 
 	Func RotatePrepend P1
-		dotnet_callv("s4:call",nHandle,"s13:RotatePrepend",P1)
-
+		dotnet_calltv(nHandle,"RotatePrepend",P1)
 		return self
 
 	Func RotateAt P1,P2,P3
-		dotnet_callv("s4:call",nHandle,"s8:RotateAt",P1,P2,P3)
-
+		dotnet_calltv(nHandle,"RotateAt",P1,P2,P3)
 		return self
 
 	Func RotateAtPrepend P1,P2,P3
-		dotnet_callv("s4:call",nHandle,"s15:RotateAtPrepend",P1,P2,P3)
-
+		dotnet_calltv(nHandle,"RotateAtPrepend",P1,P2,P3)
 		return self
 
 	Func Scale P1,P2
-		dotnet_callv("s4:call",nHandle,"s5:Scale",P1,P2)
-
+		dotnet_calltv(nHandle,"Scale",P1,P2)
 		return self
 
 	Func ScalePrepend P1,P2
-		dotnet_callv("s4:call",nHandle,"s12:ScalePrepend",P1,P2)
-
+		dotnet_calltv(nHandle,"ScalePrepend",P1,P2)
 		return self
 
 	Func ScaleAt P1,P2,P3,P4
-		dotnet_callv("s4:call",nHandle,"s7:ScaleAt",P1,P2,P3,P4)
-
+		dotnet_calltv(nHandle,"ScaleAt",P1,P2,P3,P4)
 		return self
 
 	Func ScaleAtPrepend P1,P2,P3,P4
-		dotnet_callv("s4:call",nHandle,"s14:ScaleAtPrepend",P1,P2,P3,P4)
-
+		dotnet_calltv(nHandle,"ScaleAtPrepend",P1,P2,P3,P4)
 		return self
 
 	Func Skew P1,P2
-		dotnet_callv("s4:call",nHandle,"s4:Skew",P1,P2)
-
+		dotnet_calltv(nHandle,"Skew",P1,P2)
 		return self
 
 	Func SkewPrepend P1,P2
-		dotnet_callv("s4:call",nHandle,"s11:SkewPrepend",P1,P2)
-
+		dotnet_calltv(nHandle,"SkewPrepend",P1,P2)
 		return self
 
 	Func Translate P1,P2
-		dotnet_callv("s4:call",nHandle,"s9:Translate",P1,P2)
-
+		dotnet_calltv(nHandle,"Translate",P1,P2)
 		return self
 
 	Func TranslatePrepend P1,P2
-		dotnet_callv("s4:call",nHandle,"s16:TranslatePrepend",P1,P2)
-
+		dotnet_calltv(nHandle,"TranslatePrepend",P1,P2)
 		return self
 
 	Func Transform P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Transform",P1))
 
 	Func Invert 
-		dotnet_callv("s4:call",nHandle,"s6:Invert")
-
+		dotnet_calltv(nHandle,"Invert")
 		return self
 
 	Func Equals P1
@@ -7000,14 +6787,7 @@ Class WpfMatrix from ValueType
 		return dn_x
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Multiply P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Matrix, WindowsBase',"s8:Multiply",P1,P2))
@@ -7160,23 +6940,19 @@ Class MediaPlayer from Animatable
 		return self
 
 	Func Play 
-		dotnet_callv("s4:call",nHandle,"s4:Play")
-
+		dotnet_calltv(nHandle,"Play")
 		return self
 
 	Func Pause 
-		dotnet_callv("s4:call",nHandle,"s5:Pause")
-
+		dotnet_calltv(nHandle,"Pause")
 		return self
 
 	Func Stop 
-		dotnet_callv("s4:call",nHandle,"s4:Stop")
-
+		dotnet_calltv(nHandle,"Stop")
 		return self
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func setMediaFailedEvent P1
@@ -7352,13 +7128,13 @@ Class MediaScriptCommandEventArgs from EventArgs
 		return self
 
 	Func getParameterType
-		return dnText(dotnet_getp(nHandle,"ParameterType"))
+		return dnAnswer(dotnet_getp(nHandle,"ParameterType"))
 
 	Func setParameterType P1
 		raise("DotNet Error: ParameterType is a read-only property")
 
 	Func getParameterValue
-		return dnText(dotnet_getp(nHandle,"ParameterValue"))
+		return dnAnswer(dotnet_getp(nHandle,"ParameterValue"))
 
 	Func setParameterValue P1
 		raise("DotNet Error: ParameterValue is a read-only property")
@@ -7584,19 +7360,10 @@ Class PathFigure from Animatable
 		raise("DotNet Error: GetFlattenedPathFigure does not take one argument: use named arguments, GetFlattenedPathFigure([ :parameter = value, ... ])")
 
 	Func MayHaveCurves 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:MayHaveCurves")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MayHaveCurves"))
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func getStartPoint
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:StartPoint"))
@@ -7695,8 +7462,7 @@ Class PathFigureCollection from Animatable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -7720,8 +7486,7 @@ Class PathFigureCollection from Animatable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -7733,14 +7498,7 @@ Class PathFigureCollection from Animatable
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.PathFigureCollection, PresentationCore',"s5:Parse",P1))
@@ -7802,13 +7560,10 @@ Class PathFigureCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -7926,8 +7681,7 @@ Class PathSegmentCollection from Animatable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -7951,8 +7705,7 @@ Class PathSegmentCollection from Animatable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -8020,13 +7773,10 @@ Class PathSegmentCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -8562,8 +8312,7 @@ Class PointCollection from Freezable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -8587,8 +8336,7 @@ Class PointCollection from Freezable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -8600,14 +8348,7 @@ Class PointCollection from Freezable
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.PointCollection, PresentationCore',"s5:Parse",P1))
@@ -8669,13 +8410,10 @@ Class PointCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -8941,8 +8679,7 @@ Class StreamGeometryContext from DispatcherObject
 		return self
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func BeginFigure P1,P2,P3
@@ -9143,8 +8880,7 @@ Class TextEffectCollection from Animatable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -9168,8 +8904,7 @@ Class TextEffectCollection from Animatable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -9237,13 +8972,10 @@ Class TextEffectCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -9360,8 +9092,7 @@ Class TransformCollection from Animatable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -9385,8 +9116,7 @@ Class TransformCollection from Animatable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -9454,13 +9184,10 @@ Class TransformCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -9664,8 +9391,7 @@ Class VectorCollection from Freezable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -9689,8 +9415,7 @@ Class VectorCollection from Freezable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -9702,14 +9427,7 @@ Class VectorCollection from Freezable
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.VectorCollection, PresentationCore',"s5:Parse",P1))
@@ -9771,13 +9489,10 @@ Class VectorCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -9893,8 +9608,7 @@ Class VisualCollection from Object
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Insert P1,P2
@@ -9903,13 +9617,11 @@ Class VisualCollection from Object
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func RemoveRange P1,P2
-		dotnet_callv("s4:call",nHandle,"s11:RemoveRange",P1,P2)
-
+		dotnet_calltv(nHandle,"RemoveRange",P1,P2)
 		return self
 
 	Func GetEnumerator 
@@ -10002,13 +9714,10 @@ Class VisualCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -11580,8 +11289,7 @@ Class PathGeometry from Geometry
 		return dnSend("s4:call",nHandle,"s24:GetPointAtFractionLength",dnPackItem(P1))
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func CreateFromGeometry P1
@@ -12051,8 +11759,7 @@ Class StreamGeometry from Geometry
 		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Open"))
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func getFillRule

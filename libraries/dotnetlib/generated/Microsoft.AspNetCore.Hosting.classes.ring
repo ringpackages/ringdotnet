@@ -314,8 +314,7 @@ Class IWebHost from DotNetObject
 		return self
 
 	Func Start 
-		dotnet_callv("s4:call",nHandle,"s5:Start")
-
+		dotnet_calltv(nHandle,"Start")
 		return self
 
 	Func StartAsync P1
@@ -337,8 +336,7 @@ Class IWebHost from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:StopAsync",P1))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func WaitForShutdown 
@@ -407,9 +405,7 @@ Class IWebHostBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConfigureServices",P1))
 
 	Func GetSetting P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:GetSetting",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetSetting",P1))
 
 	Func UseSetting P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSetting",P1,P2))
@@ -594,7 +590,7 @@ Class IWebHostEnvironment from DotNetObject
 		return dn_x
 
 	Func getWebRootPath
-		return dnText(dotnet_getp(nHandle,"WebRootPath"))
+		return dnAnswer(dotnet_getp(nHandle,"WebRootPath"))
 
 	Func setWebRootPath P1
 		dotnet_setp(nHandle,"WebRootPath",P1)
@@ -608,21 +604,21 @@ Class IWebHostEnvironment from DotNetObject
 		return self
 
 	Func getEnvironmentName
-		return dnText(dotnet_getp(nHandle,"EnvironmentName"))
+		return dnAnswer(dotnet_getp(nHandle,"EnvironmentName"))
 
 	Func setEnvironmentName P1
 		dotnet_setp(nHandle,"EnvironmentName",P1)
 		return self
 
 	Func getApplicationName
-		return dnText(dotnet_getp(nHandle,"ApplicationName"))
+		return dnAnswer(dotnet_getp(nHandle,"ApplicationName"))
 
 	Func setApplicationName P1
 		dotnet_setp(nHandle,"ApplicationName",P1)
 		return self
 
 	Func getContentRootPath
-		return dnText(dotnet_getp(nHandle,"ContentRootPath"))
+		return dnAnswer(dotnet_getp(nHandle,"ContentRootPath"))
 
 	Func setContentRootPath P1
 		dotnet_setp(nHandle,"ContentRootPath",P1)
@@ -756,9 +752,7 @@ Class WebHostBuilder from Object
 		return self
 
 	Func GetSetting P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:GetSetting",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetSetting",P1))
 
 	Func UseSetting P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSetting",P1,P2))

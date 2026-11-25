@@ -307,12 +307,39 @@ func returnCode cRequest, cReturnType, nByRef
 	ok
 	return "return " + sendCall(cRequest) + nl
 
+# An instance method of at most 8 parameters of a number, a yes/no or a text, with an answer of a number, a yes/no, a text or nothing: the extension calls it
+# without a request text (dotnet_callt, dotnet_calltv). The bridge decides on the real type of the object: it calls the method directly only when it is the only
+# one of that name that can take these arguments, and the arguments convert exactly; otherwise the extension makes the generic request itself.
+func isTypedMethod aRec
+	if aRec[2] or aRec[5] > 0 or len(aRec[4]) > 8
+		return false
+	ok
+	if aRec[3] != "System.Void" and not isPrimitiveType(aRec[3])
+		return false
+	ok
+	for cParam in aRec[4]
+		if find(["System.Int32","System.Int64","System.Double","System.Boolean","System.String","System.UInt32","System.Int16","System.UInt16","System.Byte","System.SByte","System.UInt64","System.Single"],cParam) = 0
+			return false
+		ok
+	next
+	return true
+
+func typedMethodCode cName, nArity, cReturnType
+	cArgs = ""
+	for x = 1 to nArity
+		cArgs += ",P" + x
+	next
+	if cReturnType = "System.Void"
+		return 'dotnet_calltv(nHandle,"' + cName + '"' + cArgs + ')' + nl + "		return self" + nl
+	ok
+	return 'return dnAnswer(dotnet_callt(nHandle,"' + cName + '"' + cArgs + '))' + nl
+
 # The getter of an instance property or field of a number, a yes/no or a text: dotnet_getp (ring_dotnet.c) reads it without a request text. The bridge
 # answers the value, or asks for the generic request (the property is of another kind on the real type, the handle is not valid...), which the extension
 # makes itself, so every answer and every error is the one of the generic call. A text can be null: the marker list is finished by dnFinish.
 func typedGetterCode cName, cType
 	if cType = "System.String"
-		return 'return dnText(dotnet_getp(nHandle,"' + cName + '"))' + nl
+		return 'return dnAnswer(dotnet_getp(nHandle,"' + cName + '"))' + nl
 	ok
 	return 'return dotnet_getp(nHandle,"' + cName + '")' + nl
 
@@ -826,7 +853,11 @@ func buildPlan cTypeName, nForceInit
 			cReq += "]"
 			aMethod = aInstanceRec
 		ok
-		cB += "		" + returnCode(cReq,aMethod[3],aMethod[5]) + nl
+		if cHint = "" and isTypedMethod(aMethod) and find(aBoth,cLower + "|" + nArity) = 0
+			cB += "		" + typedMethodCode(cName,nArity,aMethod[3]) + nl
+		else
+			cB += "		" + returnCode(cReq,aMethod[3],aMethod[5]) + nl
+		ok
 		aBlocks + [lower(cRing),cB]
 	next
 
@@ -1101,6 +1132,20 @@ func extensionHint aHintMethods, cHintName
 	next
 	return ""
 
+# The body of a dispatcher whose call is made by the extension from its argument: dotnet_calltd (an answer of a number, a yes/no or a text) or dotnet_calltdv
+# (nothing). A call that cannot be made directly (several overloads can take the argument, a list of named arguments...) is the generic request, made by the
+# extension, so every answer and every error is the generic one; an answer that is not a number or a text is finished by dnAnswer.
+func typedDispatchCode cName, cMode, lNoArgument
+	# (a name with an overload without parameters reads NULL, an empty text, as no argument; any other name takes it as the one argument)
+	cFunction = "dotnet_calltd"
+	if not lNoArgument
+		cFunction = "dotnet_calltd1"
+	ok
+	if cMode = "void"
+		return "		" + cFunction + 'v(nHandle,"' + cName + '",P1)' + nl + "		return self" + nl
+	ok
+	return "		" + 'return dnAnswer(' + cFunction + '(nHandle,"' + cName + '",P1))' + nl
+
 func dispatcherBlock cDiRing, cDiName, cDiType, aDiMethods, aDiFamily
 	aDiArities = aDiFamily[1]
 	cDiB = "	Func " + cDiRing + " P1" + nl
@@ -1108,9 +1153,14 @@ func dispatcherBlock cDiRing, cDiName, cDiType, aDiMethods, aDiFamily
 	if cDiHint != ""
 		cDiB += '		dnEnsureExt("' + cDiHint + '")' + nl
 	ok
+	cDiMode = dispatcherMode(aDiMethods,cDiName)
+	# an instance method that can be called with one argument (and perhaps with none), whose overloads answer a number, a yes/no, a text or nothing: the extension
+	# looks at the argument (NULL, a value, a list of pairs) and calls the method directly when it can (see typedDispatchCode)
+	if cDiHint = "" and not aDiFamily[2] and aDiFamily[3] and find(aDiArities,1) > 0 and (cDiMode = "void" or cDiMode = "value")
+		return cDiB + typedDispatchCode(cDiName,cDiMode,find(aDiArities,0) > 0) + nl
+	ok
 	cDiB += "		if dotnet_isnamed(P1)" + nl
 	# the named form: the bridge chooses the overload by the parameter names; static methods are reachable from an object
-	cDiMode = dispatcherMode(aDiMethods,cDiName)
 	if aDiFamily[2] and not aDiFamily[3]
 		cDiTarget = "dnTypeCached('" + cDiType + "')"
 	else

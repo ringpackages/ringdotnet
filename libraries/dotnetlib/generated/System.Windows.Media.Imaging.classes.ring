@@ -239,7 +239,7 @@ Class BitmapCodecInfo from Object
 		raise("DotNet Error: ContainerFormat is a read-only property")
 
 	Func getAuthor
-		return dnText(dotnet_getp(nHandle,"Author"))
+		return dnAnswer(dotnet_getp(nHandle,"Author"))
 
 	Func setAuthor P1
 		raise("DotNet Error: Author is a read-only property")
@@ -257,31 +257,31 @@ Class BitmapCodecInfo from Object
 		raise("DotNet Error: SpecificationVersion is a read-only property")
 
 	Func getFriendlyName
-		return dnText(dotnet_getp(nHandle,"FriendlyName"))
+		return dnAnswer(dotnet_getp(nHandle,"FriendlyName"))
 
 	Func setFriendlyName P1
 		raise("DotNet Error: FriendlyName is a read-only property")
 
 	Func getDeviceManufacturer
-		return dnText(dotnet_getp(nHandle,"DeviceManufacturer"))
+		return dnAnswer(dotnet_getp(nHandle,"DeviceManufacturer"))
 
 	Func setDeviceManufacturer P1
 		raise("DotNet Error: DeviceManufacturer is a read-only property")
 
 	Func getDeviceModels
-		return dnText(dotnet_getp(nHandle,"DeviceModels"))
+		return dnAnswer(dotnet_getp(nHandle,"DeviceModels"))
 
 	Func setDeviceModels P1
 		raise("DotNet Error: DeviceModels is a read-only property")
 
 	Func getMimeTypes
-		return dnText(dotnet_getp(nHandle,"MimeTypes"))
+		return dnAnswer(dotnet_getp(nHandle,"MimeTypes"))
 
 	Func setMimeTypes P1
 		raise("DotNet Error: MimeTypes is a read-only property")
 
 	Func getFileExtensions
-		return dnText(dotnet_getp(nHandle,"FileExtensions"))
+		return dnAnswer(dotnet_getp(nHandle,"FileExtensions"))
 
 	Func setFileExtensions P1
 		raise("DotNet Error: FileExtensions is a read-only property")
@@ -521,14 +521,11 @@ Class BitmapMetadata from ImageMetadata
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetQuery",P1))
 
 	Func RemoveQuery P1
-		dotnet_callv("s4:call",nHandle,"s11:RemoveQuery",P1)
-
+		dotnet_calltv(nHandle,"RemoveQuery",P1)
 		return self
 
 	Func ContainsQuery P1
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ContainsQuery",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsQuery",P1))
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -551,13 +548,13 @@ Class BitmapMetadata from ImageMetadata
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getFormat
-		return dnText(dotnet_getp(nHandle,"Format"))
+		return dnAnswer(dotnet_getp(nHandle,"Format"))
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getLocation
-		return dnText(dotnet_getp(nHandle,"Location"))
+		return dnAnswer(dotnet_getp(nHandle,"Location"))
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")
@@ -582,7 +579,7 @@ Class BitmapMetadata from ImageMetadata
 		return self
 
 	Func getTitle
-		return dnText(dotnet_getp(nHandle,"Title"))
+		return dnAnswer(dotnet_getp(nHandle,"Title"))
 
 	Func setTitle P1
 		dotnet_setp(nHandle,"Title",P1)
@@ -596,49 +593,49 @@ Class BitmapMetadata from ImageMetadata
 		return self
 
 	Func getSubject
-		return dnText(dotnet_getp(nHandle,"Subject"))
+		return dnAnswer(dotnet_getp(nHandle,"Subject"))
 
 	Func setSubject P1
 		dotnet_setp(nHandle,"Subject",P1)
 		return self
 
 	Func getComment
-		return dnText(dotnet_getp(nHandle,"Comment"))
+		return dnAnswer(dotnet_getp(nHandle,"Comment"))
 
 	Func setComment P1
 		dotnet_setp(nHandle,"Comment",P1)
 		return self
 
 	Func getDateTaken
-		return dnText(dotnet_getp(nHandle,"DateTaken"))
+		return dnAnswer(dotnet_getp(nHandle,"DateTaken"))
 
 	Func setDateTaken P1
 		dotnet_setp(nHandle,"DateTaken",P1)
 		return self
 
 	Func getApplicationName
-		return dnText(dotnet_getp(nHandle,"ApplicationName"))
+		return dnAnswer(dotnet_getp(nHandle,"ApplicationName"))
 
 	Func setApplicationName P1
 		dotnet_setp(nHandle,"ApplicationName",P1)
 		return self
 
 	Func getCopyright
-		return dnText(dotnet_getp(nHandle,"Copyright"))
+		return dnAnswer(dotnet_getp(nHandle,"Copyright"))
 
 	Func setCopyright P1
 		dotnet_setp(nHandle,"Copyright",P1)
 		return self
 
 	Func getCameraManufacturer
-		return dnText(dotnet_getp(nHandle,"CameraManufacturer"))
+		return dnAnswer(dotnet_getp(nHandle,"CameraManufacturer"))
 
 	Func setCameraManufacturer P1
 		dotnet_setp(nHandle,"CameraManufacturer",P1)
 		return self
 
 	Func getCameraModel
-		return dnText(dotnet_getp(nHandle,"CameraModel"))
+		return dnAnswer(dotnet_getp(nHandle,"CameraModel"))
 
 	Func setCameraModel P1
 		dotnet_setp(nHandle,"CameraModel",P1)
@@ -1193,13 +1190,11 @@ Class BitmapImage from BitmapSource
 		return self
 
 	Func BeginInit 
-		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-
+		dotnet_calltv(nHandle,"BeginInit")
 		return self
 
 	Func EndInit 
-		dotnet_callv("s4:call",nHandle,"s7:EndInit")
-
+		dotnet_calltv(nHandle,"EndInit")
 		return self
 
 	Func getBaseUri
@@ -1422,13 +1417,11 @@ Class ColorConvertedBitmap from BitmapSource
 		return self
 
 	Func BeginInit 
-		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-
+		dotnet_calltv(nHandle,"BeginInit")
 		return self
 
 	Func EndInit 
-		dotnet_callv("s4:call",nHandle,"s7:EndInit")
-
+		dotnet_calltv(nHandle,"EndInit")
 		return self
 
 	Func getSource
@@ -1526,13 +1519,11 @@ Class CroppedBitmap from BitmapSource
 		return self
 
 	Func BeginInit 
-		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-
+		dotnet_calltv(nHandle,"BeginInit")
 		return self
 
 	Func EndInit 
-		dotnet_callv("s4:call",nHandle,"s7:EndInit")
-
+		dotnet_calltv(nHandle,"EndInit")
 		return self
 
 	Func getSource
@@ -1608,13 +1599,11 @@ Class FormatConvertedBitmap from BitmapSource
 		return self
 
 	Func BeginInit 
-		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-
+		dotnet_calltv(nHandle,"BeginInit")
 		return self
 
 	Func EndInit 
-		dotnet_callv("s4:call",nHandle,"s7:EndInit")
-
+		dotnet_calltv(nHandle,"EndInit")
 		return self
 
 	Func getSource
@@ -1731,9 +1720,7 @@ Class InPlaceBitmapMetadataWriter from BitmapMetadata
 		return self
 
 	Func TrySave 
-		dn_x = dotnet_call("s4:call",nHandle,"s7:TrySave")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"TrySave"))
 
 
 Class JpegBitmapDecoder from BitmapDecoder
@@ -1887,8 +1874,7 @@ Class RenderTargetBitmap from BitmapSource
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 
@@ -1978,13 +1964,11 @@ Class TransformedBitmap from BitmapSource
 		return self
 
 	Func BeginInit 
-		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-
+		dotnet_calltv(nHandle,"BeginInit")
 		return self
 
 	Func EndInit 
-		dotnet_callv("s4:call",nHandle,"s7:EndInit")
-
+		dotnet_calltv(nHandle,"EndInit")
 		return self
 
 	Func getSource
@@ -2231,8 +2215,7 @@ Class WriteableBitmap from BitmapSource
 		return self
 
 	Func Lock 
-		dotnet_callv("s4:call",nHandle,"s4:Lock")
-
+		dotnet_calltv(nHandle,"Lock")
 		return self
 
 	Func TryLock P1
@@ -2241,8 +2224,7 @@ Class WriteableBitmap from BitmapSource
 		return dn_x
 
 	Func Unlock 
-		dotnet_callv("s4:call",nHandle,"s6:Unlock")
-
+		dotnet_calltv(nHandle,"Unlock")
 		return self
 
 	Func WritePixels P1

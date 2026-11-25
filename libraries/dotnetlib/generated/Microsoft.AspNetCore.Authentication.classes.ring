@@ -810,42 +810,42 @@ Class AuthenticationOptions from Object
 		raise("DotNet Error: SchemeMap is a read-only property")
 
 	Func getDefaultScheme
-		return dnText(dotnet_getp(nHandle,"DefaultScheme"))
+		return dnAnswer(dotnet_getp(nHandle,"DefaultScheme"))
 
 	Func setDefaultScheme P1
 		dotnet_setp(nHandle,"DefaultScheme",P1)
 		return self
 
 	Func getDefaultAuthenticateScheme
-		return dnText(dotnet_getp(nHandle,"DefaultAuthenticateScheme"))
+		return dnAnswer(dotnet_getp(nHandle,"DefaultAuthenticateScheme"))
 
 	Func setDefaultAuthenticateScheme P1
 		dotnet_setp(nHandle,"DefaultAuthenticateScheme",P1)
 		return self
 
 	Func getDefaultSignInScheme
-		return dnText(dotnet_getp(nHandle,"DefaultSignInScheme"))
+		return dnAnswer(dotnet_getp(nHandle,"DefaultSignInScheme"))
 
 	Func setDefaultSignInScheme P1
 		dotnet_setp(nHandle,"DefaultSignInScheme",P1)
 		return self
 
 	Func getDefaultSignOutScheme
-		return dnText(dotnet_getp(nHandle,"DefaultSignOutScheme"))
+		return dnAnswer(dotnet_getp(nHandle,"DefaultSignOutScheme"))
 
 	Func setDefaultSignOutScheme P1
 		dotnet_setp(nHandle,"DefaultSignOutScheme",P1)
 		return self
 
 	Func getDefaultChallengeScheme
-		return dnText(dotnet_getp(nHandle,"DefaultChallengeScheme"))
+		return dnAnswer(dotnet_getp(nHandle,"DefaultChallengeScheme"))
 
 	Func setDefaultChallengeScheme P1
 		dotnet_setp(nHandle,"DefaultChallengeScheme",P1)
 		return self
 
 	Func getDefaultForbidScheme
-		return dnText(dotnet_getp(nHandle,"DefaultForbidScheme"))
+		return dnAnswer(dotnet_getp(nHandle,"DefaultForbidScheme"))
 
 	Func setDefaultForbidScheme P1
 		dotnet_setp(nHandle,"DefaultForbidScheme",P1)
@@ -907,13 +907,10 @@ Class AuthenticationProperties from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func GetString P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetString",P1))
 
 	Func SetString P1,P2
-		dotnet_callv("s4:call",nHandle,"s9:SetString",P1,P2)
-
+		dotnet_calltv(nHandle,"SetString",P1,P2)
 		return self
 
 	Func GetParameter P1
@@ -974,7 +971,7 @@ Class AuthenticationProperties from Object
 		return self
 
 	Func getRedirectUri
-		return dnText(dotnet_getp(nHandle,"RedirectUri"))
+		return dnAnswer(dotnet_getp(nHandle,"RedirectUri"))
 
 	Func setRedirectUri P1
 		dotnet_setp(nHandle,"RedirectUri",P1)
@@ -1025,13 +1022,13 @@ Class AuthenticationScheme from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDisplayName
-		return dnText(dotnet_getp(nHandle,"DisplayName"))
+		return dnAnswer(dotnet_getp(nHandle,"DisplayName"))
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
@@ -1069,13 +1066,13 @@ Class AuthenticationSchemeBuilder from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDisplayName
-		return dnText(dotnet_getp(nHandle,"DisplayName"))
+		return dnAnswer(dotnet_getp(nHandle,"DisplayName"))
 
 	Func setDisplayName P1
 		dotnet_setp(nHandle,"DisplayName",P1)
@@ -1122,17 +1119,7 @@ Class AuthenticationSchemeOptions from Object
 		return self
 
 	Func Validate P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s8:Validate",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s8:Validate")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s8:Validate",P1)
-
+		dotnet_calltdv(nHandle,"Validate",P1)
 		return self
 
 	Func Equals P1
@@ -1141,7 +1128,7 @@ Class AuthenticationSchemeOptions from Object
 		return dn_x
 
 	Func getClaimsIssuer
-		return dnText(dotnet_getp(nHandle,"ClaimsIssuer"))
+		return dnAnswer(dotnet_getp(nHandle,"ClaimsIssuer"))
 
 	Func setClaimsIssuer P1
 		dotnet_setp(nHandle,"ClaimsIssuer",P1)
@@ -1162,42 +1149,42 @@ Class AuthenticationSchemeOptions from Object
 		return self
 
 	Func getForwardDefault
-		return dnText(dotnet_getp(nHandle,"ForwardDefault"))
+		return dnAnswer(dotnet_getp(nHandle,"ForwardDefault"))
 
 	Func setForwardDefault P1
 		dotnet_setp(nHandle,"ForwardDefault",P1)
 		return self
 
 	Func getForwardAuthenticate
-		return dnText(dotnet_getp(nHandle,"ForwardAuthenticate"))
+		return dnAnswer(dotnet_getp(nHandle,"ForwardAuthenticate"))
 
 	Func setForwardAuthenticate P1
 		dotnet_setp(nHandle,"ForwardAuthenticate",P1)
 		return self
 
 	Func getForwardChallenge
-		return dnText(dotnet_getp(nHandle,"ForwardChallenge"))
+		return dnAnswer(dotnet_getp(nHandle,"ForwardChallenge"))
 
 	Func setForwardChallenge P1
 		dotnet_setp(nHandle,"ForwardChallenge",P1)
 		return self
 
 	Func getForwardForbid
-		return dnText(dotnet_getp(nHandle,"ForwardForbid"))
+		return dnAnswer(dotnet_getp(nHandle,"ForwardForbid"))
 
 	Func setForwardForbid P1
 		dotnet_setp(nHandle,"ForwardForbid",P1)
 		return self
 
 	Func getForwardSignIn
-		return dnText(dotnet_getp(nHandle,"ForwardSignIn"))
+		return dnAnswer(dotnet_getp(nHandle,"ForwardSignIn"))
 
 	Func setForwardSignIn P1
 		dotnet_setp(nHandle,"ForwardSignIn",P1)
 		return self
 
 	Func getForwardSignOut
-		return dnText(dotnet_getp(nHandle,"ForwardSignOut"))
+		return dnAnswer(dotnet_getp(nHandle,"ForwardSignOut"))
 
 	Func setForwardSignOut P1
 		dotnet_setp(nHandle,"ForwardSignOut",P1)
@@ -1263,8 +1250,7 @@ Class AuthenticationSchemeProvider from Object
 		return self
 
 	Func RemoveScheme P1
-		dotnet_callv("s4:call",nHandle,"s12:RemoveScheme",P1)
-
+		dotnet_calltv(nHandle,"RemoveScheme",P1)
 		return self
 
 	Func GetAllSchemesAsync 
@@ -1387,7 +1373,7 @@ Class AuthenticationTicket from Object
 		return dn_x
 
 	Func getAuthenticationScheme
-		return dnText(dotnet_getp(nHandle,"AuthenticationScheme"))
+		return dnAnswer(dotnet_getp(nHandle,"AuthenticationScheme"))
 
 	Func setAuthenticationScheme P1
 		raise("DotNet Error: AuthenticationScheme is a read-only property")
@@ -1434,14 +1420,14 @@ Class AuthenticationToken from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		dotnet_setp(nHandle,"Value",P1)
@@ -1812,8 +1798,7 @@ Class IAuthenticationSchemeProvider from DotNetObject
 		return dn_x
 
 	Func RemoveScheme P1
-		dotnet_callv("s4:call",nHandle,"s12:RemoveScheme",P1)
-
+		dotnet_calltv(nHandle,"RemoveScheme",P1)
 		return self
 
 	Func GetRequestHandlerSchemesAsync 
@@ -1964,14 +1949,7 @@ Class ISecureDataFormat from DotNetObject
 		return self
 
 	Func Protect P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:Protect",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s7:Protect",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Protect",P1))
 
 	Func Unprotect P1
 		if dotnet_isnamed(P1)
@@ -2176,14 +2154,7 @@ Class SecureDataFormat from Object
 		return self
 
 	Func Protect P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:Protect",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s7:Protect",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Protect",P1))
 
 	Func Unprotect P1
 		if dotnet_isnamed(P1)
@@ -2263,13 +2234,11 @@ Class HandleRequestContext from BaseContext
 		return self
 
 	Func HandleResponse 
-		dotnet_callv("s4:call",nHandle,"s14:HandleResponse")
-
+		dotnet_calltv(nHandle,"HandleResponse")
 		return self
 
 	Func SkipHandler 
-		dotnet_callv("s4:call",nHandle,"s11:SkipHandler")
-
+		dotnet_calltv(nHandle,"SkipHandler")
 		return self
 
 	Func getResult
@@ -2489,14 +2458,14 @@ Class RemoteAuthenticationOptions from AuthenticationSchemeOptions
 		return self
 
 	Func getReturnUrlParameter
-		return dnText(dotnet_getp(nHandle,"ReturnUrlParameter"))
+		return dnAnswer(dotnet_getp(nHandle,"ReturnUrlParameter"))
 
 	Func setReturnUrlParameter P1
 		dotnet_setp(nHandle,"ReturnUrlParameter",P1)
 		return self
 
 	Func getSignInScheme
-		return dnText(dotnet_getp(nHandle,"SignInScheme"))
+		return dnAnswer(dotnet_getp(nHandle,"SignInScheme"))
 
 	Func setSignInScheme P1
 		dotnet_setp(nHandle,"SignInScheme",P1)
@@ -2544,13 +2513,11 @@ Class ResultContext from BaseContext
 		return self
 
 	Func Success 
-		dotnet_callv("s4:call",nHandle,"s7:Success")
-
+		dotnet_calltv(nHandle,"Success")
 		return self
 
 	Func NoResult 
-		dotnet_callv("s4:call",nHandle,"s8:NoResult")
-
+		dotnet_calltv(nHandle,"NoResult")
 		return self
 
 	Func Fail P1
@@ -2645,14 +2612,14 @@ Class AccessDeniedContext from HandleRequestContext
 		return self
 
 	Func getReturnUrl
-		return dnText(dotnet_getp(nHandle,"ReturnUrl"))
+		return dnAnswer(dotnet_getp(nHandle,"ReturnUrl"))
 
 	Func setReturnUrl P1
 		dotnet_setp(nHandle,"ReturnUrl",P1)
 		return self
 
 	Func getReturnUrlParameter
-		return dnText(dotnet_getp(nHandle,"ReturnUrlParameter"))
+		return dnAnswer(dotnet_getp(nHandle,"ReturnUrlParameter"))
 
 	Func setReturnUrlParameter P1
 		dotnet_setp(nHandle,"ReturnUrlParameter",P1)
@@ -2702,7 +2669,7 @@ Class RedirectContext from PropertiesContext
 		return self
 
 	Func getRedirectUri
-		return dnText(dotnet_getp(nHandle,"RedirectUri"))
+		return dnAnswer(dotnet_getp(nHandle,"RedirectUri"))
 
 	Func setRedirectUri P1
 		dotnet_setp(nHandle,"RedirectUri",P1)
@@ -2728,8 +2695,7 @@ Class RemoteAuthenticationContext from HandleRequestContext
 		return self
 
 	Func Success 
-		dotnet_callv("s4:call",nHandle,"s7:Success")
-
+		dotnet_calltv(nHandle,"Success")
 		return self
 
 	Func Fail P1
@@ -2847,7 +2813,7 @@ Class TicketReceivedContext from RemoteAuthenticationContext
 		return self
 
 	Func getReturnUri
-		return dnText(dotnet_getp(nHandle,"ReturnUri"))
+		return dnAnswer(dotnet_getp(nHandle,"ReturnUri"))
 
 	Func setReturnUri P1
 		dotnet_setp(nHandle,"ReturnUri",P1)

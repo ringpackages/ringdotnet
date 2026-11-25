@@ -258,19 +258,15 @@ Class BinaryReader from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func PeekChar 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:PeekChar")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"PeekChar"))
 
 	Func Read P1
 		if dotnet_isnamed(P1)
@@ -286,75 +282,49 @@ Class BinaryReader from Object
 		raise("DotNet Error: Read does not take one argument: use named arguments, Read([ :parameter = value, ... ])")
 
 	Func ReadByte 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ReadByte")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadByte"))
 
 	Func ReadSByte 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ReadSByte")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadSByte"))
 
 	Func ReadBoolean 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:ReadBoolean")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadBoolean"))
 
 	Func ReadChar 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:ReadChar"))
 
 	Func ReadInt16 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ReadInt16")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadInt16"))
 
 	Func ReadUInt16 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:ReadUInt16")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadUInt16"))
 
 	Func ReadInt32 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ReadInt32")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadInt32"))
 
 	Func ReadUInt32 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:ReadUInt32")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadUInt32"))
 
 	Func ReadInt64 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ReadInt64")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadInt64"))
 
 	Func ReadUInt64 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:ReadUInt64")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadUInt64"))
 
 	Func ReadHalf 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:ReadHalf"))
 
 	Func ReadSingle 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:ReadSingle")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadSingle"))
 
 	Func ReadDouble 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:ReadDouble")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadDouble"))
 
 	Func ReadDecimal 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:ReadDecimal")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadDecimal"))
 
 	Func ReadString 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:ReadString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadString"))
 
 	Func ReadChars P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ReadChars",P1))
@@ -363,14 +333,10 @@ Class BinaryReader from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ReadBytes",P1))
 
 	Func Read7BitEncodedInt 
-		dn_x = dotnet_call("s4:call",nHandle,"s18:Read7BitEncodedInt")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Read7BitEncodedInt"))
 
 	Func Read7BitEncodedInt64 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:Read7BitEncodedInt64")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Read7BitEncodedInt64"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -416,21 +382,18 @@ Class BinaryWriter from Object
 		return self
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func DisposeAsync 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
 
 	Func Flush 
-		dotnet_callv("s4:call",nHandle,"s5:Flush")
-
+		dotnet_calltv(nHandle,"Flush")
 		return self
 
 	Func Seek P1,P2
@@ -439,22 +402,15 @@ Class BinaryWriter from Object
 		return dn_x
 
 	Func Write P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Write",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Write",P1)
-
+		dotnet_calltd1v(nHandle,"Write",P1)
 		return self
 
 	Func Write7BitEncodedInt P1
-		dotnet_callv("s4:call",nHandle,"s19:Write7BitEncodedInt",P1)
-
+		dotnet_calltv(nHandle,"Write7BitEncodedInt",P1)
 		return self
 
 	Func Write7BitEncodedInt64 P1
-		dotnet_callv("s4:call",nHandle,"s21:Write7BitEncodedInt64",P1)
-
+		dotnet_calltv(nHandle,"Write7BitEncodedInt64",P1)
 		return self
 
 	Func Equals P1
@@ -673,7 +629,7 @@ Class DriveInfo from Object
 		return dnObj(dotnet_callo("s4:call",'System.IO.DriveInfo, System.IO.FileSystem.DriveInfo',"s9:GetDrives"))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -697,7 +653,7 @@ Class DriveInfo from Object
 		raise("DotNet Error: DriveType is a read-only property")
 
 	Func getDriveFormat
-		return dnText(dotnet_getp(nHandle,"DriveFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"DriveFormat"))
 
 	Func setDriveFormat P1
 		raise("DotNet Error: DriveFormat is a read-only property")
@@ -721,7 +677,7 @@ Class DriveInfo from Object
 		raise("DotNet Error: TotalSize is a read-only property")
 
 	Func getVolumeLabel
-		return dnText(dotnet_getp(nHandle,"VolumeLabel"))
+		return dnAnswer(dotnet_getp(nHandle,"VolumeLabel"))
 
 	Func setVolumeLabel P1
 		dotnet_setp(nHandle,"VolumeLabel",P1)
@@ -1227,13 +1183,13 @@ Class FileSystemEventArgs from EventArgs
 		raise("DotNet Error: ChangeType is a read-only property")
 
 	Func getFullPath
-		return dnText(dotnet_getp(nHandle,"FullPath"))
+		return dnAnswer(dotnet_getp(nHandle,"FullPath"))
 
 	Func setFullPath P1
 		raise("DotNet Error: FullPath is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1270,37 +1226,34 @@ Class FileSystemInfo from MarshalByRefObject
 		return self
 
 	Func Delete 
-		dotnet_callv("s4:call",nHandle,"s6:Delete")
-
+		dotnet_calltv(nHandle,"Delete")
 		return self
 
 	Func CreateAsSymbolicLink P1
-		dotnet_callv("s4:call",nHandle,"s20:CreateAsSymbolicLink",P1)
-
+		dotnet_calltv(nHandle,"CreateAsSymbolicLink",P1)
 		return self
 
 	Func ResolveLinkTarget P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ResolveLinkTarget",P1))
 
 	Func Refresh 
-		dotnet_callv("s4:call",nHandle,"s7:Refresh")
-
+		dotnet_calltv(nHandle,"Refresh")
 		return self
 
 	Func getFullName
-		return dnText(dotnet_getp(nHandle,"FullName"))
+		return dnAnswer(dotnet_getp(nHandle,"FullName"))
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")
 
 	Func getExtension
-		return dnText(dotnet_getp(nHandle,"Extension"))
+		return dnAnswer(dotnet_getp(nHandle,"Extension"))
 
 	Func setExtension P1
 		raise("DotNet Error: Extension is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1354,7 +1307,7 @@ Class FileSystemInfo from MarshalByRefObject
 		return self
 
 	Func getLinkTarget
-		return dnText(dotnet_getp(nHandle,"LinkTarget"))
+		return dnAnswer(dotnet_getp(nHandle,"LinkTarget"))
 
 	Func setLinkTarget P1
 		raise("DotNet Error: LinkTarget is a read-only property")
@@ -1426,13 +1379,11 @@ Class FileSystemWatcher from Component
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:WaitForChanged",P1))
 
 	Func BeginInit 
-		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-
+		dotnet_calltv(nHandle,"BeginInit")
 		return self
 
 	Func EndInit 
-		dotnet_callv("s4:call",nHandle,"s7:EndInit")
-
+		dotnet_calltv(nHandle,"EndInit")
 		return self
 
 	Func setChangedEvent P1
@@ -1496,7 +1447,7 @@ Class FileSystemWatcher from Component
 		return self
 
 	Func getFilter
-		return dnText(dotnet_getp(nHandle,"Filter"))
+		return dnAnswer(dotnet_getp(nHandle,"Filter"))
 
 	Func setFilter P1
 		dotnet_setp(nHandle,"Filter",P1)
@@ -1517,7 +1468,7 @@ Class FileSystemWatcher from Component
 		return self
 
 	Func getPath
-		return dnText(dotnet_getp(nHandle,"Path"))
+		return dnAnswer(dotnet_getp(nHandle,"Path"))
 
 	Func setPath P1
 		dotnet_setp(nHandle,"Path",P1)
@@ -1895,12 +1846,7 @@ Class Stream from MarshalByRefObject
 		return self
 
 	Func CopyTo P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:CopyTo",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
-
+		dotnet_calltd1v(nHandle,"CopyTo",P1)
 		return self
 
 	Func CopyToAsync P1
@@ -1910,21 +1856,18 @@ Class Stream from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CopyToAsync",P1))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func DisposeAsync 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
 
 	Func Flush 
-		dotnet_callv("s4:call",nHandle,"s5:Flush")
-
+		dotnet_calltv(nHandle,"Flush")
 		return self
 
 	Func FlushAsync P1
@@ -1982,8 +1925,7 @@ Class Stream from MarshalByRefObject
 		return dn_x
 
 	Func SetLength P1
-		dotnet_callv("s4:call",nHandle,"s9:SetLength",P1)
-
+		dotnet_calltv(nHandle,"SetLength",P1)
 		return self
 
 	Func Read P1,P2,P3
@@ -1992,9 +1934,7 @@ Class Stream from MarshalByRefObject
 		return dn_x
 
 	Func ReadByte 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ReadByte")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadByte"))
 
 	Func ReadExactly P1,P2,P3
 		dotnet_callv("s4:call",nHandle,"s11:ReadExactly",P1,P2,P3)
@@ -2015,8 +1955,7 @@ Class Stream from MarshalByRefObject
 		return self
 
 	Func WriteByte P1
-		dotnet_callv("s4:call",nHandle,"s9:WriteByte",P1)
-
+		dotnet_calltv(nHandle,"WriteByte",P1)
 		return self
 
 	Func Synchronized P1
@@ -2102,19 +2041,15 @@ Class TextReader from MarshalByRefObject
 		return self
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Peek 
-		dn_x = dotnet_call("s4:call",nHandle,"s4:Peek")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Peek"))
 
 	Func Read P1
 		if dotnet_isnamed(P1)
@@ -2130,9 +2065,7 @@ Class TextReader from MarshalByRefObject
 		raise("DotNet Error: Read does not take one argument: use named arguments, Read([ :parameter = value, ... ])")
 
 	Func ReadToEnd 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ReadToEnd")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadToEnd"))
 
 	Func ReadBlock P1,P2,P3
 		dn_x = dotnet_call("s4:call",nHandle,"s9:ReadBlock",P1,P2,P3)
@@ -2140,9 +2073,7 @@ Class TextReader from MarshalByRefObject
 		return dn_x
 
 	Func ReadLine 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ReadLine")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadLine"))
 
 	Func ReadLineAsync P1
 		if dotnet_isnamed(P1)
@@ -2201,44 +2132,26 @@ Class TextWriter from MarshalByRefObject
 		return self
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func DisposeAsync 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
 
 	Func Flush 
-		dotnet_callv("s4:call",nHandle,"s5:Flush")
-
+		dotnet_calltv(nHandle,"Flush")
 		return self
 
 	Func Write P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Write",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Write",P1)
-
+		dotnet_calltd1v(nHandle,"Write",P1)
 		return self
 
 	Func WriteLine P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s9:WriteLine",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s9:WriteLine")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s9:WriteLine",P1)
-
+		dotnet_calltdv(nHandle,"WriteLine",P1)
 		return self
 
 	Func WriteAsync P1
@@ -2288,7 +2201,7 @@ Class TextWriter from MarshalByRefObject
 		raise("DotNet Error: Encoding is a read-only property")
 
 	Func getNewLine
-		return dnText(dotnet_getp(nHandle,"NewLine"))
+		return dnAnswer(dotnet_getp(nHandle,"NewLine"))
 
 	Func setNewLine P1
 		dotnet_setp(nHandle,"NewLine",P1)
@@ -2334,72 +2247,47 @@ Class UnmanagedMemoryAccessor from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func ReadBoolean P1
-		dn_x = dotnet_call("s4:call",nHandle,"s11:ReadBoolean",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadBoolean",P1))
 
 	Func ReadByte P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ReadByte",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadByte",P1))
 
 	Func ReadChar P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:ReadChar",P1))
 
 	Func ReadInt16 P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ReadInt16",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadInt16",P1))
 
 	Func ReadInt32 P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ReadInt32",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadInt32",P1))
 
 	Func ReadInt64 P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ReadInt64",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadInt64",P1))
 
 	Func ReadDecimal P1
-		dn_x = dotnet_call("s4:call",nHandle,"s11:ReadDecimal",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadDecimal",P1))
 
 	Func ReadSingle P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:ReadSingle",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadSingle",P1))
 
 	Func ReadDouble P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:ReadDouble",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadDouble",P1))
 
 	Func ReadSByte P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ReadSByte",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadSByte",P1))
 
 	Func ReadUInt16 P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:ReadUInt16",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadUInt16",P1))
 
 	Func ReadUInt32 P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:ReadUInt32",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadUInt32",P1))
 
 	Func ReadUInt64 P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:ReadUInt64",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ReadUInt64",P1))
 
 	Func Read P1
 		return dnSend("s4:call",nHandle,"s4:Read",dnPackItem(P1))
@@ -2410,8 +2298,7 @@ Class UnmanagedMemoryAccessor from Object
 		return dn_x
 
 	Func Write P1,P2
-		dotnet_callv("s4:call",nHandle,"s5:Write",P1,P2)
-
+		dotnet_calltv(nHandle,"Write",P1,P2)
 		return self
 
 	Func WriteArray P1,P2,P3,P4
@@ -2476,14 +2363,14 @@ Class WaitForChangedResult from ValueType
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getOldName
-		return dnText(dotnet_getp(nHandle,"OldName"))
+		return dnAnswer(dotnet_getp(nHandle,"OldName"))
 
 	Func setOldName P1
 		dotnet_setp(nHandle,"OldName",P1)
@@ -2561,8 +2448,7 @@ Class DirectoryInfo from FileSystemInfo
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:CreateSubdirectory",P1))
 
 	Func Create 
-		dotnet_callv("s4:call",nHandle,"s6:Create")
-
+		dotnet_calltv(nHandle,"Create")
 		return self
 
 	Func GetFiles P1
@@ -2620,22 +2506,11 @@ Class DirectoryInfo from FileSystemInfo
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:EnumerateFileSystemInfos",P1))
 
 	Func MoveTo P1
-		dotnet_callv("s4:call",nHandle,"s6:MoveTo",P1)
-
+		dotnet_calltv(nHandle,"MoveTo",P1)
 		return self
 
 	Func Delete P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:Delete",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s6:Delete")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:Delete",P1)
-
+		dotnet_calltdv(nHandle,"Delete",P1)
 		return self
 
 	Func getParent
@@ -2811,12 +2686,7 @@ Class FileInfo from FileSystemInfo
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:OpenWrite"))
 
 	Func MoveTo P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:MoveTo",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:MoveTo",P1)
-
+		dotnet_calltd1v(nHandle,"MoveTo",P1)
 		return self
 
 	Func Replace P1
@@ -2826,13 +2696,11 @@ Class FileInfo from FileSystemInfo
 		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
 	Func Decrypt 
-		dotnet_callv("s4:call",nHandle,"s7:Decrypt")
-
+		dotnet_calltv(nHandle,"Decrypt")
 		return self
 
 	Func Encrypt 
-		dotnet_callv("s4:call",nHandle,"s7:Encrypt")
-
+		dotnet_calltv(nHandle,"Encrypt")
 		return self
 
 	Func getLength
@@ -2842,7 +2710,7 @@ Class FileInfo from FileSystemInfo
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getDirectoryName
-		return dnText(dotnet_getp(nHandle,"DirectoryName"))
+		return dnAnswer(dotnet_getp(nHandle,"DirectoryName"))
 
 	Func setDirectoryName P1
 		raise("DotNet Error: DirectoryName is a read-only property")
@@ -2901,13 +2769,13 @@ Class FileLoadException from IOException
 		return self
 
 	Func getFileName
-		return dnText(dotnet_getp(nHandle,"FileName"))
+		return dnAnswer(dotnet_getp(nHandle,"FileName"))
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
 
 	Func getFusionLog
-		return dnText(dotnet_getp(nHandle,"FusionLog"))
+		return dnAnswer(dotnet_getp(nHandle,"FusionLog"))
 
 	Func setFusionLog P1
 		raise("DotNet Error: FusionLog is a read-only property")
@@ -2953,13 +2821,13 @@ Class FileNotFoundException from IOException
 		return self
 
 	Func getFileName
-		return dnText(dotnet_getp(nHandle,"FileName"))
+		return dnAnswer(dotnet_getp(nHandle,"FileName"))
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
 
 	Func getFusionLog
-		return dnText(dotnet_getp(nHandle,"FusionLog"))
+		return dnAnswer(dotnet_getp(nHandle,"FusionLog"))
 
 	Func setFusionLog P1
 		raise("DotNet Error: FusionLog is a read-only property")
@@ -2999,27 +2867,15 @@ Class FileStream from Stream
 		return self
 
 	Func Lock P1,P2
-		dotnet_callv("s4:call",nHandle,"s4:Lock",P1,P2)
-
+		dotnet_calltv(nHandle,"Lock",P1,P2)
 		return self
 
 	Func Unlock P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:Unlock",P1,P2)
-
+		dotnet_calltv(nHandle,"Unlock",P1,P2)
 		return self
 
 	Func Flush P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Flush",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s5:Flush")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Flush",P1)
-
+		dotnet_calltdv(nHandle,"Flush",P1)
 		return self
 
 	Func getHandle
@@ -3035,7 +2891,7 @@ Class FileStream from Stream
 		raise("DotNet Error: SafeFileHandle is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -3161,13 +3017,13 @@ Class RenamedEventArgs from FileSystemEventArgs
 		return self
 
 	Func getOldFullPath
-		return dnText(dotnet_getp(nHandle,"OldFullPath"))
+		return dnAnswer(dotnet_getp(nHandle,"OldFullPath"))
 
 	Func setOldFullPath P1
 		raise("DotNet Error: OldFullPath is a read-only property")
 
 	Func getOldName
-		return dnText(dotnet_getp(nHandle,"OldName"))
+		return dnAnswer(dotnet_getp(nHandle,"OldName"))
 
 	Func setOldName P1
 		raise("DotNet Error: OldName is a read-only property")
@@ -3206,8 +3062,7 @@ Class StreamReader from TextReader
 		return self
 
 	Func DiscardBufferedData 
-		dotnet_callv("s4:call",nHandle,"s19:DiscardBufferedData")
-
+		dotnet_calltv(nHandle,"DiscardBufferedData")
 		return self
 
 	Func getCurrentEncoding

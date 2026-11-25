@@ -172,8 +172,7 @@ Class ICacheEntry from DotNetObject
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func @SetPriority P1
@@ -298,8 +297,7 @@ Class IMemoryCache from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetCurrentStatistics"))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func @Get P1
@@ -371,21 +369,18 @@ Class MemoryCache from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func GetCurrentStatistics 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetCurrentStatistics"))
 
 	Func Compact P1
-		dotnet_callv("s4:call",nHandle,"s7:Compact",P1)
-
+		dotnet_calltv(nHandle,"Compact",P1)
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1

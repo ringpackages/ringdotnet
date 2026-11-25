@@ -99,18 +99,15 @@ Class RegistryKey from MarshalByRefObject
 		return self
 
 	Func Flush 
-		dotnet_callv("s4:call",nHandle,"s5:Flush")
-
+		dotnet_calltv(nHandle,"Flush")
 		return self
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func CreateSubKey P1
@@ -120,30 +117,15 @@ Class RegistryKey from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateSubKey",P1))
 
 	Func DeleteSubKey P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s12:DeleteSubKey",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s12:DeleteSubKey",P1)
-
+		dotnet_calltd1v(nHandle,"DeleteSubKey",P1)
 		return self
 
 	Func DeleteSubKeyTree P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s16:DeleteSubKeyTree",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s16:DeleteSubKeyTree",P1)
-
+		dotnet_calltd1v(nHandle,"DeleteSubKeyTree",P1)
 		return self
 
 	Func DeleteValue P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s11:DeleteValue",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s11:DeleteValue",P1)
-
+		dotnet_calltd1v(nHandle,"DeleteValue",P1)
 		return self
 
 	Func OpenSubKey P1
@@ -228,7 +210,7 @@ Class RegistryKey from MarshalByRefObject
 		raise("DotNet Error: ValueCount is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

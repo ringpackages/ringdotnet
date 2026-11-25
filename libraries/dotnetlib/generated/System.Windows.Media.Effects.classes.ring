@@ -148,8 +148,7 @@ Class BitmapEffectCollection from Animatable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -173,8 +172,7 @@ Class BitmapEffectCollection from Animatable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -242,13 +240,10 @@ Class BitmapEffectCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -303,9 +298,7 @@ Class BitmapEffectInput from Animatable
 		return self
 
 	Func ShouldSerializeInput 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:ShouldSerializeInput")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeInput"))
 
 	Func getInput
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Input"))

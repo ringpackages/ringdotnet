@@ -446,7 +446,7 @@ Class Constraint from Object
 		return dn_x
 
 	Func getConstraintName
-		return dnText(dotnet_getp(nHandle,"ConstraintName"))
+		return dnAnswer(dotnet_getp(nHandle,"ConstraintName"))
 
 	Func setConstraintName P1
 		dotnet_setp(nHandle,"ConstraintName",P1)
@@ -505,12 +505,7 @@ Class DBConcurrencyException from SystemException
 		return self
 
 	Func CopyToRows P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s10:CopyToRows",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s10:CopyToRows",P1)
-
+		dotnet_calltd1v(nHandle,"CopyToRows",P1)
 		return self
 
 	Func getRow
@@ -584,8 +579,7 @@ Class DataColumn from MarshalByValueComponent
 		return self
 
 	Func SetOrdinal P1
-		dotnet_callv("s4:call",nHandle,"s10:SetOrdinal",P1)
-
+		dotnet_calltv(nHandle,"SetOrdinal",P1)
 		return self
 
 	Func getAllowDBNull
@@ -617,21 +611,21 @@ Class DataColumn from MarshalByValueComponent
 		return self
 
 	Func getCaption
-		return dnText(dotnet_getp(nHandle,"Caption"))
+		return dnAnswer(dotnet_getp(nHandle,"Caption"))
 
 	Func setCaption P1
 		dotnet_setp(nHandle,"Caption",P1)
 		return self
 
 	Func getColumnName
-		return dnText(dotnet_getp(nHandle,"ColumnName"))
+		return dnAnswer(dotnet_getp(nHandle,"ColumnName"))
 
 	Func setColumnName P1
 		dotnet_setp(nHandle,"ColumnName",P1)
 		return self
 
 	Func getPrefix
-		return dnText(dotnet_getp(nHandle,"Prefix"))
+		return dnAnswer(dotnet_getp(nHandle,"Prefix"))
 
 	Func setPrefix P1
 		dotnet_setp(nHandle,"Prefix",P1)
@@ -659,7 +653,7 @@ Class DataColumn from MarshalByValueComponent
 		return self
 
 	Func getExpression
-		return dnText(dotnet_getp(nHandle,"Expression"))
+		return dnAnswer(dotnet_getp(nHandle,"Expression"))
 
 	Func setExpression P1
 		dotnet_setp(nHandle,"Expression",P1)
@@ -679,7 +673,7 @@ Class DataColumn from MarshalByValueComponent
 		return self
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
@@ -995,7 +989,7 @@ Class DataRelation from Object
 		raise("DotNet Error: ParentTable is a read-only property")
 
 	Func getRelationName
-		return dnText(dotnet_getp(nHandle,"RelationName"))
+		return dnAnswer(dotnet_getp(nHandle,"RelationName"))
 
 	Func setRelationName P1
 		dotnet_setp(nHandle,"RelationName",P1)
@@ -1045,43 +1039,34 @@ Class DataRow from Object
 		return self
 
 	Func AcceptChanges 
-		dotnet_callv("s4:call",nHandle,"s13:AcceptChanges")
-
+		dotnet_calltv(nHandle,"AcceptChanges")
 		return self
 
 	Func BeginEdit 
-		dotnet_callv("s4:call",nHandle,"s9:BeginEdit")
-
+		dotnet_calltv(nHandle,"BeginEdit")
 		return self
 
 	Func CancelEdit 
-		dotnet_callv("s4:call",nHandle,"s10:CancelEdit")
-
+		dotnet_calltv(nHandle,"CancelEdit")
 		return self
 
 	Func Delete 
-		dotnet_callv("s4:call",nHandle,"s6:Delete")
-
+		dotnet_calltv(nHandle,"Delete")
 		return self
 
 	Func EndEdit 
-		dotnet_callv("s4:call",nHandle,"s7:EndEdit")
-
+		dotnet_calltv(nHandle,"EndEdit")
 		return self
 
 	Func SetColumnError P1,P2
-		dotnet_callv("s4:call",nHandle,"s14:SetColumnError",P1,P2)
-
+		dotnet_calltv(nHandle,"SetColumnError",P1,P2)
 		return self
 
 	Func GetColumnError P1
-		dn_x = dotnet_call("s4:call",nHandle,"s14:GetColumnError",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetColumnError",P1))
 
 	Func ClearErrors 
-		dotnet_callv("s4:call",nHandle,"s11:ClearErrors")
-
+		dotnet_calltv(nHandle,"ClearErrors")
 		return self
 
 	Func GetColumnsInError 
@@ -1111,27 +1096,19 @@ Class DataRow from Object
 		return dn_x
 
 	Func RejectChanges 
-		dotnet_callv("s4:call",nHandle,"s13:RejectChanges")
-
+		dotnet_calltv(nHandle,"RejectChanges")
 		return self
 
 	Func SetParentRow P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s12:SetParentRow",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s12:SetParentRow",P1)
-
+		dotnet_calltd1v(nHandle,"SetParentRow",P1)
 		return self
 
 	Func SetAdded 
-		dotnet_callv("s4:call",nHandle,"s8:SetAdded")
-
+		dotnet_calltv(nHandle,"SetAdded")
 		return self
 
 	Func SetModified 
-		dotnet_callv("s4:call",nHandle,"s11:SetModified")
-
+		dotnet_calltv(nHandle,"SetModified")
 		return self
 
 	Func Equals P1
@@ -1169,7 +1146,7 @@ Class DataRow from Object
 		return self
 
 	Func getRowError
-		return dnText(dotnet_getp(nHandle,"RowError"))
+		return dnAnswer(dotnet_getp(nHandle,"RowError"))
 
 	Func setRowError P1
 		dotnet_setp(nHandle,"RowError",P1)
@@ -1288,29 +1265,10 @@ Class DataRowComparer1 from Object
 		return self
 
 	Func Equals P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Equals",P1))
 
 	Func GetHashCode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetHashCode",P1))
 
 
 Class DataRowExtensions from Object
@@ -1370,23 +1328,19 @@ Class DataRowView from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateChildView",P1))
 
 	Func BeginEdit 
-		dotnet_callv("s4:call",nHandle,"s9:BeginEdit")
-
+		dotnet_calltv(nHandle,"BeginEdit")
 		return self
 
 	Func CancelEdit 
-		dotnet_callv("s4:call",nHandle,"s10:CancelEdit")
-
+		dotnet_calltv(nHandle,"CancelEdit")
 		return self
 
 	Func EndEdit 
-		dotnet_callv("s4:call",nHandle,"s7:EndEdit")
-
+		dotnet_calltv(nHandle,"EndEdit")
 		return self
 
 	Func Delete 
-		dotnet_callv("s4:call",nHandle,"s6:Delete")
-
+		dotnet_calltv(nHandle,"Delete")
 		return self
 
 	Func Item P1
@@ -1492,23 +1446,19 @@ Class DataSet from MarshalByValueComponent
 		return self
 
 	Func AcceptChanges 
-		dotnet_callv("s4:call",nHandle,"s13:AcceptChanges")
-
+		dotnet_calltv(nHandle,"AcceptChanges")
 		return self
 
 	Func BeginInit 
-		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-
+		dotnet_calltv(nHandle,"BeginInit")
 		return self
 
 	Func EndInit 
-		dotnet_callv("s4:call",nHandle,"s7:EndInit")
-
+		dotnet_calltv(nHandle,"EndInit")
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Clone 
@@ -1527,29 +1477,13 @@ Class DataSet from MarshalByValueComponent
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetChanges",P1))
 
 	Func GetXml 
-		dn_x = dotnet_call("s4:call",nHandle,"s6:GetXml")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetXml"))
 
 	Func GetXmlSchema 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetXmlSchema")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetXmlSchema"))
 
 	Func HasChanges P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:HasChanges",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s10:HasChanges")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s10:HasChanges",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"HasChanges",P1))
 
 	Func InferXmlSchema P1,P2
 		dotnet_callv("s4:call",nHandle,"s14:InferXmlSchema",P1,P2)
@@ -1562,12 +1496,7 @@ Class DataSet from MarshalByValueComponent
 		return self
 
 	Func WriteXmlSchema P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:WriteXmlSchema",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:WriteXmlSchema",P1)
-
+		dotnet_calltd1v(nHandle,"WriteXmlSchema",P1)
 		return self
 
 	Func ReadXml P1
@@ -1577,31 +1506,19 @@ Class DataSet from MarshalByValueComponent
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ReadXml",P1))
 
 	Func WriteXml P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s8:WriteXml",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s8:WriteXml",P1)
-
+		dotnet_calltd1v(nHandle,"WriteXml",P1)
 		return self
 
 	Func Merge P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Merge",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Merge",P1)
-
+		dotnet_calltd1v(nHandle,"Merge",P1)
 		return self
 
 	Func RejectChanges 
-		dotnet_callv("s4:call",nHandle,"s13:RejectChanges")
-
+		dotnet_calltv(nHandle,"RejectChanges")
 		return self
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func @Load P1
@@ -1674,21 +1591,21 @@ Class DataSet from MarshalByValueComponent
 		return self
 
 	Func getDataSetName
-		return dnText(dotnet_getp(nHandle,"DataSetName"))
+		return dnAnswer(dotnet_getp(nHandle,"DataSetName"))
 
 	Func setDataSetName P1
 		dotnet_setp(nHandle,"DataSetName",P1)
 		return self
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
 		return self
 
 	Func getPrefix
-		return dnText(dotnet_getp(nHandle,"Prefix"))
+		return dnAnswer(dotnet_getp(nHandle,"Prefix"))
 
 	Func setPrefix P1
 		dotnet_setp(nHandle,"Prefix",P1)
@@ -1794,18 +1711,15 @@ Class DataTable from MarshalByValueComponent
 		return self
 
 	Func BeginInit 
-		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-
+		dotnet_calltv(nHandle,"BeginInit")
 		return self
 
 	Func EndInit 
-		dotnet_callv("s4:call",nHandle,"s7:EndInit")
-
+		dotnet_calltv(nHandle,"EndInit")
 		return self
 
 	Func AcceptChanges 
-		dotnet_callv("s4:call",nHandle,"s13:AcceptChanges")
-
+		dotnet_calltv(nHandle,"AcceptChanges")
 		return self
 
 	Func Clone 
@@ -1815,8 +1729,7 @@ Class DataTable from MarshalByValueComponent
 		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Copy"))
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Compute P1,P2
@@ -1843,13 +1756,11 @@ Class DataTable from MarshalByValueComponent
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:NewRow"))
 
 	Func RejectChanges 
-		dotnet_callv("s4:call",nHandle,"s13:RejectChanges")
-
+		dotnet_calltv(nHandle,"RejectChanges")
 		return self
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func Select P1
@@ -1862,55 +1773,33 @@ Class DataTable from MarshalByValueComponent
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Select",P1))
 
 	Func BeginLoadData 
-		dotnet_callv("s4:call",nHandle,"s13:BeginLoadData")
-
+		dotnet_calltv(nHandle,"BeginLoadData")
 		return self
 
 	Func EndLoadData 
-		dotnet_callv("s4:call",nHandle,"s11:EndLoadData")
-
+		dotnet_calltv(nHandle,"EndLoadData")
 		return self
 
 	Func LoadDataRow P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:LoadDataRow",P1,P2))
 
 	Func Merge P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Merge",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Merge",P1)
-
+		dotnet_calltd1v(nHandle,"Merge",P1)
 		return self
 
 	Func @Load P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Load",P1)
-
+		dotnet_calltd1v(nHandle,"Load",P1)
 		return self
 
 	Func CreateDataReader 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateDataReader"))
 
 	Func WriteXml P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s8:WriteXml",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s8:WriteXml",P1)
-
+		dotnet_calltd1v(nHandle,"WriteXml",P1)
 		return self
 
 	Func WriteXmlSchema P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:WriteXmlSchema",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:WriteXmlSchema",P1)
-
+		dotnet_calltd1v(nHandle,"WriteXmlSchema",P1)
 		return self
 
 	Func ReadXml P1
@@ -2063,7 +1952,7 @@ Class DataTable from MarshalByValueComponent
 		raise("DotNet Error: DefaultView is a read-only property")
 
 	Func getDisplayExpression
-		return dnText(dotnet_getp(nHandle,"DisplayExpression"))
+		return dnAnswer(dotnet_getp(nHandle,"DisplayExpression"))
 
 	Func setDisplayExpression P1
 		dotnet_setp(nHandle,"DisplayExpression",P1)
@@ -2115,21 +2004,21 @@ Class DataTable from MarshalByValueComponent
 		raise("DotNet Error: Rows is a read-only property")
 
 	Func getTableName
-		return dnText(dotnet_getp(nHandle,"TableName"))
+		return dnAnswer(dotnet_getp(nHandle,"TableName"))
 
 	Func setTableName P1
 		dotnet_setp(nHandle,"TableName",P1)
 		return self
 
 	Func getNamespace
-		return dnText(dotnet_getp(nHandle,"Namespace"))
+		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
 		return self
 
 	Func getPrefix
-		return dnText(dotnet_getp(nHandle,"Prefix"))
+		return dnAnswer(dotnet_getp(nHandle,"Prefix"))
 
 	Func setPrefix P1
 		dotnet_setp(nHandle,"Prefix",P1)
@@ -2160,13 +2049,13 @@ Class DataTableClearEventArgs from EventArgs
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getTableName
-		return dnText(dotnet_getp(nHandle,"TableName"))
+		return dnAnswer(dotnet_getp(nHandle,"TableName"))
 
 	Func setTableName P1
 		raise("DotNet Error: TableName is a read-only property")
 
 	Func getTableNamespace
-		return dnText(dotnet_getp(nHandle,"TableNamespace"))
+		return dnAnswer(dotnet_getp(nHandle,"TableNamespace"))
 
 	Func setTableNamespace P1
 		raise("DotNet Error: TableNamespace is a read-only property")
@@ -2297,13 +2186,11 @@ Class DataView from MarshalByValueComponent
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AddNew"))
 
 	Func BeginInit 
-		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-
+		dotnet_calltv(nHandle,"BeginInit")
 		return self
 
 	Func EndInit 
-		dotnet_callv("s4:call",nHandle,"s7:EndInit")
-
+		dotnet_calltv(nHandle,"EndInit")
 		return self
 
 	Func CopyTo P1,P2
@@ -2312,8 +2199,7 @@ Class DataView from MarshalByValueComponent
 		return self
 
 	Func Delete P1
-		dotnet_callv("s4:call",nHandle,"s6:Delete",P1)
-
+		dotnet_calltv(nHandle,"Delete",P1)
 		return self
 
 	Func Find P1
@@ -2422,7 +2308,7 @@ Class DataView from MarshalByValueComponent
 		raise("DotNet Error: IsInitialized is a read-only property")
 
 	Func getRowFilter
-		return dnText(dotnet_getp(nHandle,"RowFilter"))
+		return dnAnswer(dotnet_getp(nHandle,"RowFilter"))
 
 	Func setRowFilter P1
 		dotnet_setp(nHandle,"RowFilter",P1)
@@ -2436,7 +2322,7 @@ Class DataView from MarshalByValueComponent
 		return self
 
 	Func getSort
-		return dnText(dotnet_getp(nHandle,"Sort"))
+		return dnAnswer(dotnet_getp(nHandle,"Sort"))
 
 	Func setSort P1
 		dotnet_setp(nHandle,"Sort",P1)
@@ -2535,7 +2421,7 @@ Class DataViewManager from MarshalByValueComponent
 		raise("DotNet Error: DataViewSettings is a read-only property")
 
 	Func getDataViewSettingCollectionString
-		return dnText(dotnet_getp(nHandle,"DataViewSettingCollectionString"))
+		return dnAnswer(dotnet_getp(nHandle,"DataViewSettingCollectionString"))
 
 	Func setDataViewSettingCollectionString P1
 		dotnet_setp(nHandle,"DataViewSettingCollectionString",P1)
@@ -2585,7 +2471,7 @@ Class DataViewSetting from Object
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getRowFilter
-		return dnText(dotnet_getp(nHandle,"RowFilter"))
+		return dnAnswer(dotnet_getp(nHandle,"RowFilter"))
 
 	Func setRowFilter P1
 		dotnet_setp(nHandle,"RowFilter",P1)
@@ -2599,7 +2485,7 @@ Class DataViewSetting from Object
 		return self
 
 	Func getSort
-		return dnText(dotnet_getp(nHandle,"Sort"))
+		return dnAnswer(dotnet_getp(nHandle,"Sort"))
 
 	Func setSort P1
 		dotnet_setp(nHandle,"Sort",P1)
@@ -2836,14 +2722,14 @@ Class IColumnMapping from DotNetObject
 		return self
 
 	Func getDataSetColumn
-		return dnText(dotnet_getp(nHandle,"DataSetColumn"))
+		return dnAnswer(dotnet_getp(nHandle,"DataSetColumn"))
 
 	Func setDataSetColumn P1
 		dotnet_setp(nHandle,"DataSetColumn",P1)
 		return self
 
 	Func getSourceColumn
-		return dnText(dotnet_getp(nHandle,"SourceColumn"))
+		return dnAnswer(dotnet_getp(nHandle,"SourceColumn"))
 
 	Func setSourceColumn P1
 		dotnet_setp(nHandle,"SourceColumn",P1)
@@ -2878,26 +2764,20 @@ Class IColumnMappingCollection from DotNetObject
 		return dn_x
 
 	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func GetByDataSetColumn P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetByDataSetColumn",P1))
 
 	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IndexOf",P1))
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Insert P1,P2
@@ -3068,14 +2948,14 @@ Class IDataParameter from DotNetObject
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getParameterName
-		return dnText(dotnet_getp(nHandle,"ParameterName"))
+		return dnAnswer(dotnet_getp(nHandle,"ParameterName"))
 
 	Func setParameterName P1
 		dotnet_setp(nHandle,"ParameterName",P1)
 		return self
 
 	Func getSourceColumn
-		return dnText(dotnet_getp(nHandle,"SourceColumn"))
+		return dnAnswer(dotnet_getp(nHandle,"SourceColumn"))
 
 	Func setSourceColumn P1
 		dotnet_setp(nHandle,"SourceColumn",P1)
@@ -3114,18 +2994,13 @@ Class IDataParameterCollection from DotNetObject
 		return self
 
 	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IndexOf",P1))
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Add P1
@@ -3134,8 +3009,7 @@ Class IDataParameterCollection from DotNetObject
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Insert P1,P2
@@ -3231,37 +3105,27 @@ Class IDataReader from DotNetObject
 		return self
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func GetSchemaTable 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetSchemaTable"))
 
 	Func NextResult 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:NextResult")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"NextResult"))
 
 	Func Read 
-		dn_x = dotnet_call("s4:call",nHandle,"s4:Read")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Read"))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func GetName P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:GetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetName",P1))
 
 	Func GetDataTypeName P1
-		dn_x = dotnet_call("s4:call",nHandle,"s15:GetDataTypeName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDataTypeName",P1))
 
 	Func GetFieldType P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetFieldType",P1))
@@ -3275,19 +3139,13 @@ Class IDataReader from DotNetObject
 		return dn_x
 
 	Func GetOrdinal P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:GetOrdinal",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetOrdinal",P1))
 
 	Func GetBoolean P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:GetBoolean",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetBoolean",P1))
 
 	Func GetByte P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:GetByte",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetByte",P1))
 
 	Func GetBytes P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",nHandle,"s8:GetBytes",P1,P2,P3,P4,P5)
@@ -3306,39 +3164,25 @@ Class IDataReader from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetGuid",P1))
 
 	Func GetInt16 P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt16",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetInt16",P1))
 
 	Func GetInt32 P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt32",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetInt32",P1))
 
 	Func GetInt64 P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt64",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetInt64",P1))
 
 	Func GetFloat P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetFloat",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFloat",P1))
 
 	Func GetDouble P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:GetDouble",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDouble",P1))
 
 	Func GetString P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetString",P1))
 
 	Func GetDecimal P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:GetDecimal",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDecimal",P1))
 
 	Func GetDateTime P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetDateTime",P1))
@@ -3347,9 +3191,7 @@ Class IDataReader from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetData",P1))
 
 	Func IsDBNull P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:IsDBNull",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsDBNull",P1))
 
 	Func getDepth
 		return dotnet_getp(nHandle,"Depth")
@@ -3390,14 +3232,10 @@ Class IDataRecord from DotNetObject
 		return self
 
 	Func GetName P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:GetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetName",P1))
 
 	Func GetDataTypeName P1
-		dn_x = dotnet_call("s4:call",nHandle,"s15:GetDataTypeName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDataTypeName",P1))
 
 	Func GetFieldType P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetFieldType",P1))
@@ -3411,19 +3249,13 @@ Class IDataRecord from DotNetObject
 		return dn_x
 
 	Func GetOrdinal P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:GetOrdinal",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetOrdinal",P1))
 
 	Func GetBoolean P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:GetBoolean",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetBoolean",P1))
 
 	Func GetByte P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:GetByte",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetByte",P1))
 
 	Func GetBytes P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",nHandle,"s8:GetBytes",P1,P2,P3,P4,P5)
@@ -3442,39 +3274,25 @@ Class IDataRecord from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetGuid",P1))
 
 	Func GetInt16 P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt16",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetInt16",P1))
 
 	Func GetInt32 P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt32",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetInt32",P1))
 
 	Func GetInt64 P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetInt64",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetInt64",P1))
 
 	Func GetFloat P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetFloat",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFloat",P1))
 
 	Func GetDouble P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:GetDouble",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDouble",P1))
 
 	Func GetString P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetString",P1))
 
 	Func GetDecimal P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:GetDecimal",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDecimal",P1))
 
 	Func GetDateTime P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetDateTime",P1))
@@ -3483,9 +3301,7 @@ Class IDataRecord from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetData",P1))
 
 	Func IsDBNull P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:IsDBNull",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsDBNull",P1))
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
@@ -3517,22 +3333,18 @@ Class IDbCommand from DotNetObject
 		return self
 
 	Func Prepare 
-		dotnet_callv("s4:call",nHandle,"s7:Prepare")
-
+		dotnet_calltv(nHandle,"Prepare")
 		return self
 
 	Func Cancel 
-		dotnet_callv("s4:call",nHandle,"s6:Cancel")
-
+		dotnet_calltv(nHandle,"Cancel")
 		return self
 
 	Func CreateParameter 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateParameter"))
 
 	Func ExecuteNonQuery 
-		dn_x = dotnet_call("s4:call",nHandle,"s15:ExecuteNonQuery")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ExecuteNonQuery"))
 
 	Func ExecuteReader P1
 		if dotnet_isnamed(P1)
@@ -3547,8 +3359,7 @@ Class IDbCommand from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteScalar"))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func getConnection
@@ -3566,7 +3377,7 @@ Class IDbCommand from DotNetObject
 		return self
 
 	Func getCommandText
-		return dnText(dotnet_getp(nHandle,"CommandText"))
+		return dnAnswer(dotnet_getp(nHandle,"CommandText"))
 
 	Func setCommandText P1
 		dotnet_setp(nHandle,"CommandText",P1)
@@ -3626,30 +3437,26 @@ Class IDbConnection from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:BeginTransaction",P1))
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func ChangeDatabase P1
-		dotnet_callv("s4:call",nHandle,"s14:ChangeDatabase",P1)
-
+		dotnet_calltv(nHandle,"ChangeDatabase",P1)
 		return self
 
 	Func CreateCommand 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:CreateCommand"))
 
 	Func Open 
-		dotnet_callv("s4:call",nHandle,"s4:Open")
-
+		dotnet_calltv(nHandle,"Open")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func getConnectionString
-		return dnText(dotnet_getp(nHandle,"ConnectionString"))
+		return dnAnswer(dotnet_getp(nHandle,"ConnectionString"))
 
 	Func setConnectionString P1
 		dotnet_setp(nHandle,"ConnectionString",P1)
@@ -3662,7 +3469,7 @@ Class IDbConnection from DotNetObject
 		raise("DotNet Error: ConnectionTimeout is a read-only property")
 
 	Func getDatabase
-		return dnText(dotnet_getp(nHandle,"Database"))
+		return dnAnswer(dotnet_getp(nHandle,"Database"))
 
 	Func setDatabase P1
 		raise("DotNet Error: Database is a read-only property")
@@ -3822,14 +3629,14 @@ Class IDbDataParameter from DotNetObject
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getParameterName
-		return dnText(dotnet_getp(nHandle,"ParameterName"))
+		return dnAnswer(dotnet_getp(nHandle,"ParameterName"))
 
 	Func setParameterName P1
 		dotnet_setp(nHandle,"ParameterName",P1)
 		return self
 
 	Func getSourceColumn
-		return dnText(dotnet_getp(nHandle,"SourceColumn"))
+		return dnAnswer(dotnet_getp(nHandle,"SourceColumn"))
 
 	Func setSourceColumn P1
 		dotnet_setp(nHandle,"SourceColumn",P1)
@@ -3865,18 +3672,15 @@ Class IDbTransaction from DotNetObject
 		return self
 
 	Func Commit 
-		dotnet_callv("s4:call",nHandle,"s6:Commit")
-
+		dotnet_calltv(nHandle,"Commit")
 		return self
 
 	Func Rollback 
-		dotnet_callv("s4:call",nHandle,"s8:Rollback")
-
+		dotnet_calltv(nHandle,"Rollback")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func getConnection
@@ -3914,14 +3718,14 @@ Class ITableMapping from DotNetObject
 		raise("DotNet Error: ColumnMappings is a read-only property")
 
 	Func getDataSetTable
-		return dnText(dotnet_getp(nHandle,"DataSetTable"))
+		return dnAnswer(dotnet_getp(nHandle,"DataSetTable"))
 
 	Func setDataSetTable P1
 		dotnet_setp(nHandle,"DataSetTable",P1)
 		return self
 
 	Func getSourceTable
-		return dnText(dotnet_getp(nHandle,"SourceTable"))
+		return dnAnswer(dotnet_getp(nHandle,"SourceTable"))
 
 	Func setSourceTable P1
 		dotnet_setp(nHandle,"SourceTable",P1)
@@ -3956,26 +3760,20 @@ Class ITableMappingCollection from DotNetObject
 		return dn_x
 
 	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func GetByDataSetTable P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetByDataSetTable",P1))
 
 	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IndexOf",P1))
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Insert P1,P2
@@ -4160,7 +3958,7 @@ Class MergeFailedEventArgs from EventArgs
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getConflict
-		return dnText(dotnet_getp(nHandle,"Conflict"))
+		return dnAnswer(dotnet_getp(nHandle,"Conflict"))
 
 	Func setConflict P1
 		raise("DotNet Error: Conflict is a read-only property")
@@ -4311,14 +4109,11 @@ Class ConstraintCollection from InternalDataCollectionBase
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
@@ -4331,8 +4126,7 @@ Class ConstraintCollection from InternalDataCollectionBase
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Item P1
@@ -4419,14 +4213,11 @@ Class DataColumnCollection from InternalDataCollectionBase
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
@@ -4439,8 +4230,7 @@ Class DataColumnCollection from InternalDataCollectionBase
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Item P1
@@ -4482,14 +4272,11 @@ Class DataRelationCollection from InternalDataCollectionBase
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
@@ -4507,8 +4294,7 @@ Class DataRelationCollection from InternalDataCollectionBase
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Item P1
@@ -4553,8 +4339,7 @@ Class DataRowCollection from InternalDataCollectionBase
 		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Find",P1))
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -4568,8 +4353,7 @@ Class DataRowCollection from InternalDataCollectionBase
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Item P1
@@ -4611,42 +4395,21 @@ Class DataTableCollection from InternalDataCollectionBase
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Contains",P1))
 
 	Func IndexOf P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"IndexOf",P1))
 
 	Func Remove P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:Remove",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
-
+		dotnet_calltd1v(nHandle,"Remove",P1)
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Item P1

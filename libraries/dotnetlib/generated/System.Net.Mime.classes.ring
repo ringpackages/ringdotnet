@@ -104,7 +104,7 @@ Class ContentDisposition from Object
 		return dn_x
 
 	Func getDispositionType
-		return dnText(dotnet_getp(nHandle,"DispositionType"))
+		return dnAnswer(dotnet_getp(nHandle,"DispositionType"))
 
 	Func setDispositionType P1
 		dotnet_setp(nHandle,"DispositionType",P1)
@@ -117,7 +117,7 @@ Class ContentDisposition from Object
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getFileName
-		return dnText(dotnet_getp(nHandle,"FileName"))
+		return dnAnswer(dotnet_getp(nHandle,"FileName"))
 
 	Func setFileName P1
 		dotnet_setp(nHandle,"FileName",P1)
@@ -207,28 +207,28 @@ Class ContentType from Object
 		return dn_x
 
 	Func getBoundary
-		return dnText(dotnet_getp(nHandle,"Boundary"))
+		return dnAnswer(dotnet_getp(nHandle,"Boundary"))
 
 	Func setBoundary P1
 		dotnet_setp(nHandle,"Boundary",P1)
 		return self
 
 	Func getCharSet
-		return dnText(dotnet_getp(nHandle,"CharSet"))
+		return dnAnswer(dotnet_getp(nHandle,"CharSet"))
 
 	Func setCharSet P1
 		dotnet_setp(nHandle,"CharSet",P1)
 		return self
 
 	Func getMediaType
-		return dnText(dotnet_getp(nHandle,"MediaType"))
+		return dnAnswer(dotnet_getp(nHandle,"MediaType"))
 
 	Func setMediaType P1
 		dotnet_setp(nHandle,"MediaType",P1)
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)

@@ -183,8 +183,7 @@ Class NegotiateAuthentication from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func GetOutgoingBlob P1
@@ -251,10 +250,10 @@ Class NegotiateAuthentication from Object
 		raise("DotNet Error: IsServer is a read-only property")
 
 	Func getPackage
-		return dnText(dotnet_getp(nHandle,"Package"))
+		return dnAnswer(dotnet_getp(nHandle,"Package"))
 
 	Func getTargetName
-		return dnText(dotnet_getp(nHandle,"TargetName"))
+		return dnAnswer(dotnet_getp(nHandle,"TargetName"))
 
 	Func setTargetName P1
 		raise("DotNet Error: TargetName is a read-only property")
@@ -305,7 +304,7 @@ Class NegotiateAuthenticationClientOptions from Object
 		return dn_x
 
 	Func getPackage
-		return dnText(dotnet_getp(nHandle,"Package"))
+		return dnAnswer(dotnet_getp(nHandle,"Package"))
 
 	Func setPackage P1
 		dotnet_setp(nHandle,"Package",P1)
@@ -319,7 +318,7 @@ Class NegotiateAuthenticationClientOptions from Object
 		return self
 
 	Func getTargetName
-		return dnText(dotnet_getp(nHandle,"TargetName"))
+		return dnAnswer(dotnet_getp(nHandle,"TargetName"))
 
 	Func setTargetName P1
 		dotnet_setp(nHandle,"TargetName",P1)
@@ -386,7 +385,7 @@ Class NegotiateAuthenticationServerOptions from Object
 		return dn_x
 
 	Func getPackage
-		return dnText(dotnet_getp(nHandle,"Package"))
+		return dnAnswer(dotnet_getp(nHandle,"Package"))
 
 	Func setPackage P1
 		dotnet_setp(nHandle,"Package",P1)
@@ -602,7 +601,7 @@ Class SslClientAuthenticationOptions from Object
 		return self
 
 	Func getTargetHost
-		return dnText(dotnet_getp(nHandle,"TargetHost"))
+		return dnAnswer(dotnet_getp(nHandle,"TargetHost"))
 
 	Func setTargetHost P1
 		dotnet_setp(nHandle,"TargetHost",P1)
@@ -698,7 +697,7 @@ Class SslClientHelloInfo from ValueType
 		return self
 
 	Func getServerName
-		return dnText(dotnet_getp(nHandle,"ServerName"))
+		return dnAnswer(dotnet_getp(nHandle,"ServerName"))
 
 	Func setServerName P1
 		raise("DotNet Error: ServerName is a read-only property")
@@ -922,17 +921,7 @@ Class NegotiateStream from AuthenticatedStream
 		return self
 
 	Func AuthenticateAsServer P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s20:AuthenticateAsServer",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s20:AuthenticateAsServer")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s20:AuthenticateAsServer",P1)
-
+		dotnet_calltdv(nHandle,"AuthenticateAsServer",P1)
 		return self
 
 	Func BeginAuthenticateAsServer P1
@@ -1055,21 +1044,11 @@ Class SslStream from AuthenticatedStream
 		return self
 
 	Func AuthenticateAsClient P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s20:AuthenticateAsClient",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s20:AuthenticateAsClient",P1)
-
+		dotnet_calltd1v(nHandle,"AuthenticateAsClient",P1)
 		return self
 
 	Func AuthenticateAsServer P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s20:AuthenticateAsServer",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s20:AuthenticateAsServer",P1)
-
+		dotnet_calltd1v(nHandle,"AuthenticateAsServer",P1)
 		return self
 
 	Func AuthenticateAsClientAsync P1
@@ -1097,12 +1076,7 @@ Class SslStream from AuthenticatedStream
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:NegotiateClientCertificateAsync",P1))
 
 	Func Write P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Write",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Write",P1)
-
+		dotnet_calltd1v(nHandle,"Write",P1)
 		return self
 
 	Func getTransportContext
@@ -1184,7 +1158,7 @@ Class SslStream from AuthenticatedStream
 		raise("DotNet Error: KeyExchangeStrength is a read-only property")
 
 	Func getTargetHostName
-		return dnText(dotnet_getp(nHandle,"TargetHostName"))
+		return dnAnswer(dotnet_getp(nHandle,"TargetHostName"))
 
 	Func setTargetHostName P1
 		raise("DotNet Error: TargetHostName is a read-only property")

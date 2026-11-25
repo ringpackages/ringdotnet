@@ -225,8 +225,7 @@ Class HttpContent from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:LoadIntoBufferAsync",P1))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -310,8 +309,7 @@ Class HttpMessageHandler from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -355,8 +353,7 @@ Class HttpMessageInvoker from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:SendAsync",P1,P2))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -396,7 +393,7 @@ Class HttpMethod from Object
 		return dnObj(dotnet_callo("s4:call",'System.Net.Http.HttpMethod, System.Net.Http',"s5:Parse",P1))
 
 	Func getMethod
-		return dnText(dotnet_getp(nHandle,"Method"))
+		return dnAnswer(dotnet_getp(nHandle,"Method"))
 
 	Func setMethod P1
 		raise("DotNet Error: Method is a read-only property")
@@ -552,8 +549,7 @@ Class HttpRequestMessage from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -687,7 +683,7 @@ Class HttpRequestOptionsKey from ValueType
 		return self
 
 	Func getKey
-		return dnText(dotnet_getp(nHandle,"Key"))
+		return dnAnswer(dotnet_getp(nHandle,"Key"))
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
@@ -742,8 +738,7 @@ Class HttpResponseMessage from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:EnsureSuccessStatusCode"))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -773,7 +768,7 @@ Class HttpResponseMessage from Object
 		return self
 
 	Func getReasonPhrase
-		return dnText(dotnet_getp(nHandle,"ReasonPhrase"))
+		return dnAnswer(dotnet_getp(nHandle,"ReasonPhrase"))
 
 	Func setReasonPhrase P1
 		dotnet_setp(nHandle,"ReasonPhrase",P1)
@@ -1071,8 +1066,7 @@ Class HttpClient from HttpMessageInvoker
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:SendAsync",P1))
 
 	Func CancelPendingRequests 
-		dotnet_callv("s4:call",nHandle,"s21:CancelPendingRequests")
-
+		dotnet_calltv(nHandle,"CancelPendingRequests")
 		return self
 
 	Func GetFromJsonAsAsyncEnumerable P1
@@ -1868,12 +1862,7 @@ Class MultipartFormDataContent from MultipartContent
 		return self
 
 	Func Add P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-
+		dotnet_calltd1v(nHandle,"Add",P1)
 		return self
 
 

@@ -69,13 +69,13 @@ Class IIdentity from DotNetObject
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getAuthenticationType
-		return dnText(dotnet_getp(nHandle,"AuthenticationType"))
+		return dnAnswer(dotnet_getp(nHandle,"AuthenticationType"))
 
 	Func setAuthenticationType P1
 		raise("DotNet Error: AuthenticationType is a read-only property")
@@ -101,9 +101,7 @@ Class IPrincipal from DotNetObject
 		return self
 
 	Func IsInRole P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:IsInRole",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsInRole",P1))
 
 	Func getIdentity
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Identity"))
@@ -184,7 +182,7 @@ Class IdentityReference from Object
 		return dn_x
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -248,8 +246,7 @@ Class IdentityReferenceCollection from Object
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -373,8 +370,7 @@ Class WindowsIdentity from ClaimsIdentity
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func GetCurrent P1
@@ -536,9 +532,7 @@ Class SecurityIdentifier from IdentityReference
 		return self
 
 	Func IsAccountSid 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:IsAccountSid")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsAccountSid"))
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)

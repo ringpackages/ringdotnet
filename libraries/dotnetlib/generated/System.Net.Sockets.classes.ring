@@ -325,17 +325,7 @@ Class NetworkStream from Stream
 		return self
 
 	Func Close P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Close",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s5:Close")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Close",P1)
-
+		dotnet_calltdv(nHandle,"Close",P1)
 		return self
 
 	Func getSocket
@@ -394,35 +384,29 @@ Class SafeSocketHandle from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:DangerousGetHandle"))
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func SetHandleAsInvalid 
-		dotnet_callv("s4:call",nHandle,"s18:SetHandleAsInvalid")
-
+		dotnet_calltv(nHandle,"SetHandleAsInvalid")
 		return self
 
 	Func DangerousAddRef P1
 		return dnSend("s4:call",nHandle,"s15:DangerousAddRef",dnPackItem(P1))
 
 	Func DangerousRelease 
-		dotnet_callv("s4:call",nHandle,"s16:DangerousRelease")
-
+		dotnet_calltv(nHandle,"DangerousRelease")
 		return self
 
 	Func GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToString"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -430,9 +414,7 @@ Class SafeSocketHandle from DotNetObject
 		return dn_x
 
 	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func getIsInvalid
 		return dotnet_getp(nHandle,"IsInvalid")
@@ -490,7 +472,7 @@ Class SendPacketsElement from Object
 		return dn_x
 
 	Func getFilePath
-		return dnText(dotnet_getp(nHandle,"FilePath"))
+		return dnAnswer(dotnet_getp(nHandle,"FilePath"))
 
 	Func setFilePath P1
 		raise("DotNet Error: FilePath is a read-only property")
@@ -602,40 +584,15 @@ Class Socket from Object
 		return self
 
 	Func Connect P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s7:Connect",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s7:Connect",P1)
-
+		dotnet_calltd1v(nHandle,"Connect",P1)
 		return self
 
 	Func Close P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Close",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s5:Close")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Close",P1)
-
+		dotnet_calltdv(nHandle,"Close",P1)
 		return self
 
 	Func Listen P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:Listen",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s6:Listen")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:Listen",P1)
-
+		dotnet_calltdv(nHandle,"Listen",P1)
 		return self
 
 	Func Accept 
@@ -652,12 +609,7 @@ Class Socket from Object
 		return dn_x
 
 	Func SendFile P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s8:SendFile",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s8:SendFile",P1)
-
+		dotnet_calltd1v(nHandle,"SendFile",P1)
 		return self
 
 	Func SendTo P1
@@ -740,8 +692,7 @@ Class Socket from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:BeginDisconnect",P1,P2,P3))
 
 	Func Disconnect P1
-		dotnet_callv("s4:call",nHandle,"s10:Disconnect",P1)
-
+		dotnet_calltv(nHandle,"Disconnect",P1)
 		return self
 
 	Func EndDisconnect P1
@@ -914,8 +865,7 @@ Class Socket from Object
 		return dn_x
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func SendFileAsync P1
@@ -1188,17 +1138,11 @@ Class SocketAsyncEventArgs from EventArgs
 		return self
 
 	Func SetBuffer P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s9:SetBuffer",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s9:SetBuffer",P1)
-
+		dotnet_calltd1v(nHandle,"SetBuffer",P1)
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func setCompletedEvent P1
@@ -1559,12 +1503,7 @@ Class TcpClient from Object
 		return self
 
 	Func Connect P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s7:Connect",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s7:Connect",P1)
-
+		dotnet_calltd1v(nHandle,"Connect",P1)
 		return self
 
 	Func ConnectAsync P1
@@ -1585,13 +1524,11 @@ Class TcpClient from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetStream"))
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -1713,13 +1650,11 @@ Class UdpClient from Object
 		return self
 
 	Func AllowNatTraversal P1
-		dotnet_callv("s4:call",nHandle,"s17:AllowNatTraversal",P1)
-
+		dotnet_calltv(nHandle,"AllowNatTraversal",P1)
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func BeginSend P1
@@ -1740,21 +1675,11 @@ Class UdpClient from Object
 		return dnSend("s4:call",nHandle,"s10:EndReceive",dnPackItem(P1) + dnPackItem(P2))
 
 	Func JoinMulticastGroup P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s18:JoinMulticastGroup",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s18:JoinMulticastGroup",P1)
-
+		dotnet_calltd1v(nHandle,"JoinMulticastGroup",P1)
 		return self
 
 	Func DropMulticastGroup P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s18:DropMulticastGroup",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s18:DropMulticastGroup",P1)
-
+		dotnet_calltd1v(nHandle,"DropMulticastGroup",P1)
 		return self
 
 	Func SendAsync P1
@@ -1773,17 +1698,11 @@ Class UdpClient from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ReceiveAsync",P1))
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func Connect P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s7:Connect",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s7:Connect",P1)
-
+		dotnet_calltd1v(nHandle,"Connect",P1)
 		return self
 
 	Func Receive P1
@@ -1954,38 +1873,23 @@ Class TcpListener from Object
 		return self
 
 	Func AllowNatTraversal P1
-		dotnet_callv("s4:call",nHandle,"s17:AllowNatTraversal",P1)
-
+		dotnet_calltv(nHandle,"AllowNatTraversal",P1)
 		return self
 
 	Func Start P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Start",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s5:Start")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Start",P1)
-
+		dotnet_calltdv(nHandle,"Start",P1)
 		return self
 
 	Func Stop 
-		dotnet_callv("s4:call",nHandle,"s4:Stop")
-
+		dotnet_calltv(nHandle,"Stop")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Pending 
-		dn_x = dotnet_call("s4:call",nHandle,"s7:Pending")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Pending"))
 
 	Func AcceptSocket 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AcceptSocket"))

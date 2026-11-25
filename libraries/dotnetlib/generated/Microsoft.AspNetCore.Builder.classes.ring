@@ -1335,9 +1335,7 @@ Class ConfigureWebHostBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConfigureServices",P1))
 
 	Func GetSetting P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:GetSetting",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetSetting",P1))
 
 	Func UseSetting P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSetting",P1,P2))
@@ -1776,7 +1774,7 @@ Class CookiePolicyOptions from Object
 		return self
 
 	Func getConsentCookieValue
-		return dnText(dotnet_getp(nHandle,"ConsentCookieValue"))
+		return dnAnswer(dotnet_getp(nHandle,"ConsentCookieValue"))
 
 	Func setConsentCookieValue P1
 		dotnet_setp(nHandle,"ConsentCookieValue",P1)
@@ -1918,9 +1916,7 @@ Class DefaultFilesOptions from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToString"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1928,9 +1924,7 @@ Class DefaultFilesOptions from DotNetObject
 		return dn_x
 
 	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func getDefaultFileNames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s16:DefaultFileNames"))
@@ -2095,9 +2089,7 @@ Class DirectoryBrowserOptions from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToString"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2105,9 +2097,7 @@ Class DirectoryBrowserOptions from DotNetObject
 		return dn_x
 
 	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func getFormatter
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Formatter"))
@@ -2177,7 +2167,7 @@ Class EndpointBuilder from Object
 		return self
 
 	Func getDisplayName
-		return dnText(dotnet_getp(nHandle,"DisplayName"))
+		return dnAnswer(dotnet_getp(nHandle,"DisplayName"))
 
 	Func setDisplayName P1
 		dotnet_setp(nHandle,"DisplayName",P1)
@@ -2446,9 +2436,7 @@ Class FileServerOptions from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToString"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2456,9 +2444,7 @@ Class FileServerOptions from DotNetObject
 		return dn_x
 
 	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func getStaticFileOptions
 		return dnObj(dotnet_callo("s3:get",nHandle,"s17:StaticFileOptions"))
@@ -2578,56 +2564,56 @@ Class ForwardedHeadersOptions from Object
 		return dn_x
 
 	Func getForwardedForHeaderName
-		return dnText(dotnet_getp(nHandle,"ForwardedForHeaderName"))
+		return dnAnswer(dotnet_getp(nHandle,"ForwardedForHeaderName"))
 
 	Func setForwardedForHeaderName P1
 		dotnet_setp(nHandle,"ForwardedForHeaderName",P1)
 		return self
 
 	Func getForwardedHostHeaderName
-		return dnText(dotnet_getp(nHandle,"ForwardedHostHeaderName"))
+		return dnAnswer(dotnet_getp(nHandle,"ForwardedHostHeaderName"))
 
 	Func setForwardedHostHeaderName P1
 		dotnet_setp(nHandle,"ForwardedHostHeaderName",P1)
 		return self
 
 	Func getForwardedProtoHeaderName
-		return dnText(dotnet_getp(nHandle,"ForwardedProtoHeaderName"))
+		return dnAnswer(dotnet_getp(nHandle,"ForwardedProtoHeaderName"))
 
 	Func setForwardedProtoHeaderName P1
 		dotnet_setp(nHandle,"ForwardedProtoHeaderName",P1)
 		return self
 
 	Func getForwardedPrefixHeaderName
-		return dnText(dotnet_getp(nHandle,"ForwardedPrefixHeaderName"))
+		return dnAnswer(dotnet_getp(nHandle,"ForwardedPrefixHeaderName"))
 
 	Func setForwardedPrefixHeaderName P1
 		dotnet_setp(nHandle,"ForwardedPrefixHeaderName",P1)
 		return self
 
 	Func getOriginalForHeaderName
-		return dnText(dotnet_getp(nHandle,"OriginalForHeaderName"))
+		return dnAnswer(dotnet_getp(nHandle,"OriginalForHeaderName"))
 
 	Func setOriginalForHeaderName P1
 		dotnet_setp(nHandle,"OriginalForHeaderName",P1)
 		return self
 
 	Func getOriginalHostHeaderName
-		return dnText(dotnet_getp(nHandle,"OriginalHostHeaderName"))
+		return dnAnswer(dotnet_getp(nHandle,"OriginalHostHeaderName"))
 
 	Func setOriginalHostHeaderName P1
 		dotnet_setp(nHandle,"OriginalHostHeaderName",P1)
 		return self
 
 	Func getOriginalProtoHeaderName
-		return dnText(dotnet_getp(nHandle,"OriginalProtoHeaderName"))
+		return dnAnswer(dotnet_getp(nHandle,"OriginalProtoHeaderName"))
 
 	Func setOriginalProtoHeaderName P1
 		dotnet_setp(nHandle,"OriginalProtoHeaderName",P1)
 		return self
 
 	Func getOriginalPrefixHeaderName
-		return dnText(dotnet_getp(nHandle,"OriginalPrefixHeaderName"))
+		return dnAnswer(dotnet_getp(nHandle,"OriginalPrefixHeaderName"))
 
 	Func setOriginalPrefixHeaderName P1
 		dotnet_setp(nHandle,"OriginalPrefixHeaderName",P1)
@@ -2897,7 +2883,7 @@ Class HttpMethodOverrideOptions from Object
 		return dn_x
 
 	Func getFormFieldName
-		return dnText(dotnet_getp(nHandle,"FormFieldName"))
+		return dnAnswer(dotnet_getp(nHandle,"FormFieldName"))
 
 	Func setFormFieldName P1
 		dotnet_setp(nHandle,"FormFieldName",P1)
@@ -3492,7 +3478,7 @@ Class IISOptions from Object
 		return self
 
 	Func getAuthenticationDisplayName
-		return dnText(dotnet_getp(nHandle,"AuthenticationDisplayName"))
+		return dnAnswer(dotnet_getp(nHandle,"AuthenticationDisplayName"))
 
 	Func setAuthenticationDisplayName P1
 		dotnet_setp(nHandle,"AuthenticationDisplayName",P1)
@@ -3552,7 +3538,7 @@ Class IISServerOptions from Object
 		return self
 
 	Func getAuthenticationDisplayName
-		return dnText(dotnet_getp(nHandle,"AuthenticationDisplayName"))
+		return dnAnswer(dotnet_getp(nHandle,"AuthenticationDisplayName"))
 
 	Func setAuthenticationDisplayName P1
 		dotnet_setp(nHandle,"AuthenticationDisplayName",P1)
@@ -4711,9 +4697,7 @@ Class StaticFileOptions from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToString"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4721,9 +4705,7 @@ Class StaticFileOptions from DotNetObject
 		return dn_x
 
 	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func getContentTypeProvider
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ContentTypeProvider"))
@@ -4733,7 +4715,7 @@ Class StaticFileOptions from DotNetObject
 		return self
 
 	Func getDefaultContentType
-		return dnText(dotnet_getp(nHandle,"DefaultContentType"))
+		return dnAnswer(dotnet_getp(nHandle,"DefaultContentType"))
 
 	Func setDefaultContentType P1
 		dotnet_setp(nHandle,"DefaultContentType",P1)
@@ -5008,17 +4990,7 @@ Class WebApplication from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:RunAsync",P1))
 
 	Func Run P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s3:Run",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s3:Run")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s3:Run",P1)
-
+		dotnet_calltdv(nHandle,"Run",P1)
 		return self
 
 	Func DisposeAsync 
@@ -5718,28 +5690,28 @@ Class WebApplicationOptions from Object
 		return self
 
 	Func getEnvironmentName
-		return dnText(dotnet_getp(nHandle,"EnvironmentName"))
+		return dnAnswer(dotnet_getp(nHandle,"EnvironmentName"))
 
 	Func setEnvironmentName P1
 		dotnet_setp(nHandle,"EnvironmentName",P1)
 		return self
 
 	Func getApplicationName
-		return dnText(dotnet_getp(nHandle,"ApplicationName"))
+		return dnAnswer(dotnet_getp(nHandle,"ApplicationName"))
 
 	Func setApplicationName P1
 		dotnet_setp(nHandle,"ApplicationName",P1)
 		return self
 
 	Func getContentRootPath
-		return dnText(dotnet_getp(nHandle,"ContentRootPath"))
+		return dnAnswer(dotnet_getp(nHandle,"ContentRootPath"))
 
 	Func setContentRootPath P1
 		dotnet_setp(nHandle,"ContentRootPath",P1)
 		return self
 
 	Func getWebRootPath
-		return dnText(dotnet_getp(nHandle,"WebRootPath"))
+		return dnAnswer(dotnet_getp(nHandle,"WebRootPath"))
 
 	Func setWebRootPath P1
 		dotnet_setp(nHandle,"WebRootPath",P1)

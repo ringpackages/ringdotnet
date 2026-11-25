@@ -668,7 +668,7 @@ Class Annotation from Object
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -717,8 +717,7 @@ Class ConcurrencyDetectorCriticalSectionDisposer from ValueType
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 
@@ -1002,9 +1001,7 @@ Class DatabaseFacade from Object
 		return self
 
 	Func EnsureCreated 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:EnsureCreated")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"EnsureCreated"))
 
 	Func EnsureCreatedAsync P1
 		if dotnet_isnamed(P1)
@@ -1016,9 +1013,7 @@ Class DatabaseFacade from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:EnsureCreatedAsync",P1))
 
 	Func EnsureDeleted 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:EnsureDeleted")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"EnsureDeleted"))
 
 	Func EnsureDeletedAsync P1
 		if dotnet_isnamed(P1)
@@ -1030,9 +1025,7 @@ Class DatabaseFacade from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:EnsureDeletedAsync",P1))
 
 	Func CanConnect 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:CanConnect")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CanConnect"))
 
 	Func CanConnectAsync P1
 		if dotnet_isnamed(P1)
@@ -1056,8 +1049,7 @@ Class DatabaseFacade from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:BeginTransactionAsync",P1))
 
 	Func CommitTransaction 
-		dotnet_callv("s4:call",nHandle,"s17:CommitTransaction")
-
+		dotnet_calltv(nHandle,"CommitTransaction")
 		return self
 
 	Func CommitTransactionAsync P1
@@ -1070,8 +1062,7 @@ Class DatabaseFacade from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:CommitTransactionAsync",P1))
 
 	Func RollbackTransaction 
-		dotnet_callv("s4:call",nHandle,"s19:RollbackTransaction")
-
+		dotnet_calltv(nHandle,"RollbackTransaction")
 		return self
 
 	Func RollbackTransactionAsync P1
@@ -1333,7 +1324,7 @@ Class DatabaseFacade from Object
 		return self
 
 	Func getProviderName
-		return dnText(dotnet_getp(nHandle,"ProviderName"))
+		return dnAnswer(dotnet_getp(nHandle,"ProviderName"))
 
 	Func setProviderName P1
 		raise("DotNet Error: ProviderName is a read-only property")
@@ -1406,9 +1397,7 @@ Class DbContextOptionsExtensionInfo from Object
 		return self
 
 	Func GetServiceProviderHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s26:GetServiceProviderHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetServiceProviderHashCode"))
 
 	Func ShouldUseSameServiceProvider P1
 		dn_x = dotnet_call("s4:call",nHandle,"s28:ShouldUseSameServiceProvider",P1)
@@ -1438,7 +1427,7 @@ Class DbContextOptionsExtensionInfo from Object
 		raise("DotNet Error: IsDatabaseProvider is a read-only property")
 
 	Func getLogFragment
-		return dnText(dotnet_getp(nHandle,"LogFragment"))
+		return dnAnswer(dotnet_getp(nHandle,"LogFragment"))
 
 	Func setLogFragment P1
 		raise("DotNet Error: LogFragment is a read-only property")
@@ -1488,7 +1477,7 @@ Class DbSetProperty from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1528,13 +1517,13 @@ Class DebugView from Object
 		return dn_x
 
 	Func getLongView
-		return dnText(dotnet_getp(nHandle,"LongView"))
+		return dnAnswer(dotnet_getp(nHandle,"LongView"))
 
 	Func setLongView P1
 		raise("DotNet Error: LongView is a read-only property")
 
 	Func getShortView
-		return dnText(dotnet_getp(nHandle,"ShortView"))
+		return dnAnswer(dotnet_getp(nHandle,"ShortView"))
 
 	Func setShortView P1
 		raise("DotNet Error: ShortView is a read-only property")
@@ -1782,19 +1771,7 @@ Class IAnnotatable from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 
 Class IAnnotation from DotNetObject
@@ -1812,7 +1789,7 @@ Class IAnnotation from DotNetObject
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1839,8 +1816,7 @@ Class IConcurrencyDetector from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:EnterCriticalSection"))
 
 	Func ExitCriticalSection 
-		dotnet_callv("s4:call",nHandle,"s19:ExitCriticalSection")
-
+		dotnet_calltv(nHandle,"ExitCriticalSection")
 		return self
 
 
@@ -2093,31 +2069,14 @@ Class ILazyLoader from DotNetObject
 		return self
 
 	Func SetLoaded P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s9:SetLoaded",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s9:SetLoaded",P1)
-
+		dotnet_calltd1v(nHandle,"SetLoaded",P1)
 		return self
 
 	Func IsLoaded P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:IsLoaded",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:IsLoaded",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"IsLoaded",P1))
 
 	Func @Load P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Load",P1)
-
+		dotnet_calltd1v(nHandle,"Load",P1)
 		return self
 
 	Func LoadAsync P1
@@ -2127,8 +2086,7 @@ Class ILazyLoader from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:LoadAsync",P1))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 
@@ -2235,19 +2193,7 @@ Class IReadOnlyAnnotatable from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
@@ -2285,8 +2231,7 @@ Class IResettableService from DotNetObject
 		return self
 
 	Func ResetState 
-		dotnet_callv("s4:call",nHandle,"s10:ResetState")
-
+		dotnet_calltv(nHandle,"ResetState")
 		return self
 
 	Func ResetStateAsync P1
@@ -3202,7 +3147,7 @@ Class RelationalOptionsExtension from Object
 		raise("DotNet Error: Info is a read-only property")
 
 	Func getConnectionString
-		return dnText(dotnet_getp(nHandle,"ConnectionString"))
+		return dnAnswer(dotnet_getp(nHandle,"ConnectionString"))
 
 	Func setConnectionString P1
 		raise("DotNet Error: ConnectionString is a read-only property")
@@ -3250,7 +3195,7 @@ Class RelationalOptionsExtension from Object
 		raise("DotNet Error: QuerySplittingBehavior is a read-only property")
 
 	Func getMigrationsAssembly
-		return dnText(dotnet_getp(nHandle,"MigrationsAssembly"))
+		return dnAnswer(dotnet_getp(nHandle,"MigrationsAssembly"))
 
 	Func setMigrationsAssembly P1
 		raise("DotNet Error: MigrationsAssembly is a read-only property")
@@ -3262,13 +3207,13 @@ Class RelationalOptionsExtension from Object
 		raise("DotNet Error: MigrationsAssemblyObject is a read-only property")
 
 	Func getMigrationsHistoryTableName
-		return dnText(dotnet_getp(nHandle,"MigrationsHistoryTableName"))
+		return dnAnswer(dotnet_getp(nHandle,"MigrationsHistoryTableName"))
 
 	Func setMigrationsHistoryTableName P1
 		raise("DotNet Error: MigrationsHistoryTableName is a read-only property")
 
 	Func getMigrationsHistoryTableSchema
-		return dnText(dotnet_getp(nHandle,"MigrationsHistoryTableSchema"))
+		return dnAnswer(dotnet_getp(nHandle,"MigrationsHistoryTableSchema"))
 
 	Func setMigrationsHistoryTableSchema P1
 		raise("DotNet Error: MigrationsHistoryTableSchema is a read-only property")

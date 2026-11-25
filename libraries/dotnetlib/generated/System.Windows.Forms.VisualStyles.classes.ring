@@ -1363,7 +1363,7 @@ Class VisualStyleElement from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.VisualStyles.VisualStyleElement, System.Windows.Forms',"s13:CreateElement",P1,P2,P3))
 
 	Func getClassName
-		return dnText(dotnet_getp(nHandle,"ClassName"))
+		return dnAnswer(dotnet_getp(nHandle,"ClassName"))
 
 	Func setClassName P1
 		raise("DotNet Error: ClassName is a read-only property")
@@ -7972,12 +7972,7 @@ Class VisualStyleRenderer from Object
 		return self
 
 	Func SetParameters P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s13:SetParameters",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s13:SetParameters",P1)
-
+		dotnet_calltd1v(nHandle,"SetParameters",P1)
 		return self
 
 	Func DrawBackground P1
@@ -8077,9 +8072,7 @@ Class VisualStyleRenderer from Object
 		raise("DotNet Error: HitTestBackground does not take one argument: use named arguments, HitTestBackground([ :parameter = value, ... ])")
 
 	Func IsBackgroundPartiallyTransparent 
-		dn_x = dotnet_call("s4:call",nHandle,"s32:IsBackgroundPartiallyTransparent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsBackgroundPartiallyTransparent"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -8092,7 +8085,7 @@ Class VisualStyleRenderer from Object
 		return dn_x
 
 	Func getClass
-		return dnText(dotnet_getp(nHandle,"Class"))
+		return dnAnswer(dotnet_getp(nHandle,"Class"))
 
 	Func getPart
 		return dotnet_getp(nHandle,"Part")

@@ -181,8 +181,7 @@ Class BackgroundService from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:StopAsync",P1))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -444,12 +443,7 @@ Class HostApplicationBuilder from Object
 		return self
 
 	Func ConfigureContainer P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s18:ConfigureContainer",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s18:ConfigureContainer",P1)
-
+		dotnet_calltd1v(nHandle,"ConfigureContainer",P1)
 		return self
 
 	Func Build 
@@ -545,21 +539,21 @@ Class HostApplicationBuilderSettings from Object
 		return self
 
 	Func getEnvironmentName
-		return dnText(dotnet_getp(nHandle,"EnvironmentName"))
+		return dnAnswer(dotnet_getp(nHandle,"EnvironmentName"))
 
 	Func setEnvironmentName P1
 		dotnet_setp(nHandle,"EnvironmentName",P1)
 		return self
 
 	Func getApplicationName
-		return dnText(dotnet_getp(nHandle,"ApplicationName"))
+		return dnAnswer(dotnet_getp(nHandle,"ApplicationName"))
 
 	Func setApplicationName P1
 		dotnet_setp(nHandle,"ApplicationName",P1)
 		return self
 
 	Func getContentRootPath
-		return dnText(dotnet_getp(nHandle,"ContentRootPath"))
+		return dnAnswer(dotnet_getp(nHandle,"ContentRootPath"))
 
 	Func setContentRootPath P1
 		dotnet_setp(nHandle,"ContentRootPath",P1)
@@ -1091,8 +1085,7 @@ Class IHost from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:StopAsync",P1))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Start 
@@ -1159,12 +1152,7 @@ Class IHostApplicationBuilder from DotNetObject
 		return self
 
 	Func ConfigureContainer P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s18:ConfigureContainer",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s18:ConfigureContainer",P1)
-
+		dotnet_calltd1v(nHandle,"ConfigureContainer",P1)
 		return self
 
 	Func getProperties
@@ -1220,8 +1208,7 @@ Class IHostApplicationLifetime from DotNetObject
 		return self
 
 	Func StopApplication 
-		dotnet_callv("s4:call",nHandle,"s15:StopApplication")
-
+		dotnet_calltv(nHandle,"StopApplication")
 		return self
 
 	Func getApplicationStarted
@@ -1402,21 +1389,21 @@ Class IHostEnvironment from DotNetObject
 		return dn_x
 
 	Func getEnvironmentName
-		return dnText(dotnet_getp(nHandle,"EnvironmentName"))
+		return dnAnswer(dotnet_getp(nHandle,"EnvironmentName"))
 
 	Func setEnvironmentName P1
 		dotnet_setp(nHandle,"EnvironmentName",P1)
 		return self
 
 	Func getApplicationName
-		return dnText(dotnet_getp(nHandle,"ApplicationName"))
+		return dnAnswer(dotnet_getp(nHandle,"ApplicationName"))
 
 	Func setApplicationName P1
 		dotnet_setp(nHandle,"ApplicationName",P1)
 		return self
 
 	Func getContentRootPath
-		return dnText(dotnet_getp(nHandle,"ContentRootPath"))
+		return dnAnswer(dotnet_getp(nHandle,"ContentRootPath"))
 
 	Func setContentRootPath P1
 		dotnet_setp(nHandle,"ContentRootPath",P1)

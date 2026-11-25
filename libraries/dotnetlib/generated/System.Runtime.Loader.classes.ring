@@ -36,9 +36,7 @@ Class AssemblyDependencyResolver from Object
 		return dn_x
 
 	Func ResolveUnmanagedDllToPath P1
-		dn_x = dotnet_call("s4:call",nHandle,"s25:ResolveUnmanagedDllToPath",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ResolveUnmanagedDllToPath",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -82,13 +80,11 @@ Class AssemblyLoadContext from Object
 		return self
 
 	Func SetProfileOptimizationRoot P1
-		dotnet_callv("s4:call",nHandle,"s26:SetProfileOptimizationRoot",P1)
-
+		dotnet_calltv(nHandle,"SetProfileOptimizationRoot",P1)
 		return self
 
 	Func StartProfileOptimization P1
-		dotnet_callv("s4:call",nHandle,"s24:StartProfileOptimization",P1)
-
+		dotnet_calltv(nHandle,"StartProfileOptimization",P1)
 		return self
 
 	Func LoadFromAssemblyName P1
@@ -107,8 +103,7 @@ Class AssemblyLoadContext from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:LoadFromStream",P1))
 
 	Func Unload 
-		dotnet_callv("s4:call",nHandle,"s6:Unload")
-
+		dotnet_calltv(nHandle,"Unload")
 		return self
 
 	Func EnterContextualReflection P1
@@ -171,7 +166,7 @@ Class AssemblyLoadContext from Object
 		raise("DotNet Error: IsCollectible is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -216,8 +211,7 @@ Class AssemblyLoadContextContextualReflectionScope from ValueType
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 

@@ -196,8 +196,7 @@ Class ConcurrentExclusiveSchedulerPair from Object
 		return self
 
 	Func Complete 
-		dotnet_callv("s4:call",nHandle,"s8:Complete")
-
+		dotnet_calltv(nHandle,"Complete")
 		return self
 
 	Func Equals P1
@@ -327,13 +326,11 @@ Class ParallelLoopState from Object
 		return self
 
 	Func Stop 
-		dotnet_callv("s4:call",nHandle,"s4:Stop")
-
+		dotnet_calltv(nHandle,"Stop")
 		return self
 
 	Func @Break 
-		dotnet_callv("s4:call",nHandle,"s5:Break")
-
+		dotnet_calltv(nHandle,"Break")
 		return self
 
 	Func Equals P1
@@ -540,43 +537,18 @@ Class TaskCompletionSource from Object
 		return dn_x
 
 	Func SetResult 
-		dotnet_callv("s4:call",nHandle,"s9:SetResult")
-
+		dotnet_calltv(nHandle,"SetResult")
 		return self
 
 	Func TrySetResult 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:TrySetResult")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"TrySetResult"))
 
 	Func SetCanceled P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s11:SetCanceled",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s11:SetCanceled")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s11:SetCanceled",P1)
-
+		dotnet_calltdv(nHandle,"SetCanceled",P1)
 		return self
 
 	Func TrySetCanceled P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:TrySetCanceled",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s14:TrySetCanceled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s14:TrySetCanceled",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"TrySetCanceled",P1))
 
 	Func SetFromTask P1
 		dotnet_callv("s4:call",nHandle,"s11:SetFromTask",P1)
@@ -638,33 +610,11 @@ Class TaskCompletionSource1 from Object
 		return dn_x
 
 	Func SetCanceled P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s11:SetCanceled",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s11:SetCanceled")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s11:SetCanceled",P1)
-
+		dotnet_calltdv(nHandle,"SetCanceled",P1)
 		return self
 
 	Func TrySetCanceled P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:TrySetCanceled",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s14:TrySetCanceled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s14:TrySetCanceled",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"TrySetCanceled",P1))
 
 	Func SetFromTask P1
 		dotnet_callv("s4:call",nHandle,"s11:SetFromTask",P1)
@@ -1016,8 +966,7 @@ Class UnobservedTaskExceptionEventArgs from EventArgs
 		return self
 
 	Func SetObserved 
-		dotnet_callv("s4:call",nHandle,"s11:SetObserved")
-
+		dotnet_calltv(nHandle,"SetObserved")
 		return self
 
 	Func getObserved
@@ -1236,36 +1185,15 @@ Class Task from Object
 		return self
 
 	Func Start P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Start",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s5:Start")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Start",P1)
-
+		dotnet_calltdv(nHandle,"Start",P1)
 		return self
 
 	Func RunSynchronously P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s16:RunSynchronously",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s16:RunSynchronously")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s16:RunSynchronously",P1)
-
+		dotnet_calltdv(nHandle,"RunSynchronously",P1)
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func GetAwaiter 
@@ -1490,7 +1418,7 @@ Class StringTask from Task
 		return self
 
 	Func getResult
-		return dnText(dotnet_getp(nHandle,"Result"))
+		return dnAnswer(dotnet_getp(nHandle,"Result"))
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")

@@ -348,6 +348,65 @@ namespace MyCompany.Tools
 		public int Y;
 	}
 
+	// Instance methods that are called directly by the extension (typed calls): parameters of numbers, yes/nos and texts, answers of a number, a yes/no, a text or
+	// nothing. The others in this class must still give the answers and the errors of the generic request: overloads, optional parameters, params, generic
+	// methods, out and ref, an enum, a char, a nullable, an object, a method that throws, a static method.
+	public class TypedMath
+	{
+		public string Last;
+		public int Add(int a, int b) { return a + b; }
+		public int Sum3(int a, int b, int c) { return a + b + c; }
+		public double Mix4(double a, double b, double c, double d) { return a * b + c - d; }
+		public string Join4(string a, int b, bool c, string d) { return a + b + (c ? "T" : "F") + d; }
+		public bool Between(int value, int low, int high) { return value >= low && value <= high; }
+		public void Set2(int a, string b) { Last = a + b; }
+		public long Big(long a) { return a * 2; }
+		public int ByteIn(byte a) { return a + 1; }
+		public int SByteIn(sbyte a) { return a + 1; }
+		public int ShortIn(short a) { return a + 1; }
+		public int UShortIn(ushort a) { return a + 1; }
+		public long UIntIn(uint a) { return (long)a + 1; }
+		public double ULongIn(ulong a) { return (double)a + 1; }
+		public double FloatIn(float a) { return a * 2; }
+		public decimal DecimalIn(decimal a) { return a + 1; }
+		public string TextOrNull(string a) { return a.Length == 0 ? null : a + "!"; }
+		public string Echo(string a) { return a; }
+		public int Length(string a) { return a.Length; }
+		public int Throws(int a) { throw new ArgumentException("typed call error " + a); }
+		public bool IsFive(int a) { return a == 5; }
+		public char LetterOf(string a) { return a[0]; }
+		public char NextLetter(char c) { return (char)(c + 1); }
+		public TypedColor Paint(TypedColor c) { return c; }
+		public int Maybe(int? a) { return a.HasValue ? a.Value : -1; }
+		public int Opt(int a, int b = 5) { return a * 100 + b; }
+		public int Many(params int[] values) { return values.Length; }
+		public T Same<T>(T value) { return value; }
+		public bool OutValue(out int result) { result = 9; return true; }
+		public int RefValue(ref int value) { value++; return value; }
+		public static int Square(int a) { return a * a; }
+		public int Over(int a) { return a + 1; }
+		public string Over(string a) { return a + "?"; }
+		public TypedBox Box(int a) { return new TypedBox { IntValue = a }; }
+		public string Pair() { return "none"; }
+		public string Pair(int a) { return "int " + a; }
+		public void Reset() { Last = "reset"; }
+		public void Reset(int a) { Last = "reset " + a; }
+		public int Count() { return 1; }
+		public int Count(string a) { return 2; }
+		public int Count(int a) { return 3; }
+		public int Scale(int a) { return a * 10; }
+		public int Scale(int a, int b) { return a * b; }
+		public string Say() { return "hi"; }
+		public string Say(string a) { return "hi " + a; }
+		public string Say(string a, string b) { return "hi " + a + b; }
+	}
+
+	public class TypedMathDerived : TypedMath
+	{
+		public new int Add(int a, int b) { return a + b + 1000; }
+		public string Add(string a, string b) { return a + b; }
+	}
+
 	public static class Channels
 	{
 		public static IChannelSink NewChannel() { return new Channel(); }

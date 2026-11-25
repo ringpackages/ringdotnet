@@ -408,13 +408,11 @@ Class AsyncFlowControl from ValueType
 		return self
 
 	Func Undo 
-		dotnet_callv("s4:call",nHandle,"s4:Undo")
-
+		dotnet_calltv(nHandle,"Undo")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	# the operators of System.Threading.AsyncFlowControl: = !=
@@ -523,23 +521,17 @@ Class Barrier from Object
 		return self
 
 	Func AddParticipant 
-		dn_x = dotnet_call("s4:call",nHandle,"s14:AddParticipant")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"AddParticipant"))
 
 	Func AddParticipants P1
-		dn_x = dotnet_call("s4:call",nHandle,"s15:AddParticipants",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"AddParticipants",P1))
 
 	Func RemoveParticipant 
-		dotnet_callv("s4:call",nHandle,"s17:RemoveParticipant")
-
+		dotnet_calltv(nHandle,"RemoveParticipant")
 		return self
 
 	Func RemoveParticipants P1
-		dotnet_callv("s4:call",nHandle,"s18:RemoveParticipants",P1)
-
+		dotnet_calltv(nHandle,"RemoveParticipants",P1)
 		return self
 
 	Func SignalAndWait P1
@@ -558,8 +550,7 @@ Class Barrier from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -674,8 +665,7 @@ Class CancellationToken from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UnsafeRegister",P1,P2))
 
 	Func ThrowIfCancellationRequested 
-		dotnet_callv("s4:call",nHandle,"s28:ThrowIfCancellationRequested")
-
+		dotnet_calltv(nHandle,"ThrowIfCancellationRequested")
 		return self
 
 	Func getIsCancellationRequested
@@ -730,17 +720,14 @@ Class CancellationTokenRegistration from ValueType
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func DisposeAsync 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
 
 	Func Unregister 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:Unregister")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Unregister"))
 
 	Func ConfigureAwait P1
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
@@ -797,17 +784,7 @@ Class CancellationTokenSource from Object
 		return self
 
 	Func Cancel P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:Cancel",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s6:Cancel")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:Cancel",P1)
-
+		dotnet_calltdv(nHandle,"Cancel",P1)
 		return self
 
 	Func CancelAsync 
@@ -819,13 +796,10 @@ Class CancellationTokenSource from Object
 		return self
 
 	Func TryReset 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:TryReset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"TryReset"))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -907,66 +881,21 @@ Class CountdownEvent from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Signal P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Signal",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s6:Signal")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Signal",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"Signal",P1))
 
 	Func AddCount P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s8:AddCount",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s8:AddCount")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s8:AddCount",P1)
-
+		dotnet_calltdv(nHandle,"AddCount",P1)
 		return self
 
 	Func TryAddCount P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:TryAddCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:TryAddCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:TryAddCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"TryAddCount",P1))
 
 	Func Reset P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Reset",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s5:Reset")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Reset",P1)
-
+		dotnet_calltdv(nHandle,"Reset",P1)
 		return self
 
 	Func Wait P1
@@ -1034,8 +963,7 @@ Class ExecutionContext from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:CreateCopy"))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -1110,17 +1038,7 @@ Class HostExecutionContext from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:CreateCopy"))
 
 	Func Dispose P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s7:Dispose",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s7:Dispose",P1)
-
+		dotnet_calltdv(nHandle,"Dispose",P1)
 		return self
 
 	Func Equals P1
@@ -1178,8 +1096,7 @@ Class IThreadPoolWorkItem from DotNetObject
 		return self
 
 	Func Execute 
-		dotnet_callv("s4:call",nHandle,"s7:Execute")
-
+		dotnet_calltv(nHandle,"Execute")
 		return self
 
 
@@ -1200,8 +1117,7 @@ Class ITimer from DotNetObject
 		return dn_x
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func DisposeAsync 
@@ -1313,31 +1229,17 @@ Class Lock from Object
 		return self
 
 	Func Enter 
-		dotnet_callv("s4:call",nHandle,"s5:Enter")
-
+		dotnet_calltv(nHandle,"Enter")
 		return self
 
 	Func EnterScope 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:EnterScope"))
 
 	Func TryEnter P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:TryEnter",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s8:TryEnter")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:TryEnter",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"TryEnter",P1))
 
 	Func @Exit 
-		dotnet_callv("s4:call",nHandle,"s4:Exit")
-
+		dotnet_calltv(nHandle,"Exit")
 		return self
 
 	Func Equals P1
@@ -1455,13 +1357,11 @@ Class ManualResetEventSlim from Object
 		return self
 
 	Func Set 
-		dotnet_callv("s4:call",nHandle,"s3:Set")
-
+		dotnet_calltv(nHandle,"Set")
 		return self
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func Wait P1
@@ -1480,8 +1380,7 @@ Class ManualResetEventSlim from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -1688,24 +1587,10 @@ Class Overlapped from Object
 		return self
 
 	Func Pack P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s4:Pack",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s4:Pack",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Pack",P1))
 
 	Func UnsafePack P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:UnsafePack",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s10:UnsafePack",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"UnsafePack",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1796,8 +1681,7 @@ Class PeriodicTimer from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:WaitForNextTickAsync",P1))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -1827,8 +1711,7 @@ Class PreAllocatedOverlapped from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -1865,28 +1748,22 @@ Class ReaderWriterLock from DotNetObject
 		return self
 
 	Func AnyWritersSince P1
-		dn_x = dotnet_call("s4:call",nHandle,"s15:AnyWritersSince",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"AnyWritersSince",P1))
 
 	Func AcquireReaderLock P1
-		dotnet_callv("s4:call",nHandle,"s17:AcquireReaderLock",P1)
-
+		dotnet_calltv(nHandle,"AcquireReaderLock",P1)
 		return self
 
 	Func AcquireWriterLock P1
-		dotnet_callv("s4:call",nHandle,"s17:AcquireWriterLock",P1)
-
+		dotnet_calltv(nHandle,"AcquireWriterLock",P1)
 		return self
 
 	Func ReleaseReaderLock 
-		dotnet_callv("s4:call",nHandle,"s17:ReleaseReaderLock")
-
+		dotnet_calltv(nHandle,"ReleaseReaderLock")
 		return self
 
 	Func ReleaseWriterLock 
-		dotnet_callv("s4:call",nHandle,"s17:ReleaseWriterLock")
-
+		dotnet_calltv(nHandle,"ReleaseWriterLock")
 		return self
 
 	Func UpgradeToWriterLock P1
@@ -1905,9 +1782,7 @@ Class ReaderWriterLock from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToString"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1915,9 +1790,7 @@ Class ReaderWriterLock from DotNetObject
 		return dn_x
 
 	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func getIsReaderLockHeld
 		return dotnet_getp(nHandle,"IsReaderLockHeld")
@@ -1987,8 +1860,7 @@ Class ReaderWriterLockSlim from Object
 		return self
 
 	Func EnterReadLock 
-		dotnet_callv("s4:call",nHandle,"s13:EnterReadLock")
-
+		dotnet_calltv(nHandle,"EnterReadLock")
 		return self
 
 	Func TryEnterReadLock P1
@@ -1997,8 +1869,7 @@ Class ReaderWriterLockSlim from Object
 		return dn_x
 
 	Func EnterWriteLock 
-		dotnet_callv("s4:call",nHandle,"s14:EnterWriteLock")
-
+		dotnet_calltv(nHandle,"EnterWriteLock")
 		return self
 
 	Func TryEnterWriteLock P1
@@ -2007,8 +1878,7 @@ Class ReaderWriterLockSlim from Object
 		return dn_x
 
 	Func EnterUpgradeableReadLock 
-		dotnet_callv("s4:call",nHandle,"s24:EnterUpgradeableReadLock")
-
+		dotnet_calltv(nHandle,"EnterUpgradeableReadLock")
 		return self
 
 	Func TryEnterUpgradeableReadLock P1
@@ -2017,23 +1887,19 @@ Class ReaderWriterLockSlim from Object
 		return dn_x
 
 	Func ExitReadLock 
-		dotnet_callv("s4:call",nHandle,"s12:ExitReadLock")
-
+		dotnet_calltv(nHandle,"ExitReadLock")
 		return self
 
 	Func ExitWriteLock 
-		dotnet_callv("s4:call",nHandle,"s13:ExitWriteLock")
-
+		dotnet_calltv(nHandle,"ExitWriteLock")
 		return self
 
 	Func ExitUpgradeableReadLock 
-		dotnet_callv("s4:call",nHandle,"s23:ExitUpgradeableReadLock")
-
+		dotnet_calltv(nHandle,"ExitUpgradeableReadLock")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -2218,8 +2084,7 @@ Class SemaphoreSlim from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:WaitAsync",P1))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -2292,17 +2157,7 @@ Class SpinLock from ValueType
 		return dnSend("s4:call",nHandle,"s8:TryEnter",dnPackItem(P1))
 
 	Func @Exit P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Exit",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s4:Exit")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Exit",P1)
-
+		dotnet_calltdv(nHandle,"Exit",P1)
 		return self
 
 	Func getIsHeld
@@ -2348,22 +2203,11 @@ Class SpinWait from ValueType
 		return self
 
 	Func SpinOnce P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s8:SpinOnce",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s8:SpinOnce")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s8:SpinOnce",P1)
-
+		dotnet_calltdv(nHandle,"SpinOnce",P1)
 		return self
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func SpinUntil P1
@@ -2412,9 +2256,7 @@ Class SynchronizationContext from Object
 		return self
 
 	Func IsWaitNotificationRequired 
-		dn_x = dotnet_call("s4:call",nHandle,"s26:IsWaitNotificationRequired")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsWaitNotificationRequired"))
 
 	Func Send P1,P2
 		dotnet_callv("s4:call",nHandle,"s4:Send",P1,P2)
@@ -2427,13 +2269,11 @@ Class SynchronizationContext from Object
 		return self
 
 	Func OperationStarted 
-		dotnet_callv("s4:call",nHandle,"s16:OperationStarted")
-
+		dotnet_calltv(nHandle,"OperationStarted")
 		return self
 
 	Func OperationCompleted 
-		dotnet_callv("s4:call",nHandle,"s18:OperationCompleted")
-
+		dotnet_calltv(nHandle,"OperationCompleted")
 		return self
 
 	Func Wait P1,P2,P3
@@ -2597,8 +2437,7 @@ Class ThreadLocal from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -2732,14 +2571,7 @@ Class ThreadPoolBoundHandle from Object
 		return self
 
 	Func AllocateNativeOverlapped P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AllocateNativeOverlapped",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AllocateNativeOverlapped",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"AllocateNativeOverlapped",P1))
 
 	Func UnsafeAllocateNativeOverlapped P1,P2,P3
 		dn_x = dotnet_call("s4:call",nHandle,"s30:UnsafeAllocateNativeOverlapped",P1,P2,P3)
@@ -2752,8 +2584,7 @@ Class ThreadPoolBoundHandle from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -2886,9 +2717,7 @@ Class Timer from MarshalByRefObject
 		return self
 
 	Func Change P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Change",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Change",P1,P2))
 
 	Func Dispose P1
 		if dotnet_isnamed(P1)
@@ -2960,29 +2789,15 @@ Class WaitHandle from MarshalByRefObject
 		return self
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func WaitOne P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:WaitOne",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s7:WaitOne")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s7:WaitOne",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"WaitOne",P1))
 
 	Func WaitAll P1
 		if dotnet_isnamed(P1)
@@ -3149,13 +2964,11 @@ Class Thread from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetApartmentState"))
 
 	Func DisableComObjectEagerCleanup 
-		dotnet_callv("s4:call",nHandle,"s28:DisableComObjectEagerCleanup")
-
+		dotnet_calltv(nHandle,"DisableComObjectEagerCleanup")
 		return self
 
 	Func Interrupt 
-		dotnet_callv("s4:call",nHandle,"s9:Interrupt")
-
+		dotnet_calltv(nHandle,"Interrupt")
 		return self
 
 	Func Join P1
@@ -3174,55 +2987,23 @@ Class Thread from DotNetObject
 		return dn_x
 
 	Func Start P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Start",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s5:Start")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Start",P1)
-
+		dotnet_calltdv(nHandle,"Start",P1)
 		return self
 
 	Func UnsafeStart P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s11:UnsafeStart",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s11:UnsafeStart")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s11:UnsafeStart",P1)
-
+		dotnet_calltdv(nHandle,"UnsafeStart",P1)
 		return self
 
 	Func Abort P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Abort",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s5:Abort")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Abort",P1)
-
+		dotnet_calltdv(nHandle,"Abort",P1)
 		return self
 
 	Func Suspend 
-		dotnet_callv("s4:call",nHandle,"s7:Suspend")
-
+		dotnet_calltv(nHandle,"Suspend")
 		return self
 
 	Func Resume 
-		dotnet_callv("s4:call",nHandle,"s6:Resume")
-
+		dotnet_calltv(nHandle,"Resume")
 		return self
 
 	Func @SetApartmentState P1
@@ -3244,17 +3025,13 @@ Class Thread from DotNetObject
 		return self
 
 	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToString"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3406,7 +3183,7 @@ Class Thread from DotNetObject
 		raise("DotNet Error: ExecutionContext is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -3462,14 +3239,10 @@ Class EventWaitHandle from WaitHandle
 		return self
 
 	Func Reset 
-		dn_x = dotnet_call("s4:call",nHandle,"s5:Reset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Reset"))
 
 	Func Set 
-		dn_x = dotnet_call("s4:call",nHandle,"s3:Set")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Set"))
 
 	Func OpenExisting P1
 		return dnObj(dotnet_callo("s4:call",'System.Threading.EventWaitHandle, System.Private.CoreLib',"s12:OpenExisting",P1))
@@ -3515,8 +3288,7 @@ Class Mutex from WaitHandle
 		return self
 
 	Func ReleaseMutex 
-		dotnet_callv("s4:call",nHandle,"s12:ReleaseMutex")
-
+		dotnet_calltv(nHandle,"ReleaseMutex")
 		return self
 
 	Func OpenExisting P1

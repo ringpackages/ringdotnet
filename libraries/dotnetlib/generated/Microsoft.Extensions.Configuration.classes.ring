@@ -312,24 +312,21 @@ Class ChainedConfigurationProvider from Object
 		return dnSend("s4:call",nHandle,"s6:TryGet",dnPackItem(P1))
 
 	Func Set P1,P2
-		dotnet_callv("s4:call",nHandle,"s3:Set",P1,P2)
-
+		dotnet_calltv(nHandle,"Set",P1,P2)
 		return self
 
 	Func GetReloadToken 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetReloadToken"))
 
 	Func @Load 
-		dotnet_callv("s4:call",nHandle,"s4:Load")
-
+		dotnet_calltv(nHandle,"Load")
 		return self
 
 	Func GetChildKeys P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetChildKeys",P1,P2))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -642,19 +639,19 @@ Class ConfigurationDebugViewContext from ValueType
 		return self
 
 	Func getPath
-		return dnText(dotnet_getp(nHandle,"Path"))
+		return dnAnswer(dotnet_getp(nHandle,"Path"))
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getKey
-		return dnText(dotnet_getp(nHandle,"Key"))
+		return dnAnswer(dotnet_getp(nHandle,"Key"))
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -728,9 +725,7 @@ Class ConfigurationKeyComparer from Object
 		return self
 
 	Func Compare P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s7:Compare",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Compare",P1,P2))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -760,7 +755,7 @@ Class ConfigurationKeyNameAttribute from Attribute
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -795,8 +790,7 @@ Class ConfigurationManager from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetChildren"))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -1048,13 +1042,11 @@ Class ConfigurationProvider from Object
 		return dnSend("s4:call",nHandle,"s6:TryGet",dnPackItem(P1))
 
 	Func Set P1,P2
-		dotnet_callv("s4:call",nHandle,"s3:Set",P1,P2)
-
+		dotnet_calltv(nHandle,"Set",P1,P2)
 		return self
 
 	Func @Load 
-		dotnet_callv("s4:call",nHandle,"s4:Load")
-
+		dotnet_calltv(nHandle,"Load")
 		return self
 
 	Func GetChildKeys P1,P2
@@ -1096,8 +1088,7 @@ Class ConfigurationReloadToken from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:RegisterChangeCallback",P1,P2))
 
 	Func OnReload 
-		dotnet_callv("s4:call",nHandle,"s8:OnReload")
-
+		dotnet_calltv(nHandle,"OnReload")
 		return self
 
 	Func Equals P1
@@ -1143,13 +1134,11 @@ Class ConfigurationRoot from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetSection",P1))
 
 	Func Reload 
-		dotnet_callv("s4:call",nHandle,"s6:Reload")
-
+		dotnet_calltv(nHandle,"Reload")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -1357,19 +1346,19 @@ Class ConfigurationSection from Object
 		return self
 
 	Func getPath
-		return dnText(dotnet_getp(nHandle,"Path"))
+		return dnAnswer(dotnet_getp(nHandle,"Path"))
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getKey
-		return dnText(dotnet_getp(nHandle,"Key"))
+		return dnAnswer(dotnet_getp(nHandle,"Key"))
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		dotnet_setp(nHandle,"Value",P1)
@@ -1458,8 +1447,7 @@ Class FileConfigurationSource from Object
 		return self
 
 	Func ResolveFileProvider 
-		dotnet_callv("s4:call",nHandle,"s19:ResolveFileProvider")
-
+		dotnet_calltv(nHandle,"ResolveFileProvider")
 		return self
 
 	Func Equals P1
@@ -1475,7 +1463,7 @@ Class FileConfigurationSource from Object
 		return self
 
 	Func getPath
-		return dnText(dotnet_getp(nHandle,"Path"))
+		return dnAnswer(dotnet_getp(nHandle,"Path"))
 
 	Func setPath P1
 		dotnet_setp(nHandle,"Path",P1)
@@ -1983,16 +1971,14 @@ Class IConfigurationProvider from DotNetObject
 		return dnSend("s4:call",nHandle,"s6:TryGet",dnPackItem(P1))
 
 	Func Set P1,P2
-		dotnet_callv("s4:call",nHandle,"s3:Set",P1,P2)
-
+		dotnet_calltv(nHandle,"Set",P1,P2)
 		return self
 
 	Func GetReloadToken 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetReloadToken"))
 
 	Func @Load 
-		dotnet_callv("s4:call",nHandle,"s4:Load")
-
+		dotnet_calltv(nHandle,"Load")
 		return self
 
 	Func GetChildKeys P1,P2
@@ -2013,8 +1999,7 @@ Class IConfigurationRoot from DotNetObject
 		return self
 
 	Func Reload 
-		dotnet_callv("s4:call",nHandle,"s6:Reload")
-
+		dotnet_calltv(nHandle,"Reload")
 		return self
 
 	Func GetSection P1
@@ -2174,19 +2159,19 @@ Class IConfigurationSection from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredSection",P1))
 
 	Func getKey
-		return dnText(dotnet_getp(nHandle,"Key"))
+		return dnAnswer(dotnet_getp(nHandle,"Key"))
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getPath
-		return dnText(dotnet_getp(nHandle,"Path"))
+		return dnAnswer(dotnet_getp(nHandle,"Path"))
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		dotnet_setp(nHandle,"Value",P1)
@@ -2398,22 +2383,11 @@ Class FileConfigurationProvider from ConfigurationProvider
 		return self
 
 	Func @Load P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s4:Load")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Load",P1)
-
+		dotnet_calltdv(nHandle,"Load",P1)
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func getSource
@@ -2437,17 +2411,7 @@ Class StreamConfigurationProvider from ConfigurationProvider
 		return self
 
 	Func @Load P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Load",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s4:Load")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Load",P1)
-
+		dotnet_calltdv(nHandle,"Load",P1)
 		return self
 
 	Func getSource

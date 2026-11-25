@@ -316,8 +316,7 @@ Class HybridDictionary from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -441,8 +440,7 @@ Class IOrderedDictionary from DotNetObject
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Contains P1
@@ -456,8 +454,7 @@ Class IOrderedDictionary from DotNetObject
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Remove P1
@@ -590,8 +587,7 @@ Class ListDictionary from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -816,9 +812,7 @@ Class NameObjectCollectionBaseKeysCollection from Object
 		return self
 
 	Func @Get P1
-		dn_x = dotnet_call("s4:call",nHandle,"s3:Get",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Get",P1))
 
 	Func GetEnumerator 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
@@ -907,8 +901,7 @@ Class OrderedDictionary from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func AsReadOnly 
@@ -930,8 +923,7 @@ Class OrderedDictionary from Object
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Remove P1
@@ -1030,9 +1022,7 @@ Class StringCollection from Object
 		return self
 
 	Func Add P1
-		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Add",P1))
 
 	Func AddRange P1
 		dotnet_callv("s4:call",nHandle,"s8:AddRange",P1)
@@ -1040,14 +1030,11 @@ Class StringCollection from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -1058,23 +1045,18 @@ Class StringCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IndexOf",P1))
 
 	Func Insert P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-
+		dotnet_calltv(nHandle,"Insert",P1,P2)
 		return self
 
 	Func Remove P1
-		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
-
+		dotnet_calltv(nHandle,"Remove",P1)
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Equals P1
@@ -1163,24 +1145,18 @@ Class SpecializedStringDictionary from Object
 		return self
 
 	Func Add P1,P2
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1,P2)
-
+		dotnet_calltv(nHandle,"Add",P1,P2)
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func ContainsKey P1
-		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsKey",P1))
 
 	Func ContainsValue P1
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ContainsValue",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsValue",P1))
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -1191,8 +1167,7 @@ Class SpecializedStringDictionary from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func Remove P1
-		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
-
+		dotnet_calltv(nHandle,"Remove",P1)
 		return self
 
 	Func Equals P1
@@ -1274,13 +1249,10 @@ Class StringEnumerator from Object
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func Equals P1
@@ -1289,7 +1261,7 @@ Class StringEnumerator from Object
 		return dn_x
 
 	Func getCurrent
-		return dnText(dotnet_getp(nHandle,"Current"))
+		return dnAnswer(dotnet_getp(nHandle,"Current"))
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -1334,17 +1306,11 @@ Class NameValueCollection from NameObjectCollectionBase
 		return self
 
 	Func Add P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s3:Add",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-
+		dotnet_calltd1v(nHandle,"Add",P1)
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func CopyTo P1,P2
@@ -1353,32 +1319,24 @@ Class NameValueCollection from NameObjectCollectionBase
 		return self
 
 	Func HasKeys 
-		dn_x = dotnet_call("s4:call",nHandle,"s7:HasKeys")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"HasKeys"))
 
 	Func @Get P1
-		dn_x = dotnet_call("s4:call",nHandle,"s3:Get",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Get",P1))
 
 	Func GetValues P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetValues",P1))
 
 	Func Set P1,P2
-		dotnet_callv("s4:call",nHandle,"s3:Set",P1,P2)
-
+		dotnet_calltv(nHandle,"Set",P1,P2)
 		return self
 
 	Func Remove P1
-		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
-
+		dotnet_calltv(nHandle,"Remove",P1)
 		return self
 
 	Func GetKey P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:GetKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetKey",P1))
 
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)

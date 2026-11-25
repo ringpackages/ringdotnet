@@ -1337,29 +1337,10 @@ Class EntityTypeFullNameComparer from Object
 		return dn_x
 
 	Func Equals P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Equals",P1))
 
 	Func GetHashCode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetHashCode",P1))
 
 	Func getInstance
 		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Metadata.EntityTypeFullNameComparer, Microsoft.EntityFrameworkCore',"s8:Instance"))
@@ -1387,29 +1368,10 @@ Class ForeignKeyComparer from Object
 		return dn_x
 
 	Func Equals P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Equals",P1))
 
 	Func GetHashCode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetHashCode",P1))
 
 	Func getInstance
 		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Metadata.ForeignKeyComparer, Microsoft.EntityFrameworkCore',"s8:Instance"))
@@ -1450,19 +1412,7 @@ Class ICheckConstraint from DotNetObject
 		return self
 
 	Func GetDefaultName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:GetDefaultName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetDefaultName",P1))
 
 	Func @GetName P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:GetName",P1)
@@ -1470,19 +1420,7 @@ Class ICheckConstraint from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -1494,19 +1432,7 @@ Class ICheckConstraint from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -1536,19 +1462,19 @@ Class ICheckConstraint from DotNetObject
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getModelName
-		return dnText(dotnet_getp(nHandle,"ModelName"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSql
-		return dnText(dotnet_getp(nHandle,"Sql"))
+		return dnAnswer(dotnet_getp(nHandle,"Sql"))
 
 	Func setSql P1
 		raise("DotNet Error: Sql is a read-only property")
@@ -1695,19 +1621,7 @@ Class IColumn from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:FindColumnMapping",P1))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -1740,19 +1654,7 @@ Class IColumn from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getTable
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Table"))
@@ -1815,13 +1717,13 @@ Class IColumn from DotNetObject
 		raise("DotNet Error: DefaultValue is a read-only property")
 
 	Func getDefaultValueSql
-		return dnText(dotnet_getp(nHandle,"DefaultValueSql"))
+		return dnAnswer(dotnet_getp(nHandle,"DefaultValueSql"))
 
 	Func setDefaultValueSql P1
 		raise("DotNet Error: DefaultValueSql is a read-only property")
 
 	Func getComputedColumnSql
-		return dnText(dotnet_getp(nHandle,"ComputedColumnSql"))
+		return dnAnswer(dotnet_getp(nHandle,"ComputedColumnSql"))
 
 	Func setComputedColumnSql P1
 		raise("DotNet Error: ComputedColumnSql is a read-only property")
@@ -1833,25 +1735,25 @@ Class IColumn from DotNetObject
 		raise("DotNet Error: IsStored is a read-only property")
 
 	Func getComment
-		return dnText(dotnet_getp(nHandle,"Comment"))
+		return dnAnswer(dotnet_getp(nHandle,"Comment"))
 
 	Func setComment P1
 		raise("DotNet Error: Comment is a read-only property")
 
 	Func getCollation
-		return dnText(dotnet_getp(nHandle,"Collation"))
+		return dnAnswer(dotnet_getp(nHandle,"Collation"))
 
 	Func setCollation P1
 		raise("DotNet Error: Collation is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnText(dotnet_getp(nHandle,"StoreType"))
+		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -1905,19 +1807,7 @@ Class IColumnBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:FindColumnMapping",P1))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -1950,28 +1840,16 @@ Class IColumnBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnText(dotnet_getp(nHandle,"StoreType"))
+		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -2030,19 +1908,7 @@ Class EfIColumnMapping from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -2075,19 +1941,7 @@ Class EfIColumnMapping from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getColumn
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Column"))
@@ -2161,19 +2015,7 @@ Class IColumnMappingBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Property"))
@@ -2222,34 +2064,16 @@ Class IComplexProperty from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -2264,19 +2088,7 @@ Class IComplexProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetGetter 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetGetter"))
@@ -2285,9 +2097,7 @@ Class IComplexProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetMemberInfo",P1,P2))
 
 	Func GetIndex 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetIndex"))
 
 	Func GetCurrentValueComparer 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCurrentValueComparer"))
@@ -2332,7 +2142,7 @@ Class IComplexProperty from DotNetObject
 		raise("DotNet Error: IsCollection is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2394,44 +2204,16 @@ Class IComplexType from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func IsAbstract 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsAbstract"))
 
 	Func DisplayName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
 
 	Func IsAssignableFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
@@ -2510,19 +2292,7 @@ Class IComplexType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetSnapshottableMembers 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetSnapshottableMembers"))
@@ -2706,7 +2476,7 @@ Class IComplexType from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2793,12 +2563,7 @@ Class IConventionAnnotatable from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -2808,19 +2573,7 @@ Class IConventionAnnotatable from DotNetObject
 		raise("DotNet Error: SetOrRemoveAnnotation does not take one argument: use named arguments, SetOrRemoveAnnotation([ :parameter = value, ... ])")
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
@@ -2853,7 +2606,7 @@ Class IConventionAnnotation from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2887,32 +2640,13 @@ Class IConventionCheckConstraint from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
 	Func SetName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:SetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s7:SetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"SetName",P1))
 
 	Func GetNameConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetNameConfigurationSource"))
 
 	Func GetDefaultName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:GetDefaultName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetDefaultName",P1))
 
 	Func @GetName P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:GetName",P1)
@@ -2920,19 +2654,7 @@ Class IConventionCheckConstraint from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -2944,19 +2666,7 @@ Class IConventionCheckConstraint from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1
 		if dotnet_isnamed(P1)
@@ -2974,12 +2684,7 @@ Class IConventionCheckConstraint from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -3001,16 +2706,16 @@ Class IConventionCheckConstraint from DotNetObject
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getModelName
-		return dnText(dotnet_getp(nHandle,"ModelName"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func getSql
-		return dnText(dotnet_getp(nHandle,"Sql"))
+		return dnAnswer(dotnet_getp(nHandle,"Sql"))
 
 	Func setSql P1
 		raise("DotNet Error: Sql is a read-only property")
@@ -3055,34 +2760,16 @@ Class IConventionComplexProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetIsNullableConfigurationSource"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -3097,19 +2784,7 @@ Class IConventionComplexProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
@@ -3154,12 +2829,7 @@ Class IConventionComplexProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -3190,7 +2860,7 @@ Class IConventionComplexProperty from DotNetObject
 		raise("DotNet Error: IsCollection is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -3256,44 +2926,16 @@ Class IConventionComplexType from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func IsAbstract 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsAbstract"))
 
 	Func DisplayName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
 
 	Func IsAssignableFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
@@ -3372,34 +3014,13 @@ Class IConventionComplexType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddIgnored P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:AddIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s10:AddIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"AddIgnored",P1))
 
 	Func RemoveIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s13:RemoveIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"RemoveIgnored",P1))
 
 	Func FindIgnoredConfigurationSource P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:FindIgnoredConfigurationSource",P1))
@@ -3408,9 +3029,7 @@ Class IConventionComplexType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetIgnoredMembers"))
 
 	Func IsIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:IsIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIgnored",P1))
 
 	Func AddProperty P1
 		if dotnet_isnamed(P1)
@@ -3476,12 +3095,7 @@ Class IConventionComplexType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -3607,7 +3221,7 @@ Class IConventionComplexType from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -3669,66 +3283,31 @@ Class IConventionDbFunction from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
 	Func SetName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:SetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s7:SetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"SetName",P1))
 
 	Func GetNameConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetNameConfigurationSource"))
 
 	Func SetSchema P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:SetSchema",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:SetSchema",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"SetSchema",P1))
 
 	Func GetSchemaConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetSchemaConfigurationSource"))
 
 	Func SetIsBuiltIn P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:SetIsBuiltIn",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s12:SetIsBuiltIn",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"SetIsBuiltIn",P1))
 
 	Func GetIsBuiltInConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetIsBuiltInConfigurationSource"))
 
 	Func SetIsNullable P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:SetIsNullable",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:SetIsNullable",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"SetIsNullable",P1))
 
 	Func GetIsNullableConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetIsNullableConfigurationSource"))
 
 	Func SetStoreType P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:SetStoreType",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s12:SetStoreType",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"SetStoreType",P1))
 
 	Func GetStoreTypeConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetStoreTypeConfigurationSource"))
@@ -3752,19 +3331,7 @@ Class IConventionDbFunction from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetTranslationConfigurationSource"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -3776,19 +3343,7 @@ Class IConventionDbFunction from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1
 		if dotnet_isnamed(P1)
@@ -3806,12 +3361,7 @@ Class IConventionDbFunction from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -3839,13 +3389,13 @@ Class IConventionDbFunction from DotNetObject
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func getModelName
-		return dnText(dotnet_getp(nHandle,"ModelName"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -3875,7 +3425,7 @@ Class IConventionDbFunction from DotNetObject
 		return dotnet_getp(nHandle,"IsNullable")
 
 	Func getStoreType
-		return dnText(dotnet_getp(nHandle,"StoreType"))
+		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
 
 	Func getReturnType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:ReturnType"))
@@ -3919,14 +3469,7 @@ Class IConventionDbFunctionParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
 	Func SetStoreType P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s12:SetStoreType",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s12:SetStoreType",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"SetStoreType",P1))
 
 	Func GetStoreTypeConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetStoreTypeConfigurationSource"))
@@ -3941,19 +3484,7 @@ Class IConventionDbFunctionParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetTypeMappingConfigurationSource"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -3965,19 +3496,7 @@ Class IConventionDbFunctionParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1
 		if dotnet_isnamed(P1)
@@ -3995,12 +3514,7 @@ Class IConventionDbFunctionParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -4019,7 +3533,7 @@ Class IConventionDbFunctionParameter from DotNetObject
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -4031,7 +3545,7 @@ Class IConventionDbFunctionParameter from DotNetObject
 		raise("DotNet Error: ClrType is a read-only property")
 
 	Func getStoreType
-		return dnText(dotnet_getp(nHandle,"StoreType"))
+		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
 
 	Func getPropagatesNullability
 		return dotnet_getp(nHandle,"PropagatesNullability")
@@ -4190,19 +3704,7 @@ Class IConventionElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetJsonValueReaderWriter"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -4214,19 +3716,7 @@ Class IConventionElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1
 		if dotnet_isnamed(P1)
@@ -4244,12 +3734,7 @@ Class IConventionElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -4638,22 +4123,16 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetQueryFilter"))
 
 	Func GetDiscriminatorPropertyName 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:GetDiscriminatorPropertyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDiscriminatorPropertyName"))
 
 	Func GetIsDiscriminatorMappingComplete 
-		dn_x = dotnet_call("s4:call",nHandle,"s33:GetIsDiscriminatorMappingComplete")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetIsDiscriminatorMappingComplete"))
 
 	Func GetDiscriminatorValue 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDiscriminatorValue"))
 
 	Func GetDefaultDiscriminatorValue 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:GetDefaultDiscriminatorValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDefaultDiscriminatorValue"))
 
 	Func GetConcreteDerivedTypesInclusive 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetConcreteDerivedTypesInclusive"))
@@ -4664,9 +4143,7 @@ Class IConventionEntityType from DotNetObject
 		return dn_x
 
 	Func IsOwned 
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IsOwned")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsOwned"))
 
 	Func IsInOwnershipPath P1
 		dn_x = dotnet_call("s4:call",nHandle,"s17:IsInOwnershipPath",P1)
@@ -4674,9 +4151,7 @@ Class IConventionEntityType from DotNetObject
 		return dn_x
 
 	Func HasServiceProperties 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:HasServiceProperties")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"HasServiceProperties"))
 
 	Func GetNavigationAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetNavigationAccessMode"))
@@ -4688,44 +4163,16 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetOrCreateEmptyMaterializer",P1))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func IsAbstract 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsAbstract"))
 
 	Func DisplayName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
 
 	Func IsStrictlyDerivedFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s21:IsStrictlyDerivedFrom",P1)
@@ -4799,34 +4246,13 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddIgnored P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:AddIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s10:AddIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"AddIgnored",P1))
 
 	Func RemoveIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s13:RemoveIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"RemoveIgnored",P1))
 
 	Func FindIgnoredConfigurationSource P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:FindIgnoredConfigurationSource",P1))
@@ -4835,9 +4261,7 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetIgnoredMembers"))
 
 	Func IsIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:IsIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIgnored",P1))
 
 	Func AddProperty P1
 		if dotnet_isnamed(P1)
@@ -4903,12 +4327,7 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -5430,7 +4849,7 @@ Class IConventionEntityType from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -5490,19 +4909,7 @@ Class IConventionEntityTypeMappingFragment from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s51:GetIsTableExcludedFromMigrationsConfigurationSource"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -5514,19 +4921,7 @@ Class IConventionEntityTypeMappingFragment from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1
 		if dotnet_isnamed(P1)
@@ -5544,12 +4939,7 @@ Class IConventionEntityTypeMappingFragment from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -5719,24 +5109,10 @@ Class IConventionForeignKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetNavigation",P1))
 
 	Func IsBaseLinking 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:IsBaseLinking")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsBaseLinking"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -5748,19 +5124,7 @@ Class IConventionForeignKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1
 		if dotnet_isnamed(P1)
@@ -5778,12 +5142,7 @@ Class IConventionForeignKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -5941,24 +5300,10 @@ Class IConventionIndex from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s34:GetIsDescendingConfigurationSource"))
 
 	Func DisplayName 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"DisplayName"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -5970,19 +5315,7 @@ Class IConventionIndex from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1
 		if dotnet_isnamed(P1)
@@ -6000,12 +5333,7 @@ Class IConventionIndex from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -6115,7 +5443,7 @@ Class IConventionIndex from DotNetObject
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -6156,24 +5484,10 @@ Class IConventionKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetReferencingForeignKeys"))
 
 	Func IsPrimaryKey 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:IsPrimaryKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsPrimaryKey"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -6185,19 +5499,7 @@ Class IConventionKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1
 		if dotnet_isnamed(P1)
@@ -6215,12 +5517,7 @@ Class IConventionKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -6333,14 +5630,7 @@ Class IConventionModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetPropertyAccessModeConfigurationSource"))
 
 	Func SetEmbeddedDiscriminatorName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s28:SetEmbeddedDiscriminatorName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s28:SetEmbeddedDiscriminatorName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"SetEmbeddedDiscriminatorName",P1))
 
 	Func GetEmbeddedDiscriminatorNameConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s47:GetEmbeddedDiscriminatorNameConfigurationSource"))
@@ -6391,12 +5681,7 @@ Class IConventionModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:FindLeastDerivedEntityTypes",P1))
 
 	Func AddShared P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s9:AddShared",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s9:AddShared",P1)
-
+		dotnet_calltd1v(nHandle,"AddShared",P1)
 		return self
 
 	Func RemoveShared P1
@@ -6406,12 +5691,7 @@ Class IConventionModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:FindIsSharedConfigurationSource",P1))
 
 	Func AddOwned P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s8:AddOwned",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s8:AddOwned",P1)
-
+		dotnet_calltd1v(nHandle,"AddOwned",P1)
 		return self
 
 	Func RemoveOwned P1
@@ -6428,24 +5708,13 @@ Class IConventionModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:FindIsOwnedConfigurationSource",P1))
 
 	Func AddIgnored P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:AddIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s10:AddIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"AddIgnored",P1))
 
 	Func RemoveIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s13:RemoveIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"RemoveIgnored",P1))
 
 	Func IsIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:IsIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIgnored",P1))
 
 	Func IsIgnoredType P1
 		dn_x = dotnet_call("s4:call",nHandle,"s13:IsIgnoredType",P1)
@@ -6465,14 +5734,10 @@ Class IConventionModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
 
 	Func GetEmbeddedDiscriminatorName 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:GetEmbeddedDiscriminatorName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetEmbeddedDiscriminatorName"))
 
 	Func GetProductVersion 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:GetProductVersion")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetProductVersion"))
 
 	Func IsShared P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:IsShared",P1)
@@ -6480,19 +5745,7 @@ Class IConventionModel from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -6504,19 +5757,7 @@ Class IConventionModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1
 		if dotnet_isnamed(P1)
@@ -6534,12 +5775,7 @@ Class IConventionModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -6708,34 +5944,16 @@ Class IConventionNavigation from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetInverseConfigurationSource"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -6750,19 +5968,7 @@ Class IConventionNavigation from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func SetIsEagerLoaded P1
 		if dotnet_isnamed(P1)
@@ -6825,12 +6031,7 @@ Class IConventionNavigation from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -6885,7 +6086,7 @@ Class IConventionNavigation from DotNetObject
 		return dotnet_getp(nHandle,"LazyLoadingEnabled")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -6969,19 +6170,13 @@ Class IConventionNavigationBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetLazyLoadingEnabledConfigurationSource"))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -6996,19 +6191,7 @@ Class IConventionNavigationBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
@@ -7053,12 +6236,7 @@ Class IConventionNavigationBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -7098,7 +6276,7 @@ Class IConventionNavigationBase from DotNetObject
 		return dotnet_getp(nHandle,"LazyLoadingEnabled")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -7199,9 +6377,7 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetIsConcurrencyTokenConfigurationSource"))
 
 	Func IsImplicitlyCreated 
-		dn_x = dotnet_call("s4:call",nHandle,"s19:IsImplicitlyCreated")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsImplicitlyCreated"))
 
 	Func FindFirstPrincipal 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:FindFirstPrincipal"))
@@ -7405,59 +6581,31 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetJsonValueReaderWriter"))
 
 	Func IsForeignKey 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:IsForeignKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsForeignKey"))
 
 	Func IsIndex 
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IsIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndex"))
 
 	Func IsUniqueIndex 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:IsUniqueIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsUniqueIndex"))
 
 	Func IsPrimaryKey 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:IsPrimaryKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsPrimaryKey"))
 
 	Func IsKey 
-		dn_x = dotnet_call("s4:call",nHandle,"s5:IsKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsKey"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -7472,19 +6620,7 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
@@ -7529,12 +6665,7 @@ Class IConventionProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -7986,7 +7117,7 @@ Class IConventionProperty from DotNetObject
 		raise("DotNet Error: IsPrimitiveCollection is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -8070,19 +7201,13 @@ Class IConventionPropertyBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetPropertyAccessModeConfigurationSource"))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -8097,19 +7222,7 @@ Class IConventionPropertyBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1
 		if dotnet_isnamed(P1)
@@ -8127,12 +7240,7 @@ Class IConventionPropertyBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -8148,7 +7256,7 @@ Class IConventionPropertyBase from DotNetObject
 		raise("DotNet Error: DeclaringType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -8209,47 +7317,16 @@ Class IConventionRelationalPropertyOverrides from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
 	Func SetColumnName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:SetColumnName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:SetColumnName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"SetColumnName",P1))
 
 	Func RemoveColumnNameOverride P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:RemoveColumnNameOverride",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:RemoveColumnNameOverride")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:RemoveColumnNameOverride",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"RemoveColumnNameOverride",P1))
 
 	Func GetColumnNameConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetColumnNameConfigurationSource"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -8261,19 +7338,7 @@ Class IConventionRelationalPropertyOverrides from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1
 		if dotnet_isnamed(P1)
@@ -8291,12 +7356,7 @@ Class IConventionRelationalPropertyOverrides from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -8324,7 +7384,7 @@ Class IConventionRelationalPropertyOverrides from DotNetObject
 		raise("DotNet Error: StoreObject is a read-only property")
 
 	Func getColumnName
-		return dnText(dotnet_getp(nHandle,"ColumnName"))
+		return dnAnswer(dotnet_getp(nHandle,"ColumnName"))
 
 	Func getIsColumnNameOverridden
 		return dotnet_getp(nHandle,"IsColumnNameOverridden")
@@ -8421,19 +7481,7 @@ Class IConventionSequence from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetIsCyclicConfigurationSource"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -8445,19 +7493,7 @@ Class IConventionSequence from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1
 		if dotnet_isnamed(P1)
@@ -8475,12 +7511,7 @@ Class IConventionSequence from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -8502,19 +7533,19 @@ Class IConventionSequence from DotNetObject
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getModelSchema
-		return dnText(dotnet_getp(nHandle,"ModelSchema"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelSchema"))
 
 	Func setModelSchema P1
 		raise("DotNet Error: ModelSchema is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -8576,34 +7607,16 @@ Class IConventionServiceProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s38:GetParameterBindingConfigurationSource"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -8618,19 +7631,7 @@ Class IConventionServiceProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
@@ -8675,12 +7676,7 @@ Class IConventionServiceProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -8705,7 +7701,7 @@ Class IConventionServiceProperty from DotNetObject
 		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ParameterBinding"))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -8792,34 +7788,16 @@ Class IConventionSkipNavigation from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetInverseConfigurationSource"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -8834,19 +7812,7 @@ Class IConventionSkipNavigation from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func SetIsEagerLoaded P1
 		if dotnet_isnamed(P1)
@@ -8909,12 +7875,7 @@ Class IConventionSkipNavigation from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -8972,7 +7933,7 @@ Class IConventionSkipNavigation from DotNetObject
 		return dotnet_getp(nHandle,"LazyLoadingEnabled")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -9035,27 +7996,13 @@ Class IConventionStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
 	Func SetName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:SetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s7:SetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"SetName",P1))
 
 	Func GetNameConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetNameConfigurationSource"))
 
 	Func SetSchema P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:SetSchema",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:SetSchema",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"SetSchema",P1))
 
 	Func GetSchemaConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetSchemaConfigurationSource"))
@@ -9112,37 +8059,16 @@ Class IConventionStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:AddRowsAffectedResultColumn",P1))
 
 	Func SetIsRowsAffectedReturned P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s25:SetIsRowsAffectedReturned",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s25:SetIsRowsAffectedReturned",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"SetIsRowsAffectedReturned",P1))
 
 	Func GetStoreIdentifier 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetStoreIdentifier"))
 
 	Func GetSchemaQualifiedName 
-		dn_x = dotnet_call("s4:call",nHandle,"s22:GetSchemaQualifiedName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetSchemaQualifiedName"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -9154,19 +8080,7 @@ Class IConventionStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1
 		if dotnet_isnamed(P1)
@@ -9184,12 +8098,7 @@ Class IConventionStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -9223,10 +8132,10 @@ Class IConventionStoredProcedure from DotNetObject
 		raise("DotNet Error: ResultColumns is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func getIsRowsAffectedReturned
 		return dotnet_getp(nHandle,"IsRowsAffectedReturned")
@@ -9259,14 +8168,7 @@ Class IConventionStoredProcedureParameter from DotNetObject
 		return self
 
 	Func SetName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:SetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s7:SetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"SetName",P1))
 
 	Func GetNameConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetNameConfigurationSource"))
@@ -9281,19 +8183,7 @@ Class IConventionStoredProcedureParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetDirectionConfigurationSource"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -9305,19 +8195,7 @@ Class IConventionStoredProcedureParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1
 		if dotnet_isnamed(P1)
@@ -9335,12 +8213,7 @@ Class IConventionStoredProcedureParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -9362,10 +8235,10 @@ Class IConventionStoredProcedureParameter from DotNetObject
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func getPropertyName
-		return dnText(dotnet_getp(nHandle,"PropertyName"))
+		return dnAnswer(dotnet_getp(nHandle,"PropertyName"))
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
@@ -9411,32 +8284,13 @@ Class IConventionStoredProcedureResultColumn from DotNetObject
 		return self
 
 	Func SetName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:SetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s7:SetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"SetName",P1))
 
 	Func GetNameConfigurationSource 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetNameConfigurationSource"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -9448,19 +8302,7 @@ Class IConventionStoredProcedureResultColumn from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1
 		if dotnet_isnamed(P1)
@@ -9478,12 +8320,7 @@ Class IConventionStoredProcedureResultColumn from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -9505,10 +8342,10 @@ Class IConventionStoredProcedureResultColumn from DotNetObject
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func getPropertyName
-		return dnText(dotnet_getp(nHandle,"PropertyName"))
+		return dnAnswer(dotnet_getp(nHandle,"PropertyName"))
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
@@ -9546,19 +8383,7 @@ Class IConventionTrigger from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConfigurationSource"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -9570,19 +8395,7 @@ Class IConventionTrigger from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1
 		if dotnet_isnamed(P1)
@@ -9600,12 +8413,7 @@ Class IConventionTrigger from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -9716,7 +8524,7 @@ Class IConventionTrigger from DotNetObject
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getModelName
-		return dnText(dotnet_getp(nHandle,"ModelName"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -9749,19 +8557,10 @@ Class IConventionTypeBase from DotNetObject
 		return self
 
 	Func AddIgnored P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:AddIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s10:AddIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"AddIgnored",P1))
 
 	Func RemoveIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s13:RemoveIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"RemoveIgnored",P1))
 
 	Func FindIgnoredConfigurationSource P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:FindIgnoredConfigurationSource",P1))
@@ -9770,9 +8569,7 @@ Class IConventionTypeBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetIgnoredMembers"))
 
 	Func IsIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:IsIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIgnored",P1))
 
 	Func AddProperty P1
 		if dotnet_isnamed(P1)
@@ -9871,29 +8668,13 @@ Class IConventionTypeBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s40:GetPropertyAccessModeConfigurationSource"))
 
 	Func IsAbstract 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsAbstract"))
 
 	Func DisplayName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
 
 	Func IsAssignableFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
@@ -9924,19 +8705,7 @@ Class IConventionTypeBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1
 		if dotnet_isnamed(P1)
@@ -9954,12 +8723,7 @@ Class IConventionTypeBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RemoveAnnotation",P1))
 
 	Func AddAnnotations P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddAnnotations",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddAnnotations",P1)
-
+		dotnet_calltd1v(nHandle,"AddAnnotations",P1)
 		return self
 
 	Func SetOrRemoveAnnotation P1
@@ -10079,7 +8843,7 @@ Class IConventionTypeBase from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -10137,19 +8901,7 @@ Class IDbFunction from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -10161,19 +8913,7 @@ Class IDbFunction from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -10215,19 +8955,19 @@ Class IDbFunction from DotNetObject
 		raise("DotNet Error: StoreFunction is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getModelName
-		return dnText(dotnet_getp(nHandle,"ModelName"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -10263,7 +9003,7 @@ Class IDbFunction from DotNetObject
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getStoreType
-		return dnText(dotnet_getp(nHandle,"StoreType"))
+		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -10306,19 +9046,7 @@ Class IDbFunctionParameter from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -10330,19 +9058,7 @@ Class IDbFunctionParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -10366,7 +9082,7 @@ Class IDbFunctionParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
 	Func getStoreType
-		return dnText(dotnet_getp(nHandle,"StoreType"))
+		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -10381,7 +9097,7 @@ Class IDbFunctionParameter from DotNetObject
 		raise("DotNet Error: StoreFunctionParameter is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -10471,19 +9187,7 @@ Class IElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetJsonValueReaderWriter"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -10495,19 +9199,7 @@ Class IElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -10772,22 +9464,16 @@ Class IEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetQueryFilter"))
 
 	Func GetDiscriminatorPropertyName 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:GetDiscriminatorPropertyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDiscriminatorPropertyName"))
 
 	Func GetIsDiscriminatorMappingComplete 
-		dn_x = dotnet_call("s4:call",nHandle,"s33:GetIsDiscriminatorMappingComplete")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetIsDiscriminatorMappingComplete"))
 
 	Func GetDiscriminatorValue 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDiscriminatorValue"))
 
 	Func GetDefaultDiscriminatorValue 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:GetDefaultDiscriminatorValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDefaultDiscriminatorValue"))
 
 	Func IsAssignableFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
@@ -10795,9 +9481,7 @@ Class IEntityType from DotNetObject
 		return dn_x
 
 	Func IsOwned 
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IsOwned")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsOwned"))
 
 	Func IsInOwnershipPath P1
 		dn_x = dotnet_call("s4:call",nHandle,"s17:IsInOwnershipPath",P1)
@@ -10805,9 +9489,7 @@ Class IEntityType from DotNetObject
 		return dn_x
 
 	Func HasServiceProperties 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:HasServiceProperties")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"HasServiceProperties"))
 
 	Func GetNavigationAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetNavigationAccessMode"))
@@ -10819,44 +9501,16 @@ Class IEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetOrCreateEmptyMaterializer",P1))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func IsAbstract 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsAbstract"))
 
 	Func DisplayName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
 
 	Func IsStrictlyDerivedFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s21:IsStrictlyDerivedFrom",P1)
@@ -10909,19 +9563,7 @@ Class IEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetSnapshottableMembers 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetSnapshottableMembers"))
@@ -11221,7 +9863,7 @@ Class IEntityType from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -11267,19 +9909,7 @@ Class IEntityTypeMappingFragment from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -11291,19 +9921,7 @@ Class IEntityTypeMappingFragment from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -11393,24 +10011,10 @@ Class IForeignKey from DotNetObject
 		raise("DotNet Error: GetDependentKeyValueFactory needs its type arguments: GetDependentKeyValueFactory([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func IsBaseLinking 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:IsBaseLinking")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsBaseLinking"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -11422,19 +10026,7 @@ Class IForeignKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -11587,19 +10179,7 @@ Class IForeignKeyConstraint from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -11632,22 +10212,10 @@ Class IForeignKeyConstraint from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -11719,19 +10287,7 @@ Class IFunctionColumn from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:FindColumnMapping",P1))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -11764,19 +10320,7 @@ Class IFunctionColumn from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getFunction
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Function"))
@@ -11788,13 +10332,13 @@ Class IFunctionColumn from DotNetObject
 		raise("DotNet Error: PropertyMappings is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnText(dotnet_getp(nHandle,"StoreType"))
+		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -11848,19 +10392,7 @@ Class IFunctionColumnMapping from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -11893,19 +10425,7 @@ Class IFunctionColumnMapping from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getColumn
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Column"))
@@ -11960,19 +10480,7 @@ Class IFunctionMapping from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -12005,19 +10513,7 @@ Class IFunctionMapping from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getIsDefaultFunctionMapping
 		return dotnet_getp(nHandle,"IsDefaultFunctionMapping")
@@ -12101,24 +10597,10 @@ Class IIndex from DotNetObject
 		raise("DotNet Error: GetNullableValueFactory needs its type arguments: GetNullableValueFactory([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func DisplayName 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"DisplayName"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -12130,19 +10612,7 @@ Class IIndex from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -12234,7 +10704,7 @@ Class IIndex from DotNetObject
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -12282,24 +10752,10 @@ Class IKey from DotNetObject
 		raise("DotNet Error: GetPrincipalKeyValueFactory needs its type arguments: GetPrincipalKeyValueFactory([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func IsPrimaryKey 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:IsPrimaryKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsPrimaryKey"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -12311,19 +10767,7 @@ Class IKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -12417,8 +10861,7 @@ Class IMetadataReference from DotNetObject
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func getObject
@@ -12484,14 +10927,10 @@ Class IModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
 
 	Func GetEmbeddedDiscriminatorName 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:GetEmbeddedDiscriminatorName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetEmbeddedDiscriminatorName"))
 
 	Func GetProductVersion 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:GetProductVersion")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetProductVersion"))
 
 	Func IsShared P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:IsShared",P1)
@@ -12499,19 +10938,7 @@ Class IModel from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -12523,19 +10950,7 @@ Class IModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -12665,19 +11080,7 @@ Class IMutableAnnotatable from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func Item P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
@@ -12704,19 +11107,7 @@ Class IMutableCheckConstraint from DotNetObject
 		return self
 
 	Func GetDefaultName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:GetDefaultName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetDefaultName",P1))
 
 	Func @GetName P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:GetName",P1)
@@ -12724,19 +11115,7 @@ Class IMutableCheckConstraint from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -12748,19 +11127,7 @@ Class IMutableCheckConstraint from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
@@ -12790,20 +11157,20 @@ Class IMutableCheckConstraint from DotNetObject
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getModelName
-		return dnText(dotnet_getp(nHandle,"ModelName"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
 
 	Func getSql
-		return dnText(dotnet_getp(nHandle,"Sql"))
+		return dnAnswer(dotnet_getp(nHandle,"Sql"))
 
 	Func setSql P1
 		raise("DotNet Error: Sql is a read-only property")
@@ -12831,34 +11198,16 @@ Class IMutableComplexProperty from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -12873,23 +11222,10 @@ Class IMutableComplexProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func SetField P1
-		dotnet_callv("s4:call",nHandle,"s8:SetField",P1)
-
+		dotnet_calltv(nHandle,"SetField",P1)
 		return self
 
 	Func SetPropertyAccessMode P1
@@ -12938,7 +11274,7 @@ Class IMutableComplexProperty from DotNetObject
 		raise("DotNet Error: IsCollection is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -12999,44 +11335,16 @@ Class IMutableComplexType from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func IsAbstract 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsAbstract"))
 
 	Func DisplayName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
 
 	Func IsAssignableFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
@@ -13115,34 +11423,16 @@ Class IMutableComplexType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:AddIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"AddIgnored",P1))
 
 	Func RemoveIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s13:RemoveIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"RemoveIgnored",P1))
 
 	Func IsIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:IsIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIgnored",P1))
 
 	Func GetIgnoredMembers 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetIgnoredMembers"))
@@ -13316,7 +11606,7 @@ Class IMutableComplexType from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -13367,19 +11657,7 @@ Class IMutableDbFunction from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -13391,19 +11669,7 @@ Class IMutableDbFunction from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
@@ -13427,14 +11693,14 @@ Class IMutableDbFunction from DotNetObject
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		dotnet_setp(nHandle,"Schema",P1)
@@ -13455,7 +11721,7 @@ Class IMutableDbFunction from DotNetObject
 		return self
 
 	Func getStoreType
-		return dnText(dotnet_getp(nHandle,"StoreType"))
+		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
 
 	Func setStoreType P1
 		dotnet_setp(nHandle,"StoreType",P1)
@@ -13488,7 +11754,7 @@ Class IMutableDbFunction from DotNetObject
 		return self
 
 	Func getModelName
-		return dnText(dotnet_getp(nHandle,"ModelName"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -13536,19 +11802,7 @@ Class IMutableDbFunctionParameter from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -13560,19 +11814,7 @@ Class IMutableDbFunctionParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
@@ -13599,7 +11841,7 @@ Class IMutableDbFunctionParameter from DotNetObject
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Function"))
 
 	Func getStoreType
-		return dnText(dotnet_getp(nHandle,"StoreType"))
+		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
 
 	Func setStoreType P1
 		dotnet_setp(nHandle,"StoreType",P1)
@@ -13613,7 +11855,7 @@ Class IMutableDbFunctionParameter from DotNetObject
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -13722,19 +11964,7 @@ Class IMutableElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetJsonValueReaderWriter"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -13746,19 +11976,7 @@ Class IMutableElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
@@ -13886,8 +12104,7 @@ Class IMutableEntityType from DotNetObject
 		return self
 
 	Func RemoveDiscriminatorValue 
-		dotnet_callv("s4:call",nHandle,"s24:RemoveDiscriminatorValue")
-
+		dotnet_calltv(nHandle,"RemoveDiscriminatorValue")
 		return self
 
 	Func GetAllBaseTypes 
@@ -14088,22 +12305,16 @@ Class IMutableEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetQueryFilter"))
 
 	Func GetDiscriminatorPropertyName 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:GetDiscriminatorPropertyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDiscriminatorPropertyName"))
 
 	Func GetIsDiscriminatorMappingComplete 
-		dn_x = dotnet_call("s4:call",nHandle,"s33:GetIsDiscriminatorMappingComplete")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetIsDiscriminatorMappingComplete"))
 
 	Func GetDiscriminatorValue 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDiscriminatorValue"))
 
 	Func GetDefaultDiscriminatorValue 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:GetDefaultDiscriminatorValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDefaultDiscriminatorValue"))
 
 	Func GetConcreteDerivedTypesInclusive 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetConcreteDerivedTypesInclusive"))
@@ -14114,9 +12325,7 @@ Class IMutableEntityType from DotNetObject
 		return dn_x
 
 	Func IsOwned 
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IsOwned")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsOwned"))
 
 	Func IsInOwnershipPath P1
 		dn_x = dotnet_call("s4:call",nHandle,"s17:IsInOwnershipPath",P1)
@@ -14124,9 +12333,7 @@ Class IMutableEntityType from DotNetObject
 		return dn_x
 
 	Func HasServiceProperties 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:HasServiceProperties")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"HasServiceProperties"))
 
 	Func GetNavigationAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetNavigationAccessMode"))
@@ -14138,44 +12345,16 @@ Class IMutableEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetOrCreateEmptyMaterializer",P1))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func IsAbstract 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsAbstract"))
 
 	Func DisplayName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
 
 	Func IsStrictlyDerivedFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s21:IsStrictlyDerivedFrom",P1)
@@ -14249,34 +12428,16 @@ Class IMutableEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:AddIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"AddIgnored",P1))
 
 	Func RemoveIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s13:RemoveIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"RemoveIgnored",P1))
 
 	Func IsIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:IsIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIgnored",P1))
 
 	Func GetIgnoredMembers 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetIgnoredMembers"))
@@ -14700,7 +12861,7 @@ Class IMutableEntityType from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -14740,19 +12901,7 @@ Class IMutableEntityTypeMappingFragment from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -14764,19 +12913,7 @@ Class IMutableEntityTypeMappingFragment from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
@@ -14875,24 +13012,10 @@ Class IMutableForeignKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetNavigation",P1))
 
 	Func IsBaseLinking 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:IsBaseLinking")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsBaseLinking"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -14904,19 +13027,7 @@ Class IMutableForeignKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
@@ -15064,24 +13175,10 @@ Class IMutableIndex from DotNetObject
 		return self
 
 	Func DisplayName 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"DisplayName"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -15093,19 +13190,7 @@ Class IMutableIndex from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
@@ -15219,7 +13304,7 @@ Class IMutableIndex from DotNetObject
 		raise("DotNet Error: DeclaringEntityType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -15243,24 +13328,10 @@ Class IMutableKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetReferencingForeignKeys"))
 
 	Func IsPrimaryKey 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:IsPrimaryKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsPrimaryKey"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -15272,19 +13343,7 @@ Class IMutableKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
@@ -15384,8 +13443,7 @@ Class IMutableModel from DotNetObject
 		return self
 
 	Func SetEmbeddedDiscriminatorName P1
-		dotnet_callv("s4:call",nHandle,"s28:SetEmbeddedDiscriminatorName",P1)
-
+		dotnet_calltv(nHandle,"SetEmbeddedDiscriminatorName",P1)
 		return self
 
 	Func SetChangeTrackingStrategy P1
@@ -15453,19 +13511,13 @@ Class IMutableModel from DotNetObject
 		return dn_x
 
 	Func AddIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:AddIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"AddIgnored",P1))
 
 	Func RemoveIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s13:RemoveIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"RemoveIgnored",P1))
 
 	Func IsIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:IsIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIgnored",P1))
 
 	Func FinalizeModel 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:FinalizeModel"))
@@ -15477,14 +13529,10 @@ Class IMutableModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
 
 	Func GetEmbeddedDiscriminatorName 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:GetEmbeddedDiscriminatorName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetEmbeddedDiscriminatorName"))
 
 	Func GetProductVersion 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:GetProductVersion")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetProductVersion"))
 
 	Func IsShared P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:IsShared",P1)
@@ -15492,19 +13540,7 @@ Class IMutableModel from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -15516,19 +13552,7 @@ Class IMutableModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
@@ -15668,34 +13692,16 @@ Class IMutableNavigation from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:SetInverse",P1))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -15710,19 +13716,7 @@ Class IMutableNavigation from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func SetIsEagerLoaded P1
 		dotnet_callv("s4:call",nHandle,"s16:SetIsEagerLoaded",P1)
@@ -15735,8 +13729,7 @@ Class IMutableNavigation from DotNetObject
 		return self
 
 	Func SetField P1
-		dotnet_callv("s4:call",nHandle,"s8:SetField",P1)
-
+		dotnet_calltv(nHandle,"SetField",P1)
 		return self
 
 	Func SetPropertyAccessMode P1
@@ -15805,7 +13798,7 @@ Class IMutableNavigation from DotNetObject
 		return dotnet_getp(nHandle,"LazyLoadingEnabled")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -15876,19 +13869,13 @@ Class IMutableNavigationBase from DotNetObject
 		return self
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -15903,23 +13890,10 @@ Class IMutableNavigationBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func SetField P1
-		dotnet_callv("s4:call",nHandle,"s8:SetField",P1)
-
+		dotnet_calltv(nHandle,"SetField",P1)
 		return self
 
 	Func SetPropertyAccessMode P1
@@ -15979,7 +13953,7 @@ Class IMutableNavigationBase from DotNetObject
 		return dotnet_getp(nHandle,"LazyLoadingEnabled")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -16175,59 +14149,31 @@ Class IMutableProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetJsonValueReaderWriter"))
 
 	Func IsForeignKey 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:IsForeignKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsForeignKey"))
 
 	Func IsIndex 
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IsIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndex"))
 
 	Func IsUniqueIndex 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:IsUniqueIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsUniqueIndex"))
 
 	Func IsPrimaryKey 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:IsPrimaryKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsPrimaryKey"))
 
 	Func IsKey 
-		dn_x = dotnet_call("s4:call",nHandle,"s5:IsKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsKey"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -16242,23 +14188,10 @@ Class IMutableProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func SetField P1
-		dotnet_callv("s4:call",nHandle,"s8:SetField",P1)
-
+		dotnet_calltv(nHandle,"SetField",P1)
 		return self
 
 	Func SetPropertyAccessMode P1
@@ -16650,7 +14583,7 @@ Class IMutableProperty from DotNetObject
 		raise("DotNet Error: IsPrimitiveCollection is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -16699,8 +14632,7 @@ Class IMutablePropertyBase from DotNetObject
 		return self
 
 	Func SetField P1
-		dotnet_callv("s4:call",nHandle,"s8:SetField",P1)
-
+		dotnet_calltv(nHandle,"SetField",P1)
 		return self
 
 	Func SetPropertyAccessMode P1
@@ -16709,19 +14641,13 @@ Class IMutablePropertyBase from DotNetObject
 		return self
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -16736,19 +14662,7 @@ Class IMutablePropertyBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
@@ -16785,7 +14699,7 @@ Class IMutablePropertyBase from DotNetObject
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -16826,24 +14740,11 @@ Class IMutableRelationalPropertyOverrides from DotNetObject
 		return self
 
 	Func RemoveColumnNameOverride 
-		dotnet_callv("s4:call",nHandle,"s24:RemoveColumnNameOverride")
-
+		dotnet_calltv(nHandle,"RemoveColumnNameOverride")
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -16855,19 +14756,7 @@ Class IMutableRelationalPropertyOverrides from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
@@ -16897,7 +14786,7 @@ Class IMutableRelationalPropertyOverrides from DotNetObject
 		raise("DotNet Error: Property is a read-only property")
 
 	Func getColumnName
-		return dnText(dotnet_getp(nHandle,"ColumnName"))
+		return dnAnswer(dotnet_getp(nHandle,"ColumnName"))
 
 	Func setColumnName P1
 		dotnet_setp(nHandle,"ColumnName",P1)
@@ -16939,19 +14828,7 @@ Class IMutableSequence from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -16963,19 +14840,7 @@ Class IMutableSequence from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
@@ -17047,19 +14912,19 @@ Class IMutableSequence from DotNetObject
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getModelSchema
-		return dnText(dotnet_getp(nHandle,"ModelSchema"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelSchema"))
 
 	Func setModelSchema P1
 		raise("DotNet Error: ModelSchema is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -17086,34 +14951,16 @@ Class IMutableServiceProperty from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -17128,23 +14975,10 @@ Class IMutableServiceProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func SetField P1
-		dotnet_callv("s4:call",nHandle,"s8:SetField",P1)
-
+		dotnet_calltv(nHandle,"SetField",P1)
 		return self
 
 	Func SetPropertyAccessMode P1
@@ -17187,7 +15021,7 @@ Class IMutableServiceProperty from DotNetObject
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -17259,34 +15093,16 @@ Class IMutableSkipNavigation from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:SetInverse",P1))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -17301,19 +15117,7 @@ Class IMutableSkipNavigation from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func SetIsEagerLoaded P1
 		dotnet_callv("s4:call",nHandle,"s16:SetIsEagerLoaded",P1)
@@ -17326,8 +15130,7 @@ Class IMutableSkipNavigation from DotNetObject
 		return self
 
 	Func SetField P1
-		dotnet_callv("s4:call",nHandle,"s8:SetField",P1)
-
+		dotnet_calltv(nHandle,"SetField",P1)
 		return self
 
 	Func SetPropertyAccessMode P1
@@ -17399,7 +15202,7 @@ Class IMutableSkipNavigation from DotNetObject
 		return dotnet_getp(nHandle,"LazyLoadingEnabled")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -17487,24 +15290,10 @@ Class IMutableStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetStoreIdentifier"))
 
 	Func GetSchemaQualifiedName 
-		dn_x = dotnet_call("s4:call",nHandle,"s22:GetSchemaQualifiedName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetSchemaQualifiedName"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -17516,19 +15305,7 @@ Class IMutableStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
@@ -17552,14 +15329,14 @@ Class IMutableStoredProcedure from DotNetObject
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		dotnet_setp(nHandle,"Schema",P1)
@@ -17610,19 +15387,7 @@ Class IMutableStoredProcedureParameter from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -17634,19 +15399,7 @@ Class IMutableStoredProcedureParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
@@ -17676,7 +15429,7 @@ Class IMutableStoredProcedureParameter from DotNetObject
 		raise("DotNet Error: StoredProcedure is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -17690,7 +15443,7 @@ Class IMutableStoredProcedureParameter from DotNetObject
 		return self
 
 	Func getPropertyName
-		return dnText(dotnet_getp(nHandle,"PropertyName"))
+		return dnAnswer(dotnet_getp(nHandle,"PropertyName"))
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
@@ -17725,19 +15478,7 @@ Class IMutableStoredProcedureResultColumn from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -17749,19 +15490,7 @@ Class IMutableStoredProcedureResultColumn from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
@@ -17791,14 +15520,14 @@ Class IMutableStoredProcedureResultColumn from DotNetObject
 		raise("DotNet Error: StoredProcedure is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getPropertyName
-		return dnText(dotnet_getp(nHandle,"PropertyName"))
+		return dnAnswer(dotnet_getp(nHandle,"PropertyName"))
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
@@ -17825,19 +15554,7 @@ Class IMutableTrigger from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -17849,19 +15566,7 @@ Class IMutableTrigger from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
@@ -17953,7 +15658,7 @@ Class IMutableTrigger from DotNetObject
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getModelName
-		return dnText(dotnet_getp(nHandle,"ModelName"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -17978,19 +15683,13 @@ Class IMutableTypeBase from DotNetObject
 		return self
 
 	Func AddIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s10:AddIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"AddIgnored",P1))
 
 	Func RemoveIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s13:RemoveIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"RemoveIgnored",P1))
 
 	Func IsIgnored P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:IsIgnored",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIgnored",P1))
 
 	Func GetIgnoredMembers 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetIgnoredMembers"))
@@ -18081,29 +15780,13 @@ Class IMutableTypeBase from DotNetObject
 		return self
 
 	Func IsAbstract 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsAbstract"))
 
 	Func DisplayName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
 
 	Func IsAssignableFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
@@ -18134,19 +15817,7 @@ Class IMutableTypeBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func AddAnnotation P1,P2
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AddAnnotation",P1,P2))
@@ -18274,7 +15945,7 @@ Class IMutableTypeBase from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -18325,34 +15996,16 @@ Class INavigation from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -18367,19 +16020,7 @@ Class INavigation from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetCollectionAccessor 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetCollectionAccessor"))
@@ -18396,9 +16037,7 @@ Class INavigation from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetMemberInfo",P1,P2))
 
 	Func GetIndex 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetIndex"))
 
 	Func GetCurrentValueComparer 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCurrentValueComparer"))
@@ -18473,7 +16112,7 @@ Class INavigation from DotNetObject
 		raise("DotNet Error: LazyLoadingEnabled is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -18542,19 +16181,13 @@ Class INavigationBase from DotNetObject
 		return self
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -18569,19 +16202,7 @@ Class INavigationBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetGetter 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetGetter"))
@@ -18590,9 +16211,7 @@ Class INavigationBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetMemberInfo",P1,P2))
 
 	Func GetIndex 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetIndex"))
 
 	Func GetCurrentValueComparer 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCurrentValueComparer"))
@@ -18655,7 +16274,7 @@ Class INavigationBase from DotNetObject
 		raise("DotNet Error: LazyLoadingEnabled is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -18743,24 +16362,10 @@ Class IPrimaryKeyConstraint from DotNetObject
 		return self
 
 	Func GetIsPrimaryKey 
-		dn_x = dotnet_call("s4:call",nHandle,"s15:GetIsPrimaryKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetIsPrimaryKey"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -18793,22 +16398,10 @@ Class IPrimaryKeyConstraint from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -18931,59 +16524,31 @@ Class IProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetJsonValueReaderWriter"))
 
 	Func IsForeignKey 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:IsForeignKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsForeignKey"))
 
 	Func IsIndex 
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IsIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndex"))
 
 	Func IsUniqueIndex 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:IsUniqueIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsUniqueIndex"))
 
 	Func IsPrimaryKey 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:IsPrimaryKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsPrimaryKey"))
 
 	Func IsKey 
-		dn_x = dotnet_call("s4:call",nHandle,"s5:IsKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsKey"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -18998,19 +16563,7 @@ Class IProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetGetter 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetGetter"))
@@ -19019,9 +16572,7 @@ Class IProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetMemberInfo",P1,P2))
 
 	Func GetIndex 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetIndex"))
 
 	Func GetCurrentValueComparer 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCurrentValueComparer"))
@@ -19364,7 +16915,7 @@ Class IProperty from DotNetObject
 		raise("DotNet Error: IsPrimitiveCollection is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -19425,27 +16976,19 @@ Class IPropertyBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetMemberInfo",P1,P2))
 
 	Func GetIndex 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetIndex"))
 
 	Func GetCurrentValueComparer 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCurrentValueComparer"))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -19460,19 +17003,7 @@ Class IPropertyBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -19502,7 +17033,7 @@ Class IPropertyBase from DotNetObject
 		raise("DotNet Error: DeclaringType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -19564,19 +17095,7 @@ Class IReadOnlyCheckConstraint from DotNetObject
 		return self
 
 	Func GetDefaultName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s14:GetDefaultName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s14:GetDefaultName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetDefaultName",P1))
 
 	Func @GetName P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:GetName",P1)
@@ -19584,19 +17103,7 @@ Class IReadOnlyCheckConstraint from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -19608,28 +17115,16 @@ Class IReadOnlyCheckConstraint from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getModelName
-		return dnText(dotnet_getp(nHandle,"ModelName"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -19641,7 +17136,7 @@ Class IReadOnlyCheckConstraint from DotNetObject
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getSql
-		return dnText(dotnet_getp(nHandle,"Sql"))
+		return dnAnswer(dotnet_getp(nHandle,"Sql"))
 
 	Func setSql P1
 		raise("DotNet Error: Sql is a read-only property")
@@ -19669,34 +17164,16 @@ Class IReadOnlyComplexProperty from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -19711,19 +17188,7 @@ Class IReadOnlyComplexProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getComplexType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ComplexType"))
@@ -19744,7 +17209,7 @@ Class IReadOnlyComplexProperty from DotNetObject
 		raise("DotNet Error: IsCollection is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -19805,44 +17270,16 @@ Class IReadOnlyComplexType from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func IsAbstract 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsAbstract"))
 
 	Func DisplayName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
 
 	Func IsAssignableFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
@@ -19921,19 +17358,7 @@ Class IReadOnlyComplexType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetContainerColumnName 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalComplexTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -20046,7 +17471,7 @@ Class IReadOnlyComplexType from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -20097,19 +17522,7 @@ Class IReadOnlyDbFunction from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -20121,34 +17534,22 @@ Class IReadOnlyDbFunction from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getModelName
-		return dnText(dotnet_getp(nHandle,"ModelName"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -20190,7 +17591,7 @@ Class IReadOnlyDbFunction from DotNetObject
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getStoreType
-		return dnText(dotnet_getp(nHandle,"StoreType"))
+		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -20238,19 +17639,7 @@ Class IReadOnlyDbFunctionParameter from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -20262,25 +17651,13 @@ Class IReadOnlyDbFunctionParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getFunction
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Function"))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -20292,7 +17669,7 @@ Class IReadOnlyDbFunctionParameter from DotNetObject
 		raise("DotNet Error: ClrType is a read-only property")
 
 	Func getStoreType
-		return dnText(dotnet_getp(nHandle,"StoreType"))
+		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -20356,19 +17733,7 @@ Class IReadOnlyElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetJsonValueReaderWriter"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -20380,19 +17745,7 @@ Class IReadOnlyElementType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetStoreType 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -20472,22 +17825,16 @@ Class IReadOnlyEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:FindDiscriminatorProperty"))
 
 	Func GetDiscriminatorPropertyName 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:GetDiscriminatorPropertyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDiscriminatorPropertyName"))
 
 	Func GetIsDiscriminatorMappingComplete 
-		dn_x = dotnet_call("s4:call",nHandle,"s33:GetIsDiscriminatorMappingComplete")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetIsDiscriminatorMappingComplete"))
 
 	Func GetDiscriminatorValue 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDiscriminatorValue"))
 
 	Func GetDefaultDiscriminatorValue 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:GetDefaultDiscriminatorValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetDefaultDiscriminatorValue"))
 
 	Func GetAllBaseTypes 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetAllBaseTypes"))
@@ -20567,9 +17914,7 @@ Class IReadOnlyEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:FindOwnership"))
 
 	Func IsOwned 
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IsOwned")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsOwned"))
 
 	Func IsInOwnershipPath P1
 		dn_x = dotnet_call("s4:call",nHandle,"s17:IsInOwnershipPath",P1)
@@ -20628,9 +17973,7 @@ Class IReadOnlyEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDerivedServiceProperties"))
 
 	Func HasServiceProperties 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:HasServiceProperties")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"HasServiceProperties"))
 
 	Func GetServiceProperties 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetServiceProperties"))
@@ -20651,44 +17994,16 @@ Class IReadOnlyEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetOrCreateEmptyMaterializer",P1))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func IsAbstract 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsAbstract"))
 
 	Func DisplayName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
 
 	Func IsStrictlyDerivedFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s21:IsStrictlyDerivedFrom",P1)
@@ -20762,19 +18077,7 @@ Class IReadOnlyEntityType from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetTableName 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -20997,7 +18300,7 @@ Class IReadOnlyEntityType from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -21037,19 +18340,7 @@ Class IReadOnlyEntityTypeMappingFragment from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -21061,19 +18352,7 @@ Class IReadOnlyEntityTypeMappingFragment from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func IsSqlReturningClauseUsed 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeMappingFragmentExtensions, Microsoft.EntityFrameworkCore.Sqlite")
@@ -21133,24 +18412,10 @@ Class IReadOnlyForeignKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetNavigation",P1))
 
 	Func IsBaseLinking 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:IsBaseLinking")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsBaseLinking"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -21162,19 +18427,7 @@ Class IReadOnlyForeignKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetConstraintName P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -21299,24 +18552,10 @@ Class IReadOnlyIndex from DotNetObject
 		return self
 
 	Func DisplayName 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"DisplayName"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -21328,19 +18567,7 @@ Class IReadOnlyIndex from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetDatabaseName P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -21401,7 +18628,7 @@ Class IReadOnlyIndex from DotNetObject
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -21443,24 +18670,10 @@ Class IReadOnlyKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetReferencingForeignKeys"))
 
 	Func IsPrimaryKey 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:IsPrimaryKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsPrimaryKey"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -21472,19 +18685,7 @@ Class IReadOnlyKey from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetName P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -21555,14 +18756,10 @@ Class IReadOnlyModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
 
 	Func GetEmbeddedDiscriminatorName 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:GetEmbeddedDiscriminatorName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetEmbeddedDiscriminatorName"))
 
 	Func GetProductVersion 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:GetProductVersion")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetProductVersion"))
 
 	Func IsShared P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:IsShared",P1)
@@ -21588,19 +18785,7 @@ Class IReadOnlyModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s27:FindLeastDerivedEntityTypes",P1))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -21612,19 +18797,7 @@ Class IReadOnlyModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetDefaultSchema 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -21697,34 +18870,16 @@ Class IReadOnlyNavigation from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -21739,19 +18894,7 @@ Class IReadOnlyNavigation from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
@@ -21802,7 +18945,7 @@ Class IReadOnlyNavigation from DotNetObject
 		raise("DotNet Error: LazyLoadingEnabled is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -21863,19 +19006,13 @@ Class IReadOnlyNavigationBase from DotNetObject
 		return self
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -21890,19 +19027,7 @@ Class IReadOnlyNavigationBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
@@ -21941,7 +19066,7 @@ Class IReadOnlyNavigationBase from DotNetObject
 		raise("DotNet Error: LazyLoadingEnabled is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -22055,71 +19180,43 @@ Class IReadOnlyProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetPrincipals"))
 
 	Func IsForeignKey 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:IsForeignKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsForeignKey"))
 
 	Func GetContainingForeignKeys 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetContainingForeignKeys"))
 
 	Func IsIndex 
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IsIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndex"))
 
 	Func IsUniqueIndex 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:IsUniqueIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsUniqueIndex"))
 
 	Func GetContainingIndexes 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetContainingIndexes"))
 
 	Func IsPrimaryKey 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:IsPrimaryKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsPrimaryKey"))
 
 	Func FindContainingPrimaryKey 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s24:FindContainingPrimaryKey"))
 
 	Func IsKey 
-		dn_x = dotnet_call("s4:call",nHandle,"s5:IsKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsKey"))
 
 	Func GetContainingKeys 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetContainingKeys"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -22134,19 +19231,7 @@ Class IReadOnlyProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetColumnBaseName 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -22417,7 +19502,7 @@ Class IReadOnlyProperty from DotNetObject
 		raise("DotNet Error: IsPrimitiveCollection is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -22472,19 +19557,13 @@ Class IReadOnlyPropertyBase from DotNetObject
 		return self
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -22499,22 +19578,10 @@ Class IReadOnlyPropertyBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -22567,19 +19634,7 @@ Class IReadOnlyRelationalPropertyOverrides from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -22591,19 +19646,7 @@ Class IReadOnlyRelationalPropertyOverrides from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Property"))
@@ -22618,7 +19661,7 @@ Class IReadOnlyRelationalPropertyOverrides from DotNetObject
 		raise("DotNet Error: StoreObject is a read-only property")
 
 	Func getColumnName
-		return dnText(dotnet_getp(nHandle,"ColumnName"))
+		return dnAnswer(dotnet_getp(nHandle,"ColumnName"))
 
 	Func setColumnName P1
 		raise("DotNet Error: ColumnName is a read-only property")
@@ -22653,19 +19696,7 @@ Class IReadOnlySequence from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -22677,34 +19708,22 @@ Class IReadOnlySequence from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getModelSchema
-		return dnText(dotnet_getp(nHandle,"ModelSchema"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelSchema"))
 
 	Func setModelSchema P1
 		raise("DotNet Error: ModelSchema is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -22773,34 +19792,16 @@ Class IReadOnlyServiceProperty from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -22815,19 +19816,7 @@ Class IReadOnlyServiceProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
@@ -22842,7 +19831,7 @@ Class IReadOnlyServiceProperty from DotNetObject
 		raise("DotNet Error: ParameterBinding is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -22906,34 +19895,16 @@ Class IReadOnlySkipNavigation from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -22948,19 +19919,7 @@ Class IReadOnlySkipNavigation from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getJoinEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s14:JoinEntityType"))
@@ -23017,7 +19976,7 @@ Class IReadOnlySkipNavigation from DotNetObject
 		raise("DotNet Error: LazyLoadingEnabled is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -23112,24 +20071,10 @@ Class IReadOnlyStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:FindRowsAffectedResultColumn"))
 
 	Func GetSchemaQualifiedName 
-		dn_x = dotnet_call("s4:call",nHandle,"s22:GetSchemaQualifiedName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetSchemaQualifiedName"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -23141,28 +20086,16 @@ Class IReadOnlyStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -23211,19 +20144,7 @@ Class IReadOnlyStoredProcedureParameter from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -23235,19 +20156,7 @@ Class IReadOnlyStoredProcedureParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getStoredProcedure
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:StoredProcedure"))
@@ -23256,13 +20165,13 @@ Class IReadOnlyStoredProcedureParameter from DotNetObject
 		raise("DotNet Error: StoredProcedure is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getPropertyName
-		return dnText(dotnet_getp(nHandle,"PropertyName"))
+		return dnAnswer(dotnet_getp(nHandle,"PropertyName"))
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
@@ -23303,19 +20212,7 @@ Class IReadOnlyStoredProcedureResultColumn from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -23327,19 +20224,7 @@ Class IReadOnlyStoredProcedureResultColumn from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getStoredProcedure
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:StoredProcedure"))
@@ -23348,13 +20233,13 @@ Class IReadOnlyStoredProcedureResultColumn from DotNetObject
 		raise("DotNet Error: StoredProcedure is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getPropertyName
-		return dnText(dotnet_getp(nHandle,"PropertyName"))
+		return dnAnswer(dotnet_getp(nHandle,"PropertyName"))
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
@@ -23381,19 +20266,7 @@ Class IReadOnlyTrigger from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -23405,19 +20278,7 @@ Class IReadOnlyTrigger from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetDatabaseName P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -23464,7 +20325,7 @@ Class IReadOnlyTrigger from DotNetObject
 		return dn_x
 
 	Func getModelName
-		return dnText(dotnet_getp(nHandle,"ModelName"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -23495,29 +20356,13 @@ Class IReadOnlyTypeBase from DotNetObject
 		return self
 
 	Func IsAbstract 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsAbstract"))
 
 	Func DisplayName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
 
 	Func IsAssignableFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
@@ -23596,19 +20441,7 @@ Class IReadOnlyTypeBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetTableName 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -23715,7 +20548,7 @@ Class IReadOnlyTypeBase from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -23796,19 +20629,7 @@ Class IRelationalModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindStoredProcedure",P1,P2))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -23841,19 +20662,7 @@ Class IRelationalModel from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getModel
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
@@ -23898,7 +20707,7 @@ Class IRelationalModel from DotNetObject
 		raise("DotNet Error: StoredProcedures is a read-only property")
 
 	Func getCollation
-		return dnText(dotnet_getp(nHandle,"Collation"))
+		return dnAnswer(dotnet_getp(nHandle,"Collation"))
 
 	Func setCollation P1
 		raise("DotNet Error: Collation is a read-only property")
@@ -23921,19 +20730,7 @@ Class IRelationalPropertyOverrides from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -23945,19 +20742,7 @@ Class IRelationalPropertyOverrides from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -23993,7 +20778,7 @@ Class IRelationalPropertyOverrides from DotNetObject
 		raise("DotNet Error: StoreObject is a read-only property")
 
 	Func getColumnName
-		return dnText(dotnet_getp(nHandle,"ColumnName"))
+		return dnAnswer(dotnet_getp(nHandle,"ColumnName"))
 
 	Func setColumnName P1
 		raise("DotNet Error: ColumnName is a read-only property")
@@ -24028,19 +20813,7 @@ Class ISequence from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -24052,19 +20825,7 @@ Class ISequence from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -24094,19 +20855,19 @@ Class ISequence from DotNetObject
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getModelSchema
-		return dnText(dotnet_getp(nHandle,"ModelSchema"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelSchema"))
 
 	Func setModelSchema P1
 		raise("DotNet Error: ModelSchema is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -24169,34 +20930,16 @@ Class IServiceProperty from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -24211,19 +20954,7 @@ Class IServiceProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetGetter 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetGetter"))
@@ -24232,9 +20963,7 @@ Class IServiceProperty from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetMemberInfo",P1,P2))
 
 	Func GetIndex 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetIndex"))
 
 	Func GetCurrentValueComparer 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCurrentValueComparer"))
@@ -24273,7 +21002,7 @@ Class IServiceProperty from DotNetObject
 		raise("DotNet Error: ParameterBinding is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -24337,34 +21066,16 @@ Class ISkipNavigation from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func GetFieldName 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:GetFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFieldName"))
 
 	Func IsShadowProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s16:IsShadowProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsShadowProperty"))
 
 	Func IsIndexerProperty 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:IsIndexerProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsIndexerProperty"))
 
 	Func GetPropertyAccessMode 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessMode"))
@@ -24379,19 +21090,7 @@ Class ISkipNavigation from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func GetCollectionAccessor 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetCollectionAccessor"))
@@ -24408,9 +21107,7 @@ Class ISkipNavigation from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetMemberInfo",P1,P2))
 
 	Func GetIndex 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetIndex"))
 
 	Func GetCurrentValueComparer 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCurrentValueComparer"))
@@ -24491,7 +21188,7 @@ Class ISkipNavigation from DotNetObject
 		raise("DotNet Error: LazyLoadingEnabled is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -24563,19 +21260,7 @@ Class ISqlQuery from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -24608,19 +21293,7 @@ Class ISqlQuery from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getEntityTypeMappings
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:EntityTypeMappings"))
@@ -24635,25 +21308,25 @@ Class ISqlQuery from DotNetObject
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getSql
-		return dnText(dotnet_getp(nHandle,"Sql"))
+		return dnAnswer(dotnet_getp(nHandle,"Sql"))
 
 	Func setSql P1
 		raise("DotNet Error: Sql is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getSchemaQualifiedName
-		return dnText(dotnet_getp(nHandle,"SchemaQualifiedName"))
+		return dnAnswer(dotnet_getp(nHandle,"SchemaQualifiedName"))
 
 	Func setSchemaQualifiedName P1
 		raise("DotNet Error: SchemaQualifiedName is a read-only property")
@@ -24702,19 +21375,7 @@ Class ISqlQueryColumn from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:FindColumnMapping",P1))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -24747,19 +21408,7 @@ Class ISqlQueryColumn from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getSqlQuery
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:SqlQuery"))
@@ -24774,13 +21423,13 @@ Class ISqlQueryColumn from DotNetObject
 		raise("DotNet Error: PropertyMappings is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnText(dotnet_getp(nHandle,"StoreType"))
+		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -24834,19 +21483,7 @@ Class ISqlQueryColumnMapping from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -24879,19 +21516,7 @@ Class ISqlQueryColumnMapping from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getColumn
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Column"))
@@ -24945,19 +21570,7 @@ Class ISqlQueryMapping from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -24990,19 +21603,7 @@ Class ISqlQueryMapping from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getIsDefaultSqlQueryMapping
 		return dotnet_getp(nHandle,"IsDefaultSqlQueryMapping")
@@ -25093,19 +21694,7 @@ Class IStoreFunction from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -25138,19 +21727,7 @@ Class IStoreFunction from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getDbFunctions
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:DbFunctions"))
@@ -25171,7 +21748,7 @@ Class IStoreFunction from DotNetObject
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getReturnType
-		return dnText(dotnet_getp(nHandle,"ReturnType"))
+		return dnAnswer(dotnet_getp(nHandle,"ReturnType"))
 
 	Func setReturnType P1
 		raise("DotNet Error: ReturnType is a read-only property")
@@ -25189,19 +21766,19 @@ Class IStoreFunction from DotNetObject
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getSchemaQualifiedName
-		return dnText(dotnet_getp(nHandle,"SchemaQualifiedName"))
+		return dnAnswer(dotnet_getp(nHandle,"SchemaQualifiedName"))
 
 	Func setSchemaQualifiedName P1
 		raise("DotNet Error: SchemaQualifiedName is a read-only property")
@@ -25242,19 +21819,7 @@ Class IStoreFunctionParameter from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -25287,19 +21852,7 @@ Class IStoreFunctionParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getFunction
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Function"))
@@ -25311,19 +21864,19 @@ Class IStoreFunctionParameter from DotNetObject
 		raise("DotNet Error: DbFunctionParameters is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnText(dotnet_getp(nHandle,"StoreType"))
+		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
 
 	Func getType
-		return dnText(dotnet_getp(nHandle,"Type"))
+		return dnAnswer(dotnet_getp(nHandle,"Type"))
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
@@ -25374,19 +21927,7 @@ Class IStoreStoredProcedure from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -25419,19 +21960,7 @@ Class IStoreStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getStoredProcedures
 		return dnObj(dotnet_callo("s3:get",nHandle,"s16:StoredProcedures"))
@@ -25464,19 +21993,19 @@ Class IStoreStoredProcedure from DotNetObject
 		raise("DotNet Error: ResultColumns is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getSchemaQualifiedName
-		return dnText(dotnet_getp(nHandle,"SchemaQualifiedName"))
+		return dnAnswer(dotnet_getp(nHandle,"SchemaQualifiedName"))
 
 	Func setSchemaQualifiedName P1
 		raise("DotNet Error: SchemaQualifiedName is a read-only property")
@@ -25536,19 +22065,7 @@ Class IStoreStoredProcedureParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:FindColumnMapping",P1))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -25581,19 +22098,7 @@ Class IStoreStoredProcedureParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getStoredProcedure
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:StoredProcedure"))
@@ -25620,13 +22125,13 @@ Class IStoreStoredProcedureParameter from DotNetObject
 		raise("DotNet Error: Position is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnText(dotnet_getp(nHandle,"StoreType"))
+		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -25688,19 +22193,7 @@ Class IStoreStoredProcedureResultColumn from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:FindColumnMapping",P1))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -25733,19 +22226,7 @@ Class IStoreStoredProcedureResultColumn from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getStoredProcedure
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:StoredProcedure"))
@@ -25766,13 +22247,13 @@ Class IStoreStoredProcedureResultColumn from DotNetObject
 		raise("DotNet Error: Position is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnText(dotnet_getp(nHandle,"StoreType"))
+		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -25833,19 +22314,7 @@ Class IStoreStoredProcedureReturnValue from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:FindColumnMapping",P1))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -25878,19 +22347,7 @@ Class IStoreStoredProcedureReturnValue from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getStoredProcedure
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:StoredProcedure"))
@@ -25899,13 +22356,13 @@ Class IStoreStoredProcedureReturnValue from DotNetObject
 		raise("DotNet Error: StoredProcedure is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnText(dotnet_getp(nHandle,"StoreType"))
+		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -25985,24 +22442,10 @@ Class IStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetStoreIdentifier"))
 
 	Func GetSchemaQualifiedName 
-		dn_x = dotnet_call("s4:call",nHandle,"s22:GetSchemaQualifiedName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetSchemaQualifiedName"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -26014,19 +22457,7 @@ Class IStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -26050,7 +22481,7 @@ Class IStoredProcedure from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetOrAddRuntimeAnnotationValue",P1,P2,P3))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -26080,7 +22511,7 @@ Class IStoredProcedure from DotNetObject
 		raise("DotNet Error: ResultColumns is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -26117,19 +22548,7 @@ Class IStoredProcedureMapping from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -26162,19 +22581,7 @@ Class IStoredProcedureMapping from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getStoreStoredProcedure
 		return dnObj(dotnet_callo("s3:get",nHandle,"s20:StoreStoredProcedure"))
@@ -26269,19 +22676,7 @@ Class IStoredProcedureParameter from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -26293,19 +22688,7 @@ Class IStoredProcedureParameter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -26341,13 +22724,13 @@ Class IStoredProcedureParameter from DotNetObject
 		raise("DotNet Error: StoreParameter is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getPropertyName
-		return dnText(dotnet_getp(nHandle,"PropertyName"))
+		return dnAnswer(dotnet_getp(nHandle,"PropertyName"))
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
@@ -26391,19 +22774,7 @@ Class IStoredProcedureParameterMapping from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -26436,19 +22807,7 @@ Class IStoredProcedureParameterMapping from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getStoreParameter
 		return dnObj(dotnet_callo("s3:get",nHandle,"s14:StoreParameter"))
@@ -26511,19 +22870,7 @@ Class IStoredProcedureResultColumn from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -26535,19 +22882,7 @@ Class IStoredProcedureResultColumn from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -26583,13 +22918,13 @@ Class IStoredProcedureResultColumn from DotNetObject
 		raise("DotNet Error: StoreResultColumn is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getPropertyName
-		return dnText(dotnet_getp(nHandle,"PropertyName"))
+		return dnAnswer(dotnet_getp(nHandle,"PropertyName"))
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
@@ -26621,19 +22956,7 @@ Class IStoredProcedureResultColumnMapping from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -26666,19 +22989,7 @@ Class IStoredProcedureResultColumnMapping from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getStoreResultColumn
 		return dnObj(dotnet_callo("s3:get",nHandle,"s17:StoreResultColumn"))
@@ -26767,19 +23078,7 @@ Class ITable from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -26812,19 +23111,7 @@ Class ITable from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func IsSqlReturningClauseUsed 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteTableExtensions, Microsoft.EntityFrameworkCore.Sqlite")
@@ -26893,25 +23180,25 @@ Class ITable from DotNetObject
 		raise("DotNet Error: Triggers is a read-only property")
 
 	Func getComment
-		return dnText(dotnet_getp(nHandle,"Comment"))
+		return dnAnswer(dotnet_getp(nHandle,"Comment"))
 
 	Func setComment P1
 		raise("DotNet Error: Comment is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getSchemaQualifiedName
-		return dnText(dotnet_getp(nHandle,"SchemaQualifiedName"))
+		return dnAnswer(dotnet_getp(nHandle,"SchemaQualifiedName"))
 
 	Func setSchemaQualifiedName P1
 		raise("DotNet Error: SchemaQualifiedName is a read-only property")
@@ -26970,19 +23257,7 @@ Class ITableBase from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -27015,34 +23290,22 @@ Class ITableBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getSchemaQualifiedName
-		return dnText(dotnet_getp(nHandle,"SchemaQualifiedName"))
+		return dnAnswer(dotnet_getp(nHandle,"SchemaQualifiedName"))
 
 	Func setSchemaQualifiedName P1
 		raise("DotNet Error: SchemaQualifiedName is a read-only property")
@@ -27098,19 +23361,7 @@ Class ITableIndex from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -27143,22 +23394,10 @@ Class ITableIndex from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -27194,7 +23433,7 @@ Class ITableIndex from DotNetObject
 		raise("DotNet Error: IsDescending is a read-only property")
 
 	Func getFilter
-		return dnText(dotnet_getp(nHandle,"Filter"))
+		return dnAnswer(dotnet_getp(nHandle,"Filter"))
 
 	Func setFilter P1
 		raise("DotNet Error: Filter is a read-only property")
@@ -27222,19 +23461,7 @@ Class EfITableMapping from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -27267,19 +23494,7 @@ Class EfITableMapping from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getTable
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Table"))
@@ -27355,19 +23570,7 @@ Class ITableMappingBase from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -27400,19 +23603,7 @@ Class ITableMappingBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getTypeBase
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:TypeBase"))
@@ -27466,19 +23657,7 @@ Class ITrigger from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:FindAnnotation",P1))
@@ -27490,19 +23669,7 @@ Class ITrigger from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -27576,7 +23743,7 @@ Class ITrigger from DotNetObject
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getModelName
-		return dnText(dotnet_getp(nHandle,"ModelName"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -27668,29 +23835,13 @@ Class ITypeBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetFlattenedPropertiesInHierarchy"))
 
 	Func IsAbstract 
-		dn_x = dotnet_call("s4:call",nHandle,"s10:IsAbstract")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IsAbstract"))
 
 	Func DisplayName P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:ShortName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
 
 	Func IsAssignableFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
@@ -27721,19 +23872,7 @@ Class ITypeBase from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -27899,7 +24038,7 @@ Class ITypeBase from DotNetObject
 		raise("DotNet Error: ConstructorBinding is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -27985,19 +24124,7 @@ Class ITypeMappingConfiguration from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getClrType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ClrType"))
@@ -28023,24 +24150,10 @@ Class IUniqueConstraint from DotNetObject
 		return self
 
 	Func GetIsPrimaryKey 
-		dn_x = dotnet_call("s4:call",nHandle,"s15:GetIsPrimaryKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetIsPrimaryKey"))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -28073,22 +24186,10 @@ Class IUniqueConstraint from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -28148,19 +24249,7 @@ Class IView from DotNetObject
 		return dn_x
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -28193,19 +24282,7 @@ Class IView from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getEntityTypeMappings
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:EntityTypeMappings"))
@@ -28220,25 +24297,25 @@ Class IView from DotNetObject
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getViewDefinitionSql
-		return dnText(dotnet_getp(nHandle,"ViewDefinitionSql"))
+		return dnAnswer(dotnet_getp(nHandle,"ViewDefinitionSql"))
 
 	Func setViewDefinitionSql P1
 		raise("DotNet Error: ViewDefinitionSql is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getSchemaQualifiedName
-		return dnText(dotnet_getp(nHandle,"SchemaQualifiedName"))
+		return dnAnswer(dotnet_getp(nHandle,"SchemaQualifiedName"))
 
 	Func setSchemaQualifiedName P1
 		raise("DotNet Error: SchemaQualifiedName is a read-only property")
@@ -28287,19 +24364,7 @@ Class IViewColumn from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:FindColumnMapping",P1))
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -28332,19 +24397,7 @@ Class IViewColumn from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getView
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:View"))
@@ -28359,13 +24412,13 @@ Class IViewColumn from DotNetObject
 		raise("DotNet Error: PropertyMappings is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnText(dotnet_getp(nHandle,"StoreType"))
+		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -28419,19 +24472,7 @@ Class IViewColumnMapping from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -28464,19 +24505,7 @@ Class IViewColumnMapping from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getColumn
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Column"))
@@ -28529,19 +24558,7 @@ Class IViewMapping from DotNetObject
 		return self
 
 	Func ToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
 
 	Func FindRuntimeAnnotation P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:FindRuntimeAnnotation",P1))
@@ -28574,19 +24591,7 @@ Class IViewMapping from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAnnotation",P1))
 
 	Func AnnotationsToDebugString P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s24:AnnotationsToDebugString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getView
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:View"))
@@ -28650,29 +24655,10 @@ Class IndexComparer from Object
 		return dn_x
 
 	Func Equals P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Equals",P1))
 
 	Func GetHashCode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetHashCode",P1))
 
 	Func getInstance
 		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Metadata.IndexComparer, Microsoft.EntityFrameworkCore',"s8:Instance"))
@@ -28738,29 +24724,10 @@ Class KeyComparer from Object
 		return dn_x
 
 	Func Equals P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Equals",P1))
 
 	Func GetHashCode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetHashCode",P1))
 
 	Func getInstance
 		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Metadata.KeyComparer, Microsoft.EntityFrameworkCore',"s8:Instance"))
@@ -28843,7 +24810,7 @@ Class MemberIdentity from ValueType
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Metadata.MemberIdentity, Microsoft.EntityFrameworkCore',"s6:Create",P1))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -28957,7 +24924,7 @@ Class ParameterBindingInfo from ValueType
 		raise("DotNet Error: StructuralType is a read-only property")
 
 	Func getInstanceName
-		return dnText(dotnet_getp(nHandle,"InstanceName"))
+		return dnAnswer(dotnet_getp(nHandle,"InstanceName"))
 
 	Func setInstanceName P1
 		raise("DotNet Error: InstanceName is a read-only property")
@@ -29729,7 +25696,7 @@ Class RuntimeDbFunction from AnnotatableBase
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getModelName
-		return dnText(dotnet_getp(nHandle,"ModelName"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -29772,7 +25739,7 @@ Class RuntimeDbFunctionParameter from AnnotatableBase
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -30123,7 +26090,7 @@ Class RuntimeIndex from RuntimeAnnotatableBase
 		raise("DotNet Error: Properties is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -30275,8 +26242,7 @@ Class RuntimeModel from RuntimeAnnotatableBase
 		return self
 
 	Func SetSkipDetectChanges P1
-		dotnet_callv("s4:call",nHandle,"s20:SetSkipDetectChanges",P1)
-
+		dotnet_calltv(nHandle,"SetSkipDetectChanges",P1)
 		return self
 
 	Func AddEntityType P1
@@ -30387,8 +26353,7 @@ Class RuntimePropertyBase from RuntimeAnnotatableBase
 		return self
 
 	Func SetPropertyIndexes P1,P2,P3,P4,P5
-		dotnet_callv("s4:call",nHandle,"s18:SetPropertyIndexes",P1,P2,P3,P4,P5)
-
+		dotnet_calltv(nHandle,"SetPropertyIndexes",P1,P2,P3,P4,P5)
 		return self
 
 	Func SetAccessors P1,P2,P3,P4,P5
@@ -30417,7 +26382,7 @@ Class RuntimePropertyBase from RuntimeAnnotatableBase
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -30512,19 +26477,19 @@ Class RuntimeSequence from AnnotatableBase
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getModelSchema
-		return dnText(dotnet_getp(nHandle,"ModelSchema"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelSchema"))
 
 	Func setModelSchema P1
 		raise("DotNet Error: ModelSchema is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -30634,7 +26599,7 @@ Class RuntimeTrigger from RuntimeAnnotatableBase
 		return dn_x
 
 	Func getModelName
-		return dnText(dotnet_getp(nHandle,"ModelName"))
+		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -30736,8 +26701,7 @@ Class RuntimeTypeBase from RuntimeAnnotatableBase
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetSnapshottableMembers"))
 
 	Func FinalizeType 
-		dotnet_callv("s4:call",nHandle,"s12:FinalizeType")
-
+		dotnet_calltv(nHandle,"FinalizeType")
 		return self
 
 	Func FindIndexerProperty P1
@@ -30868,7 +26832,7 @@ Class RuntimeTypeBase from RuntimeAnnotatableBase
 		return dn_x
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -31043,9 +27007,7 @@ Class StoreObjectIdentifier from ValueType
 		return dn_x
 
 	Func DisplayName 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"DisplayName"))
 
 	Func Create P1,P2
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational',"s6:Create",P1,P2))
@@ -31093,13 +27055,13 @@ Class StoreObjectIdentifier from ValueType
 		raise("DotNet Error: StoreObjectType is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		return dnText(dotnet_getp(nHandle,"Schema"))
+		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -31128,29 +27090,10 @@ Class TypeBaseNameComparer from Object
 		return dn_x
 
 	Func Equals P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Equals",P1))
 
 	Func GetHashCode P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetHashCode",P1))
 
 	Func getInstance
 		return dnObj(dotnet_callo("s3:get",'Microsoft.EntityFrameworkCore.Metadata.TypeBaseNameComparer, Microsoft.EntityFrameworkCore',"s8:Instance"))

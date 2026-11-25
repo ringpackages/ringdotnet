@@ -94,8 +94,7 @@ Class Collection from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func CopyTo P1,P2
@@ -127,8 +126,7 @@ Class Collection from Object
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Equals P1
@@ -453,9 +451,7 @@ Class ReadOnlyStringList from Object
 		return self
 
 	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -466,9 +462,7 @@ Class ReadOnlyStringList from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IndexOf",P1))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -552,13 +546,11 @@ Class StringCollectionList from Object
 		return self
 
 	Func Add P1
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-
+		dotnet_calltv(nHandle,"Add",P1)
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func CopyTo P1,P2
@@ -567,31 +559,23 @@ Class StringCollectionList from Object
 		return self
 
 	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func GetEnumerator 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
 
 	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IndexOf",P1))
 
 	Func Insert P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-
+		dotnet_calltv(nHandle,"Insert",P1,P2)
 		return self
 
 	Func Remove P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Remove",P1))
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Equals P1
@@ -678,8 +662,7 @@ Class ObservableCollection from Collection
 		return self
 
 	Func Move P1,P2
-		dotnet_callv("s4:call",nHandle,"s4:Move",P1,P2)
-
+		dotnet_calltv(nHandle,"Move",P1,P2)
 		return self
 
 	Func setCollectionChangedEvent P1
@@ -744,9 +727,25 @@ Class ObservableStringList from Collection
 		return self
 
 	Func Move P1,P2
-		dotnet_callv("s4:call",nHandle,"s4:Move",P1,P2)
-
+		dotnet_calltv(nHandle,"Move",P1,P2)
 		return self
+
+	Func Add P1
+		dotnet_calltv(nHandle,"Add",P1)
+		return self
+
+	Func Contains P1
+		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
+
+	Func IndexOf P1
+		return dnAnswer(dotnet_callt(nHandle,"IndexOf",P1))
+
+	Func Insert P1,P2
+		dotnet_calltv(nHandle,"Insert",P1,P2)
+		return self
+
+	Func Remove P1
+		return dnAnswer(dotnet_callt(nHandle,"Remove",P1))
 
 	Func Item P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
@@ -799,8 +798,7 @@ Class ObservableObjectList from Collection
 		return self
 
 	Func Move P1,P2
-		dotnet_callv("s4:call",nHandle,"s4:Move",P1,P2)
-
+		dotnet_calltv(nHandle,"Move",P1,P2)
 		return self
 
 	Func setCollectionChangedEvent P1

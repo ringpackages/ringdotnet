@@ -579,9 +579,7 @@ Class ArrayWithOffset from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetArray"))
 
 	Func GetOffset 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:GetOffset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetOffset"))
 
 	# the operators of System.Runtime.InteropServices.ArrayWithOffset: = !=
 	Func operator cOperator, Para
@@ -631,7 +629,7 @@ Class BStrWrapper from Object
 		return dn_x
 
 	Func getWrappedObject
-		return dnText(dotnet_getp(nHandle,"WrappedObject"))
+		return dnAnswer(dotnet_getp(nHandle,"WrappedObject"))
 
 	Func setWrappedObject P1
 		raise("DotNet Error: WrappedObject is a read-only property")
@@ -848,7 +846,7 @@ Class ComAliasNameAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1081,7 +1079,7 @@ Class ComSourceInterfacesAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1267,27 +1265,22 @@ Class CriticalHandle from DotNetObject
 		return self
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func SetHandleAsInvalid 
-		dotnet_callv("s4:call",nHandle,"s18:SetHandleAsInvalid")
-
+		dotnet_calltv(nHandle,"SetHandleAsInvalid")
 		return self
 
 	Func GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToString"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1295,9 +1288,7 @@ Class CriticalHandle from DotNetObject
 		return dn_x
 
 	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func getIsClosed
 		return dotnet_getp(nHandle,"IsClosed")
@@ -1451,13 +1442,13 @@ Class DllImportAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getEntryPoint
-		return dnText(dotnet_getp(nHandle,"EntryPoint"))
+		return dnAnswer(dotnet_getp(nHandle,"EntryPoint"))
 
 	Func setEntryPoint P1
 		dotnet_setp(nHandle,"EntryPoint",P1)
@@ -1652,8 +1643,7 @@ Class GCHandle from ValueType
 		return self
 
 	Func Free 
-		dotnet_callv("s4:call",nHandle,"s4:Free")
-
+		dotnet_calltv(nHandle,"Free")
 		return self
 
 	Func AddrOfPinnedObject 
@@ -1705,7 +1695,7 @@ Class GuidAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1745,13 +1735,11 @@ Class HandleCollector from Object
 		return self
 
 	Func Add 
-		dotnet_callv("s4:call",nHandle,"s3:Add")
-
+		dotnet_calltv(nHandle,"Add")
 		return self
 
 	Func Remove 
-		dotnet_callv("s4:call",nHandle,"s6:Remove")
-
+		dotnet_calltv(nHandle,"Remove")
 		return self
 
 	Func Equals P1
@@ -1778,7 +1766,7 @@ Class HandleCollector from Object
 		raise("DotNet Error: MaximumThreshold is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1897,9 +1885,7 @@ Class ICustomMarshaler from DotNetObject
 		return self
 
 	Func GetNativeDataSize 
-		dn_x = dotnet_call("s4:call",nHandle,"s17:GetNativeDataSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetNativeDataSize"))
 
 
 Class ICustomQueryInterface from DotNetObject
@@ -1953,7 +1939,7 @@ Class ImportedFromTypeLibAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -2118,13 +2104,13 @@ Class LibraryImportAttribute from Attribute
 		return self
 
 	Func getLibraryName
-		return dnText(dotnet_getp(nHandle,"LibraryName"))
+		return dnAnswer(dotnet_getp(nHandle,"LibraryName"))
 
 	Func setLibraryName P1
 		raise("DotNet Error: LibraryName is a read-only property")
 
 	Func getEntryPoint
-		return dnText(dotnet_getp(nHandle,"EntryPoint"))
+		return dnAnswer(dotnet_getp(nHandle,"EntryPoint"))
 
 	Func setEntryPoint P1
 		dotnet_setp(nHandle,"EntryPoint",P1)
@@ -2175,7 +2161,7 @@ Class ManagedToNativeComInteropStubAttribute from Attribute
 		raise("DotNet Error: ClassType is a read-only property")
 
 	Func getMethodName
-		return dnText(dotnet_getp(nHandle,"MethodName"))
+		return dnAnswer(dotnet_getp(nHandle,"MethodName"))
 
 	Func setMethodName P1
 		raise("DotNet Error: MethodName is a read-only property")
@@ -2775,7 +2761,7 @@ Class MarshalAsAttribute from Attribute
 		return self
 
 	Func getMarshalType
-		return dnText(dotnet_getp(nHandle,"MarshalType"))
+		return dnAnswer(dotnet_getp(nHandle,"MarshalType"))
 
 	Func setMarshalType P1
 		dotnet_setp(nHandle,"MarshalType",P1)
@@ -2789,7 +2775,7 @@ Class MarshalAsAttribute from Attribute
 		return self
 
 	Func getMarshalCookie
-		return dnText(dotnet_getp(nHandle,"MarshalCookie"))
+		return dnAnswer(dotnet_getp(nHandle,"MarshalCookie"))
 
 	Func setMarshalCookie P1
 		dotnet_setp(nHandle,"MarshalCookie",P1)
@@ -2972,14 +2958,7 @@ Class NFloat from ValueType
 		return dn_x
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -3655,8 +3634,7 @@ Class PosixSignalRegistration from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Equals P1
@@ -3734,7 +3712,7 @@ Class ProgIdAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -3942,17 +3920,11 @@ Class SafeBuffer from DotNetObject
 		return self
 
 	Func Initialize P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s10:Initialize",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s10:Initialize",P1)
-
+		dotnet_calltd1v(nHandle,"Initialize",P1)
 		return self
 
 	Func ReleasePointer 
-		dotnet_callv("s4:call",nHandle,"s14:ReleasePointer")
-
+		dotnet_calltv(nHandle,"ReleasePointer")
 		return self
 
 	Func Read P1
@@ -3988,35 +3960,29 @@ Class SafeBuffer from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:DangerousGetHandle"))
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func SetHandleAsInvalid 
-		dotnet_callv("s4:call",nHandle,"s18:SetHandleAsInvalid")
-
+		dotnet_calltv(nHandle,"SetHandleAsInvalid")
 		return self
 
 	Func DangerousAddRef P1
 		return dnSend("s4:call",nHandle,"s15:DangerousAddRef",dnPackItem(P1))
 
 	Func DangerousRelease 
-		dotnet_callv("s4:call",nHandle,"s16:DangerousRelease")
-
+		dotnet_calltv(nHandle,"DangerousRelease")
 		return self
 
 	Func GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToString"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4024,9 +3990,7 @@ Class SafeBuffer from DotNetObject
 		return dn_x
 
 	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func getByteLength
 		return dotnet_getp(nHandle,"ByteLength")
@@ -4065,35 +4029,29 @@ Class SafeHandle from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:DangerousGetHandle"))
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func SetHandleAsInvalid 
-		dotnet_callv("s4:call",nHandle,"s18:SetHandleAsInvalid")
-
+		dotnet_calltv(nHandle,"SetHandleAsInvalid")
 		return self
 
 	Func DangerousAddRef P1
 		return dnSend("s4:call",nHandle,"s15:DangerousAddRef",dnPackItem(P1))
 
 	Func DangerousRelease 
-		dotnet_callv("s4:call",nHandle,"s16:DangerousRelease")
-
+		dotnet_calltv(nHandle,"DangerousRelease")
 		return self
 
 	Func GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToString"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4101,9 +4059,7 @@ Class SafeHandle from DotNetObject
 		return dn_x
 
 	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func getIsClosed
 		return dotnet_getp(nHandle,"IsClosed")
@@ -4237,13 +4193,13 @@ Class TypeIdentifierAttribute from Attribute
 		return self
 
 	Func getScope
-		return dnText(dotnet_getp(nHandle,"Scope"))
+		return dnAnswer(dotnet_getp(nHandle,"Scope"))
 
 	Func setScope P1
 		raise("DotNet Error: Scope is a read-only property")
 
 	Func getIdentifier
-		return dnText(dotnet_getp(nHandle,"Identifier"))
+		return dnAnswer(dotnet_getp(nHandle,"Identifier"))
 
 	Func setIdentifier P1
 		raise("DotNet Error: Identifier is a read-only property")
@@ -4287,7 +4243,7 @@ Class TypeLibImportClassAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -4454,7 +4410,7 @@ Class UnmanagedCallersOnlyAttribute from Attribute
 		return self
 
 	Func getEntryPoint
-		return dnText(dotnet_getp(nHandle,"EntryPoint"))
+		return dnAnswer(dotnet_getp(nHandle,"EntryPoint"))
 
 	Func setEntryPoint P1
 		dotnet_setp(nHandle,"EntryPoint",P1)
@@ -4637,8 +4593,6 @@ Class SEHException from ExternalException
 		return self
 
 	Func CanResume 
-		dn_x = dotnet_call("s4:call",nHandle,"s9:CanResume")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CanResume"))
 
 

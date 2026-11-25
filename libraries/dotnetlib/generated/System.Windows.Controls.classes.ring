@@ -1062,7 +1062,7 @@ Class AccessText from FrameworkElement
 		raise("DotNet Error: AccessKey is a read-only property")
 
 	Func getText
-		return dnText(dotnet_getp(nHandle,"Text"))
+		return dnAnswer(dotnet_getp(nHandle,"Text"))
 
 	Func setText P1
 		dotnet_setp(nHandle,"Text",P1)
@@ -1521,19 +1521,11 @@ Class CalendarBlackoutDatesCollection from ObservableCollection
 		return self
 
 	Func AddDatesInPast 
-		dotnet_callv("s4:call",nHandle,"s14:AddDatesInPast")
-
+		dotnet_calltv(nHandle,"AddDatesInPast")
 		return self
 
 	Func Contains P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Contains",P1))
 
 	Func ContainsAny P1
 		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsAny",P1)
@@ -1748,8 +1740,7 @@ Class ColumnDefinitionCollection from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -1773,13 +1764,11 @@ Class ColumnDefinitionCollection from Object
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func RemoveRange P1,P2
-		dotnet_callv("s4:call",nHandle,"s11:RemoveRange",P1,P2)
-
+		dotnet_calltv(nHandle,"RemoveRange",P1,P2)
 		return self
 
 	Func Equals P1
@@ -1926,7 +1915,7 @@ Class WpfComboBox from Selector
 		return self
 
 	Func getText
-		return dnText(dotnet_getp(nHandle,"Text"))
+		return dnAnswer(dotnet_getp(nHandle,"Text"))
 
 	Func setText P1
 		dotnet_setp(nHandle,"Text",P1)
@@ -1952,7 +1941,7 @@ Class WpfComboBox from Selector
 		raise("DotNet Error: SelectionBoxItemTemplate is a read-only property")
 
 	Func getSelectionBoxItemStringFormat
-		return dnText(dotnet_getp(nHandle,"SelectionBoxItemStringFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"SelectionBoxItemStringFormat"))
 
 	Func setSelectionBoxItemStringFormat P1
 		raise("DotNet Error: SelectionBoxItemStringFormat is a read-only property")
@@ -2065,9 +2054,7 @@ Class ContentPresenter from FrameworkElement
 		return self
 
 	Func ShouldSerializeContentTemplateSelector 
-		dn_x = dotnet_call("s4:call",nHandle,"s38:ShouldSerializeContentTemplateSelector")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeContentTemplateSelector"))
 
 	Func getRecognizesAccessKey
 		return dotnet_getp(nHandle,"RecognizesAccessKey")
@@ -2098,14 +2085,14 @@ Class ContentPresenter from FrameworkElement
 		return self
 
 	Func getContentStringFormat
-		return dnText(dotnet_getp(nHandle,"ContentStringFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"ContentStringFormat"))
 
 	Func setContentStringFormat P1
 		dotnet_setp(nHandle,"ContentStringFormat",P1)
 		return self
 
 	Func getContentSource
-		return dnText(dotnet_getp(nHandle,"ContentSource"))
+		return dnAnswer(dotnet_getp(nHandle,"ContentSource"))
 
 	Func setContentSource P1
 		dotnet_setp(nHandle,"ContentSource",P1)
@@ -3026,43 +3013,14 @@ Class DataGrid from MultiSelector
 		return self
 
 	Func ScrollIntoView P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:ScrollIntoView",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:ScrollIntoView",P1)
-
+		dotnet_calltd1v(nHandle,"ScrollIntoView",P1)
 		return self
 
 	Func BeginEdit P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:BeginEdit",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s9:BeginEdit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:BeginEdit",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"BeginEdit",P1))
 
 	Func CancelEdit P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s10:CancelEdit",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s10:CancelEdit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s10:CancelEdit",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"CancelEdit",P1))
 
 	Func CommitEdit P1
 		if dotnet_isnamed(P1)
@@ -3078,13 +3036,11 @@ Class DataGrid from MultiSelector
 		raise("DotNet Error: CommitEdit does not take one argument: use named arguments, CommitEdit([ :parameter = value, ... ])")
 
 	Func SelectAllCells 
-		dotnet_callv("s4:call",nHandle,"s14:SelectAllCells")
-
+		dotnet_calltv(nHandle,"SelectAllCells")
 		return self
 
 	Func UnselectAllCells 
-		dotnet_callv("s4:call",nHandle,"s16:UnselectAllCells")
-
+		dotnet_calltv(nHandle,"UnselectAllCells")
 		return self
 
 	Func GenerateColumns P1
@@ -4014,7 +3970,7 @@ Class DataGridAutoGeneratingColumnEventArgs from EventArgs
 		return self
 
 	Func getPropertyName
-		return dnText(dotnet_getp(nHandle,"PropertyName"))
+		return dnAnswer(dotnet_getp(nHandle,"PropertyName"))
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
@@ -4394,7 +4350,7 @@ Class DataGridColumn from DependencyObject
 		return self
 
 	Func getHeaderStringFormat
-		return dnText(dotnet_getp(nHandle,"HeaderStringFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"HeaderStringFormat"))
 
 	Func setHeaderStringFormat P1
 		dotnet_setp(nHandle,"HeaderStringFormat",P1)
@@ -4463,7 +4419,7 @@ Class DataGridColumn from DependencyObject
 		return self
 
 	Func getSortMemberPath
-		return dnText(dotnet_getp(nHandle,"SortMemberPath"))
+		return dnAnswer(dotnet_getp(nHandle,"SortMemberPath"))
 
 	Func setSortMemberPath P1
 		dotnet_setp(nHandle,"SortMemberPath",P1)
@@ -4889,9 +4845,7 @@ Class DataGridRowClipboardEventArgs from EventArgs
 		return self
 
 	Func FormatClipboardCellValues P1
-		dn_x = dotnet_call("s4:call",nHandle,"s25:FormatClipboardCellValues",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"FormatClipboardCellValues",P1))
 
 	Func getItem
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Item"))
@@ -5065,7 +5019,7 @@ Class DatePickerDateValidationErrorEventArgs from EventArgs
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getText
-		return dnText(dotnet_getp(nHandle,"Text"))
+		return dnAnswer(dotnet_getp(nHandle,"Text"))
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
@@ -5123,7 +5077,7 @@ Class DefinitionBase from FrameworkContentElement
 		return self
 
 	Func getSharedSizeGroup
-		return dnText(dotnet_getp(nHandle,"SharedSizeGroup"))
+		return dnAnswer(dotnet_getp(nHandle,"SharedSizeGroup"))
 
 	Func setSharedSizeGroup P1
 		dotnet_setp(nHandle,"SharedSizeGroup",P1)
@@ -5196,87 +5150,63 @@ Class DocumentViewer from DocumentViewerBase
 		return self
 
 	Func ViewThumbnails 
-		dotnet_callv("s4:call",nHandle,"s14:ViewThumbnails")
-
+		dotnet_calltv(nHandle,"ViewThumbnails")
 		return self
 
 	Func FitToWidth 
-		dotnet_callv("s4:call",nHandle,"s10:FitToWidth")
-
+		dotnet_calltv(nHandle,"FitToWidth")
 		return self
 
 	Func FitToHeight 
-		dotnet_callv("s4:call",nHandle,"s11:FitToHeight")
-
+		dotnet_calltv(nHandle,"FitToHeight")
 		return self
 
 	Func FitToMaxPagesAcross P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s19:FitToMaxPagesAcross",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s19:FitToMaxPagesAcross")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s19:FitToMaxPagesAcross",P1)
-
+		dotnet_calltdv(nHandle,"FitToMaxPagesAcross",P1)
 		return self
 
 	Func Find 
-		dotnet_callv("s4:call",nHandle,"s4:Find")
-
+		dotnet_calltv(nHandle,"Find")
 		return self
 
 	Func ScrollPageUp 
-		dotnet_callv("s4:call",nHandle,"s12:ScrollPageUp")
-
+		dotnet_calltv(nHandle,"ScrollPageUp")
 		return self
 
 	Func ScrollPageDown 
-		dotnet_callv("s4:call",nHandle,"s14:ScrollPageDown")
-
+		dotnet_calltv(nHandle,"ScrollPageDown")
 		return self
 
 	Func ScrollPageLeft 
-		dotnet_callv("s4:call",nHandle,"s14:ScrollPageLeft")
-
+		dotnet_calltv(nHandle,"ScrollPageLeft")
 		return self
 
 	Func ScrollPageRight 
-		dotnet_callv("s4:call",nHandle,"s15:ScrollPageRight")
-
+		dotnet_calltv(nHandle,"ScrollPageRight")
 		return self
 
 	Func MoveUp 
-		dotnet_callv("s4:call",nHandle,"s6:MoveUp")
-
+		dotnet_calltv(nHandle,"MoveUp")
 		return self
 
 	Func MoveDown 
-		dotnet_callv("s4:call",nHandle,"s8:MoveDown")
-
+		dotnet_calltv(nHandle,"MoveDown")
 		return self
 
 	Func MoveLeft 
-		dotnet_callv("s4:call",nHandle,"s8:MoveLeft")
-
+		dotnet_calltv(nHandle,"MoveLeft")
 		return self
 
 	Func MoveRight 
-		dotnet_callv("s4:call",nHandle,"s9:MoveRight")
-
+		dotnet_calltv(nHandle,"MoveRight")
 		return self
 
 	Func IncreaseZoom 
-		dotnet_callv("s4:call",nHandle,"s12:IncreaseZoom")
-
+		dotnet_calltv(nHandle,"IncreaseZoom")
 		return self
 
 	Func DecreaseZoom 
-		dotnet_callv("s4:call",nHandle,"s12:DecreaseZoom")
-
+		dotnet_calltv(nHandle,"DecreaseZoom")
 		return self
 
 	Func getHorizontalOffset
@@ -5558,18 +5488,15 @@ Class FlowDocumentPageViewer from DocumentViewerBase
 		return self
 
 	Func IncreaseZoom 
-		dotnet_callv("s4:call",nHandle,"s12:IncreaseZoom")
-
+		dotnet_calltv(nHandle,"IncreaseZoom")
 		return self
 
 	Func DecreaseZoom 
-		dotnet_callv("s4:call",nHandle,"s12:DecreaseZoom")
-
+		dotnet_calltv(nHandle,"DecreaseZoom")
 		return self
 
 	Func Find 
-		dotnet_callv("s4:call",nHandle,"s4:Find")
-
+		dotnet_calltv(nHandle,"Find")
 		return self
 
 	Func getSelection
@@ -5886,7 +5813,7 @@ Class GridViewColumn from DependencyObject
 		return self
 
 	Func getHeaderStringFormat
-		return dnText(dotnet_getp(nHandle,"HeaderStringFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"HeaderStringFormat"))
 
 	Func setHeaderStringFormat P1
 		dotnet_setp(nHandle,"HeaderStringFormat",P1)
@@ -6103,7 +6030,7 @@ Class GridViewHeaderRowPresenter from GridViewRowPresenterBase
 		return self
 
 	Func getColumnHeaderStringFormat
-		return dnText(dotnet_getp(nHandle,"ColumnHeaderStringFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"ColumnHeaderStringFormat"))
 
 	Func setColumnHeaderStringFormat P1
 		dotnet_setp(nHandle,"ColumnHeaderStringFormat",P1)
@@ -6282,7 +6209,7 @@ Class GroupStyle from Object
 		return self
 
 	Func getHeaderStringFormat
-		return dnText(dotnet_getp(nHandle,"HeaderStringFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"HeaderStringFormat"))
 
 	Func setHeaderStringFormat P1
 		dotnet_setp(nHandle,"HeaderStringFormat",P1)
@@ -6714,45 +6641,26 @@ Class InkCanvas from FrameworkElement
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetSelectedStrokes"))
 
 	Func Select P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:Select",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:Select",P1)
-
+		dotnet_calltd1v(nHandle,"Select",P1)
 		return self
 
 	Func HitTestSelection P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:HitTestSelection",P1))
 
 	Func CopySelection 
-		dotnet_callv("s4:call",nHandle,"s13:CopySelection")
-
+		dotnet_calltv(nHandle,"CopySelection")
 		return self
 
 	Func CutSelection 
-		dotnet_callv("s4:call",nHandle,"s12:CutSelection")
-
+		dotnet_calltv(nHandle,"CutSelection")
 		return self
 
 	Func Paste P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Paste",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s5:Paste")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Paste",P1)
-
+		dotnet_calltdv(nHandle,"Paste",P1)
 		return self
 
 	Func CanPaste 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:CanPaste")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CanPaste"))
 
 	Func GetTop P1
 		dn_x = dotnet_call("s4:call",'System.Windows.Controls.InkCanvas, PresentationFramework',"s6:GetTop",P1)
@@ -7273,8 +7181,7 @@ Class ItemCollection from CollectionView
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func CopyTo P1,P2
@@ -7293,8 +7200,7 @@ Class ItemCollection from CollectionView
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Item P1
@@ -7386,14 +7292,7 @@ Class ItemContainerGenerator from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ContainerFromItem",P1))
 
 	Func IndexFromContainer P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s18:IndexFromContainer",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s18:IndexFromContainer",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"IndexFromContainer",P1))
 
 	Func ContainerFromIndex P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ContainerFromIndex",P1))
@@ -7602,13 +7501,11 @@ Class WpfListBox from Selector
 		return self
 
 	Func SelectAll 
-		dotnet_callv("s4:call",nHandle,"s9:SelectAll")
-
+		dotnet_calltv(nHandle,"SelectAll")
 		return self
 
 	Func UnselectAll 
-		dotnet_callv("s4:call",nHandle,"s11:UnselectAll")
-
+		dotnet_calltv(nHandle,"UnselectAll")
 		return self
 
 	Func ScrollIntoView P1
@@ -7700,23 +7597,19 @@ Class MediaElement from FrameworkElement
 		return self
 
 	Func Play 
-		dotnet_callv("s4:call",nHandle,"s4:Play")
-
+		dotnet_calltv(nHandle,"Play")
 		return self
 
 	Func Pause 
-		dotnet_callv("s4:call",nHandle,"s5:Pause")
-
+		dotnet_calltv(nHandle,"Pause")
 		return self
 
 	Func Stop 
-		dotnet_callv("s4:call",nHandle,"s4:Stop")
-
+		dotnet_calltv(nHandle,"Stop")
 		return self
 
 	Func Close 
-		dotnet_callv("s4:call",nHandle,"s5:Close")
-
+		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func setMediaFailedEvent P1
@@ -8090,29 +7983,19 @@ Class Page from FrameworkElement
 		return self
 
 	Func ShouldSerializeWindowTitle 
-		dn_x = dotnet_call("s4:call",nHandle,"s26:ShouldSerializeWindowTitle")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeWindowTitle"))
 
 	Func ShouldSerializeWindowHeight 
-		dn_x = dotnet_call("s4:call",nHandle,"s27:ShouldSerializeWindowHeight")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeWindowHeight"))
 
 	Func ShouldSerializeWindowWidth 
-		dn_x = dotnet_call("s4:call",nHandle,"s26:ShouldSerializeWindowWidth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeWindowWidth"))
 
 	Func ShouldSerializeTitle 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:ShouldSerializeTitle")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeTitle"))
 
 	Func ShouldSerializeShowsNavigationUI 
-		dn_x = dotnet_call("s4:call",nHandle,"s32:ShouldSerializeShowsNavigationUI")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeShowsNavigationUI"))
 
 	Func getContent
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Content"))
@@ -8122,7 +8005,7 @@ Class Page from FrameworkElement
 		return self
 
 	Func getWindowTitle
-		return dnText(dotnet_getp(nHandle,"WindowTitle"))
+		return dnAnswer(dotnet_getp(nHandle,"WindowTitle"))
 
 	Func setWindowTitle P1
 		dotnet_setp(nHandle,"WindowTitle",P1)
@@ -8150,7 +8033,7 @@ Class Page from FrameworkElement
 		return self
 
 	Func getTitle
-		return dnText(dotnet_getp(nHandle,"Title"))
+		return dnAnswer(dotnet_getp(nHandle,"Title"))
 
 	Func setTitle P1
 		dotnet_setp(nHandle,"Title",P1)
@@ -8332,9 +8215,7 @@ Class WpfPanel from FrameworkElement
 		return self
 
 	Func ShouldSerializeChildren 
-		dn_x = dotnet_call("s4:call",nHandle,"s23:ShouldSerializeChildren")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeChildren"))
 
 	Func SetZIndex P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.Panel, PresentationFramework',"s9:SetZIndex",P1,P2)
@@ -8636,7 +8517,7 @@ Class WpfRadioButton from ToggleButton
 		return self
 
 	Func getGroupName
-		return dnText(dotnet_getp(nHandle,"GroupName"))
+		return dnAnswer(dotnet_getp(nHandle,"GroupName"))
 
 	Func setGroupName P1
 		dotnet_setp(nHandle,"GroupName",P1)
@@ -8704,9 +8585,7 @@ Class WpfRichTextBox from WpfTextBoxBase
 		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetNextSpellingErrorPosition",P1,P2))
 
 	Func ShouldSerializeDocument 
-		dn_x = dotnet_call("s4:call",nHandle,"s23:ShouldSerializeDocument")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeDocument"))
 
 	Func getDocument
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Document"))
@@ -8769,8 +8648,7 @@ Class RowDefinitionCollection from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -8794,13 +8672,11 @@ Class RowDefinitionCollection from Object
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func RemoveRange P1,P2
-		dotnet_callv("s4:call",nHandle,"s11:RemoveRange",P1,P2)
-
+		dotnet_calltv(nHandle,"RemoveRange",P1,P2)
 		return self
 
 	Func Equals P1
@@ -9332,8 +9208,7 @@ Class SoundPlayerAction from TriggerAction
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func getSource
@@ -9444,13 +9319,11 @@ Class SpellingError from Object
 		return self
 
 	Func Correct P1
-		dotnet_callv("s4:call",nHandle,"s7:Correct",P1)
-
+		dotnet_calltv(nHandle,"Correct",P1)
 		return self
 
 	Func IgnoreAll 
-		dotnet_callv("s4:call",nHandle,"s9:IgnoreAll")
-
+		dotnet_calltv(nHandle,"IgnoreAll")
 		return self
 
 	Func Equals P1
@@ -9557,7 +9430,7 @@ Class WpfTabControl from Selector
 		raise("DotNet Error: SelectedContentTemplateSelector is a read-only property")
 
 	Func getSelectedContentStringFormat
-		return dnText(dotnet_getp(nHandle,"SelectedContentStringFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"SelectedContentStringFormat"))
 
 	Func setSelectedContentStringFormat P1
 		raise("DotNet Error: SelectedContentStringFormat is a read-only property")
@@ -9577,7 +9450,7 @@ Class WpfTabControl from Selector
 		return self
 
 	Func getContentStringFormat
-		return dnText(dotnet_getp(nHandle,"ContentStringFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"ContentStringFormat"))
 
 	Func setContentStringFormat P1
 		dotnet_setp(nHandle,"ContentStringFormat",P1)
@@ -9715,9 +9588,7 @@ Class TextBlock from FrameworkElement
 		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetPositionFromPoint",P1,P2))
 
 	Func ShouldSerializeText 
-		dn_x = dotnet_call("s4:call",nHandle,"s19:ShouldSerializeText")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeText"))
 
 	Func ShouldSerializeInlines P1
 		dn_x = dotnet_call("s4:call",nHandle,"s22:ShouldSerializeInlines",P1)
@@ -9725,9 +9596,7 @@ Class TextBlock from FrameworkElement
 		return dn_x
 
 	Func ShouldSerializeBaselineOffset 
-		dn_x = dotnet_call("s4:call",nHandle,"s29:ShouldSerializeBaselineOffset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeBaselineOffset"))
 
 	Func @SetBaselineOffset P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.TextBlock, PresentationFramework',"s17:SetBaselineOffset",P1,P2)
@@ -9918,7 +9787,7 @@ Class TextBlock from FrameworkElement
 		return self
 
 	Func getText
-		return dnText(dotnet_getp(nHandle,"Text"))
+		return dnAnswer(dotnet_getp(nHandle,"Text"))
 
 	Func setText P1
 		dotnet_setp(nHandle,"Text",P1)
@@ -10189,13 +10058,11 @@ Class WpfTextBox from WpfTextBoxBase
 		return self
 
 	Func Select P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:Select",P1,P2)
-
+		dotnet_calltv(nHandle,"Select",P1,P2)
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func GetCharacterIndexFromPoint P1,P2
@@ -10204,39 +10071,26 @@ Class WpfTextBox from WpfTextBoxBase
 		return dn_x
 
 	Func GetCharacterIndexFromLineIndex P1
-		dn_x = dotnet_call("s4:call",nHandle,"s30:GetCharacterIndexFromLineIndex",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetCharacterIndexFromLineIndex",P1))
 
 	Func GetLineIndexFromCharacterIndex P1
-		dn_x = dotnet_call("s4:call",nHandle,"s30:GetLineIndexFromCharacterIndex",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetLineIndexFromCharacterIndex",P1))
 
 	Func GetLineLength P1
-		dn_x = dotnet_call("s4:call",nHandle,"s13:GetLineLength",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetLineLength",P1))
 
 	Func GetFirstVisibleLineIndex 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:GetFirstVisibleLineIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetFirstVisibleLineIndex"))
 
 	Func GetLastVisibleLineIndex 
-		dn_x = dotnet_call("s4:call",nHandle,"s23:GetLastVisibleLineIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetLastVisibleLineIndex"))
 
 	Func ScrollToLine P1
-		dotnet_callv("s4:call",nHandle,"s12:ScrollToLine",P1)
-
+		dotnet_calltv(nHandle,"ScrollToLine",P1)
 		return self
 
 	Func GetLineText P1
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetLineText",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetLineText",P1))
 
 	Func GetRectFromCharacterIndex P1
 		if dotnet_isnamed(P1)
@@ -10248,14 +10102,10 @@ Class WpfTextBox from WpfTextBoxBase
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetSpellingError",P1))
 
 	Func GetSpellingErrorStart P1
-		dn_x = dotnet_call("s4:call",nHandle,"s21:GetSpellingErrorStart",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetSpellingErrorStart",P1))
 
 	Func GetSpellingErrorLength P1
-		dn_x = dotnet_call("s4:call",nHandle,"s22:GetSpellingErrorLength",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetSpellingErrorLength",P1))
 
 	Func GetNextSpellingErrorCharacterIndex P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s34:GetNextSpellingErrorCharacterIndex",P1,P2)
@@ -10289,7 +10139,7 @@ Class WpfTextBox from WpfTextBoxBase
 		return self
 
 	Func getText
-		return dnText(dotnet_getp(nHandle,"Text"))
+		return dnAnswer(dotnet_getp(nHandle,"Text"))
 
 	Func setText P1
 		dotnet_setp(nHandle,"Text",P1)
@@ -10317,7 +10167,7 @@ Class WpfTextBox from WpfTextBoxBase
 		return self
 
 	Func getSelectedText
-		return dnText(dotnet_getp(nHandle,"SelectedText"))
+		return dnAnswer(dotnet_getp(nHandle,"SelectedText"))
 
 	Func setSelectedText P1
 		dotnet_setp(nHandle,"SelectedText",P1)
@@ -10957,8 +10807,7 @@ Class UIElementCollection from Object
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Insert P1,P2
@@ -10967,13 +10816,11 @@ Class UIElementCollection from Object
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func RemoveRange P1,P2
-		dotnet_callv("s4:call",nHandle,"s11:RemoveRange",P1,P2)
-
+		dotnet_calltv(nHandle,"RemoveRange",P1,P2)
 		return self
 
 	Func GetEnumerator 
@@ -11578,12 +11425,7 @@ Class WpfWebBrowser from DotNetObject
 		return self
 
 	Func Navigate P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s8:Navigate",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s8:Navigate",P1)
-
+		dotnet_calltd1v(nHandle,"Navigate",P1)
 		return self
 
 	Func NavigateToStream P1
@@ -11592,32 +11434,19 @@ Class WpfWebBrowser from DotNetObject
 		return self
 
 	Func NavigateToString P1
-		dotnet_callv("s4:call",nHandle,"s16:NavigateToString",P1)
-
+		dotnet_calltv(nHandle,"NavigateToString",P1)
 		return self
 
 	Func GoBack 
-		dotnet_callv("s4:call",nHandle,"s6:GoBack")
-
+		dotnet_calltv(nHandle,"GoBack")
 		return self
 
 	Func GoForward 
-		dotnet_callv("s4:call",nHandle,"s9:GoForward")
-
+		dotnet_calltv(nHandle,"GoForward")
 		return self
 
 	Func Refresh P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s7:Refresh",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s7:Refresh")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s7:Refresh",P1)
-
+		dotnet_calltdv(nHandle,"Refresh",P1)
 		return self
 
 	Func InvokeScript P1
@@ -11627,48 +11456,32 @@ Class WpfWebBrowser from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:InvokeScript",P1))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func UpdateWindowPos 
-		dotnet_callv("s4:call",nHandle,"s15:UpdateWindowPos")
-
+		dotnet_calltv(nHandle,"UpdateWindowPos")
 		return self
 
 	Func ShouldSerializeStyle 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:ShouldSerializeStyle")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeStyle"))
 
 	Func ApplyTemplate 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:ApplyTemplate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ApplyTemplate"))
 
 	Func OnApplyTemplate 
-		dotnet_callv("s4:call",nHandle,"s15:OnApplyTemplate")
-
+		dotnet_calltv(nHandle,"OnApplyTemplate")
 		return self
 
 	Func BeginStoryboard P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s15:BeginStoryboard",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s15:BeginStoryboard",P1)
-
+		dotnet_calltd1v(nHandle,"BeginStoryboard",P1)
 		return self
 
 	Func ShouldSerializeTriggers 
-		dn_x = dotnet_call("s4:call",nHandle,"s23:ShouldSerializeTriggers")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeTriggers"))
 
 	Func ShouldSerializeResources 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeResources")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeResources"))
 
 	Func FindResource P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindResource",P1))
@@ -11688,17 +11501,7 @@ Class WpfWebBrowser from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:SetBinding",P1,P2))
 
 	Func BringIntoView P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s13:BringIntoView",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s13:BringIntoView")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s13:BringIntoView",P1)
-
+		dotnet_calltdv(nHandle,"BringIntoView",P1)
 		return self
 
 	Func MoveFocus P1
@@ -11710,13 +11513,11 @@ Class WpfWebBrowser from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:PredictFocus",P1))
 
 	Func BeginInit 
-		dotnet_callv("s4:call",nHandle,"s9:BeginInit")
-
+		dotnet_calltv(nHandle,"BeginInit")
 		return self
 
 	Func EndInit 
-		dotnet_callv("s4:call",nHandle,"s7:EndInit")
-
+		dotnet_calltv(nHandle,"EndInit")
 		return self
 
 	Func RegisterName P1,P2
@@ -11725,16 +11526,14 @@ Class WpfWebBrowser from DotNetObject
 		return self
 
 	Func UnregisterName P1
-		dotnet_callv("s4:call",nHandle,"s14:UnregisterName",P1)
-
+		dotnet_calltv(nHandle,"UnregisterName",P1)
 		return self
 
 	Func FindName P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:FindName",P1))
 
 	Func UpdateDefaultStyle 
-		dotnet_callv("s4:call",nHandle,"s18:UpdateDefaultStyle")
-
+		dotnet_calltv(nHandle,"UpdateDefaultStyle")
 		return self
 
 	Func ApplyAnimationClock P1
@@ -11755,14 +11554,10 @@ Class WpfWebBrowser from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetAnimationBaseValue",P1))
 
 	Func ShouldSerializeInputBindings 
-		dn_x = dotnet_call("s4:call",nHandle,"s28:ShouldSerializeInputBindings")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeInputBindings"))
 
 	Func ShouldSerializeCommandBindings 
-		dn_x = dotnet_call("s4:call",nHandle,"s30:ShouldSerializeCommandBindings")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeCommandBindings"))
 
 	Func RaiseEvent P1
 		dotnet_callv("s4:call",nHandle,"s10:RaiseEvent",P1)
@@ -11787,18 +11582,15 @@ Class WpfWebBrowser from DotNetObject
 		return self
 
 	Func InvalidateMeasure 
-		dotnet_callv("s4:call",nHandle,"s17:InvalidateMeasure")
-
+		dotnet_calltv(nHandle,"InvalidateMeasure")
 		return self
 
 	Func InvalidateArrange 
-		dotnet_callv("s4:call",nHandle,"s17:InvalidateArrange")
-
+		dotnet_calltv(nHandle,"InvalidateArrange")
 		return self
 
 	Func InvalidateVisual 
-		dotnet_callv("s4:call",nHandle,"s16:InvalidateVisual")
-
+		dotnet_calltv(nHandle,"InvalidateVisual")
 		return self
 
 	Func Measure P1
@@ -11812,8 +11604,7 @@ Class WpfWebBrowser from DotNetObject
 		return self
 
 	Func UpdateLayout 
-		dotnet_callv("s4:call",nHandle,"s12:UpdateLayout")
-
+		dotnet_calltv(nHandle,"UpdateLayout")
 		return self
 
 	Func TranslatePoint P1,P2
@@ -11823,29 +11614,21 @@ Class WpfWebBrowser from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:InputHitTest",P1))
 
 	Func CaptureMouse 
-		dn_x = dotnet_call("s4:call",nHandle,"s12:CaptureMouse")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CaptureMouse"))
 
 	Func ReleaseMouseCapture 
-		dotnet_callv("s4:call",nHandle,"s19:ReleaseMouseCapture")
-
+		dotnet_calltv(nHandle,"ReleaseMouseCapture")
 		return self
 
 	Func CaptureStylus 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:CaptureStylus")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CaptureStylus"))
 
 	Func ReleaseStylusCapture 
-		dotnet_callv("s4:call",nHandle,"s20:ReleaseStylusCapture")
-
+		dotnet_calltv(nHandle,"ReleaseStylusCapture")
 		return self
 
 	Func Focus 
-		dn_x = dotnet_call("s4:call",nHandle,"s5:Focus")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Focus"))
 
 	Func CaptureTouch P1
 		dn_x = dotnet_call("s4:call",nHandle,"s12:CaptureTouch",P1)
@@ -11858,8 +11641,7 @@ Class WpfWebBrowser from DotNetObject
 		return dn_x
 
 	Func ReleaseAllTouchCaptures 
-		dotnet_callv("s4:call",nHandle,"s23:ReleaseAllTouchCaptures")
-
+		dotnet_calltv(nHandle,"ReleaseAllTouchCaptures")
 		return self
 
 	Func IsAncestorOf P1
@@ -11896,9 +11678,7 @@ Class WpfWebBrowser from DotNetObject
 		return dn_x
 
 	Func GetHashCode 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetHashCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
@@ -11935,22 +11715,17 @@ Class WpfWebBrowser from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetLocalValueEnumerator"))
 
 	Func CheckAccess 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:CheckAccess")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CheckAccess"))
 
 	Func VerifyAccess 
-		dotnet_callv("s4:call",nHandle,"s12:VerifyAccess")
-
+		dotnet_calltv(nHandle,"VerifyAccess")
 		return self
 
 	Func GetType 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func ToString 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToString"))
 
 	Func setNavigatingEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"Navigating",dnCallback(P1)])
@@ -12956,7 +12731,7 @@ Class WpfWebBrowser from DotNetObject
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -13291,7 +13066,7 @@ Class WpfWebBrowser from DotNetObject
 		return self
 
 	Func getUid
-		return dnText(dotnet_getp(nHandle,"Uid"))
+		return dnAnswer(dotnet_getp(nHandle,"Uid"))
 
 	Func setUid P1
 		dotnet_setp(nHandle,"Uid",P1)
@@ -13975,9 +13750,7 @@ Class ContentControl from WpfControl
 		return self
 
 	Func ShouldSerializeContent 
-		dn_x = dotnet_call("s4:call",nHandle,"s22:ShouldSerializeContent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeContent"))
 
 	Func getContent
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Content"))
@@ -14007,7 +13780,7 @@ Class ContentControl from WpfControl
 		return self
 
 	Func getContentStringFormat
-		return dnText(dotnet_getp(nHandle,"ContentStringFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"ContentStringFormat"))
 
 	Func setContentStringFormat P1
 		dotnet_setp(nHandle,"ContentStringFormat",P1)
@@ -14235,14 +14008,14 @@ Class DataGridComboBoxColumn from DataGridColumn
 		return self
 
 	Func getDisplayMemberPath
-		return dnText(dotnet_getp(nHandle,"DisplayMemberPath"))
+		return dnAnswer(dotnet_getp(nHandle,"DisplayMemberPath"))
 
 	Func setDisplayMemberPath P1
 		dotnet_setp(nHandle,"DisplayMemberPath",P1)
 		return self
 
 	Func getSelectedValuePath
-		return dnText(dotnet_getp(nHandle,"SelectedValuePath"))
+		return dnAnswer(dotnet_getp(nHandle,"SelectedValuePath"))
 
 	Func setSelectedValuePath P1
 		dotnet_setp(nHandle,"SelectedValuePath",P1)
@@ -14349,9 +14122,7 @@ Class DataGridRow from WpfControl
 		return self
 
 	Func GetIndex 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:GetIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetIndex"))
 
 	Func GetRowContainingElement P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Controls.DataGridRow, PresentationFramework',"s23:GetRowContainingElement",P1))
@@ -14808,7 +14579,7 @@ Class DatePicker from WpfControl
 		return self
 
 	Func getText
-		return dnText(dotnet_getp(nHandle,"Text"))
+		return dnAnswer(dotnet_getp(nHandle,"Text"))
 
 	Func setText P1
 		dotnet_setp(nHandle,"Text",P1)
@@ -15017,33 +14788,26 @@ Class FlowDocumentReader from WpfControl
 		return self
 
 	Func CanGoToPage P1
-		dn_x = dotnet_call("s4:call",nHandle,"s11:CanGoToPage",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CanGoToPage",P1))
 
 	Func Find 
-		dotnet_callv("s4:call",nHandle,"s4:Find")
-
+		dotnet_calltv(nHandle,"Find")
 		return self
 
 	Func Print 
-		dotnet_callv("s4:call",nHandle,"s5:Print")
-
+		dotnet_calltv(nHandle,"Print")
 		return self
 
 	Func CancelPrint 
-		dotnet_callv("s4:call",nHandle,"s11:CancelPrint")
-
+		dotnet_calltv(nHandle,"CancelPrint")
 		return self
 
 	Func IncreaseZoom 
-		dotnet_callv("s4:call",nHandle,"s12:IncreaseZoom")
-
+		dotnet_calltv(nHandle,"IncreaseZoom")
 		return self
 
 	Func DecreaseZoom 
-		dotnet_callv("s4:call",nHandle,"s12:DecreaseZoom")
-
+		dotnet_calltv(nHandle,"DecreaseZoom")
 		return self
 
 	Func SwitchViewingMode P1
@@ -15383,28 +15147,23 @@ Class FlowDocumentScrollViewer from WpfControl
 		return self
 
 	Func Find 
-		dotnet_callv("s4:call",nHandle,"s4:Find")
-
+		dotnet_calltv(nHandle,"Find")
 		return self
 
 	Func Print 
-		dotnet_callv("s4:call",nHandle,"s5:Print")
-
+		dotnet_calltv(nHandle,"Print")
 		return self
 
 	Func CancelPrint 
-		dotnet_callv("s4:call",nHandle,"s11:CancelPrint")
-
+		dotnet_calltv(nHandle,"CancelPrint")
 		return self
 
 	Func IncreaseZoom 
-		dotnet_callv("s4:call",nHandle,"s12:IncreaseZoom")
-
+		dotnet_calltv(nHandle,"IncreaseZoom")
 		return self
 
 	Func DecreaseZoom 
-		dotnet_callv("s4:call",nHandle,"s12:DecreaseZoom")
-
+		dotnet_calltv(nHandle,"DecreaseZoom")
 		return self
 
 	Func GetKeyedService P1
@@ -15696,14 +15455,10 @@ Class Grid from WpfPanel
 		return self
 
 	Func ShouldSerializeColumnDefinitions 
-		dn_x = dotnet_call("s4:call",nHandle,"s32:ShouldSerializeColumnDefinitions")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeColumnDefinitions"))
 
 	Func ShouldSerializeRowDefinitions 
-		dn_x = dotnet_call("s4:call",nHandle,"s29:ShouldSerializeRowDefinitions")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeRowDefinitions"))
 
 	Func SetColumn P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.Grid, PresentationFramework',"s9:SetColumn",P1,P2)
@@ -15892,7 +15647,7 @@ Class GridView from ViewBase
 		return self
 
 	Func getColumnHeaderStringFormat
-		return dnText(dotnet_getp(nHandle,"ColumnHeaderStringFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"ColumnHeaderStringFormat"))
 
 	Func setColumnHeaderStringFormat P1
 		dotnet_setp(nHandle,"ColumnHeaderStringFormat",P1)
@@ -16089,14 +15844,10 @@ Class ItemsControl from WpfControl
 		return self
 
 	Func ShouldSerializeItems 
-		dn_x = dotnet_call("s4:call",nHandle,"s20:ShouldSerializeItems")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeItems"))
 
 	Func ShouldSerializeGroupStyle 
-		dn_x = dotnet_call("s4:call",nHandle,"s25:ShouldSerializeGroupStyle")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeGroupStyle"))
 
 	Func ContainerFromElement P1
 		if dotnet_isnamed(P1)
@@ -16149,7 +15900,7 @@ Class ItemsControl from WpfControl
 		raise("DotNet Error: HasItems is a read-only property")
 
 	Func getDisplayMemberPath
-		return dnText(dotnet_getp(nHandle,"DisplayMemberPath"))
+		return dnAnswer(dotnet_getp(nHandle,"DisplayMemberPath"))
 
 	Func setDisplayMemberPath P1
 		dotnet_setp(nHandle,"DisplayMemberPath",P1)
@@ -16170,7 +15921,7 @@ Class ItemsControl from WpfControl
 		return self
 
 	Func getItemStringFormat
-		return dnText(dotnet_getp(nHandle,"ItemStringFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"ItemStringFormat"))
 
 	Func setItemStringFormat P1
 		dotnet_setp(nHandle,"ItemStringFormat",P1)
@@ -16440,18 +16191,15 @@ Class PasswordBox from WpfControl
 		return self
 
 	Func Paste 
-		dotnet_callv("s4:call",nHandle,"s5:Paste")
-
+		dotnet_calltv(nHandle,"Paste")
 		return self
 
 	Func SelectAll 
-		dotnet_callv("s4:call",nHandle,"s9:SelectAll")
-
+		dotnet_calltv(nHandle,"SelectAll")
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func setPasswordChangedEvent P1
@@ -16463,7 +16211,7 @@ Class PasswordBox from WpfControl
 		return self
 
 	Func getPassword
-		return dnText(dotnet_getp(nHandle,"Password"))
+		return dnAnswer(dotnet_getp(nHandle,"Password"))
 
 	Func setPassword P1
 		dotnet_setp(nHandle,"Password",P1)
@@ -16697,73 +16445,59 @@ Class ScrollContentPresenter from ContentPresenter
 		return self
 
 	Func LineUp 
-		dotnet_callv("s4:call",nHandle,"s6:LineUp")
-
+		dotnet_calltv(nHandle,"LineUp")
 		return self
 
 	Func LineDown 
-		dotnet_callv("s4:call",nHandle,"s8:LineDown")
-
+		dotnet_calltv(nHandle,"LineDown")
 		return self
 
 	Func LineLeft 
-		dotnet_callv("s4:call",nHandle,"s8:LineLeft")
-
+		dotnet_calltv(nHandle,"LineLeft")
 		return self
 
 	Func LineRight 
-		dotnet_callv("s4:call",nHandle,"s9:LineRight")
-
+		dotnet_calltv(nHandle,"LineRight")
 		return self
 
 	Func PageUp 
-		dotnet_callv("s4:call",nHandle,"s6:PageUp")
-
+		dotnet_calltv(nHandle,"PageUp")
 		return self
 
 	Func PageDown 
-		dotnet_callv("s4:call",nHandle,"s8:PageDown")
-
+		dotnet_calltv(nHandle,"PageDown")
 		return self
 
 	Func PageLeft 
-		dotnet_callv("s4:call",nHandle,"s8:PageLeft")
-
+		dotnet_calltv(nHandle,"PageLeft")
 		return self
 
 	Func PageRight 
-		dotnet_callv("s4:call",nHandle,"s9:PageRight")
-
+		dotnet_calltv(nHandle,"PageRight")
 		return self
 
 	Func MouseWheelUp 
-		dotnet_callv("s4:call",nHandle,"s12:MouseWheelUp")
-
+		dotnet_calltv(nHandle,"MouseWheelUp")
 		return self
 
 	Func MouseWheelDown 
-		dotnet_callv("s4:call",nHandle,"s14:MouseWheelDown")
-
+		dotnet_calltv(nHandle,"MouseWheelDown")
 		return self
 
 	Func MouseWheelLeft 
-		dotnet_callv("s4:call",nHandle,"s14:MouseWheelLeft")
-
+		dotnet_calltv(nHandle,"MouseWheelLeft")
 		return self
 
 	Func MouseWheelRight 
-		dotnet_callv("s4:call",nHandle,"s15:MouseWheelRight")
-
+		dotnet_calltv(nHandle,"MouseWheelRight")
 		return self
 
 	Func SetHorizontalOffset P1
-		dotnet_callv("s4:call",nHandle,"s19:SetHorizontalOffset",P1)
-
+		dotnet_calltv(nHandle,"SetHorizontalOffset",P1)
 		return self
 
 	Func SetVerticalOffset P1
-		dotnet_callv("s4:call",nHandle,"s17:SetVerticalOffset",P1)
-
+		dotnet_calltv(nHandle,"SetVerticalOffset",P1)
 		return self
 
 	Func MakeVisible P1,P2
@@ -16894,73 +16628,59 @@ Class StackPanel from WpfPanel
 		return self
 
 	Func LineUp 
-		dotnet_callv("s4:call",nHandle,"s6:LineUp")
-
+		dotnet_calltv(nHandle,"LineUp")
 		return self
 
 	Func LineDown 
-		dotnet_callv("s4:call",nHandle,"s8:LineDown")
-
+		dotnet_calltv(nHandle,"LineDown")
 		return self
 
 	Func LineLeft 
-		dotnet_callv("s4:call",nHandle,"s8:LineLeft")
-
+		dotnet_calltv(nHandle,"LineLeft")
 		return self
 
 	Func LineRight 
-		dotnet_callv("s4:call",nHandle,"s9:LineRight")
-
+		dotnet_calltv(nHandle,"LineRight")
 		return self
 
 	Func PageUp 
-		dotnet_callv("s4:call",nHandle,"s6:PageUp")
-
+		dotnet_calltv(nHandle,"PageUp")
 		return self
 
 	Func PageDown 
-		dotnet_callv("s4:call",nHandle,"s8:PageDown")
-
+		dotnet_calltv(nHandle,"PageDown")
 		return self
 
 	Func PageLeft 
-		dotnet_callv("s4:call",nHandle,"s8:PageLeft")
-
+		dotnet_calltv(nHandle,"PageLeft")
 		return self
 
 	Func PageRight 
-		dotnet_callv("s4:call",nHandle,"s9:PageRight")
-
+		dotnet_calltv(nHandle,"PageRight")
 		return self
 
 	Func MouseWheelUp 
-		dotnet_callv("s4:call",nHandle,"s12:MouseWheelUp")
-
+		dotnet_calltv(nHandle,"MouseWheelUp")
 		return self
 
 	Func MouseWheelDown 
-		dotnet_callv("s4:call",nHandle,"s14:MouseWheelDown")
-
+		dotnet_calltv(nHandle,"MouseWheelDown")
 		return self
 
 	Func MouseWheelLeft 
-		dotnet_callv("s4:call",nHandle,"s14:MouseWheelLeft")
-
+		dotnet_calltv(nHandle,"MouseWheelLeft")
 		return self
 
 	Func MouseWheelRight 
-		dotnet_callv("s4:call",nHandle,"s15:MouseWheelRight")
-
+		dotnet_calltv(nHandle,"MouseWheelRight")
 		return self
 
 	Func SetHorizontalOffset P1
-		dotnet_callv("s4:call",nHandle,"s19:SetHorizontalOffset",P1)
-
+		dotnet_calltv(nHandle,"SetHorizontalOffset",P1)
 		return self
 
 	Func SetVerticalOffset P1
-		dotnet_callv("s4:call",nHandle,"s17:SetVerticalOffset",P1)
-
+		dotnet_calltv(nHandle,"SetVerticalOffset",P1)
 		return self
 
 	Func MakeVisible P1,P2
@@ -17071,7 +16791,7 @@ Class StickyNoteControl from WpfControl
 		return self
 
 	Func getAuthor
-		return dnText(dotnet_getp(nHandle,"Author"))
+		return dnAnswer(dotnet_getp(nHandle,"Author"))
 
 	Func setAuthor P1
 		raise("DotNet Error: Author is a read-only property")
@@ -17324,8 +17044,7 @@ Class VirtualizingPanel from WpfPanel
 		return dn_x
 
 	Func BringIndexIntoViewPublic P1
-		dotnet_callv("s4:call",nHandle,"s24:BringIndexIntoViewPublic",P1)
-
+		dotnet_calltv(nHandle,"BringIndexIntoViewPublic",P1)
 		return self
 
 	Func GetIsVirtualizing P1
@@ -17715,7 +17434,7 @@ Class DataGridHyperlinkColumn from DataGridBoundColumn
 		return self
 
 	Func getTargetName
-		return dnText(dotnet_getp(nHandle,"TargetName"))
+		return dnAnswer(dotnet_getp(nHandle,"TargetName"))
 
 	Func setTargetName P1
 		dotnet_setp(nHandle,"TargetName",P1)
@@ -17906,33 +17625,22 @@ Class Frame from ContentControl
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:RemoveBackEntry"))
 
 	Func Navigate P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:Navigate",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Navigate",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Navigate",P1))
 
 	Func GoForward 
-		dotnet_callv("s4:call",nHandle,"s9:GoForward")
-
+		dotnet_calltv(nHandle,"GoForward")
 		return self
 
 	Func GoBack 
-		dotnet_callv("s4:call",nHandle,"s6:GoBack")
-
+		dotnet_calltv(nHandle,"GoBack")
 		return self
 
 	Func StopLoading 
-		dotnet_callv("s4:call",nHandle,"s11:StopLoading")
-
+		dotnet_calltv(nHandle,"StopLoading")
 		return self
 
 	Func Refresh 
-		dotnet_callv("s4:call",nHandle,"s7:Refresh")
-
+		dotnet_calltv(nHandle,"Refresh")
 		return self
 
 	Func setContentRenderedEvent P1
@@ -18192,7 +17900,7 @@ Class HeaderedContentControl from ContentControl
 		return self
 
 	Func getHeaderStringFormat
-		return dnText(dotnet_getp(nHandle,"HeaderStringFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"HeaderStringFormat"))
 
 	Func setHeaderStringFormat P1
 		dotnet_setp(nHandle,"HeaderStringFormat",P1)
@@ -18291,7 +17999,7 @@ Class HeaderedItemsControl from ItemsControl
 		return self
 
 	Func getHeaderStringFormat
-		return dnText(dotnet_getp(nHandle,"HeaderStringFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"HeaderStringFormat"))
 
 	Func setHeaderStringFormat P1
 		dotnet_setp(nHandle,"HeaderStringFormat",P1)
@@ -18487,88 +18195,71 @@ Class ScrollViewer from ContentControl
 		return self
 
 	Func LineUp 
-		dotnet_callv("s4:call",nHandle,"s6:LineUp")
-
+		dotnet_calltv(nHandle,"LineUp")
 		return self
 
 	Func LineDown 
-		dotnet_callv("s4:call",nHandle,"s8:LineDown")
-
+		dotnet_calltv(nHandle,"LineDown")
 		return self
 
 	Func LineLeft 
-		dotnet_callv("s4:call",nHandle,"s8:LineLeft")
-
+		dotnet_calltv(nHandle,"LineLeft")
 		return self
 
 	Func LineRight 
-		dotnet_callv("s4:call",nHandle,"s9:LineRight")
-
+		dotnet_calltv(nHandle,"LineRight")
 		return self
 
 	Func PageUp 
-		dotnet_callv("s4:call",nHandle,"s6:PageUp")
-
+		dotnet_calltv(nHandle,"PageUp")
 		return self
 
 	Func PageDown 
-		dotnet_callv("s4:call",nHandle,"s8:PageDown")
-
+		dotnet_calltv(nHandle,"PageDown")
 		return self
 
 	Func PageLeft 
-		dotnet_callv("s4:call",nHandle,"s8:PageLeft")
-
+		dotnet_calltv(nHandle,"PageLeft")
 		return self
 
 	Func PageRight 
-		dotnet_callv("s4:call",nHandle,"s9:PageRight")
-
+		dotnet_calltv(nHandle,"PageRight")
 		return self
 
 	Func ScrollToLeftEnd 
-		dotnet_callv("s4:call",nHandle,"s15:ScrollToLeftEnd")
-
+		dotnet_calltv(nHandle,"ScrollToLeftEnd")
 		return self
 
 	Func ScrollToRightEnd 
-		dotnet_callv("s4:call",nHandle,"s16:ScrollToRightEnd")
-
+		dotnet_calltv(nHandle,"ScrollToRightEnd")
 		return self
 
 	Func ScrollToHome 
-		dotnet_callv("s4:call",nHandle,"s12:ScrollToHome")
-
+		dotnet_calltv(nHandle,"ScrollToHome")
 		return self
 
 	Func ScrollToEnd 
-		dotnet_callv("s4:call",nHandle,"s11:ScrollToEnd")
-
+		dotnet_calltv(nHandle,"ScrollToEnd")
 		return self
 
 	Func ScrollToTop 
-		dotnet_callv("s4:call",nHandle,"s11:ScrollToTop")
-
+		dotnet_calltv(nHandle,"ScrollToTop")
 		return self
 
 	Func ScrollToBottom 
-		dotnet_callv("s4:call",nHandle,"s14:ScrollToBottom")
-
+		dotnet_calltv(nHandle,"ScrollToBottom")
 		return self
 
 	Func ScrollToHorizontalOffset P1
-		dotnet_callv("s4:call",nHandle,"s24:ScrollToHorizontalOffset",P1)
-
+		dotnet_calltv(nHandle,"ScrollToHorizontalOffset",P1)
 		return self
 
 	Func ScrollToVerticalOffset P1
-		dotnet_callv("s4:call",nHandle,"s22:ScrollToVerticalOffset",P1)
-
+		dotnet_calltv(nHandle,"ScrollToVerticalOffset",P1)
 		return self
 
 	Func InvalidateScrollInfo 
-		dotnet_callv("s4:call",nHandle,"s20:InvalidateScrollInfo")
-
+		dotnet_calltv(nHandle,"InvalidateScrollInfo")
 		return self
 
 	Func @SetCanContentScroll P1,P2
@@ -19130,7 +18821,7 @@ Class WpfTreeView from ItemsControl
 		raise("DotNet Error: SelectedValue is a read-only property")
 
 	Func getSelectedValuePath
-		return dnText(dotnet_getp(nHandle,"SelectedValuePath"))
+		return dnAnswer(dotnet_getp(nHandle,"SelectedValuePath"))
 
 	Func setSelectedValuePath P1
 		dotnet_setp(nHandle,"SelectedValuePath",P1)
@@ -19213,73 +18904,59 @@ Class VirtualizingStackPanel from VirtualizingPanel
 		return self
 
 	Func LineUp 
-		dotnet_callv("s4:call",nHandle,"s6:LineUp")
-
+		dotnet_calltv(nHandle,"LineUp")
 		return self
 
 	Func LineDown 
-		dotnet_callv("s4:call",nHandle,"s8:LineDown")
-
+		dotnet_calltv(nHandle,"LineDown")
 		return self
 
 	Func LineLeft 
-		dotnet_callv("s4:call",nHandle,"s8:LineLeft")
-
+		dotnet_calltv(nHandle,"LineLeft")
 		return self
 
 	Func LineRight 
-		dotnet_callv("s4:call",nHandle,"s9:LineRight")
-
+		dotnet_calltv(nHandle,"LineRight")
 		return self
 
 	Func PageUp 
-		dotnet_callv("s4:call",nHandle,"s6:PageUp")
-
+		dotnet_calltv(nHandle,"PageUp")
 		return self
 
 	Func PageDown 
-		dotnet_callv("s4:call",nHandle,"s8:PageDown")
-
+		dotnet_calltv(nHandle,"PageDown")
 		return self
 
 	Func PageLeft 
-		dotnet_callv("s4:call",nHandle,"s8:PageLeft")
-
+		dotnet_calltv(nHandle,"PageLeft")
 		return self
 
 	Func PageRight 
-		dotnet_callv("s4:call",nHandle,"s9:PageRight")
-
+		dotnet_calltv(nHandle,"PageRight")
 		return self
 
 	Func MouseWheelUp 
-		dotnet_callv("s4:call",nHandle,"s12:MouseWheelUp")
-
+		dotnet_calltv(nHandle,"MouseWheelUp")
 		return self
 
 	Func MouseWheelDown 
-		dotnet_callv("s4:call",nHandle,"s14:MouseWheelDown")
-
+		dotnet_calltv(nHandle,"MouseWheelDown")
 		return self
 
 	Func MouseWheelLeft 
-		dotnet_callv("s4:call",nHandle,"s14:MouseWheelLeft")
-
+		dotnet_calltv(nHandle,"MouseWheelLeft")
 		return self
 
 	Func MouseWheelRight 
-		dotnet_callv("s4:call",nHandle,"s15:MouseWheelRight")
-
+		dotnet_calltv(nHandle,"MouseWheelRight")
 		return self
 
 	Func SetHorizontalOffset P1
-		dotnet_callv("s4:call",nHandle,"s19:SetHorizontalOffset",P1)
-
+		dotnet_calltv(nHandle,"SetHorizontalOffset",P1)
 		return self
 
 	Func SetVerticalOffset P1
-		dotnet_callv("s4:call",nHandle,"s17:SetVerticalOffset",P1)
-
+		dotnet_calltv(nHandle,"SetVerticalOffset",P1)
 		return self
 
 	Func MakeVisible P1,P2
@@ -19695,7 +19372,7 @@ Class MenuItem from HeaderedItemsControl
 		return self
 
 	Func getInputGestureText
-		return dnText(dotnet_getp(nHandle,"InputGestureText"))
+		return dnAnswer(dotnet_getp(nHandle,"InputGestureText"))
 
 	Func setInputGestureText P1
 		dotnet_setp(nHandle,"InputGestureText",P1)
@@ -20125,8 +19802,7 @@ Class TreeViewItem from HeaderedItemsControl
 		return self
 
 	Func ExpandSubtree 
-		dotnet_callv("s4:call",nHandle,"s13:ExpandSubtree")
-
+		dotnet_calltv(nHandle,"ExpandSubtree")
 		return self
 
 	Func setExpandedEvent P1

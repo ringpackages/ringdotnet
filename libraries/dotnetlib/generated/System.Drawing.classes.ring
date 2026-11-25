@@ -308,8 +308,7 @@ Class Brush from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 
@@ -1332,22 +1331,11 @@ Class BufferedGraphics from Object
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Render P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:Render",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s6:Render")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:Render",P1)
-
+		dotnet_calltdv(nHandle,"Render",P1)
 		return self
 
 	Func Equals P1
@@ -1388,13 +1376,11 @@ Class BufferedGraphicsContext from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Allocate",P1,P2))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Invalidate 
-		dotnet_callv("s4:call",nHandle,"s10:Invalidate")
-
+		dotnet_calltv(nHandle,"Invalidate")
 		return self
 
 	Func Equals P1
@@ -1667,24 +1653,16 @@ Class Color from ValueType
 		return self
 
 	Func GetBrightness 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:GetBrightness")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetBrightness"))
 
 	Func GetHue 
-		dn_x = dotnet_call("s4:call",nHandle,"s6:GetHue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetHue"))
 
 	Func GetSaturation 
-		dn_x = dotnet_call("s4:call",nHandle,"s13:GetSaturation")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetSaturation"))
 
 	Func ToArgb 
-		dn_x = dotnet_call("s4:call",nHandle,"s6:ToArgb")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ToArgb"))
 
 	Func ToKnownColor 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToKnownColor"))
@@ -1750,7 +1728,7 @@ Class Color from ValueType
 		raise("DotNet Error: IsSystemColor is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2757,14 +2735,11 @@ Class FontFamily from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func @GetName P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:GetName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetName",P1))
 
 	Func IsStyleAvailable P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsStyleAvailable",P1)
@@ -2795,7 +2770,7 @@ Class FontFamily from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.FontFamily, System.Drawing.Common',"s11:GetFamilies",P1))
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2862,48 +2837,22 @@ Class Graphics from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func GetHdc 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:GetHdc"))
 
 	Func ReleaseHdc P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s10:ReleaseHdc",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s10:ReleaseHdc")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s10:ReleaseHdc",P1)
-
+		dotnet_calltdv(nHandle,"ReleaseHdc",P1)
 		return self
 
 	Func Flush P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Flush",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s5:Flush")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Flush",P1)
-
+		dotnet_calltdv(nHandle,"Flush",P1)
 		return self
 
 	Func @SetClip P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s7:SetClip",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s7:SetClip",P1)
-
+		dotnet_calltd1v(nHandle,"SetClip",P1)
 		return self
 
 	Func IntersectClip P1
@@ -2917,37 +2866,22 @@ Class Graphics from MarshalByRefObject
 		return self
 
 	Func ResetClip 
-		dotnet_callv("s4:call",nHandle,"s9:ResetClip")
-
+		dotnet_calltv(nHandle,"ResetClip")
 		return self
 
 	Func TranslateClip P1,P2
-		dotnet_callv("s4:call",nHandle,"s13:TranslateClip",P1,P2)
-
+		dotnet_calltv(nHandle,"TranslateClip",P1,P2)
 		return self
 
 	Func IsVisible P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:IsVisible",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:IsVisible",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"IsVisible",P1))
 
 	Func ResetTransform 
-		dotnet_callv("s4:call",nHandle,"s14:ResetTransform")
-
+		dotnet_calltv(nHandle,"ResetTransform")
 		return self
 
 	Func MultiplyTransform P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s17:MultiplyTransform",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s17:MultiplyTransform",P1)
-
+		dotnet_calltd1v(nHandle,"MultiplyTransform",P1)
 		return self
 
 	Func TranslateTransform P1
@@ -2965,12 +2899,7 @@ Class Graphics from MarshalByRefObject
 		raise("DotNet Error: ScaleTransform does not take one argument: use named arguments, ScaleTransform([ :parameter = value, ... ])")
 
 	Func RotateTransform P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s15:RotateTransform",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s15:RotateTransform",P1)
-
+		dotnet_calltd1v(nHandle,"RotateTransform",P1)
 		return self
 
 	Func DrawArc P1
@@ -3392,13 +3321,11 @@ Class IDeviceContext from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:GetHdc"))
 
 	Func ReleaseHdc 
-		dotnet_callv("s4:call",nHandle,"s10:ReleaseHdc")
-
+		dotnet_calltv(nHandle,"ReleaseHdc")
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 
@@ -3439,8 +3366,7 @@ Class Icon from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func ToBitmap 
@@ -3536,29 +3462,18 @@ Class Image from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Clone 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func Save P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Save",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Save",P1)
-
+		dotnet_calltd1v(nHandle,"Save",P1)
 		return self
 
 	Func SaveAdd P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s7:SaveAdd",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s7:SaveAdd",P1)
-
+		dotnet_calltd1v(nHandle,"SaveAdd",P1)
 		return self
 
 	Func GetBounds P1
@@ -3591,8 +3506,7 @@ Class Image from MarshalByRefObject
 		return self
 
 	Func RemovePropertyItem P1
-		dotnet_callv("s4:call",nHandle,"s18:RemovePropertyItem",P1)
-
+		dotnet_calltv(nHandle,"RemovePropertyItem",P1)
 		return self
 
 	Func GetEncoderParameterList P1
@@ -4861,18 +4775,15 @@ Class Region from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func MakeInfinite 
-		dotnet_callv("s4:call",nHandle,"s12:MakeInfinite")
-
+		dotnet_calltv(nHandle,"MakeInfinite")
 		return self
 
 	Func MakeEmpty 
-		dotnet_callv("s4:call",nHandle,"s9:MakeEmpty")
-
+		dotnet_calltv(nHandle,"MakeEmpty")
 		return self
 
 	Func Intersect P1
@@ -4901,8 +4812,7 @@ Class Region from MarshalByRefObject
 		return self
 
 	Func Translate P1,P2
-		dotnet_callv("s4:call",nHandle,"s9:Translate",P1,P2)
-
+		dotnet_calltv(nHandle,"Translate",P1,P2)
 		return self
 
 	Func Transform P1
@@ -4927,27 +4837,13 @@ Class Region from MarshalByRefObject
 		return dn_x
 
 	Func Equals P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Equals",P1))
 
 	Func GetRegionData 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetRegionData"))
 
 	Func IsVisible P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:IsVisible",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:IsVisible",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"IsVisible",P1))
 
 	Func GetRegionScans P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetRegionScans",P1))
@@ -5003,8 +4899,7 @@ Class StringFormat from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Clone 
@@ -6100,12 +5995,7 @@ Class Point from ValueType
 		return self
 
 	Func Offset P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:Offset",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:Offset",P1)
-
+		dotnet_calltd1v(nHandle,"Offset",P1)
 		return self
 
 	Func Add P1,P2
@@ -6427,14 +6317,7 @@ Class Rectangle from ValueType
 		return self
 
 	Func Contains P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Contains",P1))
 
 	Func Inflate P1
 		if dotnet_isnamed(P1)
@@ -6472,12 +6355,7 @@ Class Rectangle from ValueType
 		return dn_x
 
 	Func Offset P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:Offset",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:Offset",P1)
-
+		dotnet_calltd1v(nHandle,"Offset",P1)
 		return self
 
 	Func FromLTRB P1,P2,P3,P4
@@ -6623,14 +6501,7 @@ Class RectangleF from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ToVector4"))
 
 	Func Contains P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Contains",P1))
 
 	Func Inflate P1
 		if dotnet_isnamed(P1)
@@ -6668,12 +6539,7 @@ Class RectangleF from ValueType
 		return dn_x
 
 	Func Offset P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:Offset",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:Offset",P1)
-
+		dotnet_calltd1v(nHandle,"Offset",P1)
 		return self
 
 	Func FromLTRB P1,P2,P3,P4
@@ -6811,24 +6677,11 @@ Class Font from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func @GetHeight P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:GetHeight",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s9:GetHeight")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:GetHeight",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetHeight",P1))
 
 	Func ToLogFont P1
 		if dotnet_isnamed(P1)
@@ -6902,7 +6755,7 @@ Class Font from MarshalByRefObject
 		raise("DotNet Error: FontFamily is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -6926,13 +6779,13 @@ Class Font from MarshalByRefObject
 		raise("DotNet Error: GdiVerticalFont is a read-only property")
 
 	Func getOriginalFontName
-		return dnText(dotnet_getp(nHandle,"OriginalFontName"))
+		return dnAnswer(dotnet_getp(nHandle,"OriginalFontName"))
 
 	Func setOriginalFontName P1
 		raise("DotNet Error: OriginalFontName is a read-only property")
 
 	Func getSystemFontName
-		return dnText(dotnet_getp(nHandle,"SystemFontName"))
+		return dnAnswer(dotnet_getp(nHandle,"SystemFontName"))
 
 	Func setSystemFontName P1
 		raise("DotNet Error: SystemFontName is a read-only property")
@@ -7006,8 +6859,7 @@ Class Pen from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func SetLineCap P1,P2,P3
@@ -7016,17 +6868,11 @@ Class Pen from MarshalByRefObject
 		return self
 
 	Func ResetTransform 
-		dotnet_callv("s4:call",nHandle,"s14:ResetTransform")
-
+		dotnet_calltv(nHandle,"ResetTransform")
 		return self
 
 	Func MultiplyTransform P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s17:MultiplyTransform",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s17:MultiplyTransform",P1)
-
+		dotnet_calltd1v(nHandle,"MultiplyTransform",P1)
 		return self
 
 	Func TranslateTransform P1
@@ -7044,12 +6890,7 @@ Class Pen from MarshalByRefObject
 		raise("DotNet Error: ScaleTransform does not take one argument: use named arguments, ScaleTransform([ :parameter = value, ... ])")
 
 	Func RotateTransform P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s15:RotateTransform",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s15:RotateTransform",P1)
-
+		dotnet_calltd1v(nHandle,"RotateTransform",P1)
 		return self
 
 	Func getWidth
@@ -7204,17 +7045,11 @@ Class TextureBrush from Brush
 		return self
 
 	Func ResetTransform 
-		dotnet_callv("s4:call",nHandle,"s14:ResetTransform")
-
+		dotnet_calltv(nHandle,"ResetTransform")
 		return self
 
 	Func MultiplyTransform P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s17:MultiplyTransform",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s17:MultiplyTransform",P1)
-
+		dotnet_calltd1v(nHandle,"MultiplyTransform",P1)
 		return self
 
 	Func TranslateTransform P1
@@ -7232,12 +7067,7 @@ Class TextureBrush from Brush
 		raise("DotNet Error: ScaleTransform does not take one argument: use named arguments, ScaleTransform([ :parameter = value, ... ])")
 
 	Func RotateTransform P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s15:RotateTransform",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s15:RotateTransform",P1)
-
+		dotnet_calltd1v(nHandle,"RotateTransform",P1)
 		return self
 
 	Func getTransform
@@ -7311,17 +7141,7 @@ Class Bitmap from Image
 		raise("DotNet Error: Clone does not take one argument: use named arguments, Clone([ :parameter = value, ... ])")
 
 	Func MakeTransparent P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s15:MakeTransparent",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s15:MakeTransparent")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s15:MakeTransparent",P1)
-
+		dotnet_calltdv(nHandle,"MakeTransparent",P1)
 		return self
 
 	Func LockBits P1
@@ -7344,26 +7164,15 @@ Class Bitmap from Image
 		return self
 
 	Func SetResolution P1,P2
-		dotnet_callv("s4:call",nHandle,"s13:SetResolution",P1,P2)
-
+		dotnet_calltv(nHandle,"SetResolution",P1,P2)
 		return self
 
 	Func ApplyEffect P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s11:ApplyEffect",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s11:ApplyEffect",P1)
-
+		dotnet_calltd1v(nHandle,"ApplyEffect",P1)
 		return self
 
 	Func ConvertFormat P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s13:ConvertFormat",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s13:ConvertFormat",P1)
-
+		dotnet_calltd1v(nHandle,"ConvertFormat",P1)
 		return self
 
 	Func FromHicon P1

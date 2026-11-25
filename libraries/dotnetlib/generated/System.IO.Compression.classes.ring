@@ -133,8 +133,7 @@ Class BrotliDecoder from ValueType
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Decompress P1,P2
@@ -181,8 +180,7 @@ Class BrotliEncoder from ValueType
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Flush P1
@@ -478,8 +476,7 @@ Class ZipArchive from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateEntry",P1))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func GetEntry P1
@@ -508,7 +505,7 @@ Class ZipArchive from Object
 		return self
 
 	Func getComment
-		return dnText(dotnet_getp(nHandle,"Comment"))
+		return dnAnswer(dotnet_getp(nHandle,"Comment"))
 
 	Func setComment P1
 		dotnet_setp(nHandle,"Comment",P1)
@@ -550,8 +547,7 @@ Class ZipArchiveEntry from Object
 		return self
 
 	Func Delete 
-		dotnet_callv("s4:call",nHandle,"s6:Delete")
-
+		dotnet_calltv(nHandle,"Delete")
 		return self
 
 	Func Open 
@@ -604,14 +600,14 @@ Class ZipArchiveEntry from Object
 		return self
 
 	Func getComment
-		return dnText(dotnet_getp(nHandle,"Comment"))
+		return dnAnswer(dotnet_getp(nHandle,"Comment"))
 
 	Func setComment P1
 		dotnet_setp(nHandle,"Comment",P1)
 		return self
 
 	Func getFullName
-		return dnText(dotnet_getp(nHandle,"FullName"))
+		return dnAnswer(dotnet_getp(nHandle,"FullName"))
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")
@@ -630,7 +626,7 @@ Class ZipArchiveEntry from Object
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

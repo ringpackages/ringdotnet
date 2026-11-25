@@ -107,13 +107,10 @@ Class Dispatcher from Object
 		return self
 
 	Func CheckAccess 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:CheckAccess")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CheckAccess"))
 
 	Func VerifyAccess 
-		dotnet_callv("s4:call",nHandle,"s12:VerifyAccess")
-
+		dotnet_calltv(nHandle,"VerifyAccess")
 		return self
 
 	Func BeginInvokeShutdown P1
@@ -122,8 +119,7 @@ Class Dispatcher from Object
 		return self
 
 	Func InvokeShutdown 
-		dotnet_callv("s4:call",nHandle,"s14:InvokeShutdown")
-
+		dotnet_calltv(nHandle,"InvokeShutdown")
 		return self
 
 	Func BeginInvoke P1
@@ -379,13 +375,10 @@ Class DispatcherObject from Object
 		return self
 
 	Func CheckAccess 
-		dn_x = dotnet_call("s4:call",nHandle,"s11:CheckAccess")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CheckAccess"))
 
 	Func VerifyAccess 
-		dotnet_callv("s4:call",nHandle,"s12:VerifyAccess")
-
+		dotnet_calltv(nHandle,"VerifyAccess")
 		return self
 
 	Func Equals P1
@@ -430,9 +423,7 @@ Class DispatcherOperation from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Wait",P1))
 
 	Func Abort 
-		dn_x = dotnet_call("s4:call",nHandle,"s5:Abort")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Abort"))
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -534,8 +525,7 @@ Class DispatcherPriorityAwaiter from ValueType
 		return self
 
 	Func GetResult 
-		dotnet_callv("s4:call",nHandle,"s9:GetResult")
-
+		dotnet_calltv(nHandle,"GetResult")
 		return self
 
 	Func OnCompleted P1
@@ -571,8 +561,7 @@ Class DispatcherProcessingDisabled from ValueType
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	# the operators of System.Windows.Threading.DispatcherProcessingDisabled: = !=
@@ -659,13 +648,11 @@ Class DispatcherTimer from Object
 		return self
 
 	Func Start 
-		dotnet_callv("s4:call",nHandle,"s5:Start")
-
+		dotnet_calltv(nHandle,"Start")
 		return self
 
 	Func Stop 
-		dotnet_callv("s4:call",nHandle,"s4:Stop")
-
+		dotnet_calltv(nHandle,"Stop")
 		return self
 
 	Func Equals P1

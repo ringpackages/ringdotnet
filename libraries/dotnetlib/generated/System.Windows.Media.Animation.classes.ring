@@ -1465,7 +1465,7 @@ Class BeginStoryboard from TriggerAction
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -1495,9 +1495,7 @@ Class BooleanKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s16:InterpolateValue",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"InterpolateValue",P1,P2))
 
 	Func @GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
@@ -1575,8 +1573,7 @@ Class BooleanKeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -1600,8 +1597,7 @@ Class BooleanKeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -1685,9 +1681,7 @@ Class ByteKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s16:InterpolateValue",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"InterpolateValue",P1,P2))
 
 	Func @GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
@@ -1765,8 +1759,7 @@ Class ByteKeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -1790,8 +1783,7 @@ Class ByteKeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -1953,8 +1945,7 @@ Class CharKeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -1978,8 +1969,7 @@ Class CharKeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -2191,8 +2181,7 @@ Class ClockCollection from Object
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Add P1
@@ -2285,23 +2274,19 @@ Class ClockController from DispatcherObject
 		return self
 
 	Func Begin 
-		dotnet_callv("s4:call",nHandle,"s5:Begin")
-
+		dotnet_calltv(nHandle,"Begin")
 		return self
 
 	Func SkipToFill 
-		dotnet_callv("s4:call",nHandle,"s10:SkipToFill")
-
+		dotnet_calltv(nHandle,"SkipToFill")
 		return self
 
 	Func Pause 
-		dotnet_callv("s4:call",nHandle,"s5:Pause")
-
+		dotnet_calltv(nHandle,"Pause")
 		return self
 
 	Func Resume 
-		dotnet_callv("s4:call",nHandle,"s6:Resume")
-
+		dotnet_calltv(nHandle,"Resume")
 		return self
 
 	Func Seek P1,P2
@@ -2315,13 +2300,11 @@ Class ClockController from DispatcherObject
 		return self
 
 	Func Stop 
-		dotnet_callv("s4:call",nHandle,"s4:Stop")
-
+		dotnet_calltv(nHandle,"Stop")
 		return self
 
 	Func Remove 
-		dotnet_callv("s4:call",nHandle,"s6:Remove")
-
+		dotnet_calltv(nHandle,"Remove")
 		return self
 
 	Func getClock
@@ -2433,8 +2416,7 @@ Class ColorKeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -2458,8 +2440,7 @@ Class ColorKeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -2540,7 +2521,7 @@ Class ControllableStoryboardAction from TriggerAction
 		return self
 
 	Func getBeginStoryboardName
-		return dnText(dotnet_getp(nHandle,"BeginStoryboardName"))
+		return dnAnswer(dotnet_getp(nHandle,"BeginStoryboardName"))
 
 	Func setBeginStoryboardName P1
 		dotnet_setp(nHandle,"BeginStoryboardName",P1)
@@ -2644,8 +2625,7 @@ Class DecimalKeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -2669,8 +2649,7 @@ Class DecimalKeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -2754,9 +2733,7 @@ Class DoubleKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s16:InterpolateValue",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"InterpolateValue",P1,P2))
 
 	Func @GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
@@ -2834,8 +2811,7 @@ Class DoubleKeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -2859,8 +2835,7 @@ Class DoubleKeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -2942,9 +2917,7 @@ Class EasingFunctionBase from Freezable
 		return self
 
 	Func Ease P1
-		dn_x = dotnet_call("s4:call",nHandle,"s4:Ease",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Ease",P1))
 
 	Func getEasingMode
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EasingMode"))
@@ -3024,9 +2997,7 @@ Class IEasingFunction from DotNetObject
 		return self
 
 	Func Ease P1
-		dn_x = dotnet_call("s4:call",nHandle,"s4:Ease",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Ease",P1))
 
 
 Class IKeyFrame from DotNetObject
@@ -3096,9 +3067,7 @@ Class Int16KeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s16:InterpolateValue",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"InterpolateValue",P1,P2))
 
 	Func @GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
@@ -3176,8 +3145,7 @@ Class Int16KeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -3201,8 +3169,7 @@ Class Int16KeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -3286,9 +3253,7 @@ Class Int32KeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s16:InterpolateValue",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"InterpolateValue",P1,P2))
 
 	Func @GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
@@ -3366,8 +3331,7 @@ Class Int32KeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -3391,8 +3355,7 @@ Class Int32KeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -3476,9 +3439,7 @@ Class Int64KeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s16:InterpolateValue",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"InterpolateValue",P1,P2))
 
 	Func @GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
@@ -3556,8 +3517,7 @@ Class Int64KeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -3581,8 +3541,7 @@ Class Int64KeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -3689,19 +3648,10 @@ Class KeySpline from Freezable
 		return self
 
 	Func GetSplineProgress P1
-		dn_x = dotnet_call("s4:call",nHandle,"s17:GetSplineProgress",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GetSplineProgress",P1))
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func getControlPoint1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ControlPoint1"))
@@ -3898,8 +3848,7 @@ Class MatrixKeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -3923,8 +3872,7 @@ Class MatrixKeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -4086,8 +4034,7 @@ Class ObjectKeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -4111,8 +4058,7 @@ Class ObjectKeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -4274,8 +4220,7 @@ Class Point3DKeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -4299,8 +4244,7 @@ Class Point3DKeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -4462,8 +4406,7 @@ Class PointKeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -4487,8 +4430,7 @@ Class PointKeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -4650,8 +4592,7 @@ Class QuaternionKeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -4675,8 +4616,7 @@ Class QuaternionKeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -4838,8 +4778,7 @@ Class RectKeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -4863,8 +4802,7 @@ Class RectKeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -4989,14 +4927,7 @@ Class RepeatBehavior from ValueType
 		return dn_x
 
 	Func Format P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
 	Func getHasCount
 		return dotnet_getp(nHandle,"HasCount")
@@ -5149,8 +5080,7 @@ Class Rotation3DKeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -5174,8 +5104,7 @@ Class Rotation3DKeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -5259,9 +5188,7 @@ Class SingleKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s16:InterpolateValue",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"InterpolateValue",P1,P2))
 
 	Func @GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
@@ -5339,8 +5266,7 @@ Class SingleKeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -5364,8 +5290,7 @@ Class SingleKeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -5527,8 +5452,7 @@ Class SizeKeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -5552,8 +5476,7 @@ Class SizeKeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -5637,9 +5560,7 @@ Class StringKeyFrame from Freezable
 		return self
 
 	Func InterpolateValue P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s16:InterpolateValue",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"InterpolateValue",P1,P2))
 
 	Func @GetValue P1
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
@@ -5657,7 +5578,7 @@ Class StringKeyFrame from Freezable
 		return self
 
 	Func getValue
-		return dnText(dotnet_getp(nHandle,"Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		dotnet_setp(nHandle,"Value",P1)
@@ -5717,8 +5638,7 @@ Class StringKeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -5742,8 +5662,7 @@ Class StringKeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -5905,8 +5824,7 @@ Class ThicknessKeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -5930,8 +5848,7 @@ Class ThicknessKeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -6021,13 +5938,10 @@ Class TimelineCollectionEnumerator from ValueType
 		return self
 
 	Func MoveNext 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:MoveNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func getCurrent
@@ -6132,8 +6046,7 @@ Class Vector3DKeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -6157,8 +6070,7 @@ Class Vector3DKeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -6320,8 +6232,7 @@ Class VectorKeyFrameCollection from Freezable
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -6345,8 +6256,7 @@ Class VectorKeyFrameCollection from Freezable
 		return self
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Cast P1
@@ -9230,9 +9140,7 @@ Class SeekStoryboard from ControllableStoryboardAction
 		return self
 
 	Func ShouldSerializeOffset 
-		dn_x = dotnet_call("s4:call",nHandle,"s21:ShouldSerializeOffset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeOffset"))
 
 	Func getOffset
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Offset"))
@@ -10389,7 +10297,7 @@ Class Timeline from Animatable
 		return self
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -10514,8 +10422,7 @@ Class TimelineCollection from Animatable
 		return self
 
 	Func Clear 
-		dotnet_callv("s4:call",nHandle,"s5:Clear")
-
+		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Contains P1
@@ -10539,8 +10446,7 @@ Class TimelineCollection from Animatable
 		return dn_x
 
 	Func RemoveAt P1
-		dotnet_callv("s4:call",nHandle,"s8:RemoveAt",P1)
-
+		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func CopyTo P1,P2
@@ -10997,9 +10903,7 @@ Class BooleanAnimationUsingKeyFrames from BooleanAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -11148,9 +11052,7 @@ Class ByteAnimationUsingKeyFrames from ByteAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -11197,9 +11099,7 @@ Class CharAnimationUsingKeyFrames from CharAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -11348,9 +11248,7 @@ Class ColorAnimationUsingKeyFrames from ColorAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -11513,9 +11411,7 @@ Class DecimalAnimationUsingKeyFrames from DecimalAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -11678,9 +11574,7 @@ Class DoubleAnimationUsingKeyFrames from DoubleAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -11911,9 +11805,7 @@ Class Int16AnimationUsingKeyFrames from Int16AnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -12076,9 +11968,7 @@ Class Int32AnimationUsingKeyFrames from Int32AnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -12241,9 +12131,7 @@ Class Int64AnimationUsingKeyFrames from Int64AnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -12290,9 +12178,7 @@ Class MatrixAnimationUsingKeyFrames from MatrixAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -12415,9 +12301,7 @@ Class ObjectAnimationUsingKeyFrames from ObjectAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -12566,9 +12450,7 @@ Class Point3DAnimationUsingKeyFrames from Point3DAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -12731,9 +12613,7 @@ Class PointAnimationUsingKeyFrames from PointAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -12964,9 +12844,7 @@ Class QuaternionAnimationUsingKeyFrames from QuaternionAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -13129,9 +13007,7 @@ Class RectAnimationUsingKeyFrames from RectAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -13294,9 +13170,7 @@ Class Rotation3DAnimationUsingKeyFrames from Rotation3DAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -13459,9 +13333,7 @@ Class SingleAnimationUsingKeyFrames from SingleAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -13624,9 +13496,7 @@ Class SizeAnimationUsingKeyFrames from SizeAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -13675,17 +13545,7 @@ Class Storyboard from ParallelTimeline
 		return self
 
 	Func Begin P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Begin",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s5:Begin")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Begin",P1)
-
+		dotnet_calltdv(nHandle,"Begin",P1)
 		return self
 
 	Func GetCurrentGlobalSpeed P1
@@ -13746,115 +13606,38 @@ Class Storyboard from ParallelTimeline
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetCurrentTime",P1))
 
 	Func GetIsPaused P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s11:GetIsPaused",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		if isstring(P1) and P1 = ""
-			dn_x = dotnet_call("s4:call",nHandle,"s11:GetIsPaused")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s11:GetIsPaused",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd(nHandle,"GetIsPaused",P1))
 
 	Func Pause P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Pause",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s5:Pause")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Pause",P1)
-
+		dotnet_calltdv(nHandle,"Pause",P1)
 		return self
 
 	Func Remove P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:Remove",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s6:Remove")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
-
+		dotnet_calltdv(nHandle,"Remove",P1)
 		return self
 
 	Func Resume P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:Resume",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s6:Resume")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:Resume",P1)
-
+		dotnet_calltdv(nHandle,"Resume",P1)
 		return self
 
 	Func Seek P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Seek",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Seek",P1)
-
+		dotnet_calltd1v(nHandle,"Seek",P1)
 		return self
 
 	Func SeekAlignedToLastTick P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s21:SeekAlignedToLastTick",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s21:SeekAlignedToLastTick",P1)
-
+		dotnet_calltd1v(nHandle,"SeekAlignedToLastTick",P1)
 		return self
 
 	Func @SetSpeedRatio P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s13:SetSpeedRatio",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s13:SetSpeedRatio",P1)
-
+		dotnet_calltd1v(nHandle,"SetSpeedRatio",P1)
 		return self
 
 	Func SkipToFill P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s10:SkipToFill",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s10:SkipToFill")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s10:SkipToFill",P1)
-
+		dotnet_calltdv(nHandle,"SkipToFill",P1)
 		return self
 
 	Func Stop P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Stop",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s4:Stop")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Stop",P1)
-
+		dotnet_calltdv(nHandle,"Stop",P1)
 		return self
 
 	Func SetTarget P1,P2
@@ -13922,9 +13705,7 @@ Class StringAnimationUsingKeyFrames from StringAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -14073,9 +13854,7 @@ Class ThicknessAnimationUsingKeyFrames from ThicknessAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -14238,9 +14017,7 @@ Class Vector3DAnimationUsingKeyFrames from Vector3DAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))
@@ -14403,9 +14180,7 @@ Class VectorAnimationUsingKeyFrames from VectorAnimationBase
 		return self
 
 	Func ShouldSerializeKeyFrames 
-		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeKeyFrames")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeKeyFrames"))
 
 	Func getKeyFrames
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyFrames"))

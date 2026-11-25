@@ -153,7 +153,7 @@ Class CustomContentState from Object
 		return dn_x
 
 	Func getJournalEntryName
-		return dnText(dotnet_getp(nHandle,"JournalEntryName"))
+		return dnAnswer(dotnet_getp(nHandle,"JournalEntryName"))
 
 	Func setJournalEntryName P1
 		raise("DotNet Error: JournalEntryName is a read-only property")
@@ -175,7 +175,7 @@ Class FragmentNavigationEventArgs from EventArgs
 		return self
 
 	Func getFragment
-		return dnText(dotnet_getp(nHandle,"Fragment"))
+		return dnAnswer(dotnet_getp(nHandle,"Fragment"))
 
 	Func setFragment P1
 		raise("DotNet Error: Fragment is a read-only property")
@@ -265,7 +265,7 @@ Class JournalEntry from DependencyObject
 		raise("DotNet Error: CustomContentState is a read-only property")
 
 	Func getName
-		return dnText(dotnet_getp(nHandle,"Name"))
+		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -626,33 +626,22 @@ Class NavigationService from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:RemoveBackEntry"))
 
 	Func Navigate P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:Navigate",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Navigate",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Navigate",P1))
 
 	Func GoForward 
-		dotnet_callv("s4:call",nHandle,"s9:GoForward")
-
+		dotnet_calltv(nHandle,"GoForward")
 		return self
 
 	Func GoBack 
-		dotnet_callv("s4:call",nHandle,"s6:GoBack")
-
+		dotnet_calltv(nHandle,"GoBack")
 		return self
 
 	Func StopLoading 
-		dotnet_callv("s4:call",nHandle,"s11:StopLoading")
-
+		dotnet_calltv(nHandle,"StopLoading")
 		return self
 
 	Func Refresh 
-		dotnet_callv("s4:call",nHandle,"s7:Refresh")
-
+		dotnet_calltv(nHandle,"Refresh")
 		return self
 
 	Func Equals P1
@@ -790,33 +779,22 @@ Class NavigationWindow from Window
 		return self
 
 	Func Navigate P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s8:Navigate",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Navigate",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"Navigate",P1))
 
 	Func GoForward 
-		dotnet_callv("s4:call",nHandle,"s9:GoForward")
-
+		dotnet_calltv(nHandle,"GoForward")
 		return self
 
 	Func GoBack 
-		dotnet_callv("s4:call",nHandle,"s6:GoBack")
-
+		dotnet_calltv(nHandle,"GoBack")
 		return self
 
 	Func StopLoading 
-		dotnet_callv("s4:call",nHandle,"s11:StopLoading")
-
+		dotnet_calltv(nHandle,"StopLoading")
 		return self
 
 	Func Refresh 
-		dotnet_callv("s4:call",nHandle,"s7:Refresh")
-
+		dotnet_calltv(nHandle,"Refresh")
 		return self
 
 	Func AddBackEntry P1
@@ -1027,7 +1005,7 @@ Class RequestNavigateEventArgs from RoutedEventArgs
 		raise("DotNet Error: Uri is a read-only property")
 
 	Func getTarget
-		return dnText(dotnet_getp(nHandle,"Target"))
+		return dnAnswer(dotnet_getp(nHandle,"Target"))
 
 	Func setTarget P1
 		raise("DotNet Error: Target is a read-only property")

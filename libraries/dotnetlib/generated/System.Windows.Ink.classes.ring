@@ -448,8 +448,7 @@ Class GestureRecognizer from DependencyObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Recognize",P1))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func getIsRecognizerAvailable
@@ -483,8 +482,7 @@ Class IncrementalHitTester from Object
 		return self
 
 	Func EndHitTesting 
-		dotnet_callv("s4:call",nHandle,"s13:EndHitTesting")
-
+		dotnet_calltv(nHandle,"EndHitTesting")
 		return self
 
 	Func Equals P1
@@ -629,12 +627,7 @@ Class Stroke from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetBounds"))
 
 	Func Draw P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Draw",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Draw",P1)
-
+		dotnet_calltd1v(nHandle,"Draw",P1)
 		return self
 
 	Func GetClipResult P1
@@ -647,14 +640,7 @@ Class Stroke from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetEraseResult",P1))
 
 	Func HitTest P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s7:HitTest",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s7:HitTest",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"HitTest",P1))
 
 	Func GetGeometry P1
 		if dotnet_isnamed(P1)
@@ -772,12 +758,7 @@ Class StrokeCollection from Collection
 		return self
 
 	Func Save P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s4:Save",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s4:Save",P1)
-
+		dotnet_calltd1v(nHandle,"Save",P1)
 		return self
 
 	Func AddPropertyData P1,P2
@@ -834,12 +815,7 @@ Class StrokeCollection from Collection
 		return self
 
 	Func Erase P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Erase",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Erase",P1)
-
+		dotnet_calltd1v(nHandle,"Erase",P1)
 		return self
 
 	Func Draw P1

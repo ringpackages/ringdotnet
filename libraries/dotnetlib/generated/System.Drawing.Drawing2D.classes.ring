@@ -235,8 +235,7 @@ Class CustomLineCap from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Clone 
@@ -337,57 +336,42 @@ Class GraphicsPath from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func StartFigure 
-		dotnet_callv("s4:call",nHandle,"s11:StartFigure")
-
+		dotnet_calltv(nHandle,"StartFigure")
 		return self
 
 	Func CloseFigure 
-		dotnet_callv("s4:call",nHandle,"s11:CloseFigure")
-
+		dotnet_calltv(nHandle,"CloseFigure")
 		return self
 
 	Func CloseAllFigures 
-		dotnet_callv("s4:call",nHandle,"s15:CloseAllFigures")
-
+		dotnet_calltv(nHandle,"CloseAllFigures")
 		return self
 
 	Func SetMarkers 
-		dotnet_callv("s4:call",nHandle,"s10:SetMarkers")
-
+		dotnet_calltv(nHandle,"SetMarkers")
 		return self
 
 	Func ClearMarkers 
-		dotnet_callv("s4:call",nHandle,"s12:ClearMarkers")
-
+		dotnet_calltv(nHandle,"ClearMarkers")
 		return self
 
 	Func Reverse 
-		dotnet_callv("s4:call",nHandle,"s7:Reverse")
-
+		dotnet_calltv(nHandle,"Reverse")
 		return self
 
 	Func GetLastPoint 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetLastPoint"))
 
 	Func IsVisible P1
-		if dotnet_isnamed(P1)
-			dn_x = dotnet_call("s9:callnamed",nHandle,"s9:IsVisible",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s9:IsVisible",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_calltd1(nHandle,"IsVisible",P1))
 
 	Func IsOutlineVisible P1
 		if dotnet_isnamed(P1)
@@ -429,21 +413,11 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func AddCurve P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s8:AddCurve",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s8:AddCurve",P1)
-
+		dotnet_calltd1v(nHandle,"AddCurve",P1)
 		return self
 
 	Func AddClosedCurve P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s14:AddClosedCurve",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s14:AddClosedCurve",P1)
-
+		dotnet_calltd1v(nHandle,"AddClosedCurve",P1)
 		return self
 
 	Func AddRectangle P1
@@ -462,12 +436,7 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func AddEllipse P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s10:AddEllipse",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s10:AddEllipse",P1)
-
+		dotnet_calltd1v(nHandle,"AddEllipse",P1)
 		return self
 
 	Func AddPie P1
@@ -507,26 +476,11 @@ Class GraphicsPath from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetBounds",P1))
 
 	Func Flatten P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s7:Flatten",P1)
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dotnet_callv("s4:call",nHandle,"s7:Flatten")
-
-		return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s7:Flatten",P1)
-
+		dotnet_calltdv(nHandle,"Flatten",P1)
 		return self
 
 	Func Widen P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s5:Widen",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s5:Widen",P1)
-
+		dotnet_calltd1v(nHandle,"Widen",P1)
 		return self
 
 	Func Warp P1
@@ -591,8 +545,7 @@ Class GraphicsPathIterator from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func NextSubpath P1
@@ -623,13 +576,10 @@ Class GraphicsPathIterator from MarshalByRefObject
 		return dn_x
 
 	Func HasCurve 
-		dn_x = dotnet_call("s4:call",nHandle,"s8:HasCurve")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"HasCurve"))
 
 	Func Rewind 
-		dotnet_callv("s4:call",nHandle,"s6:Rewind")
-
+		dotnet_calltv(nHandle,"Rewind")
 		return self
 
 	Func Enumerate P1,P2
@@ -751,35 +701,19 @@ Class LinearGradientBrush from Brush
 		return self
 
 	Func SetSigmaBellShape P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s17:SetSigmaBellShape",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s17:SetSigmaBellShape",P1)
-
+		dotnet_calltd1v(nHandle,"SetSigmaBellShape",P1)
 		return self
 
 	Func SetBlendTriangularShape P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s23:SetBlendTriangularShape",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s23:SetBlendTriangularShape",P1)
-
+		dotnet_calltd1v(nHandle,"SetBlendTriangularShape",P1)
 		return self
 
 	Func ResetTransform 
-		dotnet_callv("s4:call",nHandle,"s14:ResetTransform")
-
+		dotnet_calltv(nHandle,"ResetTransform")
 		return self
 
 	Func MultiplyTransform P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s17:MultiplyTransform",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s17:MultiplyTransform",P1)
-
+		dotnet_calltd1v(nHandle,"MultiplyTransform",P1)
 		return self
 
 	Func TranslateTransform P1
@@ -797,12 +731,7 @@ Class LinearGradientBrush from Brush
 		raise("DotNet Error: ScaleTransform does not take one argument: use named arguments, ScaleTransform([ :parameter = value, ... ])")
 
 	Func RotateTransform P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s15:RotateTransform",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s15:RotateTransform",P1)
-
+		dotnet_calltd1v(nHandle,"RotateTransform",P1)
 		return self
 
 	Func getLinearColors
@@ -898,25 +827,18 @@ Class Matrix from MarshalByRefObject
 		return self
 
 	Func Dispose 
-		dotnet_callv("s4:call",nHandle,"s7:Dispose")
-
+		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func Clone 
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
 
 	Func Reset 
-		dotnet_callv("s4:call",nHandle,"s5:Reset")
-
+		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func Multiply P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s8:Multiply",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s8:Multiply",P1)
-
+		dotnet_calltd1v(nHandle,"Multiply",P1)
 		return self
 
 	Func Translate P1
@@ -934,12 +856,7 @@ Class Matrix from MarshalByRefObject
 		raise("DotNet Error: Scale does not take one argument: use named arguments, Scale([ :parameter = value, ... ])")
 
 	Func Rotate P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s6:Rotate",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s6:Rotate",P1)
-
+		dotnet_calltd1v(nHandle,"Rotate",P1)
 		return self
 
 	Func RotateAt P1
@@ -957,8 +874,7 @@ Class Matrix from MarshalByRefObject
 		raise("DotNet Error: Shear does not take one argument: use named arguments, Shear([ :parameter = value, ... ])")
 
 	Func Invert 
-		dotnet_callv("s4:call",nHandle,"s6:Invert")
-
+		dotnet_calltv(nHandle,"Invert")
 		return self
 
 	Func TransformPoints P1
@@ -1096,35 +1012,19 @@ Class PathGradientBrush from Brush
 		return self
 
 	Func SetSigmaBellShape P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s17:SetSigmaBellShape",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s17:SetSigmaBellShape",P1)
-
+		dotnet_calltd1v(nHandle,"SetSigmaBellShape",P1)
 		return self
 
 	Func SetBlendTriangularShape P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s23:SetBlendTriangularShape",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s23:SetBlendTriangularShape",P1)
-
+		dotnet_calltd1v(nHandle,"SetBlendTriangularShape",P1)
 		return self
 
 	Func ResetTransform 
-		dotnet_callv("s4:call",nHandle,"s14:ResetTransform")
-
+		dotnet_calltv(nHandle,"ResetTransform")
 		return self
 
 	Func MultiplyTransform P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s17:MultiplyTransform",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s17:MultiplyTransform",P1)
-
+		dotnet_calltd1v(nHandle,"MultiplyTransform",P1)
 		return self
 
 	Func TranslateTransform P1
@@ -1142,12 +1042,7 @@ Class PathGradientBrush from Brush
 		raise("DotNet Error: ScaleTransform does not take one argument: use named arguments, ScaleTransform([ :parameter = value, ... ])")
 
 	Func RotateTransform P1
-		if dotnet_isnamed(P1)
-			dotnet_callv("s9:callnamed",nHandle,"s15:RotateTransform",P1)
-			return self
-		ok
-		dotnet_callv("s4:call",nHandle,"s15:RotateTransform",P1)
-
+		dotnet_calltd1v(nHandle,"RotateTransform",P1)
 		return self
 
 	Func getCenterColor
