@@ -202,9 +202,7 @@ Class Ascii from Object
 		return dn_x
 
 	Func IsValid P1
-		dn_x = dotnet_call("s4:call",'System.Text.Ascii, System.Private.CoreLib',"s7:IsValid",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Text.Ascii, System.Private.CoreLib','IsValid',P1))
 
 	Func ToUpper P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Text.Ascii, System.Private.CoreLib'),"s7:ToUpper",dnPackItem(P1) + dnPackItem(P2))
@@ -1074,9 +1072,7 @@ Class Rune from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Text.Rune, System.Private.CoreLib',"s9:GetRuneAt",P1,P2))
 
 	Func IsValid P1
-		dn_x = dotnet_call("s4:call",'System.Text.Rune, System.Private.CoreLib',"s7:IsValid",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Text.Rune, System.Private.CoreLib','IsValid',P1))
 
 	Func TryCreate P1
 		if dotnet_isnamed(P1)

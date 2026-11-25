@@ -2637,8 +2637,7 @@ Class AppContext from Object
 		return dnSend("s4:call",dnTypeHandle('System.AppContext, System.Private.CoreLib'),"s12:TryGetSwitch",dnPackItem(P1))
 
 	Func SetSwitch P1,P2
-		dotnet_callv("s4:call",'System.AppContext, System.Private.CoreLib',"s9:SetSwitch",P1,P2)
-
+		dotnet_calltsv('System.AppContext, System.Private.CoreLib','SetSwitch',P1,P2)
 		return self
 
 	Func getBaseDirectory
@@ -3172,24 +3171,16 @@ Class BitConverter from Object
 		return dn_x
 
 	Func DoubleToInt64Bits P1
-		dn_x = dotnet_call("s4:call",'System.BitConverter, System.Private.CoreLib',"s17:DoubleToInt64Bits",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.BitConverter, System.Private.CoreLib','DoubleToInt64Bits',P1))
 
 	Func Int64BitsToDouble P1
-		dn_x = dotnet_call("s4:call",'System.BitConverter, System.Private.CoreLib',"s17:Int64BitsToDouble",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.BitConverter, System.Private.CoreLib','Int64BitsToDouble',P1))
 
 	Func SingleToInt32Bits P1
-		dn_x = dotnet_call("s4:call",'System.BitConverter, System.Private.CoreLib',"s17:SingleToInt32Bits",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.BitConverter, System.Private.CoreLib','SingleToInt32Bits',P1))
 
 	Func Int32BitsToSingle P1
-		dn_x = dotnet_call("s4:call",'System.BitConverter, System.Private.CoreLib',"s17:Int32BitsToSingle",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.BitConverter, System.Private.CoreLib','Int32BitsToSingle',P1))
 
 	Func HalfToInt16Bits P1
 		dn_x = dotnet_call("s4:call",'System.BitConverter, System.Private.CoreLib',"s15:HalfToInt16Bits",P1)
@@ -3200,24 +3191,16 @@ Class BitConverter from Object
 		return dnObj(dotnet_callo("s4:call",'System.BitConverter, System.Private.CoreLib',"s15:Int16BitsToHalf",P1))
 
 	Func DoubleToUInt64Bits P1
-		dn_x = dotnet_call("s4:call",'System.BitConverter, System.Private.CoreLib',"s18:DoubleToUInt64Bits",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.BitConverter, System.Private.CoreLib','DoubleToUInt64Bits',P1))
 
 	Func UInt64BitsToDouble P1
-		dn_x = dotnet_call("s4:call",'System.BitConverter, System.Private.CoreLib',"s18:UInt64BitsToDouble",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.BitConverter, System.Private.CoreLib','UInt64BitsToDouble',P1))
 
 	Func SingleToUInt32Bits P1
-		dn_x = dotnet_call("s4:call",'System.BitConverter, System.Private.CoreLib',"s18:SingleToUInt32Bits",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.BitConverter, System.Private.CoreLib','SingleToUInt32Bits',P1))
 
 	Func UInt32BitsToSingle P1
-		dn_x = dotnet_call("s4:call",'System.BitConverter, System.Private.CoreLib',"s18:UInt32BitsToSingle",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.BitConverter, System.Private.CoreLib','UInt32BitsToSingle',P1))
 
 	Func HalfToUInt16Bits P1
 		dn_x = dotnet_call("s4:call",'System.BitConverter, System.Private.CoreLib',"s16:HalfToUInt16Bits",P1)
@@ -3369,23 +3352,19 @@ Class Console from Object
 		return dnObj(dotnet_callo("s4:call",'System.Console, System.Console',"s7:ReadKey",P1))
 
 	Func ResetColor 
-		dotnet_callv("s4:call",'System.Console, System.Console',"s10:ResetColor")
-
+		dotnet_calltsv('System.Console, System.Console','ResetColor')
 		return self
 
 	Func SetBufferSize P1,P2
-		dotnet_callv("s4:call",'System.Console, System.Console',"s13:SetBufferSize",P1,P2)
-
+		dotnet_calltsv('System.Console, System.Console','SetBufferSize',P1,P2)
 		return self
 
 	Func SetWindowPosition P1,P2
-		dotnet_callv("s4:call",'System.Console, System.Console',"s17:SetWindowPosition",P1,P2)
-
+		dotnet_calltsv('System.Console, System.Console','SetWindowPosition',P1,P2)
 		return self
 
 	Func SetWindowSize P1,P2
-		dotnet_callv("s4:call",'System.Console, System.Console',"s13:SetWindowSize",P1,P2)
-
+		dotnet_calltsv('System.Console, System.Console','SetWindowSize',P1,P2)
 		return self
 
 	Func GetCursorPosition 
@@ -3411,13 +3390,11 @@ Class Console from Object
 		raise("DotNet Error: MoveBufferArea does not take one argument: use named arguments, MoveBufferArea([ :parameter = value, ... ])")
 
 	Func Clear 
-		dotnet_callv("s4:call",'System.Console, System.Console',"s5:Clear")
-
+		dotnet_calltsv('System.Console, System.Console','Clear')
 		return self
 
 	Func SetCursorPosition P1,P2
-		dotnet_callv("s4:call",'System.Console, System.Console',"s17:SetCursorPosition",P1,P2)
-
+		dotnet_calltsv('System.Console, System.Console','SetCursorPosition',P1,P2)
 		return self
 
 	Func OpenStandardInput P1
@@ -3463,14 +3440,10 @@ Class Console from Object
 		return self
 
 	Func Read 
-		dn_x = dotnet_call("s4:call",'System.Console, System.Console',"s4:Read")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Console, System.Console','Read'))
 
 	Func ReadLine 
-		dn_x = dotnet_call("s4:call",'System.Console, System.Console',"s8:ReadLine")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Console, System.Console','ReadLine'))
 
 	Func WriteLine P1
 		if dotnet_isnamed(P1)
@@ -4007,8 +3980,7 @@ Class Environment from Object
 		return dn_x
 
 	Func @Exit P1
-		dotnet_callv("s4:call",'System.Environment, System.Private.CoreLib',"s4:Exit",P1)
-
+		dotnet_calltsv('System.Environment, System.Private.CoreLib','Exit',P1)
 		return self
 
 	Func FailFast P1
@@ -4050,9 +4022,7 @@ Class Environment from Object
 		return dnObj(dotnet_callo("s4:call",'System.Environment, System.Private.CoreLib',"s18:GetCommandLineArgs"))
 
 	Func ExpandEnvironmentVariables P1
-		dn_x = dotnet_call("s4:call",'System.Environment, System.Private.CoreLib',"s26:ExpandEnvironmentVariables",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Environment, System.Private.CoreLib','ExpandEnvironmentVariables',P1))
 
 	Func GetFolderPath P1
 		if dotnet_isnamed(P1)
@@ -4461,13 +4431,11 @@ Class GC from Object
 		return dnObj(dotnet_callo("s4:call",'System.GC, System.Private.CoreLib',"s15:GetGCMemoryInfo",P1))
 
 	Func AddMemoryPressure P1
-		dotnet_callv("s4:call",'System.GC, System.Private.CoreLib',"s17:AddMemoryPressure",P1)
-
+		dotnet_calltsv('System.GC, System.Private.CoreLib','AddMemoryPressure',P1)
 		return self
 
 	Func RemoveMemoryPressure P1
-		dotnet_callv("s4:call",'System.GC, System.Private.CoreLib',"s20:RemoveMemoryPressure",P1)
-
+		dotnet_calltsv('System.GC, System.Private.CoreLib','RemoveMemoryPressure',P1)
 		return self
 
 	Func GetGeneration P1
@@ -4490,9 +4458,7 @@ Class GC from Object
 		return self
 
 	Func CollectionCount P1
-		dn_x = dotnet_call("s4:call",'System.GC, System.Private.CoreLib',"s15:CollectionCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.GC, System.Private.CoreLib','CollectionCount',P1))
 
 	Func KeepAlive P1
 		dotnet_callv("s4:call",'System.GC, System.Private.CoreLib',"s9:KeepAlive",P1)
@@ -4500,8 +4466,7 @@ Class GC from Object
 		return self
 
 	Func WaitForPendingFinalizers 
-		dotnet_callv("s4:call",'System.GC, System.Private.CoreLib',"s24:WaitForPendingFinalizers")
-
+		dotnet_calltsv('System.GC, System.Private.CoreLib','WaitForPendingFinalizers')
 		return self
 
 	Func SuppressFinalize P1
@@ -4515,14 +4480,10 @@ Class GC from Object
 		return self
 
 	Func GetTotalMemory P1
-		dn_x = dotnet_call("s4:call",'System.GC, System.Private.CoreLib',"s14:GetTotalMemory",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.GC, System.Private.CoreLib','GetTotalMemory',P1))
 
 	Func GetAllocatedBytesForCurrentThread 
-		dn_x = dotnet_call("s4:call",'System.GC, System.Private.CoreLib',"s33:GetAllocatedBytesForCurrentThread")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.GC, System.Private.CoreLib','GetAllocatedBytesForCurrentThread'))
 
 	Func GetTotalAllocatedBytes P1
 		if dotnet_isnamed(P1)
@@ -4540,13 +4501,11 @@ Class GC from Object
 		return dn_x
 
 	Func RegisterForFullGCNotification P1,P2
-		dotnet_callv("s4:call",'System.GC, System.Private.CoreLib',"s29:RegisterForFullGCNotification",P1,P2)
-
+		dotnet_calltsv('System.GC, System.Private.CoreLib','RegisterForFullGCNotification',P1,P2)
 		return self
 
 	Func CancelFullGCNotification 
-		dotnet_callv("s4:call",'System.GC, System.Private.CoreLib',"s24:CancelFullGCNotification")
-
+		dotnet_calltsv('System.GC, System.Private.CoreLib','CancelFullGCNotification')
 		return self
 
 	Func WaitForFullGCApproach P1
@@ -4578,8 +4537,7 @@ Class GC from Object
 		return dn_x
 
 	Func EndNoGCRegion 
-		dotnet_callv("s4:call",'System.GC, System.Private.CoreLib',"s13:EndNoGCRegion")
-
+		dotnet_calltsv('System.GC, System.Private.CoreLib','EndNoGCRegion')
 		return self
 
 	Func RegisterNoGCRegionCallback P1,P2
@@ -4606,8 +4564,7 @@ Class GC from Object
 		return dnObj(dotnet_callo("s4:call",'System.GC, System.Private.CoreLib',"s25:GetConfigurationVariables"))
 
 	Func RefreshMemoryLimit 
-		dotnet_callv("s4:call",'System.GC, System.Private.CoreLib',"s18:RefreshMemoryLimit")
-
+		dotnet_calltsv('System.GC, System.Private.CoreLib','RefreshMemoryLimit')
 		return self
 
 	Func getMaxGeneration
@@ -4714,74 +4671,46 @@ Class Math from Object
 		return dn_x
 
 	Func Acos P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s4:Acos",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Acos',P1))
 
 	Func Acosh P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s5:Acosh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Acosh',P1))
 
 	Func Asin P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s4:Asin",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Asin',P1))
 
 	Func Asinh P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s5:Asinh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Asinh',P1))
 
 	Func Atan P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s4:Atan",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Atan',P1))
 
 	Func Atanh P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s5:Atanh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Atanh',P1))
 
 	Func Atan2 P1,P2
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s5:Atan2",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Atan2',P1,P2))
 
 	Func Cbrt P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s4:Cbrt",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Cbrt',P1))
 
 	Func Ceiling P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s7:Ceiling",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Ceiling',P1))
 
 	Func Cos P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s3:Cos",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Cos',P1))
 
 	Func Cosh P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s4:Cosh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Cosh',P1))
 
 	Func Exp P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s3:Exp",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Exp',P1))
 
 	Func Floor P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s5:Floor",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Floor',P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s16:FusedMultiplyAdd",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','FusedMultiplyAdd',P1,P2,P3))
 
 	Func Log P1
 		if dotnet_isnamed(P1)
@@ -4794,120 +4723,76 @@ Class Math from Object
 		return dn_x
 
 	Func Log2 P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s4:Log2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Log2',P1))
 
 	Func Log10 P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s5:Log10",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Log10',P1))
 
 	Func Pow P1,P2
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s3:Pow",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Pow',P1,P2))
 
 	Func Sin P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s3:Sin",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Sin',P1))
 
 	Func SinCos P1
 		return dnObj(dotnet_callo("s4:call",'System.Math, System.Private.CoreLib',"s6:SinCos",P1))
 
 	Func Sinh P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s4:Sinh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Sinh',P1))
 
 	Func Sqrt P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s4:Sqrt",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Sqrt',P1))
 
 	Func Tan P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s3:Tan",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Tan',P1))
 
 	Func Tanh P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s4:Tanh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Tanh',P1))
 
 	Func Abs P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s3:Abs",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Abs',P1))
 
 	Func BigMul P1,P2
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s6:BigMul",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','BigMul',P1,P2))
 
 	Func BitDecrement P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s12:BitDecrement",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','BitDecrement',P1))
 
 	Func BitIncrement P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s12:BitIncrement",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','BitIncrement',P1))
 
 	Func CopySign P1,P2
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s8:CopySign",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','CopySign',P1,P2))
 
 	Func DivRem P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Math, System.Private.CoreLib'),"s6:DivRem",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Clamp P1,P2,P3
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s5:Clamp",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Clamp',P1,P2,P3))
 
 	Func IEEERemainder P1,P2
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s13:IEEERemainder",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','IEEERemainder',P1,P2))
 
 	Func ILogB P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s5:ILogB",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','ILogB',P1))
 
 	Func Max P1,P2
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s3:Max",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Max',P1,P2))
 
 	Func MaxMagnitude P1,P2
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s12:MaxMagnitude",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','MaxMagnitude',P1,P2))
 
 	Func Min P1,P2
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s3:Min",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','Min',P1,P2))
 
 	Func MinMagnitude P1,P2
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s12:MinMagnitude",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','MinMagnitude',P1,P2))
 
 	Func ReciprocalEstimate P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s18:ReciprocalEstimate",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','ReciprocalEstimate',P1))
 
 	Func ReciprocalSqrtEstimate P1
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s22:ReciprocalSqrtEstimate",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','ReciprocalSqrtEstimate',P1))
 
 	Func Round P1
 		if dotnet_isnamed(P1)
@@ -4930,9 +4815,7 @@ Class Math from Object
 		return dn_x
 
 	Func ScaleB P1,P2
-		dn_x = dotnet_call("s4:call",'System.Math, System.Private.CoreLib',"s6:ScaleB",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','ScaleB',P1,P2))
 
 	Func getE
 		return dotnet_call("s3:get",'System.Math, System.Private.CoreLib',"s1:E")
@@ -4974,74 +4857,46 @@ Class MathF from Object
 		return dn_x
 
 	Func Acos P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s4:Acos",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Acos',P1))
 
 	Func Acosh P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s5:Acosh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Acosh',P1))
 
 	Func Asin P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s4:Asin",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Asin',P1))
 
 	Func Asinh P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s5:Asinh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Asinh',P1))
 
 	Func Atan P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s4:Atan",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Atan',P1))
 
 	Func Atanh P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s5:Atanh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Atanh',P1))
 
 	Func Atan2 P1,P2
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s5:Atan2",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Atan2',P1,P2))
 
 	Func Cbrt P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s4:Cbrt",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Cbrt',P1))
 
 	Func Ceiling P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s7:Ceiling",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Ceiling',P1))
 
 	Func Cos P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s3:Cos",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Cos',P1))
 
 	Func Cosh P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s4:Cosh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Cosh',P1))
 
 	Func Exp P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s3:Exp",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Exp',P1))
 
 	Func Floor P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s5:Floor",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Floor',P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s16:FusedMultiplyAdd",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','FusedMultiplyAdd',P1,P2,P3))
 
 	Func Log P1
 		if dotnet_isnamed(P1)
@@ -5054,107 +4909,67 @@ Class MathF from Object
 		return dn_x
 
 	Func Log2 P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s4:Log2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Log2',P1))
 
 	Func Log10 P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s5:Log10",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Log10',P1))
 
 	Func Pow P1,P2
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s3:Pow",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Pow',P1,P2))
 
 	Func Sin P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s3:Sin",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Sin',P1))
 
 	Func SinCos P1
 		return dnObj(dotnet_callo("s4:call",'System.MathF, System.Private.CoreLib',"s6:SinCos",P1))
 
 	Func Sinh P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s4:Sinh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Sinh',P1))
 
 	Func Sqrt P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s4:Sqrt",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Sqrt',P1))
 
 	Func Tan P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s3:Tan",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Tan',P1))
 
 	Func Tanh P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s4:Tanh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Tanh',P1))
 
 	Func Abs P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s3:Abs",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Abs',P1))
 
 	Func BitDecrement P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s12:BitDecrement",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','BitDecrement',P1))
 
 	Func BitIncrement P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s12:BitIncrement",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','BitIncrement',P1))
 
 	Func CopySign P1,P2
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s8:CopySign",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','CopySign',P1,P2))
 
 	Func IEEERemainder P1,P2
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s13:IEEERemainder",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','IEEERemainder',P1,P2))
 
 	Func ILogB P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s5:ILogB",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','ILogB',P1))
 
 	Func Max P1,P2
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s3:Max",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Max',P1,P2))
 
 	Func MaxMagnitude P1,P2
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s12:MaxMagnitude",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','MaxMagnitude',P1,P2))
 
 	Func Min P1,P2
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s3:Min",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Min',P1,P2))
 
 	Func MinMagnitude P1,P2
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s12:MinMagnitude",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','MinMagnitude',P1,P2))
 
 	Func ReciprocalEstimate P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s18:ReciprocalEstimate",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','ReciprocalEstimate',P1))
 
 	Func ReciprocalSqrtEstimate P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s22:ReciprocalSqrtEstimate",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','ReciprocalSqrtEstimate',P1))
 
 	Func Round P1
 		if dotnet_isnamed(P1)
@@ -5167,19 +4982,13 @@ Class MathF from Object
 		return dn_x
 
 	Func Sign P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s4:Sign",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Sign',P1))
 
 	Func Truncate P1
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s8:Truncate",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','Truncate',P1))
 
 	Func ScaleB P1,P2
-		dn_x = dotnet_call("s4:call",'System.MathF, System.Private.CoreLib',"s6:ScaleB",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','ScaleB',P1,P2))
 
 	Func getE
 		return dotnet_call("s3:get",'System.MathF, System.Private.CoreLib',"s1:E")
@@ -5532,9 +5341,7 @@ Class OperatingSystem from Object
 		return dn_x
 
 	Func IsOSPlatform P1
-		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s12:IsOSPlatform",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.OperatingSystem, System.Private.CoreLib','IsOSPlatform',P1))
 
 	Func IsOSPlatformVersionAtLeast P1
 		if dotnet_isnamed(P1)
@@ -5545,24 +5352,16 @@ Class OperatingSystem from Object
 		raise("DotNet Error: IsOSPlatformVersionAtLeast does not take one argument: use named arguments, IsOSPlatformVersionAtLeast([ :parameter = value, ... ])")
 
 	Func IsBrowser 
-		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s9:IsBrowser")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.OperatingSystem, System.Private.CoreLib','IsBrowser'))
 
 	Func IsWasi 
-		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s6:IsWasi")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.OperatingSystem, System.Private.CoreLib','IsWasi'))
 
 	Func IsLinux 
-		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s7:IsLinux")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.OperatingSystem, System.Private.CoreLib','IsLinux'))
 
 	Func IsFreeBSD 
-		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s9:IsFreeBSD")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.OperatingSystem, System.Private.CoreLib','IsFreeBSD'))
 
 	Func IsFreeBSDVersionAtLeast P1
 		if dotnet_isnamed(P1)
@@ -5575,9 +5374,7 @@ Class OperatingSystem from Object
 		return dn_x
 
 	Func IsAndroid 
-		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s9:IsAndroid")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.OperatingSystem, System.Private.CoreLib','IsAndroid'))
 
 	Func IsAndroidVersionAtLeast P1
 		if dotnet_isnamed(P1)
@@ -5590,9 +5387,7 @@ Class OperatingSystem from Object
 		return dn_x
 
 	Func IsIOS 
-		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s5:IsIOS")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.OperatingSystem, System.Private.CoreLib','IsIOS'))
 
 	Func IsIOSVersionAtLeast P1
 		if dotnet_isnamed(P1)
@@ -5605,9 +5400,7 @@ Class OperatingSystem from Object
 		return dn_x
 
 	Func IsMacOS 
-		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s7:IsMacOS")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.OperatingSystem, System.Private.CoreLib','IsMacOS'))
 
 	Func IsMacOSVersionAtLeast P1
 		if dotnet_isnamed(P1)
@@ -5620,9 +5413,7 @@ Class OperatingSystem from Object
 		return dn_x
 
 	Func IsMacCatalyst 
-		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s13:IsMacCatalyst")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.OperatingSystem, System.Private.CoreLib','IsMacCatalyst'))
 
 	Func IsMacCatalystVersionAtLeast P1
 		if dotnet_isnamed(P1)
@@ -5635,9 +5426,7 @@ Class OperatingSystem from Object
 		return dn_x
 
 	Func IsTvOS 
-		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s6:IsTvOS")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.OperatingSystem, System.Private.CoreLib','IsTvOS'))
 
 	Func IsTvOSVersionAtLeast P1
 		if dotnet_isnamed(P1)
@@ -5650,9 +5439,7 @@ Class OperatingSystem from Object
 		return dn_x
 
 	Func IsWatchOS 
-		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s9:IsWatchOS")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.OperatingSystem, System.Private.CoreLib','IsWatchOS'))
 
 	Func IsWatchOSVersionAtLeast P1
 		if dotnet_isnamed(P1)
@@ -5665,9 +5452,7 @@ Class OperatingSystem from Object
 		return dn_x
 
 	Func IsWindows 
-		dn_x = dotnet_call("s4:call",'System.OperatingSystem, System.Private.CoreLib',"s9:IsWindows")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.OperatingSystem, System.Private.CoreLib','IsWindows'))
 
 	Func IsWindowsVersionAtLeast P1
 		if dotnet_isnamed(P1)
@@ -5964,8 +5749,7 @@ Class TimeZoneInfo from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetAdjustmentRules"))
 
 	Func ClearCachedData 
-		dotnet_callv("s4:call",'System.TimeZoneInfo, System.Private.CoreLib',"s15:ClearCachedData")
-
+		dotnet_calltsv('System.TimeZoneInfo, System.Private.CoreLib','ClearCachedData')
 		return self
 
 	Func ConvertTimeBySystemTimeZoneId P1
@@ -6768,14 +6552,10 @@ Class Uri from Object
 		return dnSend("s4:call",dnTypeHandle('System.Uri, System.Private.Uri'),"s11:HexUnescape",dnPackItem(P1) + dnPackItem(P2))
 
 	Func IsHexEncoding P1,P2
-		dn_x = dotnet_call("s4:call",'System.Uri, System.Private.Uri',"s13:IsHexEncoding",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Uri, System.Private.Uri','IsHexEncoding',P1,P2))
 
 	Func CheckSchemeName P1
-		dn_x = dotnet_call("s4:call",'System.Uri, System.Private.Uri',"s15:CheckSchemeName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Uri, System.Private.Uri','CheckSchemeName',P1))
 
 	Func IsHexDigit P1
 		dn_x = dotnet_call("s4:call",'System.Uri, System.Private.Uri',"s10:IsHexDigit",P1)
@@ -6801,22 +6581,16 @@ Class Uri from Object
 		return dn_x
 
 	Func UnescapeDataString P1
-		dn_x = dotnet_call("s4:call",'System.Uri, System.Private.Uri',"s18:UnescapeDataString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Uri, System.Private.Uri','UnescapeDataString',P1))
 
 	Func TryUnescapeDataString P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Uri, System.Private.Uri'),"s21:TryUnescapeDataString",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EscapeUriString P1
-		dn_x = dotnet_call("s4:call",'System.Uri, System.Private.Uri',"s15:EscapeUriString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Uri, System.Private.Uri','EscapeUriString',P1))
 
 	Func EscapeDataString P1
-		dn_x = dotnet_call("s4:call",'System.Uri, System.Private.Uri',"s16:EscapeDataString",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Uri, System.Private.Uri','EscapeDataString',P1))
 
 	Func TryEscapeDataString P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Uri, System.Private.Uri'),"s19:TryEscapeDataString",dnPackItem(P1) + dnPackItem(P2))
@@ -7230,9 +7004,7 @@ Class UriParser from Object
 		return self
 
 	Func IsKnownScheme P1
-		dn_x = dotnet_call("s4:call",'System.UriParser, System.Private.Uri',"s13:IsKnownScheme",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UriParser, System.Private.Uri','IsKnownScheme',P1))
 
 
 Class ValueType from Object
@@ -7592,14 +7364,10 @@ Class String from Object
 		return dnAnswer(dotnet_calltd1(nHandle,"LastIndexOfAny",P1))
 
 	Func Intern P1
-		dn_x = dotnet_call("s4:call",'System.String, System.Private.CoreLib',"s6:Intern",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.String, System.Private.CoreLib','Intern',P1))
 
 	Func IsInterned P1
-		dn_x = dotnet_call("s4:call",'System.String, System.Private.CoreLib',"s10:IsInterned",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.String, System.Private.CoreLib','IsInterned',P1))
 
 	Func Compare P1
 		if dotnet_isnamed(P1)
@@ -7623,19 +7391,13 @@ Class String from Object
 		return dn_x
 
 	Func Copy P1
-		dn_x = dotnet_call("s4:call",'System.String, System.Private.CoreLib',"s4:Copy",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.String, System.Private.CoreLib','Copy',P1))
 
 	Func IsNullOrEmpty P1
-		dn_x = dotnet_call("s4:call",'System.String, System.Private.CoreLib',"s13:IsNullOrEmpty",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.String, System.Private.CoreLib','IsNullOrEmpty',P1))
 
 	Func IsNullOrWhiteSpace P1
-		dn_x = dotnet_call("s4:call",'System.String, System.Private.CoreLib',"s18:IsNullOrWhiteSpace",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.String, System.Private.CoreLib','IsNullOrWhiteSpace',P1))
 
 	Func Concat P1
 		if dotnet_isnamed(P1)
@@ -8033,9 +7795,7 @@ Class AppDomain from MarshalByRefObject
 		return self
 
 	Func GetCurrentThreadId 
-		dn_x = dotnet_call("s4:call",'System.AppDomain, System.Private.CoreLib',"s18:GetCurrentThreadId")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.AppDomain, System.Private.CoreLib','GetCurrentThreadId'))
 
 	Func setUnhandledExceptionEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"UnhandledException",dnCallback(P1)])
@@ -8455,9 +8215,7 @@ Class Boolean from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetTypeCode"))
 
 	Func Parse P1
-		dn_x = dotnet_call("s4:call",'System.Boolean, System.Private.CoreLib',"s5:Parse",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Boolean, System.Private.CoreLib','Parse',P1))
 
 	Func TryParse P1
 		return dnSend("s4:call",dnTypeHandle('System.Boolean, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
@@ -8547,59 +8305,37 @@ Class Byte from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Byte, System.Private.CoreLib',"s6:DivRem",P1,P2))
 
 	Func LeadingZeroCount P1
-		dn_x = dotnet_call("s4:call",'System.Byte, System.Private.CoreLib',"s16:LeadingZeroCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Byte, System.Private.CoreLib','LeadingZeroCount',P1))
 
 	Func PopCount P1
-		dn_x = dotnet_call("s4:call",'System.Byte, System.Private.CoreLib',"s8:PopCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Byte, System.Private.CoreLib','PopCount',P1))
 
 	Func RotateLeft P1,P2
-		dn_x = dotnet_call("s4:call",'System.Byte, System.Private.CoreLib',"s10:RotateLeft",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Byte, System.Private.CoreLib','RotateLeft',P1,P2))
 
 	Func RotateRight P1,P2
-		dn_x = dotnet_call("s4:call",'System.Byte, System.Private.CoreLib',"s11:RotateRight",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Byte, System.Private.CoreLib','RotateRight',P1,P2))
 
 	Func TrailingZeroCount P1
-		dn_x = dotnet_call("s4:call",'System.Byte, System.Private.CoreLib',"s17:TrailingZeroCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Byte, System.Private.CoreLib','TrailingZeroCount',P1))
 
 	Func IsPow2 P1
-		dn_x = dotnet_call("s4:call",'System.Byte, System.Private.CoreLib',"s6:IsPow2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Byte, System.Private.CoreLib','IsPow2',P1))
 
 	Func Log2 P1
-		dn_x = dotnet_call("s4:call",'System.Byte, System.Private.CoreLib',"s4:Log2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Byte, System.Private.CoreLib','Log2',P1))
 
 	Func Clamp P1,P2,P3
-		dn_x = dotnet_call("s4:call",'System.Byte, System.Private.CoreLib',"s5:Clamp",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Byte, System.Private.CoreLib','Clamp',P1,P2,P3))
 
 	Func Max P1,P2
-		dn_x = dotnet_call("s4:call",'System.Byte, System.Private.CoreLib',"s3:Max",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Byte, System.Private.CoreLib','Max',P1,P2))
 
 	Func Min P1,P2
-		dn_x = dotnet_call("s4:call",'System.Byte, System.Private.CoreLib',"s3:Min",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Byte, System.Private.CoreLib','Min',P1,P2))
 
 	Func Sign P1
-		dn_x = dotnet_call("s4:call",'System.Byte, System.Private.CoreLib',"s4:Sign",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Byte, System.Private.CoreLib','Sign',P1))
 
 	Func CreateChecked P1
 		dn_x = dotnet_call("s4:call",'System.Byte, System.Private.CoreLib',"s13:CreateChecked",P1)
@@ -8617,14 +8353,10 @@ Class Byte from ValueType
 		return dn_x
 
 	Func IsEvenInteger P1
-		dn_x = dotnet_call("s4:call",'System.Byte, System.Private.CoreLib',"s13:IsEvenInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Byte, System.Private.CoreLib','IsEvenInteger',P1))
 
 	Func IsOddInteger P1
-		dn_x = dotnet_call("s4:call",'System.Byte, System.Private.CoreLib',"s12:IsOddInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Byte, System.Private.CoreLib','IsOddInteger',P1))
 
 	Func getMaxValue
 		return dotnet_call("s3:get",'System.Byte, System.Private.CoreLib',"s8:MaxValue")
@@ -8947,14 +8679,10 @@ Class Char from ValueType
 		return dn_x
 
 	Func IsSurrogatePair P1,P2
-		dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s15:IsSurrogatePair",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Char, System.Private.CoreLib','IsSurrogatePair',P1,P2))
 
 	Func ConvertFromUtf32 P1
-		dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s16:ConvertFromUtf32",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Char, System.Private.CoreLib','ConvertFromUtf32',P1))
 
 	Func ConvertToUtf32 P1,P2
 		dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s14:ConvertToUtf32",P1,P2)
@@ -9544,9 +9272,7 @@ Class Decimal from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetTypeCode"))
 
 	Func FromOACurrency P1
-		dn_x = dotnet_call("s4:call",'System.Decimal, System.Private.CoreLib',"s14:FromOACurrency",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Decimal, System.Private.CoreLib','FromOACurrency',P1))
 
 	Func ToOACurrency P1
 		dn_x = dotnet_call("s4:call",'System.Decimal, System.Private.CoreLib',"s12:ToOACurrency",P1)
@@ -9906,44 +9632,28 @@ Class Double from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetTypeCode"))
 
 	Func IsFinite P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s8:IsFinite",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','IsFinite',P1))
 
 	Func IsInfinity P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s10:IsInfinity",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','IsInfinity',P1))
 
 	Func IsNaN P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s5:IsNaN",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','IsNaN',P1))
 
 	Func IsNegative P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s10:IsNegative",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','IsNegative',P1))
 
 	Func IsNegativeInfinity P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s18:IsNegativeInfinity",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','IsNegativeInfinity',P1))
 
 	Func IsNormal P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s8:IsNormal",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','IsNormal',P1))
 
 	Func IsPositiveInfinity P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s18:IsPositiveInfinity",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','IsPositiveInfinity',P1))
 
 	Func IsSubnormal P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s11:IsSubnormal",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','IsSubnormal',P1))
 
 	Func Parse P1
 		if dotnet_isnamed(P1)
@@ -9964,49 +9674,31 @@ Class Double from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Double, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func IsPow2 P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s6:IsPow2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','IsPow2',P1))
 
 	Func Log2 P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s4:Log2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Log2',P1))
 
 	Func Exp P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s3:Exp",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Exp',P1))
 
 	Func ExpM1 P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s5:ExpM1",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','ExpM1',P1))
 
 	Func Exp2 P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s4:Exp2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Exp2',P1))
 
 	Func Exp2M1 P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s6:Exp2M1",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Exp2M1',P1))
 
 	Func Exp10 P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s5:Exp10",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Exp10',P1))
 
 	Func Exp10M1 P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s7:Exp10M1",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Exp10M1',P1))
 
 	Func Ceiling P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s7:Ceiling",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Ceiling',P1))
 
 	Func ConvertToInteger P1
 		if dotnet_isnamed(P1)
@@ -10021,9 +9713,7 @@ Class Double from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Double, System.Private.CoreLib',"s22:ConvertToIntegerNative",P1))
 
 	Func Floor P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s5:Floor",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Floor',P1))
 
 	Func Round P1
 		if dotnet_isnamed(P1)
@@ -10036,94 +9726,58 @@ Class Double from ValueType
 		return dn_x
 
 	Func Truncate P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s8:Truncate",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Truncate',P1))
 
 	Func Atan2 P1,P2
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s5:Atan2",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Atan2',P1,P2))
 
 	Func Atan2Pi P1,P2
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s7:Atan2Pi",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Atan2Pi',P1,P2))
 
 	Func BitDecrement P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s12:BitDecrement",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','BitDecrement',P1))
 
 	Func BitIncrement P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s12:BitIncrement",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','BitIncrement',P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s16:FusedMultiplyAdd",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','FusedMultiplyAdd',P1,P2,P3))
 
 	Func Ieee754Remainder P1,P2
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s16:Ieee754Remainder",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Ieee754Remainder',P1,P2))
 
 	Func ILogB P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s5:ILogB",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','ILogB',P1))
 
 	Func Lerp P1,P2,P3
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s4:Lerp",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Lerp',P1,P2,P3))
 
 	Func ReciprocalEstimate P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s18:ReciprocalEstimate",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','ReciprocalEstimate',P1))
 
 	Func ReciprocalSqrtEstimate P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s22:ReciprocalSqrtEstimate",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','ReciprocalSqrtEstimate',P1))
 
 	Func ScaleB P1,P2
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s6:ScaleB",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','ScaleB',P1,P2))
 
 	Func Acosh P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s5:Acosh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Acosh',P1))
 
 	Func Asinh P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s5:Asinh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Asinh',P1))
 
 	Func Atanh P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s5:Atanh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Atanh',P1))
 
 	Func Cosh P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s4:Cosh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Cosh',P1))
 
 	Func Sinh P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s4:Sinh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Sinh',P1))
 
 	Func Tanh P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s4:Tanh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Tanh',P1))
 
 	Func Log P1
 		if dotnet_isnamed(P1)
@@ -10136,64 +9790,40 @@ Class Double from ValueType
 		return dn_x
 
 	Func LogP1 P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s5:LogP1",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','LogP1',P1))
 
 	Func Log2P1 P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s6:Log2P1",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Log2P1',P1))
 
 	Func Log10 P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s5:Log10",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Log10',P1))
 
 	Func Log10P1 P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s7:Log10P1",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Log10P1',P1))
 
 	Func Clamp P1,P2,P3
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s5:Clamp",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Clamp',P1,P2,P3))
 
 	Func CopySign P1,P2
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s8:CopySign",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','CopySign',P1,P2))
 
 	Func Max P1,P2
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s3:Max",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Max',P1,P2))
 
 	Func MaxNumber P1,P2
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s9:MaxNumber",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','MaxNumber',P1,P2))
 
 	Func Min P1,P2
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s3:Min",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Min',P1,P2))
 
 	Func MinNumber P1,P2
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s9:MinNumber",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','MinNumber',P1,P2))
 
 	Func Sign P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s4:Sign",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Sign',P1))
 
 	Func Abs P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s3:Abs",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Abs',P1))
 
 	Func CreateChecked P1
 		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s13:CreateChecked",P1)
@@ -10211,134 +9841,82 @@ Class Double from ValueType
 		return dn_x
 
 	Func IsEvenInteger P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s13:IsEvenInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','IsEvenInteger',P1))
 
 	Func IsInteger P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s9:IsInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','IsInteger',P1))
 
 	Func IsOddInteger P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s12:IsOddInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','IsOddInteger',P1))
 
 	Func IsPositive P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s10:IsPositive",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','IsPositive',P1))
 
 	Func IsRealNumber P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s12:IsRealNumber",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','IsRealNumber',P1))
 
 	Func MaxMagnitude P1,P2
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s12:MaxMagnitude",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','MaxMagnitude',P1,P2))
 
 	Func MaxMagnitudeNumber P1,P2
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s18:MaxMagnitudeNumber",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','MaxMagnitudeNumber',P1,P2))
 
 	Func MinMagnitude P1,P2
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s12:MinMagnitude",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','MinMagnitude',P1,P2))
 
 	Func MinMagnitudeNumber P1,P2
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s18:MinMagnitudeNumber",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','MinMagnitudeNumber',P1,P2))
 
 	Func MultiplyAddEstimate P1,P2,P3
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s19:MultiplyAddEstimate",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','MultiplyAddEstimate',P1,P2,P3))
 
 	Func Pow P1,P2
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s3:Pow",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Pow',P1,P2))
 
 	Func Cbrt P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s4:Cbrt",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Cbrt',P1))
 
 	Func Hypot P1,P2
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s5:Hypot",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Hypot',P1,P2))
 
 	Func RootN P1,P2
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s5:RootN",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','RootN',P1,P2))
 
 	Func Sqrt P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s4:Sqrt",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Sqrt',P1))
 
 	Func Acos P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s4:Acos",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Acos',P1))
 
 	Func AcosPi P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s6:AcosPi",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','AcosPi',P1))
 
 	Func Asin P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s4:Asin",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Asin',P1))
 
 	Func AsinPi P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s6:AsinPi",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','AsinPi',P1))
 
 	Func Atan P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s4:Atan",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Atan',P1))
 
 	Func AtanPi P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s6:AtanPi",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','AtanPi',P1))
 
 	Func Cos P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s3:Cos",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Cos',P1))
 
 	Func CosPi P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s5:CosPi",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','CosPi',P1))
 
 	Func DegreesToRadians P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s16:DegreesToRadians",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','DegreesToRadians',P1))
 
 	Func RadiansToDegrees P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s16:RadiansToDegrees",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','RadiansToDegrees',P1))
 
 	Func Sin P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s3:Sin",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Sin',P1))
 
 	Func SinCos P1
 		return dnObj(dotnet_callo("s4:call",'System.Double, System.Private.CoreLib',"s6:SinCos",P1))
@@ -10347,19 +9925,13 @@ Class Double from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Double, System.Private.CoreLib',"s8:SinCosPi",P1))
 
 	Func SinPi P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s5:SinPi",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','SinPi',P1))
 
 	Func Tan P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s3:Tan",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','Tan',P1))
 
 	Func TanPi P1
-		dn_x = dotnet_call("s4:call",'System.Double, System.Private.CoreLib',"s5:TanPi",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','TanPi',P1))
 
 	Func getMinValue
 		return dotnet_call("s3:get",'System.Double, System.Private.CoreLib',"s8:MinValue")
@@ -11699,69 +11271,43 @@ Class Int16 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Int16, System.Private.CoreLib',"s6:DivRem",P1,P2))
 
 	Func LeadingZeroCount P1
-		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s16:LeadingZeroCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','LeadingZeroCount',P1))
 
 	Func PopCount P1
-		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s8:PopCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','PopCount',P1))
 
 	Func RotateLeft P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s10:RotateLeft",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','RotateLeft',P1,P2))
 
 	Func RotateRight P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s11:RotateRight",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','RotateRight',P1,P2))
 
 	Func TrailingZeroCount P1
-		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s17:TrailingZeroCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','TrailingZeroCount',P1))
 
 	Func IsPow2 P1
-		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s6:IsPow2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','IsPow2',P1))
 
 	Func Log2 P1
-		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s4:Log2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','Log2',P1))
 
 	Func Clamp P1,P2,P3
-		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s5:Clamp",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','Clamp',P1,P2,P3))
 
 	Func CopySign P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s8:CopySign",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','CopySign',P1,P2))
 
 	Func Max P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s3:Max",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','Max',P1,P2))
 
 	Func Min P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s3:Min",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','Min',P1,P2))
 
 	Func Sign P1
-		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s4:Sign",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','Sign',P1))
 
 	Func Abs P1
-		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s3:Abs",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','Abs',P1))
 
 	Func CreateChecked P1
 		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s13:CreateChecked",P1)
@@ -11779,34 +11325,22 @@ Class Int16 from ValueType
 		return dn_x
 
 	Func IsEvenInteger P1
-		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s13:IsEvenInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','IsEvenInteger',P1))
 
 	Func IsNegative P1
-		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s10:IsNegative",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','IsNegative',P1))
 
 	Func IsOddInteger P1
-		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s12:IsOddInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','IsOddInteger',P1))
 
 	Func IsPositive P1
-		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s10:IsPositive",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','IsPositive',P1))
 
 	Func MaxMagnitude P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s12:MaxMagnitude",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','MaxMagnitude',P1,P2))
 
 	Func MinMagnitude P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int16, System.Private.CoreLib',"s12:MinMagnitude",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','MinMagnitude',P1,P2))
 
 	Func getMaxValue
 		return dotnet_call("s3:get",'System.Int16, System.Private.CoreLib',"s8:MaxValue")
@@ -11868,9 +11402,7 @@ Class Int32 from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetTypeCode"))
 
 	Func BigMul P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s6:BigMul",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','BigMul',P1,P2))
 
 	Func Parse P1
 		if dotnet_isnamed(P1)
@@ -11894,69 +11426,43 @@ Class Int32 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Int32, System.Private.CoreLib',"s6:DivRem",P1,P2))
 
 	Func LeadingZeroCount P1
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s16:LeadingZeroCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','LeadingZeroCount',P1))
 
 	Func PopCount P1
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s8:PopCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','PopCount',P1))
 
 	Func RotateLeft P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s10:RotateLeft",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','RotateLeft',P1,P2))
 
 	Func RotateRight P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s11:RotateRight",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','RotateRight',P1,P2))
 
 	Func TrailingZeroCount P1
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s17:TrailingZeroCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','TrailingZeroCount',P1))
 
 	Func IsPow2 P1
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s6:IsPow2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','IsPow2',P1))
 
 	Func Log2 P1
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s4:Log2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','Log2',P1))
 
 	Func Clamp P1,P2,P3
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s5:Clamp",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','Clamp',P1,P2,P3))
 
 	Func CopySign P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s8:CopySign",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','CopySign',P1,P2))
 
 	Func Max P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s3:Max",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','Max',P1,P2))
 
 	Func Min P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s3:Min",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','Min',P1,P2))
 
 	Func Sign P1
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s4:Sign",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','Sign',P1))
 
 	Func Abs P1
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s3:Abs",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','Abs',P1))
 
 	Func CreateChecked P1
 		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s13:CreateChecked",P1)
@@ -11974,34 +11480,22 @@ Class Int32 from ValueType
 		return dn_x
 
 	Func IsEvenInteger P1
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s13:IsEvenInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','IsEvenInteger',P1))
 
 	Func IsNegative P1
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s10:IsNegative",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','IsNegative',P1))
 
 	Func IsOddInteger P1
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s12:IsOddInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','IsOddInteger',P1))
 
 	Func IsPositive P1
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s10:IsPositive",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','IsPositive',P1))
 
 	Func MaxMagnitude P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s12:MaxMagnitude",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','MaxMagnitude',P1,P2))
 
 	Func MinMagnitude P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int32, System.Private.CoreLib',"s12:MinMagnitude",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','MinMagnitude',P1,P2))
 
 	Func getMaxValue
 		return dotnet_call("s3:get",'System.Int32, System.Private.CoreLib',"s8:MaxValue")
@@ -12087,69 +11581,43 @@ Class Int64 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Int64, System.Private.CoreLib',"s6:DivRem",P1,P2))
 
 	Func LeadingZeroCount P1
-		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s16:LeadingZeroCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','LeadingZeroCount',P1))
 
 	Func PopCount P1
-		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s8:PopCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','PopCount',P1))
 
 	Func RotateLeft P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s10:RotateLeft",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','RotateLeft',P1,P2))
 
 	Func RotateRight P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s11:RotateRight",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','RotateRight',P1,P2))
 
 	Func TrailingZeroCount P1
-		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s17:TrailingZeroCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','TrailingZeroCount',P1))
 
 	Func IsPow2 P1
-		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s6:IsPow2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','IsPow2',P1))
 
 	Func Log2 P1
-		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s4:Log2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','Log2',P1))
 
 	Func Clamp P1,P2,P3
-		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s5:Clamp",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','Clamp',P1,P2,P3))
 
 	Func CopySign P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s8:CopySign",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','CopySign',P1,P2))
 
 	Func Max P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s3:Max",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','Max',P1,P2))
 
 	Func Min P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s3:Min",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','Min',P1,P2))
 
 	Func Sign P1
-		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s4:Sign",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','Sign',P1))
 
 	Func Abs P1
-		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s3:Abs",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','Abs',P1))
 
 	Func CreateChecked P1
 		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s13:CreateChecked",P1)
@@ -12167,34 +11635,22 @@ Class Int64 from ValueType
 		return dn_x
 
 	Func IsEvenInteger P1
-		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s13:IsEvenInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','IsEvenInteger',P1))
 
 	Func IsNegative P1
-		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s10:IsNegative",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','IsNegative',P1))
 
 	Func IsOddInteger P1
-		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s12:IsOddInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','IsOddInteger',P1))
 
 	Func IsPositive P1
-		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s10:IsPositive",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','IsPositive',P1))
 
 	Func MaxMagnitude P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s12:MaxMagnitude",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','MaxMagnitude',P1,P2))
 
 	Func MinMagnitude P1,P2
-		dn_x = dotnet_call("s4:call",'System.Int64, System.Private.CoreLib',"s12:MinMagnitude",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','MinMagnitude',P1,P2))
 
 	Func getMaxValue
 		return dotnet_call("s3:get",'System.Int64, System.Private.CoreLib',"s8:MaxValue")
@@ -13253,69 +12709,43 @@ Class SByte from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.SByte, System.Private.CoreLib',"s6:DivRem",P1,P2))
 
 	Func LeadingZeroCount P1
-		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s16:LeadingZeroCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','LeadingZeroCount',P1))
 
 	Func PopCount P1
-		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s8:PopCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','PopCount',P1))
 
 	Func RotateLeft P1,P2
-		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s10:RotateLeft",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','RotateLeft',P1,P2))
 
 	Func RotateRight P1,P2
-		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s11:RotateRight",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','RotateRight',P1,P2))
 
 	Func TrailingZeroCount P1
-		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s17:TrailingZeroCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','TrailingZeroCount',P1))
 
 	Func IsPow2 P1
-		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s6:IsPow2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','IsPow2',P1))
 
 	Func Log2 P1
-		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s4:Log2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','Log2',P1))
 
 	Func Clamp P1,P2,P3
-		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s5:Clamp",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','Clamp',P1,P2,P3))
 
 	Func CopySign P1,P2
-		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s8:CopySign",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','CopySign',P1,P2))
 
 	Func Max P1,P2
-		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s3:Max",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','Max',P1,P2))
 
 	Func Min P1,P2
-		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s3:Min",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','Min',P1,P2))
 
 	Func Sign P1
-		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s4:Sign",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','Sign',P1))
 
 	Func Abs P1
-		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s3:Abs",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','Abs',P1))
 
 	Func CreateChecked P1
 		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s13:CreateChecked",P1)
@@ -13333,34 +12763,22 @@ Class SByte from ValueType
 		return dn_x
 
 	Func IsEvenInteger P1
-		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s13:IsEvenInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','IsEvenInteger',P1))
 
 	Func IsNegative P1
-		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s10:IsNegative",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','IsNegative',P1))
 
 	Func IsOddInteger P1
-		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s12:IsOddInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','IsOddInteger',P1))
 
 	Func IsPositive P1
-		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s10:IsPositive",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','IsPositive',P1))
 
 	Func MaxMagnitude P1,P2
-		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s12:MaxMagnitude",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','MaxMagnitude',P1,P2))
 
 	Func MinMagnitude P1,P2
-		dn_x = dotnet_call("s4:call",'System.SByte, System.Private.CoreLib',"s12:MinMagnitude",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','MinMagnitude',P1,P2))
 
 	Func getMaxValue
 		return dotnet_call("s3:get",'System.SByte, System.Private.CoreLib',"s8:MaxValue")
@@ -13472,44 +12890,28 @@ Class Single from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetTypeCode"))
 
 	Func IsFinite P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s8:IsFinite",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','IsFinite',P1))
 
 	Func IsInfinity P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s10:IsInfinity",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','IsInfinity',P1))
 
 	Func IsNaN P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s5:IsNaN",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','IsNaN',P1))
 
 	Func IsNegative P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s10:IsNegative",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','IsNegative',P1))
 
 	Func IsNegativeInfinity P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s18:IsNegativeInfinity",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','IsNegativeInfinity',P1))
 
 	Func IsNormal P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s8:IsNormal",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','IsNormal',P1))
 
 	Func IsPositiveInfinity P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s18:IsPositiveInfinity",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','IsPositiveInfinity',P1))
 
 	Func IsSubnormal P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s11:IsSubnormal",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','IsSubnormal',P1))
 
 	Func Parse P1
 		if dotnet_isnamed(P1)
@@ -13530,49 +12932,31 @@ Class Single from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Single, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func IsPow2 P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s6:IsPow2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','IsPow2',P1))
 
 	Func Log2 P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s4:Log2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Log2',P1))
 
 	Func Exp P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s3:Exp",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Exp',P1))
 
 	Func ExpM1 P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s5:ExpM1",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','ExpM1',P1))
 
 	Func Exp2 P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s4:Exp2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Exp2',P1))
 
 	Func Exp2M1 P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s6:Exp2M1",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Exp2M1',P1))
 
 	Func Exp10 P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s5:Exp10",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Exp10',P1))
 
 	Func Exp10M1 P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s7:Exp10M1",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Exp10M1',P1))
 
 	Func Ceiling P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s7:Ceiling",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Ceiling',P1))
 
 	Func ConvertToInteger P1
 		if dotnet_isnamed(P1)
@@ -13587,9 +12971,7 @@ Class Single from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Single, System.Private.CoreLib',"s22:ConvertToIntegerNative",P1))
 
 	Func Floor P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s5:Floor",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Floor',P1))
 
 	Func Round P1
 		if dotnet_isnamed(P1)
@@ -13602,94 +12984,58 @@ Class Single from ValueType
 		return dn_x
 
 	Func Truncate P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s8:Truncate",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Truncate',P1))
 
 	Func Atan2 P1,P2
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s5:Atan2",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Atan2',P1,P2))
 
 	Func Atan2Pi P1,P2
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s7:Atan2Pi",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Atan2Pi',P1,P2))
 
 	Func BitDecrement P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s12:BitDecrement",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','BitDecrement',P1))
 
 	Func BitIncrement P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s12:BitIncrement",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','BitIncrement',P1))
 
 	Func FusedMultiplyAdd P1,P2,P3
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s16:FusedMultiplyAdd",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','FusedMultiplyAdd',P1,P2,P3))
 
 	Func Ieee754Remainder P1,P2
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s16:Ieee754Remainder",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Ieee754Remainder',P1,P2))
 
 	Func ILogB P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s5:ILogB",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','ILogB',P1))
 
 	Func Lerp P1,P2,P3
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s4:Lerp",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Lerp',P1,P2,P3))
 
 	Func ReciprocalEstimate P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s18:ReciprocalEstimate",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','ReciprocalEstimate',P1))
 
 	Func ReciprocalSqrtEstimate P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s22:ReciprocalSqrtEstimate",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','ReciprocalSqrtEstimate',P1))
 
 	Func ScaleB P1,P2
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s6:ScaleB",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','ScaleB',P1,P2))
 
 	Func Acosh P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s5:Acosh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Acosh',P1))
 
 	Func Asinh P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s5:Asinh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Asinh',P1))
 
 	Func Atanh P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s5:Atanh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Atanh',P1))
 
 	Func Cosh P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s4:Cosh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Cosh',P1))
 
 	Func Sinh P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s4:Sinh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Sinh',P1))
 
 	Func Tanh P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s4:Tanh",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Tanh',P1))
 
 	Func Log P1
 		if dotnet_isnamed(P1)
@@ -13702,64 +13048,40 @@ Class Single from ValueType
 		return dn_x
 
 	Func LogP1 P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s5:LogP1",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','LogP1',P1))
 
 	Func Log10 P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s5:Log10",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Log10',P1))
 
 	Func Log2P1 P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s6:Log2P1",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Log2P1',P1))
 
 	Func Log10P1 P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s7:Log10P1",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Log10P1',P1))
 
 	Func Clamp P1,P2,P3
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s5:Clamp",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Clamp',P1,P2,P3))
 
 	Func CopySign P1,P2
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s8:CopySign",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','CopySign',P1,P2))
 
 	Func Max P1,P2
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s3:Max",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Max',P1,P2))
 
 	Func MaxNumber P1,P2
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s9:MaxNumber",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','MaxNumber',P1,P2))
 
 	Func Min P1,P2
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s3:Min",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Min',P1,P2))
 
 	Func MinNumber P1,P2
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s9:MinNumber",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','MinNumber',P1,P2))
 
 	Func Sign P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s4:Sign",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Sign',P1))
 
 	Func Abs P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s3:Abs",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Abs',P1))
 
 	Func CreateChecked P1
 		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s13:CreateChecked",P1)
@@ -13777,134 +13099,82 @@ Class Single from ValueType
 		return dn_x
 
 	Func IsEvenInteger P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s13:IsEvenInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','IsEvenInteger',P1))
 
 	Func IsInteger P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s9:IsInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','IsInteger',P1))
 
 	Func IsOddInteger P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s12:IsOddInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','IsOddInteger',P1))
 
 	Func IsPositive P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s10:IsPositive",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','IsPositive',P1))
 
 	Func IsRealNumber P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s12:IsRealNumber",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','IsRealNumber',P1))
 
 	Func MaxMagnitude P1,P2
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s12:MaxMagnitude",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','MaxMagnitude',P1,P2))
 
 	Func MaxMagnitudeNumber P1,P2
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s18:MaxMagnitudeNumber",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','MaxMagnitudeNumber',P1,P2))
 
 	Func MinMagnitude P1,P2
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s12:MinMagnitude",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','MinMagnitude',P1,P2))
 
 	Func MinMagnitudeNumber P1,P2
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s18:MinMagnitudeNumber",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','MinMagnitudeNumber',P1,P2))
 
 	Func MultiplyAddEstimate P1,P2,P3
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s19:MultiplyAddEstimate",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','MultiplyAddEstimate',P1,P2,P3))
 
 	Func Pow P1,P2
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s3:Pow",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Pow',P1,P2))
 
 	Func Cbrt P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s4:Cbrt",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Cbrt',P1))
 
 	Func Hypot P1,P2
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s5:Hypot",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Hypot',P1,P2))
 
 	Func RootN P1,P2
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s5:RootN",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','RootN',P1,P2))
 
 	Func Sqrt P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s4:Sqrt",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Sqrt',P1))
 
 	Func Acos P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s4:Acos",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Acos',P1))
 
 	Func AcosPi P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s6:AcosPi",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','AcosPi',P1))
 
 	Func Asin P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s4:Asin",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Asin',P1))
 
 	Func AsinPi P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s6:AsinPi",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','AsinPi',P1))
 
 	Func Atan P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s4:Atan",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Atan',P1))
 
 	Func AtanPi P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s6:AtanPi",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','AtanPi',P1))
 
 	Func Cos P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s3:Cos",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Cos',P1))
 
 	Func CosPi P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s5:CosPi",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','CosPi',P1))
 
 	Func DegreesToRadians P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s16:DegreesToRadians",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','DegreesToRadians',P1))
 
 	Func RadiansToDegrees P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s16:RadiansToDegrees",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','RadiansToDegrees',P1))
 
 	Func Sin P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s3:Sin",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Sin',P1))
 
 	Func SinCos P1
 		return dnObj(dotnet_callo("s4:call",'System.Single, System.Private.CoreLib',"s6:SinCos",P1))
@@ -13913,19 +13183,13 @@ Class Single from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Single, System.Private.CoreLib',"s8:SinCosPi",P1))
 
 	Func SinPi P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s5:SinPi",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','SinPi',P1))
 
 	Func Tan P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s3:Tan",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','Tan',P1))
 
 	Func TanPi P1
-		dn_x = dotnet_call("s4:call",'System.Single, System.Private.CoreLib',"s5:TanPi",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','TanPi',P1))
 
 	Func getMinValue
 		return dotnet_call("s3:get",'System.Single, System.Private.CoreLib',"s8:MinValue")
@@ -15005,59 +14269,37 @@ Class UInt16 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.UInt16, System.Private.CoreLib',"s6:DivRem",P1,P2))
 
 	Func LeadingZeroCount P1
-		dn_x = dotnet_call("s4:call",'System.UInt16, System.Private.CoreLib',"s16:LeadingZeroCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt16, System.Private.CoreLib','LeadingZeroCount',P1))
 
 	Func PopCount P1
-		dn_x = dotnet_call("s4:call",'System.UInt16, System.Private.CoreLib',"s8:PopCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt16, System.Private.CoreLib','PopCount',P1))
 
 	Func RotateLeft P1,P2
-		dn_x = dotnet_call("s4:call",'System.UInt16, System.Private.CoreLib',"s10:RotateLeft",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt16, System.Private.CoreLib','RotateLeft',P1,P2))
 
 	Func RotateRight P1,P2
-		dn_x = dotnet_call("s4:call",'System.UInt16, System.Private.CoreLib',"s11:RotateRight",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt16, System.Private.CoreLib','RotateRight',P1,P2))
 
 	Func TrailingZeroCount P1
-		dn_x = dotnet_call("s4:call",'System.UInt16, System.Private.CoreLib',"s17:TrailingZeroCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt16, System.Private.CoreLib','TrailingZeroCount',P1))
 
 	Func IsPow2 P1
-		dn_x = dotnet_call("s4:call",'System.UInt16, System.Private.CoreLib',"s6:IsPow2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt16, System.Private.CoreLib','IsPow2',P1))
 
 	Func Log2 P1
-		dn_x = dotnet_call("s4:call",'System.UInt16, System.Private.CoreLib',"s4:Log2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt16, System.Private.CoreLib','Log2',P1))
 
 	Func Clamp P1,P2,P3
-		dn_x = dotnet_call("s4:call",'System.UInt16, System.Private.CoreLib',"s5:Clamp",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt16, System.Private.CoreLib','Clamp',P1,P2,P3))
 
 	Func Max P1,P2
-		dn_x = dotnet_call("s4:call",'System.UInt16, System.Private.CoreLib',"s3:Max",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt16, System.Private.CoreLib','Max',P1,P2))
 
 	Func Min P1,P2
-		dn_x = dotnet_call("s4:call",'System.UInt16, System.Private.CoreLib',"s3:Min",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt16, System.Private.CoreLib','Min',P1,P2))
 
 	Func Sign P1
-		dn_x = dotnet_call("s4:call",'System.UInt16, System.Private.CoreLib',"s4:Sign",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt16, System.Private.CoreLib','Sign',P1))
 
 	Func CreateChecked P1
 		dn_x = dotnet_call("s4:call",'System.UInt16, System.Private.CoreLib',"s13:CreateChecked",P1)
@@ -15075,14 +14317,10 @@ Class UInt16 from ValueType
 		return dn_x
 
 	Func IsEvenInteger P1
-		dn_x = dotnet_call("s4:call",'System.UInt16, System.Private.CoreLib',"s13:IsEvenInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt16, System.Private.CoreLib','IsEvenInteger',P1))
 
 	Func IsOddInteger P1
-		dn_x = dotnet_call("s4:call",'System.UInt16, System.Private.CoreLib',"s12:IsOddInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt16, System.Private.CoreLib','IsOddInteger',P1))
 
 	Func getMaxValue
 		return dotnet_call("s3:get",'System.UInt16, System.Private.CoreLib',"s8:MaxValue")
@@ -15144,9 +14382,7 @@ Class UInt32 from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetTypeCode"))
 
 	Func BigMul P1,P2
-		dn_x = dotnet_call("s4:call",'System.UInt32, System.Private.CoreLib',"s6:BigMul",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt32, System.Private.CoreLib','BigMul',P1,P2))
 
 	Func Parse P1
 		if dotnet_isnamed(P1)
@@ -15170,59 +14406,37 @@ Class UInt32 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.UInt32, System.Private.CoreLib',"s6:DivRem",P1,P2))
 
 	Func LeadingZeroCount P1
-		dn_x = dotnet_call("s4:call",'System.UInt32, System.Private.CoreLib',"s16:LeadingZeroCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt32, System.Private.CoreLib','LeadingZeroCount',P1))
 
 	Func PopCount P1
-		dn_x = dotnet_call("s4:call",'System.UInt32, System.Private.CoreLib',"s8:PopCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt32, System.Private.CoreLib','PopCount',P1))
 
 	Func RotateLeft P1,P2
-		dn_x = dotnet_call("s4:call",'System.UInt32, System.Private.CoreLib',"s10:RotateLeft",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt32, System.Private.CoreLib','RotateLeft',P1,P2))
 
 	Func RotateRight P1,P2
-		dn_x = dotnet_call("s4:call",'System.UInt32, System.Private.CoreLib',"s11:RotateRight",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt32, System.Private.CoreLib','RotateRight',P1,P2))
 
 	Func TrailingZeroCount P1
-		dn_x = dotnet_call("s4:call",'System.UInt32, System.Private.CoreLib',"s17:TrailingZeroCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt32, System.Private.CoreLib','TrailingZeroCount',P1))
 
 	Func IsPow2 P1
-		dn_x = dotnet_call("s4:call",'System.UInt32, System.Private.CoreLib',"s6:IsPow2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt32, System.Private.CoreLib','IsPow2',P1))
 
 	Func Log2 P1
-		dn_x = dotnet_call("s4:call",'System.UInt32, System.Private.CoreLib',"s4:Log2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt32, System.Private.CoreLib','Log2',P1))
 
 	Func Clamp P1,P2,P3
-		dn_x = dotnet_call("s4:call",'System.UInt32, System.Private.CoreLib',"s5:Clamp",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt32, System.Private.CoreLib','Clamp',P1,P2,P3))
 
 	Func Max P1,P2
-		dn_x = dotnet_call("s4:call",'System.UInt32, System.Private.CoreLib',"s3:Max",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt32, System.Private.CoreLib','Max',P1,P2))
 
 	Func Min P1,P2
-		dn_x = dotnet_call("s4:call",'System.UInt32, System.Private.CoreLib',"s3:Min",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt32, System.Private.CoreLib','Min',P1,P2))
 
 	Func Sign P1
-		dn_x = dotnet_call("s4:call",'System.UInt32, System.Private.CoreLib',"s4:Sign",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt32, System.Private.CoreLib','Sign',P1))
 
 	Func CreateChecked P1
 		dn_x = dotnet_call("s4:call",'System.UInt32, System.Private.CoreLib',"s13:CreateChecked",P1)
@@ -15240,14 +14454,10 @@ Class UInt32 from ValueType
 		return dn_x
 
 	Func IsEvenInteger P1
-		dn_x = dotnet_call("s4:call",'System.UInt32, System.Private.CoreLib',"s13:IsEvenInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt32, System.Private.CoreLib','IsEvenInteger',P1))
 
 	Func IsOddInteger P1
-		dn_x = dotnet_call("s4:call",'System.UInt32, System.Private.CoreLib',"s12:IsOddInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt32, System.Private.CoreLib','IsOddInteger',P1))
 
 	Func getMaxValue
 		return dotnet_call("s3:get",'System.UInt32, System.Private.CoreLib',"s8:MaxValue")
@@ -15333,59 +14543,37 @@ Class UInt64 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.UInt64, System.Private.CoreLib',"s6:DivRem",P1,P2))
 
 	Func LeadingZeroCount P1
-		dn_x = dotnet_call("s4:call",'System.UInt64, System.Private.CoreLib',"s16:LeadingZeroCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt64, System.Private.CoreLib','LeadingZeroCount',P1))
 
 	Func PopCount P1
-		dn_x = dotnet_call("s4:call",'System.UInt64, System.Private.CoreLib',"s8:PopCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt64, System.Private.CoreLib','PopCount',P1))
 
 	Func RotateLeft P1,P2
-		dn_x = dotnet_call("s4:call",'System.UInt64, System.Private.CoreLib',"s10:RotateLeft",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt64, System.Private.CoreLib','RotateLeft',P1,P2))
 
 	Func RotateRight P1,P2
-		dn_x = dotnet_call("s4:call",'System.UInt64, System.Private.CoreLib',"s11:RotateRight",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt64, System.Private.CoreLib','RotateRight',P1,P2))
 
 	Func TrailingZeroCount P1
-		dn_x = dotnet_call("s4:call",'System.UInt64, System.Private.CoreLib',"s17:TrailingZeroCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt64, System.Private.CoreLib','TrailingZeroCount',P1))
 
 	Func IsPow2 P1
-		dn_x = dotnet_call("s4:call",'System.UInt64, System.Private.CoreLib',"s6:IsPow2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt64, System.Private.CoreLib','IsPow2',P1))
 
 	Func Log2 P1
-		dn_x = dotnet_call("s4:call",'System.UInt64, System.Private.CoreLib',"s4:Log2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt64, System.Private.CoreLib','Log2',P1))
 
 	Func Clamp P1,P2,P3
-		dn_x = dotnet_call("s4:call",'System.UInt64, System.Private.CoreLib',"s5:Clamp",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt64, System.Private.CoreLib','Clamp',P1,P2,P3))
 
 	Func Max P1,P2
-		dn_x = dotnet_call("s4:call",'System.UInt64, System.Private.CoreLib',"s3:Max",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt64, System.Private.CoreLib','Max',P1,P2))
 
 	Func Min P1,P2
-		dn_x = dotnet_call("s4:call",'System.UInt64, System.Private.CoreLib',"s3:Min",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt64, System.Private.CoreLib','Min',P1,P2))
 
 	Func Sign P1
-		dn_x = dotnet_call("s4:call",'System.UInt64, System.Private.CoreLib',"s4:Sign",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt64, System.Private.CoreLib','Sign',P1))
 
 	Func CreateChecked P1
 		dn_x = dotnet_call("s4:call",'System.UInt64, System.Private.CoreLib',"s13:CreateChecked",P1)
@@ -15403,14 +14591,10 @@ Class UInt64 from ValueType
 		return dn_x
 
 	Func IsEvenInteger P1
-		dn_x = dotnet_call("s4:call",'System.UInt64, System.Private.CoreLib',"s13:IsEvenInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt64, System.Private.CoreLib','IsEvenInteger',P1))
 
 	Func IsOddInteger P1
-		dn_x = dotnet_call("s4:call",'System.UInt64, System.Private.CoreLib',"s12:IsOddInteger",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.UInt64, System.Private.CoreLib','IsOddInteger',P1))
 
 	Func getMaxValue
 		return dotnet_call("s3:get",'System.UInt64, System.Private.CoreLib',"s8:MaxValue")
@@ -16386,9 +15570,7 @@ Class DateTime from ValueType
 		return dn_x
 
 	Func DaysInMonth P1,P2
-		dn_x = dotnet_call("s4:call",'System.DateTime, System.Private.CoreLib',"s11:DaysInMonth",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.DateTime, System.Private.CoreLib','DaysInMonth',P1,P2))
 
 	Func FromBinary P1
 		return dnObj(dotnet_callo("s4:call",'System.DateTime, System.Private.CoreLib',"s10:FromBinary",P1))
@@ -16406,9 +15588,7 @@ Class DateTime from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.DateTime, System.Private.CoreLib',"s11:SpecifyKind",P1,P2))
 
 	Func IsLeapYear P1
-		dn_x = dotnet_call("s4:call",'System.DateTime, System.Private.CoreLib',"s10:IsLeapYear",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.DateTime, System.Private.CoreLib','IsLeapYear',P1))
 
 	Func Parse P1
 		if dotnet_isnamed(P1)

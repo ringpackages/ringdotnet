@@ -3792,9 +3792,7 @@ Class RemoteAttributeBase from ValidationAttribute
 		return self
 
 	Func FormatPropertyForClientValidation P1
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Mvc.RemoteAttributeBase, Microsoft.AspNetCore.Mvc.ViewFeatures',"s33:FormatPropertyForClientValidation",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Mvc.RemoteAttributeBase, Microsoft.AspNetCore.Mvc.ViewFeatures','FormatPropertyForClientValidation',P1))
 
 	Func getHttpMethod
 		return dnAnswer(dotnet_getp(nHandle,"HttpMethod"))

@@ -2326,54 +2326,34 @@ Class HttpMethods from Object
 		return dn_x
 
 	Func IsConnect P1
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s9:IsConnect",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','IsConnect',P1))
 
 	Func IsDelete P1
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s8:IsDelete",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','IsDelete',P1))
 
 	Func IsGet P1
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s5:IsGet",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','IsGet',P1))
 
 	Func IsHead P1
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s6:IsHead",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','IsHead',P1))
 
 	Func IsOptions P1
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s9:IsOptions",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','IsOptions',P1))
 
 	Func IsPatch P1
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s7:IsPatch",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','IsPatch',P1))
 
 	Func IsPost P1
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s6:IsPost",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','IsPost',P1))
 
 	Func IsPut P1
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s5:IsPut",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','IsPut',P1))
 
 	Func IsTrace P1
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s7:IsTrace",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','IsTrace',P1))
 
 	Func GetCanonicalizedValue P1
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s21:GetCanonicalizedValue",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','GetCanonicalizedValue',P1))
 
 	Func getConnect
 		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s7:Connect")
@@ -2465,29 +2445,19 @@ Class HttpProtocol from Object
 		return dn_x
 
 	Func IsHttp09 P1
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s8:IsHttp09",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions','IsHttp09',P1))
 
 	Func IsHttp10 P1
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s8:IsHttp10",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions','IsHttp10',P1))
 
 	Func IsHttp11 P1
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s8:IsHttp11",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions','IsHttp11',P1))
 
 	Func IsHttp2 P1
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s7:IsHttp2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions','IsHttp2',P1))
 
 	Func IsHttp3 P1
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s7:IsHttp3",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions','IsHttp3',P1))
 
 	Func GetHttpProtocol P1
 		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s15:GetHttpProtocol",P1)

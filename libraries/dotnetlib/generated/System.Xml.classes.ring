@@ -358,59 +358,37 @@ Class XmlConvert from Object
 		return dn_x
 
 	Func EncodeName P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s10:EncodeName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','EncodeName',P1))
 
 	Func EncodeNmToken P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s13:EncodeNmToken",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','EncodeNmToken',P1))
 
 	Func EncodeLocalName P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s15:EncodeLocalName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','EncodeLocalName',P1))
 
 	Func DecodeName P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s10:DecodeName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','DecodeName',P1))
 
 	Func VerifyName P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s10:VerifyName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyName',P1))
 
 	Func VerifyNCName P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s12:VerifyNCName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyNCName',P1))
 
 	Func VerifyTOKEN P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s11:VerifyTOKEN",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyTOKEN',P1))
 
 	Func VerifyNMTOKEN P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s13:VerifyNMTOKEN",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyNMTOKEN',P1))
 
 	Func VerifyXmlChars P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s14:VerifyXmlChars",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyXmlChars',P1))
 
 	Func VerifyPublicId P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s14:VerifyPublicId",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyPublicId',P1))
 
 	Func VerifyWhitespace P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s16:VerifyWhitespace",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyWhitespace',P1))
 
 	Func IsStartNCNameChar P1
 		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s17:IsStartNCNameChar",P1)
@@ -443,67 +421,43 @@ Class XmlConvert from Object
 		return dn_x
 
 	Func ToBoolean P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s9:ToBoolean",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','ToBoolean',P1))
 
 	Func ToChar P1
 		return dnObj(dotnet_callo("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s6:ToChar",P1))
 
 	Func ToDecimal P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s9:ToDecimal",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','ToDecimal',P1))
 
 	Func ToSByte P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s7:ToSByte",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','ToSByte',P1))
 
 	Func ToInt16 P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s7:ToInt16",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','ToInt16',P1))
 
 	Func ToInt32 P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s7:ToInt32",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','ToInt32',P1))
 
 	Func ToInt64 P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s7:ToInt64",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','ToInt64',P1))
 
 	Func ToByte P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s6:ToByte",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','ToByte',P1))
 
 	Func ToUInt16 P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s8:ToUInt16",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','ToUInt16',P1))
 
 	Func ToUInt32 P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s8:ToUInt32",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','ToUInt32',P1))
 
 	Func ToUInt64 P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s8:ToUInt64",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','ToUInt64',P1))
 
 	Func ToSingle P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s8:ToSingle",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','ToSingle',P1))
 
 	Func ToDouble P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s8:ToDouble",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','ToDouble',P1))
 
 	Func ToTimeSpan P1
 		return dnObj(dotnet_callo("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s10:ToTimeSpan",P1))
@@ -1738,14 +1692,10 @@ Class XmlReader from Object
 		return dn_x
 
 	Func IsName P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlReader, System.Private.Xml',"s6:IsName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlReader, System.Private.Xml','IsName',P1))
 
 	Func IsNameToken P1
-		dn_x = dotnet_call("s4:call",'System.Xml.XmlReader, System.Private.Xml',"s11:IsNameToken",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.XmlReader, System.Private.Xml','IsNameToken',P1))
 
 	Func Create P1
 		if dotnet_isnamed(P1)

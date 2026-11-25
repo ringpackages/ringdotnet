@@ -2390,14 +2390,10 @@ Class ModelNames from Object
 		return dn_x
 
 	Func CreateIndexModelName P1,P2
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core',"s20:CreateIndexModelName",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core','CreateIndexModelName',P1,P2))
 
 	Func CreatePropertyModelName P1,P2
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core',"s23:CreatePropertyModelName",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core','CreatePropertyModelName',P1,P2))
 
 
 Class ModelPropertyCollection from ReadOnlyCollection
@@ -2536,9 +2532,7 @@ Class ModelStateDictionary from Object
 		return dn_x
 
 	Func StartsWithPrefix P1,P2
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',"s16:StartsWithPrefix",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions','StartsWithPrefix',P1,P2))
 
 	Func RemoveAll P1
 		dnEnsureExt("Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures")

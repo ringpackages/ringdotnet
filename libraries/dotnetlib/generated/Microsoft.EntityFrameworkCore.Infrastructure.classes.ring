@@ -1567,43 +1567,35 @@ Class EntityFrameworkMetricsData from Object
 		return dn_x
 
 	Func ReportDbContextInitializing 
-		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore',"s27:ReportDbContextInitializing")
-
+		dotnet_calltsv('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore','ReportDbContextInitializing')
 		return self
 
 	Func ReportDbContextDisposing 
-		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore',"s24:ReportDbContextDisposing")
-
+		dotnet_calltsv('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore','ReportDbContextDisposing')
 		return self
 
 	Func ReportQueryExecuting 
-		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore',"s20:ReportQueryExecuting")
-
+		dotnet_calltsv('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore','ReportQueryExecuting')
 		return self
 
 	Func ReportSavingChanges 
-		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore',"s19:ReportSavingChanges")
-
+		dotnet_calltsv('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore','ReportSavingChanges')
 		return self
 
 	Func ReportCompiledQueryCacheHit 
-		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore',"s27:ReportCompiledQueryCacheHit")
-
+		dotnet_calltsv('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore','ReportCompiledQueryCacheHit')
 		return self
 
 	Func ReportCompiledQueryCacheMiss 
-		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore',"s28:ReportCompiledQueryCacheMiss")
-
+		dotnet_calltsv('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore','ReportCompiledQueryCacheMiss')
 		return self
 
 	Func ReportExecutionStrategyOperationFailure 
-		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore',"s39:ReportExecutionStrategyOperationFailure")
-
+		dotnet_calltsv('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore','ReportExecutionStrategyOperationFailure')
 		return self
 
 	Func ReportOptimisticConcurrencyFailure 
-		dotnet_callv("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore',"s34:ReportOptimisticConcurrencyFailure")
-
+		dotnet_calltsv('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkMetricsData, Microsoft.EntityFrameworkCore','ReportOptimisticConcurrencyFailure')
 		return self
 
 
@@ -2837,9 +2829,7 @@ Class ProductInfo from Object
 		return dn_x
 
 	Func GetVersion 
-		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Infrastructure.ProductInfo, Microsoft.EntityFrameworkCore',"s10:GetVersion")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.EntityFrameworkCore.Infrastructure.ProductInfo, Microsoft.EntityFrameworkCore','GetVersion'))
 
 
 Class RelationalDbContextOptionsBuilder from Object

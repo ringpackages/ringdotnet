@@ -1403,29 +1403,20 @@ Class WpfClipboard from Object
 		return dn_x
 
 	Func Clear 
-		dotnet_callv("s4:call",'System.Windows.Clipboard, PresentationCore',"s5:Clear")
-
+		dotnet_calltsv('System.Windows.Clipboard, PresentationCore','Clear')
 		return self
 
 	Func ContainsAudio 
-		dn_x = dotnet_call("s4:call",'System.Windows.Clipboard, PresentationCore',"s13:ContainsAudio")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Windows.Clipboard, PresentationCore','ContainsAudio'))
 
 	Func ContainsData P1
-		dn_x = dotnet_call("s4:call",'System.Windows.Clipboard, PresentationCore',"s12:ContainsData",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Windows.Clipboard, PresentationCore','ContainsData',P1))
 
 	Func ContainsFileDropList 
-		dn_x = dotnet_call("s4:call",'System.Windows.Clipboard, PresentationCore',"s20:ContainsFileDropList")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Windows.Clipboard, PresentationCore','ContainsFileDropList'))
 
 	Func ContainsImage 
-		dn_x = dotnet_call("s4:call",'System.Windows.Clipboard, PresentationCore',"s13:ContainsImage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Windows.Clipboard, PresentationCore','ContainsImage'))
 
 	Func ContainsText P1
 		if dotnet_isnamed(P1)
@@ -1443,8 +1434,7 @@ Class WpfClipboard from Object
 		return dn_x
 
 	Func Flush 
-		dotnet_callv("s4:call",'System.Windows.Clipboard, PresentationCore',"s5:Flush")
-
+		dotnet_calltsv('System.Windows.Clipboard, PresentationCore','Flush')
 		return self
 
 	Func GetAudioStream 

@@ -1259,9 +1259,7 @@ Class ISOWeek from Object
 		return dnObj(dotnet_callo("s4:call",'System.Globalization.ISOWeek, System.Private.CoreLib',"s10:GetYearEnd",P1))
 
 	Func GetWeeksInYear P1
-		dn_x = dotnet_call("s4:call",'System.Globalization.ISOWeek, System.Private.CoreLib',"s14:GetWeeksInYear",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Globalization.ISOWeek, System.Private.CoreLib','GetWeeksInYear',P1))
 
 	Func ToDateTime P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",'System.Globalization.ISOWeek, System.Private.CoreLib',"s10:ToDateTime",P1,P2,P3))

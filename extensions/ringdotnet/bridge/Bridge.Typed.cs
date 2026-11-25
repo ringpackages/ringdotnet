@@ -50,6 +50,8 @@ namespace RingDotNet
 			public string NameText;
 			public int Hash;
 			public AccessorPair Last;
+			public Type StaticType;                  /* the type that this name names (a static typed call), when it was resolved */
+			public bool StaticResolved;
 			public readonly ConcurrentDictionary<Type, PropAccessor> ByType = new ConcurrentDictionary<Type, PropAccessor>();
 		}
 

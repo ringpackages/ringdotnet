@@ -573,14 +573,10 @@ Class Regex from Object
 		raise("DotNet Error: CompileToAssembly does not take one argument: use named arguments, CompileToAssembly([ :parameter = value, ... ])")
 
 	Func Escape P1
-		dn_x = dotnet_call("s4:call",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s6:Escape",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions','Escape',P1))
 
 	Func Unescape P1
-		dn_x = dotnet_call("s4:call",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s8:Unescape",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions','Unescape',P1))
 
 	Func getOptions
 		return dnAnswer(dotnet_getp(nHandle,"Options"))

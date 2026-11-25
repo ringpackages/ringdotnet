@@ -978,14 +978,11 @@ Class ExecutionContext from Object
 		return dnObj(dotnet_callo("s4:call",'System.Threading.ExecutionContext, System.Private.CoreLib',"s12:SuppressFlow"))
 
 	Func RestoreFlow 
-		dotnet_callv("s4:call",'System.Threading.ExecutionContext, System.Private.CoreLib',"s11:RestoreFlow")
-
+		dotnet_calltsv('System.Threading.ExecutionContext, System.Private.CoreLib','RestoreFlow')
 		return self
 
 	Func IsFlowSuppressed 
-		dn_x = dotnet_call("s4:call",'System.Threading.ExecutionContext, System.Private.CoreLib',"s16:IsFlowSuppressed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Threading.ExecutionContext, System.Private.CoreLib','IsFlowSuppressed'))
 
 	Func Run P1,P2,P3
 		dotnet_callv("s4:call",'System.Threading.ExecutionContext, System.Private.CoreLib',"s3:Run",P1,P2,P3)
@@ -1160,13 +1157,10 @@ Class Interlocked from Object
 		return dnSend("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s3:Add",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Read P1
-		dn_x = dotnet_call("s4:call",'System.Threading.Interlocked, System.Private.CoreLib',"s4:Read",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Threading.Interlocked, System.Private.CoreLib','Read',P1))
 
 	Func MemoryBarrierProcessWide 
-		dotnet_callv("s4:call",'System.Threading.Interlocked, System.Private.CoreLib',"s24:MemoryBarrierProcessWide")
-
+		dotnet_calltsv('System.Threading.Interlocked, System.Private.CoreLib','MemoryBarrierProcessWide')
 		return self
 
 	Func @And P1,P2
@@ -1176,8 +1170,7 @@ Class Interlocked from Object
 		return dnSend("s4:call",dnTypeHandle('System.Threading.Interlocked, System.Private.CoreLib'),"s2:Or",dnPackItem(P1) + dnPackItem(P2))
 
 	Func MemoryBarrier 
-		dotnet_callv("s4:call",'System.Threading.Interlocked, System.Private.CoreLib',"s13:MemoryBarrier")
-
+		dotnet_calltsv('System.Threading.Interlocked, System.Private.CoreLib','MemoryBarrier')
 		return self
 
 
@@ -2520,17 +2513,13 @@ Class ThreadPool from Object
 		return dn_x
 
 	Func SetMaxThreads P1,P2
-		dn_x = dotnet_call("s4:call",'System.Threading.ThreadPool, System.Private.CoreLib',"s13:SetMaxThreads",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Threading.ThreadPool, System.Private.CoreLib','SetMaxThreads',P1,P2))
 
 	Func GetMaxThreads 
 		return dnSend("s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s13:GetMaxThreads","")
 
 	Func SetMinThreads P1,P2
-		dn_x = dotnet_call("s4:call",'System.Threading.ThreadPool, System.Private.CoreLib',"s13:SetMinThreads",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Threading.ThreadPool, System.Private.CoreLib','SetMinThreads',P1,P2))
 
 	Func GetMinThreads 
 		return dnSend("s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s13:GetMinThreads","")
@@ -2765,9 +2754,7 @@ Class Volatile from Object
 		return dn_x
 
 	Func Read P1
-		dn_x = dotnet_call("s4:call",'System.Threading.Volatile, System.Private.CoreLib',"s4:Read",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Threading.Volatile, System.Private.CoreLib','Read',P1))
 
 	Func Write P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Threading.Volatile, System.Private.CoreLib'),"s5:Write",dnPackItem(P1) + dnPackItem(P2))
@@ -3039,43 +3026,34 @@ Class Thread from DotNetObject
 		return dn_x
 
 	Func SpinWait P1
-		dotnet_callv("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s8:SpinWait",P1)
-
+		dotnet_calltsv('System.Threading.Thread, System.Private.CoreLib','SpinWait',P1)
 		return self
 
 	Func Yield 
-		dn_x = dotnet_call("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s5:Yield")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Threading.Thread, System.Private.CoreLib','Yield'))
 
 	Func Sleep P1
-		dotnet_callv("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s5:Sleep",P1)
-
+		dotnet_calltsv('System.Threading.Thread, System.Private.CoreLib','Sleep',P1)
 		return self
 
 	Func ResetAbort 
-		dotnet_callv("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s10:ResetAbort")
-
+		dotnet_calltsv('System.Threading.Thread, System.Private.CoreLib','ResetAbort')
 		return self
 
 	Func BeginCriticalRegion 
-		dotnet_callv("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s19:BeginCriticalRegion")
-
+		dotnet_calltsv('System.Threading.Thread, System.Private.CoreLib','BeginCriticalRegion')
 		return self
 
 	Func EndCriticalRegion 
-		dotnet_callv("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s17:EndCriticalRegion")
-
+		dotnet_calltsv('System.Threading.Thread, System.Private.CoreLib','EndCriticalRegion')
 		return self
 
 	Func BeginThreadAffinity 
-		dotnet_callv("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s19:BeginThreadAffinity")
-
+		dotnet_calltsv('System.Threading.Thread, System.Private.CoreLib','BeginThreadAffinity')
 		return self
 
 	Func EndThreadAffinity 
-		dotnet_callv("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s17:EndThreadAffinity")
-
+		dotnet_calltsv('System.Threading.Thread, System.Private.CoreLib','EndThreadAffinity')
 		return self
 
 	Func AllocateDataSlot 
@@ -3088,8 +3066,7 @@ Class Thread from DotNetObject
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s16:GetNamedDataSlot",P1))
 
 	Func FreeNamedDataSlot P1
-		dotnet_callv("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s17:FreeNamedDataSlot",P1)
-
+		dotnet_calltsv('System.Threading.Thread, System.Private.CoreLib','FreeNamedDataSlot',P1)
 		return self
 
 	Func GetData P1
@@ -3104,13 +3081,10 @@ Class Thread from DotNetObject
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s9:GetDomain"))
 
 	Func GetDomainID 
-		dn_x = dotnet_call("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s11:GetDomainID")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Threading.Thread, System.Private.CoreLib','GetDomainID'))
 
 	Func MemoryBarrier 
-		dotnet_callv("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s13:MemoryBarrier")
-
+		dotnet_calltsv('System.Threading.Thread, System.Private.CoreLib','MemoryBarrier')
 		return self
 
 	Func VolatileRead P1
@@ -3120,9 +3094,7 @@ Class Thread from DotNetObject
 		return dnSend("s4:call",dnTypeHandle('System.Threading.Thread, System.Private.CoreLib'),"s13:VolatileWrite",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetCurrentProcessorId 
-		dn_x = dotnet_call("s4:call",'System.Threading.Thread, System.Private.CoreLib',"s21:GetCurrentProcessorId")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Threading.Thread, System.Private.CoreLib','GetCurrentProcessorId'))
 
 	Func getManagedThreadId
 		return dotnet_getp(nHandle,"ManagedThreadId")

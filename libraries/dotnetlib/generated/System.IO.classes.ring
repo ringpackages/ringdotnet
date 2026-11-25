@@ -470,9 +470,7 @@ Class Directory from Object
 		return dnObj(dotnet_callo("s4:call",'System.IO.Directory, System.Private.CoreLib',"s22:CreateTempSubdirectory",P1))
 
 	Func Exists P1
-		dn_x = dotnet_call("s4:call",'System.IO.Directory, System.Private.CoreLib',"s6:Exists",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Directory, System.Private.CoreLib','Exists',P1))
 
 	Func SetCreationTime P1,P2
 		dotnet_callv("s4:call",'System.IO.Directory, System.Private.CoreLib',"s15:SetCreationTime",P1,P2)
@@ -559,23 +557,17 @@ Class Directory from Object
 		return dnObj(dotnet_callo("s4:call",'System.IO.Directory, System.Private.CoreLib',"s26:EnumerateFileSystemEntries",P1))
 
 	Func GetDirectoryRoot P1
-		dn_x = dotnet_call("s4:call",'System.IO.Directory, System.Private.CoreLib',"s16:GetDirectoryRoot",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Directory, System.Private.CoreLib','GetDirectoryRoot',P1))
 
 	Func GetCurrentDirectory 
-		dn_x = dotnet_call("s4:call",'System.IO.Directory, System.Private.CoreLib',"s19:GetCurrentDirectory")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Directory, System.Private.CoreLib','GetCurrentDirectory'))
 
 	Func SetCurrentDirectory P1
-		dotnet_callv("s4:call",'System.IO.Directory, System.Private.CoreLib',"s19:SetCurrentDirectory",P1)
-
+		dotnet_calltsv('System.IO.Directory, System.Private.CoreLib','SetCurrentDirectory',P1)
 		return self
 
 	Func Move P1,P2
-		dotnet_callv("s4:call",'System.IO.Directory, System.Private.CoreLib',"s4:Move",P1,P2)
-
+		dotnet_calltsv('System.IO.Directory, System.Private.CoreLib','Move',P1,P2)
 		return self
 
 	Func Delete P1
@@ -831,14 +823,11 @@ Class File from Object
 		return dnObj(dotnet_callo("s4:call",'System.IO.File, System.Private.CoreLib',"s6:Create",P1))
 
 	Func Delete P1
-		dotnet_callv("s4:call",'System.IO.File, System.Private.CoreLib',"s6:Delete",P1)
-
+		dotnet_calltsv('System.IO.File, System.Private.CoreLib','Delete',P1)
 		return self
 
 	Func Exists P1
-		dn_x = dotnet_call("s4:call",'System.IO.File, System.Private.CoreLib',"s6:Exists",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.File, System.Private.CoreLib','Exists',P1))
 
 	Func Open P1
 		if dotnet_isnamed(P1)
@@ -1012,13 +1001,11 @@ Class File from Object
 		raise("DotNet Error: Move does not take one argument: use named arguments, Move([ :parameter = value, ... ])")
 
 	Func Encrypt P1
-		dotnet_callv("s4:call",'System.IO.File, System.Private.CoreLib',"s7:Encrypt",P1)
-
+		dotnet_calltsv('System.IO.File, System.Private.CoreLib','Encrypt',P1)
 		return self
 
 	Func Decrypt P1
-		dotnet_callv("s4:call",'System.IO.File, System.Private.CoreLib',"s7:Decrypt",P1)
-
+		dotnet_calltsv('System.IO.File, System.Private.CoreLib','Decrypt',P1)
 		return self
 
 	Func ReadAllTextAsync P1
@@ -1616,49 +1603,31 @@ Class Path from Object
 		return dn_x
 
 	Func ChangeExtension P1,P2
-		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s15:ChangeExtension",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','ChangeExtension',P1,P2))
 
 	Func Exists P1
-		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s6:Exists",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','Exists',P1))
 
 	Func GetDirectoryName P1
-		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s16:GetDirectoryName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','GetDirectoryName',P1))
 
 	Func GetExtension P1
-		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s12:GetExtension",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','GetExtension',P1))
 
 	Func GetFileName P1
-		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s11:GetFileName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','GetFileName',P1))
 
 	Func GetFileNameWithoutExtension P1
-		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s27:GetFileNameWithoutExtension",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','GetFileNameWithoutExtension',P1))
 
 	Func GetRandomFileName 
-		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s17:GetRandomFileName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','GetRandomFileName'))
 
 	Func IsPathFullyQualified P1
-		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s20:IsPathFullyQualified",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','IsPathFullyQualified',P1))
 
 	Func HasExtension P1
-		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s12:HasExtension",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','HasExtension',P1))
 
 	Func Combine P1
 		if dotnet_isnamed(P1)
@@ -1689,19 +1658,13 @@ Class Path from Object
 		raise("DotNet Error: TryJoin does not take one argument: use named arguments, TryJoin([ :parameter = value, ... ])")
 
 	Func GetRelativePath P1,P2
-		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s15:GetRelativePath",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','GetRelativePath',P1,P2))
 
 	Func TrimEndingDirectorySeparator P1
-		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s28:TrimEndingDirectorySeparator",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','TrimEndingDirectorySeparator',P1))
 
 	Func EndsInDirectorySeparator P1
-		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s24:EndsInDirectorySeparator",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','EndsInDirectorySeparator',P1))
 
 	Func GetInvalidFileNameChars 
 		return dnObj(dotnet_callo("s4:call",'System.IO.Path, System.Private.CoreLib',"s23:GetInvalidFileNameChars"))
@@ -1720,24 +1683,16 @@ Class Path from Object
 		return dn_x
 
 	Func GetTempPath 
-		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s11:GetTempPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','GetTempPath'))
 
 	Func GetTempFileName 
-		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s15:GetTempFileName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','GetTempFileName'))
 
 	Func IsPathRooted P1
-		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s12:IsPathRooted",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','IsPathRooted',P1))
 
 	Func GetPathRoot P1
-		dn_x = dotnet_call("s4:call",'System.IO.Path, System.Private.CoreLib',"s11:GetPathRoot",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','GetPathRoot',P1))
 
 	Func getDirectorySeparatorChar
 		return dnObj(dotnet_callo("s3:get",'System.IO.Path, System.Private.CoreLib',"s22:DirectorySeparatorChar"))

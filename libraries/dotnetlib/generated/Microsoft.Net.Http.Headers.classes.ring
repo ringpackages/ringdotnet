@@ -1695,9 +1695,7 @@ Class HeaderUtilities from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"s24:TryParseNonNegativeInt64",dnPackItem(P1))
 
 	Func FormatNonNegativeInt64 P1
-		dn_x = dotnet_call("s4:call",'Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers',"s22:FormatNonNegativeInt64",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers','FormatNonNegativeInt64',P1))
 
 	Func TryParseDate P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"s12:TryParseDate",dnPackItem(P1))

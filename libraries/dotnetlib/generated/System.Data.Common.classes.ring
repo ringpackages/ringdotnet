@@ -2975,14 +2975,11 @@ Class DbProviderFactories from Object
 		return dnObj(dotnet_callo("s4:call",'System.Data.Common.DbProviderFactories, System.Data.Common',"s25:GetProviderInvariantNames"))
 
 	Func RegisterFactory P1,P2
-		dotnet_callv("s4:call",'System.Data.Common.DbProviderFactories, System.Data.Common',"s15:RegisterFactory",P1,P2)
-
+		dotnet_calltsv('System.Data.Common.DbProviderFactories, System.Data.Common','RegisterFactory',P1,P2)
 		return self
 
 	Func UnregisterFactory P1
-		dn_x = dotnet_call("s4:call",'System.Data.Common.DbProviderFactories, System.Data.Common',"s17:UnregisterFactory",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Data.Common.DbProviderFactories, System.Data.Common','UnregisterFactory',P1))
 
 
 Class DbProviderFactory from Object

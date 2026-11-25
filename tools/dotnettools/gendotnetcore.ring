@@ -321,7 +321,14 @@ func typedIndexerGetCode
 # without a request text (dotnet_callt, dotnet_calltv). The bridge decides on the real type of the object: it calls the method directly only when it is the only
 # one of that name that can take these arguments, and the arguments convert exactly; otherwise the extension makes the generic request itself.
 func isTypedMethod aRec
-	if aRec[2] or aRec[5] > 0 or len(aRec[4]) > 8
+	return isTypedCall(aRec,false)
+
+# The same for a static method: dotnet_callts (the type name replaces the handle) calls it without a request text
+func isTypedStaticMethod aRec
+	return isTypedCall(aRec,true)
+
+func isTypedCall aRec, lStatic
+	if (aRec[2] != lStatic) or aRec[5] > 0 or len(aRec[4]) > 8
 		return false
 	ok
 	if aRec[3] != "System.Void" and not isPrimitiveType(aRec[3])
@@ -343,6 +350,16 @@ func typedMethodCode cName, nArity, cReturnType
 		return 'dotnet_calltv(nHandle,"' + cName + '"' + cArgs + ')' + nl + "		return self" + nl
 	ok
 	return 'return dnAnswer(dotnet_callt(nHandle,"' + cName + '"' + cArgs + '))' + nl
+
+func typedStaticMethodCode cType, cName, nArity, cReturnType
+	cArgs = ""
+	for x = 1 to nArity
+		cArgs += ",P" + x
+	next
+	if cReturnType = "System.Void"
+		return "dotnet_calltsv('" + cType + "','" + cName + "'" + cArgs + ")" + nl + "		return self" + nl
+	ok
+	return "return dnAnswer(dotnet_callts('" + cType + "','" + cName + "'" + cArgs + "))" + nl
 
 # The getter of an instance property or field of a number, a yes/no or a text: dotnet_getp (ring_dotnet.c) reads it without a request text. The bridge
 # answers the value, or asks for the generic request (the property is of another kind on the real type, the handle is not valid...), which the extension
@@ -865,6 +882,8 @@ func buildPlan cTypeName, nForceInit
 		ok
 		if cHint = "" and isTypedMethod(aMethod) and find(aBoth,cLower + "|" + nArity) = 0
 			cB += "		" + typedMethodCode(cName,nArity,aMethod[3]) + nl
+		but cHint = "" and isTypedStaticMethod(aMethod) and find(aBoth,cLower + "|" + nArity) = 0
+			cB += "		" + typedStaticMethodCode(cTypeName,cName,nArity,aMethod[3]) + nl
 		else
 			cB += "		" + returnCode(cReq,aMethod[3],aMethod[5]) + nl
 		ok

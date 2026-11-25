@@ -595,9 +595,7 @@ Class Assembly from Object
 		return dnObj(dotnet_callo("s4:call",'System.Reflection.Assembly, System.Private.CoreLib',"s18:GetCallingAssembly"))
 
 	Func CreateQualifiedName P1,P2
-		dn_x = dotnet_call("s4:call",'System.Reflection.Assembly, System.Private.CoreLib',"s19:CreateQualifiedName",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Reflection.Assembly, System.Private.CoreLib','CreateQualifiedName',P1,P2))
 
 	Func GetAssembly P1
 		return dnObj(dotnet_callo("s4:call",'System.Reflection.Assembly, System.Private.CoreLib',"s11:GetAssembly",P1))

@@ -1119,9 +1119,7 @@ Class ReasonPhrases from Object
 		return dn_x
 
 	Func GetReasonPhrase P1
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.WebUtilities.ReasonPhrases, Microsoft.AspNetCore.WebUtilities',"s15:GetReasonPhrase",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.WebUtilities.ReasonPhrases, Microsoft.AspNetCore.WebUtilities','GetReasonPhrase',P1))
 
 
 Class StreamHelperExtensions from Object
@@ -1170,9 +1168,7 @@ Class WebEncoders from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities',"s15:Base64UrlDecode",P1))
 
 	Func GetArraySizeRequiredToDecode P1
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities',"s28:GetArraySizeRequiredToDecode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities','GetArraySizeRequiredToDecode',P1))
 
 	Func Base64UrlEncode P1
 		if dotnet_isnamed(P1)
@@ -1185,8 +1181,6 @@ Class WebEncoders from Object
 		return dn_x
 
 	Func GetArraySizeRequiredToEncode P1
-		dn_x = dotnet_call("s4:call",'Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities',"s28:GetArraySizeRequiredToEncode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities','GetArraySizeRequiredToEncode',P1))
 
 

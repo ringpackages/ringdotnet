@@ -385,19 +385,13 @@ Class CodeIdentifier from Object
 		return dn_x
 
 	Func MakePascal P1
-		dn_x = dotnet_call("s4:call",'System.Xml.Serialization.CodeIdentifier, System.Private.Xml',"s10:MakePascal",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.Serialization.CodeIdentifier, System.Private.Xml','MakePascal',P1))
 
 	Func MakeCamel P1
-		dn_x = dotnet_call("s4:call",'System.Xml.Serialization.CodeIdentifier, System.Private.Xml',"s9:MakeCamel",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.Serialization.CodeIdentifier, System.Private.Xml','MakeCamel',P1))
 
 	Func MakeValid P1
-		dn_x = dotnet_call("s4:call",'System.Xml.Serialization.CodeIdentifier, System.Private.Xml',"s9:MakeValid",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Xml.Serialization.CodeIdentifier, System.Private.Xml','MakeValid',P1))
 
 
 Class CodeIdentifiers from Object

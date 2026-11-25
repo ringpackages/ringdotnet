@@ -64,13 +64,13 @@ namespace RingDotNet
 			return v == Math.Floor(v) && v >= low && v <= high;
 		}
 
-		private static MethodAccessor BuildMethodAccessor(Type type, string name, int argc)
+		private static MethodAccessor BuildMethodAccessor(Type type, string name, int argc, bool isStatic = false)
 		{
 			try
 			{
-				if (type.IsValueType) return NoMethod;
+				if (isStatic ? type.IsGenericTypeDefinition : type.IsValueType) return NoMethod;
 				MethodInfo exact = null;
-				foreach (MethodInfo m in MethodsNamed(type, name, InstanceFlags))
+				foreach (MethodInfo m in MethodsNamed(type, name, isStatic ? StaticFlags : InstanceFlags))
 				{
 					if (m.Name != name) return NoMethod;          /* found only by another letter case: the generic request decides */
 					ParameterInfo[] ps = m.GetParameters();
@@ -105,7 +105,7 @@ namespace RingDotNet
 						default: arguments[i] = Expression.Convert(slot, pt); break;
 					}
 				}
-				Expression call = Expression.Call(Expression.Convert(o, type), exact, arguments);
+				Expression call = isStatic ? Expression.Call(exact, arguments) : Expression.Call(Expression.Convert(o, type), exact, arguments);
 				Type rt = exact.ReturnType;
 				MethodAccessor a = new MethodAccessor { ParamKinds = kinds };
 				if (rt == typeof(void))
@@ -171,6 +171,60 @@ namespace RingDotNet
 			if (!ok) return false;
 			numbers[i] = v;
 			return true;
+		}
+
+		private static readonly ConcurrentDictionary<(Type, string, int), MethodAccessor> StaticAccessors = new ConcurrentDictionary<(Type, string, int), MethodAccessor>();
+
+		/* A call of a static method by the name of the type: the same rules, with no object */
+		[UnmanagedCallersOnly]
+		public static int CallTypedStatic(byte* typeName, int typeLength, byte* name, int nameLength, TypedArg* args, int argc, TypedResult* r)
+		{
+			if (Depth == 0) RingThread = Environment.CurrentManagedThreadId;
+			Depth++;
+			try
+			{
+				if (argc < 0 || argc > 8) return 3;
+				PropEntry te = FindProp(typeName, typeLength);
+				if (!te.StaticResolved)
+				{
+					Type resolved = null;
+					try { resolved = ResolveType(te.NameText); } catch (Exception) { }
+					te.StaticType = resolved;
+					te.StaticResolved = true;
+				}
+				Type t = te.StaticType;
+				if (t == null) return 3;
+				PropEntry e = FindProp(name, nameLength);
+				MethodAccessor a = StaticAccessors.GetOrAdd((t, e.NameText, argc), key => BuildMethodAccessor(key.Item1, key.Item2, key.Item3, true));
+				if (a == NoMethod) return 3;
+				double[] numbers = CallNumbers ??= new double[8];
+				string[] texts = CallTexts ??= new string[8];
+				for (int i = 0; i < argc; i++)
+				{
+					if (!PutArgument(a, i, &args[i], numbers, texts)) return 3;
+				}
+				switch (a.ResultKind)
+				{
+					case 0:
+						a.Void(null, numbers, texts);
+						return 5;
+					case 1:
+					case 2:
+						r->Number = a.Number(null, numbers, texts);
+						return 0;
+					default:
+						string s = a.Text(null, numbers, texts);
+						return s == null ? 2 : WriteText(r, s);
+				}
+			}
+			catch (Exception ex)
+			{
+				return WriteError(r, Unwrap(ex));
+			}
+			finally
+			{
+				Depth--;
+			}
 		}
 
 		[UnmanagedCallersOnly]

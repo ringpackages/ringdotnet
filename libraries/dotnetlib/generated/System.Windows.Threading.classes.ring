@@ -156,8 +156,7 @@ Class Dispatcher from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Threading.Dispatcher, WindowsBase',"s10:FromThread",P1))
 
 	Func Run 
-		dotnet_callv("s4:call",'System.Windows.Threading.Dispatcher, WindowsBase',"s3:Run")
-
+		dotnet_calltsv('System.Windows.Threading.Dispatcher, WindowsBase','Run')
 		return self
 
 	Func PushFrame P1
@@ -166,8 +165,7 @@ Class Dispatcher from Object
 		return self
 
 	Func ExitAllFrames 
-		dotnet_callv("s4:call",'System.Windows.Threading.Dispatcher, WindowsBase',"s13:ExitAllFrames")
-
+		dotnet_calltsv('System.Windows.Threading.Dispatcher, WindowsBase','ExitAllFrames')
 		return self
 
 	Func Yield P1

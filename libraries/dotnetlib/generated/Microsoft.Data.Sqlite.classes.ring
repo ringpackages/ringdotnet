@@ -198,8 +198,7 @@ Class SqliteConnection from DbConnection
 		return self
 
 	Func ClearAllPools 
-		dotnet_callv("s4:call",'Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite',"s13:ClearAllPools")
-
+		dotnet_calltsv('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite','ClearAllPools')
 		return self
 
 	Func ClearPool P1

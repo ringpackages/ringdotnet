@@ -2261,22 +2261,17 @@ Class Marshal from Object
 		raise("DotNet Error: WriteInt64 does not take one argument: use named arguments, WriteInt64([ :parameter = value, ... ])")
 
 	Func GetLastPInvokeError 
-		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s19:GetLastPInvokeError")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Runtime.InteropServices.Marshal, System.Private.CoreLib','GetLastPInvokeError'))
 
 	Func SetLastPInvokeError P1
-		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s19:SetLastPInvokeError",P1)
-
+		dotnet_calltsv('System.Runtime.InteropServices.Marshal, System.Private.CoreLib','SetLastPInvokeError',P1)
 		return self
 
 	Func GetExceptionPointers 
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s20:GetExceptionPointers"))
 
 	Func GetExceptionCode 
-		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s16:GetExceptionCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Runtime.InteropServices.Marshal, System.Private.CoreLib','GetExceptionCode'))
 
 	Func StructureToPtr P1,P2,P3
 		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s14:StructureToPtr",P1,P2,P3)
@@ -2330,14 +2325,11 @@ Class Marshal from Object
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s22:CreateAggregatedObject",P1,P2))
 
 	Func CleanupUnusedObjectsInCurrentContext 
-		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s36:CleanupUnusedObjectsInCurrentContext")
-
+		dotnet_calltsv('System.Runtime.InteropServices.Marshal, System.Private.CoreLib','CleanupUnusedObjectsInCurrentContext')
 		return self
 
 	Func AreComObjectsAvailableForCleanup 
-		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s32:AreComObjectsAvailableForCleanup")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Runtime.InteropServices.Marshal, System.Private.CoreLib','AreComObjectsAvailableForCleanup'))
 
 	Func IsComObject P1
 		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s11:IsComObject",P1)
@@ -2560,9 +2552,7 @@ Class Marshal from Object
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s29:GetFunctionPointerForDelegate",P1))
 
 	Func GetHRForLastWin32Error 
-		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s22:GetHRForLastWin32Error")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Runtime.InteropServices.Marshal, System.Private.CoreLib','GetHRForLastWin32Error'))
 
 	Func ZeroFreeBSTR P1
 		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s12:ZeroFreeBSTR",P1)
@@ -2611,14 +2601,10 @@ Class Marshal from Object
 		return self
 
 	Func GetLastWin32Error 
-		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s17:GetLastWin32Error")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Runtime.InteropServices.Marshal, System.Private.CoreLib','GetLastWin32Error'))
 
 	Func GetLastPInvokeErrorMessage 
-		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s26:GetLastPInvokeErrorMessage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Runtime.InteropServices.Marshal, System.Private.CoreLib','GetLastPInvokeErrorMessage'))
 
 	Func PtrToStringAuto P1
 		if dotnet_isnamed(P1)
@@ -2661,19 +2647,14 @@ Class Marshal from Object
 		return self
 
 	Func GetLastSystemError 
-		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s18:GetLastSystemError")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Runtime.InteropServices.Marshal, System.Private.CoreLib','GetLastSystemError'))
 
 	Func SetLastSystemError P1
-		dotnet_callv("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s18:SetLastSystemError",P1)
-
+		dotnet_calltsv('System.Runtime.InteropServices.Marshal, System.Private.CoreLib','SetLastSystemError',P1)
 		return self
 
 	Func GetPInvokeErrorMessage P1
-		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s22:GetPInvokeErrorMessage",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Runtime.InteropServices.Marshal, System.Private.CoreLib','GetPInvokeErrorMessage',P1))
 
 	Func getSystemDefaultCharSize
 		return dotnet_call("s3:get",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:SystemDefaultCharSize")
@@ -3742,9 +3723,7 @@ Class RuntimeEnvironment from Object
 		return dn_x
 
 	Func GetRuntimeDirectory 
-		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices',"s19:GetRuntimeDirectory")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices','GetRuntimeDirectory'))
 
 	Func GetRuntimeInterfaceAsIntPtr P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices',"s27:GetRuntimeInterfaceAsIntPtr",P1,P2))
@@ -3753,9 +3732,7 @@ Class RuntimeEnvironment from Object
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices',"s27:GetRuntimeInterfaceAsObject",P1,P2))
 
 	Func GetSystemVersion 
-		dn_x = dotnet_call("s4:call",'System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices',"s16:GetSystemVersion")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices','GetSystemVersion'))
 
 	Func getSystemConfigurationFile
 		dn_x = dotnet_call("s3:get",'System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices',"s23:SystemConfigurationFile")

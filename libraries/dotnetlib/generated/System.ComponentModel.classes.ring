@@ -6466,19 +6466,13 @@ Class SyntaxCheck from Object
 		return dn_x
 
 	Func CheckMachineName P1
-		dn_x = dotnet_call("s4:call",'System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter',"s16:CheckMachineName",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter','CheckMachineName',P1))
 
 	Func CheckPath P1
-		dn_x = dotnet_call("s4:call",'System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter',"s9:CheckPath",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter','CheckPath',P1))
 
 	Func CheckRootedPath P1
-		dn_x = dotnet_call("s4:call",'System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter',"s15:CheckRootedPath",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter','CheckRootedPath',P1))
 
 
 Class ToolboxItemAttribute from Attribute

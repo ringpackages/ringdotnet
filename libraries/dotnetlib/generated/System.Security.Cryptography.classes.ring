@@ -2113,9 +2113,7 @@ Class CryptoConfig from Object
 		return self
 
 	Func MapNameToOID P1
-		dn_x = dotnet_call("s4:call",'System.Security.Cryptography.CryptoConfig, System.Security.Cryptography',"s12:MapNameToOID",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography','MapNameToOID',P1))
 
 	Func EncodeOID P1
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.CryptoConfig, System.Security.Cryptography',"s9:EncodeOID",P1))
@@ -4071,9 +4069,7 @@ Class PemEncoding from Object
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.PemEncoding, System.Security.Cryptography'),"s7:TryFind",dnPackItem(P1))
 
 	Func GetEncodedSize P1,P2
-		dn_x = dotnet_call("s4:call",'System.Security.Cryptography.PemEncoding, System.Security.Cryptography',"s14:GetEncodedSize",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Security.Cryptography.PemEncoding, System.Security.Cryptography','GetEncodedSize',P1,P2))
 
 	Func TryWrite P1,P2,P3
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.PemEncoding, System.Security.Cryptography'),"s8:TryWrite",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))

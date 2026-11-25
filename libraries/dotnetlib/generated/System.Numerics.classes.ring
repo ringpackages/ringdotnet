@@ -558,49 +558,31 @@ Class BitOperations from Object
 		return dn_x
 
 	Func IsPow2 P1
-		dn_x = dotnet_call("s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s6:IsPow2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Numerics.BitOperations, System.Private.CoreLib','IsPow2',P1))
 
 	Func RoundUpToPowerOf2 P1
-		dn_x = dotnet_call("s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s17:RoundUpToPowerOf2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Numerics.BitOperations, System.Private.CoreLib','RoundUpToPowerOf2',P1))
 
 	Func LeadingZeroCount P1
-		dn_x = dotnet_call("s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s16:LeadingZeroCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Numerics.BitOperations, System.Private.CoreLib','LeadingZeroCount',P1))
 
 	Func Log2 P1
-		dn_x = dotnet_call("s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s4:Log2",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Numerics.BitOperations, System.Private.CoreLib','Log2',P1))
 
 	Func PopCount P1
-		dn_x = dotnet_call("s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s8:PopCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Numerics.BitOperations, System.Private.CoreLib','PopCount',P1))
 
 	Func TrailingZeroCount P1
-		dn_x = dotnet_call("s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s17:TrailingZeroCount",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Numerics.BitOperations, System.Private.CoreLib','TrailingZeroCount',P1))
 
 	Func RotateLeft P1,P2
-		dn_x = dotnet_call("s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s10:RotateLeft",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Numerics.BitOperations, System.Private.CoreLib','RotateLeft',P1,P2))
 
 	Func RotateRight P1,P2
-		dn_x = dotnet_call("s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s11:RotateRight",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Numerics.BitOperations, System.Private.CoreLib','RotateRight',P1,P2))
 
 	Func Crc32C P1,P2
-		dn_x = dotnet_call("s4:call",'System.Numerics.BitOperations, System.Private.CoreLib',"s6:Crc32C",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Numerics.BitOperations, System.Private.CoreLib','Crc32C',P1,P2))
 
 
 Class Complex from ValueType

@@ -405,6 +405,55 @@ namespace MyCompany.Tools
 		public string Say(string a, string b) { return "hi " + a + b; }
 	}
 
+	// Static methods for the typed static call (dotnet_callts): the same kinds as TypedMath, and the cases that stay with the generic request
+	public static class TypedStatic
+	{
+		public static string Last;
+		public static int Add(int a, int b) { return a + b; }
+		public static int Sum3(int a, int b, int c) { return a + b + c; }
+		public static double Mix4(double a, double b, double c, double d) { return a * b + c - d; }
+		public static string Join4(string a, int b, bool c, string d) { return a + b + (c ? "T" : "F") + d; }
+		public static bool Between(int value, int low, int high) { return value >= low && value <= high; }
+		public static void Set2(int a, string b) { Last = a + b; }
+		public static string GetLast() { return Last; }
+		public static long Big(long a) { return a * 2; }
+		public static int ByteIn(byte a) { return a + 1; }
+		public static int SByteIn(sbyte a) { return a + 1; }
+		public static long UIntIn(uint a) { return (long)a + 1; }
+		public static double FloatIn(float a) { return a * 2; }
+		public static decimal DecimalIn(decimal a) { return a + 1; }
+		public static string TextOrNull(string a) { return a.Length == 0 ? null : a + "!"; }
+		public static string Echo(string a) { return a; }
+		public static int Throws(int a) { throw new ArgumentException("typed static error " + a); }
+		public static char LetterOf(string a) { return a[0]; }
+		public static TypedColor Paint(TypedColor c) { return c; }
+		public static int Maybe(int? a) { return a.HasValue ? a.Value : -1; }
+		public static int Opt(int a, int b = 5) { return a * 100 + b; }
+		public static int Many(params int[] values) { return values.Length; }
+		public static T Same<T>(T value) { return value; }
+		public static bool OutValue(out int result) { result = 9; return true; }
+		public static int Over(int a) { return a + 1; }
+		public static string Over(string a) { return a + "?"; }
+		public static string Pair() { return "none"; }
+		public static string Pair(int a) { return "int " + a; }
+		public static int Scale(int a) { return a * 10; }
+		public static int Scale(int a, int b) { return a * b; }
+		public static TypedBox Box(int a) { return new TypedBox { IntValue = a }; }
+		public static void Reset() { Last = "reset"; }
+	}
+
+	// A class with a static and an instance method of one name (a class used without an object calls the static one), and one that a derived class inherits
+	public class TypedBoth
+	{
+		public static int Twice(int a) { return a * 2; }
+		public int Twice(int a, int b) { return a * 2 + b; }
+		public static int Inherited(int a) { return a + 1; }
+	}
+
+	public class TypedBothDerived : TypedBoth
+	{
+	}
+
 	public class TypedMathDerived : TypedMath
 	{
 		public new int Add(int a, int b) { return a + b + 1000; }

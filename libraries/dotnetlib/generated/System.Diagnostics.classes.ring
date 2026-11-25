@@ -1635,23 +1635,19 @@ Class Debug from Object
 		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.Debug, System.Private.CoreLib',"s11:SetProvider",P1))
 
 	Func Close 
-		dotnet_callv("s4:call",'System.Diagnostics.Debug, System.Private.CoreLib',"s5:Close")
-
+		dotnet_calltsv('System.Diagnostics.Debug, System.Private.CoreLib','Close')
 		return self
 
 	Func Flush 
-		dotnet_callv("s4:call",'System.Diagnostics.Debug, System.Private.CoreLib',"s5:Flush")
-
+		dotnet_calltsv('System.Diagnostics.Debug, System.Private.CoreLib','Flush')
 		return self
 
 	Func Indent 
-		dotnet_callv("s4:call",'System.Diagnostics.Debug, System.Private.CoreLib',"s6:Indent")
-
+		dotnet_calltsv('System.Diagnostics.Debug, System.Private.CoreLib','Indent')
 		return self
 
 	Func Unindent 
-		dotnet_callv("s4:call",'System.Diagnostics.Debug, System.Private.CoreLib',"s8:Unindent")
-
+		dotnet_calltsv('System.Diagnostics.Debug, System.Private.CoreLib','Unindent')
 		return self
 
 	Func Print P1
@@ -1874,13 +1870,11 @@ Class DebugProvider from Object
 		return dn_x
 
 	Func FailCore P1,P2,P3,P4
-		dotnet_callv("s4:call",'System.Diagnostics.DebugProvider, System.Private.CoreLib',"s8:FailCore",P1,P2,P3,P4)
-
+		dotnet_calltsv('System.Diagnostics.DebugProvider, System.Private.CoreLib','FailCore',P1,P2,P3,P4)
 		return self
 
 	Func WriteCore P1
-		dotnet_callv("s4:call",'System.Diagnostics.DebugProvider, System.Private.CoreLib',"s9:WriteCore",P1)
-
+		dotnet_calltsv('System.Diagnostics.DebugProvider, System.Private.CoreLib','WriteCore',P1)
 		return self
 
 
@@ -1955,29 +1949,22 @@ Class Debugger from Object
 		return dn_x
 
 	Func @Break 
-		dotnet_callv("s4:call",'System.Diagnostics.Debugger, System.Private.CoreLib',"s5:Break")
-
+		dotnet_calltsv('System.Diagnostics.Debugger, System.Private.CoreLib','Break')
 		return self
 
 	Func Launch 
-		dn_x = dotnet_call("s4:call",'System.Diagnostics.Debugger, System.Private.CoreLib',"s6:Launch")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Diagnostics.Debugger, System.Private.CoreLib','Launch'))
 
 	Func NotifyOfCrossThreadDependency 
-		dotnet_callv("s4:call",'System.Diagnostics.Debugger, System.Private.CoreLib',"s29:NotifyOfCrossThreadDependency")
-
+		dotnet_calltsv('System.Diagnostics.Debugger, System.Private.CoreLib','NotifyOfCrossThreadDependency')
 		return self
 
 	Func Log P1,P2,P3
-		dotnet_callv("s4:call",'System.Diagnostics.Debugger, System.Private.CoreLib',"s3:Log",P1,P2,P3)
-
+		dotnet_calltsv('System.Diagnostics.Debugger, System.Private.CoreLib','Log',P1,P2,P3)
 		return self
 
 	Func IsLogging 
-		dn_x = dotnet_call("s4:call",'System.Diagnostics.Debugger, System.Private.CoreLib',"s9:IsLogging")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Diagnostics.Debugger, System.Private.CoreLib','IsLogging'))
 
 	Func BreakForUserUnhandledException P1
 		dotnet_callv("s4:call",'System.Diagnostics.Debugger, System.Private.CoreLib',"s30:BreakForUserUnhandledException",P1)
@@ -2870,13 +2857,11 @@ Class Process from Component
 		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.Process, System.Diagnostics.Process',"s17:GetCurrentProcess"))
 
 	Func EnterDebugMode 
-		dotnet_callv("s4:call",'System.Diagnostics.Process, System.Diagnostics.Process',"s14:EnterDebugMode")
-
+		dotnet_calltsv('System.Diagnostics.Process, System.Diagnostics.Process','EnterDebugMode')
 		return self
 
 	Func LeaveDebugMode 
-		dotnet_callv("s4:call",'System.Diagnostics.Process, System.Diagnostics.Process',"s14:LeaveDebugMode")
-
+		dotnet_calltsv('System.Diagnostics.Process, System.Diagnostics.Process','LeaveDebugMode')
 		return self
 
 	Func setOutputDataReceivedEvent P1
@@ -3977,9 +3962,7 @@ Class Stopwatch from Object
 		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.Stopwatch, System.Private.CoreLib',"s8:StartNew"))
 
 	Func GetTimestamp 
-		dn_x = dotnet_call("s4:call",'System.Diagnostics.Stopwatch, System.Private.CoreLib',"s12:GetTimestamp")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Diagnostics.Stopwatch, System.Private.CoreLib','GetTimestamp'))
 
 	Func GetElapsedTime P1
 		if dotnet_isnamed(P1)
@@ -4338,13 +4321,11 @@ Class Trace from Object
 		return dn_x
 
 	Func Flush 
-		dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s5:Flush")
-
+		dotnet_calltsv('System.Diagnostics.Trace, System.Diagnostics.TraceSource','Flush')
 		return self
 
 	Func Close 
-		dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s5:Close")
-
+		dotnet_calltsv('System.Diagnostics.Trace, System.Diagnostics.TraceSource','Close')
 		return self
 
 	Func Assert P1
@@ -4366,8 +4347,7 @@ Class Trace from Object
 		return self
 
 	Func Refresh 
-		dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s7:Refresh")
-
+		dotnet_calltsv('System.Diagnostics.Trace, System.Diagnostics.TraceSource','Refresh')
 		return self
 
 	Func TraceInformation P1
@@ -4430,13 +4410,11 @@ Class Trace from Object
 		raise("DotNet Error: WriteLineIf does not take one argument: use named arguments, WriteLineIf([ :parameter = value, ... ])")
 
 	Func Indent 
-		dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s6:Indent")
-
+		dotnet_calltsv('System.Diagnostics.Trace, System.Diagnostics.TraceSource','Indent')
 		return self
 
 	Func Unindent 
-		dotnet_callv("s4:call",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s8:Unindent")
-
+		dotnet_calltsv('System.Diagnostics.Trace, System.Diagnostics.TraceSource','Unindent')
 		return self
 
 	Func setRefreshingEvent P1

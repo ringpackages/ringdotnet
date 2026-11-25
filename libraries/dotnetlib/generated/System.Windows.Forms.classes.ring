@@ -2966,8 +2966,7 @@ Class Application from Object
 		return self
 
 	Func UnregisterMessageLoop 
-		dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s21:UnregisterMessageLoop")
-
+		dotnet_calltsv('System.Windows.Forms.Application, System.Windows.Forms','UnregisterMessageLoop')
 		return self
 
 	Func AddMessageFilter P1
@@ -2979,13 +2978,11 @@ Class Application from Object
 		return dnSend("s4:call",dnTypeHandle('System.Windows.Forms.Application, System.Windows.Forms'),"s13:FilterMessage",dnPackItem(P1))
 
 	Func DoEvents 
-		dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s8:DoEvents")
-
+		dotnet_calltsv('System.Windows.Forms.Application, System.Windows.Forms','DoEvents')
 		return self
 
 	Func EnableVisualStyles 
-		dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s18:EnableVisualStyles")
-
+		dotnet_calltsv('System.Windows.Forms.Application, System.Windows.Forms','EnableVisualStyles')
 		return self
 
 	Func @Exit P1
@@ -3003,8 +3000,7 @@ Class Application from Object
 		return self
 
 	Func ExitThread 
-		dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s10:ExitThread")
-
+		dotnet_calltsv('System.Windows.Forms.Application, System.Windows.Forms','ExitThread')
 		return self
 
 	Func OleRequired 
@@ -3026,8 +3022,7 @@ Class Application from Object
 		return self
 
 	Func Restart 
-		dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s7:Restart")
-
+		dotnet_calltsv('System.Windows.Forms.Application, System.Windows.Forms','Restart')
 		return self
 
 	Func Run P1
@@ -3045,8 +3040,7 @@ Class Application from Object
 		return self
 
 	Func SetCompatibleTextRenderingDefault P1
-		dotnet_callv("s4:call",'System.Windows.Forms.Application, System.Windows.Forms',"s33:SetCompatibleTextRenderingDefault",P1)
-
+		dotnet_calltsv('System.Windows.Forms.Application, System.Windows.Forms','SetCompatibleTextRenderingDefault',P1)
 		return self
 
 	Func SetDefaultFont P1
@@ -4909,29 +4903,20 @@ Class Clipboard from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s13:GetDataObject"))
 
 	Func Clear 
-		dotnet_callv("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s5:Clear")
-
+		dotnet_calltsv('System.Windows.Forms.Clipboard, System.Windows.Forms','Clear')
 		return self
 
 	Func ContainsAudio 
-		dn_x = dotnet_call("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s13:ContainsAudio")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Windows.Forms.Clipboard, System.Windows.Forms','ContainsAudio'))
 
 	Func ContainsData P1
-		dn_x = dotnet_call("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s12:ContainsData",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Windows.Forms.Clipboard, System.Windows.Forms','ContainsData',P1))
 
 	Func ContainsFileDropList 
-		dn_x = dotnet_call("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s20:ContainsFileDropList")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Windows.Forms.Clipboard, System.Windows.Forms','ContainsFileDropList'))
 
 	Func ContainsImage 
-		dn_x = dotnet_call("s4:call",'System.Windows.Forms.Clipboard, System.Windows.Forms',"s13:ContainsImage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Windows.Forms.Clipboard, System.Windows.Forms','ContainsImage'))
 
 	Func ContainsText P1
 		if dotnet_isnamed(P1)
@@ -7221,13 +7206,11 @@ Class Cursor from Object
 		return dn_x
 
 	Func Hide 
-		dotnet_callv("s4:call",'System.Windows.Forms.Cursor, System.Windows.Forms',"s4:Hide")
-
+		dotnet_calltsv('System.Windows.Forms.Cursor, System.Windows.Forms','Hide')
 		return self
 
 	Func Show 
-		dotnet_callv("s4:call",'System.Windows.Forms.Cursor, System.Windows.Forms',"s4:Show")
-
+		dotnet_calltsv('System.Windows.Forms.Cursor, System.Windows.Forms','Show')
 		return self
 
 	Func getHandle
@@ -18126,18 +18109,15 @@ Class SendKeys from Object
 		return dn_x
 
 	Func Send P1
-		dotnet_callv("s4:call",'System.Windows.Forms.SendKeys, System.Windows.Forms',"s4:Send",P1)
-
+		dotnet_calltsv('System.Windows.Forms.SendKeys, System.Windows.Forms','Send',P1)
 		return self
 
 	Func SendWait P1
-		dotnet_callv("s4:call",'System.Windows.Forms.SendKeys, System.Windows.Forms',"s8:SendWait",P1)
-
+		dotnet_calltsv('System.Windows.Forms.SendKeys, System.Windows.Forms','SendWait',P1)
 		return self
 
 	Func Flush 
-		dotnet_callv("s4:call",'System.Windows.Forms.SendKeys, System.Windows.Forms',"s5:Flush")
-
+		dotnet_calltsv('System.Windows.Forms.SendKeys, System.Windows.Forms','Flush')
 		return self
 
 
@@ -18353,14 +18333,10 @@ Class SystemInformation from Object
 		return dn_x
 
 	Func GetVerticalScrollBarWidthForDpi P1
-		dn_x = dotnet_call("s4:call",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s31:GetVerticalScrollBarWidthForDpi",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Windows.Forms.SystemInformation, System.Windows.Forms','GetVerticalScrollBarWidthForDpi',P1))
 
 	Func GetHorizontalScrollBarHeightForDpi P1
-		dn_x = dotnet_call("s4:call",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s34:GetHorizontalScrollBarHeightForDpi",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Windows.Forms.SystemInformation, System.Windows.Forms','GetHorizontalScrollBarHeightForDpi',P1))
 
 	Func GetBorderSizeForDpi P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s19:GetBorderSizeForDpi",P1))
@@ -18369,14 +18345,10 @@ Class SystemInformation from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:GetMenuFontForDpi",P1))
 
 	Func VerticalScrollBarArrowHeightForDpi P1
-		dn_x = dotnet_call("s4:call",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s34:VerticalScrollBarArrowHeightForDpi",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Windows.Forms.SystemInformation, System.Windows.Forms','VerticalScrollBarArrowHeightForDpi',P1))
 
 	Func GetHorizontalScrollBarArrowWidthForDpi P1
-		dn_x = dotnet_call("s4:call",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s38:GetHorizontalScrollBarArrowWidthForDpi",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Windows.Forms.SystemInformation, System.Windows.Forms','GetHorizontalScrollBarArrowWidthForDpi',P1))
 
 	Func getDragFullWindows
 		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s15:DragFullWindows")
@@ -21974,8 +21946,7 @@ Class WindowsFormsSynchronizationContext from SynchronizationContext
 		return self
 
 	Func Uninstall 
-		dotnet_callv("s4:call",'System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms',"s9:Uninstall")
-
+		dotnet_calltsv('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms','Uninstall')
 		return self
 
 	Func getAutoInstall

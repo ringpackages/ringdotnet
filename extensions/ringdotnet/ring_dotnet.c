@@ -97,6 +97,7 @@ typedef struct {
 	const unsigned char *pText ;
 } DnTypedArg ;
 typedef int32_t (DN_CALLTYPE *dn_calltyped_fn)(int64_t nHandle, const unsigned char *pName, int32_t nNameLength, DnTypedArg *pArgs, int32_t nArgs, DnTyped *pResult);
+typedef int32_t (DN_CALLTYPE *dn_calltypedstatic_fn)(const unsigned char *pType, int32_t nTypeLength, const unsigned char *pName, int32_t nNameLength, DnTypedArg *pArgs, int32_t nArgs, DnTyped *pResult);
 
 /* Ring callbacks: the managed side asks us to run the Ring function dnDispatchCallback() */
 static void *g_pVM = NULL ;
@@ -114,6 +115,7 @@ static dn_getprop_fn g_pGetProp = NULL ;
 static dn_setpropn_fn g_pSetPropNumber = NULL ;
 static dn_setpropt_fn g_pSetPropText = NULL ;
 static dn_calltyped_fn g_pCallTyped = NULL ;
+static dn_calltypedstatic_fn g_pCallTypedStatic = NULL ;
 static char g_cHostFxr[DN_PATHSIZE] = "" ;
 static char g_cError[DN_PATHSIZE] = "" ;
 
@@ -446,6 +448,14 @@ static int ringdotnet_startruntime ( const char *cMode )
 		return 0 ;
 	}
 	g_pCallTyped = (dn_calltyped_fn) pFn ;
+	pFn = NULL ;
+	nRC = pLoad(wPath,DN_STR(DN_BRIDGE_TYPE),DN_STR("CallTypedStatic"),DN_UNMANAGEDCALLERSONLY,NULL,&pFn);
+	if ( (nRC < 0) || (! pFn) ) {
+		snprintf(cNum,sizeof(cNum),"0x%08X",(unsigned) nRC);
+		ringdotnet_seterror("Can't bind Bridge.CallTypedStatic",cNum);
+		return 0 ;
+	}
+	g_pCallTypedStatic = (dn_calltypedstatic_fn) pFn ;
 	pFn = NULL ;
 	nRC = pLoad(wPath,DN_STR(DN_BRIDGE_TYPE),DN_STR("SetCallback"),DN_UNMANAGEDCALLERSONLY,NULL,&pFn);
 	if ( (nRC < 0) || (! pFn) ) {
@@ -1373,6 +1383,131 @@ RING_FUNC(ring_dotnet_calltd1v)
 	ringdotnet_calltyped(pPointer,DN_MODE_VOID,2);
 }
 
+/* dotnet_callts(cType, cName, arguments...) and dotnet_calltsv: a typed call of a static method (see CallTypedStatic in Bridge.TypedCalls.cs). Status 3 makes
+   the generic request that dotnet_call makes: "call" with the type name, the method name and the arguments. */
+static void ringdotnet_callstatic ( void *pPointer, int nMode )
+{
+	DnTyped oResult ;
+	DnTypedArg aArgs[8] ;
+	int nPara, nArgs, x, nStatus = 3 ;
+	void *pOldVM ;
+	nPara = RING_API_PARACOUNT ;
+	if ( (nPara < 2) || (! RING_API_ISSTRING(1)) || (! RING_API_ISSTRING(2)) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( (! g_pCallTypedStatic) && (! ringdotnet_startruntime(NULL)) ) {
+		RING_API_ERROR(g_cError);
+		return ;
+	}
+	nArgs = nPara - 2 ;
+	if ( nArgs <= 8 ) {
+		for ( x = 0 ; x < nArgs ; x++ ) {
+			if ( RING_API_ISNUMBER(x + 3) ) {
+				aArgs[x].nKind = 1 ;
+				aArgs[x].nNumber = RING_API_GETNUMBER(x + 3) ;
+				aArgs[x].pText = NULL ;
+				aArgs[x].nTextLength = 0 ;
+			} else if ( RING_API_ISSTRING(x + 3) ) {
+				aArgs[x].nKind = 2 ;
+				aArgs[x].nNumber = 0 ;
+				aArgs[x].pText = (const unsigned char *) RING_API_GETSTRING(x + 3) ;
+				aArgs[x].nTextLength = (int32_t) RING_API_GETSTRINGSIZE(x + 3) ;
+			} else {
+				break ;
+			}
+		}
+		if ( x == nArgs ) {
+			fflush(stdout);
+			if ( g_nPending >= DN_FLUSH_AT ) {
+				ringdotnet_flushpending();
+			}
+			pOldVM = g_pVM ;
+			g_pVM = pPointer ;
+			g_nDepth++ ;
+			nStatus = g_pCallTypedStatic((const unsigned char *) RING_API_GETSTRING(1),(int32_t) RING_API_GETSTRINGSIZE(1),
+			                             (const unsigned char *) RING_API_GETSTRING(2),(int32_t) RING_API_GETSTRINGSIZE(2),aArgs,(int32_t) nArgs,&oResult) ;
+			g_nDepth-- ;
+			g_pVM = pOldVM ;
+		}
+	}
+	switch ( nStatus ) {
+		case 0 :
+			RING_API_RETNUMBER(nMode == DN_MODE_VOID ? 1 : oResult.nNumber);
+			return ;
+		case 1 :
+			if ( nMode == DN_MODE_VOID ) {
+				RING_API_RETNUMBER(1);
+			} else {
+				RING_API_RETSTRING2((const char *) oResult.pText,(unsigned int) oResult.nTextLength);
+			}
+			return ;
+		case 2 :
+		case 5 : {
+			if ( nMode == DN_MODE_VOID ) {
+				RING_API_RETNUMBER(1);
+			} else {
+				List *pList = RING_API_NEWLIST ;
+				ring_list_adddouble(pList,1);
+				ring_list_addstring2(pList,"z0:",3);
+				RING_API_RETLISTBYREF(pList);
+			}
+			return ;
+		}
+		case 4 :
+			ringdotnet_typederror(pPointer,&oResult);
+			return ;
+		default : {
+			DnBuf oRequest ;
+			const unsigned char *pOut ;
+			int nOutSize = 0, nPacked ;
+			double nTarget ;
+			if ( ! ringdotnet_typehandle(RING_API_GETSTRING(1),(int) RING_API_GETSTRINGSIZE(1),&nTarget) ) {
+				RING_API_ERROR("Can't find the .NET type");
+				return ;
+			}
+			dnbuf_init(&oRequest);
+			nPacked = dnbuf_add(&oRequest,"s4:call",7) && dnbuf_handle(&oRequest,nTarget) &&
+			          dnbuf_item(&oRequest,'s',RING_API_GETSTRING(2),(size_t) RING_API_GETSTRINGSIZE(2)) ;
+			for ( x = 3 ; x <= nPara && nPacked > 0 ; x++ ) {
+				nPacked = dn_packparam(&oRequest,pPointer,x) ;
+			}
+			if ( nPacked == 0 ) {
+				dnbuf_free(&oRequest);
+				RING_API_ERROR(RING_OOM);
+				return ;
+			}
+			if ( nPacked < 0 ) {
+				dnbuf_free(&oRequest);
+				RING_API_ERROR("DotNet Error: Unsupported parameter type (use strings, numbers, lists and .NET objects)");
+				return ;
+			}
+			pOldVM = g_pVM ;
+			g_pVM = pPointer ;
+			g_nDepth++ ;
+			pOut = g_pInvoke((const unsigned char *) oRequest.p,(int) oRequest.nSize,&nOutSize);
+			g_nDepth-- ;
+			g_pVM = pOldVM ;
+			dnbuf_free(&oRequest);
+			if ( ! pOut ) {
+				RING_API_ERROR("The .NET bridge returned no response");
+				return ;
+			}
+			ringdotnet_answer(pPointer,nMode,pOut,nOutSize);
+		}
+	}
+}
+
+RING_FUNC(ring_dotnet_callts)
+{
+	ringdotnet_callstatic(pPointer,DN_MODE_VALUE);
+}
+
+RING_FUNC(ring_dotnet_calltsv)
+{
+	ringdotnet_callstatic(pPointer,DN_MODE_VOID);
+}
+
 /* 1 for a list of [name, value] pairs, the way Ring passes named arguments: [ :server = "x", :port = 80 ]  ([] too); an object is not one */
 static int dn_listisnamed ( List *pList )
 {
@@ -1674,6 +1809,8 @@ RING_LIBINIT
 	RING_API_REGISTER("dotnet_tolistraw",ring_dotnet_tolistraw);
 	RING_API_REGISTER("dotnet_setp",ring_dotnet_setp);
 	RING_API_REGISTER("dotnet_callt",ring_dotnet_callt);
+	RING_API_REGISTER("dotnet_callts",ring_dotnet_callts);
+	RING_API_REGISTER("dotnet_calltsv",ring_dotnet_calltsv);
 	RING_API_REGISTER("dotnet_calltv",ring_dotnet_calltv);
 	RING_API_REGISTER("dotnet_calltd",ring_dotnet_calltd);
 	RING_API_REGISTER("dotnet_calltdv",ring_dotnet_calltdv);

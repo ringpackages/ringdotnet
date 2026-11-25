@@ -1758,9 +1758,7 @@ Class NetworkInterface from Object
 		return dnObj(dotnet_callo("s4:call",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s23:GetAllNetworkInterfaces"))
 
 	Func GetIsNetworkAvailable 
-		dn_x = dotnet_call("s4:call",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s21:GetIsNetworkAvailable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation','GetIsNetworkAvailable'))
 
 	Func getId
 		return dnAnswer(dotnet_getp(nHandle,"Id"))

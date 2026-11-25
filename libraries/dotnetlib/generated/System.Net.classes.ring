@@ -945,9 +945,7 @@ Class Dns from Object
 		return dn_x
 
 	Func GetHostName 
-		dn_x = dotnet_call("s4:call",'System.Net.Dns, System.Net.NameResolution',"s11:GetHostName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Net.Dns, System.Net.NameResolution','GetHostName'))
 
 	Func GetHostEntry P1
 		if dotnet_isnamed(P1)
@@ -3965,17 +3963,13 @@ Class WebUtility from Object
 		return dn_x
 
 	Func UrlEncode P1
-		dn_x = dotnet_call("s4:call",'System.Net.WebUtility, System.Private.CoreLib',"s9:UrlEncode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Net.WebUtility, System.Private.CoreLib','UrlEncode',P1))
 
 	Func UrlEncodeToBytes P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",'System.Net.WebUtility, System.Private.CoreLib',"s16:UrlEncodeToBytes",P1,P2,P3))
 
 	Func UrlDecode P1
-		dn_x = dotnet_call("s4:call",'System.Net.WebUtility, System.Private.CoreLib',"s9:UrlDecode",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Net.WebUtility, System.Private.CoreLib','UrlDecode',P1))
 
 	Func UrlDecodeToBytes P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",'System.Net.WebUtility, System.Private.CoreLib',"s16:UrlDecodeToBytes",P1,P2,P3))
@@ -4080,14 +4074,10 @@ Class IPAddress from Object
 		return dnObj(dotnet_callo("s4:call",'System.Net.IPAddress, System.Net.Primitives',"s5:Parse",P1))
 
 	Func HostToNetworkOrder P1
-		dn_x = dotnet_call("s4:call",'System.Net.IPAddress, System.Net.Primitives',"s18:HostToNetworkOrder",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Net.IPAddress, System.Net.Primitives','HostToNetworkOrder',P1))
 
 	Func NetworkToHostOrder P1
-		dn_x = dotnet_call("s4:call",'System.Net.IPAddress, System.Net.Primitives',"s18:NetworkToHostOrder",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Net.IPAddress, System.Net.Primitives','NetworkToHostOrder',P1))
 
 	Func IsLoopback P1
 		dn_x = dotnet_call("s4:call",'System.Net.IPAddress, System.Net.Primitives',"s10:IsLoopback",P1)

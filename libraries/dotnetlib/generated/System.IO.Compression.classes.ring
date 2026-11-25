@@ -190,9 +190,7 @@ Class BrotliEncoder from ValueType
 		return dnSend("s4:call",nHandle,"s8:Compress",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func GetMaxCompressedLength P1
-		dn_x = dotnet_call("s4:call",'System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli',"s22:GetMaxCompressedLength",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli','GetMaxCompressedLength',P1))
 
 	Func TryCompress P1
 		if dotnet_isnamed(P1)

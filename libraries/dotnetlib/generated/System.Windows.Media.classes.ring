@@ -8461,19 +8461,13 @@ Class RenderCapability from Object
 		return dn_x
 
 	Func IsPixelShaderVersionSupported P1,P2
-		dn_x = dotnet_call("s4:call",'System.Windows.Media.RenderCapability, PresentationCore',"s29:IsPixelShaderVersionSupported",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Windows.Media.RenderCapability, PresentationCore','IsPixelShaderVersionSupported',P1,P2))
 
 	Func IsPixelShaderVersionSupportedInSoftware P1,P2
-		dn_x = dotnet_call("s4:call",'System.Windows.Media.RenderCapability, PresentationCore',"s39:IsPixelShaderVersionSupportedInSoftware",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Windows.Media.RenderCapability, PresentationCore','IsPixelShaderVersionSupportedInSoftware',P1,P2))
 
 	Func MaxPixelShaderInstructionSlots P1,P2
-		dn_x = dotnet_call("s4:call",'System.Windows.Media.RenderCapability, PresentationCore',"s30:MaxPixelShaderInstructionSlots",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callts('System.Windows.Media.RenderCapability, PresentationCore','MaxPixelShaderInstructionSlots',P1,P2))
 
 	Func setTierChangedEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Windows.Media.RenderCapability, PresentationCore'),"TierChanged",dnCallback(P1)])

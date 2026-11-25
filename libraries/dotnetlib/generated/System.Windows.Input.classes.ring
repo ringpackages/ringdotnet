@@ -1393,8 +1393,7 @@ Class CommandManager from Object
 		return self
 
 	Func InvalidateRequerySuggested 
-		dotnet_callv("s4:call",'System.Windows.Input.CommandManager, PresentationCore',"s26:InvalidateRequerySuggested")
-
+		dotnet_calltsv('System.Windows.Input.CommandManager, PresentationCore','InvalidateRequerySuggested')
 		return self
 
 	Func setRequerySuggestedEvent P1
@@ -3700,8 +3699,7 @@ Class Keyboard from Object
 		return self
 
 	Func ClearFocus 
-		dotnet_callv("s4:call",'System.Windows.Input.Keyboard, PresentationCore',"s10:ClearFocus")
-
+		dotnet_calltsv('System.Windows.Input.Keyboard, PresentationCore','ClearFocus')
 		return self
 
 	Func Focus P1
@@ -4593,13 +4591,11 @@ Class Mouse from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Input.Mouse, PresentationCore',"s11:GetPosition",P1))
 
 	Func Synchronize 
-		dotnet_callv("s4:call",'System.Windows.Input.Mouse, PresentationCore',"s11:Synchronize")
-
+		dotnet_calltsv('System.Windows.Input.Mouse, PresentationCore','Synchronize')
 		return self
 
 	Func UpdateCursor 
-		dotnet_callv("s4:call",'System.Windows.Input.Mouse, PresentationCore',"s12:UpdateCursor")
-
+		dotnet_calltsv('System.Windows.Input.Mouse, PresentationCore','UpdateCursor')
 		return self
 
 	Func getDirectlyOver
@@ -5427,8 +5423,7 @@ Class Stylus from Object
 		return dn_x
 
 	Func Synchronize 
-		dotnet_callv("s4:call",'System.Windows.Input.Stylus, PresentationCore',"s11:Synchronize")
-
+		dotnet_calltsv('System.Windows.Input.Stylus, PresentationCore','Synchronize')
 		return self
 
 	Func getDirectlyOver
