@@ -34,6 +34,20 @@ namespace MlHelpers
 		public float Score { get; set; }
 	}
 
+	/* one class for a table of any number of numbers: the length of the Features vector is set when the data is loaded (a SchemaDefinition made in Ring) */
+	public class VectorRow
+	{
+		public float[] Features { get; set; }
+		public float Label { get; set; }
+	}
+
+	/* the prediction for such a row */
+	public class VectorPrediction
+	{
+		[ColumnName("Score")]
+		public float Score { get; set; }
+	}
+
 	/* a row with two numbers and no label (clustering) */
 	public class PointRow
 	{
