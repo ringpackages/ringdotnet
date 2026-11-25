@@ -176,6 +176,32 @@ dnAssert("the same object as the other interface",oSource.Read(),"ab[x][y][z]")
 dnAssert("it has the members of both again",oSource.Name,"changed")
 dnAssert("and a copy of the object keeps them",classname(oSource),classname(oChannel))
 
+# a base class and a derived class: overloads of one name that answer a number and an object
+oBase = new ParserBase()
+dnAssert("the base class: a number answer",oBase.Read(21),42)
+dnAssert("the base class: a property that answers a number",oBase.Size,7)
+oDerived = new ParserDerived()
+dnAssert("the derived class: the inherited overload answers a number",oDerived.Read(21),42)
+oBox = oDerived.Read("text")
+dnAssert("the derived class: the overload that answers an object",oBox.Text,"text")
+dnAssert("the derived class: an inherited property",oDerived.Size,7)
+dnAssert("the derived class: a text answer",oDerived.Describe(1),"positive")
+dnAssert("the derived class: a null text is the null object",dnIsNull(oDerived.Describe(0)),true)
+
+# a class with two indexers: the generated Item method is made from the first indexer that .NET lists (position of a box: a number), and the call with
+# a number answers an object
+oBoxes = new BoxList()
+dnAssert("an indexer: the count",oBoxes.Count,2)
+oSecond = oBoxes.Item(1)
+dnAssert("an indexer that answers an object, with another indexer that answers a number",oSecond.Text,"second")
+
+# a class that is not public derives from a public one and adds an overload: wrapped as the public class
+oPlain = new Parsers().NewPlain()
+dnAssert("a hidden subclass is wrapped as the public class",classname(oPlain),"plainbase")
+dnAssert("a hidden subclass: the overload that the public class has",oPlain.Measure(4),5)
+oMeasured = oPlain.Measure("x")
+dnAssert("a hidden subclass: an overload that only the real class has",oMeasured.Text,"measured x")
+
 oCounter = new Counter()
 oCounter.Increment()
 oCounter.Increment()

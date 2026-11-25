@@ -259,6 +259,51 @@ namespace MyCompany.Tools
 		public static IChannelSink Tag(this IChannelSink sink, string tag) { sink.Write("[" + tag + "]"); return sink; }
 	}
 
+	// Overloads of one name with the same number of parameters and different kinds of answer, in a base class and in a class derived from it: the
+	// generated method of each class must finish an answer that is not a number (an object, a text).
+	public class ParserBox
+	{
+		public string Text { get; set; }
+	}
+
+	public class ParserBase
+	{
+		public int Read(int value) { return value * 2; }
+		public int Size { get { return 7; } }
+	}
+
+	public class ParserDerived : ParserBase
+	{
+		public ParserBox Read(string text) { return new ParserBox { Text = text }; }
+		public string Describe(int value) { return value > 0 ? "positive" : null; }
+	}
+
+	// A class with two indexers: the first one that .NET lists answers a number (the position of a box), and the one that Ring calls with a number answers an object
+	public class BoxList
+	{
+		private readonly System.Collections.Generic.List<ParserBox> items = new System.Collections.Generic.List<ParserBox> { new ParserBox { Text = "first" }, new ParserBox { Text = "second" } };
+		public int this[ParserBox box] { get { return items.IndexOf(box); } }
+		public ParserBox this[int index] { get { return items[index]; } }
+		public int Count { get { return items.Count; } }
+	}
+
+	// A class that is not public derives from a public one and adds an overload with another kind of answer: the object is wrapped as the public
+	// class, which does not show the overload, but the bridge chooses the method from the real object.
+	public class PlainBase
+	{
+		public int Measure(int value) { return value + 1; }
+	}
+
+	internal class HiddenDerived : PlainBase
+	{
+		public ParserBox Measure(string text) { return new ParserBox { Text = "measured " + text }; }
+	}
+
+	public static class Parsers
+	{
+		public static PlainBase NewPlain() { return new HiddenDerived(); }
+	}
+
 	public static class Channels
 	{
 		public static IChannelSink NewChannel() { return new Channel(); }
