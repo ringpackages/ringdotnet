@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The .NET side of the ML.NET tests: the classes of the rows (what ML.NET reads and predicts is a class with fields; Ring cannot declare one). -->
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <AssemblyName>MlHelpers</AssemblyName>
+    <RootNamespace>MlHelpers</RootNamespace>
+    <Nullable>disable</Nullable>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ML" Version="5.0.1" />
+    <PackageReference Include="Microsoft.ML.FastTree" Version="5.0.1" />
+  </ItemGroup>
+</Project>
