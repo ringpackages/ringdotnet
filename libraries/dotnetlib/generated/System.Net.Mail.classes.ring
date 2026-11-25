@@ -145,10 +145,10 @@ Class AttachmentBase from Object
 		return self
 
 	Func getTransferEncoding
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:TransferEncoding"))
+		return dnAnswer(dotnet_getp(nHandle,"TransferEncoding"))
 
 	Func setTransferEncoding P1
-		dotnet_callv("s3:set",nHandle,"s16:TransferEncoding",P1)
+		dotnet_setp(nHandle,"TransferEncoding",P1)
 		return self
 
 
@@ -391,17 +391,17 @@ Class MailMessage from Object
 		raise("DotNet Error: CC is a read-only property")
 
 	Func getPriority
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Priority"))
+		return dnAnswer(dotnet_getp(nHandle,"Priority"))
 
 	Func setPriority P1
-		dotnet_callv("s3:set",nHandle,"s8:Priority",P1)
+		dotnet_setp(nHandle,"Priority",P1)
 		return self
 
 	Func getDeliveryNotificationOptions
-		return dnObj(dotnet_callo("s3:get",nHandle,"s27:DeliveryNotificationOptions"))
+		return dnAnswer(dotnet_getp(nHandle,"DeliveryNotificationOptions"))
 
 	Func setDeliveryNotificationOptions P1
-		dotnet_callv("s3:set",nHandle,"s27:DeliveryNotificationOptions",P1)
+		dotnet_setp(nHandle,"DeliveryNotificationOptions",P1)
 		return self
 
 	Func getSubject
@@ -446,10 +446,10 @@ Class MailMessage from Object
 		return self
 
 	Func getBodyTransferEncoding
-		return dnObj(dotnet_callo("s3:get",nHandle,"s20:BodyTransferEncoding"))
+		return dnAnswer(dotnet_getp(nHandle,"BodyTransferEncoding"))
 
 	Func setBodyTransferEncoding P1
-		dotnet_callv("s3:set",nHandle,"s20:BodyTransferEncoding",P1)
+		dotnet_setp(nHandle,"BodyTransferEncoding",P1)
 		return self
 
 	Func getIsBodyHtml
@@ -601,17 +601,17 @@ Class SmtpClient from Object
 		raise("DotNet Error: ServicePoint is a read-only property")
 
 	Func getDeliveryMethod
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:DeliveryMethod"))
+		return dnAnswer(dotnet_getp(nHandle,"DeliveryMethod"))
 
 	Func setDeliveryMethod P1
-		dotnet_callv("s3:set",nHandle,"s14:DeliveryMethod",P1)
+		dotnet_setp(nHandle,"DeliveryMethod",P1)
 		return self
 
 	Func getDeliveryFormat
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:DeliveryFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"DeliveryFormat"))
 
 	Func setDeliveryFormat P1
-		dotnet_callv("s3:set",nHandle,"s14:DeliveryFormat",P1)
+		dotnet_setp(nHandle,"DeliveryFormat",P1)
 		return self
 
 	Func getPickupDirectoryLocation
@@ -681,10 +681,10 @@ Class SmtpException from Exception
 		return self
 
 	Func getStatusCode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:StatusCode"))
+		return dnAnswer(dotnet_getp(nHandle,"StatusCode"))
 
 	Func setStatusCode P1
-		dotnet_callv("s3:set",nHandle,"s10:StatusCode",P1)
+		dotnet_setp(nHandle,"StatusCode",P1)
 		return self
 
 

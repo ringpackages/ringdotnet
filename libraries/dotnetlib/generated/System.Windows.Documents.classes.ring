@@ -1828,17 +1828,17 @@ Class FlowDocument from FrameworkContentElement
 		return self
 
 	Func getTextAlignment
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TextAlignment"))
+		return dnAnswer(dotnet_getp(nHandle,"TextAlignment"))
 
 	Func setTextAlignment P1
-		dotnet_callv("s3:set",nHandle,"s13:TextAlignment",P1)
+		dotnet_setp(nHandle,"TextAlignment",P1)
 		return self
 
 	Func getFlowDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:FlowDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"FlowDirection"))
 
 	Func setFlowDirection P1
-		dotnet_callv("s3:set",nHandle,"s13:FlowDirection",P1)
+		dotnet_setp(nHandle,"FlowDirection",P1)
 		return self
 
 	Func getLineHeight
@@ -1849,10 +1849,10 @@ Class FlowDocument from FrameworkContentElement
 		return self
 
 	Func getLineStackingStrategy
-		return dnObj(dotnet_callo("s3:get",nHandle,"s20:LineStackingStrategy"))
+		return dnAnswer(dotnet_getp(nHandle,"LineStackingStrategy"))
 
 	Func setLineStackingStrategy P1
-		dotnet_callv("s3:set",nHandle,"s20:LineStackingStrategy",P1)
+		dotnet_setp(nHandle,"LineStackingStrategy",P1)
 		return self
 
 	Func getColumnWidth
@@ -2340,10 +2340,10 @@ Class Glyphs from FrameworkElement
 		return self
 
 	Func getStyleSimulations
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:StyleSimulations"))
+		return dnAnswer(dotnet_getp(nHandle,"StyleSimulations"))
 
 	Func setStyleSimulations P1
-		dotnet_callv("s3:set",nHandle,"s16:StyleSimulations",P1)
+		dotnet_setp(nHandle,"StyleSimulations",P1)
 		return self
 
 	Func getIsSideways
@@ -4547,10 +4547,10 @@ Class Typography from Object
 		return self
 
 	Func getFraction
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Fraction"))
+		return dnAnswer(dotnet_getp(nHandle,"Fraction"))
 
 	Func setFraction P1
-		dotnet_callv("s3:set",nHandle,"s8:Fraction",P1)
+		dotnet_setp(nHandle,"Fraction",P1)
 		return self
 
 	Func getSlashedZero
@@ -4575,45 +4575,45 @@ Class Typography from Object
 		return self
 
 	Func getVariants
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Variants"))
+		return dnAnswer(dotnet_getp(nHandle,"Variants"))
 
 	Func setVariants P1
-		dotnet_callv("s3:set",nHandle,"s8:Variants",P1)
+		dotnet_setp(nHandle,"Variants",P1)
 		return self
 
 	Func getCapitals
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Capitals"))
+		return dnAnswer(dotnet_getp(nHandle,"Capitals"))
 
 	Func setCapitals P1
-		dotnet_callv("s3:set",nHandle,"s8:Capitals",P1)
+		dotnet_setp(nHandle,"Capitals",P1)
 		return self
 
 	Func getNumeralStyle
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:NumeralStyle"))
+		return dnAnswer(dotnet_getp(nHandle,"NumeralStyle"))
 
 	Func setNumeralStyle P1
-		dotnet_callv("s3:set",nHandle,"s12:NumeralStyle",P1)
+		dotnet_setp(nHandle,"NumeralStyle",P1)
 		return self
 
 	Func getNumeralAlignment
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:NumeralAlignment"))
+		return dnAnswer(dotnet_getp(nHandle,"NumeralAlignment"))
 
 	Func setNumeralAlignment P1
-		dotnet_callv("s3:set",nHandle,"s16:NumeralAlignment",P1)
+		dotnet_setp(nHandle,"NumeralAlignment",P1)
 		return self
 
 	Func getEastAsianWidths
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:EastAsianWidths"))
+		return dnAnswer(dotnet_getp(nHandle,"EastAsianWidths"))
 
 	Func setEastAsianWidths P1
-		dotnet_callv("s3:set",nHandle,"s15:EastAsianWidths",P1)
+		dotnet_setp(nHandle,"EastAsianWidths",P1)
 		return self
 
 	Func getEastAsianLanguage
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:EastAsianLanguage"))
+		return dnAnswer(dotnet_getp(nHandle,"EastAsianLanguage"))
 
 	Func setEastAsianLanguage P1
-		dotnet_callv("s3:set",nHandle,"s17:EastAsianLanguage",P1)
+		dotnet_setp(nHandle,"EastAsianLanguage",P1)
 		return self
 
 	Func getStandardSwashes
@@ -5057,17 +5057,17 @@ Class Block from TextElement
 		return self
 
 	Func getTextAlignment
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TextAlignment"))
+		return dnAnswer(dotnet_getp(nHandle,"TextAlignment"))
 
 	Func setTextAlignment P1
-		dotnet_callv("s3:set",nHandle,"s13:TextAlignment",P1)
+		dotnet_setp(nHandle,"TextAlignment",P1)
 		return self
 
 	Func getFlowDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:FlowDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"FlowDirection"))
 
 	Func setFlowDirection P1
-		dotnet_callv("s3:set",nHandle,"s13:FlowDirection",P1)
+		dotnet_setp(nHandle,"FlowDirection",P1)
 		return self
 
 	Func getLineHeight
@@ -5078,10 +5078,10 @@ Class Block from TextElement
 		return self
 
 	Func getLineStackingStrategy
-		return dnObj(dotnet_callo("s3:get",nHandle,"s20:LineStackingStrategy"))
+		return dnAnswer(dotnet_getp(nHandle,"LineStackingStrategy"))
 
 	Func setLineStackingStrategy P1
-		dotnet_callv("s3:set",nHandle,"s20:LineStackingStrategy",P1)
+		dotnet_setp(nHandle,"LineStackingStrategy",P1)
 		return self
 
 	Func getBreakPageBefore
@@ -5099,10 +5099,10 @@ Class Block from TextElement
 		return self
 
 	Func getClearFloaters
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ClearFloaters"))
+		return dnAnswer(dotnet_getp(nHandle,"ClearFloaters"))
 
 	Func setClearFloaters P1
-		dotnet_callv("s3:set",nHandle,"s13:ClearFloaters",P1)
+		dotnet_setp(nHandle,"ClearFloaters",P1)
 		return self
 
 	Func getIsHyphenationEnabledProperty
@@ -5346,10 +5346,10 @@ Class Inline from TextElement
 		raise("DotNet Error: PreviousInline is a read-only property")
 
 	Func getBaselineAlignment
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:BaselineAlignment"))
+		return dnAnswer(dotnet_getp(nHandle,"BaselineAlignment"))
 
 	Func setBaselineAlignment P1
-		dotnet_callv("s3:set",nHandle,"s17:BaselineAlignment",P1)
+		dotnet_setp(nHandle,"BaselineAlignment",P1)
 		return self
 
 	Func getTextDecorations
@@ -5360,10 +5360,10 @@ Class Inline from TextElement
 		return self
 
 	Func getFlowDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:FlowDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"FlowDirection"))
 
 	Func setFlowDirection P1
-		dotnet_callv("s3:set",nHandle,"s13:FlowDirection",P1)
+		dotnet_setp(nHandle,"FlowDirection",P1)
 		return self
 
 	Func getBaselineAlignmentProperty
@@ -5538,17 +5538,17 @@ Class ListItem from TextElement
 		return self
 
 	Func getTextAlignment
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TextAlignment"))
+		return dnAnswer(dotnet_getp(nHandle,"TextAlignment"))
 
 	Func setTextAlignment P1
-		dotnet_callv("s3:set",nHandle,"s13:TextAlignment",P1)
+		dotnet_setp(nHandle,"TextAlignment",P1)
 		return self
 
 	Func getFlowDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:FlowDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"FlowDirection"))
 
 	Func setFlowDirection P1
-		dotnet_callv("s3:set",nHandle,"s13:FlowDirection",P1)
+		dotnet_setp(nHandle,"FlowDirection",P1)
 		return self
 
 	Func getLineHeight
@@ -5559,10 +5559,10 @@ Class ListItem from TextElement
 		return self
 
 	Func getLineStackingStrategy
-		return dnObj(dotnet_callo("s3:get",nHandle,"s20:LineStackingStrategy"))
+		return dnAnswer(dotnet_getp(nHandle,"LineStackingStrategy"))
 
 	Func setLineStackingStrategy P1
-		dotnet_callv("s3:set",nHandle,"s20:LineStackingStrategy",P1)
+		dotnet_setp(nHandle,"LineStackingStrategy",P1)
 		return self
 
 	Func getMarginProperty
@@ -5739,17 +5739,17 @@ Class TableCell from TextElement
 		return self
 
 	Func getTextAlignment
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TextAlignment"))
+		return dnAnswer(dotnet_getp(nHandle,"TextAlignment"))
 
 	Func setTextAlignment P1
-		dotnet_callv("s3:set",nHandle,"s13:TextAlignment",P1)
+		dotnet_setp(nHandle,"TextAlignment",P1)
 		return self
 
 	Func getFlowDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:FlowDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"FlowDirection"))
 
 	Func setFlowDirection P1
-		dotnet_callv("s3:set",nHandle,"s13:FlowDirection",P1)
+		dotnet_setp(nHandle,"FlowDirection",P1)
 		return self
 
 	Func getLineHeight
@@ -5760,10 +5760,10 @@ Class TableCell from TextElement
 		return self
 
 	Func getLineStackingStrategy
-		return dnObj(dotnet_callo("s3:get",nHandle,"s20:LineStackingStrategy"))
+		return dnAnswer(dotnet_getp(nHandle,"LineStackingStrategy"))
 
 	Func setLineStackingStrategy P1
-		dotnet_callv("s3:set",nHandle,"s20:LineStackingStrategy",P1)
+		dotnet_setp(nHandle,"LineStackingStrategy",P1)
 		return self
 
 	Func getPaddingProperty
@@ -5975,7 +5975,7 @@ Class TextPointer from ContentPosition
 		raise("DotNet Error: HasValidLayout is a read-only property")
 
 	Func getLogicalDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:LogicalDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"LogicalDirection"))
 
 	Func setLogicalDirection P1
 		raise("DotNet Error: LogicalDirection is a read-only property")
@@ -6096,10 +6096,10 @@ Class AnchoredBlock from Inline
 		return self
 
 	Func getTextAlignment
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TextAlignment"))
+		return dnAnswer(dotnet_getp(nHandle,"TextAlignment"))
 
 	Func setTextAlignment P1
-		dotnet_callv("s3:set",nHandle,"s13:TextAlignment",P1)
+		dotnet_setp(nHandle,"TextAlignment",P1)
 		return self
 
 	Func getLineHeight
@@ -6110,10 +6110,10 @@ Class AnchoredBlock from Inline
 		return self
 
 	Func getLineStackingStrategy
-		return dnObj(dotnet_callo("s3:get",nHandle,"s20:LineStackingStrategy"))
+		return dnAnswer(dotnet_getp(nHandle,"LineStackingStrategy"))
 
 	Func setLineStackingStrategy P1
-		dotnet_callv("s3:set",nHandle,"s20:LineStackingStrategy",P1)
+		dotnet_setp(nHandle,"LineStackingStrategy",P1)
 		return self
 
 	Func getMarginProperty
@@ -6339,10 +6339,10 @@ Class WpfList from Block
 		raise("DotNet Error: ListItems is a read-only property")
 
 	Func getMarkerStyle
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:MarkerStyle"))
+		return dnAnswer(dotnet_getp(nHandle,"MarkerStyle"))
 
 	Func setMarkerStyle P1
-		dotnet_callv("s3:set",nHandle,"s11:MarkerStyle",P1)
+		dotnet_setp(nHandle,"MarkerStyle",P1)
 		return self
 
 	Func getMarkerOffset
@@ -6829,17 +6829,17 @@ Class Figure from AnchoredBlock
 		return self
 
 	Func getHorizontalAnchor
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:HorizontalAnchor"))
+		return dnAnswer(dotnet_getp(nHandle,"HorizontalAnchor"))
 
 	Func setHorizontalAnchor P1
-		dotnet_callv("s3:set",nHandle,"s16:HorizontalAnchor",P1)
+		dotnet_setp(nHandle,"HorizontalAnchor",P1)
 		return self
 
 	Func getVerticalAnchor
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:VerticalAnchor"))
+		return dnAnswer(dotnet_getp(nHandle,"VerticalAnchor"))
 
 	Func setVerticalAnchor P1
-		dotnet_callv("s3:set",nHandle,"s14:VerticalAnchor",P1)
+		dotnet_setp(nHandle,"VerticalAnchor",P1)
 		return self
 
 	Func getHorizontalOffset
@@ -6864,10 +6864,10 @@ Class Figure from AnchoredBlock
 		return self
 
 	Func getWrapDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:WrapDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"WrapDirection"))
 
 	Func setWrapDirection P1
-		dotnet_callv("s3:set",nHandle,"s13:WrapDirection",P1)
+		dotnet_setp(nHandle,"WrapDirection",P1)
 		return self
 
 	Func getWidth
@@ -6975,10 +6975,10 @@ Class Floater from AnchoredBlock
 		return self
 
 	Func getHorizontalAlignment
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:HorizontalAlignment"))
+		return dnAnswer(dotnet_getp(nHandle,"HorizontalAlignment"))
 
 	Func setHorizontalAlignment P1
-		dotnet_callv("s3:set",nHandle,"s19:HorizontalAlignment",P1)
+		dotnet_setp(nHandle,"HorizontalAlignment",P1)
 		return self
 
 	Func getWidth

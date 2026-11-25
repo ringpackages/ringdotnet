@@ -877,10 +877,10 @@ Class HostOptions from Object
 		return self
 
 	Func getBackgroundServiceExceptionBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s34:BackgroundServiceExceptionBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"BackgroundServiceExceptionBehavior"))
 
 	Func setBackgroundServiceExceptionBehavior P1
-		dotnet_callv("s3:set",nHandle,"s34:BackgroundServiceExceptionBehavior",P1)
+		dotnet_setp(nHandle,"BackgroundServiceExceptionBehavior",P1)
 		return self
 
 

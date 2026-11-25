@@ -1294,7 +1294,7 @@ Class BindableAttribute from Attribute
 		raise("DotNet Error: Bindable is a read-only property")
 
 	Func getDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Direction"))
+		return dnAnswer(dotnet_getp(nHandle,"Direction"))
 
 	Func setDirection P1
 		raise("DotNet Error: Direction is a read-only property")
@@ -1651,7 +1651,7 @@ Class CollectionChangeEventArgs from EventArgs
 		return self
 
 	Func getAction
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Action"))
+		return dnAnswer(dotnet_getp(nHandle,"Action"))
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
@@ -2189,7 +2189,7 @@ Class DataObjectMethodAttribute from Attribute
 		raise("DotNet Error: IsDefault is a read-only property")
 
 	Func getMethodType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:MethodType"))
+		return dnAnswer(dotnet_getp(nHandle,"MethodType"))
 
 	Func setMethodType P1
 		raise("DotNet Error: MethodType is a read-only property")
@@ -2640,7 +2640,7 @@ Class DesignerSerializationVisibilityAttribute from Attribute
 		return self
 
 	Func getVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Visibility"))
+		return dnAnswer(dotnet_getp(nHandle,"Visibility"))
 
 	Func setVisibility P1
 		raise("DotNet Error: Visibility is a read-only property")
@@ -2813,7 +2813,7 @@ Class EditorBrowsableAttribute from Attribute
 		return self
 
 	Func getState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:State"))
+		return dnAnswer(dotnet_getp(nHandle,"State"))
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -3251,7 +3251,7 @@ Class IBindingList from DotNetObject
 		raise("DotNet Error: SortProperty is a read-only property")
 
 	Func getSortDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:SortDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"SortDirection"))
 
 	Func setSortDirection P1
 		raise("DotNet Error: SortDirection is a read-only property")
@@ -3490,7 +3490,7 @@ Class IBindingListView from DotNetObject
 		raise("DotNet Error: SortProperty is a read-only property")
 
 	Func getSortDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:SortDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"SortDirection"))
 
 	Func setSortDirection P1
 		raise("DotNet Error: SortDirection is a read-only property")
@@ -4455,7 +4455,7 @@ Class InheritanceAttribute from Attribute
 		return self
 
 	Func getInheritanceLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:InheritanceLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"InheritanceLevel"))
 
 	Func setInheritanceLevel P1
 		raise("DotNet Error: InheritanceLevel is a read-only property")
@@ -4750,7 +4750,7 @@ Class LicenseContext from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateAsyncScope"))
 
 	Func getUsageMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:UsageMode"))
+		return dnAnswer(dotnet_getp(nHandle,"UsageMode"))
 
 	Func setUsageMode P1
 		raise("DotNet Error: UsageMode is a read-only property")
@@ -5016,7 +5016,7 @@ Class ListChangedEventArgs from EventArgs
 		return self
 
 	Func getListChangedType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ListChangedType"))
+		return dnAnswer(dotnet_getp(nHandle,"ListChangedType"))
 
 	Func setListChangedType P1
 		raise("DotNet Error: ListChangedType is a read-only property")
@@ -5069,10 +5069,10 @@ Class ListSortDescription from Object
 		return self
 
 	Func getSortDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:SortDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"SortDirection"))
 
 	Func setSortDirection P1
-		dotnet_callv("s3:set",nHandle,"s13:SortDirection",P1)
+		dotnet_setp(nHandle,"SortDirection",P1)
 		return self
 
 
@@ -6346,7 +6346,7 @@ Class RefreshPropertiesAttribute from Attribute
 		return self
 
 	Func getRefreshProperties
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:RefreshProperties"))
+		return dnAnswer(dotnet_getp(nHandle,"RefreshProperties"))
 
 	Func setRefreshProperties P1
 		raise("DotNet Error: RefreshProperties is a read-only property")
@@ -6562,7 +6562,7 @@ Class ToolboxItemFilterAttribute from Attribute
 		raise("DotNet Error: FilterString is a read-only property")
 
 	Func getFilterType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:FilterType"))
+		return dnAnswer(dotnet_getp(nHandle,"FilterType"))
 
 	Func setFilterType P1
 		raise("DotNet Error: FilterType is a read-only property")
@@ -7764,7 +7764,7 @@ Class PropertyDescriptor from MemberDescriptor
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getSerializationVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s23:SerializationVisibility"))
+		return dnAnswer(dotnet_getp(nHandle,"SerializationVisibility"))
 
 	Func setSerializationVisibility P1
 		raise("DotNet Error: SerializationVisibility is a read-only property")

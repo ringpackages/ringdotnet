@@ -1029,10 +1029,10 @@ Class LoggerFactoryOptions from Object
 		return dn_x
 
 	Func getActivityTrackingOptions
-		return dnObj(dotnet_callo("s3:get",nHandle,"s23:ActivityTrackingOptions"))
+		return dnAnswer(dotnet_getp(nHandle,"ActivityTrackingOptions"))
 
 	Func setActivityTrackingOptions P1
-		dotnet_callv("s3:set",nHandle,"s23:ActivityTrackingOptions",P1)
+		dotnet_setp(nHandle,"ActivityTrackingOptions",P1)
 		return self
 
 
@@ -1080,10 +1080,10 @@ Class LoggerFilterOptions from Object
 		return self
 
 	Func getMinLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:MinLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"MinLevel"))
 
 	Func setMinLevel P1
-		dotnet_callv("s3:set",nHandle,"s8:MinLevel",P1)
+		dotnet_setp(nHandle,"MinLevel",P1)
 		return self
 
 	Func getRules
@@ -1224,10 +1224,10 @@ Class LoggerMessageAttribute from Attribute
 		return self
 
 	Func getLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Level"))
+		return dnAnswer(dotnet_getp(nHandle,"Level"))
 
 	Func setLevel P1
-		dotnet_callv("s3:set",nHandle,"s5:Level",P1)
+		dotnet_setp(nHandle,"Level",P1)
 		return self
 
 	Func getMessage

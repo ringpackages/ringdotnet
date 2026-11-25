@@ -394,7 +394,7 @@ Class WindowsIdentity from ClaimsIdentity
 		return dnObj(dotnet_callo("s4:call",'System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows',"s20:RunImpersonatedAsync",P1,P2))
 
 	Func getImpersonationLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s18:ImpersonationLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"ImpersonationLevel"))
 
 	Func setImpersonationLevel P1
 		raise("DotNet Error: ImpersonationLevel is a read-only property")

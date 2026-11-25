@@ -5250,7 +5250,7 @@ Class IConventionForeignKey from DotNetObject
 		return dotnet_getp(nHandle,"IsOwnership")
 
 	Func getDeleteBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:DeleteBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"DeleteBehavior"))
 
 	Func getIsInModel
 		return dotnet_getp(nHandle,"IsInModel")
@@ -7105,7 +7105,7 @@ Class IConventionProperty from DotNetObject
 		return dotnet_getp(nHandle,"IsNullable")
 
 	Func getValueGenerated
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ValueGenerated"))
+		return dnAnswer(dotnet_getp(nHandle,"ValueGenerated"))
 
 	Func getIsConcurrencyToken
 		return dotnet_getp(nHandle,"IsConcurrencyToken")
@@ -8244,7 +8244,7 @@ Class IConventionStoredProcedureParameter from DotNetObject
 		raise("DotNet Error: PropertyName is a read-only property")
 
 	Func getDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Direction"))
+		return dnAnswer(dotnet_getp(nHandle,"Direction"))
 
 	Func getForOriginalValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ForOriginalValue"))
@@ -10152,7 +10152,7 @@ Class IForeignKey from DotNetObject
 		raise("DotNet Error: IsOwnership is a read-only property")
 
 	Func getDeleteBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:DeleteBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"DeleteBehavior"))
 
 	Func setDeleteBehavior P1
 		raise("DotNet Error: DeleteBehavior is a read-only property")
@@ -10257,7 +10257,7 @@ Class IForeignKeyConstraint from DotNetObject
 		raise("DotNet Error: PrincipalUniqueConstraint is a read-only property")
 
 	Func getOnDeleteAction
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:OnDeleteAction"))
+		return dnAnswer(dotnet_getp(nHandle,"OnDeleteAction"))
 
 	Func setOnDeleteAction P1
 		raise("DotNet Error: OnDeleteAction is a read-only property")
@@ -13144,10 +13144,10 @@ Class IMutableForeignKey from DotNetObject
 		return self
 
 	Func getDeleteBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:DeleteBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"DeleteBehavior"))
 
 	Func setDeleteBehavior P1
-		dotnet_callv("s3:set",nHandle,"s14:DeleteBehavior",P1)
+		dotnet_setp(nHandle,"DeleteBehavior",P1)
 		return self
 
 	Func getDependentToPrincipal
@@ -14556,10 +14556,10 @@ Class IMutableProperty from DotNetObject
 		return self
 
 	Func getValueGenerated
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ValueGenerated"))
+		return dnAnswer(dotnet_getp(nHandle,"ValueGenerated"))
 
 	Func setValueGenerated P1
-		dotnet_callv("s3:set",nHandle,"s14:ValueGenerated",P1)
+		dotnet_setp(nHandle,"ValueGenerated",P1)
 		return self
 
 	Func getIsConcurrencyToken
@@ -15436,10 +15436,10 @@ Class IMutableStoredProcedureParameter from DotNetObject
 		return self
 
 	Func getDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Direction"))
+		return dnAnswer(dotnet_getp(nHandle,"Direction"))
 
 	Func setDirection P1
-		dotnet_callv("s3:set",nHandle,"s9:Direction",P1)
+		dotnet_setp(nHandle,"Direction",P1)
 		return self
 
 	Func getPropertyName
@@ -16897,7 +16897,7 @@ Class IProperty from DotNetObject
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getValueGenerated
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ValueGenerated"))
+		return dnAnswer(dotnet_getp(nHandle,"ValueGenerated"))
 
 	Func setValueGenerated P1
 		raise("DotNet Error: ValueGenerated is a read-only property")
@@ -18528,7 +18528,7 @@ Class IReadOnlyForeignKey from DotNetObject
 		raise("DotNet Error: IsOwnership is a read-only property")
 
 	Func getDeleteBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:DeleteBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"DeleteBehavior"))
 
 	Func setDeleteBehavior P1
 		raise("DotNet Error: DeleteBehavior is a read-only property")
@@ -19484,7 +19484,7 @@ Class IReadOnlyProperty from DotNetObject
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getValueGenerated
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ValueGenerated"))
+		return dnAnswer(dotnet_getp(nHandle,"ValueGenerated"))
 
 	Func setValueGenerated P1
 		raise("DotNet Error: ValueGenerated is a read-only property")
@@ -20177,7 +20177,7 @@ Class IReadOnlyStoredProcedureParameter from DotNetObject
 		raise("DotNet Error: PropertyName is a read-only property")
 
 	Func getDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Direction"))
+		return dnAnswer(dotnet_getp(nHandle,"Direction"))
 
 	Func setDirection P1
 		raise("DotNet Error: Direction is a read-only property")
@@ -22113,7 +22113,7 @@ Class IStoreStoredProcedureParameter from DotNetObject
 		raise("DotNet Error: PropertyMappings is a read-only property")
 
 	Func getDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Direction"))
+		return dnAnswer(dotnet_getp(nHandle,"Direction"))
 
 	Func setDirection P1
 		raise("DotNet Error: Direction is a read-only property")
@@ -22736,7 +22736,7 @@ Class IStoredProcedureParameter from DotNetObject
 		raise("DotNet Error: PropertyName is a read-only property")
 
 	Func getDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Direction"))
+		return dnAnswer(dotnet_getp(nHandle,"Direction"))
 
 	Func setDirection P1
 		raise("DotNet Error: Direction is a read-only property")
@@ -27049,7 +27049,7 @@ Class StoreObjectIdentifier from ValueType
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational',"s21:UpdateStoredProcedure",P1))
 
 	Func getStoreObjectType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:StoreObjectType"))
+		return dnAnswer(dotnet_getp(nHandle,"StoreObjectType"))
 
 	Func setStoreObjectType P1
 		raise("DotNet Error: StoreObjectType is a read-only property")

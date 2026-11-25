@@ -314,7 +314,7 @@ Class BindingExpressionBase from Expression
 		raise("DotNet Error: BindingGroup is a read-only property")
 
 	Func getStatus
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Status"))
+		return dnAnswer(dotnet_getp(nHandle,"Status"))
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
@@ -1602,10 +1602,10 @@ Class PropertyGroupDescription from DotNetObject
 		return self
 
 	Func getStringComparison
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:StringComparison"))
+		return dnAnswer(dotnet_getp(nHandle,"StringComparison"))
 
 	Func setStringComparison P1
-		dotnet_callv("s3:set",nHandle,"s16:StringComparison",P1)
+		dotnet_setp(nHandle,"StringComparison",P1)
 		return self
 
 	Func getGroupNames
@@ -1689,10 +1689,10 @@ Class RelativeSource from MarkupExtension
 		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeAncestorLevel"))
 
 	Func getMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Mode"))
+		return dnAnswer(dotnet_getp(nHandle,"Mode"))
 
 	Func setMode P1
-		dotnet_callv("s3:set",nHandle,"s4:Mode",P1)
+		dotnet_setp(nHandle,"Mode",P1)
 		return self
 
 	Func getAncestorType
@@ -2064,17 +2064,17 @@ Class WpfBinding from BindingBase
 		return self
 
 	Func getMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Mode"))
+		return dnAnswer(dotnet_getp(nHandle,"Mode"))
 
 	Func setMode P1
-		dotnet_callv("s3:set",nHandle,"s4:Mode",P1)
+		dotnet_setp(nHandle,"Mode",P1)
 		return self
 
 	Func getUpdateSourceTrigger
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:UpdateSourceTrigger"))
+		return dnAnswer(dotnet_getp(nHandle,"UpdateSourceTrigger"))
 
 	Func setUpdateSourceTrigger P1
-		dotnet_callv("s3:set",nHandle,"s19:UpdateSourceTrigger",P1)
+		dotnet_setp(nHandle,"UpdateSourceTrigger",P1)
 		return self
 
 	Func getNotifyOnSourceUpdated
@@ -2339,10 +2339,10 @@ Class BindingListCollectionView from CollectionView
 		return self
 
 	Func getNewItemPlaceholderPosition
-		return dnObj(dotnet_callo("s3:get",nHandle,"s26:NewItemPlaceholderPosition"))
+		return dnAnswer(dotnet_getp(nHandle,"NewItemPlaceholderPosition"))
 
 	Func setNewItemPlaceholderPosition P1
-		dotnet_callv("s3:set",nHandle,"s26:NewItemPlaceholderPosition",P1)
+		dotnet_setp(nHandle,"NewItemPlaceholderPosition",P1)
 		return self
 
 	Func getCanAddNew
@@ -2545,10 +2545,10 @@ Class ListCollectionView from CollectionView
 		return self
 
 	Func getNewItemPlaceholderPosition
-		return dnObj(dotnet_callo("s3:get",nHandle,"s26:NewItemPlaceholderPosition"))
+		return dnAnswer(dotnet_getp(nHandle,"NewItemPlaceholderPosition"))
 
 	Func setNewItemPlaceholderPosition P1
-		dotnet_callv("s3:set",nHandle,"s26:NewItemPlaceholderPosition",P1)
+		dotnet_setp(nHandle,"NewItemPlaceholderPosition",P1)
 		return self
 
 	Func getCanAddNew
@@ -2711,17 +2711,17 @@ Class MultiBinding from BindingBase
 		raise("DotNet Error: Bindings is a read-only property")
 
 	Func getMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Mode"))
+		return dnAnswer(dotnet_getp(nHandle,"Mode"))
 
 	Func setMode P1
-		dotnet_callv("s3:set",nHandle,"s4:Mode",P1)
+		dotnet_setp(nHandle,"Mode",P1)
 		return self
 
 	Func getUpdateSourceTrigger
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:UpdateSourceTrigger"))
+		return dnAnswer(dotnet_getp(nHandle,"UpdateSourceTrigger"))
 
 	Func setUpdateSourceTrigger P1
-		dotnet_callv("s3:set",nHandle,"s19:UpdateSourceTrigger",P1)
+		dotnet_setp(nHandle,"UpdateSourceTrigger",P1)
 		return self
 
 	Func getNotifyOnSourceUpdated

@@ -603,7 +603,7 @@ Class DesignerSerializationOptionsAttribute from Attribute
 		return self
 
 	Func getDesignerSerializationOptions
-		return dnObj(dotnet_callo("s3:get",nHandle,"s28:DesignerSerializationOptions"))
+		return dnAnswer(dotnet_getp(nHandle,"DesignerSerializationOptions"))
 
 	Func setDesignerSerializationOptions P1
 		raise("DotNet Error: DesignerSerializationOptions is a read-only property")
@@ -2897,10 +2897,10 @@ Class XamlDesignerSerializationManager from ServiceProviders
 		return self
 
 	Func getXamlWriterMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:XamlWriterMode"))
+		return dnAnswer(dotnet_getp(nHandle,"XamlWriterMode"))
 
 	Func setXamlWriterMode P1
-		dotnet_callv("s3:set",nHandle,"s14:XamlWriterMode",P1)
+		dotnet_setp(nHandle,"XamlWriterMode",P1)
 		return self
 
 

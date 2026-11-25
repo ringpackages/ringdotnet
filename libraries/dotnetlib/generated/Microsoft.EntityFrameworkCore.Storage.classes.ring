@@ -3065,7 +3065,7 @@ Class RelationalCommandParameterObject from ValueType
 		raise("DotNet Error: DetailedErrorsEnabled is a read-only property")
 
 	Func getCommandSource
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:CommandSource"))
+		return dnAnswer(dotnet_getp(nHandle,"CommandSource"))
 
 	Func setCommandSource P1
 		raise("DotNet Error: CommandSource is a read-only property")
@@ -4737,7 +4737,7 @@ Class RelationalTypeMapping from CoreTypeMapping
 		return dnObj(dotnet_callo("s4:call",nHandle,"s29:CustomizeDataReaderExpression",P1))
 
 	Func getStoreTypePostfix
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:StoreTypePostfix"))
+		return dnAnswer(dotnet_getp(nHandle,"StoreTypePostfix"))
 
 	Func setStoreTypePostfix P1
 		raise("DotNet Error: StoreTypePostfix is a read-only property")

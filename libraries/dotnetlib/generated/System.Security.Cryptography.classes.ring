@@ -1625,7 +1625,7 @@ Class CngKey from Object
 		raise("DotNet Error: AlgorithmGroup is a read-only property")
 
 	Func getExportPolicy
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ExportPolicy"))
+		return dnAnswer(dotnet_getp(nHandle,"ExportPolicy"))
 
 	Func setExportPolicy P1
 		raise("DotNet Error: ExportPolicy is a read-only property")
@@ -1661,7 +1661,7 @@ Class CngKey from Object
 		raise("DotNet Error: KeySize is a read-only property")
 
 	Func getKeyUsage
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:KeyUsage"))
+		return dnAnswer(dotnet_getp(nHandle,"KeyUsage"))
 
 	Func setKeyUsage P1
 		raise("DotNet Error: KeyUsage is a read-only property")
@@ -1826,10 +1826,10 @@ Class CngKeyCreationParameters from Object
 		return self
 
 	Func getKeyCreationOptions
-		return dnObj(dotnet_callo("s3:get",nHandle,"s18:KeyCreationOptions"))
+		return dnAnswer(dotnet_getp(nHandle,"KeyCreationOptions"))
 
 	Func setKeyCreationOptions P1
-		dotnet_callv("s3:set",nHandle,"s18:KeyCreationOptions",P1)
+		dotnet_setp(nHandle,"KeyCreationOptions",P1)
 		return self
 
 	Func getKeyUsage
@@ -1916,7 +1916,7 @@ Class CngProperty from ValueType
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getOptions
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Options"))
+		return dnAnswer(dotnet_getp(nHandle,"Options"))
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
@@ -2039,7 +2039,7 @@ Class CngUIPolicy from Object
 		return dn_x
 
 	Func getProtectionLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ProtectionLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"ProtectionLevel"))
 
 	Func setProtectionLevel P1
 		raise("DotNet Error: ProtectionLevel is a read-only property")
@@ -2323,7 +2323,7 @@ Class CspKeyContainerInfo from Object
 		raise("DotNet Error: KeyContainerName is a read-only property")
 
 	Func getKeyNumber
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyNumber"))
+		return dnAnswer(dotnet_getp(nHandle,"KeyNumber"))
 
 	Func setKeyNumber P1
 		raise("DotNet Error: KeyNumber is a read-only property")
@@ -2421,10 +2421,10 @@ Class CspParameters from Object
 		return dn_x
 
 	Func getFlags
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Flags"))
+		return dnAnswer(dotnet_getp(nHandle,"Flags"))
 
 	Func setFlags P1
-		dotnet_callv("s3:set",nHandle,"s5:Flags",P1)
+		dotnet_setp(nHandle,"Flags",P1)
 		return self
 
 	Func getKeyPassword
@@ -2706,10 +2706,10 @@ Class ECCurve from ValueType
 		return self
 
 	Func getCurveType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:CurveType"))
+		return dnAnswer(dotnet_getp(nHandle,"CurveType"))
 
 	Func setCurveType P1
-		dotnet_callv("s3:set",nHandle,"s9:CurveType",P1)
+		dotnet_setp(nHandle,"CurveType",P1)
 		return self
 
 	Func getHash
@@ -4030,7 +4030,7 @@ Class PbeParameters from Object
 		return dn_x
 
 	Func getEncryptionAlgorithm
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:EncryptionAlgorithm"))
+		return dnAnswer(dotnet_getp(nHandle,"EncryptionAlgorithm"))
 
 	Func setEncryptionAlgorithm P1
 		raise("DotNet Error: EncryptionAlgorithm is a read-only property")
@@ -4168,7 +4168,7 @@ Class RSAEncryptionPadding from Object
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography',"s10:CreateOaep",P1))
 
 	Func getMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Mode"))
+		return dnAnswer(dotnet_getp(nHandle,"Mode"))
 
 	Func setMode P1
 		raise("DotNet Error: Mode is a read-only property")
@@ -4339,7 +4339,7 @@ Class RSASignaturePadding from Object
 		return dn_x
 
 	Func getMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Mode"))
+		return dnAnswer(dotnet_getp(nHandle,"Mode"))
 
 	Func setMode P1
 		raise("DotNet Error: Mode is a read-only property")
@@ -4953,17 +4953,17 @@ Class SymmetricAlgorithm from Object
 		raise("DotNet Error: LegalKeySizes is a read-only property")
 
 	Func getMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Mode"))
+		return dnAnswer(dotnet_getp(nHandle,"Mode"))
 
 	Func setMode P1
-		dotnet_callv("s3:set",nHandle,"s4:Mode",P1)
+		dotnet_setp(nHandle,"Mode",P1)
 		return self
 
 	Func getPadding
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Padding"))
+		return dnAnswer(dotnet_getp(nHandle,"Padding"))
 
 	Func setPadding P1
-		dotnet_callv("s3:set",nHandle,"s7:Padding",P1)
+		dotnet_setp(nHandle,"Padding",P1)
 		return self
 
 
@@ -7018,10 +7018,10 @@ Class ECDiffieHellmanCng from ECDiffieHellman
 		return self
 
 	Func getKeyDerivationFunction
-		return dnObj(dotnet_callo("s3:get",nHandle,"s21:KeyDerivationFunction"))
+		return dnAnswer(dotnet_getp(nHandle,"KeyDerivationFunction"))
 
 	Func setKeyDerivationFunction P1
-		dotnet_callv("s3:set",nHandle,"s21:KeyDerivationFunction",P1)
+		dotnet_setp(nHandle,"KeyDerivationFunction",P1)
 		return self
 
 	Func getHmacKey

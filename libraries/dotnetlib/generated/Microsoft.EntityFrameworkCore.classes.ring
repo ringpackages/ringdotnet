@@ -1730,7 +1730,7 @@ Class DeleteBehaviorAttribute from Attribute
 		return self
 
 	Func getBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Behavior"))
+		return dnAnswer(dotnet_getp(nHandle,"Behavior"))
 
 	Func setBehavior P1
 		raise("DotNet Error: Behavior is a read-only property")

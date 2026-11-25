@@ -308,10 +308,10 @@ Class BitmapEffectInput from Animatable
 		return self
 
 	Func getAreaToApplyEffectUnits
-		return dnObj(dotnet_callo("s3:get",nHandle,"s22:AreaToApplyEffectUnits"))
+		return dnAnswer(dotnet_getp(nHandle,"AreaToApplyEffectUnits"))
 
 	Func setAreaToApplyEffectUnits P1
-		dotnet_callv("s3:set",nHandle,"s22:AreaToApplyEffectUnits",P1)
+		dotnet_setp(nHandle,"AreaToApplyEffectUnits",P1)
 		return self
 
 	Func getAreaToApplyEffect
@@ -412,10 +412,10 @@ Class PixelShader from Animatable
 		return self
 
 	Func getShaderRenderMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ShaderRenderMode"))
+		return dnAnswer(dotnet_getp(nHandle,"ShaderRenderMode"))
 
 	Func setShaderRenderMode P1
-		dotnet_callv("s3:set",nHandle,"s16:ShaderRenderMode",P1)
+		dotnet_setp(nHandle,"ShaderRenderMode",P1)
 		return self
 
 	Func getUriSourceProperty
@@ -491,10 +491,10 @@ Class BevelBitmapEffect from BitmapEffect
 		return self
 
 	Func getEdgeProfile
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:EdgeProfile"))
+		return dnAnswer(dotnet_getp(nHandle,"EdgeProfile"))
 
 	Func setEdgeProfile P1
-		dotnet_callv("s3:set",nHandle,"s11:EdgeProfile",P1)
+		dotnet_setp(nHandle,"EdgeProfile",P1)
 		return self
 
 	Func getBevelWidthProperty
@@ -598,10 +598,10 @@ Class BlurBitmapEffect from BitmapEffect
 		return self
 
 	Func getKernelType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:KernelType"))
+		return dnAnswer(dotnet_getp(nHandle,"KernelType"))
 
 	Func setKernelType P1
-		dotnet_callv("s3:set",nHandle,"s10:KernelType",P1)
+		dotnet_setp(nHandle,"KernelType",P1)
 		return self
 
 	Func getRadiusProperty
@@ -652,17 +652,17 @@ Class BlurEffect from Effect
 		return self
 
 	Func getKernelType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:KernelType"))
+		return dnAnswer(dotnet_getp(nHandle,"KernelType"))
 
 	Func setKernelType P1
-		dotnet_callv("s3:set",nHandle,"s10:KernelType",P1)
+		dotnet_setp(nHandle,"KernelType",P1)
 		return self
 
 	Func getRenderingBias
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:RenderingBias"))
+		return dnAnswer(dotnet_getp(nHandle,"RenderingBias"))
 
 	Func setRenderingBias P1
-		dotnet_callv("s3:set",nHandle,"s13:RenderingBias",P1)
+		dotnet_setp(nHandle,"RenderingBias",P1)
 		return self
 
 	Func getRadiusProperty
@@ -865,10 +865,10 @@ Class DropShadowEffect from Effect
 		return self
 
 	Func getRenderingBias
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:RenderingBias"))
+		return dnAnswer(dotnet_getp(nHandle,"RenderingBias"))
 
 	Func setRenderingBias P1
-		dotnet_callv("s3:set",nHandle,"s13:RenderingBias",P1)
+		dotnet_setp(nHandle,"RenderingBias",P1)
 		return self
 
 	Func getShadowDepthProperty

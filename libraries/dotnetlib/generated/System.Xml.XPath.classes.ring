@@ -177,7 +177,7 @@ Class XPathExpression from Object
 		raise("DotNet Error: Expression is a read-only property")
 
 	Func getReturnType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:ReturnType"))
+		return dnAnswer(dotnet_getp(nHandle,"ReturnType"))
 
 	Func setReturnType P1
 		raise("DotNet Error: ReturnType is a read-only property")
@@ -623,7 +623,7 @@ Class XPathNavigator from XPathItem
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getNodeType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:NodeType"))
+		return dnAnswer(dotnet_getp(nHandle,"NodeType"))
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")

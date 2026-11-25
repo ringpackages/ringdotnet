@@ -5150,7 +5150,7 @@ Class ServiceDescriptor from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions',"s13:DescribeKeyed",P1,P2,P3,P4))
 
 	Func getLifetime
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Lifetime"))
+		return dnAnswer(dotnet_getp(nHandle,"Lifetime"))
 
 	Func setLifetime P1
 		raise("DotNet Error: Lifetime is a read-only property")

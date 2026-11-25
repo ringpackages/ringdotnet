@@ -1139,31 +1139,31 @@ Class AccessText from FrameworkElement
 		return self
 
 	Func getLineStackingStrategy
-		return dnObj(dotnet_callo("s3:get",nHandle,"s20:LineStackingStrategy"))
+		return dnAnswer(dotnet_getp(nHandle,"LineStackingStrategy"))
 
 	Func setLineStackingStrategy P1
-		dotnet_callv("s3:set",nHandle,"s20:LineStackingStrategy",P1)
+		dotnet_setp(nHandle,"LineStackingStrategy",P1)
 		return self
 
 	Func getTextAlignment
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TextAlignment"))
+		return dnAnswer(dotnet_getp(nHandle,"TextAlignment"))
 
 	Func setTextAlignment P1
-		dotnet_callv("s3:set",nHandle,"s13:TextAlignment",P1)
+		dotnet_setp(nHandle,"TextAlignment",P1)
 		return self
 
 	Func getTextTrimming
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:TextTrimming"))
+		return dnAnswer(dotnet_getp(nHandle,"TextTrimming"))
 
 	Func setTextTrimming P1
-		dotnet_callv("s3:set",nHandle,"s12:TextTrimming",P1)
+		dotnet_setp(nHandle,"TextTrimming",P1)
 		return self
 
 	Func getTextWrapping
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:TextWrapping"))
+		return dnAnswer(dotnet_getp(nHandle,"TextWrapping"))
 
 	Func setTextWrapping P1
-		dotnet_callv("s3:set",nHandle,"s12:TextWrapping",P1)
+		dotnet_setp(nHandle,"TextWrapping",P1)
 		return self
 
 	Func getBaselineOffset
@@ -1643,13 +1643,13 @@ Class CalendarModeChangedEventArgs from RoutedEventArgs
 		return self
 
 	Func getNewMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:NewMode"))
+		return dnAnswer(dotnet_getp(nHandle,"NewMode"))
 
 	Func setNewMode P1
 		raise("DotNet Error: NewMode is a read-only property")
 
 	Func getOldMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:OldMode"))
+		return dnAnswer(dotnet_getp(nHandle,"OldMode"))
 
 	Func setOldMode P1
 		raise("DotNet Error: OldMode is a read-only property")
@@ -2228,10 +2228,10 @@ Class ContextMenu from MenuBase
 		return self
 
 	Func getPlacement
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Placement"))
+		return dnAnswer(dotnet_getp(nHandle,"Placement"))
 
 	Func setPlacement P1
-		dotnet_callv("s3:set",nHandle,"s9:Placement",P1)
+		dotnet_setp(nHandle,"Placement",P1)
 		return self
 
 	Func getHasDropShadow
@@ -2673,17 +2673,17 @@ Class WpfControl from FrameworkElement
 		return self
 
 	Func getHorizontalContentAlignment
-		return dnObj(dotnet_callo("s3:get",nHandle,"s26:HorizontalContentAlignment"))
+		return dnAnswer(dotnet_getp(nHandle,"HorizontalContentAlignment"))
 
 	Func setHorizontalContentAlignment P1
-		dotnet_callv("s3:set",nHandle,"s26:HorizontalContentAlignment",P1)
+		dotnet_setp(nHandle,"HorizontalContentAlignment",P1)
 		return self
 
 	Func getVerticalContentAlignment
-		return dnObj(dotnet_callo("s3:get",nHandle,"s24:VerticalContentAlignment"))
+		return dnAnswer(dotnet_getp(nHandle,"VerticalContentAlignment"))
 
 	Func setVerticalContentAlignment P1
-		dotnet_callv("s3:set",nHandle,"s24:VerticalContentAlignment",P1)
+		dotnet_setp(nHandle,"VerticalContentAlignment",P1)
 		return self
 
 	Func getTabIndex
@@ -3265,10 +3265,10 @@ Class DataGrid from MultiSelector
 		return self
 
 	Func getGridLinesVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:GridLinesVisibility"))
+		return dnAnswer(dotnet_getp(nHandle,"GridLinesVisibility"))
 
 	Func setGridLinesVisibility P1
-		dotnet_callv("s3:set",nHandle,"s19:GridLinesVisibility",P1)
+		dotnet_setp(nHandle,"GridLinesVisibility",P1)
 		return self
 
 	Func getHorizontalGridLinesBrush
@@ -3361,10 +3361,10 @@ Class DataGrid from MultiSelector
 		return self
 
 	Func getHeadersVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:HeadersVisibility"))
+		return dnAnswer(dotnet_getp(nHandle,"HeadersVisibility"))
 
 	Func setHeadersVisibility P1
-		dotnet_callv("s3:set",nHandle,"s17:HeadersVisibility",P1)
+		dotnet_setp(nHandle,"HeadersVisibility",P1)
 		return self
 
 	Func getCellStyle
@@ -3403,17 +3403,17 @@ Class DataGrid from MultiSelector
 		return self
 
 	Func getHorizontalScrollBarVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s29:HorizontalScrollBarVisibility"))
+		return dnAnswer(dotnet_getp(nHandle,"HorizontalScrollBarVisibility"))
 
 	Func setHorizontalScrollBarVisibility P1
-		dotnet_callv("s3:set",nHandle,"s29:HorizontalScrollBarVisibility",P1)
+		dotnet_setp(nHandle,"HorizontalScrollBarVisibility",P1)
 		return self
 
 	Func getVerticalScrollBarVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s27:VerticalScrollBarVisibility"))
+		return dnAnswer(dotnet_getp(nHandle,"VerticalScrollBarVisibility"))
 
 	Func setVerticalScrollBarVisibility P1
-		dotnet_callv("s3:set",nHandle,"s27:VerticalScrollBarVisibility",P1)
+		dotnet_setp(nHandle,"VerticalScrollBarVisibility",P1)
 		return self
 
 	Func getIsReadOnly
@@ -3459,10 +3459,10 @@ Class DataGrid from MultiSelector
 		return self
 
 	Func getRowDetailsVisibilityMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s24:RowDetailsVisibilityMode"))
+		return dnAnswer(dotnet_getp(nHandle,"RowDetailsVisibilityMode"))
 
 	Func setRowDetailsVisibilityMode P1
-		dotnet_callv("s3:set",nHandle,"s24:RowDetailsVisibilityMode",P1)
+		dotnet_setp(nHandle,"RowDetailsVisibilityMode",P1)
 		return self
 
 	Func getAreRowDetailsFrozen
@@ -3506,17 +3506,17 @@ Class DataGrid from MultiSelector
 		raise("DotNet Error: SelectedCells is a read-only property")
 
 	Func getSelectionMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:SelectionMode"))
+		return dnAnswer(dotnet_getp(nHandle,"SelectionMode"))
 
 	Func setSelectionMode P1
-		dotnet_callv("s3:set",nHandle,"s13:SelectionMode",P1)
+		dotnet_setp(nHandle,"SelectionMode",P1)
 		return self
 
 	Func getSelectionUnit
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:SelectionUnit"))
+		return dnAnswer(dotnet_getp(nHandle,"SelectionUnit"))
 
 	Func setSelectionUnit P1
-		dotnet_callv("s3:set",nHandle,"s13:SelectionUnit",P1)
+		dotnet_setp(nHandle,"SelectionUnit",P1)
 		return self
 
 	Func getCanUserSortColumns
@@ -3582,10 +3582,10 @@ Class DataGrid from MultiSelector
 		return self
 
 	Func getClipboardCopyMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ClipboardCopyMode"))
+		return dnAnswer(dotnet_getp(nHandle,"ClipboardCopyMode"))
 
 	Func setClipboardCopyMode P1
-		dotnet_callv("s3:set",nHandle,"s17:ClipboardCopyMode",P1)
+		dotnet_setp(nHandle,"ClipboardCopyMode",P1)
 		return self
 
 	Func getCellsPanelHorizontalOffset
@@ -4121,7 +4121,7 @@ Class DataGridCellEditEndingEventArgs from EventArgs
 		raise("DotNet Error: EditingElement is a read-only property")
 
 	Func getEditAction
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EditAction"))
+		return dnAnswer(dotnet_getp(nHandle,"EditAction"))
 
 	Func setEditAction P1
 		raise("DotNet Error: EditAction is a read-only property")
@@ -4480,10 +4480,10 @@ Class DataGridColumn from DependencyObject
 		return self
 
 	Func getVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Visibility"))
+		return dnAnswer(dotnet_getp(nHandle,"Visibility"))
 
 	Func setVisibility P1
-		dotnet_callv("s3:set",nHandle,"s10:Visibility",P1)
+		dotnet_setp(nHandle,"Visibility",P1)
 		return self
 
 	Func getHeaderProperty
@@ -4721,7 +4721,7 @@ Class DataGridLength from ValueType
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getUnitType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:UnitType"))
+		return dnAnswer(dotnet_getp(nHandle,"UnitType"))
 
 	Func setUnitType P1
 		raise("DotNet Error: UnitType is a read-only property")
@@ -4938,7 +4938,7 @@ Class DataGridRowEditEndingEventArgs from EventArgs
 		raise("DotNet Error: Row is a read-only property")
 
 	Func getEditAction
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EditAction"))
+		return dnAnswer(dotnet_getp(nHandle,"EditAction"))
 
 	Func setEditAction P1
 		raise("DotNet Error: EditAction is a read-only property")
@@ -5667,17 +5667,17 @@ Class GridSplitter from Thumb
 		return self
 
 	Func getResizeDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ResizeDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"ResizeDirection"))
 
 	Func setResizeDirection P1
-		dotnet_callv("s3:set",nHandle,"s15:ResizeDirection",P1)
+		dotnet_setp(nHandle,"ResizeDirection",P1)
 		return self
 
 	Func getResizeBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ResizeBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"ResizeBehavior"))
 
 	Func setResizeBehavior P1
-		dotnet_callv("s3:set",nHandle,"s14:ResizeBehavior",P1)
+		dotnet_setp(nHandle,"ResizeBehavior",P1)
 		return self
 
 	Func getShowsPreview
@@ -5955,7 +5955,7 @@ Class GridViewColumnHeader from WpfButtonBase
 		raise("DotNet Error: Column is a read-only property")
 
 	Func getRole
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Role"))
+		return dnAnswer(dotnet_getp(nHandle,"Role"))
 
 	Func setRole P1
 		raise("DotNet Error: Role is a read-only property")
@@ -6289,7 +6289,7 @@ Class HierarchicalVirtualizationConstraints from ValueType
 		raise("DotNet Error: CacheLength is a read-only property")
 
 	Func getCacheLengthUnit
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:CacheLengthUnit"))
+		return dnAnswer(dotnet_getp(nHandle,"CacheLengthUnit"))
 
 	Func setCacheLengthUnit P1
 		raise("DotNet Error: CacheLengthUnit is a read-only property")
@@ -6512,17 +6512,17 @@ Class WpfImage from FrameworkElement
 		return self
 
 	Func getStretch
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Stretch"))
+		return dnAnswer(dotnet_getp(nHandle,"Stretch"))
 
 	Func setStretch P1
-		dotnet_callv("s3:set",nHandle,"s7:Stretch",P1)
+		dotnet_setp(nHandle,"Stretch",P1)
 		return self
 
 	Func getStretchDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:StretchDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"StretchDirection"))
 
 	Func setStretchDirection P1
-		dotnet_callv("s3:set",nHandle,"s16:StretchDirection",P1)
+		dotnet_setp(nHandle,"StretchDirection",P1)
 		return self
 
 	Func getSourceProperty
@@ -6863,23 +6863,23 @@ Class InkCanvas from FrameworkElement
 		return self
 
 	Func getActiveEditingMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ActiveEditingMode"))
+		return dnAnswer(dotnet_getp(nHandle,"ActiveEditingMode"))
 
 	Func setActiveEditingMode P1
 		raise("DotNet Error: ActiveEditingMode is a read-only property")
 
 	Func getEditingMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:EditingMode"))
+		return dnAnswer(dotnet_getp(nHandle,"EditingMode"))
 
 	Func setEditingMode P1
-		dotnet_callv("s3:set",nHandle,"s11:EditingMode",P1)
+		dotnet_setp(nHandle,"EditingMode",P1)
 		return self
 
 	Func getEditingModeInverted
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:EditingModeInverted"))
+		return dnAnswer(dotnet_getp(nHandle,"EditingModeInverted"))
 
 	Func setEditingModeInverted P1
-		dotnet_callv("s3:set",nHandle,"s19:EditingModeInverted",P1)
+		dotnet_setp(nHandle,"EditingModeInverted",P1)
 		return self
 
 	Func getUseCustomCursor
@@ -7319,7 +7319,7 @@ Class ItemContainerGenerator from Object
 		return self
 
 	Func getStatus
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Status"))
+		return dnAnswer(dotnet_getp(nHandle,"Status"))
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
@@ -7514,10 +7514,10 @@ Class WpfListBox from Selector
 		return self
 
 	Func getSelectionMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:SelectionMode"))
+		return dnAnswer(dotnet_getp(nHandle,"SelectionMode"))
 
 	Func setSelectionMode P1
-		dotnet_callv("s3:set",nHandle,"s13:SelectionMode",P1)
+		dotnet_setp(nHandle,"SelectionMode",P1)
 		return self
 
 	Func getSelectedItems
@@ -7675,17 +7675,17 @@ Class MediaElement from FrameworkElement
 		return self
 
 	Func getStretch
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Stretch"))
+		return dnAnswer(dotnet_getp(nHandle,"Stretch"))
 
 	Func setStretch P1
-		dotnet_callv("s3:set",nHandle,"s7:Stretch",P1)
+		dotnet_setp(nHandle,"Stretch",P1)
 		return self
 
 	Func getStretchDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:StretchDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"StretchDirection"))
 
 	Func setStretchDirection P1
-		dotnet_callv("s3:set",nHandle,"s16:StretchDirection",P1)
+		dotnet_setp(nHandle,"StretchDirection",P1)
 		return self
 
 	Func getVolume
@@ -7717,17 +7717,17 @@ Class MediaElement from FrameworkElement
 		return self
 
 	Func getUnloadedBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:UnloadedBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"UnloadedBehavior"))
 
 	Func setUnloadedBehavior P1
-		dotnet_callv("s3:set",nHandle,"s16:UnloadedBehavior",P1)
+		dotnet_setp(nHandle,"UnloadedBehavior",P1)
 		return self
 
 	Func getLoadedBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:LoadedBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"LoadedBehavior"))
 
 	Func setLoadedBehavior P1
-		dotnet_callv("s3:set",nHandle,"s14:LoadedBehavior",P1)
+		dotnet_setp(nHandle,"LoadedBehavior",P1)
 		return self
 
 	Func getCanPause
@@ -8248,7 +8248,7 @@ Class WpfPanel from FrameworkElement
 		return self
 
 	Func getLogicalOrientationPublic
-		return dnObj(dotnet_callo("s3:get",nHandle,"s24:LogicalOrientationPublic"))
+		return dnAnswer(dotnet_getp(nHandle,"LogicalOrientationPublic"))
 
 	Func setLogicalOrientationPublic P1
 		raise("DotNet Error: LogicalOrientationPublic is a read-only property")
@@ -8329,10 +8329,10 @@ Class WpfPrintDialog from Object
 		return dn_x
 
 	Func getPageRangeSelection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s18:PageRangeSelection"))
+		return dnAnswer(dotnet_getp(nHandle,"PageRangeSelection"))
 
 	Func setPageRangeSelection P1
-		dotnet_callv("s3:set",nHandle,"s18:PageRangeSelection",P1)
+		dotnet_setp(nHandle,"PageRangeSelection",P1)
 		return self
 
 	Func getPageRange
@@ -8474,10 +8474,10 @@ Class WpfProgressBar from RangeBase
 		return self
 
 	Func getOrientation
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Orientation"))
+		return dnAnswer(dotnet_getp(nHandle,"Orientation"))
 
 	Func setOrientation P1
-		dotnet_callv("s3:set",nHandle,"s11:Orientation",P1)
+		dotnet_setp(nHandle,"Orientation",P1)
 		return self
 
 	Func getIsIndeterminateProperty
@@ -8966,10 +8966,10 @@ Class Slider from RangeBase
 		return self
 
 	Func getOrientation
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Orientation"))
+		return dnAnswer(dotnet_getp(nHandle,"Orientation"))
 
 	Func setOrientation P1
-		dotnet_callv("s3:set",nHandle,"s11:Orientation",P1)
+		dotnet_setp(nHandle,"Orientation",P1)
 		return self
 
 	Func getIsDirectionReversed
@@ -8994,10 +8994,10 @@ Class Slider from RangeBase
 		return self
 
 	Func getAutoToolTipPlacement
-		return dnObj(dotnet_callo("s3:get",nHandle,"s20:AutoToolTipPlacement"))
+		return dnAnswer(dotnet_getp(nHandle,"AutoToolTipPlacement"))
 
 	Func setAutoToolTipPlacement P1
-		dotnet_callv("s3:set",nHandle,"s20:AutoToolTipPlacement",P1)
+		dotnet_setp(nHandle,"AutoToolTipPlacement",P1)
 		return self
 
 	Func getAutoToolTipPrecision
@@ -9015,10 +9015,10 @@ Class Slider from RangeBase
 		return self
 
 	Func getTickPlacement
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TickPlacement"))
+		return dnAnswer(dotnet_getp(nHandle,"TickPlacement"))
 
 	Func setTickPlacement P1
-		dotnet_callv("s3:set",nHandle,"s13:TickPlacement",P1)
+		dotnet_setp(nHandle,"TickPlacement",P1)
 		return self
 
 	Func getTickFrequency
@@ -9274,10 +9274,10 @@ Class SpellCheck from Object
 		return self
 
 	Func getSpellingReform
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:SpellingReform"))
+		return dnAnswer(dotnet_getp(nHandle,"SpellingReform"))
 
 	Func setSpellingReform P1
-		dotnet_callv("s3:set",nHandle,"s14:SpellingReform",P1)
+		dotnet_setp(nHandle,"SpellingReform",P1)
 		return self
 
 	Func getCustomDictionaries
@@ -9405,10 +9405,10 @@ Class WpfTabControl from Selector
 		return self
 
 	Func getTabStripPlacement
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:TabStripPlacement"))
+		return dnAnswer(dotnet_getp(nHandle,"TabStripPlacement"))
 
 	Func setTabStripPlacement P1
-		dotnet_callv("s3:set",nHandle,"s17:TabStripPlacement",P1)
+		dotnet_setp(nHandle,"TabStripPlacement",P1)
 		return self
 
 	Func getSelectedContent
@@ -9762,13 +9762,13 @@ Class TextBlock from FrameworkElement
 		raise("DotNet Error: ContentEnd is a read-only property")
 
 	Func getBreakBefore
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:BreakBefore"))
+		return dnAnswer(dotnet_getp(nHandle,"BreakBefore"))
 
 	Func setBreakBefore P1
 		raise("DotNet Error: BreakBefore is a read-only property")
 
 	Func getBreakAfter
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:BreakAfter"))
+		return dnAnswer(dotnet_getp(nHandle,"BreakAfter"))
 
 	Func setBreakAfter P1
 		raise("DotNet Error: BreakAfter is a read-only property")
@@ -9864,10 +9864,10 @@ Class TextBlock from FrameworkElement
 		return self
 
 	Func getLineStackingStrategy
-		return dnObj(dotnet_callo("s3:get",nHandle,"s20:LineStackingStrategy"))
+		return dnAnswer(dotnet_getp(nHandle,"LineStackingStrategy"))
 
 	Func setLineStackingStrategy P1
-		dotnet_callv("s3:set",nHandle,"s20:LineStackingStrategy",P1)
+		dotnet_setp(nHandle,"LineStackingStrategy",P1)
 		return self
 
 	Func getPadding
@@ -9878,24 +9878,24 @@ Class TextBlock from FrameworkElement
 		return self
 
 	Func getTextAlignment
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TextAlignment"))
+		return dnAnswer(dotnet_getp(nHandle,"TextAlignment"))
 
 	Func setTextAlignment P1
-		dotnet_callv("s3:set",nHandle,"s13:TextAlignment",P1)
+		dotnet_setp(nHandle,"TextAlignment",P1)
 		return self
 
 	Func getTextTrimming
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:TextTrimming"))
+		return dnAnswer(dotnet_getp(nHandle,"TextTrimming"))
 
 	Func setTextTrimming P1
-		dotnet_callv("s3:set",nHandle,"s12:TextTrimming",P1)
+		dotnet_setp(nHandle,"TextTrimming",P1)
 		return self
 
 	Func getTextWrapping
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:TextWrapping"))
+		return dnAnswer(dotnet_getp(nHandle,"TextWrapping"))
 
 	Func setTextWrapping P1
-		dotnet_callv("s3:set",nHandle,"s12:TextWrapping",P1)
+		dotnet_setp(nHandle,"TextWrapping",P1)
 		return self
 
 	Func getIsHyphenationEnabled
@@ -10118,10 +10118,10 @@ Class WpfTextBox from WpfTextBoxBase
 		return dn_x
 
 	Func getTextWrapping
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:TextWrapping"))
+		return dnAnswer(dotnet_getp(nHandle,"TextWrapping"))
 
 	Func setTextWrapping P1
-		dotnet_callv("s3:set",nHandle,"s12:TextWrapping",P1)
+		dotnet_setp(nHandle,"TextWrapping",P1)
 		return self
 
 	Func getMinLines
@@ -10146,10 +10146,10 @@ Class WpfTextBox from WpfTextBoxBase
 		return self
 
 	Func getCharacterCasing
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:CharacterCasing"))
+		return dnAnswer(dotnet_getp(nHandle,"CharacterCasing"))
 
 	Func setCharacterCasing P1
-		dotnet_callv("s3:set",nHandle,"s15:CharacterCasing",P1)
+		dotnet_setp(nHandle,"CharacterCasing",P1)
 		return self
 
 	Func getMaxLength
@@ -10160,10 +10160,10 @@ Class WpfTextBox from WpfTextBoxBase
 		return self
 
 	Func getTextAlignment
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TextAlignment"))
+		return dnAnswer(dotnet_getp(nHandle,"TextAlignment"))
 
 	Func setTextAlignment P1
-		dotnet_callv("s3:set",nHandle,"s13:TextAlignment",P1)
+		dotnet_setp(nHandle,"TextAlignment",P1)
 		return self
 
 	Func getSelectedText
@@ -10333,7 +10333,7 @@ Class TextChangedEventArgs from RoutedEventArgs
 		return self
 
 	Func getUndoAction
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:UndoAction"))
+		return dnAnswer(dotnet_getp(nHandle,"UndoAction"))
 
 	Func setUndoAction P1
 		raise("DotNet Error: UndoAction is a read-only property")
@@ -10438,10 +10438,10 @@ Class ToolBarTray from FrameworkElement
 		return self
 
 	Func getOrientation
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Orientation"))
+		return dnAnswer(dotnet_getp(nHandle,"Orientation"))
 
 	Func setOrientation P1
-		dotnet_callv("s3:set",nHandle,"s11:Orientation",P1)
+		dotnet_setp(nHandle,"Orientation",P1)
 		return self
 
 	Func getIsLocked
@@ -11083,7 +11083,7 @@ Class ValidationErrorEventArgs from RoutedEventArgs
 		raise("DotNet Error: Error is a read-only property")
 
 	Func getAction
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Action"))
+		return dnAnswer(dotnet_getp(nHandle,"Action"))
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
@@ -11160,10 +11160,10 @@ Class ValidationRule from Object
 		return dn_x
 
 	Func getValidationStep
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ValidationStep"))
+		return dnAnswer(dotnet_getp(nHandle,"ValidationStep"))
 
 	Func setValidationStep P1
-		dotnet_callv("s3:set",nHandle,"s14:ValidationStep",P1)
+		dotnet_setp(nHandle,"ValidationStep",P1)
 		return self
 
 	Func getValidatesOnTargetUpdated
@@ -12813,10 +12813,10 @@ Class WpfWebBrowser from DotNetObject
 		return self
 
 	Func getFlowDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:FlowDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"FlowDirection"))
 
 	Func setFlowDirection P1
-		dotnet_callv("s3:set",nHandle,"s13:FlowDirection",P1)
+		dotnet_setp(nHandle,"FlowDirection",P1)
 		return self
 
 	Func getMargin
@@ -12827,17 +12827,17 @@ Class WpfWebBrowser from DotNetObject
 		return self
 
 	Func getHorizontalAlignment
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:HorizontalAlignment"))
+		return dnAnswer(dotnet_getp(nHandle,"HorizontalAlignment"))
 
 	Func setHorizontalAlignment P1
-		dotnet_callv("s3:set",nHandle,"s19:HorizontalAlignment",P1)
+		dotnet_setp(nHandle,"HorizontalAlignment",P1)
 		return self
 
 	Func getVerticalAlignment
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:VerticalAlignment"))
+		return dnAnswer(dotnet_getp(nHandle,"VerticalAlignment"))
 
 	Func setVerticalAlignment P1
-		dotnet_callv("s3:set",nHandle,"s17:VerticalAlignment",P1)
+		dotnet_setp(nHandle,"VerticalAlignment",P1)
 		return self
 
 	Func getFocusVisualStyle
@@ -13073,10 +13073,10 @@ Class WpfWebBrowser from DotNetObject
 		return self
 
 	Func getVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Visibility"))
+		return dnAnswer(dotnet_getp(nHandle,"Visibility"))
 
 	Func setVisibility P1
-		dotnet_callv("s3:set",nHandle,"s10:Visibility",P1)
+		dotnet_setp(nHandle,"Visibility",P1)
 		return self
 
 	Func getClipToBounds
@@ -13437,17 +13437,17 @@ Class WpfCalendar from WpfControl
 		return self
 
 	Func getDisplayMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:DisplayMode"))
+		return dnAnswer(dotnet_getp(nHandle,"DisplayMode"))
 
 	Func setDisplayMode P1
-		dotnet_callv("s3:set",nHandle,"s11:DisplayMode",P1)
+		dotnet_setp(nHandle,"DisplayMode",P1)
 		return self
 
 	Func getFirstDayOfWeek
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:FirstDayOfWeek"))
+		return dnAnswer(dotnet_getp(nHandle,"FirstDayOfWeek"))
 
 	Func setFirstDayOfWeek P1
-		dotnet_callv("s3:set",nHandle,"s14:FirstDayOfWeek",P1)
+		dotnet_setp(nHandle,"FirstDayOfWeek",P1)
 		return self
 
 	Func getIsTodayHighlighted
@@ -13471,10 +13471,10 @@ Class WpfCalendar from WpfControl
 		raise("DotNet Error: SelectedDates is a read-only property")
 
 	Func getSelectionMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:SelectionMode"))
+		return dnAnswer(dotnet_getp(nHandle,"SelectionMode"))
 
 	Func setSelectionMode P1
-		dotnet_callv("s3:set",nHandle,"s13:SelectionMode",P1)
+		dotnet_setp(nHandle,"SelectionMode",P1)
 		return self
 
 	Func getSelectedDatesChangedEvent
@@ -14207,10 +14207,10 @@ Class DataGridRow from WpfControl
 		return self
 
 	Func getDetailsVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:DetailsVisibility"))
+		return dnAnswer(dotnet_getp(nHandle,"DetailsVisibility"))
 
 	Func setDetailsVisibility P1
-		dotnet_callv("s3:set",nHandle,"s17:DetailsVisibility",P1)
+		dotnet_setp(nHandle,"DetailsVisibility",P1)
 		return self
 
 	Func getAlternationIndex
@@ -14544,10 +14544,10 @@ Class DatePicker from WpfControl
 		return self
 
 	Func getFirstDayOfWeek
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:FirstDayOfWeek"))
+		return dnAnswer(dotnet_getp(nHandle,"FirstDayOfWeek"))
 
 	Func setFirstDayOfWeek P1
-		dotnet_callv("s3:set",nHandle,"s14:FirstDayOfWeek",P1)
+		dotnet_setp(nHandle,"FirstDayOfWeek",P1)
 		return self
 
 	Func getIsDropDownOpen
@@ -14572,10 +14572,10 @@ Class DatePicker from WpfControl
 		return self
 
 	Func getSelectedDateFormat
-		return dnObj(dotnet_callo("s3:get",nHandle,"s18:SelectedDateFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"SelectedDateFormat"))
 
 	Func setSelectedDateFormat P1
-		dotnet_callv("s3:set",nHandle,"s18:SelectedDateFormat",P1)
+		dotnet_setp(nHandle,"SelectedDateFormat",P1)
 		return self
 
 	Func getText
@@ -14816,10 +14816,10 @@ Class FlowDocumentReader from WpfControl
 		return self
 
 	Func getViewingMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ViewingMode"))
+		return dnAnswer(dotnet_getp(nHandle,"ViewingMode"))
 
 	Func setViewingMode P1
-		dotnet_callv("s3:set",nHandle,"s11:ViewingMode",P1)
+		dotnet_setp(nHandle,"ViewingMode",P1)
 		return self
 
 	Func getSelection
@@ -15293,17 +15293,17 @@ Class FlowDocumentScrollViewer from WpfControl
 		return self
 
 	Func getHorizontalScrollBarVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s29:HorizontalScrollBarVisibility"))
+		return dnAnswer(dotnet_getp(nHandle,"HorizontalScrollBarVisibility"))
 
 	Func setHorizontalScrollBarVisibility P1
-		dotnet_callv("s3:set",nHandle,"s29:HorizontalScrollBarVisibility",P1)
+		dotnet_setp(nHandle,"HorizontalScrollBarVisibility",P1)
 		return self
 
 	Func getVerticalScrollBarVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s27:VerticalScrollBarVisibility"))
+		return dnAnswer(dotnet_getp(nHandle,"VerticalScrollBarVisibility"))
 
 	Func setVerticalScrollBarVisibility P1
-		dotnet_callv("s3:set",nHandle,"s27:VerticalScrollBarVisibility",P1)
+		dotnet_setp(nHandle,"VerticalScrollBarVisibility",P1)
 		return self
 
 	Func getSelectionBrush
@@ -16687,10 +16687,10 @@ Class StackPanel from WpfPanel
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:MakeVisible",P1,P2))
 
 	Func getOrientation
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Orientation"))
+		return dnAnswer(dotnet_getp(nHandle,"Orientation"))
 
 	Func setOrientation P1
-		dotnet_callv("s3:set",nHandle,"s11:Orientation",P1)
+		dotnet_setp(nHandle,"Orientation",P1)
 		return self
 
 	Func getCanHorizontallyScroll
@@ -16858,7 +16858,7 @@ Class StickyNoteControl from WpfControl
 		return self
 
 	Func getStickyNoteType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:StickyNoteType"))
+		return dnAnswer(dotnet_getp(nHandle,"StickyNoteType"))
 
 	Func setStickyNoteType P1
 		raise("DotNet Error: StickyNoteType is a read-only property")
@@ -16986,17 +16986,17 @@ Class Viewbox from Decorator
 		return self
 
 	Func getStretch
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Stretch"))
+		return dnAnswer(dotnet_getp(nHandle,"Stretch"))
 
 	Func setStretch P1
-		dotnet_callv("s3:set",nHandle,"s7:Stretch",P1)
+		dotnet_setp(nHandle,"Stretch",P1)
 		return self
 
 	Func getStretchDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:StretchDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"StretchDirection"))
 
 	Func setStretchDirection P1
-		dotnet_callv("s3:set",nHandle,"s16:StretchDirection",P1)
+		dotnet_setp(nHandle,"StretchDirection",P1)
 		return self
 
 	Func getStretchProperty
@@ -17206,10 +17206,10 @@ Class WrapPanel from WpfPanel
 		return self
 
 	Func getOrientation
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Orientation"))
+		return dnAnswer(dotnet_getp(nHandle,"Orientation"))
 
 	Func setOrientation P1
-		dotnet_callv("s3:set",nHandle,"s11:Orientation",P1)
+		dotnet_setp(nHandle,"Orientation",P1)
 		return self
 
 	Func getItemWidthProperty
@@ -17715,10 +17715,10 @@ Class Frame from ContentControl
 		return self
 
 	Func getNavigationUIVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s22:NavigationUIVisibility"))
+		return dnAnswer(dotnet_getp(nHandle,"NavigationUIVisibility"))
 
 	Func setNavigationUIVisibility P1
-		dotnet_callv("s3:set",nHandle,"s22:NavigationUIVisibility",P1)
+		dotnet_setp(nHandle,"NavigationUIVisibility",P1)
 		return self
 
 	Func getSandboxExternalContent
@@ -17729,10 +17729,10 @@ Class Frame from ContentControl
 		return self
 
 	Func getJournalOwnership
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:JournalOwnership"))
+		return dnAnswer(dotnet_getp(nHandle,"JournalOwnership"))
 
 	Func setJournalOwnership P1
-		dotnet_callv("s3:set",nHandle,"s16:JournalOwnership",P1)
+		dotnet_setp(nHandle,"JournalOwnership",P1)
 		return self
 
 	Func getNavigationService
@@ -18342,27 +18342,27 @@ Class ScrollViewer from ContentControl
 		return self
 
 	Func getHorizontalScrollBarVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s29:HorizontalScrollBarVisibility"))
+		return dnAnswer(dotnet_getp(nHandle,"HorizontalScrollBarVisibility"))
 
 	Func setHorizontalScrollBarVisibility P1
-		dotnet_callv("s3:set",nHandle,"s29:HorizontalScrollBarVisibility",P1)
+		dotnet_setp(nHandle,"HorizontalScrollBarVisibility",P1)
 		return self
 
 	Func getVerticalScrollBarVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s27:VerticalScrollBarVisibility"))
+		return dnAnswer(dotnet_getp(nHandle,"VerticalScrollBarVisibility"))
 
 	Func setVerticalScrollBarVisibility P1
-		dotnet_callv("s3:set",nHandle,"s27:VerticalScrollBarVisibility",P1)
+		dotnet_setp(nHandle,"VerticalScrollBarVisibility",P1)
 		return self
 
 	Func getComputedHorizontalScrollBarVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s37:ComputedHorizontalScrollBarVisibility"))
+		return dnAnswer(dotnet_getp(nHandle,"ComputedHorizontalScrollBarVisibility"))
 
 	Func setComputedHorizontalScrollBarVisibility P1
 		raise("DotNet Error: ComputedHorizontalScrollBarVisibility is a read-only property")
 
 	Func getComputedVerticalScrollBarVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s35:ComputedVerticalScrollBarVisibility"))
+		return dnAnswer(dotnet_getp(nHandle,"ComputedVerticalScrollBarVisibility"))
 
 	Func setComputedVerticalScrollBarVisibility P1
 		raise("DotNet Error: ComputedVerticalScrollBarVisibility is a read-only property")
@@ -18435,10 +18435,10 @@ Class ScrollViewer from ContentControl
 		return self
 
 	Func getPanningMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:PanningMode"))
+		return dnAnswer(dotnet_getp(nHandle,"PanningMode"))
 
 	Func setPanningMode P1
-		dotnet_callv("s3:set",nHandle,"s11:PanningMode",P1)
+		dotnet_setp(nHandle,"PanningMode",P1)
 		return self
 
 	Func getPanningDeceleration
@@ -18675,10 +18675,10 @@ Class WpfToolTip from ContentControl
 		return self
 
 	Func getPlacement
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Placement"))
+		return dnAnswer(dotnet_getp(nHandle,"Placement"))
 
 	Func setPlacement P1
-		dotnet_callv("s3:set",nHandle,"s9:Placement",P1)
+		dotnet_setp(nHandle,"Placement",P1)
 		return self
 
 	Func getCustomPopupPlacementCallback
@@ -18973,10 +18973,10 @@ Class VirtualizingStackPanel from VirtualizingPanel
 		return self
 
 	Func getOrientation
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Orientation"))
+		return dnAnswer(dotnet_getp(nHandle,"Orientation"))
 
 	Func setOrientation P1
-		dotnet_callv("s3:set",nHandle,"s11:Orientation",P1)
+		dotnet_setp(nHandle,"Orientation",P1)
 		return self
 
 	Func getCanHorizontallyScroll
@@ -19129,10 +19129,10 @@ Class Expander from HeaderedContentControl
 		return self
 
 	Func getExpandDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ExpandDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"ExpandDirection"))
 
 	Func setExpandDirection P1
-		dotnet_callv("s3:set",nHandle,"s15:ExpandDirection",P1)
+		dotnet_setp(nHandle,"ExpandDirection",P1)
 		return self
 
 	Func getIsExpanded
@@ -19333,7 +19333,7 @@ Class MenuItem from HeaderedItemsControl
 		return self
 
 	Func getRole
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Role"))
+		return dnAnswer(dotnet_getp(nHandle,"Role"))
 
 	Func setRole P1
 		raise("DotNet Error: Role is a read-only property")
@@ -19574,7 +19574,7 @@ Class TabItem from HeaderedContentControl
 		return self
 
 	Func getTabStripPlacement
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:TabStripPlacement"))
+		return dnAnswer(dotnet_getp(nHandle,"TabStripPlacement"))
 
 	Func setTabStripPlacement P1
 		raise("DotNet Error: TabStripPlacement is a read-only property")
@@ -19647,7 +19647,7 @@ Class ToolBar from HeaderedItemsControl
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Controls.ToolBar, PresentationFramework',"s15:GetOverflowMode",P1))
 
 	Func getOrientation
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Orientation"))
+		return dnAnswer(dotnet_getp(nHandle,"Orientation"))
 
 	Func setOrientation P1
 		raise("DotNet Error: Orientation is a read-only property")

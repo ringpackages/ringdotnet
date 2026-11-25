@@ -4561,7 +4561,7 @@ Class EventData from Object
 		raise("DotNet Error: EventId is a read-only property")
 
 	Func getLogLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:LogLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"LogLevel"))
 
 	Func setLogLevel P1
 		raise("DotNet Error: LogLevel is a read-only property")
@@ -4601,7 +4601,7 @@ Class EventDefinitionBase from Object
 		raise("DotNet Error: EventId is a read-only property")
 
 	Func getLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Level"))
+		return dnAnswer(dotnet_getp(nHandle,"Level"))
 
 	Func setLevel P1
 		raise("DotNet Error: Level is a read-only property")
@@ -4613,7 +4613,7 @@ Class EventDefinitionBase from Object
 		raise("DotNet Error: EventIdCode is a read-only property")
 
 	Func getWarningBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:WarningBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"WarningBehavior"))
 
 	Func setWarningBehavior P1
 		raise("DotNet Error: WarningBehavior is a read-only property")
@@ -9667,7 +9667,7 @@ Class WarningsConfiguration from Object
 		return dn_x
 
 	Func getDefaultBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:DefaultBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"DefaultBehavior"))
 
 	Func setDefaultBehavior P1
 		raise("DotNet Error: DefaultBehavior is a read-only property")
@@ -11620,7 +11620,7 @@ Class CascadeDeleteEventData from EntityEntryEventData
 		return self
 
 	Func getState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:State"))
+		return dnAnswer(dotnet_getp(nHandle,"State"))
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -11649,7 +11649,7 @@ Class CascadeDeleteOrphanEventData from EntityEntryEventData
 		return self
 
 	Func getState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:State"))
+		return dnAnswer(dotnet_getp(nHandle,"State"))
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -11737,7 +11737,7 @@ Class CommandCorrelatedEventData from DbContextEventData
 		raise("DotNet Error: ConnectionId is a read-only property")
 
 	Func getExecuteMethod
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ExecuteMethod"))
+		return dnAnswer(dotnet_getp(nHandle,"ExecuteMethod"))
 
 	Func setExecuteMethod P1
 		raise("DotNet Error: ExecuteMethod is a read-only property")
@@ -11755,7 +11755,7 @@ Class CommandCorrelatedEventData from DbContextEventData
 		raise("DotNet Error: StartTime is a read-only property")
 
 	Func getCommandSource
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:CommandSource"))
+		return dnAnswer(dotnet_getp(nHandle,"CommandSource"))
 
 	Func setCommandSource P1
 		raise("DotNet Error: CommandSource is a read-only property")
@@ -12378,13 +12378,13 @@ Class StateChangedEventData from EntityEntryEventData
 		return self
 
 	Func getOldState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:OldState"))
+		return dnAnswer(dotnet_getp(nHandle,"OldState"))
 
 	Func setOldState P1
 		raise("DotNet Error: OldState is a read-only property")
 
 	Func getNewState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:NewState"))
+		return dnAnswer(dotnet_getp(nHandle,"NewState"))
 
 	Func setNewState P1
 		raise("DotNet Error: NewState is a read-only property")
@@ -12489,7 +12489,7 @@ Class TransactionStartingEventData from DbContextEventData
 		return self
 
 	Func getIsolationLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:IsolationLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"IsolationLevel"))
 
 	Func setIsolationLevel P1
 		raise("DotNet Error: IsolationLevel is a read-only property")

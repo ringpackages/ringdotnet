@@ -639,10 +639,10 @@ Class DataColumn from MarshalByValueComponent
 		return self
 
 	Func getDateTimeMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:DateTimeMode"))
+		return dnAnswer(dotnet_getp(nHandle,"DateTimeMode"))
 
 	Func setDateTimeMode P1
-		dotnet_callv("s3:set",nHandle,"s12:DateTimeMode",P1)
+		dotnet_setp(nHandle,"DateTimeMode",P1)
 		return self
 
 	Func getDefaultValue
@@ -703,10 +703,10 @@ Class DataColumn from MarshalByValueComponent
 		return self
 
 	Func getColumnMapping
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ColumnMapping"))
+		return dnAnswer(dotnet_getp(nHandle,"ColumnMapping"))
 
 	Func setColumnMapping P1
-		dotnet_callv("s3:set",nHandle,"s13:ColumnMapping",P1)
+		dotnet_setp(nHandle,"ColumnMapping",P1)
 		return self
 
 
@@ -1153,7 +1153,7 @@ Class DataRow from Object
 		return self
 
 	Func getRowState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:RowState"))
+		return dnAnswer(dotnet_getp(nHandle,"RowState"))
 
 	Func setRowState P1
 		raise("DotNet Error: RowState is a read-only property")
@@ -1218,7 +1218,7 @@ Class DataRowChangeEventArgs from EventArgs
 		raise("DotNet Error: Row is a read-only property")
 
 	Func getAction
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Action"))
+		return dnAnswer(dotnet_getp(nHandle,"Action"))
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
@@ -1365,7 +1365,7 @@ Class DataRowView from Object
 		raise("DotNet Error: DataView is a read-only property")
 
 	Func getRowVersion
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:RowVersion"))
+		return dnAnswer(dotnet_getp(nHandle,"RowVersion"))
 
 	Func setRowVersion P1
 		raise("DotNet Error: RowVersion is a read-only property")
@@ -1557,17 +1557,17 @@ Class DataSet from MarshalByValueComponent
 		return self
 
 	Func getRemotingFormat
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:RemotingFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"RemotingFormat"))
 
 	Func setRemotingFormat P1
-		dotnet_callv("s3:set",nHandle,"s14:RemotingFormat",P1)
+		dotnet_setp(nHandle,"RemotingFormat",P1)
 		return self
 
 	Func getSchemaSerializationMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s23:SchemaSerializationMode"))
+		return dnAnswer(dotnet_getp(nHandle,"SchemaSerializationMode"))
 
 	Func setSchemaSerializationMode P1
-		dotnet_callv("s3:set",nHandle,"s23:SchemaSerializationMode",P1)
+		dotnet_setp(nHandle,"SchemaSerializationMode",P1)
 		return self
 
 	Func getCaseSensitive
@@ -1915,10 +1915,10 @@ Class DataTable from MarshalByValueComponent
 		raise("DotNet Error: IsInitialized is a read-only property")
 
 	Func getRemotingFormat
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:RemotingFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"RemotingFormat"))
 
 	Func setRemotingFormat P1
-		dotnet_callv("s3:set",nHandle,"s14:RemotingFormat",P1)
+		dotnet_setp(nHandle,"RemotingFormat",P1)
 		return self
 
 	Func getChildRelations
@@ -2315,10 +2315,10 @@ Class DataView from MarshalByValueComponent
 		return self
 
 	Func getRowStateFilter
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:RowStateFilter"))
+		return dnAnswer(dotnet_getp(nHandle,"RowStateFilter"))
 
 	Func setRowStateFilter P1
-		dotnet_callv("s3:set",nHandle,"s14:RowStateFilter",P1)
+		dotnet_setp(nHandle,"RowStateFilter",P1)
 		return self
 
 	Func getSort
@@ -2478,10 +2478,10 @@ Class DataViewSetting from Object
 		return self
 
 	Func getRowStateFilter
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:RowStateFilter"))
+		return dnAnswer(dotnet_getp(nHandle,"RowStateFilter"))
 
 	Func setRowStateFilter P1
-		dotnet_callv("s3:set",nHandle,"s14:RowStateFilter",P1)
+		dotnet_setp(nHandle,"RowStateFilter",P1)
 		return self
 
 	Func getSort
@@ -2888,17 +2888,17 @@ Class IDataAdapter from DotNetObject
 		return dn_x
 
 	Func getMissingMappingAction
-		return dnObj(dotnet_callo("s3:get",nHandle,"s20:MissingMappingAction"))
+		return dnAnswer(dotnet_getp(nHandle,"MissingMappingAction"))
 
 	Func setMissingMappingAction P1
-		dotnet_callv("s3:set",nHandle,"s20:MissingMappingAction",P1)
+		dotnet_setp(nHandle,"MissingMappingAction",P1)
 		return self
 
 	Func getMissingSchemaAction
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:MissingSchemaAction"))
+		return dnAnswer(dotnet_getp(nHandle,"MissingSchemaAction"))
 
 	Func setMissingSchemaAction P1
-		dotnet_callv("s3:set",nHandle,"s19:MissingSchemaAction",P1)
+		dotnet_setp(nHandle,"MissingSchemaAction",P1)
 		return self
 
 	Func getTableMappings
@@ -2928,17 +2928,17 @@ Class IDataParameter from DotNetObject
 		return self
 
 	Func getDbType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:DbType"))
+		return dnAnswer(dotnet_getp(nHandle,"DbType"))
 
 	Func setDbType P1
-		dotnet_callv("s3:set",nHandle,"s6:DbType",P1)
+		dotnet_setp(nHandle,"DbType",P1)
 		return self
 
 	Func getDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Direction"))
+		return dnAnswer(dotnet_getp(nHandle,"Direction"))
 
 	Func setDirection P1
-		dotnet_callv("s3:set",nHandle,"s9:Direction",P1)
+		dotnet_setp(nHandle,"Direction",P1)
 		return self
 
 	Func getIsNullable
@@ -2962,10 +2962,10 @@ Class IDataParameter from DotNetObject
 		return self
 
 	Func getSourceVersion
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:SourceVersion"))
+		return dnAnswer(dotnet_getp(nHandle,"SourceVersion"))
 
 	Func setSourceVersion P1
-		dotnet_callv("s3:set",nHandle,"s13:SourceVersion",P1)
+		dotnet_setp(nHandle,"SourceVersion",P1)
 		return self
 
 	Func getValue
@@ -3391,10 +3391,10 @@ Class IDbCommand from DotNetObject
 		return self
 
 	Func getCommandType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:CommandType"))
+		return dnAnswer(dotnet_getp(nHandle,"CommandType"))
 
 	Func setCommandType P1
-		dotnet_callv("s3:set",nHandle,"s11:CommandType",P1)
+		dotnet_setp(nHandle,"CommandType",P1)
 		return self
 
 	Func getParameters
@@ -3404,10 +3404,10 @@ Class IDbCommand from DotNetObject
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getUpdatedRowSource
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:UpdatedRowSource"))
+		return dnAnswer(dotnet_getp(nHandle,"UpdatedRowSource"))
 
 	Func setUpdatedRowSource P1
-		dotnet_callv("s3:set",nHandle,"s16:UpdatedRowSource",P1)
+		dotnet_setp(nHandle,"UpdatedRowSource",P1)
 		return self
 
 
@@ -3475,7 +3475,7 @@ Class IDbConnection from DotNetObject
 		raise("DotNet Error: Database is a read-only property")
 
 	Func getState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:State"))
+		return dnAnswer(dotnet_getp(nHandle,"State"))
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -3545,17 +3545,17 @@ Class IDbDataAdapter from DotNetObject
 		return self
 
 	Func getMissingMappingAction
-		return dnObj(dotnet_callo("s3:get",nHandle,"s20:MissingMappingAction"))
+		return dnAnswer(dotnet_getp(nHandle,"MissingMappingAction"))
 
 	Func setMissingMappingAction P1
-		dotnet_callv("s3:set",nHandle,"s20:MissingMappingAction",P1)
+		dotnet_setp(nHandle,"MissingMappingAction",P1)
 		return self
 
 	Func getMissingSchemaAction
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:MissingSchemaAction"))
+		return dnAnswer(dotnet_getp(nHandle,"MissingSchemaAction"))
 
 	Func setMissingSchemaAction P1
-		dotnet_callv("s3:set",nHandle,"s19:MissingSchemaAction",P1)
+		dotnet_setp(nHandle,"MissingSchemaAction",P1)
 		return self
 
 	Func getTableMappings
@@ -3609,17 +3609,17 @@ Class IDbDataParameter from DotNetObject
 		return self
 
 	Func getDbType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:DbType"))
+		return dnAnswer(dotnet_getp(nHandle,"DbType"))
 
 	Func setDbType P1
-		dotnet_callv("s3:set",nHandle,"s6:DbType",P1)
+		dotnet_setp(nHandle,"DbType",P1)
 		return self
 
 	Func getDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Direction"))
+		return dnAnswer(dotnet_getp(nHandle,"Direction"))
 
 	Func setDirection P1
-		dotnet_callv("s3:set",nHandle,"s9:Direction",P1)
+		dotnet_setp(nHandle,"Direction",P1)
 		return self
 
 	Func getIsNullable
@@ -3643,10 +3643,10 @@ Class IDbDataParameter from DotNetObject
 		return self
 
 	Func getSourceVersion
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:SourceVersion"))
+		return dnAnswer(dotnet_getp(nHandle,"SourceVersion"))
 
 	Func setSourceVersion P1
-		dotnet_callv("s3:set",nHandle,"s13:SourceVersion",P1)
+		dotnet_setp(nHandle,"SourceVersion",P1)
 		return self
 
 	Func getValue
@@ -3690,7 +3690,7 @@ Class IDbTransaction from DotNetObject
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getIsolationLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:IsolationLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"IsolationLevel"))
 
 	Func setIsolationLevel P1
 		raise("DotNet Error: IsolationLevel is a read-only property")
@@ -4002,13 +4002,13 @@ Class StateChangeEventArgs from EventArgs
 		return self
 
 	Func getCurrentState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:CurrentState"))
+		return dnAnswer(dotnet_getp(nHandle,"CurrentState"))
 
 	Func setCurrentState P1
 		raise("DotNet Error: CurrentState is a read-only property")
 
 	Func getOriginalState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:OriginalState"))
+		return dnAnswer(dotnet_getp(nHandle,"OriginalState"))
 
 	Func setOriginalState P1
 		raise("DotNet Error: OriginalState is a read-only property")
@@ -4570,17 +4570,17 @@ Class ForeignKeyConstraint from Constraint
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getAcceptRejectRule
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:AcceptRejectRule"))
+		return dnAnswer(dotnet_getp(nHandle,"AcceptRejectRule"))
 
 	Func setAcceptRejectRule P1
-		dotnet_callv("s3:set",nHandle,"s16:AcceptRejectRule",P1)
+		dotnet_setp(nHandle,"AcceptRejectRule",P1)
 		return self
 
 	Func getDeleteRule
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:DeleteRule"))
+		return dnAnswer(dotnet_getp(nHandle,"DeleteRule"))
 
 	Func setDeleteRule P1
-		dotnet_callv("s3:set",nHandle,"s10:DeleteRule",P1)
+		dotnet_setp(nHandle,"DeleteRule",P1)
 		return self
 
 	Func getRelatedColumns
@@ -4596,10 +4596,10 @@ Class ForeignKeyConstraint from Constraint
 		raise("DotNet Error: RelatedTable is a read-only property")
 
 	Func getUpdateRule
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:UpdateRule"))
+		return dnAnswer(dotnet_getp(nHandle,"UpdateRule"))
 
 	Func setUpdateRule P1
-		dotnet_callv("s3:set",nHandle,"s10:UpdateRule",P1)
+		dotnet_setp(nHandle,"UpdateRule",P1)
 		return self
 
 

@@ -437,7 +437,7 @@ Class PaperSize from Object
 		return self
 
 	Func getKind
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Kind"))
+		return dnAnswer(dotnet_getp(nHandle,"Kind"))
 
 	Func setKind P1
 		raise("DotNet Error: Kind is a read-only property")
@@ -494,7 +494,7 @@ Class PaperSource from Object
 		return dn_x
 
 	Func getKind
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Kind"))
+		return dnAnswer(dotnet_getp(nHandle,"Kind"))
 
 	Func setKind P1
 		raise("DotNet Error: Kind is a read-only property")
@@ -712,7 +712,7 @@ Class PrintEventArgs from CancelEventArgs
 		return self
 
 	Func getPrintAction
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:PrintAction"))
+		return dnAnswer(dotnet_getp(nHandle,"PrintAction"))
 
 	Func setPrintAction P1
 		raise("DotNet Error: PrintAction is a read-only property")
@@ -807,10 +807,10 @@ Class PrinterResolution from Object
 		return dn_x
 
 	Func getKind
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Kind"))
+		return dnAnswer(dotnet_getp(nHandle,"Kind"))
 
 	Func setKind P1
-		dotnet_callv("s3:set",nHandle,"s4:Kind",P1)
+		dotnet_setp(nHandle,"Kind",P1)
 		return self
 
 	Func getX
@@ -943,10 +943,10 @@ Class PrinterSettings from Object
 		raise("DotNet Error: DefaultPageSettings is a read-only property")
 
 	Func getDuplex
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Duplex"))
+		return dnAnswer(dotnet_getp(nHandle,"Duplex"))
 
 	Func setDuplex P1
-		dotnet_callv("s3:set",nHandle,"s6:Duplex",P1)
+		dotnet_setp(nHandle,"Duplex",P1)
 		return self
 
 	Func getFromPage
@@ -1020,10 +1020,10 @@ Class PrinterSettings from Object
 		raise("DotNet Error: PaperSources is a read-only property")
 
 	Func getPrintRange
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:PrintRange"))
+		return dnAnswer(dotnet_getp(nHandle,"PrintRange"))
 
 	Func setPrintRange P1
-		dotnet_callv("s3:set",nHandle,"s10:PrintRange",P1)
+		dotnet_setp(nHandle,"PrintRange",P1)
 		return self
 
 	Func getPrintToFile

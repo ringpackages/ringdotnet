@@ -1590,31 +1590,31 @@ Class X509ChainPolicy from Object
 		raise("DotNet Error: CustomTrustStore is a read-only property")
 
 	Func getRevocationMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:RevocationMode"))
+		return dnAnswer(dotnet_getp(nHandle,"RevocationMode"))
 
 	Func setRevocationMode P1
-		dotnet_callv("s3:set",nHandle,"s14:RevocationMode",P1)
+		dotnet_setp(nHandle,"RevocationMode",P1)
 		return self
 
 	Func getRevocationFlag
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:RevocationFlag"))
+		return dnAnswer(dotnet_getp(nHandle,"RevocationFlag"))
 
 	Func setRevocationFlag P1
-		dotnet_callv("s3:set",nHandle,"s14:RevocationFlag",P1)
+		dotnet_setp(nHandle,"RevocationFlag",P1)
 		return self
 
 	Func getVerificationFlags
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:VerificationFlags"))
+		return dnAnswer(dotnet_getp(nHandle,"VerificationFlags"))
 
 	Func setVerificationFlags P1
-		dotnet_callv("s3:set",nHandle,"s17:VerificationFlags",P1)
+		dotnet_setp(nHandle,"VerificationFlags",P1)
 		return self
 
 	Func getTrustMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:TrustMode"))
+		return dnAnswer(dotnet_getp(nHandle,"TrustMode"))
 
 	Func setTrustMode P1
-		dotnet_callv("s3:set",nHandle,"s9:TrustMode",P1)
+		dotnet_setp(nHandle,"TrustMode",P1)
 		return self
 
 	Func getVerificationTime
@@ -1656,10 +1656,10 @@ Class X509ChainStatus from ValueType
 		return self
 
 	Func getStatus
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Status"))
+		return dnAnswer(dotnet_getp(nHandle,"Status"))
 
 	Func setStatus P1
-		dotnet_callv("s3:set",nHandle,"s6:Status",P1)
+		dotnet_setp(nHandle,"Status",P1)
 		return self
 
 	Func getStatusInformation
@@ -1948,7 +1948,7 @@ Class X509Store from Object
 		raise("DotNet Error: StoreHandle is a read-only property")
 
 	Func getLocation
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Location"))
+		return dnAnswer(dotnet_getp(nHandle,"Location"))
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")
@@ -2569,7 +2569,7 @@ Class X509KeyUsageExtension from X509Extension
 		return self
 
 	Func getKeyUsages
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyUsages"))
+		return dnAnswer(dotnet_getp(nHandle,"KeyUsages"))
 
 	Func setKeyUsages P1
 		raise("DotNet Error: KeyUsages is a read-only property")

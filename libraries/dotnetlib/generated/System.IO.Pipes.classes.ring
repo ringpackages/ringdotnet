@@ -143,13 +143,13 @@ Class PipeAccessRule from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func getPipeAccessRights
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:PipeAccessRights"))
+		return dnAnswer(dotnet_getp(nHandle,"PipeAccessRights"))
 
 	Func setPipeAccessRights P1
 		raise("DotNet Error: PipeAccessRights is a read-only property")
 
 	Func getAccessControlType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:AccessControlType"))
+		return dnAnswer(dotnet_getp(nHandle,"AccessControlType"))
 
 	Func setAccessControlType P1
 		raise("DotNet Error: AccessControlType is a read-only property")
@@ -167,13 +167,13 @@ Class PipeAccessRule from DotNetObject
 		raise("DotNet Error: IsInherited is a read-only property")
 
 	Func getInheritanceFlags
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:InheritanceFlags"))
+		return dnAnswer(dotnet_getp(nHandle,"InheritanceFlags"))
 
 	Func setInheritanceFlags P1
 		raise("DotNet Error: InheritanceFlags is a read-only property")
 
 	Func getPropagationFlags
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:PropagationFlags"))
+		return dnAnswer(dotnet_getp(nHandle,"PropagationFlags"))
 
 	Func setPropagationFlags P1
 		raise("DotNet Error: PropagationFlags is a read-only property")
@@ -214,13 +214,13 @@ Class PipeAuditRule from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func getPipeAccessRights
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:PipeAccessRights"))
+		return dnAnswer(dotnet_getp(nHandle,"PipeAccessRights"))
 
 	Func setPipeAccessRights P1
 		raise("DotNet Error: PipeAccessRights is a read-only property")
 
 	Func getAuditFlags
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:AuditFlags"))
+		return dnAnswer(dotnet_getp(nHandle,"AuditFlags"))
 
 	Func setAuditFlags P1
 		raise("DotNet Error: AuditFlags is a read-only property")
@@ -238,13 +238,13 @@ Class PipeAuditRule from DotNetObject
 		raise("DotNet Error: IsInherited is a read-only property")
 
 	Func getInheritanceFlags
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:InheritanceFlags"))
+		return dnAnswer(dotnet_getp(nHandle,"InheritanceFlags"))
 
 	Func setInheritanceFlags P1
 		raise("DotNet Error: InheritanceFlags is a read-only property")
 
 	Func getPropagationFlags
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:PropagationFlags"))
+		return dnAnswer(dotnet_getp(nHandle,"PropagationFlags"))
 
 	Func setPropagationFlags P1
 		raise("DotNet Error: PropagationFlags is a read-only property")
@@ -512,7 +512,7 @@ Class PipeStream from Stream
 		raise("DotNet Error: SafePipeHandle is a read-only property")
 
 	Func getTransmissionMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:TransmissionMode"))
+		return dnAnswer(dotnet_getp(nHandle,"TransmissionMode"))
 
 	Func setTransmissionMode P1
 		raise("DotNet Error: TransmissionMode is a read-only property")
@@ -530,10 +530,10 @@ Class PipeStream from Stream
 		raise("DotNet Error: OutBufferSize is a read-only property")
 
 	Func getReadMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:ReadMode"))
+		return dnAnswer(dotnet_getp(nHandle,"ReadMode"))
 
 	Func setReadMode P1
-		dotnet_callv("s3:set",nHandle,"s8:ReadMode",P1)
+		dotnet_setp(nHandle,"ReadMode",P1)
 		return self
 
 

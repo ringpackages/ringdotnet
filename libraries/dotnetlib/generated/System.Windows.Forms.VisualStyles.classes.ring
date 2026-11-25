@@ -1325,17 +1325,17 @@ Class TextMetrics from ValueType
 		return self
 
 	Func getPitchAndFamily
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:PitchAndFamily"))
+		return dnAnswer(dotnet_getp(nHandle,"PitchAndFamily"))
 
 	Func setPitchAndFamily P1
-		dotnet_callv("s3:set",nHandle,"s14:PitchAndFamily",P1)
+		dotnet_setp(nHandle,"PitchAndFamily",P1)
 		return self
 
 	Func getCharSet
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:CharSet"))
+		return dnAnswer(dotnet_getp(nHandle,"CharSet"))
 
 	Func setCharSet P1
-		dotnet_callv("s3:set",nHandle,"s7:CharSet",P1)
+		dotnet_setp(nHandle,"CharSet",P1)
 		return self
 
 

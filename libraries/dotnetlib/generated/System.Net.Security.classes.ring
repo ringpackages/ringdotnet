@@ -220,7 +220,7 @@ Class NegotiateAuthentication from Object
 		raise("DotNet Error: IsAuthenticated is a read-only property")
 
 	Func getProtectionLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ProtectionLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"ProtectionLevel"))
 
 	Func setProtectionLevel P1
 		raise("DotNet Error: ProtectionLevel is a read-only property")
@@ -265,7 +265,7 @@ Class NegotiateAuthentication from Object
 		raise("DotNet Error: RemoteIdentity is a read-only property")
 
 	Func getImpersonationLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s18:ImpersonationLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"ImpersonationLevel"))
 
 	Func setImpersonationLevel P1
 		raise("DotNet Error: ImpersonationLevel is a read-only property")
@@ -332,10 +332,10 @@ Class NegotiateAuthenticationClientOptions from Object
 		return self
 
 	Func getRequiredProtectionLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s23:RequiredProtectionLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"RequiredProtectionLevel"))
 
 	Func setRequiredProtectionLevel P1
-		dotnet_callv("s3:set",nHandle,"s23:RequiredProtectionLevel",P1)
+		dotnet_setp(nHandle,"RequiredProtectionLevel",P1)
 		return self
 
 	Func getRequireMutualAuthentication
@@ -346,10 +346,10 @@ Class NegotiateAuthenticationClientOptions from Object
 		return self
 
 	Func getAllowedImpersonationLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s25:AllowedImpersonationLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"AllowedImpersonationLevel"))
 
 	Func setAllowedImpersonationLevel P1
-		dotnet_callv("s3:set",nHandle,"s25:AllowedImpersonationLevel",P1)
+		dotnet_setp(nHandle,"AllowedImpersonationLevel",P1)
 		return self
 
 
@@ -406,10 +406,10 @@ Class NegotiateAuthenticationServerOptions from Object
 		return self
 
 	Func getRequiredProtectionLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s23:RequiredProtectionLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"RequiredProtectionLevel"))
 
 	Func setRequiredProtectionLevel P1
-		dotnet_callv("s3:set",nHandle,"s23:RequiredProtectionLevel",P1)
+		dotnet_setp(nHandle,"RequiredProtectionLevel",P1)
 		return self
 
 	Func getPolicy
@@ -420,10 +420,10 @@ Class NegotiateAuthenticationServerOptions from Object
 		return self
 
 	Func getRequiredImpersonationLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s26:RequiredImpersonationLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"RequiredImpersonationLevel"))
 
 	Func setRequiredImpersonationLevel P1
-		dotnet_callv("s3:set",nHandle,"s26:RequiredImpersonationLevel",P1)
+		dotnet_setp(nHandle,"RequiredImpersonationLevel",P1)
 		return self
 
 
@@ -622,24 +622,24 @@ Class SslClientAuthenticationOptions from Object
 		return self
 
 	Func getCertificateRevocationCheckMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s30:CertificateRevocationCheckMode"))
+		return dnAnswer(dotnet_getp(nHandle,"CertificateRevocationCheckMode"))
 
 	Func setCertificateRevocationCheckMode P1
-		dotnet_callv("s3:set",nHandle,"s30:CertificateRevocationCheckMode",P1)
+		dotnet_setp(nHandle,"CertificateRevocationCheckMode",P1)
 		return self
 
 	Func getEncryptionPolicy
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:EncryptionPolicy"))
+		return dnAnswer(dotnet_getp(nHandle,"EncryptionPolicy"))
 
 	Func setEncryptionPolicy P1
-		dotnet_callv("s3:set",nHandle,"s16:EncryptionPolicy",P1)
+		dotnet_setp(nHandle,"EncryptionPolicy",P1)
 		return self
 
 	Func getEnabledSslProtocols
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:EnabledSslProtocols"))
+		return dnAnswer(dotnet_getp(nHandle,"EnabledSslProtocols"))
 
 	Func setEnabledSslProtocols P1
-		dotnet_callv("s3:set",nHandle,"s19:EnabledSslProtocols",P1)
+		dotnet_setp(nHandle,"EnabledSslProtocols",P1)
 		return self
 
 	Func getCipherSuitesPolicy
@@ -703,7 +703,7 @@ Class SslClientHelloInfo from ValueType
 		raise("DotNet Error: ServerName is a read-only property")
 
 	Func getSslProtocols
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:SslProtocols"))
+		return dnAnswer(dotnet_getp(nHandle,"SslProtocols"))
 
 	Func setSslProtocols P1
 		raise("DotNet Error: SslProtocols is a read-only property")
@@ -805,24 +805,24 @@ Class SslServerAuthenticationOptions from Object
 		return self
 
 	Func getEnabledSslProtocols
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:EnabledSslProtocols"))
+		return dnAnswer(dotnet_getp(nHandle,"EnabledSslProtocols"))
 
 	Func setEnabledSslProtocols P1
-		dotnet_callv("s3:set",nHandle,"s19:EnabledSslProtocols",P1)
+		dotnet_setp(nHandle,"EnabledSslProtocols",P1)
 		return self
 
 	Func getCertificateRevocationCheckMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s30:CertificateRevocationCheckMode"))
+		return dnAnswer(dotnet_getp(nHandle,"CertificateRevocationCheckMode"))
 
 	Func setCertificateRevocationCheckMode P1
-		dotnet_callv("s3:set",nHandle,"s30:CertificateRevocationCheckMode",P1)
+		dotnet_setp(nHandle,"CertificateRevocationCheckMode",P1)
 		return self
 
 	Func getEncryptionPolicy
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:EncryptionPolicy"))
+		return dnAnswer(dotnet_getp(nHandle,"EncryptionPolicy"))
 
 	Func setEncryptionPolicy P1
-		dotnet_callv("s3:set",nHandle,"s16:EncryptionPolicy",P1)
+		dotnet_setp(nHandle,"EncryptionPolicy",P1)
 		return self
 
 	Func getCipherSuitesPolicy
@@ -966,7 +966,7 @@ Class NegotiateStream from AuthenticatedStream
 		return dnObj(dotnet_callo("s4:call",nHandle,"s25:AuthenticateAsServerAsync",P1))
 
 	Func getImpersonationLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s18:ImpersonationLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"ImpersonationLevel"))
 
 	Func setImpersonationLevel P1
 		raise("DotNet Error: ImpersonationLevel is a read-only property")
@@ -1086,7 +1086,7 @@ Class SslStream from AuthenticatedStream
 		raise("DotNet Error: TransportContext is a read-only property")
 
 	Func getSslProtocol
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:SslProtocol"))
+		return dnAnswer(dotnet_getp(nHandle,"SslProtocol"))
 
 	Func setSslProtocol P1
 		raise("DotNet Error: SslProtocol is a read-only property")
@@ -1116,13 +1116,13 @@ Class SslStream from AuthenticatedStream
 		raise("DotNet Error: NegotiatedApplicationProtocol is a read-only property")
 
 	Func getNegotiatedCipherSuite
-		return dnObj(dotnet_callo("s3:get",nHandle,"s21:NegotiatedCipherSuite"))
+		return dnAnswer(dotnet_getp(nHandle,"NegotiatedCipherSuite"))
 
 	Func setNegotiatedCipherSuite P1
 		raise("DotNet Error: NegotiatedCipherSuite is a read-only property")
 
 	Func getCipherAlgorithm
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:CipherAlgorithm"))
+		return dnAnswer(dotnet_getp(nHandle,"CipherAlgorithm"))
 
 	Func setCipherAlgorithm P1
 		raise("DotNet Error: CipherAlgorithm is a read-only property")
@@ -1134,7 +1134,7 @@ Class SslStream from AuthenticatedStream
 		raise("DotNet Error: CipherStrength is a read-only property")
 
 	Func getHashAlgorithm
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:HashAlgorithm"))
+		return dnAnswer(dotnet_getp(nHandle,"HashAlgorithm"))
 
 	Func setHashAlgorithm P1
 		raise("DotNet Error: HashAlgorithm is a read-only property")
@@ -1146,7 +1146,7 @@ Class SslStream from AuthenticatedStream
 		raise("DotNet Error: HashStrength is a read-only property")
 
 	Func getKeyExchangeAlgorithm
-		return dnObj(dotnet_callo("s3:get",nHandle,"s20:KeyExchangeAlgorithm"))
+		return dnAnswer(dotnet_getp(nHandle,"KeyExchangeAlgorithm"))
 
 	Func setKeyExchangeAlgorithm P1
 		raise("DotNet Error: KeyExchangeAlgorithm is a read-only property")

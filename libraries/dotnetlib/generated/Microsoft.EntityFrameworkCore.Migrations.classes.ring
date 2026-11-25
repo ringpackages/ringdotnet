@@ -241,7 +241,7 @@ Class HistoryRepository from Object
 		return dn_x
 
 	Func getLockReleaseBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:LockReleaseBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"LockReleaseBehavior"))
 
 	Func setLockReleaseBehavior P1
 		raise("DotNet Error: LockReleaseBehavior is a read-only property")
@@ -531,7 +531,7 @@ Class IHistoryRepository from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"GetEndIfScript"))
 
 	Func getLockReleaseBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:LockReleaseBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"LockReleaseBehavior"))
 
 	Func setLockReleaseBehavior P1
 		raise("DotNet Error: LockReleaseBehavior is a read-only property")

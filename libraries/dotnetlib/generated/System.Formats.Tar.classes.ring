@@ -105,13 +105,13 @@ Class TarEntry from Object
 		raise("DotNet Error: Checksum is a read-only property")
 
 	Func getEntryType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:EntryType"))
+		return dnAnswer(dotnet_getp(nHandle,"EntryType"))
 
 	Func setEntryType P1
 		raise("DotNet Error: EntryType is a read-only property")
 
 	Func getFormat
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Format"))
+		return dnAnswer(dotnet_getp(nHandle,"Format"))
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
@@ -144,10 +144,10 @@ Class TarEntry from Object
 		return self
 
 	Func getMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Mode"))
+		return dnAnswer(dotnet_getp(nHandle,"Mode"))
 
 	Func setMode P1
-		dotnet_callv("s3:set",nHandle,"s4:Mode",P1)
+		dotnet_setp(nHandle,"Mode",P1)
 		return self
 
 	Func getName
@@ -337,7 +337,7 @@ Class TarWriter from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func getFormat
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Format"))
+		return dnAnswer(dotnet_getp(nHandle,"Format"))
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")

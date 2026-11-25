@@ -48,6 +48,11 @@ oBox.Text = 12
 dnAssert("a text property gets the text of a number",oBox.Text,"12")
 oBox.Color = "Blue"
 dnAssert("an enum is still a text",oBox.Color,"Blue")
+oBox.Flags = "A, C"
+dnAssert("a flags enum",oBox.Flags,"A, C")
+oBox.ColorField = "Red"
+dnAssert("an enum field",oBox.ColorField,"Red")
+dnAssert("a read-only enum",oBox.ReadOnlyColor,"Green")
 oBox.Maybe = 3
 dnAssert("a nullable int",oBox.Maybe,3)
 oBox.Letter = "x"
@@ -67,9 +72,9 @@ dnAssert("a struct: a field",oPoint.Y,4)
 
 # ---- the same results and errors as the generic request
 aNumberNames = ["SByteValue","ByteValue","ShortValue","UShortValue","IntValue","UIntValue","LongValue","ULongValue","FloatValue","DoubleValue","DecimalValue","CountField","Flag"]
-aOtherNames = ["Text","Field","Letter","Color","Maybe","Bytes","ReadOnly","LastWritten","WriteOnlyValue","Throws"]
+aOtherNames = ["Text","Field","Letter","Color","Flags","ColorField","ReadOnlyColor","Maybe","Bytes","ReadOnly","LastWritten","WriteOnlyValue","Throws"]
 aValues = [0,1,-1,3.5,0.1,127,128,255,256,-128,-129,32767,32768,65535,65536,2147483647,2147483648,4294967295,4294967296,1000000000000000,100000000000000000000,-100000000000000000000,
-           "","abc","12","true",char(195) + char(169),char(255) + char(254),[1,2],[ ["a",1] ]]
+           "","abc","12","true","Blue","blue","Green","2","A, C","A","99",char(195) + char(169),char(255) + char(254),[1,2],[ ["a",1] ]]
 aAllNames = []
 for cName in aNumberNames
 	aAllNames + cName
@@ -85,7 +90,7 @@ for cName in aAllNames
 		oA = new TypedBox()
 		oB = new TypedBox()
 		# (a read-only property has a setter that raises its own error, and a write-only one has no getter: those are not the typed path)
-		if cName != "ReadOnly"
+		if cName != "ReadOnly" and cName != "ReadOnlyColor"
 			cWrite = tryWrite(oA,cName,xValue,true)
 			cGenericWrite = tryWrite(oB,cName,xValue,false)
 			nChecked++

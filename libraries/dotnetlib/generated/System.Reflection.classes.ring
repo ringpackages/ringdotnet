@@ -749,7 +749,7 @@ Class Assembly from Object
 		raise("DotNet Error: HostContext is a read-only property")
 
 	Func getSecurityRuleSet
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:SecurityRuleSet"))
+		return dnAnswer(dotnet_getp(nHandle,"SecurityRuleSet"))
 
 	Func setSecurityRuleSet P1
 		raise("DotNet Error: SecurityRuleSet is a read-only property")
@@ -1215,38 +1215,38 @@ Class AssemblyName from Object
 		raise("DotNet Error: EscapedCodeBase is a read-only property")
 
 	Func getProcessorArchitecture
-		return dnObj(dotnet_callo("s3:get",nHandle,"s21:ProcessorArchitecture"))
+		return dnAnswer(dotnet_getp(nHandle,"ProcessorArchitecture"))
 
 	Func setProcessorArchitecture P1
-		dotnet_callv("s3:set",nHandle,"s21:ProcessorArchitecture",P1)
+		dotnet_setp(nHandle,"ProcessorArchitecture",P1)
 		return self
 
 	Func getContentType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ContentType"))
+		return dnAnswer(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
-		dotnet_callv("s3:set",nHandle,"s11:ContentType",P1)
+		dotnet_setp(nHandle,"ContentType",P1)
 		return self
 
 	Func getFlags
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Flags"))
+		return dnAnswer(dotnet_getp(nHandle,"Flags"))
 
 	Func setFlags P1
-		dotnet_callv("s3:set",nHandle,"s5:Flags",P1)
+		dotnet_setp(nHandle,"Flags",P1)
 		return self
 
 	Func getHashAlgorithm
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:HashAlgorithm"))
+		return dnAnswer(dotnet_getp(nHandle,"HashAlgorithm"))
 
 	Func setHashAlgorithm P1
-		dotnet_callv("s3:set",nHandle,"s13:HashAlgorithm",P1)
+		dotnet_setp(nHandle,"HashAlgorithm",P1)
 		return self
 
 	Func getVersionCompatibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s20:VersionCompatibility"))
+		return dnAnswer(dotnet_getp(nHandle,"VersionCompatibility"))
 
 	Func setVersionCompatibility P1
-		dotnet_callv("s3:set",nHandle,"s20:VersionCompatibility",P1)
+		dotnet_setp(nHandle,"VersionCompatibility",P1)
 		return self
 
 	Func getKeyPair
@@ -1764,7 +1764,7 @@ Class ExceptionHandlingClause from Object
 		return dn_x
 
 	Func getFlags
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Flags"))
+		return dnAnswer(dotnet_getp(nHandle,"Flags"))
 
 	Func setFlags P1
 		raise("DotNet Error: Flags is a read-only property")
@@ -2082,7 +2082,7 @@ Class ManifestResourceInfo from Object
 		raise("DotNet Error: FileName is a read-only property")
 
 	Func getResourceLocation
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ResourceLocation"))
+		return dnAnswer(dotnet_getp(nHandle,"ResourceLocation"))
 
 	Func setResourceLocation P1
 		raise("DotNet Error: ResourceLocation is a read-only property")
@@ -2143,7 +2143,7 @@ Class MemberInfo from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetCustomAttribute",P1))
 
 	Func getMemberType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:MemberType"))
+		return dnAnswer(dotnet_getp(nHandle,"MemberType"))
 
 	Func setMemberType P1
 		raise("DotNet Error: MemberType is a read-only property")
@@ -2543,13 +2543,13 @@ Class NullabilityInfo from Object
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getReadState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:ReadState"))
+		return dnAnswer(dotnet_getp(nHandle,"ReadState"))
 
 	Func setReadState P1
 		raise("DotNet Error: ReadState is a read-only property")
 
 	Func getWriteState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:WriteState"))
+		return dnAnswer(dotnet_getp(nHandle,"WriteState"))
 
 	Func setWriteState P1
 		raise("DotNet Error: WriteState is a read-only property")
@@ -2749,7 +2749,7 @@ Class ParameterInfo from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetCustomAttribute",P1))
 
 	Func getAttributes
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Attributes"))
+		return dnAnswer(dotnet_getp(nHandle,"Attributes"))
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
@@ -3301,7 +3301,7 @@ Class EventInfo from MemberInfo
 		return self
 
 	Func getAttributes
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Attributes"))
+		return dnAnswer(dotnet_getp(nHandle,"Attributes"))
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
@@ -3406,7 +3406,7 @@ Class FieldInfo from MemberInfo
 		return dnObj(dotnet_callo("s4:call",'System.Reflection.FieldInfo, System.Private.CoreLib',"s18:GetFieldFromHandle",P1))
 
 	Func getAttributes
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Attributes"))
+		return dnAnswer(dotnet_getp(nHandle,"Attributes"))
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
@@ -3582,19 +3582,19 @@ Class MethodBase from MemberInfo
 		return dnObj(dotnet_callo("s4:call",'System.Reflection.MethodBase, System.Private.CoreLib',"s16:GetCurrentMethod"))
 
 	Func getAttributes
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Attributes"))
+		return dnAnswer(dotnet_getp(nHandle,"Attributes"))
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getMethodImplementationFlags
-		return dnObj(dotnet_callo("s3:get",nHandle,"s25:MethodImplementationFlags"))
+		return dnAnswer(dotnet_getp(nHandle,"MethodImplementationFlags"))
 
 	Func setMethodImplementationFlags P1
 		raise("DotNet Error: MethodImplementationFlags is a read-only property")
 
 	Func getCallingConvention
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:CallingConvention"))
+		return dnAnswer(dotnet_getp(nHandle,"CallingConvention"))
 
 	Func setCallingConvention P1
 		raise("DotNet Error: CallingConvention is a read-only property")
@@ -3814,7 +3814,7 @@ Class PropertyInfo from MemberInfo
 		raise("DotNet Error: PropertyType is a read-only property")
 
 	Func getAttributes
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Attributes"))
+		return dnAnswer(dotnet_getp(nHandle,"Attributes"))
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")

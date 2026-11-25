@@ -465,7 +465,7 @@ Class BindingBehaviorAttribute from Attribute
 		return self
 
 	Func getBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Behavior"))
+		return dnAnswer(dotnet_getp(nHandle,"Behavior"))
 
 	Func setBehavior P1
 		raise("DotNet Error: Behavior is a read-only property")
@@ -567,10 +567,10 @@ Class BindingInfo from Object
 		return self
 
 	Func getEmptyBodyBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:EmptyBodyBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"EmptyBodyBehavior"))
 
 	Func setEmptyBodyBehavior P1
-		dotnet_callv("s3:set",nHandle,"s17:EmptyBodyBehavior",P1)
+		dotnet_setp(nHandle,"EmptyBodyBehavior",P1)
 		return self
 
 	Func getServiceKey
@@ -1994,7 +1994,7 @@ Class ModelMetadata from Object
 		raise("DotNet Error: ContainerMetadata is a read-only property")
 
 	Func getMetadataKind
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:MetadataKind"))
+		return dnAnswer(dotnet_getp(nHandle,"MetadataKind"))
 
 	Func setMetadataKind P1
 		raise("DotNet Error: MetadataKind is a read-only property")
@@ -2619,7 +2619,7 @@ Class ModelStateDictionary from Object
 		raise("DotNet Error: IsValid is a read-only property")
 
 	Func getValidationState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ValidationState"))
+		return dnAnswer(dotnet_getp(nHandle,"ValidationState"))
 
 	Func setValidationState P1
 		raise("DotNet Error: ValidationState is a read-only property")
@@ -3065,10 +3065,10 @@ Class ModelStateEntry from Object
 		raise("DotNet Error: Errors is a read-only property")
 
 	Func getValidationState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ValidationState"))
+		return dnAnswer(dotnet_getp(nHandle,"ValidationState"))
 
 	Func setValidationState P1
-		dotnet_callv("s3:set",nHandle,"s15:ValidationState",P1)
+		dotnet_setp(nHandle,"ValidationState",P1)
 		return self
 
 	Func getIsContainerNode

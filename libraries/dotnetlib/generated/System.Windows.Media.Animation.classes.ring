@@ -1458,10 +1458,10 @@ Class BeginStoryboard from TriggerAction
 		return self
 
 	Func getHandoffBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:HandoffBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"HandoffBehavior"))
 
 	Func setHandoffBehavior P1
-		dotnet_callv("s3:set",nHandle,"s15:HandoffBehavior",P1)
+		dotnet_setp(nHandle,"HandoffBehavior",P1)
 		return self
 
 	Func getName
@@ -2124,7 +2124,7 @@ Class Clock from DispatcherObject
 		raise("DotNet Error: CurrentProgress is a read-only property")
 
 	Func getCurrentState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:CurrentState"))
+		return dnAnswer(dotnet_getp(nHandle,"CurrentState"))
 
 	Func setCurrentState P1
 		raise("DotNet Error: CurrentState is a read-only property")
@@ -2920,10 +2920,10 @@ Class EasingFunctionBase from Freezable
 		return dnAnswer(dotnet_callt(nHandle,"Ease",P1))
 
 	Func getEasingMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EasingMode"))
+		return dnAnswer(dotnet_getp(nHandle,"EasingMode"))
 
 	Func setEasingMode P1
-		dotnet_callv("s3:set",nHandle,"s10:EasingMode",P1)
+		dotnet_setp(nHandle,"EasingMode",P1)
 		return self
 
 	Func getEasingModeProperty
@@ -3731,7 +3731,7 @@ Class KeyTime from ValueType
 		raise("DotNet Error: Percent is a read-only property")
 
 	Func getType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
+		return dnAnswer(dotnet_getp(nHandle,"Type"))
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
@@ -9150,10 +9150,10 @@ Class SeekStoryboard from ControllableStoryboardAction
 		return self
 
 	Func getOrigin
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Origin"))
+		return dnAnswer(dotnet_getp(nHandle,"Origin"))
 
 	Func setOrigin P1
-		dotnet_callv("s3:set",nHandle,"s6:Origin",P1)
+		dotnet_setp(nHandle,"Origin",P1)
 		return self
 
 
@@ -10290,10 +10290,10 @@ Class Timeline from Animatable
 		return self
 
 	Func getFillBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:FillBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"FillBehavior"))
 
 	Func setFillBehavior P1
-		dotnet_callv("s3:set",nHandle,"s12:FillBehavior",P1)
+		dotnet_setp(nHandle,"FillBehavior",P1)
 		return self
 
 	Func getName
@@ -10735,10 +10735,10 @@ Class ParallelTimeline from TimelineGroup
 		return self
 
 	Func getSlipBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:SlipBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"SlipBehavior"))
 
 	Func setSlipBehavior P1
-		dotnet_callv("s3:set",nHandle,"s12:SlipBehavior",P1)
+		dotnet_setp(nHandle,"SlipBehavior",P1)
 		return self
 
 	Func getSlipBehaviorProperty
@@ -11633,10 +11633,10 @@ Class DoubleAnimationUsingPath from DoubleAnimationBase
 		return self
 
 	Func getSource
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Source"))
+		return dnAnswer(dotnet_getp(nHandle,"Source"))
 
 	Func setSource P1
-		dotnet_callv("s3:set",nHandle,"s6:Source",P1)
+		dotnet_setp(nHandle,"Source",P1)
 		return self
 
 	Func getIsAdditive

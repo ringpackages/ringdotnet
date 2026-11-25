@@ -274,17 +274,17 @@ Class SqliteConnectionStringBuilder from DbConnectionStringBuilder
 		return self
 
 	Func getMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Mode"))
+		return dnAnswer(dotnet_getp(nHandle,"Mode"))
 
 	Func setMode P1
-		dotnet_callv("s3:set",nHandle,"s4:Mode",P1)
+		dotnet_setp(nHandle,"Mode",P1)
 		return self
 
 	Func getCache
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Cache"))
+		return dnAnswer(dotnet_getp(nHandle,"Cache"))
 
 	Func setCache P1
-		dotnet_callv("s3:set",nHandle,"s5:Cache",P1)
+		dotnet_setp(nHandle,"Cache",P1)
 		return self
 
 	Func getPassword
@@ -467,10 +467,10 @@ Class SqliteParameter from DbParameter
 		return self
 
 	Func getSqliteType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:SqliteType"))
+		return dnAnswer(dotnet_getp(nHandle,"SqliteType"))
 
 	Func setSqliteType P1
-		dotnet_callv("s3:set",nHandle,"s10:SqliteType",P1)
+		dotnet_setp(nHandle,"SqliteType",P1)
 		return self
 
 

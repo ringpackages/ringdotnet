@@ -2536,7 +2536,7 @@ Class NonQueryExpression from ExpressionsExpression
 		raise("DotNet Error: Expression is a read-only property")
 
 	Func getCommandSource
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:CommandSource"))
+		return dnAnswer(dotnet_getp(nHandle,"CommandSource"))
 
 	Func setCommandSource P1
 		raise("DotNet Error: CommandSource is a read-only property")
@@ -2796,7 +2796,7 @@ Class QueryCompilationContext from Object
 		raise("DotNet Error: ContextOptions is a read-only property")
 
 	Func getQueryTrackingBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s21:QueryTrackingBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"QueryTrackingBehavior"))
 
 	Func setQueryTrackingBehavior P1
 		raise("DotNet Error: QueryTrackingBehavior is a read-only property")
@@ -2922,7 +2922,7 @@ Class QueryCompilationContextDependencies from Object
 		raise("DotNet Error: ContextType is a read-only property")
 
 	Func getQueryTrackingBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s21:QueryTrackingBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"QueryTrackingBehavior"))
 
 	Func setQueryTrackingBehavior P1
 		raise("DotNet Error: QueryTrackingBehavior is a read-only property")
@@ -5290,7 +5290,7 @@ Class ShapedQueryExpression from ExpressionsExpression
 		raise("DotNet Error: QueryExpression is a read-only property")
 
 	Func getResultCardinality
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ResultCardinality"))
+		return dnAnswer(dotnet_getp(nHandle,"ResultCardinality"))
 
 	Func setResultCardinality P1
 		raise("DotNet Error: ResultCardinality is a read-only property")

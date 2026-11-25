@@ -736,7 +736,7 @@ Class SqlBytes from Object
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getStorage
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Storage"))
+		return dnAnswer(dotnet_getp(nHandle,"Storage"))
 
 	Func setStorage P1
 		raise("DotNet Error: Storage is a read-only property")
@@ -856,7 +856,7 @@ Class SqlChars from Object
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getStorage
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Storage"))
+		return dnAnswer(dotnet_getp(nHandle,"Storage"))
 
 	Func setStorage P1
 		raise("DotNet Error: Storage is a read-only property")
@@ -2565,7 +2565,7 @@ Class SqlString from ValueType
 		raise("DotNet Error: CompareInfo is a read-only property")
 
 	Func getSqlCompareOptions
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:SqlCompareOptions"))
+		return dnAnswer(dotnet_getp(nHandle,"SqlCompareOptions"))
 
 	Func setSqlCompareOptions P1
 		raise("DotNet Error: SqlCompareOptions is a read-only property")

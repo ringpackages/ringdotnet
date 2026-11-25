@@ -234,7 +234,7 @@ Class GeneratedRegexAttribute from Attribute
 		raise("DotNet Error: Pattern is a read-only property")
 
 	Func getOptions
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Options"))
+		return dnAnswer(dotnet_getp(nHandle,"Options"))
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
@@ -583,7 +583,7 @@ Class Regex from Object
 		return dn_x
 
 	Func getOptions
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Options"))
+		return dnAnswer(dotnet_getp(nHandle,"Options"))
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
@@ -688,7 +688,7 @@ Class RegexParseException from ArgumentException
 		return self
 
 	Func getError
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Error"))
+		return dnAnswer(dotnet_getp(nHandle,"Error"))
 
 	Func setError P1
 		raise("DotNet Error: Error is a read-only property")

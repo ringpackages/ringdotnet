@@ -482,7 +482,7 @@ Class XObject from Object
 		raise("DotNet Error: Document is a read-only property")
 
 	Func getNodeType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:NodeType"))
+		return dnAnswer(dotnet_getp(nHandle,"NodeType"))
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
@@ -514,7 +514,7 @@ Class XObjectChangeEventArgs from EventArgs
 		return self
 
 	Func getObjectChange
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ObjectChange"))
+		return dnAnswer(dotnet_getp(nHandle,"ObjectChange"))
 
 	Func setObjectChange P1
 		raise("DotNet Error: ObjectChange is a read-only property")

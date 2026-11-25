@@ -401,12 +401,12 @@ namespace RingDotNet
 					if (definition != null && (p.GetMethod ?? p.SetMethod).IsStatic) continue;
 					bool canRead = p.GetMethod != null && p.GetMethod.IsPublic;
 					bool canWrite = p.SetMethod != null && p.SetMethod.IsPublic;
-					members.Add(new RingList { p.Name, canRead, canWrite && !p.PropertyType.IsByRef && !p.PropertyType.IsByRefLike, (p.GetMethod ?? p.SetMethod).IsStatic, TName(Unwrap(p.PropertyType)) });
+					members.Add(new RingList { p.Name, canRead, canWrite && !p.PropertyType.IsByRef && !p.PropertyType.IsByRefLike, (p.GetMethod ?? p.SetMethod).IsStatic, TName(Unwrap(p.PropertyType)), p.PropertyType.IsEnum });
 				}
 				foreach (FieldInfo fi in t.GetFields(f))
 				{
 					if (definition != null && fi.IsStatic) continue;
-					members.Add(new RingList { fi.Name, true, !fi.IsInitOnly && !fi.IsLiteral, fi.IsStatic, TName(fi.FieldType) });
+					members.Add(new RingList { fi.Name, true, !fi.IsInitOnly && !fi.IsLiteral, fi.IsStatic, TName(fi.FieldType), fi.FieldType.IsEnum });
 				}
 			}
 			/* Indexer (like List[i] or Dictionary[key]): [indexType, valueType, canWrite] */

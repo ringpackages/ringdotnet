@@ -927,7 +927,7 @@ Class CoreOptionsExtension from Object
 		raise("DotNet Error: WarningsConfiguration is a read-only property")
 
 	Func getQueryTrackingBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s21:QueryTrackingBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"QueryTrackingBehavior"))
 
 	Func setQueryTrackingBehavior P1
 		raise("DotNet Error: QueryTrackingBehavior is a read-only property")
@@ -1310,10 +1310,10 @@ Class DatabaseFacade from Object
 		return self
 
 	Func getAutoTransactionBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s23:AutoTransactionBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"AutoTransactionBehavior"))
 
 	Func setAutoTransactionBehavior P1
-		dotnet_callv("s3:set",nHandle,"s23:AutoTransactionBehavior",P1)
+		dotnet_setp(nHandle,"AutoTransactionBehavior",P1)
 		return self
 
 	Func getAutoSavepointsEnabled
@@ -3422,7 +3422,7 @@ Class ServiceCharacteristics from ValueType
 		return self
 
 	Func getLifetime
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Lifetime"))
+		return dnAnswer(dotnet_getp(nHandle,"Lifetime"))
 
 	Func setLifetime P1
 		raise("DotNet Error: Lifetime is a read-only property")

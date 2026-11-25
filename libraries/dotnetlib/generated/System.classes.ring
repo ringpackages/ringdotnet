@@ -2294,13 +2294,13 @@ Class Type from MemberInfo
 		raise("DotNet Error: GenericParameterPosition is a read-only property")
 
 	Func getGenericParameterAttributes
-		return dnObj(dotnet_callo("s3:get",nHandle,"s26:GenericParameterAttributes"))
+		return dnAnswer(dotnet_getp(nHandle,"GenericParameterAttributes"))
 
 	Func setGenericParameterAttributes P1
 		raise("DotNet Error: GenericParameterAttributes is a read-only property")
 
 	Func getAttributes
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Attributes"))
+		return dnAnswer(dotnet_getp(nHandle,"Attributes"))
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
@@ -5680,7 +5680,7 @@ Class OperatingSystem from Object
 		return dn_x
 
 	Func getPlatform
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Platform"))
+		return dnAnswer(dotnet_getp(nHandle,"Platform"))
 
 	Func setPlatform P1
 		raise("DotNet Error: Platform is a read-only property")
@@ -6846,7 +6846,7 @@ Class Uri from Object
 		raise("DotNet Error: Authority is a read-only property")
 
 	Func getHostNameType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:HostNameType"))
+		return dnAnswer(dotnet_getp(nHandle,"HostNameType"))
 
 	Func setHostNameType P1
 		raise("DotNet Error: HostNameType is a read-only property")
@@ -8397,7 +8397,7 @@ Class AttributeUsageAttribute from Attribute
 		return self
 
 	Func getValidOn
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:ValidOn"))
+		return dnAnswer(dotnet_getp(nHandle,"ValidOn"))
 
 	Func setValidOn P1
 		raise("DotNet Error: ValidOn is a read-only property")
@@ -9000,7 +9000,7 @@ Class ConsoleCancelEventArgs from EventArgs
 		return self
 
 	Func getSpecialKey
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:SpecialKey"))
+		return dnAnswer(dotnet_getp(nHandle,"SpecialKey"))
 
 	Func setSpecialKey P1
 		raise("DotNet Error: SpecialKey is a read-only property")
@@ -9053,13 +9053,13 @@ Class ConsoleKeyInfo from ValueType
 		raise("DotNet Error: KeyChar is a read-only property")
 
 	Func getKey
-		return dnObj(dotnet_callo("s3:get",nHandle,"s3:Key"))
+		return dnAnswer(dotnet_getp(nHandle,"Key"))
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getModifiers
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Modifiers"))
+		return dnAnswer(dotnet_getp(nHandle,"Modifiers"))
 
 	Func setModifiers P1
 		raise("DotNet Error: Modifiers is a read-only property")
@@ -9342,7 +9342,7 @@ Class DateTimeOffset from ValueType
 		raise("DotNet Error: Day is a read-only property")
 
 	Func getDayOfWeek
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:DayOfWeek"))
+		return dnAnswer(dotnet_getp(nHandle,"DayOfWeek"))
 
 	Func setDayOfWeek P1
 		raise("DotNet Error: DayOfWeek is a read-only property")
@@ -12507,7 +12507,7 @@ Class LoaderOptimizationAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -14729,7 +14729,7 @@ Class TimeZoneInfoTransitionTime from ValueType
 		raise("DotNet Error: Day is a read-only property")
 
 	Func getDayOfWeek
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:DayOfWeek"))
+		return dnAnswer(dotnet_getp(nHandle,"DayOfWeek"))
 
 	Func setDayOfWeek P1
 		raise("DotNet Error: DayOfWeek is a read-only property")
@@ -16446,7 +16446,7 @@ Class DateTime from ValueType
 		raise("DotNet Error: Day is a read-only property")
 
 	Func getDayOfWeek
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:DayOfWeek"))
+		return dnAnswer(dotnet_getp(nHandle,"DayOfWeek"))
 
 	Func setDayOfWeek P1
 		raise("DotNet Error: DayOfWeek is a read-only property")
@@ -16464,7 +16464,7 @@ Class DateTime from ValueType
 		raise("DotNet Error: Hour is a read-only property")
 
 	Func getKind
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Kind"))
+		return dnAnswer(dotnet_getp(nHandle,"Kind"))
 
 	Func setKind P1
 		raise("DotNet Error: Kind is a read-only property")
@@ -16829,7 +16829,7 @@ Class DateOnly from ValueType
 		raise("DotNet Error: Day is a read-only property")
 
 	Func getDayOfWeek
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:DayOfWeek"))
+		return dnAnswer(dotnet_getp(nHandle,"DayOfWeek"))
 
 	Func setDayOfWeek P1
 		raise("DotNet Error: DayOfWeek is a read-only property")

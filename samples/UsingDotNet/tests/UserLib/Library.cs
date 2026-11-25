@@ -307,6 +307,7 @@ namespace MyCompany.Tools
 	// Properties and fields of every kind that the typed read and write handle (a number, a yes/no, a text), and kinds that they leave to the generic
 	// request: an enum, a char, a nullable, a byte array, an indexer, a struct, a property that throws, one that hides another
 	public enum TypedColor { Red, Green, Blue }
+	[Flags] public enum TypedFlags { None = 0, A = 1, B = 2, C = 4 }
 
 	public class TypedBox
 	{
@@ -325,6 +326,9 @@ namespace MyCompany.Tools
 		public string Text { get; set; }
 		public char Letter { get; set; }
 		public TypedColor Color { get; set; }
+		public TypedFlags Flags { get; set; }
+		public TypedColor ColorField;
+		public TypedColor ReadOnlyColor { get { return TypedColor.Green; } }
 		public int? Maybe { get; set; }
 		public byte[] Bytes { get; set; }
 		public int ReadOnly { get { return 42; } }

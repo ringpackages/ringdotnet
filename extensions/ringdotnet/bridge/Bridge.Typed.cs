@@ -148,6 +148,12 @@ namespace RingDotNet
 					a.Kind = 2;
 					a.Number = Expression.Lambda<Func<object, double>>(Expression.Condition(read, Expression.Constant(1.0), Expression.Constant(0.0)), o).Compile();
 				}
+				else if (memberType.IsEnum)
+				{
+					/* an enum is read as the text of its member name (what the wire format answers) and written from a text or a number by TryConvert */
+					a.Kind = 3;
+					a.Text = Expression.Lambda<Func<object, string>>(Expression.Call(Expression.Convert(read, typeof(object)), typeof(object).GetMethod("ToString")), o).Compile();
+				}
 				else if (IsPlainNumber(memberType))
 				{
 					a.Kind = 1;

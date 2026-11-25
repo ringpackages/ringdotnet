@@ -356,10 +356,10 @@ Class ZLibCompressionOptions from Object
 		return self
 
 	Func getCompressionStrategy
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:CompressionStrategy"))
+		return dnAnswer(dotnet_getp(nHandle,"CompressionStrategy"))
 
 	Func setCompressionStrategy P1
-		dotnet_callv("s3:set",nHandle,"s19:CompressionStrategy",P1)
+		dotnet_setp(nHandle,"CompressionStrategy",P1)
 		return self
 
 
@@ -518,7 +518,7 @@ Class ZipArchive from Object
 		raise("DotNet Error: Entries is a read-only property")
 
 	Func getMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Mode"))
+		return dnAnswer(dotnet_getp(nHandle,"Mode"))
 
 	Func setMode P1
 		raise("DotNet Error: Mode is a read-only property")

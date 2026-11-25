@@ -348,7 +348,7 @@ func typedMethodCode cName, nArity, cReturnType
 # answers the value, or asks for the generic request (the property is of another kind on the real type, the handle is not valid...), which the extension
 # makes itself, so every answer and every error is the one of the generic call. A text can be null: the marker list is finished by dnFinish.
 func typedGetterCode cName, cType
-	if cType = "System.String"
+	if cType = "System.String" or not isPrimitiveType(cType)
 		return 'return dnAnswer(dotnet_getp(nHandle,"' + cName + '"))' + nl
 	ok
 	return 'return dotnet_getp(nHandle,"' + cName + '")' + nl
@@ -956,7 +956,9 @@ func buildPlan cTypeName, nForceInit
 			cTarget = "self"
 		ok
 		# an instance property or field of a number, a yes/no or a text is read and written by the typed functions of the extension
-		lTyped = (not aMember[4]) and isPrimitiveType(aMember[5])
+		# (an enum is read as the text of its member name, and written from a text or a number: aMember[6] is true for it)
+		lEnum = (len(aMember) >= 6) and aMember[6]
+		lTyped = (not aMember[4]) and (isPrimitiveType(aMember[5]) or lEnum)
 		if aMember[2] and (find(aNames,lower("get" + cName)) = 0)
 			aNames + lower("get" + cName)
 			cB = "	Func get" + cName + nl

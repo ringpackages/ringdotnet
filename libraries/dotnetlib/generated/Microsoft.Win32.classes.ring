@@ -192,7 +192,7 @@ Class RegistryKey from MarshalByRefObject
 		raise("DotNet Error: SubKeyCount is a read-only property")
 
 	Func getView
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:View"))
+		return dnAnswer(dotnet_getp(nHandle,"View"))
 
 	Func setView P1
 		raise("DotNet Error: View is a read-only property")

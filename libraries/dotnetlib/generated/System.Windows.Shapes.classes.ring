@@ -78,10 +78,10 @@ Class Shape from FrameworkElement
 		return self
 
 	Func getStretch
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Stretch"))
+		return dnAnswer(dotnet_getp(nHandle,"Stretch"))
 
 	Func setStretch P1
-		dotnet_callv("s3:set",nHandle,"s7:Stretch",P1)
+		dotnet_setp(nHandle,"Stretch",P1)
 		return self
 
 	Func getRenderedGeometry
@@ -118,31 +118,31 @@ Class Shape from FrameworkElement
 		return self
 
 	Func getStrokeStartLineCap
-		return dnObj(dotnet_callo("s3:get",nHandle,"s18:StrokeStartLineCap"))
+		return dnAnswer(dotnet_getp(nHandle,"StrokeStartLineCap"))
 
 	Func setStrokeStartLineCap P1
-		dotnet_callv("s3:set",nHandle,"s18:StrokeStartLineCap",P1)
+		dotnet_setp(nHandle,"StrokeStartLineCap",P1)
 		return self
 
 	Func getStrokeEndLineCap
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:StrokeEndLineCap"))
+		return dnAnswer(dotnet_getp(nHandle,"StrokeEndLineCap"))
 
 	Func setStrokeEndLineCap P1
-		dotnet_callv("s3:set",nHandle,"s16:StrokeEndLineCap",P1)
+		dotnet_setp(nHandle,"StrokeEndLineCap",P1)
 		return self
 
 	Func getStrokeDashCap
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:StrokeDashCap"))
+		return dnAnswer(dotnet_getp(nHandle,"StrokeDashCap"))
 
 	Func setStrokeDashCap P1
-		dotnet_callv("s3:set",nHandle,"s13:StrokeDashCap",P1)
+		dotnet_setp(nHandle,"StrokeDashCap",P1)
 		return self
 
 	Func getStrokeLineJoin
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:StrokeLineJoin"))
+		return dnAnswer(dotnet_getp(nHandle,"StrokeLineJoin"))
 
 	Func setStrokeLineJoin P1
-		dotnet_callv("s3:set",nHandle,"s14:StrokeLineJoin",P1)
+		dotnet_setp(nHandle,"StrokeLineJoin",P1)
 		return self
 
 	Func getStrokeMiterLimit
@@ -406,10 +406,10 @@ Class Polygon from Shape
 		return self
 
 	Func getFillRule
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:FillRule"))
+		return dnAnswer(dotnet_getp(nHandle,"FillRule"))
 
 	Func setFillRule P1
-		dotnet_callv("s3:set",nHandle,"s8:FillRule",P1)
+		dotnet_setp(nHandle,"FillRule",P1)
 		return self
 
 	Func getPointsProperty
@@ -458,10 +458,10 @@ Class Polyline from Shape
 		return self
 
 	Func getFillRule
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:FillRule"))
+		return dnAnswer(dotnet_getp(nHandle,"FillRule"))
 
 	Func setFillRule P1
-		dotnet_callv("s3:set",nHandle,"s8:FillRule",P1)
+		dotnet_setp(nHandle,"FillRule",P1)
 		return self
 
 	Func getPointsProperty

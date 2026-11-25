@@ -949,7 +949,7 @@ Class BitmapSizeOptions from Object
 		raise("DotNet Error: PixelHeight is a read-only property")
 
 	Func getRotation
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Rotation"))
+		return dnAnswer(dotnet_getp(nHandle,"Rotation"))
 
 	Func setRotation P1
 		raise("DotNet Error: Rotation is a read-only property")
@@ -1240,10 +1240,10 @@ Class BitmapImage from BitmapSource
 		return self
 
 	Func getRotation
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Rotation"))
+		return dnAnswer(dotnet_getp(nHandle,"Rotation"))
 
 	Func setRotation P1
-		dotnet_callv("s3:set",nHandle,"s8:Rotation",P1)
+		dotnet_setp(nHandle,"Rotation",P1)
 		return self
 
 	Func getSourceRect
@@ -1254,17 +1254,17 @@ Class BitmapImage from BitmapSource
 		return self
 
 	Func getCreateOptions
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:CreateOptions"))
+		return dnAnswer(dotnet_getp(nHandle,"CreateOptions"))
 
 	Func setCreateOptions P1
-		dotnet_callv("s3:set",nHandle,"s13:CreateOptions",P1)
+		dotnet_setp(nHandle,"CreateOptions",P1)
 		return self
 
 	Func getCacheOption
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:CacheOption"))
+		return dnAnswer(dotnet_getp(nHandle,"CacheOption"))
 
 	Func setCacheOption P1
-		dotnet_callv("s3:set",nHandle,"s11:CacheOption",P1)
+		dotnet_setp(nHandle,"CacheOption",P1)
 		return self
 
 	Func getUriCachePolicyProperty
@@ -1770,10 +1770,10 @@ Class JpegBitmapEncoder from BitmapEncoder
 		return self
 
 	Func getRotation
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Rotation"))
+		return dnAnswer(dotnet_getp(nHandle,"Rotation"))
 
 	Func setRotation P1
-		dotnet_callv("s3:set",nHandle,"s8:Rotation",P1)
+		dotnet_setp(nHandle,"Rotation",P1)
 		return self
 
 	Func getFlipHorizontal
@@ -1848,10 +1848,10 @@ Class PngBitmapEncoder from BitmapEncoder
 		return self
 
 	Func getInterlace
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Interlace"))
+		return dnAnswer(dotnet_getp(nHandle,"Interlace"))
 
 	Func setInterlace P1
-		dotnet_callv("s3:set",nHandle,"s9:Interlace",P1)
+		dotnet_setp(nHandle,"Interlace",P1)
 		return self
 
 
@@ -1915,10 +1915,10 @@ Class TiffBitmapEncoder from BitmapEncoder
 		return self
 
 	Func getCompression
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Compression"))
+		return dnAnswer(dotnet_getp(nHandle,"Compression"))
 
 	Func setCompression P1
-		dotnet_callv("s3:set",nHandle,"s11:Compression",P1)
+		dotnet_setp(nHandle,"Compression",P1)
 		return self
 
 
@@ -2066,10 +2066,10 @@ Class WmpBitmapEncoder from BitmapEncoder
 		return self
 
 	Func getRotation
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Rotation"))
+		return dnAnswer(dotnet_getp(nHandle,"Rotation"))
 
 	Func setRotation P1
-		dotnet_callv("s3:set",nHandle,"s8:Rotation",P1)
+		dotnet_setp(nHandle,"Rotation",P1)
 		return self
 
 	Func getFlipHorizontal

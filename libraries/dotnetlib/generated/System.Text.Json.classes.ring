@@ -176,10 +176,10 @@ Class JsonDocumentOptions from ValueType
 		return self
 
 	Func getCommentHandling
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:CommentHandling"))
+		return dnAnswer(dotnet_getp(nHandle,"CommentHandling"))
 
 	Func setCommentHandling P1
-		dotnet_callv("s3:set",nHandle,"s15:CommentHandling",P1)
+		dotnet_setp(nHandle,"CommentHandling",P1)
 		return self
 
 	Func getMaxDepth
@@ -372,7 +372,7 @@ Class JsonElement from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getValueKind
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:ValueKind"))
+		return dnAnswer(dotnet_getp(nHandle,"ValueKind"))
 
 	Func setValueKind P1
 		raise("DotNet Error: ValueKind is a read-only property")
@@ -731,10 +731,10 @@ Class JsonReaderOptions from ValueType
 		return self
 
 	Func getCommentHandling
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:CommentHandling"))
+		return dnAnswer(dotnet_getp(nHandle,"CommentHandling"))
 
 	Func setCommentHandling P1
-		dotnet_callv("s3:set",nHandle,"s15:CommentHandling",P1)
+		dotnet_setp(nHandle,"CommentHandling",P1)
 		return self
 
 	Func getMaxDepth
@@ -1047,24 +1047,24 @@ Class JsonSerializerOptions from Object
 		return self
 
 	Func getDefaultIgnoreCondition
-		return dnObj(dotnet_callo("s3:get",nHandle,"s22:DefaultIgnoreCondition"))
+		return dnAnswer(dotnet_getp(nHandle,"DefaultIgnoreCondition"))
 
 	Func setDefaultIgnoreCondition P1
-		dotnet_callv("s3:set",nHandle,"s22:DefaultIgnoreCondition",P1)
+		dotnet_setp(nHandle,"DefaultIgnoreCondition",P1)
 		return self
 
 	Func getNumberHandling
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:NumberHandling"))
+		return dnAnswer(dotnet_getp(nHandle,"NumberHandling"))
 
 	Func setNumberHandling P1
-		dotnet_callv("s3:set",nHandle,"s14:NumberHandling",P1)
+		dotnet_setp(nHandle,"NumberHandling",P1)
 		return self
 
 	Func getPreferredObjectCreationHandling
-		return dnObj(dotnet_callo("s3:get",nHandle,"s31:PreferredObjectCreationHandling"))
+		return dnAnswer(dotnet_getp(nHandle,"PreferredObjectCreationHandling"))
 
 	Func setPreferredObjectCreationHandling P1
-		dotnet_callv("s3:set",nHandle,"s31:PreferredObjectCreationHandling",P1)
+		dotnet_setp(nHandle,"PreferredObjectCreationHandling",P1)
 		return self
 
 	Func getIgnoreReadOnlyProperties
@@ -1110,24 +1110,24 @@ Class JsonSerializerOptions from Object
 		return self
 
 	Func getReadCommentHandling
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ReadCommentHandling"))
+		return dnAnswer(dotnet_getp(nHandle,"ReadCommentHandling"))
 
 	Func setReadCommentHandling P1
-		dotnet_callv("s3:set",nHandle,"s19:ReadCommentHandling",P1)
+		dotnet_setp(nHandle,"ReadCommentHandling",P1)
 		return self
 
 	Func getUnknownTypeHandling
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:UnknownTypeHandling"))
+		return dnAnswer(dotnet_getp(nHandle,"UnknownTypeHandling"))
 
 	Func setUnknownTypeHandling P1
-		dotnet_callv("s3:set",nHandle,"s19:UnknownTypeHandling",P1)
+		dotnet_setp(nHandle,"UnknownTypeHandling",P1)
 		return self
 
 	Func getUnmappedMemberHandling
-		return dnObj(dotnet_callo("s3:get",nHandle,"s22:UnmappedMemberHandling"))
+		return dnAnswer(dotnet_getp(nHandle,"UnmappedMemberHandling"))
 
 	Func setUnmappedMemberHandling P1
-		dotnet_callv("s3:set",nHandle,"s22:UnmappedMemberHandling",P1)
+		dotnet_setp(nHandle,"UnmappedMemberHandling",P1)
 		return self
 
 	Func getWriteIndented

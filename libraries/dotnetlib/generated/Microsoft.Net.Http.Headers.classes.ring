@@ -2286,10 +2286,10 @@ Class SetCookieHeaderValue from Object
 		return self
 
 	Func getSameSite
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:SameSite"))
+		return dnAnswer(dotnet_getp(nHandle,"SameSite"))
 
 	Func setSameSite P1
-		dotnet_callv("s3:set",nHandle,"s8:SameSite",P1)
+		dotnet_setp(nHandle,"SameSite",P1)
 		return self
 
 	Func getHttpOnly

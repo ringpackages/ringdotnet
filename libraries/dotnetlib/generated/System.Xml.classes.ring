@@ -952,7 +952,7 @@ Class XmlNode from Object
 		return self
 
 	Func getNodeType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:NodeType"))
+		return dnAnswer(dotnet_getp(nHandle,"NodeType"))
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
@@ -1096,7 +1096,7 @@ Class XmlNodeChangedEventArgs from EventArgs
 		return self
 
 	Func getAction
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Action"))
+		return dnAnswer(dotnet_getp(nHandle,"Action"))
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
@@ -1284,10 +1284,10 @@ Class XmlParserContext from Object
 		return self
 
 	Func getXmlSpace
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:XmlSpace"))
+		return dnAnswer(dotnet_getp(nHandle,"XmlSpace"))
 
 	Func setXmlSpace P1
-		dotnet_callv("s3:set",nHandle,"s8:XmlSpace",P1)
+		dotnet_setp(nHandle,"XmlSpace",P1)
 		return self
 
 	Func getEncoding
@@ -1766,7 +1766,7 @@ Class XmlReader from Object
 		raise("DotNet Error: Settings is a read-only property")
 
 	Func getNodeType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:NodeType"))
+		return dnAnswer(dotnet_getp(nHandle,"NodeType"))
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
@@ -1838,7 +1838,7 @@ Class XmlReader from Object
 		raise("DotNet Error: QuoteChar is a read-only property")
 
 	Func getXmlSpace
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:XmlSpace"))
+		return dnAnswer(dotnet_getp(nHandle,"XmlSpace"))
 
 	Func setXmlSpace P1
 		raise("DotNet Error: XmlSpace is a read-only property")
@@ -1874,7 +1874,7 @@ Class XmlReader from Object
 		raise("DotNet Error: EOF is a read-only property")
 
 	Func getReadState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:ReadState"))
+		return dnAnswer(dotnet_getp(nHandle,"ReadState"))
 
 	Func setReadState P1
 		raise("DotNet Error: ReadState is a read-only property")
@@ -2002,10 +2002,10 @@ Class XmlReaderSettings from Object
 		return self
 
 	Func getConformanceLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ConformanceLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"ConformanceLevel"))
 
 	Func setConformanceLevel P1
-		dotnet_callv("s3:set",nHandle,"s16:ConformanceLevel",P1)
+		dotnet_setp(nHandle,"ConformanceLevel",P1)
 		return self
 
 	Func getCheckCharacters
@@ -2058,10 +2058,10 @@ Class XmlReaderSettings from Object
 		return self
 
 	Func getDtdProcessing
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DtdProcessing"))
+		return dnAnswer(dotnet_getp(nHandle,"DtdProcessing"))
 
 	Func setDtdProcessing P1
-		dotnet_callv("s3:set",nHandle,"s13:DtdProcessing",P1)
+		dotnet_setp(nHandle,"DtdProcessing",P1)
 		return self
 
 	Func getCloseInput
@@ -2072,17 +2072,17 @@ Class XmlReaderSettings from Object
 		return self
 
 	Func getValidationType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ValidationType"))
+		return dnAnswer(dotnet_getp(nHandle,"ValidationType"))
 
 	Func setValidationType P1
-		dotnet_callv("s3:set",nHandle,"s14:ValidationType",P1)
+		dotnet_setp(nHandle,"ValidationType",P1)
 		return self
 
 	Func getValidationFlags
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ValidationFlags"))
+		return dnAnswer(dotnet_getp(nHandle,"ValidationFlags"))
 
 	Func setValidationFlags P1
-		dotnet_callv("s3:set",nHandle,"s15:ValidationFlags",P1)
+		dotnet_setp(nHandle,"ValidationFlags",P1)
 		return self
 
 	Func getSchemas
@@ -2413,13 +2413,13 @@ Class XmlWriter from Object
 		raise("DotNet Error: Settings is a read-only property")
 
 	Func getWriteState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:WriteState"))
+		return dnAnswer(dotnet_getp(nHandle,"WriteState"))
 
 	Func setWriteState P1
 		raise("DotNet Error: WriteState is a read-only property")
 
 	Func getXmlSpace
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:XmlSpace"))
+		return dnAnswer(dotnet_getp(nHandle,"XmlSpace"))
 
 	Func setXmlSpace P1
 		raise("DotNet Error: XmlSpace is a read-only property")
@@ -2501,10 +2501,10 @@ Class XmlWriterSettings from Object
 		return self
 
 	Func getNewLineHandling
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:NewLineHandling"))
+		return dnAnswer(dotnet_getp(nHandle,"NewLineHandling"))
 
 	Func setNewLineHandling P1
-		dotnet_callv("s3:set",nHandle,"s15:NewLineHandling",P1)
+		dotnet_setp(nHandle,"NewLineHandling",P1)
 		return self
 
 	Func getNewLineChars
@@ -2543,10 +2543,10 @@ Class XmlWriterSettings from Object
 		return self
 
 	Func getConformanceLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ConformanceLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"ConformanceLevel"))
 
 	Func setConformanceLevel P1
-		dotnet_callv("s3:set",nHandle,"s16:ConformanceLevel",P1)
+		dotnet_setp(nHandle,"ConformanceLevel",P1)
 		return self
 
 	Func getCheckCharacters
@@ -2557,10 +2557,10 @@ Class XmlWriterSettings from Object
 		return self
 
 	Func getNamespaceHandling
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:NamespaceHandling"))
+		return dnAnswer(dotnet_getp(nHandle,"NamespaceHandling"))
 
 	Func setNamespaceHandling P1
-		dotnet_callv("s3:set",nHandle,"s17:NamespaceHandling",P1)
+		dotnet_setp(nHandle,"NamespaceHandling",P1)
 		return self
 
 	Func getWriteEndDocumentOnClose
@@ -2571,7 +2571,7 @@ Class XmlWriterSettings from Object
 		return self
 
 	Func getOutputMethod
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:OutputMethod"))
+		return dnAnswer(dotnet_getp(nHandle,"OutputMethod"))
 
 	Func setOutputMethod P1
 		raise("DotNet Error: OutputMethod is a read-only property")
@@ -3084,10 +3084,10 @@ Class XmlTextReader from XmlReader
 		raise("DotNet Error: Encoding is a read-only property")
 
 	Func getWhitespaceHandling
-		return dnObj(dotnet_callo("s3:get",nHandle,"s18:WhitespaceHandling"))
+		return dnAnswer(dotnet_getp(nHandle,"WhitespaceHandling"))
 
 	Func setWhitespaceHandling P1
-		dotnet_callv("s3:set",nHandle,"s18:WhitespaceHandling",P1)
+		dotnet_setp(nHandle,"WhitespaceHandling",P1)
 		return self
 
 	Func getProhibitDtd
@@ -3098,17 +3098,17 @@ Class XmlTextReader from XmlReader
 		return self
 
 	Func getDtdProcessing
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:DtdProcessing"))
+		return dnAnswer(dotnet_getp(nHandle,"DtdProcessing"))
 
 	Func setDtdProcessing P1
-		dotnet_callv("s3:set",nHandle,"s13:DtdProcessing",P1)
+		dotnet_setp(nHandle,"DtdProcessing",P1)
 		return self
 
 	Func getEntityHandling
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:EntityHandling"))
+		return dnAnswer(dotnet_getp(nHandle,"EntityHandling"))
 
 	Func setEntityHandling P1
-		dotnet_callv("s3:set",nHandle,"s14:EntityHandling",P1)
+		dotnet_setp(nHandle,"EntityHandling",P1)
 		return self
 
 	Func setXmlResolver P1
@@ -3165,10 +3165,10 @@ Class XmlTextWriter from XmlWriter
 		return self
 
 	Func getFormatting
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Formatting"))
+		return dnAnswer(dotnet_getp(nHandle,"Formatting"))
 
 	Func setFormatting P1
-		dotnet_callv("s3:set",nHandle,"s10:Formatting",P1)
+		dotnet_setp(nHandle,"Formatting",P1)
 		return self
 
 	Func getIndentation

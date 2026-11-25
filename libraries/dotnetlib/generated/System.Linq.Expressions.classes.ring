@@ -994,7 +994,7 @@ Class ExpressionsExpression from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s26:CreateEFPropertyExpression",P1))
 
 	Func getNodeType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:NodeType"))
+		return dnAnswer(dotnet_getp(nHandle,"NodeType"))
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
@@ -1155,7 +1155,7 @@ Class MemberBinding from Object
 		return dn_x
 
 	Func getBindingType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:BindingType"))
+		return dnAnswer(dotnet_getp(nHandle,"BindingType"))
 
 	Func setBindingType P1
 		raise("DotNet Error: BindingType is a read-only property")
@@ -1571,7 +1571,7 @@ Class GotoExpression from ExpressionsExpression
 		raise("DotNet Error: Target is a read-only property")
 
 	Func getKind
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Kind"))
+		return dnAnswer(dotnet_getp(nHandle,"Kind"))
 
 	Func setKind P1
 		raise("DotNet Error: Kind is a read-only property")

@@ -392,7 +392,7 @@ Class Transaction from Object
 		raise("DotNet Error: TransactionInformation is a read-only property")
 
 	Func getIsolationLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:IsolationLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"IsolationLevel"))
 
 	Func setIsolationLevel P1
 		raise("DotNet Error: IsolationLevel is a read-only property")
@@ -521,7 +521,7 @@ Class TransactionInformation from Object
 		raise("DotNet Error: CreationTime is a read-only property")
 
 	Func getStatus
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Status"))
+		return dnAnswer(dotnet_getp(nHandle,"Status"))
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
@@ -670,10 +670,10 @@ Class TransactionOptions from ValueType
 		return self
 
 	Func getIsolationLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:IsolationLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"IsolationLevel"))
 
 	Func setIsolationLevel P1
-		dotnet_callv("s3:set",nHandle,"s14:IsolationLevel",P1)
+		dotnet_setp(nHandle,"IsolationLevel",P1)
 		return self
 
 	# the operators of System.Transactions.TransactionOptions: = !=

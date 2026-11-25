@@ -250,17 +250,17 @@ Class CustomLineCap from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s13:GetStrokeCaps","")
 
 	Func getStrokeJoin
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:StrokeJoin"))
+		return dnAnswer(dotnet_getp(nHandle,"StrokeJoin"))
 
 	Func setStrokeJoin P1
-		dotnet_callv("s3:set",nHandle,"s10:StrokeJoin",P1)
+		dotnet_setp(nHandle,"StrokeJoin",P1)
 		return self
 
 	Func getBaseCap
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:BaseCap"))
+		return dnAnswer(dotnet_getp(nHandle,"BaseCap"))
 
 	Func setBaseCap P1
-		dotnet_callv("s3:set",nHandle,"s7:BaseCap",P1)
+		dotnet_setp(nHandle,"BaseCap",P1)
 		return self
 
 	Func getBaseInset
@@ -497,10 +497,10 @@ Class GraphicsPath from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s13:GetPathPoints",dnPackItem(P1))
 
 	Func getFillMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:FillMode"))
+		return dnAnswer(dotnet_getp(nHandle,"FillMode"))
 
 	Func setFillMode P1
-		dotnet_callv("s3:set",nHandle,"s8:FillMode",P1)
+		dotnet_setp(nHandle,"FillMode",P1)
 		return self
 
 	Func getPathData
@@ -646,7 +646,7 @@ Class HatchBrush from Brush
 		return self
 
 	Func getHatchStyle
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:HatchStyle"))
+		return dnAnswer(dotnet_getp(nHandle,"HatchStyle"))
 
 	Func setHatchStyle P1
 		raise("DotNet Error: HatchStyle is a read-only property")
@@ -769,10 +769,10 @@ Class LinearGradientBrush from Brush
 		return self
 
 	Func getWrapMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:WrapMode"))
+		return dnAnswer(dotnet_getp(nHandle,"WrapMode"))
 
 	Func setWrapMode P1
-		dotnet_callv("s3:set",nHandle,"s8:WrapMode",P1)
+		dotnet_setp(nHandle,"WrapMode",P1)
 		return self
 
 	Func getTransform
@@ -1101,10 +1101,10 @@ Class PathGradientBrush from Brush
 		return self
 
 	Func getWrapMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:WrapMode"))
+		return dnAnswer(dotnet_getp(nHandle,"WrapMode"))
 
 	Func setWrapMode P1
-		dotnet_callv("s3:set",nHandle,"s8:WrapMode",P1)
+		dotnet_setp(nHandle,"WrapMode",P1)
 		return self
 
 

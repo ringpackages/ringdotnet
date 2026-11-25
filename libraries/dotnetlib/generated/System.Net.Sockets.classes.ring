@@ -943,19 +943,19 @@ Class Socket from Object
 		raise("DotNet Error: Connected is a read-only property")
 
 	Func getAddressFamily
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:AddressFamily"))
+		return dnAnswer(dotnet_getp(nHandle,"AddressFamily"))
 
 	Func setAddressFamily P1
 		raise("DotNet Error: AddressFamily is a read-only property")
 
 	Func getSocketType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:SocketType"))
+		return dnAnswer(dotnet_getp(nHandle,"SocketType"))
 
 	Func setSocketType P1
 		raise("DotNet Error: SocketType is a read-only property")
 
 	Func getProtocolType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ProtocolType"))
+		return dnAnswer(dotnet_getp(nHandle,"ProtocolType"))
 
 	Func setProtocolType P1
 		raise("DotNet Error: ProtocolType is a read-only property")
@@ -1188,10 +1188,10 @@ Class SocketAsyncEventArgs from EventArgs
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getSendPacketsFlags
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:SendPacketsFlags"))
+		return dnAnswer(dotnet_getp(nHandle,"SendPacketsFlags"))
 
 	Func setSendPacketsFlags P1
-		dotnet_callv("s3:set",nHandle,"s16:SendPacketsFlags",P1)
+		dotnet_setp(nHandle,"SendPacketsFlags",P1)
 		return self
 
 	Func getBufferList
@@ -1215,7 +1215,7 @@ Class SocketAsyncEventArgs from EventArgs
 		return self
 
 	Func getLastOperation
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:LastOperation"))
+		return dnAnswer(dotnet_getp(nHandle,"LastOperation"))
 
 	Func setLastOperation P1
 		raise("DotNet Error: LastOperation is a read-only property")
@@ -1248,10 +1248,10 @@ Class SocketAsyncEventArgs from EventArgs
 		return self
 
 	Func getSocketError
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:SocketError"))
+		return dnAnswer(dotnet_getp(nHandle,"SocketError"))
 
 	Func setSocketError P1
-		dotnet_callv("s3:set",nHandle,"s11:SocketError",P1)
+		dotnet_setp(nHandle,"SocketError",P1)
 		return self
 
 	Func getConnectByNameError
@@ -1261,10 +1261,10 @@ Class SocketAsyncEventArgs from EventArgs
 		raise("DotNet Error: ConnectByNameError is a read-only property")
 
 	Func getSocketFlags
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:SocketFlags"))
+		return dnAnswer(dotnet_getp(nHandle,"SocketFlags"))
 
 	Func setSocketFlags P1
-		dotnet_callv("s3:set",nHandle,"s11:SocketFlags",P1)
+		dotnet_setp(nHandle,"SocketFlags",P1)
 		return self
 
 	Func getUserToken
@@ -1306,10 +1306,10 @@ Class SocketInformation from ValueType
 		return self
 
 	Func getOptions
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Options"))
+		return dnAnswer(dotnet_getp(nHandle,"Options"))
 
 	Func setOptions P1
-		dotnet_callv("s3:set",nHandle,"s7:Options",P1)
+		dotnet_setp(nHandle,"Options",P1)
 		return self
 
 
@@ -1384,10 +1384,10 @@ Class SocketReceiveMessageFromResult from ValueType
 		return self
 
 	Func getSocketFlags
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:SocketFlags"))
+		return dnAnswer(dotnet_getp(nHandle,"SocketFlags"))
 
 	Func setSocketFlags P1
-		dotnet_callv("s3:set",nHandle,"s11:SocketFlags",P1)
+		dotnet_setp(nHandle,"SocketFlags",P1)
 		return self
 
 	Func getRemoteEndPoint

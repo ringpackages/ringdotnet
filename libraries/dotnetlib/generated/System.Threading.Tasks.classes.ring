@@ -741,13 +741,13 @@ Class TaskFactory from Object
 		raise("DotNet Error: Scheduler is a read-only property")
 
 	Func getCreationOptions
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:CreationOptions"))
+		return dnAnswer(dotnet_getp(nHandle,"CreationOptions"))
 
 	Func setCreationOptions P1
 		raise("DotNet Error: CreationOptions is a read-only property")
 
 	Func getContinuationOptions
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ContinuationOptions"))
+		return dnAnswer(dotnet_getp(nHandle,"ContinuationOptions"))
 
 	Func setContinuationOptions P1
 		raise("DotNet Error: ContinuationOptions is a read-only property")
@@ -815,13 +815,13 @@ Class TaskFactory1 from Object
 		raise("DotNet Error: Scheduler is a read-only property")
 
 	Func getCreationOptions
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:CreationOptions"))
+		return dnAnswer(dotnet_getp(nHandle,"CreationOptions"))
 
 	Func setCreationOptions P1
 		raise("DotNet Error: CreationOptions is a read-only property")
 
 	Func getContinuationOptions
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:ContinuationOptions"))
+		return dnAnswer(dotnet_getp(nHandle,"ContinuationOptions"))
 
 	Func setContinuationOptions P1
 		raise("DotNet Error: ContinuationOptions is a read-only property")
@@ -1303,7 +1303,7 @@ Class Task from Object
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getStatus
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Status"))
+		return dnAnswer(dotnet_getp(nHandle,"Status"))
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
@@ -1327,7 +1327,7 @@ Class Task from Object
 		raise("DotNet Error: IsCompletedSuccessfully is a read-only property")
 
 	Func getCreationOptions
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:CreationOptions"))
+		return dnAnswer(dotnet_getp(nHandle,"CreationOptions"))
 
 	Func setCreationOptions P1
 		raise("DotNet Error: CreationOptions is a read-only property")

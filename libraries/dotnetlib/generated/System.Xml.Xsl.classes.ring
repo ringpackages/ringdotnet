@@ -91,7 +91,7 @@ Class IXsltContextFunction from DotNetObject
 		raise("DotNet Error: Maxargs is a read-only property")
 
 	Func getReturnType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:ReturnType"))
+		return dnAnswer(dotnet_getp(nHandle,"ReturnType"))
 
 	Func setReturnType P1
 		raise("DotNet Error: ReturnType is a read-only property")
@@ -134,7 +134,7 @@ Class IXsltContextVariable from DotNetObject
 		raise("DotNet Error: IsParam is a read-only property")
 
 	Func getVariableType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:VariableType"))
+		return dnAnswer(dotnet_getp(nHandle,"VariableType"))
 
 	Func setVariableType P1
 		raise("DotNet Error: VariableType is a read-only property")

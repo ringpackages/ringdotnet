@@ -291,7 +291,7 @@ Class HttpIOException from IOException
 		return self
 
 	Func getHttpRequestError
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:HttpRequestError"))
+		return dnAnswer(dotnet_getp(nHandle,"HttpRequestError"))
 
 	Func setHttpRequestError P1
 		raise("DotNet Error: HttpRequestError is a read-only property")
@@ -491,7 +491,7 @@ Class HttpRequestException from Exception
 		return self
 
 	Func getHttpRequestError
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:HttpRequestError"))
+		return dnAnswer(dotnet_getp(nHandle,"HttpRequestError"))
 
 	Func setHttpRequestError P1
 		raise("DotNet Error: HttpRequestError is a read-only property")
@@ -565,10 +565,10 @@ Class HttpRequestMessage from Object
 		return self
 
 	Func getVersionPolicy
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:VersionPolicy"))
+		return dnAnswer(dotnet_getp(nHandle,"VersionPolicy"))
 
 	Func setVersionPolicy P1
-		dotnet_callv("s3:set",nHandle,"s13:VersionPolicy",P1)
+		dotnet_setp(nHandle,"VersionPolicy",P1)
 		return self
 
 	Func getContent
@@ -761,10 +761,10 @@ Class HttpResponseMessage from Object
 		return self
 
 	Func getStatusCode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:StatusCode"))
+		return dnAnswer(dotnet_getp(nHandle,"StatusCode"))
 
 	Func setStatusCode P1
-		dotnet_callv("s3:set",nHandle,"s10:StatusCode",P1)
+		dotnet_setp(nHandle,"StatusCode",P1)
 		return self
 
 	Func getReasonPhrase
@@ -1125,10 +1125,10 @@ Class HttpClient from HttpMessageInvoker
 		return self
 
 	Func getDefaultVersionPolicy
-		return dnObj(dotnet_callo("s3:get",nHandle,"s20:DefaultVersionPolicy"))
+		return dnAnswer(dotnet_getp(nHandle,"DefaultVersionPolicy"))
 
 	Func setDefaultVersionPolicy P1
-		dotnet_callv("s3:set",nHandle,"s20:DefaultVersionPolicy",P1)
+		dotnet_setp(nHandle,"DefaultVersionPolicy",P1)
 		return self
 
 	Func getBaseAddress
@@ -1246,10 +1246,10 @@ Class HttpClientHandler from HttpMessageHandler
 		return self
 
 	Func getAutomaticDecompression
-		return dnObj(dotnet_callo("s3:get",nHandle,"s22:AutomaticDecompression"))
+		return dnAnswer(dotnet_getp(nHandle,"AutomaticDecompression"))
 
 	Func setAutomaticDecompression P1
-		dotnet_callv("s3:set",nHandle,"s22:AutomaticDecompression",P1)
+		dotnet_setp(nHandle,"AutomaticDecompression",P1)
 		return self
 
 	Func getUseProxy
@@ -1330,10 +1330,10 @@ Class HttpClientHandler from HttpMessageHandler
 		return self
 
 	Func getClientCertificateOptions
-		return dnObj(dotnet_callo("s3:get",nHandle,"s24:ClientCertificateOptions"))
+		return dnAnswer(dotnet_getp(nHandle,"ClientCertificateOptions"))
 
 	Func setClientCertificateOptions P1
-		dotnet_callv("s3:set",nHandle,"s24:ClientCertificateOptions",P1)
+		dotnet_setp(nHandle,"ClientCertificateOptions",P1)
 		return self
 
 	Func getClientCertificates
@@ -1357,10 +1357,10 @@ Class HttpClientHandler from HttpMessageHandler
 		return self
 
 	Func getSslProtocols
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:SslProtocols"))
+		return dnAnswer(dotnet_getp(nHandle,"SslProtocols"))
 
 	Func setSslProtocols P1
-		dotnet_callv("s3:set",nHandle,"s12:SslProtocols",P1)
+		dotnet_setp(nHandle,"SslProtocols",P1)
 		return self
 
 	Func getProperties
@@ -1555,10 +1555,10 @@ Class SocketsHttpHandler from HttpMessageHandler
 		return self
 
 	Func getAutomaticDecompression
-		return dnObj(dotnet_callo("s3:get",nHandle,"s22:AutomaticDecompression"))
+		return dnAnswer(dotnet_getp(nHandle,"AutomaticDecompression"))
 
 	Func setAutomaticDecompression P1
-		dotnet_callv("s3:set",nHandle,"s22:AutomaticDecompression",P1)
+		dotnet_setp(nHandle,"AutomaticDecompression",P1)
 		return self
 
 	Func getUseProxy
@@ -1695,10 +1695,10 @@ Class SocketsHttpHandler from HttpMessageHandler
 		return self
 
 	Func getKeepAlivePingPolicy
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:KeepAlivePingPolicy"))
+		return dnAnswer(dotnet_getp(nHandle,"KeepAlivePingPolicy"))
 
 	Func setKeepAlivePingPolicy P1
-		dotnet_callv("s3:set",nHandle,"s19:KeepAlivePingPolicy",P1)
+		dotnet_setp(nHandle,"KeepAlivePingPolicy",P1)
 		return self
 
 	Func getEnableMultipleHttp2Connections

@@ -536,10 +536,10 @@ Class IXmlTextParser from DotNetObject
 		return self
 
 	Func getWhitespaceHandling
-		return dnObj(dotnet_callo("s3:get",nHandle,"s18:WhitespaceHandling"))
+		return dnAnswer(dotnet_getp(nHandle,"WhitespaceHandling"))
 
 	Func setWhitespaceHandling P1
-		dotnet_callv("s3:set",nHandle,"s18:WhitespaceHandling",P1)
+		dotnet_setp(nHandle,"WhitespaceHandling",P1)
 		return self
 
 
@@ -1350,10 +1350,10 @@ Class XmlArrayAttribute from Attribute
 		return self
 
 	Func getForm
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Form"))
+		return dnAnswer(dotnet_getp(nHandle,"Form"))
 
 	Func setForm P1
-		dotnet_callv("s3:set",nHandle,"s4:Form",P1)
+		dotnet_setp(nHandle,"Form",P1)
 		return self
 
 	Func getOrder
@@ -1454,10 +1454,10 @@ Class XmlArrayItemAttribute from Attribute
 		return self
 
 	Func getForm
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Form"))
+		return dnAnswer(dotnet_getp(nHandle,"Form"))
 
 	Func setForm P1
-		dotnet_callv("s3:set",nHandle,"s4:Form",P1)
+		dotnet_setp(nHandle,"Form",P1)
 		return self
 
 
@@ -1593,10 +1593,10 @@ Class XmlAttributeAttribute from Attribute
 		return self
 
 	Func getForm
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Form"))
+		return dnAnswer(dotnet_getp(nHandle,"Form"))
 
 	Func setForm P1
-		dotnet_callv("s3:set",nHandle,"s4:Form",P1)
+		dotnet_setp(nHandle,"Form",P1)
 		return self
 
 
@@ -2021,10 +2021,10 @@ Class XmlElementAttribute from Attribute
 		return self
 
 	Func getForm
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Form"))
+		return dnAnswer(dotnet_getp(nHandle,"Form"))
 
 	Func setForm P1
-		dotnet_callv("s3:set",nHandle,"s4:Form",P1)
+		dotnet_setp(nHandle,"Form",P1)
 		return self
 
 	Func getOrder
@@ -2402,7 +2402,7 @@ Class XmlNodeEventArgs from EventArgs
 		raise("DotNet Error: ObjectBeingDeserialized is a read-only property")
 
 	Func getNodeType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:NodeType"))
+		return dnAnswer(dotnet_getp(nHandle,"NodeType"))
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")

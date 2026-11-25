@@ -391,10 +391,10 @@ Class WpfButtonBase from ContentControl
 		return self
 
 	Func getClickMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:ClickMode"))
+		return dnAnswer(dotnet_getp(nHandle,"ClickMode"))
 
 	Func setClickMode P1
-		dotnet_callv("s3:set",nHandle,"s9:ClickMode",P1)
+		dotnet_setp(nHandle,"ClickMode",P1)
 		return self
 
 	Func getClickEvent
@@ -649,10 +649,10 @@ Class CustomPopupPlacement from ValueType
 		return self
 
 	Func getPrimaryAxis
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:PrimaryAxis"))
+		return dnAnswer(dotnet_getp(nHandle,"PrimaryAxis"))
 
 	Func setPrimaryAxis P1
-		dotnet_callv("s3:set",nHandle,"s11:PrimaryAxis",P1)
+		dotnet_setp(nHandle,"PrimaryAxis",P1)
 		return self
 
 	# the operators of System.Windows.Controls.Primitives.CustomPopupPlacement: = !=
@@ -904,17 +904,17 @@ Class DocumentPageView from FrameworkElement
 		return self
 
 	Func getStretch
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Stretch"))
+		return dnAnswer(dotnet_getp(nHandle,"Stretch"))
 
 	Func setStretch P1
-		dotnet_callv("s3:set",nHandle,"s7:Stretch",P1)
+		dotnet_setp(nHandle,"Stretch",P1)
 		return self
 
 	Func getStretchDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:StretchDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"StretchDirection"))
 
 	Func setStretchDirection P1
-		dotnet_callv("s3:set",nHandle,"s16:StretchDirection",P1)
+		dotnet_setp(nHandle,"StretchDirection",P1)
 		return self
 
 	Func getPageNumberProperty
@@ -1662,7 +1662,7 @@ Class ItemsChangedEventArgs from EventArgs
 		return self
 
 	Func getAction
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Action"))
+		return dnAnswer(dotnet_getp(nHandle,"Action"))
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
@@ -1845,10 +1845,10 @@ Class Popup from FrameworkElement
 		return self
 
 	Func getPlacement
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Placement"))
+		return dnAnswer(dotnet_getp(nHandle,"Placement"))
 
 	Func setPlacement P1
-		dotnet_callv("s3:set",nHandle,"s9:Placement",P1)
+		dotnet_setp(nHandle,"Placement",P1)
 		return self
 
 	Func getCustomPopupPlacementCallback
@@ -1894,10 +1894,10 @@ Class Popup from FrameworkElement
 		return self
 
 	Func getPopupAnimation
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:PopupAnimation"))
+		return dnAnswer(dotnet_getp(nHandle,"PopupAnimation"))
 
 	Func setPopupAnimation P1
-		dotnet_callv("s3:set",nHandle,"s14:PopupAnimation",P1)
+		dotnet_setp(nHandle,"PopupAnimation",P1)
 		return self
 
 	Func getAllowsTransparency
@@ -2132,7 +2132,7 @@ Class WpfScrollEventArgs from RoutedEventArgs
 		return self
 
 	Func getScrollEventType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ScrollEventType"))
+		return dnAnswer(dotnet_getp(nHandle,"ScrollEventType"))
 
 	Func setScrollEventType P1
 		raise("DotNet Error: ScrollEventType is a read-only property")
@@ -2644,17 +2644,17 @@ Class WpfTextBoxBase from WpfControl
 		raise("DotNet Error: SpellCheck is a read-only property")
 
 	Func getHorizontalScrollBarVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s29:HorizontalScrollBarVisibility"))
+		return dnAnswer(dotnet_getp(nHandle,"HorizontalScrollBarVisibility"))
 
 	Func setHorizontalScrollBarVisibility P1
-		dotnet_callv("s3:set",nHandle,"s29:HorizontalScrollBarVisibility",P1)
+		dotnet_setp(nHandle,"HorizontalScrollBarVisibility",P1)
 		return self
 
 	Func getVerticalScrollBarVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s27:VerticalScrollBarVisibility"))
+		return dnAnswer(dotnet_getp(nHandle,"VerticalScrollBarVisibility"))
 
 	Func setVerticalScrollBarVisibility P1
-		dotnet_callv("s3:set",nHandle,"s27:VerticalScrollBarVisibility",P1)
+		dotnet_setp(nHandle,"VerticalScrollBarVisibility",P1)
 		return self
 
 	Func getExtentWidth
@@ -3047,10 +3047,10 @@ Class TickBar from FrameworkElement
 		return self
 
 	Func getPlacement
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Placement"))
+		return dnAnswer(dotnet_getp(nHandle,"Placement"))
 
 	Func setPlacement P1
-		dotnet_callv("s3:set",nHandle,"s9:Placement",P1)
+		dotnet_setp(nHandle,"Placement",P1)
 		return self
 
 	Func getReservedSpace
@@ -3259,10 +3259,10 @@ Class Track from FrameworkElement
 		return self
 
 	Func getOrientation
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Orientation"))
+		return dnAnswer(dotnet_getp(nHandle,"Orientation"))
 
 	Func setOrientation P1
-		dotnet_callv("s3:set",nHandle,"s11:Orientation",P1)
+		dotnet_setp(nHandle,"Orientation",P1)
 		return self
 
 	Func getMinimum
@@ -3454,10 +3454,10 @@ Class DataGridColumnHeader from WpfButtonBase
 		return self
 
 	Func getSeparatorVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:SeparatorVisibility"))
+		return dnAnswer(dotnet_getp(nHandle,"SeparatorVisibility"))
 
 	Func setSeparatorVisibility P1
-		dotnet_callv("s3:set",nHandle,"s19:SeparatorVisibility",P1)
+		dotnet_setp(nHandle,"SeparatorVisibility",P1)
 		return self
 
 	Func getDisplayIndex
@@ -3568,10 +3568,10 @@ Class DataGridRowHeader from WpfButtonBase
 		return self
 
 	Func getSeparatorVisibility
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:SeparatorVisibility"))
+		return dnAnswer(dotnet_getp(nHandle,"SeparatorVisibility"))
 
 	Func setSeparatorVisibility P1
-		dotnet_callv("s3:set",nHandle,"s19:SeparatorVisibility",P1)
+		dotnet_setp(nHandle,"SeparatorVisibility",P1)
 		return self
 
 	Func getIsRowSelected
@@ -3734,10 +3734,10 @@ Class WpfScrollBar from RangeBase
 		return self
 
 	Func getOrientation
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Orientation"))
+		return dnAnswer(dotnet_getp(nHandle,"Orientation"))
 
 	Func setOrientation P1
-		dotnet_callv("s3:set",nHandle,"s11:Orientation",P1)
+		dotnet_setp(nHandle,"Orientation",P1)
 		return self
 
 	Func getViewportSize

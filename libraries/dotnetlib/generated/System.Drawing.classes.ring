@@ -3192,17 +3192,17 @@ Class Graphics from MarshalByRefObject
 		raise("DotNet Error: ClipBounds is a read-only property")
 
 	Func getCompositingMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:CompositingMode"))
+		return dnAnswer(dotnet_getp(nHandle,"CompositingMode"))
 
 	Func setCompositingMode P1
-		dotnet_callv("s3:set",nHandle,"s15:CompositingMode",P1)
+		dotnet_setp(nHandle,"CompositingMode",P1)
 		return self
 
 	Func getCompositingQuality
-		return dnObj(dotnet_callo("s3:get",nHandle,"s18:CompositingQuality"))
+		return dnAnswer(dotnet_getp(nHandle,"CompositingQuality"))
 
 	Func setCompositingQuality P1
-		dotnet_callv("s3:set",nHandle,"s18:CompositingQuality",P1)
+		dotnet_setp(nHandle,"CompositingQuality",P1)
 		return self
 
 	Func getDpiX
@@ -3218,10 +3218,10 @@ Class Graphics from MarshalByRefObject
 		raise("DotNet Error: DpiY is a read-only property")
 
 	Func getInterpolationMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:InterpolationMode"))
+		return dnAnswer(dotnet_getp(nHandle,"InterpolationMode"))
 
 	Func setInterpolationMode P1
-		dotnet_callv("s3:set",nHandle,"s17:InterpolationMode",P1)
+		dotnet_setp(nHandle,"InterpolationMode",P1)
 		return self
 
 	Func getIsClipEmpty
@@ -3244,17 +3244,17 @@ Class Graphics from MarshalByRefObject
 		return self
 
 	Func getPageUnit
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:PageUnit"))
+		return dnAnswer(dotnet_getp(nHandle,"PageUnit"))
 
 	Func setPageUnit P1
-		dotnet_callv("s3:set",nHandle,"s8:PageUnit",P1)
+		dotnet_setp(nHandle,"PageUnit",P1)
 		return self
 
 	Func getPixelOffsetMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:PixelOffsetMode"))
+		return dnAnswer(dotnet_getp(nHandle,"PixelOffsetMode"))
 
 	Func setPixelOffsetMode P1
-		dotnet_callv("s3:set",nHandle,"s15:PixelOffsetMode",P1)
+		dotnet_setp(nHandle,"PixelOffsetMode",P1)
 		return self
 
 	Func getRenderingOrigin
@@ -3265,10 +3265,10 @@ Class Graphics from MarshalByRefObject
 		return self
 
 	Func getSmoothingMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:SmoothingMode"))
+		return dnAnswer(dotnet_getp(nHandle,"SmoothingMode"))
 
 	Func setSmoothingMode P1
-		dotnet_callv("s3:set",nHandle,"s13:SmoothingMode",P1)
+		dotnet_setp(nHandle,"SmoothingMode",P1)
 		return self
 
 	Func getTextContrast
@@ -3279,10 +3279,10 @@ Class Graphics from MarshalByRefObject
 		return self
 
 	Func getTextRenderingHint
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:TextRenderingHint"))
+		return dnAnswer(dotnet_getp(nHandle,"TextRenderingHint"))
 
 	Func setTextRenderingHint P1
-		dotnet_callv("s3:set",nHandle,"s17:TextRenderingHint",P1)
+		dotnet_setp(nHandle,"TextRenderingHint",P1)
 		return self
 
 	Func getTransform
@@ -3606,7 +3606,7 @@ Class Image from MarshalByRefObject
 		raise("DotNet Error: RawFormat is a read-only property")
 
 	Func getPixelFormat
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:PixelFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"PixelFormat"))
 
 	Func setPixelFormat P1
 		raise("DotNet Error: PixelFormat is a read-only property")
@@ -4924,42 +4924,42 @@ Class StringFormat from MarshalByRefObject
 		return self
 
 	Func getFormatFlags
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:FormatFlags"))
+		return dnAnswer(dotnet_getp(nHandle,"FormatFlags"))
 
 	Func setFormatFlags P1
-		dotnet_callv("s3:set",nHandle,"s11:FormatFlags",P1)
+		dotnet_setp(nHandle,"FormatFlags",P1)
 		return self
 
 	Func getAlignment
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Alignment"))
+		return dnAnswer(dotnet_getp(nHandle,"Alignment"))
 
 	Func setAlignment P1
-		dotnet_callv("s3:set",nHandle,"s9:Alignment",P1)
+		dotnet_setp(nHandle,"Alignment",P1)
 		return self
 
 	Func getLineAlignment
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:LineAlignment"))
+		return dnAnswer(dotnet_getp(nHandle,"LineAlignment"))
 
 	Func setLineAlignment P1
-		dotnet_callv("s3:set",nHandle,"s13:LineAlignment",P1)
+		dotnet_setp(nHandle,"LineAlignment",P1)
 		return self
 
 	Func getHotkeyPrefix
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:HotkeyPrefix"))
+		return dnAnswer(dotnet_getp(nHandle,"HotkeyPrefix"))
 
 	Func setHotkeyPrefix P1
-		dotnet_callv("s3:set",nHandle,"s12:HotkeyPrefix",P1)
+		dotnet_setp(nHandle,"HotkeyPrefix",P1)
 		return self
 
 	Func getTrimming
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Trimming"))
+		return dnAnswer(dotnet_getp(nHandle,"Trimming"))
 
 	Func setTrimming P1
-		dotnet_callv("s3:set",nHandle,"s8:Trimming",P1)
+		dotnet_setp(nHandle,"Trimming",P1)
 		return self
 
 	Func getDigitSubstitutionMethod
-		return dnObj(dotnet_callo("s3:get",nHandle,"s23:DigitSubstitutionMethod"))
+		return dnAnswer(dotnet_getp(nHandle,"DigitSubstitutionMethod"))
 
 	Func setDigitSubstitutionMethod P1
 		raise("DotNet Error: DigitSubstitutionMethod is a read-only property")
@@ -6719,7 +6719,7 @@ Class Font from MarshalByRefObject
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getStyle
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Style"))
+		return dnAnswer(dotnet_getp(nHandle,"Style"))
 
 	Func setStyle P1
 		raise("DotNet Error: Style is a read-only property")
@@ -6761,7 +6761,7 @@ Class Font from MarshalByRefObject
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getUnit
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Unit"))
+		return dnAnswer(dotnet_getp(nHandle,"Unit"))
 
 	Func setUnit P1
 		raise("DotNet Error: Unit is a read-only property")
@@ -6901,17 +6901,17 @@ Class Pen from MarshalByRefObject
 		return self
 
 	Func getStartCap
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:StartCap"))
+		return dnAnswer(dotnet_getp(nHandle,"StartCap"))
 
 	Func setStartCap P1
-		dotnet_callv("s3:set",nHandle,"s8:StartCap",P1)
+		dotnet_setp(nHandle,"StartCap",P1)
 		return self
 
 	Func getEndCap
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:EndCap"))
+		return dnAnswer(dotnet_getp(nHandle,"EndCap"))
 
 	Func setEndCap P1
-		dotnet_callv("s3:set",nHandle,"s6:EndCap",P1)
+		dotnet_setp(nHandle,"EndCap",P1)
 		return self
 
 	Func getCustomStartCap
@@ -6929,17 +6929,17 @@ Class Pen from MarshalByRefObject
 		return self
 
 	Func getDashCap
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:DashCap"))
+		return dnAnswer(dotnet_getp(nHandle,"DashCap"))
 
 	Func setDashCap P1
-		dotnet_callv("s3:set",nHandle,"s7:DashCap",P1)
+		dotnet_setp(nHandle,"DashCap",P1)
 		return self
 
 	Func getLineJoin
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:LineJoin"))
+		return dnAnswer(dotnet_getp(nHandle,"LineJoin"))
 
 	Func setLineJoin P1
-		dotnet_callv("s3:set",nHandle,"s8:LineJoin",P1)
+		dotnet_setp(nHandle,"LineJoin",P1)
 		return self
 
 	Func getMiterLimit
@@ -6950,10 +6950,10 @@ Class Pen from MarshalByRefObject
 		return self
 
 	Func getAlignment
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Alignment"))
+		return dnAnswer(dotnet_getp(nHandle,"Alignment"))
 
 	Func setAlignment P1
-		dotnet_callv("s3:set",nHandle,"s9:Alignment",P1)
+		dotnet_setp(nHandle,"Alignment",P1)
 		return self
 
 	Func getTransform
@@ -6964,7 +6964,7 @@ Class Pen from MarshalByRefObject
 		return self
 
 	Func getPenType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:PenType"))
+		return dnAnswer(dotnet_getp(nHandle,"PenType"))
 
 	Func setPenType P1
 		raise("DotNet Error: PenType is a read-only property")
@@ -6984,10 +6984,10 @@ Class Pen from MarshalByRefObject
 		return self
 
 	Func getDashStyle
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:DashStyle"))
+		return dnAnswer(dotnet_getp(nHandle,"DashStyle"))
 
 	Func setDashStyle P1
-		dotnet_callv("s3:set",nHandle,"s9:DashStyle",P1)
+		dotnet_setp(nHandle,"DashStyle",P1)
 		return self
 
 	Func getDashOffset
@@ -7078,10 +7078,10 @@ Class TextureBrush from Brush
 		return self
 
 	Func getWrapMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:WrapMode"))
+		return dnAnswer(dotnet_getp(nHandle,"WrapMode"))
 
 	Func setWrapMode P1
-		dotnet_callv("s3:set",nHandle,"s8:WrapMode",P1)
+		dotnet_setp(nHandle,"WrapMode",P1)
 		return self
 
 	Func getImage

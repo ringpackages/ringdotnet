@@ -4808,17 +4808,17 @@ Class FormattedText from Object
 		return self
 
 	Func getFlowDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:FlowDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"FlowDirection"))
 
 	Func setFlowDirection P1
-		dotnet_callv("s3:set",nHandle,"s13:FlowDirection",P1)
+		dotnet_setp(nHandle,"FlowDirection",P1)
 		return self
 
 	Func getTextAlignment
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:TextAlignment"))
+		return dnAnswer(dotnet_getp(nHandle,"TextAlignment"))
 
 	Func setTextAlignment P1
-		dotnet_callv("s3:set",nHandle,"s13:TextAlignment",P1)
+		dotnet_setp(nHandle,"TextAlignment",P1)
 		return self
 
 	Func getLineHeight
@@ -4850,10 +4850,10 @@ Class FormattedText from Object
 		return self
 
 	Func getTrimming
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Trimming"))
+		return dnAnswer(dotnet_getp(nHandle,"Trimming"))
 
 	Func setTrimming P1
-		dotnet_callv("s3:set",nHandle,"s8:Trimming",P1)
+		dotnet_setp(nHandle,"Trimming",P1)
 		return self
 
 	Func getHeight
@@ -5843,7 +5843,7 @@ Class GlyphTypeface from Object
 		raise("DotNet Error: StrikethroughThickness is a read-only property")
 
 	Func getEmbeddingRights
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:EmbeddingRights"))
+		return dnAnswer(dotnet_getp(nHandle,"EmbeddingRights"))
 
 	Func setEmbeddingRights P1
 		raise("DotNet Error: EmbeddingRights is a read-only property")
@@ -5897,10 +5897,10 @@ Class GlyphTypeface from Object
 		raise("DotNet Error: CharacterToGlyphMap is a read-only property")
 
 	Func getStyleSimulations
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:StyleSimulations"))
+		return dnAnswer(dotnet_getp(nHandle,"StyleSimulations"))
 
 	Func setStyleSimulations P1
-		dotnet_callv("s3:set",nHandle,"s16:StyleSimulations",P1)
+		dotnet_setp(nHandle,"StyleSimulations",P1)
 		return self
 
 	Func getGlyphCount
@@ -7262,10 +7262,10 @@ Class NumberSubstitution from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.NumberSubstitution, PresentationCore',"s15:GetSubstitution",P1))
 
 	Func getCultureSource
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:CultureSource"))
+		return dnAnswer(dotnet_getp(nHandle,"CultureSource"))
 
 	Func setCultureSource P1
-		dotnet_callv("s3:set",nHandle,"s13:CultureSource",P1)
+		dotnet_setp(nHandle,"CultureSource",P1)
 		return self
 
 	Func getCultureOverride
@@ -7276,10 +7276,10 @@ Class NumberSubstitution from Object
 		return self
 
 	Func getSubstitution
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:Substitution"))
+		return dnAnswer(dotnet_getp(nHandle,"Substitution"))
 
 	Func setSubstitution P1
-		dotnet_callv("s3:set",nHandle,"s12:Substitution",P1)
+		dotnet_setp(nHandle,"Substitution",P1)
 		return self
 
 	Func getCultureSourceProperty
@@ -7850,31 +7850,31 @@ Class WpfPen from Animatable
 		return self
 
 	Func getStartLineCap
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:StartLineCap"))
+		return dnAnswer(dotnet_getp(nHandle,"StartLineCap"))
 
 	Func setStartLineCap P1
-		dotnet_callv("s3:set",nHandle,"s12:StartLineCap",P1)
+		dotnet_setp(nHandle,"StartLineCap",P1)
 		return self
 
 	Func getEndLineCap
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EndLineCap"))
+		return dnAnswer(dotnet_getp(nHandle,"EndLineCap"))
 
 	Func setEndLineCap P1
-		dotnet_callv("s3:set",nHandle,"s10:EndLineCap",P1)
+		dotnet_setp(nHandle,"EndLineCap",P1)
 		return self
 
 	Func getDashCap
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:DashCap"))
+		return dnAnswer(dotnet_getp(nHandle,"DashCap"))
 
 	Func setDashCap P1
-		dotnet_callv("s3:set",nHandle,"s7:DashCap",P1)
+		dotnet_setp(nHandle,"DashCap",P1)
 		return self
 
 	Func getLineJoin
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:LineJoin"))
+		return dnAnswer(dotnet_getp(nHandle,"LineJoin"))
 
 	Func setLineJoin P1
-		dotnet_callv("s3:set",nHandle,"s8:LineJoin",P1)
+		dotnet_setp(nHandle,"LineJoin",P1)
 		return self
 
 	Func getMiterLimit
@@ -9890,10 +9890,10 @@ Class ArcSegment from PathSegment
 		return self
 
 	Func getSweepDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:SweepDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"SweepDirection"))
 
 	Func setSweepDirection P1
-		dotnet_callv("s3:set",nHandle,"s14:SweepDirection",P1)
+		dotnet_setp(nHandle,"SweepDirection",P1)
 		return self
 
 	Func getPointProperty
@@ -10220,10 +10220,10 @@ Class CombinedGeometry from Geometry
 		return self
 
 	Func getGeometryCombineMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:GeometryCombineMode"))
+		return dnAnswer(dotnet_getp(nHandle,"GeometryCombineMode"))
 
 	Func setGeometryCombineMode P1
-		dotnet_callv("s3:set",nHandle,"s19:GeometryCombineMode",P1)
+		dotnet_setp(nHandle,"GeometryCombineMode",P1)
 		return self
 
 	Func getGeometry1
@@ -10835,10 +10835,10 @@ Class GeometryGroup from Geometry
 		return self
 
 	Func getFillRule
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:FillRule"))
+		return dnAnswer(dotnet_getp(nHandle,"FillRule"))
 
 	Func setFillRule P1
-		dotnet_callv("s3:set",nHandle,"s8:FillRule",P1)
+		dotnet_setp(nHandle,"FillRule",P1)
 		return self
 
 	Func getChildren
@@ -10899,7 +10899,7 @@ Class GeometryHitTestResult from HitTestResult
 		return self
 
 	Func getIntersectionDetail
-		return dnObj(dotnet_callo("s3:get",nHandle,"s18:IntersectionDetail"))
+		return dnAnswer(dotnet_getp(nHandle,"IntersectionDetail"))
 
 	Func setIntersectionDetail P1
 		raise("DotNet Error: IntersectionDetail is a read-only property")
@@ -10994,24 +10994,24 @@ Class GradientBrush from WpfBrush
 		return self
 
 	Func getColorInterpolationMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s22:ColorInterpolationMode"))
+		return dnAnswer(dotnet_getp(nHandle,"ColorInterpolationMode"))
 
 	Func setColorInterpolationMode P1
-		dotnet_callv("s3:set",nHandle,"s22:ColorInterpolationMode",P1)
+		dotnet_setp(nHandle,"ColorInterpolationMode",P1)
 		return self
 
 	Func getMappingMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:MappingMode"))
+		return dnAnswer(dotnet_getp(nHandle,"MappingMode"))
 
 	Func setMappingMode P1
-		dotnet_callv("s3:set",nHandle,"s11:MappingMode",P1)
+		dotnet_setp(nHandle,"MappingMode",P1)
 		return self
 
 	Func getSpreadMethod
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:SpreadMethod"))
+		return dnAnswer(dotnet_getp(nHandle,"SpreadMethod"))
 
 	Func setSpreadMethod P1
-		dotnet_callv("s3:set",nHandle,"s12:SpreadMethod",P1)
+		dotnet_setp(nHandle,"SpreadMethod",P1)
 		return self
 
 	Func getGradientStops
@@ -11292,10 +11292,10 @@ Class PathGeometry from Geometry
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.PathGeometry, PresentationCore',"s18:CreateFromGeometry",P1))
 
 	Func getFillRule
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:FillRule"))
+		return dnAnswer(dotnet_getp(nHandle,"FillRule"))
 
 	Func setFillRule P1
-		dotnet_callv("s3:set",nHandle,"s8:FillRule",P1)
+		dotnet_setp(nHandle,"FillRule",P1)
 		return self
 
 	Func getFigures
@@ -11759,10 +11759,10 @@ Class StreamGeometry from Geometry
 		return self
 
 	Func getFillRule
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:FillRule"))
+		return dnAnswer(dotnet_getp(nHandle,"FillRule"))
 
 	Func setFillRule P1
-		dotnet_callv("s3:set",nHandle,"s8:FillRule",P1)
+		dotnet_setp(nHandle,"FillRule",P1)
 		return self
 
 	Func getFillRuleProperty
@@ -11801,17 +11801,17 @@ Class TileBrush from WpfBrush
 		return self
 
 	Func getViewportUnits
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ViewportUnits"))
+		return dnAnswer(dotnet_getp(nHandle,"ViewportUnits"))
 
 	Func setViewportUnits P1
-		dotnet_callv("s3:set",nHandle,"s13:ViewportUnits",P1)
+		dotnet_setp(nHandle,"ViewportUnits",P1)
 		return self
 
 	Func getViewboxUnits
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ViewboxUnits"))
+		return dnAnswer(dotnet_getp(nHandle,"ViewboxUnits"))
 
 	Func setViewboxUnits P1
-		dotnet_callv("s3:set",nHandle,"s12:ViewboxUnits",P1)
+		dotnet_setp(nHandle,"ViewboxUnits",P1)
 		return self
 
 	Func getViewport
@@ -11829,31 +11829,31 @@ Class TileBrush from WpfBrush
 		return self
 
 	Func getStretch
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Stretch"))
+		return dnAnswer(dotnet_getp(nHandle,"Stretch"))
 
 	Func setStretch P1
-		dotnet_callv("s3:set",nHandle,"s7:Stretch",P1)
+		dotnet_setp(nHandle,"Stretch",P1)
 		return self
 
 	Func getTileMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:TileMode"))
+		return dnAnswer(dotnet_getp(nHandle,"TileMode"))
 
 	Func setTileMode P1
-		dotnet_callv("s3:set",nHandle,"s8:TileMode",P1)
+		dotnet_setp(nHandle,"TileMode",P1)
 		return self
 
 	Func getAlignmentX
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:AlignmentX"))
+		return dnAnswer(dotnet_getp(nHandle,"AlignmentX"))
 
 	Func setAlignmentX P1
-		dotnet_callv("s3:set",nHandle,"s10:AlignmentX",P1)
+		dotnet_setp(nHandle,"AlignmentX",P1)
 		return self
 
 	Func getAlignmentY
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:AlignmentY"))
+		return dnAnswer(dotnet_getp(nHandle,"AlignmentY"))
 
 	Func setAlignmentY P1
-		dotnet_callv("s3:set",nHandle,"s10:AlignmentY",P1)
+		dotnet_setp(nHandle,"AlignmentY",P1)
 		return self
 
 	Func getViewportUnitsProperty

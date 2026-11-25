@@ -647,7 +647,7 @@ Class DriveInfo from Object
 		raise("DotNet Error: RootDirectory is a read-only property")
 
 	Func getDriveType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:DriveType"))
+		return dnAnswer(dotnet_getp(nHandle,"DriveType"))
 
 	Func setDriveType P1
 		raise("DotNet Error: DriveType is a read-only property")
@@ -740,24 +740,24 @@ Class EnumerationOptions from Object
 		return self
 
 	Func getAttributesToSkip
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:AttributesToSkip"))
+		return dnAnswer(dotnet_getp(nHandle,"AttributesToSkip"))
 
 	Func setAttributesToSkip P1
-		dotnet_callv("s3:set",nHandle,"s16:AttributesToSkip",P1)
+		dotnet_setp(nHandle,"AttributesToSkip",P1)
 		return self
 
 	Func getMatchType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:MatchType"))
+		return dnAnswer(dotnet_getp(nHandle,"MatchType"))
 
 	Func setMatchType P1
-		dotnet_callv("s3:set",nHandle,"s9:MatchType",P1)
+		dotnet_setp(nHandle,"MatchType",P1)
 		return self
 
 	Func getMatchCasing
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:MatchCasing"))
+		return dnAnswer(dotnet_getp(nHandle,"MatchCasing"))
 
 	Func setMatchCasing P1
-		dotnet_callv("s3:set",nHandle,"s11:MatchCasing",P1)
+		dotnet_setp(nHandle,"MatchCasing",P1)
 		return self
 
 	Func getMaxRecursionDepth
@@ -1110,31 +1110,31 @@ Class FileStreamOptions from Object
 		return dn_x
 
 	Func getMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Mode"))
+		return dnAnswer(dotnet_getp(nHandle,"Mode"))
 
 	Func setMode P1
-		dotnet_callv("s3:set",nHandle,"s4:Mode",P1)
+		dotnet_setp(nHandle,"Mode",P1)
 		return self
 
 	Func getAccess
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Access"))
+		return dnAnswer(dotnet_getp(nHandle,"Access"))
 
 	Func setAccess P1
-		dotnet_callv("s3:set",nHandle,"s6:Access",P1)
+		dotnet_setp(nHandle,"Access",P1)
 		return self
 
 	Func getShare
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Share"))
+		return dnAnswer(dotnet_getp(nHandle,"Share"))
 
 	Func setShare P1
-		dotnet_callv("s3:set",nHandle,"s5:Share",P1)
+		dotnet_setp(nHandle,"Share",P1)
 		return self
 
 	Func getOptions
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Options"))
+		return dnAnswer(dotnet_getp(nHandle,"Options"))
 
 	Func setOptions P1
-		dotnet_callv("s3:set",nHandle,"s7:Options",P1)
+		dotnet_setp(nHandle,"Options",P1)
 		return self
 
 	Func getPreallocationSize
@@ -1177,7 +1177,7 @@ Class FileSystemEventArgs from EventArgs
 		return self
 
 	Func getChangeType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:ChangeType"))
+		return dnAnswer(dotnet_getp(nHandle,"ChangeType"))
 
 	Func setChangeType P1
 		raise("DotNet Error: ChangeType is a read-only property")
@@ -1313,17 +1313,17 @@ Class FileSystemInfo from MarshalByRefObject
 		raise("DotNet Error: LinkTarget is a read-only property")
 
 	Func getUnixFileMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:UnixFileMode"))
+		return dnAnswer(dotnet_getp(nHandle,"UnixFileMode"))
 
 	Func setUnixFileMode P1
-		dotnet_callv("s3:set",nHandle,"s12:UnixFileMode",P1)
+		dotnet_setp(nHandle,"UnixFileMode",P1)
 		return self
 
 	Func getAttributes
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Attributes"))
+		return dnAnswer(dotnet_getp(nHandle,"Attributes"))
 
 	Func setAttributes P1
-		dotnet_callv("s3:set",nHandle,"s10:Attributes",P1)
+		dotnet_setp(nHandle,"Attributes",P1)
 		return self
 
 
@@ -1427,10 +1427,10 @@ Class FileSystemWatcher from Component
 		return self
 
 	Func getNotifyFilter
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:NotifyFilter"))
+		return dnAnswer(dotnet_getp(nHandle,"NotifyFilter"))
 
 	Func setNotifyFilter P1
-		dotnet_callv("s3:set",nHandle,"s12:NotifyFilter",P1)
+		dotnet_setp(nHandle,"NotifyFilter",P1)
 		return self
 
 	Func getFilters
@@ -2356,10 +2356,10 @@ Class WaitForChangedResult from ValueType
 		return self
 
 	Func getChangeType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:ChangeType"))
+		return dnAnswer(dotnet_getp(nHandle,"ChangeType"))
 
 	Func setChangeType P1
-		dotnet_callv("s3:set",nHandle,"s10:ChangeType",P1)
+		dotnet_setp(nHandle,"ChangeType",P1)
 		return self
 
 	Func getName

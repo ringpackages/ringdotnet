@@ -1168,7 +1168,7 @@ Class DataTypeAttribute from ValidationAttribute
 		return dnAnswer(dotnet_callt(nHandle,"GetDataTypeName"))
 
 	Func getDataType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:DataType"))
+		return dnAnswer(dotnet_getp(nHandle,"DataType"))
 
 	Func setDataType P1
 		raise("DotNet Error: DataType is a read-only property")

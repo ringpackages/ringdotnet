@@ -1746,24 +1746,24 @@ Class CookiePolicyOptions from Object
 		return dn_x
 
 	Func getMinimumSameSitePolicy
-		return dnObj(dotnet_callo("s3:get",nHandle,"s21:MinimumSameSitePolicy"))
+		return dnAnswer(dotnet_getp(nHandle,"MinimumSameSitePolicy"))
 
 	Func setMinimumSameSitePolicy P1
-		dotnet_callv("s3:set",nHandle,"s21:MinimumSameSitePolicy",P1)
+		dotnet_setp(nHandle,"MinimumSameSitePolicy",P1)
 		return self
 
 	Func getHttpOnly
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:HttpOnly"))
+		return dnAnswer(dotnet_getp(nHandle,"HttpOnly"))
 
 	Func setHttpOnly P1
-		dotnet_callv("s3:set",nHandle,"s8:HttpOnly",P1)
+		dotnet_setp(nHandle,"HttpOnly",P1)
 		return self
 
 	Func getSecure
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Secure"))
+		return dnAnswer(dotnet_getp(nHandle,"Secure"))
 
 	Func setSecure P1
-		dotnet_callv("s3:set",nHandle,"s6:Secure",P1)
+		dotnet_setp(nHandle,"Secure",P1)
 		return self
 
 	Func getConsentCookie
@@ -2620,10 +2620,10 @@ Class ForwardedHeadersOptions from Object
 		return self
 
 	Func getForwardedHeaders
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ForwardedHeaders"))
+		return dnAnswer(dotnet_getp(nHandle,"ForwardedHeaders"))
 
 	Func setForwardedHeaders P1
-		dotnet_callv("s3:set",nHandle,"s16:ForwardedHeaders",P1)
+		dotnet_setp(nHandle,"ForwardedHeaders",P1)
 		return self
 
 	Func getForwardLimit
@@ -4729,10 +4729,10 @@ Class StaticFileOptions from DotNetObject
 		return self
 
 	Func getHttpsCompression
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:HttpsCompression"))
+		return dnAnswer(dotnet_getp(nHandle,"HttpsCompression"))
 
 	Func setHttpsCompression P1
-		dotnet_callv("s3:set",nHandle,"s16:HttpsCompression",P1)
+		dotnet_setp(nHandle,"HttpsCompression",P1)
 		return self
 
 	Func getOnPrepareResponse

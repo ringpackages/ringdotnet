@@ -1926,7 +1926,7 @@ Class ReaderWriterLockSlim from Object
 		raise("DotNet Error: IsWriteLockHeld is a read-only property")
 
 	Func getRecursionPolicy
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:RecursionPolicy"))
+		return dnAnswer(dotnet_getp(nHandle,"RecursionPolicy"))
 
 	Func setRecursionPolicy P1
 		raise("DotNet Error: RecursionPolicy is a read-only property")
@@ -3150,14 +3150,14 @@ Class Thread from DotNetObject
 		raise("DotNet Error: IsThreadPoolThread is a read-only property")
 
 	Func getPriority
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Priority"))
+		return dnAnswer(dotnet_getp(nHandle,"Priority"))
 
 	Func setPriority P1
-		dotnet_callv("s3:set",nHandle,"s8:Priority",P1)
+		dotnet_setp(nHandle,"Priority",P1)
 		return self
 
 	Func getThreadState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ThreadState"))
+		return dnAnswer(dotnet_getp(nHandle,"ThreadState"))
 
 	Func setThreadState P1
 		raise("DotNet Error: ThreadState is a read-only property")
@@ -3190,10 +3190,10 @@ Class Thread from DotNetObject
 		return self
 
 	Func getApartmentState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ApartmentState"))
+		return dnAnswer(dotnet_getp(nHandle,"ApartmentState"))
 
 	Func setApartmentState P1
-		dotnet_callv("s3:set",nHandle,"s14:ApartmentState",P1)
+		dotnet_setp(nHandle,"ApartmentState",P1)
 		return self
 
 	Func getCurrentPrincipal

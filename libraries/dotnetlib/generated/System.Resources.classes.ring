@@ -210,7 +210,7 @@ Class NeutralResourcesLanguageAttribute from Attribute
 		raise("DotNet Error: CultureName is a read-only property")
 
 	Func getLocation
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Location"))
+		return dnAnswer(dotnet_getp(nHandle,"Location"))
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")

@@ -771,7 +771,7 @@ Class ClassInterfaceAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1319,7 +1319,7 @@ Class DefaultCharSetAttribute from Attribute
 		return self
 
 	Func getCharSet
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:CharSet"))
+		return dnAnswer(dotnet_getp(nHandle,"CharSet"))
 
 	Func setCharSet P1
 		raise("DotNet Error: CharSet is a read-only property")
@@ -1341,7 +1341,7 @@ Class DefaultDllImportSearchPathsAttribute from Attribute
 		return self
 
 	Func getPaths
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Paths"))
+		return dnAnswer(dotnet_getp(nHandle,"Paths"))
 
 	Func setPaths P1
 		raise("DotNet Error: Paths is a read-only property")
@@ -1455,10 +1455,10 @@ Class DllImportAttribute from Attribute
 		return self
 
 	Func getCharSet
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:CharSet"))
+		return dnAnswer(dotnet_getp(nHandle,"CharSet"))
 
 	Func setCharSet P1
-		dotnet_callv("s3:set",nHandle,"s7:CharSet",P1)
+		dotnet_setp(nHandle,"CharSet",P1)
 		return self
 
 	Func getSetLastError
@@ -1476,10 +1476,10 @@ Class DllImportAttribute from Attribute
 		return self
 
 	Func getCallingConvention
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:CallingConvention"))
+		return dnAnswer(dotnet_getp(nHandle,"CallingConvention"))
 
 	Func setCallingConvention P1
-		dotnet_callv("s3:set",nHandle,"s17:CallingConvention",P1)
+		dotnet_setp(nHandle,"CallingConvention",P1)
 		return self
 
 	Func getBestFitMapping
@@ -1982,7 +1982,7 @@ Class InterfaceTypeAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -2117,10 +2117,10 @@ Class LibraryImportAttribute from Attribute
 		return self
 
 	Func getStringMarshalling
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:StringMarshalling"))
+		return dnAnswer(dotnet_getp(nHandle,"StringMarshalling"))
 
 	Func setStringMarshalling P1
-		dotnet_callv("s3:set",nHandle,"s17:StringMarshalling",P1)
+		dotnet_setp(nHandle,"StringMarshalling",P1)
 		return self
 
 	Func getStringMarshallingCustomType
@@ -2713,16 +2713,16 @@ Class MarshalAsAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getSafeArraySubType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:SafeArraySubType"))
+		return dnAnswer(dotnet_getp(nHandle,"SafeArraySubType"))
 
 	Func setSafeArraySubType P1
-		dotnet_callv("s3:set",nHandle,"s16:SafeArraySubType",P1)
+		dotnet_setp(nHandle,"SafeArraySubType",P1)
 		return self
 
 	Func getSafeArrayUserDefinedSubType
@@ -2740,10 +2740,10 @@ Class MarshalAsAttribute from Attribute
 		return self
 
 	Func getArraySubType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:ArraySubType"))
+		return dnAnswer(dotnet_getp(nHandle,"ArraySubType"))
 
 	Func setArraySubType P1
-		dotnet_callv("s3:set",nHandle,"s12:ArraySubType",P1)
+		dotnet_setp(nHandle,"ArraySubType",P1)
 		return self
 
 	Func getSizeParamIndex
@@ -3609,7 +3609,7 @@ Class PosixSignalContext from Object
 		return dn_x
 
 	Func getSignal
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Signal"))
+		return dnAnswer(dotnet_getp(nHandle,"Signal"))
 
 	Func setSignal P1
 		raise("DotNet Error: Signal is a read-only property")
@@ -4105,7 +4105,7 @@ Class StructLayoutAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -4125,10 +4125,10 @@ Class StructLayoutAttribute from Attribute
 		return self
 
 	Func getCharSet
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:CharSet"))
+		return dnAnswer(dotnet_getp(nHandle,"CharSet"))
 
 	Func setCharSet P1
-		dotnet_callv("s3:set",nHandle,"s7:CharSet",P1)
+		dotnet_setp(nHandle,"CharSet",P1)
 		return self
 
 
@@ -4221,7 +4221,7 @@ Class TypeLibFuncAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -4265,7 +4265,7 @@ Class TypeLibTypeAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -4287,7 +4287,7 @@ Class TypeLibVarAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
+		return dnAnswer(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -4437,7 +4437,7 @@ Class UnmanagedFunctionPointerAttribute from Attribute
 		return self
 
 	Func getCallingConvention
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:CallingConvention"))
+		return dnAnswer(dotnet_getp(nHandle,"CallingConvention"))
 
 	Func setCallingConvention P1
 		raise("DotNet Error: CallingConvention is a read-only property")
@@ -4464,10 +4464,10 @@ Class UnmanagedFunctionPointerAttribute from Attribute
 		return self
 
 	Func getCharSet
-		return dnObj(dotnet_callo("s3:get",nHandle,"s7:CharSet"))
+		return dnAnswer(dotnet_getp(nHandle,"CharSet"))
 
 	Func setCharSet P1
-		dotnet_callv("s3:set",nHandle,"s7:CharSet",P1)
+		dotnet_setp(nHandle,"CharSet",P1)
 		return self
 
 

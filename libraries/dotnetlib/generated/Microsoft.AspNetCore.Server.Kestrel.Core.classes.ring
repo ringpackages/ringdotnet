@@ -612,10 +612,10 @@ Class ListenOptions from Object
 		raise("DotNet Error: KestrelServerOptions is a read-only property")
 
 	Func getProtocols
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Protocols"))
+		return dnAnswer(dotnet_getp(nHandle,"Protocols"))
 
 	Func setProtocols P1
-		dotnet_callv("s3:set",nHandle,"s9:Protocols",P1)
+		dotnet_setp(nHandle,"Protocols",P1)
 		return self
 
 	Func getDisableAltSvcHeader

@@ -1099,7 +1099,7 @@ Class EndPoint from Object
 		return dn_x
 
 	Func getAddressFamily
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:AddressFamily"))
+		return dnAnswer(dotnet_getp(nHandle,"AddressFamily"))
 
 	Func setAddressFamily P1
 		raise("DotNet Error: AddressFamily is a read-only property")
@@ -1186,10 +1186,10 @@ Class HttpListener from Object
 		return self
 
 	Func getAuthenticationSchemes
-		return dnObj(dotnet_callo("s3:get",nHandle,"s21:AuthenticationSchemes"))
+		return dnAnswer(dotnet_getp(nHandle,"AuthenticationSchemes"))
 
 	Func setAuthenticationSchemes P1
-		dotnet_callv("s3:set",nHandle,"s21:AuthenticationSchemes",P1)
+		dotnet_setp(nHandle,"AuthenticationSchemes",P1)
 		return self
 
 	Func getExtendedProtectionPolicy
@@ -2701,7 +2701,7 @@ Class SocketAddress from Object
 		return self
 
 	Func getFamily
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Family"))
+		return dnAnswer(dotnet_getp(nHandle,"Family"))
 
 	Func setFamily P1
 		raise("DotNet Error: Family is a read-only property")
@@ -3255,7 +3255,7 @@ Class WebException from InvalidOperationException
 		return self
 
 	Func getStatus
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Status"))
+		return dnAnswer(dotnet_getp(nHandle,"Status"))
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
@@ -3497,17 +3497,17 @@ Class WebRequest from MarshalByRefObject
 		return self
 
 	Func getAuthenticationLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s19:AuthenticationLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"AuthenticationLevel"))
 
 	Func setAuthenticationLevel P1
-		dotnet_callv("s3:set",nHandle,"s19:AuthenticationLevel",P1)
+		dotnet_setp(nHandle,"AuthenticationLevel",P1)
 		return self
 
 	Func getImpersonationLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s18:ImpersonationLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"ImpersonationLevel"))
 
 	Func setImpersonationLevel P1
-		dotnet_callv("s3:set",nHandle,"s18:ImpersonationLevel",P1)
+		dotnet_setp(nHandle,"ImpersonationLevel",P1)
 		return self
 
 	Func getConnectionGroupName
@@ -4095,7 +4095,7 @@ Class IPAddress from Object
 		return dn_x
 
 	Func getAddressFamily
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:AddressFamily"))
+		return dnAnswer(dotnet_getp(nHandle,"AddressFamily"))
 
 	Func setAddressFamily P1
 		raise("DotNet Error: AddressFamily is a read-only property")
@@ -4383,7 +4383,7 @@ Class FtpWebResponse from WebResponse
 		raise("DotNet Error: ContentLength is a read-only property")
 
 	Func getStatusCode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:StatusCode"))
+		return dnAnswer(dotnet_getp(nHandle,"StatusCode"))
 
 	Func setStatusCode P1
 		raise("DotNet Error: StatusCode is a read-only property")
@@ -4569,10 +4569,10 @@ Class HttpWebRequest from WebRequest
 		return self
 
 	Func getAutomaticDecompression
-		return dnObj(dotnet_callo("s3:get",nHandle,"s22:AutomaticDecompression"))
+		return dnAnswer(dotnet_getp(nHandle,"AutomaticDecompression"))
 
 	Func setAutomaticDecompression P1
-		dotnet_callv("s3:set",nHandle,"s22:AutomaticDecompression",P1)
+		dotnet_setp(nHandle,"AutomaticDecompression",P1)
 		return self
 
 	Func getAllowWriteStreamBuffering
@@ -4783,7 +4783,7 @@ Class HttpWebResponse from WebResponse
 		raise("DotNet Error: Method is a read-only property")
 
 	Func getStatusCode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:StatusCode"))
+		return dnAnswer(dotnet_getp(nHandle,"StatusCode"))
 
 	Func setStatusCode P1
 		raise("DotNet Error: StatusCode is a read-only property")

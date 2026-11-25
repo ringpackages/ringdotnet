@@ -2248,10 +2248,10 @@ Class FromBodyAttribute from Attribute
 		raise("DotNet Error: BindingSource is a read-only property")
 
 	Func getEmptyBodyBehavior
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:EmptyBodyBehavior"))
+		return dnAnswer(dotnet_getp(nHandle,"EmptyBodyBehavior"))
 
 	Func setEmptyBodyBehavior P1
-		dotnet_callv("s3:set",nHandle,"s17:EmptyBodyBehavior",P1)
+		dotnet_setp(nHandle,"EmptyBodyBehavior",P1)
 		return self
 
 
@@ -4050,10 +4050,10 @@ Class ResponseCacheAttribute from Attribute
 		return self
 
 	Func getLocation
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Location"))
+		return dnAnswer(dotnet_getp(nHandle,"Location"))
 
 	Func setLocation P1
-		dotnet_callv("s3:set",nHandle,"s8:Location",P1)
+		dotnet_setp(nHandle,"Location",P1)
 		return self
 
 	Func getNoStore

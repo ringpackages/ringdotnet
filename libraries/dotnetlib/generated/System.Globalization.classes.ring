@@ -356,7 +356,7 @@ Class Calendar from Object
 		raise("DotNet Error: MaxSupportedDateTime is a read-only property")
 
 	Func getAlgorithmType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:AlgorithmType"))
+		return dnAnswer(dotnet_getp(nHandle,"AlgorithmType"))
 
 	Func setAlgorithmType P1
 		raise("DotNet Error: AlgorithmType is a read-only property")
@@ -733,7 +733,7 @@ Class CultureInfo from Object
 		raise("DotNet Error: IsNeutralCulture is a read-only property")
 
 	Func getCultureTypes
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:CultureTypes"))
+		return dnAnswer(dotnet_getp(nHandle,"CultureTypes"))
 
 	Func setCultureTypes P1
 		raise("DotNet Error: CultureTypes is a read-only property")
@@ -1001,17 +1001,17 @@ Class DateTimeFormatInfo from Object
 		return self
 
 	Func getFirstDayOfWeek
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:FirstDayOfWeek"))
+		return dnAnswer(dotnet_getp(nHandle,"FirstDayOfWeek"))
 
 	Func setFirstDayOfWeek P1
-		dotnet_callv("s3:set",nHandle,"s14:FirstDayOfWeek",P1)
+		dotnet_setp(nHandle,"FirstDayOfWeek",P1)
 		return self
 
 	Func getCalendarWeekRule
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:CalendarWeekRule"))
+		return dnAnswer(dotnet_getp(nHandle,"CalendarWeekRule"))
 
 	Func setCalendarWeekRule P1
-		dotnet_callv("s3:set",nHandle,"s16:CalendarWeekRule",P1)
+		dotnet_setp(nHandle,"CalendarWeekRule",P1)
 		return self
 
 	Func getFullDateTimePattern
@@ -1573,10 +1573,10 @@ Class NumberFormatInfo from Object
 		return self
 
 	Func getDigitSubstitution
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:DigitSubstitution"))
+		return dnAnswer(dotnet_getp(nHandle,"DigitSubstitution"))
 
 	Func setDigitSubstitution P1
-		dotnet_callv("s3:set",nHandle,"s17:DigitSubstitution",P1)
+		dotnet_setp(nHandle,"DigitSubstitution",P1)
 		return self
 
 	Func getInvariantInfo
@@ -2077,10 +2077,10 @@ Class GregorianCalendar from Calendar
 		return self
 
 	Func getCalendarType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:CalendarType"))
+		return dnAnswer(dotnet_getp(nHandle,"CalendarType"))
 
 	Func setCalendarType P1
-		dotnet_callv("s3:set",nHandle,"s12:CalendarType",P1)
+		dotnet_setp(nHandle,"CalendarType",P1)
 		return self
 
 	Func getADEra

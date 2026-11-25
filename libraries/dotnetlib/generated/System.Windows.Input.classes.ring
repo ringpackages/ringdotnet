@@ -3089,45 +3089,45 @@ Class InputMethod from DispatcherObject
 		return self
 
 	Func getImeState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:ImeState"))
+		return dnAnswer(dotnet_getp(nHandle,"ImeState"))
 
 	Func setImeState P1
-		dotnet_callv("s3:set",nHandle,"s8:ImeState",P1)
+		dotnet_setp(nHandle,"ImeState",P1)
 		return self
 
 	Func getMicrophoneState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:MicrophoneState"))
+		return dnAnswer(dotnet_getp(nHandle,"MicrophoneState"))
 
 	Func setMicrophoneState P1
-		dotnet_callv("s3:set",nHandle,"s15:MicrophoneState",P1)
+		dotnet_setp(nHandle,"MicrophoneState",P1)
 		return self
 
 	Func getHandwritingState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:HandwritingState"))
+		return dnAnswer(dotnet_getp(nHandle,"HandwritingState"))
 
 	Func setHandwritingState P1
-		dotnet_callv("s3:set",nHandle,"s16:HandwritingState",P1)
+		dotnet_setp(nHandle,"HandwritingState",P1)
 		return self
 
 	Func getSpeechMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:SpeechMode"))
+		return dnAnswer(dotnet_getp(nHandle,"SpeechMode"))
 
 	Func setSpeechMode P1
-		dotnet_callv("s3:set",nHandle,"s10:SpeechMode",P1)
+		dotnet_setp(nHandle,"SpeechMode",P1)
 		return self
 
 	Func getImeConversionMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ImeConversionMode"))
+		return dnAnswer(dotnet_getp(nHandle,"ImeConversionMode"))
 
 	Func setImeConversionMode P1
-		dotnet_callv("s3:set",nHandle,"s17:ImeConversionMode",P1)
+		dotnet_setp(nHandle,"ImeConversionMode",P1)
 		return self
 
 	Func getImeSentenceMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ImeSentenceMode"))
+		return dnAnswer(dotnet_getp(nHandle,"ImeSentenceMode"))
 
 	Func setImeSentenceMode P1
-		dotnet_callv("s3:set",nHandle,"s15:ImeSentenceMode",P1)
+		dotnet_setp(nHandle,"ImeSentenceMode",P1)
 		return self
 
 	Func getCanShowConfigurationUI
@@ -3371,10 +3371,10 @@ Class InputScopeName from Object
 		return dn_x
 
 	Func getNameValue
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:NameValue"))
+		return dnAnswer(dotnet_getp(nHandle,"NameValue"))
 
 	Func setNameValue P1
-		dotnet_callv("s3:set",nHandle,"s9:NameValue",P1)
+		dotnet_setp(nHandle,"NameValue",P1)
 		return self
 
 
@@ -5634,7 +5634,7 @@ Class StylusButton from Object
 		raise("DotNet Error: Guid is a read-only property")
 
 	Func getStylusButtonState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s17:StylusButtonState"))
+		return dnAnswer(dotnet_getp(nHandle,"StylusButtonState"))
 
 	Func setStylusButtonState P1
 		raise("DotNet Error: StylusButtonState is a read-only property")
@@ -6319,7 +6319,7 @@ Class TextComposition from DispatcherObject
 		raise("DotNet Error: SystemCompositionText is a read-only property")
 
 	Func getAutoComplete
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:AutoComplete"))
+		return dnAnswer(dotnet_getp(nHandle,"AutoComplete"))
 
 	Func setAutoComplete P1
 		raise("DotNet Error: AutoComplete is a read-only property")
@@ -6559,7 +6559,7 @@ Class TouchPoint from Object
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getAction
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Action"))
+		return dnAnswer(dotnet_getp(nHandle,"Action"))
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
@@ -6615,7 +6615,7 @@ Class TraversalRequest from Object
 		return self
 
 	Func getFocusNavigationDirection
-		return dnObj(dotnet_callo("s3:get",nHandle,"s24:FocusNavigationDirection"))
+		return dnAnswer(dotnet_getp(nHandle,"FocusNavigationDirection"))
 
 	Func setFocusNavigationDirection P1
 		raise("DotNet Error: FocusNavigationDirection is a read-only property")
@@ -6700,17 +6700,17 @@ Class KeyBinding from InputBinding
 		return self
 
 	Func getModifiers
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Modifiers"))
+		return dnAnswer(dotnet_getp(nHandle,"Modifiers"))
 
 	Func setModifiers P1
-		dotnet_callv("s3:set",nHandle,"s9:Modifiers",P1)
+		dotnet_setp(nHandle,"Modifiers",P1)
 		return self
 
 	Func getKey
-		return dnObj(dotnet_callo("s3:get",nHandle,"s3:Key"))
+		return dnAnswer(dotnet_getp(nHandle,"Key"))
 
 	Func setKey P1
-		dotnet_callv("s3:set",nHandle,"s3:Key",P1)
+		dotnet_setp(nHandle,"Key",P1)
 		return self
 
 	Func getModifiersProperty
@@ -6764,13 +6764,13 @@ Class KeyGesture from InputGesture
 		return dn_x
 
 	Func getModifiers
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Modifiers"))
+		return dnAnswer(dotnet_getp(nHandle,"Modifiers"))
 
 	Func setModifiers P1
 		raise("DotNet Error: Modifiers is a read-only property")
 
 	Func getKey
-		return dnObj(dotnet_callo("s3:get",nHandle,"s3:Key"))
+		return dnAnswer(dotnet_getp(nHandle,"Key"))
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
@@ -6823,10 +6823,10 @@ Class KeyboardDevice from InputDevice
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetKeyStates",P1))
 
 	Func getDefaultRestoreFocusMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s23:DefaultRestoreFocusMode"))
+		return dnAnswer(dotnet_getp(nHandle,"DefaultRestoreFocusMode"))
 
 	Func setDefaultRestoreFocusMode P1
-		dotnet_callv("s3:set",nHandle,"s23:DefaultRestoreFocusMode",P1)
+		dotnet_setp(nHandle,"DefaultRestoreFocusMode",P1)
 		return self
 
 	Func getFocusedElement
@@ -6836,7 +6836,7 @@ Class KeyboardDevice from InputDevice
 		raise("DotNet Error: FocusedElement is a read-only property")
 
 	Func getModifiers
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Modifiers"))
+		return dnAnswer(dotnet_getp(nHandle,"Modifiers"))
 
 	Func setModifiers P1
 		raise("DotNet Error: Modifiers is a read-only property")
@@ -7175,10 +7175,10 @@ Class ManipulationStartingEventArgs from InputEventArgs
 		return self
 
 	Func getMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Mode"))
+		return dnAnswer(dotnet_getp(nHandle,"Mode"))
 
 	Func setMode P1
-		dotnet_callv("s3:set",nHandle,"s4:Mode",P1)
+		dotnet_setp(nHandle,"Mode",P1)
 		return self
 
 	Func getManipulationContainer
@@ -7249,10 +7249,10 @@ Class MouseBinding from InputBinding
 		return self
 
 	Func getMouseAction
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:MouseAction"))
+		return dnAnswer(dotnet_getp(nHandle,"MouseAction"))
 
 	Func setMouseAction P1
-		dotnet_callv("s3:set",nHandle,"s11:MouseAction",P1)
+		dotnet_setp(nHandle,"MouseAction",P1)
 		return self
 
 	Func getMouseActionProperty
@@ -7321,31 +7321,31 @@ Class MouseDevice from InputDevice
 		return self
 
 	Func getLeftButton
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:LeftButton"))
+		return dnAnswer(dotnet_getp(nHandle,"LeftButton"))
 
 	Func setLeftButton P1
 		raise("DotNet Error: LeftButton is a read-only property")
 
 	Func getRightButton
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:RightButton"))
+		return dnAnswer(dotnet_getp(nHandle,"RightButton"))
 
 	Func setRightButton P1
 		raise("DotNet Error: RightButton is a read-only property")
 
 	Func getMiddleButton
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:MiddleButton"))
+		return dnAnswer(dotnet_getp(nHandle,"MiddleButton"))
 
 	Func setMiddleButton P1
 		raise("DotNet Error: MiddleButton is a read-only property")
 
 	Func getXButton1
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:XButton1"))
+		return dnAnswer(dotnet_getp(nHandle,"XButton1"))
 
 	Func setXButton1 P1
 		raise("DotNet Error: XButton1 is a read-only property")
 
 	Func getXButton2
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:XButton2"))
+		return dnAnswer(dotnet_getp(nHandle,"XButton2"))
 
 	Func setXButton2 P1
 		raise("DotNet Error: XButton2 is a read-only property")
@@ -7403,31 +7403,31 @@ Class WpfMouseEventArgs from InputEventArgs
 		raise("DotNet Error: StylusDevice is a read-only property")
 
 	Func getLeftButton
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:LeftButton"))
+		return dnAnswer(dotnet_getp(nHandle,"LeftButton"))
 
 	Func setLeftButton P1
 		raise("DotNet Error: LeftButton is a read-only property")
 
 	Func getRightButton
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:RightButton"))
+		return dnAnswer(dotnet_getp(nHandle,"RightButton"))
 
 	Func setRightButton P1
 		raise("DotNet Error: RightButton is a read-only property")
 
 	Func getMiddleButton
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:MiddleButton"))
+		return dnAnswer(dotnet_getp(nHandle,"MiddleButton"))
 
 	Func setMiddleButton P1
 		raise("DotNet Error: MiddleButton is a read-only property")
 
 	Func getXButton1
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:XButton1"))
+		return dnAnswer(dotnet_getp(nHandle,"XButton1"))
 
 	Func setXButton1 P1
 		raise("DotNet Error: XButton1 is a read-only property")
 
 	Func getXButton2
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:XButton2"))
+		return dnAnswer(dotnet_getp(nHandle,"XButton2"))
 
 	Func setXButton2 P1
 		raise("DotNet Error: XButton2 is a read-only property")
@@ -7473,17 +7473,17 @@ Class MouseGesture from InputGesture
 		return self
 
 	Func getMouseAction
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:MouseAction"))
+		return dnAnswer(dotnet_getp(nHandle,"MouseAction"))
 
 	Func setMouseAction P1
-		dotnet_callv("s3:set",nHandle,"s11:MouseAction",P1)
+		dotnet_setp(nHandle,"MouseAction",P1)
 		return self
 
 	Func getModifiers
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Modifiers"))
+		return dnAnswer(dotnet_getp(nHandle,"Modifiers"))
 
 	Func setModifiers P1
-		dotnet_callv("s3:set",nHandle,"s9:Modifiers",P1)
+		dotnet_setp(nHandle,"Modifiers",P1)
 		return self
 
 
@@ -7753,7 +7753,7 @@ Class StylusPointPropertyInfo from StylusPointProperty
 		raise("DotNet Error: Resolution is a read-only property")
 
 	Func getUnit
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Unit"))
+		return dnAnswer(dotnet_getp(nHandle,"Unit"))
 
 	Func setUnit P1
 		raise("DotNet Error: Unit is a read-only property")
@@ -7800,7 +7800,7 @@ Class TabletDevice from InputDevice
 		raise("DotNet Error: ProductId is a read-only property")
 
 	Func getTabletHardwareCapabilities
-		return dnObj(dotnet_callo("s3:get",nHandle,"s26:TabletHardwareCapabilities"))
+		return dnAnswer(dotnet_getp(nHandle,"TabletHardwareCapabilities"))
 
 	Func setTabletHardwareCapabilities P1
 		raise("DotNet Error: TabletHardwareCapabilities is a read-only property")
@@ -7812,7 +7812,7 @@ Class TabletDevice from InputDevice
 		raise("DotNet Error: SupportedStylusPointProperties is a read-only property")
 
 	Func getType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
+		return dnAnswer(dotnet_getp(nHandle,"Type"))
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
@@ -7946,7 +7946,7 @@ Class TouchDevice from InputDevice
 		raise("DotNet Error: Captured is a read-only property")
 
 	Func getCaptureMode
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:CaptureMode"))
+		return dnAnswer(dotnet_getp(nHandle,"CaptureMode"))
 
 	Func setCaptureMode P1
 		raise("DotNet Error: CaptureMode is a read-only property")
@@ -8011,31 +8011,31 @@ Class WpfKeyEventArgs from KeyboardEventArgs
 		raise("DotNet Error: InputSource is a read-only property")
 
 	Func getKey
-		return dnObj(dotnet_callo("s3:get",nHandle,"s3:Key"))
+		return dnAnswer(dotnet_getp(nHandle,"Key"))
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getImeProcessedKey
-		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ImeProcessedKey"))
+		return dnAnswer(dotnet_getp(nHandle,"ImeProcessedKey"))
 
 	Func setImeProcessedKey P1
 		raise("DotNet Error: ImeProcessedKey is a read-only property")
 
 	Func getSystemKey
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:SystemKey"))
+		return dnAnswer(dotnet_getp(nHandle,"SystemKey"))
 
 	Func setSystemKey P1
 		raise("DotNet Error: SystemKey is a read-only property")
 
 	Func getDeadCharProcessedKey
-		return dnObj(dotnet_callo("s3:get",nHandle,"s20:DeadCharProcessedKey"))
+		return dnAnswer(dotnet_getp(nHandle,"DeadCharProcessedKey"))
 
 	Func setDeadCharProcessedKey P1
 		raise("DotNet Error: DeadCharProcessedKey is a read-only property")
 
 	Func getKeyStates
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:KeyStates"))
+		return dnAnswer(dotnet_getp(nHandle,"KeyStates"))
 
 	Func setKeyStates P1
 		raise("DotNet Error: KeyStates is a read-only property")
@@ -8149,13 +8149,13 @@ Class MouseButtonEventArgs from WpfMouseEventArgs
 		return self
 
 	Func getChangedButton
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ChangedButton"))
+		return dnAnswer(dotnet_getp(nHandle,"ChangedButton"))
 
 	Func setChangedButton P1
 		raise("DotNet Error: ChangedButton is a read-only property")
 
 	Func getButtonState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ButtonState"))
+		return dnAnswer(dotnet_getp(nHandle,"ButtonState"))
 
 	Func setButtonState P1
 		raise("DotNet Error: ButtonState is a read-only property")
@@ -8311,7 +8311,7 @@ Class StylusSystemGestureEventArgs from StylusEventArgs
 		return self
 
 	Func getSystemGesture
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:SystemGesture"))
+		return dnAnswer(dotnet_getp(nHandle,"SystemGesture"))
 
 	Func setSystemGesture P1
 		raise("DotNet Error: SystemGesture is a read-only property")

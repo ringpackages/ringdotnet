@@ -570,7 +570,7 @@ Class Activity from Object
 		return self
 
 	Func getStatus
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Status"))
+		return dnAnswer(dotnet_getp(nHandle,"Status"))
 
 	Func getStatusDescription
 		return dnAnswer(dotnet_getp(nHandle,"StatusDescription"))
@@ -585,7 +585,7 @@ Class Activity from Object
 		raise("DotNet Error: HasRemoteParent is a read-only property")
 
 	Func getKind
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Kind"))
+		return dnAnswer(dotnet_getp(nHandle,"Kind"))
 
 	Func setKind P1
 		raise("DotNet Error: Kind is a read-only property")
@@ -708,10 +708,10 @@ Class Activity from Object
 		return self
 
 	Func getActivityTraceFlags
-		return dnObj(dotnet_callo("s3:get",nHandle,"s18:ActivityTraceFlags"))
+		return dnAnswer(dotnet_getp(nHandle,"ActivityTraceFlags"))
 
 	Func setActivityTraceFlags P1
-		dotnet_callv("s3:set",nHandle,"s18:ActivityTraceFlags",P1)
+		dotnet_setp(nHandle,"ActivityTraceFlags",P1)
 		return self
 
 	Func getParentSpanId
@@ -727,7 +727,7 @@ Class Activity from Object
 		raise("DotNet Error: IsStopped is a read-only property")
 
 	Func getIdFormat
-		return dnObj(dotnet_callo("s3:get",nHandle,"s8:IdFormat"))
+		return dnAnswer(dotnet_getp(nHandle,"IdFormat"))
 
 	Func getForceDefaultIdFormat
 		return dotnet_call("s3:get",'System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource',"s20:ForceDefaultIdFormat")
@@ -892,7 +892,7 @@ Class ActivityContext from ValueType
 		raise("DotNet Error: SpanId is a read-only property")
 
 	Func getTraceFlags
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:TraceFlags"))
+		return dnAnswer(dotnet_getp(nHandle,"TraceFlags"))
 
 	Func setTraceFlags P1
 		raise("DotNet Error: TraceFlags is a read-only property")
@@ -952,7 +952,7 @@ Class ActivityCreationOptions from ValueType
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getKind
-		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Kind"))
+		return dnAnswer(dotnet_getp(nHandle,"Kind"))
 
 	Func setKind P1
 		raise("DotNet Error: Kind is a read-only property")
@@ -1929,7 +1929,7 @@ Class DebuggableAttribute from Attribute
 		raise("DotNet Error: IsJITOptimizerDisabled is a read-only property")
 
 	Func getDebuggingFlags
-		return dnObj(dotnet_callo("s3:get",nHandle,"s14:DebuggingFlags"))
+		return dnAnswer(dotnet_getp(nHandle,"DebuggingFlags"))
 
 	Func setDebuggingFlags P1
 		raise("DotNet Error: DebuggingFlags is a read-only property")
@@ -2015,7 +2015,7 @@ Class DebuggerBrowsableAttribute from Attribute
 		return self
 
 	Func getState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:State"))
+		return dnAnswer(dotnet_getp(nHandle,"State"))
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -3057,10 +3057,10 @@ Class Process from Component
 		return self
 
 	Func getPriorityClass
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:PriorityClass"))
+		return dnAnswer(dotnet_getp(nHandle,"PriorityClass"))
 
 	Func setPriorityClass P1
-		dotnet_callv("s3:set",nHandle,"s13:PriorityClass",P1)
+		dotnet_setp(nHandle,"PriorityClass",P1)
 		return self
 
 	Func getPrivateMemorySize64
@@ -3483,10 +3483,10 @@ Class ProcessStartInfo from Object
 		return self
 
 	Func getWindowStyle
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:WindowStyle"))
+		return dnAnswer(dotnet_getp(nHandle,"WindowStyle"))
 
 	Func setWindowStyle P1
-		dotnet_callv("s3:set",nHandle,"s11:WindowStyle",P1)
+		dotnet_setp(nHandle,"WindowStyle",P1)
 		return self
 
 	Func getPasswordInClearText
@@ -3594,10 +3594,10 @@ Class ProcessThread from Component
 		return self
 
 	Func getPriorityLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s13:PriorityLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"PriorityLevel"))
 
 	Func setPriorityLevel P1
-		dotnet_callv("s3:set",nHandle,"s13:PriorityLevel",P1)
+		dotnet_setp(nHandle,"PriorityLevel",P1)
 		return self
 
 	Func getStartAddress
@@ -3607,13 +3607,13 @@ Class ProcessThread from Component
 		raise("DotNet Error: StartAddress is a read-only property")
 
 	Func getThreadState
-		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ThreadState"))
+		return dnAnswer(dotnet_getp(nHandle,"ThreadState"))
 
 	Func setThreadState P1
 		raise("DotNet Error: ThreadState is a read-only property")
 
 	Func getWaitReason
-		return dnObj(dotnet_callo("s3:get",nHandle,"s10:WaitReason"))
+		return dnAnswer(dotnet_getp(nHandle,"WaitReason"))
 
 	Func setWaitReason P1
 		raise("DotNet Error: WaitReason is a read-only property")
@@ -4680,10 +4680,10 @@ Class TraceListener from MarshalByRefObject
 		return self
 
 	Func getTraceOutputOptions
-		return dnObj(dotnet_callo("s3:get",nHandle,"s18:TraceOutputOptions"))
+		return dnAnswer(dotnet_getp(nHandle,"TraceOutputOptions"))
 
 	Func setTraceOutputOptions P1
-		dotnet_callv("s3:set",nHandle,"s18:TraceOutputOptions",P1)
+		dotnet_setp(nHandle,"TraceOutputOptions",P1)
 		return self
 
 
@@ -4867,7 +4867,7 @@ Class TraceSource from Object
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getDefaultLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s12:DefaultLevel"))
+		return dnAnswer(dotnet_getp(nHandle,"DefaultLevel"))
 
 	Func setDefaultLevel P1
 		raise("DotNet Error: DefaultLevel is a read-only property")
@@ -5063,10 +5063,10 @@ Class EventTypeFilter from TraceFilter
 		return self
 
 	Func getEventType
-		return dnObj(dotnet_callo("s3:get",nHandle,"s9:EventType"))
+		return dnAnswer(dotnet_getp(nHandle,"EventType"))
 
 	Func setEventType P1
-		dotnet_callv("s3:set",nHandle,"s9:EventType",P1)
+		dotnet_setp(nHandle,"EventType",P1)
 		return self
 
 
@@ -5129,10 +5129,10 @@ Class SourceSwitch from Switch_
 		return dn_x
 
 	Func getLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Level"))
+		return dnAnswer(dotnet_getp(nHandle,"Level"))
 
 	Func setLevel P1
-		dotnet_callv("s3:set",nHandle,"s5:Level",P1)
+		dotnet_setp(nHandle,"Level",P1)
 		return self
 
 
@@ -5217,10 +5217,10 @@ Class TraceSwitch from Switch_
 		return self
 
 	Func getLevel
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Level"))
+		return dnAnswer(dotnet_getp(nHandle,"Level"))
 
 	Func setLevel P1
-		dotnet_callv("s3:set",nHandle,"s5:Level",P1)
+		dotnet_setp(nHandle,"Level",P1)
 		return self
 
 	Func getTraceError
