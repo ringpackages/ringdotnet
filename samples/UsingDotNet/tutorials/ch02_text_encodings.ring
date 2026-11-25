@@ -95,14 +95,11 @@ func detect cBytes
 
 	if left(cBytes,3) = char(239) + char(187) + char(191)
 		return "UTF-8 with a BOM"
-	ok
-	if left(cBytes,2) = char(255) + char(254)
+	but left(cBytes,2) = char(255) + char(254)
 		return "UTF-16 little endian (the BOM FF FE)"
-	ok
-	if left(cBytes,2) = char(254) + char(255)
+	but left(cBytes,2) = char(254) + char(255)
 		return "UTF-16 big endian (the BOM FE FF)"
-	ok
-	if isValidUtf8(cBytes)
+	but isValidUtf8(cBytes)
 		return "UTF-8 (no BOM)"
 	ok
 	return "not UTF-8: try Latin-1"

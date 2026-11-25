@@ -46,8 +46,7 @@ func toggleBold
 	if oRich.SelectionLength = 0
 		oStatus.Text = "Select some text first"
 		return
-	ok
-	if oRich.SelectionFont.Bold
+	but oRich.SelectionFont.Bold
 		setBold(False)
 	else
 		setBold(True)

@@ -48,8 +48,7 @@ func run aArguments
 	aOptions = parseArguments(aArguments)
 	if islist(aOptions) = False
 		return 1
-	ok
-	if optionValue(aOptions,"help") != ""
+	but optionValue(aOptions,"help") != ""
 		showUsage()
 		return 0
 	ok
@@ -58,8 +57,7 @@ func run aArguments
 		? "error: no file given"
 		showUsage()
 		return 1
-	ok
-	if not new File().Exists(cFile)
+	but not new File().Exists(cFile)
 		? "error: the file '" + new Path().GetFileName(cFile) + "' does not exist"
 		return 2
 	ok

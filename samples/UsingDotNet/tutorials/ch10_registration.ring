@@ -52,8 +52,7 @@ func register
 	if cName = ""
 		oResult.Text = "Please type a name"
 		return
-	ok
-	if oCountry.SelectedIndex < 0
+	but oCountry.SelectedIndex < 0
 		oResult.Text = "Please choose a country"
 		return
 	ok

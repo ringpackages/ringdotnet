@@ -136,13 +136,11 @@ class Evaluator
 		nPos++
 		if new Regex("^\d").IsMatch(cToken)
 			return number(cToken)
-		ok
-		if cToken = "("
+		but cToken = "("
 			nValue = expression()
 			expect(")")
 			return nValue
-		ok
-		if new Regex("^[A-Za-z]").IsMatch(cToken)
+		but new Regex("^[A-Za-z]").IsMatch(cToken)
 			return callFunction(cToken)
 		ok
 		cError = "unexpected '" + cToken + "'"
@@ -152,8 +150,7 @@ class Evaluator
 
 		if cError != ""
 			return
-		ok
-		if peek() != cToken
+		but peek() != cToken
 			cError = "'" + cToken + "' expected"
 			return
 		ok

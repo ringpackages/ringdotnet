@@ -33,8 +33,7 @@ func main
 			cNamespace = oType.Namespace
 			if isobject(cNamespace)
 				loop
-			ok
-			if find(aNamespaces,cNamespace) = 0
+			but find(aNamespaces,cNamespace) = 0
 				# a namespace that has no wrapper at all: count its public classes (not enums, delegates, attributes, exceptions)
 				cShort = oType.FullName
 				if not oType.IsEnum and not oType.IsNested and right(cShort,9) != "Attribute" and right(cShort,9) != "Exception" and substr(cShort,"`") = 0
@@ -44,8 +43,7 @@ func main
 					ok
 				ok
 				loop
-			ok
-			if oType.IsNested
+			but oType.IsNested
 				loop
 			ok
 			nTypes++

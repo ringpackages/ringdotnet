@@ -65,8 +65,7 @@ func calculate
 		oBmi.Text = "Enter a weight and a height"
 		oCategory.Text = ""
 		return
-	ok
-	if oUnits.SelectedIndex = 0
+	but oUnits.SelectedIndex = 0
 		nKilograms = nWeight
 		nMeters = nHeight / 100
 	else

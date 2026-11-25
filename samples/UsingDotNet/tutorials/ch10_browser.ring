@@ -93,8 +93,7 @@ func sizeText nBytes
 
 	if nBytes < 1024
 		return "" + nBytes + " B"
-	ok
-	if nBytes < 1024 * 1024
+	but nBytes < 1024 * 1024
 		return uiNumber(floor(nBytes / 102.4) / 10) + " KB"      # uiNumber: 1.5, not Ring's fixed 1.50
 	ok
 	return uiNumber(floor(nBytes / 104857.6) / 10) + " MB"

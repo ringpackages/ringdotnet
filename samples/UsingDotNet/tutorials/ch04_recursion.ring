@@ -146,8 +146,7 @@ func fill aGrid, nRow, nCol
 
 	if nRow < 1 or nRow > len(aGrid) or nCol < 1 or nCol > len(aGrid[1])
 		return 0
-	ok
-	if aGrid[nRow][nCol] != "."
+	but aGrid[nRow][nCol] != "."
 		return 0
 	ok
 	aGrid[nRow][nCol] = "*"

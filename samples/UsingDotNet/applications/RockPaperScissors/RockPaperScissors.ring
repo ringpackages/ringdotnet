@@ -40,8 +40,7 @@ func compare nPlayer, nComputer
 
 	if nPlayer = nComputer
 		return 0
-	ok
-	if (nPlayer = 1 and nComputer = 3) or (nPlayer = 2 and nComputer = 1) or (nPlayer = 3 and nComputer = 2)
+	but (nPlayer = 1 and nComputer = 3) or (nPlayer = 2 and nComputer = 1) or (nPlayer = 3 and nComputer = 2)
 		return 1
 	ok
 	return -1

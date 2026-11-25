@@ -300,11 +300,9 @@ func paraList nCount
 func returnCode cRequest, cReturnType, nByRef
 	if nByRef = 0 and cReturnType = "System.Void"
 		return nativeCall(cRequest,"void") + nl + "		return self" + nl
-	ok
-	if nByRef = 0 and isPrimitiveType(cReturnType)
+	but nByRef = 0 and isPrimitiveType(cReturnType)
 		return nativeCall(cRequest,"value")
-	ok
-	if nByRef = 0
+	but nByRef = 0
 		return "return dnObj(" + nativeCall(cRequest,"object") + ")" + nl
 	ok
 	return "return " + sendCall(cRequest) + nl
@@ -331,19 +329,17 @@ func nativeCall cRequest, cMode
 	for cArg in aParts[4]
 		cNative += "," + cArg
 	next
-	if cMode = "void"
+	switch cMode
+	on "void"
 		return "dotnet_callv(" + cNative + ")" + nl
-	ok
-	if cMode = "object"
+	on "object"
 		return "dotnet_callo(" + cNative + ")"
-	ok
-	if cMode = "any"
+	on "any"
 		return "dn_x = dotnet_calla(" + cNative + ")" + nl + "		if islist(dn_x) return dnAny(dn_x) ok" + nl + "		return dn_x" + nl
-	ok
-	if cMode = "number"
+	on "number"
 		# a number or a yes/no (not a text): the answer is never null, so there is nothing to finish in Ring
 		return "return dotnet_call(" + cNative + ")" + nl
-	ok
+	off
 	# a text, a number or a yes/no: any other answer (null...) comes back as a list that dnFinish reads
 	return "dn_x = dotnet_call(" + cNative + ")" + nl + "		if islist(dn_x) return dnFinish(dn_x[2]) ok" + nl + "		return dn_x" + nl
 
@@ -441,8 +437,7 @@ func buildPlan cTypeName, nForceInit
 				lInjected = len(aMethod) >= 7 and isstring(aMethod[7])          # an extension method that was added: only the methods of the type count
 				if lInjected
 					loop
-				ok
-				if lower(aMethod[1]) = lower(aExt[1])
+				but lower(aMethod[1]) = lower(aExt[1])
 					lSameName = true
 					if aMethod[6] <= nLen and nLen <= len(aMethod[4])
 						lCovered = true
@@ -752,8 +747,7 @@ func buildPlan cTypeName, nForceInit
 		cRing = ringName(cName)
 		if cLower = "tostring" and nArity > 0 and find(aAccessors,"format") = 0
 			loop	# the forms of ToString with parameters are the method Format (above)
-		ok
-		if nArity != aMin[find(aMin,cLower,1)][2]
+		but nArity != aMin[find(aMin,cLower,1)][2]
 			cRing = cName + "_" + nArity
 		ok
 		# getX()/setX() of a property or field are used by Ring for oObject.X: a method with that name (Array.GetLength(i) vs Length) is renamed
@@ -1001,8 +995,7 @@ func arityCall aFiMethods, cFiName, cFiType, nFiArity, cFiOperation, cFiIndent
 	next
 	if len(aFiFirst) = 0
 		return ""
-	ok
-	if len(aFiStaticRec) = 0
+	but len(aFiStaticRec) = 0
 		aFiStaticRec = aFiFirst
 	ok
 	if len(aFiInstanceRec) = 0
@@ -1041,8 +1034,7 @@ func dispatcherMode aMethods, cName
 			if aRec[5] > 0
 				cMode = "any"          # a method with out/ref parameters answers a list: dnFinish reads it
 				loop
-			ok
-			if aRec[3] = "System.Void"
+			but aRec[3] = "System.Void"
 				cKind = "void"
 			but isPrimitiveType(aRec[3])
 				cKind = "value"
@@ -1064,15 +1056,14 @@ func dispatcherMode aMethods, cName
 # The code of the named form of a dispatcher: the call of the family with the list of names, at the indent cIndent (the first line is
 # written after the indent of the caller)
 func namedCall cRequest, cMode, cIndent
-	if cMode = "ring"
+	switch cMode
+	on "ring"
 		return "return " + sendCall(cRequest) + nl
-	ok
-	if cMode = "void"
+	on "void"
 		return nativeCall(cRequest,"void") + cIndent + "return self" + nl
-	ok
-	if cMode = "object"
+	on "object"
 		return "return dnObj(" + nativeCall(cRequest,"object") + ")" + nl
-	ok
+	off
 	return nativeCall(cRequest,cMode)
 
 # The plain method of an overloaded family

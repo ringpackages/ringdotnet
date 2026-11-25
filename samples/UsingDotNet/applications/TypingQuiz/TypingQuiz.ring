@@ -87,8 +87,7 @@ func typed
 	cTyped = oInput.Text
 	if cTyped = "" or cTarget = ""
 		return
-	ok
-	if not lStarted
+	but not lStarted
 		oWatch.Start()
 		lStarted = true
 	ok

@@ -33,8 +33,7 @@ class UsingClass
 	func braceExprEval  dn_xValue
 		if not isstring(dn_xValue)
 			raise('DotNet Error: using { } expects namespace names as texts ("System.IO"), not a ' + type(dn_xValue))
-		ok
-		if startsWith(dn_xValue,"System.Windows") or startsWith(dn_xValue,"System.Drawing")
+		but startsWith(dn_xValue,"System.Windows") or startsWith(dn_xValue,"System.Drawing")
 			lDesktop = true
 		but startsWith(dn_xValue,"Microsoft.AspNetCore")
 			lWeb = true

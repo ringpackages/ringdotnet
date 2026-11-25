@@ -125,8 +125,7 @@ class Logger
 
 		if nMaxSize = 0 or not new File().Exists(cFile)
 			return
-		ok
-		if new FileInfo(cFile).Length > nMaxSize
+		but new FileInfo(cFile).Length > nMaxSize
 			cOld = cFile + ".1"
 			if new File().Exists(cOld)
 				new File().Delete(cOld)

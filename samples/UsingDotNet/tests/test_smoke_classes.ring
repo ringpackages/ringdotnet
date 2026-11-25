@@ -48,8 +48,7 @@ func main
 			next
 			if not lParameterless
 				loop
-			ok
-			if substr(aEntry[1],"`") > 0 and substr(aEntry[1],"[") = 0
+			but substr(aEntry[1],"`") > 0 and substr(aEntry[1],"[") = 0
 				# a generic definition: an object needs its type arguments (all texts here; a type that does not accept texts is left out)
 				aArguments = []
 				for nArgument = 1 to number(substr(aEntry[1],substr(aEntry[1],"`") + 1,1))
@@ -159,8 +158,7 @@ func harmlessCalls oObject, cType, aApi, aWrong
 	for aMember in aApi[5]
 		if aMember[2] != 1 or aMember[4] = 1
 			loop
-		ok
-		if find(["System.String","System.Int32","System.Int64","System.Boolean","System.Double"],aMember[5]) = 0
+		but find(["System.String","System.Int32","System.Int64","System.Boolean","System.Double"],aMember[5]) = 0
 			loop
 		ok
 		nProperties++
@@ -177,11 +175,9 @@ func harmlessCalls oObject, cType, aApi, aWrong
 		cName = aMethod[1]
 		if aMethod[2] = 1 or len(aMethod[4]) != 0 or aMethod[8] = 1
 			loop
-		ok
-		if not (left(cName,3) = "Get" or left(cName,2) = "To" or left(cName,2) = "Is")
+		but not (left(cName,3) = "Get" or left(cName,2) = "To" or left(cName,2) = "Is")
 			loop
-		ok
-		if cName = "GetType" or cName = "ToString" or cName = "GetHashCode"
+		but cName = "GetType" or cName = "ToString" or cName = "GetHashCode"
 			loop
 		ok
 		nMethodCalls++

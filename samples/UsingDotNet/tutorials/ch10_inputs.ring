@@ -97,8 +97,7 @@ func roomPrice
 
 	if oSuite.Checked
 		return 180
-	ok
-	if oDouble.Checked
+	but oDouble.Checked
 		return 110
 	ok
 	return 70
@@ -107,8 +106,7 @@ func roomName
 
 	if oSuite.Checked
 		return "Suite"
-	ok
-	if oDouble.Checked
+	but oDouble.Checked
 		return "Double"
 	ok
 	return "Single"

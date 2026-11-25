@@ -139,8 +139,7 @@ func deleteContact
 	nId = currentId()
 	if nId = 0
 		return
-	ok
-	if uiAsk("Delete " + oName.Text + "?","Delete")
+	but uiAsk("Delete " + oName.Text + "?","Delete")
 		oDb.remove("Contacts",nId)
 		clearFields()
 		reload()

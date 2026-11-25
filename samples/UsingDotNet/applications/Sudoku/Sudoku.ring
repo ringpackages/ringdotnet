@@ -92,8 +92,7 @@ func canPlace aCells, nCell, nDigit
 	for nOther = 0 to 8
 		if aCells[nRow * 9 + nOther + 1] = nDigit and nRow * 9 + nOther + 1 != nCell
 			return false
-		ok
-		if aCells[nOther * 9 + nColumn + 1] = nDigit and nOther * 9 + nColumn + 1 != nCell
+		but aCells[nOther * 9 + nColumn + 1] = nDigit and nOther * 9 + nColumn + 1 != nCell
 			return false
 		ok
 	next

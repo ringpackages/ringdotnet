@@ -40,8 +40,7 @@ func main
 func isManagedFile cFile
 	if left(cFile,4) != "bin/" or substr(right(cFile,len(cFile) - 4),"/") > 0
 		return false
-	ok
-	if cFile = "bin/ring_dotnet.dll" or cFile = "bin/e_sqlite3.dll"
+	but cFile = "bin/ring_dotnet.dll" or cFile = "bin/e_sqlite3.dll"
 		return false
 	ok
 	return right(cFile,4) = ".dll" or right(cFile,5) = ".json"

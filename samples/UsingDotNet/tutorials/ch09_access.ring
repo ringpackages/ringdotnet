@@ -14,8 +14,7 @@ func main
 	if not iswindows()
 		? "This tutorial needs Windows: the Microsoft Access drivers exist only there."
 		return
-	ok
-	if not driverInstalled(cDriver)
+	but not driverInstalled(cDriver)
 		? "The ODBC driver '" + cDriver + "' is not installed."
 		? "Install the Microsoft Access Database Engine (64-bit, like Ring and .NET) and run the program again."
 		return

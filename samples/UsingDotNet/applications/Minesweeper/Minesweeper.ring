@@ -109,8 +109,7 @@ func cellClicked nCell, cButton
 
 	if not lPlaying
 		return
-	ok
-	if cButton = "Right"
+	but cButton = "Right"
 		toggleFlag(nCell)
 	else
 		reveal(nCell)
@@ -136,8 +135,7 @@ func reveal nCell
 
 	if aRevealed[nCell] or aFlagged[nCell]
 		return
-	ok
-	if aMine[nCell]
+	but aMine[nCell]
 		gameOver()
 		return
 	ok

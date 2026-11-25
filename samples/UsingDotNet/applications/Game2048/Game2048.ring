@@ -167,8 +167,7 @@ func keyPressed cKey
 
 	if lGameOver or find(["Left","Right","Up","Down"],cKey) = 0
 		return
-	ok
-	if moveBoard(cKey)
+	but moveBoard(cKey)
 		addRandomTile()
 		if not canMove()
 			lGameOver = true

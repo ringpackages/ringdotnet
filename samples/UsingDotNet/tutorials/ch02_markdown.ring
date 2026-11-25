@@ -57,8 +57,7 @@ func markdownToHtml cMarkdown
 			ok
 			oHtml.AppendLine("<li>" + inlineHtml(substr(cLine,3)) + "</li>")
 			loop
-		ok
-		if lInList
+		but lInList
 			oHtml.AppendLine("</ul>")
 			lInList = False
 		ok

@@ -36,8 +36,7 @@ func webPlain  xValue
 			wb_oDict.callMethod("Add",[wb_aPair[1],webPlain(wb_aPair[2])])
 		next
 		return wb_oDict
-	ok
-	if islist(xValue)
+	but islist(xValue)
 		wb_aArray = []
 		for wb_xItem in xValue
 			wb_aArray + webPlain(wb_xItem)

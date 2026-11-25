@@ -55,8 +55,8 @@ func mayDo oPrincipal, aRules, cAction
 	aRoles = oPrincipal.FindAll("Role").toList()
 	for oRole in aRoles
 		aAllowed = aRules[lower(oRole.Value)]
-		if not islist(aAllowed) loop ok
-		if find(aAllowed,cAction) > 0
+		if not islist(aAllowed) loop
+		but find(aAllowed,cAction) > 0
 			return True
 		ok
 	next

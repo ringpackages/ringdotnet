@@ -294,8 +294,7 @@ func uiTest  oForm, cCode
 func uiEnd
 	if not uiSelfTest()
 		return
-	ok
-	if nDotNetFail = 0
+	but nDotNetFail = 0
 		? "SELFTEST OK (" + nDotNetPass + " checks)"
 	else
 		? "SELFTEST FAILED"

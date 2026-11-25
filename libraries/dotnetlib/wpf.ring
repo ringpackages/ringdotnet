@@ -110,8 +110,7 @@ func wpfTest  oWindow, cCode
 func wpfEnd
 	if not wpfSelfTest()
 		return
-	ok
-	if nDotNetFail = 0
+	but nDotNetFail = 0
 		? "SELFTEST OK (" + nDotNetPass + " checks)"
 	else
 		? "SELFTEST FAILED"

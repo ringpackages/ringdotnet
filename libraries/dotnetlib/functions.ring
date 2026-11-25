@@ -14,23 +14,19 @@
 func dnPackItem  dn_xValue
 	if isstring(dn_xValue)
 		return C_DOTNET_STRING + len(dn_xValue) + ":" + dn_xValue
-	ok
-	if isnumber(dn_xValue)
+	but isnumber(dn_xValue)
 		if dn_xValue = floor(dn_xValue) and fabs(dn_xValue) < 1000000000000
 			dn_cNumber = string(dn_xValue)
 			return C_DOTNET_NUMBER + len(dn_cNumber) + ":" + dn_cNumber
 		ok
 		# other numbers travel as the 8 bytes of the double (no loss of precision)
 		return C_DOTNET_DOUBLE + "8:" + double2bytes(dn_xValue)
-	ok
-	if islist(dn_xValue)
+	but islist(dn_xValue)
 		dn_cData = dnPack(dn_xValue)
 		return C_DOTNET_LIST + len(dn_cData) + ":" + dn_cData
-	ok
-	if isobject(dn_xValue) and isattribute(dn_xValue,"cCode")
+	but isobject(dn_xValue) and isattribute(dn_xValue,"cCode")
 		return C_DOTNET_CALLBACK + len(dn_xValue.cCode) + ":" + dn_xValue.cCode
-	ok
-	if isobject(dn_xValue) and isattribute(dn_xValue,"nHandle")
+	but isobject(dn_xValue) and isattribute(dn_xValue,"nHandle")
 		if dn_xValue.nHandle = 0
 			return C_DOTNET_NULL + "0:"
 		ok
@@ -260,8 +256,7 @@ func dnObj  dn_xInfo
 		dn_oObject = oDotNetNew          # a copy: the next wrapped object replaces oDotNetNew, and a method of this object may be running (a global that is replaced while
 		oDotNetNew = ""          # its method runs is an error). The global must not keep the object alive: it owns the handle
 		return dn_oObject
-	ok
-	if isnumber(dn_xInfo)
+	but isnumber(dn_xInfo)
 		return new DotNetObject(0)
 	ok
 	return dnFinish(dn_xInfo[2])
@@ -432,11 +427,9 @@ func dnImportFrom  cFolder, cNamespace
 	dn_cFile = cFolder + cNamespace + ".ring"
 	if find(aDotNetImported,dn_cFile) > 0
 		return true
-	ok
-	if not fexists(dn_cFile)
+	but not fexists(dn_cFile)
 		raise("DotNet Error: File not found: " + dn_cFile)
-	ok
-	if find(aDotNetUserFolders,cFolder) = 0
+	but find(aDotNetUserFolders,cFolder) = 0
 		aDotNetUserFolders + cFolder
 		# the index of the classes of the folder ([type, namespace]): an object of a type of another namespace of the same assembly
 		# is wrapped when it comes back, and its namespace is loaded from this folder
@@ -582,8 +575,7 @@ func dnFindFactory  dn_cChain
 			next
 			if len(dn_aClasses) > 1
 				return dnCombinedFactory(dn_aClasses)
-			ok
-			if len(dn_aClasses) = 1
+			but len(dn_aClasses) = 1
 				return "dotnetnew_" + dn_aClasses[1]
 			ok
 			loop

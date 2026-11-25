@@ -25,11 +25,9 @@ func fizzBuzz nNumber
 
 	if nNumber % 15 = 0
 		return "FizzBuzz"
-	ok
-	if nNumber % 3 = 0
+	but nNumber % 3 = 0
 		return "Fizz"
-	ok
-	if nNumber % 5 = 0
+	but nNumber % 5 = 0
 		return "Buzz"
 	ok
 	return "" + nNumber

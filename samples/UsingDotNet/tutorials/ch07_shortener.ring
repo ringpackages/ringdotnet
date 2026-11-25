@@ -88,8 +88,7 @@ func shorten oRequest
 	cAddress = trim(oRequest.form("address"))
 	if cAddress = ""
 		return [400,"text/plain","the field address is needed"]
-	ok
-	if not isAllowed(cAddress)
+	but not isAllowed(cAddress)
 		return [400,"text/plain","the address must be a http or https address"]
 	ok
 	# the same address gets the same code

@@ -156,8 +156,7 @@ func move nDx, nDy
 	cTarget = tileAt(nTargetColumn,nTargetRow)
 	if cTarget = "#"
 		return false
-	ok
-	if isBox(cTarget)
+	but isBox(cTarget)
 		cBeyond = tileAt(nTargetColumn + nDx,nTargetRow + nDy)
 		if cBeyond = "#" or isBox(cBeyond)
 			return false

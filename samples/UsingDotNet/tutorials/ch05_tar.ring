@@ -52,8 +52,8 @@ func main
 	cFound = ""
 	while true
 		oEntry = oReader.GetNextEntry(NULL)
-		if oEntry.isNull() exit ok
-		if oEntry.Name = "notes/b.txt"
+		if oEntry.isNull() exit
+		but oEntry.Name = "notes/b.txt"
 			cFound = new StreamReader(oEntry.DataStream).ReadToEnd()
 			exit
 		ok

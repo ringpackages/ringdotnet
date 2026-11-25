@@ -63,8 +63,7 @@ func fits aCells, nX, nY
 		nRow = nY + aCell[2]
 		if nColumn < 0 or nColumn >= C_COLUMNS or nRow >= C_ROWS
 			return false
-		ok
-		if nRow >= 0 and aBoard[cellOf(nColumn,nRow)] != 0
+		but nRow >= 0 and aBoard[cellOf(nColumn,nRow)] != 0
 			return false
 		ok
 	next
@@ -148,8 +147,7 @@ func tick
 
 	if lGameOver
 		return
-	ok
-	if fits(aCurrent,nPieceX,nPieceY + 1)
+	but fits(aCurrent,nPieceX,nPieceY + 1)
 		nPieceY++
 	else
 		lockPiece()

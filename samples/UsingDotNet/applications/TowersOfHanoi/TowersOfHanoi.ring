@@ -92,8 +92,7 @@ func canMove nFrom, nTo
 
 	if nFrom = nTo or len(aPegs[nFrom]) = 0
 		return false
-	ok
-	if len(aPegs[nTo]) = 0
+	but len(aPegs[nTo]) = 0
 		return true
 	ok
 	return aPegs[nFrom][len(aPegs[nFrom])] < aPegs[nTo][len(aPegs[nTo])]
