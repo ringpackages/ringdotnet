@@ -100,7 +100,7 @@ Class TarEntry from Object
 		return dn_x
 
 	Func getChecksum
-		return dotnet_call("s3:get",nHandle,"s8:Checksum")
+		return dotnet_getp(nHandle,"Checksum")
 
 	Func setChecksum P1
 		raise("DotNet Error: Checksum is a read-only property")
@@ -118,10 +118,10 @@ Class TarEntry from Object
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getGid
-		return dotnet_call("s3:get",nHandle,"s3:Gid")
+		return dotnet_getp(nHandle,"Gid")
 
 	Func setGid P1
-		dotnet_callv("s3:set",nHandle,"s3:Gid",P1)
+		dotnet_setp(nHandle,"Gid",P1)
 		return self
 
 	Func getModificationTime
@@ -132,18 +132,16 @@ Class TarEntry from Object
 		return self
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getLinkName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:LinkName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"LinkName"))
 
 	Func setLinkName P1
-		dotnet_callv("s3:set",nHandle,"s8:LinkName",P1)
+		dotnet_setp(nHandle,"LinkName",P1)
 		return self
 
 	Func getMode
@@ -154,19 +152,17 @@ Class TarEntry from Object
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getUid
-		return dotnet_call("s3:get",nHandle,"s3:Uid")
+		return dotnet_getp(nHandle,"Uid")
 
 	Func setUid P1
-		dotnet_callv("s3:set",nHandle,"s3:Uid",P1)
+		dotnet_setp(nHandle,"Uid",P1)
 		return self
 
 	Func getDataStream
@@ -177,7 +173,7 @@ Class TarEntry from Object
 		return self
 
 	Func getDataOffset
-		return dotnet_call("s3:get",nHandle,"s10:DataOffset")
+		return dotnet_getp(nHandle,"DataOffset")
 
 	Func setDataOffset P1
 		raise("DotNet Error: DataOffset is a read-only property")
@@ -372,35 +368,31 @@ Class PosixTarEntry from TarEntry
 		return self
 
 	Func getDeviceMajor
-		return dotnet_call("s3:get",nHandle,"s11:DeviceMajor")
+		return dotnet_getp(nHandle,"DeviceMajor")
 
 	Func setDeviceMajor P1
-		dotnet_callv("s3:set",nHandle,"s11:DeviceMajor",P1)
+		dotnet_setp(nHandle,"DeviceMajor",P1)
 		return self
 
 	Func getDeviceMinor
-		return dotnet_call("s3:get",nHandle,"s11:DeviceMinor")
+		return dotnet_getp(nHandle,"DeviceMinor")
 
 	Func setDeviceMinor P1
-		dotnet_callv("s3:set",nHandle,"s11:DeviceMinor",P1)
+		dotnet_setp(nHandle,"DeviceMinor",P1)
 		return self
 
 	Func getGroupName
-		dn_x = dotnet_call("s3:get",nHandle,"s9:GroupName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"GroupName"))
 
 	Func setGroupName P1
-		dotnet_callv("s3:set",nHandle,"s9:GroupName",P1)
+		dotnet_setp(nHandle,"GroupName",P1)
 		return self
 
 	Func getUserName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:UserName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"UserName"))
 
 	Func setUserName P1
-		dotnet_callv("s3:set",nHandle,"s8:UserName",P1)
+		dotnet_setp(nHandle,"UserName",P1)
 		return self
 
 

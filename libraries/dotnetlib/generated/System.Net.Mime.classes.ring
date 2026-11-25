@@ -104,12 +104,10 @@ Class ContentDisposition from Object
 		return dn_x
 
 	Func getDispositionType
-		dn_x = dotnet_call("s3:get",nHandle,"s15:DispositionType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DispositionType"))
 
 	Func setDispositionType P1
-		dotnet_callv("s3:set",nHandle,"s15:DispositionType",P1)
+		dotnet_setp(nHandle,"DispositionType",P1)
 		return self
 
 	Func getParameters
@@ -119,12 +117,10 @@ Class ContentDisposition from Object
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getFileName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:FileName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FileName"))
 
 	Func setFileName P1
-		dotnet_callv("s3:set",nHandle,"s8:FileName",P1)
+		dotnet_setp(nHandle,"FileName",P1)
 		return self
 
 	Func getCreationDate
@@ -142,10 +138,10 @@ Class ContentDisposition from Object
 		return self
 
 	Func getInline
-		return dotnet_call("s3:get",nHandle,"s6:Inline")
+		return dotnet_getp(nHandle,"Inline")
 
 	Func setInline P1
-		dotnet_callv("s3:set",nHandle,"s6:Inline",P1)
+		dotnet_setp(nHandle,"Inline",P1)
 		return self
 
 	Func getReadDate
@@ -156,10 +152,10 @@ Class ContentDisposition from Object
 		return self
 
 	Func getSize
-		return dotnet_call("s3:get",nHandle,"s4:Size")
+		return dotnet_getp(nHandle,"Size")
 
 	Func setSize P1
-		dotnet_callv("s3:set",nHandle,"s4:Size",P1)
+		dotnet_setp(nHandle,"Size",P1)
 		return self
 
 
@@ -211,39 +207,31 @@ Class ContentType from Object
 		return dn_x
 
 	Func getBoundary
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Boundary")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Boundary"))
 
 	Func setBoundary P1
-		dotnet_callv("s3:set",nHandle,"s8:Boundary",P1)
+		dotnet_setp(nHandle,"Boundary",P1)
 		return self
 
 	Func getCharSet
-		dn_x = dotnet_call("s3:get",nHandle,"s7:CharSet")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"CharSet"))
 
 	Func setCharSet P1
-		dotnet_callv("s3:set",nHandle,"s7:CharSet",P1)
+		dotnet_setp(nHandle,"CharSet",P1)
 		return self
 
 	Func getMediaType
-		dn_x = dotnet_call("s3:get",nHandle,"s9:MediaType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"MediaType"))
 
 	Func setMediaType P1
-		dotnet_callv("s3:set",nHandle,"s9:MediaType",P1)
+		dotnet_setp(nHandle,"MediaType",P1)
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getParameters

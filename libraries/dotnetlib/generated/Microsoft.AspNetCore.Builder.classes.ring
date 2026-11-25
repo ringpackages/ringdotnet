@@ -1776,12 +1776,10 @@ Class CookiePolicyOptions from Object
 		return self
 
 	Func getConsentCookieValue
-		dn_x = dotnet_call("s3:get",nHandle,"s18:ConsentCookieValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ConsentCookieValue"))
 
 	Func setConsentCookieValue P1
-		dotnet_callv("s3:set",nHandle,"s18:ConsentCookieValue",P1)
+		dotnet_setp(nHandle,"ConsentCookieValue",P1)
 		return self
 
 	Func getCheckConsentNeeded
@@ -1956,10 +1954,10 @@ Class DefaultFilesOptions from DotNetObject
 		return self
 
 	Func getRedirectToAppendTrailingSlash
-		return dotnet_call("s3:get",nHandle,"s29:RedirectToAppendTrailingSlash")
+		return dotnet_getp(nHandle,"RedirectToAppendTrailingSlash")
 
 	Func setRedirectToAppendTrailingSlash P1
-		dotnet_callv("s3:set",nHandle,"s29:RedirectToAppendTrailingSlash",P1)
+		dotnet_setp(nHandle,"RedirectToAppendTrailingSlash",P1)
 		return self
 
 
@@ -2015,10 +2013,10 @@ Class DeveloperExceptionPageOptions from Object
 		return dn_x
 
 	Func getSourceCodeLineCount
-		return dotnet_call("s3:get",nHandle,"s19:SourceCodeLineCount")
+		return dotnet_getp(nHandle,"SourceCodeLineCount")
 
 	Func setSourceCodeLineCount P1
-		dotnet_callv("s3:set",nHandle,"s19:SourceCodeLineCount",P1)
+		dotnet_setp(nHandle,"SourceCodeLineCount",P1)
 		return self
 
 	Func getFileProvider
@@ -2133,10 +2131,10 @@ Class DirectoryBrowserOptions from DotNetObject
 		return self
 
 	Func getRedirectToAppendTrailingSlash
-		return dotnet_call("s3:get",nHandle,"s29:RedirectToAppendTrailingSlash")
+		return dotnet_getp(nHandle,"RedirectToAppendTrailingSlash")
 
 	Func setRedirectToAppendTrailingSlash P1
-		dotnet_callv("s3:set",nHandle,"s29:RedirectToAppendTrailingSlash",P1)
+		dotnet_setp(nHandle,"RedirectToAppendTrailingSlash",P1)
 		return self
 
 
@@ -2179,12 +2177,10 @@ Class EndpointBuilder from Object
 		return self
 
 	Func getDisplayName
-		dn_x = dotnet_call("s3:get",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DisplayName"))
 
 	Func setDisplayName P1
-		dotnet_callv("s3:set",nHandle,"s11:DisplayName",P1)
+		dotnet_setp(nHandle,"DisplayName",P1)
 		return self
 
 	Func getMetadata
@@ -2333,10 +2329,10 @@ Class ExceptionHandlerOptions from Object
 		return self
 
 	Func getCreateScopeForErrors
-		return dotnet_call("s3:get",nHandle,"s20:CreateScopeForErrors")
+		return dotnet_getp(nHandle,"CreateScopeForErrors")
 
 	Func setCreateScopeForErrors P1
-		dotnet_callv("s3:set",nHandle,"s20:CreateScopeForErrors",P1)
+		dotnet_setp(nHandle,"CreateScopeForErrors",P1)
 		return self
 
 	Func getExceptionHandler
@@ -2347,10 +2343,10 @@ Class ExceptionHandlerOptions from Object
 		return self
 
 	Func getAllowStatusCode404Response
-		return dotnet_call("s3:get",nHandle,"s26:AllowStatusCode404Response")
+		return dotnet_getp(nHandle,"AllowStatusCode404Response")
 
 	Func setAllowStatusCode404Response P1
-		dotnet_callv("s3:set",nHandle,"s26:AllowStatusCode404Response",P1)
+		dotnet_setp(nHandle,"AllowStatusCode404Response",P1)
 		return self
 
 	Func getStatusCodeSelector
@@ -2483,17 +2479,17 @@ Class FileServerOptions from DotNetObject
 		raise("DotNet Error: DefaultFilesOptions is a read-only property")
 
 	Func getEnableDirectoryBrowsing
-		return dotnet_call("s3:get",nHandle,"s23:EnableDirectoryBrowsing")
+		return dotnet_getp(nHandle,"EnableDirectoryBrowsing")
 
 	Func setEnableDirectoryBrowsing P1
-		dotnet_callv("s3:set",nHandle,"s23:EnableDirectoryBrowsing",P1)
+		dotnet_setp(nHandle,"EnableDirectoryBrowsing",P1)
 		return self
 
 	Func getEnableDefaultFiles
-		return dotnet_call("s3:get",nHandle,"s18:EnableDefaultFiles")
+		return dotnet_getp(nHandle,"EnableDefaultFiles")
 
 	Func setEnableDefaultFiles P1
-		dotnet_callv("s3:set",nHandle,"s18:EnableDefaultFiles",P1)
+		dotnet_setp(nHandle,"EnableDefaultFiles",P1)
 		return self
 
 	Func getRequestPath
@@ -2511,10 +2507,10 @@ Class FileServerOptions from DotNetObject
 		return self
 
 	Func getRedirectToAppendTrailingSlash
-		return dotnet_call("s3:get",nHandle,"s29:RedirectToAppendTrailingSlash")
+		return dotnet_getp(nHandle,"RedirectToAppendTrailingSlash")
 
 	Func setRedirectToAppendTrailingSlash P1
-		dotnet_callv("s3:set",nHandle,"s29:RedirectToAppendTrailingSlash",P1)
+		dotnet_setp(nHandle,"RedirectToAppendTrailingSlash",P1)
 		return self
 
 
@@ -2582,75 +2578,59 @@ Class ForwardedHeadersOptions from Object
 		return dn_x
 
 	Func getForwardedForHeaderName
-		dn_x = dotnet_call("s3:get",nHandle,"s22:ForwardedForHeaderName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ForwardedForHeaderName"))
 
 	Func setForwardedForHeaderName P1
-		dotnet_callv("s3:set",nHandle,"s22:ForwardedForHeaderName",P1)
+		dotnet_setp(nHandle,"ForwardedForHeaderName",P1)
 		return self
 
 	Func getForwardedHostHeaderName
-		dn_x = dotnet_call("s3:get",nHandle,"s23:ForwardedHostHeaderName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ForwardedHostHeaderName"))
 
 	Func setForwardedHostHeaderName P1
-		dotnet_callv("s3:set",nHandle,"s23:ForwardedHostHeaderName",P1)
+		dotnet_setp(nHandle,"ForwardedHostHeaderName",P1)
 		return self
 
 	Func getForwardedProtoHeaderName
-		dn_x = dotnet_call("s3:get",nHandle,"s24:ForwardedProtoHeaderName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ForwardedProtoHeaderName"))
 
 	Func setForwardedProtoHeaderName P1
-		dotnet_callv("s3:set",nHandle,"s24:ForwardedProtoHeaderName",P1)
+		dotnet_setp(nHandle,"ForwardedProtoHeaderName",P1)
 		return self
 
 	Func getForwardedPrefixHeaderName
-		dn_x = dotnet_call("s3:get",nHandle,"s25:ForwardedPrefixHeaderName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ForwardedPrefixHeaderName"))
 
 	Func setForwardedPrefixHeaderName P1
-		dotnet_callv("s3:set",nHandle,"s25:ForwardedPrefixHeaderName",P1)
+		dotnet_setp(nHandle,"ForwardedPrefixHeaderName",P1)
 		return self
 
 	Func getOriginalForHeaderName
-		dn_x = dotnet_call("s3:get",nHandle,"s21:OriginalForHeaderName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"OriginalForHeaderName"))
 
 	Func setOriginalForHeaderName P1
-		dotnet_callv("s3:set",nHandle,"s21:OriginalForHeaderName",P1)
+		dotnet_setp(nHandle,"OriginalForHeaderName",P1)
 		return self
 
 	Func getOriginalHostHeaderName
-		dn_x = dotnet_call("s3:get",nHandle,"s22:OriginalHostHeaderName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"OriginalHostHeaderName"))
 
 	Func setOriginalHostHeaderName P1
-		dotnet_callv("s3:set",nHandle,"s22:OriginalHostHeaderName",P1)
+		dotnet_setp(nHandle,"OriginalHostHeaderName",P1)
 		return self
 
 	Func getOriginalProtoHeaderName
-		dn_x = dotnet_call("s3:get",nHandle,"s23:OriginalProtoHeaderName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"OriginalProtoHeaderName"))
 
 	Func setOriginalProtoHeaderName P1
-		dotnet_callv("s3:set",nHandle,"s23:OriginalProtoHeaderName",P1)
+		dotnet_setp(nHandle,"OriginalProtoHeaderName",P1)
 		return self
 
 	Func getOriginalPrefixHeaderName
-		dn_x = dotnet_call("s3:get",nHandle,"s24:OriginalPrefixHeaderName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"OriginalPrefixHeaderName"))
 
 	Func setOriginalPrefixHeaderName P1
-		dotnet_callv("s3:set",nHandle,"s24:OriginalPrefixHeaderName",P1)
+		dotnet_setp(nHandle,"OriginalPrefixHeaderName",P1)
 		return self
 
 	Func getForwardedHeaders
@@ -2687,10 +2667,10 @@ Class ForwardedHeadersOptions from Object
 		return self
 
 	Func getRequireHeaderSymmetry
-		return dotnet_call("s3:get",nHandle,"s21:RequireHeaderSymmetry")
+		return dotnet_getp(nHandle,"RequireHeaderSymmetry")
 
 	Func setRequireHeaderSymmetry P1
-		dotnet_callv("s3:set",nHandle,"s21:RequireHeaderSymmetry",P1)
+		dotnet_setp(nHandle,"RequireHeaderSymmetry",P1)
 		return self
 
 
@@ -2917,12 +2897,10 @@ Class HttpMethodOverrideOptions from Object
 		return dn_x
 
 	Func getFormFieldName
-		dn_x = dotnet_call("s3:get",nHandle,"s13:FormFieldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FormFieldName"))
 
 	Func setFormFieldName P1
-		dotnet_callv("s3:set",nHandle,"s13:FormFieldName",P1)
+		dotnet_setp(nHandle,"FormFieldName",P1)
 		return self
 
 
@@ -3507,26 +3485,24 @@ Class IISOptions from Object
 		return dn_x
 
 	Func getAutomaticAuthentication
-		return dotnet_call("s3:get",nHandle,"s23:AutomaticAuthentication")
+		return dotnet_getp(nHandle,"AutomaticAuthentication")
 
 	Func setAutomaticAuthentication P1
-		dotnet_callv("s3:set",nHandle,"s23:AutomaticAuthentication",P1)
+		dotnet_setp(nHandle,"AutomaticAuthentication",P1)
 		return self
 
 	Func getAuthenticationDisplayName
-		dn_x = dotnet_call("s3:get",nHandle,"s25:AuthenticationDisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"AuthenticationDisplayName"))
 
 	Func setAuthenticationDisplayName P1
-		dotnet_callv("s3:set",nHandle,"s25:AuthenticationDisplayName",P1)
+		dotnet_setp(nHandle,"AuthenticationDisplayName",P1)
 		return self
 
 	Func getForwardClientCertificate
-		return dotnet_call("s3:get",nHandle,"s24:ForwardClientCertificate")
+		return dotnet_getp(nHandle,"ForwardClientCertificate")
 
 	Func setForwardClientCertificate P1
-		dotnet_callv("s3:set",nHandle,"s24:ForwardClientCertificate",P1)
+		dotnet_setp(nHandle,"ForwardClientCertificate",P1)
 		return self
 
 
@@ -3562,33 +3538,31 @@ Class IISServerOptions from Object
 		return dn_x
 
 	Func getAllowSynchronousIO
-		return dotnet_call("s3:get",nHandle,"s18:AllowSynchronousIO")
+		return dotnet_getp(nHandle,"AllowSynchronousIO")
 
 	Func setAllowSynchronousIO P1
-		dotnet_callv("s3:set",nHandle,"s18:AllowSynchronousIO",P1)
+		dotnet_setp(nHandle,"AllowSynchronousIO",P1)
 		return self
 
 	Func getAutomaticAuthentication
-		return dotnet_call("s3:get",nHandle,"s23:AutomaticAuthentication")
+		return dotnet_getp(nHandle,"AutomaticAuthentication")
 
 	Func setAutomaticAuthentication P1
-		dotnet_callv("s3:set",nHandle,"s23:AutomaticAuthentication",P1)
+		dotnet_setp(nHandle,"AutomaticAuthentication",P1)
 		return self
 
 	Func getAuthenticationDisplayName
-		dn_x = dotnet_call("s3:get",nHandle,"s25:AuthenticationDisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"AuthenticationDisplayName"))
 
 	Func setAuthenticationDisplayName P1
-		dotnet_callv("s3:set",nHandle,"s25:AuthenticationDisplayName",P1)
+		dotnet_setp(nHandle,"AuthenticationDisplayName",P1)
 		return self
 
 	Func getMaxRequestBodyBufferSize
-		return dotnet_call("s3:get",nHandle,"s24:MaxRequestBodyBufferSize")
+		return dotnet_getp(nHandle,"MaxRequestBodyBufferSize")
 
 	Func setMaxRequestBodyBufferSize P1
-		dotnet_callv("s3:set",nHandle,"s24:MaxRequestBodyBufferSize",P1)
+		dotnet_setp(nHandle,"MaxRequestBodyBufferSize",P1)
 		return self
 
 	Func getMaxRequestBodySize
@@ -4106,10 +4080,10 @@ Class RequestLocalizationOptions from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:AddInitialRequestCultureProvider",P1))
 
 	Func getCultureInfoUseUserOverride
-		return dotnet_call("s3:get",nHandle,"s26:CultureInfoUseUserOverride")
+		return dotnet_getp(nHandle,"CultureInfoUseUserOverride")
 
 	Func setCultureInfoUseUserOverride P1
-		dotnet_callv("s3:set",nHandle,"s26:CultureInfoUseUserOverride",P1)
+		dotnet_setp(nHandle,"CultureInfoUseUserOverride",P1)
 		return self
 
 	Func getDefaultRequestCulture
@@ -4120,24 +4094,24 @@ Class RequestLocalizationOptions from Object
 		return self
 
 	Func getFallBackToParentCultures
-		return dotnet_call("s3:get",nHandle,"s24:FallBackToParentCultures")
+		return dotnet_getp(nHandle,"FallBackToParentCultures")
 
 	Func setFallBackToParentCultures P1
-		dotnet_callv("s3:set",nHandle,"s24:FallBackToParentCultures",P1)
+		dotnet_setp(nHandle,"FallBackToParentCultures",P1)
 		return self
 
 	Func getFallBackToParentUICultures
-		return dotnet_call("s3:get",nHandle,"s26:FallBackToParentUICultures")
+		return dotnet_getp(nHandle,"FallBackToParentUICultures")
 
 	Func setFallBackToParentUICultures P1
-		dotnet_callv("s3:set",nHandle,"s26:FallBackToParentUICultures",P1)
+		dotnet_setp(nHandle,"FallBackToParentUICultures",P1)
 		return self
 
 	Func getApplyCurrentCultureToResponseHeaders
-		return dotnet_call("s3:get",nHandle,"s36:ApplyCurrentCultureToResponseHeaders")
+		return dotnet_getp(nHandle,"ApplyCurrentCultureToResponseHeaders")
 
 	Func setApplyCurrentCultureToResponseHeaders P1
-		dotnet_callv("s3:set",nHandle,"s36:ApplyCurrentCultureToResponseHeaders",P1)
+		dotnet_setp(nHandle,"ApplyCurrentCultureToResponseHeaders",P1)
 		return self
 
 	Func getSupportedCultures
@@ -4759,19 +4733,17 @@ Class StaticFileOptions from DotNetObject
 		return self
 
 	Func getDefaultContentType
-		dn_x = dotnet_call("s3:get",nHandle,"s18:DefaultContentType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DefaultContentType"))
 
 	Func setDefaultContentType P1
-		dotnet_callv("s3:set",nHandle,"s18:DefaultContentType",P1)
+		dotnet_setp(nHandle,"DefaultContentType",P1)
 		return self
 
 	Func getServeUnknownFileTypes
-		return dotnet_call("s3:get",nHandle,"s21:ServeUnknownFileTypes")
+		return dotnet_getp(nHandle,"ServeUnknownFileTypes")
 
 	Func setServeUnknownFileTypes P1
-		dotnet_callv("s3:set",nHandle,"s21:ServeUnknownFileTypes",P1)
+		dotnet_setp(nHandle,"ServeUnknownFileTypes",P1)
 		return self
 
 	Func getHttpsCompression
@@ -4810,10 +4782,10 @@ Class StaticFileOptions from DotNetObject
 		return self
 
 	Func getRedirectToAppendTrailingSlash
-		return dotnet_call("s3:get",nHandle,"s29:RedirectToAppendTrailingSlash")
+		return dotnet_getp(nHandle,"RedirectToAppendTrailingSlash")
 
 	Func setRedirectToAppendTrailingSlash P1
-		dotnet_callv("s3:set",nHandle,"s29:RedirectToAppendTrailingSlash",P1)
+		dotnet_setp(nHandle,"RedirectToAppendTrailingSlash",P1)
 		return self
 
 
@@ -5746,39 +5718,31 @@ Class WebApplicationOptions from Object
 		return self
 
 	Func getEnvironmentName
-		dn_x = dotnet_call("s3:get",nHandle,"s15:EnvironmentName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"EnvironmentName"))
 
 	Func setEnvironmentName P1
-		dotnet_callv("s3:set",nHandle,"s15:EnvironmentName",P1)
+		dotnet_setp(nHandle,"EnvironmentName",P1)
 		return self
 
 	Func getApplicationName
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ApplicationName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ApplicationName"))
 
 	Func setApplicationName P1
-		dotnet_callv("s3:set",nHandle,"s15:ApplicationName",P1)
+		dotnet_setp(nHandle,"ApplicationName",P1)
 		return self
 
 	Func getContentRootPath
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ContentRootPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentRootPath"))
 
 	Func setContentRootPath P1
-		dotnet_callv("s3:set",nHandle,"s15:ContentRootPath",P1)
+		dotnet_setp(nHandle,"ContentRootPath",P1)
 		return self
 
 	Func getWebRootPath
-		dn_x = dotnet_call("s3:get",nHandle,"s11:WebRootPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"WebRootPath"))
 
 	Func setWebRootPath P1
-		dotnet_callv("s3:set",nHandle,"s11:WebRootPath",P1)
+		dotnet_setp(nHandle,"WebRootPath",P1)
 		return self
 
 
@@ -5850,10 +5814,10 @@ Class WebSocketOptions from Object
 		return self
 
 	Func getReceiveBufferSize
-		return dotnet_call("s3:get",nHandle,"s17:ReceiveBufferSize")
+		return dotnet_getp(nHandle,"ReceiveBufferSize")
 
 	Func setReceiveBufferSize P1
-		dotnet_callv("s3:set",nHandle,"s17:ReceiveBufferSize",P1)
+		dotnet_setp(nHandle,"ReceiveBufferSize",P1)
 		return self
 
 	Func getAllowedOrigins

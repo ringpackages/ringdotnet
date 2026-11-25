@@ -84,7 +84,7 @@ Class TextEncoder from Object
 		return dn_x
 
 	Func getMaxOutputCharactersPerInputCharacter
-		return dotnet_call("s3:get",nHandle,"s36:MaxOutputCharactersPerInputCharacter")
+		return dotnet_getp(nHandle,"MaxOutputCharactersPerInputCharacter")
 
 	Func setMaxOutputCharactersPerInputCharacter P1
 		raise("DotNet Error: MaxOutputCharactersPerInputCharacter is a read-only property")

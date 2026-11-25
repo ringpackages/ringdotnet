@@ -398,7 +398,7 @@ Class AuthenticateResult from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions',"s4:Fail",P1))
 
 	Func getSucceeded
-		return dotnet_call("s3:get",nHandle,"s9:Succeeded")
+		return dotnet_getp(nHandle,"Succeeded")
 
 	Func setSucceeded P1
 		raise("DotNet Error: Succeeded is a read-only property")
@@ -428,7 +428,7 @@ Class AuthenticateResult from Object
 		raise("DotNet Error: Failure is a read-only property")
 
 	Func getNone
-		return dotnet_call("s3:get",nHandle,"s4:None")
+		return dotnet_getp(nHandle,"None")
 
 	Func setNone P1
 		raise("DotNet Error: None is a read-only property")
@@ -810,64 +810,52 @@ Class AuthenticationOptions from Object
 		raise("DotNet Error: SchemeMap is a read-only property")
 
 	Func getDefaultScheme
-		dn_x = dotnet_call("s3:get",nHandle,"s13:DefaultScheme")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DefaultScheme"))
 
 	Func setDefaultScheme P1
-		dotnet_callv("s3:set",nHandle,"s13:DefaultScheme",P1)
+		dotnet_setp(nHandle,"DefaultScheme",P1)
 		return self
 
 	Func getDefaultAuthenticateScheme
-		dn_x = dotnet_call("s3:get",nHandle,"s25:DefaultAuthenticateScheme")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DefaultAuthenticateScheme"))
 
 	Func setDefaultAuthenticateScheme P1
-		dotnet_callv("s3:set",nHandle,"s25:DefaultAuthenticateScheme",P1)
+		dotnet_setp(nHandle,"DefaultAuthenticateScheme",P1)
 		return self
 
 	Func getDefaultSignInScheme
-		dn_x = dotnet_call("s3:get",nHandle,"s19:DefaultSignInScheme")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DefaultSignInScheme"))
 
 	Func setDefaultSignInScheme P1
-		dotnet_callv("s3:set",nHandle,"s19:DefaultSignInScheme",P1)
+		dotnet_setp(nHandle,"DefaultSignInScheme",P1)
 		return self
 
 	Func getDefaultSignOutScheme
-		dn_x = dotnet_call("s3:get",nHandle,"s20:DefaultSignOutScheme")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DefaultSignOutScheme"))
 
 	Func setDefaultSignOutScheme P1
-		dotnet_callv("s3:set",nHandle,"s20:DefaultSignOutScheme",P1)
+		dotnet_setp(nHandle,"DefaultSignOutScheme",P1)
 		return self
 
 	Func getDefaultChallengeScheme
-		dn_x = dotnet_call("s3:get",nHandle,"s22:DefaultChallengeScheme")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DefaultChallengeScheme"))
 
 	Func setDefaultChallengeScheme P1
-		dotnet_callv("s3:set",nHandle,"s22:DefaultChallengeScheme",P1)
+		dotnet_setp(nHandle,"DefaultChallengeScheme",P1)
 		return self
 
 	Func getDefaultForbidScheme
-		dn_x = dotnet_call("s3:get",nHandle,"s19:DefaultForbidScheme")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DefaultForbidScheme"))
 
 	Func setDefaultForbidScheme P1
-		dotnet_callv("s3:set",nHandle,"s19:DefaultForbidScheme",P1)
+		dotnet_setp(nHandle,"DefaultForbidScheme",P1)
 		return self
 
 	Func getRequireAuthenticatedSignIn
-		return dotnet_call("s3:get",nHandle,"s26:RequireAuthenticatedSignIn")
+		return dotnet_getp(nHandle,"RequireAuthenticatedSignIn")
 
 	Func setRequireAuthenticatedSignIn P1
-		dotnet_callv("s3:set",nHandle,"s26:RequireAuthenticatedSignIn",P1)
+		dotnet_setp(nHandle,"RequireAuthenticatedSignIn",P1)
 		return self
 
 
@@ -979,19 +967,17 @@ Class AuthenticationProperties from Object
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getIsPersistent
-		return dotnet_call("s3:get",nHandle,"s12:IsPersistent")
+		return dotnet_getp(nHandle,"IsPersistent")
 
 	Func setIsPersistent P1
-		dotnet_callv("s3:set",nHandle,"s12:IsPersistent",P1)
+		dotnet_setp(nHandle,"IsPersistent",P1)
 		return self
 
 	Func getRedirectUri
-		dn_x = dotnet_call("s3:get",nHandle,"s11:RedirectUri")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"RedirectUri"))
 
 	Func setRedirectUri P1
-		dotnet_callv("s3:set",nHandle,"s11:RedirectUri",P1)
+		dotnet_setp(nHandle,"RedirectUri",P1)
 		return self
 
 	Func getIssuedUtc
@@ -1039,17 +1025,13 @@ Class AuthenticationScheme from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDisplayName
-		dn_x = dotnet_call("s3:get",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DisplayName"))
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
@@ -1087,20 +1069,16 @@ Class AuthenticationSchemeBuilder from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDisplayName
-		dn_x = dotnet_call("s3:get",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DisplayName"))
 
 	Func setDisplayName P1
-		dotnet_callv("s3:set",nHandle,"s11:DisplayName",P1)
+		dotnet_setp(nHandle,"DisplayName",P1)
 		return self
 
 	Func getHandlerType
@@ -1163,12 +1141,10 @@ Class AuthenticationSchemeOptions from Object
 		return dn_x
 
 	Func getClaimsIssuer
-		dn_x = dotnet_call("s3:get",nHandle,"s12:ClaimsIssuer")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ClaimsIssuer"))
 
 	Func setClaimsIssuer P1
-		dotnet_callv("s3:set",nHandle,"s12:ClaimsIssuer",P1)
+		dotnet_setp(nHandle,"ClaimsIssuer",P1)
 		return self
 
 	Func getEvents
@@ -1186,57 +1162,45 @@ Class AuthenticationSchemeOptions from Object
 		return self
 
 	Func getForwardDefault
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ForwardDefault")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ForwardDefault"))
 
 	Func setForwardDefault P1
-		dotnet_callv("s3:set",nHandle,"s14:ForwardDefault",P1)
+		dotnet_setp(nHandle,"ForwardDefault",P1)
 		return self
 
 	Func getForwardAuthenticate
-		dn_x = dotnet_call("s3:get",nHandle,"s19:ForwardAuthenticate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ForwardAuthenticate"))
 
 	Func setForwardAuthenticate P1
-		dotnet_callv("s3:set",nHandle,"s19:ForwardAuthenticate",P1)
+		dotnet_setp(nHandle,"ForwardAuthenticate",P1)
 		return self
 
 	Func getForwardChallenge
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ForwardChallenge")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ForwardChallenge"))
 
 	Func setForwardChallenge P1
-		dotnet_callv("s3:set",nHandle,"s16:ForwardChallenge",P1)
+		dotnet_setp(nHandle,"ForwardChallenge",P1)
 		return self
 
 	Func getForwardForbid
-		dn_x = dotnet_call("s3:get",nHandle,"s13:ForwardForbid")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ForwardForbid"))
 
 	Func setForwardForbid P1
-		dotnet_callv("s3:set",nHandle,"s13:ForwardForbid",P1)
+		dotnet_setp(nHandle,"ForwardForbid",P1)
 		return self
 
 	Func getForwardSignIn
-		dn_x = dotnet_call("s3:get",nHandle,"s13:ForwardSignIn")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ForwardSignIn"))
 
 	Func setForwardSignIn P1
-		dotnet_callv("s3:set",nHandle,"s13:ForwardSignIn",P1)
+		dotnet_setp(nHandle,"ForwardSignIn",P1)
 		return self
 
 	Func getForwardSignOut
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ForwardSignOut")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ForwardSignOut"))
 
 	Func setForwardSignOut P1
-		dotnet_callv("s3:set",nHandle,"s14:ForwardSignOut",P1)
+		dotnet_setp(nHandle,"ForwardSignOut",P1)
 		return self
 
 	Func getForwardDefaultSelector
@@ -1423,9 +1387,7 @@ Class AuthenticationTicket from Object
 		return dn_x
 
 	Func getAuthenticationScheme
-		dn_x = dotnet_call("s3:get",nHandle,"s20:AuthenticationScheme")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"AuthenticationScheme"))
 
 	Func setAuthenticationScheme P1
 		raise("DotNet Error: AuthenticationScheme is a read-only property")
@@ -1472,21 +1434,17 @@ Class AuthenticationToken from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
-		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		dotnet_setp(nHandle,"Value",P1)
 		return self
 
 
@@ -2363,13 +2321,13 @@ Class HandleRequestResult from AuthenticateResult
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication',"s8:NoResult"))
 
 	Func getHandled
-		return dotnet_call("s3:get",nHandle,"s7:Handled")
+		return dotnet_getp(nHandle,"Handled")
 
 	Func setHandled P1
 		raise("DotNet Error: Handled is a read-only property")
 
 	Func getSkipped
-		return dotnet_call("s3:get",nHandle,"s7:Skipped")
+		return dotnet_getp(nHandle,"Skipped")
 
 	Func setSkipped P1
 		raise("DotNet Error: Skipped is a read-only property")
@@ -2531,21 +2489,17 @@ Class RemoteAuthenticationOptions from AuthenticationSchemeOptions
 		return self
 
 	Func getReturnUrlParameter
-		dn_x = dotnet_call("s3:get",nHandle,"s18:ReturnUrlParameter")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ReturnUrlParameter"))
 
 	Func setReturnUrlParameter P1
-		dotnet_callv("s3:set",nHandle,"s18:ReturnUrlParameter",P1)
+		dotnet_setp(nHandle,"ReturnUrlParameter",P1)
 		return self
 
 	Func getSignInScheme
-		dn_x = dotnet_call("s3:get",nHandle,"s12:SignInScheme")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"SignInScheme"))
 
 	Func setSignInScheme P1
-		dotnet_callv("s3:set",nHandle,"s12:SignInScheme",P1)
+		dotnet_setp(nHandle,"SignInScheme",P1)
 		return self
 
 	Func getRemoteAuthenticationTimeout
@@ -2556,10 +2510,10 @@ Class RemoteAuthenticationOptions from AuthenticationSchemeOptions
 		return self
 
 	Func getSaveTokens
-		return dotnet_call("s3:get",nHandle,"s10:SaveTokens")
+		return dotnet_getp(nHandle,"SaveTokens")
 
 	Func setSaveTokens P1
-		dotnet_callv("s3:set",nHandle,"s10:SaveTokens",P1)
+		dotnet_setp(nHandle,"SaveTokens",P1)
 		return self
 
 	Func getCorrelationCookie
@@ -2691,21 +2645,17 @@ Class AccessDeniedContext from HandleRequestContext
 		return self
 
 	Func getReturnUrl
-		dn_x = dotnet_call("s3:get",nHandle,"s9:ReturnUrl")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ReturnUrl"))
 
 	Func setReturnUrl P1
-		dotnet_callv("s3:set",nHandle,"s9:ReturnUrl",P1)
+		dotnet_setp(nHandle,"ReturnUrl",P1)
 		return self
 
 	Func getReturnUrlParameter
-		dn_x = dotnet_call("s3:get",nHandle,"s18:ReturnUrlParameter")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ReturnUrlParameter"))
 
 	Func setReturnUrlParameter P1
-		dotnet_callv("s3:set",nHandle,"s18:ReturnUrlParameter",P1)
+		dotnet_setp(nHandle,"ReturnUrlParameter",P1)
 		return self
 
 
@@ -2752,12 +2702,10 @@ Class RedirectContext from PropertiesContext
 		return self
 
 	Func getRedirectUri
-		dn_x = dotnet_call("s3:get",nHandle,"s11:RedirectUri")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"RedirectUri"))
 
 	Func setRedirectUri P1
-		dotnet_callv("s3:set",nHandle,"s11:RedirectUri",P1)
+		dotnet_setp(nHandle,"RedirectUri",P1)
 		return self
 
 
@@ -2899,12 +2847,10 @@ Class TicketReceivedContext from RemoteAuthenticationContext
 		return self
 
 	Func getReturnUri
-		dn_x = dotnet_call("s3:get",nHandle,"s9:ReturnUri")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ReturnUri"))
 
 	Func setReturnUri P1
-		dotnet_callv("s3:set",nHandle,"s9:ReturnUri",P1)
+		dotnet_setp(nHandle,"ReturnUri",P1)
 		return self
 
 

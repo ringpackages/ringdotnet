@@ -1659,9 +1659,7 @@ Class IHttpClientBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddDefaultLogger"))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2839,13 +2837,13 @@ Class IServiceCollection from DotNetObject
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2975,9 +2973,7 @@ Class ISocketsHttpHandlerBuilder from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -4954,13 +4950,13 @@ Class ServiceCollection from Object
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -5215,7 +5211,7 @@ Class ServiceDescriptor from Object
 		raise("DotNet Error: KeyedImplementationFactory is a read-only property")
 
 	Func getIsKeyedService
-		return dotnet_call("s3:get",nHandle,"s14:IsKeyedService")
+		return dotnet_getp(nHandle,"IsKeyedService")
 
 	Func setIsKeyedService P1
 		raise("DotNet Error: IsKeyedService is a read-only property")
@@ -5379,17 +5375,17 @@ Class ServiceProviderOptions from Object
 		return dn_x
 
 	Func getValidateScopes
-		return dotnet_call("s3:get",nHandle,"s14:ValidateScopes")
+		return dotnet_getp(nHandle,"ValidateScopes")
 
 	Func setValidateScopes P1
-		dotnet_callv("s3:set",nHandle,"s14:ValidateScopes",P1)
+		dotnet_setp(nHandle,"ValidateScopes",P1)
 		return self
 
 	Func getValidateOnBuild
-		return dotnet_call("s3:get",nHandle,"s15:ValidateOnBuild")
+		return dotnet_getp(nHandle,"ValidateOnBuild")
 
 	Func setValidateOnBuild P1
-		dotnet_callv("s3:set",nHandle,"s15:ValidateOnBuild",P1)
+		dotnet_setp(nHandle,"ValidateOnBuild",P1)
 		return self
 
 

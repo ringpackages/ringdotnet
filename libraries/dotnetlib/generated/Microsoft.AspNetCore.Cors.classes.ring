@@ -104,12 +104,10 @@ Class EnableCorsAttribute from Attribute
 		return self
 
 	Func getPolicyName
-		dn_x = dotnet_call("s3:get",nHandle,"s10:PolicyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"PolicyName"))
 
 	Func setPolicyName P1
-		dotnet_callv("s3:set",nHandle,"s10:PolicyName",P1)
+		dotnet_setp(nHandle,"PolicyName",P1)
 		return self
 
 

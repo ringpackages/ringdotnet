@@ -262,15 +262,13 @@ Class CompositeFormat from Object
 		return dnObj(dotnet_callo("s4:call",'System.Text.CompositeFormat, System.Private.CoreLib',"s5:Parse",P1))
 
 	Func getFormat
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Format")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Format"))
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getMinimumArgumentCount
-		return dotnet_call("s3:get",nHandle,"s20:MinimumArgumentCount")
+		return dotnet_getp(nHandle,"MinimumArgumentCount")
 
 	Func setMinimumArgumentCount P1
 		raise("DotNet Error: MinimumArgumentCount is a read-only property")
@@ -357,7 +355,7 @@ Class DecoderFallback from Object
 		return dn_x
 
 	Func getMaxCharCount
-		return dotnet_call("s3:get",nHandle,"s12:MaxCharCount")
+		return dotnet_getp(nHandle,"MaxCharCount")
 
 	Func setMaxCharCount P1
 		raise("DotNet Error: MaxCharCount is a read-only property")
@@ -412,7 +410,7 @@ Class DecoderFallbackBuffer from Object
 		return dn_x
 
 	Func getRemaining
-		return dotnet_call("s3:get",nHandle,"s9:Remaining")
+		return dotnet_getp(nHandle,"Remaining")
 
 	Func setRemaining P1
 		raise("DotNet Error: Remaining is a read-only property")
@@ -464,7 +462,7 @@ Class DecoderFallbackException from ArgumentException
 		raise("DotNet Error: BytesUnknown is a read-only property")
 
 	Func getIndex
-		return dotnet_call("s3:get",nHandle,"s5:Index")
+		return dotnet_getp(nHandle,"Index")
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
@@ -545,7 +543,7 @@ Class EncoderFallback from Object
 		return dn_x
 
 	Func getMaxCharCount
-		return dotnet_call("s3:get",nHandle,"s12:MaxCharCount")
+		return dotnet_getp(nHandle,"MaxCharCount")
 
 	Func setMaxCharCount P1
 		raise("DotNet Error: MaxCharCount is a read-only property")
@@ -603,7 +601,7 @@ Class EncoderFallbackBuffer from Object
 		return dn_x
 
 	Func getRemaining
-		return dotnet_call("s3:get",nHandle,"s9:Remaining")
+		return dotnet_getp(nHandle,"Remaining")
 
 	Func setRemaining P1
 		raise("DotNet Error: Remaining is a read-only property")
@@ -674,7 +672,7 @@ Class EncoderFallbackException from ArgumentException
 		raise("DotNet Error: CharUnknownLow is a read-only property")
 
 	Func getIndex
-		return dotnet_call("s3:get",nHandle,"s5:Index")
+		return dotnet_getp(nHandle,"Index")
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
@@ -842,69 +840,61 @@ Class Encoding from Object
 		raise("DotNet Error: Preamble is a read-only property")
 
 	Func getBodyName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:BodyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"BodyName"))
 
 	Func setBodyName P1
 		raise("DotNet Error: BodyName is a read-only property")
 
 	Func getEncodingName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:EncodingName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"EncodingName"))
 
 	Func setEncodingName P1
 		raise("DotNet Error: EncodingName is a read-only property")
 
 	Func getHeaderName
-		dn_x = dotnet_call("s3:get",nHandle,"s10:HeaderName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"HeaderName"))
 
 	Func setHeaderName P1
 		raise("DotNet Error: HeaderName is a read-only property")
 
 	Func getWebName
-		dn_x = dotnet_call("s3:get",nHandle,"s7:WebName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"WebName"))
 
 	Func setWebName P1
 		raise("DotNet Error: WebName is a read-only property")
 
 	Func getWindowsCodePage
-		return dotnet_call("s3:get",nHandle,"s15:WindowsCodePage")
+		return dotnet_getp(nHandle,"WindowsCodePage")
 
 	Func setWindowsCodePage P1
 		raise("DotNet Error: WindowsCodePage is a read-only property")
 
 	Func getIsBrowserDisplay
-		return dotnet_call("s3:get",nHandle,"s16:IsBrowserDisplay")
+		return dotnet_getp(nHandle,"IsBrowserDisplay")
 
 	Func setIsBrowserDisplay P1
 		raise("DotNet Error: IsBrowserDisplay is a read-only property")
 
 	Func getIsBrowserSave
-		return dotnet_call("s3:get",nHandle,"s13:IsBrowserSave")
+		return dotnet_getp(nHandle,"IsBrowserSave")
 
 	Func setIsBrowserSave P1
 		raise("DotNet Error: IsBrowserSave is a read-only property")
 
 	Func getIsMailNewsDisplay
-		return dotnet_call("s3:get",nHandle,"s17:IsMailNewsDisplay")
+		return dotnet_getp(nHandle,"IsMailNewsDisplay")
 
 	Func setIsMailNewsDisplay P1
 		raise("DotNet Error: IsMailNewsDisplay is a read-only property")
 
 	Func getIsMailNewsSave
-		return dotnet_call("s3:get",nHandle,"s14:IsMailNewsSave")
+		return dotnet_getp(nHandle,"IsMailNewsSave")
 
 	Func setIsMailNewsSave P1
 		raise("DotNet Error: IsMailNewsSave is a read-only property")
 
 	Func getIsSingleByte
-		return dotnet_call("s3:get",nHandle,"s12:IsSingleByte")
+		return dotnet_getp(nHandle,"IsSingleByte")
 
 	Func setIsSingleByte P1
 		raise("DotNet Error: IsSingleByte is a read-only property")
@@ -924,13 +914,13 @@ Class Encoding from Object
 		return self
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCodePage
-		return dotnet_call("s3:get",nHandle,"s8:CodePage")
+		return dotnet_getp(nHandle,"CodePage")
 
 	Func setCodePage P1
 		raise("DotNet Error: CodePage is a read-only property")
@@ -1010,23 +1000,19 @@ Class EncodingInfo from Object
 		return dn_x
 
 	Func getCodePage
-		return dotnet_call("s3:get",nHandle,"s8:CodePage")
+		return dotnet_getp(nHandle,"CodePage")
 
 	Func setCodePage P1
 		raise("DotNet Error: CodePage is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDisplayName
-		dn_x = dotnet_call("s3:get",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DisplayName"))
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
@@ -1226,37 +1212,37 @@ Class Rune from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Text.Rune, System.Private.CoreLib',"s16:ToUpperInvariant",P1))
 
 	Func getIsAscii
-		return dotnet_call("s3:get",nHandle,"s7:IsAscii")
+		return dotnet_getp(nHandle,"IsAscii")
 
 	Func setIsAscii P1
 		raise("DotNet Error: IsAscii is a read-only property")
 
 	Func getIsBmp
-		return dotnet_call("s3:get",nHandle,"s5:IsBmp")
+		return dotnet_getp(nHandle,"IsBmp")
 
 	Func setIsBmp P1
 		raise("DotNet Error: IsBmp is a read-only property")
 
 	Func getPlane
-		return dotnet_call("s3:get",nHandle,"s5:Plane")
+		return dotnet_getp(nHandle,"Plane")
 
 	Func setPlane P1
 		raise("DotNet Error: Plane is a read-only property")
 
 	Func getUtf16SequenceLength
-		return dotnet_call("s3:get",nHandle,"s19:Utf16SequenceLength")
+		return dotnet_getp(nHandle,"Utf16SequenceLength")
 
 	Func setUtf16SequenceLength P1
 		raise("DotNet Error: Utf16SequenceLength is a read-only property")
 
 	Func getUtf8SequenceLength
-		return dotnet_call("s3:get",nHandle,"s18:Utf8SequenceLength")
+		return dotnet_getp(nHandle,"Utf8SequenceLength")
 
 	Func setUtf8SequenceLength P1
 		raise("DotNet Error: Utf8SequenceLength is a read-only property")
 
 	Func getValue
-		return dotnet_call("s3:get",nHandle,"s5:Value")
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1541,23 +1527,23 @@ Class StringBuilder from Object
 		return self
 
 	Func getCapacity
-		return dotnet_call("s3:get",nHandle,"s8:Capacity")
+		return dotnet_getp(nHandle,"Capacity")
 
 	Func setCapacity P1
-		dotnet_callv("s3:set",nHandle,"s8:Capacity",P1)
+		dotnet_setp(nHandle,"Capacity",P1)
 		return self
 
 	Func getMaxCapacity
-		return dotnet_call("s3:get",nHandle,"s11:MaxCapacity")
+		return dotnet_getp(nHandle,"MaxCapacity")
 
 	Func setMaxCapacity P1
 		raise("DotNet Error: MaxCapacity is a read-only property")
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func setLength P1
-		dotnet_callv("s3:set",nHandle,"s6:Length",P1)
+		dotnet_setp(nHandle,"Length",P1)
 		return self
 
 
@@ -1663,9 +1649,7 @@ Class DecoderReplacementFallback from DecoderFallback
 		return self
 
 	Func getDefaultString
-		dn_x = dotnet_call("s3:get",nHandle,"s13:DefaultString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DefaultString"))
 
 	Func setDefaultString P1
 		raise("DotNet Error: DefaultString is a read-only property")
@@ -1766,9 +1750,7 @@ Class EncoderReplacementFallback from EncoderFallback
 		return self
 
 	Func getDefaultString
-		dn_x = dotnet_call("s3:get",nHandle,"s13:DefaultString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DefaultString"))
 
 	Func setDefaultString P1
 		raise("DotNet Error: DefaultString is a read-only property")

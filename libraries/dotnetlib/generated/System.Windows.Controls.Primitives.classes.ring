@@ -364,7 +364,7 @@ Class WpfButtonBase from ContentControl
 		return self
 
 	Func getIsPressed
-		return dotnet_call("s3:get",nHandle,"s9:IsPressed")
+		return dotnet_getp(nHandle,"IsPressed")
 
 	Func setIsPressed P1
 		raise("DotNet Error: IsPressed is a read-only property")
@@ -457,13 +457,13 @@ Class CalendarButton from WpfButton
 		return self
 
 	Func getHasSelectedDays
-		return dotnet_call("s3:get",nHandle,"s15:HasSelectedDays")
+		return dotnet_getp(nHandle,"HasSelectedDays")
 
 	Func setHasSelectedDays P1
 		raise("DotNet Error: HasSelectedDays is a read-only property")
 
 	Func getIsInactive
-		return dotnet_call("s3:get",nHandle,"s10:IsInactive")
+		return dotnet_getp(nHandle,"IsInactive")
 
 	Func setIsInactive P1
 		raise("DotNet Error: IsInactive is a read-only property")
@@ -513,31 +513,31 @@ Class CalendarDayButton from WpfButton
 		return self
 
 	Func getIsToday
-		return dotnet_call("s3:get",nHandle,"s7:IsToday")
+		return dotnet_getp(nHandle,"IsToday")
 
 	Func setIsToday P1
 		raise("DotNet Error: IsToday is a read-only property")
 
 	Func getIsSelected
-		return dotnet_call("s3:get",nHandle,"s10:IsSelected")
+		return dotnet_getp(nHandle,"IsSelected")
 
 	Func setIsSelected P1
 		raise("DotNet Error: IsSelected is a read-only property")
 
 	Func getIsInactive
-		return dotnet_call("s3:get",nHandle,"s10:IsInactive")
+		return dotnet_getp(nHandle,"IsInactive")
 
 	Func setIsInactive P1
 		raise("DotNet Error: IsInactive is a read-only property")
 
 	Func getIsBlackedOut
-		return dotnet_call("s3:get",nHandle,"s12:IsBlackedOut")
+		return dotnet_getp(nHandle,"IsBlackedOut")
 
 	Func setIsBlackedOut P1
 		raise("DotNet Error: IsBlackedOut is a read-only property")
 
 	Func getIsHighlighted
-		return dotnet_call("s3:get",nHandle,"s13:IsHighlighted")
+		return dotnet_getp(nHandle,"IsHighlighted")
 
 	Func setIsHighlighted P1
 		raise("DotNet Error: IsHighlighted is a read-only property")
@@ -897,10 +897,10 @@ Class DocumentPageView from FrameworkElement
 		raise("DotNet Error: DocumentPage is a read-only property")
 
 	Func getPageNumber
-		return dotnet_call("s3:get",nHandle,"s10:PageNumber")
+		return dotnet_getp(nHandle,"PageNumber")
 
 	Func setPageNumber P1
-		dotnet_callv("s3:set",nHandle,"s10:PageNumber",P1)
+		dotnet_setp(nHandle,"PageNumber",P1)
 		return self
 
 	Func getStretch
@@ -1085,25 +1085,25 @@ Class DocumentViewerBase from WpfControl
 		return self
 
 	Func getPageCount
-		return dotnet_call("s3:get",nHandle,"s9:PageCount")
+		return dotnet_getp(nHandle,"PageCount")
 
 	Func setPageCount P1
 		raise("DotNet Error: PageCount is a read-only property")
 
 	Func getMasterPageNumber
-		return dotnet_call("s3:get",nHandle,"s16:MasterPageNumber")
+		return dotnet_getp(nHandle,"MasterPageNumber")
 
 	Func setMasterPageNumber P1
 		raise("DotNet Error: MasterPageNumber is a read-only property")
 
 	Func getCanGoToPreviousPage
-		return dotnet_call("s3:get",nHandle,"s19:CanGoToPreviousPage")
+		return dotnet_getp(nHandle,"CanGoToPreviousPage")
 
 	Func setCanGoToPreviousPage P1
 		raise("DotNet Error: CanGoToPreviousPage is a read-only property")
 
 	Func getCanGoToNextPage
-		return dotnet_call("s3:get",nHandle,"s15:CanGoToNextPage")
+		return dotnet_getp(nHandle,"CanGoToNextPage")
 
 	Func setCanGoToNextPage P1
 		raise("DotNet Error: CanGoToNextPage is a read-only property")
@@ -1169,19 +1169,19 @@ Class DragCompletedEventArgs from RoutedEventArgs
 		return self
 
 	Func getHorizontalChange
-		return dotnet_call("s3:get",nHandle,"s16:HorizontalChange")
+		return dotnet_getp(nHandle,"HorizontalChange")
 
 	Func setHorizontalChange P1
 		raise("DotNet Error: HorizontalChange is a read-only property")
 
 	Func getVerticalChange
-		return dotnet_call("s3:get",nHandle,"s14:VerticalChange")
+		return dotnet_getp(nHandle,"VerticalChange")
 
 	Func setVerticalChange P1
 		raise("DotNet Error: VerticalChange is a read-only property")
 
 	Func getCanceled
-		return dotnet_call("s3:get",nHandle,"s8:Canceled")
+		return dotnet_getp(nHandle,"Canceled")
 
 	Func setCanceled P1
 		raise("DotNet Error: Canceled is a read-only property")
@@ -1204,13 +1204,13 @@ Class DragDeltaEventArgs from RoutedEventArgs
 		return self
 
 	Func getHorizontalChange
-		return dotnet_call("s3:get",nHandle,"s16:HorizontalChange")
+		return dotnet_getp(nHandle,"HorizontalChange")
 
 	Func setHorizontalChange P1
 		raise("DotNet Error: HorizontalChange is a read-only property")
 
 	Func getVerticalChange
-		return dotnet_call("s3:get",nHandle,"s14:VerticalChange")
+		return dotnet_getp(nHandle,"VerticalChange")
 
 	Func setVerticalChange P1
 		raise("DotNet Error: VerticalChange is a read-only property")
@@ -1233,13 +1233,13 @@ Class DragStartedEventArgs from RoutedEventArgs
 		return self
 
 	Func getHorizontalOffset
-		return dotnet_call("s3:get",nHandle,"s16:HorizontalOffset")
+		return dotnet_getp(nHandle,"HorizontalOffset")
 
 	Func setHorizontalOffset P1
 		raise("DotNet Error: HorizontalOffset is a read-only property")
 
 	Func getVerticalOffset
-		return dotnet_call("s3:get",nHandle,"s14:VerticalOffset")
+		return dotnet_getp(nHandle,"VerticalOffset")
 
 	Func setVerticalOffset P1
 		raise("DotNet Error: VerticalOffset is a read-only property")
@@ -1285,17 +1285,17 @@ Class GeneratorPosition from ValueType
 		return self
 
 	Func getIndex
-		return dotnet_call("s3:get",nHandle,"s5:Index")
+		return dotnet_getp(nHandle,"Index")
 
 	Func setIndex P1
-		dotnet_callv("s3:set",nHandle,"s5:Index",P1)
+		dotnet_setp(nHandle,"Index",P1)
 		return self
 
 	Func getOffset
-		return dotnet_call("s3:get",nHandle,"s6:Offset")
+		return dotnet_getp(nHandle,"Offset")
 
 	Func setOffset P1
-		dotnet_callv("s3:set",nHandle,"s6:Offset",P1)
+		dotnet_setp(nHandle,"Offset",P1)
 		return self
 
 	# the operators of System.Windows.Controls.Primitives.GeneratorPosition: = !=
@@ -1411,17 +1411,17 @@ Class IHierarchicalVirtualizationAndScrollInfo from DotNetObject
 		raise("DotNet Error: ItemsHost is a read-only property")
 
 	Func getMustDisableVirtualization
-		return dotnet_call("s3:get",nHandle,"s25:MustDisableVirtualization")
+		return dotnet_getp(nHandle,"MustDisableVirtualization")
 
 	Func setMustDisableVirtualization P1
-		dotnet_callv("s3:set",nHandle,"s25:MustDisableVirtualization",P1)
+		dotnet_setp(nHandle,"MustDisableVirtualization",P1)
 		return self
 
 	Func getInBackgroundLayout
-		return dotnet_call("s3:get",nHandle,"s18:InBackgroundLayout")
+		return dotnet_getp(nHandle,"InBackgroundLayout")
 
 	Func setInBackgroundLayout P1
-		dotnet_callv("s3:set",nHandle,"s18:InBackgroundLayout",P1)
+		dotnet_setp(nHandle,"InBackgroundLayout",P1)
 		return self
 
 
@@ -1619,48 +1619,48 @@ Class IScrollInfo from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:MakeVisible",P1,P2))
 
 	Func getCanVerticallyScroll
-		return dotnet_call("s3:get",nHandle,"s19:CanVerticallyScroll")
+		return dotnet_getp(nHandle,"CanVerticallyScroll")
 
 	Func setCanVerticallyScroll P1
-		dotnet_callv("s3:set",nHandle,"s19:CanVerticallyScroll",P1)
+		dotnet_setp(nHandle,"CanVerticallyScroll",P1)
 		return self
 
 	Func getCanHorizontallyScroll
-		return dotnet_call("s3:get",nHandle,"s21:CanHorizontallyScroll")
+		return dotnet_getp(nHandle,"CanHorizontallyScroll")
 
 	Func setCanHorizontallyScroll P1
-		dotnet_callv("s3:set",nHandle,"s21:CanHorizontallyScroll",P1)
+		dotnet_setp(nHandle,"CanHorizontallyScroll",P1)
 		return self
 
 	Func getExtentWidth
-		return dotnet_call("s3:get",nHandle,"s11:ExtentWidth")
+		return dotnet_getp(nHandle,"ExtentWidth")
 
 	Func setExtentWidth P1
 		raise("DotNet Error: ExtentWidth is a read-only property")
 
 	Func getExtentHeight
-		return dotnet_call("s3:get",nHandle,"s12:ExtentHeight")
+		return dotnet_getp(nHandle,"ExtentHeight")
 
 	Func setExtentHeight P1
 		raise("DotNet Error: ExtentHeight is a read-only property")
 
 	Func getViewportWidth
-		return dotnet_call("s3:get",nHandle,"s13:ViewportWidth")
+		return dotnet_getp(nHandle,"ViewportWidth")
 
 	Func setViewportWidth P1
 		raise("DotNet Error: ViewportWidth is a read-only property")
 
 	Func getViewportHeight
-		return dotnet_call("s3:get",nHandle,"s14:ViewportHeight")
+		return dotnet_getp(nHandle,"ViewportHeight")
 
 	Func setViewportHeight P1
 		raise("DotNet Error: ViewportHeight is a read-only property")
 
 	Func getHorizontalOffset
-		return dotnet_call("s3:get",nHandle,"s16:HorizontalOffset")
+		return dotnet_getp(nHandle,"HorizontalOffset")
 
 	Func getVerticalOffset
-		return dotnet_call("s3:get",nHandle,"s14:VerticalOffset")
+		return dotnet_getp(nHandle,"VerticalOffset")
 
 	Func getScrollOwner
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ScrollOwner"))
@@ -1706,13 +1706,13 @@ Class ItemsChangedEventArgs from EventArgs
 		raise("DotNet Error: OldPosition is a read-only property")
 
 	Func getItemCount
-		return dotnet_call("s3:get",nHandle,"s9:ItemCount")
+		return dotnet_getp(nHandle,"ItemCount")
 
 	Func setItemCount P1
 		raise("DotNet Error: ItemCount is a read-only property")
 
 	Func getItemUICount
-		return dotnet_call("s3:get",nHandle,"s11:ItemUICount")
+		return dotnet_getp(nHandle,"ItemUICount")
 
 	Func setItemUICount P1
 		raise("DotNet Error: ItemUICount is a read-only property")
@@ -1771,10 +1771,10 @@ Class MenuBase from ItemsControl
 		return self
 
 	Func getUsesItemContainerTemplate
-		return dotnet_call("s3:get",nHandle,"s25:UsesItemContainerTemplate")
+		return dotnet_getp(nHandle,"UsesItemContainerTemplate")
 
 	Func setUsesItemContainerTemplate P1
-		dotnet_callv("s3:set",nHandle,"s25:UsesItemContainerTemplate",P1)
+		dotnet_setp(nHandle,"UsesItemContainerTemplate",P1)
 		return self
 
 	Func getItemContainerTemplateSelectorProperty
@@ -1864,10 +1864,10 @@ Class Popup from FrameworkElement
 		return self
 
 	Func getIsOpen
-		return dotnet_call("s3:get",nHandle,"s6:IsOpen")
+		return dotnet_getp(nHandle,"IsOpen")
 
 	Func setIsOpen P1
-		dotnet_callv("s3:set",nHandle,"s6:IsOpen",P1)
+		dotnet_setp(nHandle,"IsOpen",P1)
 		return self
 
 	Func getPlacement
@@ -1885,24 +1885,24 @@ Class Popup from FrameworkElement
 		return self
 
 	Func getStaysOpen
-		return dotnet_call("s3:get",nHandle,"s9:StaysOpen")
+		return dotnet_getp(nHandle,"StaysOpen")
 
 	Func setStaysOpen P1
-		dotnet_callv("s3:set",nHandle,"s9:StaysOpen",P1)
+		dotnet_setp(nHandle,"StaysOpen",P1)
 		return self
 
 	Func getHorizontalOffset
-		return dotnet_call("s3:get",nHandle,"s16:HorizontalOffset")
+		return dotnet_getp(nHandle,"HorizontalOffset")
 
 	Func setHorizontalOffset P1
-		dotnet_callv("s3:set",nHandle,"s16:HorizontalOffset",P1)
+		dotnet_setp(nHandle,"HorizontalOffset",P1)
 		return self
 
 	Func getVerticalOffset
-		return dotnet_call("s3:get",nHandle,"s14:VerticalOffset")
+		return dotnet_getp(nHandle,"VerticalOffset")
 
 	Func setVerticalOffset P1
-		dotnet_callv("s3:set",nHandle,"s14:VerticalOffset",P1)
+		dotnet_setp(nHandle,"VerticalOffset",P1)
 		return self
 
 	Func getPlacementTarget
@@ -1927,14 +1927,14 @@ Class Popup from FrameworkElement
 		return self
 
 	Func getAllowsTransparency
-		return dotnet_call("s3:get",nHandle,"s18:AllowsTransparency")
+		return dotnet_getp(nHandle,"AllowsTransparency")
 
 	Func setAllowsTransparency P1
-		dotnet_callv("s3:set",nHandle,"s18:AllowsTransparency",P1)
+		dotnet_setp(nHandle,"AllowsTransparency",P1)
 		return self
 
 	Func getHasDropShadow
-		return dotnet_call("s3:get",nHandle,"s13:HasDropShadow")
+		return dotnet_getp(nHandle,"HasDropShadow")
 
 	Func setHasDropShadow P1
 		raise("DotNet Error: HasDropShadow is a read-only property")
@@ -2052,38 +2052,38 @@ Class RangeBase from WpfControl
 		return self
 
 	Func getMinimum
-		return dotnet_call("s3:get",nHandle,"s7:Minimum")
+		return dotnet_getp(nHandle,"Minimum")
 
 	Func setMinimum P1
-		dotnet_callv("s3:set",nHandle,"s7:Minimum",P1)
+		dotnet_setp(nHandle,"Minimum",P1)
 		return self
 
 	Func getMaximum
-		return dotnet_call("s3:get",nHandle,"s7:Maximum")
+		return dotnet_getp(nHandle,"Maximum")
 
 	Func setMaximum P1
-		dotnet_callv("s3:set",nHandle,"s7:Maximum",P1)
+		dotnet_setp(nHandle,"Maximum",P1)
 		return self
 
 	Func getValue
-		return dotnet_call("s3:get",nHandle,"s5:Value")
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
-		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		dotnet_setp(nHandle,"Value",P1)
 		return self
 
 	Func getLargeChange
-		return dotnet_call("s3:get",nHandle,"s11:LargeChange")
+		return dotnet_getp(nHandle,"LargeChange")
 
 	Func setLargeChange P1
-		dotnet_callv("s3:set",nHandle,"s11:LargeChange",P1)
+		dotnet_setp(nHandle,"LargeChange",P1)
 		return self
 
 	Func getSmallChange
-		return dotnet_call("s3:get",nHandle,"s11:SmallChange")
+		return dotnet_getp(nHandle,"SmallChange")
 
 	Func setSmallChange P1
-		dotnet_callv("s3:set",nHandle,"s11:SmallChange",P1)
+		dotnet_setp(nHandle,"SmallChange",P1)
 		return self
 
 	Func getValueChangedEvent
@@ -2164,7 +2164,7 @@ Class WpfScrollEventArgs from RoutedEventArgs
 		raise("DotNet Error: ScrollEventType is a read-only property")
 
 	Func getNewValue
-		return dotnet_call("s3:get",nHandle,"s8:NewValue")
+		return dotnet_getp(nHandle,"NewValue")
 
 	Func setNewValue P1
 		raise("DotNet Error: NewValue is a read-only property")
@@ -2288,10 +2288,10 @@ Class Selector from ItemsControl
 		return self
 
 	Func getSelectedIndex
-		return dotnet_call("s3:get",nHandle,"s13:SelectedIndex")
+		return dotnet_getp(nHandle,"SelectedIndex")
 
 	Func setSelectedIndex P1
-		dotnet_callv("s3:set",nHandle,"s13:SelectedIndex",P1)
+		dotnet_setp(nHandle,"SelectedIndex",P1)
 		return self
 
 	Func getSelectedItem
@@ -2309,12 +2309,10 @@ Class Selector from ItemsControl
 		return self
 
 	Func getSelectedValuePath
-		dn_x = dotnet_call("s3:get",nHandle,"s17:SelectedValuePath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"SelectedValuePath"))
 
 	Func setSelectedValuePath P1
-		dotnet_callv("s3:set",nHandle,"s17:SelectedValuePath",P1)
+		dotnet_setp(nHandle,"SelectedValuePath",P1)
 		return self
 
 	Func getSelectionChangedEvent
@@ -2412,10 +2410,10 @@ Class StatusBar from ItemsControl
 		return self
 
 	Func getUsesItemContainerTemplate
-		return dotnet_call("s3:get",nHandle,"s25:UsesItemContainerTemplate")
+		return dotnet_getp(nHandle,"UsesItemContainerTemplate")
 
 	Func setUsesItemContainerTemplate P1
-		dotnet_callv("s3:set",nHandle,"s25:UsesItemContainerTemplate",P1)
+		dotnet_setp(nHandle,"UsesItemContainerTemplate",P1)
 		return self
 
 	Func getSeparatorStyleKey
@@ -2662,31 +2660,31 @@ Class WpfTextBoxBase from WpfControl
 		return self
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
-		dotnet_callv("s3:set",nHandle,"s10:IsReadOnly",P1)
+		dotnet_setp(nHandle,"IsReadOnly",P1)
 		return self
 
 	Func getIsReadOnlyCaretVisible
-		return dotnet_call("s3:get",nHandle,"s22:IsReadOnlyCaretVisible")
+		return dotnet_getp(nHandle,"IsReadOnlyCaretVisible")
 
 	Func setIsReadOnlyCaretVisible P1
-		dotnet_callv("s3:set",nHandle,"s22:IsReadOnlyCaretVisible",P1)
+		dotnet_setp(nHandle,"IsReadOnlyCaretVisible",P1)
 		return self
 
 	Func getAcceptsReturn
-		return dotnet_call("s3:get",nHandle,"s13:AcceptsReturn")
+		return dotnet_getp(nHandle,"AcceptsReturn")
 
 	Func setAcceptsReturn P1
-		dotnet_callv("s3:set",nHandle,"s13:AcceptsReturn",P1)
+		dotnet_setp(nHandle,"AcceptsReturn",P1)
 		return self
 
 	Func getAcceptsTab
-		return dotnet_call("s3:get",nHandle,"s10:AcceptsTab")
+		return dotnet_getp(nHandle,"AcceptsTab")
 
 	Func setAcceptsTab P1
-		dotnet_callv("s3:set",nHandle,"s10:AcceptsTab",P1)
+		dotnet_setp(nHandle,"AcceptsTab",P1)
 		return self
 
 	Func getSpellCheck
@@ -2710,72 +2708,72 @@ Class WpfTextBoxBase from WpfControl
 		return self
 
 	Func getExtentWidth
-		return dotnet_call("s3:get",nHandle,"s11:ExtentWidth")
+		return dotnet_getp(nHandle,"ExtentWidth")
 
 	Func setExtentWidth P1
 		raise("DotNet Error: ExtentWidth is a read-only property")
 
 	Func getExtentHeight
-		return dotnet_call("s3:get",nHandle,"s12:ExtentHeight")
+		return dotnet_getp(nHandle,"ExtentHeight")
 
 	Func setExtentHeight P1
 		raise("DotNet Error: ExtentHeight is a read-only property")
 
 	Func getViewportWidth
-		return dotnet_call("s3:get",nHandle,"s13:ViewportWidth")
+		return dotnet_getp(nHandle,"ViewportWidth")
 
 	Func setViewportWidth P1
 		raise("DotNet Error: ViewportWidth is a read-only property")
 
 	Func getViewportHeight
-		return dotnet_call("s3:get",nHandle,"s14:ViewportHeight")
+		return dotnet_getp(nHandle,"ViewportHeight")
 
 	Func setViewportHeight P1
 		raise("DotNet Error: ViewportHeight is a read-only property")
 
 	Func getHorizontalOffset
-		return dotnet_call("s3:get",nHandle,"s16:HorizontalOffset")
+		return dotnet_getp(nHandle,"HorizontalOffset")
 
 	Func setHorizontalOffset P1
 		raise("DotNet Error: HorizontalOffset is a read-only property")
 
 	Func getVerticalOffset
-		return dotnet_call("s3:get",nHandle,"s14:VerticalOffset")
+		return dotnet_getp(nHandle,"VerticalOffset")
 
 	Func setVerticalOffset P1
 		raise("DotNet Error: VerticalOffset is a read-only property")
 
 	Func getCanUndo
-		return dotnet_call("s3:get",nHandle,"s7:CanUndo")
+		return dotnet_getp(nHandle,"CanUndo")
 
 	Func setCanUndo P1
 		raise("DotNet Error: CanUndo is a read-only property")
 
 	Func getCanRedo
-		return dotnet_call("s3:get",nHandle,"s7:CanRedo")
+		return dotnet_getp(nHandle,"CanRedo")
 
 	Func setCanRedo P1
 		raise("DotNet Error: CanRedo is a read-only property")
 
 	Func getIsUndoEnabled
-		return dotnet_call("s3:get",nHandle,"s13:IsUndoEnabled")
+		return dotnet_getp(nHandle,"IsUndoEnabled")
 
 	Func setIsUndoEnabled P1
-		dotnet_callv("s3:set",nHandle,"s13:IsUndoEnabled",P1)
+		dotnet_setp(nHandle,"IsUndoEnabled",P1)
 		return self
 
 	Func getUndoLimit
-		return dotnet_call("s3:get",nHandle,"s9:UndoLimit")
+		return dotnet_getp(nHandle,"UndoLimit")
 
 	Func setUndoLimit P1
-		dotnet_callv("s3:set",nHandle,"s9:UndoLimit",P1)
+		dotnet_setp(nHandle,"UndoLimit",P1)
 		return self
 
 	Func getAutoWordSelection
-		return dotnet_call("s3:get",nHandle,"s17:AutoWordSelection")
+		return dotnet_getp(nHandle,"AutoWordSelection")
 
 	Func setAutoWordSelection P1
-		dotnet_callv("s3:set",nHandle,"s17:AutoWordSelection",P1)
+		dotnet_setp(nHandle,"AutoWordSelection",P1)
 		return self
 
 	Func getSelectionBrush
@@ -2793,10 +2791,10 @@ Class WpfTextBoxBase from WpfControl
 		return self
 
 	Func getSelectionOpacity
-		return dotnet_call("s3:get",nHandle,"s16:SelectionOpacity")
+		return dotnet_getp(nHandle,"SelectionOpacity")
 
 	Func setSelectionOpacity P1
-		dotnet_callv("s3:set",nHandle,"s16:SelectionOpacity",P1)
+		dotnet_setp(nHandle,"SelectionOpacity",P1)
 		return self
 
 	Func getCaretBrush
@@ -2807,16 +2805,16 @@ Class WpfTextBoxBase from WpfControl
 		return self
 
 	Func getIsSelectionActive
-		return dotnet_call("s3:get",nHandle,"s17:IsSelectionActive")
+		return dotnet_getp(nHandle,"IsSelectionActive")
 
 	Func setIsSelectionActive P1
 		raise("DotNet Error: IsSelectionActive is a read-only property")
 
 	Func getIsInactiveSelectionHighlightEnabled
-		return dotnet_call("s3:get",nHandle,"s35:IsInactiveSelectionHighlightEnabled")
+		return dotnet_getp(nHandle,"IsInactiveSelectionHighlightEnabled")
 
 	Func setIsInactiveSelectionHighlightEnabled P1
-		dotnet_callv("s3:set",nHandle,"s35:IsInactiveSelectionHighlightEnabled",P1)
+		dotnet_setp(nHandle,"IsInactiveSelectionHighlightEnabled",P1)
 		return self
 
 	Func getIsReadOnlyProperty
@@ -2972,7 +2970,7 @@ Class Thumb from WpfControl
 		return self
 
 	Func getIsDragging
-		return dotnet_call("s3:get",nHandle,"s10:IsDragging")
+		return dotnet_getp(nHandle,"IsDragging")
 
 	Func setIsDragging P1
 		raise("DotNet Error: IsDragging is a read-only property")
@@ -3044,45 +3042,45 @@ Class TickBar from FrameworkElement
 		return self
 
 	Func getMinimum
-		return dotnet_call("s3:get",nHandle,"s7:Minimum")
+		return dotnet_getp(nHandle,"Minimum")
 
 	Func setMinimum P1
-		dotnet_callv("s3:set",nHandle,"s7:Minimum",P1)
+		dotnet_setp(nHandle,"Minimum",P1)
 		return self
 
 	Func getMaximum
-		return dotnet_call("s3:get",nHandle,"s7:Maximum")
+		return dotnet_getp(nHandle,"Maximum")
 
 	Func setMaximum P1
-		dotnet_callv("s3:set",nHandle,"s7:Maximum",P1)
+		dotnet_setp(nHandle,"Maximum",P1)
 		return self
 
 	Func getSelectionStart
-		return dotnet_call("s3:get",nHandle,"s14:SelectionStart")
+		return dotnet_getp(nHandle,"SelectionStart")
 
 	Func setSelectionStart P1
-		dotnet_callv("s3:set",nHandle,"s14:SelectionStart",P1)
+		dotnet_setp(nHandle,"SelectionStart",P1)
 		return self
 
 	Func getSelectionEnd
-		return dotnet_call("s3:get",nHandle,"s12:SelectionEnd")
+		return dotnet_getp(nHandle,"SelectionEnd")
 
 	Func setSelectionEnd P1
-		dotnet_callv("s3:set",nHandle,"s12:SelectionEnd",P1)
+		dotnet_setp(nHandle,"SelectionEnd",P1)
 		return self
 
 	Func getIsSelectionRangeEnabled
-		return dotnet_call("s3:get",nHandle,"s23:IsSelectionRangeEnabled")
+		return dotnet_getp(nHandle,"IsSelectionRangeEnabled")
 
 	Func setIsSelectionRangeEnabled P1
-		dotnet_callv("s3:set",nHandle,"s23:IsSelectionRangeEnabled",P1)
+		dotnet_setp(nHandle,"IsSelectionRangeEnabled",P1)
 		return self
 
 	Func getTickFrequency
-		return dotnet_call("s3:get",nHandle,"s13:TickFrequency")
+		return dotnet_getp(nHandle,"TickFrequency")
 
 	Func setTickFrequency P1
-		dotnet_callv("s3:set",nHandle,"s13:TickFrequency",P1)
+		dotnet_setp(nHandle,"TickFrequency",P1)
 		return self
 
 	Func getTicks
@@ -3093,10 +3091,10 @@ Class TickBar from FrameworkElement
 		return self
 
 	Func getIsDirectionReversed
-		return dotnet_call("s3:get",nHandle,"s19:IsDirectionReversed")
+		return dotnet_getp(nHandle,"IsDirectionReversed")
 
 	Func setIsDirectionReversed P1
-		dotnet_callv("s3:set",nHandle,"s19:IsDirectionReversed",P1)
+		dotnet_setp(nHandle,"IsDirectionReversed",P1)
 		return self
 
 	Func getPlacement
@@ -3107,10 +3105,10 @@ Class TickBar from FrameworkElement
 		return self
 
 	Func getReservedSpace
-		return dotnet_call("s3:get",nHandle,"s13:ReservedSpace")
+		return dotnet_getp(nHandle,"ReservedSpace")
 
 	Func setReservedSpace P1
-		dotnet_callv("s3:set",nHandle,"s13:ReservedSpace",P1)
+		dotnet_setp(nHandle,"ReservedSpace",P1)
 		return self
 
 	Func getFillProperty
@@ -3204,10 +3202,10 @@ Class ToolBarOverflowPanel from WpfPanel
 		return self
 
 	Func getWrapWidth
-		return dotnet_call("s3:get",nHandle,"s9:WrapWidth")
+		return dotnet_getp(nHandle,"WrapWidth")
 
 	Func setWrapWidth P1
-		dotnet_callv("s3:set",nHandle,"s9:WrapWidth",P1)
+		dotnet_setp(nHandle,"WrapWidth",P1)
 		return self
 
 	Func getWrapWidthProperty
@@ -3321,38 +3319,38 @@ Class Track from FrameworkElement
 		return self
 
 	Func getMinimum
-		return dotnet_call("s3:get",nHandle,"s7:Minimum")
+		return dotnet_getp(nHandle,"Minimum")
 
 	Func setMinimum P1
-		dotnet_callv("s3:set",nHandle,"s7:Minimum",P1)
+		dotnet_setp(nHandle,"Minimum",P1)
 		return self
 
 	Func getMaximum
-		return dotnet_call("s3:get",nHandle,"s7:Maximum")
+		return dotnet_getp(nHandle,"Maximum")
 
 	Func setMaximum P1
-		dotnet_callv("s3:set",nHandle,"s7:Maximum",P1)
+		dotnet_setp(nHandle,"Maximum",P1)
 		return self
 
 	Func getValue
-		return dotnet_call("s3:get",nHandle,"s5:Value")
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
-		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		dotnet_setp(nHandle,"Value",P1)
 		return self
 
 	Func getViewportSize
-		return dotnet_call("s3:get",nHandle,"s12:ViewportSize")
+		return dotnet_getp(nHandle,"ViewportSize")
 
 	Func setViewportSize P1
-		dotnet_callv("s3:set",nHandle,"s12:ViewportSize",P1)
+		dotnet_setp(nHandle,"ViewportSize",P1)
 		return self
 
 	Func getIsDirectionReversed
-		return dotnet_call("s3:get",nHandle,"s19:IsDirectionReversed")
+		return dotnet_getp(nHandle,"IsDirectionReversed")
 
 	Func setIsDirectionReversed P1
-		dotnet_callv("s3:set",nHandle,"s19:IsDirectionReversed",P1)
+		dotnet_setp(nHandle,"IsDirectionReversed",P1)
 		return self
 
 	Func getOrientationProperty
@@ -3420,24 +3418,24 @@ Class UniformGrid from WpfPanel
 		return self
 
 	Func getFirstColumn
-		return dotnet_call("s3:get",nHandle,"s11:FirstColumn")
+		return dotnet_getp(nHandle,"FirstColumn")
 
 	Func setFirstColumn P1
-		dotnet_callv("s3:set",nHandle,"s11:FirstColumn",P1)
+		dotnet_setp(nHandle,"FirstColumn",P1)
 		return self
 
 	Func getColumns
-		return dotnet_call("s3:get",nHandle,"s7:Columns")
+		return dotnet_getp(nHandle,"Columns")
 
 	Func setColumns P1
-		dotnet_callv("s3:set",nHandle,"s7:Columns",P1)
+		dotnet_setp(nHandle,"Columns",P1)
 		return self
 
 	Func getRows
-		return dotnet_call("s3:get",nHandle,"s4:Rows")
+		return dotnet_getp(nHandle,"Rows")
 
 	Func setRows P1
-		dotnet_callv("s3:set",nHandle,"s4:Rows",P1)
+		dotnet_setp(nHandle,"Rows",P1)
 		return self
 
 	Func getFirstColumnProperty
@@ -3516,13 +3514,13 @@ Class DataGridColumnHeader from WpfButtonBase
 		return self
 
 	Func getDisplayIndex
-		return dotnet_call("s3:get",nHandle,"s12:DisplayIndex")
+		return dotnet_getp(nHandle,"DisplayIndex")
 
 	Func setDisplayIndex P1
 		raise("DotNet Error: DisplayIndex is a read-only property")
 
 	Func getCanUserSort
-		return dotnet_call("s3:get",nHandle,"s11:CanUserSort")
+		return dotnet_getp(nHandle,"CanUserSort")
 
 	Func setCanUserSort P1
 		raise("DotNet Error: CanUserSort is a read-only property")
@@ -3534,7 +3532,7 @@ Class DataGridColumnHeader from WpfButtonBase
 		raise("DotNet Error: SortDirection is a read-only property")
 
 	Func getIsFrozen
-		return dotnet_call("s3:get",nHandle,"s8:IsFrozen")
+		return dotnet_getp(nHandle,"IsFrozen")
 
 	Func setIsFrozen P1
 		raise("DotNet Error: IsFrozen is a read-only property")
@@ -3630,7 +3628,7 @@ Class DataGridRowHeader from WpfButtonBase
 		return self
 
 	Func getIsRowSelected
-		return dotnet_call("s3:get",nHandle,"s13:IsRowSelected")
+		return dotnet_getp(nHandle,"IsRowSelected")
 
 	Func setIsRowSelected P1
 		raise("DotNet Error: IsRowSelected is a read-only property")
@@ -3710,17 +3708,17 @@ Class RepeatButton from WpfButtonBase
 		return self
 
 	Func getDelay
-		return dotnet_call("s3:get",nHandle,"s5:Delay")
+		return dotnet_getp(nHandle,"Delay")
 
 	Func setDelay P1
-		dotnet_callv("s3:set",nHandle,"s5:Delay",P1)
+		dotnet_setp(nHandle,"Delay",P1)
 		return self
 
 	Func getInterval
-		return dotnet_call("s3:get",nHandle,"s8:Interval")
+		return dotnet_getp(nHandle,"Interval")
 
 	Func setInterval P1
-		dotnet_callv("s3:set",nHandle,"s8:Interval",P1)
+		dotnet_setp(nHandle,"Interval",P1)
 		return self
 
 	Func getDelayProperty
@@ -3798,10 +3796,10 @@ Class WpfScrollBar from RangeBase
 		return self
 
 	Func getViewportSize
-		return dotnet_call("s3:get",nHandle,"s12:ViewportSize")
+		return dotnet_getp(nHandle,"ViewportSize")
 
 	Func setViewportSize P1
-		dotnet_callv("s3:set",nHandle,"s12:ViewportSize",P1)
+		dotnet_setp(nHandle,"ViewportSize",P1)
 		return self
 
 	Func getTrack
@@ -4000,10 +3998,10 @@ Class ToggleButton from WpfButtonBase
 		return self
 
 	Func getIsThreeState
-		return dotnet_call("s3:get",nHandle,"s12:IsThreeState")
+		return dotnet_getp(nHandle,"IsThreeState")
 
 	Func setIsThreeState P1
-		dotnet_callv("s3:set",nHandle,"s12:IsThreeState",P1)
+		dotnet_setp(nHandle,"IsThreeState",P1)
 		return self
 
 	Func getCheckedEvent

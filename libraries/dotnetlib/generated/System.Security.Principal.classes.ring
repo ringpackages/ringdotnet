@@ -69,23 +69,19 @@ Class IIdentity from DotNetObject
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getAuthenticationType
-		dn_x = dotnet_call("s3:get",nHandle,"s18:AuthenticationType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"AuthenticationType"))
 
 	Func setAuthenticationType P1
 		raise("DotNet Error: AuthenticationType is a read-only property")
 
 	Func getIsAuthenticated
-		return dotnet_call("s3:get",nHandle,"s15:IsAuthenticated")
+		return dotnet_getp(nHandle,"IsAuthenticated")
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
@@ -188,9 +184,7 @@ Class IdentityReference from Object
 		return dn_x
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -305,7 +299,7 @@ Class IdentityReferenceCollection from Object
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -410,19 +404,19 @@ Class WindowsIdentity from ClaimsIdentity
 		raise("DotNet Error: ImpersonationLevel is a read-only property")
 
 	Func getIsGuest
-		return dotnet_call("s3:get",nHandle,"s7:IsGuest")
+		return dotnet_getp(nHandle,"IsGuest")
 
 	Func setIsGuest P1
 		raise("DotNet Error: IsGuest is a read-only property")
 
 	Func getIsSystem
-		return dotnet_call("s3:get",nHandle,"s8:IsSystem")
+		return dotnet_getp(nHandle,"IsSystem")
 
 	Func setIsSystem P1
 		raise("DotNet Error: IsSystem is a read-only property")
 
 	Func getIsAnonymous
-		return dotnet_call("s3:get",nHandle,"s11:IsAnonymous")
+		return dotnet_getp(nHandle,"IsAnonymous")
 
 	Func setIsAnonymous P1
 		raise("DotNet Error: IsAnonymous is a read-only property")
@@ -567,7 +561,7 @@ Class SecurityIdentifier from IdentityReference
 		return dn_x
 
 	Func getBinaryLength
-		return dotnet_call("s3:get",nHandle,"s12:BinaryLength")
+		return dotnet_getp(nHandle,"BinaryLength")
 
 	Func setBinaryLength P1
 		raise("DotNet Error: BinaryLength is a read-only property")

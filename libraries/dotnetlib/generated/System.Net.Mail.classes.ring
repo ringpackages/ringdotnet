@@ -133,12 +133,10 @@ Class AttachmentBase from Object
 		raise("DotNet Error: ContentStream is a read-only property")
 
 	Func getContentId
-		dn_x = dotnet_call("s3:get",nHandle,"s9:ContentId")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentId"))
 
 	Func setContentId P1
-		dotnet_callv("s3:set",nHandle,"s9:ContentId",P1)
+		dotnet_setp(nHandle,"ContentId",P1)
 		return self
 
 	Func getContentType
@@ -237,33 +235,25 @@ Class MailAddress from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Mail.MailAddress, System.Net.Mail'),"s9:TryCreate",dnPackItem(P1))
 
 	Func getDisplayName
-		dn_x = dotnet_call("s3:get",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DisplayName"))
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getUser
-		dn_x = dotnet_call("s3:get",nHandle,"s4:User")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"User"))
 
 	Func setUser P1
 		raise("DotNet Error: User is a read-only property")
 
 	Func getHost
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Host")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Host"))
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
 
 	Func getAddress
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Address")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Address"))
 
 	Func setAddress P1
 		raise("DotNet Error: Address is a read-only property")
@@ -416,12 +406,10 @@ Class MailMessage from Object
 		return self
 
 	Func getSubject
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Subject")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Subject"))
 
 	Func setSubject P1
-		dotnet_callv("s3:set",nHandle,"s7:Subject",P1)
+		dotnet_setp(nHandle,"Subject",P1)
 		return self
 
 	Func getSubjectEncoding
@@ -445,12 +433,10 @@ Class MailMessage from Object
 		return self
 
 	Func getBody
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Body")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Body"))
 
 	Func setBody P1
-		dotnet_callv("s3:set",nHandle,"s4:Body",P1)
+		dotnet_setp(nHandle,"Body",P1)
 		return self
 
 	Func getBodyEncoding
@@ -468,10 +454,10 @@ Class MailMessage from Object
 		return self
 
 	Func getIsBodyHtml
-		return dotnet_call("s3:get",nHandle,"s10:IsBodyHtml")
+		return dotnet_getp(nHandle,"IsBodyHtml")
 
 	Func setIsBodyHtml P1
-		dotnet_callv("s3:set",nHandle,"s10:IsBodyHtml",P1)
+		dotnet_setp(nHandle,"IsBodyHtml",P1)
 		return self
 
 	Func getAttachments
@@ -582,26 +568,24 @@ Class SmtpClient from Object
 		return self
 
 	Func getHost
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Host")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Host"))
 
 	Func setHost P1
-		dotnet_callv("s3:set",nHandle,"s4:Host",P1)
+		dotnet_setp(nHandle,"Host",P1)
 		return self
 
 	Func getPort
-		return dotnet_call("s3:get",nHandle,"s4:Port")
+		return dotnet_getp(nHandle,"Port")
 
 	Func setPort P1
-		dotnet_callv("s3:set",nHandle,"s4:Port",P1)
+		dotnet_setp(nHandle,"Port",P1)
 		return self
 
 	Func getUseDefaultCredentials
-		return dotnet_call("s3:get",nHandle,"s21:UseDefaultCredentials")
+		return dotnet_getp(nHandle,"UseDefaultCredentials")
 
 	Func setUseDefaultCredentials P1
-		dotnet_callv("s3:set",nHandle,"s21:UseDefaultCredentials",P1)
+		dotnet_setp(nHandle,"UseDefaultCredentials",P1)
 		return self
 
 	Func getCredentials
@@ -612,10 +596,10 @@ Class SmtpClient from Object
 		return self
 
 	Func getTimeout
-		return dotnet_call("s3:get",nHandle,"s7:Timeout")
+		return dotnet_getp(nHandle,"Timeout")
 
 	Func setTimeout P1
-		dotnet_callv("s3:set",nHandle,"s7:Timeout",P1)
+		dotnet_setp(nHandle,"Timeout",P1)
 		return self
 
 	Func getServicePoint
@@ -639,19 +623,17 @@ Class SmtpClient from Object
 		return self
 
 	Func getPickupDirectoryLocation
-		dn_x = dotnet_call("s3:get",nHandle,"s23:PickupDirectoryLocation")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"PickupDirectoryLocation"))
 
 	Func setPickupDirectoryLocation P1
-		dotnet_callv("s3:set",nHandle,"s23:PickupDirectoryLocation",P1)
+		dotnet_setp(nHandle,"PickupDirectoryLocation",P1)
 		return self
 
 	Func getEnableSsl
-		return dotnet_call("s3:get",nHandle,"s9:EnableSsl")
+		return dotnet_getp(nHandle,"EnableSsl")
 
 	Func setEnableSsl P1
-		dotnet_callv("s3:set",nHandle,"s9:EnableSsl",P1)
+		dotnet_setp(nHandle,"EnableSsl",P1)
 		return self
 
 	Func getClientCertificates
@@ -661,12 +643,10 @@ Class SmtpClient from Object
 		raise("DotNet Error: ClientCertificates is a read-only property")
 
 	Func getTargetName
-		dn_x = dotnet_call("s3:get",nHandle,"s10:TargetName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"TargetName"))
 
 	Func setTargetName P1
-		dotnet_callv("s3:set",nHandle,"s10:TargetName",P1)
+		dotnet_setp(nHandle,"TargetName",P1)
 		return self
 
 
@@ -806,12 +786,10 @@ Class Attachment from AttachmentBase
 		raise("DotNet Error: CreateAttachmentFromString does not take one argument: use named arguments, CreateAttachmentFromString([ :parameter = value, ... ])")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getNameEncoding
@@ -911,9 +889,7 @@ Class SmtpFailedRecipientException from SmtpException
 		return self
 
 	Func getFailedRecipient
-		dn_x = dotnet_call("s3:get",nHandle,"s15:FailedRecipient")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FailedRecipient"))
 
 	Func setFailedRecipient P1
 		raise("DotNet Error: FailedRecipient is a read-only property")

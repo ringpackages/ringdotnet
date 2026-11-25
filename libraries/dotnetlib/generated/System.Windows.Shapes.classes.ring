@@ -111,10 +111,10 @@ Class Shape from FrameworkElement
 		return self
 
 	Func getStrokeThickness
-		return dotnet_call("s3:get",nHandle,"s15:StrokeThickness")
+		return dotnet_getp(nHandle,"StrokeThickness")
 
 	Func setStrokeThickness P1
-		dotnet_callv("s3:set",nHandle,"s15:StrokeThickness",P1)
+		dotnet_setp(nHandle,"StrokeThickness",P1)
 		return self
 
 	Func getStrokeStartLineCap
@@ -146,17 +146,17 @@ Class Shape from FrameworkElement
 		return self
 
 	Func getStrokeMiterLimit
-		return dotnet_call("s3:get",nHandle,"s16:StrokeMiterLimit")
+		return dotnet_getp(nHandle,"StrokeMiterLimit")
 
 	Func setStrokeMiterLimit P1
-		dotnet_callv("s3:set",nHandle,"s16:StrokeMiterLimit",P1)
+		dotnet_setp(nHandle,"StrokeMiterLimit",P1)
 		return self
 
 	Func getStrokeDashOffset
-		return dotnet_call("s3:get",nHandle,"s16:StrokeDashOffset")
+		return dotnet_getp(nHandle,"StrokeDashOffset")
 
 	Func setStrokeDashOffset P1
-		dotnet_callv("s3:set",nHandle,"s16:StrokeDashOffset",P1)
+		dotnet_setp(nHandle,"StrokeDashOffset",P1)
 		return self
 
 	Func getStrokeDashArray
@@ -284,31 +284,31 @@ Class Line from Shape
 		return self
 
 	Func getX1
-		return dotnet_call("s3:get",nHandle,"s2:X1")
+		return dotnet_getp(nHandle,"X1")
 
 	Func setX1 P1
-		dotnet_callv("s3:set",nHandle,"s2:X1",P1)
+		dotnet_setp(nHandle,"X1",P1)
 		return self
 
 	Func getY1
-		return dotnet_call("s3:get",nHandle,"s2:Y1")
+		return dotnet_getp(nHandle,"Y1")
 
 	Func setY1 P1
-		dotnet_callv("s3:set",nHandle,"s2:Y1",P1)
+		dotnet_setp(nHandle,"Y1",P1)
 		return self
 
 	Func getX2
-		return dotnet_call("s3:get",nHandle,"s2:X2")
+		return dotnet_getp(nHandle,"X2")
 
 	Func setX2 P1
-		dotnet_callv("s3:set",nHandle,"s2:X2",P1)
+		dotnet_setp(nHandle,"X2",P1)
 		return self
 
 	Func getY2
-		return dotnet_call("s3:get",nHandle,"s2:Y2")
+		return dotnet_getp(nHandle,"Y2")
 
 	Func setY2 P1
-		dotnet_callv("s3:set",nHandle,"s2:Y2",P1)
+		dotnet_setp(nHandle,"Y2",P1)
 		return self
 
 	Func getX1Property
@@ -503,17 +503,17 @@ Class WpfRectangle from Shape
 		return self
 
 	Func getRadiusX
-		return dotnet_call("s3:get",nHandle,"s7:RadiusX")
+		return dotnet_getp(nHandle,"RadiusX")
 
 	Func setRadiusX P1
-		dotnet_callv("s3:set",nHandle,"s7:RadiusX",P1)
+		dotnet_setp(nHandle,"RadiusX",P1)
 		return self
 
 	Func getRadiusY
-		return dotnet_call("s3:get",nHandle,"s7:RadiusY")
+		return dotnet_getp(nHandle,"RadiusY")
 
 	Func setRadiusY P1
-		dotnet_callv("s3:set",nHandle,"s7:RadiusY",P1)
+		dotnet_setp(nHandle,"RadiusY",P1)
 		return self
 
 	Func getRadiusXProperty

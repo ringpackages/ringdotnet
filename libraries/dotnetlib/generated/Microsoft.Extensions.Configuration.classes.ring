@@ -256,17 +256,17 @@ Class BinderOptions from Object
 		return dn_x
 
 	Func getBindNonPublicProperties
-		return dotnet_call("s3:get",nHandle,"s23:BindNonPublicProperties")
+		return dotnet_getp(nHandle,"BindNonPublicProperties")
 
 	Func setBindNonPublicProperties P1
-		dotnet_callv("s3:set",nHandle,"s23:BindNonPublicProperties",P1)
+		dotnet_setp(nHandle,"BindNonPublicProperties",P1)
 		return self
 
 	Func getErrorOnUnknownConfiguration
-		return dotnet_call("s3:get",nHandle,"s27:ErrorOnUnknownConfiguration")
+		return dotnet_getp(nHandle,"ErrorOnUnknownConfiguration")
 
 	Func setErrorOnUnknownConfiguration P1
-		dotnet_callv("s3:set",nHandle,"s27:ErrorOnUnknownConfiguration",P1)
+		dotnet_setp(nHandle,"ErrorOnUnknownConfiguration",P1)
 		return self
 
 
@@ -383,10 +383,10 @@ Class ChainedConfigurationSource from Object
 		return self
 
 	Func getShouldDisposeConfiguration
-		return dotnet_call("s3:get",nHandle,"s26:ShouldDisposeConfiguration")
+		return dotnet_getp(nHandle,"ShouldDisposeConfiguration")
 
 	Func setShouldDisposeConfiguration P1
-		dotnet_callv("s3:set",nHandle,"s26:ShouldDisposeConfiguration",P1)
+		dotnet_setp(nHandle,"ShouldDisposeConfiguration",P1)
 		return self
 
 
@@ -642,25 +642,19 @@ Class ConfigurationDebugViewContext from ValueType
 		return self
 
 	Func getPath
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Path")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Path"))
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getKey
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Key")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Key"))
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -766,9 +760,7 @@ Class ConfigurationKeyNameAttribute from Attribute
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1114,13 +1106,13 @@ Class ConfigurationReloadToken from Object
 		return dn_x
 
 	Func getActiveChangeCallbacks
-		return dotnet_call("s3:get",nHandle,"s21:ActiveChangeCallbacks")
+		return dotnet_getp(nHandle,"ActiveChangeCallbacks")
 
 	Func setActiveChangeCallbacks P1
 		raise("DotNet Error: ActiveChangeCallbacks is a read-only property")
 
 	Func getHasChanged
-		return dotnet_call("s3:get",nHandle,"s10:HasChanged")
+		return dotnet_getp(nHandle,"HasChanged")
 
 	Func setHasChanged P1
 		raise("DotNet Error: HasChanged is a read-only property")
@@ -1365,28 +1357,22 @@ Class ConfigurationSection from Object
 		return self
 
 	Func getPath
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Path")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Path"))
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getKey
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Key")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Key"))
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
-		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		dotnet_setp(nHandle,"Value",P1)
 		return self
 
 
@@ -1489,33 +1475,31 @@ Class FileConfigurationSource from Object
 		return self
 
 	Func getPath
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Path")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Path"))
 
 	Func setPath P1
-		dotnet_callv("s3:set",nHandle,"s4:Path",P1)
+		dotnet_setp(nHandle,"Path",P1)
 		return self
 
 	Func getOptional
-		return dotnet_call("s3:get",nHandle,"s8:Optional")
+		return dotnet_getp(nHandle,"Optional")
 
 	Func setOptional P1
-		dotnet_callv("s3:set",nHandle,"s8:Optional",P1)
+		dotnet_setp(nHandle,"Optional",P1)
 		return self
 
 	Func getReloadOnChange
-		return dotnet_call("s3:get",nHandle,"s14:ReloadOnChange")
+		return dotnet_getp(nHandle,"ReloadOnChange")
 
 	Func setReloadOnChange P1
-		dotnet_callv("s3:set",nHandle,"s14:ReloadOnChange",P1)
+		dotnet_setp(nHandle,"ReloadOnChange",P1)
 		return self
 
 	Func getReloadDelay
-		return dotnet_call("s3:get",nHandle,"s11:ReloadDelay")
+		return dotnet_getp(nHandle,"ReloadDelay")
 
 	Func setReloadDelay P1
-		dotnet_callv("s3:set",nHandle,"s11:ReloadDelay",P1)
+		dotnet_setp(nHandle,"ReloadDelay",P1)
 		return self
 
 	Func getOnLoadException
@@ -1570,10 +1554,10 @@ Class FileLoadExceptionContext from Object
 		return self
 
 	Func getIgnore
-		return dotnet_call("s3:get",nHandle,"s6:Ignore")
+		return dotnet_getp(nHandle,"Ignore")
 
 	Func setIgnore P1
-		dotnet_callv("s3:set",nHandle,"s6:Ignore",P1)
+		dotnet_setp(nHandle,"Ignore",P1)
 		return self
 
 
@@ -2190,28 +2174,22 @@ Class IConfigurationSection from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredSection",P1))
 
 	Func getKey
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Key")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Key"))
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getPath
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Path")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Path"))
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
-		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		dotnet_setp(nHandle,"Value",P1)
 		return self
 
 

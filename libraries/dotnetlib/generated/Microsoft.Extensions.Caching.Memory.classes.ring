@@ -419,7 +419,7 @@ Class MemoryCache from Object
 		raise("DotNet Error: GetOrCreateAsync does not take one argument: use named arguments, GetOrCreateAsync([ :parameter = value, ... ])")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -632,31 +632,31 @@ Class MemoryCacheOptions from Object
 		return self
 
 	Func getCompactOnMemoryPressure
-		return dotnet_call("s3:get",nHandle,"s23:CompactOnMemoryPressure")
+		return dotnet_getp(nHandle,"CompactOnMemoryPressure")
 
 	Func setCompactOnMemoryPressure P1
-		dotnet_callv("s3:set",nHandle,"s23:CompactOnMemoryPressure",P1)
+		dotnet_setp(nHandle,"CompactOnMemoryPressure",P1)
 		return self
 
 	Func getCompactionPercentage
-		return dotnet_call("s3:get",nHandle,"s20:CompactionPercentage")
+		return dotnet_getp(nHandle,"CompactionPercentage")
 
 	Func setCompactionPercentage P1
-		dotnet_callv("s3:set",nHandle,"s20:CompactionPercentage",P1)
+		dotnet_setp(nHandle,"CompactionPercentage",P1)
 		return self
 
 	Func getTrackLinkedCacheEntries
-		return dotnet_call("s3:get",nHandle,"s23:TrackLinkedCacheEntries")
+		return dotnet_getp(nHandle,"TrackLinkedCacheEntries")
 
 	Func setTrackLinkedCacheEntries P1
-		dotnet_callv("s3:set",nHandle,"s23:TrackLinkedCacheEntries",P1)
+		dotnet_setp(nHandle,"TrackLinkedCacheEntries",P1)
 		return self
 
 	Func getTrackStatistics
-		return dotnet_call("s3:get",nHandle,"s15:TrackStatistics")
+		return dotnet_getp(nHandle,"TrackStatistics")
 
 	Func setTrackStatistics P1
-		dotnet_callv("s3:set",nHandle,"s15:TrackStatistics",P1)
+		dotnet_setp(nHandle,"TrackStatistics",P1)
 		return self
 
 
@@ -691,10 +691,10 @@ Class MemoryCacheStatistics from Object
 		return dn_x
 
 	Func getCurrentEntryCount
-		return dotnet_call("s3:get",nHandle,"s17:CurrentEntryCount")
+		return dotnet_getp(nHandle,"CurrentEntryCount")
 
 	Func setCurrentEntryCount P1
-		dotnet_callv("s3:set",nHandle,"s17:CurrentEntryCount",P1)
+		dotnet_setp(nHandle,"CurrentEntryCount",P1)
 		return self
 
 	Func getCurrentEstimatedSize
@@ -705,17 +705,17 @@ Class MemoryCacheStatistics from Object
 		return self
 
 	Func getTotalMisses
-		return dotnet_call("s3:get",nHandle,"s11:TotalMisses")
+		return dotnet_getp(nHandle,"TotalMisses")
 
 	Func setTotalMisses P1
-		dotnet_callv("s3:set",nHandle,"s11:TotalMisses",P1)
+		dotnet_setp(nHandle,"TotalMisses",P1)
 		return self
 
 	Func getTotalHits
-		return dotnet_call("s3:get",nHandle,"s9:TotalHits")
+		return dotnet_getp(nHandle,"TotalHits")
 
 	Func setTotalHits P1
-		dotnet_callv("s3:set",nHandle,"s9:TotalHits",P1)
+		dotnet_setp(nHandle,"TotalHits",P1)
 		return self
 
 

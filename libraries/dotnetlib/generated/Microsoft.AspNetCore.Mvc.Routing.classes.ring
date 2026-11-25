@@ -115,42 +115,38 @@ Class AttributeRouteInfo from Object
 		return dn_x
 
 	Func getTemplate
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Template")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Template"))
 
 	Func setTemplate P1
-		dotnet_callv("s3:set",nHandle,"s8:Template",P1)
+		dotnet_setp(nHandle,"Template",P1)
 		return self
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getSuppressLinkGeneration
-		return dotnet_call("s3:get",nHandle,"s22:SuppressLinkGeneration")
+		return dotnet_getp(nHandle,"SuppressLinkGeneration")
 
 	Func setSuppressLinkGeneration P1
-		dotnet_callv("s3:set",nHandle,"s22:SuppressLinkGeneration",P1)
+		dotnet_setp(nHandle,"SuppressLinkGeneration",P1)
 		return self
 
 	Func getSuppressPathMatching
-		return dotnet_call("s3:get",nHandle,"s20:SuppressPathMatching")
+		return dotnet_getp(nHandle,"SuppressPathMatching")
 
 	Func setSuppressPathMatching P1
-		dotnet_callv("s3:set",nHandle,"s20:SuppressPathMatching",P1)
+		dotnet_setp(nHandle,"SuppressPathMatching",P1)
 		return self
 
 
@@ -209,27 +205,23 @@ Class HttpMethodAttribute from Attribute
 		raise("DotNet Error: HttpMethods is a read-only property")
 
 	Func getTemplate
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Template")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Template"))
 
 	Func setTemplate P1
 		raise("DotNet Error: Template is a read-only property")
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 
@@ -269,9 +261,7 @@ Class IRouteTemplateProvider from DotNetObject
 		return self
 
 	Func getTemplate
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Template")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Template"))
 
 	Func setTemplate P1
 		raise("DotNet Error: Template is a read-only property")
@@ -283,9 +273,7 @@ Class IRouteTemplateProvider from DotNetObject
 		raise("DotNet Error: Order is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -306,17 +294,13 @@ Class IRouteValueProvider from DotNetObject
 		return self
 
 	Func getRouteKey
-		dn_x = dotnet_call("s3:get",nHandle,"s8:RouteKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"RouteKey"))
 
 	Func setRouteKey P1
 		raise("DotNet Error: RouteKey is a read-only property")
 
 	Func getRouteValue
-		dn_x = dotnet_call("s3:get",nHandle,"s10:RouteValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"RouteValue"))
 
 	Func setRouteValue P1
 		raise("DotNet Error: RouteValue is a read-only property")
@@ -376,17 +360,13 @@ Class RouteValueAttribute from Attribute
 		return self
 
 	Func getRouteKey
-		dn_x = dotnet_call("s3:get",nHandle,"s8:RouteKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"RouteKey"))
 
 	Func setRouteKey P1
 		raise("DotNet Error: RouteKey is a read-only property")
 
 	Func getRouteValue
-		dn_x = dotnet_call("s3:get",nHandle,"s10:RouteValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"RouteValue"))
 
 	Func setRouteValue P1
 		raise("DotNet Error: RouteValue is a read-only property")
@@ -425,21 +405,17 @@ Class UrlActionContext from Object
 		return dn_x
 
 	Func getAction
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Action")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Action"))
 
 	Func setAction P1
-		dotnet_callv("s3:set",nHandle,"s6:Action",P1)
+		dotnet_setp(nHandle,"Action",P1)
 		return self
 
 	Func getController
-		dn_x = dotnet_call("s3:get",nHandle,"s10:Controller")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Controller"))
 
 	Func setController P1
-		dotnet_callv("s3:set",nHandle,"s10:Controller",P1)
+		dotnet_setp(nHandle,"Controller",P1)
 		return self
 
 	Func getValues
@@ -450,30 +426,24 @@ Class UrlActionContext from Object
 		return self
 
 	Func getProtocol
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Protocol")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Protocol"))
 
 	Func setProtocol P1
-		dotnet_callv("s3:set",nHandle,"s8:Protocol",P1)
+		dotnet_setp(nHandle,"Protocol",P1)
 		return self
 
 	Func getHost
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Host")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Host"))
 
 	Func setHost P1
-		dotnet_callv("s3:set",nHandle,"s4:Host",P1)
+		dotnet_setp(nHandle,"Host",P1)
 		return self
 
 	Func getFragment
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Fragment")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Fragment"))
 
 	Func setFragment P1
-		dotnet_callv("s3:set",nHandle,"s8:Fragment",P1)
+		dotnet_setp(nHandle,"Fragment",P1)
 		return self
 
 
@@ -631,12 +601,10 @@ Class UrlRouteContext from Object
 		return dn_x
 
 	Func getRouteName
-		dn_x = dotnet_call("s3:get",nHandle,"s9:RouteName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"RouteName"))
 
 	Func setRouteName P1
-		dotnet_callv("s3:set",nHandle,"s9:RouteName",P1)
+		dotnet_setp(nHandle,"RouteName",P1)
 		return self
 
 	Func getValues
@@ -647,30 +615,24 @@ Class UrlRouteContext from Object
 		return self
 
 	Func getProtocol
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Protocol")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Protocol"))
 
 	Func setProtocol P1
-		dotnet_callv("s3:set",nHandle,"s8:Protocol",P1)
+		dotnet_setp(nHandle,"Protocol",P1)
 		return self
 
 	Func getHost
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Host")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Host"))
 
 	Func setHost P1
-		dotnet_callv("s3:set",nHandle,"s4:Host",P1)
+		dotnet_setp(nHandle,"Host",P1)
 		return self
 
 	Func getFragment
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Fragment")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Fragment"))
 
 	Func setFragment P1
-		dotnet_callv("s3:set",nHandle,"s8:Fragment",P1)
+		dotnet_setp(nHandle,"Fragment",P1)
 		return self
 
 

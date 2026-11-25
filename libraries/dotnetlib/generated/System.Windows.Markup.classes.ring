@@ -471,9 +471,7 @@ Class ConstructorArgumentAttribute from Attribute
 		return self
 
 	Func getArgumentName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:ArgumentName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ArgumentName"))
 
 	Func setArgumentName P1
 		raise("DotNet Error: ArgumentName is a read-only property")
@@ -518,9 +516,7 @@ Class ContentPropertyAttribute from Attribute
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -585,9 +581,7 @@ Class DependsOnAttribute from Attribute
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -631,9 +625,7 @@ Class DictionaryKeyPropertyAttribute from Attribute
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -831,13 +823,13 @@ Class INameScopeDictionary from DotNetObject
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1176,12 +1168,10 @@ Class MemberDefinition from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 
@@ -1241,9 +1231,7 @@ Class NameScopePropertyAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1301,30 +1289,24 @@ Class NamespaceMapEntry from Object
 		return dn_x
 
 	Func getXmlNamespace
-		dn_x = dotnet_call("s3:get",nHandle,"s12:XmlNamespace")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"XmlNamespace"))
 
 	Func setXmlNamespace P1
-		dotnet_callv("s3:set",nHandle,"s12:XmlNamespace",P1)
+		dotnet_setp(nHandle,"XmlNamespace",P1)
 		return self
 
 	Func getAssemblyName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:AssemblyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"AssemblyName"))
 
 	Func setAssemblyName P1
-		dotnet_callv("s3:set",nHandle,"s12:AssemblyName",P1)
+		dotnet_setp(nHandle,"AssemblyName",P1)
 		return self
 
 	Func getClrNamespace
-		dn_x = dotnet_call("s3:get",nHandle,"s12:ClrNamespace")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ClrNamespace"))
 
 	Func setClrNamespace P1
-		dotnet_callv("s3:set",nHandle,"s12:ClrNamespace",P1)
+		dotnet_setp(nHandle,"ClrNamespace",P1)
 		return self
 
 
@@ -1385,21 +1367,17 @@ Class ParserContext from Object
 		raise("DotNet Error: XmlnsDictionary is a read-only property")
 
 	Func getXmlLang
-		dn_x = dotnet_call("s3:get",nHandle,"s7:XmlLang")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"XmlLang"))
 
 	Func setXmlLang P1
-		dotnet_callv("s3:set",nHandle,"s7:XmlLang",P1)
+		dotnet_setp(nHandle,"XmlLang",P1)
 		return self
 
 	Func getXmlSpace
-		dn_x = dotnet_call("s3:get",nHandle,"s8:XmlSpace")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"XmlSpace"))
 
 	Func setXmlSpace P1
-		dotnet_callv("s3:set",nHandle,"s8:XmlSpace",P1)
+		dotnet_setp(nHandle,"XmlSpace",P1)
 		return self
 
 	Func getXamlTypeMapper
@@ -1454,9 +1432,7 @@ Class RootNamespaceAttribute from Attribute
 		return self
 
 	Func getNamespace
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Namespace")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Namespace"))
 
 	Func setNamespace P1
 		raise("DotNet Error: Namespace is a read-only property")
@@ -1499,9 +1475,7 @@ Class RuntimeNamePropertyAttribute from Attribute
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1669,9 +1643,7 @@ Class UidPropertyAttribute from Attribute
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1693,7 +1665,7 @@ Class UsableDuringInitializationAttribute from Attribute
 		return self
 
 	Func getUsable
-		return dotnet_call("s3:get",nHandle,"s6:Usable")
+		return dotnet_getp(nHandle,"Usable")
 
 	Func setUsable P1
 		raise("DotNet Error: Usable is a read-only property")
@@ -1793,12 +1765,10 @@ Class XData from Object
 		return dn_x
 
 	Func getText
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Text")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Text"))
 
 	Func setText P1
-		dotnet_callv("s3:set",nHandle,"s4:Text",P1)
+		dotnet_setp(nHandle,"Text",P1)
 		return self
 
 	Func getXmlReader
@@ -1828,17 +1798,13 @@ Class XamlDeferLoadAttribute from Attribute
 		return self
 
 	Func getLoaderTypeName
-		dn_x = dotnet_call("s3:get",nHandle,"s14:LoaderTypeName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"LoaderTypeName"))
 
 	Func setLoaderTypeName P1
 		raise("DotNet Error: LoaderTypeName is a read-only property")
 
 	Func getContentTypeName
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ContentTypeName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentTypeName"))
 
 	Func setContentTypeName P1
 		raise("DotNet Error: ContentTypeName is a read-only property")
@@ -1920,13 +1886,13 @@ Class XamlParseException from SystemException
 		return self
 
 	Func getLineNumber
-		return dotnet_call("s3:get",nHandle,"s10:LineNumber")
+		return dotnet_getp(nHandle,"LineNumber")
 
 	Func setLineNumber P1
 		raise("DotNet Error: LineNumber is a read-only property")
 
 	Func getLinePosition
-		return dotnet_call("s3:get",nHandle,"s12:LinePosition")
+		return dotnet_getp(nHandle,"LinePosition")
 
 	Func setLinePosition P1
 		raise("DotNet Error: LinePosition is a read-only property")
@@ -1938,17 +1904,13 @@ Class XamlParseException from SystemException
 		raise("DotNet Error: KeyContext is a read-only property")
 
 	Func getUidContext
-		dn_x = dotnet_call("s3:get",nHandle,"s10:UidContext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"UidContext"))
 
 	Func setUidContext P1
 		raise("DotNet Error: UidContext is a read-only property")
 
 	Func getNameContext
-		dn_x = dotnet_call("s3:get",nHandle,"s11:NameContext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"NameContext"))
 
 	Func setNameContext P1
 		raise("DotNet Error: NameContext is a read-only property")
@@ -2036,9 +1998,7 @@ Class XamlSetMarkupExtensionAttribute from Attribute
 		return self
 
 	Func getXamlSetMarkupExtensionHandler
-		dn_x = dotnet_call("s3:get",nHandle,"s29:XamlSetMarkupExtensionHandler")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"XamlSetMarkupExtensionHandler"))
 
 	Func setXamlSetMarkupExtensionHandler P1
 		raise("DotNet Error: XamlSetMarkupExtensionHandler is a read-only property")
@@ -2060,9 +2020,7 @@ Class XamlSetTypeConverterAttribute from Attribute
 		return self
 
 	Func getXamlSetTypeConverterHandler
-		dn_x = dotnet_call("s3:get",nHandle,"s27:XamlSetTypeConverterHandler")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"XamlSetTypeConverterHandler"))
 
 	Func setXamlSetTypeConverterHandler P1
 		raise("DotNet Error: XamlSetTypeConverterHandler is a read-only property")
@@ -2103,10 +2061,10 @@ Class XamlSetValueEventArgs from EventArgs
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getHandled
-		return dotnet_call("s3:get",nHandle,"s7:Handled")
+		return dotnet_getp(nHandle,"Handled")
 
 	Func setHandled P1
-		dotnet_callv("s3:set",nHandle,"s7:Handled",P1)
+		dotnet_setp(nHandle,"Handled",P1)
 		return self
 
 
@@ -2296,9 +2254,7 @@ Class XmlLangPropertyAttribute from Attribute
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2333,9 +2289,7 @@ Class XmlLanguage from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Markup.XmlLanguage, PresentationCore',"s11:GetLanguage",P1))
 
 	Func getIetfLanguageTag
-		dn_x = dotnet_call("s3:get",nHandle,"s15:IetfLanguageTag")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"IetfLanguageTag"))
 
 	Func setIetfLanguageTag P1
 		raise("DotNet Error: IetfLanguageTag is a read-only property")
@@ -2385,17 +2339,13 @@ Class XmlnsCompatibleWithAttribute from Attribute
 		return self
 
 	Func getOldNamespace
-		dn_x = dotnet_call("s3:get",nHandle,"s12:OldNamespace")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"OldNamespace"))
 
 	Func setOldNamespace P1
 		raise("DotNet Error: OldNamespace is a read-only property")
 
 	Func getNewNamespace
-		dn_x = dotnet_call("s3:get",nHandle,"s12:NewNamespace")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"NewNamespace"))
 
 	Func setNewNamespace P1
 		raise("DotNet Error: NewNamespace is a read-only property")
@@ -2419,28 +2369,22 @@ Class XmlnsDefinitionAttribute from Attribute
 		return self
 
 	Func getXmlNamespace
-		dn_x = dotnet_call("s3:get",nHandle,"s12:XmlNamespace")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"XmlNamespace"))
 
 	Func setXmlNamespace P1
 		raise("DotNet Error: XmlNamespace is a read-only property")
 
 	Func getClrNamespace
-		dn_x = dotnet_call("s3:get",nHandle,"s12:ClrNamespace")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ClrNamespace"))
 
 	Func setClrNamespace P1
 		raise("DotNet Error: ClrNamespace is a read-only property")
 
 	Func getAssemblyName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:AssemblyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"AssemblyName"))
 
 	Func setAssemblyName P1
-		dotnet_callv("s3:set",nHandle,"s12:AssemblyName",P1)
+		dotnet_setp(nHandle,"AssemblyName",P1)
 		return self
 
 
@@ -2587,13 +2531,13 @@ Class XmlnsDictionary from Object
 		return self
 
 	Func getIsFixedSize
-		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		return dotnet_getp(nHandle,"IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2611,13 +2555,13 @@ Class XmlnsDictionary from Object
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -2629,7 +2573,7 @@ Class XmlnsDictionary from Object
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getSealed
-		return dotnet_call("s3:get",nHandle,"s6:Sealed")
+		return dotnet_getp(nHandle,"Sealed")
 
 	Func setSealed P1
 		raise("DotNet Error: Sealed is a read-only property")
@@ -2652,17 +2596,13 @@ Class XmlnsPrefixAttribute from Attribute
 		return self
 
 	Func getXmlNamespace
-		dn_x = dotnet_call("s3:get",nHandle,"s12:XmlNamespace")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"XmlNamespace"))
 
 	Func setXmlNamespace P1
 		raise("DotNet Error: XmlNamespace is a read-only property")
 
 	Func getPrefix
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Prefix")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Prefix"))
 
 	Func setPrefix P1
 		raise("DotNet Error: Prefix is a read-only property")
@@ -2811,12 +2751,10 @@ Class PropertyDefinition from MemberDefinition
 		return self
 
 	Func getModifier
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Modifier")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Modifier"))
 
 	Func setModifier P1
-		dotnet_callv("s3:set",nHandle,"s8:Modifier",P1)
+		dotnet_setp(nHandle,"Modifier",P1)
 		return self
 
 	Func getAttributes
@@ -2865,12 +2803,10 @@ Class Reference from MarkupExtension
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 
@@ -2914,12 +2850,10 @@ Class StaticExtension from MarkupExtension
 		return self
 
 	Func getMember
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Member")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Member"))
 
 	Func setMember P1
-		dotnet_callv("s3:set",nHandle,"s6:Member",P1)
+		dotnet_setp(nHandle,"Member",P1)
 		return self
 
 	Func getMemberType
@@ -2972,12 +2906,10 @@ Class TypeExtension from MarkupExtension
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func getTypeName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:TypeName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"TypeName"))
 
 	Func setTypeName P1
-		dotnet_callv("s3:set",nHandle,"s8:TypeName",P1)
+		dotnet_setp(nHandle,"TypeName",P1)
 		return self
 
 	Func getType

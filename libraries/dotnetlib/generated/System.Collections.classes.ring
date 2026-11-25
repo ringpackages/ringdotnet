@@ -378,32 +378,32 @@ Class ArrayList from Object
 		return self
 
 	Func getCapacity
-		return dotnet_call("s3:get",nHandle,"s8:Capacity")
+		return dotnet_getp(nHandle,"Capacity")
 
 	Func setCapacity P1
-		dotnet_callv("s3:set",nHandle,"s8:Capacity",P1)
+		dotnet_setp(nHandle,"Capacity",P1)
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsFixedSize
-		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		return dotnet_getp(nHandle,"IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -538,14 +538,14 @@ Class BitArray from Object
 		return self
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func setLength P1
-		dotnet_callv("s3:set",nHandle,"s6:Length",P1)
+		dotnet_setp(nHandle,"Length",P1)
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -557,13 +557,13 @@ Class BitArray from Object
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -684,14 +684,14 @@ Class CollectionBase from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCapacity
-		return dotnet_call("s3:get",nHandle,"s8:Capacity")
+		return dotnet_getp(nHandle,"Capacity")
 
 	Func setCapacity P1
-		dotnet_callv("s3:set",nHandle,"s8:Capacity",P1)
+		dotnet_setp(nHandle,"Capacity",P1)
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -793,7 +793,7 @@ Class DictionaryBase from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -987,19 +987,19 @@ Class Hashtable from Object
 		return self
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		return dotnet_getp(nHandle,"IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -1023,7 +1023,7 @@ Class Hashtable from Object
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1073,7 +1073,7 @@ Class ICollection from DotNetObject
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1085,7 +1085,7 @@ Class ICollection from DotNetObject
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -1195,19 +1195,19 @@ Class IDictionary from DotNetObject
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		return dotnet_getp(nHandle,"IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1219,7 +1219,7 @@ Class IDictionary from DotNetObject
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -1451,19 +1451,19 @@ Class IList from DotNetObject
 		return self
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		return dotnet_getp(nHandle,"IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1475,7 +1475,7 @@ Class IList from DotNetObject
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -1609,7 +1609,7 @@ Class ListDictionaryInternal from Object
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1621,19 +1621,19 @@ Class ListDictionaryInternal from Object
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		return dotnet_getp(nHandle,"IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -1760,13 +1760,13 @@ Class Queue from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -1820,7 +1820,7 @@ Class ReadOnlyCollectionBase from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1985,14 +1985,14 @@ Class SortedList from Object
 		return self
 
 	Func getCapacity
-		return dotnet_call("s3:get",nHandle,"s8:Capacity")
+		return dotnet_getp(nHandle,"Capacity")
 
 	Func setCapacity P1
-		dotnet_callv("s3:set",nHandle,"s8:Capacity",P1)
+		dotnet_setp(nHandle,"Capacity",P1)
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -2010,19 +2010,19 @@ Class SortedList from Object
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		return dotnet_getp(nHandle,"IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -2138,13 +2138,13 @@ Class Stack from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")

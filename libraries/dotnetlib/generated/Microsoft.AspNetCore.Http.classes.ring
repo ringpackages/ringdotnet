@@ -603,7 +603,7 @@ Class BadHttpRequestException from IOException
 		return self
 
 	Func getStatusCode
-		return dotnet_call("s3:get",nHandle,"s10:StatusCode")
+		return dotnet_getp(nHandle,"StatusCode")
 
 	Func setStatusCode P1
 		raise("DotNet Error: StatusCode is a read-only property")
@@ -647,59 +647,49 @@ Class BindingAddress from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.BindingAddress, Microsoft.AspNetCore.Http',"s5:Parse",P1))
 
 	Func getHost
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Host")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Host"))
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
 
 	Func getPathBase
-		dn_x = dotnet_call("s3:get",nHandle,"s8:PathBase")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"PathBase"))
 
 	Func setPathBase P1
 		raise("DotNet Error: PathBase is a read-only property")
 
 	Func getPort
-		return dotnet_call("s3:get",nHandle,"s4:Port")
+		return dotnet_getp(nHandle,"Port")
 
 	Func setPort P1
 		raise("DotNet Error: Port is a read-only property")
 
 	Func getScheme
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Scheme")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Scheme"))
 
 	Func setScheme P1
 		raise("DotNet Error: Scheme is a read-only property")
 
 	Func getIsUnixPipe
-		return dotnet_call("s3:get",nHandle,"s10:IsUnixPipe")
+		return dotnet_getp(nHandle,"IsUnixPipe")
 
 	Func setIsUnixPipe P1
 		raise("DotNet Error: IsUnixPipe is a read-only property")
 
 	Func getIsNamedPipe
-		return dotnet_call("s3:get",nHandle,"s11:IsNamedPipe")
+		return dotnet_getp(nHandle,"IsNamedPipe")
 
 	Func setIsNamedPipe P1
 		raise("DotNet Error: IsNamedPipe is a read-only property")
 
 	Func getUnixPipePath
-		dn_x = dotnet_call("s3:get",nHandle,"s12:UnixPipePath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"UnixPipePath"))
 
 	Func setUnixPipePath P1
 		raise("DotNet Error: UnixPipePath is a read-only property")
 
 	Func getNamedPipeName
-		dn_x = dotnet_call("s3:get",nHandle,"s13:NamedPipeName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"NamedPipeName"))
 
 	Func setNamedPipeName P1
 		raise("DotNet Error: NamedPipeName is a read-only property")
@@ -743,12 +733,10 @@ Class ConnectionInfo from Object
 		return dn_x
 
 	Func getId
-		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Id"))
 
 	Func setId P1
-		dotnet_callv("s3:set",nHandle,"s2:Id",P1)
+		dotnet_setp(nHandle,"Id",P1)
 		return self
 
 	Func getRemoteIpAddress
@@ -759,10 +747,10 @@ Class ConnectionInfo from Object
 		return self
 
 	Func getRemotePort
-		return dotnet_call("s3:get",nHandle,"s10:RemotePort")
+		return dotnet_getp(nHandle,"RemotePort")
 
 	Func setRemotePort P1
-		dotnet_callv("s3:set",nHandle,"s10:RemotePort",P1)
+		dotnet_setp(nHandle,"RemotePort",P1)
 		return self
 
 	Func getLocalIpAddress
@@ -773,10 +761,10 @@ Class ConnectionInfo from Object
 		return self
 
 	Func getLocalPort
-		return dotnet_call("s3:get",nHandle,"s9:LocalPort")
+		return dotnet_getp(nHandle,"LocalPort")
 
 	Func setLocalPort P1
-		dotnet_callv("s3:set",nHandle,"s9:LocalPort",P1)
+		dotnet_setp(nHandle,"LocalPort",P1)
 		return self
 
 	Func getClientCertificate
@@ -830,37 +818,31 @@ Class CookieBuilder from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getPath
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Path")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Path"))
 
 	Func setPath P1
-		dotnet_callv("s3:set",nHandle,"s4:Path",P1)
+		dotnet_setp(nHandle,"Path",P1)
 		return self
 
 	Func getDomain
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Domain")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Domain"))
 
 	Func setDomain P1
-		dotnet_callv("s3:set",nHandle,"s6:Domain",P1)
+		dotnet_setp(nHandle,"Domain",P1)
 		return self
 
 	Func getHttpOnly
-		return dotnet_call("s3:get",nHandle,"s8:HttpOnly")
+		return dotnet_getp(nHandle,"HttpOnly")
 
 	Func setHttpOnly P1
-		dotnet_callv("s3:set",nHandle,"s8:HttpOnly",P1)
+		dotnet_setp(nHandle,"HttpOnly",P1)
 		return self
 
 	Func getSameSite
@@ -892,10 +874,10 @@ Class CookieBuilder from Object
 		return self
 
 	Func getIsEssential
-		return dotnet_call("s3:get",nHandle,"s11:IsEssential")
+		return dotnet_getp(nHandle,"IsEssential")
 
 	Func setIsEssential P1
-		dotnet_callv("s3:set",nHandle,"s11:IsEssential",P1)
+		dotnet_setp(nHandle,"IsEssential",P1)
 		return self
 
 	Func getExtensions
@@ -960,21 +942,17 @@ Class CookieOptions from Object
 		return dn_x
 
 	Func getDomain
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Domain")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Domain"))
 
 	Func setDomain P1
-		dotnet_callv("s3:set",nHandle,"s6:Domain",P1)
+		dotnet_setp(nHandle,"Domain",P1)
 		return self
 
 	Func getPath
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Path")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Path"))
 
 	Func setPath P1
-		dotnet_callv("s3:set",nHandle,"s4:Path",P1)
+		dotnet_setp(nHandle,"Path",P1)
 		return self
 
 	Func getExpires
@@ -985,10 +963,10 @@ Class CookieOptions from Object
 		return self
 
 	Func getSecure
-		return dotnet_call("s3:get",nHandle,"s6:Secure")
+		return dotnet_getp(nHandle,"Secure")
 
 	Func setSecure P1
-		dotnet_callv("s3:set",nHandle,"s6:Secure",P1)
+		dotnet_setp(nHandle,"Secure",P1)
 		return self
 
 	Func getSameSite
@@ -999,10 +977,10 @@ Class CookieOptions from Object
 		return self
 
 	Func getHttpOnly
-		return dotnet_call("s3:get",nHandle,"s8:HttpOnly")
+		return dotnet_getp(nHandle,"HttpOnly")
 
 	Func setHttpOnly P1
-		dotnet_callv("s3:set",nHandle,"s8:HttpOnly",P1)
+		dotnet_setp(nHandle,"HttpOnly",P1)
 		return self
 
 	Func getMaxAge
@@ -1013,10 +991,10 @@ Class CookieOptions from Object
 		return self
 
 	Func getIsEssential
-		return dotnet_call("s3:get",nHandle,"s11:IsEssential")
+		return dotnet_getp(nHandle,"IsEssential")
 
 	Func setIsEssential P1
-		dotnet_callv("s3:set",nHandle,"s11:IsEssential",P1)
+		dotnet_setp(nHandle,"IsEssential",P1)
 		return self
 
 	Func getExtensions
@@ -1097,9 +1075,7 @@ Class AspEndpoint from Object
 		return dn_x
 
 	Func getDisplayName
-		dn_x = dotnet_call("s3:get",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DisplayName"))
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
@@ -1133,9 +1109,7 @@ Class EndpointDescriptionAttribute from Attribute
 		return self
 
 	Func getDescription
-		dn_x = dotnet_call("s3:get",nHandle,"s11:Description")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Description"))
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
@@ -1354,7 +1328,7 @@ Class EndpointMetadataCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1426,9 +1400,7 @@ Class EndpointSummaryAttribute from Attribute
 		return self
 
 	Func getSummary
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Summary")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Summary"))
 
 	Func setSummary P1
 		raise("DotNet Error: Summary is a read-only property")
@@ -1513,7 +1485,7 @@ Class AspFormCollection from Object
 		raise("DotNet Error: Files is a read-only property")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1610,21 +1582,17 @@ Class FormFile from Object
 		return dn_x
 
 	Func getContentDisposition
-		dn_x = dotnet_call("s3:get",nHandle,"s18:ContentDisposition")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentDisposition"))
 
 	Func setContentDisposition P1
-		dotnet_callv("s3:set",nHandle,"s18:ContentDisposition",P1)
+		dotnet_setp(nHandle,"ContentDisposition",P1)
 		return self
 
 	Func getContentType
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ContentType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
-		dotnet_callv("s3:set",nHandle,"s11:ContentType",P1)
+		dotnet_setp(nHandle,"ContentType",P1)
 		return self
 
 	Func getHeaders
@@ -1635,23 +1603,19 @@ Class FormFile from Object
 		return self
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getFileName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:FileName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FileName"))
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
@@ -1733,15 +1697,13 @@ Class FragmentString from ValueType
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.FragmentString, Microsoft.AspNetCore.Http.Abstractions',"s16:FromUriComponent",P1))
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getHasValue
-		return dotnet_call("s3:get",nHandle,"s8:HasValue")
+		return dotnet_getp(nHandle,"HasValue")
 
 	Func setHasValue P1
 		raise("DotNet Error: HasValue is a read-only property")
@@ -1907,16 +1869,16 @@ Class HeaderDictionary from Object
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
-		dotnet_callv("s3:set",nHandle,"s10:IsReadOnly",P1)
+		dotnet_setp(nHandle,"IsReadOnly",P1)
 		return self
 
 	Func getKeys
@@ -2086,23 +2048,19 @@ Class HostString from ValueType
 		return dn_x
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getHasValue
-		return dotnet_call("s3:get",nHandle,"s8:HasValue")
+		return dotnet_getp(nHandle,"HasValue")
 
 	Func setHasValue P1
 		raise("DotNet Error: HasValue is a read-only property")
 
 	Func getHost
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Host")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Host"))
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
@@ -2288,12 +2246,10 @@ Class HttpContext from Object
 		return self
 
 	Func getTraceIdentifier
-		dn_x = dotnet_call("s3:get",nHandle,"s15:TraceIdentifier")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"TraceIdentifier"))
 
 	Func setTraceIdentifier P1
-		dotnet_callv("s3:set",nHandle,"s15:TraceIdentifier",P1)
+		dotnet_setp(nHandle,"TraceIdentifier",P1)
 		return self
 
 	Func getSession
@@ -2736,28 +2692,24 @@ Class HttpRequest from Object
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getMethod
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Method")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Method"))
 
 	Func setMethod P1
-		dotnet_callv("s3:set",nHandle,"s6:Method",P1)
+		dotnet_setp(nHandle,"Method",P1)
 		return self
 
 	Func getScheme
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Scheme")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Scheme"))
 
 	Func setScheme P1
-		dotnet_callv("s3:set",nHandle,"s6:Scheme",P1)
+		dotnet_setp(nHandle,"Scheme",P1)
 		return self
 
 	Func getIsHttps
-		return dotnet_call("s3:get",nHandle,"s7:IsHttps")
+		return dotnet_getp(nHandle,"IsHttps")
 
 	Func setIsHttps P1
-		dotnet_callv("s3:set",nHandle,"s7:IsHttps",P1)
+		dotnet_setp(nHandle,"IsHttps",P1)
 		return self
 
 	Func getHost
@@ -2796,12 +2748,10 @@ Class HttpRequest from Object
 		return self
 
 	Func getProtocol
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Protocol")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Protocol"))
 
 	Func setProtocol P1
-		dotnet_callv("s3:set",nHandle,"s8:Protocol",P1)
+		dotnet_setp(nHandle,"Protocol",P1)
 		return self
 
 	Func getHeaders
@@ -2825,12 +2775,10 @@ Class HttpRequest from Object
 		return self
 
 	Func getContentType
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ContentType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
-		dotnet_callv("s3:set",nHandle,"s11:ContentType",P1)
+		dotnet_setp(nHandle,"ContentType",P1)
 		return self
 
 	Func getBody
@@ -2847,7 +2795,7 @@ Class HttpRequest from Object
 		raise("DotNet Error: BodyReader is a read-only property")
 
 	Func getHasFormContentType
-		return dotnet_call("s3:get",nHandle,"s18:HasFormContentType")
+		return dotnet_getp(nHandle,"HasFormContentType")
 
 	Func setHasFormContentType P1
 		raise("DotNet Error: HasFormContentType is a read-only property")
@@ -3052,10 +3000,10 @@ Class HttpResponse from Object
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getStatusCode
-		return dotnet_call("s3:get",nHandle,"s10:StatusCode")
+		return dotnet_getp(nHandle,"StatusCode")
 
 	Func setStatusCode P1
-		dotnet_callv("s3:set",nHandle,"s10:StatusCode",P1)
+		dotnet_setp(nHandle,"StatusCode",P1)
 		return self
 
 	Func getHeaders
@@ -3085,12 +3033,10 @@ Class HttpResponse from Object
 		return self
 
 	Func getContentType
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ContentType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
-		dotnet_callv("s3:set",nHandle,"s11:ContentType",P1)
+		dotnet_setp(nHandle,"ContentType",P1)
 		return self
 
 	Func getCookies
@@ -3100,7 +3046,7 @@ Class HttpResponse from Object
 		raise("DotNet Error: Cookies is a read-only property")
 
 	Func getHasStarted
-		return dotnet_call("s3:get",nHandle,"s10:HasStarted")
+		return dotnet_getp(nHandle,"HasStarted")
 
 	Func setHasStarted P1
 		raise("DotNet Error: HasStarted is a read-only property")
@@ -3228,9 +3174,7 @@ Class IContentTypeHttpResult from DotNetObject
 		return self
 
 	Func getContentType
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ContentType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
@@ -3266,17 +3210,13 @@ Class IFileHttpResult from DotNetObject
 		return self
 
 	Func getContentType
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ContentType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getFileDownloadName
-		dn_x = dotnet_call("s3:get",nHandle,"s16:FileDownloadName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FileDownloadName"))
 
 	Func setFileDownloadName P1
 		raise("DotNet Error: FileDownloadName is a read-only property")
@@ -3332,7 +3272,7 @@ Class IFormCollection from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -3383,17 +3323,13 @@ Class IFormFile from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CopyToAsync",P1))
 
 	Func getContentType
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ContentType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getContentDisposition
-		dn_x = dotnet_call("s3:get",nHandle,"s18:ContentDisposition")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentDisposition"))
 
 	Func setContentDisposition P1
 		raise("DotNet Error: ContentDisposition is a read-only property")
@@ -3405,23 +3341,19 @@ Class IFormFile from DotNetObject
 		raise("DotNet Error: Headers is a read-only property")
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getFileName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:FileName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FileName"))
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
@@ -3473,7 +3405,7 @@ Class IFormFileCollection from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -4323,13 +4255,13 @@ Class IHeaderDictionary from DotNetObject
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -4513,7 +4445,7 @@ Class IQueryCollection from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -4576,7 +4508,7 @@ Class IRequestCookieCollection from DotNetObject
 		return dn_x
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -4721,15 +4653,13 @@ Class ISession from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
 
 	Func getIsAvailable
-		return dotnet_call("s3:get",nHandle,"s11:IsAvailable")
+		return dotnet_getp(nHandle,"IsAvailable")
 
 	Func setIsAvailable P1
 		raise("DotNet Error: IsAvailable is a read-only property")
 
 	Func getId
-		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Id"))
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -4952,15 +4882,13 @@ Class PathString from ValueType
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.PathString, Microsoft.AspNetCore.Http.Abstractions',"s16:FromUriComponent",P1))
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getHasValue
-		return dotnet_call("s3:get",nHandle,"s8:HasValue")
+		return dotnet_getp(nHandle,"HasValue")
 
 	Func setHasValue P1
 		raise("DotNet Error: HasValue is a read-only property")
@@ -5117,7 +5045,7 @@ Class ProducesResponseTypeMetadata from Object
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getStatusCode
-		return dotnet_call("s3:get",nHandle,"s10:StatusCode")
+		return dotnet_getp(nHandle,"StatusCode")
 
 	Func setStatusCode P1
 		raise("DotNet Error: StatusCode is a read-only property")
@@ -5209,7 +5137,7 @@ Class QueryCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -5327,15 +5255,13 @@ Class QueryString from ValueType
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions',"s6:Create",P1))
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getHasValue
-		return dotnet_call("s3:get",nHandle,"s8:HasValue")
+		return dotnet_getp(nHandle,"HasValue")
 
 	Func setHasValue P1
 		raise("DotNet Error: HasValue is a read-only property")
@@ -5426,17 +5352,17 @@ Class RequestDelegateFactoryOptions from Object
 		return self
 
 	Func getThrowOnBadRequest
-		return dotnet_call("s3:get",nHandle,"s17:ThrowOnBadRequest")
+		return dotnet_getp(nHandle,"ThrowOnBadRequest")
 
 	Func setThrowOnBadRequest P1
-		dotnet_callv("s3:set",nHandle,"s17:ThrowOnBadRequest",P1)
+		dotnet_setp(nHandle,"ThrowOnBadRequest",P1)
 		return self
 
 	Func getDisableInferBodyFromParameters
-		return dotnet_call("s3:get",nHandle,"s30:DisableInferBodyFromParameters")
+		return dotnet_getp(nHandle,"DisableInferBodyFromParameters")
 
 	Func setDisableInferBodyFromParameters P1
-		dotnet_callv("s3:set",nHandle,"s30:DisableInferBodyFromParameters",P1)
+		dotnet_setp(nHandle,"DisableInferBodyFromParameters",P1)
 		return self
 
 	Func getEndpointBuilder
@@ -6809,12 +6735,10 @@ Class WebSocketAcceptContext from Object
 		return dn_x
 
 	Func getSubProtocol
-		dn_x = dotnet_call("s3:get",nHandle,"s11:SubProtocol")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"SubProtocol"))
 
 	Func setSubProtocol P1
-		dotnet_callv("s3:set",nHandle,"s11:SubProtocol",P1)
+		dotnet_setp(nHandle,"SubProtocol",P1)
 		return self
 
 	Func getKeepAliveInterval
@@ -6832,24 +6756,24 @@ Class WebSocketAcceptContext from Object
 		return self
 
 	Func getDangerousEnableCompression
-		return dotnet_call("s3:get",nHandle,"s26:DangerousEnableCompression")
+		return dotnet_getp(nHandle,"DangerousEnableCompression")
 
 	Func setDangerousEnableCompression P1
-		dotnet_callv("s3:set",nHandle,"s26:DangerousEnableCompression",P1)
+		dotnet_setp(nHandle,"DangerousEnableCompression",P1)
 		return self
 
 	Func getDisableServerContextTakeover
-		return dotnet_call("s3:get",nHandle,"s28:DisableServerContextTakeover")
+		return dotnet_getp(nHandle,"DisableServerContextTakeover")
 
 	Func setDisableServerContextTakeover P1
-		dotnet_callv("s3:set",nHandle,"s28:DisableServerContextTakeover",P1)
+		dotnet_setp(nHandle,"DisableServerContextTakeover",P1)
 		return self
 
 	Func getServerMaxWindowBits
-		return dotnet_call("s3:get",nHandle,"s19:ServerMaxWindowBits")
+		return dotnet_getp(nHandle,"ServerMaxWindowBits")
 
 	Func setServerMaxWindowBits P1
-		dotnet_callv("s3:set",nHandle,"s19:ServerMaxWindowBits",P1)
+		dotnet_setp(nHandle,"ServerMaxWindowBits",P1)
 		return self
 
 
@@ -6882,7 +6806,7 @@ Class WebSocketManager from Object
 		return dn_x
 
 	Func getIsWebSocketRequest
-		return dotnet_call("s3:get",nHandle,"s18:IsWebSocketRequest")
+		return dotnet_getp(nHandle,"IsWebSocketRequest")
 
 	Func setIsWebSocketRequest P1
 		raise("DotNet Error: IsWebSocketRequest is a read-only property")

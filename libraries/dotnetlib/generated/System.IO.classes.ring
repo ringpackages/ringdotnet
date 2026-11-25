@@ -673,15 +673,13 @@ Class DriveInfo from Object
 		return dnObj(dotnet_callo("s4:call",'System.IO.DriveInfo, System.IO.FileSystem.DriveInfo',"s9:GetDrives"))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getIsReady
-		return dotnet_call("s3:get",nHandle,"s7:IsReady")
+		return dotnet_getp(nHandle,"IsReady")
 
 	Func setIsReady P1
 		raise("DotNet Error: IsReady is a read-only property")
@@ -699,38 +697,34 @@ Class DriveInfo from Object
 		raise("DotNet Error: DriveType is a read-only property")
 
 	Func getDriveFormat
-		dn_x = dotnet_call("s3:get",nHandle,"s11:DriveFormat")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DriveFormat"))
 
 	Func setDriveFormat P1
 		raise("DotNet Error: DriveFormat is a read-only property")
 
 	Func getAvailableFreeSpace
-		return dotnet_call("s3:get",nHandle,"s18:AvailableFreeSpace")
+		return dotnet_getp(nHandle,"AvailableFreeSpace")
 
 	Func setAvailableFreeSpace P1
 		raise("DotNet Error: AvailableFreeSpace is a read-only property")
 
 	Func getTotalFreeSpace
-		return dotnet_call("s3:get",nHandle,"s14:TotalFreeSpace")
+		return dotnet_getp(nHandle,"TotalFreeSpace")
 
 	Func setTotalFreeSpace P1
 		raise("DotNet Error: TotalFreeSpace is a read-only property")
 
 	Func getTotalSize
-		return dotnet_call("s3:get",nHandle,"s9:TotalSize")
+		return dotnet_getp(nHandle,"TotalSize")
 
 	Func setTotalSize P1
 		raise("DotNet Error: TotalSize is a read-only property")
 
 	Func getVolumeLabel
-		dn_x = dotnet_call("s3:get",nHandle,"s11:VolumeLabel")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"VolumeLabel"))
 
 	Func setVolumeLabel P1
-		dotnet_callv("s3:set",nHandle,"s11:VolumeLabel",P1)
+		dotnet_setp(nHandle,"VolumeLabel",P1)
 		return self
 
 
@@ -769,24 +763,24 @@ Class EnumerationOptions from Object
 		return dn_x
 
 	Func getRecurseSubdirectories
-		return dotnet_call("s3:get",nHandle,"s21:RecurseSubdirectories")
+		return dotnet_getp(nHandle,"RecurseSubdirectories")
 
 	Func setRecurseSubdirectories P1
-		dotnet_callv("s3:set",nHandle,"s21:RecurseSubdirectories",P1)
+		dotnet_setp(nHandle,"RecurseSubdirectories",P1)
 		return self
 
 	Func getIgnoreInaccessible
-		return dotnet_call("s3:get",nHandle,"s18:IgnoreInaccessible")
+		return dotnet_getp(nHandle,"IgnoreInaccessible")
 
 	Func setIgnoreInaccessible P1
-		dotnet_callv("s3:set",nHandle,"s18:IgnoreInaccessible",P1)
+		dotnet_setp(nHandle,"IgnoreInaccessible",P1)
 		return self
 
 	Func getBufferSize
-		return dotnet_call("s3:get",nHandle,"s10:BufferSize")
+		return dotnet_getp(nHandle,"BufferSize")
 
 	Func setBufferSize P1
-		dotnet_callv("s3:set",nHandle,"s10:BufferSize",P1)
+		dotnet_setp(nHandle,"BufferSize",P1)
 		return self
 
 	Func getAttributesToSkip
@@ -811,17 +805,17 @@ Class EnumerationOptions from Object
 		return self
 
 	Func getMaxRecursionDepth
-		return dotnet_call("s3:get",nHandle,"s17:MaxRecursionDepth")
+		return dotnet_getp(nHandle,"MaxRecursionDepth")
 
 	Func setMaxRecursionDepth P1
-		dotnet_callv("s3:set",nHandle,"s17:MaxRecursionDepth",P1)
+		dotnet_setp(nHandle,"MaxRecursionDepth",P1)
 		return self
 
 	Func getReturnSpecialDirectories
-		return dotnet_call("s3:get",nHandle,"s24:ReturnSpecialDirectories")
+		return dotnet_getp(nHandle,"ReturnSpecialDirectories")
 
 	Func setReturnSpecialDirectories P1
-		dotnet_callv("s3:set",nHandle,"s24:ReturnSpecialDirectories",P1)
+		dotnet_setp(nHandle,"ReturnSpecialDirectories",P1)
 		return self
 
 
@@ -1188,17 +1182,17 @@ Class FileStreamOptions from Object
 		return self
 
 	Func getPreallocationSize
-		return dotnet_call("s3:get",nHandle,"s17:PreallocationSize")
+		return dotnet_getp(nHandle,"PreallocationSize")
 
 	Func setPreallocationSize P1
-		dotnet_callv("s3:set",nHandle,"s17:PreallocationSize",P1)
+		dotnet_setp(nHandle,"PreallocationSize",P1)
 		return self
 
 	Func getBufferSize
-		return dotnet_call("s3:get",nHandle,"s10:BufferSize")
+		return dotnet_getp(nHandle,"BufferSize")
 
 	Func setBufferSize P1
-		dotnet_callv("s3:set",nHandle,"s10:BufferSize",P1)
+		dotnet_setp(nHandle,"BufferSize",P1)
 		return self
 
 	Func getUnixCreateMode
@@ -1233,17 +1227,13 @@ Class FileSystemEventArgs from EventArgs
 		raise("DotNet Error: ChangeType is a read-only property")
 
 	Func getFullPath
-		dn_x = dotnet_call("s3:get",nHandle,"s8:FullPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FullPath"))
 
 	Func setFullPath P1
 		raise("DotNet Error: FullPath is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1298,31 +1288,25 @@ Class FileSystemInfo from MarshalByRefObject
 		return self
 
 	Func getFullName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:FullName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FullName"))
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")
 
 	Func getExtension
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Extension")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Extension"))
 
 	Func setExtension P1
 		raise("DotNet Error: Extension is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getExists
-		return dotnet_call("s3:get",nHandle,"s6:Exists")
+		return dotnet_getp(nHandle,"Exists")
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")
@@ -1370,9 +1354,7 @@ Class FileSystemInfo from MarshalByRefObject
 		return self
 
 	Func getLinkTarget
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LinkTarget")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"LinkTarget"))
 
 	Func setLinkTarget P1
 		raise("DotNet Error: LinkTarget is a read-only property")
@@ -1507,42 +1489,38 @@ Class FileSystemWatcher from Component
 		raise("DotNet Error: Filters is a read-only property")
 
 	Func getEnableRaisingEvents
-		return dotnet_call("s3:get",nHandle,"s19:EnableRaisingEvents")
+		return dotnet_getp(nHandle,"EnableRaisingEvents")
 
 	Func setEnableRaisingEvents P1
-		dotnet_callv("s3:set",nHandle,"s19:EnableRaisingEvents",P1)
+		dotnet_setp(nHandle,"EnableRaisingEvents",P1)
 		return self
 
 	Func getFilter
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Filter")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Filter"))
 
 	Func setFilter P1
-		dotnet_callv("s3:set",nHandle,"s6:Filter",P1)
+		dotnet_setp(nHandle,"Filter",P1)
 		return self
 
 	Func getIncludeSubdirectories
-		return dotnet_call("s3:get",nHandle,"s21:IncludeSubdirectories")
+		return dotnet_getp(nHandle,"IncludeSubdirectories")
 
 	Func setIncludeSubdirectories P1
-		dotnet_callv("s3:set",nHandle,"s21:IncludeSubdirectories",P1)
+		dotnet_setp(nHandle,"IncludeSubdirectories",P1)
 		return self
 
 	Func getInternalBufferSize
-		return dotnet_call("s3:get",nHandle,"s18:InternalBufferSize")
+		return dotnet_getp(nHandle,"InternalBufferSize")
 
 	Func setInternalBufferSize P1
-		dotnet_callv("s3:set",nHandle,"s18:InternalBufferSize",P1)
+		dotnet_setp(nHandle,"InternalBufferSize",P1)
 		return self
 
 	Func getPath
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Path")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Path"))
 
 	Func setPath P1
-		dotnet_callv("s3:set",nHandle,"s4:Path",P1)
+		dotnet_setp(nHandle,"Path",P1)
 		return self
 
 	Func getSynchronizingObject
@@ -2056,51 +2034,51 @@ Class Stream from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func getCanRead
-		return dotnet_call("s3:get",nHandle,"s7:CanRead")
+		return dotnet_getp(nHandle,"CanRead")
 
 	Func setCanRead P1
 		raise("DotNet Error: CanRead is a read-only property")
 
 	Func getCanWrite
-		return dotnet_call("s3:get",nHandle,"s8:CanWrite")
+		return dotnet_getp(nHandle,"CanWrite")
 
 	Func setCanWrite P1
 		raise("DotNet Error: CanWrite is a read-only property")
 
 	Func getCanSeek
-		return dotnet_call("s3:get",nHandle,"s7:CanSeek")
+		return dotnet_getp(nHandle,"CanSeek")
 
 	Func setCanSeek P1
 		raise("DotNet Error: CanSeek is a read-only property")
 
 	Func getCanTimeout
-		return dotnet_call("s3:get",nHandle,"s10:CanTimeout")
+		return dotnet_getp(nHandle,"CanTimeout")
 
 	Func setCanTimeout P1
 		raise("DotNet Error: CanTimeout is a read-only property")
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func getPosition
-		return dotnet_call("s3:get",nHandle,"s8:Position")
+		return dotnet_getp(nHandle,"Position")
 
 	Func setPosition P1
-		dotnet_callv("s3:set",nHandle,"s8:Position",P1)
+		dotnet_setp(nHandle,"Position",P1)
 		return self
 
 	Func getReadTimeout
-		return dotnet_call("s3:get",nHandle,"s11:ReadTimeout")
+		return dotnet_getp(nHandle,"ReadTimeout")
 
 	Func setReadTimeout P1
-		dotnet_callv("s3:set",nHandle,"s11:ReadTimeout",P1)
+		dotnet_setp(nHandle,"ReadTimeout",P1)
 		return self
 
 	Func getWriteTimeout
-		return dotnet_call("s3:get",nHandle,"s12:WriteTimeout")
+		return dotnet_getp(nHandle,"WriteTimeout")
 
 	Func setWriteTimeout P1
-		dotnet_callv("s3:set",nHandle,"s12:WriteTimeout",P1)
+		dotnet_setp(nHandle,"WriteTimeout",P1)
 		return self
 
 	Func getNull
@@ -2310,12 +2288,10 @@ Class TextWriter from MarshalByRefObject
 		raise("DotNet Error: Encoding is a read-only property")
 
 	Func getNewLine
-		dn_x = dotnet_call("s3:get",nHandle,"s7:NewLine")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"NewLine"))
 
 	Func setNewLine P1
-		dotnet_callv("s3:set",nHandle,"s7:NewLine",P1)
+		dotnet_setp(nHandle,"NewLine",P1)
 		return self
 
 	Func getNull
@@ -2449,19 +2425,19 @@ Class UnmanagedMemoryAccessor from Object
 		return dn_x
 
 	Func getCapacity
-		return dotnet_call("s3:get",nHandle,"s8:Capacity")
+		return dotnet_getp(nHandle,"Capacity")
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")
 
 	Func getCanRead
-		return dotnet_call("s3:get",nHandle,"s7:CanRead")
+		return dotnet_getp(nHandle,"CanRead")
 
 	Func setCanRead P1
 		raise("DotNet Error: CanRead is a read-only property")
 
 	Func getCanWrite
-		return dotnet_call("s3:get",nHandle,"s8:CanWrite")
+		return dotnet_getp(nHandle,"CanWrite")
 
 	Func setCanWrite P1
 		raise("DotNet Error: CanWrite is a read-only property")
@@ -2500,28 +2476,24 @@ Class WaitForChangedResult from ValueType
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getOldName
-		dn_x = dotnet_call("s3:get",nHandle,"s7:OldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"OldName"))
 
 	Func setOldName P1
-		dotnet_callv("s3:set",nHandle,"s7:OldName",P1)
+		dotnet_setp(nHandle,"OldName",P1)
 		return self
 
 	Func getTimedOut
-		return dotnet_call("s3:get",nHandle,"s8:TimedOut")
+		return dotnet_getp(nHandle,"TimedOut")
 
 	Func setTimedOut P1
-		dotnet_callv("s3:set",nHandle,"s8:TimedOut",P1)
+		dotnet_setp(nHandle,"TimedOut",P1)
 		return self
 
 
@@ -2563,7 +2535,7 @@ Class BufferedStream from Stream
 		raise("DotNet Error: UnderlyingStream is a read-only property")
 
 	Func getBufferSize
-		return dotnet_call("s3:get",nHandle,"s10:BufferSize")
+		return dotnet_getp(nHandle,"BufferSize")
 
 	Func setBufferSize P1
 		raise("DotNet Error: BufferSize is a read-only property")
@@ -2864,15 +2836,13 @@ Class FileInfo from FileSystemInfo
 		return self
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getDirectoryName
-		dn_x = dotnet_call("s3:get",nHandle,"s13:DirectoryName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DirectoryName"))
 
 	Func setDirectoryName P1
 		raise("DotNet Error: DirectoryName is a read-only property")
@@ -2884,10 +2854,10 @@ Class FileInfo from FileSystemInfo
 		raise("DotNet Error: Directory is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
-		dotnet_callv("s3:set",nHandle,"s10:IsReadOnly",P1)
+		dotnet_setp(nHandle,"IsReadOnly",P1)
 		return self
 
 
@@ -2931,17 +2901,13 @@ Class FileLoadException from IOException
 		return self
 
 	Func getFileName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:FileName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FileName"))
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
 
 	Func getFusionLog
-		dn_x = dotnet_call("s3:get",nHandle,"s9:FusionLog")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FusionLog"))
 
 	Func setFusionLog P1
 		raise("DotNet Error: FusionLog is a read-only property")
@@ -2987,17 +2953,13 @@ Class FileNotFoundException from IOException
 		return self
 
 	Func getFileName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:FileName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FileName"))
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
 
 	Func getFusionLog
-		dn_x = dotnet_call("s3:get",nHandle,"s9:FusionLog")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FusionLog"))
 
 	Func setFusionLog P1
 		raise("DotNet Error: FusionLog is a read-only property")
@@ -3073,15 +3035,13 @@ Class FileStream from Stream
 		raise("DotNet Error: SafeFileHandle is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getIsAsync
-		return dotnet_call("s3:get",nHandle,"s7:IsAsync")
+		return dotnet_getp(nHandle,"IsAsync")
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
@@ -3140,10 +3100,10 @@ Class MemoryStream from Stream
 		return self
 
 	Func getCapacity
-		return dotnet_call("s3:get",nHandle,"s8:Capacity")
+		return dotnet_getp(nHandle,"Capacity")
 
 	Func setCapacity P1
-		dotnet_callv("s3:set",nHandle,"s8:Capacity",P1)
+		dotnet_setp(nHandle,"Capacity",P1)
 		return self
 
 
@@ -3201,17 +3161,13 @@ Class RenamedEventArgs from FileSystemEventArgs
 		return self
 
 	Func getOldFullPath
-		dn_x = dotnet_call("s3:get",nHandle,"s11:OldFullPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"OldFullPath"))
 
 	Func setOldFullPath P1
 		raise("DotNet Error: OldFullPath is a read-only property")
 
 	Func getOldName
-		dn_x = dotnet_call("s3:get",nHandle,"s7:OldName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"OldName"))
 
 	Func setOldName P1
 		raise("DotNet Error: OldName is a read-only property")
@@ -3267,7 +3223,7 @@ Class StreamReader from TextReader
 		raise("DotNet Error: BaseStream is a read-only property")
 
 	Func getEndOfStream
-		return dotnet_call("s3:get",nHandle,"s11:EndOfStream")
+		return dotnet_getp(nHandle,"EndOfStream")
 
 	Func setEndOfStream P1
 		raise("DotNet Error: EndOfStream is a read-only property")
@@ -3308,10 +3264,10 @@ Class StreamWriter from TextWriter
 		return self
 
 	Func getAutoFlush
-		return dotnet_call("s3:get",nHandle,"s9:AutoFlush")
+		return dotnet_getp(nHandle,"AutoFlush")
 
 	Func setAutoFlush P1
-		dotnet_callv("s3:set",nHandle,"s9:AutoFlush",P1)
+		dotnet_setp(nHandle,"AutoFlush",P1)
 		return self
 
 	Func getBaseStream
@@ -3410,7 +3366,7 @@ Class UnmanagedMemoryStream from Stream
 		return self
 
 	Func getCapacity
-		return dotnet_call("s3:get",nHandle,"s8:Capacity")
+		return dotnet_getp(nHandle,"Capacity")
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")

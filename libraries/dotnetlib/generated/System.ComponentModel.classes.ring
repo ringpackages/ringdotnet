@@ -1042,7 +1042,7 @@ Class AsyncCompletedEventArgs from EventArgs
 		return self
 
 	Func getCancelled
-		return dotnet_call("s3:get",nHandle,"s9:Cancelled")
+		return dotnet_getp(nHandle,"Cancelled")
 
 	Func setCancelled P1
 		raise("DotNet Error: Cancelled is a read-only property")
@@ -1202,7 +1202,7 @@ Class AttributeCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1245,14 +1245,10 @@ Class AttributeProviderAttribute from Attribute
 		return self
 
 	Func getTypeName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:TypeName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"TypeName"))
 
 	Func getPropertyName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:PropertyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"PropertyName"))
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
@@ -1293,7 +1289,7 @@ Class BindableAttribute from Attribute
 		return self
 
 	Func getBindable
-		return dotnet_call("s3:get",nHandle,"s8:Bindable")
+		return dotnet_getp(nHandle,"Bindable")
 
 	Func setBindable P1
 		raise("DotNet Error: Bindable is a read-only property")
@@ -1383,31 +1379,31 @@ Class BindingList from Collection
 		return self
 
 	Func getRaiseListChangedEvents
-		return dotnet_call("s3:get",nHandle,"s22:RaiseListChangedEvents")
+		return dotnet_getp(nHandle,"RaiseListChangedEvents")
 
 	Func setRaiseListChangedEvents P1
-		dotnet_callv("s3:set",nHandle,"s22:RaiseListChangedEvents",P1)
+		dotnet_setp(nHandle,"RaiseListChangedEvents",P1)
 		return self
 
 	Func getAllowNew
-		return dotnet_call("s3:get",nHandle,"s8:AllowNew")
+		return dotnet_getp(nHandle,"AllowNew")
 
 	Func setAllowNew P1
-		dotnet_callv("s3:set",nHandle,"s8:AllowNew",P1)
+		dotnet_setp(nHandle,"AllowNew",P1)
 		return self
 
 	Func getAllowEdit
-		return dotnet_call("s3:get",nHandle,"s9:AllowEdit")
+		return dotnet_getp(nHandle,"AllowEdit")
 
 	Func setAllowEdit P1
-		dotnet_callv("s3:set",nHandle,"s9:AllowEdit",P1)
+		dotnet_setp(nHandle,"AllowEdit",P1)
 		return self
 
 	Func getAllowRemove
-		return dotnet_call("s3:get",nHandle,"s11:AllowRemove")
+		return dotnet_getp(nHandle,"AllowRemove")
 
 	Func setAllowRemove P1
-		dotnet_callv("s3:set",nHandle,"s11:AllowRemove",P1)
+		dotnet_setp(nHandle,"AllowRemove",P1)
 		return self
 
 
@@ -1430,7 +1426,7 @@ Class BrowsableAttribute from Attribute
 		return self
 
 	Func getBrowsable
-		return dotnet_call("s3:get",nHandle,"s9:Browsable")
+		return dotnet_getp(nHandle,"Browsable")
 
 	Func setBrowsable P1
 		raise("DotNet Error: Browsable is a read-only property")
@@ -1493,10 +1489,10 @@ Class CancelEventArgs from EventArgs
 		return self
 
 	Func getCancel
-		return dotnet_call("s3:get",nHandle,"s6:Cancel")
+		return dotnet_getp(nHandle,"Cancel")
 
 	Func setCancel P1
-		dotnet_callv("s3:set",nHandle,"s6:Cancel",P1)
+		dotnet_setp(nHandle,"Cancel",P1)
 		return self
 
 
@@ -1553,9 +1549,7 @@ Class CategoryAttribute from Attribute
 		return self
 
 	Func getCategory
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Category")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Category"))
 
 	Func setCategory P1
 		raise("DotNet Error: Category is a read-only property")
@@ -1715,17 +1709,13 @@ Class ComplexBindingPropertiesAttribute from Attribute
 		return self
 
 	Func getDataSource
-		dn_x = dotnet_call("s3:get",nHandle,"s10:DataSource")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DataSource"))
 
 	Func setDataSource P1
 		raise("DotNet Error: DataSource is a read-only property")
 
 	Func getDataMember
-		dn_x = dotnet_call("s3:get",nHandle,"s10:DataMember")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DataMember"))
 
 	Func setDataMember P1
 		raise("DotNet Error: DataMember is a read-only property")
@@ -2054,9 +2044,7 @@ Class DataErrorsChangedEventArgs from EventArgs
 		return self
 
 	Func getPropertyName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:PropertyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"PropertyName"))
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
@@ -2104,7 +2092,7 @@ Class DataObjectAttribute from Attribute
 		return self
 
 	Func getIsDataObject
-		return dotnet_call("s3:get",nHandle,"s12:IsDataObject")
+		return dotnet_getp(nHandle,"IsDataObject")
 
 	Func setIsDataObject P1
 		raise("DotNet Error: IsDataObject is a read-only property")
@@ -2162,25 +2150,25 @@ Class DataObjectFieldAttribute from Attribute
 		return self
 
 	Func getIsIdentity
-		return dotnet_call("s3:get",nHandle,"s10:IsIdentity")
+		return dotnet_getp(nHandle,"IsIdentity")
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")
 
 	Func getIsNullable
-		return dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		return dotnet_getp(nHandle,"IsNullable")
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getPrimaryKey
-		return dotnet_call("s3:get",nHandle,"s10:PrimaryKey")
+		return dotnet_getp(nHandle,"PrimaryKey")
 
 	Func setPrimaryKey P1
 		raise("DotNet Error: PrimaryKey is a read-only property")
@@ -2218,7 +2206,7 @@ Class DataObjectMethodAttribute from Attribute
 		return self
 
 	Func getIsDefault
-		return dotnet_call("s3:get",nHandle,"s9:IsDefault")
+		return dotnet_getp(nHandle,"IsDefault")
 
 	Func setIsDefault P1
 		raise("DotNet Error: IsDefault is a read-only property")
@@ -2270,9 +2258,7 @@ Class DefaultBindingPropertyAttribute from Attribute
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2301,9 +2287,7 @@ Class DefaultEventAttribute from Attribute
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2332,9 +2316,7 @@ Class DefaultPropertyAttribute from Attribute
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2423,9 +2405,7 @@ Class DescriptionAttribute from Attribute
 		return self
 
 	Func getDescription
-		dn_x = dotnet_call("s3:get",nHandle,"s11:Description")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Description"))
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
@@ -2456,7 +2436,7 @@ Class DesignOnlyAttribute from Attribute
 		return self
 
 	Func getIsDesignOnly
-		return dotnet_call("s3:get",nHandle,"s12:IsDesignOnly")
+		return dotnet_getp(nHandle,"IsDesignOnly")
 
 	Func setIsDesignOnly P1
 		raise("DotNet Error: IsDesignOnly is a read-only property")
@@ -2522,7 +2502,7 @@ Class DesignTimeVisibleAttribute from Attribute
 		return self
 
 	Func getVisible
-		return dotnet_call("s3:get",nHandle,"s7:Visible")
+		return dotnet_getp(nHandle,"Visible")
 
 	Func setVisible P1
 		raise("DotNet Error: Visible is a read-only property")
@@ -2578,17 +2558,13 @@ Class DesignerAttribute from Attribute
 		return self
 
 	Func getDesignerBaseTypeName
-		dn_x = dotnet_call("s3:get",nHandle,"s20:DesignerBaseTypeName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DesignerBaseTypeName"))
 
 	Func setDesignerBaseTypeName P1
 		raise("DotNet Error: DesignerBaseTypeName is a read-only property")
 
 	Func getDesignerTypeName
-		dn_x = dotnet_call("s3:get",nHandle,"s16:DesignerTypeName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DesignerTypeName"))
 
 	Func setDesignerTypeName P1
 		raise("DotNet Error: DesignerTypeName is a read-only property")
@@ -2637,9 +2613,7 @@ Class DesignerCategoryAttribute from Attribute
 		return self
 
 	Func getCategory
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Category")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Category"))
 
 	Func setCategory P1
 		raise("DotNet Error: Category is a read-only property")
@@ -2759,9 +2733,7 @@ Class DisplayNameAttribute from Attribute
 		return self
 
 	Func getDisplayName
-		dn_x = dotnet_call("s3:get",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DisplayName"))
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
@@ -2813,17 +2785,13 @@ Class EditorAttribute from Attribute
 		return self
 
 	Func getEditorBaseTypeName
-		dn_x = dotnet_call("s3:get",nHandle,"s18:EditorBaseTypeName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"EditorBaseTypeName"))
 
 	Func setEditorBaseTypeName P1
 		raise("DotNet Error: EditorBaseTypeName is a read-only property")
 
 	Func getEditorTypeName
-		dn_x = dotnet_call("s3:get",nHandle,"s14:EditorTypeName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"EditorTypeName"))
 
 	Func setEditorTypeName P1
 		raise("DotNet Error: EditorTypeName is a read-only property")
@@ -2984,7 +2952,7 @@ Class EventDescriptorCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -3131,10 +3099,10 @@ Class HandledEventArgs from EventArgs
 		return self
 
 	Func getHandled
-		return dotnet_call("s3:get",nHandle,"s7:Handled")
+		return dotnet_getp(nHandle,"Handled")
 
 	Func setHandled P1
-		dotnet_callv("s3:set",nHandle,"s7:Handled",P1)
+		dotnet_setp(nHandle,"Handled",P1)
 		return self
 
 
@@ -3264,43 +3232,43 @@ Class IBindingList from DotNetObject
 		return self
 
 	Func getAllowNew
-		return dotnet_call("s3:get",nHandle,"s8:AllowNew")
+		return dotnet_getp(nHandle,"AllowNew")
 
 	Func setAllowNew P1
 		raise("DotNet Error: AllowNew is a read-only property")
 
 	Func getAllowEdit
-		return dotnet_call("s3:get",nHandle,"s9:AllowEdit")
+		return dotnet_getp(nHandle,"AllowEdit")
 
 	Func setAllowEdit P1
 		raise("DotNet Error: AllowEdit is a read-only property")
 
 	Func getAllowRemove
-		return dotnet_call("s3:get",nHandle,"s11:AllowRemove")
+		return dotnet_getp(nHandle,"AllowRemove")
 
 	Func setAllowRemove P1
 		raise("DotNet Error: AllowRemove is a read-only property")
 
 	Func getSupportsChangeNotification
-		return dotnet_call("s3:get",nHandle,"s26:SupportsChangeNotification")
+		return dotnet_getp(nHandle,"SupportsChangeNotification")
 
 	Func setSupportsChangeNotification P1
 		raise("DotNet Error: SupportsChangeNotification is a read-only property")
 
 	Func getSupportsSearching
-		return dotnet_call("s3:get",nHandle,"s17:SupportsSearching")
+		return dotnet_getp(nHandle,"SupportsSearching")
 
 	Func setSupportsSearching P1
 		raise("DotNet Error: SupportsSearching is a read-only property")
 
 	Func getSupportsSorting
-		return dotnet_call("s3:get",nHandle,"s15:SupportsSorting")
+		return dotnet_getp(nHandle,"SupportsSorting")
 
 	Func setSupportsSorting P1
 		raise("DotNet Error: SupportsSorting is a read-only property")
 
 	Func getIsSorted
-		return dotnet_call("s3:get",nHandle,"s8:IsSorted")
+		return dotnet_getp(nHandle,"IsSorted")
 
 	Func setIsSorted P1
 		raise("DotNet Error: IsSorted is a read-only property")
@@ -3318,19 +3286,19 @@ Class IBindingList from DotNetObject
 		raise("DotNet Error: SortDirection is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		return dotnet_getp(nHandle,"IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -3342,7 +3310,7 @@ Class IBindingList from DotNetObject
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -3487,12 +3455,10 @@ Class IBindingListView from DotNetObject
 		return self
 
 	Func getFilter
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Filter")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Filter"))
 
 	Func setFilter P1
-		dotnet_callv("s3:set",nHandle,"s6:Filter",P1)
+		dotnet_setp(nHandle,"Filter",P1)
 		return self
 
 	Func getSortDescriptions
@@ -3502,55 +3468,55 @@ Class IBindingListView from DotNetObject
 		raise("DotNet Error: SortDescriptions is a read-only property")
 
 	Func getSupportsAdvancedSorting
-		return dotnet_call("s3:get",nHandle,"s23:SupportsAdvancedSorting")
+		return dotnet_getp(nHandle,"SupportsAdvancedSorting")
 
 	Func setSupportsAdvancedSorting P1
 		raise("DotNet Error: SupportsAdvancedSorting is a read-only property")
 
 	Func getSupportsFiltering
-		return dotnet_call("s3:get",nHandle,"s17:SupportsFiltering")
+		return dotnet_getp(nHandle,"SupportsFiltering")
 
 	Func setSupportsFiltering P1
 		raise("DotNet Error: SupportsFiltering is a read-only property")
 
 	Func getAllowNew
-		return dotnet_call("s3:get",nHandle,"s8:AllowNew")
+		return dotnet_getp(nHandle,"AllowNew")
 
 	Func setAllowNew P1
 		raise("DotNet Error: AllowNew is a read-only property")
 
 	Func getAllowEdit
-		return dotnet_call("s3:get",nHandle,"s9:AllowEdit")
+		return dotnet_getp(nHandle,"AllowEdit")
 
 	Func setAllowEdit P1
 		raise("DotNet Error: AllowEdit is a read-only property")
 
 	Func getAllowRemove
-		return dotnet_call("s3:get",nHandle,"s11:AllowRemove")
+		return dotnet_getp(nHandle,"AllowRemove")
 
 	Func setAllowRemove P1
 		raise("DotNet Error: AllowRemove is a read-only property")
 
 	Func getSupportsChangeNotification
-		return dotnet_call("s3:get",nHandle,"s26:SupportsChangeNotification")
+		return dotnet_getp(nHandle,"SupportsChangeNotification")
 
 	Func setSupportsChangeNotification P1
 		raise("DotNet Error: SupportsChangeNotification is a read-only property")
 
 	Func getSupportsSearching
-		return dotnet_call("s3:get",nHandle,"s17:SupportsSearching")
+		return dotnet_getp(nHandle,"SupportsSearching")
 
 	Func setSupportsSearching P1
 		raise("DotNet Error: SupportsSearching is a read-only property")
 
 	Func getSupportsSorting
-		return dotnet_call("s3:get",nHandle,"s15:SupportsSorting")
+		return dotnet_getp(nHandle,"SupportsSorting")
 
 	Func setSupportsSorting P1
 		raise("DotNet Error: SupportsSorting is a read-only property")
 
 	Func getIsSorted
-		return dotnet_call("s3:get",nHandle,"s8:IsSorted")
+		return dotnet_getp(nHandle,"IsSorted")
 
 	Func setIsSorted P1
 		raise("DotNet Error: IsSorted is a read-only property")
@@ -3568,19 +3534,19 @@ Class IBindingListView from DotNetObject
 		raise("DotNet Error: SortDirection is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		return dotnet_getp(nHandle,"IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -3592,7 +3558,7 @@ Class IBindingListView from DotNetObject
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -3639,7 +3605,7 @@ Class IChangeTracking from DotNetObject
 		return self
 
 	Func getIsChanged
-		return dotnet_call("s3:get",nHandle,"s9:IsChanged")
+		return dotnet_getp(nHandle,"IsChanged")
 
 	Func setIsChanged P1
 		raise("DotNet Error: IsChanged is a read-only property")
@@ -3812,9 +3778,7 @@ Class IDataErrorInfo from DotNetObject
 		return dn_x
 
 	Func getError
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Error")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Error"))
 
 	Func setError P1
 		raise("DotNet Error: Error is a read-only property")
@@ -3881,9 +3845,7 @@ Class IIntellisenseBuilder from DotNetObject
 		return dnSend("s4:call",nHandle,"s4:Show",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -3906,7 +3868,7 @@ Class IListSource from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetList"))
 
 	Func getContainsListCollection
-		return dotnet_call("s3:get",nHandle,"s22:ContainsListCollection")
+		return dotnet_getp(nHandle,"ContainsListCollection")
 
 	Func setContainsListCollection P1
 		raise("DotNet Error: ContainsListCollection is a read-only property")
@@ -4028,9 +3990,7 @@ Class INestedSite from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateAsyncScope"))
 
 	Func getFullName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:FullName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FullName"))
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")
@@ -4048,18 +4008,16 @@ Class INestedSite from DotNetObject
 		raise("DotNet Error: Container is a read-only property")
 
 	Func getDesignMode
-		return dotnet_call("s3:get",nHandle,"s10:DesignMode")
+		return dotnet_getp(nHandle,"DesignMode")
 
 	Func setDesignMode P1
 		raise("DotNet Error: DesignMode is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 
@@ -4088,7 +4046,7 @@ Class INotifyDataErrorInfo from DotNetObject
 		return self
 
 	Func getHasErrors
-		return dotnet_call("s3:get",nHandle,"s9:HasErrors")
+		return dotnet_getp(nHandle,"HasErrors")
 
 	Func setHasErrors P1
 		raise("DotNet Error: HasErrors is a read-only property")
@@ -4148,7 +4106,7 @@ Class IRaiseItemChangedEvents from DotNetObject
 		return self
 
 	Func getRaisesItemChangedEvents
-		return dotnet_call("s3:get",nHandle,"s23:RaisesItemChangedEvents")
+		return dotnet_getp(nHandle,"RaisesItemChangedEvents")
 
 	Func setRaisesItemChangedEvents P1
 		raise("DotNet Error: RaisesItemChangedEvents is a read-only property")
@@ -4178,7 +4136,7 @@ Class IRevertibleChangeTracking from DotNetObject
 		return self
 
 	Func getIsChanged
-		return dotnet_call("s3:get",nHandle,"s9:IsChanged")
+		return dotnet_getp(nHandle,"IsChanged")
 
 	Func setIsChanged P1
 		raise("DotNet Error: IsChanged is a read-only property")
@@ -4265,18 +4223,16 @@ Class ISite from DotNetObject
 		raise("DotNet Error: Container is a read-only property")
 
 	Func getDesignMode
-		return dotnet_call("s3:get",nHandle,"s10:DesignMode")
+		return dotnet_getp(nHandle,"DesignMode")
 
 	Func setDesignMode P1
 		raise("DotNet Error: DesignMode is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 
@@ -4334,7 +4290,7 @@ Class ISupportInitializeNotification from DotNetObject
 		return self
 
 	Func getIsInitialized
-		return dotnet_call("s3:get",nHandle,"s13:IsInitialized")
+		return dotnet_getp(nHandle,"IsInitialized")
 
 	Func setIsInitialized P1
 		raise("DotNet Error: IsInitialized is a read-only property")
@@ -4363,7 +4319,7 @@ Class ISynchronizeInvoke from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Invoke",P1,P2))
 
 	Func getInvokeRequired
-		return dotnet_call("s3:get",nHandle,"s14:InvokeRequired")
+		return dotnet_getp(nHandle,"InvokeRequired")
 
 	Func setInvokeRequired P1
 		raise("DotNet Error: InvokeRequired is a read-only property")
@@ -4504,7 +4460,7 @@ Class ImmutableObjectAttribute from Attribute
 		return self
 
 	Func getImmutable
-		return dotnet_call("s3:get",nHandle,"s9:Immutable")
+		return dotnet_getp(nHandle,"Immutable")
 
 	Func setImmutable P1
 		raise("DotNet Error: Immutable is a read-only property")
@@ -4617,9 +4573,7 @@ Class InitializationEventAttribute from Attribute
 		return self
 
 	Func getEventName
-		dn_x = dotnet_call("s3:get",nHandle,"s9:EventName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"EventName"))
 
 	Func setEventName P1
 		raise("DotNet Error: EventName is a read-only property")
@@ -4669,9 +4623,7 @@ Class InstanceCreationEditor from Object
 		return dn_x
 
 	Func getText
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Text")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Text"))
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
@@ -4775,9 +4727,7 @@ Class License from Object
 		return dn_x
 
 	Func getLicenseKey
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LicenseKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"LicenseKey"))
 
 	Func setLicenseKey P1
 		raise("DotNet Error: LicenseKey is a read-only property")
@@ -5081,7 +5031,7 @@ Class ListBindableAttribute from Attribute
 		return self
 
 	Func getListBindable
-		return dotnet_call("s3:get",nHandle,"s12:ListBindable")
+		return dotnet_getp(nHandle,"ListBindable")
 
 	Func setListBindable P1
 		raise("DotNet Error: ListBindable is a read-only property")
@@ -5145,13 +5095,13 @@ Class ListChangedEventArgs from EventArgs
 		raise("DotNet Error: ListChangedType is a read-only property")
 
 	Func getNewIndex
-		return dotnet_call("s3:get",nHandle,"s8:NewIndex")
+		return dotnet_getp(nHandle,"NewIndex")
 
 	Func setNewIndex P1
 		raise("DotNet Error: NewIndex is a read-only property")
 
 	Func getOldIndex
-		return dotnet_call("s3:get",nHandle,"s8:OldIndex")
+		return dotnet_getp(nHandle,"OldIndex")
 
 	Func setOldIndex P1
 		raise("DotNet Error: OldIndex is a read-only property")
@@ -5285,7 +5235,7 @@ Class ListSortDescriptionCollection from Object
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -5310,7 +5260,7 @@ Class LocalizableAttribute from Attribute
 		return self
 
 	Func getIsLocalizable
-		return dotnet_call("s3:get",nHandle,"s13:IsLocalizable")
+		return dotnet_getp(nHandle,"IsLocalizable")
 
 	Func setIsLocalizable P1
 		raise("DotNet Error: IsLocalizable is a read-only property")
@@ -5377,33 +5327,25 @@ Class LookupBindingPropertiesAttribute from Attribute
 		return self
 
 	Func getDataSource
-		dn_x = dotnet_call("s3:get",nHandle,"s10:DataSource")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DataSource"))
 
 	Func setDataSource P1
 		raise("DotNet Error: DataSource is a read-only property")
 
 	Func getDisplayMember
-		dn_x = dotnet_call("s3:get",nHandle,"s13:DisplayMember")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DisplayMember"))
 
 	Func setDisplayMember P1
 		raise("DotNet Error: DisplayMember is a read-only property")
 
 	Func getValueMember
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ValueMember")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ValueMember"))
 
 	Func setValueMember P1
 		raise("DotNet Error: ValueMember is a read-only property")
 
 	Func getLookupMember
-		dn_x = dotnet_call("s3:get",nHandle,"s12:LookupMember")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"LookupMember"))
 
 	Func setLookupMember P1
 		raise("DotNet Error: LookupMember is a read-only property")
@@ -5523,7 +5465,7 @@ Class MarshalByValueComponent from Object
 		raise("DotNet Error: Container is a read-only property")
 
 	Func getDesignMode
-		return dotnet_call("s3:get",nHandle,"s10:DesignMode")
+		return dotnet_getp(nHandle,"DesignMode")
 
 	Func setDesignMode P1
 		raise("DotNet Error: DesignMode is a read-only property")
@@ -5733,19 +5675,19 @@ Class MaskedTextProvider from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getAllowPromptAsInput
-		return dotnet_call("s3:get",nHandle,"s18:AllowPromptAsInput")
+		return dotnet_getp(nHandle,"AllowPromptAsInput")
 
 	Func setAllowPromptAsInput P1
 		raise("DotNet Error: AllowPromptAsInput is a read-only property")
 
 	Func getAssignedEditPositionCount
-		return dotnet_call("s3:get",nHandle,"s25:AssignedEditPositionCount")
+		return dotnet_getp(nHandle,"AssignedEditPositionCount")
 
 	Func setAssignedEditPositionCount P1
 		raise("DotNet Error: AssignedEditPositionCount is a read-only property")
 
 	Func getAvailableEditPositionCount
-		return dotnet_call("s3:get",nHandle,"s26:AvailableEditPositionCount")
+		return dotnet_getp(nHandle,"AvailableEditPositionCount")
 
 	Func setAvailableEditPositionCount P1
 		raise("DotNet Error: AvailableEditPositionCount is a read-only property")
@@ -5757,7 +5699,7 @@ Class MaskedTextProvider from Object
 		raise("DotNet Error: Culture is a read-only property")
 
 	Func getEditPositionCount
-		return dotnet_call("s3:get",nHandle,"s17:EditPositionCount")
+		return dotnet_getp(nHandle,"EditPositionCount")
 
 	Func setEditPositionCount P1
 		raise("DotNet Error: EditPositionCount is a read-only property")
@@ -5769,60 +5711,58 @@ Class MaskedTextProvider from Object
 		raise("DotNet Error: EditPositions is a read-only property")
 
 	Func getIncludeLiterals
-		return dotnet_call("s3:get",nHandle,"s15:IncludeLiterals")
+		return dotnet_getp(nHandle,"IncludeLiterals")
 
 	Func setIncludeLiterals P1
-		dotnet_callv("s3:set",nHandle,"s15:IncludeLiterals",P1)
+		dotnet_setp(nHandle,"IncludeLiterals",P1)
 		return self
 
 	Func getIncludePrompt
-		return dotnet_call("s3:get",nHandle,"s13:IncludePrompt")
+		return dotnet_getp(nHandle,"IncludePrompt")
 
 	Func setIncludePrompt P1
-		dotnet_callv("s3:set",nHandle,"s13:IncludePrompt",P1)
+		dotnet_setp(nHandle,"IncludePrompt",P1)
 		return self
 
 	Func getAsciiOnly
-		return dotnet_call("s3:get",nHandle,"s9:AsciiOnly")
+		return dotnet_getp(nHandle,"AsciiOnly")
 
 	Func setAsciiOnly P1
 		raise("DotNet Error: AsciiOnly is a read-only property")
 
 	Func getIsPassword
-		return dotnet_call("s3:get",nHandle,"s10:IsPassword")
+		return dotnet_getp(nHandle,"IsPassword")
 
 	Func setIsPassword P1
-		dotnet_callv("s3:set",nHandle,"s10:IsPassword",P1)
+		dotnet_setp(nHandle,"IsPassword",P1)
 		return self
 
 	Func getLastAssignedPosition
-		return dotnet_call("s3:get",nHandle,"s20:LastAssignedPosition")
+		return dotnet_getp(nHandle,"LastAssignedPosition")
 
 	Func setLastAssignedPosition P1
 		raise("DotNet Error: LastAssignedPosition is a read-only property")
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getMask
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Mask")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Mask"))
 
 	Func setMask P1
 		raise("DotNet Error: Mask is a read-only property")
 
 	Func getMaskCompleted
-		return dotnet_call("s3:get",nHandle,"s13:MaskCompleted")
+		return dotnet_getp(nHandle,"MaskCompleted")
 
 	Func setMaskCompleted P1
 		raise("DotNet Error: MaskCompleted is a read-only property")
 
 	Func getMaskFull
-		return dotnet_call("s3:get",nHandle,"s8:MaskFull")
+		return dotnet_getp(nHandle,"MaskFull")
 
 	Func setMaskFull P1
 		raise("DotNet Error: MaskFull is a read-only property")
@@ -5842,24 +5782,24 @@ Class MaskedTextProvider from Object
 		return self
 
 	Func getResetOnPrompt
-		return dotnet_call("s3:get",nHandle,"s13:ResetOnPrompt")
+		return dotnet_getp(nHandle,"ResetOnPrompt")
 
 	Func setResetOnPrompt P1
-		dotnet_callv("s3:set",nHandle,"s13:ResetOnPrompt",P1)
+		dotnet_setp(nHandle,"ResetOnPrompt",P1)
 		return self
 
 	Func getResetOnSpace
-		return dotnet_call("s3:get",nHandle,"s12:ResetOnSpace")
+		return dotnet_getp(nHandle,"ResetOnSpace")
 
 	Func setResetOnSpace P1
-		dotnet_callv("s3:set",nHandle,"s12:ResetOnSpace",P1)
+		dotnet_setp(nHandle,"ResetOnSpace",P1)
 		return self
 
 	Func getSkipLiterals
-		return dotnet_call("s3:get",nHandle,"s12:SkipLiterals")
+		return dotnet_getp(nHandle,"SkipLiterals")
 
 	Func setSkipLiterals P1
-		dotnet_callv("s3:set",nHandle,"s12:SkipLiterals",P1)
+		dotnet_setp(nHandle,"SkipLiterals",P1)
 		return self
 
 	Func getDefaultPasswordChar
@@ -5906,45 +5846,37 @@ Class MemberDescriptor from Object
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getCategory
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Category")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Category"))
 
 	Func setCategory P1
 		raise("DotNet Error: Category is a read-only property")
 
 	Func getDescription
-		dn_x = dotnet_call("s3:get",nHandle,"s11:Description")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Description"))
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getIsBrowsable
-		return dotnet_call("s3:get",nHandle,"s11:IsBrowsable")
+		return dotnet_getp(nHandle,"IsBrowsable")
 
 	Func setIsBrowsable P1
 		raise("DotNet Error: IsBrowsable is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDesignTimeOnly
-		return dotnet_call("s3:get",nHandle,"s14:DesignTimeOnly")
+		return dotnet_getp(nHandle,"DesignTimeOnly")
 
 	Func setDesignTimeOnly P1
 		raise("DotNet Error: DesignTimeOnly is a read-only property")
 
 	Func getDisplayName
-		dn_x = dotnet_call("s3:get",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DisplayName"))
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
@@ -5969,7 +5901,7 @@ Class MergablePropertyAttribute from Attribute
 		return self
 
 	Func getAllowMerge
-		return dotnet_call("s3:get",nHandle,"s10:AllowMerge")
+		return dotnet_getp(nHandle,"AllowMerge")
 
 	Func setAllowMerge P1
 		raise("DotNet Error: AllowMerge is a read-only property")
@@ -6012,7 +5944,7 @@ Class NotifyParentPropertyAttribute from Attribute
 		return self
 
 	Func getNotifyParent
-		return dotnet_call("s3:get",nHandle,"s12:NotifyParent")
+		return dotnet_getp(nHandle,"NotifyParent")
 
 	Func setNotifyParent P1
 		raise("DotNet Error: NotifyParent is a read-only property")
@@ -6076,7 +6008,7 @@ Class ParenthesizePropertyNameAttribute from Attribute
 		return self
 
 	Func getNeedParenthesis
-		return dotnet_call("s3:get",nHandle,"s15:NeedParenthesis")
+		return dotnet_getp(nHandle,"NeedParenthesis")
 
 	Func setNeedParenthesis P1
 		raise("DotNet Error: NeedParenthesis is a read-only property")
@@ -6130,7 +6062,7 @@ Class PasswordPropertyTextAttribute from Attribute
 		return self
 
 	Func getPassword
-		return dotnet_call("s3:get",nHandle,"s8:Password")
+		return dotnet_getp(nHandle,"Password")
 
 	Func setPassword P1
 		raise("DotNet Error: Password is a read-only property")
@@ -6171,7 +6103,7 @@ Class ProgressChangedEventArgs from EventArgs
 		return self
 
 	Func getProgressPercentage
-		return dotnet_call("s3:get",nHandle,"s18:ProgressPercentage")
+		return dotnet_getp(nHandle,"ProgressPercentage")
 
 	Func setProgressPercentage P1
 		raise("DotNet Error: ProgressPercentage is a read-only property")
@@ -6199,9 +6131,7 @@ Class PropertyChangedEventArgs from EventArgs
 		return self
 
 	Func getPropertyName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:PropertyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"PropertyName"))
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
@@ -6223,9 +6153,7 @@ Class PropertyChangingEventArgs from EventArgs
 		return self
 
 	Func getPropertyName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:PropertyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"PropertyName"))
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
@@ -6346,7 +6274,7 @@ Class PropertyDescriptorCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -6427,17 +6355,13 @@ Class ProvidePropertyAttribute from Attribute
 		return self
 
 	Func getPropertyName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:PropertyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"PropertyName"))
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
 
 	Func getReceiverTypeName
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ReceiverTypeName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ReceiverTypeName"))
 
 	Func setReceiverTypeName P1
 		raise("DotNet Error: ReceiverTypeName is a read-only property")
@@ -6462,7 +6386,7 @@ Class ReadOnlyAttribute from Attribute
 		return self
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -6577,7 +6501,7 @@ Class RunInstallerAttribute from Attribute
 		return self
 
 	Func getRunInstaller
-		return dotnet_call("s3:get",nHandle,"s12:RunInstaller")
+		return dotnet_getp(nHandle,"RunInstaller")
 
 	Func setRunInstaller P1
 		raise("DotNet Error: RunInstaller is a read-only property")
@@ -6619,7 +6543,7 @@ Class SettingsBindableAttribute from Attribute
 		return self
 
 	Func getBindable
-		return dotnet_call("s3:get",nHandle,"s8:Bindable")
+		return dotnet_getp(nHandle,"Bindable")
 
 	Func setBindable P1
 		raise("DotNet Error: Bindable is a read-only property")
@@ -6694,9 +6618,7 @@ Class ToolboxItemAttribute from Attribute
 		raise("DotNet Error: ToolboxItemType is a read-only property")
 
 	Func getToolboxItemTypeName
-		dn_x = dotnet_call("s3:get",nHandle,"s19:ToolboxItemTypeName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ToolboxItemTypeName"))
 
 	Func setToolboxItemTypeName P1
 		raise("DotNet Error: ToolboxItemTypeName is a read-only property")
@@ -6746,9 +6668,7 @@ Class ToolboxItemFilterAttribute from Attribute
 		return self
 
 	Func getFilterString
-		dn_x = dotnet_call("s3:get",nHandle,"s12:FilterString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FilterString"))
 
 	Func setFilterString P1
 		raise("DotNet Error: FilterString is a read-only property")
@@ -6993,7 +6913,7 @@ Class TypeConverterStandardValuesCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -7039,9 +6959,7 @@ Class TypeConverterAttribute from Attribute
 		return self
 
 	Func getConverterTypeName
-		dn_x = dotnet_call("s3:get",nHandle,"s17:ConverterTypeName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ConverterTypeName"))
 
 	Func setConverterTypeName P1
 		raise("DotNet Error: ConverterTypeName is a read-only property")
@@ -7152,9 +7070,7 @@ Class TypeDescriptionProviderAttribute from Attribute
 		return self
 
 	Func getTypeName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:TypeName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"TypeName"))
 
 
 Class TypeDescriptor from Object
@@ -7413,17 +7329,13 @@ Class WarningException from SystemException
 		return self
 
 	Func getHelpUrl
-		dn_x = dotnet_call("s3:get",nHandle,"s7:HelpUrl")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"HelpUrl"))
 
 	Func setHelpUrl P1
 		raise("DotNet Error: HelpUrl is a read-only property")
 
 	Func getHelpTopic
-		dn_x = dotnet_call("s3:get",nHandle,"s9:HelpTopic")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"HelpTopic"))
 
 	Func setHelpTopic P1
 		raise("DotNet Error: HelpTopic is a read-only property")
@@ -7468,7 +7380,7 @@ Class Win32Exception from ExternalException
 		return self
 
 	Func getNativeErrorCode
-		return dotnet_call("s3:get",nHandle,"s15:NativeErrorCode")
+		return dotnet_getp(nHandle,"NativeErrorCode")
 
 	Func setNativeErrorCode P1
 		raise("DotNet Error: NativeErrorCode is a read-only property")
@@ -7552,29 +7464,29 @@ Class BackgroundWorker from Component
 		return self
 
 	Func getCancellationPending
-		return dotnet_call("s3:get",nHandle,"s19:CancellationPending")
+		return dotnet_getp(nHandle,"CancellationPending")
 
 	Func setCancellationPending P1
 		raise("DotNet Error: CancellationPending is a read-only property")
 
 	Func getIsBusy
-		return dotnet_call("s3:get",nHandle,"s6:IsBusy")
+		return dotnet_getp(nHandle,"IsBusy")
 
 	Func setIsBusy P1
 		raise("DotNet Error: IsBusy is a read-only property")
 
 	Func getWorkerReportsProgress
-		return dotnet_call("s3:get",nHandle,"s21:WorkerReportsProgress")
+		return dotnet_getp(nHandle,"WorkerReportsProgress")
 
 	Func setWorkerReportsProgress P1
-		dotnet_callv("s3:set",nHandle,"s21:WorkerReportsProgress",P1)
+		dotnet_setp(nHandle,"WorkerReportsProgress",P1)
 		return self
 
 	Func getWorkerSupportsCancellation
-		return dotnet_call("s3:get",nHandle,"s26:WorkerSupportsCancellation")
+		return dotnet_getp(nHandle,"WorkerSupportsCancellation")
 
 	Func setWorkerSupportsCancellation P1
-		dotnet_callv("s3:set",nHandle,"s26:WorkerSupportsCancellation",P1)
+		dotnet_setp(nHandle,"WorkerSupportsCancellation",P1)
 		return self
 
 
@@ -7819,7 +7731,7 @@ Class EventDescriptor from MemberDescriptor
 		raise("DotNet Error: EventType is a read-only property")
 
 	Func getIsMulticast
-		return dotnet_call("s3:get",nHandle,"s11:IsMulticast")
+		return dotnet_getp(nHandle,"IsMulticast")
 
 	Func setIsMulticast P1
 		raise("DotNet Error: IsMulticast is a read-only property")
@@ -8051,13 +7963,13 @@ Class PropertyDescriptor from MemberDescriptor
 		raise("DotNet Error: ConverterFromRegisteredType is a read-only property")
 
 	Func getIsLocalizable
-		return dotnet_call("s3:get",nHandle,"s13:IsLocalizable")
+		return dotnet_getp(nHandle,"IsLocalizable")
 
 	Func setIsLocalizable P1
 		raise("DotNet Error: IsLocalizable is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -8075,7 +7987,7 @@ Class PropertyDescriptor from MemberDescriptor
 		raise("DotNet Error: PropertyType is a read-only property")
 
 	Func getSupportsChangeEvents
-		return dotnet_call("s3:get",nHandle,"s20:SupportsChangeEvents")
+		return dotnet_getp(nHandle,"SupportsChangeEvents")
 
 	Func setSupportsChangeEvents P1
 		raise("DotNet Error: SupportsChangeEvents is a read-only property")

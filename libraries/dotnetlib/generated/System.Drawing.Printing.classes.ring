@@ -189,31 +189,31 @@ Class Margins from Object
 		return dn_x
 
 	Func getLeft
-		return dotnet_call("s3:get",nHandle,"s4:Left")
+		return dotnet_getp(nHandle,"Left")
 
 	Func setLeft P1
-		dotnet_callv("s3:set",nHandle,"s4:Left",P1)
+		dotnet_setp(nHandle,"Left",P1)
 		return self
 
 	Func getRight
-		return dotnet_call("s3:get",nHandle,"s5:Right")
+		return dotnet_getp(nHandle,"Right")
 
 	Func setRight P1
-		dotnet_callv("s3:set",nHandle,"s5:Right",P1)
+		dotnet_setp(nHandle,"Right",P1)
 		return self
 
 	Func getTop
-		return dotnet_call("s3:get",nHandle,"s3:Top")
+		return dotnet_getp(nHandle,"Top")
 
 	Func setTop P1
-		dotnet_callv("s3:set",nHandle,"s3:Top",P1)
+		dotnet_setp(nHandle,"Top",P1)
 		return self
 
 	Func getBottom
-		return dotnet_call("s3:get",nHandle,"s6:Bottom")
+		return dotnet_getp(nHandle,"Bottom")
 
 	Func setBottom P1
-		dotnet_callv("s3:set",nHandle,"s6:Bottom",P1)
+		dotnet_setp(nHandle,"Bottom",P1)
 		return self
 
 	# the operators of System.Drawing.Printing.Margins: = !=
@@ -315,29 +315,29 @@ Class PageSettings from Object
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getColor
-		return dotnet_call("s3:get",nHandle,"s5:Color")
+		return dotnet_getp(nHandle,"Color")
 
 	Func setColor P1
-		dotnet_callv("s3:set",nHandle,"s5:Color",P1)
+		dotnet_setp(nHandle,"Color",P1)
 		return self
 
 	Func getHardMarginX
-		return dotnet_call("s3:get",nHandle,"s11:HardMarginX")
+		return dotnet_getp(nHandle,"HardMarginX")
 
 	Func setHardMarginX P1
 		raise("DotNet Error: HardMarginX is a read-only property")
 
 	Func getHardMarginY
-		return dotnet_call("s3:get",nHandle,"s11:HardMarginY")
+		return dotnet_getp(nHandle,"HardMarginY")
 
 	Func setHardMarginY P1
 		raise("DotNet Error: HardMarginY is a read-only property")
 
 	Func getLandscape
-		return dotnet_call("s3:get",nHandle,"s9:Landscape")
+		return dotnet_getp(nHandle,"Landscape")
 
 	Func setLandscape P1
-		dotnet_callv("s3:set",nHandle,"s9:Landscape",P1)
+		dotnet_setp(nHandle,"Landscape",P1)
 		return self
 
 	Func getMargins
@@ -430,10 +430,10 @@ Class PaperSize from Object
 		return dn_x
 
 	Func getHeight
-		return dotnet_call("s3:get",nHandle,"s6:Height")
+		return dotnet_getp(nHandle,"Height")
 
 	Func setHeight P1
-		dotnet_callv("s3:set",nHandle,"s6:Height",P1)
+		dotnet_setp(nHandle,"Height",P1)
 		return self
 
 	Func getKind
@@ -443,26 +443,24 @@ Class PaperSize from Object
 		raise("DotNet Error: Kind is a read-only property")
 
 	Func getPaperName
-		dn_x = dotnet_call("s3:get",nHandle,"s9:PaperName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"PaperName"))
 
 	Func setPaperName P1
-		dotnet_callv("s3:set",nHandle,"s9:PaperName",P1)
+		dotnet_setp(nHandle,"PaperName",P1)
 		return self
 
 	Func getRawKind
-		return dotnet_call("s3:get",nHandle,"s7:RawKind")
+		return dotnet_getp(nHandle,"RawKind")
 
 	Func setRawKind P1
-		dotnet_callv("s3:set",nHandle,"s7:RawKind",P1)
+		dotnet_setp(nHandle,"RawKind",P1)
 		return self
 
 	Func getWidth
-		return dotnet_call("s3:get",nHandle,"s5:Width")
+		return dotnet_getp(nHandle,"Width")
 
 	Func setWidth P1
-		dotnet_callv("s3:set",nHandle,"s5:Width",P1)
+		dotnet_setp(nHandle,"Width",P1)
 		return self
 
 
@@ -502,19 +500,17 @@ Class PaperSource from Object
 		raise("DotNet Error: Kind is a read-only property")
 
 	Func getRawKind
-		return dotnet_call("s3:get",nHandle,"s7:RawKind")
+		return dotnet_getp(nHandle,"RawKind")
 
 	Func setRawKind P1
-		dotnet_callv("s3:set",nHandle,"s7:RawKind",P1)
+		dotnet_setp(nHandle,"RawKind",P1)
 		return self
 
 	Func getSourceName
-		dn_x = dotnet_call("s3:get",nHandle,"s10:SourceName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"SourceName"))
 
 	Func setSourceName P1
-		dotnet_callv("s3:set",nHandle,"s10:SourceName",P1)
+		dotnet_setp(nHandle,"SourceName",P1)
 		return self
 
 
@@ -589,7 +585,7 @@ Class PrintController from Object
 		return dn_x
 
 	Func getIsPreview
-		return dotnet_call("s3:get",nHandle,"s9:IsPreview")
+		return dotnet_getp(nHandle,"IsPreview")
 
 	Func setIsPreview P1
 		raise("DotNet Error: IsPreview is a read-only property")
@@ -666,19 +662,17 @@ Class PrintDocument from Component
 		return self
 
 	Func getDocumentName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:DocumentName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DocumentName"))
 
 	Func setDocumentName P1
-		dotnet_callv("s3:set",nHandle,"s12:DocumentName",P1)
+		dotnet_setp(nHandle,"DocumentName",P1)
 		return self
 
 	Func getOriginAtMargins
-		return dotnet_call("s3:get",nHandle,"s15:OriginAtMargins")
+		return dotnet_getp(nHandle,"OriginAtMargins")
 
 	Func setOriginAtMargins P1
-		dotnet_callv("s3:set",nHandle,"s15:OriginAtMargins",P1)
+		dotnet_setp(nHandle,"OriginAtMargins",P1)
 		return self
 
 	Func getPrintController
@@ -746,10 +740,10 @@ Class PrintPageEventArgs from EventArgs
 		return self
 
 	Func getCancel
-		return dotnet_call("s3:get",nHandle,"s6:Cancel")
+		return dotnet_getp(nHandle,"Cancel")
 
 	Func setCancel P1
-		dotnet_callv("s3:set",nHandle,"s6:Cancel",P1)
+		dotnet_setp(nHandle,"Cancel",P1)
 		return self
 
 	Func getGraphics
@@ -759,10 +753,10 @@ Class PrintPageEventArgs from EventArgs
 		raise("DotNet Error: Graphics is a read-only property")
 
 	Func getHasMorePages
-		return dotnet_call("s3:get",nHandle,"s12:HasMorePages")
+		return dotnet_getp(nHandle,"HasMorePages")
 
 	Func setHasMorePages P1
-		dotnet_callv("s3:set",nHandle,"s12:HasMorePages",P1)
+		dotnet_setp(nHandle,"HasMorePages",P1)
 		return self
 
 	Func getMarginBounds
@@ -821,17 +815,17 @@ Class PrinterResolution from Object
 		return self
 
 	Func getX
-		return dotnet_call("s3:get",nHandle,"s1:X")
+		return dotnet_getp(nHandle,"X")
 
 	Func setX P1
-		dotnet_callv("s3:set",nHandle,"s1:X",P1)
+		dotnet_setp(nHandle,"X",P1)
 		return self
 
 	Func getY
-		return dotnet_call("s3:get",nHandle,"s1:Y")
+		return dotnet_getp(nHandle,"Y")
 
 	Func setY P1
-		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
+		dotnet_setp(nHandle,"Y",P1)
 		return self
 
 
@@ -924,23 +918,23 @@ Class PrinterSettings from Object
 		return dn_x
 
 	Func getCanDuplex
-		return dotnet_call("s3:get",nHandle,"s9:CanDuplex")
+		return dotnet_getp(nHandle,"CanDuplex")
 
 	Func setCanDuplex P1
 		raise("DotNet Error: CanDuplex is a read-only property")
 
 	Func getCopies
-		return dotnet_call("s3:get",nHandle,"s6:Copies")
+		return dotnet_getp(nHandle,"Copies")
 
 	Func setCopies P1
-		dotnet_callv("s3:set",nHandle,"s6:Copies",P1)
+		dotnet_setp(nHandle,"Copies",P1)
 		return self
 
 	Func getCollate
-		return dotnet_call("s3:get",nHandle,"s7:Collate")
+		return dotnet_getp(nHandle,"Collate")
 
 	Func setCollate P1
-		dotnet_callv("s3:set",nHandle,"s7:Collate",P1)
+		dotnet_setp(nHandle,"Collate",P1)
 		return self
 
 	Func getDefaultPageSettings
@@ -957,63 +951,61 @@ Class PrinterSettings from Object
 		return self
 
 	Func getFromPage
-		return dotnet_call("s3:get",nHandle,"s8:FromPage")
+		return dotnet_getp(nHandle,"FromPage")
 
 	Func setFromPage P1
-		dotnet_callv("s3:set",nHandle,"s8:FromPage",P1)
+		dotnet_setp(nHandle,"FromPage",P1)
 		return self
 
 	Func getIsDefaultPrinter
-		return dotnet_call("s3:get",nHandle,"s16:IsDefaultPrinter")
+		return dotnet_getp(nHandle,"IsDefaultPrinter")
 
 	Func setIsDefaultPrinter P1
 		raise("DotNet Error: IsDefaultPrinter is a read-only property")
 
 	Func getIsPlotter
-		return dotnet_call("s3:get",nHandle,"s9:IsPlotter")
+		return dotnet_getp(nHandle,"IsPlotter")
 
 	Func setIsPlotter P1
 		raise("DotNet Error: IsPlotter is a read-only property")
 
 	Func getIsValid
-		return dotnet_call("s3:get",nHandle,"s7:IsValid")
+		return dotnet_getp(nHandle,"IsValid")
 
 	Func setIsValid P1
 		raise("DotNet Error: IsValid is a read-only property")
 
 	Func getLandscapeAngle
-		return dotnet_call("s3:get",nHandle,"s14:LandscapeAngle")
+		return dotnet_getp(nHandle,"LandscapeAngle")
 
 	Func setLandscapeAngle P1
 		raise("DotNet Error: LandscapeAngle is a read-only property")
 
 	Func getMaximumCopies
-		return dotnet_call("s3:get",nHandle,"s13:MaximumCopies")
+		return dotnet_getp(nHandle,"MaximumCopies")
 
 	Func setMaximumCopies P1
 		raise("DotNet Error: MaximumCopies is a read-only property")
 
 	Func getMaximumPage
-		return dotnet_call("s3:get",nHandle,"s11:MaximumPage")
+		return dotnet_getp(nHandle,"MaximumPage")
 
 	Func setMaximumPage P1
-		dotnet_callv("s3:set",nHandle,"s11:MaximumPage",P1)
+		dotnet_setp(nHandle,"MaximumPage",P1)
 		return self
 
 	Func getMinimumPage
-		return dotnet_call("s3:get",nHandle,"s11:MinimumPage")
+		return dotnet_getp(nHandle,"MinimumPage")
 
 	Func setMinimumPage P1
-		dotnet_callv("s3:set",nHandle,"s11:MinimumPage",P1)
+		dotnet_setp(nHandle,"MinimumPage",P1)
 		return self
 
 	Func getPrintFileName
-		dn_x = dotnet_call("s3:get",nHandle,"s13:PrintFileName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"PrintFileName"))
 
 	Func setPrintFileName P1
-		dotnet_callv("s3:set",nHandle,"s13:PrintFileName",P1)
+		dotnet_setp(nHandle,"PrintFileName",P1)
 		return self
 
 	Func getPaperSizes
@@ -1036,19 +1028,17 @@ Class PrinterSettings from Object
 		return self
 
 	Func getPrintToFile
-		return dotnet_call("s3:get",nHandle,"s11:PrintToFile")
+		return dotnet_getp(nHandle,"PrintToFile")
 
 	Func setPrintToFile P1
-		dotnet_callv("s3:set",nHandle,"s11:PrintToFile",P1)
+		dotnet_setp(nHandle,"PrintToFile",P1)
 		return self
 
 	Func getPrinterName
-		dn_x = dotnet_call("s3:get",nHandle,"s11:PrinterName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"PrinterName"))
 
 	Func setPrinterName P1
-		dotnet_callv("s3:set",nHandle,"s11:PrinterName",P1)
+		dotnet_setp(nHandle,"PrinterName",P1)
 		return self
 
 	Func getPrinterResolutions
@@ -1058,16 +1048,16 @@ Class PrinterSettings from Object
 		raise("DotNet Error: PrinterResolutions is a read-only property")
 
 	Func getSupportsColor
-		return dotnet_call("s3:get",nHandle,"s13:SupportsColor")
+		return dotnet_getp(nHandle,"SupportsColor")
 
 	Func setSupportsColor P1
 		raise("DotNet Error: SupportsColor is a read-only property")
 
 	Func getToPage
-		return dotnet_call("s3:get",nHandle,"s6:ToPage")
+		return dotnet_getp(nHandle,"ToPage")
 
 	Func setToPage P1
-		dotnet_callv("s3:set",nHandle,"s6:ToPage",P1)
+		dotnet_setp(nHandle,"ToPage",P1)
 		return self
 
 	Func getInstalledPrinters
@@ -1134,7 +1124,7 @@ Class PrinterSettingsPaperSizeCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1197,7 +1187,7 @@ Class PrinterSettingsPaperSourceCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1260,7 +1250,7 @@ Class PrinterSettingsPrinterResolutionCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1325,7 +1315,7 @@ Class PrinterSettingsStringCollection from Object
 		return dn_x
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1379,10 +1369,10 @@ Class PreviewPrintController from PrintController
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetPreviewPageInfo"))
 
 	Func getUseAntiAlias
-		return dotnet_call("s3:get",nHandle,"s12:UseAntiAlias")
+		return dotnet_getp(nHandle,"UseAntiAlias")
 
 	Func setUseAntiAlias P1
-		dotnet_callv("s3:set",nHandle,"s12:UseAntiAlias",P1)
+		dotnet_setp(nHandle,"UseAntiAlias",P1)
 		return self
 
 

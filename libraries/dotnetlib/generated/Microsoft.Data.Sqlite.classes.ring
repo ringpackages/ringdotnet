@@ -234,10 +234,10 @@ Class SqliteConnection from DbConnection
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getDefaultTimeout
-		return dotnet_call("s3:get",nHandle,"s14:DefaultTimeout")
+		return dotnet_getp(nHandle,"DefaultTimeout")
 
 	Func setDefaultTimeout P1
-		dotnet_callv("s3:set",nHandle,"s14:DefaultTimeout",P1)
+		dotnet_setp(nHandle,"DefaultTimeout",P1)
 		return self
 
 
@@ -287,12 +287,10 @@ Class SqliteConnectionStringBuilder from DbConnectionStringBuilder
 		return self
 
 	Func getDataSource
-		dn_x = dotnet_call("s3:get",nHandle,"s10:DataSource")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DataSource"))
 
 	Func setDataSource P1
-		dotnet_callv("s3:set",nHandle,"s10:DataSource",P1)
+		dotnet_setp(nHandle,"DataSource",P1)
 		return self
 
 	Func getMode
@@ -310,12 +308,10 @@ Class SqliteConnectionStringBuilder from DbConnectionStringBuilder
 		return self
 
 	Func getPassword
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Password")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Password"))
 
 	Func setPassword P1
-		dotnet_callv("s3:set",nHandle,"s8:Password",P1)
+		dotnet_setp(nHandle,"Password",P1)
 		return self
 
 	Func getForeignKeys
@@ -326,24 +322,24 @@ Class SqliteConnectionStringBuilder from DbConnectionStringBuilder
 		return self
 
 	Func getRecursiveTriggers
-		return dotnet_call("s3:get",nHandle,"s17:RecursiveTriggers")
+		return dotnet_getp(nHandle,"RecursiveTriggers")
 
 	Func setRecursiveTriggers P1
-		dotnet_callv("s3:set",nHandle,"s17:RecursiveTriggers",P1)
+		dotnet_setp(nHandle,"RecursiveTriggers",P1)
 		return self
 
 	Func getDefaultTimeout
-		return dotnet_call("s3:get",nHandle,"s14:DefaultTimeout")
+		return dotnet_getp(nHandle,"DefaultTimeout")
 
 	Func setDefaultTimeout P1
-		dotnet_callv("s3:set",nHandle,"s14:DefaultTimeout",P1)
+		dotnet_setp(nHandle,"DefaultTimeout",P1)
 		return self
 
 	Func getPooling
-		return dotnet_call("s3:get",nHandle,"s7:Pooling")
+		return dotnet_getp(nHandle,"Pooling")
 
 	Func setPooling P1
-		dotnet_callv("s3:set",nHandle,"s7:Pooling",P1)
+		dotnet_setp(nHandle,"Pooling",P1)
 		return self
 
 
@@ -416,13 +412,13 @@ Class SqliteException from DbException
 		return self
 
 	Func getSqliteErrorCode
-		return dotnet_call("s3:get",nHandle,"s15:SqliteErrorCode")
+		return dotnet_getp(nHandle,"SqliteErrorCode")
 
 	Func setSqliteErrorCode P1
 		raise("DotNet Error: SqliteErrorCode is a read-only property")
 
 	Func getSqliteExtendedErrorCode
-		return dotnet_call("s3:get",nHandle,"s23:SqliteExtendedErrorCode")
+		return dotnet_getp(nHandle,"SqliteExtendedErrorCode")
 
 	Func setSqliteExtendedErrorCode P1
 		raise("DotNet Error: SqliteExtendedErrorCode is a read-only property")

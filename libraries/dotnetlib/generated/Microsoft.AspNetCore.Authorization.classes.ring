@@ -272,7 +272,7 @@ Class AuthorizationFailure from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authorization.AuthorizationFailure, Microsoft.AspNetCore.Authorization',"s6:Failed",P1))
 
 	Func getFailCalled
-		return dotnet_call("s3:get",nHandle,"s10:FailCalled")
+		return dotnet_getp(nHandle,"FailCalled")
 
 	Func setFailCalled P1
 		raise("DotNet Error: FailCalled is a read-only property")
@@ -312,9 +312,7 @@ Class AuthorizationFailureReason from Object
 		return dn_x
 
 	Func getMessage
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Message")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Message"))
 
 	Func setMessage P1
 		raise("DotNet Error: Message is a read-only property")
@@ -402,13 +400,13 @@ Class AuthorizationHandlerContext from Object
 		raise("DotNet Error: FailureReasons is a read-only property")
 
 	Func getHasFailed
-		return dotnet_call("s3:get",nHandle,"s9:HasFailed")
+		return dotnet_getp(nHandle,"HasFailed")
 
 	Func setHasFailed P1
 		raise("DotNet Error: HasFailed is a read-only property")
 
 	Func getHasSucceeded
-		return dotnet_call("s3:get",nHandle,"s12:HasSucceeded")
+		return dotnet_getp(nHandle,"HasSucceeded")
 
 	Func setHasSucceeded P1
 		raise("DotNet Error: HasSucceeded is a read-only property")
@@ -537,10 +535,10 @@ Class AuthorizationOptions from Object
 		return dn_x
 
 	Func getInvokeHandlersAfterFailure
-		return dotnet_call("s3:get",nHandle,"s26:InvokeHandlersAfterFailure")
+		return dotnet_getp(nHandle,"InvokeHandlersAfterFailure")
 
 	Func setInvokeHandlersAfterFailure P1
-		dotnet_callv("s3:set",nHandle,"s26:InvokeHandlersAfterFailure",P1)
+		dotnet_setp(nHandle,"InvokeHandlersAfterFailure",P1)
 		return self
 
 	Func getDefaultPolicy
@@ -699,7 +697,7 @@ Class AuthorizationResult from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization',"s6:Failed",P1))
 
 	Func getSucceeded
-		return dotnet_call("s3:get",nHandle,"s9:Succeeded")
+		return dotnet_getp(nHandle,"Succeeded")
 
 	Func setSucceeded P1
 		raise("DotNet Error: Succeeded is a read-only property")
@@ -775,30 +773,24 @@ Class AuthorizeAttribute from Attribute
 		return self
 
 	Func getPolicy
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Policy")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Policy"))
 
 	Func setPolicy P1
-		dotnet_callv("s3:set",nHandle,"s6:Policy",P1)
+		dotnet_setp(nHandle,"Policy",P1)
 		return self
 
 	Func getRoles
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Roles")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Roles"))
 
 	Func setRoles P1
-		dotnet_callv("s3:set",nHandle,"s5:Roles",P1)
+		dotnet_setp(nHandle,"Roles",P1)
 		return self
 
 	Func getAuthenticationSchemes
-		dn_x = dotnet_call("s3:get",nHandle,"s21:AuthenticationSchemes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"AuthenticationSchemes"))
 
 	Func setAuthenticationSchemes P1
-		dotnet_callv("s3:set",nHandle,"s21:AuthenticationSchemes",P1)
+		dotnet_setp(nHandle,"AuthenticationSchemes",P1)
 		return self
 
 
@@ -912,7 +904,7 @@ Class DefaultAuthorizationPolicyProvider from Object
 		return dn_x
 
 	Func getAllowsCachingPolicies
-		return dotnet_call("s3:get",nHandle,"s21:AllowsCachingPolicies")
+		return dotnet_getp(nHandle,"AllowsCachingPolicies")
 
 	Func setAllowsCachingPolicies P1
 		raise("DotNet Error: AllowsCachingPolicies is a read-only property")
@@ -1050,7 +1042,7 @@ Class IAuthorizationPolicyProvider from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetFallbackPolicyAsync"))
 
 	Func getAllowsCachingPolicies
-		return dotnet_call("s3:get",nHandle,"s21:AllowsCachingPolicies")
+		return dotnet_getp(nHandle,"AllowsCachingPolicies")
 
 	Func setAllowsCachingPolicies P1
 		raise("DotNet Error: AllowsCachingPolicies is a read-only property")
@@ -1114,30 +1106,24 @@ Class IAuthorizeData from DotNetObject
 		return self
 
 	Func getPolicy
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Policy")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Policy"))
 
 	Func setPolicy P1
-		dotnet_callv("s3:set",nHandle,"s6:Policy",P1)
+		dotnet_setp(nHandle,"Policy",P1)
 		return self
 
 	Func getRoles
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Roles")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Roles"))
 
 	Func setRoles P1
-		dotnet_callv("s3:set",nHandle,"s5:Roles",P1)
+		dotnet_setp(nHandle,"Roles",P1)
 		return self
 
 	Func getAuthenticationSchemes
-		dn_x = dotnet_call("s3:get",nHandle,"s21:AuthenticationSchemes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"AuthenticationSchemes"))
 
 	Func setAuthenticationSchemes P1
-		dotnet_callv("s3:set",nHandle,"s21:AuthenticationSchemes",P1)
+		dotnet_setp(nHandle,"AuthenticationSchemes",P1)
 		return self
 
 

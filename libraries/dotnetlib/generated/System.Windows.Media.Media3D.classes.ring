@@ -682,7 +682,7 @@ Class GeneralTransform3DCollection from Animatable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -916,7 +916,7 @@ Class MaterialCollection from Animatable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1124,139 +1124,139 @@ Class Matrix3D from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Matrix3D, PresentationCore',"s5:Parse",P1))
 
 	Func getIsIdentity
-		return dotnet_call("s3:get",nHandle,"s10:IsIdentity")
+		return dotnet_getp(nHandle,"IsIdentity")
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")
 
 	Func getIsAffine
-		return dotnet_call("s3:get",nHandle,"s8:IsAffine")
+		return dotnet_getp(nHandle,"IsAffine")
 
 	Func setIsAffine P1
 		raise("DotNet Error: IsAffine is a read-only property")
 
 	Func getDeterminant
-		return dotnet_call("s3:get",nHandle,"s11:Determinant")
+		return dotnet_getp(nHandle,"Determinant")
 
 	Func setDeterminant P1
 		raise("DotNet Error: Determinant is a read-only property")
 
 	Func getHasInverse
-		return dotnet_call("s3:get",nHandle,"s10:HasInverse")
+		return dotnet_getp(nHandle,"HasInverse")
 
 	Func setHasInverse P1
 		raise("DotNet Error: HasInverse is a read-only property")
 
 	Func getM11
-		return dotnet_call("s3:get",nHandle,"s3:M11")
+		return dotnet_getp(nHandle,"M11")
 
 	Func setM11 P1
-		dotnet_callv("s3:set",nHandle,"s3:M11",P1)
+		dotnet_setp(nHandle,"M11",P1)
 		return self
 
 	Func getM12
-		return dotnet_call("s3:get",nHandle,"s3:M12")
+		return dotnet_getp(nHandle,"M12")
 
 	Func setM12 P1
-		dotnet_callv("s3:set",nHandle,"s3:M12",P1)
+		dotnet_setp(nHandle,"M12",P1)
 		return self
 
 	Func getM13
-		return dotnet_call("s3:get",nHandle,"s3:M13")
+		return dotnet_getp(nHandle,"M13")
 
 	Func setM13 P1
-		dotnet_callv("s3:set",nHandle,"s3:M13",P1)
+		dotnet_setp(nHandle,"M13",P1)
 		return self
 
 	Func getM14
-		return dotnet_call("s3:get",nHandle,"s3:M14")
+		return dotnet_getp(nHandle,"M14")
 
 	Func setM14 P1
-		dotnet_callv("s3:set",nHandle,"s3:M14",P1)
+		dotnet_setp(nHandle,"M14",P1)
 		return self
 
 	Func getM21
-		return dotnet_call("s3:get",nHandle,"s3:M21")
+		return dotnet_getp(nHandle,"M21")
 
 	Func setM21 P1
-		dotnet_callv("s3:set",nHandle,"s3:M21",P1)
+		dotnet_setp(nHandle,"M21",P1)
 		return self
 
 	Func getM22
-		return dotnet_call("s3:get",nHandle,"s3:M22")
+		return dotnet_getp(nHandle,"M22")
 
 	Func setM22 P1
-		dotnet_callv("s3:set",nHandle,"s3:M22",P1)
+		dotnet_setp(nHandle,"M22",P1)
 		return self
 
 	Func getM23
-		return dotnet_call("s3:get",nHandle,"s3:M23")
+		return dotnet_getp(nHandle,"M23")
 
 	Func setM23 P1
-		dotnet_callv("s3:set",nHandle,"s3:M23",P1)
+		dotnet_setp(nHandle,"M23",P1)
 		return self
 
 	Func getM24
-		return dotnet_call("s3:get",nHandle,"s3:M24")
+		return dotnet_getp(nHandle,"M24")
 
 	Func setM24 P1
-		dotnet_callv("s3:set",nHandle,"s3:M24",P1)
+		dotnet_setp(nHandle,"M24",P1)
 		return self
 
 	Func getM31
-		return dotnet_call("s3:get",nHandle,"s3:M31")
+		return dotnet_getp(nHandle,"M31")
 
 	Func setM31 P1
-		dotnet_callv("s3:set",nHandle,"s3:M31",P1)
+		dotnet_setp(nHandle,"M31",P1)
 		return self
 
 	Func getM32
-		return dotnet_call("s3:get",nHandle,"s3:M32")
+		return dotnet_getp(nHandle,"M32")
 
 	Func setM32 P1
-		dotnet_callv("s3:set",nHandle,"s3:M32",P1)
+		dotnet_setp(nHandle,"M32",P1)
 		return self
 
 	Func getM33
-		return dotnet_call("s3:get",nHandle,"s3:M33")
+		return dotnet_getp(nHandle,"M33")
 
 	Func setM33 P1
-		dotnet_callv("s3:set",nHandle,"s3:M33",P1)
+		dotnet_setp(nHandle,"M33",P1)
 		return self
 
 	Func getM34
-		return dotnet_call("s3:get",nHandle,"s3:M34")
+		return dotnet_getp(nHandle,"M34")
 
 	Func setM34 P1
-		dotnet_callv("s3:set",nHandle,"s3:M34",P1)
+		dotnet_setp(nHandle,"M34",P1)
 		return self
 
 	Func getOffsetX
-		return dotnet_call("s3:get",nHandle,"s7:OffsetX")
+		return dotnet_getp(nHandle,"OffsetX")
 
 	Func setOffsetX P1
-		dotnet_callv("s3:set",nHandle,"s7:OffsetX",P1)
+		dotnet_setp(nHandle,"OffsetX",P1)
 		return self
 
 	Func getOffsetY
-		return dotnet_call("s3:get",nHandle,"s7:OffsetY")
+		return dotnet_getp(nHandle,"OffsetY")
 
 	Func setOffsetY P1
-		dotnet_callv("s3:set",nHandle,"s7:OffsetY",P1)
+		dotnet_setp(nHandle,"OffsetY",P1)
 		return self
 
 	Func getOffsetZ
-		return dotnet_call("s3:get",nHandle,"s7:OffsetZ")
+		return dotnet_getp(nHandle,"OffsetZ")
 
 	Func setOffsetZ P1
-		dotnet_callv("s3:set",nHandle,"s7:OffsetZ",P1)
+		dotnet_setp(nHandle,"OffsetZ",P1)
 		return self
 
 	Func getM44
-		return dotnet_call("s3:get",nHandle,"s3:M44")
+		return dotnet_getp(nHandle,"M44")
 
 	Func setM44 P1
-		dotnet_callv("s3:set",nHandle,"s3:M44",P1)
+		dotnet_setp(nHandle,"M44",P1)
 		return self
 
 	Func getIdentity
@@ -1442,7 +1442,7 @@ Class Model3DCollection from Animatable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1607,24 +1607,24 @@ Class Point3D from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Point3D, PresentationCore',"s5:Parse",P1))
 
 	Func getX
-		return dotnet_call("s3:get",nHandle,"s1:X")
+		return dotnet_getp(nHandle,"X")
 
 	Func setX P1
-		dotnet_callv("s3:set",nHandle,"s1:X",P1)
+		dotnet_setp(nHandle,"X",P1)
 		return self
 
 	Func getY
-		return dotnet_call("s3:get",nHandle,"s1:Y")
+		return dotnet_getp(nHandle,"Y")
 
 	Func setY P1
-		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
+		dotnet_setp(nHandle,"Y",P1)
 		return self
 
 	Func getZ
-		return dotnet_call("s3:get",nHandle,"s1:Z")
+		return dotnet_getp(nHandle,"Z")
 
 	Func setZ P1
-		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
+		dotnet_setp(nHandle,"Z",P1)
 		return self
 
 	# the operators of System.Windows.Media.Media3D.Point3D: + - * = !=
@@ -1754,7 +1754,7 @@ Class Point3DCollection from Freezable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1925,31 +1925,31 @@ Class Point4D from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Point4D, PresentationCore',"s5:Parse",P1))
 
 	Func getX
-		return dotnet_call("s3:get",nHandle,"s1:X")
+		return dotnet_getp(nHandle,"X")
 
 	Func setX P1
-		dotnet_callv("s3:set",nHandle,"s1:X",P1)
+		dotnet_setp(nHandle,"X",P1)
 		return self
 
 	Func getY
-		return dotnet_call("s3:get",nHandle,"s1:Y")
+		return dotnet_getp(nHandle,"Y")
 
 	Func setY P1
-		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
+		dotnet_setp(nHandle,"Y",P1)
 		return self
 
 	Func getZ
-		return dotnet_call("s3:get",nHandle,"s1:Z")
+		return dotnet_getp(nHandle,"Z")
 
 	Func setZ P1
-		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
+		dotnet_setp(nHandle,"Z",P1)
 		return self
 
 	Func getW
-		return dotnet_call("s3:get",nHandle,"s1:W")
+		return dotnet_getp(nHandle,"W")
 
 	Func setW P1
-		dotnet_callv("s3:set",nHandle,"s1:W",P1)
+		dotnet_setp(nHandle,"W",P1)
 		return self
 
 	# the operators of System.Windows.Media.Media3D.Point4D: + - * = !=
@@ -2089,49 +2089,49 @@ Class WpfQuaternion from ValueType
 		raise("DotNet Error: Axis is a read-only property")
 
 	Func getAngle
-		return dotnet_call("s3:get",nHandle,"s5:Angle")
+		return dotnet_getp(nHandle,"Angle")
 
 	Func setAngle P1
 		raise("DotNet Error: Angle is a read-only property")
 
 	Func getIsNormalized
-		return dotnet_call("s3:get",nHandle,"s12:IsNormalized")
+		return dotnet_getp(nHandle,"IsNormalized")
 
 	Func setIsNormalized P1
 		raise("DotNet Error: IsNormalized is a read-only property")
 
 	Func getIsIdentity
-		return dotnet_call("s3:get",nHandle,"s10:IsIdentity")
+		return dotnet_getp(nHandle,"IsIdentity")
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")
 
 	Func getX
-		return dotnet_call("s3:get",nHandle,"s1:X")
+		return dotnet_getp(nHandle,"X")
 
 	Func setX P1
-		dotnet_callv("s3:set",nHandle,"s1:X",P1)
+		dotnet_setp(nHandle,"X",P1)
 		return self
 
 	Func getY
-		return dotnet_call("s3:get",nHandle,"s1:Y")
+		return dotnet_getp(nHandle,"Y")
 
 	Func setY P1
-		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
+		dotnet_setp(nHandle,"Y",P1)
 		return self
 
 	Func getZ
-		return dotnet_call("s3:get",nHandle,"s1:Z")
+		return dotnet_getp(nHandle,"Z")
 
 	Func setZ P1
-		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
+		dotnet_setp(nHandle,"Z",P1)
 		return self
 
 	Func getW
-		return dotnet_call("s3:get",nHandle,"s1:W")
+		return dotnet_getp(nHandle,"W")
 
 	Func setW P1
-		dotnet_callv("s3:set",nHandle,"s1:W",P1)
+		dotnet_setp(nHandle,"W",P1)
 		return self
 
 	Func getIdentity
@@ -2194,7 +2194,7 @@ Class RayHitTestResult from HitTestResult
 		raise("DotNet Error: PointHit is a read-only property")
 
 	Func getDistanceToRayOrigin
-		return dotnet_call("s3:get",nHandle,"s19:DistanceToRayOrigin")
+		return dotnet_getp(nHandle,"DistanceToRayOrigin")
 
 	Func setDistanceToRayOrigin P1
 		raise("DotNet Error: DistanceToRayOrigin is a read-only property")
@@ -2336,7 +2336,7 @@ Class Rect3D from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Rect3D, PresentationCore',"s5:Parse",P1))
 
 	Func getIsEmpty
-		return dotnet_call("s3:get",nHandle,"s7:IsEmpty")
+		return dotnet_getp(nHandle,"IsEmpty")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
@@ -2356,45 +2356,45 @@ Class Rect3D from ValueType
 		return self
 
 	Func getSizeX
-		return dotnet_call("s3:get",nHandle,"s5:SizeX")
+		return dotnet_getp(nHandle,"SizeX")
 
 	Func setSizeX P1
-		dotnet_callv("s3:set",nHandle,"s5:SizeX",P1)
+		dotnet_setp(nHandle,"SizeX",P1)
 		return self
 
 	Func getSizeY
-		return dotnet_call("s3:get",nHandle,"s5:SizeY")
+		return dotnet_getp(nHandle,"SizeY")
 
 	Func setSizeY P1
-		dotnet_callv("s3:set",nHandle,"s5:SizeY",P1)
+		dotnet_setp(nHandle,"SizeY",P1)
 		return self
 
 	Func getSizeZ
-		return dotnet_call("s3:get",nHandle,"s5:SizeZ")
+		return dotnet_getp(nHandle,"SizeZ")
 
 	Func setSizeZ P1
-		dotnet_callv("s3:set",nHandle,"s5:SizeZ",P1)
+		dotnet_setp(nHandle,"SizeZ",P1)
 		return self
 
 	Func getX
-		return dotnet_call("s3:get",nHandle,"s1:X")
+		return dotnet_getp(nHandle,"X")
 
 	Func setX P1
-		dotnet_callv("s3:set",nHandle,"s1:X",P1)
+		dotnet_setp(nHandle,"X",P1)
 		return self
 
 	Func getY
-		return dotnet_call("s3:get",nHandle,"s1:Y")
+		return dotnet_getp(nHandle,"Y")
 
 	Func setY P1
-		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
+		dotnet_setp(nHandle,"Y",P1)
 		return self
 
 	Func getZ
-		return dotnet_call("s3:get",nHandle,"s1:Z")
+		return dotnet_getp(nHandle,"Z")
 
 	Func setZ P1
-		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
+		dotnet_setp(nHandle,"Z",P1)
 		return self
 
 	Func getEmpty
@@ -2530,30 +2530,30 @@ Class Size3D from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Size3D, PresentationCore',"s5:Parse",P1))
 
 	Func getIsEmpty
-		return dotnet_call("s3:get",nHandle,"s7:IsEmpty")
+		return dotnet_getp(nHandle,"IsEmpty")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getX
-		return dotnet_call("s3:get",nHandle,"s1:X")
+		return dotnet_getp(nHandle,"X")
 
 	Func setX P1
-		dotnet_callv("s3:set",nHandle,"s1:X",P1)
+		dotnet_setp(nHandle,"X",P1)
 		return self
 
 	Func getY
-		return dotnet_call("s3:get",nHandle,"s1:Y")
+		return dotnet_getp(nHandle,"Y")
 
 	Func setY P1
-		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
+		dotnet_setp(nHandle,"Y",P1)
 		return self
 
 	Func getZ
-		return dotnet_call("s3:get",nHandle,"s1:Z")
+		return dotnet_getp(nHandle,"Z")
 
 	Func setZ P1
-		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
+		dotnet_setp(nHandle,"Z",P1)
 		return self
 
 	Func getEmpty
@@ -2697,7 +2697,7 @@ Class Transform3DCollection from Animatable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -2848,36 +2848,36 @@ Class Vector3D from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Media3D.Vector3D, PresentationCore',"s5:Parse",P1))
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getLengthSquared
-		return dotnet_call("s3:get",nHandle,"s13:LengthSquared")
+		return dotnet_getp(nHandle,"LengthSquared")
 
 	Func setLengthSquared P1
 		raise("DotNet Error: LengthSquared is a read-only property")
 
 	Func getX
-		return dotnet_call("s3:get",nHandle,"s1:X")
+		return dotnet_getp(nHandle,"X")
 
 	Func setX P1
-		dotnet_callv("s3:set",nHandle,"s1:X",P1)
+		dotnet_setp(nHandle,"X",P1)
 		return self
 
 	Func getY
-		return dotnet_call("s3:get",nHandle,"s1:Y")
+		return dotnet_getp(nHandle,"Y")
 
 	Func setY P1
-		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
+		dotnet_setp(nHandle,"Y",P1)
 		return self
 
 	Func getZ
-		return dotnet_call("s3:get",nHandle,"s1:Z")
+		return dotnet_getp(nHandle,"Z")
 
 	Func setZ P1
-		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
+		dotnet_setp(nHandle,"Z",P1)
 		return self
 
 	# the operators of System.Windows.Media.Media3D.Vector3D: -x + - * / = !=
@@ -3007,7 +3007,7 @@ Class Vector3DCollection from Freezable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -3152,10 +3152,10 @@ Class Viewport3DVisual from Visual
 		return self
 
 	Func getOpacity
-		return dotnet_call("s3:get",nHandle,"s7:Opacity")
+		return dotnet_getp(nHandle,"Opacity")
 
 	Func setOpacity P1
-		dotnet_callv("s3:set",nHandle,"s7:Opacity",P1)
+		dotnet_setp(nHandle,"Opacity",P1)
 		return self
 
 	Func getOpacityMask
@@ -3297,7 +3297,7 @@ Class Visual3D from DependencyObject
 		return self
 
 	Func getHasAnimatedProperties
-		return dotnet_call("s3:get",nHandle,"s21:HasAnimatedProperties")
+		return dotnet_getp(nHandle,"HasAnimatedProperties")
 
 	Func setHasAnimatedProperties P1
 		raise("DotNet Error: HasAnimatedProperties is a read-only property")
@@ -3398,7 +3398,7 @@ Class Visual3DCollection from Object
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -3492,10 +3492,10 @@ Class AxisAngleRotation3D from Rotation3D
 		return self
 
 	Func getAngle
-		return dotnet_call("s3:get",nHandle,"s5:Angle")
+		return dotnet_getp(nHandle,"Angle")
 
 	Func setAngle P1
-		dotnet_callv("s3:set",nHandle,"s5:Angle",P1)
+		dotnet_setp(nHandle,"Angle",P1)
 		return self
 
 	Func getAxisProperty
@@ -4104,17 +4104,17 @@ Class ProjectionCamera from Camera
 		return self
 
 	Func getNearPlaneDistance
-		return dotnet_call("s3:get",nHandle,"s17:NearPlaneDistance")
+		return dotnet_getp(nHandle,"NearPlaneDistance")
 
 	Func setNearPlaneDistance P1
-		dotnet_callv("s3:set",nHandle,"s17:NearPlaneDistance",P1)
+		dotnet_setp(nHandle,"NearPlaneDistance",P1)
 		return self
 
 	Func getFarPlaneDistance
-		return dotnet_call("s3:get",nHandle,"s16:FarPlaneDistance")
+		return dotnet_getp(nHandle,"FarPlaneDistance")
 
 	Func setFarPlaneDistance P1
-		dotnet_callv("s3:set",nHandle,"s16:FarPlaneDistance",P1)
+		dotnet_setp(nHandle,"FarPlaneDistance",P1)
 		return self
 
 	Func getPosition
@@ -4271,37 +4271,37 @@ Class RayMeshGeometry3DHitTestResult from RayHitTestResult
 		return self
 
 	Func getVertexIndex1
-		return dotnet_call("s3:get",nHandle,"s12:VertexIndex1")
+		return dotnet_getp(nHandle,"VertexIndex1")
 
 	Func setVertexIndex1 P1
 		raise("DotNet Error: VertexIndex1 is a read-only property")
 
 	Func getVertexIndex2
-		return dotnet_call("s3:get",nHandle,"s12:VertexIndex2")
+		return dotnet_getp(nHandle,"VertexIndex2")
 
 	Func setVertexIndex2 P1
 		raise("DotNet Error: VertexIndex2 is a read-only property")
 
 	Func getVertexIndex3
-		return dotnet_call("s3:get",nHandle,"s12:VertexIndex3")
+		return dotnet_getp(nHandle,"VertexIndex3")
 
 	Func setVertexIndex3 P1
 		raise("DotNet Error: VertexIndex3 is a read-only property")
 
 	Func getVertexWeight1
-		return dotnet_call("s3:get",nHandle,"s13:VertexWeight1")
+		return dotnet_getp(nHandle,"VertexWeight1")
 
 	Func setVertexWeight1 P1
 		raise("DotNet Error: VertexWeight1 is a read-only property")
 
 	Func getVertexWeight2
-		return dotnet_call("s3:get",nHandle,"s13:VertexWeight2")
+		return dotnet_getp(nHandle,"VertexWeight2")
 
 	Func setVertexWeight2 P1
 		raise("DotNet Error: VertexWeight2 is a read-only property")
 
 	Func getVertexWeight3
-		return dotnet_call("s3:get",nHandle,"s13:VertexWeight3")
+		return dotnet_getp(nHandle,"VertexWeight3")
 
 	Func setVertexWeight3 P1
 		raise("DotNet Error: VertexWeight3 is a read-only property")
@@ -4371,10 +4371,10 @@ Class SpecularMaterial from Material
 		return self
 
 	Func getSpecularPower
-		return dotnet_call("s3:get",nHandle,"s13:SpecularPower")
+		return dotnet_getp(nHandle,"SpecularPower")
 
 	Func setSpecularPower P1
-		dotnet_callv("s3:set",nHandle,"s13:SpecularPower",P1)
+		dotnet_setp(nHandle,"SpecularPower",P1)
 		return self
 
 	Func getColorProperty
@@ -4415,7 +4415,7 @@ Class Transform3D from GeneralTransform3D
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
 
 	Func getIsAffine
-		return dotnet_call("s3:get",nHandle,"s8:IsAffine")
+		return dotnet_getp(nHandle,"IsAffine")
 
 	Func setIsAffine P1
 		raise("DotNet Error: IsAffine is a read-only property")
@@ -4724,10 +4724,10 @@ Class OrthographicCamera from ProjectionCamera
 		return self
 
 	Func getWidth
-		return dotnet_call("s3:get",nHandle,"s5:Width")
+		return dotnet_getp(nHandle,"Width")
 
 	Func setWidth P1
-		dotnet_callv("s3:set",nHandle,"s5:Width",P1)
+		dotnet_setp(nHandle,"Width",P1)
 		return self
 
 	Func getWidthProperty
@@ -4777,10 +4777,10 @@ Class PerspectiveCamera from ProjectionCamera
 		return self
 
 	Func getFieldOfView
-		return dotnet_call("s3:get",nHandle,"s11:FieldOfView")
+		return dotnet_getp(nHandle,"FieldOfView")
 
 	Func setFieldOfView P1
-		dotnet_callv("s3:set",nHandle,"s11:FieldOfView",P1)
+		dotnet_setp(nHandle,"FieldOfView",P1)
 		return self
 
 	Func getFieldOfViewProperty
@@ -4820,31 +4820,31 @@ Class PointLightBase from Light
 		return self
 
 	Func getRange
-		return dotnet_call("s3:get",nHandle,"s5:Range")
+		return dotnet_getp(nHandle,"Range")
 
 	Func setRange P1
-		dotnet_callv("s3:set",nHandle,"s5:Range",P1)
+		dotnet_setp(nHandle,"Range",P1)
 		return self
 
 	Func getConstantAttenuation
-		return dotnet_call("s3:get",nHandle,"s19:ConstantAttenuation")
+		return dotnet_getp(nHandle,"ConstantAttenuation")
 
 	Func setConstantAttenuation P1
-		dotnet_callv("s3:set",nHandle,"s19:ConstantAttenuation",P1)
+		dotnet_setp(nHandle,"ConstantAttenuation",P1)
 		return self
 
 	Func getLinearAttenuation
-		return dotnet_call("s3:get",nHandle,"s17:LinearAttenuation")
+		return dotnet_getp(nHandle,"LinearAttenuation")
 
 	Func setLinearAttenuation P1
-		dotnet_callv("s3:set",nHandle,"s17:LinearAttenuation",P1)
+		dotnet_setp(nHandle,"LinearAttenuation",P1)
 		return self
 
 	Func getQuadraticAttenuation
-		return dotnet_call("s3:get",nHandle,"s20:QuadraticAttenuation")
+		return dotnet_getp(nHandle,"QuadraticAttenuation")
 
 	Func setQuadraticAttenuation P1
-		dotnet_callv("s3:set",nHandle,"s20:QuadraticAttenuation",P1)
+		dotnet_setp(nHandle,"QuadraticAttenuation",P1)
 		return self
 
 	Func getPositionProperty
@@ -4998,24 +4998,24 @@ Class RotateTransform3D from AffineTransform3D
 		return self
 
 	Func getCenterX
-		return dotnet_call("s3:get",nHandle,"s7:CenterX")
+		return dotnet_getp(nHandle,"CenterX")
 
 	Func setCenterX P1
-		dotnet_callv("s3:set",nHandle,"s7:CenterX",P1)
+		dotnet_setp(nHandle,"CenterX",P1)
 		return self
 
 	Func getCenterY
-		return dotnet_call("s3:get",nHandle,"s7:CenterY")
+		return dotnet_getp(nHandle,"CenterY")
 
 	Func setCenterY P1
-		dotnet_callv("s3:set",nHandle,"s7:CenterY",P1)
+		dotnet_setp(nHandle,"CenterY",P1)
 		return self
 
 	Func getCenterZ
-		return dotnet_call("s3:get",nHandle,"s7:CenterZ")
+		return dotnet_getp(nHandle,"CenterZ")
 
 	Func setCenterZ P1
-		dotnet_callv("s3:set",nHandle,"s7:CenterZ",P1)
+		dotnet_setp(nHandle,"CenterZ",P1)
 		return self
 
 	Func getRotation
@@ -5100,45 +5100,45 @@ Class ScaleTransform3D from AffineTransform3D
 		return self
 
 	Func getScaleX
-		return dotnet_call("s3:get",nHandle,"s6:ScaleX")
+		return dotnet_getp(nHandle,"ScaleX")
 
 	Func setScaleX P1
-		dotnet_callv("s3:set",nHandle,"s6:ScaleX",P1)
+		dotnet_setp(nHandle,"ScaleX",P1)
 		return self
 
 	Func getScaleY
-		return dotnet_call("s3:get",nHandle,"s6:ScaleY")
+		return dotnet_getp(nHandle,"ScaleY")
 
 	Func setScaleY P1
-		dotnet_callv("s3:set",nHandle,"s6:ScaleY",P1)
+		dotnet_setp(nHandle,"ScaleY",P1)
 		return self
 
 	Func getScaleZ
-		return dotnet_call("s3:get",nHandle,"s6:ScaleZ")
+		return dotnet_getp(nHandle,"ScaleZ")
 
 	Func setScaleZ P1
-		dotnet_callv("s3:set",nHandle,"s6:ScaleZ",P1)
+		dotnet_setp(nHandle,"ScaleZ",P1)
 		return self
 
 	Func getCenterX
-		return dotnet_call("s3:get",nHandle,"s7:CenterX")
+		return dotnet_getp(nHandle,"CenterX")
 
 	Func setCenterX P1
-		dotnet_callv("s3:set",nHandle,"s7:CenterX",P1)
+		dotnet_setp(nHandle,"CenterX",P1)
 		return self
 
 	Func getCenterY
-		return dotnet_call("s3:get",nHandle,"s7:CenterY")
+		return dotnet_getp(nHandle,"CenterY")
 
 	Func setCenterY P1
-		dotnet_callv("s3:set",nHandle,"s7:CenterY",P1)
+		dotnet_setp(nHandle,"CenterY",P1)
 		return self
 
 	Func getCenterZ
-		return dotnet_call("s3:get",nHandle,"s7:CenterZ")
+		return dotnet_getp(nHandle,"CenterZ")
 
 	Func setCenterZ P1
-		dotnet_callv("s3:set",nHandle,"s7:CenterZ",P1)
+		dotnet_setp(nHandle,"CenterZ",P1)
 		return self
 
 	Func getScaleXProperty
@@ -5229,17 +5229,17 @@ Class SpotLight from PointLightBase
 		return self
 
 	Func getOuterConeAngle
-		return dotnet_call("s3:get",nHandle,"s14:OuterConeAngle")
+		return dotnet_getp(nHandle,"OuterConeAngle")
 
 	Func setOuterConeAngle P1
-		dotnet_callv("s3:set",nHandle,"s14:OuterConeAngle",P1)
+		dotnet_setp(nHandle,"OuterConeAngle",P1)
 		return self
 
 	Func getInnerConeAngle
-		return dotnet_call("s3:get",nHandle,"s14:InnerConeAngle")
+		return dotnet_getp(nHandle,"InnerConeAngle")
 
 	Func setInnerConeAngle P1
-		dotnet_callv("s3:set",nHandle,"s14:InnerConeAngle",P1)
+		dotnet_setp(nHandle,"InnerConeAngle",P1)
 		return self
 
 	Func getDirectionProperty
@@ -5305,24 +5305,24 @@ Class TranslateTransform3D from AffineTransform3D
 		return self
 
 	Func getOffsetX
-		return dotnet_call("s3:get",nHandle,"s7:OffsetX")
+		return dotnet_getp(nHandle,"OffsetX")
 
 	Func setOffsetX P1
-		dotnet_callv("s3:set",nHandle,"s7:OffsetX",P1)
+		dotnet_setp(nHandle,"OffsetX",P1)
 		return self
 
 	Func getOffsetY
-		return dotnet_call("s3:get",nHandle,"s7:OffsetY")
+		return dotnet_getp(nHandle,"OffsetY")
 
 	Func setOffsetY P1
-		dotnet_callv("s3:set",nHandle,"s7:OffsetY",P1)
+		dotnet_setp(nHandle,"OffsetY",P1)
 		return self
 
 	Func getOffsetZ
-		return dotnet_call("s3:get",nHandle,"s7:OffsetZ")
+		return dotnet_getp(nHandle,"OffsetZ")
 
 	Func setOffsetZ P1
-		dotnet_callv("s3:set",nHandle,"s7:OffsetZ",P1)
+		dotnet_setp(nHandle,"OffsetZ",P1)
 		return self
 
 	Func getOffsetXProperty

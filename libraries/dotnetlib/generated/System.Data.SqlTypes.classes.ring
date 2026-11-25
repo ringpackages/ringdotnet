@@ -143,7 +143,7 @@ Class INullable from DotNetObject
 		return self
 
 	Func getIsNull
-		return dotnet_call("s3:get",nHandle,"s6:IsNull")
+		return dotnet_getp(nHandle,"IsNull")
 
 
 Class SqlBinary from ValueType
@@ -242,7 +242,7 @@ Class SqlBinary from ValueType
 		return dn_x
 
 	Func getIsNull
-		return dotnet_call("s3:get",nHandle,"s6:IsNull")
+		return dotnet_getp(nHandle,"IsNull")
 
 	Func getValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
@@ -251,7 +251,7 @@ Class SqlBinary from ValueType
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
@@ -394,28 +394,28 @@ Class SqlBoolean from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Data.SqlTypes.SqlBoolean, System.Data.Common',"s10:GetXsdType",P1))
 
 	Func getIsNull
-		return dotnet_call("s3:get",nHandle,"s6:IsNull")
+		return dotnet_getp(nHandle,"IsNull")
 
 	Func getValue
-		return dotnet_call("s3:get",nHandle,"s5:Value")
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getIsTrue
-		return dotnet_call("s3:get",nHandle,"s6:IsTrue")
+		return dotnet_getp(nHandle,"IsTrue")
 
 	Func setIsTrue P1
 		raise("DotNet Error: IsTrue is a read-only property")
 
 	Func getIsFalse
-		return dotnet_call("s3:get",nHandle,"s7:IsFalse")
+		return dotnet_getp(nHandle,"IsFalse")
 
 	Func setIsFalse P1
 		raise("DotNet Error: IsFalse is a read-only property")
 
 	Func getByteValue
-		return dotnet_call("s3:get",nHandle,"s9:ByteValue")
+		return dotnet_getp(nHandle,"ByteValue")
 
 	Func setByteValue P1
 		raise("DotNet Error: ByteValue is a read-only property")
@@ -596,10 +596,10 @@ Class SqlByte from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Data.SqlTypes.SqlByte, System.Data.Common',"s10:GetXsdType",P1))
 
 	Func getIsNull
-		return dotnet_call("s3:get",nHandle,"s6:IsNull")
+		return dotnet_getp(nHandle,"IsNull")
 
 	Func getValue
-		return dotnet_call("s3:get",nHandle,"s5:Value")
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -718,7 +718,7 @@ Class SqlBytes from Object
 		return self
 
 	Func getIsNull
-		return dotnet_call("s3:get",nHandle,"s6:IsNull")
+		return dotnet_getp(nHandle,"IsNull")
 
 	Func getBuffer
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Buffer"))
@@ -727,10 +727,10 @@ Class SqlBytes from Object
 		raise("DotNet Error: Buffer is a read-only property")
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func getMaxLength
-		return dotnet_call("s3:get",nHandle,"s9:MaxLength")
+		return dotnet_getp(nHandle,"MaxLength")
 
 	Func setMaxLength P1
 		raise("DotNet Error: MaxLength is a read-only property")
@@ -840,7 +840,7 @@ Class SqlChars from Object
 		return self
 
 	Func getIsNull
-		return dotnet_call("s3:get",nHandle,"s6:IsNull")
+		return dotnet_getp(nHandle,"IsNull")
 
 	Func getBuffer
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Buffer"))
@@ -849,10 +849,10 @@ Class SqlChars from Object
 		raise("DotNet Error: Buffer is a read-only property")
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func getMaxLength
-		return dotnet_call("s3:get",nHandle,"s9:MaxLength")
+		return dotnet_getp(nHandle,"MaxLength")
 
 	Func setMaxLength P1
 		raise("DotNet Error: MaxLength is a read-only property")
@@ -970,7 +970,7 @@ Class SqlDateTime from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Data.SqlTypes.SqlDateTime, System.Data.Common',"s10:GetXsdType",P1))
 
 	Func getIsNull
-		return dotnet_call("s3:get",nHandle,"s6:IsNull")
+		return dotnet_getp(nHandle,"IsNull")
 
 	Func getValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
@@ -979,13 +979,13 @@ Class SqlDateTime from ValueType
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getDayTicks
-		return dotnet_call("s3:get",nHandle,"s8:DayTicks")
+		return dotnet_getp(nHandle,"DayTicks")
 
 	Func setDayTicks P1
 		raise("DotNet Error: DayTicks is a read-only property")
 
 	Func getTimeTicks
-		return dotnet_call("s3:get",nHandle,"s9:TimeTicks")
+		return dotnet_getp(nHandle,"TimeTicks")
 
 	Func setTimeTicks P1
 		raise("DotNet Error: TimeTicks is a read-only property")
@@ -1195,28 +1195,28 @@ Class SqlDecimal from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Data.SqlTypes.SqlDecimal, System.Data.Common',"s10:GetXsdType",P1))
 
 	Func getIsNull
-		return dotnet_call("s3:get",nHandle,"s6:IsNull")
+		return dotnet_getp(nHandle,"IsNull")
 
 	Func getValue
-		return dotnet_call("s3:get",nHandle,"s5:Value")
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getIsPositive
-		return dotnet_call("s3:get",nHandle,"s10:IsPositive")
+		return dotnet_getp(nHandle,"IsPositive")
 
 	Func setIsPositive P1
 		raise("DotNet Error: IsPositive is a read-only property")
 
 	Func getPrecision
-		return dotnet_call("s3:get",nHandle,"s9:Precision")
+		return dotnet_getp(nHandle,"Precision")
 
 	Func setPrecision P1
 		raise("DotNet Error: Precision is a read-only property")
 
 	Func getScale
-		return dotnet_call("s3:get",nHandle,"s5:Scale")
+		return dotnet_getp(nHandle,"Scale")
 
 	Func setScale P1
 		raise("DotNet Error: Scale is a read-only property")
@@ -1391,10 +1391,10 @@ Class SqlDouble from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Data.SqlTypes.SqlDouble, System.Data.Common',"s10:GetXsdType",P1))
 
 	Func getIsNull
-		return dotnet_call("s3:get",nHandle,"s6:IsNull")
+		return dotnet_getp(nHandle,"IsNull")
 
 	Func getValue
-		return dotnet_call("s3:get",nHandle,"s5:Value")
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1518,7 +1518,7 @@ Class SqlGuid from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Data.SqlTypes.SqlGuid, System.Data.Common',"s10:GetXsdType",P1))
 
 	Func getIsNull
-		return dotnet_call("s3:get",nHandle,"s6:IsNull")
+		return dotnet_getp(nHandle,"IsNull")
 
 	Func getValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
@@ -1678,10 +1678,10 @@ Class SqlInt16 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Data.SqlTypes.SqlInt16, System.Data.Common',"s10:GetXsdType",P1))
 
 	Func getIsNull
-		return dotnet_call("s3:get",nHandle,"s6:IsNull")
+		return dotnet_getp(nHandle,"IsNull")
 
 	Func getValue
-		return dotnet_call("s3:get",nHandle,"s5:Value")
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1856,10 +1856,10 @@ Class SqlInt32 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Data.SqlTypes.SqlInt32, System.Data.Common',"s10:GetXsdType",P1))
 
 	Func getIsNull
-		return dotnet_call("s3:get",nHandle,"s6:IsNull")
+		return dotnet_getp(nHandle,"IsNull")
 
 	Func getValue
-		return dotnet_call("s3:get",nHandle,"s5:Value")
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -2034,10 +2034,10 @@ Class SqlInt64 from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Data.SqlTypes.SqlInt64, System.Data.Common',"s10:GetXsdType",P1))
 
 	Func getIsNull
-		return dotnet_call("s3:get",nHandle,"s6:IsNull")
+		return dotnet_getp(nHandle,"IsNull")
 
 	Func getValue
-		return dotnet_call("s3:get",nHandle,"s5:Value")
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -2222,10 +2222,10 @@ Class SqlMoney from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Data.SqlTypes.SqlMoney, System.Data.Common',"s10:GetXsdType",P1))
 
 	Func getIsNull
-		return dotnet_call("s3:get",nHandle,"s6:IsNull")
+		return dotnet_getp(nHandle,"IsNull")
 
 	Func getValue
-		return dotnet_call("s3:get",nHandle,"s5:Value")
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -2382,10 +2382,10 @@ Class SqlSingle from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Data.SqlTypes.SqlSingle, System.Data.Common',"s10:GetXsdType",P1))
 
 	Func getIsNull
-		return dotnet_call("s3:get",nHandle,"s6:IsNull")
+		return dotnet_getp(nHandle,"IsNull")
 
 	Func getValue
-		return dotnet_call("s3:get",nHandle,"s5:Value")
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -2558,18 +2558,16 @@ Class SqlString from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Data.SqlTypes.SqlString, System.Data.Common',"s10:GetXsdType",P1))
 
 	Func getIsNull
-		return dotnet_call("s3:get",nHandle,"s6:IsNull")
+		return dotnet_getp(nHandle,"IsNull")
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getLCID
-		return dotnet_call("s3:get",nHandle,"s4:LCID")
+		return dotnet_getp(nHandle,"LCID")
 
 	Func setLCID P1
 		raise("DotNet Error: LCID is a read-only property")
@@ -2727,12 +2725,10 @@ Class SqlXml from Object
 		return dnObj(dotnet_callo("s4:call",'System.Data.SqlTypes.SqlXml, System.Data.Common',"s10:GetXsdType",P1))
 
 	Func getIsNull
-		return dotnet_call("s3:get",nHandle,"s6:IsNull")
+		return dotnet_getp(nHandle,"IsNull")
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

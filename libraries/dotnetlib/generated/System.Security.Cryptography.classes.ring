@@ -985,13 +985,13 @@ Class AsnEncodedDataCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -1150,10 +1150,10 @@ Class AsymmetricAlgorithm from Object
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography',"s6:Create",P1))
 
 	Func getKeySize
-		return dotnet_call("s3:get",nHandle,"s7:KeySize")
+		return dotnet_getp(nHandle,"KeySize")
 
 	Func setKeySize P1
-		dotnet_callv("s3:set",nHandle,"s7:KeySize",P1)
+		dotnet_setp(nHandle,"KeySize",P1)
 		return self
 
 	Func getLegalKeySizes
@@ -1163,17 +1163,13 @@ Class AsymmetricAlgorithm from Object
 		raise("DotNet Error: LegalKeySizes is a read-only property")
 
 	Func getSignatureAlgorithm
-		dn_x = dotnet_call("s3:get",nHandle,"s18:SignatureAlgorithm")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"SignatureAlgorithm"))
 
 	Func setSignatureAlgorithm P1
 		raise("DotNet Error: SignatureAlgorithm is a read-only property")
 
 	Func getKeyExchangeAlgorithm
-		dn_x = dotnet_call("s3:get",nHandle,"s20:KeyExchangeAlgorithm")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"KeyExchangeAlgorithm"))
 
 	Func setKeyExchangeAlgorithm P1
 		raise("DotNet Error: KeyExchangeAlgorithm is a read-only property")
@@ -1206,12 +1202,10 @@ Class AsymmetricKeyExchangeDeformatter from Object
 		return dn_x
 
 	Func getParameters
-		dn_x = dotnet_call("s3:get",nHandle,"s10:Parameters")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Parameters"))
 
 	Func setParameters P1
-		dotnet_callv("s3:set",nHandle,"s10:Parameters",P1)
+		dotnet_setp(nHandle,"Parameters",P1)
 		return self
 
 
@@ -1245,9 +1239,7 @@ Class AsymmetricKeyExchangeFormatter from Object
 		return dn_x
 
 	Func getParameters
-		dn_x = dotnet_call("s3:get",nHandle,"s10:Parameters")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Parameters"))
 
 	Func setParameters P1
 		raise("DotNet Error: Parameters is a read-only property")
@@ -1396,9 +1388,7 @@ Class CngAlgorithm from Object
 		return dn_x
 
 	Func getAlgorithm
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Algorithm")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Algorithm"))
 
 	Func setAlgorithm P1
 		raise("DotNet Error: Algorithm is a read-only property")
@@ -1518,9 +1508,7 @@ Class CngAlgorithmGroup from Object
 		return dn_x
 
 	Func getAlgorithmGroup
-		dn_x = dotnet_call("s3:get",nHandle,"s14:AlgorithmGroup")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"AlgorithmGroup"))
 
 	Func setAlgorithmGroup P1
 		raise("DotNet Error: AlgorithmGroup is a read-only property")
@@ -1670,27 +1658,25 @@ Class CngKey from Object
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getIsEphemeral
-		return dotnet_call("s3:get",nHandle,"s11:IsEphemeral")
+		return dotnet_getp(nHandle,"IsEphemeral")
 
 	Func setIsEphemeral P1
 		raise("DotNet Error: IsEphemeral is a read-only property")
 
 	Func getIsMachineKey
-		return dotnet_call("s3:get",nHandle,"s12:IsMachineKey")
+		return dotnet_getp(nHandle,"IsMachineKey")
 
 	Func setIsMachineKey P1
 		raise("DotNet Error: IsMachineKey is a read-only property")
 
 	Func getKeyName
-		dn_x = dotnet_call("s3:get",nHandle,"s7:KeyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"KeyName"))
 
 	Func setKeyName P1
 		raise("DotNet Error: KeyName is a read-only property")
 
 	Func getKeySize
-		return dotnet_call("s3:get",nHandle,"s7:KeySize")
+		return dotnet_getp(nHandle,"KeySize")
 
 	Func setKeySize P1
 		raise("DotNet Error: KeySize is a read-only property")
@@ -1727,9 +1713,7 @@ Class CngKey from Object
 		raise("DotNet Error: UIPolicy is a read-only property")
 
 	Func getUniqueName
-		dn_x = dotnet_call("s3:get",nHandle,"s10:UniqueName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"UniqueName"))
 
 	Func setUniqueName P1
 		raise("DotNet Error: UniqueName is a read-only property")
@@ -1764,9 +1748,7 @@ Class CngKeyBlobFormat from Object
 		return dn_x
 
 	Func getFormat
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Format")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Format"))
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
@@ -1949,9 +1931,7 @@ Class CngProperty from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue"))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2012,9 +1992,7 @@ Class CngProvider from Object
 		return dn_x
 
 	Func getProvider
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Provider")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Provider"))
 
 	Func setProvider P1
 		raise("DotNet Error: Provider is a read-only property")
@@ -2088,33 +2066,25 @@ Class CngUIPolicy from Object
 		raise("DotNet Error: ProtectionLevel is a read-only property")
 
 	Func getFriendlyName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:FriendlyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FriendlyName"))
 
 	Func setFriendlyName P1
 		raise("DotNet Error: FriendlyName is a read-only property")
 
 	Func getDescription
-		dn_x = dotnet_call("s3:get",nHandle,"s11:Description")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Description"))
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getUseContext
-		dn_x = dotnet_call("s3:get",nHandle,"s10:UseContext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"UseContext"))
 
 	Func setUseContext P1
 		raise("DotNet Error: UseContext is a read-only property")
 
 	Func getCreationTitle
-		dn_x = dotnet_call("s3:get",nHandle,"s13:CreationTitle")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"CreationTitle"))
 
 	Func setCreationTitle P1
 		raise("DotNet Error: CreationTitle is a read-only property")
@@ -2228,7 +2198,7 @@ Class CryptoStream from Stream
 		return self
 
 	Func getHasFlushedFinalBlock
-		return dotnet_call("s3:get",nHandle,"s20:HasFlushedFinalBlock")
+		return dotnet_getp(nHandle,"HasFlushedFinalBlock")
 
 	Func setHasFlushedFinalBlock P1
 		raise("DotNet Error: HasFlushedFinalBlock is a read-only property")
@@ -2352,27 +2322,25 @@ Class CspKeyContainerInfo from Object
 		return dn_x
 
 	Func getAccessible
-		return dotnet_call("s3:get",nHandle,"s10:Accessible")
+		return dotnet_getp(nHandle,"Accessible")
 
 	Func setAccessible P1
 		raise("DotNet Error: Accessible is a read-only property")
 
 	Func getExportable
-		return dotnet_call("s3:get",nHandle,"s10:Exportable")
+		return dotnet_getp(nHandle,"Exportable")
 
 	Func setExportable P1
 		raise("DotNet Error: Exportable is a read-only property")
 
 	Func getHardwareDevice
-		return dotnet_call("s3:get",nHandle,"s14:HardwareDevice")
+		return dotnet_getp(nHandle,"HardwareDevice")
 
 	Func setHardwareDevice P1
 		raise("DotNet Error: HardwareDevice is a read-only property")
 
 	Func getKeyContainerName
-		dn_x = dotnet_call("s3:get",nHandle,"s16:KeyContainerName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"KeyContainerName"))
 
 	Func setKeyContainerName P1
 		raise("DotNet Error: KeyContainerName is a read-only property")
@@ -2384,47 +2352,43 @@ Class CspKeyContainerInfo from Object
 		raise("DotNet Error: KeyNumber is a read-only property")
 
 	Func getMachineKeyStore
-		return dotnet_call("s3:get",nHandle,"s15:MachineKeyStore")
+		return dotnet_getp(nHandle,"MachineKeyStore")
 
 	Func setMachineKeyStore P1
 		raise("DotNet Error: MachineKeyStore is a read-only property")
 
 	Func getProtected
-		return dotnet_call("s3:get",nHandle,"s9:Protected")
+		return dotnet_getp(nHandle,"Protected")
 
 	Func setProtected P1
 		raise("DotNet Error: Protected is a read-only property")
 
 	Func getProviderName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:ProviderName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ProviderName"))
 
 	Func setProviderName P1
 		raise("DotNet Error: ProviderName is a read-only property")
 
 	Func getProviderType
-		return dotnet_call("s3:get",nHandle,"s12:ProviderType")
+		return dotnet_getp(nHandle,"ProviderType")
 
 	Func setProviderType P1
 		raise("DotNet Error: ProviderType is a read-only property")
 
 	Func getRandomlyGenerated
-		return dotnet_call("s3:get",nHandle,"s17:RandomlyGenerated")
+		return dotnet_getp(nHandle,"RandomlyGenerated")
 
 	Func setRandomlyGenerated P1
 		raise("DotNet Error: RandomlyGenerated is a read-only property")
 
 	Func getRemovable
-		return dotnet_call("s3:get",nHandle,"s9:Removable")
+		return dotnet_getp(nHandle,"Removable")
 
 	Func setRemovable P1
 		raise("DotNet Error: Removable is a read-only property")
 
 	Func getUniqueKeyContainerName
-		dn_x = dotnet_call("s3:get",nHandle,"s22:UniqueKeyContainerName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"UniqueKeyContainerName"))
 
 	Func setUniqueKeyContainerName P1
 		raise("DotNet Error: UniqueKeyContainerName is a read-only property")
@@ -2501,35 +2465,31 @@ Class CspParameters from Object
 		return self
 
 	Func getProviderType
-		return dotnet_call("s3:get",nHandle,"s12:ProviderType")
+		return dotnet_getp(nHandle,"ProviderType")
 
 	Func setProviderType P1
-		dotnet_callv("s3:set",nHandle,"s12:ProviderType",P1)
+		dotnet_setp(nHandle,"ProviderType",P1)
 		return self
 
 	Func getProviderName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:ProviderName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ProviderName"))
 
 	Func setProviderName P1
-		dotnet_callv("s3:set",nHandle,"s12:ProviderName",P1)
+		dotnet_setp(nHandle,"ProviderName",P1)
 		return self
 
 	Func getKeyContainerName
-		dn_x = dotnet_call("s3:get",nHandle,"s16:KeyContainerName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"KeyContainerName"))
 
 	Func setKeyContainerName P1
-		dotnet_callv("s3:set",nHandle,"s16:KeyContainerName",P1)
+		dotnet_setp(nHandle,"KeyContainerName",P1)
 		return self
 
 	Func getKeyNumber
-		return dotnet_call("s3:get",nHandle,"s9:KeyNumber")
+		return dotnet_getp(nHandle,"KeyNumber")
 
 	Func setKeyNumber P1
-		dotnet_callv("s3:set",nHandle,"s9:KeyNumber",P1)
+		dotnet_setp(nHandle,"KeyNumber",P1)
 		return self
 
 
@@ -2612,10 +2572,10 @@ Class DSAParameters from ValueType
 		return self
 
 	Func getCounter
-		return dotnet_call("s3:get",nHandle,"s7:Counter")
+		return dotnet_getp(nHandle,"Counter")
 
 	Func setCounter P1
-		dotnet_callv("s3:set",nHandle,"s7:Counter",P1)
+		dotnet_setp(nHandle,"Counter",P1)
 		return self
 
 
@@ -2706,25 +2666,25 @@ Class ECCurve from ValueType
 		raise("DotNet Error: Oid is a read-only property")
 
 	Func getIsPrime
-		return dotnet_call("s3:get",nHandle,"s7:IsPrime")
+		return dotnet_getp(nHandle,"IsPrime")
 
 	Func setIsPrime P1
 		raise("DotNet Error: IsPrime is a read-only property")
 
 	Func getIsCharacteristic2
-		return dotnet_call("s3:get",nHandle,"s17:IsCharacteristic2")
+		return dotnet_getp(nHandle,"IsCharacteristic2")
 
 	Func setIsCharacteristic2 P1
 		raise("DotNet Error: IsCharacteristic2 is a read-only property")
 
 	Func getIsExplicit
-		return dotnet_call("s3:get",nHandle,"s10:IsExplicit")
+		return dotnet_getp(nHandle,"IsExplicit")
 
 	Func setIsExplicit P1
 		raise("DotNet Error: IsExplicit is a read-only property")
 
 	Func getIsNamed
-		return dotnet_call("s3:get",nHandle,"s7:IsNamed")
+		return dotnet_getp(nHandle,"IsNamed")
 
 	Func setIsNamed P1
 		raise("DotNet Error: IsNamed is a read-only property")
@@ -3133,25 +3093,25 @@ Class FromBase64Transform from Object
 		return dn_x
 
 	Func getInputBlockSize
-		return dotnet_call("s3:get",nHandle,"s14:InputBlockSize")
+		return dotnet_getp(nHandle,"InputBlockSize")
 
 	Func setInputBlockSize P1
 		raise("DotNet Error: InputBlockSize is a read-only property")
 
 	Func getOutputBlockSize
-		return dotnet_call("s3:get",nHandle,"s15:OutputBlockSize")
+		return dotnet_getp(nHandle,"OutputBlockSize")
 
 	Func setOutputBlockSize P1
 		raise("DotNet Error: OutputBlockSize is a read-only property")
 
 	Func getCanTransformMultipleBlocks
-		return dotnet_call("s3:get",nHandle,"s26:CanTransformMultipleBlocks")
+		return dotnet_getp(nHandle,"CanTransformMultipleBlocks")
 
 	Func setCanTransformMultipleBlocks P1
 		raise("DotNet Error: CanTransformMultipleBlocks is a read-only property")
 
 	Func getCanReuseTransform
-		return dotnet_call("s3:get",nHandle,"s17:CanReuseTransform")
+		return dotnet_getp(nHandle,"CanReuseTransform")
 
 	Func setCanReuseTransform P1
 		raise("DotNet Error: CanReuseTransform is a read-only property")
@@ -3263,7 +3223,7 @@ Class HashAlgorithm from Object
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography',"s6:Create",P1))
 
 	Func getHashSize
-		return dotnet_call("s3:get",nHandle,"s8:HashSize")
+		return dotnet_getp(nHandle,"HashSize")
 
 	Func setHashSize P1
 		raise("DotNet Error: HashSize is a read-only property")
@@ -3275,25 +3235,25 @@ Class HashAlgorithm from Object
 		raise("DotNet Error: Hash is a read-only property")
 
 	Func getInputBlockSize
-		return dotnet_call("s3:get",nHandle,"s14:InputBlockSize")
+		return dotnet_getp(nHandle,"InputBlockSize")
 
 	Func setInputBlockSize P1
 		raise("DotNet Error: InputBlockSize is a read-only property")
 
 	Func getOutputBlockSize
-		return dotnet_call("s3:get",nHandle,"s15:OutputBlockSize")
+		return dotnet_getp(nHandle,"OutputBlockSize")
 
 	Func setOutputBlockSize P1
 		raise("DotNet Error: OutputBlockSize is a read-only property")
 
 	Func getCanTransformMultipleBlocks
-		return dotnet_call("s3:get",nHandle,"s26:CanTransformMultipleBlocks")
+		return dotnet_getp(nHandle,"CanTransformMultipleBlocks")
 
 	Func setCanTransformMultipleBlocks P1
 		raise("DotNet Error: CanTransformMultipleBlocks is a read-only property")
 
 	Func getCanReuseTransform
-		return dotnet_call("s3:get",nHandle,"s17:CanReuseTransform")
+		return dotnet_getp(nHandle,"CanReuseTransform")
 
 	Func setCanReuseTransform P1
 		raise("DotNet Error: CanReuseTransform is a read-only property")
@@ -3352,9 +3312,7 @@ Class HashAlgorithmName from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography',"s7:FromOid",P1))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -3442,25 +3400,25 @@ Class ICryptoTransform from DotNetObject
 		return self
 
 	Func getInputBlockSize
-		return dotnet_call("s3:get",nHandle,"s14:InputBlockSize")
+		return dotnet_getp(nHandle,"InputBlockSize")
 
 	Func setInputBlockSize P1
 		raise("DotNet Error: InputBlockSize is a read-only property")
 
 	Func getOutputBlockSize
-		return dotnet_call("s3:get",nHandle,"s15:OutputBlockSize")
+		return dotnet_getp(nHandle,"OutputBlockSize")
 
 	Func setOutputBlockSize P1
 		raise("DotNet Error: OutputBlockSize is a read-only property")
 
 	Func getCanTransformMultipleBlocks
-		return dotnet_call("s3:get",nHandle,"s26:CanTransformMultipleBlocks")
+		return dotnet_getp(nHandle,"CanTransformMultipleBlocks")
 
 	Func setCanTransformMultipleBlocks P1
 		raise("DotNet Error: CanTransformMultipleBlocks is a read-only property")
 
 	Func getCanReuseTransform
-		return dotnet_call("s3:get",nHandle,"s17:CanReuseTransform")
+		return dotnet_getp(nHandle,"CanReuseTransform")
 
 	Func setCanReuseTransform P1
 		raise("DotNet Error: CanReuseTransform is a read-only property")
@@ -3549,7 +3507,7 @@ Class IncrementalHash from Object
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.IncrementalHash, System.Security.Cryptography',"s10:CreateHMAC",P1,P2))
 
 	Func getHashLengthInBytes
-		return dotnet_call("s3:get",nHandle,"s17:HashLengthInBytes")
+		return dotnet_getp(nHandle,"HashLengthInBytes")
 
 	Func setHashLengthInBytes P1
 		raise("DotNet Error: HashLengthInBytes is a read-only property")
@@ -3584,19 +3542,19 @@ Class KeySizes from Object
 		return dn_x
 
 	Func getMinSize
-		return dotnet_call("s3:get",nHandle,"s7:MinSize")
+		return dotnet_getp(nHandle,"MinSize")
 
 	Func setMinSize P1
 		raise("DotNet Error: MinSize is a read-only property")
 
 	Func getMaxSize
-		return dotnet_call("s3:get",nHandle,"s7:MaxSize")
+		return dotnet_getp(nHandle,"MaxSize")
 
 	Func setMaxSize P1
 		raise("DotNet Error: MaxSize is a read-only property")
 
 	Func getSkipSize
-		return dotnet_call("s3:get",nHandle,"s8:SkipSize")
+		return dotnet_getp(nHandle,"SkipSize")
 
 	Func setSkipSize P1
 		raise("DotNet Error: SkipSize is a read-only property")
@@ -3965,21 +3923,17 @@ Class Oid from Object
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.Oid, System.Security.Cryptography',"s12:FromOidValue",P1,P2))
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
-		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		dotnet_setp(nHandle,"Value",P1)
 		return self
 
 	Func getFriendlyName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:FriendlyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FriendlyName"))
 
 	Func setFriendlyName P1
-		dotnet_callv("s3:set",nHandle,"s12:FriendlyName",P1)
+		dotnet_setp(nHandle,"FriendlyName",P1)
 		return self
 
 
@@ -4049,13 +4003,13 @@ Class OidCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -4137,7 +4091,7 @@ Class PbeParameters from Object
 		raise("DotNet Error: HashAlgorithm is a read-only property")
 
 	Func getIterationCount
-		return dotnet_call("s3:get",nHandle,"s14:IterationCount")
+		return dotnet_getp(nHandle,"IterationCount")
 
 	Func setIterationCount P1
 		raise("DotNet Error: IterationCount is a read-only property")
@@ -4226,7 +4180,7 @@ Class PemFields from ValueType
 		raise("DotNet Error: Base64Data is a read-only property")
 
 	Func getDecodedDataLength
-		return dotnet_call("s3:get",nHandle,"s17:DecodedDataLength")
+		return dotnet_getp(nHandle,"DecodedDataLength")
 
 	Func setDecodedDataLength P1
 		raise("DotNet Error: DecodedDataLength is a read-only property")
@@ -4827,39 +4781,31 @@ Class SignatureDescription from Object
 		return dn_x
 
 	Func getKeyAlgorithm
-		dn_x = dotnet_call("s3:get",nHandle,"s12:KeyAlgorithm")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"KeyAlgorithm"))
 
 	Func setKeyAlgorithm P1
-		dotnet_callv("s3:set",nHandle,"s12:KeyAlgorithm",P1)
+		dotnet_setp(nHandle,"KeyAlgorithm",P1)
 		return self
 
 	Func getDigestAlgorithm
-		dn_x = dotnet_call("s3:get",nHandle,"s15:DigestAlgorithm")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DigestAlgorithm"))
 
 	Func setDigestAlgorithm P1
-		dotnet_callv("s3:set",nHandle,"s15:DigestAlgorithm",P1)
+		dotnet_setp(nHandle,"DigestAlgorithm",P1)
 		return self
 
 	Func getFormatterAlgorithm
-		dn_x = dotnet_call("s3:get",nHandle,"s18:FormatterAlgorithm")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FormatterAlgorithm"))
 
 	Func setFormatterAlgorithm P1
-		dotnet_callv("s3:set",nHandle,"s18:FormatterAlgorithm",P1)
+		dotnet_setp(nHandle,"FormatterAlgorithm",P1)
 		return self
 
 	Func getDeformatterAlgorithm
-		dn_x = dotnet_call("s3:get",nHandle,"s20:DeformatterAlgorithm")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DeformatterAlgorithm"))
 
 	Func setDeformatterAlgorithm P1
-		dotnet_callv("s3:set",nHandle,"s20:DeformatterAlgorithm",P1)
+		dotnet_setp(nHandle,"DeformatterAlgorithm",P1)
 		return self
 
 
@@ -5035,17 +4981,17 @@ Class SymmetricAlgorithm from Object
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography',"s6:Create",P1))
 
 	Func getFeedbackSize
-		return dotnet_call("s3:get",nHandle,"s12:FeedbackSize")
+		return dotnet_getp(nHandle,"FeedbackSize")
 
 	Func setFeedbackSize P1
-		dotnet_callv("s3:set",nHandle,"s12:FeedbackSize",P1)
+		dotnet_setp(nHandle,"FeedbackSize",P1)
 		return self
 
 	Func getBlockSize
-		return dotnet_call("s3:get",nHandle,"s9:BlockSize")
+		return dotnet_getp(nHandle,"BlockSize")
 
 	Func setBlockSize P1
-		dotnet_callv("s3:set",nHandle,"s9:BlockSize",P1)
+		dotnet_setp(nHandle,"BlockSize",P1)
 		return self
 
 	Func getIV
@@ -5063,10 +5009,10 @@ Class SymmetricAlgorithm from Object
 		return self
 
 	Func getKeySize
-		return dotnet_call("s3:get",nHandle,"s7:KeySize")
+		return dotnet_getp(nHandle,"KeySize")
 
 	Func setKeySize P1
-		dotnet_callv("s3:set",nHandle,"s7:KeySize",P1)
+		dotnet_setp(nHandle,"KeySize",P1)
 		return self
 
 	Func getLegalBlockSizes
@@ -5145,25 +5091,25 @@ Class ToBase64Transform from Object
 		return dn_x
 
 	Func getInputBlockSize
-		return dotnet_call("s3:get",nHandle,"s14:InputBlockSize")
+		return dotnet_getp(nHandle,"InputBlockSize")
 
 	Func setInputBlockSize P1
 		raise("DotNet Error: InputBlockSize is a read-only property")
 
 	Func getOutputBlockSize
-		return dotnet_call("s3:get",nHandle,"s15:OutputBlockSize")
+		return dotnet_getp(nHandle,"OutputBlockSize")
 
 	Func setOutputBlockSize P1
 		raise("DotNet Error: OutputBlockSize is a read-only property")
 
 	Func getCanTransformMultipleBlocks
-		return dotnet_call("s3:get",nHandle,"s26:CanTransformMultipleBlocks")
+		return dotnet_getp(nHandle,"CanTransformMultipleBlocks")
 
 	Func setCanTransformMultipleBlocks P1
 		raise("DotNet Error: CanTransformMultipleBlocks is a read-only property")
 
 	Func getCanReuseTransform
-		return dotnet_call("s3:get",nHandle,"s17:CanReuseTransform")
+		return dotnet_getp(nHandle,"CanReuseTransform")
 
 	Func setCanReuseTransform P1
 		raise("DotNet Error: CanReuseTransform is a read-only property")
@@ -5622,12 +5568,10 @@ Class PKCS1MaskGenerationMethod from MaskGenerationMethod
 		return self
 
 	Func getHashName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:HashName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"HashName"))
 
 	Func setHashName P1
-		dotnet_callv("s3:set",nHandle,"s8:HashName",P1)
+		dotnet_setp(nHandle,"HashName",P1)
 		return self
 
 
@@ -5667,19 +5611,17 @@ Class PasswordDeriveBytes from DeriveBytes
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CryptDeriveKey",P1,P2,P3,P4))
 
 	Func getHashName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:HashName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"HashName"))
 
 	Func setHashName P1
-		dotnet_callv("s3:set",nHandle,"s8:HashName",P1)
+		dotnet_setp(nHandle,"HashName",P1)
 		return self
 
 	Func getIterationCount
-		return dotnet_call("s3:get",nHandle,"s14:IterationCount")
+		return dotnet_getp(nHandle,"IterationCount")
 
 	Func setIterationCount P1
-		dotnet_callv("s3:set",nHandle,"s14:IterationCount",P1)
+		dotnet_setp(nHandle,"IterationCount",P1)
 		return self
 
 	Func getSalt
@@ -5713,10 +5655,10 @@ Class RC2 from SymmetricAlgorithm
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.RC2, System.Security.Cryptography',"s6:Create",P1))
 
 	Func getEffectiveKeySize
-		return dotnet_call("s3:get",nHandle,"s16:EffectiveKeySize")
+		return dotnet_getp(nHandle,"EffectiveKeySize")
 
 	Func setEffectiveKeySize P1
-		dotnet_callv("s3:set",nHandle,"s16:EffectiveKeySize",P1)
+		dotnet_setp(nHandle,"EffectiveKeySize",P1)
 		return self
 
 
@@ -6136,10 +6078,10 @@ Class Rfc2898DeriveBytes from DeriveBytes
 		raise("DotNet Error: HashAlgorithm is a read-only property")
 
 	Func getIterationCount
-		return dotnet_call("s3:get",nHandle,"s14:IterationCount")
+		return dotnet_getp(nHandle,"IterationCount")
 
 	Func setIterationCount P1
-		dotnet_callv("s3:set",nHandle,"s14:IterationCount",P1)
+		dotnet_setp(nHandle,"IterationCount",P1)
 		return self
 
 	Func getSalt
@@ -6670,14 +6612,14 @@ Class DSACryptoServiceProvider from DSA
 		raise("DotNet Error: KeySize is a read-only property")
 
 	Func getPersistKeyInCsp
-		return dotnet_call("s3:get",nHandle,"s15:PersistKeyInCsp")
+		return dotnet_getp(nHandle,"PersistKeyInCsp")
 
 	Func setPersistKeyInCsp P1
-		dotnet_callv("s3:set",nHandle,"s15:PersistKeyInCsp",P1)
+		dotnet_setp(nHandle,"PersistKeyInCsp",P1)
 		return self
 
 	Func getPublicOnly
-		return dotnet_call("s3:get",nHandle,"s10:PublicOnly")
+		return dotnet_getp(nHandle,"PublicOnly")
 
 	Func setPublicOnly P1
 		raise("DotNet Error: PublicOnly is a read-only property")
@@ -6873,12 +6815,10 @@ Class HMAC from KeyedHashAlgorithm
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HMAC, System.Security.Cryptography',"s6:Create",P1))
 
 	Func getHashName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:HashName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"HashName"))
 
 	Func setHashName P1
-		dotnet_callv("s3:set",nHandle,"s8:HashName",P1)
+		dotnet_setp(nHandle,"HashName",P1)
 		return self
 
 
@@ -7000,14 +6940,14 @@ Class RSACryptoServiceProvider from RSA
 		raise("DotNet Error: KeySize is a read-only property")
 
 	Func getPersistKeyInCsp
-		return dotnet_call("s3:get",nHandle,"s15:PersistKeyInCsp")
+		return dotnet_getp(nHandle,"PersistKeyInCsp")
 
 	Func setPersistKeyInCsp P1
-		dotnet_callv("s3:set",nHandle,"s15:PersistKeyInCsp",P1)
+		dotnet_setp(nHandle,"PersistKeyInCsp",P1)
 		return self
 
 	Func getPublicOnly
-		return dotnet_call("s3:get",nHandle,"s10:PublicOnly")
+		return dotnet_getp(nHandle,"PublicOnly")
 
 	Func setPublicOnly P1
 		raise("DotNet Error: PublicOnly is a read-only property")
@@ -7205,7 +7145,7 @@ Class ECDiffieHellmanCng from ECDiffieHellman
 		return self
 
 	Func getUseSecretAgreementAsHmacKey
-		return dotnet_call("s3:get",nHandle,"s27:UseSecretAgreementAsHmacKey")
+		return dotnet_getp(nHandle,"UseSecretAgreementAsHmacKey")
 
 	Func setUseSecretAgreementAsHmacKey P1
 		raise("DotNet Error: UseSecretAgreementAsHmacKey is a read-only property")
@@ -7610,10 +7550,10 @@ Class HMACSHA384 from HMAC
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getProduceLegacyHmacValues
-		return dotnet_call("s3:get",nHandle,"s23:ProduceLegacyHmacValues")
+		return dotnet_getp(nHandle,"ProduceLegacyHmacValues")
 
 	Func setProduceLegacyHmacValues P1
-		dotnet_callv("s3:set",nHandle,"s23:ProduceLegacyHmacValues",P1)
+		dotnet_setp(nHandle,"ProduceLegacyHmacValues",P1)
 		return self
 
 	Func getHashSizeInBits
@@ -7895,10 +7835,10 @@ Class HMACSHA512 from HMAC
 		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getProduceLegacyHmacValues
-		return dotnet_call("s3:get",nHandle,"s23:ProduceLegacyHmacValues")
+		return dotnet_getp(nHandle,"ProduceLegacyHmacValues")
 
 	Func setProduceLegacyHmacValues P1
-		dotnet_callv("s3:set",nHandle,"s23:ProduceLegacyHmacValues",P1)
+		dotnet_setp(nHandle,"ProduceLegacyHmacValues",P1)
 		return self
 
 	Func getHashSizeInBits

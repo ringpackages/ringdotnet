@@ -298,7 +298,7 @@ Class ParallelLoopResult from ValueType
 		return self
 
 	Func getIsCompleted
-		return dotnet_call("s3:get",nHandle,"s11:IsCompleted")
+		return dotnet_getp(nHandle,"IsCompleted")
 
 	Func setIsCompleted P1
 		raise("DotNet Error: IsCompleted is a read-only property")
@@ -342,19 +342,19 @@ Class ParallelLoopState from Object
 		return dn_x
 
 	Func getShouldExitCurrentIteration
-		return dotnet_call("s3:get",nHandle,"s26:ShouldExitCurrentIteration")
+		return dotnet_getp(nHandle,"ShouldExitCurrentIteration")
 
 	Func setShouldExitCurrentIteration P1
 		raise("DotNet Error: ShouldExitCurrentIteration is a read-only property")
 
 	Func getIsStopped
-		return dotnet_call("s3:get",nHandle,"s9:IsStopped")
+		return dotnet_getp(nHandle,"IsStopped")
 
 	Func setIsStopped P1
 		raise("DotNet Error: IsStopped is a read-only property")
 
 	Func getIsExceptional
-		return dotnet_call("s3:get",nHandle,"s13:IsExceptional")
+		return dotnet_getp(nHandle,"IsExceptional")
 
 	Func setIsExceptional P1
 		raise("DotNet Error: IsExceptional is a read-only property")
@@ -403,10 +403,10 @@ Class ParallelOptions from Object
 		return self
 
 	Func getMaxDegreeOfParallelism
-		return dotnet_call("s3:get",nHandle,"s22:MaxDegreeOfParallelism")
+		return dotnet_getp(nHandle,"MaxDegreeOfParallelism")
 
 	Func setMaxDegreeOfParallelism P1
-		dotnet_callv("s3:set",nHandle,"s22:MaxDegreeOfParallelism",P1)
+		dotnet_setp(nHandle,"MaxDegreeOfParallelism",P1)
 		return self
 
 	Func getCancellationToken
@@ -910,13 +910,13 @@ Class TaskScheduler from Object
 		return self
 
 	Func getMaximumConcurrencyLevel
-		return dotnet_call("s3:get",nHandle,"s23:MaximumConcurrencyLevel")
+		return dotnet_getp(nHandle,"MaximumConcurrencyLevel")
 
 	Func setMaximumConcurrencyLevel P1
 		raise("DotNet Error: MaximumConcurrencyLevel is a read-only property")
 
 	Func getId
-		return dotnet_call("s3:get",nHandle,"s2:Id")
+		return dotnet_getp(nHandle,"Id")
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -1021,7 +1021,7 @@ Class UnobservedTaskExceptionEventArgs from EventArgs
 		return self
 
 	Func getObserved
-		return dotnet_call("s3:get",nHandle,"s8:Observed")
+		return dotnet_getp(nHandle,"Observed")
 
 	Func getException
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Exception"))
@@ -1094,25 +1094,25 @@ Class ValueTask from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.ValueTask, System.Private.CoreLib',"s13:FromException",P1))
 
 	Func getIsCompleted
-		return dotnet_call("s3:get",nHandle,"s11:IsCompleted")
+		return dotnet_getp(nHandle,"IsCompleted")
 
 	Func setIsCompleted P1
 		raise("DotNet Error: IsCompleted is a read-only property")
 
 	Func getIsCompletedSuccessfully
-		return dotnet_call("s3:get",nHandle,"s23:IsCompletedSuccessfully")
+		return dotnet_getp(nHandle,"IsCompletedSuccessfully")
 
 	Func setIsCompletedSuccessfully P1
 		raise("DotNet Error: IsCompletedSuccessfully is a read-only property")
 
 	Func getIsFaulted
-		return dotnet_call("s3:get",nHandle,"s9:IsFaulted")
+		return dotnet_getp(nHandle,"IsFaulted")
 
 	Func setIsFaulted P1
 		raise("DotNet Error: IsFaulted is a read-only property")
 
 	Func getIsCanceled
-		return dotnet_call("s3:get",nHandle,"s10:IsCanceled")
+		return dotnet_getp(nHandle,"IsCanceled")
 
 	Func setIsCanceled P1
 		raise("DotNet Error: IsCanceled is a read-only property")
@@ -1162,25 +1162,25 @@ Class ValueTask1 from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func getIsCompleted
-		return dotnet_call("s3:get",nHandle,"s11:IsCompleted")
+		return dotnet_getp(nHandle,"IsCompleted")
 
 	Func setIsCompleted P1
 		raise("DotNet Error: IsCompleted is a read-only property")
 
 	Func getIsCompletedSuccessfully
-		return dotnet_call("s3:get",nHandle,"s23:IsCompletedSuccessfully")
+		return dotnet_getp(nHandle,"IsCompletedSuccessfully")
 
 	Func setIsCompletedSuccessfully P1
 		raise("DotNet Error: IsCompletedSuccessfully is a read-only property")
 
 	Func getIsFaulted
-		return dotnet_call("s3:get",nHandle,"s9:IsFaulted")
+		return dotnet_getp(nHandle,"IsFaulted")
 
 	Func setIsFaulted P1
 		raise("DotNet Error: IsFaulted is a read-only property")
 
 	Func getIsCanceled
-		return dotnet_call("s3:get",nHandle,"s10:IsCanceled")
+		return dotnet_getp(nHandle,"IsCanceled")
 
 	Func setIsCanceled P1
 		raise("DotNet Error: IsCanceled is a read-only property")
@@ -1363,7 +1363,7 @@ Class Task from Object
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.Task, System.Private.CoreLib',"s8:WhenEach",P1))
 
 	Func getId
-		return dotnet_call("s3:get",nHandle,"s2:Id")
+		return dotnet_getp(nHandle,"Id")
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -1381,19 +1381,19 @@ Class Task from Object
 		raise("DotNet Error: Status is a read-only property")
 
 	Func getIsCanceled
-		return dotnet_call("s3:get",nHandle,"s10:IsCanceled")
+		return dotnet_getp(nHandle,"IsCanceled")
 
 	Func setIsCanceled P1
 		raise("DotNet Error: IsCanceled is a read-only property")
 
 	Func getIsCompleted
-		return dotnet_call("s3:get",nHandle,"s11:IsCompleted")
+		return dotnet_getp(nHandle,"IsCompleted")
 
 	Func setIsCompleted P1
 		raise("DotNet Error: IsCompleted is a read-only property")
 
 	Func getIsCompletedSuccessfully
-		return dotnet_call("s3:get",nHandle,"s23:IsCompletedSuccessfully")
+		return dotnet_getp(nHandle,"IsCompletedSuccessfully")
 
 	Func setIsCompletedSuccessfully P1
 		raise("DotNet Error: IsCompletedSuccessfully is a read-only property")
@@ -1411,7 +1411,7 @@ Class Task from Object
 		raise("DotNet Error: AsyncState is a read-only property")
 
 	Func getIsFaulted
-		return dotnet_call("s3:get",nHandle,"s9:IsFaulted")
+		return dotnet_getp(nHandle,"IsFaulted")
 
 	Func setIsFaulted P1
 		raise("DotNet Error: IsFaulted is a read-only property")
@@ -1490,9 +1490,7 @@ Class StringTask from Task
 		return self
 
 	Func getResult
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Result")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Result"))
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
@@ -1572,7 +1570,7 @@ Class NumberTask from Task
 		return self
 
 	Func getResult
-		return dotnet_call("s3:get",nHandle,"s6:Result")
+		return dotnet_getp(nHandle,"Result")
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
@@ -1612,7 +1610,7 @@ Class IntTask from Task
 		return self
 
 	Func getResult
-		return dotnet_call("s3:get",nHandle,"s6:Result")
+		return dotnet_getp(nHandle,"Result")
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
@@ -1652,7 +1650,7 @@ Class BoolTask from Task
 		return self
 
 	Func getResult
-		return dotnet_call("s3:get",nHandle,"s6:Result")
+		return dotnet_getp(nHandle,"Result")
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")

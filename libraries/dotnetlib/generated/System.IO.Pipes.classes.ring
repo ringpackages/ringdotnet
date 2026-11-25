@@ -165,7 +165,7 @@ Class PipeAccessRule from DotNetObject
 		raise("DotNet Error: IdentityReference is a read-only property")
 
 	Func getIsInherited
-		return dotnet_call("s3:get",nHandle,"s11:IsInherited")
+		return dotnet_getp(nHandle,"IsInherited")
 
 	Func setIsInherited P1
 		raise("DotNet Error: IsInherited is a read-only property")
@@ -240,7 +240,7 @@ Class PipeAuditRule from DotNetObject
 		raise("DotNet Error: IdentityReference is a read-only property")
 
 	Func getIsInherited
-		return dotnet_call("s3:get",nHandle,"s11:IsInherited")
+		return dotnet_getp(nHandle,"IsInherited")
 
 	Func setIsInherited P1
 		raise("DotNet Error: IsInherited is a read-only property")
@@ -453,25 +453,25 @@ Class PipeSecurity from DotNetObject
 		raise("DotNet Error: AuditRuleType is a read-only property")
 
 	Func getAreAccessRulesProtected
-		return dotnet_call("s3:get",nHandle,"s23:AreAccessRulesProtected")
+		return dotnet_getp(nHandle,"AreAccessRulesProtected")
 
 	Func setAreAccessRulesProtected P1
 		raise("DotNet Error: AreAccessRulesProtected is a read-only property")
 
 	Func getAreAuditRulesProtected
-		return dotnet_call("s3:get",nHandle,"s22:AreAuditRulesProtected")
+		return dotnet_getp(nHandle,"AreAuditRulesProtected")
 
 	Func setAreAuditRulesProtected P1
 		raise("DotNet Error: AreAuditRulesProtected is a read-only property")
 
 	Func getAreAccessRulesCanonical
-		return dotnet_call("s3:get",nHandle,"s23:AreAccessRulesCanonical")
+		return dotnet_getp(nHandle,"AreAccessRulesCanonical")
 
 	Func setAreAccessRulesCanonical P1
 		raise("DotNet Error: AreAccessRulesCanonical is a read-only property")
 
 	Func getAreAuditRulesCanonical
-		return dotnet_call("s3:get",nHandle,"s22:AreAuditRulesCanonical")
+		return dotnet_getp(nHandle,"AreAuditRulesCanonical")
 
 	Func setAreAuditRulesCanonical P1
 		raise("DotNet Error: AreAuditRulesCanonical is a read-only property")
@@ -513,19 +513,19 @@ Class PipeStream from Stream
 		return self
 
 	Func getIsConnected
-		return dotnet_call("s3:get",nHandle,"s11:IsConnected")
+		return dotnet_getp(nHandle,"IsConnected")
 
 	Func setIsConnected P1
 		raise("DotNet Error: IsConnected is a read-only property")
 
 	Func getIsAsync
-		return dotnet_call("s3:get",nHandle,"s7:IsAsync")
+		return dotnet_getp(nHandle,"IsAsync")
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
 
 	Func getIsMessageComplete
-		return dotnet_call("s3:get",nHandle,"s17:IsMessageComplete")
+		return dotnet_getp(nHandle,"IsMessageComplete")
 
 	Func setIsMessageComplete P1
 		raise("DotNet Error: IsMessageComplete is a read-only property")
@@ -543,13 +543,13 @@ Class PipeStream from Stream
 		raise("DotNet Error: TransmissionMode is a read-only property")
 
 	Func getInBufferSize
-		return dotnet_call("s3:get",nHandle,"s12:InBufferSize")
+		return dotnet_getp(nHandle,"InBufferSize")
 
 	Func setInBufferSize P1
 		raise("DotNet Error: InBufferSize is a read-only property")
 
 	Func getOutBufferSize
-		return dotnet_call("s3:get",nHandle,"s13:OutBufferSize")
+		return dotnet_getp(nHandle,"OutBufferSize")
 
 	Func setOutBufferSize P1
 		raise("DotNet Error: OutBufferSize is a read-only property")
@@ -799,7 +799,7 @@ Class NamedPipeClientStream from PipeStream
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ConnectAsync",P1))
 
 	Func getNumberOfServerInstances
-		return dotnet_call("s3:get",nHandle,"s23:NumberOfServerInstances")
+		return dotnet_getp(nHandle,"NumberOfServerInstances")
 
 	Func setNumberOfServerInstances P1
 		raise("DotNet Error: NumberOfServerInstances is a read-only property")

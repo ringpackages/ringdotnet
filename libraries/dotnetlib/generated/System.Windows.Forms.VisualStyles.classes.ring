@@ -1199,80 +1199,80 @@ Class TextMetrics from ValueType
 		return self
 
 	Func getHeight
-		return dotnet_call("s3:get",nHandle,"s6:Height")
+		return dotnet_getp(nHandle,"Height")
 
 	Func setHeight P1
-		dotnet_callv("s3:set",nHandle,"s6:Height",P1)
+		dotnet_setp(nHandle,"Height",P1)
 		return self
 
 	Func getAscent
-		return dotnet_call("s3:get",nHandle,"s6:Ascent")
+		return dotnet_getp(nHandle,"Ascent")
 
 	Func setAscent P1
-		dotnet_callv("s3:set",nHandle,"s6:Ascent",P1)
+		dotnet_setp(nHandle,"Ascent",P1)
 		return self
 
 	Func getDescent
-		return dotnet_call("s3:get",nHandle,"s7:Descent")
+		return dotnet_getp(nHandle,"Descent")
 
 	Func setDescent P1
-		dotnet_callv("s3:set",nHandle,"s7:Descent",P1)
+		dotnet_setp(nHandle,"Descent",P1)
 		return self
 
 	Func getInternalLeading
-		return dotnet_call("s3:get",nHandle,"s15:InternalLeading")
+		return dotnet_getp(nHandle,"InternalLeading")
 
 	Func setInternalLeading P1
-		dotnet_callv("s3:set",nHandle,"s15:InternalLeading",P1)
+		dotnet_setp(nHandle,"InternalLeading",P1)
 		return self
 
 	Func getExternalLeading
-		return dotnet_call("s3:get",nHandle,"s15:ExternalLeading")
+		return dotnet_getp(nHandle,"ExternalLeading")
 
 	Func setExternalLeading P1
-		dotnet_callv("s3:set",nHandle,"s15:ExternalLeading",P1)
+		dotnet_setp(nHandle,"ExternalLeading",P1)
 		return self
 
 	Func getAverageCharWidth
-		return dotnet_call("s3:get",nHandle,"s16:AverageCharWidth")
+		return dotnet_getp(nHandle,"AverageCharWidth")
 
 	Func setAverageCharWidth P1
-		dotnet_callv("s3:set",nHandle,"s16:AverageCharWidth",P1)
+		dotnet_setp(nHandle,"AverageCharWidth",P1)
 		return self
 
 	Func getMaxCharWidth
-		return dotnet_call("s3:get",nHandle,"s12:MaxCharWidth")
+		return dotnet_getp(nHandle,"MaxCharWidth")
 
 	Func setMaxCharWidth P1
-		dotnet_callv("s3:set",nHandle,"s12:MaxCharWidth",P1)
+		dotnet_setp(nHandle,"MaxCharWidth",P1)
 		return self
 
 	Func getWeight
-		return dotnet_call("s3:get",nHandle,"s6:Weight")
+		return dotnet_getp(nHandle,"Weight")
 
 	Func setWeight P1
-		dotnet_callv("s3:set",nHandle,"s6:Weight",P1)
+		dotnet_setp(nHandle,"Weight",P1)
 		return self
 
 	Func getOverhang
-		return dotnet_call("s3:get",nHandle,"s8:Overhang")
+		return dotnet_getp(nHandle,"Overhang")
 
 	Func setOverhang P1
-		dotnet_callv("s3:set",nHandle,"s8:Overhang",P1)
+		dotnet_setp(nHandle,"Overhang",P1)
 		return self
 
 	Func getDigitizedAspectX
-		return dotnet_call("s3:get",nHandle,"s16:DigitizedAspectX")
+		return dotnet_getp(nHandle,"DigitizedAspectX")
 
 	Func setDigitizedAspectX P1
-		dotnet_callv("s3:set",nHandle,"s16:DigitizedAspectX",P1)
+		dotnet_setp(nHandle,"DigitizedAspectX",P1)
 		return self
 
 	Func getDigitizedAspectY
-		return dotnet_call("s3:get",nHandle,"s16:DigitizedAspectY")
+		return dotnet_getp(nHandle,"DigitizedAspectY")
 
 	Func setDigitizedAspectY P1
-		dotnet_callv("s3:set",nHandle,"s16:DigitizedAspectY",P1)
+		dotnet_setp(nHandle,"DigitizedAspectY",P1)
 		return self
 
 	Func getFirstChar
@@ -1304,24 +1304,24 @@ Class TextMetrics from ValueType
 		return self
 
 	Func getItalic
-		return dotnet_call("s3:get",nHandle,"s6:Italic")
+		return dotnet_getp(nHandle,"Italic")
 
 	Func setItalic P1
-		dotnet_callv("s3:set",nHandle,"s6:Italic",P1)
+		dotnet_setp(nHandle,"Italic",P1)
 		return self
 
 	Func getUnderlined
-		return dotnet_call("s3:get",nHandle,"s10:Underlined")
+		return dotnet_getp(nHandle,"Underlined")
 
 	Func setUnderlined P1
-		dotnet_callv("s3:set",nHandle,"s10:Underlined",P1)
+		dotnet_setp(nHandle,"Underlined",P1)
 		return self
 
 	Func getStruckOut
-		return dotnet_call("s3:get",nHandle,"s9:StruckOut")
+		return dotnet_getp(nHandle,"StruckOut")
 
 	Func setStruckOut P1
-		dotnet_callv("s3:set",nHandle,"s9:StruckOut",P1)
+		dotnet_setp(nHandle,"StruckOut",P1)
 		return self
 
 	Func getPitchAndFamily
@@ -1363,21 +1363,19 @@ Class VisualStyleElement from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.VisualStyles.VisualStyleElement, System.Windows.Forms',"s13:CreateElement",P1,P2,P3))
 
 	Func getClassName
-		dn_x = dotnet_call("s3:get",nHandle,"s9:ClassName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ClassName"))
 
 	Func setClassName P1
 		raise("DotNet Error: ClassName is a read-only property")
 
 	Func getPart
-		return dotnet_call("s3:get",nHandle,"s4:Part")
+		return dotnet_getp(nHandle,"Part")
 
 	Func setPart P1
 		raise("DotNet Error: Part is a read-only property")
 
 	Func getState
-		return dotnet_call("s3:get",nHandle,"s5:State")
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -8094,18 +8092,16 @@ Class VisualStyleRenderer from Object
 		return dn_x
 
 	Func getClass
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Class")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Class"))
 
 	Func getPart
-		return dotnet_call("s3:get",nHandle,"s4:Part")
+		return dotnet_getp(nHandle,"Part")
 
 	Func setPart P1
 		raise("DotNet Error: Part is a read-only property")
 
 	Func getState
-		return dotnet_call("s3:get",nHandle,"s5:State")
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -8117,7 +8113,7 @@ Class VisualStyleRenderer from Object
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getLastHResult
-		return dotnet_call("s3:get",nHandle,"s11:LastHResult")
+		return dotnet_getp(nHandle,"LastHResult")
 
 	Func setLastHResult P1
 		raise("DotNet Error: LastHResult is a read-only property")

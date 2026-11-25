@@ -307,6 +307,19 @@ func returnCode cRequest, cReturnType, nByRef
 	ok
 	return "return " + sendCall(cRequest) + nl
 
+# The getter of an instance property or field of a number, a yes/no or a text: dotnet_getp (ring_dotnet.c) reads it without a request text. The bridge
+# answers the value, or asks for the generic request (the property is of another kind on the real type, the handle is not valid...), which the extension
+# makes itself, so every answer and every error is the one of the generic call. A text can be null: the marker list is finished by dnFinish.
+func typedGetterCode cName, cType
+	if cType = "System.String"
+		return 'return dnText(dotnet_getp(nHandle,"' + cName + '"))' + nl
+	ok
+	return 'return dotnet_getp(nHandle,"' + cName + '")' + nl
+
+# The setter of such a property: dotnet_setp writes a number or a text, and makes the generic request for any other value or conversion
+func typedSetterCode cName
+	return 'dotnet_setp(nHandle,"' + cName + '",P1)' + nl
+
 # The statement that returns the value of a property. A property has no overloads, so its declared type is what it answers: a number or a yes/no is
 # returned as it is, with nothing to finish. (The indexer is not a property: it is described by the first indexer that .NET lists, which is not always
 # the one that is called, so it uses returnCode.)
@@ -896,16 +909,26 @@ func buildPlan cTypeName, nForceInit
 		else
 			cTarget = "self"
 		ok
+		# an instance property or field of a number, a yes/no or a text is read and written by the typed functions of the extension
+		lTyped = (not aMember[4]) and isPrimitiveType(aMember[5])
 		if aMember[2] and (find(aNames,lower("get" + cName)) = 0)
 			aNames + lower("get" + cName)
 			cB = "	Func get" + cName + nl
-			cB += "		" + propertyReturnCode('"get",[' + cTarget + ',"' + cName + '"]',aMember[5]) + nl
+			if lTyped
+				cB += "		" + typedGetterCode(cName,aMember[5]) + nl
+			else
+				cB += "		" + propertyReturnCode('"get",[' + cTarget + ',"' + cName + '"]',aMember[5]) + nl
+			ok
 			aBlocks + [lower("get" + cName),cB]
 		ok
 		if aMember[3] and (find(aNames,lower("set" + cName)) = 0)
 			aNames + lower("set" + cName)
 			cB = "	Func set" + cName + " P1" + nl
-			cB += "		" + nativeCall('"set",[' + cTarget + ',"' + cName + '",P1]',"void")
+			if lTyped
+				cB += "		" + typedSetterCode(cName)
+			else
+				cB += "		" + nativeCall('"set",[' + cTarget + ',"' + cName + '",P1]',"void")
+			ok
 			cB += "		return self" + nl + nl
 			aBlocks + [lower("set" + cName),cB]
 		but (not aMember[3]) and (find(aAttrs,lower(cName)) > 0) and (find(aNames,lower("set" + cName)) = 0)

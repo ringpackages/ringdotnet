@@ -828,28 +828,24 @@ Class AcceptVerbsAttribute from Attribute
 		raise("DotNet Error: HttpMethods is a read-only property")
 
 	Func getRoute
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Route")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Route"))
 
 	Func setRoute P1
-		dotnet_callv("s3:set",nHandle,"s5:Route",P1)
+		dotnet_setp(nHandle,"Route",P1)
 		return self
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 
@@ -964,9 +960,7 @@ Class ActionNameAttribute from Attribute
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1094,38 +1088,38 @@ Class ApiBehaviorOptions from Object
 		return self
 
 	Func getSuppressModelStateInvalidFilter
-		return dotnet_call("s3:get",nHandle,"s31:SuppressModelStateInvalidFilter")
+		return dotnet_getp(nHandle,"SuppressModelStateInvalidFilter")
 
 	Func setSuppressModelStateInvalidFilter P1
-		dotnet_callv("s3:set",nHandle,"s31:SuppressModelStateInvalidFilter",P1)
+		dotnet_setp(nHandle,"SuppressModelStateInvalidFilter",P1)
 		return self
 
 	Func getSuppressInferBindingSourcesForParameters
-		return dotnet_call("s3:get",nHandle,"s40:SuppressInferBindingSourcesForParameters")
+		return dotnet_getp(nHandle,"SuppressInferBindingSourcesForParameters")
 
 	Func setSuppressInferBindingSourcesForParameters P1
-		dotnet_callv("s3:set",nHandle,"s40:SuppressInferBindingSourcesForParameters",P1)
+		dotnet_setp(nHandle,"SuppressInferBindingSourcesForParameters",P1)
 		return self
 
 	Func getDisableImplicitFromServicesParameters
-		return dotnet_call("s3:get",nHandle,"s37:DisableImplicitFromServicesParameters")
+		return dotnet_getp(nHandle,"DisableImplicitFromServicesParameters")
 
 	Func setDisableImplicitFromServicesParameters P1
-		dotnet_callv("s3:set",nHandle,"s37:DisableImplicitFromServicesParameters",P1)
+		dotnet_setp(nHandle,"DisableImplicitFromServicesParameters",P1)
 		return self
 
 	Func getSuppressConsumesConstraintForFormFileParameters
-		return dotnet_call("s3:get",nHandle,"s47:SuppressConsumesConstraintForFormFileParameters")
+		return dotnet_getp(nHandle,"SuppressConsumesConstraintForFormFileParameters")
 
 	Func setSuppressConsumesConstraintForFormFileParameters P1
-		dotnet_callv("s3:set",nHandle,"s47:SuppressConsumesConstraintForFormFileParameters",P1)
+		dotnet_setp(nHandle,"SuppressConsumesConstraintForFormFileParameters",P1)
 		return self
 
 	Func getSuppressMapClientErrors
-		return dotnet_call("s3:get",nHandle,"s23:SuppressMapClientErrors")
+		return dotnet_getp(nHandle,"SuppressMapClientErrors")
 
 	Func setSuppressMapClientErrors P1
-		dotnet_callv("s3:set",nHandle,"s23:SuppressMapClientErrors",P1)
+		dotnet_setp(nHandle,"SuppressMapClientErrors",P1)
 		return self
 
 	Func getClientErrorMapping
@@ -1207,12 +1201,10 @@ Class ApiDescriptionActionData from Object
 		return dn_x
 
 	Func getGroupName
-		dn_x = dotnet_call("s3:get",nHandle,"s9:GroupName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"GroupName"))
 
 	Func setGroupName P1
-		dotnet_callv("s3:set",nHandle,"s9:GroupName",P1)
+		dotnet_setp(nHandle,"GroupName",P1)
 		return self
 
 
@@ -1240,19 +1232,17 @@ Class ApiExplorerSettingsAttribute from Attribute
 		return self
 
 	Func getGroupName
-		dn_x = dotnet_call("s3:get",nHandle,"s9:GroupName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"GroupName"))
 
 	Func setGroupName P1
-		dotnet_callv("s3:set",nHandle,"s9:GroupName",P1)
+		dotnet_setp(nHandle,"GroupName",P1)
 		return self
 
 	Func getIgnoreApi
-		return dotnet_call("s3:get",nHandle,"s9:IgnoreApi")
+		return dotnet_getp(nHandle,"IgnoreApi")
 
 	Func setIgnoreApi P1
-		dotnet_callv("s3:set",nHandle,"s9:IgnoreApi",P1)
+		dotnet_setp(nHandle,"IgnoreApi",P1)
 		return self
 
 
@@ -1297,14 +1287,14 @@ Class AutoValidateAntiforgeryTokenAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 	Func getIsReusable
-		return dotnet_call("s3:get",nHandle,"s10:IsReusable")
+		return dotnet_getp(nHandle,"IsReusable")
 
 	Func setIsReusable P1
 		raise("DotNet Error: IsReusable is a read-only property")
@@ -1334,12 +1324,10 @@ Class BindAttribute from Attribute
 		raise("DotNet Error: Include is a read-only property")
 
 	Func getPrefix
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Prefix")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Prefix"))
 
 	Func setPrefix P1
-		dotnet_callv("s3:set",nHandle,"s6:Prefix",P1)
+		dotnet_setp(nHandle,"Prefix",P1)
 		return self
 
 	Func getPropertyFilter
@@ -1372,10 +1360,10 @@ Class BindPropertiesAttribute from Attribute
 		return self
 
 	Func getSupportsGet
-		return dotnet_call("s3:get",nHandle,"s11:SupportsGet")
+		return dotnet_getp(nHandle,"SupportsGet")
 
 	Func setSupportsGet P1
-		dotnet_callv("s3:set",nHandle,"s11:SupportsGet",P1)
+		dotnet_setp(nHandle,"SupportsGet",P1)
 		return self
 
 
@@ -1405,10 +1393,10 @@ Class BindPropertyAttribute from Attribute
 		return self
 
 	Func getSupportsGet
-		return dotnet_call("s3:get",nHandle,"s11:SupportsGet")
+		return dotnet_getp(nHandle,"SupportsGet")
 
 	Func setSupportsGet P1
-		dotnet_callv("s3:set",nHandle,"s11:SupportsGet",P1)
+		dotnet_setp(nHandle,"SupportsGet",P1)
 		return self
 
 	Func getBinderType
@@ -1425,12 +1413,10 @@ Class BindPropertyAttribute from Attribute
 		raise("DotNet Error: BindingSource is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 
@@ -1487,12 +1473,10 @@ Class CacheProfile from Object
 		return self
 
 	Func getVaryByHeader
-		dn_x = dotnet_call("s3:get",nHandle,"s12:VaryByHeader")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"VaryByHeader"))
 
 	Func setVaryByHeader P1
-		dotnet_callv("s3:set",nHandle,"s12:VaryByHeader",P1)
+		dotnet_setp(nHandle,"VaryByHeader",P1)
 		return self
 
 	Func getVaryByQueryKeys
@@ -1532,21 +1516,17 @@ Class ClientErrorData from Object
 		return dn_x
 
 	Func getLink
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Link")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Link"))
 
 	Func setLink P1
-		dotnet_callv("s3:set",nHandle,"s4:Link",P1)
+		dotnet_setp(nHandle,"Link",P1)
 		return self
 
 	Func getTitle
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Title")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Title"))
 
 	Func setTitle P1
-		dotnet_callv("s3:set",nHandle,"s5:Title",P1)
+		dotnet_setp(nHandle,"Title",P1)
 		return self
 
 
@@ -1610,10 +1590,10 @@ Class ConsumesAttribute from Attribute
 		return self
 
 	Func getIsOptional
-		return dotnet_call("s3:get",nHandle,"s10:IsOptional")
+		return dotnet_getp(nHandle,"IsOptional")
 
 	Func setIsOptional P1
-		dotnet_callv("s3:set",nHandle,"s10:IsOptional",P1)
+		dotnet_setp(nHandle,"IsOptional",P1)
 		return self
 
 	Func getConsumesActionConstraintOrder
@@ -2200,14 +2180,14 @@ Class DisableRequestSizeLimitAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 	Func getIsReusable
-		return dotnet_call("s3:get",nHandle,"s10:IsReusable")
+		return dotnet_getp(nHandle,"IsReusable")
 
 	Func setIsReusable P1
 		raise("DotNet Error: IsReusable is a read-only property")
@@ -2239,7 +2219,7 @@ Class FormatFilterAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
 
 	Func getIsReusable
-		return dotnet_call("s3:get",nHandle,"s10:IsReusable")
+		return dotnet_getp(nHandle,"IsReusable")
 
 	Func setIsReusable P1
 		raise("DotNet Error: IsReusable is a read-only property")
@@ -2312,12 +2292,10 @@ Class FromFormAttribute from Attribute
 		raise("DotNet Error: BindingSource is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 
@@ -2351,12 +2329,10 @@ Class FromHeaderAttribute from Attribute
 		raise("DotNet Error: BindingSource is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 
@@ -2390,12 +2366,10 @@ Class FromQueryAttribute from Attribute
 		raise("DotNet Error: BindingSource is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 
@@ -2429,12 +2403,10 @@ Class FromRouteAttribute from Attribute
 		raise("DotNet Error: BindingSource is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 
@@ -2490,10 +2462,10 @@ Class HiddenInputAttribute from Attribute
 		return self
 
 	Func getDisplayValue
-		return dotnet_call("s3:get",nHandle,"s12:DisplayValue")
+		return dotnet_getp(nHandle,"DisplayValue")
 
 	Func setDisplayValue P1
-		dotnet_callv("s3:set",nHandle,"s12:DisplayValue",P1)
+		dotnet_setp(nHandle,"DisplayValue",P1)
 		return self
 
 
@@ -2958,10 +2930,10 @@ Class IgnoreAntiforgeryTokenAttribute from Attribute
 		return self
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 
@@ -2994,10 +2966,10 @@ Class JsonOptions from Object
 		return dn_x
 
 	Func getAllowInputFormatterExceptionMessages
-		return dotnet_call("s3:get",nHandle,"s36:AllowInputFormatterExceptionMessages")
+		return dotnet_getp(nHandle,"AllowInputFormatterExceptionMessages")
 
 	Func setAllowInputFormatterExceptionMessages P1
-		dotnet_callv("s3:set",nHandle,"s36:AllowInputFormatterExceptionMessages",P1)
+		dotnet_setp(nHandle,"AllowInputFormatterExceptionMessages",P1)
 		return self
 
 	Func getJsonSerializerOptions
@@ -3034,14 +3006,14 @@ Class MiddlewareFilterAttribute from Attribute
 		raise("DotNet Error: ConfigurationType is a read-only property")
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 	Func getIsReusable
-		return dotnet_call("s3:get",nHandle,"s10:IsReusable")
+		return dotnet_getp(nHandle,"IsReusable")
 
 	Func setIsReusable P1
 		raise("DotNet Error: IsReusable is a read-only property")
@@ -3101,12 +3073,10 @@ Class ModelBinderAttribute from Attribute
 		raise("DotNet Error: BindingSource is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 
@@ -3207,17 +3177,17 @@ Class MvcOptions from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getEnableEndpointRouting
-		return dotnet_call("s3:get",nHandle,"s21:EnableEndpointRouting")
+		return dotnet_getp(nHandle,"EnableEndpointRouting")
 
 	Func setEnableEndpointRouting P1
-		dotnet_callv("s3:set",nHandle,"s21:EnableEndpointRouting",P1)
+		dotnet_setp(nHandle,"EnableEndpointRouting",P1)
 		return self
 
 	Func getAllowEmptyInputInBodyModelBinding
-		return dotnet_call("s3:get",nHandle,"s33:AllowEmptyInputInBodyModelBinding")
+		return dotnet_getp(nHandle,"AllowEmptyInputInBodyModelBinding")
 
 	Func setAllowEmptyInputInBodyModelBinding P1
-		dotnet_callv("s3:set",nHandle,"s33:AllowEmptyInputInBodyModelBinding",P1)
+		dotnet_setp(nHandle,"AllowEmptyInputInBodyModelBinding",P1)
 		return self
 
 	Func getCacheProfiles
@@ -3251,38 +3221,38 @@ Class MvcOptions from Object
 		raise("DotNet Error: InputFormatters is a read-only property")
 
 	Func getSuppressImplicitRequiredAttributeForNonNullableReferenceTypes
-		return dotnet_call("s3:get",nHandle,"s61:SuppressImplicitRequiredAttributeForNonNullableReferenceTypes")
+		return dotnet_getp(nHandle,"SuppressImplicitRequiredAttributeForNonNullableReferenceTypes")
 
 	Func setSuppressImplicitRequiredAttributeForNonNullableReferenceTypes P1
-		dotnet_callv("s3:set",nHandle,"s61:SuppressImplicitRequiredAttributeForNonNullableReferenceTypes",P1)
+		dotnet_setp(nHandle,"SuppressImplicitRequiredAttributeForNonNullableReferenceTypes",P1)
 		return self
 
 	Func getSuppressInputFormatterBuffering
-		return dotnet_call("s3:get",nHandle,"s31:SuppressInputFormatterBuffering")
+		return dotnet_getp(nHandle,"SuppressInputFormatterBuffering")
 
 	Func setSuppressInputFormatterBuffering P1
-		dotnet_callv("s3:set",nHandle,"s31:SuppressInputFormatterBuffering",P1)
+		dotnet_setp(nHandle,"SuppressInputFormatterBuffering",P1)
 		return self
 
 	Func getSuppressOutputFormatterBuffering
-		return dotnet_call("s3:get",nHandle,"s32:SuppressOutputFormatterBuffering")
+		return dotnet_getp(nHandle,"SuppressOutputFormatterBuffering")
 
 	Func setSuppressOutputFormatterBuffering P1
-		dotnet_callv("s3:set",nHandle,"s32:SuppressOutputFormatterBuffering",P1)
+		dotnet_setp(nHandle,"SuppressOutputFormatterBuffering",P1)
 		return self
 
 	Func getEnableActionInvokers
-		return dotnet_call("s3:get",nHandle,"s20:EnableActionInvokers")
+		return dotnet_getp(nHandle,"EnableActionInvokers")
 
 	Func setEnableActionInvokers P1
-		dotnet_callv("s3:set",nHandle,"s20:EnableActionInvokers",P1)
+		dotnet_setp(nHandle,"EnableActionInvokers",P1)
 		return self
 
 	Func getMaxModelValidationErrors
-		return dotnet_call("s3:get",nHandle,"s24:MaxModelValidationErrors")
+		return dotnet_getp(nHandle,"MaxModelValidationErrors")
 
 	Func setMaxModelValidationErrors P1
-		dotnet_callv("s3:set",nHandle,"s24:MaxModelValidationErrors",P1)
+		dotnet_setp(nHandle,"MaxModelValidationErrors",P1)
 		return self
 
 	Func getModelBinderProviders
@@ -3316,17 +3286,17 @@ Class MvcOptions from Object
 		raise("DotNet Error: OutputFormatters is a read-only property")
 
 	Func getRespectBrowserAcceptHeader
-		return dotnet_call("s3:get",nHandle,"s26:RespectBrowserAcceptHeader")
+		return dotnet_getp(nHandle,"RespectBrowserAcceptHeader")
 
 	Func setRespectBrowserAcceptHeader P1
-		dotnet_callv("s3:set",nHandle,"s26:RespectBrowserAcceptHeader",P1)
+		dotnet_setp(nHandle,"RespectBrowserAcceptHeader",P1)
 		return self
 
 	Func getReturnHttpNotAcceptable
-		return dotnet_call("s3:get",nHandle,"s23:ReturnHttpNotAcceptable")
+		return dotnet_getp(nHandle,"ReturnHttpNotAcceptable")
 
 	Func setReturnHttpNotAcceptable P1
-		dotnet_callv("s3:set",nHandle,"s23:ReturnHttpNotAcceptable",P1)
+		dotnet_setp(nHandle,"ReturnHttpNotAcceptable",P1)
 		return self
 
 	Func getValueProviderFactories
@@ -3343,10 +3313,10 @@ Class MvcOptions from Object
 		return self
 
 	Func getRequireHttpsPermanent
-		return dotnet_call("s3:get",nHandle,"s21:RequireHttpsPermanent")
+		return dotnet_getp(nHandle,"RequireHttpsPermanent")
 
 	Func setRequireHttpsPermanent P1
-		dotnet_callv("s3:set",nHandle,"s21:RequireHttpsPermanent",P1)
+		dotnet_setp(nHandle,"RequireHttpsPermanent",P1)
 		return self
 
 	Func getMaxValidationDepth
@@ -3357,38 +3327,38 @@ Class MvcOptions from Object
 		return self
 
 	Func getValidateComplexTypesIfChildValidationFails
-		return dotnet_call("s3:get",nHandle,"s42:ValidateComplexTypesIfChildValidationFails")
+		return dotnet_getp(nHandle,"ValidateComplexTypesIfChildValidationFails")
 
 	Func setValidateComplexTypesIfChildValidationFails P1
-		dotnet_callv("s3:set",nHandle,"s42:ValidateComplexTypesIfChildValidationFails",P1)
+		dotnet_setp(nHandle,"ValidateComplexTypesIfChildValidationFails",P1)
 		return self
 
 	Func getSuppressAsyncSuffixInActionNames
-		return dotnet_call("s3:get",nHandle,"s32:SuppressAsyncSuffixInActionNames")
+		return dotnet_getp(nHandle,"SuppressAsyncSuffixInActionNames")
 
 	Func setSuppressAsyncSuffixInActionNames P1
-		dotnet_callv("s3:set",nHandle,"s32:SuppressAsyncSuffixInActionNames",P1)
+		dotnet_setp(nHandle,"SuppressAsyncSuffixInActionNames",P1)
 		return self
 
 	Func getMaxModelBindingCollectionSize
-		return dotnet_call("s3:get",nHandle,"s29:MaxModelBindingCollectionSize")
+		return dotnet_getp(nHandle,"MaxModelBindingCollectionSize")
 
 	Func setMaxModelBindingCollectionSize P1
-		dotnet_callv("s3:set",nHandle,"s29:MaxModelBindingCollectionSize",P1)
+		dotnet_setp(nHandle,"MaxModelBindingCollectionSize",P1)
 		return self
 
 	Func getMaxModelBindingRecursionDepth
-		return dotnet_call("s3:get",nHandle,"s29:MaxModelBindingRecursionDepth")
+		return dotnet_getp(nHandle,"MaxModelBindingRecursionDepth")
 
 	Func setMaxModelBindingRecursionDepth P1
-		dotnet_callv("s3:set",nHandle,"s29:MaxModelBindingRecursionDepth",P1)
+		dotnet_setp(nHandle,"MaxModelBindingRecursionDepth",P1)
 		return self
 
 	Func getMaxIAsyncEnumerableBufferLimit
-		return dotnet_call("s3:get",nHandle,"s30:MaxIAsyncEnumerableBufferLimit")
+		return dotnet_getp(nHandle,"MaxIAsyncEnumerableBufferLimit")
 
 	Func setMaxIAsyncEnumerableBufferLimit P1
-		dotnet_callv("s3:set",nHandle,"s30:MaxIAsyncEnumerableBufferLimit",P1)
+		dotnet_setp(nHandle,"MaxIAsyncEnumerableBufferLimit",P1)
 		return self
 
 
@@ -3560,21 +3530,17 @@ Class ProblemDetails from Object
 		return dn_x
 
 	Func getType
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Type")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Type"))
 
 	Func setType P1
-		dotnet_callv("s3:set",nHandle,"s4:Type",P1)
+		dotnet_setp(nHandle,"Type",P1)
 		return self
 
 	Func getTitle
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Title")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Title"))
 
 	Func setTitle P1
-		dotnet_callv("s3:set",nHandle,"s5:Title",P1)
+		dotnet_setp(nHandle,"Title",P1)
 		return self
 
 	Func getStatus
@@ -3585,21 +3551,17 @@ Class ProblemDetails from Object
 		return self
 
 	Func getDetail
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Detail")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Detail"))
 
 	Func setDetail P1
-		dotnet_callv("s3:set",nHandle,"s6:Detail",P1)
+		dotnet_setp(nHandle,"Detail",P1)
 		return self
 
 	Func getInstance
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Instance")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Instance"))
 
 	Func setInstance P1
-		dotnet_callv("s3:set",nHandle,"s8:Instance",P1)
+		dotnet_setp(nHandle,"Instance",P1)
 		return self
 
 	Func getExtensions
@@ -3676,16 +3638,16 @@ Class ProducesAttribute from Attribute
 		return self
 
 	Func getStatusCode
-		return dotnet_call("s3:get",nHandle,"s10:StatusCode")
+		return dotnet_getp(nHandle,"StatusCode")
 
 	Func setStatusCode P1
 		raise("DotNet Error: StatusCode is a read-only property")
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 
@@ -3738,7 +3700,7 @@ Class ProducesDefaultResponseTypeAttribute from Attribute
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getStatusCode
-		return dotnet_call("s3:get",nHandle,"s10:StatusCode")
+		return dotnet_getp(nHandle,"StatusCode")
 
 	Func setStatusCode P1
 		raise("DotNet Error: StatusCode is a read-only property")
@@ -3811,10 +3773,10 @@ Class ProducesResponseTypeAttribute from Attribute
 		return self
 
 	Func getStatusCode
-		return dotnet_call("s3:get",nHandle,"s10:StatusCode")
+		return dotnet_getp(nHandle,"StatusCode")
 
 	Func setStatusCode P1
-		dotnet_callv("s3:set",nHandle,"s10:StatusCode",P1)
+		dotnet_setp(nHandle,"StatusCode",P1)
 		return self
 
 
@@ -3848,21 +3810,17 @@ Class RemoteAttributeBase from ValidationAttribute
 		return dn_x
 
 	Func getHttpMethod
-		dn_x = dotnet_call("s3:get",nHandle,"s10:HttpMethod")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"HttpMethod"))
 
 	Func setHttpMethod P1
-		dotnet_callv("s3:set",nHandle,"s10:HttpMethod",P1)
+		dotnet_setp(nHandle,"HttpMethod",P1)
 		return self
 
 	Func getAdditionalFields
-		dn_x = dotnet_call("s3:get",nHandle,"s16:AdditionalFields")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"AdditionalFields"))
 
 	Func setAdditionalFields P1
-		dotnet_callv("s3:set",nHandle,"s16:AdditionalFields",P1)
+		dotnet_setp(nHandle,"AdditionalFields",P1)
 		return self
 
 
@@ -3903,86 +3861,86 @@ Class RequestFormLimitsAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 	Func getIsReusable
-		return dotnet_call("s3:get",nHandle,"s10:IsReusable")
+		return dotnet_getp(nHandle,"IsReusable")
 
 	Func setIsReusable P1
 		raise("DotNet Error: IsReusable is a read-only property")
 
 	Func getBufferBody
-		return dotnet_call("s3:get",nHandle,"s10:BufferBody")
+		return dotnet_getp(nHandle,"BufferBody")
 
 	Func setBufferBody P1
-		dotnet_callv("s3:set",nHandle,"s10:BufferBody",P1)
+		dotnet_setp(nHandle,"BufferBody",P1)
 		return self
 
 	Func getMemoryBufferThreshold
-		return dotnet_call("s3:get",nHandle,"s21:MemoryBufferThreshold")
+		return dotnet_getp(nHandle,"MemoryBufferThreshold")
 
 	Func setMemoryBufferThreshold P1
-		dotnet_callv("s3:set",nHandle,"s21:MemoryBufferThreshold",P1)
+		dotnet_setp(nHandle,"MemoryBufferThreshold",P1)
 		return self
 
 	Func getBufferBodyLengthLimit
-		return dotnet_call("s3:get",nHandle,"s21:BufferBodyLengthLimit")
+		return dotnet_getp(nHandle,"BufferBodyLengthLimit")
 
 	Func setBufferBodyLengthLimit P1
-		dotnet_callv("s3:set",nHandle,"s21:BufferBodyLengthLimit",P1)
+		dotnet_setp(nHandle,"BufferBodyLengthLimit",P1)
 		return self
 
 	Func getValueCountLimit
-		return dotnet_call("s3:get",nHandle,"s15:ValueCountLimit")
+		return dotnet_getp(nHandle,"ValueCountLimit")
 
 	Func setValueCountLimit P1
-		dotnet_callv("s3:set",nHandle,"s15:ValueCountLimit",P1)
+		dotnet_setp(nHandle,"ValueCountLimit",P1)
 		return self
 
 	Func getKeyLengthLimit
-		return dotnet_call("s3:get",nHandle,"s14:KeyLengthLimit")
+		return dotnet_getp(nHandle,"KeyLengthLimit")
 
 	Func setKeyLengthLimit P1
-		dotnet_callv("s3:set",nHandle,"s14:KeyLengthLimit",P1)
+		dotnet_setp(nHandle,"KeyLengthLimit",P1)
 		return self
 
 	Func getValueLengthLimit
-		return dotnet_call("s3:get",nHandle,"s16:ValueLengthLimit")
+		return dotnet_getp(nHandle,"ValueLengthLimit")
 
 	Func setValueLengthLimit P1
-		dotnet_callv("s3:set",nHandle,"s16:ValueLengthLimit",P1)
+		dotnet_setp(nHandle,"ValueLengthLimit",P1)
 		return self
 
 	Func getMultipartBoundaryLengthLimit
-		return dotnet_call("s3:get",nHandle,"s28:MultipartBoundaryLengthLimit")
+		return dotnet_getp(nHandle,"MultipartBoundaryLengthLimit")
 
 	Func setMultipartBoundaryLengthLimit P1
-		dotnet_callv("s3:set",nHandle,"s28:MultipartBoundaryLengthLimit",P1)
+		dotnet_setp(nHandle,"MultipartBoundaryLengthLimit",P1)
 		return self
 
 	Func getMultipartHeadersCountLimit
-		return dotnet_call("s3:get",nHandle,"s26:MultipartHeadersCountLimit")
+		return dotnet_getp(nHandle,"MultipartHeadersCountLimit")
 
 	Func setMultipartHeadersCountLimit P1
-		dotnet_callv("s3:set",nHandle,"s26:MultipartHeadersCountLimit",P1)
+		dotnet_setp(nHandle,"MultipartHeadersCountLimit",P1)
 		return self
 
 	Func getMultipartHeadersLengthLimit
-		return dotnet_call("s3:get",nHandle,"s27:MultipartHeadersLengthLimit")
+		return dotnet_getp(nHandle,"MultipartHeadersLengthLimit")
 
 	Func setMultipartHeadersLengthLimit P1
-		dotnet_callv("s3:set",nHandle,"s27:MultipartHeadersLengthLimit",P1)
+		dotnet_setp(nHandle,"MultipartHeadersLengthLimit",P1)
 		return self
 
 	Func getMultipartBodyLengthLimit
-		return dotnet_call("s3:get",nHandle,"s24:MultipartBodyLengthLimit")
+		return dotnet_getp(nHandle,"MultipartBodyLengthLimit")
 
 	Func setMultipartBodyLengthLimit P1
-		dotnet_callv("s3:set",nHandle,"s24:MultipartBodyLengthLimit",P1)
+		dotnet_setp(nHandle,"MultipartBodyLengthLimit",P1)
 		return self
 
 
@@ -4006,14 +3964,14 @@ Class RequestSizeLimitAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 	Func getIsReusable
-		return dotnet_call("s3:get",nHandle,"s10:IsReusable")
+		return dotnet_getp(nHandle,"IsReusable")
 
 	Func setIsReusable P1
 		raise("DotNet Error: IsReusable is a read-only property")
@@ -4048,17 +4006,17 @@ Class RequireHttpsAttribute from Attribute
 		return self
 
 	Func getPermanent
-		return dotnet_call("s3:get",nHandle,"s9:Permanent")
+		return dotnet_getp(nHandle,"Permanent")
 
 	Func setPermanent P1
-		dotnet_callv("s3:set",nHandle,"s9:Permanent",P1)
+		dotnet_setp(nHandle,"Permanent",P1)
 		return self
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 
@@ -4098,10 +4056,10 @@ Class ResponseCacheAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
 
 	Func getDuration
-		return dotnet_call("s3:get",nHandle,"s8:Duration")
+		return dotnet_getp(nHandle,"Duration")
 
 	Func setDuration P1
-		dotnet_callv("s3:set",nHandle,"s8:Duration",P1)
+		dotnet_setp(nHandle,"Duration",P1)
 		return self
 
 	Func getLocation
@@ -4112,19 +4070,17 @@ Class ResponseCacheAttribute from Attribute
 		return self
 
 	Func getNoStore
-		return dotnet_call("s3:get",nHandle,"s7:NoStore")
+		return dotnet_getp(nHandle,"NoStore")
 
 	Func setNoStore P1
-		dotnet_callv("s3:set",nHandle,"s7:NoStore",P1)
+		dotnet_setp(nHandle,"NoStore",P1)
 		return self
 
 	Func getVaryByHeader
-		dn_x = dotnet_call("s3:get",nHandle,"s12:VaryByHeader")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"VaryByHeader"))
 
 	Func setVaryByHeader P1
-		dotnet_callv("s3:set",nHandle,"s12:VaryByHeader",P1)
+		dotnet_setp(nHandle,"VaryByHeader",P1)
 		return self
 
 	Func getVaryByQueryKeys
@@ -4135,23 +4091,21 @@ Class ResponseCacheAttribute from Attribute
 		return self
 
 	Func getCacheProfileName
-		dn_x = dotnet_call("s3:get",nHandle,"s16:CacheProfileName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"CacheProfileName"))
 
 	Func setCacheProfileName P1
-		dotnet_callv("s3:set",nHandle,"s16:CacheProfileName",P1)
+		dotnet_setp(nHandle,"CacheProfileName",P1)
 		return self
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 	Func getIsReusable
-		return dotnet_call("s3:get",nHandle,"s10:IsReusable")
+		return dotnet_getp(nHandle,"IsReusable")
 
 	Func setIsReusable P1
 		raise("DotNet Error: IsReusable is a read-only property")
@@ -4175,27 +4129,23 @@ Class RouteAttribute from Attribute
 		return self
 
 	Func getTemplate
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Template")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Template"))
 
 	Func setTemplate P1
 		raise("DotNet Error: Template is a read-only property")
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 
@@ -4257,10 +4207,10 @@ Class ServiceFilterAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 	Func getServiceType
@@ -4270,10 +4220,10 @@ Class ServiceFilterAttribute from Attribute
 		raise("DotNet Error: ServiceType is a read-only property")
 
 	Func getIsReusable
-		return dotnet_call("s3:get",nHandle,"s10:IsReusable")
+		return dotnet_getp(nHandle,"IsReusable")
 
 	Func setIsReusable P1
-		dotnet_callv("s3:set",nHandle,"s10:IsReusable",P1)
+		dotnet_setp(nHandle,"IsReusable",P1)
 		return self
 
 
@@ -4331,12 +4281,10 @@ Class TempDataAttribute from Attribute
 		return self
 
 	Func getKey
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Key")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Key"))
 
 	Func setKey P1
-		dotnet_callv("s3:set",nHandle,"s3:Key",P1)
+		dotnet_setp(nHandle,"Key",P1)
 		return self
 
 
@@ -4375,17 +4323,17 @@ Class TypeFilterAttribute from Attribute
 		raise("DotNet Error: ImplementationType is a read-only property")
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 	Func getIsReusable
-		return dotnet_call("s3:get",nHandle,"s10:IsReusable")
+		return dotnet_getp(nHandle,"IsReusable")
 
 	Func setIsReusable P1
-		dotnet_callv("s3:set",nHandle,"s10:IsReusable",P1)
+		dotnet_setp(nHandle,"IsReusable",P1)
 		return self
 
 
@@ -4479,14 +4427,14 @@ Class ValidateAntiForgeryTokenAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 	Func getIsReusable
-		return dotnet_call("s3:get",nHandle,"s10:IsReusable")
+		return dotnet_getp(nHandle,"IsReusable")
 
 	Func setIsReusable P1
 		raise("DotNet Error: IsReusable is a read-only property")
@@ -4676,12 +4624,10 @@ Class ViewComponentAttribute from Attribute
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 
@@ -4708,12 +4654,10 @@ Class ViewDataAttribute from Attribute
 		return self
 
 	Func getKey
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Key")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Key"))
 
 	Func setKey P1
-		dotnet_callv("s3:set",nHandle,"s3:Key",P1)
+		dotnet_setp(nHandle,"Key",P1)
 		return self
 
 
@@ -4817,21 +4761,17 @@ Class ContentResult from ActionResult
 		return self
 
 	Func getContent
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Content")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Content"))
 
 	Func setContent P1
-		dotnet_callv("s3:set",nHandle,"s7:Content",P1)
+		dotnet_setp(nHandle,"Content",P1)
 		return self
 
 	Func getContentType
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ContentType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
-		dotnet_callv("s3:set",nHandle,"s11:ContentType",P1)
+		dotnet_setp(nHandle,"ContentType",P1)
 		return self
 
 	Func getStatusCode
@@ -5011,20 +4951,16 @@ Class FileResult from ActionResult
 		return self
 
 	Func getContentType
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ContentType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getFileDownloadName
-		dn_x = dotnet_call("s3:get",nHandle,"s16:FileDownloadName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FileDownloadName"))
 
 	Func setFileDownloadName P1
-		dotnet_callv("s3:set",nHandle,"s16:FileDownloadName",P1)
+		dotnet_setp(nHandle,"FileDownloadName",P1)
 		return self
 
 	Func getLastModified
@@ -5042,10 +4978,10 @@ Class FileResult from ActionResult
 		return self
 
 	Func getEnableRangeProcessing
-		return dotnet_call("s3:get",nHandle,"s21:EnableRangeProcessing")
+		return dotnet_getp(nHandle,"EnableRangeProcessing")
 
 	Func setEnableRangeProcessing P1
-		dotnet_callv("s3:set",nHandle,"s21:EnableRangeProcessing",P1)
+		dotnet_setp(nHandle,"EnableRangeProcessing",P1)
 		return self
 
 
@@ -5137,12 +5073,10 @@ Class JsonResult from ActionResult
 		return self
 
 	Func getContentType
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ContentType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
-		dotnet_callv("s3:set",nHandle,"s11:ContentType",P1)
+		dotnet_setp(nHandle,"ContentType",P1)
 		return self
 
 	Func getSerializerSettings
@@ -5201,26 +5135,24 @@ Class LocalRedirectResult from ActionResult
 		return self
 
 	Func getPermanent
-		return dotnet_call("s3:get",nHandle,"s9:Permanent")
+		return dotnet_getp(nHandle,"Permanent")
 
 	Func setPermanent P1
-		dotnet_callv("s3:set",nHandle,"s9:Permanent",P1)
+		dotnet_setp(nHandle,"Permanent",P1)
 		return self
 
 	Func getPreserveMethod
-		return dotnet_call("s3:get",nHandle,"s14:PreserveMethod")
+		return dotnet_getp(nHandle,"PreserveMethod")
 
 	Func setPreserveMethod P1
-		dotnet_callv("s3:set",nHandle,"s14:PreserveMethod",P1)
+		dotnet_setp(nHandle,"PreserveMethod",P1)
 		return self
 
 	Func getUrl
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Url")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Url"))
 
 	Func setUrl P1
-		dotnet_callv("s3:set",nHandle,"s3:Url",P1)
+		dotnet_setp(nHandle,"Url",P1)
 		return self
 
 	Func getUrlHelper
@@ -5363,21 +5295,17 @@ Class PageRemoteAttribute from RemoteAttributeBase
 		return self
 
 	Func getPageHandler
-		dn_x = dotnet_call("s3:get",nHandle,"s11:PageHandler")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"PageHandler"))
 
 	Func setPageHandler P1
-		dotnet_callv("s3:set",nHandle,"s11:PageHandler",P1)
+		dotnet_setp(nHandle,"PageHandler",P1)
 		return self
 
 	Func getPageName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:PageName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"PageName"))
 
 	Func setPageName P1
-		dotnet_callv("s3:set",nHandle,"s8:PageName",P1)
+		dotnet_setp(nHandle,"PageName",P1)
 		return self
 
 
@@ -5417,12 +5345,10 @@ Class PartialViewResult from ActionResult
 		return self
 
 	Func getViewName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:ViewName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ViewName"))
 
 	Func setViewName P1
-		dotnet_callv("s3:set",nHandle,"s8:ViewName",P1)
+		dotnet_setp(nHandle,"ViewName",P1)
 		return self
 
 	Func getModel
@@ -5453,12 +5379,10 @@ Class PartialViewResult from ActionResult
 		return self
 
 	Func getContentType
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ContentType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
-		dotnet_callv("s3:set",nHandle,"s11:ContentType",P1)
+		dotnet_setp(nHandle,"ContentType",P1)
 		return self
 
 
@@ -5528,26 +5452,24 @@ Class RedirectResult from ActionResult
 		return self
 
 	Func getPermanent
-		return dotnet_call("s3:get",nHandle,"s9:Permanent")
+		return dotnet_getp(nHandle,"Permanent")
 
 	Func setPermanent P1
-		dotnet_callv("s3:set",nHandle,"s9:Permanent",P1)
+		dotnet_setp(nHandle,"Permanent",P1)
 		return self
 
 	Func getPreserveMethod
-		return dotnet_call("s3:get",nHandle,"s14:PreserveMethod")
+		return dotnet_getp(nHandle,"PreserveMethod")
 
 	Func setPreserveMethod P1
-		dotnet_callv("s3:set",nHandle,"s14:PreserveMethod",P1)
+		dotnet_setp(nHandle,"PreserveMethod",P1)
 		return self
 
 	Func getUrl
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Url")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Url"))
 
 	Func setUrl P1
-		dotnet_callv("s3:set",nHandle,"s3:Url",P1)
+		dotnet_setp(nHandle,"Url",P1)
 		return self
 
 	Func getUrlHelper
@@ -5602,21 +5524,17 @@ Class RedirectToActionResult from ActionResult
 		return self
 
 	Func getActionName
-		dn_x = dotnet_call("s3:get",nHandle,"s10:ActionName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ActionName"))
 
 	Func setActionName P1
-		dotnet_callv("s3:set",nHandle,"s10:ActionName",P1)
+		dotnet_setp(nHandle,"ActionName",P1)
 		return self
 
 	Func getControllerName
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ControllerName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ControllerName"))
 
 	Func setControllerName P1
-		dotnet_callv("s3:set",nHandle,"s14:ControllerName",P1)
+		dotnet_setp(nHandle,"ControllerName",P1)
 		return self
 
 	Func getRouteValues
@@ -5627,26 +5545,24 @@ Class RedirectToActionResult from ActionResult
 		return self
 
 	Func getPermanent
-		return dotnet_call("s3:get",nHandle,"s9:Permanent")
+		return dotnet_getp(nHandle,"Permanent")
 
 	Func setPermanent P1
-		dotnet_callv("s3:set",nHandle,"s9:Permanent",P1)
+		dotnet_setp(nHandle,"Permanent",P1)
 		return self
 
 	Func getPreserveMethod
-		return dotnet_call("s3:get",nHandle,"s14:PreserveMethod")
+		return dotnet_getp(nHandle,"PreserveMethod")
 
 	Func setPreserveMethod P1
-		dotnet_callv("s3:set",nHandle,"s14:PreserveMethod",P1)
+		dotnet_setp(nHandle,"PreserveMethod",P1)
 		return self
 
 	Func getFragment
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Fragment")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Fragment"))
 
 	Func setFragment P1
-		dotnet_callv("s3:set",nHandle,"s8:Fragment",P1)
+		dotnet_setp(nHandle,"Fragment",P1)
 		return self
 
 
@@ -5696,21 +5612,17 @@ Class RedirectToPageResult from ActionResult
 		return self
 
 	Func getPageName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:PageName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"PageName"))
 
 	Func setPageName P1
-		dotnet_callv("s3:set",nHandle,"s8:PageName",P1)
+		dotnet_setp(nHandle,"PageName",P1)
 		return self
 
 	Func getPageHandler
-		dn_x = dotnet_call("s3:get",nHandle,"s11:PageHandler")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"PageHandler"))
 
 	Func setPageHandler P1
-		dotnet_callv("s3:set",nHandle,"s11:PageHandler",P1)
+		dotnet_setp(nHandle,"PageHandler",P1)
 		return self
 
 	Func getRouteValues
@@ -5721,44 +5633,38 @@ Class RedirectToPageResult from ActionResult
 		return self
 
 	Func getPermanent
-		return dotnet_call("s3:get",nHandle,"s9:Permanent")
+		return dotnet_getp(nHandle,"Permanent")
 
 	Func setPermanent P1
-		dotnet_callv("s3:set",nHandle,"s9:Permanent",P1)
+		dotnet_setp(nHandle,"Permanent",P1)
 		return self
 
 	Func getPreserveMethod
-		return dotnet_call("s3:get",nHandle,"s14:PreserveMethod")
+		return dotnet_getp(nHandle,"PreserveMethod")
 
 	Func setPreserveMethod P1
-		dotnet_callv("s3:set",nHandle,"s14:PreserveMethod",P1)
+		dotnet_setp(nHandle,"PreserveMethod",P1)
 		return self
 
 	Func getFragment
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Fragment")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Fragment"))
 
 	Func setFragment P1
-		dotnet_callv("s3:set",nHandle,"s8:Fragment",P1)
+		dotnet_setp(nHandle,"Fragment",P1)
 		return self
 
 	Func getProtocol
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Protocol")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Protocol"))
 
 	Func setProtocol P1
-		dotnet_callv("s3:set",nHandle,"s8:Protocol",P1)
+		dotnet_setp(nHandle,"Protocol",P1)
 		return self
 
 	Func getHost
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Host")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Host"))
 
 	Func setHost P1
-		dotnet_callv("s3:set",nHandle,"s4:Host",P1)
+		dotnet_setp(nHandle,"Host",P1)
 		return self
 
 
@@ -5805,12 +5711,10 @@ Class RedirectToRouteResult from ActionResult
 		return self
 
 	Func getRouteName
-		dn_x = dotnet_call("s3:get",nHandle,"s9:RouteName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"RouteName"))
 
 	Func setRouteName P1
-		dotnet_callv("s3:set",nHandle,"s9:RouteName",P1)
+		dotnet_setp(nHandle,"RouteName",P1)
 		return self
 
 	Func getRouteValues
@@ -5821,26 +5725,24 @@ Class RedirectToRouteResult from ActionResult
 		return self
 
 	Func getPermanent
-		return dotnet_call("s3:get",nHandle,"s9:Permanent")
+		return dotnet_getp(nHandle,"Permanent")
 
 	Func setPermanent P1
-		dotnet_callv("s3:set",nHandle,"s9:Permanent",P1)
+		dotnet_setp(nHandle,"Permanent",P1)
 		return self
 
 	Func getPreserveMethod
-		return dotnet_call("s3:get",nHandle,"s14:PreserveMethod")
+		return dotnet_getp(nHandle,"PreserveMethod")
 
 	Func setPreserveMethod P1
-		dotnet_callv("s3:set",nHandle,"s14:PreserveMethod",P1)
+		dotnet_setp(nHandle,"PreserveMethod",P1)
 		return self
 
 	Func getFragment
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Fragment")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Fragment"))
 
 	Func setFragment P1
-		dotnet_callv("s3:set",nHandle,"s8:Fragment",P1)
+		dotnet_setp(nHandle,"Fragment",P1)
 		return self
 
 
@@ -5922,12 +5824,10 @@ Class SignInResult from ActionResult
 		return self
 
 	Func getAuthenticationScheme
-		dn_x = dotnet_call("s3:get",nHandle,"s20:AuthenticationScheme")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"AuthenticationScheme"))
 
 	Func setAuthenticationScheme P1
-		dotnet_callv("s3:set",nHandle,"s20:AuthenticationScheme",P1)
+		dotnet_setp(nHandle,"AuthenticationScheme",P1)
 		return self
 
 	Func getPrincipal
@@ -6015,7 +5915,7 @@ Class StatusCodeResult from ActionResult
 		return self
 
 	Func getStatusCode
-		return dotnet_call("s3:get",nHandle,"s10:StatusCode")
+		return dotnet_getp(nHandle,"StatusCode")
 
 	Func setStatusCode P1
 		raise("DotNet Error: StatusCode is a read-only property")
@@ -6081,12 +5981,10 @@ Class ViewComponentResult from ActionResult
 		return self
 
 	Func getViewComponentName
-		dn_x = dotnet_call("s3:get",nHandle,"s17:ViewComponentName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ViewComponentName"))
 
 	Func setViewComponentName P1
-		dotnet_callv("s3:set",nHandle,"s17:ViewComponentName",P1)
+		dotnet_setp(nHandle,"ViewComponentName",P1)
 		return self
 
 	Func getViewComponentType
@@ -6117,12 +6015,10 @@ Class ViewComponentResult from ActionResult
 		return self
 
 	Func getContentType
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ContentType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
-		dotnet_callv("s3:set",nHandle,"s11:ContentType",P1)
+		dotnet_setp(nHandle,"ContentType",P1)
 		return self
 
 
@@ -6162,12 +6058,10 @@ Class ViewResult from ActionResult
 		return self
 
 	Func getViewName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:ViewName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ViewName"))
 
 	Func setViewName P1
-		dotnet_callv("s3:set",nHandle,"s8:ViewName",P1)
+		dotnet_setp(nHandle,"ViewName",P1)
 		return self
 
 	Func getModel
@@ -6198,12 +6092,10 @@ Class ViewResult from ActionResult
 		return self
 
 	Func getContentType
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ContentType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
-		dotnet_callv("s3:set",nHandle,"s11:ContentType",P1)
+		dotnet_setp(nHandle,"ContentType",P1)
 		return self
 
 
@@ -6233,21 +6125,17 @@ Class AcceptedAtActionResult from ObjectResult
 		return self
 
 	Func getActionName
-		dn_x = dotnet_call("s3:get",nHandle,"s10:ActionName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ActionName"))
 
 	Func setActionName P1
-		dotnet_callv("s3:set",nHandle,"s10:ActionName",P1)
+		dotnet_setp(nHandle,"ActionName",P1)
 		return self
 
 	Func getControllerName
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ControllerName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ControllerName"))
 
 	Func setControllerName P1
-		dotnet_callv("s3:set",nHandle,"s14:ControllerName",P1)
+		dotnet_setp(nHandle,"ControllerName",P1)
 		return self
 
 	Func getRouteValues
@@ -6298,12 +6186,10 @@ Class AcceptedAtRouteResult from ObjectResult
 		return self
 
 	Func getRouteName
-		dn_x = dotnet_call("s3:get",nHandle,"s9:RouteName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"RouteName"))
 
 	Func setRouteName P1
-		dotnet_callv("s3:set",nHandle,"s9:RouteName",P1)
+		dotnet_setp(nHandle,"RouteName",P1)
 		return self
 
 	Func getRouteValues
@@ -6353,12 +6239,10 @@ Class AcceptedResult from ObjectResult
 		return self
 
 	Func getLocation
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Location")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Location"))
 
 	Func setLocation P1
-		dotnet_callv("s3:set",nHandle,"s8:Location",P1)
+		dotnet_setp(nHandle,"Location",P1)
 		return self
 
 
@@ -6458,21 +6342,17 @@ Class CreatedAtActionResult from ObjectResult
 		return self
 
 	Func getActionName
-		dn_x = dotnet_call("s3:get",nHandle,"s10:ActionName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ActionName"))
 
 	Func setActionName P1
-		dotnet_callv("s3:set",nHandle,"s10:ActionName",P1)
+		dotnet_setp(nHandle,"ActionName",P1)
 		return self
 
 	Func getControllerName
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ControllerName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ControllerName"))
 
 	Func setControllerName P1
-		dotnet_callv("s3:set",nHandle,"s14:ControllerName",P1)
+		dotnet_setp(nHandle,"ControllerName",P1)
 		return self
 
 	Func getRouteValues
@@ -6523,12 +6403,10 @@ Class CreatedAtRouteResult from ObjectResult
 		return self
 
 	Func getRouteName
-		dn_x = dotnet_call("s3:get",nHandle,"s9:RouteName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"RouteName"))
 
 	Func setRouteName P1
-		dotnet_callv("s3:set",nHandle,"s9:RouteName",P1)
+		dotnet_setp(nHandle,"RouteName",P1)
 		return self
 
 	Func getRouteValues
@@ -6578,12 +6456,10 @@ Class CreatedResult from ObjectResult
 		return self
 
 	Func getLocation
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Location")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Location"))
 
 	Func setLocation P1
-		dotnet_callv("s3:set",nHandle,"s8:Location",P1)
+		dotnet_setp(nHandle,"Location",P1)
 		return self
 
 
@@ -6740,12 +6616,10 @@ Class PhysicalFileResult from FileResult
 		return self
 
 	Func getFileName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:FileName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FileName"))
 
 	Func setFileName P1
-		dotnet_callv("s3:set",nHandle,"s8:FileName",P1)
+		dotnet_setp(nHandle,"FileName",P1)
 		return self
 
 
@@ -6857,12 +6731,10 @@ Class VirtualFileResult from FileResult
 		return self
 
 	Func getFileName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:FileName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FileName"))
 
 	Func setFileName P1
-		dotnet_callv("s3:set",nHandle,"s8:FileName",P1)
+		dotnet_setp(nHandle,"FileName",P1)
 		return self
 
 	Func getFileProvider

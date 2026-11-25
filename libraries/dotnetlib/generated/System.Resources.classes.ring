@@ -168,9 +168,7 @@ Class MissingSatelliteAssemblyException from SystemException
 		return self
 
 	Func getCultureName
-		dn_x = dotnet_call("s3:get",nHandle,"s11:CultureName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"CultureName"))
 
 	Func setCultureName P1
 		raise("DotNet Error: CultureName is a read-only property")
@@ -208,9 +206,7 @@ Class NeutralResourcesLanguageAttribute from Attribute
 		return self
 
 	Func getCultureName
-		dn_x = dotnet_call("s3:get",nHandle,"s11:CultureName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"CultureName"))
 
 	Func setCultureName P1
 		raise("DotNet Error: CultureName is a read-only property")
@@ -295,18 +291,16 @@ Class ResourceManager from Object
 		return dnObj(dotnet_callo("s4:call",'System.Resources.ResourceManager, System.Private.CoreLib',"s30:CreateFileBasedResourceManager",P1,P2,P3))
 
 	Func getBaseName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:BaseName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"BaseName"))
 
 	Func setBaseName P1
 		raise("DotNet Error: BaseName is a read-only property")
 
 	Func getIgnoreCase
-		return dotnet_call("s3:get",nHandle,"s10:IgnoreCase")
+		return dotnet_getp(nHandle,"IgnoreCase")
 
 	Func setIgnoreCase P1
-		dotnet_callv("s3:set",nHandle,"s10:IgnoreCase",P1)
+		dotnet_setp(nHandle,"IgnoreCase",P1)
 		return self
 
 	Func getResourceSetType
@@ -473,9 +467,7 @@ Class SatelliteContractVersionAttribute from Attribute
 		return self
 
 	Func getVersion
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Version")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Version"))
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")

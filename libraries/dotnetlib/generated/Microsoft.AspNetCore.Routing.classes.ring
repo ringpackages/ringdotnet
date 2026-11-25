@@ -483,15 +483,13 @@ Class ContentEncodingMetadata from Object
 		return dn_x
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getQuality
-		return dotnet_call("s3:get",nHandle,"s7:Quality")
+		return dotnet_getp(nHandle,"Quality")
 
 	Func setQuality P1
 		raise("DotNet Error: Quality is a read-only property")
@@ -626,9 +624,7 @@ Class EndpointGroupNameAttribute from Attribute
 		return self
 
 	Func getEndpointGroupName
-		dn_x = dotnet_call("s3:get",nHandle,"s17:EndpointGroupName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"EndpointGroupName"))
 
 	Func setEndpointGroupName P1
 		raise("DotNet Error: EndpointGroupName is a read-only property")
@@ -650,9 +646,7 @@ Class EndpointNameAttribute from Attribute
 		return self
 
 	Func getEndpointName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:EndpointName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"EndpointName"))
 
 	Func setEndpointName P1
 		raise("DotNet Error: EndpointName is a read-only property")
@@ -679,9 +673,7 @@ Class EndpointNameMetadata from Object
 		return dn_x
 
 	Func getEndpointName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:EndpointName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"EndpointName"))
 
 	Func setEndpointName P1
 		raise("DotNet Error: EndpointName is a read-only property")
@@ -710,7 +702,7 @@ Class ExcludeFromDescriptionAttribute from Attribute
 		return self
 
 	Func getExcludeFromDescription
-		return dotnet_call("s3:get",nHandle,"s22:ExcludeFromDescription")
+		return dotnet_getp(nHandle,"ExcludeFromDescription")
 
 	Func setExcludeFromDescription P1
 		raise("DotNet Error: ExcludeFromDescription is a read-only property")
@@ -775,10 +767,10 @@ Class HttpMethodMetadata from Object
 		return dn_x
 
 	Func getAcceptCorsPreflight
-		return dotnet_call("s3:get",nHandle,"s19:AcceptCorsPreflight")
+		return dotnet_getp(nHandle,"AcceptCorsPreflight")
 
 	Func setAcceptCorsPreflight P1
-		dotnet_callv("s3:set",nHandle,"s19:AcceptCorsPreflight",P1)
+		dotnet_setp(nHandle,"AcceptCorsPreflight",P1)
 		return self
 
 	Func getHttpMethods
@@ -822,7 +814,7 @@ Class IDynamicEndpointMetadata from DotNetObject
 		return self
 
 	Func getIsDynamic
-		return dotnet_call("s3:get",nHandle,"s9:IsDynamic")
+		return dotnet_getp(nHandle,"IsDynamic")
 
 	Func setIsDynamic P1
 		raise("DotNet Error: IsDynamic is a read-only property")
@@ -861,9 +853,7 @@ Class IEndpointGroupNameMetadata from DotNetObject
 		return self
 
 	Func getEndpointGroupName
-		dn_x = dotnet_call("s3:get",nHandle,"s17:EndpointGroupName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"EndpointGroupName"))
 
 	Func setEndpointGroupName P1
 		raise("DotNet Error: EndpointGroupName is a read-only property")
@@ -883,9 +873,7 @@ Class IEndpointNameMetadata from DotNetObject
 		return self
 
 	Func getEndpointName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:EndpointName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"EndpointName"))
 
 	Func setEndpointName P1
 		raise("DotNet Error: EndpointName is a read-only property")
@@ -1127,7 +1115,7 @@ Class IExcludeFromDescriptionMetadata from DotNetObject
 		return self
 
 	Func getExcludeFromDescription
-		return dotnet_call("s3:get",nHandle,"s22:ExcludeFromDescription")
+		return dotnet_getp(nHandle,"ExcludeFromDescription")
 
 	Func setExcludeFromDescription P1
 		raise("DotNet Error: ExcludeFromDescription is a read-only property")
@@ -1168,10 +1156,10 @@ Class IHttpMethodMetadata from DotNetObject
 		return self
 
 	Func getAcceptCorsPreflight
-		return dotnet_call("s3:get",nHandle,"s19:AcceptCorsPreflight")
+		return dotnet_getp(nHandle,"AcceptCorsPreflight")
 
 	Func setAcceptCorsPreflight P1
-		dotnet_callv("s3:set",nHandle,"s19:AcceptCorsPreflight",P1)
+		dotnet_setp(nHandle,"AcceptCorsPreflight",P1)
 		return self
 
 	Func getHttpMethods
@@ -1216,9 +1204,7 @@ Class INamedRouter from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetVirtualPath",P1))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1425,9 +1411,7 @@ Class IRouteNameMetadata from DotNetObject
 		return self
 
 	Func getRouteName
-		dn_x = dotnet_call("s3:get",nHandle,"s9:RouteName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"RouteName"))
 
 	Func setRouteName P1
 		raise("DotNet Error: RouteName is a read-only property")
@@ -1486,7 +1470,7 @@ Class ISuppressLinkGenerationMetadata from DotNetObject
 		return self
 
 	Func getSuppressLinkGeneration
-		return dotnet_call("s3:get",nHandle,"s22:SuppressLinkGeneration")
+		return dotnet_getp(nHandle,"SuppressLinkGeneration")
 
 	Func setSuppressLinkGeneration P1
 		raise("DotNet Error: SuppressLinkGeneration is a read-only property")
@@ -1506,7 +1490,7 @@ Class ISuppressMatchingMetadata from DotNetObject
 		return self
 
 	Func getSuppressMatching
-		return dotnet_call("s3:get",nHandle,"s16:SuppressMatching")
+		return dotnet_getp(nHandle,"SuppressMatching")
 
 	Func setSuppressMatching P1
 		raise("DotNet Error: SuppressMatching is a read-only property")
@@ -1852,7 +1836,7 @@ Class MatcherPolicy from Object
 		return dn_x
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
@@ -2011,9 +1995,7 @@ Class RouteBase from Object
 		raise("DotNet Error: Defaults is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2192,7 +2174,7 @@ Class RouteCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -2450,7 +2432,7 @@ Class RouteEndpoint from AspEndpoint
 		return self
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
@@ -2486,10 +2468,10 @@ Class RouteEndpointBuilder from EndpointBuilder
 		return self
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 
@@ -2845,10 +2827,10 @@ Class RouteHandlerOptions from Object
 		return dn_x
 
 	Func getThrowOnBadRequest
-		return dotnet_call("s3:get",nHandle,"s17:ThrowOnBadRequest")
+		return dotnet_getp(nHandle,"ThrowOnBadRequest")
 
 	Func setThrowOnBadRequest P1
-		dotnet_callv("s3:set",nHandle,"s17:ThrowOnBadRequest",P1)
+		dotnet_setp(nHandle,"ThrowOnBadRequest",P1)
 		return self
 
 
@@ -2896,9 +2878,7 @@ Class RouteNameMetadata from Object
 		return dn_x
 
 	Func getRouteName
-		dn_x = dotnet_call("s3:get",nHandle,"s9:RouteName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"RouteName"))
 
 	Func setRouteName P1
 		raise("DotNet Error: RouteName is a read-only property")
@@ -3082,7 +3062,7 @@ Class RouteValueDictionary from Object
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -3244,12 +3224,10 @@ Class RouteValuesAddress from Object
 		return dn_x
 
 	Func getRouteName
-		dn_x = dotnet_call("s3:get",nHandle,"s9:RouteName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"RouteName"))
 
 	Func setRouteName P1
-		dotnet_callv("s3:set",nHandle,"s9:RouteName",P1)
+		dotnet_setp(nHandle,"RouteName",P1)
 		return self
 
 	Func getExplicitValues
@@ -3353,7 +3331,7 @@ Class SuppressLinkGenerationMetadata from Object
 		return dn_x
 
 	Func getSuppressLinkGeneration
-		return dotnet_call("s3:get",nHandle,"s22:SuppressLinkGeneration")
+		return dotnet_getp(nHandle,"SuppressLinkGeneration")
 
 	Func setSuppressLinkGeneration P1
 		raise("DotNet Error: SuppressLinkGeneration is a read-only property")
@@ -3387,7 +3365,7 @@ Class SuppressMatchingMetadata from Object
 		return dn_x
 
 	Func getSuppressMatching
-		return dotnet_call("s3:get",nHandle,"s16:SuppressMatching")
+		return dotnet_getp(nHandle,"SuppressMatching")
 
 	Func setSuppressMatching P1
 		raise("DotNet Error: SuppressMatching is a read-only property")
@@ -3444,9 +3422,7 @@ Class VirtualPathContext from Object
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getRouteName
-		dn_x = dotnet_call("s3:get",nHandle,"s9:RouteName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"RouteName"))
 
 	Func setRouteName P1
 		raise("DotNet Error: RouteName is a read-only property")
@@ -3510,12 +3486,10 @@ Class VirtualPathData from Object
 		return self
 
 	Func getVirtualPath
-		dn_x = dotnet_call("s3:get",nHandle,"s11:VirtualPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"VirtualPath"))
 
 	Func setVirtualPath P1
-		dotnet_callv("s3:set",nHandle,"s11:VirtualPath",P1)
+		dotnet_setp(nHandle,"VirtualPath",P1)
 		return self
 
 
@@ -3591,9 +3565,7 @@ Class Route from RouteBase
 		return self
 
 	Func getRouteTemplate
-		dn_x = dotnet_call("s3:get",nHandle,"s13:RouteTemplate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"RouteTemplate"))
 
 	Func setRouteTemplate P1
 		raise("DotNet Error: RouteTemplate is a read-only property")

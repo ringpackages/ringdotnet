@@ -381,7 +381,7 @@ Class AbandonedMutexException from SystemException
 		raise("DotNet Error: Mutex is a read-only property")
 
 	Func getMutexIndex
-		return dotnet_call("s3:get",nHandle,"s10:MutexIndex")
+		return dotnet_getp(nHandle,"MutexIndex")
 
 	Func setMutexIndex P1
 		raise("DotNet Error: MutexIndex is a read-only property")
@@ -454,7 +454,7 @@ Class AsyncLocalValueChangedArgs from ValueType
 		raise("DotNet Error: CurrentValue is a read-only property")
 
 	Func getThreadContextChanged
-		return dotnet_call("s3:get",nHandle,"s20:ThreadContextChanged")
+		return dotnet_getp(nHandle,"ThreadContextChanged")
 
 	Func setThreadContextChanged P1
 		raise("DotNet Error: ThreadContextChanged is a read-only property")
@@ -568,19 +568,19 @@ Class Barrier from Object
 		return dn_x
 
 	Func getParticipantsRemaining
-		return dotnet_call("s3:get",nHandle,"s21:ParticipantsRemaining")
+		return dotnet_getp(nHandle,"ParticipantsRemaining")
 
 	Func setParticipantsRemaining P1
 		raise("DotNet Error: ParticipantsRemaining is a read-only property")
 
 	Func getParticipantCount
-		return dotnet_call("s3:get",nHandle,"s16:ParticipantCount")
+		return dotnet_getp(nHandle,"ParticipantCount")
 
 	Func setParticipantCount P1
 		raise("DotNet Error: ParticipantCount is a read-only property")
 
 	Func getCurrentPhaseNumber
-		return dotnet_call("s3:get",nHandle,"s18:CurrentPhaseNumber")
+		return dotnet_getp(nHandle,"CurrentPhaseNumber")
 
 	Func setCurrentPhaseNumber P1
 		raise("DotNet Error: CurrentPhaseNumber is a read-only property")
@@ -679,13 +679,13 @@ Class CancellationToken from ValueType
 		return self
 
 	Func getIsCancellationRequested
-		return dotnet_call("s3:get",nHandle,"s23:IsCancellationRequested")
+		return dotnet_getp(nHandle,"IsCancellationRequested")
 
 	Func setIsCancellationRequested P1
 		raise("DotNet Error: IsCancellationRequested is a read-only property")
 
 	Func getCanBeCanceled
-		return dotnet_call("s3:get",nHandle,"s13:CanBeCanceled")
+		return dotnet_getp(nHandle,"CanBeCanceled")
 
 	Func setCanBeCanceled P1
 		raise("DotNet Error: CanBeCanceled is a read-only property")
@@ -840,7 +840,7 @@ Class CancellationTokenSource from Object
 		return dnObj(dotnet_callo("s4:call",'System.Threading.CancellationTokenSource, System.Private.CoreLib',"s23:CreateLinkedTokenSource",P1))
 
 	Func getIsCancellationRequested
-		return dotnet_call("s3:get",nHandle,"s23:IsCancellationRequested")
+		return dotnet_getp(nHandle,"IsCancellationRequested")
 
 	Func setIsCancellationRequested P1
 		raise("DotNet Error: IsCancellationRequested is a read-only property")
@@ -990,19 +990,19 @@ Class CountdownEvent from Object
 		return dn_x
 
 	Func getCurrentCount
-		return dotnet_call("s3:get",nHandle,"s12:CurrentCount")
+		return dotnet_getp(nHandle,"CurrentCount")
 
 	Func setCurrentCount P1
 		raise("DotNet Error: CurrentCount is a read-only property")
 
 	Func getInitialCount
-		return dotnet_call("s3:get",nHandle,"s12:InitialCount")
+		return dotnet_getp(nHandle,"InitialCount")
 
 	Func setInitialCount P1
 		raise("DotNet Error: InitialCount is a read-only property")
 
 	Func getIsSet
-		return dotnet_call("s3:get",nHandle,"s5:IsSet")
+		return dotnet_getp(nHandle,"IsSet")
 
 	Func setIsSet P1
 		raise("DotNet Error: IsSet is a read-only property")
@@ -1346,7 +1346,7 @@ Class Lock from Object
 		return dn_x
 
 	Func getIsHeldByCurrentThread
-		return dotnet_call("s3:get",nHandle,"s21:IsHeldByCurrentThread")
+		return dotnet_getp(nHandle,"IsHeldByCurrentThread")
 
 	Func setIsHeldByCurrentThread P1
 		raise("DotNet Error: IsHeldByCurrentThread is a read-only property")
@@ -1496,13 +1496,13 @@ Class ManualResetEventSlim from Object
 		raise("DotNet Error: WaitHandle is a read-only property")
 
 	Func getIsSet
-		return dotnet_call("s3:get",nHandle,"s5:IsSet")
+		return dotnet_getp(nHandle,"IsSet")
 
 	Func setIsSet P1
 		raise("DotNet Error: IsSet is a read-only property")
 
 	Func getSpinCount
-		return dotnet_call("s3:get",nHandle,"s9:SpinCount")
+		return dotnet_getp(nHandle,"SpinCount")
 
 	Func setSpinCount P1
 		raise("DotNet Error: SpinCount is a read-only property")
@@ -1624,17 +1624,17 @@ Class NativeOverlapped from ValueType
 		return self
 
 	Func getOffsetLow
-		return dotnet_call("s3:get",nHandle,"s9:OffsetLow")
+		return dotnet_getp(nHandle,"OffsetLow")
 
 	Func setOffsetLow P1
-		dotnet_callv("s3:set",nHandle,"s9:OffsetLow",P1)
+		dotnet_setp(nHandle,"OffsetLow",P1)
 		return self
 
 	Func getOffsetHigh
-		return dotnet_call("s3:get",nHandle,"s10:OffsetHigh")
+		return dotnet_getp(nHandle,"OffsetHigh")
 
 	Func setOffsetHigh P1
-		dotnet_callv("s3:set",nHandle,"s10:OffsetHigh",P1)
+		dotnet_setp(nHandle,"OffsetHigh",P1)
 		return self
 
 	Func getEventHandle
@@ -1728,24 +1728,24 @@ Class Overlapped from Object
 		return self
 
 	Func getOffsetLow
-		return dotnet_call("s3:get",nHandle,"s9:OffsetLow")
+		return dotnet_getp(nHandle,"OffsetLow")
 
 	Func setOffsetLow P1
-		dotnet_callv("s3:set",nHandle,"s9:OffsetLow",P1)
+		dotnet_setp(nHandle,"OffsetLow",P1)
 		return self
 
 	Func getOffsetHigh
-		return dotnet_call("s3:get",nHandle,"s10:OffsetHigh")
+		return dotnet_getp(nHandle,"OffsetHigh")
 
 	Func setOffsetHigh P1
-		dotnet_callv("s3:set",nHandle,"s10:OffsetHigh",P1)
+		dotnet_setp(nHandle,"OffsetHigh",P1)
 		return self
 
 	Func getEventHandle
-		return dotnet_call("s3:get",nHandle,"s11:EventHandle")
+		return dotnet_getp(nHandle,"EventHandle")
 
 	Func setEventHandle P1
-		dotnet_callv("s3:set",nHandle,"s11:EventHandle",P1)
+		dotnet_setp(nHandle,"EventHandle",P1)
 		return self
 
 	Func getEventHandleIntPtr
@@ -1920,19 +1920,19 @@ Class ReaderWriterLock from DotNetObject
 		return dn_x
 
 	Func getIsReaderLockHeld
-		return dotnet_call("s3:get",nHandle,"s16:IsReaderLockHeld")
+		return dotnet_getp(nHandle,"IsReaderLockHeld")
 
 	Func setIsReaderLockHeld P1
 		raise("DotNet Error: IsReaderLockHeld is a read-only property")
 
 	Func getIsWriterLockHeld
-		return dotnet_call("s3:get",nHandle,"s16:IsWriterLockHeld")
+		return dotnet_getp(nHandle,"IsWriterLockHeld")
 
 	Func setIsWriterLockHeld P1
 		raise("DotNet Error: IsWriterLockHeld is a read-only property")
 
 	Func getWriterSeqNum
-		return dotnet_call("s3:get",nHandle,"s12:WriterSeqNum")
+		return dotnet_getp(nHandle,"WriterSeqNum")
 
 	Func setWriterSeqNum P1
 		raise("DotNet Error: WriterSeqNum is a read-only property")
@@ -2042,19 +2042,19 @@ Class ReaderWriterLockSlim from Object
 		return dn_x
 
 	Func getIsReadLockHeld
-		return dotnet_call("s3:get",nHandle,"s14:IsReadLockHeld")
+		return dotnet_getp(nHandle,"IsReadLockHeld")
 
 	Func setIsReadLockHeld P1
 		raise("DotNet Error: IsReadLockHeld is a read-only property")
 
 	Func getIsUpgradeableReadLockHeld
-		return dotnet_call("s3:get",nHandle,"s25:IsUpgradeableReadLockHeld")
+		return dotnet_getp(nHandle,"IsUpgradeableReadLockHeld")
 
 	Func setIsUpgradeableReadLockHeld P1
 		raise("DotNet Error: IsUpgradeableReadLockHeld is a read-only property")
 
 	Func getIsWriteLockHeld
-		return dotnet_call("s3:get",nHandle,"s15:IsWriteLockHeld")
+		return dotnet_getp(nHandle,"IsWriteLockHeld")
 
 	Func setIsWriteLockHeld P1
 		raise("DotNet Error: IsWriteLockHeld is a read-only property")
@@ -2066,43 +2066,43 @@ Class ReaderWriterLockSlim from Object
 		raise("DotNet Error: RecursionPolicy is a read-only property")
 
 	Func getCurrentReadCount
-		return dotnet_call("s3:get",nHandle,"s16:CurrentReadCount")
+		return dotnet_getp(nHandle,"CurrentReadCount")
 
 	Func setCurrentReadCount P1
 		raise("DotNet Error: CurrentReadCount is a read-only property")
 
 	Func getRecursiveReadCount
-		return dotnet_call("s3:get",nHandle,"s18:RecursiveReadCount")
+		return dotnet_getp(nHandle,"RecursiveReadCount")
 
 	Func setRecursiveReadCount P1
 		raise("DotNet Error: RecursiveReadCount is a read-only property")
 
 	Func getRecursiveUpgradeCount
-		return dotnet_call("s3:get",nHandle,"s21:RecursiveUpgradeCount")
+		return dotnet_getp(nHandle,"RecursiveUpgradeCount")
 
 	Func setRecursiveUpgradeCount P1
 		raise("DotNet Error: RecursiveUpgradeCount is a read-only property")
 
 	Func getRecursiveWriteCount
-		return dotnet_call("s3:get",nHandle,"s19:RecursiveWriteCount")
+		return dotnet_getp(nHandle,"RecursiveWriteCount")
 
 	Func setRecursiveWriteCount P1
 		raise("DotNet Error: RecursiveWriteCount is a read-only property")
 
 	Func getWaitingReadCount
-		return dotnet_call("s3:get",nHandle,"s16:WaitingReadCount")
+		return dotnet_getp(nHandle,"WaitingReadCount")
 
 	Func setWaitingReadCount P1
 		raise("DotNet Error: WaitingReadCount is a read-only property")
 
 	Func getWaitingUpgradeCount
-		return dotnet_call("s3:get",nHandle,"s19:WaitingUpgradeCount")
+		return dotnet_getp(nHandle,"WaitingUpgradeCount")
 
 	Func setWaitingUpgradeCount P1
 		raise("DotNet Error: WaitingUpgradeCount is a read-only property")
 
 	Func getWaitingWriteCount
-		return dotnet_call("s3:get",nHandle,"s17:WaitingWriteCount")
+		return dotnet_getp(nHandle,"WaitingWriteCount")
 
 	Func setWaitingWriteCount P1
 		raise("DotNet Error: WaitingWriteCount is a read-only property")
@@ -2228,7 +2228,7 @@ Class SemaphoreSlim from Object
 		return dn_x
 
 	Func getCurrentCount
-		return dotnet_call("s3:get",nHandle,"s12:CurrentCount")
+		return dotnet_getp(nHandle,"CurrentCount")
 
 	Func setCurrentCount P1
 		raise("DotNet Error: CurrentCount is a read-only property")
@@ -2306,19 +2306,19 @@ Class SpinLock from ValueType
 		return self
 
 	Func getIsHeld
-		return dotnet_call("s3:get",nHandle,"s6:IsHeld")
+		return dotnet_getp(nHandle,"IsHeld")
 
 	Func setIsHeld P1
 		raise("DotNet Error: IsHeld is a read-only property")
 
 	Func getIsHeldByCurrentThread
-		return dotnet_call("s3:get",nHandle,"s21:IsHeldByCurrentThread")
+		return dotnet_getp(nHandle,"IsHeldByCurrentThread")
 
 	Func setIsHeldByCurrentThread P1
 		raise("DotNet Error: IsHeldByCurrentThread is a read-only property")
 
 	Func getIsThreadOwnerTrackingEnabled
-		return dotnet_call("s3:get",nHandle,"s28:IsThreadOwnerTrackingEnabled")
+		return dotnet_getp(nHandle,"IsThreadOwnerTrackingEnabled")
 
 	Func setIsThreadOwnerTrackingEnabled P1
 		raise("DotNet Error: IsThreadOwnerTrackingEnabled is a read-only property")
@@ -2377,13 +2377,13 @@ Class SpinWait from ValueType
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getNextSpinWillYield
-		return dotnet_call("s3:get",nHandle,"s17:NextSpinWillYield")
+		return dotnet_getp(nHandle,"NextSpinWillYield")
 
 	Func setNextSpinWillYield P1
 		raise("DotNet Error: NextSpinWillYield is a read-only property")
@@ -2620,7 +2620,7 @@ Class ThreadLocal from Object
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getIsValueCreated
-		return dotnet_call("s3:get",nHandle,"s14:IsValueCreated")
+		return dotnet_getp(nHandle,"IsValueCreated")
 
 	Func setIsValueCreated P1
 		raise("DotNet Error: IsValueCreated is a read-only property")
@@ -3348,26 +3348,26 @@ Class Thread from DotNetObject
 		return dn_x
 
 	Func getManagedThreadId
-		return dotnet_call("s3:get",nHandle,"s15:ManagedThreadId")
+		return dotnet_getp(nHandle,"ManagedThreadId")
 
 	Func setManagedThreadId P1
 		raise("DotNet Error: ManagedThreadId is a read-only property")
 
 	Func getIsAlive
-		return dotnet_call("s3:get",nHandle,"s7:IsAlive")
+		return dotnet_getp(nHandle,"IsAlive")
 
 	Func setIsAlive P1
 		raise("DotNet Error: IsAlive is a read-only property")
 
 	Func getIsBackground
-		return dotnet_call("s3:get",nHandle,"s12:IsBackground")
+		return dotnet_getp(nHandle,"IsBackground")
 
 	Func setIsBackground P1
-		dotnet_callv("s3:set",nHandle,"s12:IsBackground",P1)
+		dotnet_setp(nHandle,"IsBackground",P1)
 		return self
 
 	Func getIsThreadPoolThread
-		return dotnet_call("s3:get",nHandle,"s18:IsThreadPoolThread")
+		return dotnet_getp(nHandle,"IsThreadPoolThread")
 
 	Func setIsThreadPoolThread P1
 		raise("DotNet Error: IsThreadPoolThread is a read-only property")
@@ -3406,12 +3406,10 @@ Class Thread from DotNetObject
 		raise("DotNet Error: ExecutionContext is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getApartmentState

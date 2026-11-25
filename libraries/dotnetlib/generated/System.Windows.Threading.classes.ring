@@ -227,13 +227,13 @@ Class Dispatcher from Object
 		raise("DotNet Error: Thread is a read-only property")
 
 	Func getHasShutdownStarted
-		return dotnet_call("s3:get",nHandle,"s18:HasShutdownStarted")
+		return dotnet_getp(nHandle,"HasShutdownStarted")
 
 	Func setHasShutdownStarted P1
 		raise("DotNet Error: HasShutdownStarted is a read-only property")
 
 	Func getHasShutdownFinished
-		return dotnet_call("s3:get",nHandle,"s19:HasShutdownFinished")
+		return dotnet_getp(nHandle,"HasShutdownFinished")
 
 	Func setHasShutdownFinished P1
 		raise("DotNet Error: HasShutdownFinished is a read-only property")
@@ -544,7 +544,7 @@ Class DispatcherPriorityAwaiter from ValueType
 		return self
 
 	Func getIsCompleted
-		return dotnet_call("s3:get",nHandle,"s11:IsCompleted")
+		return dotnet_getp(nHandle,"IsCompleted")
 
 	Func setIsCompleted P1
 		raise("DotNet Error: IsCompleted is a read-only property")
@@ -688,10 +688,10 @@ Class DispatcherTimer from Object
 		raise("DotNet Error: Dispatcher is a read-only property")
 
 	Func getIsEnabled
-		return dotnet_call("s3:get",nHandle,"s9:IsEnabled")
+		return dotnet_getp(nHandle,"IsEnabled")
 
 	Func setIsEnabled P1
-		dotnet_callv("s3:set",nHandle,"s9:IsEnabled",P1)
+		dotnet_setp(nHandle,"IsEnabled",P1)
 		return self
 
 	Func getInterval
@@ -746,10 +746,10 @@ Class DispatcherFrame from DispatcherObject
 		return self
 
 	Func getContinue
-		return dotnet_call("s3:get",nHandle,"s8:Continue")
+		return dotnet_getp(nHandle,"Continue")
 
 	Func setContinue P1
-		dotnet_callv("s3:set",nHandle,"s8:Continue",P1)
+		dotnet_setp(nHandle,"Continue",P1)
 		return self
 
 
@@ -790,10 +790,10 @@ Class DispatcherUnhandledExceptionEventArgs from DispatcherEventArgs
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getHandled
-		return dotnet_call("s3:get",nHandle,"s7:Handled")
+		return dotnet_getp(nHandle,"Handled")
 
 	Func setHandled P1
-		dotnet_callv("s3:set",nHandle,"s7:Handled",P1)
+		dotnet_setp(nHandle,"Handled",P1)
 		return self
 
 
@@ -818,10 +818,10 @@ Class DispatcherUnhandledExceptionFilterEventArgs from DispatcherEventArgs
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getRequestCatch
-		return dotnet_call("s3:get",nHandle,"s12:RequestCatch")
+		return dotnet_getp(nHandle,"RequestCatch")
 
 	Func setRequestCatch P1
-		dotnet_callv("s3:set",nHandle,"s12:RequestCatch",P1)
+		dotnet_setp(nHandle,"RequestCatch",P1)
 		return self
 
 

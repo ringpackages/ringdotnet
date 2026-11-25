@@ -594,12 +594,10 @@ Class IWebHostEnvironment from DotNetObject
 		return dn_x
 
 	Func getWebRootPath
-		dn_x = dotnet_call("s3:get",nHandle,"s11:WebRootPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"WebRootPath"))
 
 	Func setWebRootPath P1
-		dotnet_callv("s3:set",nHandle,"s11:WebRootPath",P1)
+		dotnet_setp(nHandle,"WebRootPath",P1)
 		return self
 
 	Func getWebRootFileProvider
@@ -610,30 +608,24 @@ Class IWebHostEnvironment from DotNetObject
 		return self
 
 	Func getEnvironmentName
-		dn_x = dotnet_call("s3:get",nHandle,"s15:EnvironmentName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"EnvironmentName"))
 
 	Func setEnvironmentName P1
-		dotnet_callv("s3:set",nHandle,"s15:EnvironmentName",P1)
+		dotnet_setp(nHandle,"EnvironmentName",P1)
 		return self
 
 	Func getApplicationName
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ApplicationName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ApplicationName"))
 
 	Func setApplicationName P1
-		dotnet_callv("s3:set",nHandle,"s15:ApplicationName",P1)
+		dotnet_setp(nHandle,"ApplicationName",P1)
 		return self
 
 	Func getContentRootPath
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ContentRootPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentRootPath"))
 
 	Func setContentRootPath P1
-		dotnet_callv("s3:set",nHandle,"s15:ContentRootPath",P1)
+		dotnet_setp(nHandle,"ContentRootPath",P1)
 		return self
 
 	Func getContentRootFileProvider

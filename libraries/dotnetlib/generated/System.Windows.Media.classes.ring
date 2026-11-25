@@ -904,10 +904,10 @@ Class WpfBrush from Animatable
 		return dn_x
 
 	Func getOpacity
-		return dotnet_call("s3:get",nHandle,"s7:Opacity")
+		return dotnet_getp(nHandle,"Opacity")
 
 	Func setOpacity P1
-		dotnet_callv("s3:set",nHandle,"s7:Opacity",P1)
+		dotnet_setp(nHandle,"Opacity",P1)
 		return self
 
 	Func getTransform
@@ -2053,52 +2053,50 @@ Class CharacterMetrics from Object
 		return dn_x
 
 	Func getMetrics
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Metrics")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Metrics"))
 
 	Func setMetrics P1
-		dotnet_callv("s3:set",nHandle,"s7:Metrics",P1)
+		dotnet_setp(nHandle,"Metrics",P1)
 		return self
 
 	Func getBlackBoxWidth
-		return dotnet_call("s3:get",nHandle,"s13:BlackBoxWidth")
+		return dotnet_getp(nHandle,"BlackBoxWidth")
 
 	Func setBlackBoxWidth P1
 		raise("DotNet Error: BlackBoxWidth is a read-only property")
 
 	Func getBlackBoxHeight
-		return dotnet_call("s3:get",nHandle,"s14:BlackBoxHeight")
+		return dotnet_getp(nHandle,"BlackBoxHeight")
 
 	Func setBlackBoxHeight P1
 		raise("DotNet Error: BlackBoxHeight is a read-only property")
 
 	Func getBaseline
-		return dotnet_call("s3:get",nHandle,"s8:Baseline")
+		return dotnet_getp(nHandle,"Baseline")
 
 	Func setBaseline P1
 		raise("DotNet Error: Baseline is a read-only property")
 
 	Func getLeftSideBearing
-		return dotnet_call("s3:get",nHandle,"s15:LeftSideBearing")
+		return dotnet_getp(nHandle,"LeftSideBearing")
 
 	Func setLeftSideBearing P1
 		raise("DotNet Error: LeftSideBearing is a read-only property")
 
 	Func getRightSideBearing
-		return dotnet_call("s3:get",nHandle,"s16:RightSideBearing")
+		return dotnet_getp(nHandle,"RightSideBearing")
 
 	Func setRightSideBearing P1
 		raise("DotNet Error: RightSideBearing is a read-only property")
 
 	Func getTopSideBearing
-		return dotnet_call("s3:get",nHandle,"s14:TopSideBearing")
+		return dotnet_getp(nHandle,"TopSideBearing")
 
 	Func setTopSideBearing P1
 		raise("DotNet Error: TopSideBearing is a read-only property")
 
 	Func getBottomSideBearing
-		return dotnet_call("s3:get",nHandle,"s17:BottomSideBearing")
+		return dotnet_getp(nHandle,"BottomSideBearing")
 
 	Func setBottomSideBearing P1
 		raise("DotNet Error: BottomSideBearing is a read-only property")
@@ -2193,13 +2191,13 @@ Class CharacterMetricsDictionary from Object
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2316,59 +2314,59 @@ Class WpfColor from ValueType
 		raise("DotNet Error: ColorContext is a read-only property")
 
 	Func getA
-		return dotnet_call("s3:get",nHandle,"s1:A")
+		return dotnet_getp(nHandle,"A")
 
 	Func setA P1
-		dotnet_callv("s3:set",nHandle,"s1:A",P1)
+		dotnet_setp(nHandle,"A",P1)
 		return self
 
 	Func getR
-		return dotnet_call("s3:get",nHandle,"s1:R")
+		return dotnet_getp(nHandle,"R")
 
 	Func setR P1
-		dotnet_callv("s3:set",nHandle,"s1:R",P1)
+		dotnet_setp(nHandle,"R",P1)
 		return self
 
 	Func getG
-		return dotnet_call("s3:get",nHandle,"s1:G")
+		return dotnet_getp(nHandle,"G")
 
 	Func setG P1
-		dotnet_callv("s3:set",nHandle,"s1:G",P1)
+		dotnet_setp(nHandle,"G",P1)
 		return self
 
 	Func getB
-		return dotnet_call("s3:get",nHandle,"s1:B")
+		return dotnet_getp(nHandle,"B")
 
 	Func setB P1
-		dotnet_callv("s3:set",nHandle,"s1:B",P1)
+		dotnet_setp(nHandle,"B",P1)
 		return self
 
 	Func getScA
-		return dotnet_call("s3:get",nHandle,"s3:ScA")
+		return dotnet_getp(nHandle,"ScA")
 
 	Func setScA P1
-		dotnet_callv("s3:set",nHandle,"s3:ScA",P1)
+		dotnet_setp(nHandle,"ScA",P1)
 		return self
 
 	Func getScR
-		return dotnet_call("s3:get",nHandle,"s3:ScR")
+		return dotnet_getp(nHandle,"ScR")
 
 	Func setScR P1
-		dotnet_callv("s3:set",nHandle,"s3:ScR",P1)
+		dotnet_setp(nHandle,"ScR",P1)
 		return self
 
 	Func getScG
-		return dotnet_call("s3:get",nHandle,"s3:ScG")
+		return dotnet_getp(nHandle,"ScG")
 
 	Func setScG P1
-		dotnet_callv("s3:set",nHandle,"s3:ScG",P1)
+		dotnet_setp(nHandle,"ScG",P1)
 		return self
 
 	Func getScB
-		return dotnet_call("s3:get",nHandle,"s3:ScB")
+		return dotnet_getp(nHandle,"ScB")
 
 	Func setScB P1
-		dotnet_callv("s3:set",nHandle,"s3:ScB",P1)
+		dotnet_setp(nHandle,"ScB",P1)
 		return self
 
 	# the operators of System.Windows.Media.Color: + - * = !=
@@ -3538,10 +3536,10 @@ Class DashStyle from Animatable
 		return self
 
 	Func getOffset
-		return dotnet_call("s3:get",nHandle,"s6:Offset")
+		return dotnet_getp(nHandle,"Offset")
 
 	Func setOffset P1
-		dotnet_callv("s3:set",nHandle,"s6:Offset",P1)
+		dotnet_setp(nHandle,"Offset",P1)
 		return self
 
 	Func getDashes
@@ -3762,7 +3760,7 @@ Class DoubleCollection from Freezable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -3801,7 +3799,7 @@ Class DoubleCollectionEnumerator from ValueType
 		return self
 
 	Func getCurrent
-		return dotnet_call("s3:get",nHandle,"s7:Current")
+		return dotnet_getp(nHandle,"Current")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -3957,7 +3955,7 @@ Class DrawingCollection from Animatable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -4200,45 +4198,45 @@ Class FamilyTypeface from Object
 		return self
 
 	Func getUnderlinePosition
-		return dotnet_call("s3:get",nHandle,"s17:UnderlinePosition")
+		return dotnet_getp(nHandle,"UnderlinePosition")
 
 	Func setUnderlinePosition P1
-		dotnet_callv("s3:set",nHandle,"s17:UnderlinePosition",P1)
+		dotnet_setp(nHandle,"UnderlinePosition",P1)
 		return self
 
 	Func getUnderlineThickness
-		return dotnet_call("s3:get",nHandle,"s18:UnderlineThickness")
+		return dotnet_getp(nHandle,"UnderlineThickness")
 
 	Func setUnderlineThickness P1
-		dotnet_callv("s3:set",nHandle,"s18:UnderlineThickness",P1)
+		dotnet_setp(nHandle,"UnderlineThickness",P1)
 		return self
 
 	Func getStrikethroughPosition
-		return dotnet_call("s3:get",nHandle,"s21:StrikethroughPosition")
+		return dotnet_getp(nHandle,"StrikethroughPosition")
 
 	Func setStrikethroughPosition P1
-		dotnet_callv("s3:set",nHandle,"s21:StrikethroughPosition",P1)
+		dotnet_setp(nHandle,"StrikethroughPosition",P1)
 		return self
 
 	Func getStrikethroughThickness
-		return dotnet_call("s3:get",nHandle,"s22:StrikethroughThickness")
+		return dotnet_getp(nHandle,"StrikethroughThickness")
 
 	Func setStrikethroughThickness P1
-		dotnet_callv("s3:set",nHandle,"s22:StrikethroughThickness",P1)
+		dotnet_setp(nHandle,"StrikethroughThickness",P1)
 		return self
 
 	Func getCapsHeight
-		return dotnet_call("s3:get",nHandle,"s10:CapsHeight")
+		return dotnet_getp(nHandle,"CapsHeight")
 
 	Func setCapsHeight P1
-		dotnet_callv("s3:set",nHandle,"s10:CapsHeight",P1)
+		dotnet_setp(nHandle,"CapsHeight",P1)
 		return self
 
 	Func getXHeight
-		return dotnet_call("s3:get",nHandle,"s7:XHeight")
+		return dotnet_getp(nHandle,"XHeight")
 
 	Func setXHeight P1
-		dotnet_callv("s3:set",nHandle,"s7:XHeight",P1)
+		dotnet_setp(nHandle,"XHeight",P1)
 		return self
 
 	Func getAdjustedFaceNames
@@ -4248,12 +4246,10 @@ Class FamilyTypeface from Object
 		raise("DotNet Error: AdjustedFaceNames is a read-only property")
 
 	Func getDeviceFontName
-		dn_x = dotnet_call("s3:get",nHandle,"s14:DeviceFontName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DeviceFontName"))
 
 	Func setDeviceFontName P1
-		dotnet_callv("s3:set",nHandle,"s14:DeviceFontName",P1)
+		dotnet_setp(nHandle,"DeviceFontName",P1)
 		return self
 
 	Func getDeviceFontCharacterMetrics
@@ -4353,13 +4349,13 @@ Class FamilyTypefaceCollection from Object
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -4478,9 +4474,7 @@ Class WpfFontFamily from Object
 		raise("DotNet Error: FamilyMaps is a read-only property")
 
 	Func getSource
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Source")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Source"))
 
 	Func setSource P1
 		raise("DotNet Error: Source is a read-only property")
@@ -4492,17 +4486,17 @@ Class WpfFontFamily from Object
 		raise("DotNet Error: BaseUri is a read-only property")
 
 	Func getBaseline
-		return dotnet_call("s3:get",nHandle,"s8:Baseline")
+		return dotnet_getp(nHandle,"Baseline")
 
 	Func setBaseline P1
-		dotnet_callv("s3:set",nHandle,"s8:Baseline",P1)
+		dotnet_setp(nHandle,"Baseline",P1)
 		return self
 
 	Func getLineSpacing
-		return dotnet_call("s3:get",nHandle,"s11:LineSpacing")
+		return dotnet_getp(nHandle,"LineSpacing")
 
 	Func setLineSpacing P1
-		dotnet_callv("s3:set",nHandle,"s11:LineSpacing",P1)
+		dotnet_setp(nHandle,"LineSpacing",P1)
 		return self
 
 
@@ -4558,28 +4552,24 @@ Class FontFamilyMap from Object
 		return dn_x
 
 	Func getUnicode
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Unicode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Unicode"))
 
 	Func setUnicode P1
-		dotnet_callv("s3:set",nHandle,"s7:Unicode",P1)
+		dotnet_setp(nHandle,"Unicode",P1)
 		return self
 
 	Func getTarget
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Target")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Target"))
 
 	Func setTarget P1
-		dotnet_callv("s3:set",nHandle,"s6:Target",P1)
+		dotnet_setp(nHandle,"Target",P1)
 		return self
 
 	Func getScale
-		return dotnet_call("s3:get",nHandle,"s5:Scale")
+		return dotnet_getp(nHandle,"Scale")
 
 	Func setScale P1
-		dotnet_callv("s3:set",nHandle,"s5:Scale",P1)
+		dotnet_setp(nHandle,"Scale",P1)
 		return self
 
 	Func getLanguage
@@ -4680,13 +4670,13 @@ Class FontFamilyMapCollection from Object
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -4917,18 +4907,16 @@ Class FormattedText from Object
 		return dn_x
 
 	Func getText
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Text")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Text"))
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getPixelsPerDip
-		return dotnet_call("s3:get",nHandle,"s12:PixelsPerDip")
+		return dotnet_getp(nHandle,"PixelsPerDip")
 
 	Func setPixelsPerDip P1
-		dotnet_callv("s3:set",nHandle,"s12:PixelsPerDip",P1)
+		dotnet_setp(nHandle,"PixelsPerDip",P1)
 		return self
 
 	Func getFlowDirection
@@ -4946,31 +4934,31 @@ Class FormattedText from Object
 		return self
 
 	Func getLineHeight
-		return dotnet_call("s3:get",nHandle,"s10:LineHeight")
+		return dotnet_getp(nHandle,"LineHeight")
 
 	Func setLineHeight P1
-		dotnet_callv("s3:set",nHandle,"s10:LineHeight",P1)
+		dotnet_setp(nHandle,"LineHeight",P1)
 		return self
 
 	Func getMaxTextWidth
-		return dotnet_call("s3:get",nHandle,"s12:MaxTextWidth")
+		return dotnet_getp(nHandle,"MaxTextWidth")
 
 	Func setMaxTextWidth P1
-		dotnet_callv("s3:set",nHandle,"s12:MaxTextWidth",P1)
+		dotnet_setp(nHandle,"MaxTextWidth",P1)
 		return self
 
 	Func getMaxTextHeight
-		return dotnet_call("s3:get",nHandle,"s13:MaxTextHeight")
+		return dotnet_getp(nHandle,"MaxTextHeight")
 
 	Func setMaxTextHeight P1
-		dotnet_callv("s3:set",nHandle,"s13:MaxTextHeight",P1)
+		dotnet_setp(nHandle,"MaxTextHeight",P1)
 		return self
 
 	Func getMaxLineCount
-		return dotnet_call("s3:get",nHandle,"s12:MaxLineCount")
+		return dotnet_getp(nHandle,"MaxLineCount")
 
 	Func setMaxLineCount P1
-		dotnet_callv("s3:set",nHandle,"s12:MaxLineCount",P1)
+		dotnet_setp(nHandle,"MaxLineCount",P1)
 		return self
 
 	Func getTrimming
@@ -4981,55 +4969,55 @@ Class FormattedText from Object
 		return self
 
 	Func getHeight
-		return dotnet_call("s3:get",nHandle,"s6:Height")
+		return dotnet_getp(nHandle,"Height")
 
 	Func setHeight P1
 		raise("DotNet Error: Height is a read-only property")
 
 	Func getExtent
-		return dotnet_call("s3:get",nHandle,"s6:Extent")
+		return dotnet_getp(nHandle,"Extent")
 
 	Func setExtent P1
 		raise("DotNet Error: Extent is a read-only property")
 
 	Func getBaseline
-		return dotnet_call("s3:get",nHandle,"s8:Baseline")
+		return dotnet_getp(nHandle,"Baseline")
 
 	Func setBaseline P1
 		raise("DotNet Error: Baseline is a read-only property")
 
 	Func getOverhangAfter
-		return dotnet_call("s3:get",nHandle,"s13:OverhangAfter")
+		return dotnet_getp(nHandle,"OverhangAfter")
 
 	Func setOverhangAfter P1
 		raise("DotNet Error: OverhangAfter is a read-only property")
 
 	Func getOverhangLeading
-		return dotnet_call("s3:get",nHandle,"s15:OverhangLeading")
+		return dotnet_getp(nHandle,"OverhangLeading")
 
 	Func setOverhangLeading P1
 		raise("DotNet Error: OverhangLeading is a read-only property")
 
 	Func getOverhangTrailing
-		return dotnet_call("s3:get",nHandle,"s16:OverhangTrailing")
+		return dotnet_getp(nHandle,"OverhangTrailing")
 
 	Func setOverhangTrailing P1
 		raise("DotNet Error: OverhangTrailing is a read-only property")
 
 	Func getWidth
-		return dotnet_call("s3:get",nHandle,"s5:Width")
+		return dotnet_getp(nHandle,"Width")
 
 	Func setWidth P1
 		raise("DotNet Error: Width is a read-only property")
 
 	Func getWidthIncludingTrailingWhitespace
-		return dotnet_call("s3:get",nHandle,"s32:WidthIncludingTrailingWhitespace")
+		return dotnet_getp(nHandle,"WidthIncludingTrailingWhitespace")
 
 	Func setWidthIncludingTrailingWhitespace P1
 		raise("DotNet Error: WidthIncludingTrailingWhitespace is a read-only property")
 
 	Func getMinWidth
-		return dotnet_call("s3:get",nHandle,"s8:MinWidth")
+		return dotnet_getp(nHandle,"MinWidth")
 
 	Func setMinWidth P1
 		raise("DotNet Error: MinWidth is a read-only property")
@@ -5183,7 +5171,7 @@ Class GeneralTransformCollection from Animatable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -5493,7 +5481,7 @@ Class GeometryCollection from Animatable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -5640,10 +5628,10 @@ Class GlyphRun from Object
 		return dn_x
 
 	Func getPixelsPerDip
-		return dotnet_call("s3:get",nHandle,"s12:PixelsPerDip")
+		return dotnet_getp(nHandle,"PixelsPerDip")
 
 	Func setPixelsPerDip P1
-		dotnet_callv("s3:set",nHandle,"s12:PixelsPerDip",P1)
+		dotnet_setp(nHandle,"PixelsPerDip",P1)
 		return self
 
 	Func getBaselineOrigin
@@ -5654,10 +5642,10 @@ Class GlyphRun from Object
 		return self
 
 	Func getFontRenderingEmSize
-		return dotnet_call("s3:get",nHandle,"s19:FontRenderingEmSize")
+		return dotnet_getp(nHandle,"FontRenderingEmSize")
 
 	Func setFontRenderingEmSize P1
-		dotnet_callv("s3:set",nHandle,"s19:FontRenderingEmSize",P1)
+		dotnet_setp(nHandle,"FontRenderingEmSize",P1)
 		return self
 
 	Func getGlyphTypeface
@@ -5668,17 +5656,17 @@ Class GlyphRun from Object
 		return self
 
 	Func getBidiLevel
-		return dotnet_call("s3:get",nHandle,"s9:BidiLevel")
+		return dotnet_getp(nHandle,"BidiLevel")
 
 	Func setBidiLevel P1
-		dotnet_callv("s3:set",nHandle,"s9:BidiLevel",P1)
+		dotnet_setp(nHandle,"BidiLevel",P1)
 		return self
 
 	Func getIsSideways
-		return dotnet_call("s3:get",nHandle,"s10:IsSideways")
+		return dotnet_getp(nHandle,"IsSideways")
 
 	Func setIsSideways P1
-		dotnet_callv("s3:set",nHandle,"s10:IsSideways",P1)
+		dotnet_setp(nHandle,"IsSideways",P1)
 		return self
 
 	Func getCaretStops
@@ -5689,7 +5677,7 @@ Class GlyphRun from Object
 		return self
 
 	Func getIsHitTestable
-		return dotnet_call("s3:get",nHandle,"s13:IsHitTestable")
+		return dotnet_getp(nHandle,"IsHitTestable")
 
 	Func setIsHitTestable P1
 		raise("DotNet Error: IsHitTestable is a read-only property")
@@ -5737,12 +5725,10 @@ Class GlyphRun from Object
 		return self
 
 	Func getDeviceFontName
-		dn_x = dotnet_call("s3:get",nHandle,"s14:DeviceFontName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DeviceFontName"))
 
 	Func setDeviceFontName P1
-		dotnet_callv("s3:set",nHandle,"s14:DeviceFontName",P1)
+		dotnet_setp(nHandle,"DeviceFontName",P1)
 		return self
 
 
@@ -5946,61 +5932,61 @@ Class GlyphTypeface from Object
 		raise("DotNet Error: Stretch is a read-only property")
 
 	Func getVersion
-		return dotnet_call("s3:get",nHandle,"s7:Version")
+		return dotnet_getp(nHandle,"Version")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getHeight
-		return dotnet_call("s3:get",nHandle,"s6:Height")
+		return dotnet_getp(nHandle,"Height")
 
 	Func setHeight P1
 		raise("DotNet Error: Height is a read-only property")
 
 	Func getBaseline
-		return dotnet_call("s3:get",nHandle,"s8:Baseline")
+		return dotnet_getp(nHandle,"Baseline")
 
 	Func setBaseline P1
 		raise("DotNet Error: Baseline is a read-only property")
 
 	Func getCapsHeight
-		return dotnet_call("s3:get",nHandle,"s10:CapsHeight")
+		return dotnet_getp(nHandle,"CapsHeight")
 
 	Func setCapsHeight P1
 		raise("DotNet Error: CapsHeight is a read-only property")
 
 	Func getXHeight
-		return dotnet_call("s3:get",nHandle,"s7:XHeight")
+		return dotnet_getp(nHandle,"XHeight")
 
 	Func setXHeight P1
 		raise("DotNet Error: XHeight is a read-only property")
 
 	Func getSymbol
-		return dotnet_call("s3:get",nHandle,"s6:Symbol")
+		return dotnet_getp(nHandle,"Symbol")
 
 	Func setSymbol P1
 		raise("DotNet Error: Symbol is a read-only property")
 
 	Func getUnderlinePosition
-		return dotnet_call("s3:get",nHandle,"s17:UnderlinePosition")
+		return dotnet_getp(nHandle,"UnderlinePosition")
 
 	Func setUnderlinePosition P1
 		raise("DotNet Error: UnderlinePosition is a read-only property")
 
 	Func getUnderlineThickness
-		return dotnet_call("s3:get",nHandle,"s18:UnderlineThickness")
+		return dotnet_getp(nHandle,"UnderlineThickness")
 
 	Func setUnderlineThickness P1
 		raise("DotNet Error: UnderlineThickness is a read-only property")
 
 	Func getStrikethroughPosition
-		return dotnet_call("s3:get",nHandle,"s21:StrikethroughPosition")
+		return dotnet_getp(nHandle,"StrikethroughPosition")
 
 	Func setStrikethroughPosition P1
 		raise("DotNet Error: StrikethroughPosition is a read-only property")
 
 	Func getStrikethroughThickness
-		return dotnet_call("s3:get",nHandle,"s22:StrikethroughThickness")
+		return dotnet_getp(nHandle,"StrikethroughThickness")
 
 	Func setStrikethroughThickness P1
 		raise("DotNet Error: StrikethroughThickness is a read-only property")
@@ -6067,7 +6053,7 @@ Class GlyphTypeface from Object
 		return self
 
 	Func getGlyphCount
-		return dotnet_call("s3:get",nHandle,"s10:GlyphCount")
+		return dotnet_getp(nHandle,"GlyphCount")
 
 	Func setGlyphCount P1
 		raise("DotNet Error: GlyphCount is a read-only property")
@@ -6132,10 +6118,10 @@ Class GradientStop from Animatable
 		return self
 
 	Func getOffset
-		return dotnet_call("s3:get",nHandle,"s6:Offset")
+		return dotnet_getp(nHandle,"Offset")
 
 	Func setOffset P1
-		dotnet_callv("s3:set",nHandle,"s6:Offset",P1)
+		dotnet_setp(nHandle,"Offset",P1)
 		return self
 
 	Func getColorProperty
@@ -6273,7 +6259,7 @@ Class GradientStopCollection from Animatable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -6466,13 +6452,13 @@ Class ImageSource from Animatable
 		return dn_x
 
 	Func getWidth
-		return dotnet_call("s3:get",nHandle,"s5:Width")
+		return dotnet_getp(nHandle,"Width")
 
 	Func setWidth P1
 		raise("DotNet Error: Width is a read-only property")
 
 	Func getHeight
-		return dotnet_call("s3:get",nHandle,"s6:Height")
+		return dotnet_getp(nHandle,"Height")
 
 	Func setHeight P1
 		raise("DotNet Error: Height is a read-only property")
@@ -6650,7 +6636,7 @@ Class Int32Collection from Freezable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -6689,7 +6675,7 @@ Class Int32CollectionEnumerator from ValueType
 		return self
 
 	Func getCurrent
-		return dotnet_call("s3:get",nHandle,"s7:Current")
+		return dotnet_getp(nHandle,"Current")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -6844,13 +6830,13 @@ Class LanguageSpecificStringDictionary from Object
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -7030,63 +7016,63 @@ Class WpfMatrix from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Media.Matrix, WindowsBase',"s5:Parse",P1))
 
 	Func getIsIdentity
-		return dotnet_call("s3:get",nHandle,"s10:IsIdentity")
+		return dotnet_getp(nHandle,"IsIdentity")
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")
 
 	Func getDeterminant
-		return dotnet_call("s3:get",nHandle,"s11:Determinant")
+		return dotnet_getp(nHandle,"Determinant")
 
 	Func setDeterminant P1
 		raise("DotNet Error: Determinant is a read-only property")
 
 	Func getHasInverse
-		return dotnet_call("s3:get",nHandle,"s10:HasInverse")
+		return dotnet_getp(nHandle,"HasInverse")
 
 	Func setHasInverse P1
 		raise("DotNet Error: HasInverse is a read-only property")
 
 	Func getM11
-		return dotnet_call("s3:get",nHandle,"s3:M11")
+		return dotnet_getp(nHandle,"M11")
 
 	Func setM11 P1
-		dotnet_callv("s3:set",nHandle,"s3:M11",P1)
+		dotnet_setp(nHandle,"M11",P1)
 		return self
 
 	Func getM12
-		return dotnet_call("s3:get",nHandle,"s3:M12")
+		return dotnet_getp(nHandle,"M12")
 
 	Func setM12 P1
-		dotnet_callv("s3:set",nHandle,"s3:M12",P1)
+		dotnet_setp(nHandle,"M12",P1)
 		return self
 
 	Func getM21
-		return dotnet_call("s3:get",nHandle,"s3:M21")
+		return dotnet_getp(nHandle,"M21")
 
 	Func setM21 P1
-		dotnet_callv("s3:set",nHandle,"s3:M21",P1)
+		dotnet_setp(nHandle,"M21",P1)
 		return self
 
 	Func getM22
-		return dotnet_call("s3:get",nHandle,"s3:M22")
+		return dotnet_getp(nHandle,"M22")
 
 	Func setM22 P1
-		dotnet_callv("s3:set",nHandle,"s3:M22",P1)
+		dotnet_setp(nHandle,"M22",P1)
 		return self
 
 	Func getOffsetX
-		return dotnet_call("s3:get",nHandle,"s7:OffsetX")
+		return dotnet_getp(nHandle,"OffsetX")
 
 	Func setOffsetX P1
-		dotnet_callv("s3:set",nHandle,"s7:OffsetX",P1)
+		dotnet_setp(nHandle,"OffsetX",P1)
 		return self
 
 	Func getOffsetY
-		return dotnet_call("s3:get",nHandle,"s7:OffsetY")
+		return dotnet_getp(nHandle,"OffsetY")
 
 	Func setOffsetY P1
-		dotnet_callv("s3:set",nHandle,"s7:OffsetY",P1)
+		dotnet_setp(nHandle,"OffsetY",P1)
 		return self
 
 	Func getIdentity
@@ -7242,49 +7228,49 @@ Class MediaPlayer from Animatable
 		return self
 
 	Func getIsBuffering
-		return dotnet_call("s3:get",nHandle,"s11:IsBuffering")
+		return dotnet_getp(nHandle,"IsBuffering")
 
 	Func setIsBuffering P1
 		raise("DotNet Error: IsBuffering is a read-only property")
 
 	Func getCanPause
-		return dotnet_call("s3:get",nHandle,"s8:CanPause")
+		return dotnet_getp(nHandle,"CanPause")
 
 	Func setCanPause P1
 		raise("DotNet Error: CanPause is a read-only property")
 
 	Func getDownloadProgress
-		return dotnet_call("s3:get",nHandle,"s16:DownloadProgress")
+		return dotnet_getp(nHandle,"DownloadProgress")
 
 	Func setDownloadProgress P1
 		raise("DotNet Error: DownloadProgress is a read-only property")
 
 	Func getBufferingProgress
-		return dotnet_call("s3:get",nHandle,"s17:BufferingProgress")
+		return dotnet_getp(nHandle,"BufferingProgress")
 
 	Func setBufferingProgress P1
 		raise("DotNet Error: BufferingProgress is a read-only property")
 
 	Func getNaturalVideoHeight
-		return dotnet_call("s3:get",nHandle,"s18:NaturalVideoHeight")
+		return dotnet_getp(nHandle,"NaturalVideoHeight")
 
 	Func setNaturalVideoHeight P1
 		raise("DotNet Error: NaturalVideoHeight is a read-only property")
 
 	Func getNaturalVideoWidth
-		return dotnet_call("s3:get",nHandle,"s17:NaturalVideoWidth")
+		return dotnet_getp(nHandle,"NaturalVideoWidth")
 
 	Func setNaturalVideoWidth P1
 		raise("DotNet Error: NaturalVideoWidth is a read-only property")
 
 	Func getHasAudio
-		return dotnet_call("s3:get",nHandle,"s8:HasAudio")
+		return dotnet_getp(nHandle,"HasAudio")
 
 	Func setHasAudio P1
 		raise("DotNet Error: HasAudio is a read-only property")
 
 	Func getHasVideo
-		return dotnet_call("s3:get",nHandle,"s8:HasVideo")
+		return dotnet_getp(nHandle,"HasVideo")
 
 	Func setHasVideo P1
 		raise("DotNet Error: HasVideo is a read-only property")
@@ -7296,31 +7282,31 @@ Class MediaPlayer from Animatable
 		raise("DotNet Error: Source is a read-only property")
 
 	Func getVolume
-		return dotnet_call("s3:get",nHandle,"s6:Volume")
+		return dotnet_getp(nHandle,"Volume")
 
 	Func setVolume P1
-		dotnet_callv("s3:set",nHandle,"s6:Volume",P1)
+		dotnet_setp(nHandle,"Volume",P1)
 		return self
 
 	Func getBalance
-		return dotnet_call("s3:get",nHandle,"s7:Balance")
+		return dotnet_getp(nHandle,"Balance")
 
 	Func setBalance P1
-		dotnet_callv("s3:set",nHandle,"s7:Balance",P1)
+		dotnet_setp(nHandle,"Balance",P1)
 		return self
 
 	Func getScrubbingEnabled
-		return dotnet_call("s3:get",nHandle,"s16:ScrubbingEnabled")
+		return dotnet_getp(nHandle,"ScrubbingEnabled")
 
 	Func setScrubbingEnabled P1
-		dotnet_callv("s3:set",nHandle,"s16:ScrubbingEnabled",P1)
+		dotnet_setp(nHandle,"ScrubbingEnabled",P1)
 		return self
 
 	Func getIsMuted
-		return dotnet_call("s3:get",nHandle,"s7:IsMuted")
+		return dotnet_getp(nHandle,"IsMuted")
 
 	Func setIsMuted P1
-		dotnet_callv("s3:set",nHandle,"s7:IsMuted",P1)
+		dotnet_setp(nHandle,"IsMuted",P1)
 		return self
 
 	Func getNaturalDuration
@@ -7337,10 +7323,10 @@ Class MediaPlayer from Animatable
 		return self
 
 	Func getSpeedRatio
-		return dotnet_call("s3:get",nHandle,"s10:SpeedRatio")
+		return dotnet_getp(nHandle,"SpeedRatio")
 
 	Func setSpeedRatio P1
-		dotnet_callv("s3:set",nHandle,"s10:SpeedRatio",P1)
+		dotnet_setp(nHandle,"SpeedRatio",P1)
 		return self
 
 	Func getClock
@@ -7366,17 +7352,13 @@ Class MediaScriptCommandEventArgs from EventArgs
 		return self
 
 	Func getParameterType
-		dn_x = dotnet_call("s3:get",nHandle,"s13:ParameterType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ParameterType"))
 
 	Func setParameterType P1
 		raise("DotNet Error: ParameterType is a read-only property")
 
 	Func getParameterValue
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ParameterValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ParameterValue"))
 
 	Func setParameterValue P1
 		raise("DotNet Error: ParameterValue is a read-only property")
@@ -7624,10 +7606,10 @@ Class PathFigure from Animatable
 		return self
 
 	Func getIsFilled
-		return dotnet_call("s3:get",nHandle,"s8:IsFilled")
+		return dotnet_getp(nHandle,"IsFilled")
 
 	Func setIsFilled P1
-		dotnet_callv("s3:set",nHandle,"s8:IsFilled",P1)
+		dotnet_setp(nHandle,"IsFilled",P1)
 		return self
 
 	Func getSegments
@@ -7638,10 +7620,10 @@ Class PathFigure from Animatable
 		return self
 
 	Func getIsClosed
-		return dotnet_call("s3:get",nHandle,"s8:IsClosed")
+		return dotnet_getp(nHandle,"IsClosed")
 
 	Func setIsClosed P1
-		dotnet_callv("s3:set",nHandle,"s8:IsClosed",P1)
+		dotnet_setp(nHandle,"IsClosed",P1)
 		return self
 
 	Func getStartPointProperty
@@ -7791,7 +7773,7 @@ Class PathFigureCollection from Animatable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -7874,17 +7856,17 @@ Class PathSegment from Animatable
 		return self
 
 	Func getIsStroked
-		return dotnet_call("s3:get",nHandle,"s9:IsStroked")
+		return dotnet_getp(nHandle,"IsStroked")
 
 	Func setIsStroked P1
-		dotnet_callv("s3:set",nHandle,"s9:IsStroked",P1)
+		dotnet_setp(nHandle,"IsStroked",P1)
 		return self
 
 	Func getIsSmoothJoin
-		return dotnet_call("s3:get",nHandle,"s12:IsSmoothJoin")
+		return dotnet_getp(nHandle,"IsSmoothJoin")
 
 	Func setIsSmoothJoin P1
-		dotnet_callv("s3:set",nHandle,"s12:IsSmoothJoin",P1)
+		dotnet_setp(nHandle,"IsSmoothJoin",P1)
 		return self
 
 	Func getIsStrokedProperty
@@ -8009,7 +7991,7 @@ Class PathSegmentCollection from Animatable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -8115,10 +8097,10 @@ Class WpfPen from Animatable
 		return self
 
 	Func getThickness
-		return dotnet_call("s3:get",nHandle,"s9:Thickness")
+		return dotnet_getp(nHandle,"Thickness")
 
 	Func setThickness P1
-		dotnet_callv("s3:set",nHandle,"s9:Thickness",P1)
+		dotnet_setp(nHandle,"Thickness",P1)
 		return self
 
 	Func getStartLineCap
@@ -8150,10 +8132,10 @@ Class WpfPen from Animatable
 		return self
 
 	Func getMiterLimit
-		return dotnet_call("s3:get",nHandle,"s10:MiterLimit")
+		return dotnet_getp(nHandle,"MiterLimit")
 
 	Func setMiterLimit P1
-		dotnet_callv("s3:set",nHandle,"s10:MiterLimit",P1)
+		dotnet_setp(nHandle,"MiterLimit",P1)
 		return self
 
 	Func getDashStyle
@@ -8251,7 +8233,7 @@ Class PixelFormat from ValueType
 		return dn_x
 
 	Func getBitsPerPixel
-		return dotnet_call("s3:get",nHandle,"s12:BitsPerPixel")
+		return dotnet_getp(nHandle,"BitsPerPixel")
 
 	Func setBitsPerPixel P1
 		raise("DotNet Error: BitsPerPixel is a read-only property")
@@ -8658,7 +8640,7 @@ Class PointCollection from Freezable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -9073,17 +9055,17 @@ Class TextEffect from Animatable
 		return self
 
 	Func getPositionStart
-		return dotnet_call("s3:get",nHandle,"s13:PositionStart")
+		return dotnet_getp(nHandle,"PositionStart")
 
 	Func setPositionStart P1
-		dotnet_callv("s3:set",nHandle,"s13:PositionStart",P1)
+		dotnet_setp(nHandle,"PositionStart",P1)
 		return self
 
 	Func getPositionCount
-		return dotnet_call("s3:get",nHandle,"s13:PositionCount")
+		return dotnet_getp(nHandle,"PositionCount")
 
 	Func setPositionCount P1
-		dotnet_callv("s3:set",nHandle,"s13:PositionCount",P1)
+		dotnet_setp(nHandle,"PositionCount",P1)
 		return self
 
 	Func getTransformProperty
@@ -9226,7 +9208,7 @@ Class TextEffectCollection from Animatable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -9443,7 +9425,7 @@ Class TransformCollection from Animatable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -9584,49 +9566,49 @@ Class Typeface from Object
 		raise("DotNet Error: Stretch is a read-only property")
 
 	Func getIsObliqueSimulated
-		return dotnet_call("s3:get",nHandle,"s18:IsObliqueSimulated")
+		return dotnet_getp(nHandle,"IsObliqueSimulated")
 
 	Func setIsObliqueSimulated P1
 		raise("DotNet Error: IsObliqueSimulated is a read-only property")
 
 	Func getIsBoldSimulated
-		return dotnet_call("s3:get",nHandle,"s15:IsBoldSimulated")
+		return dotnet_getp(nHandle,"IsBoldSimulated")
 
 	Func setIsBoldSimulated P1
 		raise("DotNet Error: IsBoldSimulated is a read-only property")
 
 	Func getXHeight
-		return dotnet_call("s3:get",nHandle,"s7:XHeight")
+		return dotnet_getp(nHandle,"XHeight")
 
 	Func setXHeight P1
 		raise("DotNet Error: XHeight is a read-only property")
 
 	Func getCapsHeight
-		return dotnet_call("s3:get",nHandle,"s10:CapsHeight")
+		return dotnet_getp(nHandle,"CapsHeight")
 
 	Func setCapsHeight P1
 		raise("DotNet Error: CapsHeight is a read-only property")
 
 	Func getUnderlinePosition
-		return dotnet_call("s3:get",nHandle,"s17:UnderlinePosition")
+		return dotnet_getp(nHandle,"UnderlinePosition")
 
 	Func setUnderlinePosition P1
 		raise("DotNet Error: UnderlinePosition is a read-only property")
 
 	Func getUnderlineThickness
-		return dotnet_call("s3:get",nHandle,"s18:UnderlineThickness")
+		return dotnet_getp(nHandle,"UnderlineThickness")
 
 	Func setUnderlineThickness P1
 		raise("DotNet Error: UnderlineThickness is a read-only property")
 
 	Func getStrikethroughPosition
-		return dotnet_call("s3:get",nHandle,"s21:StrikethroughPosition")
+		return dotnet_getp(nHandle,"StrikethroughPosition")
 
 	Func setStrikethroughPosition P1
 		raise("DotNet Error: StrikethroughPosition is a read-only property")
 
 	Func getStrikethroughThickness
-		return dotnet_call("s3:get",nHandle,"s22:StrikethroughThickness")
+		return dotnet_getp(nHandle,"StrikethroughThickness")
 
 	Func setStrikethroughThickness P1
 		raise("DotNet Error: StrikethroughThickness is a read-only property")
@@ -9760,7 +9742,7 @@ Class VectorCollection from Freezable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -9966,19 +9948,19 @@ Class VisualCollection from Object
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -9990,10 +9972,10 @@ Class VisualCollection from Object
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getCapacity
-		return dotnet_call("s3:get",nHandle,"s8:Capacity")
+		return dotnet_getp(nHandle,"Capacity")
 
 	Func setCapacity P1
-		dotnet_callv("s3:set",nHandle,"s8:Capacity",P1)
+		dotnet_setp(nHandle,"Capacity",P1)
 		return self
 
 
@@ -10189,17 +10171,17 @@ Class ArcSegment from PathSegment
 		return self
 
 	Func getRotationAngle
-		return dotnet_call("s3:get",nHandle,"s13:RotationAngle")
+		return dotnet_getp(nHandle,"RotationAngle")
 
 	Func setRotationAngle P1
-		dotnet_callv("s3:set",nHandle,"s13:RotationAngle",P1)
+		dotnet_setp(nHandle,"RotationAngle",P1)
 		return self
 
 	Func getIsLargeArc
-		return dotnet_call("s3:get",nHandle,"s10:IsLargeArc")
+		return dotnet_getp(nHandle,"IsLargeArc")
 
 	Func setIsLargeArc P1
-		dotnet_callv("s3:set",nHandle,"s10:IsLargeArc",P1)
+		dotnet_setp(nHandle,"IsLargeArc",P1)
 		return self
 
 	Func getSweepDirection
@@ -10367,24 +10349,24 @@ Class BitmapCache from CacheMode
 		return self
 
 	Func getRenderAtScale
-		return dotnet_call("s3:get",nHandle,"s13:RenderAtScale")
+		return dotnet_getp(nHandle,"RenderAtScale")
 
 	Func setRenderAtScale P1
-		dotnet_callv("s3:set",nHandle,"s13:RenderAtScale",P1)
+		dotnet_setp(nHandle,"RenderAtScale",P1)
 		return self
 
 	Func getSnapsToDevicePixels
-		return dotnet_call("s3:get",nHandle,"s19:SnapsToDevicePixels")
+		return dotnet_getp(nHandle,"SnapsToDevicePixels")
 
 	Func setSnapsToDevicePixels P1
-		dotnet_callv("s3:set",nHandle,"s19:SnapsToDevicePixels",P1)
+		dotnet_setp(nHandle,"SnapsToDevicePixels",P1)
 		return self
 
 	Func getEnableClearType
-		return dotnet_call("s3:get",nHandle,"s15:EnableClearType")
+		return dotnet_getp(nHandle,"EnableClearType")
 
 	Func setEnableClearType P1
-		dotnet_callv("s3:set",nHandle,"s15:EnableClearType",P1)
+		dotnet_setp(nHandle,"EnableClearType",P1)
 		return self
 
 	Func getRenderAtScaleProperty
@@ -10464,10 +10446,10 @@ Class BitmapCacheBrush from WpfBrush
 		return self
 
 	Func getAutoLayoutContent
-		return dotnet_call("s3:get",nHandle,"s17:AutoLayoutContent")
+		return dotnet_getp(nHandle,"AutoLayoutContent")
 
 	Func setAutoLayoutContent P1
-		dotnet_callv("s3:set",nHandle,"s17:AutoLayoutContent",P1)
+		dotnet_setp(nHandle,"AutoLayoutContent",P1)
 		return self
 
 	Func getTargetProperty
@@ -10636,10 +10618,10 @@ Class ContainerVisual from Visual
 		return self
 
 	Func getOpacity
-		return dotnet_call("s3:get",nHandle,"s7:Opacity")
+		return dotnet_getp(nHandle,"Opacity")
 
 	Func setOpacity P1
-		dotnet_callv("s3:set",nHandle,"s7:Opacity",P1)
+		dotnet_setp(nHandle,"Opacity",P1)
 		return self
 
 	Func getOpacityMask
@@ -10776,10 +10758,10 @@ Class DrawingGroup from Drawing
 		return self
 
 	Func getOpacity
-		return dotnet_call("s3:get",nHandle,"s7:Opacity")
+		return dotnet_getp(nHandle,"Opacity")
 
 	Func setOpacity P1
-		dotnet_callv("s3:set",nHandle,"s7:Opacity",P1)
+		dotnet_setp(nHandle,"Opacity",P1)
 		return self
 
 	Func getOpacityMask
@@ -10963,17 +10945,17 @@ Class EllipseGeometry from Geometry
 		return self
 
 	Func getRadiusX
-		return dotnet_call("s3:get",nHandle,"s7:RadiusX")
+		return dotnet_getp(nHandle,"RadiusX")
 
 	Func setRadiusX P1
-		dotnet_callv("s3:set",nHandle,"s7:RadiusX",P1)
+		dotnet_setp(nHandle,"RadiusX",P1)
 		return self
 
 	Func getRadiusY
-		return dotnet_call("s3:get",nHandle,"s7:RadiusY")
+		return dotnet_getp(nHandle,"RadiusY")
 
 	Func setRadiusY P1
-		dotnet_callv("s3:set",nHandle,"s7:RadiusY",P1)
+		dotnet_setp(nHandle,"RadiusY",P1)
 		return self
 
 	Func getCenter
@@ -11947,17 +11929,17 @@ Class RectangleGeometry from Geometry
 		return self
 
 	Func getRadiusX
-		return dotnet_call("s3:get",nHandle,"s7:RadiusX")
+		return dotnet_getp(nHandle,"RadiusX")
 
 	Func setRadiusX P1
-		dotnet_callv("s3:set",nHandle,"s7:RadiusX",P1)
+		dotnet_setp(nHandle,"RadiusX",P1)
 		return self
 
 	Func getRadiusY
-		return dotnet_call("s3:get",nHandle,"s7:RadiusY")
+		return dotnet_getp(nHandle,"RadiusY")
 
 	Func setRadiusY P1
-		dotnet_callv("s3:set",nHandle,"s7:RadiusY",P1)
+		dotnet_setp(nHandle,"RadiusY",P1)
 		return self
 
 	Func getRect
@@ -12669,17 +12651,17 @@ Class RadialGradientBrush from GradientBrush
 		return self
 
 	Func getRadiusX
-		return dotnet_call("s3:get",nHandle,"s7:RadiusX")
+		return dotnet_getp(nHandle,"RadiusX")
 
 	Func setRadiusX P1
-		dotnet_callv("s3:set",nHandle,"s7:RadiusX",P1)
+		dotnet_setp(nHandle,"RadiusX",P1)
 		return self
 
 	Func getRadiusY
-		return dotnet_call("s3:get",nHandle,"s7:RadiusY")
+		return dotnet_getp(nHandle,"RadiusY")
 
 	Func setRadiusY P1
-		dotnet_callv("s3:set",nHandle,"s7:RadiusY",P1)
+		dotnet_setp(nHandle,"RadiusY",P1)
 		return self
 
 	Func getGradientOrigin
@@ -12758,24 +12740,24 @@ Class RotateTransform from Transform
 		return self
 
 	Func getAngle
-		return dotnet_call("s3:get",nHandle,"s5:Angle")
+		return dotnet_getp(nHandle,"Angle")
 
 	Func setAngle P1
-		dotnet_callv("s3:set",nHandle,"s5:Angle",P1)
+		dotnet_setp(nHandle,"Angle",P1)
 		return self
 
 	Func getCenterX
-		return dotnet_call("s3:get",nHandle,"s7:CenterX")
+		return dotnet_getp(nHandle,"CenterX")
 
 	Func setCenterX P1
-		dotnet_callv("s3:set",nHandle,"s7:CenterX",P1)
+		dotnet_setp(nHandle,"CenterX",P1)
 		return self
 
 	Func getCenterY
-		return dotnet_call("s3:get",nHandle,"s7:CenterY")
+		return dotnet_getp(nHandle,"CenterY")
 
 	Func setCenterY P1
-		dotnet_callv("s3:set",nHandle,"s7:CenterY",P1)
+		dotnet_setp(nHandle,"CenterY",P1)
 		return self
 
 	Func getAngleProperty
@@ -12843,31 +12825,31 @@ Class ScaleTransform from Transform
 		return self
 
 	Func getScaleX
-		return dotnet_call("s3:get",nHandle,"s6:ScaleX")
+		return dotnet_getp(nHandle,"ScaleX")
 
 	Func setScaleX P1
-		dotnet_callv("s3:set",nHandle,"s6:ScaleX",P1)
+		dotnet_setp(nHandle,"ScaleX",P1)
 		return self
 
 	Func getScaleY
-		return dotnet_call("s3:get",nHandle,"s6:ScaleY")
+		return dotnet_getp(nHandle,"ScaleY")
 
 	Func setScaleY P1
-		dotnet_callv("s3:set",nHandle,"s6:ScaleY",P1)
+		dotnet_setp(nHandle,"ScaleY",P1)
 		return self
 
 	Func getCenterX
-		return dotnet_call("s3:get",nHandle,"s7:CenterX")
+		return dotnet_getp(nHandle,"CenterX")
 
 	Func setCenterX P1
-		dotnet_callv("s3:set",nHandle,"s7:CenterX",P1)
+		dotnet_setp(nHandle,"CenterX",P1)
 		return self
 
 	Func getCenterY
-		return dotnet_call("s3:get",nHandle,"s7:CenterY")
+		return dotnet_getp(nHandle,"CenterY")
 
 	Func setCenterY P1
-		dotnet_callv("s3:set",nHandle,"s7:CenterY",P1)
+		dotnet_setp(nHandle,"CenterY",P1)
 		return self
 
 	Func getScaleXProperty
@@ -12941,31 +12923,31 @@ Class SkewTransform from Transform
 		return self
 
 	Func getAngleX
-		return dotnet_call("s3:get",nHandle,"s6:AngleX")
+		return dotnet_getp(nHandle,"AngleX")
 
 	Func setAngleX P1
-		dotnet_callv("s3:set",nHandle,"s6:AngleX",P1)
+		dotnet_setp(nHandle,"AngleX",P1)
 		return self
 
 	Func getAngleY
-		return dotnet_call("s3:get",nHandle,"s6:AngleY")
+		return dotnet_getp(nHandle,"AngleY")
 
 	Func setAngleY P1
-		dotnet_callv("s3:set",nHandle,"s6:AngleY",P1)
+		dotnet_setp(nHandle,"AngleY",P1)
 		return self
 
 	Func getCenterX
-		return dotnet_call("s3:get",nHandle,"s7:CenterX")
+		return dotnet_getp(nHandle,"CenterX")
 
 	Func setCenterX P1
-		dotnet_callv("s3:set",nHandle,"s7:CenterX",P1)
+		dotnet_setp(nHandle,"CenterX",P1)
 		return self
 
 	Func getCenterY
-		return dotnet_call("s3:get",nHandle,"s7:CenterY")
+		return dotnet_getp(nHandle,"CenterY")
 
 	Func setCenterY P1
-		dotnet_callv("s3:set",nHandle,"s7:CenterY",P1)
+		dotnet_setp(nHandle,"CenterY",P1)
 		return self
 
 	Func getAngleXProperty
@@ -13072,17 +13054,17 @@ Class TranslateTransform from Transform
 		return self
 
 	Func getX
-		return dotnet_call("s3:get",nHandle,"s1:X")
+		return dotnet_getp(nHandle,"X")
 
 	Func setX P1
-		dotnet_callv("s3:set",nHandle,"s1:X",P1)
+		dotnet_setp(nHandle,"X",P1)
 		return self
 
 	Func getY
-		return dotnet_call("s3:get",nHandle,"s1:Y")
+		return dotnet_getp(nHandle,"Y")
 
 	Func setY P1
-		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
+		dotnet_setp(nHandle,"Y",P1)
 		return self
 
 	Func getXProperty
@@ -13147,10 +13129,10 @@ Class VisualBrush from TileBrush
 		return self
 
 	Func getAutoLayoutContent
-		return dotnet_call("s3:get",nHandle,"s17:AutoLayoutContent")
+		return dotnet_getp(nHandle,"AutoLayoutContent")
 
 	Func setAutoLayoutContent P1
-		dotnet_callv("s3:set",nHandle,"s17:AutoLayoutContent",P1)
+		dotnet_setp(nHandle,"AutoLayoutContent",P1)
 		return self
 
 	Func getVisualProperty

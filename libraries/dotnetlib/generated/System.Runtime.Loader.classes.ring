@@ -165,15 +165,13 @@ Class AssemblyLoadContext from Object
 		raise("DotNet Error: Assemblies is a read-only property")
 
 	Func getIsCollectible
-		return dotnet_call("s3:get",nHandle,"s13:IsCollectible")
+		return dotnet_getp(nHandle,"IsCollectible")
 
 	Func setIsCollectible P1
 		raise("DotNet Error: IsCollectible is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

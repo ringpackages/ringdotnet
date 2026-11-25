@@ -399,17 +399,17 @@ Class ChangeTracker from Object
 		return self
 
 	Func getAutoDetectChangesEnabled
-		return dotnet_call("s3:get",nHandle,"s24:AutoDetectChangesEnabled")
+		return dotnet_getp(nHandle,"AutoDetectChangesEnabled")
 
 	Func setAutoDetectChangesEnabled P1
-		dotnet_callv("s3:set",nHandle,"s24:AutoDetectChangesEnabled",P1)
+		dotnet_setp(nHandle,"AutoDetectChangesEnabled",P1)
 		return self
 
 	Func getLazyLoadingEnabled
-		return dotnet_call("s3:get",nHandle,"s18:LazyLoadingEnabled")
+		return dotnet_getp(nHandle,"LazyLoadingEnabled")
 
 	Func setLazyLoadingEnabled P1
-		dotnet_callv("s3:set",nHandle,"s18:LazyLoadingEnabled",P1)
+		dotnet_setp(nHandle,"LazyLoadingEnabled",P1)
 		return self
 
 	Func getQueryTrackingBehavior
@@ -483,7 +483,7 @@ Class DetectedChangesEventArgs from EventArgs
 		return self
 
 	Func getChangesFound
-		return dotnet_call("s3:get",nHandle,"s12:ChangesFound")
+		return dotnet_getp(nHandle,"ChangesFound")
 
 	Func setChangesFound P1
 		raise("DotNet Error: ChangesFound is a read-only property")
@@ -637,7 +637,7 @@ Class EntityEntry from Object
 		raise("DotNet Error: Collections is a read-only property")
 
 	Func getIsKeySet
-		return dotnet_call("s3:get",nHandle,"s8:IsKeySet")
+		return dotnet_getp(nHandle,"IsKeySet")
 
 	Func setIsKeySet P1
 		raise("DotNet Error: IsKeySet is a read-only property")
@@ -1063,13 +1063,13 @@ Class LocalView from Object
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1101,10 +1101,10 @@ Class MemberEntry from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getIsModified
-		return dotnet_call("s3:get",nHandle,"s10:IsModified")
+		return dotnet_getp(nHandle,"IsModified")
 
 	Func setIsModified P1
-		dotnet_callv("s3:set",nHandle,"s10:IsModified",P1)
+		dotnet_setp(nHandle,"IsModified",P1)
 		return self
 
 	Func getMetadata
@@ -1304,13 +1304,13 @@ Class ObservableHashSet from Object
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1710,7 +1710,7 @@ Class EntityTrackedEventArgs from EntityEntryEventArgs
 		return self
 
 	Func getFromQuery
-		return dotnet_call("s3:get",nHandle,"s9:FromQuery")
+		return dotnet_getp(nHandle,"FromQuery")
 
 	Func setFromQuery P1
 		raise("DotNet Error: FromQuery is a read-only property")
@@ -1739,7 +1739,7 @@ Class EntityTrackingEventArgs from EntityEntryEventArgs
 		raise("DotNet Error: State is a read-only property")
 
 	Func getFromQuery
-		return dotnet_call("s3:get",nHandle,"s9:FromQuery")
+		return dotnet_getp(nHandle,"FromQuery")
 
 	Func setFromQuery P1
 		raise("DotNet Error: FromQuery is a read-only property")
@@ -1785,10 +1785,10 @@ Class NavigationEntry from MemberEntry
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Query"))
 
 	Func getIsLoaded
-		return dotnet_call("s3:get",nHandle,"s8:IsLoaded")
+		return dotnet_getp(nHandle,"IsLoaded")
 
 	Func setIsLoaded P1
-		dotnet_callv("s3:set",nHandle,"s8:IsLoaded",P1)
+		dotnet_setp(nHandle,"IsLoaded",P1)
 		return self
 
 
@@ -1809,10 +1809,10 @@ Class PropertyEntry from MemberEntry
 		return self
 
 	Func getIsTemporary
-		return dotnet_call("s3:get",nHandle,"s11:IsTemporary")
+		return dotnet_getp(nHandle,"IsTemporary")
 
 	Func setIsTemporary P1
-		dotnet_callv("s3:set",nHandle,"s11:IsTemporary",P1)
+		dotnet_setp(nHandle,"IsTemporary",P1)
 		return self
 
 	Func getOriginalValue

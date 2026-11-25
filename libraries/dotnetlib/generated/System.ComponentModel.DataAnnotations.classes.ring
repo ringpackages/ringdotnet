@@ -330,48 +330,38 @@ Class DisplayAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetOrder"))
 
 	Func getShortName
-		dn_x = dotnet_call("s3:get",nHandle,"s9:ShortName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ShortName"))
 
 	Func setShortName P1
-		dotnet_callv("s3:set",nHandle,"s9:ShortName",P1)
+		dotnet_setp(nHandle,"ShortName",P1)
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getDescription
-		dn_x = dotnet_call("s3:get",nHandle,"s11:Description")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Description"))
 
 	Func setDescription P1
-		dotnet_callv("s3:set",nHandle,"s11:Description",P1)
+		dotnet_setp(nHandle,"Description",P1)
 		return self
 
 	Func getPrompt
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Prompt")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Prompt"))
 
 	Func setPrompt P1
-		dotnet_callv("s3:set",nHandle,"s6:Prompt",P1)
+		dotnet_setp(nHandle,"Prompt",P1)
 		return self
 
 	Func getGroupName
-		dn_x = dotnet_call("s3:get",nHandle,"s9:GroupName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"GroupName"))
 
 	Func setGroupName P1
-		dotnet_callv("s3:set",nHandle,"s9:GroupName",P1)
+		dotnet_setp(nHandle,"GroupName",P1)
 		return self
 
 	Func getResourceType
@@ -382,24 +372,24 @@ Class DisplayAttribute from Attribute
 		return self
 
 	Func getAutoGenerateField
-		return dotnet_call("s3:get",nHandle,"s17:AutoGenerateField")
+		return dotnet_getp(nHandle,"AutoGenerateField")
 
 	Func setAutoGenerateField P1
-		dotnet_callv("s3:set",nHandle,"s17:AutoGenerateField",P1)
+		dotnet_setp(nHandle,"AutoGenerateField",P1)
 		return self
 
 	Func getAutoGenerateFilter
-		return dotnet_call("s3:get",nHandle,"s18:AutoGenerateFilter")
+		return dotnet_getp(nHandle,"AutoGenerateFilter")
 
 	Func setAutoGenerateFilter P1
-		dotnet_callv("s3:set",nHandle,"s18:AutoGenerateFilter",P1)
+		dotnet_setp(nHandle,"AutoGenerateFilter",P1)
 		return self
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 
@@ -436,23 +426,19 @@ Class DisplayColumnAttribute from Attribute
 		return self
 
 	Func getDisplayColumn
-		dn_x = dotnet_call("s3:get",nHandle,"s13:DisplayColumn")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DisplayColumn"))
 
 	Func setDisplayColumn P1
 		raise("DotNet Error: DisplayColumn is a read-only property")
 
 	Func getSortColumn
-		dn_x = dotnet_call("s3:get",nHandle,"s10:SortColumn")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"SortColumn"))
 
 	Func setSortColumn P1
 		raise("DotNet Error: SortColumn is a read-only property")
 
 	Func getSortDescending
-		return dotnet_call("s3:get",nHandle,"s14:SortDescending")
+		return dotnet_getp(nHandle,"SortDescending")
 
 	Func setSortDescending P1
 		raise("DotNet Error: SortDescending is a read-only property")
@@ -491,42 +477,38 @@ Class DisplayFormatAttribute from Attribute
 		return dn_x
 
 	Func getDataFormatString
-		dn_x = dotnet_call("s3:get",nHandle,"s16:DataFormatString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DataFormatString"))
 
 	Func setDataFormatString P1
-		dotnet_callv("s3:set",nHandle,"s16:DataFormatString",P1)
+		dotnet_setp(nHandle,"DataFormatString",P1)
 		return self
 
 	Func getNullDisplayText
-		dn_x = dotnet_call("s3:get",nHandle,"s15:NullDisplayText")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"NullDisplayText"))
 
 	Func setNullDisplayText P1
-		dotnet_callv("s3:set",nHandle,"s15:NullDisplayText",P1)
+		dotnet_setp(nHandle,"NullDisplayText",P1)
 		return self
 
 	Func getConvertEmptyStringToNull
-		return dotnet_call("s3:get",nHandle,"s24:ConvertEmptyStringToNull")
+		return dotnet_getp(nHandle,"ConvertEmptyStringToNull")
 
 	Func setConvertEmptyStringToNull P1
-		dotnet_callv("s3:set",nHandle,"s24:ConvertEmptyStringToNull",P1)
+		dotnet_setp(nHandle,"ConvertEmptyStringToNull",P1)
 		return self
 
 	Func getApplyFormatInEditMode
-		return dotnet_call("s3:get",nHandle,"s21:ApplyFormatInEditMode")
+		return dotnet_getp(nHandle,"ApplyFormatInEditMode")
 
 	Func setApplyFormatInEditMode P1
-		dotnet_callv("s3:set",nHandle,"s21:ApplyFormatInEditMode",P1)
+		dotnet_setp(nHandle,"ApplyFormatInEditMode",P1)
 		return self
 
 	Func getHtmlEncode
-		return dotnet_call("s3:get",nHandle,"s10:HtmlEncode")
+		return dotnet_getp(nHandle,"HtmlEncode")
 
 	Func setHtmlEncode P1
-		dotnet_callv("s3:set",nHandle,"s10:HtmlEncode",P1)
+		dotnet_setp(nHandle,"HtmlEncode",P1)
 		return self
 
 	Func getNullDisplayTextResourceType
@@ -554,16 +536,16 @@ Class EditableAttribute from Attribute
 		return self
 
 	Func getAllowEdit
-		return dotnet_call("s3:get",nHandle,"s9:AllowEdit")
+		return dotnet_getp(nHandle,"AllowEdit")
 
 	Func setAllowEdit P1
 		raise("DotNet Error: AllowEdit is a read-only property")
 
 	Func getAllowInitialValue
-		return dotnet_call("s3:get",nHandle,"s17:AllowInitialValue")
+		return dotnet_getp(nHandle,"AllowInitialValue")
 
 	Func setAllowInitialValue P1
-		dotnet_callv("s3:set",nHandle,"s17:AllowInitialValue",P1)
+		dotnet_setp(nHandle,"AllowInitialValue",P1)
 		return self
 
 
@@ -641,7 +623,7 @@ Class ScaffoldColumnAttribute from Attribute
 		return self
 
 	Func getScaffold
-		return dotnet_call("s3:get",nHandle,"s8:Scaffold")
+		return dotnet_getp(nHandle,"Scaffold")
 
 	Func setScaffold P1
 		raise("DotNet Error: Scaffold is a read-only property")
@@ -701,17 +683,13 @@ Class UIHintAttribute from Attribute
 		return self
 
 	Func getUIHint
-		dn_x = dotnet_call("s3:get",nHandle,"s6:UIHint")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"UIHint"))
 
 	Func setUIHint P1
 		raise("DotNet Error: UIHint is a read-only property")
 
 	Func getPresentationLayer
-		dn_x = dotnet_call("s3:get",nHandle,"s17:PresentationLayer")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"PresentationLayer"))
 
 	Func setPresentationLayer P1
 		raise("DotNet Error: PresentationLayer is a read-only property")
@@ -758,27 +736,23 @@ Class ValidationAttribute from Attribute
 		return self
 
 	Func getRequiresValidationContext
-		return dotnet_call("s3:get",nHandle,"s25:RequiresValidationContext")
+		return dotnet_getp(nHandle,"RequiresValidationContext")
 
 	Func setRequiresValidationContext P1
 		raise("DotNet Error: RequiresValidationContext is a read-only property")
 
 	Func getErrorMessage
-		dn_x = dotnet_call("s3:get",nHandle,"s12:ErrorMessage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ErrorMessage"))
 
 	Func setErrorMessage P1
-		dotnet_callv("s3:set",nHandle,"s12:ErrorMessage",P1)
+		dotnet_setp(nHandle,"ErrorMessage",P1)
 		return self
 
 	Func getErrorMessageResourceName
-		dn_x = dotnet_call("s3:get",nHandle,"s24:ErrorMessageResourceName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ErrorMessageResourceName"))
 
 	Func setErrorMessageResourceName P1
-		dotnet_callv("s3:set",nHandle,"s24:ErrorMessageResourceName",P1)
+		dotnet_setp(nHandle,"ErrorMessageResourceName",P1)
 		return self
 
 	Func getErrorMessageResourceType
@@ -898,21 +872,17 @@ Class ValidationContext from Object
 		raise("DotNet Error: ObjectType is a read-only property")
 
 	Func getDisplayName
-		dn_x = dotnet_call("s3:get",nHandle,"s11:DisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"DisplayName"))
 
 	Func setDisplayName P1
-		dotnet_callv("s3:set",nHandle,"s11:DisplayName",P1)
+		dotnet_setp(nHandle,"DisplayName",P1)
 		return self
 
 	Func getMemberName
-		dn_x = dotnet_call("s3:get",nHandle,"s10:MemberName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"MemberName"))
 
 	Func setMemberName P1
-		dotnet_callv("s3:set",nHandle,"s10:MemberName",P1)
+		dotnet_setp(nHandle,"MemberName",P1)
 		return self
 
 	Func getItems
@@ -1025,12 +995,10 @@ Class DataAnnotationsValidationResult from Object
 		raise("DotNet Error: MemberNames is a read-only property")
 
 	Func getErrorMessage
-		dn_x = dotnet_call("s3:get",nHandle,"s12:ErrorMessage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ErrorMessage"))
 
 	Func setErrorMessage P1
-		dotnet_callv("s3:set",nHandle,"s12:ErrorMessage",P1)
+		dotnet_setp(nHandle,"ErrorMessage",P1)
 		return self
 
 	Func getSuccess
@@ -1152,17 +1120,13 @@ Class CompareAttribute from ValidationAttribute
 		return self
 
 	Func getOtherProperty
-		dn_x = dotnet_call("s3:get",nHandle,"s13:OtherProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"OtherProperty"))
 
 	Func setOtherProperty P1
 		raise("DotNet Error: OtherProperty is a read-only property")
 
 	Func getOtherPropertyDisplayName
-		dn_x = dotnet_call("s3:get",nHandle,"s24:OtherPropertyDisplayName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"OtherPropertyDisplayName"))
 
 	Func setOtherPropertyDisplayName P1
 		raise("DotNet Error: OtherPropertyDisplayName is a read-only property")
@@ -1191,9 +1155,7 @@ Class CustomValidationAttribute from ValidationAttribute
 		raise("DotNet Error: ValidatorType is a read-only property")
 
 	Func getMethod
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Method")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Method"))
 
 	Func setMethod P1
 		raise("DotNet Error: Method is a read-only property")
@@ -1228,9 +1190,7 @@ Class DataTypeAttribute from ValidationAttribute
 		raise("DotNet Error: DataType is a read-only property")
 
 	Func getCustomDataType
-		dn_x = dotnet_call("s3:get",nHandle,"s14:CustomDataType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"CustomDataType"))
 
 	Func setCustomDataType P1
 		raise("DotNet Error: CustomDataType is a read-only property")
@@ -1281,13 +1241,13 @@ Class LengthAttribute from ValidationAttribute
 		return self
 
 	Func getMinimumLength
-		return dotnet_call("s3:get",nHandle,"s13:MinimumLength")
+		return dotnet_getp(nHandle,"MinimumLength")
 
 	Func setMinimumLength P1
 		raise("DotNet Error: MinimumLength is a read-only property")
 
 	Func getMaximumLength
-		return dotnet_call("s3:get",nHandle,"s13:MaximumLength")
+		return dotnet_getp(nHandle,"MaximumLength")
 
 	Func setMaximumLength P1
 		raise("DotNet Error: MaximumLength is a read-only property")
@@ -1332,7 +1292,7 @@ Class MaxLengthAttribute from ValidationAttribute
 		return self
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
@@ -1354,7 +1314,7 @@ Class MinLengthAttribute from ValidationAttribute
 		return self
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
@@ -1409,17 +1369,17 @@ Class RangeAttribute from ValidationAttribute
 		raise("DotNet Error: Maximum is a read-only property")
 
 	Func getMinimumIsExclusive
-		return dotnet_call("s3:get",nHandle,"s18:MinimumIsExclusive")
+		return dotnet_getp(nHandle,"MinimumIsExclusive")
 
 	Func setMinimumIsExclusive P1
-		dotnet_callv("s3:set",nHandle,"s18:MinimumIsExclusive",P1)
+		dotnet_setp(nHandle,"MinimumIsExclusive",P1)
 		return self
 
 	Func getMaximumIsExclusive
-		return dotnet_call("s3:get",nHandle,"s18:MaximumIsExclusive")
+		return dotnet_getp(nHandle,"MaximumIsExclusive")
 
 	Func setMaximumIsExclusive P1
-		dotnet_callv("s3:set",nHandle,"s18:MaximumIsExclusive",P1)
+		dotnet_setp(nHandle,"MaximumIsExclusive",P1)
 		return self
 
 	Func getOperandType
@@ -1429,17 +1389,17 @@ Class RangeAttribute from ValidationAttribute
 		raise("DotNet Error: OperandType is a read-only property")
 
 	Func getParseLimitsInInvariantCulture
-		return dotnet_call("s3:get",nHandle,"s29:ParseLimitsInInvariantCulture")
+		return dotnet_getp(nHandle,"ParseLimitsInInvariantCulture")
 
 	Func setParseLimitsInInvariantCulture P1
-		dotnet_callv("s3:set",nHandle,"s29:ParseLimitsInInvariantCulture",P1)
+		dotnet_setp(nHandle,"ParseLimitsInInvariantCulture",P1)
 		return self
 
 	Func getConvertValueInInvariantCulture
-		return dotnet_call("s3:get",nHandle,"s30:ConvertValueInInvariantCulture")
+		return dotnet_getp(nHandle,"ConvertValueInInvariantCulture")
 
 	Func setConvertValueInInvariantCulture P1
-		dotnet_callv("s3:set",nHandle,"s30:ConvertValueInInvariantCulture",P1)
+		dotnet_setp(nHandle,"ConvertValueInInvariantCulture",P1)
 		return self
 
 
@@ -1461,10 +1421,10 @@ Class RegularExpressionAttribute from ValidationAttribute
 		return self
 
 	Func getMatchTimeoutInMilliseconds
-		return dotnet_call("s3:get",nHandle,"s26:MatchTimeoutInMilliseconds")
+		return dotnet_getp(nHandle,"MatchTimeoutInMilliseconds")
 
 	Func setMatchTimeoutInMilliseconds P1
-		dotnet_callv("s3:set",nHandle,"s26:MatchTimeoutInMilliseconds",P1)
+		dotnet_setp(nHandle,"MatchTimeoutInMilliseconds",P1)
 		return self
 
 	Func getMatchTimeout
@@ -1474,9 +1434,7 @@ Class RegularExpressionAttribute from ValidationAttribute
 		raise("DotNet Error: MatchTimeout is a read-only property")
 
 	Func getPattern
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Pattern")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Pattern"))
 
 	Func setPattern P1
 		raise("DotNet Error: Pattern is a read-only property")
@@ -1505,10 +1463,10 @@ Class RequiredAttribute from ValidationAttribute
 		return self
 
 	Func getAllowEmptyStrings
-		return dotnet_call("s3:get",nHandle,"s17:AllowEmptyStrings")
+		return dotnet_getp(nHandle,"AllowEmptyStrings")
 
 	Func setAllowEmptyStrings P1
-		dotnet_callv("s3:set",nHandle,"s17:AllowEmptyStrings",P1)
+		dotnet_setp(nHandle,"AllowEmptyStrings",P1)
 		return self
 
 
@@ -1529,16 +1487,16 @@ Class StringLengthAttribute from ValidationAttribute
 		return self
 
 	Func getMaximumLength
-		return dotnet_call("s3:get",nHandle,"s13:MaximumLength")
+		return dotnet_getp(nHandle,"MaximumLength")
 
 	Func setMaximumLength P1
 		raise("DotNet Error: MaximumLength is a read-only property")
 
 	Func getMinimumLength
-		return dotnet_call("s3:get",nHandle,"s13:MinimumLength")
+		return dotnet_getp(nHandle,"MinimumLength")
 
 	Func setMinimumLength P1
-		dotnet_callv("s3:set",nHandle,"s13:MinimumLength",P1)
+		dotnet_setp(nHandle,"MinimumLength",P1)
 		return self
 
 
@@ -1629,12 +1587,10 @@ Class FileExtensionsAttribute from DataTypeAttribute
 		return self
 
 	Func getExtensions
-		dn_x = dotnet_call("s3:get",nHandle,"s10:Extensions")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Extensions"))
 
 	Func setExtensions P1
-		dotnet_callv("s3:set",nHandle,"s10:Extensions",P1)
+		dotnet_setp(nHandle,"Extensions",P1)
 		return self
 
 

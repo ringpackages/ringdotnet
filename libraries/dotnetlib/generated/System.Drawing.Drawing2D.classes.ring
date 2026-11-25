@@ -265,17 +265,17 @@ Class CustomLineCap from MarshalByRefObject
 		return self
 
 	Func getBaseInset
-		return dotnet_call("s3:get",nHandle,"s9:BaseInset")
+		return dotnet_getp(nHandle,"BaseInset")
 
 	Func setBaseInset P1
-		dotnet_callv("s3:set",nHandle,"s9:BaseInset",P1)
+		dotnet_setp(nHandle,"BaseInset",P1)
 		return self
 
 	Func getWidthScale
-		return dotnet_call("s3:get",nHandle,"s10:WidthScale")
+		return dotnet_getp(nHandle,"WidthScale")
 
 	Func setWidthScale P1
-		dotnet_callv("s3:set",nHandle,"s10:WidthScale",P1)
+		dotnet_setp(nHandle,"WidthScale",P1)
 		return self
 
 
@@ -556,7 +556,7 @@ Class GraphicsPath from MarshalByRefObject
 		raise("DotNet Error: PathData is a read-only property")
 
 	Func getPointCount
-		return dotnet_call("s3:get",nHandle,"s10:PointCount")
+		return dotnet_getp(nHandle,"PointCount")
 
 	Func setPointCount P1
 		raise("DotNet Error: PointCount is a read-only property")
@@ -639,13 +639,13 @@ Class GraphicsPathIterator from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s8:CopyData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getSubpathCount
-		return dotnet_call("s3:get",nHandle,"s12:SubpathCount")
+		return dotnet_getp(nHandle,"SubpathCount")
 
 	Func setSubpathCount P1
 		raise("DotNet Error: SubpathCount is a read-only property")
@@ -819,10 +819,10 @@ Class LinearGradientBrush from Brush
 		raise("DotNet Error: Rectangle is a read-only property")
 
 	Func getGammaCorrection
-		return dotnet_call("s3:get",nHandle,"s15:GammaCorrection")
+		return dotnet_getp(nHandle,"GammaCorrection")
 
 	Func setGammaCorrection P1
-		dotnet_callv("s3:set",nHandle,"s15:GammaCorrection",P1)
+		dotnet_setp(nHandle,"GammaCorrection",P1)
 		return self
 
 	Func getBlend
@@ -990,25 +990,25 @@ Class Matrix from MarshalByRefObject
 		return self
 
 	Func getOffsetX
-		return dotnet_call("s3:get",nHandle,"s7:OffsetX")
+		return dotnet_getp(nHandle,"OffsetX")
 
 	Func setOffsetX P1
 		raise("DotNet Error: OffsetX is a read-only property")
 
 	Func getOffsetY
-		return dotnet_call("s3:get",nHandle,"s7:OffsetY")
+		return dotnet_getp(nHandle,"OffsetY")
 
 	Func setOffsetY P1
 		raise("DotNet Error: OffsetY is a read-only property")
 
 	Func getIsInvertible
-		return dotnet_call("s3:get",nHandle,"s12:IsInvertible")
+		return dotnet_getp(nHandle,"IsInvertible")
 
 	Func setIsInvertible P1
 		raise("DotNet Error: IsInvertible is a read-only property")
 
 	Func getIsIdentity
-		return dotnet_call("s3:get",nHandle,"s10:IsIdentity")
+		return dotnet_getp(nHandle,"IsIdentity")
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")
@@ -1273,31 +1273,31 @@ Class AdjustableArrowCap from CustomLineCap
 		return self
 
 	Func getHeight
-		return dotnet_call("s3:get",nHandle,"s6:Height")
+		return dotnet_getp(nHandle,"Height")
 
 	Func setHeight P1
-		dotnet_callv("s3:set",nHandle,"s6:Height",P1)
+		dotnet_setp(nHandle,"Height",P1)
 		return self
 
 	Func getWidth
-		return dotnet_call("s3:get",nHandle,"s5:Width")
+		return dotnet_getp(nHandle,"Width")
 
 	Func setWidth P1
-		dotnet_callv("s3:set",nHandle,"s5:Width",P1)
+		dotnet_setp(nHandle,"Width",P1)
 		return self
 
 	Func getMiddleInset
-		return dotnet_call("s3:get",nHandle,"s11:MiddleInset")
+		return dotnet_getp(nHandle,"MiddleInset")
 
 	Func setMiddleInset P1
-		dotnet_callv("s3:set",nHandle,"s11:MiddleInset",P1)
+		dotnet_setp(nHandle,"MiddleInset",P1)
 		return self
 
 	Func getFilled
-		return dotnet_call("s3:get",nHandle,"s6:Filled")
+		return dotnet_getp(nHandle,"Filled")
 
 	Func setFilled P1
-		dotnet_callv("s3:set",nHandle,"s6:Filled",P1)
+		dotnet_setp(nHandle,"Filled",P1)
 		return self
 
 

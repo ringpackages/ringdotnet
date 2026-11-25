@@ -153,9 +153,7 @@ Class CustomContentState from Object
 		return dn_x
 
 	Func getJournalEntryName
-		dn_x = dotnet_call("s3:get",nHandle,"s16:JournalEntryName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"JournalEntryName"))
 
 	Func setJournalEntryName P1
 		raise("DotNet Error: JournalEntryName is a read-only property")
@@ -177,18 +175,16 @@ Class FragmentNavigationEventArgs from EventArgs
 		return self
 
 	Func getFragment
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Fragment")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Fragment"))
 
 	Func setFragment P1
 		raise("DotNet Error: Fragment is a read-only property")
 
 	Func getHandled
-		return dotnet_call("s3:get",nHandle,"s7:Handled")
+		return dotnet_getp(nHandle,"Handled")
 
 	Func setHandled P1
-		dotnet_callv("s3:set",nHandle,"s7:Handled",P1)
+		dotnet_setp(nHandle,"Handled",P1)
 		return self
 
 	Func getNavigator
@@ -269,12 +265,10 @@ Class JournalEntry from DependencyObject
 		raise("DotNet Error: CustomContentState is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getNameProperty
@@ -435,7 +429,7 @@ Class NavigatingCancelEventArgs from CancelEventArgs
 		raise("DotNet Error: WebRequest is a read-only property")
 
 	Func getIsNavigationInitiator
-		return dotnet_call("s3:get",nHandle,"s21:IsNavigationInitiator")
+		return dotnet_getp(nHandle,"IsNavigationInitiator")
 
 	Func setIsNavigationInitiator P1
 		raise("DotNet Error: IsNavigationInitiator is a read-only property")
@@ -478,7 +472,7 @@ Class NavigationEventArgs from EventArgs
 		raise("DotNet Error: Content is a read-only property")
 
 	Func getIsNavigationInitiator
-		return dotnet_call("s3:get",nHandle,"s21:IsNavigationInitiator")
+		return dotnet_getp(nHandle,"IsNavigationInitiator")
 
 	Func setIsNavigationInitiator P1
 		raise("DotNet Error: IsNavigationInitiator is a read-only property")
@@ -558,10 +552,10 @@ Class NavigationFailedEventArgs from EventArgs
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getHandled
-		return dotnet_call("s3:get",nHandle,"s7:Handled")
+		return dotnet_getp(nHandle,"Handled")
 
 	Func setHandled P1
-		dotnet_callv("s3:set",nHandle,"s7:Handled",P1)
+		dotnet_setp(nHandle,"Handled",P1)
 		return self
 
 
@@ -588,13 +582,13 @@ Class NavigationProgressEventArgs from EventArgs
 		raise("DotNet Error: Uri is a read-only property")
 
 	Func getBytesRead
-		return dotnet_call("s3:get",nHandle,"s9:BytesRead")
+		return dotnet_getp(nHandle,"BytesRead")
 
 	Func setBytesRead P1
 		raise("DotNet Error: BytesRead is a read-only property")
 
 	Func getMaxBytes
-		return dotnet_call("s3:get",nHandle,"s8:MaxBytes")
+		return dotnet_getp(nHandle,"MaxBytes")
 
 	Func setMaxBytes P1
 		raise("DotNet Error: MaxBytes is a read-only property")
@@ -746,13 +740,13 @@ Class NavigationService from Object
 		return self
 
 	Func getCanGoForward
-		return dotnet_call("s3:get",nHandle,"s12:CanGoForward")
+		return dotnet_getp(nHandle,"CanGoForward")
 
 	Func setCanGoForward P1
 		raise("DotNet Error: CanGoForward is a read-only property")
 
 	Func getCanGoBack
-		return dotnet_call("s3:get",nHandle,"s9:CanGoBack")
+		return dotnet_getp(nHandle,"CanGoBack")
 
 	Func setCanGoBack P1
 		raise("DotNet Error: CanGoBack is a read-only property")
@@ -890,10 +884,10 @@ Class NavigationWindow from Window
 		return self
 
 	Func getSandboxExternalContent
-		return dotnet_call("s3:get",nHandle,"s22:SandboxExternalContent")
+		return dotnet_getp(nHandle,"SandboxExternalContent")
 
 	Func setSandboxExternalContent P1
-		dotnet_callv("s3:set",nHandle,"s22:SandboxExternalContent",P1)
+		dotnet_setp(nHandle,"SandboxExternalContent",P1)
 		return self
 
 	Func getNavigationService
@@ -915,10 +909,10 @@ Class NavigationWindow from Window
 		raise("DotNet Error: ForwardStack is a read-only property")
 
 	Func getShowsNavigationUI
-		return dotnet_call("s3:get",nHandle,"s17:ShowsNavigationUI")
+		return dotnet_getp(nHandle,"ShowsNavigationUI")
 
 	Func setShowsNavigationUI P1
-		dotnet_callv("s3:set",nHandle,"s17:ShowsNavigationUI",P1)
+		dotnet_setp(nHandle,"ShowsNavigationUI",P1)
 		return self
 
 	Func getSource
@@ -935,13 +929,13 @@ Class NavigationWindow from Window
 		raise("DotNet Error: CurrentSource is a read-only property")
 
 	Func getCanGoForward
-		return dotnet_call("s3:get",nHandle,"s12:CanGoForward")
+		return dotnet_getp(nHandle,"CanGoForward")
 
 	Func setCanGoForward P1
 		raise("DotNet Error: CanGoForward is a read-only property")
 
 	Func getCanGoBack
-		return dotnet_call("s3:get",nHandle,"s9:CanGoBack")
+		return dotnet_getp(nHandle,"CanGoBack")
 
 	Func setCanGoBack P1
 		raise("DotNet Error: CanGoBack is a read-only property")
@@ -1003,10 +997,10 @@ Class PageFunctionBase from Page
 		return self
 
 	Func getRemoveFromJournal
-		return dotnet_call("s3:get",nHandle,"s17:RemoveFromJournal")
+		return dotnet_getp(nHandle,"RemoveFromJournal")
 
 	Func setRemoveFromJournal P1
-		dotnet_callv("s3:set",nHandle,"s17:RemoveFromJournal",P1)
+		dotnet_setp(nHandle,"RemoveFromJournal",P1)
 		return self
 
 
@@ -1033,9 +1027,7 @@ Class RequestNavigateEventArgs from RoutedEventArgs
 		raise("DotNet Error: Uri is a read-only property")
 
 	Func getTarget
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Target")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Target"))
 
 	Func setTarget P1
 		raise("DotNet Error: Target is a read-only property")

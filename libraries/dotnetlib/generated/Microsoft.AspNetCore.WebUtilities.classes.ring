@@ -273,21 +273,19 @@ Class FileBufferingReadStream from Stream
 		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
 	Func getMemoryThreshold
-		return dotnet_call("s3:get",nHandle,"s15:MemoryThreshold")
+		return dotnet_getp(nHandle,"MemoryThreshold")
 
 	Func setMemoryThreshold P1
 		raise("DotNet Error: MemoryThreshold is a read-only property")
 
 	Func getInMemory
-		return dotnet_call("s3:get",nHandle,"s8:InMemory")
+		return dotnet_getp(nHandle,"InMemory")
 
 	Func setInMemory P1
 		raise("DotNet Error: InMemory is a read-only property")
 
 	Func getTempFileName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:TempFileName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"TempFileName"))
 
 	Func setTempFileName P1
 		raise("DotNet Error: TempFileName is a read-only property")
@@ -344,7 +342,7 @@ Class FileBufferingWriteStream from Stream
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:DrainBufferAsync",P1))
 
 	Func getMemoryThreshold
-		return dotnet_call("s3:get",nHandle,"s15:MemoryThreshold")
+		return dotnet_getp(nHandle,"MemoryThreshold")
 
 	Func setMemoryThreshold P1
 		raise("DotNet Error: MemoryThreshold is a read-only property")
@@ -401,17 +399,13 @@ Class FileMultipartSection from Object
 		raise("DotNet Error: FileStream is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getFileName
-		dn_x = dotnet_call("s3:get",nHandle,"s8:FileName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FileName"))
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
@@ -469,9 +463,7 @@ Class FormMultipartSection from Object
 		raise("DotNet Error: Section is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -524,24 +516,24 @@ Class FormPipeReader from Object
 		return dn_x
 
 	Func getValueCountLimit
-		return dotnet_call("s3:get",nHandle,"s15:ValueCountLimit")
+		return dotnet_getp(nHandle,"ValueCountLimit")
 
 	Func setValueCountLimit P1
-		dotnet_callv("s3:set",nHandle,"s15:ValueCountLimit",P1)
+		dotnet_setp(nHandle,"ValueCountLimit",P1)
 		return self
 
 	Func getKeyLengthLimit
-		return dotnet_call("s3:get",nHandle,"s14:KeyLengthLimit")
+		return dotnet_getp(nHandle,"KeyLengthLimit")
 
 	Func setKeyLengthLimit P1
-		dotnet_callv("s3:set",nHandle,"s14:KeyLengthLimit",P1)
+		dotnet_setp(nHandle,"KeyLengthLimit",P1)
 		return self
 
 	Func getValueLengthLimit
-		return dotnet_call("s3:get",nHandle,"s16:ValueLengthLimit")
+		return dotnet_getp(nHandle,"ValueLengthLimit")
 
 	Func setValueLengthLimit P1
-		dotnet_callv("s3:set",nHandle,"s16:ValueLengthLimit",P1)
+		dotnet_setp(nHandle,"ValueLengthLimit",P1)
 		return self
 
 
@@ -615,24 +607,24 @@ Class FormReader from Object
 		return dn_x
 
 	Func getValueCountLimit
-		return dotnet_call("s3:get",nHandle,"s15:ValueCountLimit")
+		return dotnet_getp(nHandle,"ValueCountLimit")
 
 	Func setValueCountLimit P1
-		dotnet_callv("s3:set",nHandle,"s15:ValueCountLimit",P1)
+		dotnet_setp(nHandle,"ValueCountLimit",P1)
 		return self
 
 	Func getKeyLengthLimit
-		return dotnet_call("s3:get",nHandle,"s14:KeyLengthLimit")
+		return dotnet_getp(nHandle,"KeyLengthLimit")
 
 	Func setKeyLengthLimit P1
-		dotnet_callv("s3:set",nHandle,"s14:KeyLengthLimit",P1)
+		dotnet_setp(nHandle,"KeyLengthLimit",P1)
 		return self
 
 	Func getValueLengthLimit
-		return dotnet_call("s3:get",nHandle,"s16:ValueLengthLimit")
+		return dotnet_getp(nHandle,"ValueLengthLimit")
 
 	Func setValueLengthLimit P1
-		dotnet_callv("s3:set",nHandle,"s16:ValueLengthLimit",P1)
+		dotnet_setp(nHandle,"ValueLengthLimit",P1)
 		return self
 
 	Func getDefaultValueCountLimit
@@ -745,19 +737,19 @@ Class KeyValueAccumulator from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetResults"))
 
 	Func getHasValues
-		return dotnet_call("s3:get",nHandle,"s9:HasValues")
+		return dotnet_getp(nHandle,"HasValues")
 
 	Func setHasValues P1
 		raise("DotNet Error: HasValues is a read-only property")
 
 	Func getKeyCount
-		return dotnet_call("s3:get",nHandle,"s8:KeyCount")
+		return dotnet_getp(nHandle,"KeyCount")
 
 	Func setKeyCount P1
 		raise("DotNet Error: KeyCount is a read-only property")
 
 	Func getValueCount
-		return dotnet_call("s3:get",nHandle,"s10:ValueCount")
+		return dotnet_getp(nHandle,"ValueCount")
 
 	Func setValueCount P1
 		raise("DotNet Error: ValueCount is a read-only property")
@@ -812,17 +804,17 @@ Class MultipartReader from Object
 		return dn_x
 
 	Func getHeadersCountLimit
-		return dotnet_call("s3:get",nHandle,"s17:HeadersCountLimit")
+		return dotnet_getp(nHandle,"HeadersCountLimit")
 
 	Func setHeadersCountLimit P1
-		dotnet_callv("s3:set",nHandle,"s17:HeadersCountLimit",P1)
+		dotnet_setp(nHandle,"HeadersCountLimit",P1)
 		return self
 
 	Func getHeadersLengthLimit
-		return dotnet_call("s3:get",nHandle,"s18:HeadersLengthLimit")
+		return dotnet_getp(nHandle,"HeadersLengthLimit")
 
 	Func setHeadersLengthLimit P1
-		dotnet_callv("s3:set",nHandle,"s18:HeadersLengthLimit",P1)
+		dotnet_setp(nHandle,"HeadersLengthLimit",P1)
 		return self
 
 	Func getBodyLengthLimit
@@ -899,17 +891,13 @@ Class MultipartSection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadAsStringAsync",P1))
 
 	Func getContentType
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ContentType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentType"))
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getContentDisposition
-		dn_x = dotnet_call("s3:get",nHandle,"s18:ContentDisposition")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentDisposition"))
 
 	Func setContentDisposition P1
 		raise("DotNet Error: ContentDisposition is a read-only property")

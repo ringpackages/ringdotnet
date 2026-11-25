@@ -204,7 +204,7 @@ Class RegistryKey from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry',"s10:FromHandle",P1))
 
 	Func getSubKeyCount
-		return dotnet_call("s3:get",nHandle,"s11:SubKeyCount")
+		return dotnet_getp(nHandle,"SubKeyCount")
 
 	Func setSubKeyCount P1
 		raise("DotNet Error: SubKeyCount is a read-only property")
@@ -222,15 +222,13 @@ Class RegistryKey from MarshalByRefObject
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getValueCount
-		return dotnet_call("s3:get",nHandle,"s10:ValueCount")
+		return dotnet_getp(nHandle,"ValueCount")
 
 	Func setValueCount P1
 		raise("DotNet Error: ValueCount is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

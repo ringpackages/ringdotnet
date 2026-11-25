@@ -181,7 +181,7 @@ Class IDirectoryContents from DotNetObject
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getExists
-		return dotnet_call("s3:get",nHandle,"s6:Exists")
+		return dotnet_getp(nHandle,"Exists")
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")
@@ -209,29 +209,25 @@ Class IFileInfo from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateReadStream"))
 
 	Func getExists
-		return dotnet_call("s3:get",nHandle,"s6:Exists")
+		return dotnet_getp(nHandle,"Exists")
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getPhysicalPath
-		dn_x = dotnet_call("s3:get",nHandle,"s12:PhysicalPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"PhysicalPath"))
 
 	Func setPhysicalPath P1
 		raise("DotNet Error: PhysicalPath is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -243,7 +239,7 @@ Class IFileInfo from DotNetObject
 		raise("DotNet Error: LastModified is a read-only property")
 
 	Func getIsDirectory
-		return dotnet_call("s3:get",nHandle,"s11:IsDirectory")
+		return dotnet_getp(nHandle,"IsDirectory")
 
 	Func setIsDirectory P1
 		raise("DotNet Error: IsDirectory is a read-only property")
@@ -373,7 +369,7 @@ Class NotFoundDirectoryContents from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getExists
-		return dotnet_call("s3:get",nHandle,"s6:Exists")
+		return dotnet_getp(nHandle,"Exists")
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")
@@ -414,13 +410,13 @@ Class NotFoundFileInfo from Object
 		return dn_x
 
 	Func getExists
-		return dotnet_call("s3:get",nHandle,"s6:Exists")
+		return dotnet_getp(nHandle,"Exists")
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")
 
 	Func getIsDirectory
-		return dotnet_call("s3:get",nHandle,"s11:IsDirectory")
+		return dotnet_getp(nHandle,"IsDirectory")
 
 	Func setIsDirectory P1
 		raise("DotNet Error: IsDirectory is a read-only property")
@@ -432,23 +428,19 @@ Class NotFoundFileInfo from Object
 		raise("DotNet Error: LastModified is a read-only property")
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getPhysicalPath
-		dn_x = dotnet_call("s3:get",nHandle,"s12:PhysicalPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"PhysicalPath"))
 
 	Func setPhysicalPath P1
 		raise("DotNet Error: PhysicalPath is a read-only property")
@@ -478,13 +470,13 @@ Class NullChangeToken from Object
 		return dn_x
 
 	Func getHasChanged
-		return dotnet_call("s3:get",nHandle,"s10:HasChanged")
+		return dotnet_getp(nHandle,"HasChanged")
 
 	Func setHasChanged P1
 		raise("DotNet Error: HasChanged is a read-only property")
 
 	Func getActiveChangeCallbacks
-		return dotnet_call("s3:get",nHandle,"s21:ActiveChangeCallbacks")
+		return dotnet_getp(nHandle,"ActiveChangeCallbacks")
 
 	Func setActiveChangeCallbacks P1
 		raise("DotNet Error: ActiveChangeCallbacks is a read-only property")
@@ -583,23 +575,21 @@ Class PhysicalFileProvider from Object
 		return dn_x
 
 	Func getUsePollingFileWatcher
-		return dotnet_call("s3:get",nHandle,"s21:UsePollingFileWatcher")
+		return dotnet_getp(nHandle,"UsePollingFileWatcher")
 
 	Func setUsePollingFileWatcher P1
-		dotnet_callv("s3:set",nHandle,"s21:UsePollingFileWatcher",P1)
+		dotnet_setp(nHandle,"UsePollingFileWatcher",P1)
 		return self
 
 	Func getUseActivePolling
-		return dotnet_call("s3:get",nHandle,"s16:UseActivePolling")
+		return dotnet_getp(nHandle,"UseActivePolling")
 
 	Func setUseActivePolling P1
-		dotnet_callv("s3:set",nHandle,"s16:UseActivePolling",P1)
+		dotnet_setp(nHandle,"UseActivePolling",P1)
 		return self
 
 	Func getRoot
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Root")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Root"))
 
 	Func setRoot P1
 		raise("DotNet Error: Root is a read-only property")

@@ -96,37 +96,37 @@ Class AuthenticatedStream from Stream
 		return self
 
 	Func getLeaveInnerStreamOpen
-		return dotnet_call("s3:get",nHandle,"s20:LeaveInnerStreamOpen")
+		return dotnet_getp(nHandle,"LeaveInnerStreamOpen")
 
 	Func setLeaveInnerStreamOpen P1
 		raise("DotNet Error: LeaveInnerStreamOpen is a read-only property")
 
 	Func getIsAuthenticated
-		return dotnet_call("s3:get",nHandle,"s15:IsAuthenticated")
+		return dotnet_getp(nHandle,"IsAuthenticated")
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
 
 	Func getIsMutuallyAuthenticated
-		return dotnet_call("s3:get",nHandle,"s23:IsMutuallyAuthenticated")
+		return dotnet_getp(nHandle,"IsMutuallyAuthenticated")
 
 	Func setIsMutuallyAuthenticated P1
 		raise("DotNet Error: IsMutuallyAuthenticated is a read-only property")
 
 	Func getIsEncrypted
-		return dotnet_call("s3:get",nHandle,"s11:IsEncrypted")
+		return dotnet_getp(nHandle,"IsEncrypted")
 
 	Func setIsEncrypted P1
 		raise("DotNet Error: IsEncrypted is a read-only property")
 
 	Func getIsSigned
-		return dotnet_call("s3:get",nHandle,"s8:IsSigned")
+		return dotnet_getp(nHandle,"IsSigned")
 
 	Func setIsSigned P1
 		raise("DotNet Error: IsSigned is a read-only property")
 
 	Func getIsServer
-		return dotnet_call("s3:get",nHandle,"s8:IsServer")
+		return dotnet_getp(nHandle,"IsServer")
 
 	Func setIsServer P1
 		raise("DotNet Error: IsServer is a read-only property")
@@ -215,7 +215,7 @@ Class NegotiateAuthentication from Object
 		return dn_x
 
 	Func getIsAuthenticated
-		return dotnet_call("s3:get",nHandle,"s15:IsAuthenticated")
+		return dotnet_getp(nHandle,"IsAuthenticated")
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
@@ -227,38 +227,34 @@ Class NegotiateAuthentication from Object
 		raise("DotNet Error: ProtectionLevel is a read-only property")
 
 	Func getIsSigned
-		return dotnet_call("s3:get",nHandle,"s8:IsSigned")
+		return dotnet_getp(nHandle,"IsSigned")
 
 	Func setIsSigned P1
 		raise("DotNet Error: IsSigned is a read-only property")
 
 	Func getIsEncrypted
-		return dotnet_call("s3:get",nHandle,"s11:IsEncrypted")
+		return dotnet_getp(nHandle,"IsEncrypted")
 
 	Func setIsEncrypted P1
 		raise("DotNet Error: IsEncrypted is a read-only property")
 
 	Func getIsMutuallyAuthenticated
-		return dotnet_call("s3:get",nHandle,"s23:IsMutuallyAuthenticated")
+		return dotnet_getp(nHandle,"IsMutuallyAuthenticated")
 
 	Func setIsMutuallyAuthenticated P1
 		raise("DotNet Error: IsMutuallyAuthenticated is a read-only property")
 
 	Func getIsServer
-		return dotnet_call("s3:get",nHandle,"s8:IsServer")
+		return dotnet_getp(nHandle,"IsServer")
 
 	Func setIsServer P1
 		raise("DotNet Error: IsServer is a read-only property")
 
 	Func getPackage
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Package")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Package"))
 
 	Func getTargetName
-		dn_x = dotnet_call("s3:get",nHandle,"s10:TargetName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"TargetName"))
 
 	Func setTargetName P1
 		raise("DotNet Error: TargetName is a read-only property")
@@ -309,12 +305,10 @@ Class NegotiateAuthenticationClientOptions from Object
 		return dn_x
 
 	Func getPackage
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Package")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Package"))
 
 	Func setPackage P1
-		dotnet_callv("s3:set",nHandle,"s7:Package",P1)
+		dotnet_setp(nHandle,"Package",P1)
 		return self
 
 	Func getCredential
@@ -325,12 +319,10 @@ Class NegotiateAuthenticationClientOptions from Object
 		return self
 
 	Func getTargetName
-		dn_x = dotnet_call("s3:get",nHandle,"s10:TargetName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"TargetName"))
 
 	Func setTargetName P1
-		dotnet_callv("s3:set",nHandle,"s10:TargetName",P1)
+		dotnet_setp(nHandle,"TargetName",P1)
 		return self
 
 	Func getBinding
@@ -348,10 +340,10 @@ Class NegotiateAuthenticationClientOptions from Object
 		return self
 
 	Func getRequireMutualAuthentication
-		return dotnet_call("s3:get",nHandle,"s27:RequireMutualAuthentication")
+		return dotnet_getp(nHandle,"RequireMutualAuthentication")
 
 	Func setRequireMutualAuthentication P1
-		dotnet_callv("s3:set",nHandle,"s27:RequireMutualAuthentication",P1)
+		dotnet_setp(nHandle,"RequireMutualAuthentication",P1)
 		return self
 
 	Func getAllowedImpersonationLevel
@@ -394,12 +386,10 @@ Class NegotiateAuthenticationServerOptions from Object
 		return dn_x
 
 	Func getPackage
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Package")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Package"))
 
 	Func setPackage P1
-		dotnet_callv("s3:set",nHandle,"s7:Package",P1)
+		dotnet_setp(nHandle,"Package",P1)
 		return self
 
 	Func getCredential
@@ -577,17 +567,17 @@ Class SslClientAuthenticationOptions from Object
 		return dn_x
 
 	Func getAllowRenegotiation
-		return dotnet_call("s3:get",nHandle,"s18:AllowRenegotiation")
+		return dotnet_getp(nHandle,"AllowRenegotiation")
 
 	Func setAllowRenegotiation P1
-		dotnet_callv("s3:set",nHandle,"s18:AllowRenegotiation",P1)
+		dotnet_setp(nHandle,"AllowRenegotiation",P1)
 		return self
 
 	Func getAllowTlsResume
-		return dotnet_call("s3:get",nHandle,"s14:AllowTlsResume")
+		return dotnet_getp(nHandle,"AllowTlsResume")
 
 	Func setAllowTlsResume P1
-		dotnet_callv("s3:set",nHandle,"s14:AllowTlsResume",P1)
+		dotnet_setp(nHandle,"AllowTlsResume",P1)
 		return self
 
 	Func getLocalCertificateSelectionCallback
@@ -612,12 +602,10 @@ Class SslClientAuthenticationOptions from Object
 		return self
 
 	Func getTargetHost
-		dn_x = dotnet_call("s3:get",nHandle,"s10:TargetHost")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"TargetHost"))
 
 	Func setTargetHost P1
-		dotnet_callv("s3:set",nHandle,"s10:TargetHost",P1)
+		dotnet_setp(nHandle,"TargetHost",P1)
 		return self
 
 	Func getClientCertificates
@@ -710,9 +698,7 @@ Class SslClientHelloInfo from ValueType
 		return self
 
 	Func getServerName
-		dn_x = dotnet_call("s3:get",nHandle,"s10:ServerName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ServerName"))
 
 	Func setServerName P1
 		raise("DotNet Error: ServerName is a read-only property")
@@ -764,24 +750,24 @@ Class SslServerAuthenticationOptions from Object
 		return dn_x
 
 	Func getAllowRenegotiation
-		return dotnet_call("s3:get",nHandle,"s18:AllowRenegotiation")
+		return dotnet_getp(nHandle,"AllowRenegotiation")
 
 	Func setAllowRenegotiation P1
-		dotnet_callv("s3:set",nHandle,"s18:AllowRenegotiation",P1)
+		dotnet_setp(nHandle,"AllowRenegotiation",P1)
 		return self
 
 	Func getAllowTlsResume
-		return dotnet_call("s3:get",nHandle,"s14:AllowTlsResume")
+		return dotnet_getp(nHandle,"AllowTlsResume")
 
 	Func setAllowTlsResume P1
-		dotnet_callv("s3:set",nHandle,"s14:AllowTlsResume",P1)
+		dotnet_setp(nHandle,"AllowTlsResume",P1)
 		return self
 
 	Func getClientCertificateRequired
-		return dotnet_call("s3:get",nHandle,"s25:ClientCertificateRequired")
+		return dotnet_getp(nHandle,"ClientCertificateRequired")
 
 	Func setClientCertificateRequired P1
-		dotnet_callv("s3:set",nHandle,"s25:ClientCertificateRequired",P1)
+		dotnet_setp(nHandle,"ClientCertificateRequired",P1)
 		return self
 
 	Func getApplicationProtocols
@@ -1132,7 +1118,7 @@ Class SslStream from AuthenticatedStream
 		raise("DotNet Error: SslProtocol is a read-only property")
 
 	Func getCheckCertRevocationStatus
-		return dotnet_call("s3:get",nHandle,"s25:CheckCertRevocationStatus")
+		return dotnet_getp(nHandle,"CheckCertRevocationStatus")
 
 	Func setCheckCertRevocationStatus P1
 		raise("DotNet Error: CheckCertRevocationStatus is a read-only property")
@@ -1168,7 +1154,7 @@ Class SslStream from AuthenticatedStream
 		raise("DotNet Error: CipherAlgorithm is a read-only property")
 
 	Func getCipherStrength
-		return dotnet_call("s3:get",nHandle,"s14:CipherStrength")
+		return dotnet_getp(nHandle,"CipherStrength")
 
 	Func setCipherStrength P1
 		raise("DotNet Error: CipherStrength is a read-only property")
@@ -1180,7 +1166,7 @@ Class SslStream from AuthenticatedStream
 		raise("DotNet Error: HashAlgorithm is a read-only property")
 
 	Func getHashStrength
-		return dotnet_call("s3:get",nHandle,"s12:HashStrength")
+		return dotnet_getp(nHandle,"HashStrength")
 
 	Func setHashStrength P1
 		raise("DotNet Error: HashStrength is a read-only property")
@@ -1192,15 +1178,13 @@ Class SslStream from AuthenticatedStream
 		raise("DotNet Error: KeyExchangeAlgorithm is a read-only property")
 
 	Func getKeyExchangeStrength
-		return dotnet_call("s3:get",nHandle,"s19:KeyExchangeStrength")
+		return dotnet_getp(nHandle,"KeyExchangeStrength")
 
 	Func setKeyExchangeStrength P1
 		raise("DotNet Error: KeyExchangeStrength is a read-only property")
 
 	Func getTargetHostName
-		dn_x = dotnet_call("s3:get",nHandle,"s14:TargetHostName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"TargetHostName"))
 
 	Func setTargetHostName P1
 		raise("DotNet Error: TargetHostName is a read-only property")

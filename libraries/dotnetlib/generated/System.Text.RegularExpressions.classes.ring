@@ -93,21 +93,19 @@ Class Capture from Object
 		return dn_x
 
 	Func getIndex
-		return dotnet_call("s3:get",nHandle,"s5:Index")
+		return dotnet_getp(nHandle,"Index")
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -172,19 +170,19 @@ Class CaptureCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -230,9 +228,7 @@ Class GeneratedRegexAttribute from Attribute
 		return self
 
 	Func getPattern
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Pattern")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Pattern"))
 
 	Func setPattern P1
 		raise("DotNet Error: Pattern is a read-only property")
@@ -244,15 +240,13 @@ Class GeneratedRegexAttribute from Attribute
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getMatchTimeoutMilliseconds
-		return dotnet_call("s3:get",nHandle,"s24:MatchTimeoutMilliseconds")
+		return dotnet_getp(nHandle,"MatchTimeoutMilliseconds")
 
 	Func setMatchTimeoutMilliseconds P1
 		raise("DotNet Error: MatchTimeoutMilliseconds is a read-only property")
 
 	Func getCultureName
-		dn_x = dotnet_call("s3:get",nHandle,"s11:CultureName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"CultureName"))
 
 	Func setCultureName P1
 		raise("DotNet Error: CultureName is a read-only property")
@@ -321,19 +315,19 @@ Class GroupCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -410,19 +404,19 @@ Class MatchCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -601,7 +595,7 @@ Class Regex from Object
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getRightToLeft
-		return dotnet_call("s3:get",nHandle,"s11:RightToLeft")
+		return dotnet_getp(nHandle,"RightToLeft")
 
 	Func setRightToLeft P1
 		raise("DotNet Error: RightToLeft is a read-only property")
@@ -667,17 +661,13 @@ Class RegexMatchTimeoutException from TimeoutException
 		return self
 
 	Func getInput
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Input")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Input"))
 
 	Func setInput P1
 		raise("DotNet Error: Input is a read-only property")
 
 	Func getPattern
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Pattern")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Pattern"))
 
 	Func setPattern P1
 		raise("DotNet Error: Pattern is a read-only property")
@@ -710,7 +700,7 @@ Class RegexParseException from ArgumentException
 		raise("DotNet Error: Error is a read-only property")
 
 	Func getOffset
-		return dotnet_call("s3:get",nHandle,"s6:Offset")
+		return dotnet_getp(nHandle,"Offset")
 
 	Func setOffset P1
 		raise("DotNet Error: Offset is a read-only property")
@@ -774,15 +764,13 @@ Class Group from Capture
 		return dnObj(dotnet_callo("s4:call",'System.Text.RegularExpressions.Group, System.Text.RegularExpressions',"s12:Synchronized",P1))
 
 	Func getSuccess
-		return dotnet_call("s3:get",nHandle,"s7:Success")
+		return dotnet_getp(nHandle,"Success")
 
 	Func setSuccess P1
 		raise("DotNet Error: Success is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

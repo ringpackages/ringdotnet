@@ -304,6 +304,50 @@ namespace MyCompany.Tools
 		public static PlainBase NewPlain() { return new HiddenDerived(); }
 	}
 
+	// Properties and fields of every kind that the typed read and write handle (a number, a yes/no, a text), and kinds that they leave to the generic
+	// request: an enum, a char, a nullable, a byte array, an indexer, a struct, a property that throws, one that hides another
+	public enum TypedColor { Red, Green, Blue }
+
+	public class TypedBox
+	{
+		public sbyte SByteValue { get; set; }
+		public byte ByteValue { get; set; }
+		public short ShortValue { get; set; }
+		public ushort UShortValue { get; set; }
+		public int IntValue { get; set; }
+		public uint UIntValue { get; set; }
+		public long LongValue { get; set; }
+		public ulong ULongValue { get; set; }
+		public float FloatValue { get; set; }
+		public double DoubleValue { get; set; }
+		public decimal DecimalValue { get; set; }
+		public bool Flag { get; set; }
+		public string Text { get; set; }
+		public char Letter { get; set; }
+		public TypedColor Color { get; set; }
+		public int? Maybe { get; set; }
+		public byte[] Bytes { get; set; }
+		public int ReadOnly { get { return 42; } }
+		public int LastWritten;
+		public int WriteOnlyValue { set { LastWritten = value; } }
+		public string Field;
+		public int CountField;
+		public int Throws { get { throw new InvalidOperationException("no read"); } set { throw new ArgumentException("no write"); } }
+		public int this[int index] { get { return index; } }
+	}
+
+	public class TypedDerived : TypedBox
+	{
+		public new string IntValue { get; set; }
+		public int Extra { get; set; }
+	}
+
+	public struct TypedPoint
+	{
+		public int X { get; set; }
+		public int Y;
+	}
+
 	public static class Channels
 	{
 		public static IChannelSink NewChannel() { return new Channel(); }

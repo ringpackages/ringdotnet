@@ -221,30 +221,24 @@ Class XDeclaration from Object
 		return dn_x
 
 	Func getEncoding
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Encoding")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Encoding"))
 
 	Func setEncoding P1
-		dotnet_callv("s3:set",nHandle,"s8:Encoding",P1)
+		dotnet_setp(nHandle,"Encoding",P1)
 		return self
 
 	Func getStandalone
-		dn_x = dotnet_call("s3:get",nHandle,"s10:Standalone")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Standalone"))
 
 	Func setStandalone P1
-		dotnet_callv("s3:set",nHandle,"s10:Standalone",P1)
+		dotnet_setp(nHandle,"Standalone",P1)
 		return self
 
 	Func getVersion
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Version")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Version"))
 
 	Func setVersion P1
-		dotnet_callv("s3:set",nHandle,"s7:Version",P1)
+		dotnet_setp(nHandle,"Version",P1)
 		return self
 
 
@@ -275,9 +269,7 @@ Class XName from Object
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.XName, System.Private.Xml.Linq',"s3:Get",P1))
 
 	Func getLocalName
-		dn_x = dotnet_call("s3:get",nHandle,"s9:LocalName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"LocalName"))
 
 	Func setLocalName P1
 		raise("DotNet Error: LocalName is a read-only property")
@@ -289,9 +281,7 @@ Class XName from Object
 		raise("DotNet Error: Namespace is a read-only property")
 
 	Func getNamespaceName
-		dn_x = dotnet_call("s3:get",nHandle,"s13:NamespaceName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"NamespaceName"))
 
 	Func setNamespaceName P1
 		raise("DotNet Error: NamespaceName is a read-only property")
@@ -329,9 +319,7 @@ Class XNamespace from Object
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.XNamespace, System.Private.Xml.Linq',"s3:Get",P1))
 
 	Func getNamespaceName
-		dn_x = dotnet_call("s3:get",nHandle,"s13:NamespaceName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"NamespaceName"))
 
 	Func setNamespaceName P1
 		raise("DotNet Error: NamespaceName is a read-only property")
@@ -511,9 +499,7 @@ Class XObject from Object
 		return self
 
 	Func getBaseUri
-		dn_x = dotnet_call("s3:get",nHandle,"s7:BaseUri")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"BaseUri"))
 
 	Func setBaseUri P1
 		raise("DotNet Error: BaseUri is a read-only property")
@@ -852,7 +838,7 @@ Class XAttribute from XObject
 		return self
 
 	Func getIsNamespaceDeclaration
-		return dotnet_call("s3:get",nHandle,"s22:IsNamespaceDeclaration")
+		return dotnet_getp(nHandle,"IsNamespaceDeclaration")
 
 	Func setIsNamespaceDeclaration P1
 		raise("DotNet Error: IsNamespaceDeclaration is a read-only property")
@@ -876,12 +862,10 @@ Class XAttribute from XObject
 		raise("DotNet Error: PreviousAttribute is a read-only property")
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
-		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		dotnet_setp(nHandle,"Value",P1)
 		return self
 
 	Func getEmptySequence
@@ -907,12 +891,10 @@ Class XComment from XNode
 		return self
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
-		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		dotnet_setp(nHandle,"Value",P1)
 		return self
 
 
@@ -1027,39 +1009,31 @@ Class XDocumentType from XNode
 		return self
 
 	Func getInternalSubset
-		dn_x = dotnet_call("s3:get",nHandle,"s14:InternalSubset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"InternalSubset"))
 
 	Func setInternalSubset P1
-		dotnet_callv("s3:set",nHandle,"s14:InternalSubset",P1)
+		dotnet_setp(nHandle,"InternalSubset",P1)
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getPublicId
-		dn_x = dotnet_call("s3:get",nHandle,"s8:PublicId")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"PublicId"))
 
 	Func setPublicId P1
-		dotnet_callv("s3:set",nHandle,"s8:PublicId",P1)
+		dotnet_setp(nHandle,"PublicId",P1)
 		return self
 
 	Func getSystemId
-		dn_x = dotnet_call("s3:get",nHandle,"s8:SystemId")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"SystemId"))
 
 	Func setSystemId P1
-		dotnet_callv("s3:set",nHandle,"s8:SystemId",P1)
+		dotnet_setp(nHandle,"SystemId",P1)
 		return self
 
 
@@ -1095,21 +1069,17 @@ Class XProcessingInstruction from XNode
 		return self
 
 	Func getData
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Data")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Data"))
 
 	Func setData P1
-		dotnet_callv("s3:set",nHandle,"s4:Data",P1)
+		dotnet_setp(nHandle,"Data",P1)
 		return self
 
 	Func getTarget
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Target")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Target"))
 
 	Func setTarget P1
-		dotnet_callv("s3:set",nHandle,"s6:Target",P1)
+		dotnet_setp(nHandle,"Target",P1)
 		return self
 
 
@@ -1129,12 +1099,10 @@ Class XText from XNode
 		return self
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
-		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		dotnet_setp(nHandle,"Value",P1)
 		return self
 
 
@@ -1395,19 +1363,19 @@ Class XElement from XContainer
 		raise("DotNet Error: FirstAttribute is a read-only property")
 
 	Func getHasAttributes
-		return dotnet_call("s3:get",nHandle,"s13:HasAttributes")
+		return dotnet_getp(nHandle,"HasAttributes")
 
 	Func setHasAttributes P1
 		raise("DotNet Error: HasAttributes is a read-only property")
 
 	Func getHasElements
-		return dotnet_call("s3:get",nHandle,"s11:HasElements")
+		return dotnet_getp(nHandle,"HasElements")
 
 	Func setHasElements P1
 		raise("DotNet Error: HasElements is a read-only property")
 
 	Func getIsEmpty
-		return dotnet_call("s3:get",nHandle,"s7:IsEmpty")
+		return dotnet_getp(nHandle,"IsEmpty")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
@@ -1426,12 +1394,10 @@ Class XElement from XContainer
 		return self
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
-		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
+		dotnet_setp(nHandle,"Value",P1)
 		return self
 
 	Func getEmptySequence

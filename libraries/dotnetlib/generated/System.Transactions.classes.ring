@@ -525,9 +525,7 @@ Class TransactionInformation from Object
 		return dn_x
 
 	Func getLocalIdentifier
-		dn_x = dotnet_call("s3:get",nHandle,"s15:LocalIdentifier")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"LocalIdentifier"))
 
 	Func setLocalIdentifier P1
 		raise("DotNet Error: LocalIdentifier is a read-only property")

@@ -1658,12 +1658,10 @@ Class Condition from Object
 		return self
 
 	Func getSourceName
-		dn_x = dotnet_call("s3:get",nHandle,"s10:SourceName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"SourceName"))
 
 	Func setSourceName P1
-		dotnet_callv("s3:set",nHandle,"s10:SourceName",P1)
+		dotnet_setp(nHandle,"SourceName",P1)
 		return self
 
 
@@ -1690,7 +1688,7 @@ Class ConditionCollection from Collection
 		return self
 
 	Func getIsSealed
-		return dotnet_call("s3:get",nHandle,"s8:IsSealed")
+		return dotnet_getp(nHandle,"IsSealed")
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
@@ -1819,15 +1817,13 @@ Class DataFormat from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getId
-		return dotnet_call("s3:get",nHandle,"s2:Id")
+		return dotnet_getp(nHandle,"Id")
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -2369,7 +2365,7 @@ Class DependencyObject from DispatcherObject
 		raise("DotNet Error: DependencyObjectType is a read-only property")
 
 	Func getIsSealed
-		return dotnet_call("s3:get",nHandle,"s8:IsSealed")
+		return dotnet_getp(nHandle,"IsSealed")
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
@@ -2410,7 +2406,7 @@ Class DependencyObjectType from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.DependencyObjectType, WindowsBase',"s14:FromSystemType",P1))
 
 	Func getId
-		return dotnet_call("s3:get",nHandle,"s2:Id")
+		return dotnet_getp(nHandle,"Id")
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -2428,9 +2424,7 @@ Class DependencyObjectType from Object
 		raise("DotNet Error: BaseType is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2512,9 +2506,7 @@ Class DependencyProperty from Object
 		raise("DotNet Error: RegisterAttached does not take one argument: use named arguments, RegisterAttached([ :parameter = value, ... ])")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2544,13 +2536,13 @@ Class DependencyProperty from Object
 		raise("DotNet Error: ValidateValueCallback is a read-only property")
 
 	Func getGlobalIndex
-		return dotnet_call("s3:get",nHandle,"s11:GlobalIndex")
+		return dotnet_getp(nHandle,"GlobalIndex")
 
 	Func setGlobalIndex P1
 		raise("DotNet Error: GlobalIndex is a read-only property")
 
 	Func getReadOnly
-		return dotnet_call("s3:get",nHandle,"s8:ReadOnly")
+		return dotnet_getp(nHandle,"ReadOnly")
 
 	Func setReadOnly P1
 		raise("DotNet Error: ReadOnly is a read-only property")
@@ -2744,31 +2736,31 @@ Class DpiScale from ValueType
 		return self
 
 	Func getDpiScaleX
-		return dotnet_call("s3:get",nHandle,"s9:DpiScaleX")
+		return dotnet_getp(nHandle,"DpiScaleX")
 
 	Func setDpiScaleX P1
 		raise("DotNet Error: DpiScaleX is a read-only property")
 
 	Func getDpiScaleY
-		return dotnet_call("s3:get",nHandle,"s9:DpiScaleY")
+		return dotnet_getp(nHandle,"DpiScaleY")
 
 	Func setDpiScaleY P1
 		raise("DotNet Error: DpiScaleY is a read-only property")
 
 	Func getPixelsPerDip
-		return dotnet_call("s3:get",nHandle,"s12:PixelsPerDip")
+		return dotnet_getp(nHandle,"PixelsPerDip")
 
 	Func setPixelsPerDip P1
 		raise("DotNet Error: PixelsPerDip is a read-only property")
 
 	Func getPixelsPerInchX
-		return dotnet_call("s3:get",nHandle,"s14:PixelsPerInchX")
+		return dotnet_getp(nHandle,"PixelsPerInchX")
 
 	Func setPixelsPerInchX P1
 		raise("DotNet Error: PixelsPerInchX is a read-only property")
 
 	Func getPixelsPerInchY
-		return dotnet_call("s3:get",nHandle,"s14:PixelsPerInchY")
+		return dotnet_getp(nHandle,"PixelsPerInchY")
 
 	Func setPixelsPerInchY P1
 		raise("DotNet Error: PixelsPerInchY is a read-only property")
@@ -3070,7 +3062,7 @@ Class Duration from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Duration, PresentationCore',"s4:Plus",P1))
 
 	Func getHasTimeSpan
-		return dotnet_call("s3:get",nHandle,"s11:HasTimeSpan")
+		return dotnet_getp(nHandle,"HasTimeSpan")
 
 	Func setHasTimeSpan P1
 		raise("DotNet Error: HasTimeSpan is a read-only property")
@@ -3297,10 +3289,10 @@ Class ExitEventArgs from EventArgs
 		return self
 
 	Func getApplicationExitCode
-		return dotnet_call("s3:get",nHandle,"s19:ApplicationExitCode")
+		return dotnet_getp(nHandle,"ApplicationExitCode")
 
 	Func setApplicationExitCode P1
-		dotnet_callv("s3:set",nHandle,"s19:ApplicationExitCode",P1)
+		dotnet_setp(nHandle,"ApplicationExitCode",P1)
 		return self
 
 
@@ -3387,37 +3379,37 @@ Class FigureLength from ValueType
 		return self
 
 	Func getIsAbsolute
-		return dotnet_call("s3:get",nHandle,"s10:IsAbsolute")
+		return dotnet_getp(nHandle,"IsAbsolute")
 
 	Func setIsAbsolute P1
 		raise("DotNet Error: IsAbsolute is a read-only property")
 
 	Func getIsAuto
-		return dotnet_call("s3:get",nHandle,"s6:IsAuto")
+		return dotnet_getp(nHandle,"IsAuto")
 
 	Func setIsAuto P1
 		raise("DotNet Error: IsAuto is a read-only property")
 
 	Func getIsColumn
-		return dotnet_call("s3:get",nHandle,"s8:IsColumn")
+		return dotnet_getp(nHandle,"IsColumn")
 
 	Func setIsColumn P1
 		raise("DotNet Error: IsColumn is a read-only property")
 
 	Func getIsContent
-		return dotnet_call("s3:get",nHandle,"s9:IsContent")
+		return dotnet_getp(nHandle,"IsContent")
 
 	Func setIsContent P1
 		raise("DotNet Error: IsContent is a read-only property")
 
 	Func getIsPage
-		return dotnet_call("s3:get",nHandle,"s6:IsPage")
+		return dotnet_getp(nHandle,"IsPage")
 
 	Func setIsPage P1
 		raise("DotNet Error: IsPage is a read-only property")
 
 	Func getValue
-		return dotnet_call("s3:get",nHandle,"s5:Value")
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -4030,25 +4022,21 @@ Class FrameworkElementFactory from Object
 		return self
 
 	Func getText
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Text")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Text"))
 
 	Func setText P1
-		dotnet_callv("s3:set",nHandle,"s4:Text",P1)
+		dotnet_setp(nHandle,"Text",P1)
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getIsSealed
-		return dotnet_call("s3:get",nHandle,"s8:IsSealed")
+		return dotnet_getp(nHandle,"IsSealed")
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
@@ -4121,7 +4109,7 @@ Class FrameworkTemplate from DispatcherObject
 		return dn_x
 
 	Func getIsSealed
-		return dotnet_call("s3:get",nHandle,"s8:IsSealed")
+		return dotnet_getp(nHandle,"IsSealed")
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
@@ -4148,7 +4136,7 @@ Class FrameworkTemplate from DispatcherObject
 		return self
 
 	Func getHasContent
-		return dotnet_call("s3:get",nHandle,"s10:HasContent")
+		return dotnet_getp(nHandle,"HasContent")
 
 	Func setHasContent P1
 		raise("DotNet Error: HasContent is a read-only property")
@@ -4242,7 +4230,7 @@ Class FreezableCollection from Animatable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -4862,73 +4850,71 @@ Class IFrameworkInputElement from DotNetObject
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getIsMouseOver
-		return dotnet_call("s3:get",nHandle,"s11:IsMouseOver")
+		return dotnet_getp(nHandle,"IsMouseOver")
 
 	Func setIsMouseOver P1
 		raise("DotNet Error: IsMouseOver is a read-only property")
 
 	Func getIsMouseDirectlyOver
-		return dotnet_call("s3:get",nHandle,"s19:IsMouseDirectlyOver")
+		return dotnet_getp(nHandle,"IsMouseDirectlyOver")
 
 	Func setIsMouseDirectlyOver P1
 		raise("DotNet Error: IsMouseDirectlyOver is a read-only property")
 
 	Func getIsMouseCaptured
-		return dotnet_call("s3:get",nHandle,"s15:IsMouseCaptured")
+		return dotnet_getp(nHandle,"IsMouseCaptured")
 
 	Func setIsMouseCaptured P1
 		raise("DotNet Error: IsMouseCaptured is a read-only property")
 
 	Func getIsStylusOver
-		return dotnet_call("s3:get",nHandle,"s12:IsStylusOver")
+		return dotnet_getp(nHandle,"IsStylusOver")
 
 	Func setIsStylusOver P1
 		raise("DotNet Error: IsStylusOver is a read-only property")
 
 	Func getIsStylusDirectlyOver
-		return dotnet_call("s3:get",nHandle,"s20:IsStylusDirectlyOver")
+		return dotnet_getp(nHandle,"IsStylusDirectlyOver")
 
 	Func setIsStylusDirectlyOver P1
 		raise("DotNet Error: IsStylusDirectlyOver is a read-only property")
 
 	Func getIsStylusCaptured
-		return dotnet_call("s3:get",nHandle,"s16:IsStylusCaptured")
+		return dotnet_getp(nHandle,"IsStylusCaptured")
 
 	Func setIsStylusCaptured P1
 		raise("DotNet Error: IsStylusCaptured is a read-only property")
 
 	Func getIsKeyboardFocusWithin
-		return dotnet_call("s3:get",nHandle,"s21:IsKeyboardFocusWithin")
+		return dotnet_getp(nHandle,"IsKeyboardFocusWithin")
 
 	Func setIsKeyboardFocusWithin P1
 		raise("DotNet Error: IsKeyboardFocusWithin is a read-only property")
 
 	Func getIsKeyboardFocused
-		return dotnet_call("s3:get",nHandle,"s17:IsKeyboardFocused")
+		return dotnet_getp(nHandle,"IsKeyboardFocused")
 
 	Func setIsKeyboardFocused P1
 		raise("DotNet Error: IsKeyboardFocused is a read-only property")
 
 	Func getIsEnabled
-		return dotnet_call("s3:get",nHandle,"s9:IsEnabled")
+		return dotnet_getp(nHandle,"IsEnabled")
 
 	Func setIsEnabled P1
 		raise("DotNet Error: IsEnabled is a read-only property")
 
 	Func getFocusable
-		return dotnet_call("s3:get",nHandle,"s9:Focusable")
+		return dotnet_getp(nHandle,"Focusable")
 
 	Func setFocusable P1
-		dotnet_callv("s3:set",nHandle,"s9:Focusable",P1)
+		dotnet_setp(nHandle,"Focusable",P1)
 		return self
 
 
@@ -5379,64 +5365,64 @@ Class IInputElement from DotNetObject
 		return self
 
 	Func getIsMouseOver
-		return dotnet_call("s3:get",nHandle,"s11:IsMouseOver")
+		return dotnet_getp(nHandle,"IsMouseOver")
 
 	Func setIsMouseOver P1
 		raise("DotNet Error: IsMouseOver is a read-only property")
 
 	Func getIsMouseDirectlyOver
-		return dotnet_call("s3:get",nHandle,"s19:IsMouseDirectlyOver")
+		return dotnet_getp(nHandle,"IsMouseDirectlyOver")
 
 	Func setIsMouseDirectlyOver P1
 		raise("DotNet Error: IsMouseDirectlyOver is a read-only property")
 
 	Func getIsMouseCaptured
-		return dotnet_call("s3:get",nHandle,"s15:IsMouseCaptured")
+		return dotnet_getp(nHandle,"IsMouseCaptured")
 
 	Func setIsMouseCaptured P1
 		raise("DotNet Error: IsMouseCaptured is a read-only property")
 
 	Func getIsStylusOver
-		return dotnet_call("s3:get",nHandle,"s12:IsStylusOver")
+		return dotnet_getp(nHandle,"IsStylusOver")
 
 	Func setIsStylusOver P1
 		raise("DotNet Error: IsStylusOver is a read-only property")
 
 	Func getIsStylusDirectlyOver
-		return dotnet_call("s3:get",nHandle,"s20:IsStylusDirectlyOver")
+		return dotnet_getp(nHandle,"IsStylusDirectlyOver")
 
 	Func setIsStylusDirectlyOver P1
 		raise("DotNet Error: IsStylusDirectlyOver is a read-only property")
 
 	Func getIsStylusCaptured
-		return dotnet_call("s3:get",nHandle,"s16:IsStylusCaptured")
+		return dotnet_getp(nHandle,"IsStylusCaptured")
 
 	Func setIsStylusCaptured P1
 		raise("DotNet Error: IsStylusCaptured is a read-only property")
 
 	Func getIsKeyboardFocusWithin
-		return dotnet_call("s3:get",nHandle,"s21:IsKeyboardFocusWithin")
+		return dotnet_getp(nHandle,"IsKeyboardFocusWithin")
 
 	Func setIsKeyboardFocusWithin P1
 		raise("DotNet Error: IsKeyboardFocusWithin is a read-only property")
 
 	Func getIsKeyboardFocused
-		return dotnet_call("s3:get",nHandle,"s17:IsKeyboardFocused")
+		return dotnet_getp(nHandle,"IsKeyboardFocused")
 
 	Func setIsKeyboardFocused P1
 		raise("DotNet Error: IsKeyboardFocused is a read-only property")
 
 	Func getIsEnabled
-		return dotnet_call("s3:get",nHandle,"s9:IsEnabled")
+		return dotnet_getp(nHandle,"IsEnabled")
 
 	Func setIsEnabled P1
 		raise("DotNet Error: IsEnabled is a read-only property")
 
 	Func getFocusable
-		return dotnet_call("s3:get",nHandle,"s9:Focusable")
+		return dotnet_getp(nHandle,"Focusable")
 
 	Func setFocusable P1
-		dotnet_callv("s3:set",nHandle,"s9:Focusable",P1)
+		dotnet_setp(nHandle,"Focusable",P1)
 		return self
 
 
@@ -5530,41 +5516,41 @@ Class Int32Rect from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Int32Rect, WindowsBase',"s5:Parse",P1))
 
 	Func getX
-		return dotnet_call("s3:get",nHandle,"s1:X")
+		return dotnet_getp(nHandle,"X")
 
 	Func setX P1
-		dotnet_callv("s3:set",nHandle,"s1:X",P1)
+		dotnet_setp(nHandle,"X",P1)
 		return self
 
 	Func getY
-		return dotnet_call("s3:get",nHandle,"s1:Y")
+		return dotnet_getp(nHandle,"Y")
 
 	Func setY P1
-		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
+		dotnet_setp(nHandle,"Y",P1)
 		return self
 
 	Func getWidth
-		return dotnet_call("s3:get",nHandle,"s5:Width")
+		return dotnet_getp(nHandle,"Width")
 
 	Func setWidth P1
-		dotnet_callv("s3:set",nHandle,"s5:Width",P1)
+		dotnet_setp(nHandle,"Width",P1)
 		return self
 
 	Func getHeight
-		return dotnet_call("s3:get",nHandle,"s6:Height")
+		return dotnet_getp(nHandle,"Height")
 
 	Func setHeight P1
-		dotnet_callv("s3:set",nHandle,"s6:Height",P1)
+		dotnet_setp(nHandle,"Height",P1)
 		return self
 
 	Func getIsEmpty
-		return dotnet_call("s3:get",nHandle,"s7:IsEmpty")
+		return dotnet_getp(nHandle,"IsEmpty")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getHasArea
-		return dotnet_call("s3:get",nHandle,"s7:HasArea")
+		return dotnet_getp(nHandle,"HasArea")
 
 	Func setHasArea P1
 		raise("DotNet Error: HasArea is a read-only property")
@@ -5744,7 +5730,7 @@ Class LocalValueEnumerator from ValueType
 		raise("DotNet Error: Current is a read-only property")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -6015,13 +6001,13 @@ Class NameScope from Object
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -6141,7 +6127,7 @@ Class PresentationSource from DispatcherObject
 		return self
 
 	Func getIsDisposed
-		return dotnet_call("s3:get",nHandle,"s10:IsDisposed")
+		return dotnet_getp(nHandle,"IsDisposed")
 
 	Func setIsDisposed P1
 		raise("DotNet Error: IsDisposed is a read-only property")
@@ -6257,12 +6243,10 @@ Class PropertyPath from Object
 		return dn_x
 
 	Func getPath
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Path")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Path"))
 
 	Func setPath P1
-		dotnet_callv("s3:set",nHandle,"s4:Path",P1)
+		dotnet_setp(nHandle,"Path",P1)
 		return self
 
 	Func getPathParameters
@@ -6441,22 +6425,22 @@ Class ResourceDictionary from Object
 		return self
 
 	Func getIsFixedSize
-		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
+		return dotnet_getp(nHandle,"IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getInvalidatesImplicitDataTemplateResources
-		return dotnet_call("s3:get",nHandle,"s40:InvalidatesImplicitDataTemplateResources")
+		return dotnet_getp(nHandle,"InvalidatesImplicitDataTemplateResources")
 
 	Func setInvalidatesImplicitDataTemplateResources P1
-		dotnet_callv("s3:set",nHandle,"s40:InvalidatesImplicitDataTemplateResources",P1)
+		dotnet_setp(nHandle,"InvalidatesImplicitDataTemplateResources",P1)
 		return self
 
 	Func getDeferrableContent
@@ -6479,7 +6463,7 @@ Class ResourceDictionary from Object
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -6575,9 +6559,7 @@ Class RoutedEvent from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -6650,10 +6632,10 @@ Class RoutedEventArgs from EventArgs
 		return self
 
 	Func getHandled
-		return dotnet_call("s3:get",nHandle,"s7:Handled")
+		return dotnet_getp(nHandle,"Handled")
 
 	Func setHandled P1
-		dotnet_callv("s3:set",nHandle,"s7:Handled",P1)
+		dotnet_setp(nHandle,"Handled",P1)
 		return self
 
 	Func getSource
@@ -6700,7 +6682,7 @@ Class RoutedEventHandlerInfo from ValueType
 		raise("DotNet Error: Handler is a read-only property")
 
 	Func getInvokeHandledEventsToo
-		return dotnet_call("s3:get",nHandle,"s22:InvokeHandledEventsToo")
+		return dotnet_getp(nHandle,"InvokeHandledEventsToo")
 
 	Func setInvokeHandledEventsToo P1
 		raise("DotNet Error: InvokeHandledEventsToo is a read-only property")
@@ -6749,7 +6731,7 @@ Class SetterBase from Object
 		return dn_x
 
 	Func getIsSealed
-		return dotnet_call("s3:get",nHandle,"s8:IsSealed")
+		return dotnet_getp(nHandle,"IsSealed")
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
@@ -6778,7 +6760,7 @@ Class SetterBaseCollection from Collection
 		return self
 
 	Func getIsSealed
-		return dotnet_call("s3:get",nHandle,"s8:IsSealed")
+		return dotnet_getp(nHandle,"IsSealed")
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
@@ -6820,13 +6802,13 @@ Class SizeChangedInfo from Object
 		raise("DotNet Error: NewSize is a read-only property")
 
 	Func getWidthChanged
-		return dotnet_call("s3:get",nHandle,"s12:WidthChanged")
+		return dotnet_getp(nHandle,"WidthChanged")
 
 	Func setWidthChanged P1
 		raise("DotNet Error: WidthChanged is a read-only property")
 
 	Func getHeightChanged
-		return dotnet_call("s3:get",nHandle,"s13:HeightChanged")
+		return dotnet_getp(nHandle,"HeightChanged")
 
 	Func setHeightChanged P1
 		raise("DotNet Error: HeightChanged is a read-only property")
@@ -7047,7 +7029,7 @@ Class Style from DispatcherObject
 		return self
 
 	Func getIsSealed
-		return dotnet_call("s3:get",nHandle,"s8:IsSealed")
+		return dotnet_getp(nHandle,"IsSealed")
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
@@ -7110,12 +7092,10 @@ Class StyleTypedPropertyAttribute from Attribute
 		return self
 
 	Func getProperty
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Property")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Property"))
 
 	Func setProperty P1
-		dotnet_callv("s3:set",nHandle,"s8:Property",P1)
+		dotnet_setp(nHandle,"Property",P1)
 		return self
 
 	Func getStyleTargetType
@@ -10704,12 +10684,10 @@ Class TemplatePartAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getType
@@ -10744,21 +10722,17 @@ Class TemplateVisualStateAttribute from Attribute
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getGroupName
-		dn_x = dotnet_call("s3:get",nHandle,"s9:GroupName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"GroupName"))
 
 	Func setGroupName P1
-		dotnet_callv("s3:set",nHandle,"s9:GroupName",P1)
+		dotnet_setp(nHandle,"GroupName",P1)
 		return self
 
 
@@ -10817,10 +10791,10 @@ Class TextDecoration from Animatable
 		return self
 
 	Func getPenOffset
-		return dotnet_call("s3:get",nHandle,"s9:PenOffset")
+		return dotnet_getp(nHandle,"PenOffset")
 
 	Func setPenOffset P1
-		dotnet_callv("s3:set",nHandle,"s9:PenOffset",P1)
+		dotnet_setp(nHandle,"PenOffset",P1)
 		return self
 
 	Func getPenOffsetUnit
@@ -10987,7 +10961,7 @@ Class TextDecorationCollection from Animatable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -11150,12 +11124,10 @@ Class ThemeDictionaryExtension from MarkupExtension
 		return self
 
 	Func getAssemblyName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:AssemblyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"AssemblyName"))
 
 	Func setAssemblyName P1
-		dotnet_callv("s3:set",nHandle,"s12:AssemblyName",P1)
+		dotnet_setp(nHandle,"AssemblyName",P1)
 		return self
 
 
@@ -11231,9 +11203,7 @@ Class ThemeMode from ValueType
 		return self
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -11424,13 +11394,13 @@ Class TriggerActionCollection from Object
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -11450,7 +11420,7 @@ Class TriggerCollection from Collection
 		return self
 
 	Func getIsSealed
-		return dotnet_call("s3:get",nHandle,"s8:IsSealed")
+		return dotnet_getp(nHandle,"IsSealed")
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
@@ -12543,7 +12513,7 @@ Class UIElement from Visual
 		return self
 
 	Func getHasAnimatedProperties
-		return dotnet_call("s3:get",nHandle,"s21:HasAnimatedProperties")
+		return dotnet_getp(nHandle,"HasAnimatedProperties")
 
 	Func setHasAnimatedProperties P1
 		raise("DotNet Error: HasAnimatedProperties is a read-only property")
@@ -12561,10 +12531,10 @@ Class UIElement from Visual
 		raise("DotNet Error: CommandBindings is a read-only property")
 
 	Func getAllowDrop
-		return dotnet_call("s3:get",nHandle,"s9:AllowDrop")
+		return dotnet_getp(nHandle,"AllowDrop")
 
 	Func setAllowDrop P1
-		dotnet_callv("s3:set",nHandle,"s9:AllowDrop",P1)
+		dotnet_setp(nHandle,"AllowDrop",P1)
 		return self
 
 	Func getDesiredSize
@@ -12574,13 +12544,13 @@ Class UIElement from Visual
 		raise("DotNet Error: DesiredSize is a read-only property")
 
 	Func getIsMeasureValid
-		return dotnet_call("s3:get",nHandle,"s14:IsMeasureValid")
+		return dotnet_getp(nHandle,"IsMeasureValid")
 
 	Func setIsMeasureValid P1
 		raise("DotNet Error: IsMeasureValid is a read-only property")
 
 	Func getIsArrangeValid
-		return dotnet_call("s3:get",nHandle,"s14:IsArrangeValid")
+		return dotnet_getp(nHandle,"IsArrangeValid")
 
 	Func setIsArrangeValid P1
 		raise("DotNet Error: IsArrangeValid is a read-only property")
@@ -12607,76 +12577,76 @@ Class UIElement from Visual
 		return self
 
 	Func getIsMouseDirectlyOver
-		return dotnet_call("s3:get",nHandle,"s19:IsMouseDirectlyOver")
+		return dotnet_getp(nHandle,"IsMouseDirectlyOver")
 
 	Func setIsMouseDirectlyOver P1
 		raise("DotNet Error: IsMouseDirectlyOver is a read-only property")
 
 	Func getIsMouseOver
-		return dotnet_call("s3:get",nHandle,"s11:IsMouseOver")
+		return dotnet_getp(nHandle,"IsMouseOver")
 
 	Func setIsMouseOver P1
 		raise("DotNet Error: IsMouseOver is a read-only property")
 
 	Func getIsStylusOver
-		return dotnet_call("s3:get",nHandle,"s12:IsStylusOver")
+		return dotnet_getp(nHandle,"IsStylusOver")
 
 	Func setIsStylusOver P1
 		raise("DotNet Error: IsStylusOver is a read-only property")
 
 	Func getIsKeyboardFocusWithin
-		return dotnet_call("s3:get",nHandle,"s21:IsKeyboardFocusWithin")
+		return dotnet_getp(nHandle,"IsKeyboardFocusWithin")
 
 	Func setIsKeyboardFocusWithin P1
 		raise("DotNet Error: IsKeyboardFocusWithin is a read-only property")
 
 	Func getIsMouseCaptured
-		return dotnet_call("s3:get",nHandle,"s15:IsMouseCaptured")
+		return dotnet_getp(nHandle,"IsMouseCaptured")
 
 	Func setIsMouseCaptured P1
 		raise("DotNet Error: IsMouseCaptured is a read-only property")
 
 	Func getIsMouseCaptureWithin
-		return dotnet_call("s3:get",nHandle,"s20:IsMouseCaptureWithin")
+		return dotnet_getp(nHandle,"IsMouseCaptureWithin")
 
 	Func setIsMouseCaptureWithin P1
 		raise("DotNet Error: IsMouseCaptureWithin is a read-only property")
 
 	Func getIsStylusDirectlyOver
-		return dotnet_call("s3:get",nHandle,"s20:IsStylusDirectlyOver")
+		return dotnet_getp(nHandle,"IsStylusDirectlyOver")
 
 	Func setIsStylusDirectlyOver P1
 		raise("DotNet Error: IsStylusDirectlyOver is a read-only property")
 
 	Func getIsStylusCaptured
-		return dotnet_call("s3:get",nHandle,"s16:IsStylusCaptured")
+		return dotnet_getp(nHandle,"IsStylusCaptured")
 
 	Func setIsStylusCaptured P1
 		raise("DotNet Error: IsStylusCaptured is a read-only property")
 
 	Func getIsStylusCaptureWithin
-		return dotnet_call("s3:get",nHandle,"s21:IsStylusCaptureWithin")
+		return dotnet_getp(nHandle,"IsStylusCaptureWithin")
 
 	Func setIsStylusCaptureWithin P1
 		raise("DotNet Error: IsStylusCaptureWithin is a read-only property")
 
 	Func getIsKeyboardFocused
-		return dotnet_call("s3:get",nHandle,"s17:IsKeyboardFocused")
+		return dotnet_getp(nHandle,"IsKeyboardFocused")
 
 	Func setIsKeyboardFocused P1
 		raise("DotNet Error: IsKeyboardFocused is a read-only property")
 
 	Func getIsInputMethodEnabled
-		return dotnet_call("s3:get",nHandle,"s20:IsInputMethodEnabled")
+		return dotnet_getp(nHandle,"IsInputMethodEnabled")
 
 	Func setIsInputMethodEnabled P1
 		raise("DotNet Error: IsInputMethodEnabled is a read-only property")
 
 	Func getOpacity
-		return dotnet_call("s3:get",nHandle,"s7:Opacity")
+		return dotnet_getp(nHandle,"Opacity")
 
 	Func setOpacity P1
-		dotnet_callv("s3:set",nHandle,"s7:Opacity",P1)
+		dotnet_setp(nHandle,"Opacity",P1)
 		return self
 
 	Func getOpacityMask
@@ -12715,12 +12685,10 @@ Class UIElement from Visual
 		return self
 
 	Func getUid
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Uid")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Uid"))
 
 	Func setUid P1
-		dotnet_callv("s3:set",nHandle,"s3:Uid",P1)
+		dotnet_setp(nHandle,"Uid",P1)
 		return self
 
 	Func getVisibility
@@ -12731,10 +12699,10 @@ Class UIElement from Visual
 		return self
 
 	Func getClipToBounds
-		return dotnet_call("s3:get",nHandle,"s12:ClipToBounds")
+		return dotnet_getp(nHandle,"ClipToBounds")
 
 	Func setClipToBounds P1
-		dotnet_callv("s3:set",nHandle,"s12:ClipToBounds",P1)
+		dotnet_setp(nHandle,"ClipToBounds",P1)
 		return self
 
 	Func getClip
@@ -12745,78 +12713,78 @@ Class UIElement from Visual
 		return self
 
 	Func getSnapsToDevicePixels
-		return dotnet_call("s3:get",nHandle,"s19:SnapsToDevicePixels")
+		return dotnet_getp(nHandle,"SnapsToDevicePixels")
 
 	Func setSnapsToDevicePixels P1
-		dotnet_callv("s3:set",nHandle,"s19:SnapsToDevicePixels",P1)
+		dotnet_setp(nHandle,"SnapsToDevicePixels",P1)
 		return self
 
 	Func getIsFocused
-		return dotnet_call("s3:get",nHandle,"s9:IsFocused")
+		return dotnet_getp(nHandle,"IsFocused")
 
 	Func setIsFocused P1
 		raise("DotNet Error: IsFocused is a read-only property")
 
 	Func getIsEnabled
-		return dotnet_call("s3:get",nHandle,"s9:IsEnabled")
+		return dotnet_getp(nHandle,"IsEnabled")
 
 	Func setIsEnabled P1
-		dotnet_callv("s3:set",nHandle,"s9:IsEnabled",P1)
+		dotnet_setp(nHandle,"IsEnabled",P1)
 		return self
 
 	Func getIsHitTestVisible
-		return dotnet_call("s3:get",nHandle,"s16:IsHitTestVisible")
+		return dotnet_getp(nHandle,"IsHitTestVisible")
 
 	Func setIsHitTestVisible P1
-		dotnet_callv("s3:set",nHandle,"s16:IsHitTestVisible",P1)
+		dotnet_setp(nHandle,"IsHitTestVisible",P1)
 		return self
 
 	Func getIsVisible
-		return dotnet_call("s3:get",nHandle,"s9:IsVisible")
+		return dotnet_getp(nHandle,"IsVisible")
 
 	Func setIsVisible P1
 		raise("DotNet Error: IsVisible is a read-only property")
 
 	Func getFocusable
-		return dotnet_call("s3:get",nHandle,"s9:Focusable")
+		return dotnet_getp(nHandle,"Focusable")
 
 	Func setFocusable P1
-		dotnet_callv("s3:set",nHandle,"s9:Focusable",P1)
+		dotnet_setp(nHandle,"Focusable",P1)
 		return self
 
 	Func getPersistId
-		return dotnet_call("s3:get",nHandle,"s9:PersistId")
+		return dotnet_getp(nHandle,"PersistId")
 
 	Func setPersistId P1
 		raise("DotNet Error: PersistId is a read-only property")
 
 	Func getIsManipulationEnabled
-		return dotnet_call("s3:get",nHandle,"s21:IsManipulationEnabled")
+		return dotnet_getp(nHandle,"IsManipulationEnabled")
 
 	Func setIsManipulationEnabled P1
-		dotnet_callv("s3:set",nHandle,"s21:IsManipulationEnabled",P1)
+		dotnet_setp(nHandle,"IsManipulationEnabled",P1)
 		return self
 
 	Func getAreAnyTouchesOver
-		return dotnet_call("s3:get",nHandle,"s17:AreAnyTouchesOver")
+		return dotnet_getp(nHandle,"AreAnyTouchesOver")
 
 	Func setAreAnyTouchesOver P1
 		raise("DotNet Error: AreAnyTouchesOver is a read-only property")
 
 	Func getAreAnyTouchesDirectlyOver
-		return dotnet_call("s3:get",nHandle,"s25:AreAnyTouchesDirectlyOver")
+		return dotnet_getp(nHandle,"AreAnyTouchesDirectlyOver")
 
 	Func setAreAnyTouchesDirectlyOver P1
 		raise("DotNet Error: AreAnyTouchesDirectlyOver is a read-only property")
 
 	Func getAreAnyTouchesCapturedWithin
-		return dotnet_call("s3:get",nHandle,"s27:AreAnyTouchesCapturedWithin")
+		return dotnet_getp(nHandle,"AreAnyTouchesCapturedWithin")
 
 	Func setAreAnyTouchesCapturedWithin P1
 		raise("DotNet Error: AreAnyTouchesCapturedWithin is a read-only property")
 
 	Func getAreAnyTouchesCaptured
-		return dotnet_call("s3:get",nHandle,"s21:AreAnyTouchesCaptured")
+		return dotnet_getp(nHandle,"AreAnyTouchesCaptured")
 
 	Func setAreAnyTouchesCaptured P1
 		raise("DotNet Error: AreAnyTouchesCaptured is a read-only property")
@@ -14247,74 +14215,74 @@ Class UIElement3D from Visual3D
 		raise("DotNet Error: CommandBindings is a read-only property")
 
 	Func getAllowDrop
-		return dotnet_call("s3:get",nHandle,"s9:AllowDrop")
+		return dotnet_getp(nHandle,"AllowDrop")
 
 	Func setAllowDrop P1
-		dotnet_callv("s3:set",nHandle,"s9:AllowDrop",P1)
+		dotnet_setp(nHandle,"AllowDrop",P1)
 		return self
 
 	Func getIsMouseDirectlyOver
-		return dotnet_call("s3:get",nHandle,"s19:IsMouseDirectlyOver")
+		return dotnet_getp(nHandle,"IsMouseDirectlyOver")
 
 	Func setIsMouseDirectlyOver P1
 		raise("DotNet Error: IsMouseDirectlyOver is a read-only property")
 
 	Func getIsMouseOver
-		return dotnet_call("s3:get",nHandle,"s11:IsMouseOver")
+		return dotnet_getp(nHandle,"IsMouseOver")
 
 	Func setIsMouseOver P1
 		raise("DotNet Error: IsMouseOver is a read-only property")
 
 	Func getIsStylusOver
-		return dotnet_call("s3:get",nHandle,"s12:IsStylusOver")
+		return dotnet_getp(nHandle,"IsStylusOver")
 
 	Func setIsStylusOver P1
 		raise("DotNet Error: IsStylusOver is a read-only property")
 
 	Func getIsKeyboardFocusWithin
-		return dotnet_call("s3:get",nHandle,"s21:IsKeyboardFocusWithin")
+		return dotnet_getp(nHandle,"IsKeyboardFocusWithin")
 
 	Func setIsKeyboardFocusWithin P1
 		raise("DotNet Error: IsKeyboardFocusWithin is a read-only property")
 
 	Func getIsMouseCaptured
-		return dotnet_call("s3:get",nHandle,"s15:IsMouseCaptured")
+		return dotnet_getp(nHandle,"IsMouseCaptured")
 
 	Func setIsMouseCaptured P1
 		raise("DotNet Error: IsMouseCaptured is a read-only property")
 
 	Func getIsMouseCaptureWithin
-		return dotnet_call("s3:get",nHandle,"s20:IsMouseCaptureWithin")
+		return dotnet_getp(nHandle,"IsMouseCaptureWithin")
 
 	Func setIsMouseCaptureWithin P1
 		raise("DotNet Error: IsMouseCaptureWithin is a read-only property")
 
 	Func getIsStylusDirectlyOver
-		return dotnet_call("s3:get",nHandle,"s20:IsStylusDirectlyOver")
+		return dotnet_getp(nHandle,"IsStylusDirectlyOver")
 
 	Func setIsStylusDirectlyOver P1
 		raise("DotNet Error: IsStylusDirectlyOver is a read-only property")
 
 	Func getIsStylusCaptured
-		return dotnet_call("s3:get",nHandle,"s16:IsStylusCaptured")
+		return dotnet_getp(nHandle,"IsStylusCaptured")
 
 	Func setIsStylusCaptured P1
 		raise("DotNet Error: IsStylusCaptured is a read-only property")
 
 	Func getIsStylusCaptureWithin
-		return dotnet_call("s3:get",nHandle,"s21:IsStylusCaptureWithin")
+		return dotnet_getp(nHandle,"IsStylusCaptureWithin")
 
 	Func setIsStylusCaptureWithin P1
 		raise("DotNet Error: IsStylusCaptureWithin is a read-only property")
 
 	Func getIsKeyboardFocused
-		return dotnet_call("s3:get",nHandle,"s17:IsKeyboardFocused")
+		return dotnet_getp(nHandle,"IsKeyboardFocused")
 
 	Func setIsKeyboardFocused P1
 		raise("DotNet Error: IsKeyboardFocused is a read-only property")
 
 	Func getIsInputMethodEnabled
-		return dotnet_call("s3:get",nHandle,"s20:IsInputMethodEnabled")
+		return dotnet_getp(nHandle,"IsInputMethodEnabled")
 
 	Func setIsInputMethodEnabled P1
 		raise("DotNet Error: IsInputMethodEnabled is a read-only property")
@@ -14327,58 +14295,58 @@ Class UIElement3D from Visual3D
 		return self
 
 	Func getIsFocused
-		return dotnet_call("s3:get",nHandle,"s9:IsFocused")
+		return dotnet_getp(nHandle,"IsFocused")
 
 	Func setIsFocused P1
 		raise("DotNet Error: IsFocused is a read-only property")
 
 	Func getIsEnabled
-		return dotnet_call("s3:get",nHandle,"s9:IsEnabled")
+		return dotnet_getp(nHandle,"IsEnabled")
 
 	Func setIsEnabled P1
-		dotnet_callv("s3:set",nHandle,"s9:IsEnabled",P1)
+		dotnet_setp(nHandle,"IsEnabled",P1)
 		return self
 
 	Func getIsHitTestVisible
-		return dotnet_call("s3:get",nHandle,"s16:IsHitTestVisible")
+		return dotnet_getp(nHandle,"IsHitTestVisible")
 
 	Func setIsHitTestVisible P1
-		dotnet_callv("s3:set",nHandle,"s16:IsHitTestVisible",P1)
+		dotnet_setp(nHandle,"IsHitTestVisible",P1)
 		return self
 
 	Func getIsVisible
-		return dotnet_call("s3:get",nHandle,"s9:IsVisible")
+		return dotnet_getp(nHandle,"IsVisible")
 
 	Func setIsVisible P1
 		raise("DotNet Error: IsVisible is a read-only property")
 
 	Func getFocusable
-		return dotnet_call("s3:get",nHandle,"s9:Focusable")
+		return dotnet_getp(nHandle,"Focusable")
 
 	Func setFocusable P1
-		dotnet_callv("s3:set",nHandle,"s9:Focusable",P1)
+		dotnet_setp(nHandle,"Focusable",P1)
 		return self
 
 	Func getAreAnyTouchesOver
-		return dotnet_call("s3:get",nHandle,"s17:AreAnyTouchesOver")
+		return dotnet_getp(nHandle,"AreAnyTouchesOver")
 
 	Func setAreAnyTouchesOver P1
 		raise("DotNet Error: AreAnyTouchesOver is a read-only property")
 
 	Func getAreAnyTouchesDirectlyOver
-		return dotnet_call("s3:get",nHandle,"s25:AreAnyTouchesDirectlyOver")
+		return dotnet_getp(nHandle,"AreAnyTouchesDirectlyOver")
 
 	Func setAreAnyTouchesDirectlyOver P1
 		raise("DotNet Error: AreAnyTouchesDirectlyOver is a read-only property")
 
 	Func getAreAnyTouchesCapturedWithin
-		return dotnet_call("s3:get",nHandle,"s27:AreAnyTouchesCapturedWithin")
+		return dotnet_getp(nHandle,"AreAnyTouchesCapturedWithin")
 
 	Func setAreAnyTouchesCapturedWithin P1
 		raise("DotNet Error: AreAnyTouchesCapturedWithin is a read-only property")
 
 	Func getAreAnyTouchesCaptured
-		return dotnet_call("s3:get",nHandle,"s21:AreAnyTouchesCaptured")
+		return dotnet_getp(nHandle,"AreAnyTouchesCaptured")
 
 	Func setAreAnyTouchesCaptured P1
 		raise("DotNet Error: AreAnyTouchesCaptured is a read-only property")
@@ -14798,25 +14766,25 @@ Class ValueSource from ValueType
 		raise("DotNet Error: BaseValueSource is a read-only property")
 
 	Func getIsExpression
-		return dotnet_call("s3:get",nHandle,"s12:IsExpression")
+		return dotnet_getp(nHandle,"IsExpression")
 
 	Func setIsExpression P1
 		raise("DotNet Error: IsExpression is a read-only property")
 
 	Func getIsAnimated
-		return dotnet_call("s3:get",nHandle,"s10:IsAnimated")
+		return dotnet_getp(nHandle,"IsAnimated")
 
 	Func setIsAnimated P1
 		raise("DotNet Error: IsAnimated is a read-only property")
 
 	Func getIsCoerced
-		return dotnet_call("s3:get",nHandle,"s9:IsCoerced")
+		return dotnet_getp(nHandle,"IsCoerced")
 
 	Func setIsCoerced P1
 		raise("DotNet Error: IsCoerced is a read-only property")
 
 	Func getIsCurrent
-		return dotnet_call("s3:get",nHandle,"s9:IsCurrent")
+		return dotnet_getp(nHandle,"IsCurrent")
 
 	Func setIsCurrent P1
 		raise("DotNet Error: IsCurrent is a read-only property")
@@ -14961,13 +14929,13 @@ Class WindowCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
+		return dotnet_getp(nHandle,"IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -15026,23 +14994,23 @@ Class WpfSize from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Size, WindowsBase',"s5:Parse",P1))
 
 	Func getIsEmpty
-		return dotnet_call("s3:get",nHandle,"s7:IsEmpty")
+		return dotnet_getp(nHandle,"IsEmpty")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getWidth
-		return dotnet_call("s3:get",nHandle,"s5:Width")
+		return dotnet_getp(nHandle,"Width")
 
 	Func setWidth P1
-		dotnet_callv("s3:set",nHandle,"s5:Width",P1)
+		dotnet_setp(nHandle,"Width",P1)
 		return self
 
 	Func getHeight
-		return dotnet_call("s3:get",nHandle,"s6:Height")
+		return dotnet_getp(nHandle,"Height")
 
 	Func setHeight P1
-		dotnet_callv("s3:set",nHandle,"s6:Height",P1)
+		dotnet_setp(nHandle,"Height",P1)
 		return self
 
 	Func getEmpty
@@ -15115,17 +15083,17 @@ Class WpfPoint from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Point, WindowsBase',"s8:Multiply",P1,P2))
 
 	Func getX
-		return dotnet_call("s3:get",nHandle,"s1:X")
+		return dotnet_getp(nHandle,"X")
 
 	Func setX P1
-		dotnet_callv("s3:set",nHandle,"s1:X",P1)
+		dotnet_setp(nHandle,"X",P1)
 		return self
 
 	Func getY
-		return dotnet_call("s3:get",nHandle,"s1:Y")
+		return dotnet_getp(nHandle,"Y")
 
 	Func setY P1
-		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
+		dotnet_setp(nHandle,"Y",P1)
 		return self
 
 	# the operators of System.Windows.Point: = != + - *
@@ -15302,7 +15270,7 @@ Class Rect from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Rect, WindowsBase',"s5:Parse",P1))
 
 	Func getIsEmpty
-		return dotnet_call("s3:get",nHandle,"s7:IsEmpty")
+		return dotnet_getp(nHandle,"IsEmpty")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
@@ -15322,53 +15290,53 @@ Class Rect from ValueType
 		return self
 
 	Func getX
-		return dotnet_call("s3:get",nHandle,"s1:X")
+		return dotnet_getp(nHandle,"X")
 
 	Func setX P1
-		dotnet_callv("s3:set",nHandle,"s1:X",P1)
+		dotnet_setp(nHandle,"X",P1)
 		return self
 
 	Func getY
-		return dotnet_call("s3:get",nHandle,"s1:Y")
+		return dotnet_getp(nHandle,"Y")
 
 	Func setY P1
-		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
+		dotnet_setp(nHandle,"Y",P1)
 		return self
 
 	Func getWidth
-		return dotnet_call("s3:get",nHandle,"s5:Width")
+		return dotnet_getp(nHandle,"Width")
 
 	Func setWidth P1
-		dotnet_callv("s3:set",nHandle,"s5:Width",P1)
+		dotnet_setp(nHandle,"Width",P1)
 		return self
 
 	Func getHeight
-		return dotnet_call("s3:get",nHandle,"s6:Height")
+		return dotnet_getp(nHandle,"Height")
 
 	Func setHeight P1
-		dotnet_callv("s3:set",nHandle,"s6:Height",P1)
+		dotnet_setp(nHandle,"Height",P1)
 		return self
 
 	Func getLeft
-		return dotnet_call("s3:get",nHandle,"s4:Left")
+		return dotnet_getp(nHandle,"Left")
 
 	Func setLeft P1
 		raise("DotNet Error: Left is a read-only property")
 
 	Func getTop
-		return dotnet_call("s3:get",nHandle,"s3:Top")
+		return dotnet_getp(nHandle,"Top")
 
 	Func setTop P1
 		raise("DotNet Error: Top is a read-only property")
 
 	Func getRight
-		return dotnet_call("s3:get",nHandle,"s5:Right")
+		return dotnet_getp(nHandle,"Right")
 
 	Func setRight P1
 		raise("DotNet Error: Right is a read-only property")
 
 	Func getBottom
-		return dotnet_call("s3:get",nHandle,"s6:Bottom")
+		return dotnet_getp(nHandle,"Bottom")
 
 	Func setBottom P1
 		raise("DotNet Error: Bottom is a read-only property")
@@ -15442,31 +15410,31 @@ Class Thickness from ValueType
 		return self
 
 	Func getLeft
-		return dotnet_call("s3:get",nHandle,"s4:Left")
+		return dotnet_getp(nHandle,"Left")
 
 	Func setLeft P1
-		dotnet_callv("s3:set",nHandle,"s4:Left",P1)
+		dotnet_setp(nHandle,"Left",P1)
 		return self
 
 	Func getTop
-		return dotnet_call("s3:get",nHandle,"s3:Top")
+		return dotnet_getp(nHandle,"Top")
 
 	Func setTop P1
-		dotnet_callv("s3:set",nHandle,"s3:Top",P1)
+		dotnet_setp(nHandle,"Top",P1)
 		return self
 
 	Func getRight
-		return dotnet_call("s3:get",nHandle,"s5:Right")
+		return dotnet_getp(nHandle,"Right")
 
 	Func setRight P1
-		dotnet_callv("s3:set",nHandle,"s5:Right",P1)
+		dotnet_setp(nHandle,"Right",P1)
 		return self
 
 	Func getBottom
-		return dotnet_call("s3:get",nHandle,"s6:Bottom")
+		return dotnet_getp(nHandle,"Bottom")
 
 	Func setBottom P1
-		dotnet_callv("s3:set",nHandle,"s6:Bottom",P1)
+		dotnet_setp(nHandle,"Bottom",P1)
 		return self
 
 	# the operators of System.Windows.Thickness: = !=
@@ -15558,27 +15526,27 @@ Class WpfVector from ValueType
 		return dn_x
 
 	Func getX
-		return dotnet_call("s3:get",nHandle,"s1:X")
+		return dotnet_getp(nHandle,"X")
 
 	Func setX P1
-		dotnet_callv("s3:set",nHandle,"s1:X",P1)
+		dotnet_setp(nHandle,"X",P1)
 		return self
 
 	Func getY
-		return dotnet_call("s3:get",nHandle,"s1:Y")
+		return dotnet_getp(nHandle,"Y")
 
 	Func setY P1
-		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
+		dotnet_setp(nHandle,"Y",P1)
 		return self
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getLengthSquared
-		return dotnet_call("s3:get",nHandle,"s13:LengthSquared")
+		return dotnet_getp(nHandle,"LengthSquared")
 
 	Func setLengthSquared P1
 		raise("DotNet Error: LengthSquared is a read-only property")
@@ -15622,31 +15590,31 @@ Class CornerRadius from ValueType
 		return self
 
 	Func getTopLeft
-		return dotnet_call("s3:get",nHandle,"s7:TopLeft")
+		return dotnet_getp(nHandle,"TopLeft")
 
 	Func setTopLeft P1
-		dotnet_callv("s3:set",nHandle,"s7:TopLeft",P1)
+		dotnet_setp(nHandle,"TopLeft",P1)
 		return self
 
 	Func getTopRight
-		return dotnet_call("s3:get",nHandle,"s8:TopRight")
+		return dotnet_getp(nHandle,"TopRight")
 
 	Func setTopRight P1
-		dotnet_callv("s3:set",nHandle,"s8:TopRight",P1)
+		dotnet_setp(nHandle,"TopRight",P1)
 		return self
 
 	Func getBottomRight
-		return dotnet_call("s3:get",nHandle,"s11:BottomRight")
+		return dotnet_getp(nHandle,"BottomRight")
 
 	Func setBottomRight P1
-		dotnet_callv("s3:set",nHandle,"s11:BottomRight",P1)
+		dotnet_setp(nHandle,"BottomRight",P1)
 		return self
 
 	Func getBottomLeft
-		return dotnet_call("s3:get",nHandle,"s10:BottomLeft")
+		return dotnet_getp(nHandle,"BottomLeft")
 
 	Func setBottomLeft P1
-		dotnet_callv("s3:set",nHandle,"s10:BottomLeft",P1)
+		dotnet_setp(nHandle,"BottomLeft",P1)
 		return self
 
 	# the operators of System.Windows.CornerRadius: = !=
@@ -15690,25 +15658,25 @@ Class GridLength from ValueType
 		return self
 
 	Func getIsAbsolute
-		return dotnet_call("s3:get",nHandle,"s10:IsAbsolute")
+		return dotnet_getp(nHandle,"IsAbsolute")
 
 	Func setIsAbsolute P1
 		raise("DotNet Error: IsAbsolute is a read-only property")
 
 	Func getIsAuto
-		return dotnet_call("s3:get",nHandle,"s6:IsAuto")
+		return dotnet_getp(nHandle,"IsAuto")
 
 	Func setIsAuto P1
 		raise("DotNet Error: IsAuto is a read-only property")
 
 	Func getIsStar
-		return dotnet_call("s3:get",nHandle,"s6:IsStar")
+		return dotnet_getp(nHandle,"IsStar")
 
 	Func setIsStar P1
 		raise("DotNet Error: IsStar is a read-only property")
 
 	Func getValue
-		return dotnet_call("s3:get",nHandle,"s5:Value")
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -15904,19 +15872,17 @@ Class Window from ContentControl
 		return self
 
 	Func getAllowsTransparency
-		return dotnet_call("s3:get",nHandle,"s18:AllowsTransparency")
+		return dotnet_getp(nHandle,"AllowsTransparency")
 
 	Func setAllowsTransparency P1
-		dotnet_callv("s3:set",nHandle,"s18:AllowsTransparency",P1)
+		dotnet_setp(nHandle,"AllowsTransparency",P1)
 		return self
 
 	Func getTitle
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Title")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Title"))
 
 	Func setTitle P1
-		dotnet_callv("s3:set",nHandle,"s5:Title",P1)
+		dotnet_setp(nHandle,"Title",P1)
 		return self
 
 	Func getIcon
@@ -15934,17 +15900,17 @@ Class Window from ContentControl
 		return self
 
 	Func getTop
-		return dotnet_call("s3:get",nHandle,"s3:Top")
+		return dotnet_getp(nHandle,"Top")
 
 	Func setTop P1
-		dotnet_callv("s3:set",nHandle,"s3:Top",P1)
+		dotnet_setp(nHandle,"Top",P1)
 		return self
 
 	Func getLeft
-		return dotnet_call("s3:get",nHandle,"s4:Left")
+		return dotnet_getp(nHandle,"Left")
 
 	Func setLeft P1
-		dotnet_callv("s3:set",nHandle,"s4:Left",P1)
+		dotnet_setp(nHandle,"Left",P1)
 		return self
 
 	Func getRestoreBounds
@@ -15961,14 +15927,14 @@ Class Window from ContentControl
 		return self
 
 	Func getShowInTaskbar
-		return dotnet_call("s3:get",nHandle,"s13:ShowInTaskbar")
+		return dotnet_getp(nHandle,"ShowInTaskbar")
 
 	Func setShowInTaskbar P1
-		dotnet_callv("s3:set",nHandle,"s13:ShowInTaskbar",P1)
+		dotnet_setp(nHandle,"ShowInTaskbar",P1)
 		return self
 
 	Func getIsActive
-		return dotnet_call("s3:get",nHandle,"s8:IsActive")
+		return dotnet_getp(nHandle,"IsActive")
 
 	Func setIsActive P1
 		raise("DotNet Error: IsActive is a read-only property")
@@ -16015,17 +15981,17 @@ Class Window from ContentControl
 		return self
 
 	Func getTopmost
-		return dotnet_call("s3:get",nHandle,"s7:Topmost")
+		return dotnet_getp(nHandle,"Topmost")
 
 	Func setTopmost P1
-		dotnet_callv("s3:set",nHandle,"s7:Topmost",P1)
+		dotnet_setp(nHandle,"Topmost",P1)
 		return self
 
 	Func getShowActivated
-		return dotnet_call("s3:get",nHandle,"s13:ShowActivated")
+		return dotnet_getp(nHandle,"ShowActivated")
 
 	Func setShowActivated P1
-		dotnet_callv("s3:set",nHandle,"s13:ShowActivated",P1)
+		dotnet_setp(nHandle,"ShowActivated",P1)
 		return self
 
 	Func getTaskbarItemInfoProperty
@@ -16139,10 +16105,10 @@ Class AttachedPropertyBrowsableForChildrenAttribute from AttachedPropertyBrowsab
 		return self
 
 	Func getIncludeDescendants
-		return dotnet_call("s3:get",nHandle,"s18:IncludeDescendants")
+		return dotnet_getp(nHandle,"IncludeDescendants")
 
 	Func setIncludeDescendants P1
-		dotnet_callv("s3:set",nHandle,"s18:IncludeDescendants",P1)
+		dotnet_setp(nHandle,"IncludeDescendants",P1)
 		return self
 
 
@@ -17180,7 +17146,7 @@ Class ContentElement from DependencyObject
 		return self
 
 	Func getHasAnimatedProperties
-		return dotnet_call("s3:get",nHandle,"s21:HasAnimatedProperties")
+		return dotnet_getp(nHandle,"HasAnimatedProperties")
 
 	Func setHasAnimatedProperties P1
 		raise("DotNet Error: HasAnimatedProperties is a read-only property")
@@ -17198,118 +17164,118 @@ Class ContentElement from DependencyObject
 		raise("DotNet Error: CommandBindings is a read-only property")
 
 	Func getIsMouseDirectlyOver
-		return dotnet_call("s3:get",nHandle,"s19:IsMouseDirectlyOver")
+		return dotnet_getp(nHandle,"IsMouseDirectlyOver")
 
 	Func setIsMouseDirectlyOver P1
 		raise("DotNet Error: IsMouseDirectlyOver is a read-only property")
 
 	Func getIsMouseOver
-		return dotnet_call("s3:get",nHandle,"s11:IsMouseOver")
+		return dotnet_getp(nHandle,"IsMouseOver")
 
 	Func setIsMouseOver P1
 		raise("DotNet Error: IsMouseOver is a read-only property")
 
 	Func getIsStylusOver
-		return dotnet_call("s3:get",nHandle,"s12:IsStylusOver")
+		return dotnet_getp(nHandle,"IsStylusOver")
 
 	Func setIsStylusOver P1
 		raise("DotNet Error: IsStylusOver is a read-only property")
 
 	Func getIsKeyboardFocusWithin
-		return dotnet_call("s3:get",nHandle,"s21:IsKeyboardFocusWithin")
+		return dotnet_getp(nHandle,"IsKeyboardFocusWithin")
 
 	Func setIsKeyboardFocusWithin P1
 		raise("DotNet Error: IsKeyboardFocusWithin is a read-only property")
 
 	Func getIsMouseCaptured
-		return dotnet_call("s3:get",nHandle,"s15:IsMouseCaptured")
+		return dotnet_getp(nHandle,"IsMouseCaptured")
 
 	Func setIsMouseCaptured P1
 		raise("DotNet Error: IsMouseCaptured is a read-only property")
 
 	Func getIsMouseCaptureWithin
-		return dotnet_call("s3:get",nHandle,"s20:IsMouseCaptureWithin")
+		return dotnet_getp(nHandle,"IsMouseCaptureWithin")
 
 	Func setIsMouseCaptureWithin P1
 		raise("DotNet Error: IsMouseCaptureWithin is a read-only property")
 
 	Func getIsStylusDirectlyOver
-		return dotnet_call("s3:get",nHandle,"s20:IsStylusDirectlyOver")
+		return dotnet_getp(nHandle,"IsStylusDirectlyOver")
 
 	Func setIsStylusDirectlyOver P1
 		raise("DotNet Error: IsStylusDirectlyOver is a read-only property")
 
 	Func getIsStylusCaptured
-		return dotnet_call("s3:get",nHandle,"s16:IsStylusCaptured")
+		return dotnet_getp(nHandle,"IsStylusCaptured")
 
 	Func setIsStylusCaptured P1
 		raise("DotNet Error: IsStylusCaptured is a read-only property")
 
 	Func getIsStylusCaptureWithin
-		return dotnet_call("s3:get",nHandle,"s21:IsStylusCaptureWithin")
+		return dotnet_getp(nHandle,"IsStylusCaptureWithin")
 
 	Func setIsStylusCaptureWithin P1
 		raise("DotNet Error: IsStylusCaptureWithin is a read-only property")
 
 	Func getIsKeyboardFocused
-		return dotnet_call("s3:get",nHandle,"s17:IsKeyboardFocused")
+		return dotnet_getp(nHandle,"IsKeyboardFocused")
 
 	Func setIsKeyboardFocused P1
 		raise("DotNet Error: IsKeyboardFocused is a read-only property")
 
 	Func getIsFocused
-		return dotnet_call("s3:get",nHandle,"s9:IsFocused")
+		return dotnet_getp(nHandle,"IsFocused")
 
 	Func setIsFocused P1
 		raise("DotNet Error: IsFocused is a read-only property")
 
 	Func getIsEnabled
-		return dotnet_call("s3:get",nHandle,"s9:IsEnabled")
+		return dotnet_getp(nHandle,"IsEnabled")
 
 	Func setIsEnabled P1
-		dotnet_callv("s3:set",nHandle,"s9:IsEnabled",P1)
+		dotnet_setp(nHandle,"IsEnabled",P1)
 		return self
 
 	Func getFocusable
-		return dotnet_call("s3:get",nHandle,"s9:Focusable")
+		return dotnet_getp(nHandle,"Focusable")
 
 	Func setFocusable P1
-		dotnet_callv("s3:set",nHandle,"s9:Focusable",P1)
+		dotnet_setp(nHandle,"Focusable",P1)
 		return self
 
 	Func getIsInputMethodEnabled
-		return dotnet_call("s3:get",nHandle,"s20:IsInputMethodEnabled")
+		return dotnet_getp(nHandle,"IsInputMethodEnabled")
 
 	Func setIsInputMethodEnabled P1
 		raise("DotNet Error: IsInputMethodEnabled is a read-only property")
 
 	Func getAllowDrop
-		return dotnet_call("s3:get",nHandle,"s9:AllowDrop")
+		return dotnet_getp(nHandle,"AllowDrop")
 
 	Func setAllowDrop P1
-		dotnet_callv("s3:set",nHandle,"s9:AllowDrop",P1)
+		dotnet_setp(nHandle,"AllowDrop",P1)
 		return self
 
 	Func getAreAnyTouchesOver
-		return dotnet_call("s3:get",nHandle,"s17:AreAnyTouchesOver")
+		return dotnet_getp(nHandle,"AreAnyTouchesOver")
 
 	Func setAreAnyTouchesOver P1
 		raise("DotNet Error: AreAnyTouchesOver is a read-only property")
 
 	Func getAreAnyTouchesDirectlyOver
-		return dotnet_call("s3:get",nHandle,"s25:AreAnyTouchesDirectlyOver")
+		return dotnet_getp(nHandle,"AreAnyTouchesDirectlyOver")
 
 	Func setAreAnyTouchesDirectlyOver P1
 		raise("DotNet Error: AreAnyTouchesDirectlyOver is a read-only property")
 
 	Func getAreAnyTouchesCapturedWithin
-		return dotnet_call("s3:get",nHandle,"s27:AreAnyTouchesCapturedWithin")
+		return dotnet_getp(nHandle,"AreAnyTouchesCapturedWithin")
 
 	Func setAreAnyTouchesCapturedWithin P1
 		raise("DotNet Error: AreAnyTouchesCapturedWithin is a read-only property")
 
 	Func getAreAnyTouchesCaptured
-		return dotnet_call("s3:get",nHandle,"s21:AreAnyTouchesCaptured")
+		return dotnet_getp(nHandle,"AreAnyTouchesCaptured")
 
 	Func setAreAnyTouchesCaptured P1
 		raise("DotNet Error: AreAnyTouchesCaptured is a read-only property")
@@ -17698,13 +17664,13 @@ Class DataObjectEventArgs from RoutedEventArgs
 		return self
 
 	Func getIsDragDrop
-		return dotnet_call("s3:get",nHandle,"s10:IsDragDrop")
+		return dotnet_getp(nHandle,"IsDragDrop")
 
 	Func setIsDragDrop P1
 		raise("DotNet Error: IsDragDrop is a read-only property")
 
 	Func getCommandCancelled
-		return dotnet_call("s3:get",nHandle,"s16:CommandCancelled")
+		return dotnet_getp(nHandle,"CommandCancelled")
 
 	Func setCommandCancelled P1
 		raise("DotNet Error: CommandCancelled is a read-only property")
@@ -17897,10 +17863,10 @@ Class EventSetter from SetterBase
 		return self
 
 	Func getHandledEventsToo
-		return dotnet_call("s3:get",nHandle,"s16:HandledEventsToo")
+		return dotnet_getp(nHandle,"HandledEventsToo")
 
 	Func setHandledEventsToo P1
-		dotnet_callv("s3:set",nHandle,"s16:HandledEventsToo",P1)
+		dotnet_setp(nHandle,"HandledEventsToo",P1)
 		return self
 
 
@@ -18218,17 +18184,17 @@ Class FrameworkElement from UIElement
 		return self
 
 	Func getOverridesDefaultStyle
-		return dotnet_call("s3:get",nHandle,"s21:OverridesDefaultStyle")
+		return dotnet_getp(nHandle,"OverridesDefaultStyle")
 
 	Func setOverridesDefaultStyle P1
-		dotnet_callv("s3:set",nHandle,"s21:OverridesDefaultStyle",P1)
+		dotnet_setp(nHandle,"OverridesDefaultStyle",P1)
 		return self
 
 	Func getUseLayoutRounding
-		return dotnet_call("s3:get",nHandle,"s17:UseLayoutRounding")
+		return dotnet_getp(nHandle,"UseLayoutRounding")
 
 	Func setUseLayoutRounding P1
-		dotnet_callv("s3:set",nHandle,"s17:UseLayoutRounding",P1)
+		dotnet_setp(nHandle,"UseLayoutRounding",P1)
 		return self
 
 	Func getTriggers
@@ -18272,12 +18238,10 @@ Class FrameworkElement from UIElement
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getTag
@@ -18295,13 +18259,13 @@ Class FrameworkElement from UIElement
 		return self
 
 	Func getActualWidth
-		return dotnet_call("s3:get",nHandle,"s11:ActualWidth")
+		return dotnet_getp(nHandle,"ActualWidth")
 
 	Func setActualWidth P1
 		raise("DotNet Error: ActualWidth is a read-only property")
 
 	Func getActualHeight
-		return dotnet_call("s3:get",nHandle,"s12:ActualHeight")
+		return dotnet_getp(nHandle,"ActualHeight")
 
 	Func setActualHeight P1
 		raise("DotNet Error: ActualHeight is a read-only property")
@@ -18314,45 +18278,45 @@ Class FrameworkElement from UIElement
 		return self
 
 	Func getWidth
-		return dotnet_call("s3:get",nHandle,"s5:Width")
+		return dotnet_getp(nHandle,"Width")
 
 	Func setWidth P1
-		dotnet_callv("s3:set",nHandle,"s5:Width",P1)
+		dotnet_setp(nHandle,"Width",P1)
 		return self
 
 	Func getMinWidth
-		return dotnet_call("s3:get",nHandle,"s8:MinWidth")
+		return dotnet_getp(nHandle,"MinWidth")
 
 	Func setMinWidth P1
-		dotnet_callv("s3:set",nHandle,"s8:MinWidth",P1)
+		dotnet_setp(nHandle,"MinWidth",P1)
 		return self
 
 	Func getMaxWidth
-		return dotnet_call("s3:get",nHandle,"s8:MaxWidth")
+		return dotnet_getp(nHandle,"MaxWidth")
 
 	Func setMaxWidth P1
-		dotnet_callv("s3:set",nHandle,"s8:MaxWidth",P1)
+		dotnet_setp(nHandle,"MaxWidth",P1)
 		return self
 
 	Func getHeight
-		return dotnet_call("s3:get",nHandle,"s6:Height")
+		return dotnet_getp(nHandle,"Height")
 
 	Func setHeight P1
-		dotnet_callv("s3:set",nHandle,"s6:Height",P1)
+		dotnet_setp(nHandle,"Height",P1)
 		return self
 
 	Func getMinHeight
-		return dotnet_call("s3:get",nHandle,"s9:MinHeight")
+		return dotnet_getp(nHandle,"MinHeight")
 
 	Func setMinHeight P1
-		dotnet_callv("s3:set",nHandle,"s9:MinHeight",P1)
+		dotnet_setp(nHandle,"MinHeight",P1)
 		return self
 
 	Func getMaxHeight
-		return dotnet_call("s3:get",nHandle,"s9:MaxHeight")
+		return dotnet_getp(nHandle,"MaxHeight")
 
 	Func setMaxHeight P1
-		dotnet_callv("s3:set",nHandle,"s9:MaxHeight",P1)
+		dotnet_setp(nHandle,"MaxHeight",P1)
 		return self
 
 	Func getFlowDirection
@@ -18398,20 +18362,20 @@ Class FrameworkElement from UIElement
 		return self
 
 	Func getForceCursor
-		return dotnet_call("s3:get",nHandle,"s11:ForceCursor")
+		return dotnet_getp(nHandle,"ForceCursor")
 
 	Func setForceCursor P1
-		dotnet_callv("s3:set",nHandle,"s11:ForceCursor",P1)
+		dotnet_setp(nHandle,"ForceCursor",P1)
 		return self
 
 	Func getIsInitialized
-		return dotnet_call("s3:get",nHandle,"s13:IsInitialized")
+		return dotnet_getp(nHandle,"IsInitialized")
 
 	Func setIsInitialized P1
 		raise("DotNet Error: IsInitialized is a read-only property")
 
 	Func getIsLoaded
-		return dotnet_call("s3:get",nHandle,"s8:IsLoaded")
+		return dotnet_getp(nHandle,"IsLoaded")
 
 	Func setIsLoaded P1
 		raise("DotNet Error: IsLoaded is a read-only property")
@@ -18663,13 +18627,13 @@ Class Freezable from DependencyObject
 		return self
 
 	Func getCanFreeze
-		return dotnet_call("s3:get",nHandle,"s9:CanFreeze")
+		return dotnet_getp(nHandle,"CanFreeze")
 
 	Func setCanFreeze P1
 		raise("DotNet Error: CanFreeze is a read-only property")
 
 	Func getIsFrozen
-		return dotnet_call("s3:get",nHandle,"s8:IsFrozen")
+		return dotnet_getp(nHandle,"IsFrozen")
 
 	Func setIsFrozen P1
 		raise("DotNet Error: IsFrozen is a read-only property")
@@ -18696,10 +18660,10 @@ Class WpfGiveFeedbackEventArgs from RoutedEventArgs
 		raise("DotNet Error: Effects is a read-only property")
 
 	Func getUseDefaultCursors
-		return dotnet_call("s3:get",nHandle,"s17:UseDefaultCursors")
+		return dotnet_getp(nHandle,"UseDefaultCursors")
 
 	Func setUseDefaultCursors P1
-		dotnet_callv("s3:set",nHandle,"s17:UseDefaultCursors",P1)
+		dotnet_setp(nHandle,"UseDefaultCursors",P1)
 		return self
 
 
@@ -18750,17 +18714,13 @@ Class MediaScriptCommandRoutedEventArgs from RoutedEventArgs
 		return self
 
 	Func getParameterType
-		dn_x = dotnet_call("s3:get",nHandle,"s13:ParameterType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ParameterType"))
 
 	Func setParameterType P1
 		raise("DotNet Error: ParameterType is a read-only property")
 
 	Func getParameterValue
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ParameterValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ParameterValue"))
 
 	Func setParameterValue P1
 		raise("DotNet Error: ParameterValue is a read-only property")
@@ -18782,7 +18742,7 @@ Class WpfQueryContinueDragEventArgs from RoutedEventArgs
 		return self
 
 	Func getEscapePressed
-		return dotnet_call("s3:get",nHandle,"s13:EscapePressed")
+		return dotnet_getp(nHandle,"EscapePressed")
 
 	Func setEscapePressed P1
 		raise("DotNet Error: EscapePressed is a read-only property")
@@ -18924,12 +18884,10 @@ Class Setter from SetterBase
 		return self
 
 	Func getTargetName
-		dn_x = dotnet_call("s3:get",nHandle,"s10:TargetName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"TargetName"))
 
 	Func setTargetName P1
-		dotnet_callv("s3:set",nHandle,"s10:TargetName",P1)
+		dotnet_setp(nHandle,"TargetName",P1)
 		return self
 
 
@@ -18962,13 +18920,13 @@ Class SizeChangedEventArgs from RoutedEventArgs
 		raise("DotNet Error: NewSize is a read-only property")
 
 	Func getWidthChanged
-		return dotnet_call("s3:get",nHandle,"s12:WidthChanged")
+		return dotnet_getp(nHandle,"WidthChanged")
 
 	Func setWidthChanged P1
 		raise("DotNet Error: WidthChanged is a read-only property")
 
 	Func getHeightChanged
-		return dotnet_call("s3:get",nHandle,"s13:HeightChanged")
+		return dotnet_getp(nHandle,"HeightChanged")
 
 	Func setHeightChanged P1
 		raise("DotNet Error: HeightChanged is a read-only property")
@@ -19151,10 +19109,10 @@ Class UIPropertyMetadata from PropertyMetadata
 		return self
 
 	Func getIsAnimationProhibited
-		return dotnet_call("s3:get",nHandle,"s21:IsAnimationProhibited")
+		return dotnet_getp(nHandle,"IsAnimationProhibited")
 
 	Func setIsAnimationProhibited P1
-		dotnet_callv("s3:set",nHandle,"s21:IsAnimationProhibited",P1)
+		dotnet_setp(nHandle,"IsAnimationProhibited",P1)
 		return self
 
 
@@ -19182,12 +19140,10 @@ Class VisualState from DependencyObject
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getStoryboard
@@ -19240,12 +19196,10 @@ Class VisualStateGroup from DependencyObject
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getStates
@@ -19351,21 +19305,17 @@ Class VisualTransition from DependencyObject
 		return self
 
 	Func getFrom
-		dn_x = dotnet_call("s3:get",nHandle,"s4:From")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"From"))
 
 	Func setFrom P1
-		dotnet_callv("s3:set",nHandle,"s4:From",P1)
+		dotnet_setp(nHandle,"From",P1)
 		return self
 
 	Func getTo
-		dn_x = dotnet_call("s3:get",nHandle,"s2:To")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"To"))
 
 	Func setTo P1
-		dotnet_callv("s3:set",nHandle,"s2:To",P1)
+		dotnet_setp(nHandle,"To",P1)
 		return self
 
 	Func getStoryboard
@@ -19459,12 +19409,10 @@ Class DataObjectPastingEventArgs from DataObjectEventArgs
 		return self
 
 	Func getFormatToApply
-		dn_x = dotnet_call("s3:get",nHandle,"s13:FormatToApply")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FormatToApply"))
 
 	Func setFormatToApply P1
-		dotnet_callv("s3:set",nHandle,"s13:FormatToApply",P1)
+		dotnet_setp(nHandle,"FormatToApply",P1)
 		return self
 
 
@@ -19491,9 +19439,7 @@ Class DataObjectSettingDataEventArgs from DataObjectEventArgs
 		raise("DotNet Error: DataObject is a read-only property")
 
 	Func getFormat
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Format")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Format"))
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
@@ -19647,12 +19593,10 @@ Class EventTrigger from TriggerBase
 		return self
 
 	Func getSourceName
-		dn_x = dotnet_call("s3:get",nHandle,"s10:SourceName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"SourceName"))
 
 	Func setSourceName P1
-		dotnet_callv("s3:set",nHandle,"s10:SourceName",P1)
+		dotnet_setp(nHandle,"SourceName",P1)
 		return self
 
 	Func getActions
@@ -19877,10 +19821,10 @@ Class FrameworkContentElement from ContentElement
 		return self
 
 	Func getOverridesDefaultStyle
-		return dotnet_call("s3:get",nHandle,"s21:OverridesDefaultStyle")
+		return dotnet_getp(nHandle,"OverridesDefaultStyle")
 
 	Func setOverridesDefaultStyle P1
-		dotnet_callv("s3:set",nHandle,"s21:OverridesDefaultStyle",P1)
+		dotnet_setp(nHandle,"OverridesDefaultStyle",P1)
 		return self
 
 	Func getTemplatedParent
@@ -19897,12 +19841,10 @@ Class FrameworkContentElement from ContentElement
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
-		dotnet_callv("s3:set",nHandle,"s4:Name",P1)
+		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getTag
@@ -19934,10 +19876,10 @@ Class FrameworkContentElement from ContentElement
 		return self
 
 	Func getForceCursor
-		return dotnet_call("s3:get",nHandle,"s11:ForceCursor")
+		return dotnet_getp(nHandle,"ForceCursor")
 
 	Func setForceCursor P1
-		dotnet_callv("s3:set",nHandle,"s11:ForceCursor",P1)
+		dotnet_setp(nHandle,"ForceCursor",P1)
 		return self
 
 	Func getInputScope
@@ -19962,13 +19904,13 @@ Class FrameworkContentElement from ContentElement
 		return self
 
 	Func getIsInitialized
-		return dotnet_call("s3:get",nHandle,"s13:IsInitialized")
+		return dotnet_getp(nHandle,"IsInitialized")
 
 	Func setIsInitialized P1
 		raise("DotNet Error: IsInitialized is a read-only property")
 
 	Func getIsLoaded
-		return dotnet_call("s3:get",nHandle,"s8:IsLoaded")
+		return dotnet_getp(nHandle,"IsLoaded")
 
 	Func setIsLoaded P1
 		raise("DotNet Error: IsLoaded is a read-only property")
@@ -20141,66 +20083,66 @@ Class FrameworkPropertyMetadata from UIPropertyMetadata
 		return self
 
 	Func getAffectsMeasure
-		return dotnet_call("s3:get",nHandle,"s14:AffectsMeasure")
+		return dotnet_getp(nHandle,"AffectsMeasure")
 
 	Func setAffectsMeasure P1
-		dotnet_callv("s3:set",nHandle,"s14:AffectsMeasure",P1)
+		dotnet_setp(nHandle,"AffectsMeasure",P1)
 		return self
 
 	Func getAffectsArrange
-		return dotnet_call("s3:get",nHandle,"s14:AffectsArrange")
+		return dotnet_getp(nHandle,"AffectsArrange")
 
 	Func setAffectsArrange P1
-		dotnet_callv("s3:set",nHandle,"s14:AffectsArrange",P1)
+		dotnet_setp(nHandle,"AffectsArrange",P1)
 		return self
 
 	Func getAffectsParentMeasure
-		return dotnet_call("s3:get",nHandle,"s20:AffectsParentMeasure")
+		return dotnet_getp(nHandle,"AffectsParentMeasure")
 
 	Func setAffectsParentMeasure P1
-		dotnet_callv("s3:set",nHandle,"s20:AffectsParentMeasure",P1)
+		dotnet_setp(nHandle,"AffectsParentMeasure",P1)
 		return self
 
 	Func getAffectsParentArrange
-		return dotnet_call("s3:get",nHandle,"s20:AffectsParentArrange")
+		return dotnet_getp(nHandle,"AffectsParentArrange")
 
 	Func setAffectsParentArrange P1
-		dotnet_callv("s3:set",nHandle,"s20:AffectsParentArrange",P1)
+		dotnet_setp(nHandle,"AffectsParentArrange",P1)
 		return self
 
 	Func getAffectsRender
-		return dotnet_call("s3:get",nHandle,"s13:AffectsRender")
+		return dotnet_getp(nHandle,"AffectsRender")
 
 	Func setAffectsRender P1
-		dotnet_callv("s3:set",nHandle,"s13:AffectsRender",P1)
+		dotnet_setp(nHandle,"AffectsRender",P1)
 		return self
 
 	Func getInherits
-		return dotnet_call("s3:get",nHandle,"s8:Inherits")
+		return dotnet_getp(nHandle,"Inherits")
 
 	Func setInherits P1
-		dotnet_callv("s3:set",nHandle,"s8:Inherits",P1)
+		dotnet_setp(nHandle,"Inherits",P1)
 		return self
 
 	Func getOverridesInheritanceBehavior
-		return dotnet_call("s3:get",nHandle,"s28:OverridesInheritanceBehavior")
+		return dotnet_getp(nHandle,"OverridesInheritanceBehavior")
 
 	Func setOverridesInheritanceBehavior P1
-		dotnet_callv("s3:set",nHandle,"s28:OverridesInheritanceBehavior",P1)
+		dotnet_setp(nHandle,"OverridesInheritanceBehavior",P1)
 		return self
 
 	Func getIsNotDataBindable
-		return dotnet_call("s3:get",nHandle,"s17:IsNotDataBindable")
+		return dotnet_getp(nHandle,"IsNotDataBindable")
 
 	Func setIsNotDataBindable P1
-		dotnet_callv("s3:set",nHandle,"s17:IsNotDataBindable",P1)
+		dotnet_setp(nHandle,"IsNotDataBindable",P1)
 		return self
 
 	Func getBindsTwoWayByDefault
-		return dotnet_call("s3:get",nHandle,"s20:BindsTwoWayByDefault")
+		return dotnet_getp(nHandle,"BindsTwoWayByDefault")
 
 	Func setBindsTwoWayByDefault P1
-		dotnet_callv("s3:set",nHandle,"s20:BindsTwoWayByDefault",P1)
+		dotnet_setp(nHandle,"BindsTwoWayByDefault",P1)
 		return self
 
 	Func getDefaultUpdateSourceTrigger
@@ -20211,21 +20153,21 @@ Class FrameworkPropertyMetadata from UIPropertyMetadata
 		return self
 
 	Func getJournal
-		return dotnet_call("s3:get",nHandle,"s7:Journal")
+		return dotnet_getp(nHandle,"Journal")
 
 	Func setJournal P1
-		dotnet_callv("s3:set",nHandle,"s7:Journal",P1)
+		dotnet_setp(nHandle,"Journal",P1)
 		return self
 
 	Func getSubPropertiesDoNotAffectRender
-		return dotnet_call("s3:get",nHandle,"s30:SubPropertiesDoNotAffectRender")
+		return dotnet_getp(nHandle,"SubPropertiesDoNotAffectRender")
 
 	Func setSubPropertiesDoNotAffectRender P1
-		dotnet_callv("s3:set",nHandle,"s30:SubPropertiesDoNotAffectRender",P1)
+		dotnet_setp(nHandle,"SubPropertiesDoNotAffectRender",P1)
 		return self
 
 	Func getIsDataBindingAllowed
-		return dotnet_call("s3:get",nHandle,"s20:IsDataBindingAllowed")
+		return dotnet_getp(nHandle,"IsDataBindingAllowed")
 
 	Func setIsDataBindingAllowed P1
 		raise("DotNet Error: IsDataBindingAllowed is a read-only property")
@@ -20312,19 +20254,17 @@ Class HierarchicalDataTemplate from DataTemplate
 		return self
 
 	Func getItemStringFormat
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ItemStringFormat")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ItemStringFormat"))
 
 	Func setItemStringFormat P1
-		dotnet_callv("s3:set",nHandle,"s16:ItemStringFormat",P1)
+		dotnet_setp(nHandle,"ItemStringFormat",P1)
 		return self
 
 	Func getAlternationCount
-		return dotnet_call("s3:get",nHandle,"s16:AlternationCount")
+		return dotnet_getp(nHandle,"AlternationCount")
 
 	Func setAlternationCount P1
-		dotnet_callv("s3:set",nHandle,"s16:AlternationCount",P1)
+		dotnet_setp(nHandle,"AlternationCount",P1)
 		return self
 
 	Func getItemBindingGroup
@@ -20460,12 +20400,10 @@ Class Trigger from TriggerBase
 		return self
 
 	Func getSourceName
-		dn_x = dotnet_call("s3:get",nHandle,"s10:SourceName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"SourceName"))
 
 	Func setSourceName P1
-		dotnet_callv("s3:set",nHandle,"s10:SourceName",P1)
+		dotnet_setp(nHandle,"SourceName",P1)
 		return self
 
 	Func getSetters

@@ -273,10 +273,10 @@ Class ActionFilterAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:OnResultExecutionAsync",P1,P2))
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 
@@ -302,10 +302,10 @@ Class ExceptionFilterAttribute from Attribute
 		return self
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 
@@ -413,14 +413,14 @@ Class FilterDescriptor from Object
 		raise("DotNet Error: Filter is a read-only property")
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 	Func getScope
-		return dotnet_call("s3:get",nHandle,"s5:Scope")
+		return dotnet_getp(nHandle,"Scope")
 
 	Func setScope P1
 		raise("DotNet Error: Scope is a read-only property")
@@ -477,10 +477,10 @@ Class FilterItem from Object
 		return self
 
 	Func getIsReusable
-		return dotnet_call("s3:get",nHandle,"s10:IsReusable")
+		return dotnet_getp(nHandle,"IsReusable")
 
 	Func setIsReusable P1
-		dotnet_callv("s3:set",nHandle,"s10:IsReusable",P1)
+		dotnet_setp(nHandle,"IsReusable",P1)
 		return self
 
 
@@ -797,7 +797,7 @@ Class IFilterFactory from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
 
 	Func getIsReusable
-		return dotnet_call("s3:get",nHandle,"s10:IsReusable")
+		return dotnet_getp(nHandle,"IsReusable")
 
 	Func setIsReusable P1
 		raise("DotNet Error: IsReusable is a read-only property")
@@ -839,7 +839,7 @@ Class IFilterProvider from DotNetObject
 		return self
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
@@ -859,7 +859,7 @@ Class IOrderedFilter from DotNetObject
 		return self
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
@@ -963,10 +963,10 @@ Class ResultFilterAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:OnResultExecutionAsync",P1,P2))
 
 	Func getOrder
-		return dotnet_call("s3:get",nHandle,"s5:Order")
+		return dotnet_getp(nHandle,"Order")
 
 	Func setOrder P1
-		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
+		dotnet_setp(nHandle,"Order",P1)
 		return self
 
 
@@ -991,10 +991,10 @@ Class ActionExecutedContext from FilterContext
 		return self
 
 	Func getCanceled
-		return dotnet_call("s3:get",nHandle,"s8:Canceled")
+		return dotnet_getp(nHandle,"Canceled")
 
 	Func setCanceled P1
-		dotnet_callv("s3:set",nHandle,"s8:Canceled",P1)
+		dotnet_setp(nHandle,"Canceled",P1)
 		return self
 
 	Func getController
@@ -1018,10 +1018,10 @@ Class ActionExecutedContext from FilterContext
 		return self
 
 	Func getExceptionHandled
-		return dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
+		return dotnet_getp(nHandle,"ExceptionHandled")
 
 	Func setExceptionHandled P1
-		dotnet_callv("s3:set",nHandle,"s16:ExceptionHandled",P1)
+		dotnet_setp(nHandle,"ExceptionHandled",P1)
 		return self
 
 	Func getResult
@@ -1125,10 +1125,10 @@ Class ExceptionContext from FilterContext
 		return self
 
 	Func getExceptionHandled
-		return dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
+		return dotnet_getp(nHandle,"ExceptionHandled")
 
 	Func setExceptionHandled P1
-		dotnet_callv("s3:set",nHandle,"s16:ExceptionHandled",P1)
+		dotnet_setp(nHandle,"ExceptionHandled",P1)
 		return self
 
 	Func getResult
@@ -1164,10 +1164,10 @@ Class PageHandlerExecutedContext from FilterContext
 		raise("DotNet Error: ActionDescriptor is a read-only property")
 
 	Func getCanceled
-		return dotnet_call("s3:get",nHandle,"s8:Canceled")
+		return dotnet_getp(nHandle,"Canceled")
 
 	Func setCanceled P1
-		dotnet_callv("s3:set",nHandle,"s8:Canceled",P1)
+		dotnet_setp(nHandle,"Canceled",P1)
 		return self
 
 	Func getHandlerInstance
@@ -1197,10 +1197,10 @@ Class PageHandlerExecutedContext from FilterContext
 		return self
 
 	Func getExceptionHandled
-		return dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
+		return dotnet_getp(nHandle,"ExceptionHandled")
 
 	Func setExceptionHandled P1
-		dotnet_callv("s3:set",nHandle,"s16:ExceptionHandled",P1)
+		dotnet_setp(nHandle,"ExceptionHandled",P1)
 		return self
 
 	Func getResult
@@ -1311,10 +1311,10 @@ Class ResourceExecutedContext from FilterContext
 		return self
 
 	Func getCanceled
-		return dotnet_call("s3:get",nHandle,"s8:Canceled")
+		return dotnet_getp(nHandle,"Canceled")
 
 	Func setCanceled P1
-		dotnet_callv("s3:set",nHandle,"s8:Canceled",P1)
+		dotnet_setp(nHandle,"Canceled",P1)
 		return self
 
 	Func getException
@@ -1332,10 +1332,10 @@ Class ResourceExecutedContext from FilterContext
 		return self
 
 	Func getExceptionHandled
-		return dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
+		return dotnet_getp(nHandle,"ExceptionHandled")
 
 	Func setExceptionHandled P1
-		dotnet_callv("s3:set",nHandle,"s16:ExceptionHandled",P1)
+		dotnet_setp(nHandle,"ExceptionHandled",P1)
 		return self
 
 	Func getResult
@@ -1397,10 +1397,10 @@ Class ResultExecutedContext from FilterContext
 		return self
 
 	Func getCanceled
-		return dotnet_call("s3:get",nHandle,"s8:Canceled")
+		return dotnet_getp(nHandle,"Canceled")
 
 	Func setCanceled P1
-		dotnet_callv("s3:set",nHandle,"s8:Canceled",P1)
+		dotnet_setp(nHandle,"Canceled",P1)
 		return self
 
 	Func getController
@@ -1424,10 +1424,10 @@ Class ResultExecutedContext from FilterContext
 		return self
 
 	Func getExceptionHandled
-		return dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
+		return dotnet_getp(nHandle,"ExceptionHandled")
 
 	Func setExceptionHandled P1
-		dotnet_callv("s3:set",nHandle,"s16:ExceptionHandled",P1)
+		dotnet_setp(nHandle,"ExceptionHandled",P1)
 		return self
 
 	Func getResult
@@ -1468,10 +1468,10 @@ Class ResultExecutingContext from FilterContext
 		return self
 
 	Func getCancel
-		return dotnet_call("s3:get",nHandle,"s6:Cancel")
+		return dotnet_getp(nHandle,"Cancel")
 
 	Func setCancel P1
-		dotnet_callv("s3:set",nHandle,"s6:Cancel",P1)
+		dotnet_setp(nHandle,"Cancel",P1)
 		return self
 
 

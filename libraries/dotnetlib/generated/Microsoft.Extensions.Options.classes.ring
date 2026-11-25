@@ -313,9 +313,7 @@ Class ConfigurationChangeTokenSource from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -354,9 +352,7 @@ Class ConfigureNamedOptions from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -402,9 +398,7 @@ Class ConfigureNamedOptions2 from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -457,9 +451,7 @@ Class ConfigureNamedOptions3 from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -519,9 +511,7 @@ Class ConfigureNamedOptions4 from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -588,9 +578,7 @@ Class ConfigureNamedOptions5 from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -664,9 +652,7 @@ Class ConfigureNamedOptions6 from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -768,9 +754,7 @@ Class DataAnnotationValidateOptions from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -843,9 +827,7 @@ Class IOptionsChangeTokenSource from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetChangeToken"))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1130,9 +1112,7 @@ Class OptionsBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ValidateOnStart"))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1317,9 +1297,7 @@ Class OptionsValidationException from Exception
 		return self
 
 	Func getOptionsName
-		dn_x = dotnet_call("s3:get",nHandle,"s11:OptionsName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"OptionsName"))
 
 	Func setOptionsName P1
 		raise("DotNet Error: OptionsName is a read-only property")
@@ -1416,9 +1394,7 @@ Class PostConfigureOptions from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1464,9 +1440,7 @@ Class PostConfigureOptions2 from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1519,9 +1493,7 @@ Class PostConfigureOptions3 from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1581,9 +1553,7 @@ Class PostConfigureOptions4 from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1650,9 +1620,7 @@ Class PostConfigureOptions5 from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1726,9 +1694,7 @@ Class PostConfigureOptions6 from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1897,27 +1863,25 @@ Class ValidateOptionsResult from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options',"s4:Fail",P1))
 
 	Func getSucceeded
-		return dotnet_call("s3:get",nHandle,"s9:Succeeded")
+		return dotnet_getp(nHandle,"Succeeded")
 
 	Func setSucceeded P1
 		raise("DotNet Error: Succeeded is a read-only property")
 
 	Func getSkipped
-		return dotnet_call("s3:get",nHandle,"s7:Skipped")
+		return dotnet_getp(nHandle,"Skipped")
 
 	Func setSkipped P1
 		raise("DotNet Error: Skipped is a read-only property")
 
 	Func getFailed
-		return dotnet_call("s3:get",nHandle,"s6:Failed")
+		return dotnet_getp(nHandle,"Failed")
 
 	Func setFailed P1
 		raise("DotNet Error: Failed is a read-only property")
 
 	Func getFailureMessage
-		dn_x = dotnet_call("s3:get",nHandle,"s14:FailureMessage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FailureMessage"))
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
@@ -2022,9 +1986,7 @@ Class ValidateOptions from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2036,9 +1998,7 @@ Class ValidateOptions from Object
 		raise("DotNet Error: Validation is a read-only property")
 
 	Func getFailureMessage
-		dn_x = dotnet_call("s3:get",nHandle,"s14:FailureMessage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FailureMessage"))
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
@@ -2073,9 +2033,7 @@ Class ValidateOptions2 from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2087,9 +2045,7 @@ Class ValidateOptions2 from Object
 		raise("DotNet Error: Validation is a read-only property")
 
 	Func getFailureMessage
-		dn_x = dotnet_call("s3:get",nHandle,"s14:FailureMessage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FailureMessage"))
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
@@ -2131,9 +2087,7 @@ Class ValidateOptions3 from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2145,9 +2099,7 @@ Class ValidateOptions3 from Object
 		raise("DotNet Error: Validation is a read-only property")
 
 	Func getFailureMessage
-		dn_x = dotnet_call("s3:get",nHandle,"s14:FailureMessage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FailureMessage"))
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
@@ -2196,9 +2148,7 @@ Class ValidateOptions4 from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2210,9 +2160,7 @@ Class ValidateOptions4 from Object
 		raise("DotNet Error: Validation is a read-only property")
 
 	Func getFailureMessage
-		dn_x = dotnet_call("s3:get",nHandle,"s14:FailureMessage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FailureMessage"))
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
@@ -2268,9 +2216,7 @@ Class ValidateOptions5 from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2282,9 +2228,7 @@ Class ValidateOptions5 from Object
 		raise("DotNet Error: Validation is a read-only property")
 
 	Func getFailureMessage
-		dn_x = dotnet_call("s3:get",nHandle,"s14:FailureMessage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FailureMessage"))
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
@@ -2347,9 +2291,7 @@ Class ValidateOptions6 from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2361,9 +2303,7 @@ Class ValidateOptions6 from Object
 		raise("DotNet Error: Validation is a read-only property")
 
 	Func getFailureMessage
-		dn_x = dotnet_call("s3:get",nHandle,"s14:FailureMessage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"FailureMessage"))
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")

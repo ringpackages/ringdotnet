@@ -274,38 +274,38 @@ Class DrawingAttributes from Object
 		return self
 
 	Func getHeight
-		return dotnet_call("s3:get",nHandle,"s6:Height")
+		return dotnet_getp(nHandle,"Height")
 
 	Func setHeight P1
-		dotnet_callv("s3:set",nHandle,"s6:Height",P1)
+		dotnet_setp(nHandle,"Height",P1)
 		return self
 
 	Func getWidth
-		return dotnet_call("s3:get",nHandle,"s5:Width")
+		return dotnet_getp(nHandle,"Width")
 
 	Func setWidth P1
-		dotnet_callv("s3:set",nHandle,"s5:Width",P1)
+		dotnet_setp(nHandle,"Width",P1)
 		return self
 
 	Func getFitToCurve
-		return dotnet_call("s3:get",nHandle,"s10:FitToCurve")
+		return dotnet_getp(nHandle,"FitToCurve")
 
 	Func setFitToCurve P1
-		dotnet_callv("s3:set",nHandle,"s10:FitToCurve",P1)
+		dotnet_setp(nHandle,"FitToCurve",P1)
 		return self
 
 	Func getIgnorePressure
-		return dotnet_call("s3:get",nHandle,"s14:IgnorePressure")
+		return dotnet_getp(nHandle,"IgnorePressure")
 
 	Func setIgnorePressure P1
-		dotnet_callv("s3:set",nHandle,"s14:IgnorePressure",P1)
+		dotnet_setp(nHandle,"IgnorePressure",P1)
 		return self
 
 	Func getIsHighlighter
-		return dotnet_call("s3:get",nHandle,"s13:IsHighlighter")
+		return dotnet_getp(nHandle,"IsHighlighter")
 
 	Func setIsHighlighter P1
-		dotnet_callv("s3:set",nHandle,"s13:IsHighlighter",P1)
+		dotnet_setp(nHandle,"IsHighlighter",P1)
 		return self
 
 	Func getMinHeight
@@ -453,7 +453,7 @@ Class GestureRecognizer from DependencyObject
 		return self
 
 	Func getIsRecognizerAvailable
-		return dotnet_call("s3:get",nHandle,"s21:IsRecognizerAvailable")
+		return dotnet_getp(nHandle,"IsRecognizerAvailable")
 
 	Func setIsRecognizerAvailable P1
 		raise("DotNet Error: IsRecognizerAvailable is a read-only property")
@@ -493,7 +493,7 @@ Class IncrementalHitTester from Object
 		return dn_x
 
 	Func getIsValid
-		return dotnet_call("s3:get",nHandle,"s7:IsValid")
+		return dotnet_getp(nHandle,"IsValid")
 
 	Func setIsValid P1
 		raise("DotNet Error: IsValid is a read-only property")
@@ -980,19 +980,19 @@ Class StylusShape from Object
 		return dn_x
 
 	Func getWidth
-		return dotnet_call("s3:get",nHandle,"s5:Width")
+		return dotnet_getp(nHandle,"Width")
 
 	Func setWidth P1
 		raise("DotNet Error: Width is a read-only property")
 
 	Func getHeight
-		return dotnet_call("s3:get",nHandle,"s6:Height")
+		return dotnet_getp(nHandle,"Height")
 
 	Func setHeight P1
 		raise("DotNet Error: Height is a read-only property")
 
 	Func getRotation
-		return dotnet_call("s3:get",nHandle,"s8:Rotation")
+		return dotnet_getp(nHandle,"Rotation")
 
 	Func setRotation P1
 		raise("DotNet Error: Rotation is a read-only property")

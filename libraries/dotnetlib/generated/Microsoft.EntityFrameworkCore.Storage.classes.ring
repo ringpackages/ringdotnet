@@ -837,17 +837,13 @@ Class DatabaseProvider from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getVersion
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Version")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Version"))
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
@@ -897,7 +893,7 @@ Class ExecutionResult from Object
 		return dn_x
 
 	Func getIsSuccessful
-		return dotnet_call("s3:get",nHandle,"s12:IsSuccessful")
+		return dotnet_getp(nHandle,"IsSuccessful")
 
 	Func setIsSuccessful P1
 		raise("DotNet Error: IsSuccessful is a read-only property")
@@ -959,7 +955,7 @@ Class ExecutionStrategy from Object
 		raise("DotNet Error: ExecuteInTransactionAsync does not take one argument: use named arguments, ExecuteInTransactionAsync([ :parameter = value, ... ])")
 
 	Func getMaxRetryCount
-		return dotnet_call("s3:get",nHandle,"s13:MaxRetryCount")
+		return dotnet_getp(nHandle,"MaxRetryCount")
 
 	Func setMaxRetryCount P1
 		raise("DotNet Error: MaxRetryCount is a read-only property")
@@ -971,7 +967,7 @@ Class ExecutionStrategy from Object
 		raise("DotNet Error: MaxRetryDelay is a read-only property")
 
 	Func getRetriesOnFailure
-		return dotnet_call("s3:get",nHandle,"s16:RetriesOnFailure")
+		return dotnet_getp(nHandle,"RetriesOnFailure")
 
 	Func setRetriesOnFailure P1
 		raise("DotNet Error: RetriesOnFailure is a read-only property")
@@ -1257,17 +1253,13 @@ Class IDatabaseProvider from DotNetObject
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getVersion
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Version")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Version"))
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
@@ -1371,7 +1363,7 @@ Class IDbContextTransaction from DotNetObject
 		raise("DotNet Error: TransactionId is a read-only property")
 
 	Func getSupportsSavepoints
-		return dotnet_call("s3:get",nHandle,"s18:SupportsSavepoints")
+		return dotnet_getp(nHandle,"SupportsSavepoints")
 
 	Func setSupportsSavepoints P1
 		raise("DotNet Error: SupportsSavepoints is a read-only property")
@@ -1512,7 +1504,7 @@ Class IExecutionStrategy from DotNetObject
 		raise("DotNet Error: ExecuteInTransactionAsync does not take one argument: use named arguments, ExecuteInTransactionAsync([ :parameter = value, ... ])")
 
 	Func getRetriesOnFailure
-		return dotnet_call("s3:get",nHandle,"s16:RetriesOnFailure")
+		return dotnet_getp(nHandle,"RetriesOnFailure")
 
 	Func setRetriesOnFailure P1
 		raise("DotNet Error: RetriesOnFailure is a read-only property")
@@ -1618,9 +1610,7 @@ Class IRelationalCommand from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateDbCommand",P1,P2,P3))
 
 	Func getCommandText
-		dn_x = dotnet_call("s3:get",nHandle,"s11:CommandText")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"CommandText"))
 
 	Func setCommandText P1
 		raise("DotNet Error: CommandText is a read-only property")
@@ -1700,7 +1690,7 @@ Class IRelationalCommandBuilder from DotNetObject
 		raise("DotNet Error: TypeMappingSource is a read-only property")
 
 	Func getCommandTextLength
-		return dotnet_call("s3:get",nHandle,"s17:CommandTextLength")
+		return dotnet_getp(nHandle,"CommandTextLength")
 
 	Func setCommandTextLength P1
 		raise("DotNet Error: CommandTextLength is a read-only property")
@@ -1739,9 +1729,7 @@ Class IRelationalCommandTemplate from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateDbCommand",P1,P2,P3))
 
 	Func getCommandText
-		dn_x = dotnet_call("s3:get",nHandle,"s11:CommandText")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"CommandText"))
 
 	Func setCommandText P1
 		raise("DotNet Error: CommandText is a read-only property")
@@ -1898,12 +1886,10 @@ Class IRelationalConnection from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func getConnectionString
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ConnectionString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ConnectionString"))
 
 	Func setConnectionString P1
-		dotnet_callv("s3:set",nHandle,"s16:ConnectionString",P1)
+		dotnet_setp(nHandle,"ConnectionString",P1)
 		return self
 
 	Func getDbConnection
@@ -2191,9 +2177,7 @@ Class IRelationalParameter from DotNetObject
 		return self
 
 	Func getInvariantName
-		dn_x = dotnet_call("s3:get",nHandle,"s13:InvariantName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"InvariantName"))
 
 	Func setInvariantName P1
 		raise("DotNet Error: InvariantName is a read-only property")
@@ -2426,41 +2410,31 @@ Class ISqlGenerationHelper from DotNetObject
 		return dn_x
 
 	Func getStatementTerminator
-		dn_x = dotnet_call("s3:get",nHandle,"s19:StatementTerminator")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"StatementTerminator"))
 
 	Func setStatementTerminator P1
 		raise("DotNet Error: StatementTerminator is a read-only property")
 
 	Func getBatchTerminator
-		dn_x = dotnet_call("s3:get",nHandle,"s15:BatchTerminator")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"BatchTerminator"))
 
 	Func setBatchTerminator P1
 		raise("DotNet Error: BatchTerminator is a read-only property")
 
 	Func getStartTransactionStatement
-		dn_x = dotnet_call("s3:get",nHandle,"s25:StartTransactionStatement")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"StartTransactionStatement"))
 
 	Func setStartTransactionStatement P1
 		raise("DotNet Error: StartTransactionStatement is a read-only property")
 
 	Func getCommitTransactionStatement
-		dn_x = dotnet_call("s3:get",nHandle,"s26:CommitTransactionStatement")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"CommitTransactionStatement"))
 
 	Func setCommitTransactionStatement P1
 		raise("DotNet Error: CommitTransactionStatement is a read-only property")
 
 	Func getSingleLineCommentToken
-		dn_x = dotnet_call("s3:get",nHandle,"s22:SingleLineCommentToken")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"SingleLineCommentToken"))
 
 	Func setSingleLineCommentToken P1
 		raise("DotNet Error: SingleLineCommentToken is a read-only property")
@@ -2636,7 +2610,7 @@ Class NonRetryingExecutionStrategy from Object
 		raise("DotNet Error: ExecuteInTransactionAsync does not take one argument: use named arguments, ExecuteInTransactionAsync([ :parameter = value, ... ])")
 
 	Func getRetriesOnFailure
-		return dotnet_call("s3:get",nHandle,"s16:RetriesOnFailure")
+		return dotnet_getp(nHandle,"RetriesOnFailure")
 
 	Func setRetriesOnFailure P1
 		raise("DotNet Error: RetriesOnFailure is a read-only property")
@@ -2802,15 +2776,13 @@ Class ReaderColumn from Object
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getIsNullable
-		return dotnet_call("s3:get",nHandle,"s10:IsNullable")
+		return dotnet_getp(nHandle,"IsNullable")
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2887,9 +2859,7 @@ Class RelationalCommand from Object
 		return dn_x
 
 	Func getCommandText
-		dn_x = dotnet_call("s3:get",nHandle,"s11:CommandText")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"CommandText"))
 
 	Func setCommandText P1
 		raise("DotNet Error: CommandText is a read-only property")
@@ -2976,7 +2946,7 @@ Class RelationalCommandBuilder from Object
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getCommandTextLength
-		return dotnet_call("s3:get",nHandle,"s17:CommandTextLength")
+		return dotnet_getp(nHandle,"CommandTextLength")
 
 	Func setCommandTextLength P1
 		raise("DotNet Error: CommandTextLength is a read-only property")
@@ -3160,7 +3130,7 @@ Class RelationalCommandParameterObject from ValueType
 		raise("DotNet Error: Logger is a read-only property")
 
 	Func getDetailedErrorsEnabled
-		return dotnet_call("s3:get",nHandle,"s21:DetailedErrorsEnabled")
+		return dotnet_getp(nHandle,"DetailedErrorsEnabled")
 
 	Func setDetailedErrorsEnabled P1
 		raise("DotNet Error: DetailedErrorsEnabled is a read-only property")
@@ -3331,12 +3301,10 @@ Class RelationalConnection from Object
 		raise("DotNet Error: Context is a read-only property")
 
 	Func getConnectionString
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ConnectionString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ConnectionString"))
 
 	Func setConnectionString P1
-		dotnet_callv("s3:set",nHandle,"s16:ConnectionString",P1)
+		dotnet_setp(nHandle,"ConnectionString",P1)
 		return self
 
 	Func getDbConnection
@@ -3971,41 +3939,31 @@ Class RelationalSqlGenerationHelper from Object
 		return dn_x
 
 	Func getStatementTerminator
-		dn_x = dotnet_call("s3:get",nHandle,"s19:StatementTerminator")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"StatementTerminator"))
 
 	Func setStatementTerminator P1
 		raise("DotNet Error: StatementTerminator is a read-only property")
 
 	Func getBatchTerminator
-		dn_x = dotnet_call("s3:get",nHandle,"s15:BatchTerminator")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"BatchTerminator"))
 
 	Func setBatchTerminator P1
 		raise("DotNet Error: BatchTerminator is a read-only property")
 
 	Func getStartTransactionStatement
-		dn_x = dotnet_call("s3:get",nHandle,"s25:StartTransactionStatement")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"StartTransactionStatement"))
 
 	Func setStartTransactionStatement P1
 		raise("DotNet Error: StartTransactionStatement is a read-only property")
 
 	Func getCommitTransactionStatement
-		dn_x = dotnet_call("s3:get",nHandle,"s26:CommitTransactionStatement")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"CommitTransactionStatement"))
 
 	Func setCommitTransactionStatement P1
 		raise("DotNet Error: CommitTransactionStatement is a read-only property")
 
 	Func getSingleLineCommentToken
-		dn_x = dotnet_call("s3:get",nHandle,"s22:SingleLineCommentToken")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"SingleLineCommentToken"))
 
 	Func setSingleLineCommentToken P1
 		raise("DotNet Error: SingleLineCommentToken is a read-only property")
@@ -4150,7 +4108,7 @@ Class RelationalTransaction from Object
 		raise("DotNet Error: TransactionId is a read-only property")
 
 	Func getSupportsSavepoints
-		return dotnet_call("s3:get",nHandle,"s18:SupportsSavepoints")
+		return dotnet_getp(nHandle,"SupportsSavepoints")
 
 	Func setSupportsSavepoints P1
 		raise("DotNet Error: SupportsSavepoints is a read-only property")
@@ -4272,21 +4230,17 @@ Class RelationalTypeMappingInfo from ValueType
 		raise("DotNet Error: CoreTypeMappingInfo is a read-only property")
 
 	Func getStoreTypeName
-		dn_x = dotnet_call("s3:get",nHandle,"s13:StoreTypeName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"StoreTypeName"))
 
 	Func setStoreTypeName P1
-		dotnet_callv("s3:set",nHandle,"s13:StoreTypeName",P1)
+		dotnet_setp(nHandle,"StoreTypeName",P1)
 		return self
 
 	Func getStoreTypeNameBase
-		dn_x = dotnet_call("s3:get",nHandle,"s17:StoreTypeNameBase")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"StoreTypeNameBase"))
 
 	Func setStoreTypeNameBase P1
-		dotnet_callv("s3:set",nHandle,"s17:StoreTypeNameBase",P1)
+		dotnet_setp(nHandle,"StoreTypeNameBase",P1)
 		return self
 
 	Func getSize
@@ -4325,17 +4279,17 @@ Class RelationalTypeMappingInfo from ValueType
 		return self
 
 	Func getIsKey
-		return dotnet_call("s3:get",nHandle,"s5:IsKey")
+		return dotnet_getp(nHandle,"IsKey")
 
 	Func setIsKey P1
-		dotnet_callv("s3:set",nHandle,"s5:IsKey",P1)
+		dotnet_setp(nHandle,"IsKey",P1)
 		return self
 
 	Func getIsKeyOrIndex
-		return dotnet_call("s3:get",nHandle,"s12:IsKeyOrIndex")
+		return dotnet_getp(nHandle,"IsKeyOrIndex")
 
 	Func setIsKeyOrIndex P1
-		dotnet_callv("s3:set",nHandle,"s12:IsKeyOrIndex",P1)
+		dotnet_setp(nHandle,"IsKeyOrIndex",P1)
 		return self
 
 	Func getIsUnicode
@@ -4534,17 +4488,17 @@ Class TypeMappingInfo from ValueType
 		return self
 
 	Func getIsKey
-		return dotnet_call("s3:get",nHandle,"s5:IsKey")
+		return dotnet_getp(nHandle,"IsKey")
 
 	Func setIsKey P1
-		dotnet_callv("s3:set",nHandle,"s5:IsKey",P1)
+		dotnet_setp(nHandle,"IsKey",P1)
 		return self
 
 	Func getIsKeyOrIndex
-		return dotnet_call("s3:get",nHandle,"s12:IsKeyOrIndex")
+		return dotnet_getp(nHandle,"IsKeyOrIndex")
 
 	Func setIsKeyOrIndex P1
-		dotnet_callv("s3:set",nHandle,"s12:IsKeyOrIndex",P1)
+		dotnet_setp(nHandle,"IsKeyOrIndex",P1)
 		return self
 
 	Func getSize
@@ -4789,13 +4743,13 @@ Class ValueBuffer from ValueType
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsEmpty
-		return dotnet_call("s3:get",nHandle,"s7:IsEmpty")
+		return dotnet_getp(nHandle,"IsEmpty")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
@@ -4914,17 +4868,13 @@ Class RelationalTypeMapping from CoreTypeMapping
 		raise("DotNet Error: StoreTypePostfix is a read-only property")
 
 	Func getStoreType
-		dn_x = dotnet_call("s3:get",nHandle,"s9:StoreType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"StoreType"))
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
 
 	Func getStoreTypeNameBase
-		dn_x = dotnet_call("s3:get",nHandle,"s17:StoreTypeNameBase")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"StoreTypeNameBase"))
 
 	Func setStoreTypeNameBase P1
 		raise("DotNet Error: StoreTypeNameBase is a read-only property")
@@ -4936,7 +4886,7 @@ Class RelationalTypeMapping from CoreTypeMapping
 		raise("DotNet Error: DbType is a read-only property")
 
 	Func getIsUnicode
-		return dotnet_call("s3:get",nHandle,"s9:IsUnicode")
+		return dotnet_getp(nHandle,"IsUnicode")
 
 	Func setIsUnicode P1
 		raise("DotNet Error: IsUnicode is a read-only property")
@@ -4960,7 +4910,7 @@ Class RelationalTypeMapping from CoreTypeMapping
 		raise("DotNet Error: Scale is a read-only property")
 
 	Func getIsFixedLength
-		return dotnet_call("s3:get",nHandle,"s13:IsFixedLength")
+		return dotnet_getp(nHandle,"IsFixedLength")
 
 	Func setIsFixedLength P1
 		raise("DotNet Error: IsFixedLength is a read-only property")

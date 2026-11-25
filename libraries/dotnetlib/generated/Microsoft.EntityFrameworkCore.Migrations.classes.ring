@@ -436,17 +436,13 @@ Class HistoryRow from Object
 		return dn_x
 
 	Func getMigrationId
-		dn_x = dotnet_call("s3:get",nHandle,"s11:MigrationId")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"MigrationId"))
 
 	Func setMigrationId P1
 		raise("DotNet Error: MigrationId is a read-only property")
 
 	Func getProductVersion
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ProductVersion")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ProductVersion"))
 
 	Func setProductVersion P1
 		raise("DotNet Error: ProductVersion is a read-only property")
@@ -859,12 +855,10 @@ Class Migration from Object
 		raise("DotNet Error: DownOperations is a read-only property")
 
 	Func getActiveProvider
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ActiveProvider")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ActiveProvider"))
 
 	Func setActiveProvider P1
-		dotnet_callv("s3:set",nHandle,"s14:ActiveProvider",P1)
+		dotnet_setp(nHandle,"ActiveProvider",P1)
 		return self
 
 	Func getInitialDatabase
@@ -892,9 +886,7 @@ Class MigrationAttribute from Attribute
 		return self
 
 	Func getId
-		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Id"))
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -1117,9 +1109,7 @@ Class MigrationBuilder from Object
 		return dn_x
 
 	Func getActiveProvider
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ActiveProvider")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ActiveProvider"))
 
 	Func setActiveProvider P1
 		raise("DotNet Error: ActiveProvider is a read-only property")
@@ -1185,15 +1175,13 @@ Class MigrationCommand from Object
 		return dn_x
 
 	Func getTransactionSuppressed
-		return dotnet_call("s3:get",nHandle,"s21:TransactionSuppressed")
+		return dotnet_getp(nHandle,"TransactionSuppressed")
 
 	Func setTransactionSuppressed P1
 		raise("DotNet Error: TransactionSuppressed is a read-only property")
 
 	Func getCommandText
-		dn_x = dotnet_call("s3:get",nHandle,"s11:CommandText")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"CommandText"))
 
 	Func setCommandText P1
 		raise("DotNet Error: CommandText is a read-only property")
@@ -1292,26 +1280,24 @@ Class MigrationExecutionState from Object
 		return dn_x
 
 	Func getLastCommittedCommandIndex
-		return dotnet_call("s3:get",nHandle,"s25:LastCommittedCommandIndex")
+		return dotnet_getp(nHandle,"LastCommittedCommandIndex")
 
 	Func setLastCommittedCommandIndex P1
-		dotnet_callv("s3:set",nHandle,"s25:LastCommittedCommandIndex",P1)
+		dotnet_setp(nHandle,"LastCommittedCommandIndex",P1)
 		return self
 
 	Func getCurrentMigrationId
-		dn_x = dotnet_call("s3:get",nHandle,"s18:CurrentMigrationId")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"CurrentMigrationId"))
 
 	Func setCurrentMigrationId P1
-		dotnet_callv("s3:set",nHandle,"s18:CurrentMigrationId",P1)
+		dotnet_setp(nHandle,"CurrentMigrationId",P1)
 		return self
 
 	Func getAnyOperationPerformed
-		return dotnet_call("s3:get",nHandle,"s21:AnyOperationPerformed")
+		return dotnet_getp(nHandle,"AnyOperationPerformed")
 
 	Func setAnyOperationPerformed P1
-		dotnet_callv("s3:set",nHandle,"s21:AnyOperationPerformed",P1)
+		dotnet_setp(nHandle,"AnyOperationPerformed",P1)
 		return self
 
 	Func getDatabaseLock

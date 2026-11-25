@@ -144,6 +144,14 @@ func dnFinish  dn_cResponse
 	dn_aItems = dnUnpack(dn_cResponse)
 	return dn_aItems[1]
 
+# The text that dotnet_getp answers: a null text comes as the marker list that dnFinish reads (a call to this function costs less than the same
+# statements in the generated getter)
+func dnText  dn_xAnswer
+	if islist(dn_xAnswer)
+		return dnFinish(dn_xAnswer[2])
+	ok
+	return dn_xAnswer
+
 # The handles of the objects that Ring freed are released in groups (the next .NET call does it when 32 are waiting).
 # dnFlush() releases them now. Ring frees an object a little after the last variable that held it is gone; callgc() (called in the
 # same function) makes it free the objects at once. So to let go of a big object now (or before you look at the memory of .NET with

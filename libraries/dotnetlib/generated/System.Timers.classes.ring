@@ -114,24 +114,24 @@ Class TimersTimer from Component
 		return self
 
 	Func getAutoReset
-		return dotnet_call("s3:get",nHandle,"s9:AutoReset")
+		return dotnet_getp(nHandle,"AutoReset")
 
 	Func setAutoReset P1
-		dotnet_callv("s3:set",nHandle,"s9:AutoReset",P1)
+		dotnet_setp(nHandle,"AutoReset",P1)
 		return self
 
 	Func getEnabled
-		return dotnet_call("s3:get",nHandle,"s7:Enabled")
+		return dotnet_getp(nHandle,"Enabled")
 
 	Func setEnabled P1
-		dotnet_callv("s3:set",nHandle,"s7:Enabled",P1)
+		dotnet_setp(nHandle,"Enabled",P1)
 		return self
 
 	Func getInterval
-		return dotnet_call("s3:get",nHandle,"s8:Interval")
+		return dotnet_getp(nHandle,"Interval")
 
 	Func setInterval P1
-		dotnet_callv("s3:set",nHandle,"s8:Interval",P1)
+		dotnet_setp(nHandle,"Interval",P1)
 		return self
 
 	Func getSynchronizingObject

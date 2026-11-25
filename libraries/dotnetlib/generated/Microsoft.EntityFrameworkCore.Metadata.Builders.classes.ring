@@ -6950,17 +6950,13 @@ Class OwnedNavigationSplitTableBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -7011,17 +7007,13 @@ Class OwnedNavigationSplitViewBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -7170,17 +7162,13 @@ Class OwnedNavigationTableBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -7221,17 +7209,13 @@ Class OwnedNavigationViewBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -7859,17 +7843,13 @@ Class SplitTableBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -7920,17 +7900,13 @@ Class SplitViewBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -8159,17 +8135,13 @@ Class TableBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -8310,17 +8282,13 @@ Class ViewBuilder from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSchema
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Schema")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Schema"))
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")

@@ -114,10 +114,10 @@ Class ClientWebSocketOptions from Object
 		return self
 
 	Func getUseDefaultCredentials
-		return dotnet_call("s3:get",nHandle,"s21:UseDefaultCredentials")
+		return dotnet_getp(nHandle,"UseDefaultCredentials")
 
 	Func setUseDefaultCredentials P1
-		dotnet_callv("s3:set",nHandle,"s21:UseDefaultCredentials",P1)
+		dotnet_setp(nHandle,"UseDefaultCredentials",P1)
 		return self
 
 	Func getCredentials
@@ -177,10 +177,10 @@ Class ClientWebSocketOptions from Object
 		return self
 
 	Func getCollectHttpResponseDetails
-		return dotnet_call("s3:get",nHandle,"s26:CollectHttpResponseDetails")
+		return dotnet_getp(nHandle,"CollectHttpResponseDetails")
 
 	Func setCollectHttpResponseDetails P1
-		dotnet_callv("s3:set",nHandle,"s26:CollectHttpResponseDetails",P1)
+		dotnet_setp(nHandle,"CollectHttpResponseDetails",P1)
 		return self
 
 
@@ -225,13 +225,13 @@ Class ValueWebSocketReceiveResult from ValueType
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getEndOfMessage
-		return dotnet_call("s3:get",nHandle,"s12:EndOfMessage")
+		return dotnet_getp(nHandle,"EndOfMessage")
 
 	Func setEndOfMessage P1
 		raise("DotNet Error: EndOfMessage is a read-only property")
@@ -322,17 +322,13 @@ Class WebSocket from Object
 		raise("DotNet Error: CloseStatus is a read-only property")
 
 	Func getCloseStatusDescription
-		dn_x = dotnet_call("s3:get",nHandle,"s22:CloseStatusDescription")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"CloseStatusDescription"))
 
 	Func setCloseStatusDescription P1
 		raise("DotNet Error: CloseStatusDescription is a read-only property")
 
 	Func getSubProtocol
-		dn_x = dotnet_call("s3:get",nHandle,"s11:SubProtocol")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"SubProtocol"))
 
 	Func setSubProtocol P1
 		raise("DotNet Error: SubProtocol is a read-only property")
@@ -392,9 +388,7 @@ Class WebSocketContext from Object
 		raise("DotNet Error: Headers is a read-only property")
 
 	Func getOrigin
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Origin")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Origin"))
 
 	Func setOrigin P1
 		raise("DotNet Error: Origin is a read-only property")
@@ -406,17 +400,13 @@ Class WebSocketContext from Object
 		raise("DotNet Error: SecWebSocketProtocols is a read-only property")
 
 	Func getSecWebSocketVersion
-		dn_x = dotnet_call("s3:get",nHandle,"s19:SecWebSocketVersion")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"SecWebSocketVersion"))
 
 	Func setSecWebSocketVersion P1
 		raise("DotNet Error: SecWebSocketVersion is a read-only property")
 
 	Func getSecWebSocketKey
-		dn_x = dotnet_call("s3:get",nHandle,"s15:SecWebSocketKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"SecWebSocketKey"))
 
 	Func setSecWebSocketKey P1
 		raise("DotNet Error: SecWebSocketKey is a read-only property")
@@ -434,19 +424,19 @@ Class WebSocketContext from Object
 		raise("DotNet Error: User is a read-only property")
 
 	Func getIsAuthenticated
-		return dotnet_call("s3:get",nHandle,"s15:IsAuthenticated")
+		return dotnet_getp(nHandle,"IsAuthenticated")
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
 
 	Func getIsLocal
-		return dotnet_call("s3:get",nHandle,"s7:IsLocal")
+		return dotnet_getp(nHandle,"IsLocal")
 
 	Func setIsLocal P1
 		raise("DotNet Error: IsLocal is a read-only property")
 
 	Func getIsSecureConnection
-		return dotnet_call("s3:get",nHandle,"s18:IsSecureConnection")
+		return dotnet_getp(nHandle,"IsSecureConnection")
 
 	Func setIsSecureConnection P1
 		raise("DotNet Error: IsSecureConnection is a read-only property")
@@ -490,19 +480,17 @@ Class WebSocketCreationOptions from Object
 		return dn_x
 
 	Func getIsServer
-		return dotnet_call("s3:get",nHandle,"s8:IsServer")
+		return dotnet_getp(nHandle,"IsServer")
 
 	Func setIsServer P1
-		dotnet_callv("s3:set",nHandle,"s8:IsServer",P1)
+		dotnet_setp(nHandle,"IsServer",P1)
 		return self
 
 	Func getSubProtocol
-		dn_x = dotnet_call("s3:get",nHandle,"s11:SubProtocol")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"SubProtocol"))
 
 	Func setSubProtocol P1
-		dotnet_callv("s3:set",nHandle,"s11:SubProtocol",P1)
+		dotnet_setp(nHandle,"SubProtocol",P1)
 		return self
 
 	Func getKeepAliveInterval
@@ -558,31 +546,31 @@ Class WebSocketDeflateOptions from Object
 		return dn_x
 
 	Func getClientMaxWindowBits
-		return dotnet_call("s3:get",nHandle,"s19:ClientMaxWindowBits")
+		return dotnet_getp(nHandle,"ClientMaxWindowBits")
 
 	Func setClientMaxWindowBits P1
-		dotnet_callv("s3:set",nHandle,"s19:ClientMaxWindowBits",P1)
+		dotnet_setp(nHandle,"ClientMaxWindowBits",P1)
 		return self
 
 	Func getClientContextTakeover
-		return dotnet_call("s3:get",nHandle,"s21:ClientContextTakeover")
+		return dotnet_getp(nHandle,"ClientContextTakeover")
 
 	Func setClientContextTakeover P1
-		dotnet_callv("s3:set",nHandle,"s21:ClientContextTakeover",P1)
+		dotnet_setp(nHandle,"ClientContextTakeover",P1)
 		return self
 
 	Func getServerMaxWindowBits
-		return dotnet_call("s3:get",nHandle,"s19:ServerMaxWindowBits")
+		return dotnet_getp(nHandle,"ServerMaxWindowBits")
 
 	Func setServerMaxWindowBits P1
-		dotnet_callv("s3:set",nHandle,"s19:ServerMaxWindowBits",P1)
+		dotnet_setp(nHandle,"ServerMaxWindowBits",P1)
 		return self
 
 	Func getServerContextTakeover
-		return dotnet_call("s3:get",nHandle,"s21:ServerContextTakeover")
+		return dotnet_getp(nHandle,"ServerContextTakeover")
 
 	Func setServerContextTakeover P1
-		dotnet_callv("s3:set",nHandle,"s21:ServerContextTakeover",P1)
+		dotnet_setp(nHandle,"ServerContextTakeover",P1)
 		return self
 
 
@@ -671,13 +659,13 @@ Class WebSocketReceiveResult from Object
 		return dn_x
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getEndOfMessage
-		return dotnet_call("s3:get",nHandle,"s12:EndOfMessage")
+		return dotnet_getp(nHandle,"EndOfMessage")
 
 	Func setEndOfMessage P1
 		raise("DotNet Error: EndOfMessage is a read-only property")
@@ -695,9 +683,7 @@ Class WebSocketReceiveResult from Object
 		raise("DotNet Error: CloseStatus is a read-only property")
 
 	Func getCloseStatusDescription
-		dn_x = dotnet_call("s3:get",nHandle,"s22:CloseStatusDescription")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"CloseStatusDescription"))
 
 	Func setCloseStatusDescription P1
 		raise("DotNet Error: CloseStatusDescription is a read-only property")

@@ -576,7 +576,7 @@ Class AnnotatableBase from Object
 		return self
 
 	Func getIsReadOnly
-		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
+		return dotnet_getp(nHandle,"IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -668,9 +668,7 @@ Class Annotation from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -858,19 +856,19 @@ Class CoreOptionsExtension from Object
 		raise("DotNet Error: Info is a read-only property")
 
 	Func getIsSensitiveDataLoggingEnabled
-		return dotnet_call("s3:get",nHandle,"s29:IsSensitiveDataLoggingEnabled")
+		return dotnet_getp(nHandle,"IsSensitiveDataLoggingEnabled")
 
 	Func setIsSensitiveDataLoggingEnabled P1
 		raise("DotNet Error: IsSensitiveDataLoggingEnabled is a read-only property")
 
 	Func getDetailedErrorsEnabled
-		return dotnet_call("s3:get",nHandle,"s21:DetailedErrorsEnabled")
+		return dotnet_getp(nHandle,"DetailedErrorsEnabled")
 
 	Func setDetailedErrorsEnabled P1
 		raise("DotNet Error: DetailedErrorsEnabled is a read-only property")
 
 	Func getThreadSafetyChecksEnabled
-		return dotnet_call("s3:get",nHandle,"s25:ThreadSafetyChecksEnabled")
+		return dotnet_getp(nHandle,"ThreadSafetyChecksEnabled")
 
 	Func setThreadSafetyChecksEnabled P1
 		raise("DotNet Error: ThreadSafetyChecksEnabled is a read-only property")
@@ -918,7 +916,7 @@ Class CoreOptionsExtension from Object
 		raise("DotNet Error: RootApplicationServiceProvider is a read-only property")
 
 	Func getAutoResolveRootProvider
-		return dotnet_call("s3:get",nHandle,"s23:AutoResolveRootProvider")
+		return dotnet_getp(nHandle,"AutoResolveRootProvider")
 
 	Func setAutoResolveRootProvider P1
 		raise("DotNet Error: AutoResolveRootProvider is a read-only property")
@@ -936,7 +934,7 @@ Class CoreOptionsExtension from Object
 		raise("DotNet Error: QueryTrackingBehavior is a read-only property")
 
 	Func getServiceProviderCachingEnabled
-		return dotnet_call("s3:get",nHandle,"s29:ServiceProviderCachingEnabled")
+		return dotnet_getp(nHandle,"ServiceProviderCachingEnabled")
 
 	Func setServiceProviderCachingEnabled P1
 		raise("DotNet Error: ServiceProviderCachingEnabled is a read-only property")
@@ -1314,10 +1312,10 @@ Class DatabaseFacade from Object
 		raise("DotNet Error: CurrentTransaction is a read-only property")
 
 	Func getAutoTransactionsEnabled
-		return dotnet_call("s3:get",nHandle,"s23:AutoTransactionsEnabled")
+		return dotnet_getp(nHandle,"AutoTransactionsEnabled")
 
 	Func setAutoTransactionsEnabled P1
-		dotnet_callv("s3:set",nHandle,"s23:AutoTransactionsEnabled",P1)
+		dotnet_setp(nHandle,"AutoTransactionsEnabled",P1)
 		return self
 
 	Func getAutoTransactionBehavior
@@ -1328,16 +1326,14 @@ Class DatabaseFacade from Object
 		return self
 
 	Func getAutoSavepointsEnabled
-		return dotnet_call("s3:get",nHandle,"s21:AutoSavepointsEnabled")
+		return dotnet_getp(nHandle,"AutoSavepointsEnabled")
 
 	Func setAutoSavepointsEnabled P1
-		dotnet_callv("s3:set",nHandle,"s21:AutoSavepointsEnabled",P1)
+		dotnet_setp(nHandle,"AutoSavepointsEnabled",P1)
 		return self
 
 	Func getProviderName
-		dn_x = dotnet_call("s3:get",nHandle,"s12:ProviderName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ProviderName"))
 
 	Func setProviderName P1
 		raise("DotNet Error: ProviderName is a read-only property")
@@ -1436,15 +1432,13 @@ Class DbContextOptionsExtensionInfo from Object
 		raise("DotNet Error: Extension is a read-only property")
 
 	Func getIsDatabaseProvider
-		return dotnet_call("s3:get",nHandle,"s18:IsDatabaseProvider")
+		return dotnet_getp(nHandle,"IsDatabaseProvider")
 
 	Func setIsDatabaseProvider P1
 		raise("DotNet Error: IsDatabaseProvider is a read-only property")
 
 	Func getLogFragment
-		dn_x = dotnet_call("s3:get",nHandle,"s11:LogFragment")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"LogFragment"))
 
 	Func setLogFragment P1
 		raise("DotNet Error: LogFragment is a read-only property")
@@ -1494,9 +1488,7 @@ Class DbSetProperty from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1536,17 +1528,13 @@ Class DebugView from Object
 		return dn_x
 
 	Func getLongView
-		dn_x = dotnet_call("s3:get",nHandle,"s8:LongView")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"LongView"))
 
 	Func setLongView P1
 		raise("DotNet Error: LongView is a read-only property")
 
 	Func getShortView
-		dn_x = dotnet_call("s3:get",nHandle,"s9:ShortView")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ShortView"))
 
 	Func setShortView P1
 		raise("DotNet Error: ShortView is a read-only property")
@@ -1824,9 +1812,7 @@ Class IAnnotation from DotNetObject
 		return self
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1884,13 +1870,13 @@ Class ICoreSingletonOptions from DotNetObject
 		return self
 
 	Func getAreDetailedErrorsEnabled
-		return dotnet_call("s3:get",nHandle,"s24:AreDetailedErrorsEnabled")
+		return dotnet_getp(nHandle,"AreDetailedErrorsEnabled")
 
 	Func setAreDetailedErrorsEnabled P1
 		raise("DotNet Error: AreDetailedErrorsEnabled is a read-only property")
 
 	Func getAreThreadSafetyChecksEnabled
-		return dotnet_call("s3:get",nHandle,"s28:AreThreadSafetyChecksEnabled")
+		return dotnet_getp(nHandle,"AreThreadSafetyChecksEnabled")
 
 	Func setAreThreadSafetyChecksEnabled P1
 		raise("DotNet Error: AreThreadSafetyChecksEnabled is a read-only property")
@@ -2403,13 +2389,13 @@ Class IndentedStringBuilder from Object
 		return dn_x
 
 	Func getIndentCount
-		return dotnet_call("s3:get",nHandle,"s11:IndentCount")
+		return dotnet_getp(nHandle,"IndentCount")
 
 	Func setIndentCount P1
 		raise("DotNet Error: IndentCount is a read-only property")
 
 	Func getLength
-		return dotnet_call("s3:get",nHandle,"s6:Length")
+		return dotnet_getp(nHandle,"Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
@@ -3216,9 +3202,7 @@ Class RelationalOptionsExtension from Object
 		raise("DotNet Error: Info is a read-only property")
 
 	Func getConnectionString
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ConnectionString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ConnectionString"))
 
 	Func setConnectionString P1
 		raise("DotNet Error: ConnectionString is a read-only property")
@@ -3230,7 +3214,7 @@ Class RelationalOptionsExtension from Object
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getIsConnectionOwned
-		return dotnet_call("s3:get",nHandle,"s17:IsConnectionOwned")
+		return dotnet_getp(nHandle,"IsConnectionOwned")
 
 	Func setIsConnectionOwned P1
 		raise("DotNet Error: IsConnectionOwned is a read-only property")
@@ -3254,7 +3238,7 @@ Class RelationalOptionsExtension from Object
 		raise("DotNet Error: MinBatchSize is a read-only property")
 
 	Func getUseRelationalNulls
-		return dotnet_call("s3:get",nHandle,"s18:UseRelationalNulls")
+		return dotnet_getp(nHandle,"UseRelationalNulls")
 
 	Func setUseRelationalNulls P1
 		raise("DotNet Error: UseRelationalNulls is a read-only property")
@@ -3266,9 +3250,7 @@ Class RelationalOptionsExtension from Object
 		raise("DotNet Error: QuerySplittingBehavior is a read-only property")
 
 	Func getMigrationsAssembly
-		dn_x = dotnet_call("s3:get",nHandle,"s18:MigrationsAssembly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"MigrationsAssembly"))
 
 	Func setMigrationsAssembly P1
 		raise("DotNet Error: MigrationsAssembly is a read-only property")
@@ -3280,17 +3262,13 @@ Class RelationalOptionsExtension from Object
 		raise("DotNet Error: MigrationsAssemblyObject is a read-only property")
 
 	Func getMigrationsHistoryTableName
-		dn_x = dotnet_call("s3:get",nHandle,"s26:MigrationsHistoryTableName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"MigrationsHistoryTableName"))
 
 	Func setMigrationsHistoryTableName P1
 		raise("DotNet Error: MigrationsHistoryTableName is a read-only property")
 
 	Func getMigrationsHistoryTableSchema
-		dn_x = dotnet_call("s3:get",nHandle,"s28:MigrationsHistoryTableSchema")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"MigrationsHistoryTableSchema"))
 
 	Func setMigrationsHistoryTableSchema P1
 		raise("DotNet Error: MigrationsHistoryTableSchema is a read-only property")
@@ -3505,7 +3483,7 @@ Class ServiceCharacteristics from ValueType
 		raise("DotNet Error: Lifetime is a read-only property")
 
 	Func getMultipleRegistrations
-		return dotnet_call("s3:get",nHandle,"s21:MultipleRegistrations")
+		return dotnet_getp(nHandle,"MultipleRegistrations")
 
 	Func setMultipleRegistrations P1
 		raise("DotNet Error: MultipleRegistrations is a read-only property")

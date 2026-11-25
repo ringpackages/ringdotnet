@@ -171,9 +171,7 @@ Class XPathExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Xml.XPath.XPathExpression, System.Private.Xml',"s7:Compile",P1))
 
 	Func getExpression
-		dn_x = dotnet_call("s3:get",nHandle,"s10:Expression")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Expression"))
 
 	Func setExpression P1
 		raise("DotNet Error: Expression is a read-only property")
@@ -219,7 +217,7 @@ Class XPathItem from Object
 		return dn_x
 
 	Func getIsNode
-		return dotnet_call("s3:get",nHandle,"s6:IsNode")
+		return dotnet_getp(nHandle,"IsNode")
 
 	Func setIsNode P1
 		raise("DotNet Error: IsNode is a read-only property")
@@ -231,9 +229,7 @@ Class XPathItem from Object
 		raise("DotNet Error: XmlType is a read-only property")
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Value"))
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -251,7 +247,7 @@ Class XPathItem from Object
 		raise("DotNet Error: ValueType is a read-only property")
 
 	Func getValueAsBoolean
-		return dotnet_call("s3:get",nHandle,"s14:ValueAsBoolean")
+		return dotnet_getp(nHandle,"ValueAsBoolean")
 
 	Func setValueAsBoolean P1
 		raise("DotNet Error: ValueAsBoolean is a read-only property")
@@ -263,19 +259,19 @@ Class XPathItem from Object
 		raise("DotNet Error: ValueAsDateTime is a read-only property")
 
 	Func getValueAsDouble
-		return dotnet_call("s3:get",nHandle,"s13:ValueAsDouble")
+		return dotnet_getp(nHandle,"ValueAsDouble")
 
 	Func setValueAsDouble P1
 		raise("DotNet Error: ValueAsDouble is a read-only property")
 
 	Func getValueAsInt
-		return dotnet_call("s3:get",nHandle,"s10:ValueAsInt")
+		return dotnet_getp(nHandle,"ValueAsInt")
 
 	Func setValueAsInt P1
 		raise("DotNet Error: ValueAsInt is a read-only property")
 
 	Func getValueAsLong
-		return dotnet_call("s3:get",nHandle,"s11:ValueAsLong")
+		return dotnet_getp(nHandle,"ValueAsLong")
 
 	Func setValueAsLong P1
 		raise("DotNet Error: ValueAsLong is a read-only property")
@@ -339,13 +335,13 @@ Class XPathNodeIterator from Object
 		raise("DotNet Error: Current is a read-only property")
 
 	Func getCurrentPosition
-		return dotnet_call("s3:get",nHandle,"s15:CurrentPosition")
+		return dotnet_getp(nHandle,"CurrentPosition")
 
 	Func setCurrentPosition P1
 		raise("DotNet Error: CurrentPosition is a read-only property")
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -720,55 +716,43 @@ Class XPathNavigator from XPathItem
 		raise("DotNet Error: NodeType is a read-only property")
 
 	Func getLocalName
-		dn_x = dotnet_call("s3:get",nHandle,"s9:LocalName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"LocalName"))
 
 	Func setLocalName P1
 		raise("DotNet Error: LocalName is a read-only property")
 
 	Func getName
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Name"))
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getNamespaceURI
-		dn_x = dotnet_call("s3:get",nHandle,"s12:NamespaceURI")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"NamespaceURI"))
 
 	Func setNamespaceURI P1
 		raise("DotNet Error: NamespaceURI is a read-only property")
 
 	Func getPrefix
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Prefix")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"Prefix"))
 
 	Func setPrefix P1
 		raise("DotNet Error: Prefix is a read-only property")
 
 	Func getBaseURI
-		dn_x = dotnet_call("s3:get",nHandle,"s7:BaseURI")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"BaseURI"))
 
 	Func setBaseURI P1
 		raise("DotNet Error: BaseURI is a read-only property")
 
 	Func getIsEmptyElement
-		return dotnet_call("s3:get",nHandle,"s14:IsEmptyElement")
+		return dotnet_getp(nHandle,"IsEmptyElement")
 
 	Func setIsEmptyElement P1
 		raise("DotNet Error: IsEmptyElement is a read-only property")
 
 	Func getXmlLang
-		dn_x = dotnet_call("s3:get",nHandle,"s7:XmlLang")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"XmlLang"))
 
 	Func setXmlLang P1
 		raise("DotNet Error: XmlLang is a read-only property")
@@ -780,13 +764,13 @@ Class XPathNavigator from XPathItem
 		raise("DotNet Error: UnderlyingObject is a read-only property")
 
 	Func getHasAttributes
-		return dotnet_call("s3:get",nHandle,"s13:HasAttributes")
+		return dotnet_getp(nHandle,"HasAttributes")
 
 	Func setHasAttributes P1
 		raise("DotNet Error: HasAttributes is a read-only property")
 
 	Func getHasChildren
-		return dotnet_call("s3:get",nHandle,"s11:HasChildren")
+		return dotnet_getp(nHandle,"HasChildren")
 
 	Func setHasChildren P1
 		raise("DotNet Error: HasChildren is a read-only property")
@@ -798,27 +782,23 @@ Class XPathNavigator from XPathItem
 		raise("DotNet Error: SchemaInfo is a read-only property")
 
 	Func getCanEdit
-		return dotnet_call("s3:get",nHandle,"s7:CanEdit")
+		return dotnet_getp(nHandle,"CanEdit")
 
 	Func setCanEdit P1
 		raise("DotNet Error: CanEdit is a read-only property")
 
 	Func getOuterXml
-		dn_x = dotnet_call("s3:get",nHandle,"s8:OuterXml")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"OuterXml"))
 
 	Func setOuterXml P1
-		dotnet_callv("s3:set",nHandle,"s8:OuterXml",P1)
+		dotnet_setp(nHandle,"OuterXml",P1)
 		return self
 
 	Func getInnerXml
-		dn_x = dotnet_call("s3:get",nHandle,"s8:InnerXml")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"InnerXml"))
 
 	Func setInnerXml P1
-		dotnet_callv("s3:set",nHandle,"s8:InnerXml",P1)
+		dotnet_setp(nHandle,"InnerXml",P1)
 		return self
 
 	Func getNavigatorComparer

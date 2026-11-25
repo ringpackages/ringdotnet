@@ -213,7 +213,7 @@ Class BitmapEffectCollection from Animatable
 		return self
 
 	Func getCount
-		return dotnet_call("s3:get",nHandle,"s5:Count")
+		return dotnet_getp(nHandle,"Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -470,31 +470,31 @@ Class BevelBitmapEffect from BitmapEffect
 		return self
 
 	Func getBevelWidth
-		return dotnet_call("s3:get",nHandle,"s10:BevelWidth")
+		return dotnet_getp(nHandle,"BevelWidth")
 
 	Func setBevelWidth P1
-		dotnet_callv("s3:set",nHandle,"s10:BevelWidth",P1)
+		dotnet_setp(nHandle,"BevelWidth",P1)
 		return self
 
 	Func getRelief
-		return dotnet_call("s3:get",nHandle,"s6:Relief")
+		return dotnet_getp(nHandle,"Relief")
 
 	Func setRelief P1
-		dotnet_callv("s3:set",nHandle,"s6:Relief",P1)
+		dotnet_setp(nHandle,"Relief",P1)
 		return self
 
 	Func getLightAngle
-		return dotnet_call("s3:get",nHandle,"s10:LightAngle")
+		return dotnet_getp(nHandle,"LightAngle")
 
 	Func setLightAngle P1
-		dotnet_callv("s3:set",nHandle,"s10:LightAngle",P1)
+		dotnet_setp(nHandle,"LightAngle",P1)
 		return self
 
 	Func getSmoothness
-		return dotnet_call("s3:get",nHandle,"s10:Smoothness")
+		return dotnet_getp(nHandle,"Smoothness")
 
 	Func setSmoothness P1
-		dotnet_callv("s3:set",nHandle,"s10:Smoothness",P1)
+		dotnet_setp(nHandle,"Smoothness",P1)
 		return self
 
 	Func getEdgeProfile
@@ -598,10 +598,10 @@ Class BlurBitmapEffect from BitmapEffect
 		return self
 
 	Func getRadius
-		return dotnet_call("s3:get",nHandle,"s6:Radius")
+		return dotnet_getp(nHandle,"Radius")
 
 	Func setRadius P1
-		dotnet_callv("s3:set",nHandle,"s6:Radius",P1)
+		dotnet_setp(nHandle,"Radius",P1)
 		return self
 
 	Func getKernelType
@@ -652,10 +652,10 @@ Class BlurEffect from Effect
 		return self
 
 	Func getRadius
-		return dotnet_call("s3:get",nHandle,"s6:Radius")
+		return dotnet_getp(nHandle,"Radius")
 
 	Func setRadius P1
-		dotnet_callv("s3:set",nHandle,"s6:Radius",P1)
+		dotnet_setp(nHandle,"Radius",P1)
 		return self
 
 	Func getKernelType
@@ -725,10 +725,10 @@ Class DropShadowBitmapEffect from BitmapEffect
 		return self
 
 	Func getShadowDepth
-		return dotnet_call("s3:get",nHandle,"s11:ShadowDepth")
+		return dotnet_getp(nHandle,"ShadowDepth")
 
 	Func setShadowDepth P1
-		dotnet_callv("s3:set",nHandle,"s11:ShadowDepth",P1)
+		dotnet_setp(nHandle,"ShadowDepth",P1)
 		return self
 
 	Func getColor
@@ -739,31 +739,31 @@ Class DropShadowBitmapEffect from BitmapEffect
 		return self
 
 	Func getDirection
-		return dotnet_call("s3:get",nHandle,"s9:Direction")
+		return dotnet_getp(nHandle,"Direction")
 
 	Func setDirection P1
-		dotnet_callv("s3:set",nHandle,"s9:Direction",P1)
+		dotnet_setp(nHandle,"Direction",P1)
 		return self
 
 	Func getNoise
-		return dotnet_call("s3:get",nHandle,"s5:Noise")
+		return dotnet_getp(nHandle,"Noise")
 
 	Func setNoise P1
-		dotnet_callv("s3:set",nHandle,"s5:Noise",P1)
+		dotnet_setp(nHandle,"Noise",P1)
 		return self
 
 	Func getOpacity
-		return dotnet_call("s3:get",nHandle,"s7:Opacity")
+		return dotnet_getp(nHandle,"Opacity")
 
 	Func setOpacity P1
-		dotnet_callv("s3:set",nHandle,"s7:Opacity",P1)
+		dotnet_setp(nHandle,"Opacity",P1)
 		return self
 
 	Func getSoftness
-		return dotnet_call("s3:get",nHandle,"s8:Softness")
+		return dotnet_getp(nHandle,"Softness")
 
 	Func setSoftness P1
-		dotnet_callv("s3:set",nHandle,"s8:Softness",P1)
+		dotnet_setp(nHandle,"Softness",P1)
 		return self
 
 	Func getShadowDepthProperty
@@ -837,10 +837,10 @@ Class DropShadowEffect from Effect
 		return self
 
 	Func getShadowDepth
-		return dotnet_call("s3:get",nHandle,"s11:ShadowDepth")
+		return dotnet_getp(nHandle,"ShadowDepth")
 
 	Func setShadowDepth P1
-		dotnet_callv("s3:set",nHandle,"s11:ShadowDepth",P1)
+		dotnet_setp(nHandle,"ShadowDepth",P1)
 		return self
 
 	Func getColor
@@ -851,24 +851,24 @@ Class DropShadowEffect from Effect
 		return self
 
 	Func getDirection
-		return dotnet_call("s3:get",nHandle,"s9:Direction")
+		return dotnet_getp(nHandle,"Direction")
 
 	Func setDirection P1
-		dotnet_callv("s3:set",nHandle,"s9:Direction",P1)
+		dotnet_setp(nHandle,"Direction",P1)
 		return self
 
 	Func getOpacity
-		return dotnet_call("s3:get",nHandle,"s7:Opacity")
+		return dotnet_getp(nHandle,"Opacity")
 
 	Func setOpacity P1
-		dotnet_callv("s3:set",nHandle,"s7:Opacity",P1)
+		dotnet_setp(nHandle,"Opacity",P1)
 		return self
 
 	Func getBlurRadius
-		return dotnet_call("s3:get",nHandle,"s10:BlurRadius")
+		return dotnet_getp(nHandle,"BlurRadius")
 
 	Func setBlurRadius P1
-		dotnet_callv("s3:set",nHandle,"s10:BlurRadius",P1)
+		dotnet_setp(nHandle,"BlurRadius",P1)
 		return self
 
 	Func getRenderingBias
@@ -941,17 +941,17 @@ Class EmbossBitmapEffect from BitmapEffect
 		return self
 
 	Func getLightAngle
-		return dotnet_call("s3:get",nHandle,"s10:LightAngle")
+		return dotnet_getp(nHandle,"LightAngle")
 
 	Func setLightAngle P1
-		dotnet_callv("s3:set",nHandle,"s10:LightAngle",P1)
+		dotnet_setp(nHandle,"LightAngle",P1)
 		return self
 
 	Func getRelief
-		return dotnet_call("s3:get",nHandle,"s6:Relief")
+		return dotnet_getp(nHandle,"Relief")
 
 	Func setRelief P1
-		dotnet_callv("s3:set",nHandle,"s6:Relief",P1)
+		dotnet_setp(nHandle,"Relief",P1)
 		return self
 
 	Func getLightAngleProperty
@@ -1004,24 +1004,24 @@ Class OuterGlowBitmapEffect from BitmapEffect
 		return self
 
 	Func getGlowSize
-		return dotnet_call("s3:get",nHandle,"s8:GlowSize")
+		return dotnet_getp(nHandle,"GlowSize")
 
 	Func setGlowSize P1
-		dotnet_callv("s3:set",nHandle,"s8:GlowSize",P1)
+		dotnet_setp(nHandle,"GlowSize",P1)
 		return self
 
 	Func getNoise
-		return dotnet_call("s3:get",nHandle,"s5:Noise")
+		return dotnet_getp(nHandle,"Noise")
 
 	Func setNoise P1
-		dotnet_callv("s3:set",nHandle,"s5:Noise",P1)
+		dotnet_setp(nHandle,"Noise",P1)
 		return self
 
 	Func getOpacity
-		return dotnet_call("s3:get",nHandle,"s7:Opacity")
+		return dotnet_getp(nHandle,"Opacity")
 
 	Func setOpacity P1
-		dotnet_callv("s3:set",nHandle,"s7:Opacity",P1)
+		dotnet_setp(nHandle,"Opacity",P1)
 		return self
 
 	Func getGlowColorProperty

@@ -225,10 +225,10 @@ Class ConsoleLifetimeOptions from Object
 		return dn_x
 
 	Func getSuppressStatusMessages
-		return dotnet_call("s3:get",nHandle,"s22:SuppressStatusMessages")
+		return dotnet_getp(nHandle,"SuppressStatusMessages")
 
 	Func setSuppressStatusMessages P1
-		dotnet_callv("s3:set",nHandle,"s22:SuppressStatusMessages",P1)
+		dotnet_setp(nHandle,"SuppressStatusMessages",P1)
 		return self
 
 
@@ -524,10 +524,10 @@ Class HostApplicationBuilderSettings from Object
 		return dn_x
 
 	Func getDisableDefaults
-		return dotnet_call("s3:get",nHandle,"s15:DisableDefaults")
+		return dotnet_getp(nHandle,"DisableDefaults")
 
 	Func setDisableDefaults P1
-		dotnet_callv("s3:set",nHandle,"s15:DisableDefaults",P1)
+		dotnet_setp(nHandle,"DisableDefaults",P1)
 		return self
 
 	Func getArgs
@@ -545,30 +545,24 @@ Class HostApplicationBuilderSettings from Object
 		return self
 
 	Func getEnvironmentName
-		dn_x = dotnet_call("s3:get",nHandle,"s15:EnvironmentName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"EnvironmentName"))
 
 	Func setEnvironmentName P1
-		dotnet_callv("s3:set",nHandle,"s15:EnvironmentName",P1)
+		dotnet_setp(nHandle,"EnvironmentName",P1)
 		return self
 
 	Func getApplicationName
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ApplicationName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ApplicationName"))
 
 	Func setApplicationName P1
-		dotnet_callv("s3:set",nHandle,"s15:ApplicationName",P1)
+		dotnet_setp(nHandle,"ApplicationName",P1)
 		return self
 
 	Func getContentRootPath
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ContentRootPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentRootPath"))
 
 	Func setContentRootPath P1
-		dotnet_callv("s3:set",nHandle,"s15:ContentRootPath",P1)
+		dotnet_setp(nHandle,"ContentRootPath",P1)
 		return self
 
 
@@ -875,17 +869,17 @@ Class HostOptions from Object
 		return self
 
 	Func getServicesStartConcurrently
-		return dotnet_call("s3:get",nHandle,"s25:ServicesStartConcurrently")
+		return dotnet_getp(nHandle,"ServicesStartConcurrently")
 
 	Func setServicesStartConcurrently P1
-		dotnet_callv("s3:set",nHandle,"s25:ServicesStartConcurrently",P1)
+		dotnet_setp(nHandle,"ServicesStartConcurrently",P1)
 		return self
 
 	Func getServicesStopConcurrently
-		return dotnet_call("s3:get",nHandle,"s24:ServicesStopConcurrently")
+		return dotnet_getp(nHandle,"ServicesStopConcurrently")
 
 	Func setServicesStopConcurrently P1
-		dotnet_callv("s3:set",nHandle,"s24:ServicesStopConcurrently",P1)
+		dotnet_setp(nHandle,"ServicesStopConcurrently",P1)
 		return self
 
 	Func getBackgroundServiceExceptionBehavior
@@ -1408,30 +1402,24 @@ Class IHostEnvironment from DotNetObject
 		return dn_x
 
 	Func getEnvironmentName
-		dn_x = dotnet_call("s3:get",nHandle,"s15:EnvironmentName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"EnvironmentName"))
 
 	Func setEnvironmentName P1
-		dotnet_callv("s3:set",nHandle,"s15:EnvironmentName",P1)
+		dotnet_setp(nHandle,"EnvironmentName",P1)
 		return self
 
 	Func getApplicationName
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ApplicationName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ApplicationName"))
 
 	Func setApplicationName P1
-		dotnet_callv("s3:set",nHandle,"s15:ApplicationName",P1)
+		dotnet_setp(nHandle,"ApplicationName",P1)
 		return self
 
 	Func getContentRootPath
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ContentRootPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnText(dotnet_getp(nHandle,"ContentRootPath"))
 
 	Func setContentRootPath P1
-		dotnet_callv("s3:set",nHandle,"s15:ContentRootPath",P1)
+		dotnet_setp(nHandle,"ContentRootPath",P1)
 		return self
 
 	Func getContentRootFileProvider
@@ -1536,10 +1524,10 @@ Class WebHostBuilderOptions from Object
 		return dn_x
 
 	Func getSuppressEnvironmentConfiguration
-		return dotnet_call("s3:get",nHandle,"s32:SuppressEnvironmentConfiguration")
+		return dotnet_getp(nHandle,"SuppressEnvironmentConfiguration")
 
 	Func setSuppressEnvironmentConfiguration P1
-		dotnet_callv("s3:set",nHandle,"s32:SuppressEnvironmentConfiguration",P1)
+		dotnet_setp(nHandle,"SuppressEnvironmentConfiguration",P1)
 		return self
 
 
