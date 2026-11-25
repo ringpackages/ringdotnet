@@ -1307,9 +1307,7 @@ Class PrinterSettingsStringCollection from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")

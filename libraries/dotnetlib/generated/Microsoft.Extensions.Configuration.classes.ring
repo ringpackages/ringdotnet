@@ -970,12 +970,10 @@ Class ConfigurationManager from Object
 		return dn_x
 
 	Func Item P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		dotnet_calltv(nHandle,"set_Item",P1,P2)
 		return self
 
 	Func getSources
@@ -1210,12 +1208,10 @@ Class ConfigurationRoot from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredSection",P1))
 
 	Func Item P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		dotnet_calltv(nHandle,"set_Item",P1,P2)
 		return self
 
 	Func getProviders
@@ -1337,12 +1333,10 @@ Class ConfigurationSection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredSection",P1))
 
 	Func Item P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		dotnet_calltv(nHandle,"set_Item",P1,P2)
 		return self
 
 	Func getPath
@@ -1617,12 +1611,10 @@ Class IConfiguration from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredSection",P1))
 
 	Func Item P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		dotnet_calltv(nHandle,"set_Item",P1,P2)
 		return self
 
 

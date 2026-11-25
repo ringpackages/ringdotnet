@@ -2510,12 +2510,10 @@ Class Quaternion from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector4"))
 
 	Func Item P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		dotnet_calltv(nHandle,"set_Item",P1,P2)
 		return self
 
 	Func getIsIdentity
@@ -3221,12 +3219,10 @@ Class Vector2 from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AsVector4Unsafe"))
 
 	Func Item P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		dotnet_calltv(nHandle,"set_Item",P1,P2)
 		return self
 
 	Func getX
@@ -3539,12 +3535,10 @@ Class Vector3 from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AsVector4Unsafe"))
 
 	Func Item P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		dotnet_calltv(nHandle,"set_Item",P1,P2)
 		return self
 
 	Func getX
@@ -3871,12 +3865,10 @@ Class Vector4 from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector3"))
 
 	Func Item P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		dotnet_calltv(nHandle,"set_Item",P1,P2)
 		return self
 
 	Func getX

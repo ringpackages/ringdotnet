@@ -149,7 +149,95 @@ oGone = new TypedMath()
 oGone.nHandle = 999999
 dnAssert("a handle that is not valid raises the generic error",tryCall(oGone,"Add",[1,2],true),tryCall(oGone,"Add",[1,2],false))
 
+# ---- indexers: Item and SetItem of a list, a dictionary, a class with an indexer of numbers and a class with two indexers
+nChecked = 0
+aIndexValues = [0,1,2,-1,2.5,99,"","abc","one",[1,2]]
+for xIndex in aIndexValues
+	nChecked += compareItem("list",xIndex)
+	nChecked += compareItem("numbers",xIndex)
+	nChecked += compareItem("dictionary",xIndex)
+	nChecked += compareItem("box",xIndex)
+	nChecked += compareItem("indexed",xIndex)
+next
+dnAssert("Item and SetItem agree with the generic request (" + nChecked + " comparisons)",nMismatch,0)
+oIndexed = new TypedIndexed()
+dnAssert("two indexers: the one of a number",oIndexed.Item(1),"one")
+dnAssert("two indexers: the one of a text",oIndexed.Item("abcd"),4)
+
 dnTestSummary()
+
+# an object of a kind: the list of three texts, the list of numbers, a dictionary of texts, a box whose indexer answers a number, a class with two indexers
+func freshItems cKind
+
+	switch cKind
+	on "list"
+		oNew = new StringList()
+		oNew.Add("a")
+		oNew.Add("b")
+		oNew.Add("c")
+		return oNew
+	on "numbers"
+		oNew = new NumberList()
+		oNew.Add(10)
+		oNew.Add(20)
+		oNew.Add(30)
+		return oNew
+	on "dictionary"
+		oNew = new StringDictionary()
+		oNew.Add("a","alpha")
+		oNew.Add("one","uno")
+		return oNew
+	on "box"
+		return new TypedBox()
+	off
+	return new TypedIndexed()
+
+# reads the item with Item (typed) and with callMethod("get_Item") (generic), then writes a value with SetItem and with callMethod("set_Item"), and compares
+func compareItem cKind, xIndex
+
+	for nStep = 1 to 2
+		oTyped = freshItems(cKind)
+		oGeneric = freshItems(cKind)
+		cTyped = ""
+		cGeneric = ""
+		if nStep = 1
+			try
+				cTyped = describe(oTyped.Item(xIndex))
+			catch
+				cTyped = "error: " + cCatchError
+			done
+			try
+				cGeneric = describe(oGeneric.callMethod("get_Item",[xIndex]))
+			catch
+				cGeneric = "error: " + cCatchError
+			done
+		else
+			xValue = "new"
+			if cKind = "numbers" or cKind = "box"
+				xValue = 77
+			ok
+			if cKind = "box"
+				loop
+			ok
+			try
+				oTyped.SetItem(xIndex,xValue)
+				cTyped = "done " + describe(oTyped.Item(0))
+			catch
+				cTyped = "error: " + cCatchError
+			done
+			try
+				oGeneric.callMethod("set_Item",[xIndex,xValue])
+				cGeneric = "done " + describe(oGeneric.callMethod("get_Item",[0]))
+			catch
+				cGeneric = "error: " + cCatchError
+			done
+		ok
+		if cTyped != cGeneric
+			nMismatch++
+			? cKind + " step " + nStep + " index " + describe(xIndex) + ": typed " + cTyped + " | generic " + cGeneric
+		ok
+	next
+	return 2
 
 func compareCall cName, aArgs
 

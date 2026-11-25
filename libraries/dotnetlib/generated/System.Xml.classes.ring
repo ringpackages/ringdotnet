@@ -1757,9 +1757,7 @@ Class XmlReader from Object
 		if islist(P1)
 			return callMethod("get_Item",P1)
 		ok
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func getSettings
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Settings"))

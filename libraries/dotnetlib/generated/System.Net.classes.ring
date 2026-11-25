@@ -2694,12 +2694,10 @@ Class SocketAddress from Object
 		return dn_x
 
 	Func Item P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		dotnet_calltv(nHandle,"set_Item",P1,P2)
 		return self
 
 	Func getFamily
@@ -3306,6 +3304,15 @@ Class WebHeaderCollection from NameValueCollection
 		dn_x = dotnet_call("s4:call",'System.Net.WebHeaderCollection, System.Net.WebHeaderCollection',"s12:IsRestricted",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func Item P1
+		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func SetItem P1,P2
+		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		return self
 
 
 Class WebProxy from Object

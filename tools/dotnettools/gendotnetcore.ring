@@ -307,6 +307,16 @@ func returnCode cRequest, cReturnType, nByRef
 	ok
 	return "return " + sendCall(cRequest) + nl
 
+# An indexer of numbers, yes/nos and texts (List<string>[int], Dictionary<string,int>[string]): get_Item and set_Item are methods, called by the typed
+# functions like any method; the bridge decides on the real type, and a type with several indexers (several get_Item that take one argument) is the
+# generic request's.
+func isTypedIndexer aIndexer
+	aTyped = ["System.Int32","System.Int64","System.Double","System.Boolean","System.String","System.UInt32","System.Int16","System.UInt16","System.Byte","System.SByte","System.UInt64","System.Single"]
+	return find(aTyped,aIndexer[1]) > 0 and find(aTyped,aIndexer[2]) > 0
+
+func typedIndexerGetCode
+	return 'return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))' + nl
+
 # An instance method of at most 8 parameters of a number, a yes/no or a text, with an answer of a number, a yes/no, a text or nothing: the extension calls it
 # without a request text (dotnet_callt, dotnet_calltv). The bridge decides on the real type of the object: it calls the method directly only when it is the only
 # one of that name that can take these arguments, and the arguments convert exactly; otherwise the extension makes the generic request itself.
@@ -880,7 +890,9 @@ func buildPlan cTypeName, nForceInit
 				cB += '			return callMethod("get_Item",P1)' + nl
 				cB += "		ok" + nl
 			ok
-			if len(aIndexer) = 3
+			if len(aIndexer) = 3 and isTypedIndexer(aIndexer)
+				cB += "		" + typedIndexerGetCode() + nl
+			but len(aIndexer) = 3
 				cB += "		" + returnCode('"call",[new DotNetObject(nHandle),"get_Item",P1]',aIndexer[2],0) + nl
 			else
 				cB += '		raise("DotNet Error: this indexer takes its indexes as a list: Item([index1,index2])")' + nl + nl
@@ -897,7 +909,10 @@ func buildPlan cTypeName, nForceInit
 				cB += "			return self" + nl
 				cB += "		ok" + nl
 			ok
-			if len(aIndexer) = 3 and aIndexer[3]
+			if len(aIndexer) = 3 and aIndexer[3] and isTypedIndexer(aIndexer)
+				cB += "		" + 'dotnet_calltv(nHandle,"set_Item",P1,P2)' + nl
+				cB += "		return self" + nl + nl
+			but len(aIndexer) = 3 and aIndexer[3]
 				cB += "		" + nativeCall('"call",[new DotNetObject(nHandle),"set_Item",P1,P2]',"void")
 				cB += "		return self" + nl + nl
 			else

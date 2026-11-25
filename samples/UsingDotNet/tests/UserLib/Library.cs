@@ -407,6 +407,15 @@ namespace MyCompany.Tools
 		public string Add(string a, string b) { return a + b; }
 	}
 
+	// A class with two indexers (the first that .NET lists maps a number to a text, the other a text to a number): its Item is the generic request's,
+	// because two get_Item can take one argument
+	public class TypedIndexed
+	{
+		private readonly string[] texts = { "zero", "one", "two" };
+		public string this[int index] { get { return texts[index]; } set { texts[index] = value; } }
+		public int this[string text] { get { return text.Length; } set { texts[0] = text; } }
+	}
+
 	public static class Channels
 	{
 		public static IChannelSink NewChannel() { return new Channel(); }

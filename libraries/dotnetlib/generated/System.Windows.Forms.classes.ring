@@ -3447,12 +3447,10 @@ Class AutoCompleteStringCollection from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		dotnet_calltv(nHandle,"set_Item",P1,P2)
 		return self
 
 	Func setCollectionChangedEvent P1
@@ -14082,12 +14080,10 @@ Class ListBoxIntegerCollection from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		dotnet_calltv(nHandle,"set_Item",P1,P2)
 		return self
 
 	Func getCount
@@ -14165,9 +14161,7 @@ Class ListBoxSelectedIndexCollection from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -14233,9 +14227,7 @@ Class ListViewCheckedIndexCollection from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -14398,9 +14390,7 @@ Class ListViewSelectedIndexCollection from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -23373,9 +23363,7 @@ Class CheckedIndexCollection from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")

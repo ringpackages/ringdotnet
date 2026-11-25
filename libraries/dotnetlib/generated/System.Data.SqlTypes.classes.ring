@@ -237,9 +237,7 @@ Class SqlBinary from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Data.SqlTypes.SqlBinary, System.Data.Common',"s9:WrapBytes",P1))
 
 	Func Item P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func getIsNull
 		return dotnet_getp(nHandle,"IsNull")
@@ -707,12 +705,10 @@ Class SqlBytes from Object
 		return dnObj(dotnet_callo("s4:call",'System.Data.SqlTypes.SqlBytes, System.Data.Common',"s10:GetXsdType",P1))
 
 	Func Item P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		dotnet_calltv(nHandle,"set_Item",P1,P2)
 		return self
 
 	Func getIsNull

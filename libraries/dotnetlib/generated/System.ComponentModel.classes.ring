@@ -3721,9 +3721,7 @@ Class IDataErrorInfo from DotNetObject
 		return self
 
 	Func Item P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:get_Item",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func getError
 		return dnAnswer(dotnet_getp(nHandle,"Error"))
