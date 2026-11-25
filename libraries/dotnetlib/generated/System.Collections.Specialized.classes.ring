@@ -167,9 +167,7 @@ Class BitVector32 from ValueType
 		return self
 
 	Func getData
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Data")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Data")
 
 	Func setData P1
 		raise("DotNet Error: Data is a read-only property")
@@ -214,17 +212,13 @@ Class BitVector32Section from ValueType
 		return dn_x
 
 	Func getMask
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Mask")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Mask")
 
 	Func setMask P1
 		raise("DotNet Error: Mask is a read-only property")
 
 	Func getOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Offset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Offset")
 
 	Func setOffset P1
 		raise("DotNet Error: Offset is a read-only property")
@@ -377,9 +371,7 @@ Class HybridDictionary from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -391,25 +383,19 @@ Class HybridDictionary from Object
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -524,25 +510,19 @@ Class IOrderedDictionary from DotNetObject
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -554,9 +534,7 @@ Class IOrderedDictionary from DotNetObject
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -667,9 +645,7 @@ Class ListDictionary from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -681,25 +657,19 @@ Class ListDictionary from Object
 		raise("DotNet Error: Keys is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -820,9 +790,7 @@ Class NameObjectCollectionBase from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -886,9 +854,7 @@ Class NameObjectCollectionBaseKeysCollection from Object
 		return dn_x
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1014,17 +980,13 @@ Class OrderedDictionary from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1150,25 +1112,19 @@ Class StringCollection from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -1274,17 +1230,13 @@ Class SpecializedStringDictionary from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")

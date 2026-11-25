@@ -115,9 +115,7 @@ Class MemoryMappedViewAccessor from UnmanagedMemoryAccessor
 		raise("DotNet Error: SafeMemoryMappedViewHandle is a read-only property")
 
 	Func getPointerOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s13:PointerOffset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:PointerOffset")
 
 	Func setPointerOffset P1
 		raise("DotNet Error: PointerOffset is a read-only property")
@@ -144,9 +142,7 @@ Class MemoryMappedViewStream from UnmanagedMemoryStream
 		raise("DotNet Error: SafeMemoryMappedViewHandle is a read-only property")
 
 	Func getPointerOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s13:PointerOffset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:PointerOffset")
 
 	Func setPointerOffset P1
 		raise("DotNet Error: PointerOffset is a read-only property")

@@ -90,17 +90,13 @@ Class CancellationChangeToken from Object
 		return dn_x
 
 	Func getActiveChangeCallbacks
-		dn_x = dotnet_call("s3:get",nHandle,"s21:ActiveChangeCallbacks")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:ActiveChangeCallbacks")
 
 	Func setActiveChangeCallbacks P1
 		raise("DotNet Error: ActiveChangeCallbacks is a read-only property")
 
 	Func getHasChanged
-		dn_x = dotnet_call("s3:get",nHandle,"s10:HasChanged")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:HasChanged")
 
 	Func setHasChanged P1
 		raise("DotNet Error: HasChanged is a read-only property")
@@ -161,17 +157,13 @@ Class CompositeChangeToken from Object
 		raise("DotNet Error: ChangeTokens is a read-only property")
 
 	Func getHasChanged
-		dn_x = dotnet_call("s3:get",nHandle,"s10:HasChanged")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:HasChanged")
 
 	Func setHasChanged P1
 		raise("DotNet Error: HasChanged is a read-only property")
 
 	Func getActiveChangeCallbacks
-		dn_x = dotnet_call("s3:get",nHandle,"s21:ActiveChangeCallbacks")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:ActiveChangeCallbacks")
 
 	Func setActiveChangeCallbacks P1
 		raise("DotNet Error: ActiveChangeCallbacks is a read-only property")
@@ -215,17 +207,13 @@ Class IChangeToken from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:RegisterChangeCallback",P1,P2))
 
 	Func getHasChanged
-		dn_x = dotnet_call("s3:get",nHandle,"s10:HasChanged")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:HasChanged")
 
 	Func setHasChanged P1
 		raise("DotNet Error: HasChanged is a read-only property")
 
 	Func getActiveChangeCallbacks
-		dn_x = dotnet_call("s3:get",nHandle,"s21:ActiveChangeCallbacks")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:ActiveChangeCallbacks")
 
 	Func setActiveChangeCallbacks P1
 		raise("DotNet Error: ActiveChangeCallbacks is a read-only property")
@@ -386,17 +374,13 @@ Class StringSegment from ValueType
 		raise("DotNet Error: Buffer is a read-only property")
 
 	Func getOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Offset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Offset")
 
 	Func setOffset P1
 		raise("DotNet Error: Offset is a read-only property")
 
 	Func getLength
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
@@ -410,9 +394,7 @@ Class StringSegment from ValueType
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getHasValue
-		dn_x = dotnet_call("s3:get",nHandle,"s8:HasValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:HasValue")
 
 	Func setHasValue P1
 		raise("DotNet Error: HasValue is a read-only property")
@@ -699,9 +681,7 @@ Class StringValues from ValueType
 		return dn_x
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

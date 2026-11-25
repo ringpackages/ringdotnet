@@ -273,9 +273,7 @@ Class ActionFilterAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:OnResultExecutionAsync",P1,P2))
 
 	Func getOrder
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Order")
 
 	Func setOrder P1
 		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
@@ -304,9 +302,7 @@ Class ExceptionFilterAttribute from Attribute
 		return self
 
 	Func getOrder
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Order")
 
 	Func setOrder P1
 		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
@@ -417,18 +413,14 @@ Class FilterDescriptor from Object
 		raise("DotNet Error: Filter is a read-only property")
 
 	Func getOrder
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Order")
 
 	Func setOrder P1
 		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
 		return self
 
 	Func getScope
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Scope")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Scope")
 
 	Func setScope P1
 		raise("DotNet Error: Scope is a read-only property")
@@ -485,9 +477,7 @@ Class FilterItem from Object
 		return self
 
 	Func getIsReusable
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReusable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReusable")
 
 	Func setIsReusable P1
 		dotnet_callv("s3:set",nHandle,"s10:IsReusable",P1)
@@ -553,41 +543,31 @@ Class FilterScope from Object
 		return dn_x
 
 	Func getFirst
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s5:First")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s5:First")
 
 	Func setFirst P1
 		raise("DotNet Error: First is a read-only property")
 
 	Func getGlobal
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s6:Global")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s6:Global")
 
 	Func setGlobal P1
 		raise("DotNet Error: Global is a read-only property")
 
 	Func getController
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s10:Controller")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s10:Controller")
 
 	Func setController P1
 		raise("DotNet Error: Controller is a read-only property")
 
 	Func getAction
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s6:Action")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s6:Action")
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
 
 	Func getLast
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s4:Last")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s4:Last")
 
 	Func setLast P1
 		raise("DotNet Error: Last is a read-only property")
@@ -817,9 +797,7 @@ Class IFilterFactory from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
 
 	Func getIsReusable
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReusable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReusable")
 
 	Func setIsReusable P1
 		raise("DotNet Error: IsReusable is a read-only property")
@@ -861,9 +839,7 @@ Class IFilterProvider from DotNetObject
 		return self
 
 	Func getOrder
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Order")
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
@@ -883,9 +859,7 @@ Class IOrderedFilter from DotNetObject
 		return self
 
 	Func getOrder
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Order")
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
@@ -989,9 +963,7 @@ Class ResultFilterAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:OnResultExecutionAsync",P1,P2))
 
 	Func getOrder
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Order")
 
 	Func setOrder P1
 		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
@@ -1019,9 +991,7 @@ Class ActionExecutedContext from FilterContext
 		return self
 
 	Func getCanceled
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Canceled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Canceled")
 
 	Func setCanceled P1
 		dotnet_callv("s3:set",nHandle,"s8:Canceled",P1)
@@ -1048,9 +1018,7 @@ Class ActionExecutedContext from FilterContext
 		return self
 
 	Func getExceptionHandled
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
 
 	Func setExceptionHandled P1
 		dotnet_callv("s3:set",nHandle,"s16:ExceptionHandled",P1)
@@ -1157,9 +1125,7 @@ Class ExceptionContext from FilterContext
 		return self
 
 	Func getExceptionHandled
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
 
 	Func setExceptionHandled P1
 		dotnet_callv("s3:set",nHandle,"s16:ExceptionHandled",P1)
@@ -1198,9 +1164,7 @@ Class PageHandlerExecutedContext from FilterContext
 		raise("DotNet Error: ActionDescriptor is a read-only property")
 
 	Func getCanceled
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Canceled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Canceled")
 
 	Func setCanceled P1
 		dotnet_callv("s3:set",nHandle,"s8:Canceled",P1)
@@ -1233,9 +1197,7 @@ Class PageHandlerExecutedContext from FilterContext
 		return self
 
 	Func getExceptionHandled
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
 
 	Func setExceptionHandled P1
 		dotnet_callv("s3:set",nHandle,"s16:ExceptionHandled",P1)
@@ -1349,9 +1311,7 @@ Class ResourceExecutedContext from FilterContext
 		return self
 
 	Func getCanceled
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Canceled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Canceled")
 
 	Func setCanceled P1
 		dotnet_callv("s3:set",nHandle,"s8:Canceled",P1)
@@ -1372,9 +1332,7 @@ Class ResourceExecutedContext from FilterContext
 		return self
 
 	Func getExceptionHandled
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
 
 	Func setExceptionHandled P1
 		dotnet_callv("s3:set",nHandle,"s16:ExceptionHandled",P1)
@@ -1439,9 +1397,7 @@ Class ResultExecutedContext from FilterContext
 		return self
 
 	Func getCanceled
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Canceled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Canceled")
 
 	Func setCanceled P1
 		dotnet_callv("s3:set",nHandle,"s8:Canceled",P1)
@@ -1468,9 +1424,7 @@ Class ResultExecutedContext from FilterContext
 		return self
 
 	Func getExceptionHandled
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:ExceptionHandled")
 
 	Func setExceptionHandled P1
 		dotnet_callv("s3:set",nHandle,"s16:ExceptionHandled",P1)
@@ -1514,9 +1468,7 @@ Class ResultExecutingContext from FilterContext
 		return self
 
 	Func getCancel
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Cancel")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Cancel")
 
 	Func setCancel P1
 		dotnet_callv("s3:set",nHandle,"s6:Cancel",P1)

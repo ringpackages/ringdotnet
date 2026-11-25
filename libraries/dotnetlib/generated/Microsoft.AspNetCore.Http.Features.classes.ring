@@ -475,17 +475,13 @@ Class FeatureCollection from Object
 		return self
 
 	Func getRevision
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Revision")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Revision")
 
 	Func setRevision P1
 		raise("DotNet Error: Revision is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -579,9 +575,7 @@ Class FeatureReferences from ValueType
 		raise("DotNet Error: Collection is a read-only property")
 
 	Func getRevision
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Revision")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Revision")
 
 	Func setRevision P1
 		raise("DotNet Error: Revision is a read-only property")
@@ -643,9 +637,7 @@ Class FormFeature from Object
 		return dn_x
 
 	Func getHasFormContentType
-		dn_x = dotnet_call("s3:get",nHandle,"s18:HasFormContentType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:HasFormContentType")
 
 	Func setHasFormContentType P1
 		raise("DotNet Error: HasFormContentType is a read-only property")
@@ -699,123 +691,95 @@ Class FormOptions from Object
 		return dn_x
 
 	Func getBufferBody
-		dn_x = dotnet_call("s3:get",nHandle,"s10:BufferBody")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:BufferBody")
 
 	Func setBufferBody P1
 		dotnet_callv("s3:set",nHandle,"s10:BufferBody",P1)
 		return self
 
 	Func getMemoryBufferThreshold
-		dn_x = dotnet_call("s3:get",nHandle,"s21:MemoryBufferThreshold")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:MemoryBufferThreshold")
 
 	Func setMemoryBufferThreshold P1
 		dotnet_callv("s3:set",nHandle,"s21:MemoryBufferThreshold",P1)
 		return self
 
 	Func getBufferBodyLengthLimit
-		dn_x = dotnet_call("s3:get",nHandle,"s21:BufferBodyLengthLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:BufferBodyLengthLimit")
 
 	Func setBufferBodyLengthLimit P1
 		dotnet_callv("s3:set",nHandle,"s21:BufferBodyLengthLimit",P1)
 		return self
 
 	Func getValueCountLimit
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ValueCountLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:ValueCountLimit")
 
 	Func setValueCountLimit P1
 		dotnet_callv("s3:set",nHandle,"s15:ValueCountLimit",P1)
 		return self
 
 	Func getKeyLengthLimit
-		dn_x = dotnet_call("s3:get",nHandle,"s14:KeyLengthLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:KeyLengthLimit")
 
 	Func setKeyLengthLimit P1
 		dotnet_callv("s3:set",nHandle,"s14:KeyLengthLimit",P1)
 		return self
 
 	Func getValueLengthLimit
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ValueLengthLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:ValueLengthLimit")
 
 	Func setValueLengthLimit P1
 		dotnet_callv("s3:set",nHandle,"s16:ValueLengthLimit",P1)
 		return self
 
 	Func getMultipartBoundaryLengthLimit
-		dn_x = dotnet_call("s3:get",nHandle,"s28:MultipartBoundaryLengthLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s28:MultipartBoundaryLengthLimit")
 
 	Func setMultipartBoundaryLengthLimit P1
 		dotnet_callv("s3:set",nHandle,"s28:MultipartBoundaryLengthLimit",P1)
 		return self
 
 	Func getMultipartHeadersCountLimit
-		dn_x = dotnet_call("s3:get",nHandle,"s26:MultipartHeadersCountLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:MultipartHeadersCountLimit")
 
 	Func setMultipartHeadersCountLimit P1
 		dotnet_callv("s3:set",nHandle,"s26:MultipartHeadersCountLimit",P1)
 		return self
 
 	Func getMultipartHeadersLengthLimit
-		dn_x = dotnet_call("s3:get",nHandle,"s27:MultipartHeadersLengthLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s27:MultipartHeadersLengthLimit")
 
 	Func setMultipartHeadersLengthLimit P1
 		dotnet_callv("s3:set",nHandle,"s27:MultipartHeadersLengthLimit",P1)
 		return self
 
 	Func getMultipartBodyLengthLimit
-		dn_x = dotnet_call("s3:get",nHandle,"s24:MultipartBodyLengthLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:MultipartBodyLengthLimit")
 
 	Func setMultipartBodyLengthLimit P1
 		dotnet_callv("s3:set",nHandle,"s24:MultipartBodyLengthLimit",P1)
 		return self
 
 	Func getDefaultMemoryBufferThreshold
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s28:DefaultMemoryBufferThreshold")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s28:DefaultMemoryBufferThreshold")
 
 	Func setDefaultMemoryBufferThreshold P1
 		raise("DotNet Error: DefaultMemoryBufferThreshold is a read-only property")
 
 	Func getDefaultBufferBodyLengthLimit
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s28:DefaultBufferBodyLengthLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s28:DefaultBufferBodyLengthLimit")
 
 	Func setDefaultBufferBodyLengthLimit P1
 		raise("DotNet Error: DefaultBufferBodyLengthLimit is a read-only property")
 
 	Func getDefaultMultipartBoundaryLengthLimit
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s35:DefaultMultipartBoundaryLengthLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s35:DefaultMultipartBoundaryLengthLimit")
 
 	Func setDefaultMultipartBoundaryLengthLimit P1
 		raise("DotNet Error: DefaultMultipartBoundaryLengthLimit is a read-only property")
 
 	Func getDefaultMultipartBodyLengthLimit
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s31:DefaultMultipartBodyLengthLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',"s31:DefaultMultipartBodyLengthLimit")
 
 	Func setDefaultMultipartBodyLengthLimit P1
 		raise("DotNet Error: DefaultMultipartBodyLengthLimit is a read-only property")
@@ -869,9 +833,7 @@ Class HttpConnectionFeature from Object
 		return self
 
 	Func getLocalPort
-		dn_x = dotnet_call("s3:get",nHandle,"s9:LocalPort")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:LocalPort")
 
 	Func setLocalPort P1
 		dotnet_callv("s3:set",nHandle,"s9:LocalPort",P1)
@@ -885,9 +847,7 @@ Class HttpConnectionFeature from Object
 		return self
 
 	Func getRemotePort
-		dn_x = dotnet_call("s3:get",nHandle,"s10:RemotePort")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:RemotePort")
 
 	Func setRemotePort P1
 		dotnet_callv("s3:set",nHandle,"s10:RemotePort",P1)
@@ -1126,9 +1086,7 @@ Class HttpResponseFeature from Object
 		return dn_x
 
 	Func getStatusCode
-		dn_x = dotnet_call("s3:get",nHandle,"s10:StatusCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:StatusCode")
 
 	Func setStatusCode P1
 		dotnet_callv("s3:set",nHandle,"s10:StatusCode",P1)
@@ -1158,9 +1116,7 @@ Class HttpResponseFeature from Object
 		return self
 
 	Func getHasStarted
-		dn_x = dotnet_call("s3:get",nHandle,"s10:HasStarted")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:HasStarted")
 
 	Func setHasStarted P1
 		raise("DotNet Error: HasStarted is a read-only property")
@@ -1276,17 +1232,13 @@ Class IFeatureCollection from DotNetObject
 		return self
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getRevision
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Revision")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Revision")
 
 	Func setRevision P1
 		raise("DotNet Error: Revision is a read-only property")
@@ -1313,9 +1265,7 @@ Class IFormFeature from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadFormAsync",P1))
 
 	Func getHasFormContentType
-		dn_x = dotnet_call("s3:get",nHandle,"s18:HasFormContentType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:HasFormContentType")
 
 	Func setHasFormContentType P1
 		raise("DotNet Error: HasFormContentType is a read-only property")
@@ -1363,9 +1313,7 @@ Class IHttpBodyControlFeature from DotNetObject
 		return self
 
 	Func getAllowSynchronousIO
-		dn_x = dotnet_call("s3:get",nHandle,"s18:AllowSynchronousIO")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:AllowSynchronousIO")
 
 	Func setAllowSynchronousIO P1
 		dotnet_callv("s3:set",nHandle,"s18:AllowSynchronousIO",P1)
@@ -1413,18 +1361,14 @@ Class IHttpConnectionFeature from DotNetObject
 		return self
 
 	Func getRemotePort
-		dn_x = dotnet_call("s3:get",nHandle,"s10:RemotePort")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:RemotePort")
 
 	Func setRemotePort P1
 		dotnet_callv("s3:set",nHandle,"s10:RemotePort",P1)
 		return self
 
 	Func getLocalPort
-		dn_x = dotnet_call("s3:get",nHandle,"s9:LocalPort")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:LocalPort")
 
 	Func setLocalPort P1
 		dotnet_callv("s3:set",nHandle,"s9:LocalPort",P1)
@@ -1449,9 +1393,7 @@ Class IHttpExtendedConnectFeature from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AcceptAsync"))
 
 	Func getIsExtendedConnect
-		dn_x = dotnet_call("s3:get",nHandle,"s17:IsExtendedConnect")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:IsExtendedConnect")
 
 	Func setIsExtendedConnect P1
 		raise("DotNet Error: IsExtendedConnect is a read-only property")
@@ -1480,9 +1422,7 @@ Class IHttpMaxRequestBodySizeFeature from DotNetObject
 		return self
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1516,9 +1456,7 @@ Class IHttpMetricsTagsFeature from DotNetObject
 		raise("DotNet Error: Tags is a read-only property")
 
 	Func getMetricsDisabled
-		dn_x = dotnet_call("s3:get",nHandle,"s15:MetricsDisabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:MetricsDisabled")
 
 	Func setMetricsDisabled P1
 		dotnet_callv("s3:set",nHandle,"s15:MetricsDisabled",P1)
@@ -1539,9 +1477,7 @@ Class IHttpRequestBodyDetectionFeature from DotNetObject
 		return self
 
 	Func getCanHaveBody
-		dn_x = dotnet_call("s3:get",nHandle,"s11:CanHaveBody")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:CanHaveBody")
 
 	Func setCanHaveBody P1
 		raise("DotNet Error: CanHaveBody is a read-only property")
@@ -1710,9 +1646,7 @@ Class IHttpRequestTrailersFeature from DotNetObject
 		return self
 
 	Func getAvailable
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Available")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Available")
 
 	Func setAvailable P1
 		raise("DotNet Error: Available is a read-only property")
@@ -1819,9 +1753,7 @@ Class IHttpResponseFeature from DotNetObject
 		return self
 
 	Func getStatusCode
-		dn_x = dotnet_call("s3:get",nHandle,"s10:StatusCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:StatusCode")
 
 	Func setStatusCode P1
 		dotnet_callv("s3:set",nHandle,"s10:StatusCode",P1)
@@ -1851,9 +1783,7 @@ Class IHttpResponseFeature from DotNetObject
 		return self
 
 	Func getHasStarted
-		dn_x = dotnet_call("s3:get",nHandle,"s10:HasStarted")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:HasStarted")
 
 	Func setHasStarted P1
 		raise("DotNet Error: HasStarted is a read-only property")
@@ -1897,9 +1827,7 @@ Class IHttpUpgradeFeature from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s12:UpgradeAsync"))
 
 	Func getIsUpgradableRequest
-		dn_x = dotnet_call("s3:get",nHandle,"s19:IsUpgradableRequest")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:IsUpgradableRequest")
 
 	Func setIsUpgradableRequest P1
 		raise("DotNet Error: IsUpgradableRequest is a read-only property")
@@ -1922,9 +1850,7 @@ Class IHttpWebSocketFeature from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AcceptAsync",P1))
 
 	Func getIsWebSocketRequest
-		dn_x = dotnet_call("s3:get",nHandle,"s18:IsWebSocketRequest")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:IsWebSocketRequest")
 
 	Func setIsWebSocketRequest P1
 		raise("DotNet Error: IsWebSocketRequest is a read-only property")
@@ -1953,9 +1879,7 @@ Class IHttpWebTransportFeature from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AcceptAsync",P1))
 
 	Func getIsWebTransportRequest
-		dn_x = dotnet_call("s3:get",nHandle,"s21:IsWebTransportRequest")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:IsWebTransportRequest")
 
 	Func setIsWebTransportRequest P1
 		raise("DotNet Error: IsWebTransportRequest is a read-only property")
@@ -2242,25 +2166,19 @@ Class ITrackingConsentFeature from DotNetObject
 		return dn_x
 
 	Func getIsConsentNeeded
-		dn_x = dotnet_call("s3:get",nHandle,"s15:IsConsentNeeded")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:IsConsentNeeded")
 
 	Func setIsConsentNeeded P1
 		raise("DotNet Error: IsConsentNeeded is a read-only property")
 
 	Func getHasConsent
-		dn_x = dotnet_call("s3:get",nHandle,"s10:HasConsent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:HasConsent")
 
 	Func setHasConsent P1
 		raise("DotNet Error: HasConsent is a read-only property")
 
 	Func getCanTrack
-		dn_x = dotnet_call("s3:get",nHandle,"s8:CanTrack")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:CanTrack")
 
 	Func setCanTrack P1
 		raise("DotNet Error: CanTrack is a read-only property")
@@ -2303,9 +2221,7 @@ Class IWebTransportSession from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s29:OpenUnidirectionalStreamAsync",P1))
 
 	Func getSessionId
-		dn_x = dotnet_call("s3:get",nHandle,"s9:SessionId")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:SessionId")
 
 	Func setSessionId P1
 		raise("DotNet Error: SessionId is a read-only property")

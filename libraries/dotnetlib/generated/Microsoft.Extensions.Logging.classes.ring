@@ -271,9 +271,7 @@ Class EventId from ValueType
 		return self
 
 	Func getId
-		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s2:Id")
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -776,9 +774,7 @@ Class LogDefineOptions from Object
 		return dn_x
 
 	Func getSkipEnabledCheck
-		dn_x = dotnet_call("s3:get",nHandle,"s16:SkipEnabledCheck")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:SkipEnabledCheck")
 
 	Func setSkipEnabledCheck P1
 		dotnet_callv("s3:set",nHandle,"s16:SkipEnabledCheck",P1)
@@ -1082,9 +1078,7 @@ Class LoggerFilterOptions from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddFilter",P1))
 
 	Func getCaptureScopes
-		dn_x = dotnet_call("s3:get",nHandle,"s13:CaptureScopes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:CaptureScopes")
 
 	Func setCaptureScopes P1
 		dotnet_callv("s3:set",nHandle,"s13:CaptureScopes",P1)
@@ -1225,9 +1219,7 @@ Class LoggerMessageAttribute from Attribute
 		return self
 
 	Func getEventId
-		dn_x = dotnet_call("s3:get",nHandle,"s7:EventId")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:EventId")
 
 	Func setEventId P1
 		dotnet_callv("s3:set",nHandle,"s7:EventId",P1)
@@ -1259,9 +1251,7 @@ Class LoggerMessageAttribute from Attribute
 		return self
 
 	Func getSkipEnabledCheck
-		dn_x = dotnet_call("s3:get",nHandle,"s16:SkipEnabledCheck")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:SkipEnabledCheck")
 
 	Func setSkipEnabledCheck P1
 		dotnet_callv("s3:set",nHandle,"s16:SkipEnabledCheck",P1)

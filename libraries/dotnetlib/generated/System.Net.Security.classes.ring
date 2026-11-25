@@ -96,49 +96,37 @@ Class AuthenticatedStream from Stream
 		return self
 
 	Func getLeaveInnerStreamOpen
-		dn_x = dotnet_call("s3:get",nHandle,"s20:LeaveInnerStreamOpen")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:LeaveInnerStreamOpen")
 
 	Func setLeaveInnerStreamOpen P1
 		raise("DotNet Error: LeaveInnerStreamOpen is a read-only property")
 
 	Func getIsAuthenticated
-		dn_x = dotnet_call("s3:get",nHandle,"s15:IsAuthenticated")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:IsAuthenticated")
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
 
 	Func getIsMutuallyAuthenticated
-		dn_x = dotnet_call("s3:get",nHandle,"s23:IsMutuallyAuthenticated")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:IsMutuallyAuthenticated")
 
 	Func setIsMutuallyAuthenticated P1
 		raise("DotNet Error: IsMutuallyAuthenticated is a read-only property")
 
 	Func getIsEncrypted
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsEncrypted")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsEncrypted")
 
 	Func setIsEncrypted P1
 		raise("DotNet Error: IsEncrypted is a read-only property")
 
 	Func getIsSigned
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsSigned")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsSigned")
 
 	Func setIsSigned P1
 		raise("DotNet Error: IsSigned is a read-only property")
 
 	Func getIsServer
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsServer")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsServer")
 
 	Func setIsServer P1
 		raise("DotNet Error: IsServer is a read-only property")
@@ -227,9 +215,7 @@ Class NegotiateAuthentication from Object
 		return dn_x
 
 	Func getIsAuthenticated
-		dn_x = dotnet_call("s3:get",nHandle,"s15:IsAuthenticated")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:IsAuthenticated")
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
@@ -241,33 +227,25 @@ Class NegotiateAuthentication from Object
 		raise("DotNet Error: ProtectionLevel is a read-only property")
 
 	Func getIsSigned
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsSigned")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsSigned")
 
 	Func setIsSigned P1
 		raise("DotNet Error: IsSigned is a read-only property")
 
 	Func getIsEncrypted
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsEncrypted")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsEncrypted")
 
 	Func setIsEncrypted P1
 		raise("DotNet Error: IsEncrypted is a read-only property")
 
 	Func getIsMutuallyAuthenticated
-		dn_x = dotnet_call("s3:get",nHandle,"s23:IsMutuallyAuthenticated")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:IsMutuallyAuthenticated")
 
 	Func setIsMutuallyAuthenticated P1
 		raise("DotNet Error: IsMutuallyAuthenticated is a read-only property")
 
 	Func getIsServer
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsServer")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsServer")
 
 	Func setIsServer P1
 		raise("DotNet Error: IsServer is a read-only property")
@@ -370,9 +348,7 @@ Class NegotiateAuthenticationClientOptions from Object
 		return self
 
 	Func getRequireMutualAuthentication
-		dn_x = dotnet_call("s3:get",nHandle,"s27:RequireMutualAuthentication")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s27:RequireMutualAuthentication")
 
 	Func setRequireMutualAuthentication P1
 		dotnet_callv("s3:set",nHandle,"s27:RequireMutualAuthentication",P1)
@@ -601,18 +577,14 @@ Class SslClientAuthenticationOptions from Object
 		return dn_x
 
 	Func getAllowRenegotiation
-		dn_x = dotnet_call("s3:get",nHandle,"s18:AllowRenegotiation")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:AllowRenegotiation")
 
 	Func setAllowRenegotiation P1
 		dotnet_callv("s3:set",nHandle,"s18:AllowRenegotiation",P1)
 		return self
 
 	Func getAllowTlsResume
-		dn_x = dotnet_call("s3:get",nHandle,"s14:AllowTlsResume")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:AllowTlsResume")
 
 	Func setAllowTlsResume P1
 		dotnet_callv("s3:set",nHandle,"s14:AllowTlsResume",P1)
@@ -792,27 +764,21 @@ Class SslServerAuthenticationOptions from Object
 		return dn_x
 
 	Func getAllowRenegotiation
-		dn_x = dotnet_call("s3:get",nHandle,"s18:AllowRenegotiation")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:AllowRenegotiation")
 
 	Func setAllowRenegotiation P1
 		dotnet_callv("s3:set",nHandle,"s18:AllowRenegotiation",P1)
 		return self
 
 	Func getAllowTlsResume
-		dn_x = dotnet_call("s3:get",nHandle,"s14:AllowTlsResume")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:AllowTlsResume")
 
 	Func setAllowTlsResume P1
 		dotnet_callv("s3:set",nHandle,"s14:AllowTlsResume",P1)
 		return self
 
 	Func getClientCertificateRequired
-		dn_x = dotnet_call("s3:get",nHandle,"s25:ClientCertificateRequired")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:ClientCertificateRequired")
 
 	Func setClientCertificateRequired P1
 		dotnet_callv("s3:set",nHandle,"s25:ClientCertificateRequired",P1)
@@ -1166,9 +1132,7 @@ Class SslStream from AuthenticatedStream
 		raise("DotNet Error: SslProtocol is a read-only property")
 
 	Func getCheckCertRevocationStatus
-		dn_x = dotnet_call("s3:get",nHandle,"s25:CheckCertRevocationStatus")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:CheckCertRevocationStatus")
 
 	Func setCheckCertRevocationStatus P1
 		raise("DotNet Error: CheckCertRevocationStatus is a read-only property")
@@ -1204,9 +1168,7 @@ Class SslStream from AuthenticatedStream
 		raise("DotNet Error: CipherAlgorithm is a read-only property")
 
 	Func getCipherStrength
-		dn_x = dotnet_call("s3:get",nHandle,"s14:CipherStrength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:CipherStrength")
 
 	Func setCipherStrength P1
 		raise("DotNet Error: CipherStrength is a read-only property")
@@ -1218,9 +1180,7 @@ Class SslStream from AuthenticatedStream
 		raise("DotNet Error: HashAlgorithm is a read-only property")
 
 	Func getHashStrength
-		dn_x = dotnet_call("s3:get",nHandle,"s12:HashStrength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:HashStrength")
 
 	Func setHashStrength P1
 		raise("DotNet Error: HashStrength is a read-only property")
@@ -1232,9 +1192,7 @@ Class SslStream from AuthenticatedStream
 		raise("DotNet Error: KeyExchangeAlgorithm is a read-only property")
 
 	Func getKeyExchangeStrength
-		dn_x = dotnet_call("s3:get",nHandle,"s19:KeyExchangeStrength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:KeyExchangeStrength")
 
 	Func setKeyExchangeStrength P1
 		raise("DotNet Error: KeyExchangeStrength is a read-only property")

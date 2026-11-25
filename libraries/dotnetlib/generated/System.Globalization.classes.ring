@@ -392,9 +392,7 @@ Class Calendar from Object
 		raise("DotNet Error: AlgorithmType is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -406,18 +404,14 @@ Class Calendar from Object
 		raise("DotNet Error: Eras is a read-only property")
 
 	Func getTwoDigitYearMax
-		dn_x = dotnet_call("s3:get",nHandle,"s15:TwoDigitYearMax")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:TwoDigitYearMax")
 
 	Func setTwoDigitYearMax P1
 		dotnet_callv("s3:set",nHandle,"s15:TwoDigitYearMax",P1)
 		return self
 
 	Func getCurrentEra
-		dn_x = dotnet_call("s3:get",'System.Globalization.Calendar, System.Private.CoreLib',"s10:CurrentEra")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Globalization.Calendar, System.Private.CoreLib',"s10:CurrentEra")
 
 	Func setCurrentEra P1
 		raise("DotNet Error: CurrentEra is a read-only property")
@@ -595,9 +589,7 @@ Class CompareInfo from Object
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getLCID
-		dn_x = dotnet_call("s3:get",nHandle,"s4:LCID")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:LCID")
 
 	Func setLCID P1
 		raise("DotNet Error: LCID is a read-only property")
@@ -703,17 +695,13 @@ Class CultureInfo from Object
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getLCID
-		dn_x = dotnet_call("s3:get",nHandle,"s4:LCID")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:LCID")
 
 	Func setLCID P1
 		raise("DotNet Error: LCID is a read-only property")
 
 	Func getKeyboardLayoutId
-		dn_x = dotnet_call("s3:get",nHandle,"s16:KeyboardLayoutId")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:KeyboardLayoutId")
 
 	Func setKeyboardLayoutId P1
 		raise("DotNet Error: KeyboardLayoutId is a read-only property")
@@ -795,9 +783,7 @@ Class CultureInfo from Object
 		raise("DotNet Error: TextInfo is a read-only property")
 
 	Func getIsNeutralCulture
-		dn_x = dotnet_call("s3:get",nHandle,"s16:IsNeutralCulture")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:IsNeutralCulture")
 
 	Func setIsNeutralCulture P1
 		raise("DotNet Error: IsNeutralCulture is a read-only property")
@@ -835,17 +821,13 @@ Class CultureInfo from Object
 		raise("DotNet Error: OptionalCalendars is a read-only property")
 
 	Func getUseUserOverride
-		dn_x = dotnet_call("s3:get",nHandle,"s15:UseUserOverride")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:UseUserOverride")
 
 	Func setUseUserOverride P1
 		raise("DotNet Error: UseUserOverride is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1245,9 +1227,7 @@ Class DateTimeFormatInfo from Object
 		return self
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1434,18 +1414,14 @@ Class IdnMapping from Object
 		return dn_x
 
 	Func getAllowUnassigned
-		dn_x = dotnet_call("s3:get",nHandle,"s15:AllowUnassigned")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:AllowUnassigned")
 
 	Func setAllowUnassigned P1
 		dotnet_callv("s3:set",nHandle,"s15:AllowUnassigned",P1)
 		return self
 
 	Func getUseStd3AsciiRules
-		dn_x = dotnet_call("s3:get",nHandle,"s17:UseStd3AsciiRules")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:UseStd3AsciiRules")
 
 	Func setUseStd3AsciiRules P1
 		dotnet_callv("s3:set",nHandle,"s17:UseStd3AsciiRules",P1)
@@ -1521,9 +1497,7 @@ Class NumberFormatInfo from Object
 		return dnObj(dotnet_callo("s4:call",'System.Globalization.NumberFormatInfo, System.Private.CoreLib',"s8:ReadOnly",P1))
 
 	Func getCurrencyDecimalDigits
-		dn_x = dotnet_call("s3:get",nHandle,"s21:CurrencyDecimalDigits")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:CurrencyDecimalDigits")
 
 	Func setCurrencyDecimalDigits P1
 		dotnet_callv("s3:set",nHandle,"s21:CurrencyDecimalDigits",P1)
@@ -1539,9 +1513,7 @@ Class NumberFormatInfo from Object
 		return self
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1595,36 +1567,28 @@ Class NumberFormatInfo from Object
 		return self
 
 	Func getCurrencyNegativePattern
-		dn_x = dotnet_call("s3:get",nHandle,"s23:CurrencyNegativePattern")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:CurrencyNegativePattern")
 
 	Func setCurrencyNegativePattern P1
 		dotnet_callv("s3:set",nHandle,"s23:CurrencyNegativePattern",P1)
 		return self
 
 	Func getNumberNegativePattern
-		dn_x = dotnet_call("s3:get",nHandle,"s21:NumberNegativePattern")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:NumberNegativePattern")
 
 	Func setNumberNegativePattern P1
 		dotnet_callv("s3:set",nHandle,"s21:NumberNegativePattern",P1)
 		return self
 
 	Func getPercentPositivePattern
-		dn_x = dotnet_call("s3:get",nHandle,"s22:PercentPositivePattern")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:PercentPositivePattern")
 
 	Func setPercentPositivePattern P1
 		dotnet_callv("s3:set",nHandle,"s22:PercentPositivePattern",P1)
 		return self
 
 	Func getPercentNegativePattern
-		dn_x = dotnet_call("s3:get",nHandle,"s22:PercentNegativePattern")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:PercentNegativePattern")
 
 	Func setPercentNegativePattern P1
 		dotnet_callv("s3:set",nHandle,"s22:PercentNegativePattern",P1)
@@ -1649,9 +1613,7 @@ Class NumberFormatInfo from Object
 		return self
 
 	Func getNumberDecimalDigits
-		dn_x = dotnet_call("s3:get",nHandle,"s19:NumberDecimalDigits")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:NumberDecimalDigits")
 
 	Func setNumberDecimalDigits P1
 		dotnet_callv("s3:set",nHandle,"s19:NumberDecimalDigits",P1)
@@ -1676,9 +1638,7 @@ Class NumberFormatInfo from Object
 		return self
 
 	Func getCurrencyPositivePattern
-		dn_x = dotnet_call("s3:get",nHandle,"s23:CurrencyPositivePattern")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:CurrencyPositivePattern")
 
 	Func setCurrencyPositivePattern P1
 		dotnet_callv("s3:set",nHandle,"s23:CurrencyPositivePattern",P1)
@@ -1703,9 +1663,7 @@ Class NumberFormatInfo from Object
 		return self
 
 	Func getPercentDecimalDigits
-		dn_x = dotnet_call("s3:get",nHandle,"s20:PercentDecimalDigits")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:PercentDecimalDigits")
 
 	Func setPercentDecimalDigits P1
 		dotnet_callv("s3:set",nHandle,"s20:PercentDecimalDigits",P1)
@@ -1864,17 +1822,13 @@ Class RegionInfo from Object
 		raise("DotNet Error: ThreeLetterWindowsRegionName is a read-only property")
 
 	Func getIsMetric
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsMetric")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsMetric")
 
 	Func setIsMetric P1
 		raise("DotNet Error: IsMetric is a read-only property")
 
 	Func getGeoId
-		dn_x = dotnet_call("s3:get",nHandle,"s5:GeoId")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:GeoId")
 
 	Func setGeoId P1
 		raise("DotNet Error: GeoId is a read-only property")
@@ -1979,9 +1933,7 @@ Class SortVersion from Object
 		return dn_x
 
 	Func getFullVersion
-		dn_x = dotnet_call("s3:get",nHandle,"s11:FullVersion")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:FullVersion")
 
 	Func setFullVersion P1
 		raise("DotNet Error: FullVersion is a read-only property")
@@ -2090,9 +2042,7 @@ Class StringInfo from Object
 		return self
 
 	Func getLengthInTextElements
-		dn_x = dotnet_call("s3:get",nHandle,"s20:LengthInTextElements")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:LengthInTextElements")
 
 	Func setLengthInTextElements P1
 		raise("DotNet Error: LengthInTextElements is a read-only property")
@@ -2139,9 +2089,7 @@ Class TextElementEnumerator from Object
 		raise("DotNet Error: Current is a read-only property")
 
 	Func getElementIndex
-		dn_x = dotnet_call("s3:get",nHandle,"s12:ElementIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:ElementIndex")
 
 	Func setElementIndex P1
 		raise("DotNet Error: ElementIndex is a read-only property")
@@ -2191,41 +2139,31 @@ Class TextInfo from Object
 		return dnObj(dotnet_callo("s4:call",'System.Globalization.TextInfo, System.Private.CoreLib',"s8:ReadOnly",P1))
 
 	Func getANSICodePage
-		dn_x = dotnet_call("s3:get",nHandle,"s12:ANSICodePage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:ANSICodePage")
 
 	Func setANSICodePage P1
 		raise("DotNet Error: ANSICodePage is a read-only property")
 
 	Func getOEMCodePage
-		dn_x = dotnet_call("s3:get",nHandle,"s11:OEMCodePage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:OEMCodePage")
 
 	Func setOEMCodePage P1
 		raise("DotNet Error: OEMCodePage is a read-only property")
 
 	Func getMacCodePage
-		dn_x = dotnet_call("s3:get",nHandle,"s11:MacCodePage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:MacCodePage")
 
 	Func setMacCodePage P1
 		raise("DotNet Error: MacCodePage is a read-only property")
 
 	Func getEBCDICCodePage
-		dn_x = dotnet_call("s3:get",nHandle,"s14:EBCDICCodePage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:EBCDICCodePage")
 
 	Func setEBCDICCodePage P1
 		raise("DotNet Error: EBCDICCodePage is a read-only property")
 
 	Func getLCID
-		dn_x = dotnet_call("s3:get",nHandle,"s4:LCID")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:LCID")
 
 	Func setLCID P1
 		raise("DotNet Error: LCID is a read-only property")
@@ -2239,9 +2177,7 @@ Class TextInfo from Object
 		raise("DotNet Error: CultureName is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2256,9 +2192,7 @@ Class TextInfo from Object
 		return self
 
 	Func getIsRightToLeft
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsRightToLeft")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsRightToLeft")
 
 	Func setIsRightToLeft P1
 		raise("DotNet Error: IsRightToLeft is a read-only property")
@@ -2338,9 +2272,7 @@ Class GregorianCalendar from Calendar
 		return self
 
 	Func getADEra
-		dn_x = dotnet_call("s3:get",'System.Globalization.GregorianCalendar, System.Private.CoreLib',"s5:ADEra")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Globalization.GregorianCalendar, System.Private.CoreLib',"s5:ADEra")
 
 	Func setADEra P1
 		raise("DotNet Error: ADEra is a read-only property")
@@ -2369,9 +2301,7 @@ Class HebrewCalendar from Calendar
 		return self
 
 	Func getHebrewEra
-		dn_x = dotnet_call("s3:get",'System.Globalization.HebrewCalendar, System.Private.CoreLib',"s9:HebrewEra")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Globalization.HebrewCalendar, System.Private.CoreLib',"s9:HebrewEra")
 
 	Func setHebrewEra P1
 		raise("DotNet Error: HebrewEra is a read-only property")
@@ -2401,18 +2331,14 @@ Class HijriCalendar from Calendar
 		return self
 
 	Func getHijriAdjustment
-		dn_x = dotnet_call("s3:get",nHandle,"s15:HijriAdjustment")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:HijriAdjustment")
 
 	Func setHijriAdjustment P1
 		dotnet_callv("s3:set",nHandle,"s15:HijriAdjustment",P1)
 		return self
 
 	Func getHijriEra
-		dn_x = dotnet_call("s3:get",'System.Globalization.HijriCalendar, System.Private.CoreLib',"s8:HijriEra")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Globalization.HijriCalendar, System.Private.CoreLib',"s8:HijriEra")
 
 	Func setHijriEra P1
 		raise("DotNet Error: HijriEra is a read-only property")
@@ -2462,9 +2388,7 @@ Class JulianCalendar from Calendar
 		return self
 
 	Func getJulianEra
-		dn_x = dotnet_call("s3:get",'System.Globalization.JulianCalendar, System.Private.CoreLib',"s9:JulianEra")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Globalization.JulianCalendar, System.Private.CoreLib',"s9:JulianEra")
 
 	Func setJulianEra P1
 		raise("DotNet Error: JulianEra is a read-only property")
@@ -2493,9 +2417,7 @@ Class KoreanCalendar from Calendar
 		return self
 
 	Func getKoreanEra
-		dn_x = dotnet_call("s3:get",'System.Globalization.KoreanCalendar, System.Private.CoreLib',"s9:KoreanEra")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Globalization.KoreanCalendar, System.Private.CoreLib',"s9:KoreanEra")
 
 	Func setKoreanEra P1
 		raise("DotNet Error: KoreanEra is a read-only property")
@@ -2524,9 +2446,7 @@ Class PersianCalendar from Calendar
 		return self
 
 	Func getPersianEra
-		dn_x = dotnet_call("s3:get",'System.Globalization.PersianCalendar, System.Private.CoreLib',"s10:PersianEra")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Globalization.PersianCalendar, System.Private.CoreLib',"s10:PersianEra")
 
 	Func setPersianEra P1
 		raise("DotNet Error: PersianEra is a read-only property")
@@ -2576,9 +2496,7 @@ Class ThaiBuddhistCalendar from Calendar
 		return self
 
 	Func getThaiBuddhistEra
-		dn_x = dotnet_call("s3:get",'System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib',"s15:ThaiBuddhistEra")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib',"s15:ThaiBuddhistEra")
 
 	Func setThaiBuddhistEra P1
 		raise("DotNet Error: ThaiBuddhistEra is a read-only property")
@@ -2607,9 +2525,7 @@ Class UmAlQuraCalendar from Calendar
 		return self
 
 	Func getUmAlQuraEra
-		dn_x = dotnet_call("s3:get",'System.Globalization.UmAlQuraCalendar, System.Private.CoreLib',"s11:UmAlQuraEra")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Globalization.UmAlQuraCalendar, System.Private.CoreLib',"s11:UmAlQuraEra")
 
 	Func setUmAlQuraEra P1
 		raise("DotNet Error: UmAlQuraEra is a read-only property")
@@ -2638,9 +2554,7 @@ Class ChineseLunisolarCalendar from EastAsianLunisolarCalendar
 		return self
 
 	Func getChineseEra
-		dn_x = dotnet_call("s3:get",'System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib',"s10:ChineseEra")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib',"s10:ChineseEra")
 
 	Func setChineseEra P1
 		raise("DotNet Error: ChineseEra is a read-only property")
@@ -2669,9 +2583,7 @@ Class JapaneseLunisolarCalendar from EastAsianLunisolarCalendar
 		return self
 
 	Func getJapaneseEra
-		dn_x = dotnet_call("s3:get",'System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib',"s11:JapaneseEra")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib',"s11:JapaneseEra")
 
 	Func setJapaneseEra P1
 		raise("DotNet Error: JapaneseEra is a read-only property")
@@ -2700,9 +2612,7 @@ Class KoreanLunisolarCalendar from EastAsianLunisolarCalendar
 		return self
 
 	Func getGregorianEra
-		dn_x = dotnet_call("s3:get",'System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib',"s12:GregorianEra")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib',"s12:GregorianEra")
 
 	Func setGregorianEra P1
 		raise("DotNet Error: GregorianEra is a read-only property")

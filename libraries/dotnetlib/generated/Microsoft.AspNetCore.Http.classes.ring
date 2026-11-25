@@ -603,9 +603,7 @@ Class BadHttpRequestException from IOException
 		return self
 
 	Func getStatusCode
-		dn_x = dotnet_call("s3:get",nHandle,"s10:StatusCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:StatusCode")
 
 	Func setStatusCode P1
 		raise("DotNet Error: StatusCode is a read-only property")
@@ -665,9 +663,7 @@ Class BindingAddress from Object
 		raise("DotNet Error: PathBase is a read-only property")
 
 	Func getPort
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Port")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Port")
 
 	Func setPort P1
 		raise("DotNet Error: Port is a read-only property")
@@ -681,17 +677,13 @@ Class BindingAddress from Object
 		raise("DotNet Error: Scheme is a read-only property")
 
 	Func getIsUnixPipe
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsUnixPipe")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsUnixPipe")
 
 	Func setIsUnixPipe P1
 		raise("DotNet Error: IsUnixPipe is a read-only property")
 
 	Func getIsNamedPipe
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsNamedPipe")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsNamedPipe")
 
 	Func setIsNamedPipe P1
 		raise("DotNet Error: IsNamedPipe is a read-only property")
@@ -767,9 +759,7 @@ Class ConnectionInfo from Object
 		return self
 
 	Func getRemotePort
-		dn_x = dotnet_call("s3:get",nHandle,"s10:RemotePort")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:RemotePort")
 
 	Func setRemotePort P1
 		dotnet_callv("s3:set",nHandle,"s10:RemotePort",P1)
@@ -783,9 +773,7 @@ Class ConnectionInfo from Object
 		return self
 
 	Func getLocalPort
-		dn_x = dotnet_call("s3:get",nHandle,"s9:LocalPort")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:LocalPort")
 
 	Func setLocalPort P1
 		dotnet_callv("s3:set",nHandle,"s9:LocalPort",P1)
@@ -869,9 +857,7 @@ Class CookieBuilder from Object
 		return self
 
 	Func getHttpOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s8:HttpOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:HttpOnly")
 
 	Func setHttpOnly P1
 		dotnet_callv("s3:set",nHandle,"s8:HttpOnly",P1)
@@ -906,9 +892,7 @@ Class CookieBuilder from Object
 		return self
 
 	Func getIsEssential
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsEssential")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsEssential")
 
 	Func setIsEssential P1
 		dotnet_callv("s3:set",nHandle,"s11:IsEssential",P1)
@@ -1001,9 +985,7 @@ Class CookieOptions from Object
 		return self
 
 	Func getSecure
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Secure")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Secure")
 
 	Func setSecure P1
 		dotnet_callv("s3:set",nHandle,"s6:Secure",P1)
@@ -1017,9 +999,7 @@ Class CookieOptions from Object
 		return self
 
 	Func getHttpOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s8:HttpOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:HttpOnly")
 
 	Func setHttpOnly P1
 		dotnet_callv("s3:set",nHandle,"s8:HttpOnly",P1)
@@ -1033,9 +1013,7 @@ Class CookieOptions from Object
 		return self
 
 	Func getIsEssential
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsEssential")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsEssential")
 
 	Func setIsEssential P1
 		dotnet_callv("s3:set",nHandle,"s11:IsEssential",P1)
@@ -1376,9 +1354,7 @@ Class EndpointMetadataCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1537,9 +1513,7 @@ Class AspFormCollection from Object
 		raise("DotNet Error: Files is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1661,9 +1635,7 @@ Class FormFile from Object
 		return self
 
 	Func getLength
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
@@ -1769,9 +1741,7 @@ Class FragmentString from ValueType
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getHasValue
-		dn_x = dotnet_call("s3:get",nHandle,"s8:HasValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:HasValue")
 
 	Func setHasValue P1
 		raise("DotNet Error: HasValue is a read-only property")
@@ -1937,17 +1907,13 @@ Class HeaderDictionary from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		dotnet_callv("s3:set",nHandle,"s10:IsReadOnly",P1)
@@ -2128,9 +2094,7 @@ Class HostString from ValueType
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getHasValue
-		dn_x = dotnet_call("s3:get",nHandle,"s8:HasValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:HasValue")
 
 	Func setHasValue P1
 		raise("DotNet Error: HasValue is a read-only property")
@@ -2790,9 +2754,7 @@ Class HttpRequest from Object
 		return self
 
 	Func getIsHttps
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsHttps")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsHttps")
 
 	Func setIsHttps P1
 		dotnet_callv("s3:set",nHandle,"s7:IsHttps",P1)
@@ -2885,9 +2847,7 @@ Class HttpRequest from Object
 		raise("DotNet Error: BodyReader is a read-only property")
 
 	Func getHasFormContentType
-		dn_x = dotnet_call("s3:get",nHandle,"s18:HasFormContentType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:HasFormContentType")
 
 	Func setHasFormContentType P1
 		raise("DotNet Error: HasFormContentType is a read-only property")
@@ -3092,9 +3052,7 @@ Class HttpResponse from Object
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getStatusCode
-		dn_x = dotnet_call("s3:get",nHandle,"s10:StatusCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:StatusCode")
 
 	Func setStatusCode P1
 		dotnet_callv("s3:set",nHandle,"s10:StatusCode",P1)
@@ -3142,9 +3100,7 @@ Class HttpResponse from Object
 		raise("DotNet Error: Cookies is a read-only property")
 
 	Func getHasStarted
-		dn_x = dotnet_call("s3:get",nHandle,"s10:HasStarted")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:HasStarted")
 
 	Func setHasStarted P1
 		raise("DotNet Error: HasStarted is a read-only property")
@@ -3376,9 +3332,7 @@ Class IFormCollection from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -3451,9 +3405,7 @@ Class IFormFile from DotNetObject
 		raise("DotNet Error: Headers is a read-only property")
 
 	Func getLength
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
@@ -3521,9 +3473,7 @@ Class IFormFileCollection from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -4373,17 +4323,13 @@ Class IHeaderDictionary from DotNetObject
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -4567,9 +4513,7 @@ Class IQueryCollection from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -4632,9 +4576,7 @@ Class IRequestCookieCollection from DotNetObject
 		return dn_x
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -4779,9 +4721,7 @@ Class ISession from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
 
 	Func getIsAvailable
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsAvailable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsAvailable")
 
 	Func setIsAvailable P1
 		raise("DotNet Error: IsAvailable is a read-only property")
@@ -5020,9 +4960,7 @@ Class PathString from ValueType
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getHasValue
-		dn_x = dotnet_call("s3:get",nHandle,"s8:HasValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:HasValue")
 
 	Func setHasValue P1
 		raise("DotNet Error: HasValue is a read-only property")
@@ -5179,9 +5117,7 @@ Class ProducesResponseTypeMetadata from Object
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getStatusCode
-		dn_x = dotnet_call("s3:get",nHandle,"s10:StatusCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:StatusCode")
 
 	Func setStatusCode P1
 		raise("DotNet Error: StatusCode is a read-only property")
@@ -5273,9 +5209,7 @@ Class QueryCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -5401,9 +5335,7 @@ Class QueryString from ValueType
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getHasValue
-		dn_x = dotnet_call("s3:get",nHandle,"s8:HasValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:HasValue")
 
 	Func setHasValue P1
 		raise("DotNet Error: HasValue is a read-only property")
@@ -5494,18 +5426,14 @@ Class RequestDelegateFactoryOptions from Object
 		return self
 
 	Func getThrowOnBadRequest
-		dn_x = dotnet_call("s3:get",nHandle,"s17:ThrowOnBadRequest")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:ThrowOnBadRequest")
 
 	Func setThrowOnBadRequest P1
 		dotnet_callv("s3:set",nHandle,"s17:ThrowOnBadRequest",P1)
 		return self
 
 	Func getDisableInferBodyFromParameters
-		dn_x = dotnet_call("s3:get",nHandle,"s30:DisableInferBodyFromParameters")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s30:DisableInferBodyFromParameters")
 
 	Func setDisableInferBodyFromParameters P1
 		dotnet_callv("s3:set",nHandle,"s30:DisableInferBodyFromParameters",P1)
@@ -6104,529 +6032,397 @@ Class StatusCodes from Object
 		return dn_x
 
 	Func getStatus100Continue
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status100Continue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status100Continue")
 
 	Func setStatus100Continue P1
 		raise("DotNet Error: Status100Continue is a read-only property")
 
 	Func getStatus101SwitchingProtocols
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status101SwitchingProtocols")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status101SwitchingProtocols")
 
 	Func setStatus101SwitchingProtocols P1
 		raise("DotNet Error: Status101SwitchingProtocols is a read-only property")
 
 	Func getStatus102Processing
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status102Processing")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status102Processing")
 
 	Func setStatus102Processing P1
 		raise("DotNet Error: Status102Processing is a read-only property")
 
 	Func getStatus200OK
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s11:Status200OK")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s11:Status200OK")
 
 	Func setStatus200OK P1
 		raise("DotNet Error: Status200OK is a read-only property")
 
 	Func getStatus201Created
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s16:Status201Created")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s16:Status201Created")
 
 	Func setStatus201Created P1
 		raise("DotNet Error: Status201Created is a read-only property")
 
 	Func getStatus202Accepted
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status202Accepted")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status202Accepted")
 
 	Func setStatus202Accepted P1
 		raise("DotNet Error: Status202Accepted is a read-only property")
 
 	Func getStatus203NonAuthoritative
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status203NonAuthoritative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status203NonAuthoritative")
 
 	Func setStatus203NonAuthoritative P1
 		raise("DotNet Error: Status203NonAuthoritative is a read-only property")
 
 	Func getStatus204NoContent
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s18:Status204NoContent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s18:Status204NoContent")
 
 	Func setStatus204NoContent P1
 		raise("DotNet Error: Status204NoContent is a read-only property")
 
 	Func getStatus205ResetContent
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s21:Status205ResetContent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s21:Status205ResetContent")
 
 	Func setStatus205ResetContent P1
 		raise("DotNet Error: Status205ResetContent is a read-only property")
 
 	Func getStatus206PartialContent
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status206PartialContent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status206PartialContent")
 
 	Func setStatus206PartialContent P1
 		raise("DotNet Error: Status206PartialContent is a read-only property")
 
 	Func getStatus207MultiStatus
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status207MultiStatus")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status207MultiStatus")
 
 	Func setStatus207MultiStatus P1
 		raise("DotNet Error: Status207MultiStatus is a read-only property")
 
 	Func getStatus208AlreadyReported
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status208AlreadyReported")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status208AlreadyReported")
 
 	Func setStatus208AlreadyReported P1
 		raise("DotNet Error: Status208AlreadyReported is a read-only property")
 
 	Func getStatus226IMUsed
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s15:Status226IMUsed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s15:Status226IMUsed")
 
 	Func setStatus226IMUsed P1
 		raise("DotNet Error: Status226IMUsed is a read-only property")
 
 	Func getStatus300MultipleChoices
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status300MultipleChoices")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status300MultipleChoices")
 
 	Func setStatus300MultipleChoices P1
 		raise("DotNet Error: Status300MultipleChoices is a read-only property")
 
 	Func getStatus301MovedPermanently
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status301MovedPermanently")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status301MovedPermanently")
 
 	Func setStatus301MovedPermanently P1
 		raise("DotNet Error: Status301MovedPermanently is a read-only property")
 
 	Func getStatus302Found
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s14:Status302Found")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s14:Status302Found")
 
 	Func setStatus302Found P1
 		raise("DotNet Error: Status302Found is a read-only property")
 
 	Func getStatus303SeeOther
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status303SeeOther")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status303SeeOther")
 
 	Func setStatus303SeeOther P1
 		raise("DotNet Error: Status303SeeOther is a read-only property")
 
 	Func getStatus304NotModified
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status304NotModified")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status304NotModified")
 
 	Func setStatus304NotModified P1
 		raise("DotNet Error: Status304NotModified is a read-only property")
 
 	Func getStatus305UseProxy
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status305UseProxy")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status305UseProxy")
 
 	Func setStatus305UseProxy P1
 		raise("DotNet Error: Status305UseProxy is a read-only property")
 
 	Func getStatus306SwitchProxy
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status306SwitchProxy")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status306SwitchProxy")
 
 	Func setStatus306SwitchProxy P1
 		raise("DotNet Error: Status306SwitchProxy is a read-only property")
 
 	Func getStatus307TemporaryRedirect
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status307TemporaryRedirect")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status307TemporaryRedirect")
 
 	Func setStatus307TemporaryRedirect P1
 		raise("DotNet Error: Status307TemporaryRedirect is a read-only property")
 
 	Func getStatus308PermanentRedirect
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status308PermanentRedirect")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status308PermanentRedirect")
 
 	Func setStatus308PermanentRedirect P1
 		raise("DotNet Error: Status308PermanentRedirect is a read-only property")
 
 	Func getStatus400BadRequest
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status400BadRequest")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status400BadRequest")
 
 	Func setStatus400BadRequest P1
 		raise("DotNet Error: Status400BadRequest is a read-only property")
 
 	Func getStatus401Unauthorized
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s21:Status401Unauthorized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s21:Status401Unauthorized")
 
 	Func setStatus401Unauthorized P1
 		raise("DotNet Error: Status401Unauthorized is a read-only property")
 
 	Func getStatus402PaymentRequired
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status402PaymentRequired")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status402PaymentRequired")
 
 	Func setStatus402PaymentRequired P1
 		raise("DotNet Error: Status402PaymentRequired is a read-only property")
 
 	Func getStatus403Forbidden
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s18:Status403Forbidden")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s18:Status403Forbidden")
 
 	Func setStatus403Forbidden P1
 		raise("DotNet Error: Status403Forbidden is a read-only property")
 
 	Func getStatus404NotFound
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status404NotFound")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status404NotFound")
 
 	Func setStatus404NotFound P1
 		raise("DotNet Error: Status404NotFound is a read-only property")
 
 	Func getStatus405MethodNotAllowed
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status405MethodNotAllowed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status405MethodNotAllowed")
 
 	Func setStatus405MethodNotAllowed P1
 		raise("DotNet Error: Status405MethodNotAllowed is a read-only property")
 
 	Func getStatus406NotAcceptable
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s22:Status406NotAcceptable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s22:Status406NotAcceptable")
 
 	Func setStatus406NotAcceptable P1
 		raise("DotNet Error: Status406NotAcceptable is a read-only property")
 
 	Func getStatus407ProxyAuthenticationRequired
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s36:Status407ProxyAuthenticationRequired")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s36:Status407ProxyAuthenticationRequired")
 
 	Func setStatus407ProxyAuthenticationRequired P1
 		raise("DotNet Error: Status407ProxyAuthenticationRequired is a read-only property")
 
 	Func getStatus408RequestTimeout
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status408RequestTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status408RequestTimeout")
 
 	Func setStatus408RequestTimeout P1
 		raise("DotNet Error: Status408RequestTimeout is a read-only property")
 
 	Func getStatus409Conflict
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status409Conflict")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status409Conflict")
 
 	Func setStatus409Conflict P1
 		raise("DotNet Error: Status409Conflict is a read-only property")
 
 	Func getStatus410Gone
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s13:Status410Gone")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s13:Status410Gone")
 
 	Func setStatus410Gone P1
 		raise("DotNet Error: Status410Gone is a read-only property")
 
 	Func getStatus411LengthRequired
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status411LengthRequired")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status411LengthRequired")
 
 	Func setStatus411LengthRequired P1
 		raise("DotNet Error: Status411LengthRequired is a read-only property")
 
 	Func getStatus412PreconditionFailed
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status412PreconditionFailed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status412PreconditionFailed")
 
 	Func setStatus412PreconditionFailed P1
 		raise("DotNet Error: Status412PreconditionFailed is a read-only property")
 
 	Func getStatus413RequestEntityTooLarge
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s30:Status413RequestEntityTooLarge")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s30:Status413RequestEntityTooLarge")
 
 	Func setStatus413RequestEntityTooLarge P1
 		raise("DotNet Error: Status413RequestEntityTooLarge is a read-only property")
 
 	Func getStatus413PayloadTooLarge
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status413PayloadTooLarge")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status413PayloadTooLarge")
 
 	Func setStatus413PayloadTooLarge P1
 		raise("DotNet Error: Status413PayloadTooLarge is a read-only property")
 
 	Func getStatus414RequestUriTooLong
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status414RequestUriTooLong")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status414RequestUriTooLong")
 
 	Func setStatus414RequestUriTooLong P1
 		raise("DotNet Error: Status414RequestUriTooLong is a read-only property")
 
 	Func getStatus414UriTooLong
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status414UriTooLong")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status414UriTooLong")
 
 	Func setStatus414UriTooLong P1
 		raise("DotNet Error: Status414UriTooLong is a read-only property")
 
 	Func getStatus415UnsupportedMediaType
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s29:Status415UnsupportedMediaType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s29:Status415UnsupportedMediaType")
 
 	Func setStatus415UnsupportedMediaType P1
 		raise("DotNet Error: Status415UnsupportedMediaType is a read-only property")
 
 	Func getStatus416RequestedRangeNotSatisfiable
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s37:Status416RequestedRangeNotSatisfiable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s37:Status416RequestedRangeNotSatisfiable")
 
 	Func setStatus416RequestedRangeNotSatisfiable P1
 		raise("DotNet Error: Status416RequestedRangeNotSatisfiable is a read-only property")
 
 	Func getStatus416RangeNotSatisfiable
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status416RangeNotSatisfiable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status416RangeNotSatisfiable")
 
 	Func setStatus416RangeNotSatisfiable P1
 		raise("DotNet Error: Status416RangeNotSatisfiable is a read-only property")
 
 	Func getStatus417ExpectationFailed
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status417ExpectationFailed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status417ExpectationFailed")
 
 	Func setStatus417ExpectationFailed P1
 		raise("DotNet Error: Status417ExpectationFailed is a read-only property")
 
 	Func getStatus418ImATeapot
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s18:Status418ImATeapot")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s18:Status418ImATeapot")
 
 	Func setStatus418ImATeapot P1
 		raise("DotNet Error: Status418ImATeapot is a read-only property")
 
 	Func getStatus419AuthenticationTimeout
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s30:Status419AuthenticationTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s30:Status419AuthenticationTimeout")
 
 	Func setStatus419AuthenticationTimeout P1
 		raise("DotNet Error: Status419AuthenticationTimeout is a read-only property")
 
 	Func getStatus421MisdirectedRequest
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status421MisdirectedRequest")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status421MisdirectedRequest")
 
 	Func setStatus421MisdirectedRequest P1
 		raise("DotNet Error: Status421MisdirectedRequest is a read-only property")
 
 	Func getStatus422UnprocessableEntity
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status422UnprocessableEntity")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status422UnprocessableEntity")
 
 	Func setStatus422UnprocessableEntity P1
 		raise("DotNet Error: Status422UnprocessableEntity is a read-only property")
 
 	Func getStatus423Locked
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s15:Status423Locked")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s15:Status423Locked")
 
 	Func setStatus423Locked P1
 		raise("DotNet Error: Status423Locked is a read-only property")
 
 	Func getStatus424FailedDependency
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status424FailedDependency")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status424FailedDependency")
 
 	Func setStatus424FailedDependency P1
 		raise("DotNet Error: Status424FailedDependency is a read-only property")
 
 	Func getStatus426UpgradeRequired
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status426UpgradeRequired")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status426UpgradeRequired")
 
 	Func setStatus426UpgradeRequired P1
 		raise("DotNet Error: Status426UpgradeRequired is a read-only property")
 
 	Func getStatus428PreconditionRequired
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s29:Status428PreconditionRequired")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s29:Status428PreconditionRequired")
 
 	Func setStatus428PreconditionRequired P1
 		raise("DotNet Error: Status428PreconditionRequired is a read-only property")
 
 	Func getStatus429TooManyRequests
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status429TooManyRequests")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status429TooManyRequests")
 
 	Func setStatus429TooManyRequests P1
 		raise("DotNet Error: Status429TooManyRequests is a read-only property")
 
 	Func getStatus431RequestHeaderFieldsTooLarge
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s36:Status431RequestHeaderFieldsTooLarge")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s36:Status431RequestHeaderFieldsTooLarge")
 
 	Func setStatus431RequestHeaderFieldsTooLarge P1
 		raise("DotNet Error: Status431RequestHeaderFieldsTooLarge is a read-only property")
 
 	Func getStatus451UnavailableForLegalReasons
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s35:Status451UnavailableForLegalReasons")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s35:Status451UnavailableForLegalReasons")
 
 	Func setStatus451UnavailableForLegalReasons P1
 		raise("DotNet Error: Status451UnavailableForLegalReasons is a read-only property")
 
 	Func getStatus499ClientClosedRequest
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status499ClientClosedRequest")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status499ClientClosedRequest")
 
 	Func setStatus499ClientClosedRequest P1
 		raise("DotNet Error: Status499ClientClosedRequest is a read-only property")
 
 	Func getStatus500InternalServerError
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status500InternalServerError")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status500InternalServerError")
 
 	Func setStatus500InternalServerError P1
 		raise("DotNet Error: Status500InternalServerError is a read-only property")
 
 	Func getStatus501NotImplemented
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status501NotImplemented")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status501NotImplemented")
 
 	Func setStatus501NotImplemented P1
 		raise("DotNet Error: Status501NotImplemented is a read-only property")
 
 	Func getStatus502BadGateway
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status502BadGateway")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status502BadGateway")
 
 	Func setStatus502BadGateway P1
 		raise("DotNet Error: Status502BadGateway is a read-only property")
 
 	Func getStatus503ServiceUnavailable
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status503ServiceUnavailable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status503ServiceUnavailable")
 
 	Func setStatus503ServiceUnavailable P1
 		raise("DotNet Error: Status503ServiceUnavailable is a read-only property")
 
 	Func getStatus504GatewayTimeout
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status504GatewayTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status504GatewayTimeout")
 
 	Func setStatus504GatewayTimeout P1
 		raise("DotNet Error: Status504GatewayTimeout is a read-only property")
 
 	Func getStatus505HttpVersionNotsupported
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s32:Status505HttpVersionNotsupported")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s32:Status505HttpVersionNotsupported")
 
 	Func setStatus505HttpVersionNotsupported P1
 		raise("DotNet Error: Status505HttpVersionNotsupported is a read-only property")
 
 	Func getStatus506VariantAlsoNegotiates
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s30:Status506VariantAlsoNegotiates")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s30:Status506VariantAlsoNegotiates")
 
 	Func setStatus506VariantAlsoNegotiates P1
 		raise("DotNet Error: Status506VariantAlsoNegotiates is a read-only property")
 
 	Func getStatus507InsufficientStorage
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status507InsufficientStorage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status507InsufficientStorage")
 
 	Func setStatus507InsufficientStorage P1
 		raise("DotNet Error: Status507InsufficientStorage is a read-only property")
 
 	Func getStatus508LoopDetected
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s21:Status508LoopDetected")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s21:Status508LoopDetected")
 
 	Func setStatus508LoopDetected P1
 		raise("DotNet Error: Status508LoopDetected is a read-only property")
 
 	Func getStatus510NotExtended
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status510NotExtended")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status510NotExtended")
 
 	Func setStatus510NotExtended P1
 		raise("DotNet Error: Status510NotExtended is a read-only property")
 
 	Func getStatus511NetworkAuthenticationRequired
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s38:Status511NetworkAuthenticationRequired")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s38:Status511NetworkAuthenticationRequired")
 
 	Func setStatus511NetworkAuthenticationRequired P1
 		raise("DotNet Error: Status511NetworkAuthenticationRequired is a read-only property")
@@ -7036,27 +6832,21 @@ Class WebSocketAcceptContext from Object
 		return self
 
 	Func getDangerousEnableCompression
-		dn_x = dotnet_call("s3:get",nHandle,"s26:DangerousEnableCompression")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:DangerousEnableCompression")
 
 	Func setDangerousEnableCompression P1
 		dotnet_callv("s3:set",nHandle,"s26:DangerousEnableCompression",P1)
 		return self
 
 	Func getDisableServerContextTakeover
-		dn_x = dotnet_call("s3:get",nHandle,"s28:DisableServerContextTakeover")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s28:DisableServerContextTakeover")
 
 	Func setDisableServerContextTakeover P1
 		dotnet_callv("s3:set",nHandle,"s28:DisableServerContextTakeover",P1)
 		return self
 
 	Func getServerMaxWindowBits
-		dn_x = dotnet_call("s3:get",nHandle,"s19:ServerMaxWindowBits")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:ServerMaxWindowBits")
 
 	Func setServerMaxWindowBits P1
 		dotnet_callv("s3:set",nHandle,"s19:ServerMaxWindowBits",P1)
@@ -7092,9 +6882,7 @@ Class WebSocketManager from Object
 		return dn_x
 
 	Func getIsWebSocketRequest
-		dn_x = dotnet_call("s3:get",nHandle,"s18:IsWebSocketRequest")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:IsWebSocketRequest")
 
 	Func setIsWebSocketRequest P1
 		raise("DotNet Error: IsWebSocketRequest is a read-only property")

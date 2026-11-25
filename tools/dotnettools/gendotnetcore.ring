@@ -294,11 +294,18 @@ func paraList nCount
 	return cList
 
 # Statement that returns the result of a call (the bridge result is wrapped by the runtime type, see dnWrapObject)
-func returnCode cRequest, cReturnType, nByRef
+# lProperty: the request reads a property. A property has no overloads, so its declared type is what it answers, and a number or a yes/no is returned as
+# it is. For a method the declared type is not enough: the bridge chooses the overload from the real object, and a class derived from the declared one can
+# add an overload with another kind of answer, so the method finishes an answer that is not a number or a text (dnFinish). The indexer is made from the
+# first indexer that .NET lists, which is not always the one that is called, so it is not a property either.
+func returnCode cRequest, cReturnType, nByRef, lProperty
 	if nByRef = 0 and cReturnType = "System.Void"
 		return nativeCall(cRequest,"void") + nl + "		return self" + nl
 	ok
 	if nByRef = 0 and isPrimitiveType(cReturnType)
+		if lProperty and cReturnType != "System.String"
+			return nativeCall(cRequest,"number")
+		ok
 		return nativeCall(cRequest,"value")
 	ok
 	if nByRef = 0
@@ -327,6 +334,10 @@ func nativeCall cRequest, cMode
 	ok
 	if cMode = "any"
 		return "dn_x = dotnet_calla(" + cNative + ")" + nl + "		if islist(dn_x) return dnAny(dn_x) ok" + nl + "		return dn_x" + nl
+	ok
+	if cMode = "number"
+		# a number or a yes/no (not a text): the answer is never null, so there is nothing to finish in Ring
+		return "return dotnet_call(" + cNative + ")" + nl
 	ok
 	# a text, a number or a yes/no: any other answer (null...) comes back as a list that dnFinish reads
 	return "dn_x = dotnet_call(" + cNative + ")" + nl + "		if islist(dn_x) return dnFinish(dn_x[2]) ok" + nl + "		return dn_x" + nl
@@ -794,7 +805,7 @@ func buildPlan cTypeName, nForceInit
 			ok
 			cStaticReq += "]"
 			cB += "		if nHandle = 0" + nl
-			cB += "			" + returnCode(cStaticReq,aStaticRec[3],aStaticRec[5])
+			cB += "			" + returnCode(cStaticReq,aStaticRec[3],aStaticRec[5],false)
 			cB += "		ok" + nl
 			cReq = '"call",[new DotNetObject(nHandle),"' + cName + '"'
 			if nArity > 0
@@ -803,7 +814,7 @@ func buildPlan cTypeName, nForceInit
 			cReq += "]"
 			aMethod = aInstanceRec
 		ok
-		cB += "		" + returnCode(cReq,aMethod[3],aMethod[5]) + nl
+		cB += "		" + returnCode(cReq,aMethod[3],aMethod[5],false) + nl
 		aBlocks + [lower(cRing),cB]
 	next
 
@@ -827,7 +838,7 @@ func buildPlan cTypeName, nForceInit
 				cB += "		ok" + nl
 			ok
 			if len(aIndexer) = 3
-				cB += "		" + returnCode('"call",[new DotNetObject(nHandle),"get_Item",P1]',aIndexer[2],0) + nl
+				cB += "		" + returnCode('"call",[new DotNetObject(nHandle),"get_Item",P1]',aIndexer[2],0,false) + nl
 			else
 				cB += '		raise("DotNet Error: this indexer takes its indexes as a list: Item([index1,index2])")' + nl + nl
 			ok
@@ -889,7 +900,7 @@ func buildPlan cTypeName, nForceInit
 		if aMember[2] and (find(aNames,lower("get" + cName)) = 0)
 			aNames + lower("get" + cName)
 			cB = "	Func get" + cName + nl
-			cB += "		" + returnCode('"get",[' + cTarget + ',"' + cName + '"]',aMember[5],0) + nl
+			cB += "		" + returnCode('"get",[' + cTarget + ',"' + cName + '"]',aMember[5],0,true) + nl
 			aBlocks + [lower("get" + cName),cB]
 		ok
 		if aMember[3] and (find(aNames,lower("set" + cName)) = 0)
@@ -1000,7 +1011,7 @@ func arityCall aFiMethods, cFiName, cFiType, nFiArity, cFiOperation, cFiIndent
 	cFiCode = ""
 	if lFiStatic and lFiInstance
 		cFiCode += cFiIndent + "if nHandle = 0" + nl
-		cFiCode += cFiIndent + "	" + returnCode('"' + cFiOperation + '",[' + cFiStaticTarget + ',"' + cFiName + '"' + cFiArgs + ']',aFiStaticRec[3],aFiStaticRec[5])
+		cFiCode += cFiIndent + "	" + returnCode('"' + cFiOperation + '",[' + cFiStaticTarget + ',"' + cFiName + '"' + cFiArgs + ']',aFiStaticRec[3],aFiStaticRec[5],false)
 		cFiCode += cFiIndent + "ok" + nl
 		cFiTarget = "new DotNetObject(nHandle)"
 	but lFiStatic
@@ -1009,9 +1020,9 @@ func arityCall aFiMethods, cFiName, cFiType, nFiArity, cFiOperation, cFiIndent
 		cFiTarget = "new DotNetObject(nHandle)"
 	ok
 	if lFiInstance
-		cFiCode += cFiIndent + returnCode('"' + cFiOperation + '",[' + cFiTarget + ',"' + cFiName + '"' + cFiArgs + ']',aFiInstanceRec[3],aFiInstanceRec[5])
+		cFiCode += cFiIndent + returnCode('"' + cFiOperation + '",[' + cFiTarget + ',"' + cFiName + '"' + cFiArgs + ']',aFiInstanceRec[3],aFiInstanceRec[5],false)
 	else
-		cFiCode += cFiIndent + returnCode('"' + cFiOperation + '",[' + cFiTarget + ',"' + cFiName + '"' + cFiArgs + ']',aFiStaticRec[3],aFiStaticRec[5])
+		cFiCode += cFiIndent + returnCode('"' + cFiOperation + '",[' + cFiTarget + ',"' + cFiName + '"' + cFiArgs + ']',aFiStaticRec[3],aFiStaticRec[5],false)
 	ok
 	return cFiCode
 

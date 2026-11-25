@@ -831,17 +831,13 @@ Class INameScopeDictionary from DotNetObject
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1697,9 +1693,7 @@ Class UsableDuringInitializationAttribute from Attribute
 		return self
 
 	Func getUsable
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Usable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Usable")
 
 	Func setUsable P1
 		raise("DotNet Error: Usable is a read-only property")
@@ -1926,17 +1920,13 @@ Class XamlParseException from SystemException
 		return self
 
 	Func getLineNumber
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LineNumber")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:LineNumber")
 
 	Func setLineNumber P1
 		raise("DotNet Error: LineNumber is a read-only property")
 
 	Func getLinePosition
-		dn_x = dotnet_call("s3:get",nHandle,"s12:LinePosition")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:LinePosition")
 
 	Func setLinePosition P1
 		raise("DotNet Error: LinePosition is a read-only property")
@@ -2113,9 +2103,7 @@ Class XamlSetValueEventArgs from EventArgs
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getHandled
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Handled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Handled")
 
 	Func setHandled P1
 		dotnet_callv("s3:set",nHandle,"s7:Handled",P1)
@@ -2599,17 +2587,13 @@ Class XmlnsDictionary from Object
 		return self
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2627,17 +2611,13 @@ Class XmlnsDictionary from Object
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -2649,9 +2629,7 @@ Class XmlnsDictionary from Object
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getSealed
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Sealed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Sealed")
 
 	Func setSealed P1
 		raise("DotNet Error: Sealed is a read-only property")

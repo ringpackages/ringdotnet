@@ -523,9 +523,7 @@ Class DBConcurrencyException from SystemException
 		return self
 
 	Func getRowCount
-		dn_x = dotnet_call("s3:get",nHandle,"s8:RowCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:RowCount")
 
 	Func setRowCount P1
 		raise("DotNet Error: RowCount is a read-only property")
@@ -593,36 +591,28 @@ Class DataColumn from MarshalByValueComponent
 		return self
 
 	Func getAllowDBNull
-		dn_x = dotnet_call("s3:get",nHandle,"s11:AllowDBNull")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:AllowDBNull")
 
 	Func setAllowDBNull P1
 		dotnet_callv("s3:set",nHandle,"s11:AllowDBNull",P1)
 		return self
 
 	Func getAutoIncrement
-		dn_x = dotnet_call("s3:get",nHandle,"s13:AutoIncrement")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:AutoIncrement")
 
 	Func setAutoIncrement P1
 		dotnet_callv("s3:set",nHandle,"s13:AutoIncrement",P1)
 		return self
 
 	Func getAutoIncrementSeed
-		dn_x = dotnet_call("s3:get",nHandle,"s17:AutoIncrementSeed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:AutoIncrementSeed")
 
 	Func setAutoIncrementSeed P1
 		dotnet_callv("s3:set",nHandle,"s17:AutoIncrementSeed",P1)
 		return self
 
 	Func getAutoIncrementStep
-		dn_x = dotnet_call("s3:get",nHandle,"s17:AutoIncrementStep")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:AutoIncrementStep")
 
 	Func setAutoIncrementStep P1
 		dotnet_callv("s3:set",nHandle,"s17:AutoIncrementStep",P1)
@@ -692,9 +682,7 @@ Class DataColumn from MarshalByValueComponent
 		raise("DotNet Error: ExtendedProperties is a read-only property")
 
 	Func getMaxLength
-		dn_x = dotnet_call("s3:get",nHandle,"s9:MaxLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:MaxLength")
 
 	Func setMaxLength P1
 		dotnet_callv("s3:set",nHandle,"s9:MaxLength",P1)
@@ -710,14 +698,10 @@ Class DataColumn from MarshalByValueComponent
 		return self
 
 	Func getOrdinal
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Ordinal")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Ordinal")
 
 	Func getReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s8:ReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:ReadOnly")
 
 	Func setReadOnly P1
 		dotnet_callv("s3:set",nHandle,"s8:ReadOnly",P1)
@@ -730,9 +714,7 @@ Class DataColumn from MarshalByValueComponent
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getUnique
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Unique")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Unique")
 
 	Func setUnique P1
 		dotnet_callv("s3:set",nHandle,"s6:Unique",P1)
@@ -1034,9 +1016,7 @@ Class DataRelation from Object
 		return self
 
 	Func getNested
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Nested")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Nested")
 
 	Func setNested P1
 		dotnet_callv("s3:set",nHandle,"s6:Nested",P1)
@@ -1231,9 +1211,7 @@ Class DataRow from Object
 		return self
 
 	Func getHasErrors
-		dn_x = dotnet_call("s3:get",nHandle,"s9:HasErrors")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:HasErrors")
 
 	Func setHasErrors P1
 		raise("DotNet Error: HasErrors is a read-only property")
@@ -1461,17 +1439,13 @@ Class DataRowView from Object
 		raise("DotNet Error: Row is a read-only property")
 
 	Func getIsNew
-		dn_x = dotnet_call("s3:get",nHandle,"s5:IsNew")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:IsNew")
 
 	Func setIsNew P1
 		raise("DotNet Error: IsNew is a read-only property")
 
 	Func getIsEdit
-		dn_x = dotnet_call("s3:get",nHandle,"s6:IsEdit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:IsEdit")
 
 	Func setIsEdit P1
 		raise("DotNet Error: IsEdit is a read-only property")
@@ -1696,9 +1670,7 @@ Class DataSet from MarshalByValueComponent
 		return self
 
 	Func getCaseSensitive
-		dn_x = dotnet_call("s3:get",nHandle,"s13:CaseSensitive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:CaseSensitive")
 
 	Func setCaseSensitive P1
 		dotnet_callv("s3:set",nHandle,"s13:CaseSensitive",P1)
@@ -1711,9 +1683,7 @@ Class DataSet from MarshalByValueComponent
 		raise("DotNet Error: DefaultViewManager is a read-only property")
 
 	Func getEnforceConstraints
-		dn_x = dotnet_call("s3:get",nHandle,"s18:EnforceConstraints")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:EnforceConstraints")
 
 	Func setEnforceConstraints P1
 		dotnet_callv("s3:set",nHandle,"s18:EnforceConstraints",P1)
@@ -1753,17 +1723,13 @@ Class DataSet from MarshalByValueComponent
 		raise("DotNet Error: ExtendedProperties is a read-only property")
 
 	Func getHasErrors
-		dn_x = dotnet_call("s3:get",nHandle,"s9:HasErrors")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:HasErrors")
 
 	Func setHasErrors P1
 		raise("DotNet Error: HasErrors is a read-only property")
 
 	Func getIsInitialized
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsInitialized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsInitialized")
 
 	Func setIsInitialized P1
 		raise("DotNet Error: IsInitialized is a read-only property")
@@ -2069,18 +2035,14 @@ Class DataTable from MarshalByValueComponent
 		return self
 
 	Func getCaseSensitive
-		dn_x = dotnet_call("s3:get",nHandle,"s13:CaseSensitive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:CaseSensitive")
 
 	Func setCaseSensitive P1
 		dotnet_callv("s3:set",nHandle,"s13:CaseSensitive",P1)
 		return self
 
 	Func getIsInitialized
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsInitialized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsInitialized")
 
 	Func setIsInitialized P1
 		raise("DotNet Error: IsInitialized is a read-only property")
@@ -2138,9 +2100,7 @@ Class DataTable from MarshalByValueComponent
 		raise("DotNet Error: ExtendedProperties is a read-only property")
 
 	Func getHasErrors
-		dn_x = dotnet_call("s3:get",nHandle,"s9:HasErrors")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:HasErrors")
 
 	Func setHasErrors P1
 		raise("DotNet Error: HasErrors is a read-only property")
@@ -2153,9 +2113,7 @@ Class DataTable from MarshalByValueComponent
 		return self
 
 	Func getMinimumCapacity
-		dn_x = dotnet_call("s3:get",nHandle,"s15:MinimumCapacity")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:MinimumCapacity")
 
 	Func setMinimumCapacity P1
 		dotnet_callv("s3:set",nHandle,"s15:MinimumCapacity",P1)
@@ -2452,45 +2410,35 @@ Class DataView from MarshalByValueComponent
 		return self
 
 	Func getAllowDelete
-		dn_x = dotnet_call("s3:get",nHandle,"s11:AllowDelete")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:AllowDelete")
 
 	Func setAllowDelete P1
 		dotnet_callv("s3:set",nHandle,"s11:AllowDelete",P1)
 		return self
 
 	Func getApplyDefaultSort
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ApplyDefaultSort")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:ApplyDefaultSort")
 
 	Func setApplyDefaultSort P1
 		dotnet_callv("s3:set",nHandle,"s16:ApplyDefaultSort",P1)
 		return self
 
 	Func getAllowEdit
-		dn_x = dotnet_call("s3:get",nHandle,"s9:AllowEdit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:AllowEdit")
 
 	Func setAllowEdit P1
 		dotnet_callv("s3:set",nHandle,"s9:AllowEdit",P1)
 		return self
 
 	Func getAllowNew
-		dn_x = dotnet_call("s3:get",nHandle,"s8:AllowNew")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:AllowNew")
 
 	Func setAllowNew P1
 		dotnet_callv("s3:set",nHandle,"s8:AllowNew",P1)
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -2502,9 +2450,7 @@ Class DataView from MarshalByValueComponent
 		raise("DotNet Error: DataViewManager is a read-only property")
 
 	Func getIsInitialized
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsInitialized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsInitialized")
 
 	Func setIsInitialized P1
 		raise("DotNet Error: IsInitialized is a read-only property")
@@ -2660,9 +2606,7 @@ Class DataViewSetting from Object
 		return dn_x
 
 	Func getApplyDefaultSort
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ApplyDefaultSort")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:ApplyDefaultSort")
 
 	Func setApplyDefaultSort P1
 		dotnet_callv("s3:set",nHandle,"s16:ApplyDefaultSort",P1)
@@ -2763,25 +2707,19 @@ Class DataViewSettingCollection from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -2901,9 +2839,7 @@ Class FillErrorEventArgs from EventArgs
 		return self
 
 	Func getContinue
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Continue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Continue")
 
 	Func setContinue P1
 		dotnet_callv("s3:set",nHandle,"s8:Continue",P1)
@@ -3058,25 +2994,19 @@ Class IColumnMappingCollection from DotNetObject
 		return self
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -3088,9 +3018,7 @@ Class IColumnMappingCollection from DotNetObject
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -3182,9 +3110,7 @@ Class IDataParameter from DotNetObject
 		return self
 
 	Func getIsNullable
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsNullable")
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
@@ -3310,25 +3236,19 @@ Class IDataParameterCollection from DotNetObject
 		return self
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -3340,9 +3260,7 @@ Class IDataParameterCollection from DotNetObject
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -3486,33 +3404,25 @@ Class IDataReader from DotNetObject
 		return dn_x
 
 	Func getDepth
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Depth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Depth")
 
 	Func setDepth P1
 		raise("DotNet Error: Depth is a read-only property")
 
 	Func getIsClosed
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsClosed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsClosed")
 
 	Func setIsClosed P1
 		raise("DotNet Error: IsClosed is a read-only property")
 
 	Func getRecordsAffected
-		dn_x = dotnet_call("s3:get",nHandle,"s15:RecordsAffected")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:RecordsAffected")
 
 	Func setRecordsAffected P1
 		raise("DotNet Error: RecordsAffected is a read-only property")
 
 	Func getFieldCount
-		dn_x = dotnet_call("s3:get",nHandle,"s10:FieldCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:FieldCount")
 
 	Func setFieldCount P1
 		raise("DotNet Error: FieldCount is a read-only property")
@@ -3633,9 +3543,7 @@ Class IDataRecord from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getFieldCount
-		dn_x = dotnet_call("s3:get",nHandle,"s10:FieldCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:FieldCount")
 
 	Func setFieldCount P1
 		raise("DotNet Error: FieldCount is a read-only property")
@@ -3719,9 +3627,7 @@ Class IDbCommand from DotNetObject
 		return self
 
 	Func getCommandTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s14:CommandTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:CommandTimeout")
 
 	Func setCommandTimeout P1
 		dotnet_callv("s3:set",nHandle,"s14:CommandTimeout",P1)
@@ -3806,9 +3712,7 @@ Class IDbConnection from DotNetObject
 		return self
 
 	Func getConnectionTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s17:ConnectionTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:ConnectionTimeout")
 
 	Func setConnectionTimeout P1
 		raise("DotNet Error: ConnectionTimeout is a read-only property")
@@ -3935,27 +3839,21 @@ Class IDbDataParameter from DotNetObject
 		return self
 
 	Func getPrecision
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Precision")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Precision")
 
 	Func setPrecision P1
 		dotnet_callv("s3:set",nHandle,"s9:Precision",P1)
 		return self
 
 	Func getScale
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Scale")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Scale")
 
 	Func setScale P1
 		dotnet_callv("s3:set",nHandle,"s5:Scale",P1)
 		return self
 
 	Func getSize
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Size")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Size")
 
 	Func setSize P1
 		dotnet_callv("s3:set",nHandle,"s4:Size",P1)
@@ -3976,9 +3874,7 @@ Class IDbDataParameter from DotNetObject
 		return self
 
 	Func getIsNullable
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsNullable")
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
@@ -4194,25 +4090,19 @@ Class ITableMappingCollection from DotNetObject
 		return self
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -4224,9 +4114,7 @@ Class ITableMappingCollection from DotNetObject
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -4291,25 +4179,19 @@ Class InternalDataCollectionBase from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -4418,9 +4300,7 @@ Class StatementCompletedEventArgs from EventArgs
 		return self
 
 	Func getRecordCount
-		dn_x = dotnet_call("s3:get",nHandle,"s11:RecordCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:RecordCount")
 
 	Func setRecordCount P1
 		raise("DotNet Error: RecordCount is a read-only property")
@@ -5400,9 +5280,7 @@ Class UniqueConstraint from Constraint
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getIsPrimaryKey
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsPrimaryKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsPrimaryKey")
 
 	Func setIsPrimaryKey P1
 		raise("DotNet Error: IsPrimaryKey is a read-only property")

@@ -398,9 +398,7 @@ Class AuthenticateResult from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions',"s4:Fail",P1))
 
 	Func getSucceeded
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Succeeded")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Succeeded")
 
 	Func setSucceeded P1
 		raise("DotNet Error: Succeeded is a read-only property")
@@ -430,9 +428,7 @@ Class AuthenticateResult from Object
 		raise("DotNet Error: Failure is a read-only property")
 
 	Func getNone
-		dn_x = dotnet_call("s3:get",nHandle,"s4:None")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:None")
 
 	Func setNone P1
 		raise("DotNet Error: None is a read-only property")
@@ -868,9 +864,7 @@ Class AuthenticationOptions from Object
 		return self
 
 	Func getRequireAuthenticatedSignIn
-		dn_x = dotnet_call("s3:get",nHandle,"s26:RequireAuthenticatedSignIn")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:RequireAuthenticatedSignIn")
 
 	Func setRequireAuthenticatedSignIn P1
 		dotnet_callv("s3:set",nHandle,"s26:RequireAuthenticatedSignIn",P1)
@@ -985,9 +979,7 @@ Class AuthenticationProperties from Object
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getIsPersistent
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsPersistent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsPersistent")
 
 	Func setIsPersistent P1
 		dotnet_callv("s3:set",nHandle,"s12:IsPersistent",P1)
@@ -2371,17 +2363,13 @@ Class HandleRequestResult from AuthenticateResult
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication',"s8:NoResult"))
 
 	Func getHandled
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Handled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Handled")
 
 	Func setHandled P1
 		raise("DotNet Error: Handled is a read-only property")
 
 	Func getSkipped
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Skipped")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Skipped")
 
 	Func setSkipped P1
 		raise("DotNet Error: Skipped is a read-only property")
@@ -2568,9 +2556,7 @@ Class RemoteAuthenticationOptions from AuthenticationSchemeOptions
 		return self
 
 	Func getSaveTokens
-		dn_x = dotnet_call("s3:get",nHandle,"s10:SaveTokens")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:SaveTokens")
 
 	Func setSaveTokens P1
 		dotnet_callv("s3:set",nHandle,"s10:SaveTokens",P1)

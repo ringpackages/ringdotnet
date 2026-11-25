@@ -912,9 +912,7 @@ Class CompiledQueryCacheKeyGeneratorDependencies from Object
 		return self
 
 	Func getIsRetryingExecutionStrategy
-		dn_x = dotnet_call("s3:get",nHandle,"s27:IsRetryingExecutionStrategy")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s27:IsRetryingExecutionStrategy")
 
 	Func setIsRetryingExecutionStrategy P1
 		dotnet_callv("s3:set",nHandle,"s27:IsRetryingExecutionStrategy",P1)
@@ -1041,9 +1039,7 @@ Class EnumerableExpression from ExpressionsExpression
 		raise("DotNet Error: Selector is a read-only property")
 
 	Func getIsDistinct
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsDistinct")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsDistinct")
 
 	Func setIsDistinct P1
 		raise("DotNet Error: IsDistinct is a read-only property")
@@ -2136,9 +2132,7 @@ Class IncludeExpression from ExpressionsExpression
 		raise("DotNet Error: Navigation is a read-only property")
 
 	Func getSetLoaded
-		dn_x = dotnet_call("s3:get",nHandle,"s9:SetLoaded")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:SetLoaded")
 
 	Func setSetLoaded P1
 		raise("DotNet Error: SetLoaded is a read-only property")
@@ -2197,9 +2191,7 @@ Class JsonQueryExpression from ExpressionsExpression
 		raise("DotNet Error: JsonColumn is a read-only property")
 
 	Func getIsCollection
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCollection")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCollection")
 
 	Func setIsCollection P1
 		raise("DotNet Error: IsCollection is a read-only property")
@@ -2211,9 +2203,7 @@ Class JsonQueryExpression from ExpressionsExpression
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getIsNullable
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsNullable")
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
@@ -2828,9 +2818,7 @@ Class QueryCompilationContext from Object
 		raise("DotNet Error: ParametersToNotConstantize is a read-only property")
 
 	Func getIsAsync
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsAsync")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsAsync")
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
@@ -2854,33 +2842,25 @@ Class QueryCompilationContext from Object
 		raise("DotNet Error: QueryTrackingBehavior is a read-only property")
 
 	Func getIsBuffering
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsBuffering")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsBuffering")
 
 	Func setIsBuffering P1
 		raise("DotNet Error: IsBuffering is a read-only property")
 
 	Func getIsPrecompiling
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsPrecompiling")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsPrecompiling")
 
 	Func setIsPrecompiling P1
 		raise("DotNet Error: IsPrecompiling is a read-only property")
 
 	Func getIgnoreQueryFilters
-		dn_x = dotnet_call("s3:get",nHandle,"s18:IgnoreQueryFilters")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:IgnoreQueryFilters")
 
 	Func setIgnoreQueryFilters P1
 		raise("DotNet Error: IgnoreQueryFilters is a read-only property")
 
 	Func getIgnoreAutoIncludes
-		dn_x = dotnet_call("s3:get",nHandle,"s18:IgnoreAutoIncludes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:IgnoreAutoIncludes")
 
 	Func setIgnoreAutoIncludes P1
 		raise("DotNet Error: IgnoreAutoIncludes is a read-only property")
@@ -2910,9 +2890,7 @@ Class QueryCompilationContext from Object
 		raise("DotNet Error: NonNullableReferenceTypeParameters is a read-only property")
 
 	Func getSupportsPrecompiledQuery
-		dn_x = dotnet_call("s3:get",nHandle,"s24:SupportsPrecompiledQuery")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:SupportsPrecompiledQuery")
 
 	Func setSupportsPrecompiledQuery P1
 		raise("DotNet Error: SupportsPrecompiledQuery is a read-only property")
@@ -3039,9 +3017,7 @@ Class QueryCompilationContextDependencies from Object
 		return self
 
 	Func getIsRetryingExecutionStrategy
-		dn_x = dotnet_call("s3:get",nHandle,"s27:IsRetryingExecutionStrategy")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s27:IsRetryingExecutionStrategy")
 
 	Func setIsRetryingExecutionStrategy P1
 		dotnet_callv("s3:set",nHandle,"s27:IsRetryingExecutionStrategy",P1)
@@ -4523,9 +4499,7 @@ Class RelationalParameterBasedSqlProcessorParameters from Object
 		return dn_x
 
 	Func getUseRelationalNulls
-		dn_x = dotnet_call("s3:get",nHandle,"s18:UseRelationalNulls")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:UseRelationalNulls")
 
 	Func setUseRelationalNulls P1
 		dotnet_callv("s3:set",nHandle,"s18:UseRelationalNulls",P1)
@@ -5781,9 +5755,7 @@ Class StructuralTypeProjectionExpression from ExpressionsExpression
 		raise("DotNet Error: TableMap is a read-only property")
 
 	Func getIsNullable
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsNullable")
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
@@ -5849,9 +5821,7 @@ Class StructuralTypeShaperExpression from ExpressionsExpression
 		raise("DotNet Error: ValueBufferExpression is a read-only property")
 
 	Func getIsNullable
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsNullable")
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")

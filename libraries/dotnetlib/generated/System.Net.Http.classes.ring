@@ -805,9 +805,7 @@ Class HttpResponseMessage from Object
 		return self
 
 	Func getIsSuccessStatusCode
-		dn_x = dotnet_call("s3:get",nHandle,"s19:IsSuccessStatusCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:IsSuccessStatusCode")
 
 	Func setIsSuccessStatusCode P1
 		raise("DotNet Error: IsSuccessStatusCode is a read-only property")
@@ -1160,9 +1158,7 @@ Class HttpClient from HttpMessageInvoker
 		return self
 
 	Func getMaxResponseContentBufferSize
-		dn_x = dotnet_call("s3:get",nHandle,"s28:MaxResponseContentBufferSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s28:MaxResponseContentBufferSize")
 
 	Func setMaxResponseContentBufferSize P1
 		dotnet_callv("s3:set",nHandle,"s28:MaxResponseContentBufferSize",P1)
@@ -1223,25 +1219,19 @@ Class HttpClientHandler from HttpMessageHandler
 		return self
 
 	Func getSupportsAutomaticDecompression
-		dn_x = dotnet_call("s3:get",nHandle,"s30:SupportsAutomaticDecompression")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s30:SupportsAutomaticDecompression")
 
 	Func setSupportsAutomaticDecompression P1
 		raise("DotNet Error: SupportsAutomaticDecompression is a read-only property")
 
 	Func getSupportsProxy
-		dn_x = dotnet_call("s3:get",nHandle,"s13:SupportsProxy")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:SupportsProxy")
 
 	Func setSupportsProxy P1
 		raise("DotNet Error: SupportsProxy is a read-only property")
 
 	Func getSupportsRedirectConfiguration
-		dn_x = dotnet_call("s3:get",nHandle,"s29:SupportsRedirectConfiguration")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s29:SupportsRedirectConfiguration")
 
 	Func setSupportsRedirectConfiguration P1
 		raise("DotNet Error: SupportsRedirectConfiguration is a read-only property")
@@ -1254,9 +1244,7 @@ Class HttpClientHandler from HttpMessageHandler
 		return self
 
 	Func getUseCookies
-		dn_x = dotnet_call("s3:get",nHandle,"s10:UseCookies")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:UseCookies")
 
 	Func setUseCookies P1
 		dotnet_callv("s3:set",nHandle,"s10:UseCookies",P1)
@@ -1277,9 +1265,7 @@ Class HttpClientHandler from HttpMessageHandler
 		return self
 
 	Func getUseProxy
-		dn_x = dotnet_call("s3:get",nHandle,"s8:UseProxy")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:UseProxy")
 
 	Func setUseProxy P1
 		dotnet_callv("s3:set",nHandle,"s8:UseProxy",P1)
@@ -1300,18 +1286,14 @@ Class HttpClientHandler from HttpMessageHandler
 		return self
 
 	Func getPreAuthenticate
-		dn_x = dotnet_call("s3:get",nHandle,"s15:PreAuthenticate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:PreAuthenticate")
 
 	Func setPreAuthenticate P1
 		dotnet_callv("s3:set",nHandle,"s15:PreAuthenticate",P1)
 		return self
 
 	Func getUseDefaultCredentials
-		dn_x = dotnet_call("s3:get",nHandle,"s21:UseDefaultCredentials")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:UseDefaultCredentials")
 
 	Func setUseDefaultCredentials P1
 		dotnet_callv("s3:set",nHandle,"s21:UseDefaultCredentials",P1)
@@ -1325,45 +1307,35 @@ Class HttpClientHandler from HttpMessageHandler
 		return self
 
 	Func getAllowAutoRedirect
-		dn_x = dotnet_call("s3:get",nHandle,"s17:AllowAutoRedirect")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:AllowAutoRedirect")
 
 	Func setAllowAutoRedirect P1
 		dotnet_callv("s3:set",nHandle,"s17:AllowAutoRedirect",P1)
 		return self
 
 	Func getMaxAutomaticRedirections
-		dn_x = dotnet_call("s3:get",nHandle,"s24:MaxAutomaticRedirections")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:MaxAutomaticRedirections")
 
 	Func setMaxAutomaticRedirections P1
 		dotnet_callv("s3:set",nHandle,"s24:MaxAutomaticRedirections",P1)
 		return self
 
 	Func getMaxConnectionsPerServer
-		dn_x = dotnet_call("s3:get",nHandle,"s23:MaxConnectionsPerServer")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:MaxConnectionsPerServer")
 
 	Func setMaxConnectionsPerServer P1
 		dotnet_callv("s3:set",nHandle,"s23:MaxConnectionsPerServer",P1)
 		return self
 
 	Func getMaxRequestContentBufferSize
-		dn_x = dotnet_call("s3:get",nHandle,"s27:MaxRequestContentBufferSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s27:MaxRequestContentBufferSize")
 
 	Func setMaxRequestContentBufferSize P1
 		dotnet_callv("s3:set",nHandle,"s27:MaxRequestContentBufferSize",P1)
 		return self
 
 	Func getMaxResponseHeadersLength
-		dn_x = dotnet_call("s3:get",nHandle,"s24:MaxResponseHeadersLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:MaxResponseHeadersLength")
 
 	Func setMaxResponseHeadersLength P1
 		dotnet_callv("s3:set",nHandle,"s24:MaxResponseHeadersLength",P1)
@@ -1390,9 +1362,7 @@ Class HttpClientHandler from HttpMessageHandler
 		return self
 
 	Func getCheckCertificateRevocationList
-		dn_x = dotnet_call("s3:get",nHandle,"s30:CheckCertificateRevocationList")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s30:CheckCertificateRevocationList")
 
 	Func setCheckCertificateRevocationList P1
 		dotnet_callv("s3:set",nHandle,"s30:CheckCertificateRevocationList",P1)
@@ -1434,9 +1404,7 @@ Class HttpProtocolException from HttpIOException
 		return self
 
 	Func getErrorCode
-		dn_x = dotnet_call("s3:get",nHandle,"s9:ErrorCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:ErrorCode")
 
 	Func setErrorCode P1
 		raise("DotNet Error: ErrorCode is a read-only property")
@@ -1585,9 +1553,7 @@ Class SocketsHttpHandler from HttpMessageHandler
 		return self
 
 	Func getUseCookies
-		dn_x = dotnet_call("s3:get",nHandle,"s10:UseCookies")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:UseCookies")
 
 	Func setUseCookies P1
 		dotnet_callv("s3:set",nHandle,"s10:UseCookies",P1)
@@ -1608,9 +1574,7 @@ Class SocketsHttpHandler from HttpMessageHandler
 		return self
 
 	Func getUseProxy
-		dn_x = dotnet_call("s3:get",nHandle,"s8:UseProxy")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:UseProxy")
 
 	Func setUseProxy P1
 		dotnet_callv("s3:set",nHandle,"s8:UseProxy",P1)
@@ -1631,9 +1595,7 @@ Class SocketsHttpHandler from HttpMessageHandler
 		return self
 
 	Func getPreAuthenticate
-		dn_x = dotnet_call("s3:get",nHandle,"s15:PreAuthenticate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:PreAuthenticate")
 
 	Func setPreAuthenticate P1
 		dotnet_callv("s3:set",nHandle,"s15:PreAuthenticate",P1)
@@ -1647,36 +1609,28 @@ Class SocketsHttpHandler from HttpMessageHandler
 		return self
 
 	Func getAllowAutoRedirect
-		dn_x = dotnet_call("s3:get",nHandle,"s17:AllowAutoRedirect")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:AllowAutoRedirect")
 
 	Func setAllowAutoRedirect P1
 		dotnet_callv("s3:set",nHandle,"s17:AllowAutoRedirect",P1)
 		return self
 
 	Func getMaxAutomaticRedirections
-		dn_x = dotnet_call("s3:get",nHandle,"s24:MaxAutomaticRedirections")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:MaxAutomaticRedirections")
 
 	Func setMaxAutomaticRedirections P1
 		dotnet_callv("s3:set",nHandle,"s24:MaxAutomaticRedirections",P1)
 		return self
 
 	Func getMaxConnectionsPerServer
-		dn_x = dotnet_call("s3:get",nHandle,"s23:MaxConnectionsPerServer")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:MaxConnectionsPerServer")
 
 	Func setMaxConnectionsPerServer P1
 		dotnet_callv("s3:set",nHandle,"s23:MaxConnectionsPerServer",P1)
 		return self
 
 	Func getMaxResponseDrainSize
-		dn_x = dotnet_call("s3:get",nHandle,"s20:MaxResponseDrainSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:MaxResponseDrainSize")
 
 	Func setMaxResponseDrainSize P1
 		dotnet_callv("s3:set",nHandle,"s20:MaxResponseDrainSize",P1)
@@ -1690,9 +1644,7 @@ Class SocketsHttpHandler from HttpMessageHandler
 		return self
 
 	Func getMaxResponseHeadersLength
-		dn_x = dotnet_call("s3:get",nHandle,"s24:MaxResponseHeadersLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:MaxResponseHeadersLength")
 
 	Func setMaxResponseHeadersLength P1
 		dotnet_callv("s3:set",nHandle,"s24:MaxResponseHeadersLength",P1)
@@ -1734,9 +1686,7 @@ Class SocketsHttpHandler from HttpMessageHandler
 		return self
 
 	Func getInitialHttp2StreamWindowSize
-		dn_x = dotnet_call("s3:get",nHandle,"s28:InitialHttp2StreamWindowSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s28:InitialHttp2StreamWindowSize")
 
 	Func setInitialHttp2StreamWindowSize P1
 		dotnet_callv("s3:set",nHandle,"s28:InitialHttp2StreamWindowSize",P1)
@@ -1764,18 +1714,14 @@ Class SocketsHttpHandler from HttpMessageHandler
 		return self
 
 	Func getEnableMultipleHttp2Connections
-		dn_x = dotnet_call("s3:get",nHandle,"s30:EnableMultipleHttp2Connections")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s30:EnableMultipleHttp2Connections")
 
 	Func setEnableMultipleHttp2Connections P1
 		dotnet_callv("s3:set",nHandle,"s30:EnableMultipleHttp2Connections",P1)
 		return self
 
 	Func getEnableMultipleHttp3Connections
-		dn_x = dotnet_call("s3:get",nHandle,"s30:EnableMultipleHttp3Connections")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s30:EnableMultipleHttp3Connections")
 
 	Func setEnableMultipleHttp3Connections P1
 		dotnet_callv("s3:set",nHandle,"s30:EnableMultipleHttp3Connections",P1)
@@ -1830,9 +1776,7 @@ Class SocketsHttpHandler from HttpMessageHandler
 		return self
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",'System.Net.Http.SocketsHttpHandler, System.Net.Http',"s11:IsSupported")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Net.Http.SocketsHttpHandler, System.Net.Http',"s11:IsSupported")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")

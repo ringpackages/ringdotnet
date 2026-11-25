@@ -1185,9 +1185,7 @@ Class MigrationCommand from Object
 		return dn_x
 
 	Func getTransactionSuppressed
-		dn_x = dotnet_call("s3:get",nHandle,"s21:TransactionSuppressed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:TransactionSuppressed")
 
 	Func setTransactionSuppressed P1
 		raise("DotNet Error: TransactionSuppressed is a read-only property")
@@ -1294,9 +1292,7 @@ Class MigrationExecutionState from Object
 		return dn_x
 
 	Func getLastCommittedCommandIndex
-		dn_x = dotnet_call("s3:get",nHandle,"s25:LastCommittedCommandIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:LastCommittedCommandIndex")
 
 	Func setLastCommittedCommandIndex P1
 		dotnet_callv("s3:set",nHandle,"s25:LastCommittedCommandIndex",P1)
@@ -1312,9 +1308,7 @@ Class MigrationExecutionState from Object
 		return self
 
 	Func getAnyOperationPerformed
-		dn_x = dotnet_call("s3:get",nHandle,"s21:AnyOperationPerformed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:AnyOperationPerformed")
 
 	Func setAnyOperationPerformed P1
 		dotnet_callv("s3:set",nHandle,"s21:AnyOperationPerformed",P1)

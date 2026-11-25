@@ -142,9 +142,7 @@ Class ContentDisposition from Object
 		return self
 
 	Func getInline
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Inline")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Inline")
 
 	Func setInline P1
 		dotnet_callv("s3:set",nHandle,"s6:Inline",P1)
@@ -158,9 +156,7 @@ Class ContentDisposition from Object
 		return self
 
 	Func getSize
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Size")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Size")
 
 	Func setSize P1
 		dotnet_callv("s3:set",nHandle,"s4:Size",P1)

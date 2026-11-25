@@ -1475,18 +1475,14 @@ Class CharacterRange from ValueType
 		return self
 
 	Func getFirst
-		dn_x = dotnet_call("s3:get",nHandle,"s5:First")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:First")
 
 	Func setFirst P1
 		dotnet_callv("s3:set",nHandle,"s5:First",P1)
 		return self
 
 	Func getLength
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Length")
 
 	Func setLength P1
 		dotnet_callv("s3:set",nHandle,"s6:Length",P1)
@@ -1706,65 +1702,49 @@ Class Color from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.Color, System.Drawing.Primitives',"s8:FromName",P1))
 
 	Func getR
-		dn_x = dotnet_call("s3:get",nHandle,"s1:R")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:R")
 
 	Func setR P1
 		raise("DotNet Error: R is a read-only property")
 
 	Func getG
-		dn_x = dotnet_call("s3:get",nHandle,"s1:G")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:G")
 
 	Func setG P1
 		raise("DotNet Error: G is a read-only property")
 
 	Func getB
-		dn_x = dotnet_call("s3:get",nHandle,"s1:B")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:B")
 
 	Func setB P1
 		raise("DotNet Error: B is a read-only property")
 
 	Func getA
-		dn_x = dotnet_call("s3:get",nHandle,"s1:A")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:A")
 
 	Func setA P1
 		raise("DotNet Error: A is a read-only property")
 
 	Func getIsKnownColor
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsKnownColor")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsKnownColor")
 
 	Func setIsKnownColor P1
 		raise("DotNet Error: IsKnownColor is a read-only property")
 
 	Func getIsEmpty
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsEmpty")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getIsNamedColor
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsNamedColor")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsNamedColor")
 
 	Func setIsNamedColor P1
 		raise("DotNet Error: IsNamedColor is a read-only property")
 
 	Func getIsSystemColor
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsSystemColor")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsSystemColor")
 
 	Func setIsSystemColor P1
 		raise("DotNet Error: IsSystemColor is a read-only property")
@@ -3301,17 +3281,13 @@ Class Graphics from MarshalByRefObject
 		return self
 
 	Func getDpiX
-		dn_x = dotnet_call("s3:get",nHandle,"s4:DpiX")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:DpiX")
 
 	Func setDpiX P1
 		raise("DotNet Error: DpiX is a read-only property")
 
 	Func getDpiY
-		dn_x = dotnet_call("s3:get",nHandle,"s4:DpiY")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:DpiY")
 
 	Func setDpiY P1
 		raise("DotNet Error: DpiY is a read-only property")
@@ -3324,25 +3300,19 @@ Class Graphics from MarshalByRefObject
 		return self
 
 	Func getIsClipEmpty
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsClipEmpty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsClipEmpty")
 
 	Func setIsClipEmpty P1
 		raise("DotNet Error: IsClipEmpty is a read-only property")
 
 	Func getIsVisibleClipEmpty
-		dn_x = dotnet_call("s3:get",nHandle,"s18:IsVisibleClipEmpty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:IsVisibleClipEmpty")
 
 	Func setIsVisibleClipEmpty P1
 		raise("DotNet Error: IsVisibleClipEmpty is a read-only property")
 
 	Func getPageScale
-		dn_x = dotnet_call("s3:get",nHandle,"s9:PageScale")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:PageScale")
 
 	Func setPageScale P1
 		dotnet_callv("s3:set",nHandle,"s9:PageScale",P1)
@@ -3377,9 +3347,7 @@ Class Graphics from MarshalByRefObject
 		return self
 
 	Func getTextContrast
-		dn_x = dotnet_call("s3:get",nHandle,"s12:TextContrast")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:TextContrast")
 
 	Func setTextContrast P1
 		dotnet_callv("s3:set",nHandle,"s12:TextContrast",P1)
@@ -3506,9 +3474,7 @@ Class Icon from MarshalByRefObject
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getHeight
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Height")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Height")
 
 	Func setHeight P1
 		raise("DotNet Error: Height is a read-only property")
@@ -3520,9 +3486,7 @@ Class Icon from MarshalByRefObject
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getWidth
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Width")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Width")
 
 	Func setWidth P1
 		raise("DotNet Error: Width is a read-only property")
@@ -3696,41 +3660,31 @@ Class Image from MarshalByRefObject
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getWidth
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Width")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Width")
 
 	Func setWidth P1
 		raise("DotNet Error: Width is a read-only property")
 
 	Func getHeight
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Height")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Height")
 
 	Func setHeight P1
 		raise("DotNet Error: Height is a read-only property")
 
 	Func getHorizontalResolution
-		dn_x = dotnet_call("s3:get",nHandle,"s20:HorizontalResolution")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:HorizontalResolution")
 
 	Func setHorizontalResolution P1
 		raise("DotNet Error: HorizontalResolution is a read-only property")
 
 	Func getVerticalResolution
-		dn_x = dotnet_call("s3:get",nHandle,"s18:VerticalResolution")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:VerticalResolution")
 
 	Func setVerticalResolution P1
 		raise("DotNet Error: VerticalResolution is a read-only property")
 
 	Func getFlags
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Flags")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Flags")
 
 	Func setFlags P1
 		raise("DotNet Error: Flags is a read-only property")
@@ -5120,9 +5074,7 @@ Class StringFormat from MarshalByRefObject
 		raise("DotNet Error: DigitSubstitutionMethod is a read-only property")
 
 	Func getDigitSubstitutionLanguage
-		dn_x = dotnet_call("s3:get",nHandle,"s25:DigitSubstitutionLanguage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:DigitSubstitutionLanguage")
 
 	Func setDigitSubstitutionLanguage P1
 		raise("DotNet Error: DigitSubstitutionLanguage is a read-only property")
@@ -5642,9 +5594,7 @@ Class SystemColors from Object
 		raise("DotNet Error: WindowText is a read-only property")
 
 	Func getUseAlternativeColorSet
-		dn_x = dotnet_call("s3:get",'System.Drawing.SystemColors, System.Drawing.Primitives',"s22:UseAlternativeColorSet")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Drawing.SystemColors, System.Drawing.Primitives',"s22:UseAlternativeColorSet")
 
 	Func setUseAlternativeColorSet P1
 		dotnet_callv("s3:set",'System.Drawing.SystemColors, System.Drawing.Primitives',"s22:UseAlternativeColorSet",P1)
@@ -6178,26 +6128,20 @@ Class Point from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.Point, System.Drawing.Primitives',"s5:Round",P1))
 
 	Func getIsEmpty
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsEmpty")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getX
-		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:X")
 
 	Func setX P1
 		dotnet_callv("s3:set",nHandle,"s1:X",P1)
 		return self
 
 	Func getY
-		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:Y")
 
 	Func setY P1
 		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
@@ -6257,26 +6201,20 @@ Class PointF from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.PointF, System.Drawing.Primitives',"s8:Subtract",P1,P2))
 
 	Func getIsEmpty
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsEmpty")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getX
-		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:X")
 
 	Func setX P1
 		dotnet_callv("s3:set",nHandle,"s1:X",P1)
 		return self
 
 	Func getY
-		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:Y")
 
 	Func setY P1
 		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
@@ -6342,26 +6280,20 @@ Class Size from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.Size, System.Drawing.Primitives',"s5:Round",P1))
 
 	Func getIsEmpty
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsEmpty")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getWidth
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Width")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Width")
 
 	Func setWidth P1
 		dotnet_callv("s3:set",nHandle,"s5:Width",P1)
 		return self
 
 	Func getHeight
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Height")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Height")
 
 	Func setHeight P1
 		dotnet_callv("s3:set",nHandle,"s6:Height",P1)
@@ -6427,26 +6359,20 @@ Class SizeF from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.SizeF, System.Drawing.Primitives',"s8:Subtract",P1,P2))
 
 	Func getIsEmpty
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsEmpty")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
 
 	Func getWidth
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Width")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Width")
 
 	Func setWidth P1
 		dotnet_callv("s3:set",nHandle,"s5:Width",P1)
 		return self
 
 	Func getHeight
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Height")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Height")
 
 	Func setHeight P1
 		dotnet_callv("s3:set",nHandle,"s6:Height",P1)
@@ -6588,77 +6514,59 @@ Class Rectangle from ValueType
 		return self
 
 	Func getX
-		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:X")
 
 	Func setX P1
 		dotnet_callv("s3:set",nHandle,"s1:X",P1)
 		return self
 
 	Func getY
-		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:Y")
 
 	Func setY P1
 		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
 		return self
 
 	Func getWidth
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Width")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Width")
 
 	Func setWidth P1
 		dotnet_callv("s3:set",nHandle,"s5:Width",P1)
 		return self
 
 	Func getHeight
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Height")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Height")
 
 	Func setHeight P1
 		dotnet_callv("s3:set",nHandle,"s6:Height",P1)
 		return self
 
 	Func getLeft
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Left")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Left")
 
 	Func setLeft P1
 		raise("DotNet Error: Left is a read-only property")
 
 	Func getTop
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Top")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:Top")
 
 	Func setTop P1
 		raise("DotNet Error: Top is a read-only property")
 
 	Func getRight
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Right")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Right")
 
 	Func setRight P1
 		raise("DotNet Error: Right is a read-only property")
 
 	Func getBottom
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Bottom")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Bottom")
 
 	Func setBottom P1
 		raise("DotNet Error: Bottom is a read-only property")
 
 	Func getIsEmpty
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsEmpty")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
@@ -6793,77 +6701,59 @@ Class RectangleF from ValueType
 		return self
 
 	Func getX
-		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:X")
 
 	Func setX P1
 		dotnet_callv("s3:set",nHandle,"s1:X",P1)
 		return self
 
 	Func getY
-		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:Y")
 
 	Func setY P1
 		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
 		return self
 
 	Func getWidth
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Width")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Width")
 
 	Func setWidth P1
 		dotnet_callv("s3:set",nHandle,"s5:Width",P1)
 		return self
 
 	Func getHeight
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Height")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Height")
 
 	Func setHeight P1
 		dotnet_callv("s3:set",nHandle,"s6:Height",P1)
 		return self
 
 	Func getLeft
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Left")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Left")
 
 	Func setLeft P1
 		raise("DotNet Error: Left is a read-only property")
 
 	Func getTop
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Top")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:Top")
 
 	Func setTop P1
 		raise("DotNet Error: Top is a read-only property")
 
 	Func getRight
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Right")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Right")
 
 	Func setRight P1
 		raise("DotNet Error: Right is a read-only property")
 
 	Func getBottom
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Bottom")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Bottom")
 
 	Func setBottom P1
 		raise("DotNet Error: Bottom is a read-only property")
 
 	Func getIsEmpty
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsEmpty")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
@@ -6974,9 +6864,7 @@ Class Font from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.Font, System.Drawing.Common',"s7:FromHdc",P1))
 
 	Func getSize
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Size")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Size")
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
@@ -6988,33 +6876,25 @@ Class Font from MarshalByRefObject
 		raise("DotNet Error: Style is a read-only property")
 
 	Func getBold
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Bold")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Bold")
 
 	Func setBold P1
 		raise("DotNet Error: Bold is a read-only property")
 
 	Func getItalic
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Italic")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Italic")
 
 	Func setItalic P1
 		raise("DotNet Error: Italic is a read-only property")
 
 	Func getStrikeout
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Strikeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Strikeout")
 
 	Func setStrikeout P1
 		raise("DotNet Error: Strikeout is a read-only property")
 
 	Func getUnderline
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Underline")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Underline")
 
 	Func setUnderline P1
 		raise("DotNet Error: Underline is a read-only property")
@@ -7040,17 +6920,13 @@ Class Font from MarshalByRefObject
 		raise("DotNet Error: Unit is a read-only property")
 
 	Func getGdiCharSet
-		dn_x = dotnet_call("s3:get",nHandle,"s10:GdiCharSet")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:GdiCharSet")
 
 	Func setGdiCharSet P1
 		raise("DotNet Error: GdiCharSet is a read-only property")
 
 	Func getGdiVerticalFont
-		dn_x = dotnet_call("s3:get",nHandle,"s15:GdiVerticalFont")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:GdiVerticalFont")
 
 	Func setGdiVerticalFont P1
 		raise("DotNet Error: GdiVerticalFont is a read-only property")
@@ -7072,25 +6948,19 @@ Class Font from MarshalByRefObject
 		raise("DotNet Error: SystemFontName is a read-only property")
 
 	Func getIsSystemFont
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsSystemFont")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsSystemFont")
 
 	Func setIsSystemFont P1
 		raise("DotNet Error: IsSystemFont is a read-only property")
 
 	Func getHeight
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Height")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Height")
 
 	Func setHeight P1
 		raise("DotNet Error: Height is a read-only property")
 
 	Func getSizeInPoints
-		dn_x = dotnet_call("s3:get",nHandle,"s12:SizeInPoints")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:SizeInPoints")
 
 	Func setSizeInPoints P1
 		raise("DotNet Error: SizeInPoints is a read-only property")
@@ -7193,9 +7063,7 @@ Class Pen from MarshalByRefObject
 		return self
 
 	Func getWidth
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Width")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Width")
 
 	Func setWidth P1
 		dotnet_callv("s3:set",nHandle,"s5:Width",P1)
@@ -7244,9 +7112,7 @@ Class Pen from MarshalByRefObject
 		return self
 
 	Func getMiterLimit
-		dn_x = dotnet_call("s3:get",nHandle,"s10:MiterLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:MiterLimit")
 
 	Func setMiterLimit P1
 		dotnet_callv("s3:set",nHandle,"s10:MiterLimit",P1)
@@ -7294,9 +7160,7 @@ Class Pen from MarshalByRefObject
 		return self
 
 	Func getDashOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s10:DashOffset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:DashOffset")
 
 	Func setDashOffset P1
 		dotnet_callv("s3:set",nHandle,"s10:DashOffset",P1)

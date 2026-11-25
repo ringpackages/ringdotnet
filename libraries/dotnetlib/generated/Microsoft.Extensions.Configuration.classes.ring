@@ -256,18 +256,14 @@ Class BinderOptions from Object
 		return dn_x
 
 	Func getBindNonPublicProperties
-		dn_x = dotnet_call("s3:get",nHandle,"s23:BindNonPublicProperties")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:BindNonPublicProperties")
 
 	Func setBindNonPublicProperties P1
 		dotnet_callv("s3:set",nHandle,"s23:BindNonPublicProperties",P1)
 		return self
 
 	Func getErrorOnUnknownConfiguration
-		dn_x = dotnet_call("s3:get",nHandle,"s27:ErrorOnUnknownConfiguration")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s27:ErrorOnUnknownConfiguration")
 
 	Func setErrorOnUnknownConfiguration P1
 		dotnet_callv("s3:set",nHandle,"s27:ErrorOnUnknownConfiguration",P1)
@@ -387,9 +383,7 @@ Class ChainedConfigurationSource from Object
 		return self
 
 	Func getShouldDisposeConfiguration
-		dn_x = dotnet_call("s3:get",nHandle,"s26:ShouldDisposeConfiguration")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:ShouldDisposeConfiguration")
 
 	Func setShouldDisposeConfiguration P1
 		dotnet_callv("s3:set",nHandle,"s26:ShouldDisposeConfiguration",P1)
@@ -1120,17 +1114,13 @@ Class ConfigurationReloadToken from Object
 		return dn_x
 
 	Func getActiveChangeCallbacks
-		dn_x = dotnet_call("s3:get",nHandle,"s21:ActiveChangeCallbacks")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:ActiveChangeCallbacks")
 
 	Func setActiveChangeCallbacks P1
 		raise("DotNet Error: ActiveChangeCallbacks is a read-only property")
 
 	Func getHasChanged
-		dn_x = dotnet_call("s3:get",nHandle,"s10:HasChanged")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:HasChanged")
 
 	Func setHasChanged P1
 		raise("DotNet Error: HasChanged is a read-only property")
@@ -1508,27 +1498,21 @@ Class FileConfigurationSource from Object
 		return self
 
 	Func getOptional
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Optional")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Optional")
 
 	Func setOptional P1
 		dotnet_callv("s3:set",nHandle,"s8:Optional",P1)
 		return self
 
 	Func getReloadOnChange
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ReloadOnChange")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:ReloadOnChange")
 
 	Func setReloadOnChange P1
 		dotnet_callv("s3:set",nHandle,"s14:ReloadOnChange",P1)
 		return self
 
 	Func getReloadDelay
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ReloadDelay")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:ReloadDelay")
 
 	Func setReloadDelay P1
 		dotnet_callv("s3:set",nHandle,"s11:ReloadDelay",P1)
@@ -1586,9 +1570,7 @@ Class FileLoadExceptionContext from Object
 		return self
 
 	Func getIgnore
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Ignore")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Ignore")
 
 	Func setIgnore P1
 		dotnet_callv("s3:set",nHandle,"s6:Ignore",P1)

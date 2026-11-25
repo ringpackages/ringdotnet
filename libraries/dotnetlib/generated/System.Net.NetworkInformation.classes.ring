@@ -275,17 +275,13 @@ Class GatewayIPAddressInformationCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -318,17 +314,13 @@ Class IPAddressInformation from Object
 		raise("DotNet Error: Address is a read-only property")
 
 	Func getIsDnsEligible
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsDnsEligible")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsDnsEligible")
 
 	Func setIsDnsEligible P1
 		raise("DotNet Error: IsDnsEligible is a read-only property")
 
 	Func getIsTransient
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsTransient")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsTransient")
 
 	Func setIsTransient P1
 		raise("DotNet Error: IsTransient is a read-only property")
@@ -405,17 +397,13 @@ Class IPAddressInformationCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -516,9 +504,7 @@ Class IPGlobalProperties from Object
 		raise("DotNet Error: HostName is a read-only property")
 
 	Func getIsWinsProxy
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsWinsProxy")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsWinsProxy")
 
 	Func setIsWinsProxy P1
 		raise("DotNet Error: IsWinsProxy is a read-only property")
@@ -570,177 +556,133 @@ Class IPGlobalStatistics from Object
 		return dn_x
 
 	Func getDefaultTtl
-		dn_x = dotnet_call("s3:get",nHandle,"s10:DefaultTtl")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:DefaultTtl")
 
 	Func setDefaultTtl P1
 		raise("DotNet Error: DefaultTtl is a read-only property")
 
 	Func getForwardingEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s17:ForwardingEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:ForwardingEnabled")
 
 	Func setForwardingEnabled P1
 		raise("DotNet Error: ForwardingEnabled is a read-only property")
 
 	Func getNumberOfInterfaces
-		dn_x = dotnet_call("s3:get",nHandle,"s18:NumberOfInterfaces")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:NumberOfInterfaces")
 
 	Func setNumberOfInterfaces P1
 		raise("DotNet Error: NumberOfInterfaces is a read-only property")
 
 	Func getNumberOfIPAddresses
-		dn_x = dotnet_call("s3:get",nHandle,"s19:NumberOfIPAddresses")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:NumberOfIPAddresses")
 
 	Func setNumberOfIPAddresses P1
 		raise("DotNet Error: NumberOfIPAddresses is a read-only property")
 
 	Func getOutputPacketRequests
-		dn_x = dotnet_call("s3:get",nHandle,"s20:OutputPacketRequests")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:OutputPacketRequests")
 
 	Func setOutputPacketRequests P1
 		raise("DotNet Error: OutputPacketRequests is a read-only property")
 
 	Func getOutputPacketRoutingDiscards
-		dn_x = dotnet_call("s3:get",nHandle,"s27:OutputPacketRoutingDiscards")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s27:OutputPacketRoutingDiscards")
 
 	Func setOutputPacketRoutingDiscards P1
 		raise("DotNet Error: OutputPacketRoutingDiscards is a read-only property")
 
 	Func getOutputPacketsDiscarded
-		dn_x = dotnet_call("s3:get",nHandle,"s22:OutputPacketsDiscarded")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:OutputPacketsDiscarded")
 
 	Func setOutputPacketsDiscarded P1
 		raise("DotNet Error: OutputPacketsDiscarded is a read-only property")
 
 	Func getOutputPacketsWithNoRoute
-		dn_x = dotnet_call("s3:get",nHandle,"s24:OutputPacketsWithNoRoute")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:OutputPacketsWithNoRoute")
 
 	Func setOutputPacketsWithNoRoute P1
 		raise("DotNet Error: OutputPacketsWithNoRoute is a read-only property")
 
 	Func getPacketFragmentFailures
-		dn_x = dotnet_call("s3:get",nHandle,"s22:PacketFragmentFailures")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:PacketFragmentFailures")
 
 	Func setPacketFragmentFailures P1
 		raise("DotNet Error: PacketFragmentFailures is a read-only property")
 
 	Func getPacketReassembliesRequired
-		dn_x = dotnet_call("s3:get",nHandle,"s26:PacketReassembliesRequired")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:PacketReassembliesRequired")
 
 	Func setPacketReassembliesRequired P1
 		raise("DotNet Error: PacketReassembliesRequired is a read-only property")
 
 	Func getPacketReassemblyFailures
-		dn_x = dotnet_call("s3:get",nHandle,"s24:PacketReassemblyFailures")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:PacketReassemblyFailures")
 
 	Func setPacketReassemblyFailures P1
 		raise("DotNet Error: PacketReassemblyFailures is a read-only property")
 
 	Func getPacketReassemblyTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s23:PacketReassemblyTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:PacketReassemblyTimeout")
 
 	Func setPacketReassemblyTimeout P1
 		raise("DotNet Error: PacketReassemblyTimeout is a read-only property")
 
 	Func getPacketsFragmented
-		dn_x = dotnet_call("s3:get",nHandle,"s17:PacketsFragmented")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:PacketsFragmented")
 
 	Func setPacketsFragmented P1
 		raise("DotNet Error: PacketsFragmented is a read-only property")
 
 	Func getPacketsReassembled
-		dn_x = dotnet_call("s3:get",nHandle,"s18:PacketsReassembled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:PacketsReassembled")
 
 	Func setPacketsReassembled P1
 		raise("DotNet Error: PacketsReassembled is a read-only property")
 
 	Func getReceivedPackets
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ReceivedPackets")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:ReceivedPackets")
 
 	Func setReceivedPackets P1
 		raise("DotNet Error: ReceivedPackets is a read-only property")
 
 	Func getReceivedPacketsDelivered
-		dn_x = dotnet_call("s3:get",nHandle,"s24:ReceivedPacketsDelivered")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:ReceivedPacketsDelivered")
 
 	Func setReceivedPacketsDelivered P1
 		raise("DotNet Error: ReceivedPacketsDelivered is a read-only property")
 
 	Func getReceivedPacketsDiscarded
-		dn_x = dotnet_call("s3:get",nHandle,"s24:ReceivedPacketsDiscarded")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:ReceivedPacketsDiscarded")
 
 	Func setReceivedPacketsDiscarded P1
 		raise("DotNet Error: ReceivedPacketsDiscarded is a read-only property")
 
 	Func getReceivedPacketsForwarded
-		dn_x = dotnet_call("s3:get",nHandle,"s24:ReceivedPacketsForwarded")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:ReceivedPacketsForwarded")
 
 	Func setReceivedPacketsForwarded P1
 		raise("DotNet Error: ReceivedPacketsForwarded is a read-only property")
 
 	Func getReceivedPacketsWithAddressErrors
-		dn_x = dotnet_call("s3:get",nHandle,"s32:ReceivedPacketsWithAddressErrors")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s32:ReceivedPacketsWithAddressErrors")
 
 	Func setReceivedPacketsWithAddressErrors P1
 		raise("DotNet Error: ReceivedPacketsWithAddressErrors is a read-only property")
 
 	Func getReceivedPacketsWithHeadersErrors
-		dn_x = dotnet_call("s3:get",nHandle,"s32:ReceivedPacketsWithHeadersErrors")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s32:ReceivedPacketsWithHeadersErrors")
 
 	Func setReceivedPacketsWithHeadersErrors P1
 		raise("DotNet Error: ReceivedPacketsWithHeadersErrors is a read-only property")
 
 	Func getReceivedPacketsWithUnknownProtocol
-		dn_x = dotnet_call("s3:get",nHandle,"s34:ReceivedPacketsWithUnknownProtocol")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s34:ReceivedPacketsWithUnknownProtocol")
 
 	Func setReceivedPacketsWithUnknownProtocol P1
 		raise("DotNet Error: ReceivedPacketsWithUnknownProtocol is a read-only property")
 
 	Func getNumberOfRoutes
-		dn_x = dotnet_call("s3:get",nHandle,"s14:NumberOfRoutes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:NumberOfRoutes")
 
 	Func setNumberOfRoutes P1
 		raise("DotNet Error: NumberOfRoutes is a read-only property")
@@ -780,9 +722,7 @@ Class IPInterfaceProperties from Object
 		return dn_x
 
 	Func getIsDnsEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsDnsEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsDnsEnabled")
 
 	Func setIsDnsEnabled P1
 		raise("DotNet Error: IsDnsEnabled is a read-only property")
@@ -796,9 +736,7 @@ Class IPInterfaceProperties from Object
 		raise("DotNet Error: DnsSuffix is a read-only property")
 
 	Func getIsDynamicDnsEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s19:IsDynamicDnsEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:IsDynamicDnsEnabled")
 
 	Func setIsDynamicDnsEnabled P1
 		raise("DotNet Error: IsDynamicDnsEnabled is a read-only property")
@@ -876,97 +814,73 @@ Class IPInterfaceStatistics from Object
 		return dn_x
 
 	Func getBytesReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s13:BytesReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:BytesReceived")
 
 	Func setBytesReceived P1
 		raise("DotNet Error: BytesReceived is a read-only property")
 
 	Func getBytesSent
-		dn_x = dotnet_call("s3:get",nHandle,"s9:BytesSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:BytesSent")
 
 	Func setBytesSent P1
 		raise("DotNet Error: BytesSent is a read-only property")
 
 	Func getIncomingPacketsDiscarded
-		dn_x = dotnet_call("s3:get",nHandle,"s24:IncomingPacketsDiscarded")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:IncomingPacketsDiscarded")
 
 	Func setIncomingPacketsDiscarded P1
 		raise("DotNet Error: IncomingPacketsDiscarded is a read-only property")
 
 	Func getIncomingPacketsWithErrors
-		dn_x = dotnet_call("s3:get",nHandle,"s25:IncomingPacketsWithErrors")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:IncomingPacketsWithErrors")
 
 	Func setIncomingPacketsWithErrors P1
 		raise("DotNet Error: IncomingPacketsWithErrors is a read-only property")
 
 	Func getIncomingUnknownProtocolPackets
-		dn_x = dotnet_call("s3:get",nHandle,"s30:IncomingUnknownProtocolPackets")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s30:IncomingUnknownProtocolPackets")
 
 	Func setIncomingUnknownProtocolPackets P1
 		raise("DotNet Error: IncomingUnknownProtocolPackets is a read-only property")
 
 	Func getNonUnicastPacketsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s25:NonUnicastPacketsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:NonUnicastPacketsReceived")
 
 	Func setNonUnicastPacketsReceived P1
 		raise("DotNet Error: NonUnicastPacketsReceived is a read-only property")
 
 	Func getNonUnicastPacketsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s21:NonUnicastPacketsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:NonUnicastPacketsSent")
 
 	Func setNonUnicastPacketsSent P1
 		raise("DotNet Error: NonUnicastPacketsSent is a read-only property")
 
 	Func getOutgoingPacketsDiscarded
-		dn_x = dotnet_call("s3:get",nHandle,"s24:OutgoingPacketsDiscarded")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:OutgoingPacketsDiscarded")
 
 	Func setOutgoingPacketsDiscarded P1
 		raise("DotNet Error: OutgoingPacketsDiscarded is a read-only property")
 
 	Func getOutgoingPacketsWithErrors
-		dn_x = dotnet_call("s3:get",nHandle,"s25:OutgoingPacketsWithErrors")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:OutgoingPacketsWithErrors")
 
 	Func setOutgoingPacketsWithErrors P1
 		raise("DotNet Error: OutgoingPacketsWithErrors is a read-only property")
 
 	Func getOutputQueueLength
-		dn_x = dotnet_call("s3:get",nHandle,"s17:OutputQueueLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:OutputQueueLength")
 
 	Func setOutputQueueLength P1
 		raise("DotNet Error: OutputQueueLength is a read-only property")
 
 	Func getUnicastPacketsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s22:UnicastPacketsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:UnicastPacketsReceived")
 
 	Func setUnicastPacketsReceived P1
 		raise("DotNet Error: UnicastPacketsReceived is a read-only property")
 
 	Func getUnicastPacketsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s18:UnicastPacketsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:UnicastPacketsSent")
 
 	Func setUnicastPacketsSent P1
 		raise("DotNet Error: UnicastPacketsSent is a read-only property")
@@ -997,57 +911,43 @@ Class IPv4InterfaceProperties from Object
 		return dn_x
 
 	Func getUsesWins
-		dn_x = dotnet_call("s3:get",nHandle,"s8:UsesWins")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:UsesWins")
 
 	Func setUsesWins P1
 		raise("DotNet Error: UsesWins is a read-only property")
 
 	Func getIsDhcpEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsDhcpEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsDhcpEnabled")
 
 	Func setIsDhcpEnabled P1
 		raise("DotNet Error: IsDhcpEnabled is a read-only property")
 
 	Func getIsAutomaticPrivateAddressingActive
-		dn_x = dotnet_call("s3:get",nHandle,"s34:IsAutomaticPrivateAddressingActive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s34:IsAutomaticPrivateAddressingActive")
 
 	Func setIsAutomaticPrivateAddressingActive P1
 		raise("DotNet Error: IsAutomaticPrivateAddressingActive is a read-only property")
 
 	Func getIsAutomaticPrivateAddressingEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s35:IsAutomaticPrivateAddressingEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s35:IsAutomaticPrivateAddressingEnabled")
 
 	Func setIsAutomaticPrivateAddressingEnabled P1
 		raise("DotNet Error: IsAutomaticPrivateAddressingEnabled is a read-only property")
 
 	Func getIndex
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Index")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Index")
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getIsForwardingEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s19:IsForwardingEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:IsForwardingEnabled")
 
 	Func setIsForwardingEnabled P1
 		raise("DotNet Error: IsForwardingEnabled is a read-only property")
 
 	Func getMtu
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Mtu")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:Mtu")
 
 	Func setMtu P1
 		raise("DotNet Error: Mtu is a read-only property")
@@ -1083,97 +983,73 @@ Class IPv4InterfaceStatistics from Object
 		return dn_x
 
 	Func getBytesReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s13:BytesReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:BytesReceived")
 
 	Func setBytesReceived P1
 		raise("DotNet Error: BytesReceived is a read-only property")
 
 	Func getBytesSent
-		dn_x = dotnet_call("s3:get",nHandle,"s9:BytesSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:BytesSent")
 
 	Func setBytesSent P1
 		raise("DotNet Error: BytesSent is a read-only property")
 
 	Func getIncomingPacketsDiscarded
-		dn_x = dotnet_call("s3:get",nHandle,"s24:IncomingPacketsDiscarded")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:IncomingPacketsDiscarded")
 
 	Func setIncomingPacketsDiscarded P1
 		raise("DotNet Error: IncomingPacketsDiscarded is a read-only property")
 
 	Func getIncomingPacketsWithErrors
-		dn_x = dotnet_call("s3:get",nHandle,"s25:IncomingPacketsWithErrors")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:IncomingPacketsWithErrors")
 
 	Func setIncomingPacketsWithErrors P1
 		raise("DotNet Error: IncomingPacketsWithErrors is a read-only property")
 
 	Func getIncomingUnknownProtocolPackets
-		dn_x = dotnet_call("s3:get",nHandle,"s30:IncomingUnknownProtocolPackets")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s30:IncomingUnknownProtocolPackets")
 
 	Func setIncomingUnknownProtocolPackets P1
 		raise("DotNet Error: IncomingUnknownProtocolPackets is a read-only property")
 
 	Func getNonUnicastPacketsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s25:NonUnicastPacketsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:NonUnicastPacketsReceived")
 
 	Func setNonUnicastPacketsReceived P1
 		raise("DotNet Error: NonUnicastPacketsReceived is a read-only property")
 
 	Func getNonUnicastPacketsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s21:NonUnicastPacketsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:NonUnicastPacketsSent")
 
 	Func setNonUnicastPacketsSent P1
 		raise("DotNet Error: NonUnicastPacketsSent is a read-only property")
 
 	Func getOutgoingPacketsDiscarded
-		dn_x = dotnet_call("s3:get",nHandle,"s24:OutgoingPacketsDiscarded")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:OutgoingPacketsDiscarded")
 
 	Func setOutgoingPacketsDiscarded P1
 		raise("DotNet Error: OutgoingPacketsDiscarded is a read-only property")
 
 	Func getOutgoingPacketsWithErrors
-		dn_x = dotnet_call("s3:get",nHandle,"s25:OutgoingPacketsWithErrors")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:OutgoingPacketsWithErrors")
 
 	Func setOutgoingPacketsWithErrors P1
 		raise("DotNet Error: OutgoingPacketsWithErrors is a read-only property")
 
 	Func getOutputQueueLength
-		dn_x = dotnet_call("s3:get",nHandle,"s17:OutputQueueLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:OutputQueueLength")
 
 	Func setOutputQueueLength P1
 		raise("DotNet Error: OutputQueueLength is a read-only property")
 
 	Func getUnicastPacketsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s22:UnicastPacketsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:UnicastPacketsReceived")
 
 	Func setUnicastPacketsReceived P1
 		raise("DotNet Error: UnicastPacketsReceived is a read-only property")
 
 	Func getUnicastPacketsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s18:UnicastPacketsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:UnicastPacketsSent")
 
 	Func setUnicastPacketsSent P1
 		raise("DotNet Error: UnicastPacketsSent is a read-only property")
@@ -1204,17 +1080,13 @@ Class IPv6InterfaceProperties from Object
 		return dn_x
 
 	Func getIndex
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Index")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Index")
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getMtu
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Mtu")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:Mtu")
 
 	Func setMtu P1
 		raise("DotNet Error: Mtu is a read-only property")
@@ -1264,209 +1136,157 @@ Class IcmpV4Statistics from Object
 		return dn_x
 
 	Func getAddressMaskRepliesReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s26:AddressMaskRepliesReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:AddressMaskRepliesReceived")
 
 	Func setAddressMaskRepliesReceived P1
 		raise("DotNet Error: AddressMaskRepliesReceived is a read-only property")
 
 	Func getAddressMaskRepliesSent
-		dn_x = dotnet_call("s3:get",nHandle,"s22:AddressMaskRepliesSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:AddressMaskRepliesSent")
 
 	Func setAddressMaskRepliesSent P1
 		raise("DotNet Error: AddressMaskRepliesSent is a read-only property")
 
 	Func getAddressMaskRequestsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s27:AddressMaskRequestsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s27:AddressMaskRequestsReceived")
 
 	Func setAddressMaskRequestsReceived P1
 		raise("DotNet Error: AddressMaskRequestsReceived is a read-only property")
 
 	Func getAddressMaskRequestsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s23:AddressMaskRequestsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:AddressMaskRequestsSent")
 
 	Func setAddressMaskRequestsSent P1
 		raise("DotNet Error: AddressMaskRequestsSent is a read-only property")
 
 	Func getDestinationUnreachableMessagesReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s38:DestinationUnreachableMessagesReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s38:DestinationUnreachableMessagesReceived")
 
 	Func setDestinationUnreachableMessagesReceived P1
 		raise("DotNet Error: DestinationUnreachableMessagesReceived is a read-only property")
 
 	Func getDestinationUnreachableMessagesSent
-		dn_x = dotnet_call("s3:get",nHandle,"s34:DestinationUnreachableMessagesSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s34:DestinationUnreachableMessagesSent")
 
 	Func setDestinationUnreachableMessagesSent P1
 		raise("DotNet Error: DestinationUnreachableMessagesSent is a read-only property")
 
 	Func getEchoRepliesReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s19:EchoRepliesReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:EchoRepliesReceived")
 
 	Func setEchoRepliesReceived P1
 		raise("DotNet Error: EchoRepliesReceived is a read-only property")
 
 	Func getEchoRepliesSent
-		dn_x = dotnet_call("s3:get",nHandle,"s15:EchoRepliesSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:EchoRepliesSent")
 
 	Func setEchoRepliesSent P1
 		raise("DotNet Error: EchoRepliesSent is a read-only property")
 
 	Func getEchoRequestsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s20:EchoRequestsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:EchoRequestsReceived")
 
 	Func setEchoRequestsReceived P1
 		raise("DotNet Error: EchoRequestsReceived is a read-only property")
 
 	Func getEchoRequestsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s16:EchoRequestsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:EchoRequestsSent")
 
 	Func setEchoRequestsSent P1
 		raise("DotNet Error: EchoRequestsSent is a read-only property")
 
 	Func getErrorsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ErrorsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:ErrorsReceived")
 
 	Func setErrorsReceived P1
 		raise("DotNet Error: ErrorsReceived is a read-only property")
 
 	Func getErrorsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s10:ErrorsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:ErrorsSent")
 
 	Func setErrorsSent P1
 		raise("DotNet Error: ErrorsSent is a read-only property")
 
 	Func getMessagesReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s16:MessagesReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:MessagesReceived")
 
 	Func setMessagesReceived P1
 		raise("DotNet Error: MessagesReceived is a read-only property")
 
 	Func getMessagesSent
-		dn_x = dotnet_call("s3:get",nHandle,"s12:MessagesSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:MessagesSent")
 
 	Func setMessagesSent P1
 		raise("DotNet Error: MessagesSent is a read-only property")
 
 	Func getParameterProblemsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s25:ParameterProblemsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:ParameterProblemsReceived")
 
 	Func setParameterProblemsReceived P1
 		raise("DotNet Error: ParameterProblemsReceived is a read-only property")
 
 	Func getParameterProblemsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s21:ParameterProblemsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:ParameterProblemsSent")
 
 	Func setParameterProblemsSent P1
 		raise("DotNet Error: ParameterProblemsSent is a read-only property")
 
 	Func getRedirectsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s17:RedirectsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:RedirectsReceived")
 
 	Func setRedirectsReceived P1
 		raise("DotNet Error: RedirectsReceived is a read-only property")
 
 	Func getRedirectsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s13:RedirectsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:RedirectsSent")
 
 	Func setRedirectsSent P1
 		raise("DotNet Error: RedirectsSent is a read-only property")
 
 	Func getSourceQuenchesReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s22:SourceQuenchesReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:SourceQuenchesReceived")
 
 	Func setSourceQuenchesReceived P1
 		raise("DotNet Error: SourceQuenchesReceived is a read-only property")
 
 	Func getSourceQuenchesSent
-		dn_x = dotnet_call("s3:get",nHandle,"s18:SourceQuenchesSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:SourceQuenchesSent")
 
 	Func setSourceQuenchesSent P1
 		raise("DotNet Error: SourceQuenchesSent is a read-only property")
 
 	Func getTimeExceededMessagesReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s28:TimeExceededMessagesReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s28:TimeExceededMessagesReceived")
 
 	Func setTimeExceededMessagesReceived P1
 		raise("DotNet Error: TimeExceededMessagesReceived is a read-only property")
 
 	Func getTimeExceededMessagesSent
-		dn_x = dotnet_call("s3:get",nHandle,"s24:TimeExceededMessagesSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:TimeExceededMessagesSent")
 
 	Func setTimeExceededMessagesSent P1
 		raise("DotNet Error: TimeExceededMessagesSent is a read-only property")
 
 	Func getTimestampRepliesReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s24:TimestampRepliesReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:TimestampRepliesReceived")
 
 	Func setTimestampRepliesReceived P1
 		raise("DotNet Error: TimestampRepliesReceived is a read-only property")
 
 	Func getTimestampRepliesSent
-		dn_x = dotnet_call("s3:get",nHandle,"s20:TimestampRepliesSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:TimestampRepliesSent")
 
 	Func setTimestampRepliesSent P1
 		raise("DotNet Error: TimestampRepliesSent is a read-only property")
 
 	Func getTimestampRequestsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s25:TimestampRequestsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:TimestampRequestsReceived")
 
 	Func setTimestampRequestsReceived P1
 		raise("DotNet Error: TimestampRequestsReceived is a read-only property")
 
 	Func getTimestampRequestsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s21:TimestampRequestsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:TimestampRequestsSent")
 
 	Func setTimestampRequestsSent P1
 		raise("DotNet Error: TimestampRequestsSent is a read-only property")
@@ -1522,257 +1342,193 @@ Class IcmpV6Statistics from Object
 		return dn_x
 
 	Func getDestinationUnreachableMessagesReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s38:DestinationUnreachableMessagesReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s38:DestinationUnreachableMessagesReceived")
 
 	Func setDestinationUnreachableMessagesReceived P1
 		raise("DotNet Error: DestinationUnreachableMessagesReceived is a read-only property")
 
 	Func getDestinationUnreachableMessagesSent
-		dn_x = dotnet_call("s3:get",nHandle,"s34:DestinationUnreachableMessagesSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s34:DestinationUnreachableMessagesSent")
 
 	Func setDestinationUnreachableMessagesSent P1
 		raise("DotNet Error: DestinationUnreachableMessagesSent is a read-only property")
 
 	Func getEchoRepliesReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s19:EchoRepliesReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:EchoRepliesReceived")
 
 	Func setEchoRepliesReceived P1
 		raise("DotNet Error: EchoRepliesReceived is a read-only property")
 
 	Func getEchoRepliesSent
-		dn_x = dotnet_call("s3:get",nHandle,"s15:EchoRepliesSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:EchoRepliesSent")
 
 	Func setEchoRepliesSent P1
 		raise("DotNet Error: EchoRepliesSent is a read-only property")
 
 	Func getEchoRequestsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s20:EchoRequestsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:EchoRequestsReceived")
 
 	Func setEchoRequestsReceived P1
 		raise("DotNet Error: EchoRequestsReceived is a read-only property")
 
 	Func getEchoRequestsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s16:EchoRequestsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:EchoRequestsSent")
 
 	Func setEchoRequestsSent P1
 		raise("DotNet Error: EchoRequestsSent is a read-only property")
 
 	Func getErrorsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ErrorsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:ErrorsReceived")
 
 	Func setErrorsReceived P1
 		raise("DotNet Error: ErrorsReceived is a read-only property")
 
 	Func getErrorsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s10:ErrorsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:ErrorsSent")
 
 	Func setErrorsSent P1
 		raise("DotNet Error: ErrorsSent is a read-only property")
 
 	Func getMembershipQueriesReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s25:MembershipQueriesReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:MembershipQueriesReceived")
 
 	Func setMembershipQueriesReceived P1
 		raise("DotNet Error: MembershipQueriesReceived is a read-only property")
 
 	Func getMembershipQueriesSent
-		dn_x = dotnet_call("s3:get",nHandle,"s21:MembershipQueriesSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:MembershipQueriesSent")
 
 	Func setMembershipQueriesSent P1
 		raise("DotNet Error: MembershipQueriesSent is a read-only property")
 
 	Func getMembershipReductionsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s28:MembershipReductionsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s28:MembershipReductionsReceived")
 
 	Func setMembershipReductionsReceived P1
 		raise("DotNet Error: MembershipReductionsReceived is a read-only property")
 
 	Func getMembershipReductionsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s24:MembershipReductionsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:MembershipReductionsSent")
 
 	Func setMembershipReductionsSent P1
 		raise("DotNet Error: MembershipReductionsSent is a read-only property")
 
 	Func getMembershipReportsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s25:MembershipReportsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:MembershipReportsReceived")
 
 	Func setMembershipReportsReceived P1
 		raise("DotNet Error: MembershipReportsReceived is a read-only property")
 
 	Func getMembershipReportsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s21:MembershipReportsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:MembershipReportsSent")
 
 	Func setMembershipReportsSent P1
 		raise("DotNet Error: MembershipReportsSent is a read-only property")
 
 	Func getMessagesReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s16:MessagesReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:MessagesReceived")
 
 	Func setMessagesReceived P1
 		raise("DotNet Error: MessagesReceived is a read-only property")
 
 	Func getMessagesSent
-		dn_x = dotnet_call("s3:get",nHandle,"s12:MessagesSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:MessagesSent")
 
 	Func setMessagesSent P1
 		raise("DotNet Error: MessagesSent is a read-only property")
 
 	Func getNeighborAdvertisementsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s30:NeighborAdvertisementsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s30:NeighborAdvertisementsReceived")
 
 	Func setNeighborAdvertisementsReceived P1
 		raise("DotNet Error: NeighborAdvertisementsReceived is a read-only property")
 
 	Func getNeighborAdvertisementsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s26:NeighborAdvertisementsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:NeighborAdvertisementsSent")
 
 	Func setNeighborAdvertisementsSent P1
 		raise("DotNet Error: NeighborAdvertisementsSent is a read-only property")
 
 	Func getNeighborSolicitsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s24:NeighborSolicitsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:NeighborSolicitsReceived")
 
 	Func setNeighborSolicitsReceived P1
 		raise("DotNet Error: NeighborSolicitsReceived is a read-only property")
 
 	Func getNeighborSolicitsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s20:NeighborSolicitsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:NeighborSolicitsSent")
 
 	Func setNeighborSolicitsSent P1
 		raise("DotNet Error: NeighborSolicitsSent is a read-only property")
 
 	Func getPacketTooBigMessagesReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s28:PacketTooBigMessagesReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s28:PacketTooBigMessagesReceived")
 
 	Func setPacketTooBigMessagesReceived P1
 		raise("DotNet Error: PacketTooBigMessagesReceived is a read-only property")
 
 	Func getPacketTooBigMessagesSent
-		dn_x = dotnet_call("s3:get",nHandle,"s24:PacketTooBigMessagesSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:PacketTooBigMessagesSent")
 
 	Func setPacketTooBigMessagesSent P1
 		raise("DotNet Error: PacketTooBigMessagesSent is a read-only property")
 
 	Func getParameterProblemsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s25:ParameterProblemsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:ParameterProblemsReceived")
 
 	Func setParameterProblemsReceived P1
 		raise("DotNet Error: ParameterProblemsReceived is a read-only property")
 
 	Func getParameterProblemsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s21:ParameterProblemsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:ParameterProblemsSent")
 
 	Func setParameterProblemsSent P1
 		raise("DotNet Error: ParameterProblemsSent is a read-only property")
 
 	Func getRedirectsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s17:RedirectsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:RedirectsReceived")
 
 	Func setRedirectsReceived P1
 		raise("DotNet Error: RedirectsReceived is a read-only property")
 
 	Func getRedirectsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s13:RedirectsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:RedirectsSent")
 
 	Func setRedirectsSent P1
 		raise("DotNet Error: RedirectsSent is a read-only property")
 
 	Func getRouterAdvertisementsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s28:RouterAdvertisementsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s28:RouterAdvertisementsReceived")
 
 	Func setRouterAdvertisementsReceived P1
 		raise("DotNet Error: RouterAdvertisementsReceived is a read-only property")
 
 	Func getRouterAdvertisementsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s24:RouterAdvertisementsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:RouterAdvertisementsSent")
 
 	Func setRouterAdvertisementsSent P1
 		raise("DotNet Error: RouterAdvertisementsSent is a read-only property")
 
 	Func getRouterSolicitsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s22:RouterSolicitsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:RouterSolicitsReceived")
 
 	Func setRouterSolicitsReceived P1
 		raise("DotNet Error: RouterSolicitsReceived is a read-only property")
 
 	Func getRouterSolicitsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s18:RouterSolicitsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:RouterSolicitsSent")
 
 	Func setRouterSolicitsSent P1
 		raise("DotNet Error: RouterSolicitsSent is a read-only property")
 
 	Func getTimeExceededMessagesReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s28:TimeExceededMessagesReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s28:TimeExceededMessagesReceived")
 
 	Func setTimeExceededMessagesReceived P1
 		raise("DotNet Error: TimeExceededMessagesReceived is a read-only property")
 
 	Func getTimeExceededMessagesSent
-		dn_x = dotnet_call("s3:get",nHandle,"s24:TimeExceededMessagesSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:TimeExceededMessagesSent")
 
 	Func setTimeExceededMessagesSent P1
 		raise("DotNet Error: TimeExceededMessagesSent is a read-only property")
@@ -1849,17 +1605,13 @@ Class MulticastIPAddressInformationCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1879,9 +1631,7 @@ Class NetworkAvailabilityEventArgs from EventArgs
 		return self
 
 	Func getIsAvailable
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsAvailable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsAvailable")
 
 	Func setIsAvailable P1
 		raise("DotNet Error: IsAvailable is a read-only property")
@@ -2054,25 +1804,19 @@ Class NetworkInterface from Object
 		raise("DotNet Error: OperationalStatus is a read-only property")
 
 	Func getSpeed
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Speed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Speed")
 
 	Func setSpeed P1
 		raise("DotNet Error: Speed is a read-only property")
 
 	Func getIsReceiveOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsReceiveOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsReceiveOnly")
 
 	Func setIsReceiveOnly P1
 		raise("DotNet Error: IsReceiveOnly is a read-only property")
 
 	Func getSupportsMulticast
-		dn_x = dotnet_call("s3:get",nHandle,"s17:SupportsMulticast")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:SupportsMulticast")
 
 	Func setSupportsMulticast P1
 		raise("DotNet Error: SupportsMulticast is a read-only property")
@@ -2084,17 +1828,13 @@ Class NetworkInterface from Object
 		raise("DotNet Error: NetworkInterfaceType is a read-only property")
 
 	Func getIPv6LoopbackInterfaceIndex
-		dn_x = dotnet_call("s3:get",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s26:IPv6LoopbackInterfaceIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s26:IPv6LoopbackInterfaceIndex")
 
 	Func setIPv6LoopbackInterfaceIndex P1
 		raise("DotNet Error: IPv6LoopbackInterfaceIndex is a read-only property")
 
 	Func getLoopbackInterfaceIndex
-		dn_x = dotnet_call("s3:get",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s22:LoopbackInterfaceIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s22:LoopbackInterfaceIndex")
 
 	Func setLoopbackInterfaceIndex P1
 		raise("DotNet Error: LoopbackInterfaceIndex is a read-only property")
@@ -2283,18 +2023,14 @@ Class PingOptions from Object
 		return dn_x
 
 	Func getTtl
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Ttl")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:Ttl")
 
 	Func setTtl P1
 		dotnet_callv("s3:set",nHandle,"s3:Ttl",P1)
 		return self
 
 	Func getDontFragment
-		dn_x = dotnet_call("s3:get",nHandle,"s12:DontFragment")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:DontFragment")
 
 	Func setDontFragment P1
 		dotnet_callv("s3:set",nHandle,"s12:DontFragment",P1)
@@ -2336,9 +2072,7 @@ Class PingReply from Object
 		raise("DotNet Error: Address is a read-only property")
 
 	Func getRoundtripTime
-		dn_x = dotnet_call("s3:get",nHandle,"s13:RoundtripTime")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:RoundtripTime")
 
 	Func setRoundtripTime P1
 		raise("DotNet Error: RoundtripTime is a read-only property")
@@ -2427,113 +2161,85 @@ Class TcpStatistics from Object
 		return dn_x
 
 	Func getConnectionsAccepted
-		dn_x = dotnet_call("s3:get",nHandle,"s19:ConnectionsAccepted")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:ConnectionsAccepted")
 
 	Func setConnectionsAccepted P1
 		raise("DotNet Error: ConnectionsAccepted is a read-only property")
 
 	Func getConnectionsInitiated
-		dn_x = dotnet_call("s3:get",nHandle,"s20:ConnectionsInitiated")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:ConnectionsInitiated")
 
 	Func setConnectionsInitiated P1
 		raise("DotNet Error: ConnectionsInitiated is a read-only property")
 
 	Func getCumulativeConnections
-		dn_x = dotnet_call("s3:get",nHandle,"s21:CumulativeConnections")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:CumulativeConnections")
 
 	Func setCumulativeConnections P1
 		raise("DotNet Error: CumulativeConnections is a read-only property")
 
 	Func getCurrentConnections
-		dn_x = dotnet_call("s3:get",nHandle,"s18:CurrentConnections")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:CurrentConnections")
 
 	Func setCurrentConnections P1
 		raise("DotNet Error: CurrentConnections is a read-only property")
 
 	Func getErrorsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ErrorsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:ErrorsReceived")
 
 	Func setErrorsReceived P1
 		raise("DotNet Error: ErrorsReceived is a read-only property")
 
 	Func getFailedConnectionAttempts
-		dn_x = dotnet_call("s3:get",nHandle,"s24:FailedConnectionAttempts")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:FailedConnectionAttempts")
 
 	Func setFailedConnectionAttempts P1
 		raise("DotNet Error: FailedConnectionAttempts is a read-only property")
 
 	Func getMaximumConnections
-		dn_x = dotnet_call("s3:get",nHandle,"s18:MaximumConnections")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:MaximumConnections")
 
 	Func setMaximumConnections P1
 		raise("DotNet Error: MaximumConnections is a read-only property")
 
 	Func getMaximumTransmissionTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s26:MaximumTransmissionTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:MaximumTransmissionTimeout")
 
 	Func setMaximumTransmissionTimeout P1
 		raise("DotNet Error: MaximumTransmissionTimeout is a read-only property")
 
 	Func getMinimumTransmissionTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s26:MinimumTransmissionTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:MinimumTransmissionTimeout")
 
 	Func setMinimumTransmissionTimeout P1
 		raise("DotNet Error: MinimumTransmissionTimeout is a read-only property")
 
 	Func getResetConnections
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ResetConnections")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:ResetConnections")
 
 	Func setResetConnections P1
 		raise("DotNet Error: ResetConnections is a read-only property")
 
 	Func getSegmentsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s16:SegmentsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:SegmentsReceived")
 
 	Func setSegmentsReceived P1
 		raise("DotNet Error: SegmentsReceived is a read-only property")
 
 	Func getSegmentsResent
-		dn_x = dotnet_call("s3:get",nHandle,"s14:SegmentsResent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:SegmentsResent")
 
 	Func setSegmentsResent P1
 		raise("DotNet Error: SegmentsResent is a read-only property")
 
 	Func getSegmentsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s12:SegmentsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:SegmentsSent")
 
 	Func setSegmentsSent P1
 		raise("DotNet Error: SegmentsSent is a read-only property")
 
 	Func getResetsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s10:ResetsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:ResetsSent")
 
 	Func setResetsSent P1
 		raise("DotNet Error: ResetsSent is a read-only property")
@@ -2562,41 +2268,31 @@ Class UdpStatistics from Object
 		return dn_x
 
 	Func getDatagramsReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s17:DatagramsReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:DatagramsReceived")
 
 	Func setDatagramsReceived P1
 		raise("DotNet Error: DatagramsReceived is a read-only property")
 
 	Func getDatagramsSent
-		dn_x = dotnet_call("s3:get",nHandle,"s13:DatagramsSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:DatagramsSent")
 
 	Func setDatagramsSent P1
 		raise("DotNet Error: DatagramsSent is a read-only property")
 
 	Func getIncomingDatagramsDiscarded
-		dn_x = dotnet_call("s3:get",nHandle,"s26:IncomingDatagramsDiscarded")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:IncomingDatagramsDiscarded")
 
 	Func setIncomingDatagramsDiscarded P1
 		raise("DotNet Error: IncomingDatagramsDiscarded is a read-only property")
 
 	Func getIncomingDatagramsWithErrors
-		dn_x = dotnet_call("s3:get",nHandle,"s27:IncomingDatagramsWithErrors")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s27:IncomingDatagramsWithErrors")
 
 	Func setIncomingDatagramsWithErrors P1
 		raise("DotNet Error: IncomingDatagramsWithErrors is a read-only property")
 
 	Func getUdpListeners
-		dn_x = dotnet_call("s3:get",nHandle,"s12:UdpListeners")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:UdpListeners")
 
 	Func setUdpListeners P1
 		raise("DotNet Error: UdpListeners is a read-only property")
@@ -2673,17 +2369,13 @@ Class UnicastIPAddressInformationCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2708,25 +2400,19 @@ Class MulticastIPAddressInformation from IPAddressInformation
 		return self
 
 	Func getAddressPreferredLifetime
-		dn_x = dotnet_call("s3:get",nHandle,"s24:AddressPreferredLifetime")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:AddressPreferredLifetime")
 
 	Func setAddressPreferredLifetime P1
 		raise("DotNet Error: AddressPreferredLifetime is a read-only property")
 
 	Func getAddressValidLifetime
-		dn_x = dotnet_call("s3:get",nHandle,"s20:AddressValidLifetime")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:AddressValidLifetime")
 
 	Func setAddressValidLifetime P1
 		raise("DotNet Error: AddressValidLifetime is a read-only property")
 
 	Func getDhcpLeaseLifetime
-		dn_x = dotnet_call("s3:get",nHandle,"s17:DhcpLeaseLifetime")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:DhcpLeaseLifetime")
 
 	Func setDhcpLeaseLifetime P1
 		raise("DotNet Error: DhcpLeaseLifetime is a read-only property")
@@ -2771,25 +2457,19 @@ Class UnicastIPAddressInformation from IPAddressInformation
 		return self
 
 	Func getAddressPreferredLifetime
-		dn_x = dotnet_call("s3:get",nHandle,"s24:AddressPreferredLifetime")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:AddressPreferredLifetime")
 
 	Func setAddressPreferredLifetime P1
 		raise("DotNet Error: AddressPreferredLifetime is a read-only property")
 
 	Func getAddressValidLifetime
-		dn_x = dotnet_call("s3:get",nHandle,"s20:AddressValidLifetime")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:AddressValidLifetime")
 
 	Func setAddressValidLifetime P1
 		raise("DotNet Error: AddressValidLifetime is a read-only property")
 
 	Func getDhcpLeaseLifetime
-		dn_x = dotnet_call("s3:get",nHandle,"s17:DhcpLeaseLifetime")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:DhcpLeaseLifetime")
 
 	Func setDhcpLeaseLifetime P1
 		raise("DotNet Error: DhcpLeaseLifetime is a read-only property")
@@ -2819,9 +2499,7 @@ Class UnicastIPAddressInformation from IPAddressInformation
 		raise("DotNet Error: IPv4Mask is a read-only property")
 
 	Func getPrefixLength
-		dn_x = dotnet_call("s3:get",nHandle,"s12:PrefixLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:PrefixLength")
 
 	Func setPrefixLength P1
 		raise("DotNet Error: PrefixLength is a read-only property")

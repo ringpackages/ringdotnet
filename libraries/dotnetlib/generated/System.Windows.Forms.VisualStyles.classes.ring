@@ -1199,99 +1199,77 @@ Class TextMetrics from ValueType
 		return self
 
 	Func getHeight
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Height")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Height")
 
 	Func setHeight P1
 		dotnet_callv("s3:set",nHandle,"s6:Height",P1)
 		return self
 
 	Func getAscent
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Ascent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Ascent")
 
 	Func setAscent P1
 		dotnet_callv("s3:set",nHandle,"s6:Ascent",P1)
 		return self
 
 	Func getDescent
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Descent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Descent")
 
 	Func setDescent P1
 		dotnet_callv("s3:set",nHandle,"s7:Descent",P1)
 		return self
 
 	Func getInternalLeading
-		dn_x = dotnet_call("s3:get",nHandle,"s15:InternalLeading")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:InternalLeading")
 
 	Func setInternalLeading P1
 		dotnet_callv("s3:set",nHandle,"s15:InternalLeading",P1)
 		return self
 
 	Func getExternalLeading
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ExternalLeading")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:ExternalLeading")
 
 	Func setExternalLeading P1
 		dotnet_callv("s3:set",nHandle,"s15:ExternalLeading",P1)
 		return self
 
 	Func getAverageCharWidth
-		dn_x = dotnet_call("s3:get",nHandle,"s16:AverageCharWidth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:AverageCharWidth")
 
 	Func setAverageCharWidth P1
 		dotnet_callv("s3:set",nHandle,"s16:AverageCharWidth",P1)
 		return self
 
 	Func getMaxCharWidth
-		dn_x = dotnet_call("s3:get",nHandle,"s12:MaxCharWidth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:MaxCharWidth")
 
 	Func setMaxCharWidth P1
 		dotnet_callv("s3:set",nHandle,"s12:MaxCharWidth",P1)
 		return self
 
 	Func getWeight
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Weight")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Weight")
 
 	Func setWeight P1
 		dotnet_callv("s3:set",nHandle,"s6:Weight",P1)
 		return self
 
 	Func getOverhang
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Overhang")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Overhang")
 
 	Func setOverhang P1
 		dotnet_callv("s3:set",nHandle,"s8:Overhang",P1)
 		return self
 
 	Func getDigitizedAspectX
-		dn_x = dotnet_call("s3:get",nHandle,"s16:DigitizedAspectX")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:DigitizedAspectX")
 
 	Func setDigitizedAspectX P1
 		dotnet_callv("s3:set",nHandle,"s16:DigitizedAspectX",P1)
 		return self
 
 	Func getDigitizedAspectY
-		dn_x = dotnet_call("s3:get",nHandle,"s16:DigitizedAspectY")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:DigitizedAspectY")
 
 	Func setDigitizedAspectY P1
 		dotnet_callv("s3:set",nHandle,"s16:DigitizedAspectY",P1)
@@ -1326,27 +1304,21 @@ Class TextMetrics from ValueType
 		return self
 
 	Func getItalic
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Italic")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Italic")
 
 	Func setItalic P1
 		dotnet_callv("s3:set",nHandle,"s6:Italic",P1)
 		return self
 
 	Func getUnderlined
-		dn_x = dotnet_call("s3:get",nHandle,"s10:Underlined")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:Underlined")
 
 	Func setUnderlined P1
 		dotnet_callv("s3:set",nHandle,"s10:Underlined",P1)
 		return self
 
 	Func getStruckOut
-		dn_x = dotnet_call("s3:get",nHandle,"s9:StruckOut")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:StruckOut")
 
 	Func setStruckOut P1
 		dotnet_callv("s3:set",nHandle,"s9:StruckOut",P1)
@@ -1399,17 +1371,13 @@ Class VisualStyleElement from Object
 		raise("DotNet Error: ClassName is a read-only property")
 
 	Func getPart
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Part")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Part")
 
 	Func setPart P1
 		raise("DotNet Error: Part is a read-only property")
 
 	Func getState
-		dn_x = dotnet_call("s3:get",nHandle,"s5:State")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -7863,17 +7831,13 @@ Class VisualStyleInformation from Object
 		return dn_x
 
 	Func getIsSupportedByOS
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s15:IsSupportedByOS")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s15:IsSupportedByOS")
 
 	Func setIsSupportedByOS P1
 		raise("DotNet Error: IsSupportedByOS is a read-only property")
 
 	Func getIsEnabledByUser
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s15:IsEnabledByUser")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s15:IsEnabledByUser")
 
 	Func setIsEnabledByUser P1
 		raise("DotNet Error: IsEnabledByUser is a read-only property")
@@ -7951,17 +7915,13 @@ Class VisualStyleInformation from Object
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getSupportsFlatMenus
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s17:SupportsFlatMenus")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s17:SupportsFlatMenus")
 
 	Func setSupportsFlatMenus P1
 		raise("DotNet Error: SupportsFlatMenus is a read-only property")
 
 	Func getMinimumColorDepth
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s17:MinimumColorDepth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleInformation, System.Windows.Forms',"s17:MinimumColorDepth")
 
 	Func setMinimumColorDepth P1
 		raise("DotNet Error: MinimumColorDepth is a read-only property")
@@ -8139,17 +8099,13 @@ Class VisualStyleRenderer from Object
 		return dn_x
 
 	Func getPart
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Part")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Part")
 
 	Func setPart P1
 		raise("DotNet Error: Part is a read-only property")
 
 	Func getState
-		dn_x = dotnet_call("s3:get",nHandle,"s5:State")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -8161,17 +8117,13 @@ Class VisualStyleRenderer from Object
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getLastHResult
-		dn_x = dotnet_call("s3:get",nHandle,"s11:LastHResult")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:LastHResult")
 
 	Func setLastHResult P1
 		raise("DotNet Error: LastHResult is a read-only property")
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms',"s11:IsSupported")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms',"s11:IsSupported")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")

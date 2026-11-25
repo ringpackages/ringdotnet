@@ -419,9 +419,7 @@ Class MemoryCache from Object
 		raise("DotNet Error: GetOrCreateAsync does not take one argument: use named arguments, GetOrCreateAsync([ :parameter = value, ... ])")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -634,36 +632,28 @@ Class MemoryCacheOptions from Object
 		return self
 
 	Func getCompactOnMemoryPressure
-		dn_x = dotnet_call("s3:get",nHandle,"s23:CompactOnMemoryPressure")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:CompactOnMemoryPressure")
 
 	Func setCompactOnMemoryPressure P1
 		dotnet_callv("s3:set",nHandle,"s23:CompactOnMemoryPressure",P1)
 		return self
 
 	Func getCompactionPercentage
-		dn_x = dotnet_call("s3:get",nHandle,"s20:CompactionPercentage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:CompactionPercentage")
 
 	Func setCompactionPercentage P1
 		dotnet_callv("s3:set",nHandle,"s20:CompactionPercentage",P1)
 		return self
 
 	Func getTrackLinkedCacheEntries
-		dn_x = dotnet_call("s3:get",nHandle,"s23:TrackLinkedCacheEntries")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:TrackLinkedCacheEntries")
 
 	Func setTrackLinkedCacheEntries P1
 		dotnet_callv("s3:set",nHandle,"s23:TrackLinkedCacheEntries",P1)
 		return self
 
 	Func getTrackStatistics
-		dn_x = dotnet_call("s3:get",nHandle,"s15:TrackStatistics")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:TrackStatistics")
 
 	Func setTrackStatistics P1
 		dotnet_callv("s3:set",nHandle,"s15:TrackStatistics",P1)
@@ -701,9 +691,7 @@ Class MemoryCacheStatistics from Object
 		return dn_x
 
 	Func getCurrentEntryCount
-		dn_x = dotnet_call("s3:get",nHandle,"s17:CurrentEntryCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:CurrentEntryCount")
 
 	Func setCurrentEntryCount P1
 		dotnet_callv("s3:set",nHandle,"s17:CurrentEntryCount",P1)
@@ -717,18 +705,14 @@ Class MemoryCacheStatistics from Object
 		return self
 
 	Func getTotalMisses
-		dn_x = dotnet_call("s3:get",nHandle,"s11:TotalMisses")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:TotalMisses")
 
 	Func setTotalMisses P1
 		dotnet_callv("s3:set",nHandle,"s11:TotalMisses",P1)
 		return self
 
 	Func getTotalHits
-		dn_x = dotnet_call("s3:get",nHandle,"s9:TotalHits")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:TotalHits")
 
 	Func setTotalHits P1
 		dotnet_callv("s3:set",nHandle,"s9:TotalHits",P1)

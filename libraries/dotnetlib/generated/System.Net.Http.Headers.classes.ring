@@ -280,9 +280,7 @@ Class CacheControlHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.CacheControlHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getNoCache
-		dn_x = dotnet_call("s3:get",nHandle,"s7:NoCache")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:NoCache")
 
 	Func setNoCache P1
 		dotnet_callv("s3:set",nHandle,"s7:NoCache",P1)
@@ -295,9 +293,7 @@ Class CacheControlHeaderValue from Object
 		raise("DotNet Error: NoCacheHeaders is a read-only property")
 
 	Func getNoStore
-		dn_x = dotnet_call("s3:get",nHandle,"s7:NoStore")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:NoStore")
 
 	Func setNoStore P1
 		dotnet_callv("s3:set",nHandle,"s7:NoStore",P1)
@@ -318,9 +314,7 @@ Class CacheControlHeaderValue from Object
 		return self
 
 	Func getMaxStale
-		dn_x = dotnet_call("s3:get",nHandle,"s8:MaxStale")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:MaxStale")
 
 	Func setMaxStale P1
 		dotnet_callv("s3:set",nHandle,"s8:MaxStale",P1)
@@ -341,36 +335,28 @@ Class CacheControlHeaderValue from Object
 		return self
 
 	Func getNoTransform
-		dn_x = dotnet_call("s3:get",nHandle,"s11:NoTransform")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:NoTransform")
 
 	Func setNoTransform P1
 		dotnet_callv("s3:set",nHandle,"s11:NoTransform",P1)
 		return self
 
 	Func getOnlyIfCached
-		dn_x = dotnet_call("s3:get",nHandle,"s12:OnlyIfCached")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:OnlyIfCached")
 
 	Func setOnlyIfCached P1
 		dotnet_callv("s3:set",nHandle,"s12:OnlyIfCached",P1)
 		return self
 
 	Func getPublic
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Public")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Public")
 
 	Func setPublic P1
 		dotnet_callv("s3:set",nHandle,"s6:Public",P1)
 		return self
 
 	Func getPrivate
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Private")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Private")
 
 	Func setPrivate P1
 		dotnet_callv("s3:set",nHandle,"s7:Private",P1)
@@ -383,18 +369,14 @@ Class CacheControlHeaderValue from Object
 		raise("DotNet Error: PrivateHeaders is a read-only property")
 
 	Func getMustRevalidate
-		dn_x = dotnet_call("s3:get",nHandle,"s14:MustRevalidate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:MustRevalidate")
 
 	Func setMustRevalidate P1
 		dotnet_callv("s3:set",nHandle,"s14:MustRevalidate",P1)
 		return self
 
 	Func getProxyRevalidate
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ProxyRevalidate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:ProxyRevalidate")
 
 	Func setProxyRevalidate P1
 		dotnet_callv("s3:set",nHandle,"s15:ProxyRevalidate",P1)
@@ -586,17 +568,13 @@ Class ContentRangeHeaderValue from Object
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getHasLength
-		dn_x = dotnet_call("s3:get",nHandle,"s9:HasLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:HasLength")
 
 	Func setHasLength P1
 		raise("DotNet Error: HasLength is a read-only property")
 
 	Func getHasRange
-		dn_x = dotnet_call("s3:get",nHandle,"s8:HasRange")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:HasRange")
 
 	Func setHasRange P1
 		raise("DotNet Error: HasRange is a read-only property")
@@ -654,9 +632,7 @@ Class EntityTagHeaderValue from Object
 		raise("DotNet Error: Tag is a read-only property")
 
 	Func getIsWeak
-		dn_x = dotnet_call("s3:get",nHandle,"s6:IsWeak")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:IsWeak")
 
 	Func setIsWeak P1
 		raise("DotNet Error: IsWeak is a read-only property")
@@ -714,9 +690,7 @@ Class HeaderStringValues from ValueType
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -845,17 +819,13 @@ Class HttpHeaderValueCollection from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -997,9 +967,7 @@ Class HttpHeadersNonValidated from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1689,9 +1657,7 @@ Class WarningHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.WarningHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getCode
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Code")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Code")
 
 	Func setCode P1
 		raise("DotNet Error: Code is a read-only property")

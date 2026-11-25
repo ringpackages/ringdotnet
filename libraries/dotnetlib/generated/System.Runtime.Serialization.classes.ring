@@ -102,9 +102,7 @@ Class CollectionDataContractAttribute from Attribute
 		return self
 
 	Func getIsNamespaceSetExplicitly
-		dn_x = dotnet_call("s3:get",nHandle,"s24:IsNamespaceSetExplicitly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:IsNamespaceSetExplicitly")
 
 	Func setIsNamespaceSetExplicitly P1
 		raise("DotNet Error: IsNamespaceSetExplicitly is a read-only property")
@@ -119,9 +117,7 @@ Class CollectionDataContractAttribute from Attribute
 		return self
 
 	Func getIsNameSetExplicitly
-		dn_x = dotnet_call("s3:get",nHandle,"s19:IsNameSetExplicitly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:IsNameSetExplicitly")
 
 	Func setIsNameSetExplicitly P1
 		raise("DotNet Error: IsNameSetExplicitly is a read-only property")
@@ -136,9 +132,7 @@ Class CollectionDataContractAttribute from Attribute
 		return self
 
 	Func getIsItemNameSetExplicitly
-		dn_x = dotnet_call("s3:get",nHandle,"s23:IsItemNameSetExplicitly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:IsItemNameSetExplicitly")
 
 	Func setIsItemNameSetExplicitly P1
 		raise("DotNet Error: IsItemNameSetExplicitly is a read-only property")
@@ -153,26 +147,20 @@ Class CollectionDataContractAttribute from Attribute
 		return self
 
 	Func getIsKeyNameSetExplicitly
-		dn_x = dotnet_call("s3:get",nHandle,"s22:IsKeyNameSetExplicitly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:IsKeyNameSetExplicitly")
 
 	Func setIsKeyNameSetExplicitly P1
 		raise("DotNet Error: IsKeyNameSetExplicitly is a read-only property")
 
 	Func getIsReference
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsReference")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsReference")
 
 	Func setIsReference P1
 		dotnet_callv("s3:set",nHandle,"s11:IsReference",P1)
 		return self
 
 	Func getIsReferenceSetExplicitly
-		dn_x = dotnet_call("s3:get",nHandle,"s24:IsReferenceSetExplicitly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:IsReferenceSetExplicitly")
 
 	Func setIsReferenceSetExplicitly P1
 		raise("DotNet Error: IsReferenceSetExplicitly is a read-only property")
@@ -187,9 +175,7 @@ Class CollectionDataContractAttribute from Attribute
 		return self
 
 	Func getIsValueNameSetExplicitly
-		dn_x = dotnet_call("s3:get",nHandle,"s24:IsValueNameSetExplicitly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:IsValueNameSetExplicitly")
 
 	Func setIsValueNameSetExplicitly P1
 		raise("DotNet Error: IsValueNameSetExplicitly is a read-only property")
@@ -257,18 +243,14 @@ Class DataContractAttribute from Attribute
 		return self
 
 	Func getIsReference
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsReference")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsReference")
 
 	Func setIsReference P1
 		dotnet_callv("s3:set",nHandle,"s11:IsReference",P1)
 		return self
 
 	Func getIsReferenceSetExplicitly
-		dn_x = dotnet_call("s3:get",nHandle,"s24:IsReferenceSetExplicitly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:IsReferenceSetExplicitly")
 
 	Func setIsReferenceSetExplicitly P1
 		raise("DotNet Error: IsReferenceSetExplicitly is a read-only property")
@@ -283,9 +265,7 @@ Class DataContractAttribute from Attribute
 		return self
 
 	Func getIsNamespaceSetExplicitly
-		dn_x = dotnet_call("s3:get",nHandle,"s24:IsNamespaceSetExplicitly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:IsNamespaceSetExplicitly")
 
 	Func setIsNamespaceSetExplicitly P1
 		raise("DotNet Error: IsNamespaceSetExplicitly is a read-only property")
@@ -300,9 +280,7 @@ Class DataContractAttribute from Attribute
 		return self
 
 	Func getIsNameSetExplicitly
-		dn_x = dotnet_call("s3:get",nHandle,"s19:IsNameSetExplicitly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:IsNameSetExplicitly")
 
 	Func setIsNameSetExplicitly P1
 		raise("DotNet Error: IsNameSetExplicitly is a read-only property")
@@ -344,35 +322,27 @@ Class DataMemberAttribute from Attribute
 		return self
 
 	Func getIsNameSetExplicitly
-		dn_x = dotnet_call("s3:get",nHandle,"s19:IsNameSetExplicitly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:IsNameSetExplicitly")
 
 	Func setIsNameSetExplicitly P1
 		raise("DotNet Error: IsNameSetExplicitly is a read-only property")
 
 	Func getOrder
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Order")
 
 	Func setOrder P1
 		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
 		return self
 
 	Func getIsRequired
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsRequired")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsRequired")
 
 	Func setIsRequired P1
 		dotnet_callv("s3:set",nHandle,"s10:IsRequired",P1)
 		return self
 
 	Func getEmitDefaultValue
-		dn_x = dotnet_call("s3:get",nHandle,"s16:EmitDefaultValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:EmitDefaultValue")
 
 	Func setEmitDefaultValue P1
 		dotnet_callv("s3:set",nHandle,"s16:EmitDefaultValue",P1)
@@ -412,9 +382,7 @@ Class EnumMemberAttribute from Attribute
 		return self
 
 	Func getIsValueSetExplicitly
-		dn_x = dotnet_call("s3:get",nHandle,"s20:IsValueSetExplicitly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:IsValueSetExplicitly")
 
 	Func setIsValueSetExplicitly P1
 		raise("DotNet Error: IsValueSetExplicitly is a read-only property")

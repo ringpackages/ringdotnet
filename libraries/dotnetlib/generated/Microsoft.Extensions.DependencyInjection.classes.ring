@@ -2839,17 +2839,13 @@ Class IServiceCollection from DotNetObject
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -4958,17 +4954,13 @@ Class ServiceCollection from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -5223,9 +5215,7 @@ Class ServiceDescriptor from Object
 		raise("DotNet Error: KeyedImplementationFactory is a read-only property")
 
 	Func getIsKeyedService
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsKeyedService")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsKeyedService")
 
 	Func setIsKeyedService P1
 		raise("DotNet Error: IsKeyedService is a read-only property")
@@ -5389,18 +5379,14 @@ Class ServiceProviderOptions from Object
 		return dn_x
 
 	Func getValidateScopes
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ValidateScopes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:ValidateScopes")
 
 	Func setValidateScopes P1
 		dotnet_callv("s3:set",nHandle,"s14:ValidateScopes",P1)
 		return self
 
 	Func getValidateOnBuild
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ValidateOnBuild")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:ValidateOnBuild")
 
 	Func setValidateOnBuild P1
 		dotnet_callv("s3:set",nHandle,"s15:ValidateOnBuild",P1)

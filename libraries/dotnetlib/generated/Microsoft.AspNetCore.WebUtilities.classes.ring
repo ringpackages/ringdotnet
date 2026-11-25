@@ -273,17 +273,13 @@ Class FileBufferingReadStream from Stream
 		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
 	Func getMemoryThreshold
-		dn_x = dotnet_call("s3:get",nHandle,"s15:MemoryThreshold")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:MemoryThreshold")
 
 	Func setMemoryThreshold P1
 		raise("DotNet Error: MemoryThreshold is a read-only property")
 
 	Func getInMemory
-		dn_x = dotnet_call("s3:get",nHandle,"s8:InMemory")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:InMemory")
 
 	Func setInMemory P1
 		raise("DotNet Error: InMemory is a read-only property")
@@ -348,9 +344,7 @@ Class FileBufferingWriteStream from Stream
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:DrainBufferAsync",P1))
 
 	Func getMemoryThreshold
-		dn_x = dotnet_call("s3:get",nHandle,"s15:MemoryThreshold")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:MemoryThreshold")
 
 	Func setMemoryThreshold P1
 		raise("DotNet Error: MemoryThreshold is a read-only property")
@@ -530,27 +524,21 @@ Class FormPipeReader from Object
 		return dn_x
 
 	Func getValueCountLimit
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ValueCountLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:ValueCountLimit")
 
 	Func setValueCountLimit P1
 		dotnet_callv("s3:set",nHandle,"s15:ValueCountLimit",P1)
 		return self
 
 	Func getKeyLengthLimit
-		dn_x = dotnet_call("s3:get",nHandle,"s14:KeyLengthLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:KeyLengthLimit")
 
 	Func setKeyLengthLimit P1
 		dotnet_callv("s3:set",nHandle,"s14:KeyLengthLimit",P1)
 		return self
 
 	Func getValueLengthLimit
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ValueLengthLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:ValueLengthLimit")
 
 	Func setValueLengthLimit P1
 		dotnet_callv("s3:set",nHandle,"s16:ValueLengthLimit",P1)
@@ -627,52 +615,40 @@ Class FormReader from Object
 		return dn_x
 
 	Func getValueCountLimit
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ValueCountLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:ValueCountLimit")
 
 	Func setValueCountLimit P1
 		dotnet_callv("s3:set",nHandle,"s15:ValueCountLimit",P1)
 		return self
 
 	Func getKeyLengthLimit
-		dn_x = dotnet_call("s3:get",nHandle,"s14:KeyLengthLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:KeyLengthLimit")
 
 	Func setKeyLengthLimit P1
 		dotnet_callv("s3:set",nHandle,"s14:KeyLengthLimit",P1)
 		return self
 
 	Func getValueLengthLimit
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ValueLengthLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:ValueLengthLimit")
 
 	Func setValueLengthLimit P1
 		dotnet_callv("s3:set",nHandle,"s16:ValueLengthLimit",P1)
 		return self
 
 	Func getDefaultValueCountLimit
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',"s22:DefaultValueCountLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',"s22:DefaultValueCountLimit")
 
 	Func setDefaultValueCountLimit P1
 		raise("DotNet Error: DefaultValueCountLimit is a read-only property")
 
 	Func getDefaultKeyLengthLimit
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',"s21:DefaultKeyLengthLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',"s21:DefaultKeyLengthLimit")
 
 	Func setDefaultKeyLengthLimit P1
 		raise("DotNet Error: DefaultKeyLengthLimit is a read-only property")
 
 	Func getDefaultValueLengthLimit
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',"s23:DefaultValueLengthLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',"s23:DefaultValueLengthLimit")
 
 	Func setDefaultValueLengthLimit P1
 		raise("DotNet Error: DefaultValueLengthLimit is a read-only property")
@@ -769,25 +745,19 @@ Class KeyValueAccumulator from ValueType
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetResults"))
 
 	Func getHasValues
-		dn_x = dotnet_call("s3:get",nHandle,"s9:HasValues")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:HasValues")
 
 	Func setHasValues P1
 		raise("DotNet Error: HasValues is a read-only property")
 
 	Func getKeyCount
-		dn_x = dotnet_call("s3:get",nHandle,"s8:KeyCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:KeyCount")
 
 	Func setKeyCount P1
 		raise("DotNet Error: KeyCount is a read-only property")
 
 	Func getValueCount
-		dn_x = dotnet_call("s3:get",nHandle,"s10:ValueCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:ValueCount")
 
 	Func setValueCount P1
 		raise("DotNet Error: ValueCount is a read-only property")
@@ -842,18 +812,14 @@ Class MultipartReader from Object
 		return dn_x
 
 	Func getHeadersCountLimit
-		dn_x = dotnet_call("s3:get",nHandle,"s17:HeadersCountLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:HeadersCountLimit")
 
 	Func setHeadersCountLimit P1
 		dotnet_callv("s3:set",nHandle,"s17:HeadersCountLimit",P1)
 		return self
 
 	Func getHeadersLengthLimit
-		dn_x = dotnet_call("s3:get",nHandle,"s18:HeadersLengthLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:HeadersLengthLimit")
 
 	Func setHeadersLengthLimit P1
 		dotnet_callv("s3:set",nHandle,"s18:HeadersLengthLimit",P1)
@@ -867,17 +833,13 @@ Class MultipartReader from Object
 		return self
 
 	Func getDefaultHeadersCountLimit
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',"s24:DefaultHeadersCountLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',"s24:DefaultHeadersCountLimit")
 
 	Func setDefaultHeadersCountLimit P1
 		raise("DotNet Error: DefaultHeadersCountLimit is a read-only property")
 
 	Func getDefaultHeadersLengthLimit
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',"s25:DefaultHeadersLengthLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',"s25:DefaultHeadersLengthLimit")
 
 	Func setDefaultHeadersLengthLimit P1
 		raise("DotNet Error: DefaultHeadersLengthLimit is a read-only property")

@@ -76,54 +76,42 @@ Class Http2Limits from Object
 		return dn_x
 
 	Func getMaxStreamsPerConnection
-		dn_x = dotnet_call("s3:get",nHandle,"s23:MaxStreamsPerConnection")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:MaxStreamsPerConnection")
 
 	Func setMaxStreamsPerConnection P1
 		dotnet_callv("s3:set",nHandle,"s23:MaxStreamsPerConnection",P1)
 		return self
 
 	Func getHeaderTableSize
-		dn_x = dotnet_call("s3:get",nHandle,"s15:HeaderTableSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:HeaderTableSize")
 
 	Func setHeaderTableSize P1
 		dotnet_callv("s3:set",nHandle,"s15:HeaderTableSize",P1)
 		return self
 
 	Func getMaxFrameSize
-		dn_x = dotnet_call("s3:get",nHandle,"s12:MaxFrameSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:MaxFrameSize")
 
 	Func setMaxFrameSize P1
 		dotnet_callv("s3:set",nHandle,"s12:MaxFrameSize",P1)
 		return self
 
 	Func getMaxRequestHeaderFieldSize
-		dn_x = dotnet_call("s3:get",nHandle,"s25:MaxRequestHeaderFieldSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:MaxRequestHeaderFieldSize")
 
 	Func setMaxRequestHeaderFieldSize P1
 		dotnet_callv("s3:set",nHandle,"s25:MaxRequestHeaderFieldSize",P1)
 		return self
 
 	Func getInitialConnectionWindowSize
-		dn_x = dotnet_call("s3:get",nHandle,"s27:InitialConnectionWindowSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s27:InitialConnectionWindowSize")
 
 	Func setInitialConnectionWindowSize P1
 		dotnet_callv("s3:set",nHandle,"s27:InitialConnectionWindowSize",P1)
 		return self
 
 	Func getInitialStreamWindowSize
-		dn_x = dotnet_call("s3:get",nHandle,"s23:InitialStreamWindowSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:InitialStreamWindowSize")
 
 	Func setInitialStreamWindowSize P1
 		dotnet_callv("s3:set",nHandle,"s23:InitialStreamWindowSize",P1)
@@ -172,9 +160,7 @@ Class Http3Limits from Object
 		return dn_x
 
 	Func getMaxRequestHeaderFieldSize
-		dn_x = dotnet_call("s3:get",nHandle,"s25:MaxRequestHeaderFieldSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:MaxRequestHeaderFieldSize")
 
 	Func setMaxRequestHeaderFieldSize P1
 		dotnet_callv("s3:set",nHandle,"s25:MaxRequestHeaderFieldSize",P1)
@@ -281,27 +267,21 @@ Class KestrelServerLimits from Object
 		return self
 
 	Func getMaxRequestLineSize
-		dn_x = dotnet_call("s3:get",nHandle,"s18:MaxRequestLineSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:MaxRequestLineSize")
 
 	Func setMaxRequestLineSize P1
 		dotnet_callv("s3:set",nHandle,"s18:MaxRequestLineSize",P1)
 		return self
 
 	Func getMaxRequestHeadersTotalSize
-		dn_x = dotnet_call("s3:get",nHandle,"s26:MaxRequestHeadersTotalSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:MaxRequestHeadersTotalSize")
 
 	Func setMaxRequestHeadersTotalSize P1
 		dotnet_callv("s3:set",nHandle,"s26:MaxRequestHeadersTotalSize",P1)
 		return self
 
 	Func getMaxRequestHeaderCount
-		dn_x = dotnet_call("s3:get",nHandle,"s21:MaxRequestHeaderCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:MaxRequestHeaderCount")
 
 	Func setMaxRequestHeaderCount P1
 		dotnet_callv("s3:set",nHandle,"s21:MaxRequestHeaderCount",P1)
@@ -491,63 +471,49 @@ Class KestrelServerOptions from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSystemd",P1))
 
 	Func getAllowHostHeaderOverride
-		dn_x = dotnet_call("s3:get",nHandle,"s23:AllowHostHeaderOverride")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:AllowHostHeaderOverride")
 
 	Func setAllowHostHeaderOverride P1
 		dotnet_callv("s3:set",nHandle,"s23:AllowHostHeaderOverride",P1)
 		return self
 
 	Func getAddServerHeader
-		dn_x = dotnet_call("s3:get",nHandle,"s15:AddServerHeader")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:AddServerHeader")
 
 	Func setAddServerHeader P1
 		dotnet_callv("s3:set",nHandle,"s15:AddServerHeader",P1)
 		return self
 
 	Func getAllowResponseHeaderCompression
-		dn_x = dotnet_call("s3:get",nHandle,"s30:AllowResponseHeaderCompression")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s30:AllowResponseHeaderCompression")
 
 	Func setAllowResponseHeaderCompression P1
 		dotnet_callv("s3:set",nHandle,"s30:AllowResponseHeaderCompression",P1)
 		return self
 
 	Func getAllowSynchronousIO
-		dn_x = dotnet_call("s3:get",nHandle,"s18:AllowSynchronousIO")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:AllowSynchronousIO")
 
 	Func setAllowSynchronousIO P1
 		dotnet_callv("s3:set",nHandle,"s18:AllowSynchronousIO",P1)
 		return self
 
 	Func getAllowAlternateSchemes
-		dn_x = dotnet_call("s3:get",nHandle,"s21:AllowAlternateSchemes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:AllowAlternateSchemes")
 
 	Func setAllowAlternateSchemes P1
 		dotnet_callv("s3:set",nHandle,"s21:AllowAlternateSchemes",P1)
 		return self
 
 	Func getDisableStringReuse
-		dn_x = dotnet_call("s3:get",nHandle,"s18:DisableStringReuse")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:DisableStringReuse")
 
 	Func setDisableStringReuse P1
 		dotnet_callv("s3:set",nHandle,"s18:DisableStringReuse",P1)
 		return self
 
 	Func getEnableAltSvc
-		dn_x = dotnet_call("s3:get",nHandle,"s12:EnableAltSvc")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:EnableAltSvc")
 
 	Func setEnableAltSvc P1
 		dotnet_callv("s3:set",nHandle,"s12:EnableAltSvc",P1)
@@ -669,9 +635,7 @@ Class ListenOptions from Object
 		raise("DotNet Error: PipeName is a read-only property")
 
 	Func getFileHandle
-		dn_x = dotnet_call("s3:get",nHandle,"s10:FileHandle")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:FileHandle")
 
 	Func setFileHandle P1
 		raise("DotNet Error: FileHandle is a read-only property")
@@ -690,9 +654,7 @@ Class ListenOptions from Object
 		return self
 
 	Func getDisableAltSvcHeader
-		dn_x = dotnet_call("s3:get",nHandle,"s19:DisableAltSvcHeader")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:DisableAltSvcHeader")
 
 	Func setDisableAltSvcHeader P1
 		dotnet_callv("s3:set",nHandle,"s19:DisableAltSvcHeader",P1)
@@ -727,9 +689,7 @@ Class MinDataRate from Object
 		return dn_x
 
 	Func getBytesPerSecond
-		dn_x = dotnet_call("s3:get",nHandle,"s14:BytesPerSecond")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:BytesPerSecond")
 
 	Func setBytesPerSecond P1
 		raise("DotNet Error: BytesPerSecond is a read-only property")

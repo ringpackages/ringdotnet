@@ -522,9 +522,7 @@ Class Pkcs12LoaderLimits from Object
 		return dn_x
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -565,54 +563,42 @@ Class Pkcs12LoaderLimits from Object
 		return self
 
 	Func getPreserveStorageProvider
-		dn_x = dotnet_call("s3:get",nHandle,"s23:PreserveStorageProvider")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:PreserveStorageProvider")
 
 	Func setPreserveStorageProvider P1
 		dotnet_callv("s3:set",nHandle,"s23:PreserveStorageProvider",P1)
 		return self
 
 	Func getPreserveKeyName
-		dn_x = dotnet_call("s3:get",nHandle,"s15:PreserveKeyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:PreserveKeyName")
 
 	Func setPreserveKeyName P1
 		dotnet_callv("s3:set",nHandle,"s15:PreserveKeyName",P1)
 		return self
 
 	Func getPreserveCertificateAlias
-		dn_x = dotnet_call("s3:get",nHandle,"s24:PreserveCertificateAlias")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:PreserveCertificateAlias")
 
 	Func setPreserveCertificateAlias P1
 		dotnet_callv("s3:set",nHandle,"s24:PreserveCertificateAlias",P1)
 		return self
 
 	Func getPreserveUnknownAttributes
-		dn_x = dotnet_call("s3:get",nHandle,"s25:PreserveUnknownAttributes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:PreserveUnknownAttributes")
 
 	Func setPreserveUnknownAttributes P1
 		dotnet_callv("s3:set",nHandle,"s25:PreserveUnknownAttributes",P1)
 		return self
 
 	Func getIgnorePrivateKeys
-		dn_x = dotnet_call("s3:get",nHandle,"s17:IgnorePrivateKeys")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:IgnorePrivateKeys")
 
 	Func setIgnorePrivateKeys P1
 		dotnet_callv("s3:set",nHandle,"s17:IgnorePrivateKeys",P1)
 		return self
 
 	Func getIgnoreEncryptedAuthSafes
-		dn_x = dotnet_call("s3:get",nHandle,"s24:IgnoreEncryptedAuthSafes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:IgnoreEncryptedAuthSafes")
 
 	Func setIgnoreEncryptedAuthSafes P1
 		dotnet_callv("s3:set",nHandle,"s24:IgnoreEncryptedAuthSafes",P1)
@@ -964,9 +950,7 @@ Class X500RelativeDistinguishedName from Object
 		raise("DotNet Error: RawData is a read-only property")
 
 	Func getHasMultipleElements
-		dn_x = dotnet_call("s3:get",nHandle,"s19:HasMultipleElements")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:HasMultipleElements")
 
 	Func setHasMultipleElements P1
 		raise("DotNet Error: HasMultipleElements is a read-only property")
@@ -1565,17 +1549,13 @@ Class X509ChainElementCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -1669,18 +1649,14 @@ Class X509ChainPolicy from Object
 		return dn_x
 
 	Func getDisableCertificateDownloads
-		dn_x = dotnet_call("s3:get",nHandle,"s27:DisableCertificateDownloads")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s27:DisableCertificateDownloads")
 
 	Func setDisableCertificateDownloads P1
 		dotnet_callv("s3:set",nHandle,"s27:DisableCertificateDownloads",P1)
 		return self
 
 	Func getVerificationTimeIgnored
-		dn_x = dotnet_call("s3:get",nHandle,"s23:VerificationTimeIgnored")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:VerificationTimeIgnored")
 
 	Func setVerificationTimeIgnored P1
 		dotnet_callv("s3:set",nHandle,"s23:VerificationTimeIgnored",P1)
@@ -1824,9 +1800,7 @@ Class X509Extension from AsnEncodedData
 		return self
 
 	Func getCritical
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Critical")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Critical")
 
 	Func setCritical P1
 		dotnet_callv("s3:set",nHandle,"s8:Critical",P1)
@@ -1899,17 +1873,13 @@ Class X509ExtensionCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -2102,9 +2072,7 @@ Class X509Store from Object
 		raise("DotNet Error: Certificates is a read-only property")
 
 	Func getIsOpen
-		dn_x = dotnet_call("s3:get",nHandle,"s6:IsOpen")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:IsOpen")
 
 	Func setIsOpen P1
 		raise("DotNet Error: IsOpen is a read-only property")
@@ -2293,25 +2261,19 @@ Class X509BasicConstraintsExtension from X509Extension
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',"s18:CreateForEndEntity",P1))
 
 	Func getCertificateAuthority
-		dn_x = dotnet_call("s3:get",nHandle,"s20:CertificateAuthority")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:CertificateAuthority")
 
 	Func setCertificateAuthority P1
 		raise("DotNet Error: CertificateAuthority is a read-only property")
 
 	Func getHasPathLengthConstraint
-		dn_x = dotnet_call("s3:get",nHandle,"s23:HasPathLengthConstraint")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:HasPathLengthConstraint")
 
 	Func setHasPathLengthConstraint P1
 		raise("DotNet Error: HasPathLengthConstraint is a read-only property")
 
 	Func getPathLengthConstraint
-		dn_x = dotnet_call("s3:get",nHandle,"s20:PathLengthConstraint")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:PathLengthConstraint")
 
 	Func setPathLengthConstraint P1
 		raise("DotNet Error: PathLengthConstraint is a read-only property")
@@ -2467,9 +2429,7 @@ Class X509Certificate2 from X509Certificate
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetRSAPrivateKey"))
 
 	Func getArchived
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Archived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Archived")
 
 	Func setArchived P1
 		dotnet_callv("s3:set",nHandle,"s8:Archived",P1)
@@ -2491,9 +2451,7 @@ Class X509Certificate2 from X509Certificate
 		return self
 
 	Func getHasPrivateKey
-		dn_x = dotnet_call("s3:get",nHandle,"s13:HasPrivateKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:HasPrivateKey")
 
 	Func setHasPrivateKey P1
 		raise("DotNet Error: HasPrivateKey is a read-only property")
@@ -2570,9 +2528,7 @@ Class X509Certificate2 from X509Certificate
 		raise("DotNet Error: Thumbprint is a read-only property")
 
 	Func getVersion
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Version")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Version")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")

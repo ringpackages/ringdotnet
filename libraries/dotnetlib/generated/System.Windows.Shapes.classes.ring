@@ -111,9 +111,7 @@ Class Shape from FrameworkElement
 		return self
 
 	Func getStrokeThickness
-		dn_x = dotnet_call("s3:get",nHandle,"s15:StrokeThickness")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:StrokeThickness")
 
 	Func setStrokeThickness P1
 		dotnet_callv("s3:set",nHandle,"s15:StrokeThickness",P1)
@@ -148,18 +146,14 @@ Class Shape from FrameworkElement
 		return self
 
 	Func getStrokeMiterLimit
-		dn_x = dotnet_call("s3:get",nHandle,"s16:StrokeMiterLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:StrokeMiterLimit")
 
 	Func setStrokeMiterLimit P1
 		dotnet_callv("s3:set",nHandle,"s16:StrokeMiterLimit",P1)
 		return self
 
 	Func getStrokeDashOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s16:StrokeDashOffset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:StrokeDashOffset")
 
 	Func setStrokeDashOffset P1
 		dotnet_callv("s3:set",nHandle,"s16:StrokeDashOffset",P1)
@@ -290,36 +284,28 @@ Class Line from Shape
 		return self
 
 	Func getX1
-		dn_x = dotnet_call("s3:get",nHandle,"s2:X1")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s2:X1")
 
 	Func setX1 P1
 		dotnet_callv("s3:set",nHandle,"s2:X1",P1)
 		return self
 
 	Func getY1
-		dn_x = dotnet_call("s3:get",nHandle,"s2:Y1")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s2:Y1")
 
 	Func setY1 P1
 		dotnet_callv("s3:set",nHandle,"s2:Y1",P1)
 		return self
 
 	Func getX2
-		dn_x = dotnet_call("s3:get",nHandle,"s2:X2")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s2:X2")
 
 	Func setX2 P1
 		dotnet_callv("s3:set",nHandle,"s2:X2",P1)
 		return self
 
 	Func getY2
-		dn_x = dotnet_call("s3:get",nHandle,"s2:Y2")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s2:Y2")
 
 	Func setY2 P1
 		dotnet_callv("s3:set",nHandle,"s2:Y2",P1)
@@ -517,18 +503,14 @@ Class WpfRectangle from Shape
 		return self
 
 	Func getRadiusX
-		dn_x = dotnet_call("s3:get",nHandle,"s7:RadiusX")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:RadiusX")
 
 	Func setRadiusX P1
 		dotnet_callv("s3:set",nHandle,"s7:RadiusX",P1)
 		return self
 
 	Func getRadiusY
-		dn_x = dotnet_call("s3:get",nHandle,"s7:RadiusY")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:RadiusY")
 
 	Func setRadiusY P1
 		dotnet_callv("s3:set",nHandle,"s7:RadiusY",P1)

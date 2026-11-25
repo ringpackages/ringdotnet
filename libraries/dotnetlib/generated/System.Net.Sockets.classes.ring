@@ -137,9 +137,7 @@ Class IPPacketInformation from ValueType
 		raise("DotNet Error: Address is a read-only property")
 
 	Func getInterface
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Interface")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Interface")
 
 	Func setInterface P1
 		raise("DotNet Error: Interface is a read-only property")
@@ -193,9 +191,7 @@ Class IPv6MulticastOption from Object
 		return self
 
 	Func getInterfaceIndex
-		dn_x = dotnet_call("s3:get",nHandle,"s14:InterfaceIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:InterfaceIndex")
 
 	Func setInterfaceIndex P1
 		dotnet_callv("s3:set",nHandle,"s14:InterfaceIndex",P1)
@@ -224,18 +220,14 @@ Class LingerOption from Object
 		return dn_x
 
 	Func getEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Enabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Enabled")
 
 	Func setEnabled P1
 		dotnet_callv("s3:set",nHandle,"s7:Enabled",P1)
 		return self
 
 	Func getLingerTime
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LingerTime")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:LingerTime")
 
 	Func setLingerTime P1
 		dotnet_callv("s3:set",nHandle,"s10:LingerTime",P1)
@@ -294,9 +286,7 @@ Class MulticastOption from Object
 		return self
 
 	Func getInterfaceIndex
-		dn_x = dotnet_call("s3:get",nHandle,"s14:InterfaceIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:InterfaceIndex")
 
 	Func setInterfaceIndex P1
 		dotnet_callv("s3:set",nHandle,"s14:InterfaceIndex",P1)
@@ -355,9 +345,7 @@ Class NetworkStream from Stream
 		raise("DotNet Error: Socket is a read-only property")
 
 	Func getDataAvailable
-		dn_x = dotnet_call("s3:get",nHandle,"s13:DataAvailable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:DataAvailable")
 
 	Func setDataAvailable P1
 		raise("DotNet Error: DataAvailable is a read-only property")
@@ -447,17 +435,13 @@ Class SafeSocketHandle from DotNetObject
 		return dn_x
 
 	Func getIsInvalid
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInvalid")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsInvalid")
 
 	Func setIsInvalid P1
 		raise("DotNet Error: IsInvalid is a read-only property")
 
 	Func getIsClosed
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsClosed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsClosed")
 
 	Func setIsClosed P1
 		raise("DotNet Error: IsClosed is a read-only property")
@@ -526,9 +510,7 @@ Class SendPacketsElement from Object
 		raise("DotNet Error: Buffer is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -540,25 +522,19 @@ Class SendPacketsElement from Object
 		raise("DotNet Error: MemoryBuffer is a read-only property")
 
 	Func getOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Offset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Offset")
 
 	Func setOffset P1
 		raise("DotNet Error: Offset is a read-only property")
 
 	Func getOffsetLong
-		dn_x = dotnet_call("s3:get",nHandle,"s10:OffsetLong")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:OffsetLong")
 
 	Func setOffsetLong P1
 		raise("DotNet Error: OffsetLong is a read-only property")
 
 	Func getEndOfPacket
-		dn_x = dotnet_call("s3:get",nHandle,"s11:EndOfPacket")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:EndOfPacket")
 
 	Func setEndOfPacket P1
 		raise("DotNet Error: EndOfPacket is a read-only property")
@@ -969,9 +945,7 @@ Class Socket from Object
 		return self
 
 	Func getAvailable
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Available")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Available")
 
 	Func setAvailable P1
 		raise("DotNet Error: Available is a read-only property")
@@ -1001,27 +975,21 @@ Class Socket from Object
 		raise("DotNet Error: SafeHandle is a read-only property")
 
 	Func getBlocking
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Blocking")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Blocking")
 
 	Func setBlocking P1
 		dotnet_callv("s3:set",nHandle,"s8:Blocking",P1)
 		return self
 
 	Func getUseOnlyOverlappedIO
-		dn_x = dotnet_call("s3:get",nHandle,"s19:UseOnlyOverlappedIO")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:UseOnlyOverlappedIO")
 
 	Func setUseOnlyOverlappedIO P1
 		dotnet_callv("s3:set",nHandle,"s19:UseOnlyOverlappedIO",P1)
 		return self
 
 	Func getConnected
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Connected")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Connected")
 
 	Func setConnected P1
 		raise("DotNet Error: Connected is a read-only property")
@@ -1045,53 +1013,41 @@ Class Socket from Object
 		raise("DotNet Error: ProtocolType is a read-only property")
 
 	Func getIsBound
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsBound")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsBound")
 
 	Func setIsBound P1
 		raise("DotNet Error: IsBound is a read-only property")
 
 	Func getExclusiveAddressUse
-		dn_x = dotnet_call("s3:get",nHandle,"s19:ExclusiveAddressUse")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:ExclusiveAddressUse")
 
 	Func setExclusiveAddressUse P1
 		dotnet_callv("s3:set",nHandle,"s19:ExclusiveAddressUse",P1)
 		return self
 
 	Func getReceiveBufferSize
-		dn_x = dotnet_call("s3:get",nHandle,"s17:ReceiveBufferSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:ReceiveBufferSize")
 
 	Func setReceiveBufferSize P1
 		dotnet_callv("s3:set",nHandle,"s17:ReceiveBufferSize",P1)
 		return self
 
 	Func getSendBufferSize
-		dn_x = dotnet_call("s3:get",nHandle,"s14:SendBufferSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:SendBufferSize")
 
 	Func setSendBufferSize P1
 		dotnet_callv("s3:set",nHandle,"s14:SendBufferSize",P1)
 		return self
 
 	Func getReceiveTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ReceiveTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:ReceiveTimeout")
 
 	Func setReceiveTimeout P1
 		dotnet_callv("s3:set",nHandle,"s14:ReceiveTimeout",P1)
 		return self
 
 	Func getSendTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s11:SendTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:SendTimeout")
 
 	Func setSendTimeout P1
 		dotnet_callv("s3:set",nHandle,"s11:SendTimeout",P1)
@@ -1105,95 +1061,73 @@ Class Socket from Object
 		return self
 
 	Func getNoDelay
-		dn_x = dotnet_call("s3:get",nHandle,"s7:NoDelay")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:NoDelay")
 
 	Func setNoDelay P1
 		dotnet_callv("s3:set",nHandle,"s7:NoDelay",P1)
 		return self
 
 	Func getTtl
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Ttl")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:Ttl")
 
 	Func setTtl P1
 		dotnet_callv("s3:set",nHandle,"s3:Ttl",P1)
 		return self
 
 	Func getDontFragment
-		dn_x = dotnet_call("s3:get",nHandle,"s12:DontFragment")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:DontFragment")
 
 	Func setDontFragment P1
 		dotnet_callv("s3:set",nHandle,"s12:DontFragment",P1)
 		return self
 
 	Func getMulticastLoopback
-		dn_x = dotnet_call("s3:get",nHandle,"s17:MulticastLoopback")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:MulticastLoopback")
 
 	Func setMulticastLoopback P1
 		dotnet_callv("s3:set",nHandle,"s17:MulticastLoopback",P1)
 		return self
 
 	Func getEnableBroadcast
-		dn_x = dotnet_call("s3:get",nHandle,"s15:EnableBroadcast")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:EnableBroadcast")
 
 	Func setEnableBroadcast P1
 		dotnet_callv("s3:set",nHandle,"s15:EnableBroadcast",P1)
 		return self
 
 	Func getDualMode
-		dn_x = dotnet_call("s3:get",nHandle,"s8:DualMode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:DualMode")
 
 	Func setDualMode P1
 		dotnet_callv("s3:set",nHandle,"s8:DualMode",P1)
 		return self
 
 	Func getSupportsIPv4
-		dn_x = dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s12:SupportsIPv4")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s12:SupportsIPv4")
 
 	Func setSupportsIPv4 P1
 		raise("DotNet Error: SupportsIPv4 is a read-only property")
 
 	Func getSupportsIPv6
-		dn_x = dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s12:SupportsIPv6")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s12:SupportsIPv6")
 
 	Func setSupportsIPv6 P1
 		raise("DotNet Error: SupportsIPv6 is a read-only property")
 
 	Func getOSSupportsIPv4
-		dn_x = dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s14:OSSupportsIPv4")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s14:OSSupportsIPv4")
 
 	Func setOSSupportsIPv4 P1
 		raise("DotNet Error: OSSupportsIPv4 is a read-only property")
 
 	Func getOSSupportsIPv6
-		dn_x = dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s14:OSSupportsIPv6")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s14:OSSupportsIPv6")
 
 	Func setOSSupportsIPv6 P1
 		raise("DotNet Error: OSSupportsIPv6 is a read-only property")
 
 	Func getOSSupportsUnixDomainSockets
-		dn_x = dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s27:OSSupportsUnixDomainSockets")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s27:OSSupportsUnixDomainSockets")
 
 	Func setOSSupportsUnixDomainSockets P1
 		raise("DotNet Error: OSSupportsUnixDomainSockets is a read-only property")
@@ -1300,17 +1234,13 @@ Class SocketAsyncEventArgs from EventArgs
 		raise("DotNet Error: MemoryBuffer is a read-only property")
 
 	Func getOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Offset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Offset")
 
 	Func setOffset P1
 		raise("DotNet Error: Offset is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1330,17 +1260,13 @@ Class SocketAsyncEventArgs from EventArgs
 		return self
 
 	Func getBytesTransferred
-		dn_x = dotnet_call("s3:get",nHandle,"s16:BytesTransferred")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:BytesTransferred")
 
 	Func setBytesTransferred P1
 		raise("DotNet Error: BytesTransferred is a read-only property")
 
 	Func getDisconnectReuseSocket
-		dn_x = dotnet_call("s3:get",nHandle,"s21:DisconnectReuseSocket")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:DisconnectReuseSocket")
 
 	Func setDisconnectReuseSocket P1
 		dotnet_callv("s3:set",nHandle,"s21:DisconnectReuseSocket",P1)
@@ -1373,9 +1299,7 @@ Class SocketAsyncEventArgs from EventArgs
 		return self
 
 	Func getSendPacketsSendSize
-		dn_x = dotnet_call("s3:get",nHandle,"s19:SendPacketsSendSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:SendPacketsSendSize")
 
 	Func setSendPacketsSendSize P1
 		dotnet_callv("s3:set",nHandle,"s19:SendPacketsSendSize",P1)
@@ -1471,9 +1395,7 @@ Class SocketReceiveFromResult from ValueType
 		return self
 
 	Func getReceivedBytes
-		dn_x = dotnet_call("s3:get",nHandle,"s13:ReceivedBytes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:ReceivedBytes")
 
 	Func setReceivedBytes P1
 		dotnet_callv("s3:set",nHandle,"s13:ReceivedBytes",P1)
@@ -1513,9 +1435,7 @@ Class SocketReceiveMessageFromResult from ValueType
 		return self
 
 	Func getReceivedBytes
-		dn_x = dotnet_call("s3:get",nHandle,"s13:ReceivedBytes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:ReceivedBytes")
 
 	Func setReceivedBytes P1
 		dotnet_callv("s3:set",nHandle,"s13:ReceivedBytes",P1)
@@ -1682,9 +1602,7 @@ Class TcpClient from Object
 		return dn_x
 
 	Func getAvailable
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Available")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Available")
 
 	Func setAvailable P1
 		raise("DotNet Error: Available is a read-only property")
@@ -1697,53 +1615,41 @@ Class TcpClient from Object
 		return self
 
 	Func getConnected
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Connected")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Connected")
 
 	Func setConnected P1
 		raise("DotNet Error: Connected is a read-only property")
 
 	Func getExclusiveAddressUse
-		dn_x = dotnet_call("s3:get",nHandle,"s19:ExclusiveAddressUse")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:ExclusiveAddressUse")
 
 	Func setExclusiveAddressUse P1
 		dotnet_callv("s3:set",nHandle,"s19:ExclusiveAddressUse",P1)
 		return self
 
 	Func getReceiveBufferSize
-		dn_x = dotnet_call("s3:get",nHandle,"s17:ReceiveBufferSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:ReceiveBufferSize")
 
 	Func setReceiveBufferSize P1
 		dotnet_callv("s3:set",nHandle,"s17:ReceiveBufferSize",P1)
 		return self
 
 	Func getSendBufferSize
-		dn_x = dotnet_call("s3:get",nHandle,"s14:SendBufferSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:SendBufferSize")
 
 	Func setSendBufferSize P1
 		dotnet_callv("s3:set",nHandle,"s14:SendBufferSize",P1)
 		return self
 
 	Func getReceiveTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ReceiveTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:ReceiveTimeout")
 
 	Func setReceiveTimeout P1
 		dotnet_callv("s3:set",nHandle,"s14:ReceiveTimeout",P1)
 		return self
 
 	Func getSendTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s11:SendTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:SendTimeout")
 
 	Func setSendTimeout P1
 		dotnet_callv("s3:set",nHandle,"s11:SendTimeout",P1)
@@ -1757,9 +1663,7 @@ Class TcpClient from Object
 		return self
 
 	Func getNoDelay
-		dn_x = dotnet_call("s3:get",nHandle,"s7:NoDelay")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:NoDelay")
 
 	Func setNoDelay P1
 		dotnet_callv("s3:set",nHandle,"s7:NoDelay",P1)
@@ -1901,9 +1805,7 @@ Class UdpClient from Object
 		return dn_x
 
 	Func getAvailable
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Available")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Available")
 
 	Func setAvailable P1
 		raise("DotNet Error: Available is a read-only property")
@@ -1916,45 +1818,35 @@ Class UdpClient from Object
 		return self
 
 	Func getTtl
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Ttl")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:Ttl")
 
 	Func setTtl P1
 		dotnet_callv("s3:set",nHandle,"s3:Ttl",P1)
 		return self
 
 	Func getDontFragment
-		dn_x = dotnet_call("s3:get",nHandle,"s12:DontFragment")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:DontFragment")
 
 	Func setDontFragment P1
 		dotnet_callv("s3:set",nHandle,"s12:DontFragment",P1)
 		return self
 
 	Func getMulticastLoopback
-		dn_x = dotnet_call("s3:get",nHandle,"s17:MulticastLoopback")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:MulticastLoopback")
 
 	Func setMulticastLoopback P1
 		dotnet_callv("s3:set",nHandle,"s17:MulticastLoopback",P1)
 		return self
 
 	Func getEnableBroadcast
-		dn_x = dotnet_call("s3:get",nHandle,"s15:EnableBroadcast")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:EnableBroadcast")
 
 	Func setEnableBroadcast P1
 		dotnet_callv("s3:set",nHandle,"s15:EnableBroadcast",P1)
 		return self
 
 	Func getExclusiveAddressUse
-		dn_x = dotnet_call("s3:get",nHandle,"s19:ExclusiveAddressUse")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:ExclusiveAddressUse")
 
 	Func setExclusiveAddressUse P1
 		dotnet_callv("s3:set",nHandle,"s19:ExclusiveAddressUse",P1)
@@ -2154,9 +2046,7 @@ Class TcpListener from Object
 		raise("DotNet Error: LocalEndpoint is a read-only property")
 
 	Func getExclusiveAddressUse
-		dn_x = dotnet_call("s3:get",nHandle,"s19:ExclusiveAddressUse")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:ExclusiveAddressUse")
 
 	Func setExclusiveAddressUse P1
 		dotnet_callv("s3:set",nHandle,"s19:ExclusiveAddressUse",P1)

@@ -181,9 +181,7 @@ Class IDirectoryContents from DotNetObject
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getExists
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Exists")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Exists")
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")
@@ -211,17 +209,13 @@ Class IFileInfo from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateReadStream"))
 
 	Func getExists
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Exists")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Exists")
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")
 
 	Func getLength
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
@@ -249,9 +243,7 @@ Class IFileInfo from DotNetObject
 		raise("DotNet Error: LastModified is a read-only property")
 
 	Func getIsDirectory
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsDirectory")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsDirectory")
 
 	Func setIsDirectory P1
 		raise("DotNet Error: IsDirectory is a read-only property")
@@ -381,9 +373,7 @@ Class NotFoundDirectoryContents from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getExists
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Exists")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Exists")
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")
@@ -424,17 +414,13 @@ Class NotFoundFileInfo from Object
 		return dn_x
 
 	Func getExists
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Exists")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Exists")
 
 	Func setExists P1
 		raise("DotNet Error: Exists is a read-only property")
 
 	Func getIsDirectory
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsDirectory")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsDirectory")
 
 	Func setIsDirectory P1
 		raise("DotNet Error: IsDirectory is a read-only property")
@@ -446,9 +432,7 @@ Class NotFoundFileInfo from Object
 		raise("DotNet Error: LastModified is a read-only property")
 
 	Func getLength
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
@@ -494,17 +478,13 @@ Class NullChangeToken from Object
 		return dn_x
 
 	Func getHasChanged
-		dn_x = dotnet_call("s3:get",nHandle,"s10:HasChanged")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:HasChanged")
 
 	Func setHasChanged P1
 		raise("DotNet Error: HasChanged is a read-only property")
 
 	Func getActiveChangeCallbacks
-		dn_x = dotnet_call("s3:get",nHandle,"s21:ActiveChangeCallbacks")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:ActiveChangeCallbacks")
 
 	Func setActiveChangeCallbacks P1
 		raise("DotNet Error: ActiveChangeCallbacks is a read-only property")
@@ -603,18 +583,14 @@ Class PhysicalFileProvider from Object
 		return dn_x
 
 	Func getUsePollingFileWatcher
-		dn_x = dotnet_call("s3:get",nHandle,"s21:UsePollingFileWatcher")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:UsePollingFileWatcher")
 
 	Func setUsePollingFileWatcher P1
 		dotnet_callv("s3:set",nHandle,"s21:UsePollingFileWatcher",P1)
 		return self
 
 	Func getUseActivePolling
-		dn_x = dotnet_call("s3:get",nHandle,"s16:UseActivePolling")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:UseActivePolling")
 
 	Func setUseActivePolling P1
 		dotnet_callv("s3:set",nHandle,"s16:UseActivePolling",P1)

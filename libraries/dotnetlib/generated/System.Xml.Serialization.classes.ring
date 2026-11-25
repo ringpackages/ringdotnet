@@ -492,9 +492,7 @@ Class CodeIdentifiers from Object
 		return dn_x
 
 	Func getUseCamelCasing
-		dn_x = dotnet_call("s3:get",nHandle,"s14:UseCamelCasing")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:UseCamelCasing")
 
 	Func setUseCamelCasing P1
 		dotnet_callv("s3:set",nHandle,"s14:UseCamelCasing",P1)
@@ -541,9 +539,7 @@ Class IXmlTextParser from DotNetObject
 		return self
 
 	Func getNormalized
-		dn_x = dotnet_call("s3:get",nHandle,"s10:Normalized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:Normalized")
 
 	Func setNormalized P1
 		dotnet_callv("s3:set",nHandle,"s10:Normalized",P1)
@@ -586,9 +582,7 @@ Class ImportContext from Object
 		raise("DotNet Error: TypeIdentifiers is a read-only property")
 
 	Func getShareTypes
-		dn_x = dotnet_call("s3:get",nHandle,"s10:ShareTypes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:ShareTypes")
 
 	Func setShareTypes P1
 		raise("DotNet Error: ShareTypes is a read-only property")
@@ -787,9 +781,7 @@ Class SoapAttributes from Object
 		return self
 
 	Func getSoapIgnore
-		dn_x = dotnet_call("s3:get",nHandle,"s10:SoapIgnore")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:SoapIgnore")
 
 	Func setSoapIgnore P1
 		dotnet_callv("s3:set",nHandle,"s10:SoapIgnore",P1)
@@ -876,9 +868,7 @@ Class SoapElementAttribute from Attribute
 		return self
 
 	Func getIsNullable
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsNullable")
 
 	Func setIsNullable P1
 		dotnet_callv("s3:set",nHandle,"s10:IsNullable",P1)
@@ -1129,9 +1119,7 @@ Class SoapTypeAttribute from Attribute
 		return self
 
 	Func getIncludeInSchema
-		dn_x = dotnet_call("s3:get",nHandle,"s15:IncludeInSchema")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:IncludeInSchema")
 
 	Func setIncludeInSchema P1
 		dotnet_callv("s3:set",nHandle,"s15:IncludeInSchema",P1)
@@ -1267,9 +1255,7 @@ Class XmlAnyElementAttribute from Attribute
 		return self
 
 	Func getOrder
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Order")
 
 	Func setOrder P1
 		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
@@ -1395,9 +1381,7 @@ Class XmlArrayAttribute from Attribute
 		return self
 
 	Func getIsNullable
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsNullable")
 
 	Func setIsNullable P1
 		dotnet_callv("s3:set",nHandle,"s10:IsNullable",P1)
@@ -1411,9 +1395,7 @@ Class XmlArrayAttribute from Attribute
 		return self
 
 	Func getOrder
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Order")
 
 	Func setOrder P1
 		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
@@ -1493,9 +1475,7 @@ Class XmlArrayItemAttribute from Attribute
 		return self
 
 	Func getNestingLevel
-		dn_x = dotnet_call("s3:get",nHandle,"s12:NestingLevel")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:NestingLevel")
 
 	Func setNestingLevel P1
 		dotnet_callv("s3:set",nHandle,"s12:NestingLevel",P1)
@@ -1511,9 +1491,7 @@ Class XmlArrayItemAttribute from Attribute
 		return self
 
 	Func getIsNullable
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsNullable")
 
 	Func setIsNullable P1
 		dotnet_callv("s3:set",nHandle,"s10:IsNullable",P1)
@@ -1702,17 +1680,13 @@ Class XmlAttributeEventArgs from EventArgs
 		raise("DotNet Error: Attr is a read-only property")
 
 	Func getLineNumber
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LineNumber")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:LineNumber")
 
 	Func setLineNumber P1
 		raise("DotNet Error: LineNumber is a read-only property")
 
 	Func getLinePosition
-		dn_x = dotnet_call("s3:get",nHandle,"s12:LinePosition")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:LinePosition")
 
 	Func setLinePosition P1
 		raise("DotNet Error: LinePosition is a read-only property")
@@ -1869,9 +1843,7 @@ Class XmlAttributes from Object
 		return self
 
 	Func getXmlIgnore
-		dn_x = dotnet_call("s3:get",nHandle,"s9:XmlIgnore")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:XmlIgnore")
 
 	Func setXmlIgnore P1
 		dotnet_callv("s3:set",nHandle,"s9:XmlIgnore",P1)
@@ -1911,9 +1883,7 @@ Class XmlAttributes from Object
 		raise("DotNet Error: XmlChoiceIdentifier is a read-only property")
 
 	Func getXmlns
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Xmlns")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Xmlns")
 
 	Func setXmlns P1
 		dotnet_callv("s3:set",nHandle,"s5:Xmlns",P1)
@@ -2104,9 +2074,7 @@ Class XmlElementAttribute from Attribute
 		return self
 
 	Func getIsNullable
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsNullable")
 
 	Func setIsNullable P1
 		dotnet_callv("s3:set",nHandle,"s10:IsNullable",P1)
@@ -2120,9 +2088,7 @@ Class XmlElementAttribute from Attribute
 		return self
 
 	Func getOrder
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Order")
 
 	Func setOrder P1
 		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
@@ -2217,17 +2183,13 @@ Class XmlElementEventArgs from EventArgs
 		raise("DotNet Error: Element is a read-only property")
 
 	Func getLineNumber
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LineNumber")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:LineNumber")
 
 	Func setLineNumber P1
 		raise("DotNet Error: LineNumber is a read-only property")
 
 	Func getLinePosition
-		dn_x = dotnet_call("s3:get",nHandle,"s12:LinePosition")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:LinePosition")
 
 	Func setLinePosition P1
 		raise("DotNet Error: LinePosition is a read-only property")
@@ -2412,9 +2374,7 @@ Class XmlMemberMapping from Object
 		return dn_x
 
 	Func getAny
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Any")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:Any")
 
 	Func setAny P1
 		raise("DotNet Error: Any is a read-only property")
@@ -2473,9 +2433,7 @@ Class XmlMemberMapping from Object
 		raise("DotNet Error: TypeFullName is a read-only property")
 
 	Func getCheckSpecified
-		dn_x = dotnet_call("s3:get",nHandle,"s14:CheckSpecified")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:CheckSpecified")
 
 	Func setCheckSpecified P1
 		raise("DotNet Error: CheckSpecified is a read-only property")
@@ -2567,17 +2525,13 @@ Class XmlNodeEventArgs from EventArgs
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getLineNumber
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LineNumber")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:LineNumber")
 
 	Func setLineNumber P1
 		raise("DotNet Error: LineNumber is a read-only property")
 
 	Func getLinePosition
-		dn_x = dotnet_call("s3:get",nHandle,"s12:LinePosition")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:LinePosition")
 
 	Func setLinePosition P1
 		raise("DotNet Error: LinePosition is a read-only property")
@@ -2710,18 +2664,14 @@ Class XmlReflectionMember from Object
 		return self
 
 	Func getIsReturnValue
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsReturnValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsReturnValue")
 
 	Func setIsReturnValue P1
 		dotnet_callv("s3:set",nHandle,"s13:IsReturnValue",P1)
 		return self
 
 	Func getOverrideIsNullable
-		dn_x = dotnet_call("s3:get",nHandle,"s18:OverrideIsNullable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:OverrideIsNullable")
 
 	Func setOverrideIsNullable P1
 		dotnet_callv("s3:set",nHandle,"s18:OverrideIsNullable",P1)
@@ -2797,9 +2747,7 @@ Class XmlRootAttribute from Attribute
 		return self
 
 	Func getIsNullable
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsNullable")
 
 	Func setIsNullable P1
 		dotnet_callv("s3:set",nHandle,"s10:IsNullable",P1)
@@ -2906,9 +2854,7 @@ Class XmlSchemaProviderAttribute from Attribute
 		raise("DotNet Error: MethodName is a read-only property")
 
 	Func getIsAny
-		dn_x = dotnet_call("s3:get",nHandle,"s5:IsAny")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:IsAny")
 
 	Func setIsAny P1
 		dotnet_callv("s3:set",nHandle,"s5:IsAny",P1)
@@ -3001,9 +2947,7 @@ Class XmlSchemas from CollectionBase
 		return self
 
 	Func getIsCompiled
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsCompiled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsCompiled")
 
 	Func setIsCompiled P1
 		raise("DotNet Error: IsCompiled is a read-only property")
@@ -3332,9 +3276,7 @@ Class XmlSerializerNamespaces from Object
 		return dn_x
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -3519,18 +3461,14 @@ Class XmlTypeAttribute from Attribute
 		return self
 
 	Func getAnonymousType
-		dn_x = dotnet_call("s3:get",nHandle,"s13:AnonymousType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:AnonymousType")
 
 	Func setAnonymousType P1
 		dotnet_callv("s3:set",nHandle,"s13:AnonymousType",P1)
 		return self
 
 	Func getIncludeInSchema
-		dn_x = dotnet_call("s3:get",nHandle,"s15:IncludeInSchema")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:IncludeInSchema")
 
 	Func setIncludeInSchema P1
 		dotnet_callv("s3:set",nHandle,"s15:IncludeInSchema",P1)
@@ -3586,9 +3524,7 @@ Class XmlMembersMapping from XmlMapping
 		raise("DotNet Error: TypeNamespace is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

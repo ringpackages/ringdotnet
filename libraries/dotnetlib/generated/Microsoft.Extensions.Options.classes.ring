@@ -1897,25 +1897,19 @@ Class ValidateOptionsResult from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options',"s4:Fail",P1))
 
 	Func getSucceeded
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Succeeded")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Succeeded")
 
 	Func setSucceeded P1
 		raise("DotNet Error: Succeeded is a read-only property")
 
 	Func getSkipped
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Skipped")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Skipped")
 
 	Func setSkipped P1
 		raise("DotNet Error: Skipped is a read-only property")
 
 	Func getFailed
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Failed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Failed")
 
 	Func setFailed P1
 		raise("DotNet Error: Failed is a read-only property")

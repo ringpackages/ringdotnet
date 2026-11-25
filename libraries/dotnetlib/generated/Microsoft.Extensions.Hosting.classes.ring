@@ -225,9 +225,7 @@ Class ConsoleLifetimeOptions from Object
 		return dn_x
 
 	Func getSuppressStatusMessages
-		dn_x = dotnet_call("s3:get",nHandle,"s22:SuppressStatusMessages")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:SuppressStatusMessages")
 
 	Func setSuppressStatusMessages P1
 		dotnet_callv("s3:set",nHandle,"s22:SuppressStatusMessages",P1)
@@ -526,9 +524,7 @@ Class HostApplicationBuilderSettings from Object
 		return dn_x
 
 	Func getDisableDefaults
-		dn_x = dotnet_call("s3:get",nHandle,"s15:DisableDefaults")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:DisableDefaults")
 
 	Func setDisableDefaults P1
 		dotnet_callv("s3:set",nHandle,"s15:DisableDefaults",P1)
@@ -879,18 +875,14 @@ Class HostOptions from Object
 		return self
 
 	Func getServicesStartConcurrently
-		dn_x = dotnet_call("s3:get",nHandle,"s25:ServicesStartConcurrently")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:ServicesStartConcurrently")
 
 	Func setServicesStartConcurrently P1
 		dotnet_callv("s3:set",nHandle,"s25:ServicesStartConcurrently",P1)
 		return self
 
 	Func getServicesStopConcurrently
-		dn_x = dotnet_call("s3:get",nHandle,"s24:ServicesStopConcurrently")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:ServicesStopConcurrently")
 
 	Func setServicesStopConcurrently P1
 		dotnet_callv("s3:set",nHandle,"s24:ServicesStopConcurrently",P1)
@@ -1544,9 +1536,7 @@ Class WebHostBuilderOptions from Object
 		return dn_x
 
 	Func getSuppressEnvironmentConfiguration
-		dn_x = dotnet_call("s3:get",nHandle,"s32:SuppressEnvironmentConfiguration")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s32:SuppressEnvironmentConfiguration")
 
 	Func setSuppressEnvironmentConfiguration P1
 		dotnet_callv("s3:set",nHandle,"s32:SuppressEnvironmentConfiguration",P1)

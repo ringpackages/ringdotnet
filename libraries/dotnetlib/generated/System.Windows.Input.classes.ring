@@ -706,9 +706,7 @@ Class AccessKeyEventArgs from EventArgs
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getIsMultiple
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsMultiple")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsMultiple")
 
 	Func setIsMultiple P1
 		raise("DotNet Error: IsMultiple is a read-only property")
@@ -1058,18 +1056,14 @@ Class CanExecuteRoutedEventArgs from RoutedEventArgs
 		raise("DotNet Error: Parameter is a read-only property")
 
 	Func getCanExecute
-		dn_x = dotnet_call("s3:get",nHandle,"s10:CanExecute")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:CanExecute")
 
 	Func setCanExecute P1
 		dotnet_callv("s3:set",nHandle,"s10:CanExecute",P1)
 		return self
 
 	Func getContinueRouting
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ContinueRouting")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:ContinueRouting")
 
 	Func setContinueRouting P1
 		dotnet_callv("s3:set",nHandle,"s15:ContinueRouting",P1)
@@ -1282,17 +1276,13 @@ Class CommandBindingCollection from Object
 		return self
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -1304,17 +1294,13 @@ Class CommandBindingCollection from Object
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -2147,9 +2133,7 @@ Class IManipulator from DotNetObject
 		return self
 
 	Func getId
-		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s2:Id")
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -2193,9 +2177,7 @@ Class InertiaExpansionBehavior from Object
 		return self
 
 	Func getDesiredDeceleration
-		dn_x = dotnet_call("s3:get",nHandle,"s19:DesiredDeceleration")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:DesiredDeceleration")
 
 	Func setDesiredDeceleration P1
 		dotnet_callv("s3:set",nHandle,"s19:DesiredDeceleration",P1)
@@ -2209,9 +2191,7 @@ Class InertiaExpansionBehavior from Object
 		return self
 
 	Func getInitialRadius
-		dn_x = dotnet_call("s3:get",nHandle,"s13:InitialRadius")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:InitialRadius")
 
 	Func setInitialRadius P1
 		dotnet_callv("s3:set",nHandle,"s13:InitialRadius",P1)
@@ -2248,27 +2228,21 @@ Class InertiaRotationBehavior from Object
 		return dn_x
 
 	Func getInitialVelocity
-		dn_x = dotnet_call("s3:get",nHandle,"s15:InitialVelocity")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:InitialVelocity")
 
 	Func setInitialVelocity P1
 		dotnet_callv("s3:set",nHandle,"s15:InitialVelocity",P1)
 		return self
 
 	Func getDesiredDeceleration
-		dn_x = dotnet_call("s3:get",nHandle,"s19:DesiredDeceleration")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:DesiredDeceleration")
 
 	Func setDesiredDeceleration P1
 		dotnet_callv("s3:set",nHandle,"s19:DesiredDeceleration",P1)
 		return self
 
 	Func getDesiredRotation
-		dn_x = dotnet_call("s3:get",nHandle,"s15:DesiredRotation")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:DesiredRotation")
 
 	Func setDesiredRotation P1
 		dotnet_callv("s3:set",nHandle,"s15:DesiredRotation",P1)
@@ -2312,18 +2286,14 @@ Class InertiaTranslationBehavior from Object
 		return self
 
 	Func getDesiredDeceleration
-		dn_x = dotnet_call("s3:get",nHandle,"s19:DesiredDeceleration")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:DesiredDeceleration")
 
 	Func setDesiredDeceleration P1
 		dotnet_callv("s3:set",nHandle,"s19:DesiredDeceleration",P1)
 		return self
 
 	Func getDesiredDisplacement
-		dn_x = dotnet_call("s3:get",nHandle,"s19:DesiredDisplacement")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:DesiredDisplacement")
 
 	Func setDesiredDisplacement P1
 		dotnet_callv("s3:set",nHandle,"s19:DesiredDisplacement",P1)
@@ -2521,25 +2491,19 @@ Class InputBindingCollection from Object
 		return self
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -2551,9 +2515,7 @@ Class InputBindingCollection from Object
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2609,9 +2571,7 @@ Class InputEventArgs from RoutedEventArgs
 		raise("DotNet Error: Device is a read-only property")
 
 	Func getTimestamp
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Timestamp")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Timestamp")
 
 	Func setTimestamp P1
 		raise("DotNet Error: Timestamp is a read-only property")
@@ -2767,9 +2727,7 @@ Class InputGestureCollection from Object
 		return self
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -2781,25 +2739,19 @@ Class InputGestureCollection from Object
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -3044,9 +2996,7 @@ Class InputManager from DispatcherObject
 		raise("DotNet Error: MostRecentInputDevice is a read-only property")
 
 	Func getIsInMenuMode
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsInMenuMode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsInMenuMode")
 
 	Func setIsInMenuMode P1
 		raise("DotNet Error: IsInMenuMode is a read-only property")
@@ -3216,17 +3166,13 @@ Class InputMethod from DispatcherObject
 		return self
 
 	Func getCanShowConfigurationUI
-		dn_x = dotnet_call("s3:get",nHandle,"s22:CanShowConfigurationUI")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:CanShowConfigurationUI")
 
 	Func setCanShowConfigurationUI P1
 		raise("DotNet Error: CanShowConfigurationUI is a read-only property")
 
 	Func getCanShowRegisterWordUI
-		dn_x = dotnet_call("s3:get",nHandle,"s21:CanShowRegisterWordUI")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:CanShowRegisterWordUI")
 
 	Func setCanShowRegisterWordUI P1
 		raise("DotNet Error: CanShowRegisterWordUI is a read-only property")
@@ -3293,49 +3239,37 @@ Class InputMethodStateChangedEventArgs from EventArgs
 		return self
 
 	Func getIsImeStateChanged
-		dn_x = dotnet_call("s3:get",nHandle,"s17:IsImeStateChanged")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:IsImeStateChanged")
 
 	Func setIsImeStateChanged P1
 		raise("DotNet Error: IsImeStateChanged is a read-only property")
 
 	Func getIsMicrophoneStateChanged
-		dn_x = dotnet_call("s3:get",nHandle,"s24:IsMicrophoneStateChanged")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:IsMicrophoneStateChanged")
 
 	Func setIsMicrophoneStateChanged P1
 		raise("DotNet Error: IsMicrophoneStateChanged is a read-only property")
 
 	Func getIsHandwritingStateChanged
-		dn_x = dotnet_call("s3:get",nHandle,"s25:IsHandwritingStateChanged")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:IsHandwritingStateChanged")
 
 	Func setIsHandwritingStateChanged P1
 		raise("DotNet Error: IsHandwritingStateChanged is a read-only property")
 
 	Func getIsSpeechModeChanged
-		dn_x = dotnet_call("s3:get",nHandle,"s19:IsSpeechModeChanged")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:IsSpeechModeChanged")
 
 	Func setIsSpeechModeChanged P1
 		raise("DotNet Error: IsSpeechModeChanged is a read-only property")
 
 	Func getIsImeConversionModeChanged
-		dn_x = dotnet_call("s3:get",nHandle,"s26:IsImeConversionModeChanged")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:IsImeConversionModeChanged")
 
 	Func setIsImeConversionModeChanged P1
 		raise("DotNet Error: IsImeConversionModeChanged is a read-only property")
 
 	Func getIsImeSentenceModeChanged
-		dn_x = dotnet_call("s3:get",nHandle,"s24:IsImeSentenceModeChanged")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:IsImeSentenceModeChanged")
 
 	Func setIsImeSentenceModeChanged P1
 		raise("DotNet Error: IsImeSentenceModeChanged is a read-only property")
@@ -4135,9 +4069,7 @@ Class ManipulationDelta from Object
 		raise("DotNet Error: Translation is a read-only property")
 
 	Func getRotation
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Rotation")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Rotation")
 
 	Func setRotation P1
 		raise("DotNet Error: Rotation is a read-only property")
@@ -4207,9 +4139,7 @@ Class ManipulationPivot from Object
 		return self
 
 	Func getRadius
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Radius")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Radius")
 
 	Func setRadius P1
 		dotnet_callv("s3:set",nHandle,"s6:Radius",P1)
@@ -4245,9 +4175,7 @@ Class ManipulationVelocities from Object
 		raise("DotNet Error: LinearVelocity is a read-only property")
 
 	Func getAngularVelocity
-		dn_x = dotnet_call("s3:get",nHandle,"s15:AngularVelocity")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:AngularVelocity")
 
 	Func setAngularVelocity P1
 		raise("DotNet Error: AngularVelocity is a read-only property")
@@ -4863,9 +4791,7 @@ Class Mouse from Object
 		raise("DotNet Error: QueryCursorEvent is a read-only property")
 
 	Func getMouseWheelDeltaForOneLine
-		dn_x = dotnet_call("s3:get",'System.Windows.Input.Mouse, PresentationCore',"s25:MouseWheelDeltaForOneLine")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Windows.Input.Mouse, PresentationCore',"s25:MouseWheelDeltaForOneLine")
 
 	Func setMouseWheelDeltaForOneLine P1
 		raise("DotNet Error: MouseWheelDeltaForOneLine is a read-only property")
@@ -5877,27 +5803,21 @@ Class StylusPoint from ValueType
 		return dn_x
 
 	Func getX
-		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:X")
 
 	Func setX P1
 		dotnet_callv("s3:set",nHandle,"s1:X",P1)
 		return self
 
 	Func getY
-		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:Y")
 
 	Func setY P1
 		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
 		return self
 
 	Func getPressureFactor
-		dn_x = dotnet_call("s3:get",nHandle,"s14:PressureFactor")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:PressureFactor")
 
 	Func setPressureFactor P1
 		dotnet_callv("s3:set",nHandle,"s14:PressureFactor",P1)
@@ -5910,17 +5830,13 @@ Class StylusPoint from ValueType
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getMaxXY
-		dn_x = dotnet_call("s3:get",'System.Windows.Input.StylusPoint, PresentationCore',"s5:MaxXY")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Windows.Input.StylusPoint, PresentationCore',"s5:MaxXY")
 
 	Func setMaxXY P1
 		raise("DotNet Error: MaxXY is a read-only property")
 
 	Func getMinXY
-		dn_x = dotnet_call("s3:get",'System.Windows.Input.StylusPoint, PresentationCore',"s5:MinXY")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Windows.Input.StylusPoint, PresentationCore',"s5:MinXY")
 
 	Func setMinXY P1
 		raise("DotNet Error: MinXY is a read-only property")
@@ -6060,9 +5976,7 @@ Class StylusPointDescription from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Input.StylusPointDescription, PresentationCore',"s20:GetCommonDescription",P1,P2))
 
 	Func getPropertyCount
-		dn_x = dotnet_call("s3:get",nHandle,"s13:PropertyCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:PropertyCount")
 
 	Func setPropertyCount P1
 		raise("DotNet Error: PropertyCount is a read-only property")
@@ -6268,9 +6182,7 @@ Class StylusPointProperty from Object
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getIsButton
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsButton")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsButton")
 
 	Func setIsButton P1
 		raise("DotNet Error: IsButton is a read-only property")
@@ -6366,9 +6278,7 @@ Class TabletDeviceCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -6380,9 +6290,7 @@ Class TabletDeviceCollection from Object
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -6655,9 +6563,7 @@ Class TouchFrameEventArgs from EventArgs
 		return self
 
 	Func getTimestamp
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Timestamp")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Timestamp")
 
 	Func setTimestamp P1
 		raise("DotNet Error: Timestamp is a read-only property")
@@ -6761,9 +6667,7 @@ Class TraversalRequest from Object
 		return dn_x
 
 	Func getWrapped
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Wrapped")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Wrapped")
 
 	Func setWrapped P1
 		dotnet_callv("s3:set",nHandle,"s7:Wrapped",P1)
@@ -6806,9 +6710,7 @@ Class WpfInputLanguageChangingEventArgs from InputLanguageEventArgs
 		return self
 
 	Func getRejected
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Rejected")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Rejected")
 
 	Func setRejected P1
 		dotnet_callv("s3:set",nHandle,"s8:Rejected",P1)
@@ -7082,9 +6984,7 @@ Class ManipulationCompletedEventArgs from InputEventArgs
 		return dn_x
 
 	Func getIsInertial
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsInertial")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsInertial")
 
 	Func setIsInertial P1
 		raise("DotNet Error: IsInertial is a read-only property")
@@ -7160,9 +7060,7 @@ Class ManipulationDeltaEventArgs from InputEventArgs
 		return dn_x
 
 	Func getIsInertial
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsInertial")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsInertial")
 
 	Func setIsInertial P1
 		raise("DotNet Error: IsInertial is a read-only property")
@@ -7373,9 +7271,7 @@ Class ManipulationStartingEventArgs from InputEventArgs
 		return self
 
 	Func getIsSingleTouchEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s20:IsSingleTouchEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:IsSingleTouchEnabled")
 
 	Func setIsSingleTouchEnabled P1
 		dotnet_callv("s3:set",nHandle,"s20:IsSingleTouchEnabled",P1)
@@ -7794,9 +7690,7 @@ Class StylusDevice from InputDevice
 		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetPosition",P1))
 
 	Func getIsValid
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsValid")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsValid")
 
 	Func setIsValid P1
 		raise("DotNet Error: IsValid is a read-only property")
@@ -7828,9 +7722,7 @@ Class StylusDevice from InputDevice
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getId
-		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s2:Id")
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -7842,25 +7734,19 @@ Class StylusDevice from InputDevice
 		raise("DotNet Error: StylusButtons is a read-only property")
 
 	Func getInAir
-		dn_x = dotnet_call("s3:get",nHandle,"s5:InAir")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:InAir")
 
 	Func setInAir P1
 		raise("DotNet Error: InAir is a read-only property")
 
 	Func getInverted
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Inverted")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Inverted")
 
 	Func setInverted P1
 		raise("DotNet Error: Inverted is a read-only property")
 
 	Func getInRange
-		dn_x = dotnet_call("s3:get",nHandle,"s7:InRange")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:InRange")
 
 	Func setInRange P1
 		raise("DotNet Error: InRange is a read-only property")
@@ -7899,17 +7785,13 @@ Class StylusEventArgs from InputEventArgs
 		raise("DotNet Error: StylusDevice is a read-only property")
 
 	Func getInAir
-		dn_x = dotnet_call("s3:get",nHandle,"s5:InAir")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:InAir")
 
 	Func setInAir P1
 		raise("DotNet Error: InAir is a read-only property")
 
 	Func getInverted
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Inverted")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Inverted")
 
 	Func setInverted P1
 		raise("DotNet Error: Inverted is a read-only property")
@@ -7949,25 +7831,19 @@ Class StylusPointPropertyInfo from StylusPointProperty
 		return self
 
 	Func getMinimum
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Minimum")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Minimum")
 
 	Func setMinimum P1
 		raise("DotNet Error: Minimum is a read-only property")
 
 	Func getMaximum
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Maximum")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Maximum")
 
 	Func setMaximum P1
 		raise("DotNet Error: Maximum is a read-only property")
 
 	Func getResolution
-		dn_x = dotnet_call("s3:get",nHandle,"s10:Resolution")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:Resolution")
 
 	Func setResolution P1
 		raise("DotNet Error: Resolution is a read-only property")
@@ -8002,9 +7878,7 @@ Class TabletDevice from InputDevice
 		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
 
 	Func getId
-		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s2:Id")
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -8162,17 +8036,13 @@ Class TouchDevice from InputDevice
 		return self
 
 	Func getId
-		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s2:Id")
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getIsActive
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsActive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsActive")
 
 	Func setIsActive P1
 		raise("DotNet Error: IsActive is a read-only property")
@@ -8285,33 +8155,25 @@ Class WpfKeyEventArgs from KeyboardEventArgs
 		raise("DotNet Error: KeyStates is a read-only property")
 
 	Func getIsRepeat
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsRepeat")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsRepeat")
 
 	Func setIsRepeat P1
 		raise("DotNet Error: IsRepeat is a read-only property")
 
 	Func getIsDown
-		dn_x = dotnet_call("s3:get",nHandle,"s6:IsDown")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:IsDown")
 
 	Func setIsDown P1
 		raise("DotNet Error: IsDown is a read-only property")
 
 	Func getIsUp
-		dn_x = dotnet_call("s3:get",nHandle,"s4:IsUp")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:IsUp")
 
 	Func setIsUp P1
 		raise("DotNet Error: IsUp is a read-only property")
 
 	Func getIsToggled
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsToggled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsToggled")
 
 	Func setIsToggled P1
 		raise("DotNet Error: IsToggled is a read-only property")
@@ -8362,9 +8224,7 @@ Class KeyboardInputProviderAcquireFocusEventArgs from KeyboardEventArgs
 		return self
 
 	Func getFocusAcquired
-		dn_x = dotnet_call("s3:get",nHandle,"s13:FocusAcquired")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:FocusAcquired")
 
 	Func setFocusAcquired P1
 		raise("DotNet Error: FocusAcquired is a read-only property")
@@ -8415,9 +8275,7 @@ Class MouseButtonEventArgs from WpfMouseEventArgs
 		raise("DotNet Error: ButtonState is a read-only property")
 
 	Func getClickCount
-		dn_x = dotnet_call("s3:get",nHandle,"s10:ClickCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:ClickCount")
 
 	Func setClickCount P1
 		raise("DotNet Error: ClickCount is a read-only property")
@@ -8439,9 +8297,7 @@ Class MouseWheelEventArgs from WpfMouseEventArgs
 		return self
 
 	Func getDelta
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Delta")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Delta")
 
 	Func setDelta P1
 		raise("DotNet Error: Delta is a read-only property")
@@ -8466,9 +8322,7 @@ Class PreProcessInputEventArgs from ProcessInputEventArgs
 		return self
 
 	Func getCanceled
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Canceled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Canceled")
 
 	Func setCanceled P1
 		raise("DotNet Error: Canceled is a read-only property")
@@ -8550,9 +8404,7 @@ Class StylusDownEventArgs from StylusEventArgs
 		return self
 
 	Func getTapCount
-		dn_x = dotnet_call("s3:get",nHandle,"s8:TapCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:TapCount")
 
 	Func setTapCount P1
 		raise("DotNet Error: TapCount is a read-only property")

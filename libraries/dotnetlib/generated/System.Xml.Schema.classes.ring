@@ -469,17 +469,13 @@ Class IXmlSchemaInfo from DotNetObject
 		raise("DotNet Error: Validity is a read-only property")
 
 	Func getIsDefault
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsDefault")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsDefault")
 
 	Func setIsDefault P1
 		raise("DotNet Error: IsDefault is a read-only property")
 
 	Func getIsNil
-		dn_x = dotnet_call("s3:get",nHandle,"s5:IsNil")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:IsNil")
 
 	Func setIsNil P1
 		raise("DotNet Error: IsNil is a read-only property")
@@ -618,9 +614,7 @@ Class XmlSchemaCompilationSettings from Object
 		return dn_x
 
 	Func getEnableUpaCheck
-		dn_x = dotnet_call("s3:get",nHandle,"s14:EnableUpaCheck")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:EnableUpaCheck")
 
 	Func setEnableUpaCheck P1
 		dotnet_callv("s3:set",nHandle,"s14:EnableUpaCheck",P1)
@@ -737,17 +731,13 @@ Class XmlSchemaException from SystemException
 		raise("DotNet Error: SourceUri is a read-only property")
 
 	Func getLineNumber
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LineNumber")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:LineNumber")
 
 	Func setLineNumber P1
 		raise("DotNet Error: LineNumber is a read-only property")
 
 	Func getLinePosition
-		dn_x = dotnet_call("s3:get",nHandle,"s12:LinePosition")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:LinePosition")
 
 	Func setLinePosition P1
 		raise("DotNet Error: LinePosition is a read-only property")
@@ -850,18 +840,14 @@ Class XmlSchemaInfo from Object
 		return self
 
 	Func getIsDefault
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsDefault")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsDefault")
 
 	Func setIsDefault P1
 		dotnet_callv("s3:set",nHandle,"s9:IsDefault",P1)
 		return self
 
 	Func getIsNil
-		dn_x = dotnet_call("s3:get",nHandle,"s5:IsNil")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:IsNil")
 
 	Func setIsNil P1
 		dotnet_callv("s3:set",nHandle,"s5:IsNil",P1)
@@ -926,18 +912,14 @@ Class XmlSchemaObject from Object
 		return dn_x
 
 	Func getLineNumber
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LineNumber")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:LineNumber")
 
 	Func setLineNumber P1
 		dotnet_callv("s3:set",nHandle,"s10:LineNumber",P1)
 		return self
 
 	Func getLinePosition
-		dn_x = dotnet_call("s3:get",nHandle,"s12:LinePosition")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:LinePosition")
 
 	Func setLinePosition P1
 		dotnet_callv("s3:set",nHandle,"s12:LinePosition",P1)
@@ -1108,9 +1090,7 @@ Class XmlSchemaObjectTable from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1238,9 +1218,7 @@ Class XmlSchemaSet from Object
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getIsCompiled
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsCompiled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsCompiled")
 
 	Func setIsCompiled P1
 		raise("DotNet Error: IsCompiled is a read-only property")
@@ -1257,9 +1235,7 @@ Class XmlSchemaSet from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1531,9 +1507,7 @@ Class XmlSchema from XmlSchemaObject
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getIsCompiled
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsCompiled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsCompiled")
 
 	Func setIsCompiled P1
 		raise("DotNet Error: IsCompiled is a read-only property")
@@ -2224,9 +2198,7 @@ Class XmlSchemaFacet from XmlSchemaAnnotated
 		return self
 
 	Func getIsFixed
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsFixed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsFixed")
 
 	Func setIsFixed P1
 		dotnet_callv("s3:set",nHandle,"s7:IsFixed",P1)
@@ -2491,18 +2463,14 @@ Class XmlSchemaParticle from XmlSchemaAnnotated
 		return self
 
 	Func getMinOccurs
-		dn_x = dotnet_call("s3:get",nHandle,"s9:MinOccurs")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:MinOccurs")
 
 	Func setMinOccurs P1
 		dotnet_callv("s3:set",nHandle,"s9:MinOccurs",P1)
 		return self
 
 	Func getMaxOccurs
-		dn_x = dotnet_call("s3:get",nHandle,"s9:MaxOccurs")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:MaxOccurs")
 
 	Func setMaxOccurs P1
 		dotnet_callv("s3:set",nHandle,"s9:MaxOccurs",P1)
@@ -2666,9 +2634,7 @@ Class XmlSchemaType from XmlSchemaAnnotated
 		raise("DotNet Error: Datatype is a read-only property")
 
 	Func getIsMixed
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsMixed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsMixed")
 
 	Func setIsMixed P1
 		dotnet_callv("s3:set",nHandle,"s7:IsMixed",P1)
@@ -2776,9 +2742,7 @@ Class XmlSchemaComplexContent from XmlSchemaContentModel
 		return self
 
 	Func getIsMixed
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsMixed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsMixed")
 
 	Func setIsMixed P1
 		dotnet_callv("s3:set",nHandle,"s7:IsMixed",P1)
@@ -2924,9 +2888,7 @@ Class XmlSchemaComplexType from XmlSchemaType
 		return self
 
 	Func getIsAbstract
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAbstract")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAbstract")
 
 	Func setIsAbstract P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAbstract",P1)
@@ -3037,9 +2999,7 @@ Class XmlSchemaElement from XmlSchemaParticle
 		return self
 
 	Func getIsAbstract
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAbstract")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAbstract")
 
 	Func setIsAbstract P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAbstract",P1)
@@ -3094,9 +3054,7 @@ Class XmlSchemaElement from XmlSchemaParticle
 		return self
 
 	Func getIsNillable
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNillable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsNillable")
 
 	Func setIsNillable P1
 		dotnet_callv("s3:set",nHandle,"s10:IsNillable",P1)

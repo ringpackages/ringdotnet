@@ -213,9 +213,7 @@ Class BitmapEffectCollection from Animatable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -472,36 +470,28 @@ Class BevelBitmapEffect from BitmapEffect
 		return self
 
 	Func getBevelWidth
-		dn_x = dotnet_call("s3:get",nHandle,"s10:BevelWidth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:BevelWidth")
 
 	Func setBevelWidth P1
 		dotnet_callv("s3:set",nHandle,"s10:BevelWidth",P1)
 		return self
 
 	Func getRelief
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Relief")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Relief")
 
 	Func setRelief P1
 		dotnet_callv("s3:set",nHandle,"s6:Relief",P1)
 		return self
 
 	Func getLightAngle
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LightAngle")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:LightAngle")
 
 	Func setLightAngle P1
 		dotnet_callv("s3:set",nHandle,"s10:LightAngle",P1)
 		return self
 
 	Func getSmoothness
-		dn_x = dotnet_call("s3:get",nHandle,"s10:Smoothness")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:Smoothness")
 
 	Func setSmoothness P1
 		dotnet_callv("s3:set",nHandle,"s10:Smoothness",P1)
@@ -608,9 +598,7 @@ Class BlurBitmapEffect from BitmapEffect
 		return self
 
 	Func getRadius
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Radius")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Radius")
 
 	Func setRadius P1
 		dotnet_callv("s3:set",nHandle,"s6:Radius",P1)
@@ -664,9 +652,7 @@ Class BlurEffect from Effect
 		return self
 
 	Func getRadius
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Radius")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Radius")
 
 	Func setRadius P1
 		dotnet_callv("s3:set",nHandle,"s6:Radius",P1)
@@ -739,9 +725,7 @@ Class DropShadowBitmapEffect from BitmapEffect
 		return self
 
 	Func getShadowDepth
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ShadowDepth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:ShadowDepth")
 
 	Func setShadowDepth P1
 		dotnet_callv("s3:set",nHandle,"s11:ShadowDepth",P1)
@@ -755,36 +739,28 @@ Class DropShadowBitmapEffect from BitmapEffect
 		return self
 
 	Func getDirection
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Direction")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Direction")
 
 	Func setDirection P1
 		dotnet_callv("s3:set",nHandle,"s9:Direction",P1)
 		return self
 
 	Func getNoise
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Noise")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Noise")
 
 	Func setNoise P1
 		dotnet_callv("s3:set",nHandle,"s5:Noise",P1)
 		return self
 
 	Func getOpacity
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Opacity")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Opacity")
 
 	Func setOpacity P1
 		dotnet_callv("s3:set",nHandle,"s7:Opacity",P1)
 		return self
 
 	Func getSoftness
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Softness")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Softness")
 
 	Func setSoftness P1
 		dotnet_callv("s3:set",nHandle,"s8:Softness",P1)
@@ -861,9 +837,7 @@ Class DropShadowEffect from Effect
 		return self
 
 	Func getShadowDepth
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ShadowDepth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:ShadowDepth")
 
 	Func setShadowDepth P1
 		dotnet_callv("s3:set",nHandle,"s11:ShadowDepth",P1)
@@ -877,27 +851,21 @@ Class DropShadowEffect from Effect
 		return self
 
 	Func getDirection
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Direction")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Direction")
 
 	Func setDirection P1
 		dotnet_callv("s3:set",nHandle,"s9:Direction",P1)
 		return self
 
 	Func getOpacity
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Opacity")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Opacity")
 
 	Func setOpacity P1
 		dotnet_callv("s3:set",nHandle,"s7:Opacity",P1)
 		return self
 
 	Func getBlurRadius
-		dn_x = dotnet_call("s3:get",nHandle,"s10:BlurRadius")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:BlurRadius")
 
 	Func setBlurRadius P1
 		dotnet_callv("s3:set",nHandle,"s10:BlurRadius",P1)
@@ -973,18 +941,14 @@ Class EmbossBitmapEffect from BitmapEffect
 		return self
 
 	Func getLightAngle
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LightAngle")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:LightAngle")
 
 	Func setLightAngle P1
 		dotnet_callv("s3:set",nHandle,"s10:LightAngle",P1)
 		return self
 
 	Func getRelief
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Relief")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Relief")
 
 	Func setRelief P1
 		dotnet_callv("s3:set",nHandle,"s6:Relief",P1)
@@ -1040,27 +1004,21 @@ Class OuterGlowBitmapEffect from BitmapEffect
 		return self
 
 	Func getGlowSize
-		dn_x = dotnet_call("s3:get",nHandle,"s8:GlowSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:GlowSize")
 
 	Func setGlowSize P1
 		dotnet_callv("s3:set",nHandle,"s8:GlowSize",P1)
 		return self
 
 	Func getNoise
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Noise")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Noise")
 
 	Func setNoise P1
 		dotnet_callv("s3:set",nHandle,"s5:Noise",P1)
 		return self
 
 	Func getOpacity
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Opacity")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Opacity")
 
 	Func setOpacity P1
 		dotnet_callv("s3:set",nHandle,"s7:Opacity",P1)

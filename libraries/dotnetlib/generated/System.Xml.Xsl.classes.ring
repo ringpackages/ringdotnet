@@ -79,17 +79,13 @@ Class IXsltContextFunction from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Invoke",P1,P2,P3))
 
 	Func getMinargs
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Minargs")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Minargs")
 
 	Func setMinargs P1
 		raise("DotNet Error: Minargs is a read-only property")
 
 	Func getMaxargs
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Maxargs")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Maxargs")
 
 	Func setMaxargs P1
 		raise("DotNet Error: Maxargs is a read-only property")
@@ -126,17 +122,13 @@ Class IXsltContextVariable from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Evaluate",P1))
 
 	Func getIsLocal
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsLocal")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsLocal")
 
 	Func setIsLocal P1
 		raise("DotNet Error: IsLocal is a read-only property")
 
 	Func getIsParam
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsParam")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsParam")
 
 	Func setIsParam P1
 		raise("DotNet Error: IsParam is a read-only property")
@@ -354,9 +346,7 @@ Class XsltContext from XmlNamespaceManager
 		return dn_x
 
 	Func getWhitespace
-		dn_x = dotnet_call("s3:get",nHandle,"s10:Whitespace")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:Whitespace")
 
 	Func setWhitespace P1
 		raise("DotNet Error: Whitespace is a read-only property")
@@ -411,17 +401,13 @@ Class XsltException from SystemException
 		raise("DotNet Error: SourceUri is a read-only property")
 
 	Func getLineNumber
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LineNumber")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:LineNumber")
 
 	Func setLineNumber P1
 		raise("DotNet Error: LineNumber is a read-only property")
 
 	Func getLinePosition
-		dn_x = dotnet_call("s3:get",nHandle,"s12:LinePosition")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:LinePosition")
 
 	Func setLinePosition P1
 		raise("DotNet Error: LinePosition is a read-only property")
@@ -496,18 +482,14 @@ Class XsltSettings from Object
 		return dn_x
 
 	Func getEnableDocumentFunction
-		dn_x = dotnet_call("s3:get",nHandle,"s22:EnableDocumentFunction")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:EnableDocumentFunction")
 
 	Func setEnableDocumentFunction P1
 		dotnet_callv("s3:set",nHandle,"s22:EnableDocumentFunction",P1)
 		return self
 
 	Func getEnableScript
-		dn_x = dotnet_call("s3:get",nHandle,"s12:EnableScript")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:EnableScript")
 
 	Func setEnableScript P1
 		dotnet_callv("s3:set",nHandle,"s12:EnableScript",P1)

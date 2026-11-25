@@ -491,9 +491,7 @@ Class ContentEncodingMetadata from Object
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getQuality
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Quality")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Quality")
 
 	Func setQuality P1
 		raise("DotNet Error: Quality is a read-only property")
@@ -712,9 +710,7 @@ Class ExcludeFromDescriptionAttribute from Attribute
 		return self
 
 	Func getExcludeFromDescription
-		dn_x = dotnet_call("s3:get",nHandle,"s22:ExcludeFromDescription")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:ExcludeFromDescription")
 
 	Func setExcludeFromDescription P1
 		raise("DotNet Error: ExcludeFromDescription is a read-only property")
@@ -779,9 +775,7 @@ Class HttpMethodMetadata from Object
 		return dn_x
 
 	Func getAcceptCorsPreflight
-		dn_x = dotnet_call("s3:get",nHandle,"s19:AcceptCorsPreflight")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:AcceptCorsPreflight")
 
 	Func setAcceptCorsPreflight P1
 		dotnet_callv("s3:set",nHandle,"s19:AcceptCorsPreflight",P1)
@@ -828,9 +822,7 @@ Class IDynamicEndpointMetadata from DotNetObject
 		return self
 
 	Func getIsDynamic
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsDynamic")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsDynamic")
 
 	Func setIsDynamic P1
 		raise("DotNet Error: IsDynamic is a read-only property")
@@ -1135,9 +1127,7 @@ Class IExcludeFromDescriptionMetadata from DotNetObject
 		return self
 
 	Func getExcludeFromDescription
-		dn_x = dotnet_call("s3:get",nHandle,"s22:ExcludeFromDescription")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:ExcludeFromDescription")
 
 	Func setExcludeFromDescription P1
 		raise("DotNet Error: ExcludeFromDescription is a read-only property")
@@ -1178,9 +1168,7 @@ Class IHttpMethodMetadata from DotNetObject
 		return self
 
 	Func getAcceptCorsPreflight
-		dn_x = dotnet_call("s3:get",nHandle,"s19:AcceptCorsPreflight")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:AcceptCorsPreflight")
 
 	Func setAcceptCorsPreflight P1
 		dotnet_callv("s3:set",nHandle,"s19:AcceptCorsPreflight",P1)
@@ -1498,9 +1486,7 @@ Class ISuppressLinkGenerationMetadata from DotNetObject
 		return self
 
 	Func getSuppressLinkGeneration
-		dn_x = dotnet_call("s3:get",nHandle,"s22:SuppressLinkGeneration")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:SuppressLinkGeneration")
 
 	Func setSuppressLinkGeneration P1
 		raise("DotNet Error: SuppressLinkGeneration is a read-only property")
@@ -1520,9 +1506,7 @@ Class ISuppressMatchingMetadata from DotNetObject
 		return self
 
 	Func getSuppressMatching
-		dn_x = dotnet_call("s3:get",nHandle,"s16:SuppressMatching")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:SuppressMatching")
 
 	Func setSuppressMatching P1
 		raise("DotNet Error: SuppressMatching is a read-only property")
@@ -1868,9 +1852,7 @@ Class MatcherPolicy from Object
 		return dn_x
 
 	Func getOrder
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Order")
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
@@ -2210,9 +2192,7 @@ Class RouteCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -2470,9 +2450,7 @@ Class RouteEndpoint from AspEndpoint
 		return self
 
 	Func getOrder
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Order")
 
 	Func setOrder P1
 		raise("DotNet Error: Order is a read-only property")
@@ -2508,9 +2486,7 @@ Class RouteEndpointBuilder from EndpointBuilder
 		return self
 
 	Func getOrder
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Order")
 
 	Func setOrder P1
 		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
@@ -2869,9 +2845,7 @@ Class RouteHandlerOptions from Object
 		return dn_x
 
 	Func getThrowOnBadRequest
-		dn_x = dotnet_call("s3:get",nHandle,"s17:ThrowOnBadRequest")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:ThrowOnBadRequest")
 
 	Func setThrowOnBadRequest P1
 		dotnet_callv("s3:set",nHandle,"s17:ThrowOnBadRequest",P1)
@@ -3108,9 +3082,7 @@ Class RouteValueDictionary from Object
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -3381,9 +3353,7 @@ Class SuppressLinkGenerationMetadata from Object
 		return dn_x
 
 	Func getSuppressLinkGeneration
-		dn_x = dotnet_call("s3:get",nHandle,"s22:SuppressLinkGeneration")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:SuppressLinkGeneration")
 
 	Func setSuppressLinkGeneration P1
 		raise("DotNet Error: SuppressLinkGeneration is a read-only property")
@@ -3417,9 +3387,7 @@ Class SuppressMatchingMetadata from Object
 		return dn_x
 
 	Func getSuppressMatching
-		dn_x = dotnet_call("s3:get",nHandle,"s16:SuppressMatching")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:SuppressMatching")
 
 	Func setSuppressMatching P1
 		raise("DotNet Error: SuppressMatching is a read-only property")

@@ -1956,9 +1956,7 @@ Class DefaultFilesOptions from DotNetObject
 		return self
 
 	Func getRedirectToAppendTrailingSlash
-		dn_x = dotnet_call("s3:get",nHandle,"s29:RedirectToAppendTrailingSlash")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s29:RedirectToAppendTrailingSlash")
 
 	Func setRedirectToAppendTrailingSlash P1
 		dotnet_callv("s3:set",nHandle,"s29:RedirectToAppendTrailingSlash",P1)
@@ -2017,9 +2015,7 @@ Class DeveloperExceptionPageOptions from Object
 		return dn_x
 
 	Func getSourceCodeLineCount
-		dn_x = dotnet_call("s3:get",nHandle,"s19:SourceCodeLineCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:SourceCodeLineCount")
 
 	Func setSourceCodeLineCount P1
 		dotnet_callv("s3:set",nHandle,"s19:SourceCodeLineCount",P1)
@@ -2137,9 +2133,7 @@ Class DirectoryBrowserOptions from DotNetObject
 		return self
 
 	Func getRedirectToAppendTrailingSlash
-		dn_x = dotnet_call("s3:get",nHandle,"s29:RedirectToAppendTrailingSlash")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s29:RedirectToAppendTrailingSlash")
 
 	Func setRedirectToAppendTrailingSlash P1
 		dotnet_callv("s3:set",nHandle,"s29:RedirectToAppendTrailingSlash",P1)
@@ -2339,9 +2333,7 @@ Class ExceptionHandlerOptions from Object
 		return self
 
 	Func getCreateScopeForErrors
-		dn_x = dotnet_call("s3:get",nHandle,"s20:CreateScopeForErrors")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:CreateScopeForErrors")
 
 	Func setCreateScopeForErrors P1
 		dotnet_callv("s3:set",nHandle,"s20:CreateScopeForErrors",P1)
@@ -2355,9 +2347,7 @@ Class ExceptionHandlerOptions from Object
 		return self
 
 	Func getAllowStatusCode404Response
-		dn_x = dotnet_call("s3:get",nHandle,"s26:AllowStatusCode404Response")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:AllowStatusCode404Response")
 
 	Func setAllowStatusCode404Response P1
 		dotnet_callv("s3:set",nHandle,"s26:AllowStatusCode404Response",P1)
@@ -2493,18 +2483,14 @@ Class FileServerOptions from DotNetObject
 		raise("DotNet Error: DefaultFilesOptions is a read-only property")
 
 	Func getEnableDirectoryBrowsing
-		dn_x = dotnet_call("s3:get",nHandle,"s23:EnableDirectoryBrowsing")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:EnableDirectoryBrowsing")
 
 	Func setEnableDirectoryBrowsing P1
 		dotnet_callv("s3:set",nHandle,"s23:EnableDirectoryBrowsing",P1)
 		return self
 
 	Func getEnableDefaultFiles
-		dn_x = dotnet_call("s3:get",nHandle,"s18:EnableDefaultFiles")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:EnableDefaultFiles")
 
 	Func setEnableDefaultFiles P1
 		dotnet_callv("s3:set",nHandle,"s18:EnableDefaultFiles",P1)
@@ -2525,9 +2511,7 @@ Class FileServerOptions from DotNetObject
 		return self
 
 	Func getRedirectToAppendTrailingSlash
-		dn_x = dotnet_call("s3:get",nHandle,"s29:RedirectToAppendTrailingSlash")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s29:RedirectToAppendTrailingSlash")
 
 	Func setRedirectToAppendTrailingSlash P1
 		dotnet_callv("s3:set",nHandle,"s29:RedirectToAppendTrailingSlash",P1)
@@ -2703,9 +2687,7 @@ Class ForwardedHeadersOptions from Object
 		return self
 
 	Func getRequireHeaderSymmetry
-		dn_x = dotnet_call("s3:get",nHandle,"s21:RequireHeaderSymmetry")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:RequireHeaderSymmetry")
 
 	Func setRequireHeaderSymmetry P1
 		dotnet_callv("s3:set",nHandle,"s21:RequireHeaderSymmetry",P1)
@@ -3525,9 +3507,7 @@ Class IISOptions from Object
 		return dn_x
 
 	Func getAutomaticAuthentication
-		dn_x = dotnet_call("s3:get",nHandle,"s23:AutomaticAuthentication")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:AutomaticAuthentication")
 
 	Func setAutomaticAuthentication P1
 		dotnet_callv("s3:set",nHandle,"s23:AutomaticAuthentication",P1)
@@ -3543,9 +3523,7 @@ Class IISOptions from Object
 		return self
 
 	Func getForwardClientCertificate
-		dn_x = dotnet_call("s3:get",nHandle,"s24:ForwardClientCertificate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:ForwardClientCertificate")
 
 	Func setForwardClientCertificate P1
 		dotnet_callv("s3:set",nHandle,"s24:ForwardClientCertificate",P1)
@@ -3584,18 +3562,14 @@ Class IISServerOptions from Object
 		return dn_x
 
 	Func getAllowSynchronousIO
-		dn_x = dotnet_call("s3:get",nHandle,"s18:AllowSynchronousIO")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:AllowSynchronousIO")
 
 	Func setAllowSynchronousIO P1
 		dotnet_callv("s3:set",nHandle,"s18:AllowSynchronousIO",P1)
 		return self
 
 	Func getAutomaticAuthentication
-		dn_x = dotnet_call("s3:get",nHandle,"s23:AutomaticAuthentication")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:AutomaticAuthentication")
 
 	Func setAutomaticAuthentication P1
 		dotnet_callv("s3:set",nHandle,"s23:AutomaticAuthentication",P1)
@@ -3611,9 +3585,7 @@ Class IISServerOptions from Object
 		return self
 
 	Func getMaxRequestBodyBufferSize
-		dn_x = dotnet_call("s3:get",nHandle,"s24:MaxRequestBodyBufferSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:MaxRequestBodyBufferSize")
 
 	Func setMaxRequestBodyBufferSize P1
 		dotnet_callv("s3:set",nHandle,"s24:MaxRequestBodyBufferSize",P1)
@@ -4134,9 +4106,7 @@ Class RequestLocalizationOptions from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s32:AddInitialRequestCultureProvider",P1))
 
 	Func getCultureInfoUseUserOverride
-		dn_x = dotnet_call("s3:get",nHandle,"s26:CultureInfoUseUserOverride")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:CultureInfoUseUserOverride")
 
 	Func setCultureInfoUseUserOverride P1
 		dotnet_callv("s3:set",nHandle,"s26:CultureInfoUseUserOverride",P1)
@@ -4150,27 +4120,21 @@ Class RequestLocalizationOptions from Object
 		return self
 
 	Func getFallBackToParentCultures
-		dn_x = dotnet_call("s3:get",nHandle,"s24:FallBackToParentCultures")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:FallBackToParentCultures")
 
 	Func setFallBackToParentCultures P1
 		dotnet_callv("s3:set",nHandle,"s24:FallBackToParentCultures",P1)
 		return self
 
 	Func getFallBackToParentUICultures
-		dn_x = dotnet_call("s3:get",nHandle,"s26:FallBackToParentUICultures")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:FallBackToParentUICultures")
 
 	Func setFallBackToParentUICultures P1
 		dotnet_callv("s3:set",nHandle,"s26:FallBackToParentUICultures",P1)
 		return self
 
 	Func getApplyCurrentCultureToResponseHeaders
-		dn_x = dotnet_call("s3:get",nHandle,"s36:ApplyCurrentCultureToResponseHeaders")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s36:ApplyCurrentCultureToResponseHeaders")
 
 	Func setApplyCurrentCultureToResponseHeaders P1
 		dotnet_callv("s3:set",nHandle,"s36:ApplyCurrentCultureToResponseHeaders",P1)
@@ -4804,9 +4768,7 @@ Class StaticFileOptions from DotNetObject
 		return self
 
 	Func getServeUnknownFileTypes
-		dn_x = dotnet_call("s3:get",nHandle,"s21:ServeUnknownFileTypes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:ServeUnknownFileTypes")
 
 	Func setServeUnknownFileTypes P1
 		dotnet_callv("s3:set",nHandle,"s21:ServeUnknownFileTypes",P1)
@@ -4848,9 +4810,7 @@ Class StaticFileOptions from DotNetObject
 		return self
 
 	Func getRedirectToAppendTrailingSlash
-		dn_x = dotnet_call("s3:get",nHandle,"s29:RedirectToAppendTrailingSlash")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s29:RedirectToAppendTrailingSlash")
 
 	Func setRedirectToAppendTrailingSlash P1
 		dotnet_callv("s3:set",nHandle,"s29:RedirectToAppendTrailingSlash",P1)
@@ -5890,9 +5850,7 @@ Class WebSocketOptions from Object
 		return self
 
 	Func getReceiveBufferSize
-		dn_x = dotnet_call("s3:get",nHandle,"s17:ReceiveBufferSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:ReceiveBufferSize")
 
 	Func setReceiveBufferSize P1
 		dotnet_callv("s3:set",nHandle,"s17:ReceiveBufferSize",P1)

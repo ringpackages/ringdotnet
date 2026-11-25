@@ -852,9 +852,7 @@ Class XAttribute from XObject
 		return self
 
 	Func getIsNamespaceDeclaration
-		dn_x = dotnet_call("s3:get",nHandle,"s22:IsNamespaceDeclaration")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:IsNamespaceDeclaration")
 
 	Func setIsNamespaceDeclaration P1
 		raise("DotNet Error: IsNamespaceDeclaration is a read-only property")
@@ -1397,25 +1395,19 @@ Class XElement from XContainer
 		raise("DotNet Error: FirstAttribute is a read-only property")
 
 	Func getHasAttributes
-		dn_x = dotnet_call("s3:get",nHandle,"s13:HasAttributes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:HasAttributes")
 
 	Func setHasAttributes P1
 		raise("DotNet Error: HasAttributes is a read-only property")
 
 	Func getHasElements
-		dn_x = dotnet_call("s3:get",nHandle,"s11:HasElements")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:HasElements")
 
 	Func setHasElements P1
 		raise("DotNet Error: HasElements is a read-only property")
 
 	Func getIsEmpty
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsEmpty")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")

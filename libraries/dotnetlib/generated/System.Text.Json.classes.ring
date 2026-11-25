@@ -184,18 +184,14 @@ Class JsonDocumentOptions from ValueType
 		return self
 
 	Func getMaxDepth
-		dn_x = dotnet_call("s3:get",nHandle,"s8:MaxDepth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:MaxDepth")
 
 	Func setMaxDepth P1
 		dotnet_callv("s3:set",nHandle,"s8:MaxDepth",P1)
 		return self
 
 	Func getAllowTrailingCommas
-		dn_x = dotnet_call("s3:get",nHandle,"s19:AllowTrailingCommas")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:AllowTrailingCommas")
 
 	Func setAllowTrailingCommas P1
 		dotnet_callv("s3:set",nHandle,"s19:AllowTrailingCommas",P1)
@@ -795,27 +791,21 @@ Class JsonReaderOptions from ValueType
 		return self
 
 	Func getMaxDepth
-		dn_x = dotnet_call("s3:get",nHandle,"s8:MaxDepth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:MaxDepth")
 
 	Func setMaxDepth P1
 		dotnet_callv("s3:set",nHandle,"s8:MaxDepth",P1)
 		return self
 
 	Func getAllowTrailingCommas
-		dn_x = dotnet_call("s3:get",nHandle,"s19:AllowTrailingCommas")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:AllowTrailingCommas")
 
 	Func setAllowTrailingCommas P1
 		dotnet_callv("s3:set",nHandle,"s19:AllowTrailingCommas",P1)
 		return self
 
 	Func getAllowMultipleValues
-		dn_x = dotnet_call("s3:get",nHandle,"s19:AllowMultipleValues")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:AllowMultipleValues")
 
 	Func setAllowMultipleValues P1
 		dotnet_callv("s3:set",nHandle,"s19:AllowMultipleValues",P1)
@@ -944,9 +934,7 @@ Class JsonSerializer from Object
 		return dn_x
 
 	Func getIsReflectionEnabledByDefault
-		dn_x = dotnet_call("s3:get",'System.Text.Json.JsonSerializer, System.Text.Json',"s28:IsReflectionEnabledByDefault")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Text.Json.JsonSerializer, System.Text.Json',"s28:IsReflectionEnabledByDefault")
 
 	Func setIsReflectionEnabledByDefault P1
 		raise("DotNet Error: IsReflectionEnabledByDefault is a read-only property")
@@ -1080,27 +1068,21 @@ Class JsonSerializerOptions from Object
 		raise("DotNet Error: TypeInfoResolverChain is a read-only property")
 
 	Func getAllowOutOfOrderMetadataProperties
-		dn_x = dotnet_call("s3:get",nHandle,"s33:AllowOutOfOrderMetadataProperties")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s33:AllowOutOfOrderMetadataProperties")
 
 	Func setAllowOutOfOrderMetadataProperties P1
 		dotnet_callv("s3:set",nHandle,"s33:AllowOutOfOrderMetadataProperties",P1)
 		return self
 
 	Func getAllowTrailingCommas
-		dn_x = dotnet_call("s3:get",nHandle,"s19:AllowTrailingCommas")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:AllowTrailingCommas")
 
 	Func setAllowTrailingCommas P1
 		dotnet_callv("s3:set",nHandle,"s19:AllowTrailingCommas",P1)
 		return self
 
 	Func getDefaultBufferSize
-		dn_x = dotnet_call("s3:get",nHandle,"s17:DefaultBufferSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:DefaultBufferSize")
 
 	Func setDefaultBufferSize P1
 		dotnet_callv("s3:set",nHandle,"s17:DefaultBufferSize",P1)
@@ -1121,9 +1103,7 @@ Class JsonSerializerOptions from Object
 		return self
 
 	Func getIgnoreNullValues
-		dn_x = dotnet_call("s3:get",nHandle,"s16:IgnoreNullValues")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:IgnoreNullValues")
 
 	Func setIgnoreNullValues P1
 		dotnet_callv("s3:set",nHandle,"s16:IgnoreNullValues",P1)
@@ -1151,36 +1131,28 @@ Class JsonSerializerOptions from Object
 		return self
 
 	Func getIgnoreReadOnlyProperties
-		dn_x = dotnet_call("s3:get",nHandle,"s24:IgnoreReadOnlyProperties")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:IgnoreReadOnlyProperties")
 
 	Func setIgnoreReadOnlyProperties P1
 		dotnet_callv("s3:set",nHandle,"s24:IgnoreReadOnlyProperties",P1)
 		return self
 
 	Func getIgnoreReadOnlyFields
-		dn_x = dotnet_call("s3:get",nHandle,"s20:IgnoreReadOnlyFields")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:IgnoreReadOnlyFields")
 
 	Func setIgnoreReadOnlyFields P1
 		dotnet_callv("s3:set",nHandle,"s20:IgnoreReadOnlyFields",P1)
 		return self
 
 	Func getIncludeFields
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IncludeFields")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IncludeFields")
 
 	Func setIncludeFields P1
 		dotnet_callv("s3:set",nHandle,"s13:IncludeFields",P1)
 		return self
 
 	Func getMaxDepth
-		dn_x = dotnet_call("s3:get",nHandle,"s8:MaxDepth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:MaxDepth")
 
 	Func setMaxDepth P1
 		dotnet_callv("s3:set",nHandle,"s8:MaxDepth",P1)
@@ -1194,9 +1166,7 @@ Class JsonSerializerOptions from Object
 		return self
 
 	Func getPropertyNameCaseInsensitive
-		dn_x = dotnet_call("s3:get",nHandle,"s27:PropertyNameCaseInsensitive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s27:PropertyNameCaseInsensitive")
 
 	Func setPropertyNameCaseInsensitive P1
 		dotnet_callv("s3:set",nHandle,"s27:PropertyNameCaseInsensitive",P1)
@@ -1224,9 +1194,7 @@ Class JsonSerializerOptions from Object
 		return self
 
 	Func getWriteIndented
-		dn_x = dotnet_call("s3:get",nHandle,"s13:WriteIndented")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:WriteIndented")
 
 	Func setWriteIndented P1
 		dotnet_callv("s3:set",nHandle,"s13:WriteIndented",P1)
@@ -1240,9 +1208,7 @@ Class JsonSerializerOptions from Object
 		return self
 
 	Func getIndentSize
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IndentSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IndentSize")
 
 	Func setIndentSize P1
 		dotnet_callv("s3:set",nHandle,"s10:IndentSize",P1)
@@ -1265,27 +1231,21 @@ Class JsonSerializerOptions from Object
 		return self
 
 	Func getRespectNullableAnnotations
-		dn_x = dotnet_call("s3:get",nHandle,"s26:RespectNullableAnnotations")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:RespectNullableAnnotations")
 
 	Func setRespectNullableAnnotations P1
 		dotnet_callv("s3:set",nHandle,"s26:RespectNullableAnnotations",P1)
 		return self
 
 	Func getRespectRequiredConstructorParameters
-		dn_x = dotnet_call("s3:get",nHandle,"s36:RespectRequiredConstructorParameters")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s36:RespectRequiredConstructorParameters")
 
 	Func setRespectRequiredConstructorParameters P1
 		dotnet_callv("s3:set",nHandle,"s36:RespectRequiredConstructorParameters",P1)
 		return self
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1339,9 +1299,7 @@ Class JsonWriterOptions from ValueType
 		return self
 
 	Func getIndented
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Indented")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Indented")
 
 	Func setIndented P1
 		dotnet_callv("s3:set",nHandle,"s8:Indented",P1)
@@ -1355,27 +1313,21 @@ Class JsonWriterOptions from ValueType
 		return self
 
 	Func getIndentSize
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IndentSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IndentSize")
 
 	Func setIndentSize P1
 		dotnet_callv("s3:set",nHandle,"s10:IndentSize",P1)
 		return self
 
 	Func getMaxDepth
-		dn_x = dotnet_call("s3:get",nHandle,"s8:MaxDepth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:MaxDepth")
 
 	Func setMaxDepth P1
 		dotnet_callv("s3:set",nHandle,"s8:MaxDepth",P1)
 		return self
 
 	Func getSkipValidation
-		dn_x = dotnet_call("s3:get",nHandle,"s14:SkipValidation")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:SkipValidation")
 
 	Func setSkipValidation P1
 		dotnet_callv("s3:set",nHandle,"s14:SkipValidation",P1)
@@ -1577,17 +1529,13 @@ Class Utf8JsonWriter from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
 
 	Func getBytesPending
-		dn_x = dotnet_call("s3:get",nHandle,"s12:BytesPending")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:BytesPending")
 
 	Func setBytesPending P1
 		raise("DotNet Error: BytesPending is a read-only property")
 
 	Func getBytesCommitted
-		dn_x = dotnet_call("s3:get",nHandle,"s14:BytesCommitted")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:BytesCommitted")
 
 	Func setBytesCommitted P1
 		raise("DotNet Error: BytesCommitted is a read-only property")
@@ -1599,9 +1547,7 @@ Class Utf8JsonWriter from Object
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getCurrentDepth
-		dn_x = dotnet_call("s3:get",nHandle,"s12:CurrentDepth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:CurrentDepth")
 
 	Func setCurrentDepth P1
 		raise("DotNet Error: CurrentDepth is a read-only property")

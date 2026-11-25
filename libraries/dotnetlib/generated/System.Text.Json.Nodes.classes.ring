@@ -193,9 +193,7 @@ Class JsonNodeOptions from ValueType
 		return self
 
 	Func getPropertyNameCaseInsensitive
-		dn_x = dotnet_call("s3:get",nHandle,"s27:PropertyNameCaseInsensitive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s27:PropertyNameCaseInsensitive")
 
 	Func setPropertyNameCaseInsensitive P1
 		dotnet_callv("s3:set",nHandle,"s27:PropertyNameCaseInsensitive",P1)
@@ -314,9 +312,7 @@ Class JsonArray from JsonNode
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -442,9 +438,7 @@ Class JsonObject from JsonNode
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

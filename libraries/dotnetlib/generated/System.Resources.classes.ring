@@ -303,9 +303,7 @@ Class ResourceManager from Object
 		raise("DotNet Error: BaseName is a read-only property")
 
 	Func getIgnoreCase
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IgnoreCase")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IgnoreCase")
 
 	Func setIgnoreCase P1
 		dotnet_callv("s3:set",nHandle,"s10:IgnoreCase",P1)
@@ -318,17 +316,13 @@ Class ResourceManager from Object
 		raise("DotNet Error: ResourceSetType is a read-only property")
 
 	Func getMagicNumber
-		dn_x = dotnet_call("s3:get",'System.Resources.ResourceManager, System.Private.CoreLib',"s11:MagicNumber")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Resources.ResourceManager, System.Private.CoreLib',"s11:MagicNumber")
 
 	Func setMagicNumber P1
 		raise("DotNet Error: MagicNumber is a read-only property")
 
 	Func getHeaderVersionNumber
-		dn_x = dotnet_call("s3:get",'System.Resources.ResourceManager, System.Private.CoreLib',"s19:HeaderVersionNumber")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Resources.ResourceManager, System.Private.CoreLib',"s19:HeaderVersionNumber")
 
 	Func setHeaderVersionNumber P1
 		raise("DotNet Error: HeaderVersionNumber is a read-only property")

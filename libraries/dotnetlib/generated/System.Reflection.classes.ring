@@ -689,9 +689,7 @@ Class Assembly from Object
 		raise("DotNet Error: ImageRuntimeVersion is a read-only property")
 
 	Func getIsDynamic
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsDynamic")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsDynamic")
 
 	Func setIsDynamic P1
 		raise("DotNet Error: IsDynamic is a read-only property")
@@ -705,25 +703,19 @@ Class Assembly from Object
 		raise("DotNet Error: Location is a read-only property")
 
 	Func getReflectionOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ReflectionOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:ReflectionOnly")
 
 	Func setReflectionOnly P1
 		raise("DotNet Error: ReflectionOnly is a read-only property")
 
 	Func getIsCollectible
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsCollectible")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsCollectible")
 
 	Func setIsCollectible P1
 		raise("DotNet Error: IsCollectible is a read-only property")
 
 	Func getIsFullyTrusted
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsFullyTrusted")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsFullyTrusted")
 
 	Func setIsFullyTrusted P1
 		raise("DotNet Error: IsFullyTrusted is a read-only property")
@@ -755,17 +747,13 @@ Class Assembly from Object
 		raise("DotNet Error: Modules is a read-only property")
 
 	Func getGlobalAssemblyCache
-		dn_x = dotnet_call("s3:get",nHandle,"s19:GlobalAssemblyCache")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:GlobalAssemblyCache")
 
 	Func setGlobalAssemblyCache P1
 		raise("DotNet Error: GlobalAssemblyCache is a read-only property")
 
 	Func getHostContext
-		dn_x = dotnet_call("s3:get",nHandle,"s11:HostContext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:HostContext")
 
 	Func setHostContext P1
 		raise("DotNet Error: HostContext is a read-only property")
@@ -797,9 +785,7 @@ Class AssemblyAlgorithmIdAttribute from Attribute
 		return self
 
 	Func getAlgorithmId
-		dn_x = dotnet_call("s3:get",nHandle,"s11:AlgorithmId")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:AlgorithmId")
 
 	Func setAlgorithmId P1
 		raise("DotNet Error: AlgorithmId is a read-only property")
@@ -941,9 +927,7 @@ Class AssemblyDelaySignAttribute from Attribute
 		return self
 
 	Func getDelaySign
-		dn_x = dotnet_call("s3:get",nHandle,"s9:DelaySign")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:DelaySign")
 
 	Func setDelaySign P1
 		raise("DotNet Error: DelaySign is a read-only property")
@@ -1014,17 +998,13 @@ Class AssemblyFlagsAttribute from Attribute
 		return self
 
 	Func getFlags
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Flags")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Flags")
 
 	Func setFlags P1
 		raise("DotNet Error: Flags is a read-only property")
 
 	Func getAssemblyFlags
-		dn_x = dotnet_call("s3:get",nHandle,"s13:AssemblyFlags")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:AssemblyFlags")
 
 	Func setAssemblyFlags P1
 		raise("DotNet Error: AssemblyFlags is a read-only property")
@@ -1729,9 +1709,7 @@ Class CustomAttributeNamedArgument from ValueType
 		raise("DotNet Error: MemberName is a read-only property")
 
 	Func getIsField
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsField")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsField")
 
 	Func setIsField P1
 		raise("DotNet Error: IsField is a read-only property")
@@ -1852,41 +1830,31 @@ Class ExceptionHandlingClause from Object
 		raise("DotNet Error: Flags is a read-only property")
 
 	Func getTryOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s9:TryOffset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:TryOffset")
 
 	Func setTryOffset P1
 		raise("DotNet Error: TryOffset is a read-only property")
 
 	Func getTryLength
-		dn_x = dotnet_call("s3:get",nHandle,"s9:TryLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:TryLength")
 
 	Func setTryLength P1
 		raise("DotNet Error: TryLength is a read-only property")
 
 	Func getHandlerOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s13:HandlerOffset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:HandlerOffset")
 
 	Func setHandlerOffset P1
 		raise("DotNet Error: HandlerOffset is a read-only property")
 
 	Func getHandlerLength
-		dn_x = dotnet_call("s3:get",nHandle,"s13:HandlerLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:HandlerLength")
 
 	Func setHandlerLength P1
 		raise("DotNet Error: HandlerLength is a read-only property")
 
 	Func getFilterOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s12:FilterOffset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:FilterOffset")
 
 	Func setFilterOffset P1
 		raise("DotNet Error: FilterOffset is a read-only property")
@@ -2127,17 +2095,13 @@ Class LocalVariableInfo from Object
 		raise("DotNet Error: LocalType is a read-only property")
 
 	Func getLocalIndex
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LocalIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:LocalIndex")
 
 	Func setLocalIndex P1
 		raise("DotNet Error: LocalIndex is a read-only property")
 
 	Func getIsPinned
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsPinned")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsPinned")
 
 	Func setIsPinned P1
 		raise("DotNet Error: IsPinned is a read-only property")
@@ -2279,17 +2243,13 @@ Class MemberInfo from Object
 		raise("DotNet Error: CustomAttributes is a read-only property")
 
 	Func getIsCollectible
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsCollectible")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsCollectible")
 
 	Func setIsCollectible P1
 		raise("DotNet Error: IsCollectible is a read-only property")
 
 	Func getMetadataToken
-		dn_x = dotnet_call("s3:get",nHandle,"s13:MetadataToken")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:MetadataToken")
 
 	Func setMetadataToken P1
 		raise("DotNet Error: MetadataToken is a read-only property")
@@ -2325,9 +2285,7 @@ Class MethodBody from Object
 		return dn_x
 
 	Func getLocalSignatureMetadataToken
-		dn_x = dotnet_call("s3:get",nHandle,"s27:LocalSignatureMetadataToken")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s27:LocalSignatureMetadataToken")
 
 	Func setLocalSignatureMetadataToken P1
 		raise("DotNet Error: LocalSignatureMetadataToken is a read-only property")
@@ -2339,17 +2297,13 @@ Class MethodBody from Object
 		raise("DotNet Error: LocalVariables is a read-only property")
 
 	Func getMaxStackSize
-		dn_x = dotnet_call("s3:get",nHandle,"s12:MaxStackSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:MaxStackSize")
 
 	Func setMaxStackSize P1
 		raise("DotNet Error: MaxStackSize is a read-only property")
 
 	Func getInitLocals
-		dn_x = dotnet_call("s3:get",nHandle,"s10:InitLocals")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:InitLocals")
 
 	Func setInitLocals P1
 		raise("DotNet Error: InitLocals is a read-only property")
@@ -2577,9 +2531,7 @@ Class Module from Object
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getMDStreamVersion
-		dn_x = dotnet_call("s3:get",nHandle,"s15:MDStreamVersion")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:MDStreamVersion")
 
 	Func setMDStreamVersion P1
 		raise("DotNet Error: MDStreamVersion is a read-only property")
@@ -2611,9 +2563,7 @@ Class Module from Object
 		raise("DotNet Error: CustomAttributes is a read-only property")
 
 	Func getMetadataToken
-		dn_x = dotnet_call("s3:get",nHandle,"s13:MetadataToken")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:MetadataToken")
 
 	Func setMetadataToken P1
 		raise("DotNet Error: MetadataToken is a read-only property")
@@ -2737,17 +2687,13 @@ Class ObfuscateAssemblyAttribute from Attribute
 		return self
 
 	Func getAssemblyIsPrivate
-		dn_x = dotnet_call("s3:get",nHandle,"s17:AssemblyIsPrivate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:AssemblyIsPrivate")
 
 	Func setAssemblyIsPrivate P1
 		raise("DotNet Error: AssemblyIsPrivate is a read-only property")
 
 	Func getStripAfterObfuscation
-		dn_x = dotnet_call("s3:get",nHandle,"s21:StripAfterObfuscation")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:StripAfterObfuscation")
 
 	Func setStripAfterObfuscation P1
 		dotnet_callv("s3:set",nHandle,"s21:StripAfterObfuscation",P1)
@@ -2780,27 +2726,21 @@ Class ObfuscationAttribute from Attribute
 		return self
 
 	Func getStripAfterObfuscation
-		dn_x = dotnet_call("s3:get",nHandle,"s21:StripAfterObfuscation")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:StripAfterObfuscation")
 
 	Func setStripAfterObfuscation P1
 		dotnet_callv("s3:set",nHandle,"s21:StripAfterObfuscation",P1)
 		return self
 
 	Func getExclude
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Exclude")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Exclude")
 
 	Func setExclude P1
 		dotnet_callv("s3:set",nHandle,"s7:Exclude",P1)
 		return self
 
 	Func getApplyToMembers
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ApplyToMembers")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:ApplyToMembers")
 
 	Func setApplyToMembers P1
 		dotnet_callv("s3:set",nHandle,"s14:ApplyToMembers",P1)
@@ -2911,49 +2851,37 @@ Class ParameterInfo from Object
 		raise("DotNet Error: ParameterType is a read-only property")
 
 	Func getPosition
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Position")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Position")
 
 	Func setPosition P1
 		raise("DotNet Error: Position is a read-only property")
 
 	Func getIsIn
-		dn_x = dotnet_call("s3:get",nHandle,"s4:IsIn")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:IsIn")
 
 	Func setIsIn P1
 		raise("DotNet Error: IsIn is a read-only property")
 
 	Func getIsLcid
-		dn_x = dotnet_call("s3:get",nHandle,"s6:IsLcid")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:IsLcid")
 
 	Func setIsLcid P1
 		raise("DotNet Error: IsLcid is a read-only property")
 
 	Func getIsOptional
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsOptional")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsOptional")
 
 	Func setIsOptional P1
 		raise("DotNet Error: IsOptional is a read-only property")
 
 	Func getIsOut
-		dn_x = dotnet_call("s3:get",nHandle,"s5:IsOut")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:IsOut")
 
 	Func setIsOut P1
 		raise("DotNet Error: IsOut is a read-only property")
 
 	Func getIsRetval
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsRetval")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsRetval")
 
 	Func setIsRetval P1
 		raise("DotNet Error: IsRetval is a read-only property")
@@ -2971,9 +2899,7 @@ Class ParameterInfo from Object
 		raise("DotNet Error: RawDefaultValue is a read-only property")
 
 	Func getHasDefaultValue
-		dn_x = dotnet_call("s3:get",nHandle,"s15:HasDefaultValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:HasDefaultValue")
 
 	Func setHasDefaultValue P1
 		raise("DotNet Error: HasDefaultValue is a read-only property")
@@ -2985,9 +2911,7 @@ Class ParameterInfo from Object
 		raise("DotNet Error: CustomAttributes is a read-only property")
 
 	Func getMetadataToken
-		dn_x = dotnet_call("s3:get",nHandle,"s13:MetadataToken")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:MetadataToken")
 
 	Func setMetadataToken P1
 		raise("DotNet Error: MetadataToken is a read-only property")
@@ -3463,9 +3387,7 @@ Class EventInfo from MemberInfo
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getIsSpecialName
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsSpecialName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsSpecialName")
 
 	Func setIsSpecialName P1
 		raise("DotNet Error: IsSpecialName is a read-only property")
@@ -3489,9 +3411,7 @@ Class EventInfo from MemberInfo
 		raise("DotNet Error: RaiseMethod is a read-only property")
 
 	Func getIsMulticast
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsMulticast")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsMulticast")
 
 	Func setIsMulticast P1
 		raise("DotNet Error: IsMulticast is a read-only property")
@@ -3578,121 +3498,91 @@ Class FieldInfo from MemberInfo
 		raise("DotNet Error: FieldType is a read-only property")
 
 	Func getIsInitOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsInitOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsInitOnly")
 
 	Func setIsInitOnly P1
 		raise("DotNet Error: IsInitOnly is a read-only property")
 
 	Func getIsLiteral
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsLiteral")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsLiteral")
 
 	Func setIsLiteral P1
 		raise("DotNet Error: IsLiteral is a read-only property")
 
 	Func getIsNotSerialized
-		dn_x = dotnet_call("s3:get",nHandle,"s15:IsNotSerialized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:IsNotSerialized")
 
 	Func setIsNotSerialized P1
 		raise("DotNet Error: IsNotSerialized is a read-only property")
 
 	Func getIsPinvokeImpl
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsPinvokeImpl")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsPinvokeImpl")
 
 	Func setIsPinvokeImpl P1
 		raise("DotNet Error: IsPinvokeImpl is a read-only property")
 
 	Func getIsSpecialName
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsSpecialName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsSpecialName")
 
 	Func setIsSpecialName P1
 		raise("DotNet Error: IsSpecialName is a read-only property")
 
 	Func getIsStatic
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsStatic")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsStatic")
 
 	Func setIsStatic P1
 		raise("DotNet Error: IsStatic is a read-only property")
 
 	Func getIsAssembly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAssembly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAssembly")
 
 	Func setIsAssembly P1
 		raise("DotNet Error: IsAssembly is a read-only property")
 
 	Func getIsFamily
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsFamily")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsFamily")
 
 	Func setIsFamily P1
 		raise("DotNet Error: IsFamily is a read-only property")
 
 	Func getIsFamilyAndAssembly
-		dn_x = dotnet_call("s3:get",nHandle,"s19:IsFamilyAndAssembly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:IsFamilyAndAssembly")
 
 	Func setIsFamilyAndAssembly P1
 		raise("DotNet Error: IsFamilyAndAssembly is a read-only property")
 
 	Func getIsFamilyOrAssembly
-		dn_x = dotnet_call("s3:get",nHandle,"s18:IsFamilyOrAssembly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:IsFamilyOrAssembly")
 
 	Func setIsFamilyOrAssembly P1
 		raise("DotNet Error: IsFamilyOrAssembly is a read-only property")
 
 	Func getIsPrivate
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsPrivate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsPrivate")
 
 	Func setIsPrivate P1
 		raise("DotNet Error: IsPrivate is a read-only property")
 
 	Func getIsPublic
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsPublic")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsPublic")
 
 	Func setIsPublic P1
 		raise("DotNet Error: IsPublic is a read-only property")
 
 	Func getIsSecurityCritical
-		dn_x = dotnet_call("s3:get",nHandle,"s18:IsSecurityCritical")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:IsSecurityCritical")
 
 	Func setIsSecurityCritical P1
 		raise("DotNet Error: IsSecurityCritical is a read-only property")
 
 	Func getIsSecuritySafeCritical
-		dn_x = dotnet_call("s3:get",nHandle,"s22:IsSecuritySafeCritical")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:IsSecuritySafeCritical")
 
 	Func setIsSecuritySafeCritical P1
 		raise("DotNet Error: IsSecuritySafeCritical is a read-only property")
 
 	Func getIsSecurityTransparent
-		dn_x = dotnet_call("s3:get",nHandle,"s21:IsSecurityTransparent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:IsSecurityTransparent")
 
 	Func setIsSecurityTransparent P1
 		raise("DotNet Error: IsSecurityTransparent is a read-only property")
@@ -3790,137 +3680,103 @@ Class MethodBase from MemberInfo
 		raise("DotNet Error: CallingConvention is a read-only property")
 
 	Func getIsAbstract
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAbstract")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAbstract")
 
 	Func setIsAbstract P1
 		raise("DotNet Error: IsAbstract is a read-only property")
 
 	Func getIsConstructor
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsConstructor")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsConstructor")
 
 	Func setIsConstructor P1
 		raise("DotNet Error: IsConstructor is a read-only property")
 
 	Func getIsFinal
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsFinal")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsFinal")
 
 	Func setIsFinal P1
 		raise("DotNet Error: IsFinal is a read-only property")
 
 	Func getIsHideBySig
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsHideBySig")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsHideBySig")
 
 	Func setIsHideBySig P1
 		raise("DotNet Error: IsHideBySig is a read-only property")
 
 	Func getIsSpecialName
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsSpecialName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsSpecialName")
 
 	Func setIsSpecialName P1
 		raise("DotNet Error: IsSpecialName is a read-only property")
 
 	Func getIsStatic
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsStatic")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsStatic")
 
 	Func setIsStatic P1
 		raise("DotNet Error: IsStatic is a read-only property")
 
 	Func getIsVirtual
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsVirtual")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsVirtual")
 
 	Func setIsVirtual P1
 		raise("DotNet Error: IsVirtual is a read-only property")
 
 	Func getIsAssembly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAssembly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAssembly")
 
 	Func setIsAssembly P1
 		raise("DotNet Error: IsAssembly is a read-only property")
 
 	Func getIsFamily
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsFamily")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsFamily")
 
 	Func setIsFamily P1
 		raise("DotNet Error: IsFamily is a read-only property")
 
 	Func getIsFamilyAndAssembly
-		dn_x = dotnet_call("s3:get",nHandle,"s19:IsFamilyAndAssembly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:IsFamilyAndAssembly")
 
 	Func setIsFamilyAndAssembly P1
 		raise("DotNet Error: IsFamilyAndAssembly is a read-only property")
 
 	Func getIsFamilyOrAssembly
-		dn_x = dotnet_call("s3:get",nHandle,"s18:IsFamilyOrAssembly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:IsFamilyOrAssembly")
 
 	Func setIsFamilyOrAssembly P1
 		raise("DotNet Error: IsFamilyOrAssembly is a read-only property")
 
 	Func getIsPrivate
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsPrivate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsPrivate")
 
 	Func setIsPrivate P1
 		raise("DotNet Error: IsPrivate is a read-only property")
 
 	Func getIsPublic
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsPublic")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsPublic")
 
 	Func setIsPublic P1
 		raise("DotNet Error: IsPublic is a read-only property")
 
 	Func getIsConstructedGenericMethod
-		dn_x = dotnet_call("s3:get",nHandle,"s26:IsConstructedGenericMethod")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:IsConstructedGenericMethod")
 
 	Func setIsConstructedGenericMethod P1
 		raise("DotNet Error: IsConstructedGenericMethod is a read-only property")
 
 	Func getIsGenericMethod
-		dn_x = dotnet_call("s3:get",nHandle,"s15:IsGenericMethod")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:IsGenericMethod")
 
 	Func setIsGenericMethod P1
 		raise("DotNet Error: IsGenericMethod is a read-only property")
 
 	Func getIsGenericMethodDefinition
-		dn_x = dotnet_call("s3:get",nHandle,"s25:IsGenericMethodDefinition")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:IsGenericMethodDefinition")
 
 	Func setIsGenericMethodDefinition P1
 		raise("DotNet Error: IsGenericMethodDefinition is a read-only property")
 
 	Func getContainsGenericParameters
-		dn_x = dotnet_call("s3:get",nHandle,"s25:ContainsGenericParameters")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:ContainsGenericParameters")
 
 	Func setContainsGenericParameters P1
 		raise("DotNet Error: ContainsGenericParameters is a read-only property")
@@ -3932,25 +3788,19 @@ Class MethodBase from MemberInfo
 		raise("DotNet Error: MethodHandle is a read-only property")
 
 	Func getIsSecurityCritical
-		dn_x = dotnet_call("s3:get",nHandle,"s18:IsSecurityCritical")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:IsSecurityCritical")
 
 	Func setIsSecurityCritical P1
 		raise("DotNet Error: IsSecurityCritical is a read-only property")
 
 	Func getIsSecuritySafeCritical
-		dn_x = dotnet_call("s3:get",nHandle,"s22:IsSecuritySafeCritical")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:IsSecuritySafeCritical")
 
 	Func setIsSecuritySafeCritical P1
 		raise("DotNet Error: IsSecuritySafeCritical is a read-only property")
 
 	Func getIsSecurityTransparent
-		dn_x = dotnet_call("s3:get",nHandle,"s21:IsSecurityTransparent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:IsSecurityTransparent")
 
 	Func setIsSecurityTransparent P1
 		raise("DotNet Error: IsSecurityTransparent is a read-only property")
@@ -4050,25 +3900,19 @@ Class PropertyInfo from MemberInfo
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getIsSpecialName
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsSpecialName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsSpecialName")
 
 	Func setIsSpecialName P1
 		raise("DotNet Error: IsSpecialName is a read-only property")
 
 	Func getCanRead
-		dn_x = dotnet_call("s3:get",nHandle,"s7:CanRead")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:CanRead")
 
 	Func setCanRead P1
 		raise("DotNet Error: CanRead is a read-only property")
 
 	Func getCanWrite
-		dn_x = dotnet_call("s3:get",nHandle,"s8:CanWrite")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:CanWrite")
 
 	Func setCanWrite P1
 		raise("DotNet Error: CanWrite is a read-only property")

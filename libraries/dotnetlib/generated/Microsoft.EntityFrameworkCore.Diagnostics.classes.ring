@@ -1392,33 +1392,25 @@ Class CoreEventId from Object
 		raise("DotNet Error: CollectionWithoutComparer is a read-only property")
 
 	Func getCoreBaseId
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s10:CoreBaseId")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s10:CoreBaseId")
 
 	Func setCoreBaseId P1
 		raise("DotNet Error: CoreBaseId is a read-only property")
 
 	Func getRelationalBaseId
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s16:RelationalBaseId")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s16:RelationalBaseId")
 
 	Func setRelationalBaseId P1
 		raise("DotNet Error: RelationalBaseId is a read-only property")
 
 	Func getProviderBaseId
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s14:ProviderBaseId")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s14:ProviderBaseId")
 
 	Func setProviderBaseId P1
 		raise("DotNet Error: ProviderBaseId is a read-only property")
 
 	Func getProviderDesignBaseId
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s20:ProviderDesignBaseId")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s20:ProviderDesignBaseId")
 
 	Func setProviderDesignBaseId P1
 		raise("DotNet Error: ProviderDesignBaseId is a read-only property")
@@ -5318,26 +5310,20 @@ Class ILoggingOptions from DotNetObject
 		return self
 
 	Func getIsSensitiveDataLoggingEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s29:IsSensitiveDataLoggingEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s29:IsSensitiveDataLoggingEnabled")
 
 	Func setIsSensitiveDataLoggingEnabled P1
 		raise("DotNet Error: IsSensitiveDataLoggingEnabled is a read-only property")
 
 	Func getIsSensitiveDataLoggingWarned
-		dn_x = dotnet_call("s3:get",nHandle,"s28:IsSensitiveDataLoggingWarned")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s28:IsSensitiveDataLoggingWarned")
 
 	Func setIsSensitiveDataLoggingWarned P1
 		dotnet_callv("s3:set",nHandle,"s28:IsSensitiveDataLoggingWarned",P1)
 		return self
 
 	Func getDetailedErrorsEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s21:DetailedErrorsEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:DetailedErrorsEnabled")
 
 	Func setDetailedErrorsEnabled P1
 		raise("DotNet Error: DetailedErrorsEnabled is a read-only property")
@@ -5986,9 +5972,7 @@ Class InterceptionResult from ValueType
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Diagnostics.InterceptionResult, Microsoft.EntityFrameworkCore',"s8:Suppress"))
 
 	Func getIsSuppressed
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsSuppressed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsSuppressed")
 
 	Func setIsSuppressed P1
 		raise("DotNet Error: IsSuppressed is a read-only property")
@@ -6019,9 +6003,7 @@ Class InterceptionResult1 from ValueType
 		raise("DotNet Error: Result is a read-only property")
 
 	Func getHasResult
-		dn_x = dotnet_call("s3:get",nHandle,"s9:HasResult")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:HasResult")
 
 	Func setHasResult P1
 		raise("DotNet Error: HasResult is a read-only property")
@@ -9781,9 +9763,7 @@ Class BatchEventData from EventData
 		raise("DotNet Error: Entries is a read-only property")
 
 	Func getCommandCount
-		dn_x = dotnet_call("s3:get",nHandle,"s12:CommandCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:CommandCount")
 
 	Func setCommandCount P1
 		raise("DotNet Error: CommandCount is a read-only property")
@@ -10236,9 +10216,7 @@ Class ExecutionStrategyEventData from EventData
 		raise("DotNet Error: Delay is a read-only property")
 
 	Func getIsAsync
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsAsync")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsAsync")
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
@@ -11340,9 +11318,7 @@ Class SaveChangesEventData from EventData
 		raise("DotNet Error: Entries is a read-only property")
 
 	Func getRowsAffected
-		dn_x = dotnet_call("s3:get",nHandle,"s12:RowsAffected")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:RowsAffected")
 
 	Func setRowsAffected P1
 		raise("DotNet Error: RowsAffected is a read-only property")
@@ -11808,9 +11784,7 @@ Class CommandCorrelatedEventData from DbContextEventData
 		raise("DotNet Error: ExecuteMethod is a read-only property")
 
 	Func getIsAsync
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsAsync")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsAsync")
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
@@ -11940,9 +11914,7 @@ Class ConnectionEventData from DbContextEventData
 		raise("DotNet Error: ConnectionId is a read-only property")
 
 	Func getIsAsync
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsAsync")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsAsync")
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
@@ -12000,17 +11972,13 @@ Class DataReaderEventData from DbContextEventData
 		raise("DotNet Error: ConnectionId is a read-only property")
 
 	Func getRecordsAffected
-		dn_x = dotnet_call("s3:get",nHandle,"s15:RecordsAffected")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:RecordsAffected")
 
 	Func setRecordsAffected P1
 		raise("DotNet Error: RecordsAffected is a read-only property")
 
 	Func getReadCount
-		dn_x = dotnet_call("s3:get",nHandle,"s9:ReadCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:ReadCount")
 
 	Func setReadCount P1
 		raise("DotNet Error: ReadCount is a read-only property")
@@ -12248,9 +12216,7 @@ Class MinBatchSizeEventData from BatchEventData
 		return self
 
 	Func getMinBatchSize
-		dn_x = dotnet_call("s3:get",nHandle,"s12:MinBatchSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:MinBatchSize")
 
 	Func setMinBatchSize P1
 		raise("DotNet Error: MinBatchSize is a read-only property")
@@ -12402,9 +12368,7 @@ Class SaveChangesCompletedEventData from DbContextEventData
 		return self
 
 	Func getEntitiesSavedCount
-		dn_x = dotnet_call("s3:get",nHandle,"s18:EntitiesSavedCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:EntitiesSavedCount")
 
 	Func setEntitiesSavedCount P1
 		raise("DotNet Error: EntitiesSavedCount is a read-only property")
@@ -12544,9 +12508,7 @@ Class TransactionEventData from DbContextEventData
 		raise("DotNet Error: ConnectionId is a read-only property")
 
 	Func getIsAsync
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsAsync")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsAsync")
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
@@ -12596,9 +12558,7 @@ Class TransactionStartingEventData from DbContextEventData
 		raise("DotNet Error: ConnectionId is a read-only property")
 
 	Func getIsAsync
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsAsync")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsAsync")
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
@@ -12701,9 +12661,7 @@ Class CommandEventData from CommandCorrelatedEventData
 		raise("DotNet Error: Command is a read-only property")
 
 	Func getLogParameterValues
-		dn_x = dotnet_call("s3:get",nHandle,"s18:LogParameterValues")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:LogParameterValues")
 
 	Func setLogParameterValues P1
 		raise("DotNet Error: LogParameterValues is a read-only property")
@@ -12769,9 +12727,7 @@ Class DataReaderClosingEventData from DataReaderEventData
 		return self
 
 	Func getIsAsync
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsAsync")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsAsync")
 
 	Func setIsAsync P1
 		raise("DotNet Error: IsAsync is a read-only property")
@@ -12833,9 +12789,7 @@ Class MigrationScriptingEventData from MigrationEventData
 		raise("DotNet Error: ToMigration is a read-only property")
 
 	Func getIsIdempotent
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsIdempotent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsIdempotent")
 
 	Func setIsIdempotent P1
 		raise("DotNet Error: IsIdempotent is a read-only property")

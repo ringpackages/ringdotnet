@@ -585,9 +585,7 @@ Class Activity from Object
 		raise("DotNet Error: StatusDescription is a read-only property")
 
 	Func getHasRemoteParent
-		dn_x = dotnet_call("s3:get",nHandle,"s15:HasRemoteParent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:HasRemoteParent")
 
 	Func setHasRemoteParent P1
 		raise("DotNet Error: HasRemoteParent is a read-only property")
@@ -715,17 +713,13 @@ Class Activity from Object
 		raise("DotNet Error: TraceId is a read-only property")
 
 	Func getRecorded
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Recorded")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Recorded")
 
 	Func setRecorded P1
 		raise("DotNet Error: Recorded is a read-only property")
 
 	Func getIsAllDataRequested
-		dn_x = dotnet_call("s3:get",nHandle,"s18:IsAllDataRequested")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:IsAllDataRequested")
 
 	Func setIsAllDataRequested P1
 		dotnet_callv("s3:set",nHandle,"s18:IsAllDataRequested",P1)
@@ -745,9 +739,7 @@ Class Activity from Object
 		raise("DotNet Error: ParentSpanId is a read-only property")
 
 	Func getIsStopped
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsStopped")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsStopped")
 
 	Func setIsStopped P1
 		raise("DotNet Error: IsStopped is a read-only property")
@@ -756,9 +748,7 @@ Class Activity from Object
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:IdFormat"))
 
 	Func getForceDefaultIdFormat
-		dn_x = dotnet_call("s3:get",'System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource',"s20:ForceDefaultIdFormat")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource',"s20:ForceDefaultIdFormat")
 
 	Func setForceDefaultIdFormat P1
 		dotnet_callv("s3:set",'System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource',"s20:ForceDefaultIdFormat",P1)
@@ -936,9 +926,7 @@ Class ActivityContext from ValueType
 		raise("DotNet Error: TraceState is a read-only property")
 
 	Func getIsRemote
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsRemote")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsRemote")
 
 	Func setIsRemote P1
 		raise("DotNet Error: IsRemote is a read-only property")
@@ -1497,17 +1485,13 @@ Class ActivityTagsCollection from Object
 		raise("DotNet Error: Values is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1801,27 +1785,21 @@ Class Debug from Object
 		raise("DotNet Error: WriteLineIf does not take one argument: use named arguments, WriteLineIf([ :parameter = value, ... ])")
 
 	Func getAutoFlush
-		dn_x = dotnet_call("s3:get",'System.Diagnostics.Debug, System.Private.CoreLib',"s9:AutoFlush")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Diagnostics.Debug, System.Private.CoreLib',"s9:AutoFlush")
 
 	Func setAutoFlush P1
 		dotnet_callv("s3:set",'System.Diagnostics.Debug, System.Private.CoreLib',"s9:AutoFlush",P1)
 		return self
 
 	Func getIndentLevel
-		dn_x = dotnet_call("s3:get",'System.Diagnostics.Debug, System.Private.CoreLib',"s11:IndentLevel")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Diagnostics.Debug, System.Private.CoreLib',"s11:IndentLevel")
 
 	Func setIndentLevel P1
 		dotnet_callv("s3:set",'System.Diagnostics.Debug, System.Private.CoreLib',"s11:IndentLevel",P1)
 		return self
 
 	Func getIndentSize
-		dn_x = dotnet_call("s3:get",'System.Diagnostics.Debug, System.Private.CoreLib',"s10:IndentSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Diagnostics.Debug, System.Private.CoreLib',"s10:IndentSize")
 
 	Func setIndentSize P1
 		dotnet_callv("s3:set",'System.Diagnostics.Debug, System.Private.CoreLib',"s10:IndentSize",P1)
@@ -2024,17 +2002,13 @@ Class DebuggableAttribute from Attribute
 		return self
 
 	Func getIsJITTrackingEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s20:IsJITTrackingEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:IsJITTrackingEnabled")
 
 	Func setIsJITTrackingEnabled P1
 		raise("DotNet Error: IsJITTrackingEnabled is a read-only property")
 
 	Func getIsJITOptimizerDisabled
-		dn_x = dotnet_call("s3:get",nHandle,"s22:IsJITOptimizerDisabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:IsJITOptimizerDisabled")
 
 	Func setIsJITOptimizerDisabled P1
 		raise("DotNet Error: IsJITOptimizerDisabled is a read-only property")
@@ -2096,9 +2070,7 @@ Class Debugger from Object
 		return self
 
 	Func getIsAttached
-		dn_x = dotnet_call("s3:get",'System.Diagnostics.Debugger, System.Private.CoreLib',"s10:IsAttached")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Diagnostics.Debugger, System.Private.CoreLib',"s10:IsAttached")
 
 	Func setIsAttached P1
 		raise("DotNet Error: IsAttached is a read-only property")
@@ -2637,9 +2609,7 @@ Class FileVersionInfo from Object
 		raise("DotNet Error: CompanyName is a read-only property")
 
 	Func getFileBuildPart
-		dn_x = dotnet_call("s3:get",nHandle,"s13:FileBuildPart")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:FileBuildPart")
 
 	Func setFileBuildPart P1
 		raise("DotNet Error: FileBuildPart is a read-only property")
@@ -2653,17 +2623,13 @@ Class FileVersionInfo from Object
 		raise("DotNet Error: FileDescription is a read-only property")
 
 	Func getFileMajorPart
-		dn_x = dotnet_call("s3:get",nHandle,"s13:FileMajorPart")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:FileMajorPart")
 
 	Func setFileMajorPart P1
 		raise("DotNet Error: FileMajorPart is a read-only property")
 
 	Func getFileMinorPart
-		dn_x = dotnet_call("s3:get",nHandle,"s13:FileMinorPart")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:FileMinorPart")
 
 	Func setFileMinorPart P1
 		raise("DotNet Error: FileMinorPart is a read-only property")
@@ -2677,9 +2643,7 @@ Class FileVersionInfo from Object
 		raise("DotNet Error: FileName is a read-only property")
 
 	Func getFilePrivatePart
-		dn_x = dotnet_call("s3:get",nHandle,"s15:FilePrivatePart")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:FilePrivatePart")
 
 	Func setFilePrivatePart P1
 		raise("DotNet Error: FilePrivatePart is a read-only property")
@@ -2701,41 +2665,31 @@ Class FileVersionInfo from Object
 		raise("DotNet Error: InternalName is a read-only property")
 
 	Func getIsDebug
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsDebug")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsDebug")
 
 	Func setIsDebug P1
 		raise("DotNet Error: IsDebug is a read-only property")
 
 	Func getIsPatched
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsPatched")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsPatched")
 
 	Func setIsPatched P1
 		raise("DotNet Error: IsPatched is a read-only property")
 
 	Func getIsPrivateBuild
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsPrivateBuild")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsPrivateBuild")
 
 	Func setIsPrivateBuild P1
 		raise("DotNet Error: IsPrivateBuild is a read-only property")
 
 	Func getIsPreRelease
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsPreRelease")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsPreRelease")
 
 	Func setIsPreRelease P1
 		raise("DotNet Error: IsPreRelease is a read-only property")
 
 	Func getIsSpecialBuild
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSpecialBuild")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSpecialBuild")
 
 	Func setIsSpecialBuild P1
 		raise("DotNet Error: IsSpecialBuild is a read-only property")
@@ -2781,25 +2735,19 @@ Class FileVersionInfo from Object
 		raise("DotNet Error: PrivateBuild is a read-only property")
 
 	Func getProductBuildPart
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ProductBuildPart")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:ProductBuildPart")
 
 	Func setProductBuildPart P1
 		raise("DotNet Error: ProductBuildPart is a read-only property")
 
 	Func getProductMajorPart
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ProductMajorPart")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:ProductMajorPart")
 
 	Func setProductMajorPart P1
 		raise("DotNet Error: ProductMajorPart is a read-only property")
 
 	Func getProductMinorPart
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ProductMinorPart")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:ProductMinorPart")
 
 	Func setProductMinorPart P1
 		raise("DotNet Error: ProductMinorPart is a read-only property")
@@ -2813,9 +2761,7 @@ Class FileVersionInfo from Object
 		raise("DotNet Error: ProductName is a read-only property")
 
 	Func getProductPrivatePart
-		dn_x = dotnet_call("s3:get",nHandle,"s18:ProductPrivatePart")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:ProductPrivatePart")
 
 	Func setProductPrivatePart P1
 		raise("DotNet Error: ProductPrivatePart is a read-only property")
@@ -2877,9 +2823,7 @@ Class InitializingTraceSourceEventArgs from EventArgs
 		raise("DotNet Error: TraceSource is a read-only property")
 
 	Func getWasInitialized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:WasInitialized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:WasInitialized")
 
 	Func setWasInitialized P1
 		dotnet_callv("s3:set",nHandle,"s14:WasInitialized",P1)
@@ -3148,25 +3092,19 @@ Class Process from Component
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getBasePriority
-		dn_x = dotnet_call("s3:get",nHandle,"s12:BasePriority")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:BasePriority")
 
 	Func setBasePriority P1
 		raise("DotNet Error: BasePriority is a read-only property")
 
 	Func getExitCode
-		dn_x = dotnet_call("s3:get",nHandle,"s8:ExitCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:ExitCode")
 
 	Func setExitCode P1
 		raise("DotNet Error: ExitCode is a read-only property")
 
 	Func getHasExited
-		dn_x = dotnet_call("s3:get",nHandle,"s9:HasExited")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:HasExited")
 
 	Func setHasExited P1
 		raise("DotNet Error: HasExited is a read-only property")
@@ -3184,9 +3122,7 @@ Class Process from Component
 		raise("DotNet Error: ExitTime is a read-only property")
 
 	Func getId
-		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s2:Id")
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -3220,105 +3156,79 @@ Class Process from Component
 		raise("DotNet Error: Modules is a read-only property")
 
 	Func getNonpagedSystemMemorySize64
-		dn_x = dotnet_call("s3:get",nHandle,"s26:NonpagedSystemMemorySize64")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:NonpagedSystemMemorySize64")
 
 	Func setNonpagedSystemMemorySize64 P1
 		raise("DotNet Error: NonpagedSystemMemorySize64 is a read-only property")
 
 	Func getNonpagedSystemMemorySize
-		dn_x = dotnet_call("s3:get",nHandle,"s24:NonpagedSystemMemorySize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:NonpagedSystemMemorySize")
 
 	Func setNonpagedSystemMemorySize P1
 		raise("DotNet Error: NonpagedSystemMemorySize is a read-only property")
 
 	Func getPagedMemorySize64
-		dn_x = dotnet_call("s3:get",nHandle,"s17:PagedMemorySize64")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:PagedMemorySize64")
 
 	Func setPagedMemorySize64 P1
 		raise("DotNet Error: PagedMemorySize64 is a read-only property")
 
 	Func getPagedMemorySize
-		dn_x = dotnet_call("s3:get",nHandle,"s15:PagedMemorySize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:PagedMemorySize")
 
 	Func setPagedMemorySize P1
 		raise("DotNet Error: PagedMemorySize is a read-only property")
 
 	Func getPagedSystemMemorySize64
-		dn_x = dotnet_call("s3:get",nHandle,"s23:PagedSystemMemorySize64")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:PagedSystemMemorySize64")
 
 	Func setPagedSystemMemorySize64 P1
 		raise("DotNet Error: PagedSystemMemorySize64 is a read-only property")
 
 	Func getPagedSystemMemorySize
-		dn_x = dotnet_call("s3:get",nHandle,"s21:PagedSystemMemorySize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:PagedSystemMemorySize")
 
 	Func setPagedSystemMemorySize P1
 		raise("DotNet Error: PagedSystemMemorySize is a read-only property")
 
 	Func getPeakPagedMemorySize64
-		dn_x = dotnet_call("s3:get",nHandle,"s21:PeakPagedMemorySize64")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:PeakPagedMemorySize64")
 
 	Func setPeakPagedMemorySize64 P1
 		raise("DotNet Error: PeakPagedMemorySize64 is a read-only property")
 
 	Func getPeakPagedMemorySize
-		dn_x = dotnet_call("s3:get",nHandle,"s19:PeakPagedMemorySize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:PeakPagedMemorySize")
 
 	Func setPeakPagedMemorySize P1
 		raise("DotNet Error: PeakPagedMemorySize is a read-only property")
 
 	Func getPeakWorkingSet64
-		dn_x = dotnet_call("s3:get",nHandle,"s16:PeakWorkingSet64")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:PeakWorkingSet64")
 
 	Func setPeakWorkingSet64 P1
 		raise("DotNet Error: PeakWorkingSet64 is a read-only property")
 
 	Func getPeakWorkingSet
-		dn_x = dotnet_call("s3:get",nHandle,"s14:PeakWorkingSet")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:PeakWorkingSet")
 
 	Func setPeakWorkingSet P1
 		raise("DotNet Error: PeakWorkingSet is a read-only property")
 
 	Func getPeakVirtualMemorySize64
-		dn_x = dotnet_call("s3:get",nHandle,"s23:PeakVirtualMemorySize64")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:PeakVirtualMemorySize64")
 
 	Func setPeakVirtualMemorySize64 P1
 		raise("DotNet Error: PeakVirtualMemorySize64 is a read-only property")
 
 	Func getPeakVirtualMemorySize
-		dn_x = dotnet_call("s3:get",nHandle,"s21:PeakVirtualMemorySize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:PeakVirtualMemorySize")
 
 	Func setPeakVirtualMemorySize P1
 		raise("DotNet Error: PeakVirtualMemorySize is a read-only property")
 
 	Func getPriorityBoostEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s20:PriorityBoostEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:PriorityBoostEnabled")
 
 	Func setPriorityBoostEnabled P1
 		dotnet_callv("s3:set",nHandle,"s20:PriorityBoostEnabled",P1)
@@ -3332,17 +3242,13 @@ Class Process from Component
 		return self
 
 	Func getPrivateMemorySize64
-		dn_x = dotnet_call("s3:get",nHandle,"s19:PrivateMemorySize64")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:PrivateMemorySize64")
 
 	Func setPrivateMemorySize64 P1
 		raise("DotNet Error: PrivateMemorySize64 is a read-only property")
 
 	Func getPrivateMemorySize
-		dn_x = dotnet_call("s3:get",nHandle,"s17:PrivateMemorySize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:PrivateMemorySize")
 
 	Func setPrivateMemorySize P1
 		raise("DotNet Error: PrivateMemorySize is a read-only property")
@@ -3355,9 +3261,7 @@ Class Process from Component
 		return self
 
 	Func getSessionId
-		dn_x = dotnet_call("s3:get",nHandle,"s9:SessionId")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:SessionId")
 
 	Func setSessionId P1
 		raise("DotNet Error: SessionId is a read-only property")
@@ -3376,33 +3280,25 @@ Class Process from Component
 		raise("DotNet Error: Threads is a read-only property")
 
 	Func getHandleCount
-		dn_x = dotnet_call("s3:get",nHandle,"s11:HandleCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:HandleCount")
 
 	Func setHandleCount P1
 		raise("DotNet Error: HandleCount is a read-only property")
 
 	Func getVirtualMemorySize64
-		dn_x = dotnet_call("s3:get",nHandle,"s19:VirtualMemorySize64")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:VirtualMemorySize64")
 
 	Func setVirtualMemorySize64 P1
 		raise("DotNet Error: VirtualMemorySize64 is a read-only property")
 
 	Func getVirtualMemorySize
-		dn_x = dotnet_call("s3:get",nHandle,"s17:VirtualMemorySize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:VirtualMemorySize")
 
 	Func setVirtualMemorySize P1
 		raise("DotNet Error: VirtualMemorySize is a read-only property")
 
 	Func getEnableRaisingEvents
-		dn_x = dotnet_call("s3:get",nHandle,"s19:EnableRaisingEvents")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:EnableRaisingEvents")
 
 	Func setEnableRaisingEvents P1
 		dotnet_callv("s3:set",nHandle,"s19:EnableRaisingEvents",P1)
@@ -3427,17 +3323,13 @@ Class Process from Component
 		raise("DotNet Error: StandardError is a read-only property")
 
 	Func getWorkingSet64
-		dn_x = dotnet_call("s3:get",nHandle,"s12:WorkingSet64")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:WorkingSet64")
 
 	Func setWorkingSet64 P1
 		raise("DotNet Error: WorkingSet64 is a read-only property")
 
 	Func getWorkingSet
-		dn_x = dotnet_call("s3:get",nHandle,"s10:WorkingSet")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:WorkingSet")
 
 	Func setWorkingSet P1
 		raise("DotNet Error: WorkingSet is a read-only property")
@@ -3496,9 +3388,7 @@ Class Process from Component
 		raise("DotNet Error: MainWindowTitle is a read-only property")
 
 	Func getResponding
-		dn_x = dotnet_call("s3:get",nHandle,"s10:Responding")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:Responding")
 
 	Func setResponding P1
 		raise("DotNet Error: Responding is a read-only property")
@@ -3545,9 +3435,7 @@ Class ProcessModule from Component
 		raise("DotNet Error: BaseAddress is a read-only property")
 
 	Func getModuleMemorySize
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ModuleMemorySize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:ModuleMemorySize")
 
 	Func setModuleMemorySize P1
 		raise("DotNet Error: ModuleMemorySize is a read-only property")
@@ -3680,9 +3568,7 @@ Class ProcessStartInfo from Object
 		raise("DotNet Error: ArgumentList is a read-only property")
 
 	Func getCreateNoWindow
-		dn_x = dotnet_call("s3:get",nHandle,"s14:CreateNoWindow")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:CreateNoWindow")
 
 	Func setCreateNoWindow P1
 		dotnet_callv("s3:set",nHandle,"s14:CreateNoWindow",P1)
@@ -3701,27 +3587,21 @@ Class ProcessStartInfo from Object
 		raise("DotNet Error: Environment is a read-only property")
 
 	Func getRedirectStandardInput
-		dn_x = dotnet_call("s3:get",nHandle,"s21:RedirectStandardInput")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:RedirectStandardInput")
 
 	Func setRedirectStandardInput P1
 		dotnet_callv("s3:set",nHandle,"s21:RedirectStandardInput",P1)
 		return self
 
 	Func getRedirectStandardOutput
-		dn_x = dotnet_call("s3:get",nHandle,"s22:RedirectStandardOutput")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:RedirectStandardOutput")
 
 	Func setRedirectStandardOutput P1
 		dotnet_callv("s3:set",nHandle,"s22:RedirectStandardOutput",P1)
 		return self
 
 	Func getRedirectStandardError
-		dn_x = dotnet_call("s3:get",nHandle,"s21:RedirectStandardError")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:RedirectStandardError")
 
 	Func setRedirectStandardError P1
 		dotnet_callv("s3:set",nHandle,"s21:RedirectStandardError",P1)
@@ -3767,9 +3647,7 @@ Class ProcessStartInfo from Object
 		return self
 
 	Func getErrorDialog
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ErrorDialog")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:ErrorDialog")
 
 	Func setErrorDialog P1
 		dotnet_callv("s3:set",nHandle,"s11:ErrorDialog",P1)
@@ -3826,18 +3704,14 @@ Class ProcessStartInfo from Object
 		return self
 
 	Func getLoadUserProfile
-		dn_x = dotnet_call("s3:get",nHandle,"s15:LoadUserProfile")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:LoadUserProfile")
 
 	Func setLoadUserProfile P1
 		dotnet_callv("s3:set",nHandle,"s15:LoadUserProfile",P1)
 		return self
 
 	Func getUseCredentialsForNetworkingOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s31:UseCredentialsForNetworkingOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s31:UseCredentialsForNetworkingOnly")
 
 	Func setUseCredentialsForNetworkingOnly P1
 		dotnet_callv("s3:set",nHandle,"s31:UseCredentialsForNetworkingOnly",P1)
@@ -3857,9 +3731,7 @@ Class ProcessStartInfo from Object
 		raise("DotNet Error: Verbs is a read-only property")
 
 	Func getUseShellExecute
-		dn_x = dotnet_call("s3:get",nHandle,"s15:UseShellExecute")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:UseShellExecute")
 
 	Func setUseShellExecute P1
 		dotnet_callv("s3:set",nHandle,"s15:UseShellExecute",P1)
@@ -3898,33 +3770,25 @@ Class ProcessThread from Component
 		return self
 
 	Func getBasePriority
-		dn_x = dotnet_call("s3:get",nHandle,"s12:BasePriority")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:BasePriority")
 
 	Func setBasePriority P1
 		raise("DotNet Error: BasePriority is a read-only property")
 
 	Func getCurrentPriority
-		dn_x = dotnet_call("s3:get",nHandle,"s15:CurrentPriority")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:CurrentPriority")
 
 	Func setCurrentPriority P1
 		raise("DotNet Error: CurrentPriority is a read-only property")
 
 	Func getId
-		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s2:Id")
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getPriorityBoostEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s20:PriorityBoostEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:PriorityBoostEnabled")
 
 	Func setPriorityBoostEnabled P1
 		dotnet_callv("s3:set",nHandle,"s20:PriorityBoostEnabled",P1)
@@ -4139,9 +4003,7 @@ Class StackFrame from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetNativeImageBase"))
 
 	Func getOFFSET_UNKNOWN
-		dn_x = dotnet_call("s3:get",'System.Diagnostics.StackFrame, System.Private.CoreLib',"s14:OFFSET_UNKNOWN")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Diagnostics.StackFrame, System.Private.CoreLib',"s14:OFFSET_UNKNOWN")
 
 	Func setOFFSET_UNKNOWN P1
 		raise("DotNet Error: OFFSET_UNKNOWN is a read-only property")
@@ -4241,17 +4103,13 @@ Class StackTrace from Object
 		return dn_x
 
 	Func getFrameCount
-		dn_x = dotnet_call("s3:get",nHandle,"s10:FrameCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:FrameCount")
 
 	Func setFrameCount P1
 		raise("DotNet Error: FrameCount is a read-only property")
 
 	Func getMETHODS_TO_SKIP
-		dn_x = dotnet_call("s3:get",'System.Diagnostics.StackTrace, System.Private.CoreLib',"s15:METHODS_TO_SKIP")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Diagnostics.StackTrace, System.Private.CoreLib',"s15:METHODS_TO_SKIP")
 
 	Func setMETHODS_TO_SKIP P1
 		raise("DotNet Error: METHODS_TO_SKIP is a read-only property")
@@ -4345,9 +4203,7 @@ Class Stopwatch from Object
 		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.Stopwatch, System.Private.CoreLib',"s14:GetElapsedTime",P1))
 
 	Func getIsRunning
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsRunning")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsRunning")
 
 	Func setIsRunning P1
 		raise("DotNet Error: IsRunning is a read-only property")
@@ -4359,33 +4215,25 @@ Class Stopwatch from Object
 		raise("DotNet Error: Elapsed is a read-only property")
 
 	Func getElapsedMilliseconds
-		dn_x = dotnet_call("s3:get",nHandle,"s19:ElapsedMilliseconds")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:ElapsedMilliseconds")
 
 	Func setElapsedMilliseconds P1
 		raise("DotNet Error: ElapsedMilliseconds is a read-only property")
 
 	Func getElapsedTicks
-		dn_x = dotnet_call("s3:get",nHandle,"s12:ElapsedTicks")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:ElapsedTicks")
 
 	Func setElapsedTicks P1
 		raise("DotNet Error: ElapsedTicks is a read-only property")
 
 	Func getFrequency
-		dn_x = dotnet_call("s3:get",'System.Diagnostics.Stopwatch, System.Private.CoreLib',"s9:Frequency")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Diagnostics.Stopwatch, System.Private.CoreLib',"s9:Frequency")
 
 	Func setFrequency P1
 		raise("DotNet Error: Frequency is a read-only property")
 
 	Func getIsHighResolution
-		dn_x = dotnet_call("s3:get",'System.Diagnostics.Stopwatch, System.Private.CoreLib',"s16:IsHighResolution")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Diagnostics.Stopwatch, System.Private.CoreLib',"s16:IsHighResolution")
 
 	Func setIsHighResolution P1
 		raise("DotNet Error: IsHighResolution is a read-only property")
@@ -4649,17 +4497,13 @@ Class TagList from ValueType
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -4855,36 +4699,28 @@ Class Trace from Object
 		raise("DotNet Error: Listeners is a read-only property")
 
 	Func getAutoFlush
-		dn_x = dotnet_call("s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s9:AutoFlush")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s9:AutoFlush")
 
 	Func setAutoFlush P1
 		dotnet_callv("s3:set",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s9:AutoFlush",P1)
 		return self
 
 	Func getUseGlobalLock
-		dn_x = dotnet_call("s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s13:UseGlobalLock")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s13:UseGlobalLock")
 
 	Func setUseGlobalLock P1
 		dotnet_callv("s3:set",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s13:UseGlobalLock",P1)
 		return self
 
 	Func getIndentLevel
-		dn_x = dotnet_call("s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s11:IndentLevel")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s11:IndentLevel")
 
 	Func setIndentLevel P1
 		dotnet_callv("s3:set",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s11:IndentLevel",P1)
 		return self
 
 	Func getIndentSize
-		dn_x = dotnet_call("s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s10:IndentSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s10:IndentSize")
 
 	Func setIndentSize P1
 		dotnet_callv("s3:set",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s10:IndentSize",P1)
@@ -4930,9 +4766,7 @@ Class TraceEventCache from Object
 		raise("DotNet Error: DateTime is a read-only property")
 
 	Func getProcessId
-		dn_x = dotnet_call("s3:get",nHandle,"s9:ProcessId")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:ProcessId")
 
 	Func setProcessId P1
 		raise("DotNet Error: ProcessId is a read-only property")
@@ -4946,9 +4780,7 @@ Class TraceEventCache from Object
 		raise("DotNet Error: ThreadId is a read-only property")
 
 	Func getTimestamp
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Timestamp")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Timestamp")
 
 	Func setTimestamp P1
 		raise("DotNet Error: Timestamp is a read-only property")
@@ -5084,26 +4916,20 @@ Class TraceListener from MarshalByRefObject
 		return self
 
 	Func getIsThreadSafe
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsThreadSafe")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsThreadSafe")
 
 	Func setIsThreadSafe P1
 		raise("DotNet Error: IsThreadSafe is a read-only property")
 
 	Func getIndentLevel
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IndentLevel")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IndentLevel")
 
 	Func setIndentLevel P1
 		dotnet_callv("s3:set",nHandle,"s11:IndentLevel",P1)
 		return self
 
 	Func getIndentSize
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IndentSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IndentSize")
 
 	Func setIndentSize P1
 		dotnet_callv("s3:set",nHandle,"s10:IndentSize",P1)
@@ -5218,9 +5044,7 @@ Class TraceListenerCollection from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -5410,9 +5234,7 @@ Class BooleanSwitch from Switch_
 		return self
 
 	Func getEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Enabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Enabled")
 
 	Func setEnabled P1
 		dotnet_callv("s3:set",nHandle,"s7:Enabled",P1)
@@ -5443,9 +5265,7 @@ Class DefaultTraceListener from TraceListener
 		return self
 
 	Func getAssertUiEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s15:AssertUiEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:AssertUiEnabled")
 
 	Func setAssertUiEnabled P1
 		dotnet_callv("s3:set",nHandle,"s15:AssertUiEnabled",P1)
@@ -5697,33 +5517,25 @@ Class TraceSwitch from Switch_
 		return self
 
 	Func getTraceError
-		dn_x = dotnet_call("s3:get",nHandle,"s10:TraceError")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:TraceError")
 
 	Func setTraceError P1
 		raise("DotNet Error: TraceError is a read-only property")
 
 	Func getTraceWarning
-		dn_x = dotnet_call("s3:get",nHandle,"s12:TraceWarning")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:TraceWarning")
 
 	Func setTraceWarning P1
 		raise("DotNet Error: TraceWarning is a read-only property")
 
 	Func getTraceInfo
-		dn_x = dotnet_call("s3:get",nHandle,"s9:TraceInfo")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:TraceInfo")
 
 	Func setTraceInfo P1
 		raise("DotNet Error: TraceInfo is a read-only property")
 
 	Func getTraceVerbose
-		dn_x = dotnet_call("s3:get",nHandle,"s12:TraceVerbose")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:TraceVerbose")
 
 	Func setTraceVerbose P1
 		raise("DotNet Error: TraceVerbose is a read-only property")

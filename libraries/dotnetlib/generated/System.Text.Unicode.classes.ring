@@ -42,17 +42,13 @@ Class UnicodeRange from Object
 		return dnObj(dotnet_callo("s4:call",'System.Text.Unicode.UnicodeRange, System.Text.Encodings.Web',"s6:Create",P1,P2))
 
 	Func getFirstCodePoint
-		dn_x = dotnet_call("s3:get",nHandle,"s14:FirstCodePoint")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:FirstCodePoint")
 
 	Func setFirstCodePoint P1
 		raise("DotNet Error: FirstCodePoint is a read-only property")
 
 	Func getLength
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")

@@ -134,27 +134,21 @@ Class BitmapData from Object
 		return dn_x
 
 	Func getWidth
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Width")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Width")
 
 	Func setWidth P1
 		dotnet_callv("s3:set",nHandle,"s5:Width",P1)
 		return self
 
 	Func getHeight
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Height")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Height")
 
 	Func setHeight P1
 		dotnet_callv("s3:set",nHandle,"s6:Height",P1)
 		return self
 
 	Func getStride
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Stride")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Stride")
 
 	Func setStride P1
 		dotnet_callv("s3:set",nHandle,"s6:Stride",P1)
@@ -175,9 +169,7 @@ Class BitmapData from Object
 		return self
 
 	Func getReserved
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Reserved")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Reserved")
 
 	Func setReserved P1
 		dotnet_callv("s3:set",nHandle,"s8:Reserved",P1)
@@ -334,225 +326,175 @@ Class ColorMatrix from Object
 		raise("DotNet Error: this indexer takes its indexes as a list: SetItem([index1,index2],value)")
 
 	Func getMatrix00
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix00")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix00")
 
 	Func setMatrix00 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix00",P1)
 		return self
 
 	Func getMatrix01
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix01")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix01")
 
 	Func setMatrix01 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix01",P1)
 		return self
 
 	Func getMatrix02
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix02")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix02")
 
 	Func setMatrix02 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix02",P1)
 		return self
 
 	Func getMatrix03
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix03")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix03")
 
 	Func setMatrix03 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix03",P1)
 		return self
 
 	Func getMatrix04
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix04")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix04")
 
 	Func setMatrix04 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix04",P1)
 		return self
 
 	Func getMatrix10
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix10")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix10")
 
 	Func setMatrix10 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix10",P1)
 		return self
 
 	Func getMatrix11
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix11")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix11")
 
 	Func setMatrix11 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix11",P1)
 		return self
 
 	Func getMatrix12
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix12")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix12")
 
 	Func setMatrix12 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix12",P1)
 		return self
 
 	Func getMatrix13
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix13")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix13")
 
 	Func setMatrix13 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix13",P1)
 		return self
 
 	Func getMatrix14
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix14")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix14")
 
 	Func setMatrix14 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix14",P1)
 		return self
 
 	Func getMatrix20
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix20")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix20")
 
 	Func setMatrix20 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix20",P1)
 		return self
 
 	Func getMatrix21
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix21")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix21")
 
 	Func setMatrix21 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix21",P1)
 		return self
 
 	Func getMatrix22
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix22")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix22")
 
 	Func setMatrix22 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix22",P1)
 		return self
 
 	Func getMatrix23
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix23")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix23")
 
 	Func setMatrix23 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix23",P1)
 		return self
 
 	Func getMatrix24
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix24")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix24")
 
 	Func setMatrix24 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix24",P1)
 		return self
 
 	Func getMatrix30
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix30")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix30")
 
 	Func setMatrix30 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix30",P1)
 		return self
 
 	Func getMatrix31
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix31")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix31")
 
 	Func setMatrix31 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix31",P1)
 		return self
 
 	Func getMatrix32
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix32")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix32")
 
 	Func setMatrix32 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix32",P1)
 		return self
 
 	Func getMatrix33
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix33")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix33")
 
 	Func setMatrix33 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix33",P1)
 		return self
 
 	Func getMatrix34
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix34")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix34")
 
 	Func setMatrix34 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix34",P1)
 		return self
 
 	Func getMatrix40
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix40")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix40")
 
 	Func setMatrix40 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix40",P1)
 		return self
 
 	Func getMatrix41
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix41")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix41")
 
 	Func setMatrix41 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix41",P1)
 		return self
 
 	Func getMatrix42
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix42")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix42")
 
 	Func setMatrix42 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix42",P1)
 		return self
 
 	Func getMatrix43
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix43")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix43")
 
 	Func setMatrix43 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix43",P1)
 		return self
 
 	Func getMatrix44
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Matrix44")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Matrix44")
 
 	Func setMatrix44 P1
 		dotnet_callv("s3:set",nHandle,"s8:Matrix44",P1)
@@ -584,9 +526,7 @@ Class ColorPalette from Object
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.Imaging.ColorPalette, System.Drawing.Common',"s20:CreateOptimalPalette",P1,P2,P3))
 
 	Func getFlags
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Flags")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Flags")
 
 	Func setFlags P1
 		raise("DotNet Error: Flags is a read-only property")
@@ -782,9 +722,7 @@ Class EncoderParameter from Object
 		raise("DotNet Error: ValueType is a read-only property")
 
 	Func getNumberOfValues
-		dn_x = dotnet_call("s3:get",nHandle,"s14:NumberOfValues")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:NumberOfValues")
 
 	Func setNumberOfValues P1
 		raise("DotNet Error: NumberOfValues is a read-only property")
@@ -1247,9 +1185,7 @@ Class ImageCodecInfo from Object
 		return self
 
 	Func getVersion
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Version")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Version")
 
 	Func setVersion P1
 		dotnet_callv("s3:set",nHandle,"s7:Version",P1)
@@ -1307,63 +1243,49 @@ Class MetaHeader from Object
 		return dn_x
 
 	Func getType
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Type")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Type")
 
 	Func setType P1
 		dotnet_callv("s3:set",nHandle,"s4:Type",P1)
 		return self
 
 	Func getHeaderSize
-		dn_x = dotnet_call("s3:get",nHandle,"s10:HeaderSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:HeaderSize")
 
 	Func setHeaderSize P1
 		dotnet_callv("s3:set",nHandle,"s10:HeaderSize",P1)
 		return self
 
 	Func getVersion
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Version")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Version")
 
 	Func setVersion P1
 		dotnet_callv("s3:set",nHandle,"s7:Version",P1)
 		return self
 
 	Func getSize
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Size")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Size")
 
 	Func setSize P1
 		dotnet_callv("s3:set",nHandle,"s4:Size",P1)
 		return self
 
 	Func getNoObjects
-		dn_x = dotnet_call("s3:get",nHandle,"s9:NoObjects")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:NoObjects")
 
 	Func setNoObjects P1
 		dotnet_callv("s3:set",nHandle,"s9:NoObjects",P1)
 		return self
 
 	Func getMaxRecord
-		dn_x = dotnet_call("s3:get",nHandle,"s9:MaxRecord")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:MaxRecord")
 
 	Func setMaxRecord P1
 		dotnet_callv("s3:set",nHandle,"s9:MaxRecord",P1)
 		return self
 
 	Func getNoParameters
-		dn_x = dotnet_call("s3:get",nHandle,"s12:NoParameters")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:NoParameters")
 
 	Func setNoParameters P1
 		dotnet_callv("s3:set",nHandle,"s12:NoParameters",P1)
@@ -1496,33 +1418,25 @@ Class MetafileHeader from Object
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getMetafileSize
-		dn_x = dotnet_call("s3:get",nHandle,"s12:MetafileSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:MetafileSize")
 
 	Func setMetafileSize P1
 		raise("DotNet Error: MetafileSize is a read-only property")
 
 	Func getVersion
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Version")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Version")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getDpiX
-		dn_x = dotnet_call("s3:get",nHandle,"s4:DpiX")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:DpiX")
 
 	Func setDpiX P1
 		raise("DotNet Error: DpiX is a read-only property")
 
 	Func getDpiY
-		dn_x = dotnet_call("s3:get",nHandle,"s4:DpiY")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:DpiY")
 
 	Func setDpiY P1
 		raise("DotNet Error: DpiY is a read-only property")
@@ -1540,25 +1454,19 @@ Class MetafileHeader from Object
 		raise("DotNet Error: WmfHeader is a read-only property")
 
 	Func getEmfPlusHeaderSize
-		dn_x = dotnet_call("s3:get",nHandle,"s17:EmfPlusHeaderSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:EmfPlusHeaderSize")
 
 	Func setEmfPlusHeaderSize P1
 		raise("DotNet Error: EmfPlusHeaderSize is a read-only property")
 
 	Func getLogicalDpiX
-		dn_x = dotnet_call("s3:get",nHandle,"s11:LogicalDpiX")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:LogicalDpiX")
 
 	Func setLogicalDpiX P1
 		raise("DotNet Error: LogicalDpiX is a read-only property")
 
 	Func getLogicalDpiY
-		dn_x = dotnet_call("s3:get",nHandle,"s11:LogicalDpiY")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:LogicalDpiY")
 
 	Func setLogicalDpiY P1
 		raise("DotNet Error: LogicalDpiY is a read-only property")
@@ -1589,27 +1497,21 @@ Class PropertyItem from Object
 		return dn_x
 
 	Func getId
-		dn_x = dotnet_call("s3:get",nHandle,"s2:Id")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s2:Id")
 
 	Func setId P1
 		dotnet_callv("s3:set",nHandle,"s2:Id",P1)
 		return self
 
 	Func getLen
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Len")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:Len")
 
 	Func setLen P1
 		dotnet_callv("s3:set",nHandle,"s3:Len",P1)
 		return self
 
 	Func getType
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Type")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Type")
 
 	Func setType P1
 		dotnet_callv("s3:set",nHandle,"s4:Type",P1)
@@ -1659,81 +1561,63 @@ Class WmfPlaceableFileHeader from Object
 		return dn_x
 
 	Func getKey
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Key")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:Key")
 
 	Func setKey P1
 		dotnet_callv("s3:set",nHandle,"s3:Key",P1)
 		return self
 
 	Func getHmf
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Hmf")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:Hmf")
 
 	Func setHmf P1
 		dotnet_callv("s3:set",nHandle,"s3:Hmf",P1)
 		return self
 
 	Func getBboxLeft
-		dn_x = dotnet_call("s3:get",nHandle,"s8:BboxLeft")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:BboxLeft")
 
 	Func setBboxLeft P1
 		dotnet_callv("s3:set",nHandle,"s8:BboxLeft",P1)
 		return self
 
 	Func getBboxTop
-		dn_x = dotnet_call("s3:get",nHandle,"s7:BboxTop")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:BboxTop")
 
 	Func setBboxTop P1
 		dotnet_callv("s3:set",nHandle,"s7:BboxTop",P1)
 		return self
 
 	Func getBboxRight
-		dn_x = dotnet_call("s3:get",nHandle,"s9:BboxRight")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:BboxRight")
 
 	Func setBboxRight P1
 		dotnet_callv("s3:set",nHandle,"s9:BboxRight",P1)
 		return self
 
 	Func getBboxBottom
-		dn_x = dotnet_call("s3:get",nHandle,"s10:BboxBottom")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:BboxBottom")
 
 	Func setBboxBottom P1
 		dotnet_callv("s3:set",nHandle,"s10:BboxBottom",P1)
 		return self
 
 	Func getInch
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Inch")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Inch")
 
 	Func setInch P1
 		dotnet_callv("s3:set",nHandle,"s4:Inch",P1)
 		return self
 
 	Func getReserved
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Reserved")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Reserved")
 
 	Func setReserved P1
 		dotnet_callv("s3:set",nHandle,"s8:Reserved",P1)
 		return self
 
 	Func getChecksum
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Checksum")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Checksum")
 
 	Func setChecksum P1
 		dotnet_callv("s3:set",nHandle,"s8:Checksum",P1)

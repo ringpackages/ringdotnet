@@ -512,41 +512,31 @@ Class BigInteger from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.BigInteger, System.Runtime.Numerics',"s12:MinMagnitude",P1,P2))
 
 	Func getIsPowerOfTwo
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsPowerOfTwo")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsPowerOfTwo")
 
 	Func setIsPowerOfTwo P1
 		raise("DotNet Error: IsPowerOfTwo is a read-only property")
 
 	Func getIsZero
-		dn_x = dotnet_call("s3:get",nHandle,"s6:IsZero")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:IsZero")
 
 	Func setIsZero P1
 		raise("DotNet Error: IsZero is a read-only property")
 
 	Func getIsOne
-		dn_x = dotnet_call("s3:get",nHandle,"s5:IsOne")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:IsOne")
 
 	Func setIsOne P1
 		raise("DotNet Error: IsOne is a read-only property")
 
 	Func getIsEven
-		dn_x = dotnet_call("s3:get",nHandle,"s6:IsEven")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:IsEven")
 
 	Func setIsEven P1
 		raise("DotNet Error: IsEven is a read-only property")
 
 	Func getSign
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Sign")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Sign")
 
 	Func setSign P1
 		raise("DotNet Error: Sign is a read-only property")
@@ -879,33 +869,25 @@ Class Complex from ValueType
 		raise("DotNet Error: TryParse does not take one argument: use named arguments, TryParse([ :parameter = value, ... ])")
 
 	Func getReal
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Real")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Real")
 
 	Func setReal P1
 		raise("DotNet Error: Real is a read-only property")
 
 	Func getImaginary
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Imaginary")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Imaginary")
 
 	Func setImaginary P1
 		raise("DotNet Error: Imaginary is a read-only property")
 
 	Func getMagnitude
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Magnitude")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Magnitude")
 
 	Func setMagnitude P1
 		raise("DotNet Error: Magnitude is a read-only property")
 
 	Func getPhase
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Phase")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Phase")
 
 	Func setPhase P1
 		raise("DotNet Error: Phase is a read-only property")
@@ -2104,9 +2086,7 @@ Class Matrix3x2 from ValueType
 		raise("DotNet Error: this indexer takes its indexes as a list: SetItem([index1,index2],value)")
 
 	Func getIsIdentity
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsIdentity")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsIdentity")
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")
@@ -2119,54 +2099,42 @@ Class Matrix3x2 from ValueType
 		return self
 
 	Func getM11
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M11")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M11")
 
 	Func setM11 P1
 		dotnet_callv("s3:set",nHandle,"s3:M11",P1)
 		return self
 
 	Func getM12
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M12")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M12")
 
 	Func setM12 P1
 		dotnet_callv("s3:set",nHandle,"s3:M12",P1)
 		return self
 
 	Func getM21
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M21")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M21")
 
 	Func setM21 P1
 		dotnet_callv("s3:set",nHandle,"s3:M21",P1)
 		return self
 
 	Func getM22
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M22")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M22")
 
 	Func setM22 P1
 		dotnet_callv("s3:set",nHandle,"s3:M22",P1)
 		return self
 
 	Func getM31
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M31")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M31")
 
 	Func setM31 P1
 		dotnet_callv("s3:set",nHandle,"s3:M31",P1)
 		return self
 
 	Func getM32
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M32")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M32")
 
 	Func setM32 P1
 		dotnet_callv("s3:set",nHandle,"s3:M32",P1)
@@ -2389,9 +2357,7 @@ Class Matrix4x4 from ValueType
 		raise("DotNet Error: this indexer takes its indexes as a list: SetItem([index1,index2],value)")
 
 	Func getIsIdentity
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsIdentity")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsIdentity")
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")
@@ -2404,144 +2370,112 @@ Class Matrix4x4 from ValueType
 		return self
 
 	Func getM11
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M11")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M11")
 
 	Func setM11 P1
 		dotnet_callv("s3:set",nHandle,"s3:M11",P1)
 		return self
 
 	Func getM12
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M12")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M12")
 
 	Func setM12 P1
 		dotnet_callv("s3:set",nHandle,"s3:M12",P1)
 		return self
 
 	Func getM13
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M13")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M13")
 
 	Func setM13 P1
 		dotnet_callv("s3:set",nHandle,"s3:M13",P1)
 		return self
 
 	Func getM14
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M14")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M14")
 
 	Func setM14 P1
 		dotnet_callv("s3:set",nHandle,"s3:M14",P1)
 		return self
 
 	Func getM21
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M21")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M21")
 
 	Func setM21 P1
 		dotnet_callv("s3:set",nHandle,"s3:M21",P1)
 		return self
 
 	Func getM22
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M22")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M22")
 
 	Func setM22 P1
 		dotnet_callv("s3:set",nHandle,"s3:M22",P1)
 		return self
 
 	Func getM23
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M23")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M23")
 
 	Func setM23 P1
 		dotnet_callv("s3:set",nHandle,"s3:M23",P1)
 		return self
 
 	Func getM24
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M24")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M24")
 
 	Func setM24 P1
 		dotnet_callv("s3:set",nHandle,"s3:M24",P1)
 		return self
 
 	Func getM31
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M31")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M31")
 
 	Func setM31 P1
 		dotnet_callv("s3:set",nHandle,"s3:M31",P1)
 		return self
 
 	Func getM32
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M32")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M32")
 
 	Func setM32 P1
 		dotnet_callv("s3:set",nHandle,"s3:M32",P1)
 		return self
 
 	Func getM33
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M33")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M33")
 
 	Func setM33 P1
 		dotnet_callv("s3:set",nHandle,"s3:M33",P1)
 		return self
 
 	Func getM34
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M34")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M34")
 
 	Func setM34 P1
 		dotnet_callv("s3:set",nHandle,"s3:M34",P1)
 		return self
 
 	Func getM41
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M41")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M41")
 
 	Func setM41 P1
 		dotnet_callv("s3:set",nHandle,"s3:M41",P1)
 		return self
 
 	Func getM42
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M42")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M42")
 
 	Func setM42 P1
 		dotnet_callv("s3:set",nHandle,"s3:M42",P1)
 		return self
 
 	Func getM43
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M43")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M43")
 
 	Func setM43 P1
 		dotnet_callv("s3:set",nHandle,"s3:M43",P1)
 		return self
 
 	Func getM44
-		dn_x = dotnet_call("s3:get",nHandle,"s3:M44")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:M44")
 
 	Func setM44 P1
 		dotnet_callv("s3:set",nHandle,"s3:M44",P1)
@@ -2633,9 +2567,7 @@ Class Plane from ValueType
 		return self
 
 	Func getD
-		dn_x = dotnet_call("s3:get",nHandle,"s1:D")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:D")
 
 	Func setD P1
 		dotnet_callv("s3:set",nHandle,"s1:D",P1)
@@ -2761,44 +2693,34 @@ Class Quaternion from ValueType
 		return self
 
 	Func getIsIdentity
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsIdentity")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsIdentity")
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")
 
 	Func getX
-		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:X")
 
 	Func setX P1
 		dotnet_callv("s3:set",nHandle,"s1:X",P1)
 		return self
 
 	Func getY
-		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:Y")
 
 	Func setY P1
 		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
 		return self
 
 	Func getZ
-		dn_x = dotnet_call("s3:get",nHandle,"s1:Z")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:Z")
 
 	Func setZ P1
 		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
 		return self
 
 	Func getW
-		dn_x = dotnet_call("s3:get",nHandle,"s1:W")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:W")
 
 	Func setW P1
 		dotnet_callv("s3:set",nHandle,"s1:W",P1)
@@ -3272,9 +3194,7 @@ Class Vector from Object
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s9:AsVector3",P1))
 
 	Func getIsHardwareAccelerated
-		dn_x = dotnet_call("s3:get",'System.Numerics.Vector, System.Private.CoreLib',"s21:IsHardwareAccelerated")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Numerics.Vector, System.Private.CoreLib',"s21:IsHardwareAccelerated")
 
 	Func setIsHardwareAccelerated P1
 		raise("DotNet Error: IsHardwareAccelerated is a read-only property")
@@ -3519,18 +3439,14 @@ Class Vector2 from ValueType
 		return self
 
 	Func getX
-		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:X")
 
 	Func setX P1
 		dotnet_callv("s3:set",nHandle,"s1:X",P1)
 		return self
 
 	Func getY
-		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:Y")
 
 	Func setY P1
 		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
@@ -3857,27 +3773,21 @@ Class Vector3 from ValueType
 		return self
 
 	Func getX
-		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:X")
 
 	Func setX P1
 		dotnet_callv("s3:set",nHandle,"s1:X",P1)
 		return self
 
 	Func getY
-		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:Y")
 
 	Func setY P1
 		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
 		return self
 
 	Func getZ
-		dn_x = dotnet_call("s3:get",nHandle,"s1:Z")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:Z")
 
 	Func setZ P1
 		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
@@ -4211,36 +4121,28 @@ Class Vector4 from ValueType
 		return self
 
 	Func getX
-		dn_x = dotnet_call("s3:get",nHandle,"s1:X")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:X")
 
 	Func setX P1
 		dotnet_callv("s3:set",nHandle,"s1:X",P1)
 		return self
 
 	Func getY
-		dn_x = dotnet_call("s3:get",nHandle,"s1:Y")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:Y")
 
 	Func setY P1
 		dotnet_callv("s3:set",nHandle,"s1:Y",P1)
 		return self
 
 	Func getZ
-		dn_x = dotnet_call("s3:get",nHandle,"s1:Z")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:Z")
 
 	Func setZ P1
 		dotnet_callv("s3:set",nHandle,"s1:Z",P1)
 		return self
 
 	Func getW
-		dn_x = dotnet_call("s3:get",nHandle,"s1:W")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s1:W")
 
 	Func setW P1
 		dotnet_callv("s3:set",nHandle,"s1:W",P1)

@@ -124,9 +124,7 @@ Class AttributeRouteInfo from Object
 		return self
 
 	Func getOrder
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Order")
 
 	Func setOrder P1
 		dotnet_callv("s3:set",nHandle,"s5:Order",P1)
@@ -142,18 +140,14 @@ Class AttributeRouteInfo from Object
 		return self
 
 	Func getSuppressLinkGeneration
-		dn_x = dotnet_call("s3:get",nHandle,"s22:SuppressLinkGeneration")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:SuppressLinkGeneration")
 
 	Func setSuppressLinkGeneration P1
 		dotnet_callv("s3:set",nHandle,"s22:SuppressLinkGeneration",P1)
 		return self
 
 	Func getSuppressPathMatching
-		dn_x = dotnet_call("s3:get",nHandle,"s20:SuppressPathMatching")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:SuppressPathMatching")
 
 	Func setSuppressPathMatching P1
 		dotnet_callv("s3:set",nHandle,"s20:SuppressPathMatching",P1)
@@ -223,9 +217,7 @@ Class HttpMethodAttribute from Attribute
 		raise("DotNet Error: Template is a read-only property")
 
 	Func getOrder
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Order")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Order")
 
 	Func setOrder P1
 		dotnet_callv("s3:set",nHandle,"s5:Order",P1)

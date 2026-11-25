@@ -100,9 +100,7 @@ Class TarEntry from Object
 		return dn_x
 
 	Func getChecksum
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Checksum")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Checksum")
 
 	Func setChecksum P1
 		raise("DotNet Error: Checksum is a read-only property")
@@ -120,9 +118,7 @@ Class TarEntry from Object
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getGid
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Gid")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:Gid")
 
 	Func setGid P1
 		dotnet_callv("s3:set",nHandle,"s3:Gid",P1)
@@ -136,9 +132,7 @@ Class TarEntry from Object
 		return self
 
 	Func getLength
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
@@ -169,9 +163,7 @@ Class TarEntry from Object
 		return self
 
 	Func getUid
-		dn_x = dotnet_call("s3:get",nHandle,"s3:Uid")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:Uid")
 
 	Func setUid P1
 		dotnet_callv("s3:set",nHandle,"s3:Uid",P1)
@@ -185,9 +177,7 @@ Class TarEntry from Object
 		return self
 
 	Func getDataOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s10:DataOffset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:DataOffset")
 
 	Func setDataOffset P1
 		raise("DotNet Error: DataOffset is a read-only property")
@@ -382,18 +372,14 @@ Class PosixTarEntry from TarEntry
 		return self
 
 	Func getDeviceMajor
-		dn_x = dotnet_call("s3:get",nHandle,"s11:DeviceMajor")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:DeviceMajor")
 
 	Func setDeviceMajor P1
 		dotnet_callv("s3:set",nHandle,"s11:DeviceMajor",P1)
 		return self
 
 	Func getDeviceMinor
-		dn_x = dotnet_call("s3:get",nHandle,"s11:DeviceMinor")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:DeviceMinor")
 
 	Func setDeviceMinor P1
 		dotnet_callv("s3:set",nHandle,"s11:DeviceMinor",P1)

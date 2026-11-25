@@ -1385,9 +1385,7 @@ Class Animatable from Freezable
 		return dn_x
 
 	Func getHasAnimatedProperties
-		dn_x = dotnet_call("s3:get",nHandle,"s21:HasAnimatedProperties")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:HasAnimatedProperties")
 
 	Func setHasAnimatedProperties P1
 		raise("DotNet Error: HasAnimatedProperties is a read-only property")
@@ -1519,9 +1517,7 @@ Class BooleanKeyFrame from Freezable
 		return self
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Value")
 
 	Func setValue P1
 		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
@@ -1638,17 +1634,13 @@ Class BooleanKeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -1660,17 +1652,13 @@ Class BooleanKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1719,9 +1707,7 @@ Class ByteKeyFrame from Freezable
 		return self
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Value")
 
 	Func setValue P1
 		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
@@ -1838,17 +1824,13 @@ Class ByteKeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -1860,17 +1842,13 @@ Class ByteKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2034,17 +2012,13 @@ Class CharKeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -2056,17 +2030,13 @@ Class CharKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2178,17 +2148,13 @@ Class Clock from DispatcherObject
 		raise("DotNet Error: CurrentTime is a read-only property")
 
 	Func getHasControllableRoot
-		dn_x = dotnet_call("s3:get",nHandle,"s19:HasControllableRoot")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:HasControllableRoot")
 
 	Func setHasControllableRoot P1
 		raise("DotNet Error: HasControllableRoot is a read-only property")
 
 	Func getIsPaused
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsPaused")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsPaused")
 
 	Func setIsPaused P1
 		raise("DotNet Error: IsPaused is a read-only property")
@@ -2290,17 +2256,13 @@ Class ClockCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2371,9 +2333,7 @@ Class ClockController from DispatcherObject
 		raise("DotNet Error: Clock is a read-only property")
 
 	Func getSpeedRatio
-		dn_x = dotnet_call("s3:get",nHandle,"s10:SpeedRatio")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:SpeedRatio")
 
 	Func setSpeedRatio P1
 		dotnet_callv("s3:set",nHandle,"s10:SpeedRatio",P1)
@@ -2532,17 +2492,13 @@ Class ColorKeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -2554,17 +2510,13 @@ Class ColorKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2636,9 +2588,7 @@ Class DecimalKeyFrame from Freezable
 		return self
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Value")
 
 	Func setValue P1
 		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
@@ -2755,17 +2705,13 @@ Class DecimalKeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -2777,17 +2723,13 @@ Class DecimalKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2836,9 +2778,7 @@ Class DoubleKeyFrame from Freezable
 		return self
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Value")
 
 	Func setValue P1
 		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
@@ -2955,17 +2895,13 @@ Class DoubleKeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -2977,17 +2913,13 @@ Class DoubleKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -3063,9 +2995,7 @@ Class IAnimatable from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetAnimationBaseValue",P1))
 
 	Func getHasAnimatedProperties
-		dn_x = dotnet_call("s3:get",nHandle,"s21:HasAnimatedProperties")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:HasAnimatedProperties")
 
 	Func setHasAnimatedProperties P1
 		raise("DotNet Error: HasAnimatedProperties is a read-only property")
@@ -3190,9 +3120,7 @@ Class Int16KeyFrame from Freezable
 		return self
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Value")
 
 	Func setValue P1
 		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
@@ -3309,17 +3237,13 @@ Class Int16KeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -3331,17 +3255,13 @@ Class Int16KeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -3390,9 +3310,7 @@ Class Int32KeyFrame from Freezable
 		return self
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Value")
 
 	Func setValue P1
 		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
@@ -3509,17 +3427,13 @@ Class Int32KeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -3531,17 +3445,13 @@ Class Int32KeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -3590,9 +3500,7 @@ Class Int64KeyFrame from Freezable
 		return self
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Value")
 
 	Func setValue P1
 		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
@@ -3709,17 +3617,13 @@ Class Int64KeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -3731,17 +3635,13 @@ Class Int64KeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -3879,9 +3779,7 @@ Class KeyTime from ValueType
 		raise("DotNet Error: TimeSpan is a read-only property")
 
 	Func getPercent
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Percent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Percent")
 
 	Func setPercent P1
 		raise("DotNet Error: Percent is a read-only property")
@@ -4061,17 +3959,13 @@ Class MatrixKeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -4083,17 +3977,13 @@ Class MatrixKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -4257,17 +4147,13 @@ Class ObjectKeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -4279,17 +4165,13 @@ Class ObjectKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -4453,17 +4335,13 @@ Class Point3DKeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -4475,17 +4353,13 @@ Class Point3DKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -4649,17 +4523,13 @@ Class PointKeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -4671,17 +4541,13 @@ Class PointKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -4845,17 +4711,13 @@ Class QuaternionKeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -4867,17 +4729,13 @@ Class QuaternionKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -5041,17 +4899,13 @@ Class RectKeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -5063,17 +4917,13 @@ Class RectKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -5153,25 +5003,19 @@ Class RepeatBehavior from ValueType
 		return dn_x
 
 	Func getHasCount
-		dn_x = dotnet_call("s3:get",nHandle,"s8:HasCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:HasCount")
 
 	Func setHasCount P1
 		raise("DotNet Error: HasCount is a read-only property")
 
 	Func getHasDuration
-		dn_x = dotnet_call("s3:get",nHandle,"s11:HasDuration")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:HasDuration")
 
 	Func setHasDuration P1
 		raise("DotNet Error: HasDuration is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -5366,17 +5210,13 @@ Class Rotation3DKeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -5388,17 +5228,13 @@ Class Rotation3DKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -5447,9 +5283,7 @@ Class SingleKeyFrame from Freezable
 		return self
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Value")
 
 	Func setValue P1
 		dotnet_callv("s3:set",nHandle,"s5:Value",P1)
@@ -5566,17 +5400,13 @@ Class SingleKeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -5588,17 +5418,13 @@ Class SingleKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -5762,17 +5588,13 @@ Class SizeKeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -5784,17 +5606,13 @@ Class SizeKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -5962,17 +5780,13 @@ Class StringKeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -5984,17 +5798,13 @@ Class StringKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -6158,17 +5968,13 @@ Class ThicknessKeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -6180,17 +5986,13 @@ Class ThicknessKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -6393,17 +6195,13 @@ Class Vector3DKeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -6415,17 +6213,13 @@ Class Vector3DKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -6589,17 +6383,13 @@ Class VectorKeyFrameCollection from Freezable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -6611,17 +6401,13 @@ Class VectorKeyFrameCollection from Freezable
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -6672,9 +6458,7 @@ Class BackEase from EasingFunctionBase
 		return self
 
 	Func getAmplitude
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Amplitude")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Amplitude")
 
 	Func setAmplitude P1
 		dotnet_callv("s3:set",nHandle,"s9:Amplitude",P1)
@@ -6713,18 +6497,14 @@ Class BounceEase from EasingFunctionBase
 		return self
 
 	Func getBounces
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Bounces")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Bounces")
 
 	Func setBounces P1
 		dotnet_callv("s3:set",nHandle,"s7:Bounces",P1)
 		return self
 
 	Func getBounciness
-		dn_x = dotnet_call("s3:get",nHandle,"s10:Bounciness")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:Bounciness")
 
 	Func setBounciness P1
 		dotnet_callv("s3:set",nHandle,"s10:Bounciness",P1)
@@ -8138,9 +7918,7 @@ Class EasingQuaternionKeyFrame from QuaternionKeyFrame
 		return self
 
 	Func getUseShortestPath
-		dn_x = dotnet_call("s3:get",nHandle,"s15:UseShortestPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:UseShortestPath")
 
 	Func setUseShortestPath P1
 		dotnet_callv("s3:set",nHandle,"s15:UseShortestPath",P1)
@@ -8563,18 +8341,14 @@ Class ElasticEase from EasingFunctionBase
 		return self
 
 	Func getOscillations
-		dn_x = dotnet_call("s3:get",nHandle,"s12:Oscillations")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:Oscillations")
 
 	Func setOscillations P1
 		dotnet_callv("s3:set",nHandle,"s12:Oscillations",P1)
 		return self
 
 	Func getSpringiness
-		dn_x = dotnet_call("s3:get",nHandle,"s11:Springiness")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:Springiness")
 
 	Func setSpringiness P1
 		dotnet_callv("s3:set",nHandle,"s11:Springiness",P1)
@@ -8617,9 +8391,7 @@ Class ExponentialEase from EasingFunctionBase
 		return self
 
 	Func getExponent
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Exponent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Exponent")
 
 	Func setExponent P1
 		dotnet_callv("s3:set",nHandle,"s8:Exponent",P1)
@@ -9005,9 +8777,7 @@ Class LinearQuaternionKeyFrame from QuaternionKeyFrame
 		return self
 
 	Func getUseShortestPath
-		dn_x = dotnet_call("s3:get",nHandle,"s15:UseShortestPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:UseShortestPath")
 
 	Func setUseShortestPath P1
 		dotnet_callv("s3:set",nHandle,"s15:UseShortestPath",P1)
@@ -9324,9 +9094,7 @@ Class PowerEase from EasingFunctionBase
 		return self
 
 	Func getPower
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Power")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Power")
 
 	Func setPower P1
 		dotnet_callv("s3:set",nHandle,"s5:Power",P1)
@@ -9510,9 +9278,7 @@ Class SetStoryboardSpeedRatio from ControllableStoryboardAction
 		return self
 
 	Func getSpeedRatio
-		dn_x = dotnet_call("s3:get",nHandle,"s10:SpeedRatio")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:SpeedRatio")
 
 	Func setSpeedRatio P1
 		dotnet_callv("s3:set",nHandle,"s10:SpeedRatio",P1)
@@ -10080,9 +9846,7 @@ Class SplineQuaternionKeyFrame from QuaternionKeyFrame
 		return self
 
 	Func getUseShortestPath
-		dn_x = dotnet_call("s3:get",nHandle,"s15:UseShortestPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:UseShortestPath")
 
 	Func setUseShortestPath P1
 		dotnet_callv("s3:set",nHandle,"s15:UseShortestPath",P1)
@@ -10589,18 +10353,14 @@ Class Timeline from Animatable
 		return self
 
 	Func getAccelerationRatio
-		dn_x = dotnet_call("s3:get",nHandle,"s17:AccelerationRatio")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:AccelerationRatio")
 
 	Func setAccelerationRatio P1
 		dotnet_callv("s3:set",nHandle,"s17:AccelerationRatio",P1)
 		return self
 
 	Func getAutoReverse
-		dn_x = dotnet_call("s3:get",nHandle,"s11:AutoReverse")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:AutoReverse")
 
 	Func setAutoReverse P1
 		dotnet_callv("s3:set",nHandle,"s11:AutoReverse",P1)
@@ -10614,9 +10374,7 @@ Class Timeline from Animatable
 		return self
 
 	Func getDecelerationRatio
-		dn_x = dotnet_call("s3:get",nHandle,"s17:DecelerationRatio")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:DecelerationRatio")
 
 	Func setDecelerationRatio P1
 		dotnet_callv("s3:set",nHandle,"s17:DecelerationRatio",P1)
@@ -10653,9 +10411,7 @@ Class Timeline from Animatable
 		return self
 
 	Func getSpeedRatio
-		dn_x = dotnet_call("s3:get",nHandle,"s10:SpeedRatio")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:SpeedRatio")
 
 	Func setSpeedRatio P1
 		dotnet_callv("s3:set",nHandle,"s10:SpeedRatio",P1)
@@ -10831,9 +10587,7 @@ Class TimelineCollection from Animatable
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -10865,9 +10619,7 @@ Class AnimationTimeline from Timeline
 		raise("DotNet Error: TargetPropertyType is a read-only property")
 
 	Func getIsDestinationDefault
-		dn_x = dotnet_call("s3:get",nHandle,"s20:IsDestinationDefault")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:IsDestinationDefault")
 
 	Func setIsDestinationDefault P1
 		raise("DotNet Error: IsDestinationDefault is a read-only property")
@@ -11341,18 +11093,14 @@ Class ByteAnimation from ByteAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -11420,18 +11168,14 @@ Class ByteAnimationUsingKeyFrames from ByteAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -11549,18 +11293,14 @@ Class ColorAnimation from ColorAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -11628,18 +11368,14 @@ Class ColorAnimationUsingKeyFrames from ColorAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -11722,18 +11458,14 @@ Class DecimalAnimation from DecimalAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -11801,18 +11533,14 @@ Class DecimalAnimationUsingKeyFrames from DecimalAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -11895,18 +11623,14 @@ Class DoubleAnimation from DoubleAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -11974,18 +11698,14 @@ Class DoubleAnimationUsingKeyFrames from DoubleAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -12034,18 +11754,14 @@ Class DoubleAnimationUsingPath from DoubleAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -12140,18 +11856,14 @@ Class Int16Animation from Int16AnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -12219,18 +11931,14 @@ Class Int16AnimationUsingKeyFrames from Int16AnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -12313,18 +12021,14 @@ Class Int32Animation from Int32AnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -12392,18 +12096,14 @@ Class Int32AnimationUsingKeyFrames from Int32AnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -12486,18 +12186,14 @@ Class Int64Animation from Int64AnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -12565,18 +12261,14 @@ Class Int64AnimationUsingKeyFrames from Int64AnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -12649,36 +12341,28 @@ Class MatrixAnimationUsingPath from MatrixAnimationBase
 		return self
 
 	Func getDoesRotateWithTangent
-		dn_x = dotnet_call("s3:get",nHandle,"s21:DoesRotateWithTangent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:DoesRotateWithTangent")
 
 	Func setDoesRotateWithTangent P1
 		dotnet_callv("s3:set",nHandle,"s21:DoesRotateWithTangent",P1)
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsAngleCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s17:IsAngleCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:IsAngleCumulative")
 
 	Func setIsAngleCumulative P1
 		dotnet_callv("s3:set",nHandle,"s17:IsAngleCumulative",P1)
 		return self
 
 	Func getIsOffsetCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s18:IsOffsetCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:IsOffsetCumulative")
 
 	Func setIsOffsetCumulative P1
 		dotnet_callv("s3:set",nHandle,"s18:IsOffsetCumulative",P1)
@@ -12827,18 +12511,14 @@ Class Point3DAnimation from Point3DAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -12906,18 +12586,14 @@ Class Point3DAnimationUsingKeyFrames from Point3DAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -13000,18 +12676,14 @@ Class PointAnimation from PointAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -13079,18 +12751,14 @@ Class PointAnimationUsingKeyFrames from PointAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -13130,18 +12798,14 @@ Class PointAnimationUsingPath from PointAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -13204,9 +12868,7 @@ Class QuaternionAnimation from QuaternionAnimationBase
 		return self
 
 	Func getUseShortestPath
-		dn_x = dotnet_call("s3:get",nHandle,"s15:UseShortestPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:UseShortestPath")
 
 	Func setUseShortestPath P1
 		dotnet_callv("s3:set",nHandle,"s15:UseShortestPath",P1)
@@ -13241,18 +12903,14 @@ Class QuaternionAnimation from QuaternionAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -13326,18 +12984,14 @@ Class QuaternionAnimationUsingKeyFrames from QuaternionAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -13420,18 +13074,14 @@ Class RectAnimation from RectAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -13499,18 +13149,14 @@ Class RectAnimationUsingKeyFrames from RectAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -13593,18 +13239,14 @@ Class Rotation3DAnimation from Rotation3DAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -13672,18 +13314,14 @@ Class Rotation3DAnimationUsingKeyFrames from Rotation3DAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -13766,18 +13404,14 @@ Class SingleAnimation from SingleAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -13845,18 +13479,14 @@ Class SingleAnimationUsingKeyFrames from SingleAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -13939,18 +13569,14 @@ Class SizeAnimation from SizeAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -14018,18 +13644,14 @@ Class SizeAnimationUsingKeyFrames from SizeAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -14396,18 +14018,14 @@ Class ThicknessAnimation from ThicknessAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -14475,18 +14093,14 @@ Class ThicknessAnimationUsingKeyFrames from ThicknessAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -14569,18 +14183,14 @@ Class Vector3DAnimation from Vector3DAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -14648,18 +14258,14 @@ Class Vector3DAnimationUsingKeyFrames from Vector3DAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -14742,18 +14348,14 @@ Class VectorAnimation from VectorAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)
@@ -14821,18 +14423,14 @@ Class VectorAnimationUsingKeyFrames from VectorAnimationBase
 		return self
 
 	Func getIsAdditive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsAdditive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsAdditive")
 
 	Func setIsAdditive P1
 		dotnet_callv("s3:set",nHandle,"s10:IsAdditive",P1)
 		return self
 
 	Func getIsCumulative
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsCumulative")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsCumulative")
 
 	Func setIsCumulative P1
 		dotnet_callv("s3:set",nHandle,"s12:IsCumulative",P1)

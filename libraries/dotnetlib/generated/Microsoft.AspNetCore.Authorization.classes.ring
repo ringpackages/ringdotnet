@@ -272,9 +272,7 @@ Class AuthorizationFailure from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authorization.AuthorizationFailure, Microsoft.AspNetCore.Authorization',"s6:Failed",P1))
 
 	Func getFailCalled
-		dn_x = dotnet_call("s3:get",nHandle,"s10:FailCalled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:FailCalled")
 
 	Func setFailCalled P1
 		raise("DotNet Error: FailCalled is a read-only property")
@@ -404,17 +402,13 @@ Class AuthorizationHandlerContext from Object
 		raise("DotNet Error: FailureReasons is a read-only property")
 
 	Func getHasFailed
-		dn_x = dotnet_call("s3:get",nHandle,"s9:HasFailed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:HasFailed")
 
 	Func setHasFailed P1
 		raise("DotNet Error: HasFailed is a read-only property")
 
 	Func getHasSucceeded
-		dn_x = dotnet_call("s3:get",nHandle,"s12:HasSucceeded")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:HasSucceeded")
 
 	Func setHasSucceeded P1
 		raise("DotNet Error: HasSucceeded is a read-only property")
@@ -543,9 +537,7 @@ Class AuthorizationOptions from Object
 		return dn_x
 
 	Func getInvokeHandlersAfterFailure
-		dn_x = dotnet_call("s3:get",nHandle,"s26:InvokeHandlersAfterFailure")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:InvokeHandlersAfterFailure")
 
 	Func setInvokeHandlersAfterFailure P1
 		dotnet_callv("s3:set",nHandle,"s26:InvokeHandlersAfterFailure",P1)
@@ -707,9 +699,7 @@ Class AuthorizationResult from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization',"s6:Failed",P1))
 
 	Func getSucceeded
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Succeeded")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Succeeded")
 
 	Func setSucceeded P1
 		raise("DotNet Error: Succeeded is a read-only property")
@@ -922,9 +912,7 @@ Class DefaultAuthorizationPolicyProvider from Object
 		return dn_x
 
 	Func getAllowsCachingPolicies
-		dn_x = dotnet_call("s3:get",nHandle,"s21:AllowsCachingPolicies")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:AllowsCachingPolicies")
 
 	Func setAllowsCachingPolicies P1
 		raise("DotNet Error: AllowsCachingPolicies is a read-only property")
@@ -1062,9 +1050,7 @@ Class IAuthorizationPolicyProvider from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetFallbackPolicyAsync"))
 
 	Func getAllowsCachingPolicies
-		dn_x = dotnet_call("s3:get",nHandle,"s21:AllowsCachingPolicies")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:AllowsCachingPolicies")
 
 	Func setAllowsCachingPolicies P1
 		raise("DotNet Error: AllowsCachingPolicies is a read-only property")

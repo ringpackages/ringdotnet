@@ -167,9 +167,7 @@ Class AspCacheControlHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"s8:TryParse",dnPackItem(P1))
 
 	Func getNoCache
-		dn_x = dotnet_call("s3:get",nHandle,"s7:NoCache")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:NoCache")
 
 	Func setNoCache P1
 		dotnet_callv("s3:set",nHandle,"s7:NoCache",P1)
@@ -182,9 +180,7 @@ Class AspCacheControlHeaderValue from Object
 		raise("DotNet Error: NoCacheHeaders is a read-only property")
 
 	Func getNoStore
-		dn_x = dotnet_call("s3:get",nHandle,"s7:NoStore")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:NoStore")
 
 	Func setNoStore P1
 		dotnet_callv("s3:set",nHandle,"s7:NoStore",P1)
@@ -205,9 +201,7 @@ Class AspCacheControlHeaderValue from Object
 		return self
 
 	Func getMaxStale
-		dn_x = dotnet_call("s3:get",nHandle,"s8:MaxStale")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:MaxStale")
 
 	Func setMaxStale P1
 		dotnet_callv("s3:set",nHandle,"s8:MaxStale",P1)
@@ -228,36 +222,28 @@ Class AspCacheControlHeaderValue from Object
 		return self
 
 	Func getNoTransform
-		dn_x = dotnet_call("s3:get",nHandle,"s11:NoTransform")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:NoTransform")
 
 	Func setNoTransform P1
 		dotnet_callv("s3:set",nHandle,"s11:NoTransform",P1)
 		return self
 
 	Func getOnlyIfCached
-		dn_x = dotnet_call("s3:get",nHandle,"s12:OnlyIfCached")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:OnlyIfCached")
 
 	Func setOnlyIfCached P1
 		dotnet_callv("s3:set",nHandle,"s12:OnlyIfCached",P1)
 		return self
 
 	Func getPublic
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Public")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Public")
 
 	Func setPublic P1
 		dotnet_callv("s3:set",nHandle,"s6:Public",P1)
 		return self
 
 	Func getPrivate
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Private")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Private")
 
 	Func setPrivate P1
 		dotnet_callv("s3:set",nHandle,"s7:Private",P1)
@@ -270,18 +256,14 @@ Class AspCacheControlHeaderValue from Object
 		raise("DotNet Error: PrivateHeaders is a read-only property")
 
 	Func getMustRevalidate
-		dn_x = dotnet_call("s3:get",nHandle,"s14:MustRevalidate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:MustRevalidate")
 
 	Func setMustRevalidate P1
 		dotnet_callv("s3:set",nHandle,"s14:MustRevalidate",P1)
 		return self
 
 	Func getProxyRevalidate
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ProxyRevalidate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:ProxyRevalidate")
 
 	Func setProxyRevalidate P1
 		dotnet_callv("s3:set",nHandle,"s15:ProxyRevalidate",P1)
@@ -608,17 +590,13 @@ Class AspContentRangeHeaderValue from Object
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getHasLength
-		dn_x = dotnet_call("s3:get",nHandle,"s9:HasLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:HasLength")
 
 	Func setHasLength P1
 		raise("DotNet Error: HasLength is a read-only property")
 
 	Func getHasRange
-		dn_x = dotnet_call("s3:get",nHandle,"s8:HasRange")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:HasRange")
 
 	Func setHasRange P1
 		raise("DotNet Error: HasRange is a read-only property")
@@ -760,9 +738,7 @@ Class AspEntityTagHeaderValue from Object
 		raise("DotNet Error: Tag is a read-only property")
 
 	Func getIsWeak
-		dn_x = dotnet_call("s3:get",nHandle,"s6:IsWeak")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:IsWeak")
 
 	Func setIsWeak P1
 		raise("DotNet Error: IsWeak is a read-only property")
@@ -1676,17 +1652,13 @@ Class HeaderQuality from Object
 		return dn_x
 
 	Func getMatch
-		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderQuality, Microsoft.Net.Http.Headers',"s5:Match")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderQuality, Microsoft.Net.Http.Headers',"s5:Match")
 
 	Func setMatch P1
 		raise("DotNet Error: Match is a read-only property")
 
 	Func getNoMatch
-		dn_x = dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderQuality, Microsoft.Net.Http.Headers',"s7:NoMatch")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.Net.Http.Headers.HeaderQuality, Microsoft.Net.Http.Headers',"s7:NoMatch")
 
 	Func setNoMatch P1
 		raise("DotNet Error: NoMatch is a read-only property")
@@ -1913,33 +1885,25 @@ Class AspMediaTypeHeaderValue from Object
 		raise("DotNet Error: Facets is a read-only property")
 
 	Func getMatchesAllTypes
-		dn_x = dotnet_call("s3:get",nHandle,"s15:MatchesAllTypes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:MatchesAllTypes")
 
 	Func setMatchesAllTypes P1
 		raise("DotNet Error: MatchesAllTypes is a read-only property")
 
 	Func getMatchesAllSubTypes
-		dn_x = dotnet_call("s3:get",nHandle,"s18:MatchesAllSubTypes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:MatchesAllSubTypes")
 
 	Func setMatchesAllSubTypes P1
 		raise("DotNet Error: MatchesAllSubTypes is a read-only property")
 
 	Func getMatchesAllSubTypesWithoutSuffix
-		dn_x = dotnet_call("s3:get",nHandle,"s31:MatchesAllSubTypesWithoutSuffix")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s31:MatchesAllSubTypesWithoutSuffix")
 
 	Func setMatchesAllSubTypesWithoutSuffix P1
 		raise("DotNet Error: MatchesAllSubTypesWithoutSuffix is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2061,9 +2025,7 @@ Class AspNameValueHeaderValue from Object
 		return self
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2317,9 +2279,7 @@ Class SetCookieHeaderValue from Object
 		return self
 
 	Func getSecure
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Secure")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Secure")
 
 	Func setSecure P1
 		dotnet_callv("s3:set",nHandle,"s6:Secure",P1)
@@ -2333,9 +2293,7 @@ Class SetCookieHeaderValue from Object
 		return self
 
 	Func getHttpOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s8:HttpOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:HttpOnly")
 
 	Func setHttpOnly P1
 		dotnet_callv("s3:set",nHandle,"s8:HttpOnly",P1)

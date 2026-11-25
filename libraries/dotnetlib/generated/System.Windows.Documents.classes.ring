@@ -425,9 +425,7 @@ Class Adorner from FrameworkElement
 		raise("DotNet Error: AdornedElement is a read-only property")
 
 	Func getIsClipEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsClipEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsClipEnabled")
 
 	Func setIsClipEnabled P1
 		dotnet_callv("s3:set",nHandle,"s13:IsClipEnabled",P1)
@@ -698,17 +696,13 @@ Class DocumentPaginator from Object
 		return self
 
 	Func getIsPageCountValid
-		dn_x = dotnet_call("s3:get",nHandle,"s16:IsPageCountValid")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:IsPageCountValid")
 
 	Func setIsPageCountValid P1
 		raise("DotNet Error: IsPageCountValid is a read-only property")
 
 	Func getPageCount
-		dn_x = dotnet_call("s3:get",nHandle,"s9:PageCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:PageCount")
 
 	Func setPageCount P1
 		raise("DotNet Error: PageCount is a read-only property")
@@ -835,9 +829,7 @@ Class DocumentReferenceCollection from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1835,9 +1827,7 @@ Class FlowDocument from FrameworkContentElement
 		return self
 
 	Func getFontSize
-		dn_x = dotnet_call("s3:get",nHandle,"s8:FontSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:FontSize")
 
 	Func setFontSize P1
 		dotnet_callv("s3:set",nHandle,"s8:FontSize",P1)
@@ -1879,9 +1869,7 @@ Class FlowDocument from FrameworkContentElement
 		return self
 
 	Func getLineHeight
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LineHeight")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:LineHeight")
 
 	Func setLineHeight P1
 		dotnet_callv("s3:set",nHandle,"s10:LineHeight",P1)
@@ -1895,36 +1883,28 @@ Class FlowDocument from FrameworkContentElement
 		return self
 
 	Func getColumnWidth
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ColumnWidth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:ColumnWidth")
 
 	Func setColumnWidth P1
 		dotnet_callv("s3:set",nHandle,"s11:ColumnWidth",P1)
 		return self
 
 	Func getColumnGap
-		dn_x = dotnet_call("s3:get",nHandle,"s9:ColumnGap")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:ColumnGap")
 
 	Func setColumnGap P1
 		dotnet_callv("s3:set",nHandle,"s9:ColumnGap",P1)
 		return self
 
 	Func getIsColumnWidthFlexible
-		dn_x = dotnet_call("s3:get",nHandle,"s21:IsColumnWidthFlexible")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:IsColumnWidthFlexible")
 
 	Func setIsColumnWidthFlexible P1
 		dotnet_callv("s3:set",nHandle,"s21:IsColumnWidthFlexible",P1)
 		return self
 
 	Func getColumnRuleWidth
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ColumnRuleWidth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:ColumnRuleWidth")
 
 	Func setColumnRuleWidth P1
 		dotnet_callv("s3:set",nHandle,"s15:ColumnRuleWidth",P1)
@@ -1938,63 +1918,49 @@ Class FlowDocument from FrameworkContentElement
 		return self
 
 	Func getIsOptimalParagraphEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s25:IsOptimalParagraphEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:IsOptimalParagraphEnabled")
 
 	Func setIsOptimalParagraphEnabled P1
 		dotnet_callv("s3:set",nHandle,"s25:IsOptimalParagraphEnabled",P1)
 		return self
 
 	Func getPageWidth
-		dn_x = dotnet_call("s3:get",nHandle,"s9:PageWidth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:PageWidth")
 
 	Func setPageWidth P1
 		dotnet_callv("s3:set",nHandle,"s9:PageWidth",P1)
 		return self
 
 	Func getMinPageWidth
-		dn_x = dotnet_call("s3:get",nHandle,"s12:MinPageWidth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:MinPageWidth")
 
 	Func setMinPageWidth P1
 		dotnet_callv("s3:set",nHandle,"s12:MinPageWidth",P1)
 		return self
 
 	Func getMaxPageWidth
-		dn_x = dotnet_call("s3:get",nHandle,"s12:MaxPageWidth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:MaxPageWidth")
 
 	Func setMaxPageWidth P1
 		dotnet_callv("s3:set",nHandle,"s12:MaxPageWidth",P1)
 		return self
 
 	Func getPageHeight
-		dn_x = dotnet_call("s3:get",nHandle,"s10:PageHeight")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:PageHeight")
 
 	Func setPageHeight P1
 		dotnet_callv("s3:set",nHandle,"s10:PageHeight",P1)
 		return self
 
 	Func getMinPageHeight
-		dn_x = dotnet_call("s3:get",nHandle,"s13:MinPageHeight")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:MinPageHeight")
 
 	Func setMinPageHeight P1
 		dotnet_callv("s3:set",nHandle,"s13:MinPageHeight",P1)
 		return self
 
 	Func getMaxPageHeight
-		dn_x = dotnet_call("s3:get",nHandle,"s13:MaxPageHeight")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:MaxPageHeight")
 
 	Func setMaxPageHeight P1
 		dotnet_callv("s3:set",nHandle,"s13:MaxPageHeight",P1)
@@ -2014,9 +1980,7 @@ Class FlowDocument from FrameworkContentElement
 		raise("DotNet Error: Typography is a read-only property")
 
 	Func getIsHyphenationEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s20:IsHyphenationEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:IsHyphenationEnabled")
 
 	Func setIsHyphenationEnabled P1
 		dotnet_callv("s3:set",nHandle,"s20:IsHyphenationEnabled",P1)
@@ -2196,33 +2160,25 @@ Class FrameworkTextComposition from TextComposition
 		return self
 
 	Func getResultOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s12:ResultOffset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:ResultOffset")
 
 	Func setResultOffset P1
 		raise("DotNet Error: ResultOffset is a read-only property")
 
 	Func getResultLength
-		dn_x = dotnet_call("s3:get",nHandle,"s12:ResultLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:ResultLength")
 
 	Func setResultLength P1
 		raise("DotNet Error: ResultLength is a read-only property")
 
 	Func getCompositionOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s17:CompositionOffset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:CompositionOffset")
 
 	Func setCompositionOffset P1
 		raise("DotNet Error: CompositionOffset is a read-only property")
 
 	Func getCompositionLength
-		dn_x = dotnet_call("s3:get",nHandle,"s17:CompositionLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:CompositionLength")
 
 	Func setCompositionLength P1
 		raise("DotNet Error: CompositionLength is a read-only property")
@@ -2251,9 +2207,7 @@ Class GetPageCompletedEventArgs from AsyncCompletedEventArgs
 		raise("DotNet Error: DocumentPage is a read-only property")
 
 	Func getPageNumber
-		dn_x = dotnet_call("s3:get",nHandle,"s10:PageNumber")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:PageNumber")
 
 	Func setPageNumber P1
 		raise("DotNet Error: PageNumber is a read-only property")
@@ -2282,9 +2236,7 @@ Class GetPageNumberCompletedEventArgs from AsyncCompletedEventArgs
 		raise("DotNet Error: ContentPosition is a read-only property")
 
 	Func getPageNumber
-		dn_x = dotnet_call("s3:get",nHandle,"s10:PageNumber")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:PageNumber")
 
 	Func setPageNumber P1
 		raise("DotNet Error: PageNumber is a read-only property")
@@ -2393,27 +2345,21 @@ Class Glyphs from FrameworkElement
 		return self
 
 	Func getFontRenderingEmSize
-		dn_x = dotnet_call("s3:get",nHandle,"s19:FontRenderingEmSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:FontRenderingEmSize")
 
 	Func setFontRenderingEmSize P1
 		dotnet_callv("s3:set",nHandle,"s19:FontRenderingEmSize",P1)
 		return self
 
 	Func getOriginX
-		dn_x = dotnet_call("s3:get",nHandle,"s7:OriginX")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:OriginX")
 
 	Func setOriginX P1
 		dotnet_callv("s3:set",nHandle,"s7:OriginX",P1)
 		return self
 
 	Func getOriginY
-		dn_x = dotnet_call("s3:get",nHandle,"s7:OriginY")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:OriginY")
 
 	Func setOriginY P1
 		dotnet_callv("s3:set",nHandle,"s7:OriginY",P1)
@@ -2434,18 +2380,14 @@ Class Glyphs from FrameworkElement
 		return self
 
 	Func getIsSideways
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsSideways")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsSideways")
 
 	Func setIsSideways P1
 		dotnet_callv("s3:set",nHandle,"s10:IsSideways",P1)
 		return self
 
 	Func getBidiLevel
-		dn_x = dotnet_call("s3:get",nHandle,"s9:BidiLevel")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:BidiLevel")
 
 	Func setBidiLevel P1
 		dotnet_callv("s3:set",nHandle,"s9:BidiLevel",P1)
@@ -2776,9 +2718,7 @@ Class PageContentCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -2801,17 +2741,13 @@ Class PagesChangedEventArgs from EventArgs
 		return self
 
 	Func getStart
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Start")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Start")
 
 	Func setStart P1
 		raise("DotNet Error: Start is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -2834,17 +2770,13 @@ Class PaginationProgressEventArgs from EventArgs
 		return self
 
 	Func getStart
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Start")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Start")
 
 	Func setStart P1
 		raise("DotNet Error: Start is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -2950,25 +2882,19 @@ Class TableCellCollection from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -2980,9 +2906,7 @@ Class TableCellCollection from Object
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getCapacity
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Capacity")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Capacity")
 
 	Func setCapacity P1
 		dotnet_callv("s3:set",nHandle,"s8:Capacity",P1)
@@ -3141,25 +3065,19 @@ Class TableColumnCollection from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -3171,9 +3089,7 @@ Class TableColumnCollection from Object
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getCapacity
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Capacity")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Capacity")
 
 	Func setCapacity P1
 		dotnet_callv("s3:set",nHandle,"s8:Capacity",P1)
@@ -3280,25 +3196,19 @@ Class TableRowCollection from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -3310,9 +3220,7 @@ Class TableRowCollection from Object
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getCapacity
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Capacity")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Capacity")
 
 	Func setCapacity P1
 		dotnet_callv("s3:set",nHandle,"s8:Capacity",P1)
@@ -3419,25 +3327,19 @@ Class TableRowGroupCollection from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -3449,9 +3351,7 @@ Class TableRowGroupCollection from Object
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getCapacity
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Capacity")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Capacity")
 
 	Func setCapacity P1
 		dotnet_callv("s3:set",nHandle,"s8:Capacity",P1)
@@ -3521,9 +3421,7 @@ Class TextEffectTarget from Object
 		raise("DotNet Error: TextEffect is a read-only property")
 
 	Func getIsEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsEnabled")
 
 	Func setIsEnabled P1
 		raise("DotNet Error: IsEnabled is a read-only property")
@@ -3665,9 +3563,7 @@ Class TextElement from FrameworkContentElement
 		return self
 
 	Func getFontSize
-		dn_x = dotnet_call("s3:get",nHandle,"s8:FontSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:FontSize")
 
 	Func setFontSize P1
 		dotnet_callv("s3:set",nHandle,"s8:FontSize",P1)
@@ -3836,17 +3732,13 @@ Class TextElementCollection from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -3876,18 +3768,14 @@ Class TextElementEditingBehaviorAttribute from Attribute
 		return self
 
 	Func getIsMergeable
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsMergeable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsMergeable")
 
 	Func setIsMergeable P1
 		dotnet_callv("s3:set",nHandle,"s11:IsMergeable",P1)
 		return self
 
 	Func getIsTypographicOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s17:IsTypographicOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:IsTypographicOnly")
 
 	Func setIsTypographicOnly P1
 		dotnet_callv("s3:set",nHandle,"s17:IsTypographicOnly",P1)
@@ -3979,9 +3867,7 @@ Class TextRange from Object
 		return dnObj(dotnet_callo("s3:get",nHandle,"s3:End"))
 
 	Func getIsEmpty
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsEmpty")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
@@ -4516,270 +4402,210 @@ Class Typography from Object
 		return dn_x
 
 	Func getStandardLigatures
-		dn_x = dotnet_call("s3:get",nHandle,"s17:StandardLigatures")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:StandardLigatures")
 
 	Func setStandardLigatures P1
 		dotnet_callv("s3:set",nHandle,"s17:StandardLigatures",P1)
 		return self
 
 	Func getContextualLigatures
-		dn_x = dotnet_call("s3:get",nHandle,"s19:ContextualLigatures")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:ContextualLigatures")
 
 	Func setContextualLigatures P1
 		dotnet_callv("s3:set",nHandle,"s19:ContextualLigatures",P1)
 		return self
 
 	Func getDiscretionaryLigatures
-		dn_x = dotnet_call("s3:get",nHandle,"s22:DiscretionaryLigatures")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:DiscretionaryLigatures")
 
 	Func setDiscretionaryLigatures P1
 		dotnet_callv("s3:set",nHandle,"s22:DiscretionaryLigatures",P1)
 		return self
 
 	Func getHistoricalLigatures
-		dn_x = dotnet_call("s3:get",nHandle,"s19:HistoricalLigatures")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:HistoricalLigatures")
 
 	Func setHistoricalLigatures P1
 		dotnet_callv("s3:set",nHandle,"s19:HistoricalLigatures",P1)
 		return self
 
 	Func getAnnotationAlternates
-		dn_x = dotnet_call("s3:get",nHandle,"s20:AnnotationAlternates")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:AnnotationAlternates")
 
 	Func setAnnotationAlternates P1
 		dotnet_callv("s3:set",nHandle,"s20:AnnotationAlternates",P1)
 		return self
 
 	Func getContextualAlternates
-		dn_x = dotnet_call("s3:get",nHandle,"s20:ContextualAlternates")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:ContextualAlternates")
 
 	Func setContextualAlternates P1
 		dotnet_callv("s3:set",nHandle,"s20:ContextualAlternates",P1)
 		return self
 
 	Func getHistoricalForms
-		dn_x = dotnet_call("s3:get",nHandle,"s15:HistoricalForms")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:HistoricalForms")
 
 	Func setHistoricalForms P1
 		dotnet_callv("s3:set",nHandle,"s15:HistoricalForms",P1)
 		return self
 
 	Func getKerning
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Kerning")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Kerning")
 
 	Func setKerning P1
 		dotnet_callv("s3:set",nHandle,"s7:Kerning",P1)
 		return self
 
 	Func getCapitalSpacing
-		dn_x = dotnet_call("s3:get",nHandle,"s14:CapitalSpacing")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:CapitalSpacing")
 
 	Func setCapitalSpacing P1
 		dotnet_callv("s3:set",nHandle,"s14:CapitalSpacing",P1)
 		return self
 
 	Func getCaseSensitiveForms
-		dn_x = dotnet_call("s3:get",nHandle,"s18:CaseSensitiveForms")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:CaseSensitiveForms")
 
 	Func setCaseSensitiveForms P1
 		dotnet_callv("s3:set",nHandle,"s18:CaseSensitiveForms",P1)
 		return self
 
 	Func getStylisticSet1
-		dn_x = dotnet_call("s3:get",nHandle,"s13:StylisticSet1")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:StylisticSet1")
 
 	Func setStylisticSet1 P1
 		dotnet_callv("s3:set",nHandle,"s13:StylisticSet1",P1)
 		return self
 
 	Func getStylisticSet2
-		dn_x = dotnet_call("s3:get",nHandle,"s13:StylisticSet2")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:StylisticSet2")
 
 	Func setStylisticSet2 P1
 		dotnet_callv("s3:set",nHandle,"s13:StylisticSet2",P1)
 		return self
 
 	Func getStylisticSet3
-		dn_x = dotnet_call("s3:get",nHandle,"s13:StylisticSet3")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:StylisticSet3")
 
 	Func setStylisticSet3 P1
 		dotnet_callv("s3:set",nHandle,"s13:StylisticSet3",P1)
 		return self
 
 	Func getStylisticSet4
-		dn_x = dotnet_call("s3:get",nHandle,"s13:StylisticSet4")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:StylisticSet4")
 
 	Func setStylisticSet4 P1
 		dotnet_callv("s3:set",nHandle,"s13:StylisticSet4",P1)
 		return self
 
 	Func getStylisticSet5
-		dn_x = dotnet_call("s3:get",nHandle,"s13:StylisticSet5")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:StylisticSet5")
 
 	Func setStylisticSet5 P1
 		dotnet_callv("s3:set",nHandle,"s13:StylisticSet5",P1)
 		return self
 
 	Func getStylisticSet6
-		dn_x = dotnet_call("s3:get",nHandle,"s13:StylisticSet6")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:StylisticSet6")
 
 	Func setStylisticSet6 P1
 		dotnet_callv("s3:set",nHandle,"s13:StylisticSet6",P1)
 		return self
 
 	Func getStylisticSet7
-		dn_x = dotnet_call("s3:get",nHandle,"s13:StylisticSet7")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:StylisticSet7")
 
 	Func setStylisticSet7 P1
 		dotnet_callv("s3:set",nHandle,"s13:StylisticSet7",P1)
 		return self
 
 	Func getStylisticSet8
-		dn_x = dotnet_call("s3:get",nHandle,"s13:StylisticSet8")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:StylisticSet8")
 
 	Func setStylisticSet8 P1
 		dotnet_callv("s3:set",nHandle,"s13:StylisticSet8",P1)
 		return self
 
 	Func getStylisticSet9
-		dn_x = dotnet_call("s3:get",nHandle,"s13:StylisticSet9")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:StylisticSet9")
 
 	Func setStylisticSet9 P1
 		dotnet_callv("s3:set",nHandle,"s13:StylisticSet9",P1)
 		return self
 
 	Func getStylisticSet10
-		dn_x = dotnet_call("s3:get",nHandle,"s14:StylisticSet10")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:StylisticSet10")
 
 	Func setStylisticSet10 P1
 		dotnet_callv("s3:set",nHandle,"s14:StylisticSet10",P1)
 		return self
 
 	Func getStylisticSet11
-		dn_x = dotnet_call("s3:get",nHandle,"s14:StylisticSet11")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:StylisticSet11")
 
 	Func setStylisticSet11 P1
 		dotnet_callv("s3:set",nHandle,"s14:StylisticSet11",P1)
 		return self
 
 	Func getStylisticSet12
-		dn_x = dotnet_call("s3:get",nHandle,"s14:StylisticSet12")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:StylisticSet12")
 
 	Func setStylisticSet12 P1
 		dotnet_callv("s3:set",nHandle,"s14:StylisticSet12",P1)
 		return self
 
 	Func getStylisticSet13
-		dn_x = dotnet_call("s3:get",nHandle,"s14:StylisticSet13")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:StylisticSet13")
 
 	Func setStylisticSet13 P1
 		dotnet_callv("s3:set",nHandle,"s14:StylisticSet13",P1)
 		return self
 
 	Func getStylisticSet14
-		dn_x = dotnet_call("s3:get",nHandle,"s14:StylisticSet14")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:StylisticSet14")
 
 	Func setStylisticSet14 P1
 		dotnet_callv("s3:set",nHandle,"s14:StylisticSet14",P1)
 		return self
 
 	Func getStylisticSet15
-		dn_x = dotnet_call("s3:get",nHandle,"s14:StylisticSet15")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:StylisticSet15")
 
 	Func setStylisticSet15 P1
 		dotnet_callv("s3:set",nHandle,"s14:StylisticSet15",P1)
 		return self
 
 	Func getStylisticSet16
-		dn_x = dotnet_call("s3:get",nHandle,"s14:StylisticSet16")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:StylisticSet16")
 
 	Func setStylisticSet16 P1
 		dotnet_callv("s3:set",nHandle,"s14:StylisticSet16",P1)
 		return self
 
 	Func getStylisticSet17
-		dn_x = dotnet_call("s3:get",nHandle,"s14:StylisticSet17")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:StylisticSet17")
 
 	Func setStylisticSet17 P1
 		dotnet_callv("s3:set",nHandle,"s14:StylisticSet17",P1)
 		return self
 
 	Func getStylisticSet18
-		dn_x = dotnet_call("s3:get",nHandle,"s14:StylisticSet18")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:StylisticSet18")
 
 	Func setStylisticSet18 P1
 		dotnet_callv("s3:set",nHandle,"s14:StylisticSet18",P1)
 		return self
 
 	Func getStylisticSet19
-		dn_x = dotnet_call("s3:get",nHandle,"s14:StylisticSet19")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:StylisticSet19")
 
 	Func setStylisticSet19 P1
 		dotnet_callv("s3:set",nHandle,"s14:StylisticSet19",P1)
 		return self
 
 	Func getStylisticSet20
-		dn_x = dotnet_call("s3:get",nHandle,"s14:StylisticSet20")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:StylisticSet20")
 
 	Func setStylisticSet20 P1
 		dotnet_callv("s3:set",nHandle,"s14:StylisticSet20",P1)
@@ -4793,27 +4619,21 @@ Class Typography from Object
 		return self
 
 	Func getSlashedZero
-		dn_x = dotnet_call("s3:get",nHandle,"s11:SlashedZero")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:SlashedZero")
 
 	Func setSlashedZero P1
 		dotnet_callv("s3:set",nHandle,"s11:SlashedZero",P1)
 		return self
 
 	Func getMathematicalGreek
-		dn_x = dotnet_call("s3:get",nHandle,"s17:MathematicalGreek")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:MathematicalGreek")
 
 	Func setMathematicalGreek P1
 		dotnet_callv("s3:set",nHandle,"s17:MathematicalGreek",P1)
 		return self
 
 	Func getEastAsianExpertForms
-		dn_x = dotnet_call("s3:get",nHandle,"s20:EastAsianExpertForms")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:EastAsianExpertForms")
 
 	Func setEastAsianExpertForms P1
 		dotnet_callv("s3:set",nHandle,"s20:EastAsianExpertForms",P1)
@@ -4862,27 +4682,21 @@ Class Typography from Object
 		return self
 
 	Func getStandardSwashes
-		dn_x = dotnet_call("s3:get",nHandle,"s15:StandardSwashes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:StandardSwashes")
 
 	Func setStandardSwashes P1
 		dotnet_callv("s3:set",nHandle,"s15:StandardSwashes",P1)
 		return self
 
 	Func getContextualSwashes
-		dn_x = dotnet_call("s3:get",nHandle,"s17:ContextualSwashes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:ContextualSwashes")
 
 	Func setContextualSwashes P1
 		dotnet_callv("s3:set",nHandle,"s17:ContextualSwashes",P1)
 		return self
 
 	Func getStylisticAlternates
-		dn_x = dotnet_call("s3:get",nHandle,"s19:StylisticAlternates")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:StylisticAlternates")
 
 	Func setStylisticAlternates P1
 		dotnet_callv("s3:set",nHandle,"s19:StylisticAlternates",P1)
@@ -5273,9 +5087,7 @@ Class Block from TextElement
 		raise("DotNet Error: PreviousBlock is a read-only property")
 
 	Func getIsHyphenationEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s20:IsHyphenationEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:IsHyphenationEnabled")
 
 	Func setIsHyphenationEnabled P1
 		dotnet_callv("s3:set",nHandle,"s20:IsHyphenationEnabled",P1)
@@ -5324,9 +5136,7 @@ Class Block from TextElement
 		return self
 
 	Func getLineHeight
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LineHeight")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:LineHeight")
 
 	Func setLineHeight P1
 		dotnet_callv("s3:set",nHandle,"s10:LineHeight",P1)
@@ -5340,18 +5150,14 @@ Class Block from TextElement
 		return self
 
 	Func getBreakPageBefore
-		dn_x = dotnet_call("s3:get",nHandle,"s15:BreakPageBefore")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:BreakPageBefore")
 
 	Func setBreakPageBefore P1
 		dotnet_callv("s3:set",nHandle,"s15:BreakPageBefore",P1)
 		return self
 
 	Func getBreakColumnBefore
-		dn_x = dotnet_call("s3:get",nHandle,"s17:BreakColumnBefore")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:BreakColumnBefore")
 
 	Func setBreakColumnBefore P1
 		dotnet_callv("s3:set",nHandle,"s17:BreakColumnBefore",P1)
@@ -5522,9 +5328,7 @@ Class DynamicDocumentPaginator from DocumentPaginator
 		return self
 
 	Func getIsBackgroundPaginationEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s29:IsBackgroundPaginationEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s29:IsBackgroundPaginationEnabled")
 
 	Func setIsBackgroundPaginationEnabled P1
 		dotnet_callv("s3:set",nHandle,"s29:IsBackgroundPaginationEnabled",P1)
@@ -5814,9 +5618,7 @@ Class ListItem from TextElement
 		return self
 
 	Func getLineHeight
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LineHeight")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:LineHeight")
 
 	Func setLineHeight P1
 		dotnet_callv("s3:set",nHandle,"s10:LineHeight",P1)
@@ -5968,18 +5770,14 @@ Class TableCell from TextElement
 		raise("DotNet Error: Blocks is a read-only property")
 
 	Func getColumnSpan
-		dn_x = dotnet_call("s3:get",nHandle,"s10:ColumnSpan")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:ColumnSpan")
 
 	Func setColumnSpan P1
 		dotnet_callv("s3:set",nHandle,"s10:ColumnSpan",P1)
 		return self
 
 	Func getRowSpan
-		dn_x = dotnet_call("s3:get",nHandle,"s7:RowSpan")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:RowSpan")
 
 	Func setRowSpan P1
 		dotnet_callv("s3:set",nHandle,"s7:RowSpan",P1)
@@ -6021,9 +5819,7 @@ Class TableCell from TextElement
 		return self
 
 	Func getLineHeight
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LineHeight")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:LineHeight")
 
 	Func setLineHeight P1
 		dotnet_callv("s3:set",nHandle,"s10:LineHeight",P1)
@@ -6253,9 +6049,7 @@ Class TextPointer from ContentPosition
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:InsertLineBreak"))
 
 	Func getHasValidLayout
-		dn_x = dotnet_call("s3:get",nHandle,"s14:HasValidLayout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:HasValidLayout")
 
 	Func setHasValidLayout P1
 		raise("DotNet Error: HasValidLayout is a read-only property")
@@ -6273,17 +6067,13 @@ Class TextPointer from ContentPosition
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getIsAtInsertionPosition
-		dn_x = dotnet_call("s3:get",nHandle,"s21:IsAtInsertionPosition")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:IsAtInsertionPosition")
 
 	Func setIsAtInsertionPosition P1
 		raise("DotNet Error: IsAtInsertionPosition is a read-only property")
 
 	Func getIsAtLineStartPosition
-		dn_x = dotnet_call("s3:get",nHandle,"s21:IsAtLineStartPosition")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:IsAtLineStartPosition")
 
 	Func setIsAtLineStartPosition P1
 		raise("DotNet Error: IsAtLineStartPosition is a read-only property")
@@ -6393,9 +6183,7 @@ Class AnchoredBlock from Inline
 		return self
 
 	Func getLineHeight
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LineHeight")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:LineHeight")
 
 	Func setLineHeight P1
 		dotnet_callv("s3:set",nHandle,"s10:LineHeight",P1)
@@ -6638,18 +6426,14 @@ Class WpfList from Block
 		return self
 
 	Func getMarkerOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s12:MarkerOffset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:MarkerOffset")
 
 	Func setMarkerOffset P1
 		dotnet_callv("s3:set",nHandle,"s12:MarkerOffset",P1)
 		return self
 
 	Func getStartIndex
-		dn_x = dotnet_call("s3:get",nHandle,"s10:StartIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:StartIndex")
 
 	Func setStartIndex P1
 		dotnet_callv("s3:set",nHandle,"s10:StartIndex",P1)
@@ -6743,45 +6527,35 @@ Class Paragraph from Block
 		return self
 
 	Func getTextIndent
-		dn_x = dotnet_call("s3:get",nHandle,"s10:TextIndent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:TextIndent")
 
 	Func setTextIndent P1
 		dotnet_callv("s3:set",nHandle,"s10:TextIndent",P1)
 		return self
 
 	Func getMinOrphanLines
-		dn_x = dotnet_call("s3:get",nHandle,"s14:MinOrphanLines")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:MinOrphanLines")
 
 	Func setMinOrphanLines P1
 		dotnet_callv("s3:set",nHandle,"s14:MinOrphanLines",P1)
 		return self
 
 	Func getMinWidowLines
-		dn_x = dotnet_call("s3:get",nHandle,"s13:MinWidowLines")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:MinWidowLines")
 
 	Func setMinWidowLines P1
 		dotnet_callv("s3:set",nHandle,"s13:MinWidowLines",P1)
 		return self
 
 	Func getKeepWithNext
-		dn_x = dotnet_call("s3:get",nHandle,"s12:KeepWithNext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:KeepWithNext")
 
 	Func setKeepWithNext P1
 		dotnet_callv("s3:set",nHandle,"s12:KeepWithNext",P1)
 		return self
 
 	Func getKeepTogether
-		dn_x = dotnet_call("s3:get",nHandle,"s12:KeepTogether")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:KeepTogether")
 
 	Func setKeepTogether P1
 		dotnet_callv("s3:set",nHandle,"s12:KeepTogether",P1)
@@ -6929,9 +6703,7 @@ Class Section from Block
 		return dn_x
 
 	Func getHasTrailingParagraphBreakOnPaste
-		dn_x = dotnet_call("s3:get",nHandle,"s32:HasTrailingParagraphBreakOnPaste")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s32:HasTrailingParagraphBreakOnPaste")
 
 	Func setHasTrailingParagraphBreakOnPaste P1
 		dotnet_callv("s3:set",nHandle,"s32:HasTrailingParagraphBreakOnPaste",P1)
@@ -7037,9 +6809,7 @@ Class Table from Block
 		raise("DotNet Error: RowGroups is a read-only property")
 
 	Func getCellSpacing
-		dn_x = dotnet_call("s3:get",nHandle,"s11:CellSpacing")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:CellSpacing")
 
 	Func setCellSpacing P1
 		dotnet_callv("s3:set",nHandle,"s11:CellSpacing",P1)
@@ -7157,27 +6927,21 @@ Class Figure from AnchoredBlock
 		return self
 
 	Func getHorizontalOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s16:HorizontalOffset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:HorizontalOffset")
 
 	Func setHorizontalOffset P1
 		dotnet_callv("s3:set",nHandle,"s16:HorizontalOffset",P1)
 		return self
 
 	Func getVerticalOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s14:VerticalOffset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:VerticalOffset")
 
 	Func setVerticalOffset P1
 		dotnet_callv("s3:set",nHandle,"s14:VerticalOffset",P1)
 		return self
 
 	Func getCanDelayPlacement
-		dn_x = dotnet_call("s3:get",nHandle,"s17:CanDelayPlacement")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:CanDelayPlacement")
 
 	Func setCanDelayPlacement P1
 		dotnet_callv("s3:set",nHandle,"s17:CanDelayPlacement",P1)
@@ -7302,9 +7066,7 @@ Class Floater from AnchoredBlock
 		return self
 
 	Func getWidth
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Width")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Width")
 
 	Func setWidth P1
 		dotnet_callv("s3:set",nHandle,"s5:Width",P1)

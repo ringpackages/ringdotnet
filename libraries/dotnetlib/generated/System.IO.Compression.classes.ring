@@ -105,9 +105,7 @@ Class BrotliCompressionOptions from Object
 		return dn_x
 
 	Func getQuality
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Quality")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Quality")
 
 	Func setQuality P1
 		dotnet_callv("s3:set",nHandle,"s7:Quality",P1)
@@ -353,9 +351,7 @@ Class ZLibCompressionOptions from Object
 		return dn_x
 
 	Func getCompressionLevel
-		dn_x = dotnet_call("s3:get",nHandle,"s16:CompressionLevel")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:CompressionLevel")
 
 	Func setCompressionLevel P1
 		dotnet_callv("s3:set",nHandle,"s16:CompressionLevel",P1)
@@ -585,33 +581,25 @@ Class ZipArchiveEntry from Object
 		raise("DotNet Error: Archive is a read-only property")
 
 	Func getCrc32
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Crc32")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Crc32")
 
 	Func setCrc32 P1
 		raise("DotNet Error: Crc32 is a read-only property")
 
 	Func getIsEncrypted
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsEncrypted")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsEncrypted")
 
 	Func setIsEncrypted P1
 		raise("DotNet Error: IsEncrypted is a read-only property")
 
 	Func getCompressedLength
-		dn_x = dotnet_call("s3:get",nHandle,"s16:CompressedLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:CompressedLength")
 
 	Func setCompressedLength P1
 		raise("DotNet Error: CompressedLength is a read-only property")
 
 	Func getExternalAttributes
-		dn_x = dotnet_call("s3:get",nHandle,"s18:ExternalAttributes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:ExternalAttributes")
 
 	Func setExternalAttributes P1
 		dotnet_callv("s3:set",nHandle,"s18:ExternalAttributes",P1)
@@ -642,9 +630,7 @@ Class ZipArchiveEntry from Object
 		return self
 
 	Func getLength
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")

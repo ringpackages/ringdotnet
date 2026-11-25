@@ -843,9 +843,7 @@ Class DbContextId from ValueType
 		raise("DotNet Error: InstanceId is a read-only property")
 
 	Func getLease
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Lease")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Lease")
 
 	Func setLease P1
 		raise("DotNet Error: Lease is a read-only property")
@@ -914,9 +912,7 @@ Class DbContextOptions from Object
 		raise("DotNet Error: ContextType is a read-only property")
 
 	Func getIsFrozen
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsFrozen")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsFrozen")
 
 	Func setIsFrozen P1
 		raise("DotNet Error: IsFrozen is a read-only property")
@@ -1076,9 +1072,7 @@ Class DbContextOptionsBuilder from Object
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getIsConfigured
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsConfigured")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsConfigured")
 
 	Func setIsConfigured P1
 		raise("DotNet Error: IsConfigured is a read-only property")
@@ -1145,27 +1139,21 @@ Class DbFunctionAttribute from Attribute
 		return self
 
 	Func getIsBuiltIn
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsBuiltIn")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsBuiltIn")
 
 	Func setIsBuiltIn P1
 		dotnet_callv("s3:set",nHandle,"s9:IsBuiltIn",P1)
 		return self
 
 	Func getIsNullable
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsNullable")
 
 	Func setIsNullable P1
 		dotnet_callv("s3:set",nHandle,"s10:IsNullable",P1)
 		return self
 
 	Func getIsNullableHasValue
-		dn_x = dotnet_call("s3:get",nHandle,"s18:IsNullableHasValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:IsNullableHasValue")
 
 	Func setIsNullableHasValue P1
 		raise("DotNet Error: IsNullableHasValue is a read-only property")
@@ -1808,9 +1796,7 @@ Class EF from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.EF, Microsoft.EntityFrameworkCore',"s9:Parameter",P1))
 
 	Func getIsDesignTime
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.EF, Microsoft.EntityFrameworkCore',"s12:IsDesignTime")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.EF, Microsoft.EntityFrameworkCore',"s12:IsDesignTime")
 
 	Func setIsDesignTime P1
 		dotnet_callv("s3:set",'Microsoft.EntityFrameworkCore.EF, Microsoft.EntityFrameworkCore',"s12:IsDesignTime",P1)
@@ -2213,9 +2199,7 @@ Class IndexAttribute from Attribute
 		return self
 
 	Func getIsUnique
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsUnique")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsUnique")
 
 	Func setIsUnique P1
 		dotnet_callv("s3:set",nHandle,"s8:IsUnique",P1)
@@ -2229,18 +2213,14 @@ Class IndexAttribute from Attribute
 		return self
 
 	Func getAllDescending
-		dn_x = dotnet_call("s3:get",nHandle,"s13:AllDescending")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:AllDescending")
 
 	Func setAllDescending P1
 		dotnet_callv("s3:set",nHandle,"s13:AllDescending",P1)
 		return self
 
 	Func getIsUniqueHasValue
-		dn_x = dotnet_call("s3:get",nHandle,"s16:IsUniqueHasValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:IsUniqueHasValue")
 
 	Func setIsUniqueHasValue P1
 		raise("DotNet Error: IsUniqueHasValue is a read-only property")
@@ -2603,9 +2583,7 @@ Class PrecisionAttribute from Attribute
 		return self
 
 	Func getPrecision
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Precision")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Precision")
 
 	Func setPrecision P1
 		raise("DotNet Error: Precision is a read-only property")
@@ -5129,9 +5107,7 @@ Class SaveChangesEventArgs from EventArgs
 		return self
 
 	Func getAcceptAllChangesOnSuccess
-		dn_x = dotnet_call("s3:get",nHandle,"s25:AcceptAllChangesOnSuccess")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:AcceptAllChangesOnSuccess")
 
 	Func setAcceptAllChangesOnSuccess P1
 		raise("DotNet Error: AcceptAllChangesOnSuccess is a read-only property")
@@ -5515,9 +5491,7 @@ Class UnicodeAttribute from Attribute
 		return self
 
 	Func getIsUnicode
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsUnicode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsUnicode")
 
 	Func setIsUnicode P1
 		raise("DotNet Error: IsUnicode is a read-only property")
@@ -5646,9 +5620,7 @@ Class SavedChangesEventArgs from SaveChangesEventArgs
 		return self
 
 	Func getEntitiesSavedCount
-		dn_x = dotnet_call("s3:get",nHandle,"s18:EntitiesSavedCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:EntitiesSavedCount")
 
 	Func setEntitiesSavedCount P1
 		raise("DotNet Error: EntitiesSavedCount is a read-only property")

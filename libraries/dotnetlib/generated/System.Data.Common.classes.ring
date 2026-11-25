@@ -263,27 +263,21 @@ Class DataAdapter from Component
 		return self
 
 	Func getAcceptChangesDuringFill
-		dn_x = dotnet_call("s3:get",nHandle,"s23:AcceptChangesDuringFill")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:AcceptChangesDuringFill")
 
 	Func setAcceptChangesDuringFill P1
 		dotnet_callv("s3:set",nHandle,"s23:AcceptChangesDuringFill",P1)
 		return self
 
 	Func getAcceptChangesDuringUpdate
-		dn_x = dotnet_call("s3:get",nHandle,"s25:AcceptChangesDuringUpdate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:AcceptChangesDuringUpdate")
 
 	Func setAcceptChangesDuringUpdate P1
 		dotnet_callv("s3:set",nHandle,"s25:AcceptChangesDuringUpdate",P1)
 		return self
 
 	Func getContinueUpdateOnError
-		dn_x = dotnet_call("s3:get",nHandle,"s21:ContinueUpdateOnError")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:ContinueUpdateOnError")
 
 	Func setContinueUpdateOnError P1
 		dotnet_callv("s3:set",nHandle,"s21:ContinueUpdateOnError",P1)
@@ -311,9 +305,7 @@ Class DataAdapter from Component
 		return self
 
 	Func getReturnProviderSpecificTypes
-		dn_x = dotnet_call("s3:get",nHandle,"s27:ReturnProviderSpecificTypes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s27:ReturnProviderSpecificTypes")
 
 	Func setReturnProviderSpecificTypes P1
 		dotnet_callv("s3:set",nHandle,"s27:ReturnProviderSpecificTypes",P1)
@@ -510,9 +502,7 @@ Class DataColumnMappingCollection from MarshalByRefObject
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -706,9 +696,7 @@ Class DataTableMappingCollection from MarshalByRefObject
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -820,9 +808,7 @@ Class DbBatch from Object
 		raise("DotNet Error: BatchCommands is a read-only property")
 
 	Func getTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Timeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Timeout")
 
 	Func setTimeout P1
 		dotnet_callv("s3:set",nHandle,"s7:Timeout",P1)
@@ -885,9 +871,7 @@ Class DbBatchCommand from Object
 		return self
 
 	Func getRecordsAffected
-		dn_x = dotnet_call("s3:get",nHandle,"s15:RecordsAffected")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:RecordsAffected")
 
 	Func setRecordsAffected P1
 		raise("DotNet Error: RecordsAffected is a read-only property")
@@ -899,9 +883,7 @@ Class DbBatchCommand from Object
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getCanCreateParameter
-		dn_x = dotnet_call("s3:get",nHandle,"s18:CanCreateParameter")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:CanCreateParameter")
 
 	Func setCanCreateParameter P1
 		raise("DotNet Error: CanCreateParameter is a read-only property")
@@ -997,17 +979,13 @@ Class DbBatchCommandCollection from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1314,9 +1292,7 @@ Class DbCommand from Component
 		return self
 
 	Func getCommandTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s14:CommandTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:CommandTimeout")
 
 	Func setCommandTimeout P1
 		dotnet_callv("s3:set",nHandle,"s14:CommandTimeout",P1)
@@ -1337,9 +1313,7 @@ Class DbCommand from Component
 		return self
 
 	Func getDesignTimeVisible
-		dn_x = dotnet_call("s3:get",nHandle,"s17:DesignTimeVisible")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:DesignTimeVisible")
 
 	Func setDesignTimeVisible P1
 		dotnet_callv("s3:set",nHandle,"s17:DesignTimeVisible",P1)
@@ -1486,9 +1460,7 @@ Class DbCommandBuilder from Component
 		return self
 
 	Func getSetAllValues
-		dn_x = dotnet_call("s3:get",nHandle,"s12:SetAllValues")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:SetAllValues")
 
 	Func setSetAllValues P1
 		dotnet_callv("s3:set",nHandle,"s12:SetAllValues",P1)
@@ -1619,9 +1591,7 @@ Class DbConnection from Component
 		return self
 
 	Func getConnectionTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s17:ConnectionTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:ConnectionTimeout")
 
 	Func setConnectionTimeout P1
 		raise("DotNet Error: ConnectionTimeout is a read-only property")
@@ -1657,9 +1627,7 @@ Class DbConnection from Component
 		raise("DotNet Error: State is a read-only property")
 
 	Func getCanCreateBatch
-		dn_x = dotnet_call("s3:get",nHandle,"s14:CanCreateBatch")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:CanCreateBatch")
 
 	Func setCanCreateBatch P1
 		raise("DotNet Error: CanCreateBatch is a read-only property")
@@ -1782,9 +1750,7 @@ Class DbConnectionStringBuilder from Object
 		return self
 
 	Func getBrowsableConnectionString
-		dn_x = dotnet_call("s3:get",nHandle,"s25:BrowsableConnectionString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:BrowsableConnectionString")
 
 	Func setBrowsableConnectionString P1
 		dotnet_callv("s3:set",nHandle,"s25:BrowsableConnectionString",P1)
@@ -1800,25 +1766,19 @@ Class DbConnectionStringBuilder from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
@@ -2090,49 +2050,37 @@ Class DbDataReader from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getDepth
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Depth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Depth")
 
 	Func setDepth P1
 		raise("DotNet Error: Depth is a read-only property")
 
 	Func getFieldCount
-		dn_x = dotnet_call("s3:get",nHandle,"s10:FieldCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:FieldCount")
 
 	Func setFieldCount P1
 		raise("DotNet Error: FieldCount is a read-only property")
 
 	Func getHasRows
-		dn_x = dotnet_call("s3:get",nHandle,"s7:HasRows")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:HasRows")
 
 	Func setHasRows P1
 		raise("DotNet Error: HasRows is a read-only property")
 
 	Func getIsClosed
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsClosed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsClosed")
 
 	Func setIsClosed P1
 		raise("DotNet Error: IsClosed is a read-only property")
 
 	Func getRecordsAffected
-		dn_x = dotnet_call("s3:get",nHandle,"s15:RecordsAffected")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:RecordsAffected")
 
 	Func setRecordsAffected P1
 		raise("DotNet Error: RecordsAffected is a read-only property")
 
 	Func getVisibleFieldCount
-		dn_x = dotnet_call("s3:get",nHandle,"s17:VisibleFieldCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:VisibleFieldCount")
 
 	Func setVisibleFieldCount P1
 		raise("DotNet Error: VisibleFieldCount is a read-only property")
@@ -2283,9 +2231,7 @@ Class DbDataRecord from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getFieldCount
-		dn_x = dotnet_call("s3:get",nHandle,"s10:FieldCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:FieldCount")
 
 	Func setFieldCount P1
 		raise("DotNet Error: FieldCount is a read-only property")
@@ -2445,9 +2391,7 @@ Class DbException from ExternalException
 		return self
 
 	Func getIsTransient
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsTransient")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsTransient")
 
 	Func setIsTransient P1
 		raise("DotNet Error: IsTransient is a read-only property")
@@ -2974,9 +2918,7 @@ Class DbParameter from MarshalByRefObject
 		return self
 
 	Func getIsNullable
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsNullable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsNullable")
 
 	Func setIsNullable P1
 		dotnet_callv("s3:set",nHandle,"s10:IsNullable",P1)
@@ -2992,27 +2934,21 @@ Class DbParameter from MarshalByRefObject
 		return self
 
 	Func getPrecision
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Precision")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Precision")
 
 	Func setPrecision P1
 		dotnet_callv("s3:set",nHandle,"s9:Precision",P1)
 		return self
 
 	Func getScale
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Scale")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Scale")
 
 	Func setScale P1
 		dotnet_callv("s3:set",nHandle,"s5:Scale",P1)
 		return self
 
 	Func getSize
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Size")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Size")
 
 	Func setSize P1
 		dotnet_callv("s3:set",nHandle,"s4:Size",P1)
@@ -3028,9 +2964,7 @@ Class DbParameter from MarshalByRefObject
 		return self
 
 	Func getSourceColumnNullMapping
-		dn_x = dotnet_call("s3:get",nHandle,"s23:SourceColumnNullMapping")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:SourceColumnNullMapping")
 
 	Func setSourceColumnNullMapping P1
 		dotnet_callv("s3:set",nHandle,"s23:SourceColumnNullMapping",P1)
@@ -3144,33 +3078,25 @@ Class DbParameterCollection from MarshalByRefObject
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsFixedSize
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFixedSize")
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -3273,33 +3199,25 @@ Class DbProviderFactory from Object
 		return dn_x
 
 	Func getCanCreateBatch
-		dn_x = dotnet_call("s3:get",nHandle,"s14:CanCreateBatch")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:CanCreateBatch")
 
 	Func setCanCreateBatch P1
 		raise("DotNet Error: CanCreateBatch is a read-only property")
 
 	Func getCanCreateDataSourceEnumerator
-		dn_x = dotnet_call("s3:get",nHandle,"s29:CanCreateDataSourceEnumerator")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s29:CanCreateDataSourceEnumerator")
 
 	Func setCanCreateDataSourceEnumerator P1
 		raise("DotNet Error: CanCreateDataSourceEnumerator is a read-only property")
 
 	Func getCanCreateDataAdapter
-		dn_x = dotnet_call("s3:get",nHandle,"s20:CanCreateDataAdapter")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:CanCreateDataAdapter")
 
 	Func setCanCreateDataAdapter P1
 		raise("DotNet Error: CanCreateDataAdapter is a read-only property")
 
 	Func getCanCreateCommandBuilder
-		dn_x = dotnet_call("s3:get",nHandle,"s23:CanCreateCommandBuilder")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:CanCreateCommandBuilder")
 
 	Func setCanCreateCommandBuilder P1
 		raise("DotNet Error: CanCreateCommandBuilder is a read-only property")
@@ -3321,9 +3239,7 @@ Class DbProviderSpecificTypePropertyAttribute from Attribute
 		return self
 
 	Func getIsProviderSpecificTypeProperty
-		dn_x = dotnet_call("s3:get",nHandle,"s30:IsProviderSpecificTypeProperty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s30:IsProviderSpecificTypeProperty")
 
 	Func setIsProviderSpecificTypeProperty P1
 		raise("DotNet Error: IsProviderSpecificTypeProperty is a read-only property")
@@ -3423,9 +3339,7 @@ Class DbTransaction from MarshalByRefObject
 		raise("DotNet Error: IsolationLevel is a read-only property")
 
 	Func getSupportsSavepoints
-		dn_x = dotnet_call("s3:get",nHandle,"s18:SupportsSavepoints")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:SupportsSavepoints")
 
 	Func setSupportsSavepoints P1
 		raise("DotNet Error: SupportsSavepoints is a read-only property")
@@ -3491,9 +3405,7 @@ Class RowUpdatedEventArgs from EventArgs
 		return self
 
 	Func getRecordsAffected
-		dn_x = dotnet_call("s3:get",nHandle,"s15:RecordsAffected")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:RecordsAffected")
 
 	Func setRecordsAffected P1
 		raise("DotNet Error: RecordsAffected is a read-only property")
@@ -3505,9 +3417,7 @@ Class RowUpdatedEventArgs from EventArgs
 		raise("DotNet Error: Row is a read-only property")
 
 	Func getRowCount
-		dn_x = dotnet_call("s3:get",nHandle,"s8:RowCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:RowCount")
 
 	Func setRowCount P1
 		raise("DotNet Error: RowCount is a read-only property")
@@ -3973,9 +3883,7 @@ Class DbDataAdapter from DataAdapter
 		return self
 
 	Func getUpdateBatchSize
-		dn_x = dotnet_call("s3:get",nHandle,"s15:UpdateBatchSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:UpdateBatchSize")
 
 	Func setUpdateBatchSize P1
 		dotnet_callv("s3:set",nHandle,"s15:UpdateBatchSize",P1)

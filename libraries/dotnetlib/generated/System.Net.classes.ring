@@ -433,9 +433,7 @@ Class Authorization from Object
 		raise("DotNet Error: ConnectionGroupId is a read-only property")
 
 	Func getComplete
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Complete")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Complete")
 
 	Func setComplete P1
 		raise("DotNet Error: Complete is a read-only property")
@@ -448,9 +446,7 @@ Class Authorization from Object
 		return self
 
 	Func getMutuallyAuthenticated
-		dn_x = dotnet_call("s3:get",nHandle,"s21:MutuallyAuthenticated")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:MutuallyAuthenticated")
 
 	Func setMutuallyAuthenticated P1
 		dotnet_callv("s3:set",nHandle,"s21:MutuallyAuthenticated",P1)
@@ -530,18 +526,14 @@ Class Cookie from Object
 		return self
 
 	Func getHttpOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s8:HttpOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:HttpOnly")
 
 	Func setHttpOnly P1
 		dotnet_callv("s3:set",nHandle,"s8:HttpOnly",P1)
 		return self
 
 	Func getDiscard
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Discard")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Discard")
 
 	Func setDiscard P1
 		dotnet_callv("s3:set",nHandle,"s7:Discard",P1)
@@ -557,9 +549,7 @@ Class Cookie from Object
 		return self
 
 	Func getExpired
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Expired")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Expired")
 
 	Func setExpired P1
 		dotnet_callv("s3:set",nHandle,"s7:Expired",P1)
@@ -600,9 +590,7 @@ Class Cookie from Object
 		return self
 
 	Func getSecure
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Secure")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Secure")
 
 	Func setSecure P1
 		dotnet_callv("s3:set",nHandle,"s6:Secure",P1)
@@ -624,9 +612,7 @@ Class Cookie from Object
 		return self
 
 	Func getVersion
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Version")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Version")
 
 	Func setVersion P1
 		dotnet_callv("s3:set",nHandle,"s7:Version",P1)
@@ -715,25 +701,19 @@ Class CookieCollection from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
@@ -820,60 +800,46 @@ Class CookieContainer from Object
 		return dn_x
 
 	Func getCapacity
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Capacity")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Capacity")
 
 	Func setCapacity P1
 		dotnet_callv("s3:set",nHandle,"s8:Capacity",P1)
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getMaxCookieSize
-		dn_x = dotnet_call("s3:get",nHandle,"s13:MaxCookieSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:MaxCookieSize")
 
 	Func setMaxCookieSize P1
 		dotnet_callv("s3:set",nHandle,"s13:MaxCookieSize",P1)
 		return self
 
 	Func getPerDomainCapacity
-		dn_x = dotnet_call("s3:get",nHandle,"s17:PerDomainCapacity")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:PerDomainCapacity")
 
 	Func setPerDomainCapacity P1
 		dotnet_callv("s3:set",nHandle,"s17:PerDomainCapacity",P1)
 		return self
 
 	Func getDefaultCookieLimit
-		dn_x = dotnet_call("s3:get",'System.Net.CookieContainer, System.Net.Primitives',"s18:DefaultCookieLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Net.CookieContainer, System.Net.Primitives',"s18:DefaultCookieLimit")
 
 	Func setDefaultCookieLimit P1
 		raise("DotNet Error: DefaultCookieLimit is a read-only property")
 
 	Func getDefaultPerDomainCookieLimit
-		dn_x = dotnet_call("s3:get",'System.Net.CookieContainer, System.Net.Primitives',"s27:DefaultPerDomainCookieLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Net.CookieContainer, System.Net.Primitives',"s27:DefaultPerDomainCookieLimit")
 
 	Func setDefaultPerDomainCookieLimit P1
 		raise("DotNet Error: DefaultPerDomainCookieLimit is a read-only property")
 
 	Func getDefaultCookieLengthLimit
-		dn_x = dotnet_call("s3:get",'System.Net.CookieContainer, System.Net.Primitives',"s24:DefaultCookieLengthLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Net.CookieContainer, System.Net.Primitives',"s24:DefaultCookieLengthLimit")
 
 	Func setDefaultCookieLengthLimit P1
 		raise("DotNet Error: DefaultCookieLengthLimit is a read-only property")
@@ -1098,17 +1064,13 @@ Class DownloadProgressChangedEventArgs from ProgressChangedEventArgs
 		return self
 
 	Func getBytesReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s13:BytesReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:BytesReceived")
 
 	Func setBytesReceived P1
 		raise("DotNet Error: BytesReceived is a read-only property")
 
 	Func getTotalBytesToReceive
-		dn_x = dotnet_call("s3:get",nHandle,"s19:TotalBytesToReceive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:TotalBytesToReceive")
 
 	Func setTotalBytesToReceive P1
 		raise("DotNet Error: TotalBytesToReceive is a read-only property")
@@ -1287,26 +1249,20 @@ Class HttpListener from Object
 		return self
 
 	Func getIsListening
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsListening")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsListening")
 
 	Func setIsListening P1
 		raise("DotNet Error: IsListening is a read-only property")
 
 	Func getIgnoreWriteExceptions
-		dn_x = dotnet_call("s3:get",nHandle,"s21:IgnoreWriteExceptions")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:IgnoreWriteExceptions")
 
 	Func setIgnoreWriteExceptions P1
 		dotnet_callv("s3:set",nHandle,"s21:IgnoreWriteExceptions",P1)
 		return self
 
 	Func getUnsafeConnectionNtlmAuthentication
-		dn_x = dotnet_call("s3:get",nHandle,"s34:UnsafeConnectionNtlmAuthentication")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s34:UnsafeConnectionNtlmAuthentication")
 
 	Func setUnsafeConnectionNtlmAuthentication P1
 		dotnet_callv("s3:set",nHandle,"s34:UnsafeConnectionNtlmAuthentication",P1)
@@ -1319,9 +1275,7 @@ Class HttpListener from Object
 		raise("DotNet Error: TimeoutManager is a read-only property")
 
 	Func getIsSupported
-		dn_x = dotnet_call("s3:get",'System.Net.HttpListener, System.Net.HttpListener',"s11:IsSupported")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Net.HttpListener, System.Net.HttpListener',"s11:IsSupported")
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -1444,9 +1398,7 @@ Class HttpListenerBasicIdentity from DotNetObject
 		raise("DotNet Error: AuthenticationType is a read-only property")
 
 	Func getIsAuthenticated
-		dn_x = dotnet_call("s3:get",nHandle,"s15:IsAuthenticated")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:IsAuthenticated")
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
@@ -1642,25 +1594,19 @@ Class HttpListenerPrefixCollection from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsSynchronized
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsSynchronized")
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1757,25 +1703,19 @@ Class HttpListenerRequest from Object
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getIsLocal
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsLocal")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsLocal")
 
 	Func setIsLocal P1
 		raise("DotNet Error: IsLocal is a read-only property")
 
 	Func getIsWebSocketRequest
-		dn_x = dotnet_call("s3:get",nHandle,"s18:IsWebSocketRequest")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:IsWebSocketRequest")
 
 	Func setIsWebSocketRequest P1
 		raise("DotNet Error: IsWebSocketRequest is a read-only property")
 
 	Func getKeepAlive
-		dn_x = dotnet_call("s3:get",nHandle,"s9:KeepAlive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:KeepAlive")
 
 	Func setKeepAlive P1
 		raise("DotNet Error: KeepAlive is a read-only property")
@@ -1837,9 +1777,7 @@ Class HttpListenerRequest from Object
 		raise("DotNet Error: ProtocolVersion is a read-only property")
 
 	Func getClientCertificateError
-		dn_x = dotnet_call("s3:get",nHandle,"s22:ClientCertificateError")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:ClientCertificateError")
 
 	Func setClientCertificateError P1
 		raise("DotNet Error: ClientCertificateError is a read-only property")
@@ -1851,9 +1789,7 @@ Class HttpListenerRequest from Object
 		raise("DotNet Error: RequestTraceIdentifier is a read-only property")
 
 	Func getContentLength64
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ContentLength64")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:ContentLength64")
 
 	Func setContentLength64 P1
 		raise("DotNet Error: ContentLength64 is a read-only property")
@@ -1879,17 +1815,13 @@ Class HttpListenerRequest from Object
 		raise("DotNet Error: InputStream is a read-only property")
 
 	Func getIsAuthenticated
-		dn_x = dotnet_call("s3:get",nHandle,"s15:IsAuthenticated")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:IsAuthenticated")
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
 
 	Func getIsSecureConnection
-		dn_x = dotnet_call("s3:get",nHandle,"s18:IsSecureConnection")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:IsSecureConnection")
 
 	Func setIsSecureConnection P1
 		raise("DotNet Error: IsSecureConnection is a read-only property")
@@ -1909,9 +1841,7 @@ Class HttpListenerRequest from Object
 		raise("DotNet Error: TransportContext is a read-only property")
 
 	Func getHasEntityBody
-		dn_x = dotnet_call("s3:get",nHandle,"s13:HasEntityBody")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:HasEntityBody")
 
 	Func setHasEntityBody P1
 		raise("DotNet Error: HasEntityBody is a read-only property")
@@ -2029,18 +1959,14 @@ Class HttpListenerResponse from Object
 		return self
 
 	Func getSendChunked
-		dn_x = dotnet_call("s3:get",nHandle,"s11:SendChunked")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:SendChunked")
 
 	Func setSendChunked P1
 		dotnet_callv("s3:set",nHandle,"s11:SendChunked",P1)
 		return self
 
 	Func getContentLength64
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ContentLength64")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:ContentLength64")
 
 	Func setContentLength64 P1
 		dotnet_callv("s3:set",nHandle,"s15:ContentLength64",P1)
@@ -2054,9 +1980,7 @@ Class HttpListenerResponse from Object
 		return self
 
 	Func getKeepAlive
-		dn_x = dotnet_call("s3:get",nHandle,"s9:KeepAlive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:KeepAlive")
 
 	Func setKeepAlive P1
 		dotnet_callv("s3:set",nHandle,"s9:KeepAlive",P1)
@@ -2087,9 +2011,7 @@ Class HttpListenerResponse from Object
 		return self
 
 	Func getStatusCode
-		dn_x = dotnet_call("s3:get",nHandle,"s10:StatusCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:StatusCode")
 
 	Func setStatusCode P1
 		dotnet_callv("s3:set",nHandle,"s10:StatusCode",P1)
@@ -2162,9 +2084,7 @@ Class HttpListenerTimeoutManager from Object
 		return self
 
 	Func getMinSendBytesPerSecond
-		dn_x = dotnet_call("s3:get",nHandle,"s21:MinSendBytesPerSecond")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:MinSendBytesPerSecond")
 
 	Func setMinSendBytesPerSecond P1
 		dotnet_callv("s3:set",nHandle,"s21:MinSendBytesPerSecond",P1)
@@ -2245,9 +2165,7 @@ Class IAuthenticationModule from DotNetObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s15:PreAuthenticate",P1,P2))
 
 	Func getCanPreAuthenticate
-		dn_x = dotnet_call("s3:get",nHandle,"s18:CanPreAuthenticate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:CanPreAuthenticate")
 
 	Func setCanPreAuthenticate P1
 		raise("DotNet Error: CanPreAuthenticate is a read-only property")
@@ -2421,9 +2339,7 @@ Class IPNetwork from ValueType
 		raise("DotNet Error: BaseAddress is a read-only property")
 
 	Func getPrefixLength
-		dn_x = dotnet_call("s3:get",nHandle,"s12:PrefixLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:PrefixLength")
 
 	Func setPrefixLength P1
 		raise("DotNet Error: PrefixLength is a read-only property")
@@ -2744,9 +2660,7 @@ Class ServicePoint from Object
 		return self
 
 	Func getConnectionLeaseTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s22:ConnectionLeaseTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:ConnectionLeaseTimeout")
 
 	Func setConnectionLeaseTimeout P1
 		dotnet_callv("s3:set",nHandle,"s22:ConnectionLeaseTimeout",P1)
@@ -2759,36 +2673,28 @@ Class ServicePoint from Object
 		raise("DotNet Error: Address is a read-only property")
 
 	Func getMaxIdleTime
-		dn_x = dotnet_call("s3:get",nHandle,"s11:MaxIdleTime")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:MaxIdleTime")
 
 	Func setMaxIdleTime P1
 		dotnet_callv("s3:set",nHandle,"s11:MaxIdleTime",P1)
 		return self
 
 	Func getUseNagleAlgorithm
-		dn_x = dotnet_call("s3:get",nHandle,"s17:UseNagleAlgorithm")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:UseNagleAlgorithm")
 
 	Func setUseNagleAlgorithm P1
 		dotnet_callv("s3:set",nHandle,"s17:UseNagleAlgorithm",P1)
 		return self
 
 	Func getReceiveBufferSize
-		dn_x = dotnet_call("s3:get",nHandle,"s17:ReceiveBufferSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:ReceiveBufferSize")
 
 	Func setReceiveBufferSize P1
 		dotnet_callv("s3:set",nHandle,"s17:ReceiveBufferSize",P1)
 		return self
 
 	Func getExpect100Continue
-		dn_x = dotnet_call("s3:get",nHandle,"s17:Expect100Continue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:Expect100Continue")
 
 	Func setExpect100Continue P1
 		dotnet_callv("s3:set",nHandle,"s17:Expect100Continue",P1)
@@ -2815,18 +2721,14 @@ Class ServicePoint from Object
 		raise("DotNet Error: ConnectionName is a read-only property")
 
 	Func getConnectionLimit
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ConnectionLimit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:ConnectionLimit")
 
 	Func setConnectionLimit P1
 		dotnet_callv("s3:set",nHandle,"s15:ConnectionLimit",P1)
 		return self
 
 	Func getCurrentConnections
-		dn_x = dotnet_call("s3:get",nHandle,"s18:CurrentConnections")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:CurrentConnections")
 
 	Func setCurrentConnections P1
 		raise("DotNet Error: CurrentConnections is a read-only property")
@@ -2844,9 +2746,7 @@ Class ServicePoint from Object
 		raise("DotNet Error: ClientCertificate is a read-only property")
 
 	Func getSupportsPipelining
-		dn_x = dotnet_call("s3:get",nHandle,"s18:SupportsPipelining")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:SupportsPipelining")
 
 	Func setSupportsPipelining P1
 		raise("DotNet Error: SupportsPipelining is a read-only property")
@@ -2910,9 +2810,7 @@ Class SocketAddress from Object
 		raise("DotNet Error: Family is a read-only property")
 
 	Func getSize
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Size")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Size")
 
 	Func setSize P1
 		dotnet_callv("s3:set",nHandle,"s4:Size",P1)
@@ -3002,33 +2900,25 @@ Class UploadProgressChangedEventArgs from ProgressChangedEventArgs
 		return self
 
 	Func getBytesReceived
-		dn_x = dotnet_call("s3:get",nHandle,"s13:BytesReceived")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:BytesReceived")
 
 	Func setBytesReceived P1
 		raise("DotNet Error: BytesReceived is a read-only property")
 
 	Func getTotalBytesToReceive
-		dn_x = dotnet_call("s3:get",nHandle,"s19:TotalBytesToReceive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:TotalBytesToReceive")
 
 	Func setTotalBytesToReceive P1
 		raise("DotNet Error: TotalBytesToReceive is a read-only property")
 
 	Func getBytesSent
-		dn_x = dotnet_call("s3:get",nHandle,"s9:BytesSent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:BytesSent")
 
 	Func setBytesSent P1
 		raise("DotNet Error: BytesSent is a read-only property")
 
 	Func getTotalBytesToSend
-		dn_x = dotnet_call("s3:get",nHandle,"s16:TotalBytesToSend")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:TotalBytesToSend")
 
 	Func setTotalBytesToSend P1
 		raise("DotNet Error: TotalBytesToSend is a read-only property")
@@ -3395,9 +3285,7 @@ Class WebClient from Component
 		return self
 
 	Func getUseDefaultCredentials
-		dn_x = dotnet_call("s3:get",nHandle,"s21:UseDefaultCredentials")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:UseDefaultCredentials")
 
 	Func setUseDefaultCredentials P1
 		dotnet_callv("s3:set",nHandle,"s21:UseDefaultCredentials",P1)
@@ -3438,26 +3326,20 @@ Class WebClient from Component
 		return self
 
 	Func getIsBusy
-		dn_x = dotnet_call("s3:get",nHandle,"s6:IsBusy")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:IsBusy")
 
 	Func setIsBusy P1
 		raise("DotNet Error: IsBusy is a read-only property")
 
 	Func getAllowReadStreamBuffering
-		dn_x = dotnet_call("s3:get",nHandle,"s24:AllowReadStreamBuffering")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:AllowReadStreamBuffering")
 
 	Func setAllowReadStreamBuffering P1
 		dotnet_callv("s3:set",nHandle,"s24:AllowReadStreamBuffering",P1)
 		return self
 
 	Func getAllowWriteStreamBuffering
-		dn_x = dotnet_call("s3:get",nHandle,"s25:AllowWriteStreamBuffering")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:AllowWriteStreamBuffering")
 
 	Func setAllowWriteStreamBuffering P1
 		dotnet_callv("s3:set",nHandle,"s25:AllowWriteStreamBuffering",P1)
@@ -3617,9 +3499,7 @@ Class WebProxy from Object
 		return self
 
 	Func getBypassProxyOnLocal
-		dn_x = dotnet_call("s3:get",nHandle,"s18:BypassProxyOnLocal")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:BypassProxyOnLocal")
 
 	Func setBypassProxyOnLocal P1
 		dotnet_callv("s3:set",nHandle,"s18:BypassProxyOnLocal",P1)
@@ -3646,9 +3526,7 @@ Class WebProxy from Object
 		return self
 
 	Func getUseDefaultCredentials
-		dn_x = dotnet_call("s3:get",nHandle,"s21:UseDefaultCredentials")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:UseDefaultCredentials")
 
 	Func setUseDefaultCredentials P1
 		dotnet_callv("s3:set",nHandle,"s21:UseDefaultCredentials",P1)
@@ -3782,9 +3660,7 @@ Class WebRequest from MarshalByRefObject
 		return self
 
 	Func getContentLength
-		dn_x = dotnet_call("s3:get",nHandle,"s13:ContentLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:ContentLength")
 
 	Func setContentLength P1
 		dotnet_callv("s3:set",nHandle,"s13:ContentLength",P1)
@@ -3807,27 +3683,21 @@ Class WebRequest from MarshalByRefObject
 		return self
 
 	Func getTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Timeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Timeout")
 
 	Func setTimeout P1
 		dotnet_callv("s3:set",nHandle,"s7:Timeout",P1)
 		return self
 
 	Func getUseDefaultCredentials
-		dn_x = dotnet_call("s3:get",nHandle,"s21:UseDefaultCredentials")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:UseDefaultCredentials")
 
 	Func setUseDefaultCredentials P1
 		dotnet_callv("s3:set",nHandle,"s21:UseDefaultCredentials",P1)
 		return self
 
 	Func getPreAuthenticate
-		dn_x = dotnet_call("s3:get",nHandle,"s15:PreAuthenticate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:PreAuthenticate")
 
 	Func setPreAuthenticate P1
 		dotnet_callv("s3:set",nHandle,"s15:PreAuthenticate",P1)
@@ -4140,9 +4010,7 @@ Class WebResponse from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetResponseStream"))
 
 	Func getContentLength
-		dn_x = dotnet_call("s3:get",nHandle,"s13:ContentLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:ContentLength")
 
 	Func setContentLength P1
 		dotnet_callv("s3:set",nHandle,"s13:ContentLength",P1)
@@ -4158,17 +4026,13 @@ Class WebResponse from MarshalByRefObject
 		return self
 
 	Func getIsFromCache
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsFromCache")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsFromCache")
 
 	Func setIsFromCache P1
 		raise("DotNet Error: IsFromCache is a read-only property")
 
 	Func getIsMutuallyAuthenticated
-		dn_x = dotnet_call("s3:get",nHandle,"s23:IsMutuallyAuthenticated")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:IsMutuallyAuthenticated")
 
 	Func setIsMutuallyAuthenticated P1
 		raise("DotNet Error: IsMutuallyAuthenticated is a read-only property")
@@ -4186,9 +4050,7 @@ Class WebResponse from MarshalByRefObject
 		raise("DotNet Error: Headers is a read-only property")
 
 	Func getSupportsHeaders
-		dn_x = dotnet_call("s3:get",nHandle,"s15:SupportsHeaders")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:SupportsHeaders")
 
 	Func setSupportsHeaders P1
 		raise("DotNet Error: SupportsHeaders is a read-only property")
@@ -4367,66 +4229,50 @@ Class IPAddress from Object
 		raise("DotNet Error: AddressFamily is a read-only property")
 
 	Func getScopeId
-		dn_x = dotnet_call("s3:get",nHandle,"s7:ScopeId")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:ScopeId")
 
 	Func setScopeId P1
 		dotnet_callv("s3:set",nHandle,"s7:ScopeId",P1)
 		return self
 
 	Func getIsIPv6Multicast
-		dn_x = dotnet_call("s3:get",nHandle,"s15:IsIPv6Multicast")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:IsIPv6Multicast")
 
 	Func setIsIPv6Multicast P1
 		raise("DotNet Error: IsIPv6Multicast is a read-only property")
 
 	Func getIsIPv6LinkLocal
-		dn_x = dotnet_call("s3:get",nHandle,"s15:IsIPv6LinkLocal")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:IsIPv6LinkLocal")
 
 	Func setIsIPv6LinkLocal P1
 		raise("DotNet Error: IsIPv6LinkLocal is a read-only property")
 
 	Func getIsIPv6SiteLocal
-		dn_x = dotnet_call("s3:get",nHandle,"s15:IsIPv6SiteLocal")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:IsIPv6SiteLocal")
 
 	Func setIsIPv6SiteLocal P1
 		raise("DotNet Error: IsIPv6SiteLocal is a read-only property")
 
 	Func getIsIPv6Teredo
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsIPv6Teredo")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsIPv6Teredo")
 
 	Func setIsIPv6Teredo P1
 		raise("DotNet Error: IsIPv6Teredo is a read-only property")
 
 	Func getIsIPv6UniqueLocal
-		dn_x = dotnet_call("s3:get",nHandle,"s17:IsIPv6UniqueLocal")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:IsIPv6UniqueLocal")
 
 	Func setIsIPv6UniqueLocal P1
 		raise("DotNet Error: IsIPv6UniqueLocal is a read-only property")
 
 	Func getIsIPv4MappedToIPv6
-		dn_x = dotnet_call("s3:get",nHandle,"s18:IsIPv4MappedToIPv6")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:IsIPv4MappedToIPv6")
 
 	Func setIsIPv4MappedToIPv6 P1
 		raise("DotNet Error: IsIPv4MappedToIPv6 is a read-only property")
 
 	Func getAddress
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Address")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Address")
 
 	Func setAddress P1
 		dotnet_callv("s3:set",nHandle,"s7:Address",P1)
@@ -4515,9 +4361,7 @@ Class DnsEndPoint from EndPoint
 		raise("DotNet Error: Host is a read-only property")
 
 	Func getPort
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Port")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Port")
 
 	Func setPort P1
 		raise("DotNet Error: Port is a read-only property")
@@ -4587,18 +4431,14 @@ Class FtpWebRequest from WebRequest
 		return self
 
 	Func getReadWriteTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ReadWriteTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:ReadWriteTimeout")
 
 	Func setReadWriteTimeout P1
 		dotnet_callv("s3:set",nHandle,"s16:ReadWriteTimeout",P1)
 		return self
 
 	Func getContentOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s13:ContentOffset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:ContentOffset")
 
 	Func setContentOffset P1
 		dotnet_callv("s3:set",nHandle,"s13:ContentOffset",P1)
@@ -4611,27 +4451,21 @@ Class FtpWebRequest from WebRequest
 		raise("DotNet Error: ServicePoint is a read-only property")
 
 	Func getKeepAlive
-		dn_x = dotnet_call("s3:get",nHandle,"s9:KeepAlive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:KeepAlive")
 
 	Func setKeepAlive P1
 		dotnet_callv("s3:set",nHandle,"s9:KeepAlive",P1)
 		return self
 
 	Func getUseBinary
-		dn_x = dotnet_call("s3:get",nHandle,"s9:UseBinary")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:UseBinary")
 
 	Func setUseBinary P1
 		dotnet_callv("s3:set",nHandle,"s9:UseBinary",P1)
 		return self
 
 	Func getUsePassive
-		dn_x = dotnet_call("s3:get",nHandle,"s10:UsePassive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:UsePassive")
 
 	Func setUsePassive P1
 		dotnet_callv("s3:set",nHandle,"s10:UsePassive",P1)
@@ -4645,9 +4479,7 @@ Class FtpWebRequest from WebRequest
 		return self
 
 	Func getEnableSsl
-		dn_x = dotnet_call("s3:get",nHandle,"s9:EnableSsl")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:EnableSsl")
 
 	Func setEnableSsl P1
 		dotnet_callv("s3:set",nHandle,"s9:EnableSsl",P1)
@@ -4794,36 +4626,28 @@ Class HttpWebRequest from WebRequest
 		return self
 
 	Func getAllowReadStreamBuffering
-		dn_x = dotnet_call("s3:get",nHandle,"s24:AllowReadStreamBuffering")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:AllowReadStreamBuffering")
 
 	Func setAllowReadStreamBuffering P1
 		dotnet_callv("s3:set",nHandle,"s24:AllowReadStreamBuffering",P1)
 		return self
 
 	Func getMaximumResponseHeadersLength
-		dn_x = dotnet_call("s3:get",nHandle,"s28:MaximumResponseHeadersLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s28:MaximumResponseHeadersLength")
 
 	Func setMaximumResponseHeadersLength P1
 		dotnet_callv("s3:set",nHandle,"s28:MaximumResponseHeadersLength",P1)
 		return self
 
 	Func getMaximumAutomaticRedirections
-		dn_x = dotnet_call("s3:get",nHandle,"s28:MaximumAutomaticRedirections")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s28:MaximumAutomaticRedirections")
 
 	Func setMaximumAutomaticRedirections P1
 		dotnet_callv("s3:set",nHandle,"s28:MaximumAutomaticRedirections",P1)
 		return self
 
 	Func getContinueTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s15:ContinueTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:ContinueTimeout")
 
 	Func setContinueTimeout P1
 		dotnet_callv("s3:set",nHandle,"s15:ContinueTimeout",P1)
@@ -4854,9 +4678,7 @@ Class HttpWebRequest from WebRequest
 		return self
 
 	Func getPipelined
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Pipelined")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Pipelined")
 
 	Func setPipelined P1
 		dotnet_callv("s3:set",nHandle,"s9:Pipelined",P1)
@@ -4890,18 +4712,14 @@ Class HttpWebRequest from WebRequest
 		return self
 
 	Func getKeepAlive
-		dn_x = dotnet_call("s3:get",nHandle,"s9:KeepAlive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:KeepAlive")
 
 	Func setKeepAlive P1
 		dotnet_callv("s3:set",nHandle,"s9:KeepAlive",P1)
 		return self
 
 	Func getUnsafeAuthenticatedConnectionSharing
-		dn_x = dotnet_call("s3:get",nHandle,"s36:UnsafeAuthenticatedConnectionSharing")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s36:UnsafeAuthenticatedConnectionSharing")
 
 	Func setUnsafeAuthenticatedConnectionSharing P1
 		dotnet_callv("s3:set",nHandle,"s36:UnsafeAuthenticatedConnectionSharing",P1)
@@ -4915,18 +4733,14 @@ Class HttpWebRequest from WebRequest
 		return self
 
 	Func getAllowWriteStreamBuffering
-		dn_x = dotnet_call("s3:get",nHandle,"s25:AllowWriteStreamBuffering")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:AllowWriteStreamBuffering")
 
 	Func setAllowWriteStreamBuffering P1
 		dotnet_callv("s3:set",nHandle,"s25:AllowWriteStreamBuffering",P1)
 		return self
 
 	Func getAllowAutoRedirect
-		dn_x = dotnet_call("s3:get",nHandle,"s17:AllowAutoRedirect")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:AllowAutoRedirect")
 
 	Func setAllowAutoRedirect P1
 		dotnet_callv("s3:set",nHandle,"s17:AllowAutoRedirect",P1)
@@ -4965,9 +4779,7 @@ Class HttpWebRequest from WebRequest
 		return self
 
 	Func getSendChunked
-		dn_x = dotnet_call("s3:get",nHandle,"s11:SendChunked")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:SendChunked")
 
 	Func setSendChunked P1
 		dotnet_callv("s3:set",nHandle,"s11:SendChunked",P1)
@@ -5008,9 +4820,7 @@ Class HttpWebRequest from WebRequest
 		return self
 
 	Func getReadWriteTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s16:ReadWriteTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:ReadWriteTimeout")
 
 	Func setReadWriteTimeout P1
 		dotnet_callv("s3:set",nHandle,"s16:ReadWriteTimeout",P1)
@@ -5024,34 +4834,26 @@ Class HttpWebRequest from WebRequest
 		return self
 
 	Func getHaveResponse
-		dn_x = dotnet_call("s3:get",nHandle,"s12:HaveResponse")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:HaveResponse")
 
 	Func setHaveResponse P1
 		raise("DotNet Error: HaveResponse is a read-only property")
 
 	Func getSupportsCookieContainer
-		dn_x = dotnet_call("s3:get",nHandle,"s23:SupportsCookieContainer")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:SupportsCookieContainer")
 
 	Func setSupportsCookieContainer P1
 		raise("DotNet Error: SupportsCookieContainer is a read-only property")
 
 	Func getDefaultMaximumResponseHeadersLength
-		dn_x = dotnet_call("s3:get",'System.Net.HttpWebRequest, System.Net.Requests',"s35:DefaultMaximumResponseHeadersLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Net.HttpWebRequest, System.Net.Requests',"s35:DefaultMaximumResponseHeadersLength")
 
 	Func setDefaultMaximumResponseHeadersLength P1
 		dotnet_callv("s3:set",'System.Net.HttpWebRequest, System.Net.Requests',"s35:DefaultMaximumResponseHeadersLength",P1)
 		return self
 
 	Func getDefaultMaximumErrorResponseLength
-		dn_x = dotnet_call("s3:get",'System.Net.HttpWebRequest, System.Net.Requests',"s33:DefaultMaximumErrorResponseLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Net.HttpWebRequest, System.Net.Requests',"s33:DefaultMaximumErrorResponseLength")
 
 	Func setDefaultMaximumErrorResponseLength P1
 		dotnet_callv("s3:set",'System.Net.HttpWebRequest, System.Net.Requests',"s33:DefaultMaximumErrorResponseLength",P1)
@@ -5204,26 +5006,20 @@ Class IPEndPoint from EndPoint
 		return self
 
 	Func getPort
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Port")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Port")
 
 	Func setPort P1
 		dotnet_callv("s3:set",nHandle,"s4:Port",P1)
 		return self
 
 	Func getMinPort
-		dn_x = dotnet_call("s3:get",'System.Net.IPEndPoint, System.Net.Primitives',"s7:MinPort")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Net.IPEndPoint, System.Net.Primitives',"s7:MinPort")
 
 	Func setMinPort P1
 		raise("DotNet Error: MinPort is a read-only property")
 
 	Func getMaxPort
-		dn_x = dotnet_call("s3:get",'System.Net.IPEndPoint, System.Net.Primitives',"s7:MaxPort")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Net.IPEndPoint, System.Net.Primitives',"s7:MaxPort")
 
 	Func setMaxPort P1
 		raise("DotNet Error: MaxPort is a read-only property")

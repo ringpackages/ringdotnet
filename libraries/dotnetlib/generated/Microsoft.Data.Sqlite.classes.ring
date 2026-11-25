@@ -234,9 +234,7 @@ Class SqliteConnection from DbConnection
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getDefaultTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s14:DefaultTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:DefaultTimeout")
 
 	Func setDefaultTimeout P1
 		dotnet_callv("s3:set",nHandle,"s14:DefaultTimeout",P1)
@@ -328,27 +326,21 @@ Class SqliteConnectionStringBuilder from DbConnectionStringBuilder
 		return self
 
 	Func getRecursiveTriggers
-		dn_x = dotnet_call("s3:get",nHandle,"s17:RecursiveTriggers")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:RecursiveTriggers")
 
 	Func setRecursiveTriggers P1
 		dotnet_callv("s3:set",nHandle,"s17:RecursiveTriggers",P1)
 		return self
 
 	Func getDefaultTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s14:DefaultTimeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:DefaultTimeout")
 
 	Func setDefaultTimeout P1
 		dotnet_callv("s3:set",nHandle,"s14:DefaultTimeout",P1)
 		return self
 
 	Func getPooling
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Pooling")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Pooling")
 
 	Func setPooling P1
 		dotnet_callv("s3:set",nHandle,"s7:Pooling",P1)
@@ -424,17 +416,13 @@ Class SqliteException from DbException
 		return self
 
 	Func getSqliteErrorCode
-		dn_x = dotnet_call("s3:get",nHandle,"s15:SqliteErrorCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:SqliteErrorCode")
 
 	Func setSqliteErrorCode P1
 		raise("DotNet Error: SqliteErrorCode is a read-only property")
 
 	Func getSqliteExtendedErrorCode
-		dn_x = dotnet_call("s3:get",nHandle,"s23:SqliteExtendedErrorCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:SqliteExtendedErrorCode")
 
 	Func setSqliteExtendedErrorCode P1
 		raise("DotNet Error: SqliteExtendedErrorCode is a read-only property")

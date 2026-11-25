@@ -468,9 +468,7 @@ Class MailMessage from Object
 		return self
 
 	Func getIsBodyHtml
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsBodyHtml")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsBodyHtml")
 
 	Func setIsBodyHtml P1
 		dotnet_callv("s3:set",nHandle,"s10:IsBodyHtml",P1)
@@ -593,18 +591,14 @@ Class SmtpClient from Object
 		return self
 
 	Func getPort
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Port")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Port")
 
 	Func setPort P1
 		dotnet_callv("s3:set",nHandle,"s4:Port",P1)
 		return self
 
 	Func getUseDefaultCredentials
-		dn_x = dotnet_call("s3:get",nHandle,"s21:UseDefaultCredentials")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:UseDefaultCredentials")
 
 	Func setUseDefaultCredentials P1
 		dotnet_callv("s3:set",nHandle,"s21:UseDefaultCredentials",P1)
@@ -618,9 +612,7 @@ Class SmtpClient from Object
 		return self
 
 	Func getTimeout
-		dn_x = dotnet_call("s3:get",nHandle,"s7:Timeout")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:Timeout")
 
 	Func setTimeout P1
 		dotnet_callv("s3:set",nHandle,"s7:Timeout",P1)
@@ -656,9 +648,7 @@ Class SmtpClient from Object
 		return self
 
 	Func getEnableSsl
-		dn_x = dotnet_call("s3:get",nHandle,"s9:EnableSsl")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:EnableSsl")
 
 	Func setEnableSsl P1
 		dotnet_callv("s3:set",nHandle,"s9:EnableSsl",P1)

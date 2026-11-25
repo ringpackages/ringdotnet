@@ -286,17 +286,13 @@ Class IXmlLineInfo from DotNetObject
 		return dn_x
 
 	Func getLineNumber
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LineNumber")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:LineNumber")
 
 	Func setLineNumber P1
 		raise("DotNet Error: LineNumber is a read-only property")
 
 	Func getLinePosition
-		dn_x = dotnet_call("s3:get",nHandle,"s12:LinePosition")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:LinePosition")
 
 	Func setLinePosition P1
 		raise("DotNet Error: LinePosition is a read-only property")
@@ -575,17 +571,13 @@ Class XmlException from SystemException
 		return self
 
 	Func getLineNumber
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LineNumber")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:LineNumber")
 
 	Func setLineNumber P1
 		raise("DotNet Error: LineNumber is a read-only property")
 
 	Func getLinePosition
-		dn_x = dotnet_call("s3:get",nHandle,"s12:LinePosition")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:LinePosition")
 
 	Func setLinePosition P1
 		raise("DotNet Error: LinePosition is a read-only property")
@@ -746,9 +738,7 @@ Class XmlNamedNodeMap from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1065,9 +1055,7 @@ Class XmlNode from Object
 		raise("DotNet Error: LastChild is a read-only property")
 
 	Func getHasChildNodes
-		dn_x = dotnet_call("s3:get",nHandle,"s13:HasChildNodes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:HasChildNodes")
 
 	Func setHasChildNodes P1
 		raise("DotNet Error: HasChildNodes is a read-only property")
@@ -1098,9 +1086,7 @@ Class XmlNode from Object
 		raise("DotNet Error: LocalName is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1258,9 +1244,7 @@ Class XmlNodeList from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1469,9 +1453,7 @@ Class XmlQualifiedName from Object
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getIsEmpty
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsEmpty")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
@@ -2006,9 +1988,7 @@ Class XmlReader from Object
 		raise("DotNet Error: Prefix is a read-only property")
 
 	Func getHasValue
-		dn_x = dotnet_call("s3:get",nHandle,"s8:HasValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:HasValue")
 
 	Func setHasValue P1
 		raise("DotNet Error: HasValue is a read-only property")
@@ -2022,9 +2002,7 @@ Class XmlReader from Object
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getDepth
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Depth")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Depth")
 
 	Func setDepth P1
 		raise("DotNet Error: Depth is a read-only property")
@@ -2038,17 +2016,13 @@ Class XmlReader from Object
 		raise("DotNet Error: BaseURI is a read-only property")
 
 	Func getIsEmptyElement
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsEmptyElement")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsEmptyElement")
 
 	Func setIsEmptyElement P1
 		raise("DotNet Error: IsEmptyElement is a read-only property")
 
 	Func getIsDefault
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsDefault")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsDefault")
 
 	Func setIsDefault P1
 		raise("DotNet Error: IsDefault is a read-only property")
@@ -2086,17 +2060,13 @@ Class XmlReader from Object
 		raise("DotNet Error: ValueType is a read-only property")
 
 	Func getAttributeCount
-		dn_x = dotnet_call("s3:get",nHandle,"s14:AttributeCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:AttributeCount")
 
 	Func setAttributeCount P1
 		raise("DotNet Error: AttributeCount is a read-only property")
 
 	Func getEOF
-		dn_x = dotnet_call("s3:get",nHandle,"s3:EOF")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s3:EOF")
 
 	Func setEOF P1
 		raise("DotNet Error: EOF is a read-only property")
@@ -2114,33 +2084,25 @@ Class XmlReader from Object
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getCanResolveEntity
-		dn_x = dotnet_call("s3:get",nHandle,"s16:CanResolveEntity")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:CanResolveEntity")
 
 	Func setCanResolveEntity P1
 		raise("DotNet Error: CanResolveEntity is a read-only property")
 
 	Func getCanReadBinaryContent
-		dn_x = dotnet_call("s3:get",nHandle,"s20:CanReadBinaryContent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:CanReadBinaryContent")
 
 	Func setCanReadBinaryContent P1
 		raise("DotNet Error: CanReadBinaryContent is a read-only property")
 
 	Func getCanReadValueChunk
-		dn_x = dotnet_call("s3:get",nHandle,"s17:CanReadValueChunk")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:CanReadValueChunk")
 
 	Func setCanReadValueChunk P1
 		raise("DotNet Error: CanReadValueChunk is a read-only property")
 
 	Func getHasAttributes
-		dn_x = dotnet_call("s3:get",nHandle,"s13:HasAttributes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:HasAttributes")
 
 	Func setHasAttributes P1
 		raise("DotNet Error: HasAttributes is a read-only property")
@@ -2207,9 +2169,7 @@ Class XmlReaderSettings from Object
 		return self
 
 	Func getAsync
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Async")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Async")
 
 	Func setAsync P1
 		dotnet_callv("s3:set",nHandle,"s5:Async",P1)
@@ -2227,18 +2187,14 @@ Class XmlReaderSettings from Object
 		return self
 
 	Func getLineNumberOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s16:LineNumberOffset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:LineNumberOffset")
 
 	Func setLineNumberOffset P1
 		dotnet_callv("s3:set",nHandle,"s16:LineNumberOffset",P1)
 		return self
 
 	Func getLinePositionOffset
-		dn_x = dotnet_call("s3:get",nHandle,"s18:LinePositionOffset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:LinePositionOffset")
 
 	Func setLinePositionOffset P1
 		dotnet_callv("s3:set",nHandle,"s18:LinePositionOffset",P1)
@@ -2252,63 +2208,49 @@ Class XmlReaderSettings from Object
 		return self
 
 	Func getCheckCharacters
-		dn_x = dotnet_call("s3:get",nHandle,"s15:CheckCharacters")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:CheckCharacters")
 
 	Func setCheckCharacters P1
 		dotnet_callv("s3:set",nHandle,"s15:CheckCharacters",P1)
 		return self
 
 	Func getMaxCharactersInDocument
-		dn_x = dotnet_call("s3:get",nHandle,"s23:MaxCharactersInDocument")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:MaxCharactersInDocument")
 
 	Func setMaxCharactersInDocument P1
 		dotnet_callv("s3:set",nHandle,"s23:MaxCharactersInDocument",P1)
 		return self
 
 	Func getMaxCharactersFromEntities
-		dn_x = dotnet_call("s3:get",nHandle,"s25:MaxCharactersFromEntities")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s25:MaxCharactersFromEntities")
 
 	Func setMaxCharactersFromEntities P1
 		dotnet_callv("s3:set",nHandle,"s25:MaxCharactersFromEntities",P1)
 		return self
 
 	Func getIgnoreWhitespace
-		dn_x = dotnet_call("s3:get",nHandle,"s16:IgnoreWhitespace")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:IgnoreWhitespace")
 
 	Func setIgnoreWhitespace P1
 		dotnet_callv("s3:set",nHandle,"s16:IgnoreWhitespace",P1)
 		return self
 
 	Func getIgnoreProcessingInstructions
-		dn_x = dotnet_call("s3:get",nHandle,"s28:IgnoreProcessingInstructions")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s28:IgnoreProcessingInstructions")
 
 	Func setIgnoreProcessingInstructions P1
 		dotnet_callv("s3:set",nHandle,"s28:IgnoreProcessingInstructions",P1)
 		return self
 
 	Func getIgnoreComments
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IgnoreComments")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IgnoreComments")
 
 	Func setIgnoreComments P1
 		dotnet_callv("s3:set",nHandle,"s14:IgnoreComments",P1)
 		return self
 
 	Func getProhibitDtd
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ProhibitDtd")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:ProhibitDtd")
 
 	Func setProhibitDtd P1
 		dotnet_callv("s3:set",nHandle,"s11:ProhibitDtd",P1)
@@ -2322,9 +2264,7 @@ Class XmlReaderSettings from Object
 		return self
 
 	Func getCloseInput
-		dn_x = dotnet_call("s3:get",nHandle,"s10:CloseInput")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:CloseInput")
 
 	Func setCloseInput P1
 		dotnet_callv("s3:set",nHandle,"s10:CloseInput",P1)
@@ -2786,9 +2726,7 @@ Class XmlWriterSettings from Object
 		return dn_x
 
 	Func getAsync
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Async")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Async")
 
 	Func setAsync P1
 		dotnet_callv("s3:set",nHandle,"s5:Async",P1)
@@ -2802,9 +2740,7 @@ Class XmlWriterSettings from Object
 		return self
 
 	Func getOmitXmlDeclaration
-		dn_x = dotnet_call("s3:get",nHandle,"s18:OmitXmlDeclaration")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:OmitXmlDeclaration")
 
 	Func setOmitXmlDeclaration P1
 		dotnet_callv("s3:set",nHandle,"s18:OmitXmlDeclaration",P1)
@@ -2827,9 +2763,7 @@ Class XmlWriterSettings from Object
 		return self
 
 	Func getIndent
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Indent")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Indent")
 
 	Func setIndent P1
 		dotnet_callv("s3:set",nHandle,"s6:Indent",P1)
@@ -2845,18 +2779,14 @@ Class XmlWriterSettings from Object
 		return self
 
 	Func getNewLineOnAttributes
-		dn_x = dotnet_call("s3:get",nHandle,"s19:NewLineOnAttributes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s19:NewLineOnAttributes")
 
 	Func setNewLineOnAttributes P1
 		dotnet_callv("s3:set",nHandle,"s19:NewLineOnAttributes",P1)
 		return self
 
 	Func getCloseOutput
-		dn_x = dotnet_call("s3:get",nHandle,"s11:CloseOutput")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:CloseOutput")
 
 	Func setCloseOutput P1
 		dotnet_callv("s3:set",nHandle,"s11:CloseOutput",P1)
@@ -2870,9 +2800,7 @@ Class XmlWriterSettings from Object
 		return self
 
 	Func getCheckCharacters
-		dn_x = dotnet_call("s3:get",nHandle,"s15:CheckCharacters")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:CheckCharacters")
 
 	Func setCheckCharacters P1
 		dotnet_callv("s3:set",nHandle,"s15:CheckCharacters",P1)
@@ -2886,9 +2814,7 @@ Class XmlWriterSettings from Object
 		return self
 
 	Func getWriteEndDocumentOnClose
-		dn_x = dotnet_call("s3:get",nHandle,"s23:WriteEndDocumentOnClose")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:WriteEndDocumentOnClose")
 
 	Func setWriteEndDocumentOnClose P1
 		dotnet_callv("s3:set",nHandle,"s23:WriteEndDocumentOnClose",P1)
@@ -2901,9 +2827,7 @@ Class XmlWriterSettings from Object
 		raise("DotNet Error: OutputMethod is a read-only property")
 
 	Func getDoNotEscapeUriAttributes
-		dn_x = dotnet_call("s3:get",nHandle,"s24:DoNotEscapeUriAttributes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:DoNotEscapeUriAttributes")
 
 	Func setDoNotEscapeUriAttributes P1
 		dotnet_callv("s3:set",nHandle,"s24:DoNotEscapeUriAttributes",P1)
@@ -2946,9 +2870,7 @@ Class XmlAttribute from XmlNode
 		return self
 
 	Func getSpecified
-		dn_x = dotnet_call("s3:get",nHandle,"s9:Specified")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:Specified")
 
 	Func setSpecified P1
 		raise("DotNet Error: Specified is a read-only property")
@@ -3215,9 +3137,7 @@ Class XmlDocument from XmlNode
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getPreserveWhitespace
-		dn_x = dotnet_call("s3:get",nHandle,"s18:PreserveWhitespace")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:PreserveWhitespace")
 
 	Func setPreserveWhitespace P1
 		dotnet_callv("s3:set",nHandle,"s18:PreserveWhitespace",P1)
@@ -3404,34 +3324,26 @@ Class XmlTextReader from XmlReader
 		return dn_x
 
 	Func getLineNumber
-		dn_x = dotnet_call("s3:get",nHandle,"s10:LineNumber")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:LineNumber")
 
 	Func setLineNumber P1
 		raise("DotNet Error: LineNumber is a read-only property")
 
 	Func getLinePosition
-		dn_x = dotnet_call("s3:get",nHandle,"s12:LinePosition")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:LinePosition")
 
 	Func setLinePosition P1
 		raise("DotNet Error: LinePosition is a read-only property")
 
 	Func getNamespaces
-		dn_x = dotnet_call("s3:get",nHandle,"s10:Namespaces")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:Namespaces")
 
 	Func setNamespaces P1
 		dotnet_callv("s3:set",nHandle,"s10:Namespaces",P1)
 		return self
 
 	Func getNormalization
-		dn_x = dotnet_call("s3:get",nHandle,"s13:Normalization")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:Normalization")
 
 	Func setNormalization P1
 		dotnet_callv("s3:set",nHandle,"s13:Normalization",P1)
@@ -3451,9 +3363,7 @@ Class XmlTextReader from XmlReader
 		return self
 
 	Func getProhibitDtd
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ProhibitDtd")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:ProhibitDtd")
 
 	Func setProhibitDtd P1
 		dotnet_callv("s3:set",nHandle,"s11:ProhibitDtd",P1)
@@ -3520,9 +3430,7 @@ Class XmlTextWriter from XmlWriter
 		raise("DotNet Error: BaseStream is a read-only property")
 
 	Func getNamespaces
-		dn_x = dotnet_call("s3:get",nHandle,"s10:Namespaces")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:Namespaces")
 
 	Func setNamespaces P1
 		dotnet_callv("s3:set",nHandle,"s10:Namespaces",P1)
@@ -3536,9 +3444,7 @@ Class XmlTextWriter from XmlWriter
 		return self
 
 	Func getIndentation
-		dn_x = dotnet_call("s3:get",nHandle,"s11:Indentation")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:Indentation")
 
 	Func setIndentation P1
 		dotnet_callv("s3:set",nHandle,"s11:Indentation",P1)
@@ -3640,9 +3546,7 @@ Class XmlCharacterData from XmlLinkedNode
 		return self
 
 	Func getLength
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Length")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Length")
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
@@ -3828,18 +3732,14 @@ Class XmlElement from XmlLinkedNode
 		return self
 
 	Func getIsEmpty
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsEmpty")
 
 	Func setIsEmpty P1
 		dotnet_callv("s3:set",nHandle,"s7:IsEmpty",P1)
 		return self
 
 	Func getHasAttributes
-		dn_x = dotnet_call("s3:get",nHandle,"s13:HasAttributes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:HasAttributes")
 
 	Func setHasAttributes P1
 		raise("DotNet Error: HasAttributes is a read-only property")

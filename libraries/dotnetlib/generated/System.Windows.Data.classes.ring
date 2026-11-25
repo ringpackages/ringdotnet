@@ -257,9 +257,7 @@ Class BindingBase from MarkupExtension
 		return self
 
 	Func getDelay
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Delay")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Delay")
 
 	Func setDelay P1
 		dotnet_callv("s3:set",nHandle,"s5:Delay",P1)
@@ -340,25 +338,19 @@ Class BindingExpressionBase from Expression
 		raise("DotNet Error: ValidationError is a read-only property")
 
 	Func getHasError
-		dn_x = dotnet_call("s3:get",nHandle,"s8:HasError")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:HasError")
 
 	Func setHasError P1
 		raise("DotNet Error: HasError is a read-only property")
 
 	Func getHasValidationError
-		dn_x = dotnet_call("s3:get",nHandle,"s18:HasValidationError")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:HasValidationError")
 
 	Func setHasValidationError P1
 		raise("DotNet Error: HasValidationError is a read-only property")
 
 	Func getIsDirty
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsDirty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsDirty")
 
 	Func setIsDirty P1
 		raise("DotNet Error: IsDirty is a read-only property")
@@ -465,36 +457,28 @@ Class BindingGroup from DependencyObject
 		return self
 
 	Func getNotifyOnValidationError
-		dn_x = dotnet_call("s3:get",nHandle,"s23:NotifyOnValidationError")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:NotifyOnValidationError")
 
 	Func setNotifyOnValidationError P1
 		dotnet_callv("s3:set",nHandle,"s23:NotifyOnValidationError",P1)
 		return self
 
 	Func getValidatesOnNotifyDataError
-		dn_x = dotnet_call("s3:get",nHandle,"s26:ValidatesOnNotifyDataError")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s26:ValidatesOnNotifyDataError")
 
 	Func setValidatesOnNotifyDataError P1
 		dotnet_callv("s3:set",nHandle,"s26:ValidatesOnNotifyDataError",P1)
 		return self
 
 	Func getSharesProposedValues
-		dn_x = dotnet_call("s3:get",nHandle,"s20:SharesProposedValues")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:SharesProposedValues")
 
 	Func setSharesProposedValues P1
 		dotnet_callv("s3:set",nHandle,"s20:SharesProposedValues",P1)
 		return self
 
 	Func getCanRestoreValues
-		dn_x = dotnet_call("s3:get",nHandle,"s16:CanRestoreValues")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:CanRestoreValues")
 
 	Func setCanRestoreValues P1
 		raise("DotNet Error: CanRestoreValues is a read-only property")
@@ -506,17 +490,13 @@ Class BindingGroup from DependencyObject
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getIsDirty
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsDirty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsDirty")
 
 	Func setIsDirty P1
 		raise("DotNet Error: IsDirty is a read-only property")
 
 	Func getHasValidationError
-		dn_x = dotnet_call("s3:get",nHandle,"s18:HasValidationError")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:HasValidationError")
 
 	Func setHasValidationError P1
 		raise("DotNet Error: HasValidationError is a read-only property")
@@ -854,9 +834,7 @@ Class CollectionView from DispatcherObject
 		return self
 
 	Func getCanFilter
-		dn_x = dotnet_call("s3:get",nHandle,"s9:CanFilter")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:CanFilter")
 
 	Func setCanFilter P1
 		raise("DotNet Error: CanFilter is a read-only property")
@@ -868,17 +846,13 @@ Class CollectionView from DispatcherObject
 		raise("DotNet Error: SortDescriptions is a read-only property")
 
 	Func getCanSort
-		dn_x = dotnet_call("s3:get",nHandle,"s7:CanSort")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:CanSort")
 
 	Func setCanSort P1
 		raise("DotNet Error: CanSort is a read-only property")
 
 	Func getCanGroup
-		dn_x = dotnet_call("s3:get",nHandle,"s8:CanGroup")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:CanGroup")
 
 	Func setCanGroup P1
 		raise("DotNet Error: CanGroup is a read-only property")
@@ -902,41 +876,31 @@ Class CollectionView from DispatcherObject
 		raise("DotNet Error: CurrentItem is a read-only property")
 
 	Func getCurrentPosition
-		dn_x = dotnet_call("s3:get",nHandle,"s15:CurrentPosition")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:CurrentPosition")
 
 	Func setCurrentPosition P1
 		raise("DotNet Error: CurrentPosition is a read-only property")
 
 	Func getIsCurrentAfterLast
-		dn_x = dotnet_call("s3:get",nHandle,"s18:IsCurrentAfterLast")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:IsCurrentAfterLast")
 
 	Func setIsCurrentAfterLast P1
 		raise("DotNet Error: IsCurrentAfterLast is a read-only property")
 
 	Func getIsCurrentBeforeFirst
-		dn_x = dotnet_call("s3:get",nHandle,"s20:IsCurrentBeforeFirst")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:IsCurrentBeforeFirst")
 
 	Func setIsCurrentBeforeFirst P1
 		raise("DotNet Error: IsCurrentBeforeFirst is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsEmpty
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsEmpty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsEmpty")
 
 	Func setIsEmpty P1
 		raise("DotNet Error: IsEmpty is a read-only property")
@@ -948,17 +912,13 @@ Class CollectionView from DispatcherObject
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getNeedsRefresh
-		dn_x = dotnet_call("s3:get",nHandle,"s12:NeedsRefresh")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:NeedsRefresh")
 
 	Func setNeedsRefresh P1
 		raise("DotNet Error: NeedsRefresh is a read-only property")
 
 	Func getIsInUse
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsInUse")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsInUse")
 
 	Func setIsInUse P1
 		raise("DotNet Error: IsInUse is a read-only property")
@@ -1004,17 +964,13 @@ Class CollectionViewGroup from Object
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getItemCount
-		dn_x = dotnet_call("s3:get",nHandle,"s9:ItemCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:ItemCount")
 
 	Func setItemCount P1
 		raise("DotNet Error: ItemCount is a read-only property")
 
 	Func getIsBottomLevel
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsBottomLevel")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsBottomLevel")
 
 	Func setIsBottomLevel P1
 		raise("DotNet Error: IsBottomLevel is a read-only property")
@@ -1150,17 +1106,13 @@ Class CollectionViewSource from DependencyObject
 		raise("DotNet Error: GroupDescriptions is a read-only property")
 
 	Func getCanChangeLiveSorting
-		dn_x = dotnet_call("s3:get",nHandle,"s20:CanChangeLiveSorting")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:CanChangeLiveSorting")
 
 	Func setCanChangeLiveSorting P1
 		raise("DotNet Error: CanChangeLiveSorting is a read-only property")
 
 	Func getIsLiveSortingRequested
-		dn_x = dotnet_call("s3:get",nHandle,"s22:IsLiveSortingRequested")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:IsLiveSortingRequested")
 
 	Func setIsLiveSortingRequested P1
 		dotnet_callv("s3:set",nHandle,"s22:IsLiveSortingRequested",P1)
@@ -1179,17 +1131,13 @@ Class CollectionViewSource from DependencyObject
 		raise("DotNet Error: LiveSortingProperties is a read-only property")
 
 	Func getCanChangeLiveFiltering
-		dn_x = dotnet_call("s3:get",nHandle,"s22:CanChangeLiveFiltering")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:CanChangeLiveFiltering")
 
 	Func setCanChangeLiveFiltering P1
 		raise("DotNet Error: CanChangeLiveFiltering is a read-only property")
 
 	Func getIsLiveFilteringRequested
-		dn_x = dotnet_call("s3:get",nHandle,"s24:IsLiveFilteringRequested")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:IsLiveFilteringRequested")
 
 	Func setIsLiveFilteringRequested P1
 		dotnet_callv("s3:set",nHandle,"s24:IsLiveFilteringRequested",P1)
@@ -1208,17 +1156,13 @@ Class CollectionViewSource from DependencyObject
 		raise("DotNet Error: LiveFilteringProperties is a read-only property")
 
 	Func getCanChangeLiveGrouping
-		dn_x = dotnet_call("s3:get",nHandle,"s21:CanChangeLiveGrouping")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:CanChangeLiveGrouping")
 
 	Func setCanChangeLiveGrouping P1
 		raise("DotNet Error: CanChangeLiveGrouping is a read-only property")
 
 	Func getIsLiveGroupingRequested
-		dn_x = dotnet_call("s3:get",nHandle,"s23:IsLiveGroupingRequested")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:IsLiveGroupingRequested")
 
 	Func setIsLiveGroupingRequested P1
 		dotnet_callv("s3:set",nHandle,"s23:IsLiveGroupingRequested",P1)
@@ -1420,9 +1364,7 @@ Class CompositeCollection from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -1502,9 +1444,7 @@ Class DataSourceProvider from Object
 		return self
 
 	Func getIsInitialLoadEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s20:IsInitialLoadEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:IsInitialLoadEnabled")
 
 	Func setIsInitialLoadEnabled P1
 		dotnet_callv("s3:set",nHandle,"s20:IsInitialLoadEnabled",P1)
@@ -1571,9 +1511,7 @@ Class FilterEventArgs from EventArgs
 		raise("DotNet Error: Item is a read-only property")
 
 	Func getAccepted
-		dn_x = dotnet_call("s3:get",nHandle,"s8:Accepted")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:Accepted")
 
 	Func setAccepted P1
 		dotnet_callv("s3:set",nHandle,"s8:Accepted",P1)
@@ -1819,9 +1757,7 @@ Class RelativeSource from MarkupExtension
 		return self
 
 	Func getAncestorLevel
-		dn_x = dotnet_call("s3:get",nHandle,"s13:AncestorLevel")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:AncestorLevel")
 
 	Func setAncestorLevel P1
 		dotnet_callv("s3:set",nHandle,"s13:AncestorLevel",P1)
@@ -2031,17 +1967,13 @@ Class XmlNamespaceMappingCollection from XmlNamespaceManager
 		return dn_x
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -2160,27 +2092,21 @@ Class WpfBinding from BindingBase
 		raise("DotNet Error: ValidationRules is a read-only property")
 
 	Func getValidatesOnExceptions
-		dn_x = dotnet_call("s3:get",nHandle,"s21:ValidatesOnExceptions")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:ValidatesOnExceptions")
 
 	Func setValidatesOnExceptions P1
 		dotnet_callv("s3:set",nHandle,"s21:ValidatesOnExceptions",P1)
 		return self
 
 	Func getValidatesOnDataErrors
-		dn_x = dotnet_call("s3:get",nHandle,"s21:ValidatesOnDataErrors")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:ValidatesOnDataErrors")
 
 	Func setValidatesOnDataErrors P1
 		dotnet_callv("s3:set",nHandle,"s21:ValidatesOnDataErrors",P1)
 		return self
 
 	Func getValidatesOnNotifyDataErrors
-		dn_x = dotnet_call("s3:get",nHandle,"s27:ValidatesOnNotifyDataErrors")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s27:ValidatesOnNotifyDataErrors")
 
 	Func setValidatesOnNotifyDataErrors P1
 		dotnet_callv("s3:set",nHandle,"s27:ValidatesOnNotifyDataErrors",P1)
@@ -2217,27 +2143,21 @@ Class WpfBinding from BindingBase
 		return self
 
 	Func getNotifyOnSourceUpdated
-		dn_x = dotnet_call("s3:get",nHandle,"s21:NotifyOnSourceUpdated")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:NotifyOnSourceUpdated")
 
 	Func setNotifyOnSourceUpdated P1
 		dotnet_callv("s3:set",nHandle,"s21:NotifyOnSourceUpdated",P1)
 		return self
 
 	Func getNotifyOnTargetUpdated
-		dn_x = dotnet_call("s3:get",nHandle,"s21:NotifyOnTargetUpdated")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:NotifyOnTargetUpdated")
 
 	Func setNotifyOnTargetUpdated P1
 		dotnet_callv("s3:set",nHandle,"s21:NotifyOnTargetUpdated",P1)
 		return self
 
 	Func getNotifyOnValidationError
-		dn_x = dotnet_call("s3:get",nHandle,"s23:NotifyOnValidationError")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:NotifyOnValidationError")
 
 	Func setNotifyOnValidationError P1
 		dotnet_callv("s3:set",nHandle,"s23:NotifyOnValidationError",P1)
@@ -2288,9 +2208,7 @@ Class WpfBinding from BindingBase
 		return self
 
 	Func getIsAsync
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsAsync")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsAsync")
 
 	Func setIsAsync P1
 		dotnet_callv("s3:set",nHandle,"s7:IsAsync",P1)
@@ -2304,9 +2222,7 @@ Class WpfBinding from BindingBase
 		return self
 
 	Func getBindsDirectlyToSource
-		dn_x = dotnet_call("s3:get",nHandle,"s21:BindsDirectlyToSource")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:BindsDirectlyToSource")
 
 	Func setBindsDirectlyToSource P1
 		dotnet_callv("s3:set",nHandle,"s21:BindsDirectlyToSource",P1)
@@ -2479,9 +2395,7 @@ Class BindingListCollectionView from CollectionView
 		return self
 
 	Func getCanCustomFilter
-		dn_x = dotnet_call("s3:get",nHandle,"s15:CanCustomFilter")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:CanCustomFilter")
 
 	Func setCanCustomFilter P1
 		raise("DotNet Error: CanCustomFilter is a read-only property")
@@ -2494,9 +2408,7 @@ Class BindingListCollectionView from CollectionView
 		return self
 
 	Func getIsDataInGroupOrder
-		dn_x = dotnet_call("s3:get",nHandle,"s18:IsDataInGroupOrder")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:IsDataInGroupOrder")
 
 	Func setIsDataInGroupOrder P1
 		dotnet_callv("s3:set",nHandle,"s18:IsDataInGroupOrder",P1)
@@ -2510,17 +2422,13 @@ Class BindingListCollectionView from CollectionView
 		return self
 
 	Func getCanAddNew
-		dn_x = dotnet_call("s3:get",nHandle,"s9:CanAddNew")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:CanAddNew")
 
 	Func setCanAddNew P1
 		raise("DotNet Error: CanAddNew is a read-only property")
 
 	Func getIsAddingNew
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsAddingNew")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsAddingNew")
 
 	Func setIsAddingNew P1
 		raise("DotNet Error: IsAddingNew is a read-only property")
@@ -2532,25 +2440,19 @@ Class BindingListCollectionView from CollectionView
 		raise("DotNet Error: CurrentAddItem is a read-only property")
 
 	Func getCanRemove
-		dn_x = dotnet_call("s3:get",nHandle,"s9:CanRemove")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:CanRemove")
 
 	Func setCanRemove P1
 		raise("DotNet Error: CanRemove is a read-only property")
 
 	Func getCanCancelEdit
-		dn_x = dotnet_call("s3:get",nHandle,"s13:CanCancelEdit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:CanCancelEdit")
 
 	Func setCanCancelEdit P1
 		raise("DotNet Error: CanCancelEdit is a read-only property")
 
 	Func getIsEditingItem
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsEditingItem")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsEditingItem")
 
 	Func setIsEditingItem P1
 		raise("DotNet Error: IsEditingItem is a read-only property")
@@ -2562,25 +2464,19 @@ Class BindingListCollectionView from CollectionView
 		raise("DotNet Error: CurrentEditItem is a read-only property")
 
 	Func getCanChangeLiveSorting
-		dn_x = dotnet_call("s3:get",nHandle,"s20:CanChangeLiveSorting")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:CanChangeLiveSorting")
 
 	Func setCanChangeLiveSorting P1
 		raise("DotNet Error: CanChangeLiveSorting is a read-only property")
 
 	Func getCanChangeLiveFiltering
-		dn_x = dotnet_call("s3:get",nHandle,"s22:CanChangeLiveFiltering")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:CanChangeLiveFiltering")
 
 	Func setCanChangeLiveFiltering P1
 		raise("DotNet Error: CanChangeLiveFiltering is a read-only property")
 
 	Func getCanChangeLiveGrouping
-		dn_x = dotnet_call("s3:get",nHandle,"s21:CanChangeLiveGrouping")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:CanChangeLiveGrouping")
 
 	Func setCanChangeLiveGrouping P1
 		raise("DotNet Error: CanChangeLiveGrouping is a read-only property")
@@ -2723,9 +2619,7 @@ Class ListCollectionView from CollectionView
 		return self
 
 	Func getIsDataInGroupOrder
-		dn_x = dotnet_call("s3:get",nHandle,"s18:IsDataInGroupOrder")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:IsDataInGroupOrder")
 
 	Func setIsDataInGroupOrder P1
 		dotnet_callv("s3:set",nHandle,"s18:IsDataInGroupOrder",P1)
@@ -2739,25 +2633,19 @@ Class ListCollectionView from CollectionView
 		return self
 
 	Func getCanAddNew
-		dn_x = dotnet_call("s3:get",nHandle,"s9:CanAddNew")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:CanAddNew")
 
 	Func setCanAddNew P1
 		raise("DotNet Error: CanAddNew is a read-only property")
 
 	Func getCanAddNewItem
-		dn_x = dotnet_call("s3:get",nHandle,"s13:CanAddNewItem")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:CanAddNewItem")
 
 	Func setCanAddNewItem P1
 		raise("DotNet Error: CanAddNewItem is a read-only property")
 
 	Func getIsAddingNew
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsAddingNew")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsAddingNew")
 
 	Func setIsAddingNew P1
 		raise("DotNet Error: IsAddingNew is a read-only property")
@@ -2769,25 +2657,19 @@ Class ListCollectionView from CollectionView
 		raise("DotNet Error: CurrentAddItem is a read-only property")
 
 	Func getCanRemove
-		dn_x = dotnet_call("s3:get",nHandle,"s9:CanRemove")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:CanRemove")
 
 	Func setCanRemove P1
 		raise("DotNet Error: CanRemove is a read-only property")
 
 	Func getCanCancelEdit
-		dn_x = dotnet_call("s3:get",nHandle,"s13:CanCancelEdit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:CanCancelEdit")
 
 	Func setCanCancelEdit P1
 		raise("DotNet Error: CanCancelEdit is a read-only property")
 
 	Func getIsEditingItem
-		dn_x = dotnet_call("s3:get",nHandle,"s13:IsEditingItem")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:IsEditingItem")
 
 	Func setIsEditingItem P1
 		raise("DotNet Error: IsEditingItem is a read-only property")
@@ -2799,25 +2681,19 @@ Class ListCollectionView from CollectionView
 		raise("DotNet Error: CurrentEditItem is a read-only property")
 
 	Func getCanChangeLiveSorting
-		dn_x = dotnet_call("s3:get",nHandle,"s20:CanChangeLiveSorting")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s20:CanChangeLiveSorting")
 
 	Func setCanChangeLiveSorting P1
 		raise("DotNet Error: CanChangeLiveSorting is a read-only property")
 
 	Func getCanChangeLiveFiltering
-		dn_x = dotnet_call("s3:get",nHandle,"s22:CanChangeLiveFiltering")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s22:CanChangeLiveFiltering")
 
 	Func setCanChangeLiveFiltering P1
 		raise("DotNet Error: CanChangeLiveFiltering is a read-only property")
 
 	Func getCanChangeLiveGrouping
-		dn_x = dotnet_call("s3:get",nHandle,"s21:CanChangeLiveGrouping")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:CanChangeLiveGrouping")
 
 	Func setCanChangeLiveGrouping P1
 		raise("DotNet Error: CanChangeLiveGrouping is a read-only property")
@@ -2934,27 +2810,21 @@ Class MultiBinding from BindingBase
 		return self
 
 	Func getNotifyOnSourceUpdated
-		dn_x = dotnet_call("s3:get",nHandle,"s21:NotifyOnSourceUpdated")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:NotifyOnSourceUpdated")
 
 	Func setNotifyOnSourceUpdated P1
 		dotnet_callv("s3:set",nHandle,"s21:NotifyOnSourceUpdated",P1)
 		return self
 
 	Func getNotifyOnTargetUpdated
-		dn_x = dotnet_call("s3:get",nHandle,"s21:NotifyOnTargetUpdated")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:NotifyOnTargetUpdated")
 
 	Func setNotifyOnTargetUpdated P1
 		dotnet_callv("s3:set",nHandle,"s21:NotifyOnTargetUpdated",P1)
 		return self
 
 	Func getNotifyOnValidationError
-		dn_x = dotnet_call("s3:get",nHandle,"s23:NotifyOnValidationError")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s23:NotifyOnValidationError")
 
 	Func setNotifyOnValidationError P1
 		dotnet_callv("s3:set",nHandle,"s23:NotifyOnValidationError",P1)
@@ -2995,27 +2865,21 @@ Class MultiBinding from BindingBase
 		return self
 
 	Func getValidatesOnExceptions
-		dn_x = dotnet_call("s3:get",nHandle,"s21:ValidatesOnExceptions")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:ValidatesOnExceptions")
 
 	Func setValidatesOnExceptions P1
 		dotnet_callv("s3:set",nHandle,"s21:ValidatesOnExceptions",P1)
 		return self
 
 	Func getValidatesOnDataErrors
-		dn_x = dotnet_call("s3:get",nHandle,"s21:ValidatesOnDataErrors")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:ValidatesOnDataErrors")
 
 	Func setValidatesOnDataErrors P1
 		dotnet_callv("s3:set",nHandle,"s21:ValidatesOnDataErrors",P1)
 		return self
 
 	Func getValidatesOnNotifyDataErrors
-		dn_x = dotnet_call("s3:get",nHandle,"s27:ValidatesOnNotifyDataErrors")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s27:ValidatesOnNotifyDataErrors")
 
 	Func setValidatesOnNotifyDataErrors P1
 		dotnet_callv("s3:set",nHandle,"s27:ValidatesOnNotifyDataErrors",P1)
@@ -3132,9 +2996,7 @@ Class ObjectDataProvider from DataSourceProvider
 		raise("DotNet Error: MethodParameters is a read-only property")
 
 	Func getIsAsynchronous
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsAsynchronous")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsAsynchronous")
 
 	Func setIsAsynchronous P1
 		dotnet_callv("s3:set",nHandle,"s14:IsAsynchronous",P1)
@@ -3282,9 +3144,7 @@ Class XmlDataProvider from DataSourceProvider
 		return self
 
 	Func getIsAsynchronous
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsAsynchronous")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsAsynchronous")
 
 	Func setIsAsynchronous P1
 		dotnet_callv("s3:set",nHandle,"s14:IsAsynchronous",P1)

@@ -85,9 +85,7 @@ Class IIdentity from DotNetObject
 		raise("DotNet Error: AuthenticationType is a read-only property")
 
 	Func getIsAuthenticated
-		dn_x = dotnet_call("s3:get",nHandle,"s15:IsAuthenticated")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:IsAuthenticated")
 
 	Func setIsAuthenticated P1
 		raise("DotNet Error: IsAuthenticated is a read-only property")
@@ -307,9 +305,7 @@ Class IdentityReferenceCollection from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -414,25 +410,19 @@ Class WindowsIdentity from ClaimsIdentity
 		raise("DotNet Error: ImpersonationLevel is a read-only property")
 
 	Func getIsGuest
-		dn_x = dotnet_call("s3:get",nHandle,"s7:IsGuest")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:IsGuest")
 
 	Func setIsGuest P1
 		raise("DotNet Error: IsGuest is a read-only property")
 
 	Func getIsSystem
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsSystem")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsSystem")
 
 	Func setIsSystem P1
 		raise("DotNet Error: IsSystem is a read-only property")
 
 	Func getIsAnonymous
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsAnonymous")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsAnonymous")
 
 	Func setIsAnonymous P1
 		raise("DotNet Error: IsAnonymous is a read-only property")
@@ -577,9 +567,7 @@ Class SecurityIdentifier from IdentityReference
 		return dn_x
 
 	Func getBinaryLength
-		dn_x = dotnet_call("s3:get",nHandle,"s12:BinaryLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:BinaryLength")
 
 	Func setBinaryLength P1
 		raise("DotNet Error: BinaryLength is a read-only property")
@@ -591,17 +579,13 @@ Class SecurityIdentifier from IdentityReference
 		raise("DotNet Error: AccountDomainSid is a read-only property")
 
 	Func getMinBinaryLength
-		dn_x = dotnet_call("s3:get",'System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',"s15:MinBinaryLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',"s15:MinBinaryLength")
 
 	Func setMinBinaryLength P1
 		raise("DotNet Error: MinBinaryLength is a read-only property")
 
 	Func getMaxBinaryLength
-		dn_x = dotnet_call("s3:get",'System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',"s15:MaxBinaryLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',"s15:MaxBinaryLength")
 
 	Func setMaxBinaryLength P1
 		raise("DotNet Error: MaxBinaryLength is a read-only property")

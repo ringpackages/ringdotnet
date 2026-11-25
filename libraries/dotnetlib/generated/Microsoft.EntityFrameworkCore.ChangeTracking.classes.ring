@@ -399,18 +399,14 @@ Class ChangeTracker from Object
 		return self
 
 	Func getAutoDetectChangesEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s24:AutoDetectChangesEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s24:AutoDetectChangesEnabled")
 
 	Func setAutoDetectChangesEnabled P1
 		dotnet_callv("s3:set",nHandle,"s24:AutoDetectChangesEnabled",P1)
 		return self
 
 	Func getLazyLoadingEnabled
-		dn_x = dotnet_call("s3:get",nHandle,"s18:LazyLoadingEnabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s18:LazyLoadingEnabled")
 
 	Func setLazyLoadingEnabled P1
 		dotnet_callv("s3:set",nHandle,"s18:LazyLoadingEnabled",P1)
@@ -487,9 +483,7 @@ Class DetectedChangesEventArgs from EventArgs
 		return self
 
 	Func getChangesFound
-		dn_x = dotnet_call("s3:get",nHandle,"s12:ChangesFound")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:ChangesFound")
 
 	Func setChangesFound P1
 		raise("DotNet Error: ChangesFound is a read-only property")
@@ -643,9 +637,7 @@ Class EntityEntry from Object
 		raise("DotNet Error: Collections is a read-only property")
 
 	Func getIsKeySet
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsKeySet")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsKeySet")
 
 	Func setIsKeySet P1
 		raise("DotNet Error: IsKeySet is a read-only property")
@@ -1071,17 +1063,13 @@ Class LocalView from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1113,9 +1101,7 @@ Class MemberEntry from Object
 		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
 
 	Func getIsModified
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsModified")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsModified")
 
 	Func setIsModified P1
 		dotnet_callv("s3:set",nHandle,"s10:IsModified",P1)
@@ -1318,17 +1304,13 @@ Class ObservableHashSet from Object
 		return self
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsReadOnly")
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
@@ -1728,9 +1710,7 @@ Class EntityTrackedEventArgs from EntityEntryEventArgs
 		return self
 
 	Func getFromQuery
-		dn_x = dotnet_call("s3:get",nHandle,"s9:FromQuery")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:FromQuery")
 
 	Func setFromQuery P1
 		raise("DotNet Error: FromQuery is a read-only property")
@@ -1759,9 +1739,7 @@ Class EntityTrackingEventArgs from EntityEntryEventArgs
 		raise("DotNet Error: State is a read-only property")
 
 	Func getFromQuery
-		dn_x = dotnet_call("s3:get",nHandle,"s9:FromQuery")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:FromQuery")
 
 	Func setFromQuery P1
 		raise("DotNet Error: FromQuery is a read-only property")
@@ -1807,9 +1785,7 @@ Class NavigationEntry from MemberEntry
 		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Query"))
 
 	Func getIsLoaded
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsLoaded")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsLoaded")
 
 	Func setIsLoaded P1
 		dotnet_callv("s3:set",nHandle,"s8:IsLoaded",P1)
@@ -1833,9 +1809,7 @@ Class PropertyEntry from MemberEntry
 		return self
 
 	Func getIsTemporary
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsTemporary")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsTemporary")
 
 	Func setIsTemporary P1
 		dotnet_callv("s3:set",nHandle,"s11:IsTemporary",P1)

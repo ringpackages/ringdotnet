@@ -219,9 +219,7 @@ Class XPathItem from Object
 		return dn_x
 
 	Func getIsNode
-		dn_x = dotnet_call("s3:get",nHandle,"s6:IsNode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:IsNode")
 
 	Func setIsNode P1
 		raise("DotNet Error: IsNode is a read-only property")
@@ -253,9 +251,7 @@ Class XPathItem from Object
 		raise("DotNet Error: ValueType is a read-only property")
 
 	Func getValueAsBoolean
-		dn_x = dotnet_call("s3:get",nHandle,"s14:ValueAsBoolean")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:ValueAsBoolean")
 
 	Func setValueAsBoolean P1
 		raise("DotNet Error: ValueAsBoolean is a read-only property")
@@ -267,25 +263,19 @@ Class XPathItem from Object
 		raise("DotNet Error: ValueAsDateTime is a read-only property")
 
 	Func getValueAsDouble
-		dn_x = dotnet_call("s3:get",nHandle,"s13:ValueAsDouble")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:ValueAsDouble")
 
 	Func setValueAsDouble P1
 		raise("DotNet Error: ValueAsDouble is a read-only property")
 
 	Func getValueAsInt
-		dn_x = dotnet_call("s3:get",nHandle,"s10:ValueAsInt")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:ValueAsInt")
 
 	Func setValueAsInt P1
 		raise("DotNet Error: ValueAsInt is a read-only property")
 
 	Func getValueAsLong
-		dn_x = dotnet_call("s3:get",nHandle,"s11:ValueAsLong")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:ValueAsLong")
 
 	Func setValueAsLong P1
 		raise("DotNet Error: ValueAsLong is a read-only property")
@@ -349,17 +339,13 @@ Class XPathNodeIterator from Object
 		raise("DotNet Error: Current is a read-only property")
 
 	Func getCurrentPosition
-		dn_x = dotnet_call("s3:get",nHandle,"s15:CurrentPosition")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:CurrentPosition")
 
 	Func setCurrentPosition P1
 		raise("DotNet Error: CurrentPosition is a read-only property")
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
@@ -774,9 +760,7 @@ Class XPathNavigator from XPathItem
 		raise("DotNet Error: BaseURI is a read-only property")
 
 	Func getIsEmptyElement
-		dn_x = dotnet_call("s3:get",nHandle,"s14:IsEmptyElement")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:IsEmptyElement")
 
 	Func setIsEmptyElement P1
 		raise("DotNet Error: IsEmptyElement is a read-only property")
@@ -796,17 +780,13 @@ Class XPathNavigator from XPathItem
 		raise("DotNet Error: UnderlyingObject is a read-only property")
 
 	Func getHasAttributes
-		dn_x = dotnet_call("s3:get",nHandle,"s13:HasAttributes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:HasAttributes")
 
 	Func setHasAttributes P1
 		raise("DotNet Error: HasAttributes is a read-only property")
 
 	Func getHasChildren
-		dn_x = dotnet_call("s3:get",nHandle,"s11:HasChildren")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:HasChildren")
 
 	Func setHasChildren P1
 		raise("DotNet Error: HasChildren is a read-only property")
@@ -818,9 +798,7 @@ Class XPathNavigator from XPathItem
 		raise("DotNet Error: SchemaInfo is a read-only property")
 
 	Func getCanEdit
-		dn_x = dotnet_call("s3:get",nHandle,"s7:CanEdit")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:CanEdit")
 
 	Func setCanEdit P1
 		raise("DotNet Error: CanEdit is a read-only property")

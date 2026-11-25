@@ -604,9 +604,7 @@ Class AutomationProxyAttribute from Attribute
 		return self
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -658,17 +656,13 @@ Class BestFitMappingAttribute from Attribute
 		return self
 
 	Func getBestFitMapping
-		dn_x = dotnet_call("s3:get",nHandle,"s14:BestFitMapping")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:BestFitMapping")
 
 	Func setBestFitMapping P1
 		raise("DotNet Error: BestFitMapping is a read-only property")
 
 	Func getThrowOnUnmappableChar
-		dn_x = dotnet_call("s3:get",nHandle,"s21:ThrowOnUnmappableChar")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:ThrowOnUnmappableChar")
 
 	Func setThrowOnUnmappableChar P1
 		dotnet_callv("s3:set",nHandle,"s21:ThrowOnUnmappableChar",P1)
@@ -897,33 +891,25 @@ Class ComCompatibleVersionAttribute from Attribute
 		return self
 
 	Func getMajorVersion
-		dn_x = dotnet_call("s3:get",nHandle,"s12:MajorVersion")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:MajorVersion")
 
 	Func setMajorVersion P1
 		raise("DotNet Error: MajorVersion is a read-only property")
 
 	Func getMinorVersion
-		dn_x = dotnet_call("s3:get",nHandle,"s12:MinorVersion")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:MinorVersion")
 
 	Func setMinorVersion P1
 		raise("DotNet Error: MinorVersion is a read-only property")
 
 	Func getBuildNumber
-		dn_x = dotnet_call("s3:get",nHandle,"s11:BuildNumber")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:BuildNumber")
 
 	Func setBuildNumber P1
 		raise("DotNet Error: BuildNumber is a read-only property")
 
 	Func getRevisionNumber
-		dn_x = dotnet_call("s3:get",nHandle,"s14:RevisionNumber")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:RevisionNumber")
 
 	Func setRevisionNumber P1
 		raise("DotNet Error: RevisionNumber is a read-only property")
@@ -1144,9 +1130,7 @@ Class ComVisibleAttribute from Attribute
 		return self
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1322,17 +1306,13 @@ Class CriticalHandle from DotNetObject
 		return dn_x
 
 	Func getIsClosed
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsClosed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsClosed")
 
 	Func setIsClosed P1
 		raise("DotNet Error: IsClosed is a read-only property")
 
 	Func getIsInvalid
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInvalid")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsInvalid")
 
 	Func setIsInvalid P1
 		raise("DotNet Error: IsInvalid is a read-only property")
@@ -1420,9 +1400,7 @@ Class DispIdAttribute from Attribute
 		return self
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1503,18 +1481,14 @@ Class DllImportAttribute from Attribute
 		return self
 
 	Func getSetLastError
-		dn_x = dotnet_call("s3:get",nHandle,"s12:SetLastError")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:SetLastError")
 
 	Func setSetLastError P1
 		dotnet_callv("s3:set",nHandle,"s12:SetLastError",P1)
 		return self
 
 	Func getExactSpelling
-		dn_x = dotnet_call("s3:get",nHandle,"s13:ExactSpelling")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s13:ExactSpelling")
 
 	Func setExactSpelling P1
 		dotnet_callv("s3:set",nHandle,"s13:ExactSpelling",P1)
@@ -1528,27 +1502,21 @@ Class DllImportAttribute from Attribute
 		return self
 
 	Func getBestFitMapping
-		dn_x = dotnet_call("s3:get",nHandle,"s14:BestFitMapping")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:BestFitMapping")
 
 	Func setBestFitMapping P1
 		dotnet_callv("s3:set",nHandle,"s14:BestFitMapping",P1)
 		return self
 
 	Func getPreserveSig
-		dn_x = dotnet_call("s3:get",nHandle,"s11:PreserveSig")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:PreserveSig")
 
 	Func setPreserveSig P1
 		dotnet_callv("s3:set",nHandle,"s11:PreserveSig",P1)
 		return self
 
 	Func getThrowOnUnmappableChar
-		dn_x = dotnet_call("s3:get",nHandle,"s21:ThrowOnUnmappableChar")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:ThrowOnUnmappableChar")
 
 	Func setThrowOnUnmappableChar P1
 		dotnet_callv("s3:set",nHandle,"s21:ThrowOnUnmappableChar",P1)
@@ -1597,9 +1565,7 @@ Class ErrorWrapper from Object
 		return dn_x
 
 	Func getErrorCode
-		dn_x = dotnet_call("s3:get",nHandle,"s9:ErrorCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:ErrorCode")
 
 	Func setErrorCode P1
 		raise("DotNet Error: ErrorCode is a read-only property")
@@ -1644,9 +1610,7 @@ Class ExternalException from SystemException
 		return self
 
 	Func getErrorCode
-		dn_x = dotnet_call("s3:get",nHandle,"s9:ErrorCode")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:ErrorCode")
 
 	Func setErrorCode P1
 		raise("DotNet Error: ErrorCode is a read-only property")
@@ -1668,9 +1632,7 @@ Class FieldOffsetAttribute from Attribute
 		return self
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1727,9 +1689,7 @@ Class GCHandle from ValueType
 		return self
 
 	Func getIsAllocated
-		dn_x = dotnet_call("s3:get",nHandle,"s11:IsAllocated")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:IsAllocated")
 
 	Func setIsAllocated P1
 		raise("DotNet Error: IsAllocated is a read-only property")
@@ -1812,25 +1772,19 @@ Class HandleCollector from Object
 		return dn_x
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getInitialThreshold
-		dn_x = dotnet_call("s3:get",nHandle,"s16:InitialThreshold")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:InitialThreshold")
 
 	Func setInitialThreshold P1
 		raise("DotNet Error: InitialThreshold is a read-only property")
 
 	Func getMaximumThreshold
-		dn_x = dotnet_call("s3:get",nHandle,"s16:MaximumThreshold")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s16:MaximumThreshold")
 
 	Func setMaximumThreshold P1
 		raise("DotNet Error: MaximumThreshold is a read-only property")
@@ -2154,9 +2108,7 @@ Class LCIDConversionAttribute from Attribute
 		return self
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -2213,9 +2165,7 @@ Class LibraryImportAttribute from Attribute
 		return self
 
 	Func getSetLastError
-		dn_x = dotnet_call("s3:get",nHandle,"s12:SetLastError")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:SetLastError")
 
 	Func setSetLastError P1
 		dotnet_callv("s3:set",nHandle,"s12:SetLastError",P1)
@@ -2762,17 +2712,13 @@ Class Marshal from Object
 		return dn_x
 
 	Func getSystemDefaultCharSize
-		dn_x = dotnet_call("s3:get",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:SystemDefaultCharSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:SystemDefaultCharSize")
 
 	Func setSystemDefaultCharSize P1
 		raise("DotNet Error: SystemDefaultCharSize is a read-only property")
 
 	Func getSystemMaxDBCSCharSize
-		dn_x = dotnet_call("s3:get",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:SystemMaxDBCSCharSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:SystemMaxDBCSCharSize")
 
 	Func setSystemMaxDBCSCharSize P1
 		raise("DotNet Error: SystemMaxDBCSCharSize is a read-only property")
@@ -2823,9 +2769,7 @@ Class MarshalAsAttribute from Attribute
 		return self
 
 	Func getIidParameterIndex
-		dn_x = dotnet_call("s3:get",nHandle,"s17:IidParameterIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s17:IidParameterIndex")
 
 	Func setIidParameterIndex P1
 		dotnet_callv("s3:set",nHandle,"s17:IidParameterIndex",P1)
@@ -2839,18 +2783,14 @@ Class MarshalAsAttribute from Attribute
 		return self
 
 	Func getSizeParamIndex
-		dn_x = dotnet_call("s3:get",nHandle,"s14:SizeParamIndex")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:SizeParamIndex")
 
 	Func setSizeParamIndex P1
 		dotnet_callv("s3:set",nHandle,"s14:SizeParamIndex",P1)
 		return self
 
 	Func getSizeConst
-		dn_x = dotnet_call("s3:get",nHandle,"s9:SizeConst")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:SizeConst")
 
 	Func setSizeConst P1
 		dotnet_callv("s3:set",nHandle,"s9:SizeConst",P1)
@@ -3392,9 +3332,7 @@ Class NFloat from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s5:TanPi",P1))
 
 	Func getValue
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Value")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -3436,9 +3374,7 @@ Class NFloat from ValueType
 		raise("DotNet Error: PositiveInfinity is a read-only property")
 
 	Func getSize
-		dn_x = dotnet_call("s3:get",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s4:Size")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s4:Size")
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
@@ -3726,9 +3662,7 @@ Class PosixSignalContext from Object
 		raise("DotNet Error: Signal is a read-only property")
 
 	Func getCancel
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Cancel")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Cancel")
 
 	Func setCancel P1
 		dotnet_callv("s3:set",nHandle,"s6:Cancel",P1)
@@ -3798,17 +3732,13 @@ Class PrimaryInteropAssemblyAttribute from Attribute
 		return self
 
 	Func getMajorVersion
-		dn_x = dotnet_call("s3:get",nHandle,"s12:MajorVersion")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:MajorVersion")
 
 	Func setMajorVersion P1
 		raise("DotNet Error: MajorVersion is a read-only property")
 
 	Func getMinorVersion
-		dn_x = dotnet_call("s3:get",nHandle,"s12:MinorVersion")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:MinorVersion")
 
 	Func setMinorVersion P1
 		raise("DotNet Error: MinorVersion is a read-only property")
@@ -4127,25 +4057,19 @@ Class SafeBuffer from DotNetObject
 		return dn_x
 
 	Func getByteLength
-		dn_x = dotnet_call("s3:get",nHandle,"s10:ByteLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:ByteLength")
 
 	Func setByteLength P1
 		raise("DotNet Error: ByteLength is a read-only property")
 
 	Func getIsInvalid
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInvalid")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsInvalid")
 
 	Func setIsInvalid P1
 		raise("DotNet Error: IsInvalid is a read-only property")
 
 	Func getIsClosed
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsClosed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsClosed")
 
 	Func setIsClosed P1
 		raise("DotNet Error: IsClosed is a read-only property")
@@ -4210,17 +4134,13 @@ Class SafeHandle from DotNetObject
 		return dn_x
 
 	Func getIsClosed
-		dn_x = dotnet_call("s3:get",nHandle,"s8:IsClosed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s8:IsClosed")
 
 	Func setIsClosed P1
 		raise("DotNet Error: IsClosed is a read-only property")
 
 	Func getIsInvalid
-		dn_x = dotnet_call("s3:get",nHandle,"s9:IsInvalid")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:IsInvalid")
 
 	Func setIsInvalid P1
 		raise("DotNet Error: IsInvalid is a read-only property")
@@ -4263,18 +4183,14 @@ Class StructLayoutAttribute from Attribute
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getPack
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Pack")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Pack")
 
 	Func setPack P1
 		dotnet_callv("s3:set",nHandle,"s4:Pack",P1)
 		return self
 
 	Func getSize
-		dn_x = dotnet_call("s3:get",nHandle,"s4:Size")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s4:Size")
 
 	Func setSize P1
 		dotnet_callv("s3:set",nHandle,"s4:Size",P1)
@@ -4472,17 +4388,13 @@ Class TypeLibVersionAttribute from Attribute
 		return self
 
 	Func getMajorVersion
-		dn_x = dotnet_call("s3:get",nHandle,"s12:MajorVersion")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:MajorVersion")
 
 	Func setMajorVersion P1
 		raise("DotNet Error: MajorVersion is a read-only property")
 
 	Func getMinorVersion
-		dn_x = dotnet_call("s3:get",nHandle,"s12:MinorVersion")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:MinorVersion")
 
 	Func setMinorVersion P1
 		raise("DotNet Error: MinorVersion is a read-only property")
@@ -4611,27 +4523,21 @@ Class UnmanagedFunctionPointerAttribute from Attribute
 		raise("DotNet Error: CallingConvention is a read-only property")
 
 	Func getBestFitMapping
-		dn_x = dotnet_call("s3:get",nHandle,"s14:BestFitMapping")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s14:BestFitMapping")
 
 	Func setBestFitMapping P1
 		dotnet_callv("s3:set",nHandle,"s14:BestFitMapping",P1)
 		return self
 
 	Func getSetLastError
-		dn_x = dotnet_call("s3:get",nHandle,"s12:SetLastError")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:SetLastError")
 
 	Func setSetLastError P1
 		dotnet_callv("s3:set",nHandle,"s12:SetLastError",P1)
 		return self
 
 	Func getThrowOnUnmappableChar
-		dn_x = dotnet_call("s3:get",nHandle,"s21:ThrowOnUnmappableChar")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s21:ThrowOnUnmappableChar")
 
 	Func setThrowOnUnmappableChar P1
 		dotnet_callv("s3:set",nHandle,"s21:ThrowOnUnmappableChar",P1)

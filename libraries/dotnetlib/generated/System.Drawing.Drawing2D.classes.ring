@@ -265,18 +265,14 @@ Class CustomLineCap from MarshalByRefObject
 		return self
 
 	Func getBaseInset
-		dn_x = dotnet_call("s3:get",nHandle,"s9:BaseInset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s9:BaseInset")
 
 	Func setBaseInset P1
 		dotnet_callv("s3:set",nHandle,"s9:BaseInset",P1)
 		return self
 
 	Func getWidthScale
-		dn_x = dotnet_call("s3:get",nHandle,"s10:WidthScale")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:WidthScale")
 
 	Func setWidthScale P1
 		dotnet_callv("s3:set",nHandle,"s10:WidthScale",P1)
@@ -560,9 +556,7 @@ Class GraphicsPath from MarshalByRefObject
 		raise("DotNet Error: PathData is a read-only property")
 
 	Func getPointCount
-		dn_x = dotnet_call("s3:get",nHandle,"s10:PointCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:PointCount")
 
 	Func setPointCount P1
 		raise("DotNet Error: PointCount is a read-only property")
@@ -645,17 +639,13 @@ Class GraphicsPathIterator from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s8:CopyData",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func getCount
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Count")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Count")
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getSubpathCount
-		dn_x = dotnet_call("s3:get",nHandle,"s12:SubpathCount")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:SubpathCount")
 
 	Func setSubpathCount P1
 		raise("DotNet Error: SubpathCount is a read-only property")
@@ -829,9 +819,7 @@ Class LinearGradientBrush from Brush
 		raise("DotNet Error: Rectangle is a read-only property")
 
 	Func getGammaCorrection
-		dn_x = dotnet_call("s3:get",nHandle,"s15:GammaCorrection")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s15:GammaCorrection")
 
 	Func setGammaCorrection P1
 		dotnet_callv("s3:set",nHandle,"s15:GammaCorrection",P1)
@@ -1002,33 +990,25 @@ Class Matrix from MarshalByRefObject
 		return self
 
 	Func getOffsetX
-		dn_x = dotnet_call("s3:get",nHandle,"s7:OffsetX")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:OffsetX")
 
 	Func setOffsetX P1
 		raise("DotNet Error: OffsetX is a read-only property")
 
 	Func getOffsetY
-		dn_x = dotnet_call("s3:get",nHandle,"s7:OffsetY")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s7:OffsetY")
 
 	Func setOffsetY P1
 		raise("DotNet Error: OffsetY is a read-only property")
 
 	Func getIsInvertible
-		dn_x = dotnet_call("s3:get",nHandle,"s12:IsInvertible")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s12:IsInvertible")
 
 	Func setIsInvertible P1
 		raise("DotNet Error: IsInvertible is a read-only property")
 
 	Func getIsIdentity
-		dn_x = dotnet_call("s3:get",nHandle,"s10:IsIdentity")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s10:IsIdentity")
 
 	Func setIsIdentity P1
 		raise("DotNet Error: IsIdentity is a read-only property")
@@ -1293,36 +1273,28 @@ Class AdjustableArrowCap from CustomLineCap
 		return self
 
 	Func getHeight
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Height")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Height")
 
 	Func setHeight P1
 		dotnet_callv("s3:set",nHandle,"s6:Height",P1)
 		return self
 
 	Func getWidth
-		dn_x = dotnet_call("s3:get",nHandle,"s5:Width")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s5:Width")
 
 	Func setWidth P1
 		dotnet_callv("s3:set",nHandle,"s5:Width",P1)
 		return self
 
 	Func getMiddleInset
-		dn_x = dotnet_call("s3:get",nHandle,"s11:MiddleInset")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s11:MiddleInset")
 
 	Func setMiddleInset P1
 		dotnet_callv("s3:set",nHandle,"s11:MiddleInset",P1)
 		return self
 
 	Func getFilled
-		dn_x = dotnet_call("s3:get",nHandle,"s6:Filled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_call("s3:get",nHandle,"s6:Filled")
 
 	Func setFilled P1
 		dotnet_callv("s3:set",nHandle,"s6:Filled",P1)
