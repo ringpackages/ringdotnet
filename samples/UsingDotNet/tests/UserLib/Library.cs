@@ -440,6 +440,9 @@ namespace MyCompany.Tools
 		public static int Scale(int a, int b) { return a * b; }
 		public static TypedBox Box(int a) { return new TypedBox { IntValue = a }; }
 		public static void Reset() { Last = "reset"; }
+		public static string Choose(string a) { return "text " + a; }
+		public static string Choose(TypedColor c) { return "color " + c; }
+		public static string OnlyColor(TypedColor c) { return "color " + c; }
 	}
 
 	// A class with a static and an instance method of one name (a class used without an object calls the static one), and one that a derived class inherits

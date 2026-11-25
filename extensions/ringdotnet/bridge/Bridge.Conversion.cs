@@ -208,7 +208,7 @@ namespace RingDotNet
 				}
 				return false;
 			}
-			if (v is double num && IsNumeric(ut))
+			if (v is double num && IsNumeric(ut) && !ut.IsEnum)
 			{
 				/* Ring numbers are doubles: prefer int for whole numbers (Write(7) is Write(int), not Write(double)) */
 				bool whole = num == Math.Floor(num);
@@ -242,8 +242,15 @@ namespace RingDotNet
 			{
 				if (ut.IsEnum)
 				{
-					result = Enum.ToObject(ut, (long)d);
-					score = 1;
+					/* a whole number is the value of a member (or any value of the underlying type, as the cast (MyEnum)5 in C#). It scores below every other
+					   conversion of a number, so an overload that takes a text or a number keeps winning over one that takes an enum. */
+					if (d != Math.Floor(d) || d < long.MinValue || d > 9223372036854774784.0) return false;
+					try
+					{
+						result = Enum.ToObject(ut, (long)d);
+					}
+					catch (Exception) { return false; }
+					score = -1;
 					return true;
 				}
 				if (IsNumeric(ut))

@@ -48,6 +48,13 @@ oBox.Text = 12
 dnAssert("a text property gets the text of a number",oBox.Text,"12")
 oBox.Color = "Blue"
 dnAssert("an enum is still a text",oBox.Color,"Blue")
+oBox.Color = 1
+dnAssert("an enum from a number",oBox.Color,"Green")
+oBox.Color = 99
+dnAssert("an enum from a number that is no member",oBox.Color,"99")
+dnAssert("an enum from a number with a fraction is an error",substr(tryWrite(oBox,"Color",1.5,true),"DotNet Error") > 0,1)
+oBox.ColorField = 2
+dnAssert("an enum field from a number",oBox.ColorField,"Blue")
 oBox.Flags = "A, C"
 dnAssert("a flags enum",oBox.Flags,"A, C")
 oBox.ColorField = "Red"
