@@ -293,25 +293,30 @@ func paraList nCount
 	next
 	return cList
 
-# Statement that returns the result of a call (the bridge result is wrapped by the runtime type, see dnWrapObject)
-# lProperty: the request reads a property. A property has no overloads, so its declared type is what it answers, and a number or a yes/no is returned as
-# it is. For a method the declared type is not enough: the bridge chooses the overload from the real object, and a class derived from the declared one can
-# add an overload with another kind of answer, so the method finishes an answer that is not a number or a text (dnFinish). The indexer is made from the
-# first indexer that .NET lists, which is not always the one that is called, so it is not a property either.
-func returnCode cRequest, cReturnType, nByRef, lProperty
+# Statement that returns the result of a call (the bridge result is wrapped by the runtime type, see dnWrapObject).
+# A text, a number or a yes/no is read in C; an answer that is anything else (a null text, an object) is finished with dnFinish, because the declared
+# type is not enough for a method: the bridge chooses the overload from the real object, and a class derived from the declared one can add an overload
+# with another kind of answer. (propertyReturnCode is the one case where the declared type is trusted.)
+func returnCode cRequest, cReturnType, nByRef
 	if nByRef = 0 and cReturnType = "System.Void"
 		return nativeCall(cRequest,"void") + nl + "		return self" + nl
 	ok
 	if nByRef = 0 and isPrimitiveType(cReturnType)
-		if lProperty and cReturnType != "System.String"
-			return nativeCall(cRequest,"number")
-		ok
 		return nativeCall(cRequest,"value")
 	ok
 	if nByRef = 0
 		return "return dnObj(" + nativeCall(cRequest,"object") + ")" + nl
 	ok
 	return "return " + sendCall(cRequest) + nl
+
+# The statement that returns the value of a property. A property has no overloads, so its declared type is what it answers: a number or a yes/no is
+# returned as it is, with nothing to finish. (The indexer is not a property: it is described by the first indexer that .NET lists, which is not always
+# the one that is called, so it uses returnCode.)
+func propertyReturnCode cRequest, cReturnType
+	if isPrimitiveType(cReturnType) and cReturnType != "System.String"
+		return nativeCall(cRequest,"number")
+	ok
+	return returnCode(cRequest,cReturnType,0)
 
 # Types whose answers the extension reads itself (a text, a number or a yes/no): dotnet_call returns them as Ring values
 func isPrimitiveType cType
@@ -805,7 +810,7 @@ func buildPlan cTypeName, nForceInit
 			ok
 			cStaticReq += "]"
 			cB += "		if nHandle = 0" + nl
-			cB += "			" + returnCode(cStaticReq,aStaticRec[3],aStaticRec[5],false)
+			cB += "			" + returnCode(cStaticReq,aStaticRec[3],aStaticRec[5])
 			cB += "		ok" + nl
 			cReq = '"call",[new DotNetObject(nHandle),"' + cName + '"'
 			if nArity > 0
@@ -814,7 +819,7 @@ func buildPlan cTypeName, nForceInit
 			cReq += "]"
 			aMethod = aInstanceRec
 		ok
-		cB += "		" + returnCode(cReq,aMethod[3],aMethod[5],false) + nl
+		cB += "		" + returnCode(cReq,aMethod[3],aMethod[5]) + nl
 		aBlocks + [lower(cRing),cB]
 	next
 
@@ -838,7 +843,7 @@ func buildPlan cTypeName, nForceInit
 				cB += "		ok" + nl
 			ok
 			if len(aIndexer) = 3
-				cB += "		" + returnCode('"call",[new DotNetObject(nHandle),"get_Item",P1]',aIndexer[2],0,false) + nl
+				cB += "		" + returnCode('"call",[new DotNetObject(nHandle),"get_Item",P1]',aIndexer[2],0) + nl
 			else
 				cB += '		raise("DotNet Error: this indexer takes its indexes as a list: Item([index1,index2])")' + nl + nl
 			ok
@@ -900,7 +905,7 @@ func buildPlan cTypeName, nForceInit
 		if aMember[2] and (find(aNames,lower("get" + cName)) = 0)
 			aNames + lower("get" + cName)
 			cB = "	Func get" + cName + nl
-			cB += "		" + returnCode('"get",[' + cTarget + ',"' + cName + '"]',aMember[5],0,true) + nl
+			cB += "		" + propertyReturnCode('"get",[' + cTarget + ',"' + cName + '"]',aMember[5]) + nl
 			aBlocks + [lower("get" + cName),cB]
 		ok
 		if aMember[3] and (find(aNames,lower("set" + cName)) = 0)
@@ -1011,7 +1016,7 @@ func arityCall aFiMethods, cFiName, cFiType, nFiArity, cFiOperation, cFiIndent
 	cFiCode = ""
 	if lFiStatic and lFiInstance
 		cFiCode += cFiIndent + "if nHandle = 0" + nl
-		cFiCode += cFiIndent + "	" + returnCode('"' + cFiOperation + '",[' + cFiStaticTarget + ',"' + cFiName + '"' + cFiArgs + ']',aFiStaticRec[3],aFiStaticRec[5],false)
+		cFiCode += cFiIndent + "	" + returnCode('"' + cFiOperation + '",[' + cFiStaticTarget + ',"' + cFiName + '"' + cFiArgs + ']',aFiStaticRec[3],aFiStaticRec[5])
 		cFiCode += cFiIndent + "ok" + nl
 		cFiTarget = "new DotNetObject(nHandle)"
 	but lFiStatic
@@ -1020,9 +1025,9 @@ func arityCall aFiMethods, cFiName, cFiType, nFiArity, cFiOperation, cFiIndent
 		cFiTarget = "new DotNetObject(nHandle)"
 	ok
 	if lFiInstance
-		cFiCode += cFiIndent + returnCode('"' + cFiOperation + '",[' + cFiTarget + ',"' + cFiName + '"' + cFiArgs + ']',aFiInstanceRec[3],aFiInstanceRec[5],false)
+		cFiCode += cFiIndent + returnCode('"' + cFiOperation + '",[' + cFiTarget + ',"' + cFiName + '"' + cFiArgs + ']',aFiInstanceRec[3],aFiInstanceRec[5])
 	else
-		cFiCode += cFiIndent + returnCode('"' + cFiOperation + '",[' + cFiTarget + ',"' + cFiName + '"' + cFiArgs + ']',aFiStaticRec[3],aFiStaticRec[5],false)
+		cFiCode += cFiIndent + returnCode('"' + cFiOperation + '",[' + cFiTarget + ',"' + cFiName + '"' + cFiArgs + ']',aFiStaticRec[3],aFiStaticRec[5])
 	ok
 	return cFiCode
 
