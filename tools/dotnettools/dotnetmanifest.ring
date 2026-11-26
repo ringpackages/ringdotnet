@@ -784,6 +784,20 @@ aDotNetManifest = [
 	  :uses = ["System.Data.Common"],
 	  :all = true ],
 
+	[ :namespace = "System.Data.Odbc",
+	  :assemblies = ["System.Data.Odbc"],
+	  :data = true,
+	  :prefix = "Odbc",
+	  :uses = ["System.Data.Common","System.Data"],
+	  :all = true ],
+
+	[ :namespace = "SQLitePCL",
+	  :assemblies = ["SQLitePCLRaw.core","SQLitePCLRaw.batteries_v2","SQLitePCLRaw.provider.e_sqlite3"],
+	  :data = true,
+	  :prefix = "Pcl",
+	  :uses = [],
+	  :all = true ],
+
 	[ :namespace = "System.Net.Http.Json",
 	  :assemblies = ["System.Net.Http.Json"],
 	  :uses = ["System.Net.Http","System.IO"],
