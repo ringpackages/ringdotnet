@@ -32,9 +32,7 @@ func main
 	next
 	aBytes = oUtf8.GetBytes(cText)
 	oPacked = new MemoryStream()
-	oGzip = new GZipStream
-	oGzip.@New([ :stream = oPacked, :mode = "Compress", :leaveOpen = True ])  # leaveOpen: keep the inner stream usable
-	oGzipWriter = new StreamWriter(oGzip)
+	oGzipWriter = new StreamWriter((new GZipStream).@New([ :stream = oPacked, :mode = "Compress", :leaveOpen = True ]))
 	oGzipWriter.Write(cText)
 	oGzipWriter.Dispose()                             # Dispose finishes the compressed data: without it the result is incomplete
 	? nl + "3. " + len(aBytes) + " bytes became " + oPacked.Length + " bytes (" + floor(oPacked.Length * 100 / len(aBytes)) + " %)"
