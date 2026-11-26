@@ -70,10 +70,11 @@ func main
 		? nl + "7. a wrong format: " + errorKind(cCatchError)
 	done
 
-# a whole number in another base (a static method of Convert, called by its name because ToString is also a method of every object)
+# a whole number in another base (a static method of Convert)
 func toBase nNumber,nBase
 
-	return dnStatic("System.Convert","ToString",[ nNumber, nBase ])
+	oConvert = new Convert
+	return oConvert.Format([ :value = nNumber, :toBase = nBase ])
 
 # format one value with the invariant culture
 func one cFormat,value
