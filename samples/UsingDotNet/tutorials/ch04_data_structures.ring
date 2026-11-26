@@ -13,7 +13,7 @@ func main
 	cText = "System.String"
 
 	# 1. PriorityQueue<element, priority>: Dequeue always gives the element with the SMALLEST priority, whatever the order of Enqueue.
-	oTasks = dnNewGeneric("System.Collections.Generic.PriorityQueue",[cText,cInt],[])
+	oTasks = new PriorityQueue([ :typeArguments = [cText,cInt] ])
 	oTasks.callMethod("Enqueue",["write the report",3])
 	oTasks.callMethod("Enqueue",["fix the server",1])
 	oTasks.callMethod("Enqueue",["answer the mail",5])
@@ -24,7 +24,7 @@ func main
 	end
 
 	# 2. SortedSet: no duplicates, always sorted. Add answers false for a value that is already there. Min and Max are ready.
-	oSet = dnNewGeneric("System.Collections.Generic.SortedSet",[cInt],[])
+	oSet = new SortedSet([ :typeArguments = [cInt] ])
 	for n in [42,7,19,7,3,42,100]
 		oSet.callMethod("Add",[n])
 	next
@@ -33,7 +33,7 @@ func main
 	? "   Contains(19): " + oSet.callMethod("Contains",[19]) + ", Contains(20): " + oSet.callMethod("Contains",[20])
 
 	# 3. SortedDictionary: keys stay in order, so a loop over it is alphabetical
-	oDict = dnNewGeneric("System.Collections.Generic.SortedDictionary",[cText,cInt],[])
+	oDict = new SortedDictionary([ :typeArguments = [cText,cInt] ])
 	for cName in ["pear","apple","fig","banana"]
 		oDict.callMethod("Add",[cName,len(cName)])
 	next
@@ -45,7 +45,7 @@ func main
 	? nl + "3. sorted dictionary, keys in order: " + cKeys
 
 	# 4. LinkedList: items are linked to their neighbors. Adding or removing at either end, or next to a known node, is quick.
-	oList = dnNewGeneric("System.Collections.Generic.LinkedList",[cText],[])
+	oList = new LinkedList([ :typeArguments = [cText] ])
 	oList.AddLast("b")
 	oList.AddLast("c")
 	oList.AddFirst("a")
