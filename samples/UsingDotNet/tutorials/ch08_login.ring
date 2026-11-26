@@ -140,7 +140,8 @@ func randomHex nBytes
 
 func hashPassword cPassword, cSalt
 
-	oDerive = dnNew("Rfc2898DeriveBytes",[ :password = cPassword, :salt = cSalt, :iterations = 10000, :hashAlgorithm = new HashAlgorithmName().SHA256 ])
+	oDerive = new Rfc2898DeriveBytes
+	oDerive.@New([ :password = cPassword, :salt = cSalt, :iterations = 10000, :hashAlgorithm = new HashAlgorithmName().SHA256 ])
 	return lower(new Convert().ToHexString(oDerive.GetBytes(32)))
 
 # ---------------------------------------------------------------- the test client
@@ -150,7 +151,8 @@ func visit cMethod, cPath, cForm, cCookie
 
 	oMessage = new HttpRequestMessage().@New([ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
 	if cForm != ""
-		oContent = dnNew("StringContent",[ :content = cForm, :encoding = new Encoding().UTF8, :mediaType = "application/x-www-form-urlencoded" ])
+		oContent = new StringContent
+		oContent.@New([ :content = cForm, :encoding = new Encoding().UTF8, :mediaType = "application/x-www-form-urlencoded" ])
 		oMessage.Content = oContent
 	ok
 	if cCookie != ""
