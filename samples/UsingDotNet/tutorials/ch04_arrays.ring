@@ -40,7 +40,7 @@ func main
 	? "   Array.Clear(array, 0, 3) sets 3 items to zero: " + arrayText(oTarget)
 
 	# 5. An array of texts, and the join of a list into one text
-	oWordList = dnNewGeneric("System.Collections.Generic.List",["System.String"],[])
+	oWordList = new List([ :typeArguments = ["System.String"] ])
 	for cWord in ["pear","apple","fig"]
 		oWordList.Add(cWord)
 	next
@@ -69,7 +69,7 @@ func main
 # an Int32 there and fits an Int32 array, a number with a fraction is a Double and does not.)
 func makeIntArray aList
 
-	oList = dnNewGeneric("System.Collections.Generic.List",["System.Int32"],[])
+	oList = new List([ :typeArguments = ["System.Int32"] ])
 	for nValue in aList
 		oList.Add(nValue)
 	next
