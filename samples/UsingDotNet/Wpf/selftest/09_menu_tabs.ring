@@ -2,7 +2,7 @@
 
 func selfTest
 
-	oEvent = dnNew("RoutedEventArgs",[ :routedEvent = new MenuItem().ClickEvent ])
+	oEvent = (new RoutedEventArgs).@New([ :routedEvent = new MenuItem().ClickEvent ])
 	oOpen.RaiseEvent(oEvent)
 	dnAssert("menu item click",cLast,"open")
 	oTabs.SelectedIndex = 1
