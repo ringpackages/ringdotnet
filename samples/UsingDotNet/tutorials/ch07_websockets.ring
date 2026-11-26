@@ -95,7 +95,7 @@ func main
 # takes the values by name.
 func send oSocket,cBytes,cType,lClient
 
-	oSegment = dnNew("System.ArraySegment`1[[System.Byte]]",[ cBytes ])
+	oSegment = new ArraySegment([ :typeArguments = ["System.Byte"], :array = cBytes ])
 	if lClient
 		oSocket.SendAsync(oSegment,cType,True,oToken).Wait(NULL)
 	else
@@ -112,7 +112,7 @@ func sendText oSocket,cText,lClient
 func receive oSocket,nSize
 
 	oBuffer = dnBuffer(nSize)
-	oSegment = dnNew("System.ArraySegment`1[[System.Byte]]",[ oBuffer ])
+	oSegment = new ArraySegment([ :typeArguments = ["System.Byte"], :array = oBuffer ])
 	oTask = oSocket.ReceiveAsync(oSegment,oToken)
 	oTask.Wait(NULL)
 	oResult = oTask.getProp("Result")
