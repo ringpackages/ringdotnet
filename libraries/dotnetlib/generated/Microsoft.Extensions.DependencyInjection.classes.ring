@@ -1806,6 +1806,31 @@ Class IKeyedServiceProvider from DotNetObject
 		ok
 		return dnObj(dn_x)
 
+	Func GetDataProtectionProvider 
+		dnEnsureExt("Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions, Microsoft.AspNetCore.DataProtection.Abstractions")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:GetDataProtectionProvider")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func GetDataProtector P1
+		dnEnsureExt("Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions, Microsoft.AspNetCore.DataProtection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetDataProtector",P1))
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetDataProtector",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func GetApplicationUniqueIdentifier 
+		dnEnsureExt("Microsoft.AspNetCore.DataProtection.DataProtectionUtilityExtensions, Microsoft.AspNetCore.DataProtection")
+		dn_x = dotnet_call("s4:call",nHandle,"s30:GetApplicationUniqueIdentifier")
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
 	Func GetKeyedServices P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
 		if dotnet_isnamed(P1)
@@ -6712,6 +6737,31 @@ Class ServiceProvider from Object
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
+		if islist(dn_x) return dnFinish(dn_x[2]) ok
+		return dn_x
+
+	Func GetDataProtectionProvider 
+		dnEnsureExt("Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions, Microsoft.AspNetCore.DataProtection.Abstractions")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:GetDataProtectionProvider")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func GetDataProtector P1
+		dnEnsureExt("Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions, Microsoft.AspNetCore.DataProtection.Abstractions")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetDataProtector",P1))
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetDataProtector",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func GetApplicationUniqueIdentifier 
+		dnEnsureExt("Microsoft.AspNetCore.DataProtection.DataProtectionUtilityExtensions, Microsoft.AspNetCore.DataProtection")
+		dn_x = dotnet_call("s4:call",nHandle,"s30:GetApplicationUniqueIdentifier")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 

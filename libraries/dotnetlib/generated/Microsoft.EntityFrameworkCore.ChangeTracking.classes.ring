@@ -611,6 +611,24 @@ Class EntityEntry from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
@@ -755,6 +773,24 @@ Class EntityEntryGraphNode from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
@@ -1210,6 +1246,24 @@ Class MemberEntry from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
@@ -2097,6 +2151,24 @@ Class ListOfNullableValueTypesComparer from ValueComparer1
 		ok
 		return self
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
@@ -2129,6 +2201,24 @@ Class ListOfReferenceTypesComparer from ValueComparer1
 		ok
 		return self
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
@@ -2160,6 +2250,24 @@ Class ListOfValueTypesComparer from ValueComparer1
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")

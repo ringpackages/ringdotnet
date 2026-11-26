@@ -705,6 +705,24 @@ Class CheckConstraintBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
@@ -816,6 +834,24 @@ Class CollectionNavigationBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
@@ -858,6 +894,24 @@ Class ColumnBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
@@ -1018,6 +1072,24 @@ Class ComplexPropertyBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
@@ -1341,6 +1413,24 @@ Class ComplexTypePrimitiveCollectionBuilder from Object
 	Func HasJsonPropertyName P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalComplexTypePrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s19:HasJsonPropertyName",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
 		if isnumber(dn_x) and dn_x = -1
 			return self
 		ok
@@ -1698,6 +1788,24 @@ Class ComplexTypePropertyBuilder from Object
 		ok
 		return dnObj(dn_x)
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
@@ -1831,6 +1939,24 @@ Class DbFunctionBuilderBase from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
@@ -1889,6 +2015,24 @@ Class DbFunctionParameterBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
@@ -2115,6 +2259,24 @@ Class ElementTypeBuilder from Object
 		return dnObj(dn_x)
 		ok
 		dn_x = dotnet_callo("s5:calls",nHandle,"s13:IsFixedLength",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
 		if isnumber(dn_x) and dn_x = -1
 			return self
 		ok
@@ -2463,6 +2625,24 @@ Class EntityTypeBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s26:InsertUsingStoredProcedure",P1))
 		ok
 		dn_x = dotnet_callo("s5:calls",nHandle,"s26:InsertUsingStoredProcedure",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
 		if isnumber(dn_x) and dn_x = -1
 			return self
 		ok
@@ -6943,6 +7123,24 @@ Class IndexBuilder from Object
 		ok
 		return dnObj(dn_x)
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
@@ -6975,6 +7173,24 @@ Class InvertibleRelationshipBuilderBase from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
@@ -7021,6 +7237,24 @@ Class KeyBuilder from Object
 	Func HasName P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s7:HasName",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
 		if isnumber(dn_x) and dn_x = -1
 			return self
 		ok
@@ -7132,6 +7366,24 @@ Class NavigationBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
@@ -7444,6 +7696,24 @@ Class OwnedNavigationBuilder from Object
 		ok
 		return dnObj(dn_x)
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
@@ -7526,6 +7796,24 @@ Class OwnedNavigationSplitTableBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
@@ -7594,6 +7882,24 @@ Class OwnedNavigationSplitViewBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
@@ -7730,6 +8036,24 @@ Class OwnedNavigationStoredProcedureBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
@@ -7830,6 +8154,24 @@ Class OwnedNavigationTableBuilder from Object
 		ok
 		return dnObj(dn_x)
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
@@ -7884,6 +8226,24 @@ Class OwnedNavigationViewBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
@@ -8213,6 +8573,24 @@ Class PrimitiveCollectionBuilder from Object
 	Func HasJsonPropertyName P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s19:HasJsonPropertyName",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
 		if isnumber(dn_x) and dn_x = -1
 			return self
 		ok
@@ -8688,6 +9066,24 @@ Class PropertyBuilder from Object
 		ok
 		return dnObj(dn_x)
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
@@ -8755,6 +9151,24 @@ Class ReferenceNavigationBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
@@ -8781,6 +9195,24 @@ Class RelationshipBuilderBase from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
@@ -8868,6 +9300,24 @@ Class SequenceBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
@@ -8963,6 +9413,24 @@ Class SplitTableBuilder from Object
 		ok
 		return dnObj(dn_x)
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
@@ -9031,6 +9499,24 @@ Class SplitViewBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
@@ -9167,6 +9653,24 @@ Class StoredProcedureBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
@@ -9230,6 +9734,24 @@ Class StoredProcedureParameterBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
@@ -9278,6 +9800,24 @@ Class StoredProcedureResultColumnBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
@@ -9379,6 +9919,24 @@ Class TableBuilder from Object
 		ok
 		return dnObj(dn_x)
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
@@ -9432,6 +9990,24 @@ Class TriggerBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
@@ -9586,6 +10162,24 @@ Class ViewBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
@@ -9640,6 +10234,24 @@ Class ViewColumnBuilder from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")

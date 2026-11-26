@@ -4672,6 +4672,24 @@ Class RelationalTransaction from Object
 		ok
 		return dnObj(dn_x)
 
+	Func GetService P1
+		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
+		if dotnet_isnamed(P1)
+			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
+		ok
+		if isstring(P1) and P1 = ""
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
 		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
