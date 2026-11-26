@@ -68,7 +68,7 @@ A Ring method has one name and one parameter list, so a .NET method name that ha
 | `Next()`, `Next(int)`, `Next(int,int)` | `@Next(NULL)`, `@Next(10)`, `@Next([ :minValue = 1, :maxValue = 10 ])` | A name that is a Ring keyword gets an `@` at the start. |
 | `Serialize(value, options = null)` | `Serialize(value)`, `Serialize([ :value = v, :options = o ])` | **Optional parameters** can be left out of the list. |
 | `Path.Combine(a, b, c)` | `Combine([ :path1 = a, :path2 = b ])` or `Combine([a, b, c])` | A `params` array takes a plain list, a single value (an array of one item), or nothing (it is empty). |
-| `new MemoryStream(bytes)` | `new MemoryStream().@New([ :buffer = bytes ])` or `dnNew("MemoryStream",[ :buffer = bytes ])` | Constructors: `init()` is the parameterless (or shortest) one; the others are chosen by name with `@New`. |
+| `new MemoryStream(bytes)` | `new MemoryStream().@New([ :buffer = bytes ])` or `dnNew("MemoryStream",[ :buffer = bytes ])` | Constructors: `init()` is the parameterless (or shortest) one; the others are chosen by name with `@New`. A class that has no parameterless constructor (`FileStream`) is made without parentheses, and `@New` gives the values: `oStream = new FileStream` then `oStream.@New([ :path = cFile, :mode = "Open", :access = "Read" ])`. |
 | `date.ToString("yyyy-MM-dd")` | `oDate.Format("yyyy-MM-dd")` or `oDate.Format([ :format = "d", :provider = oCulture ])` | `ToString()` keeps its plain form; its forms with parameters are `Format`. |
 
 The bridge still **picks the real overload from the argument types**: whole numbers prefer `int`, strings prefer `string`, a .NET object prefers its own type.
