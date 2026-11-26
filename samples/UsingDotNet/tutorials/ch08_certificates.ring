@@ -76,7 +76,8 @@ func main
 
 func isValidNow oCertificate
 
-	oNow = dnStatic("System.DateTime","get_Now",[])
+	oDateTime = new DateTime
+	oNow = oDateTime.Now
 	return oNow.CompareTo(oCertificate.NotBefore) >= 0 and oNow.CompareTo(oCertificate.NotAfter) <= 0
 
 func canSign oPublic
