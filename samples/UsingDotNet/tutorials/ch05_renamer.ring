@@ -110,7 +110,8 @@ func applyRule aItem,cBase,cExtension
 	if cKind = "replace"
 		cBase = substr(cBase,aItem[2],aItem[3])
 	but cKind = "regex"
-		cBase = dnStatic("System.Text.RegularExpressions.Regex","Replace",[ cBase, aItem[2], aItem[3] ])
+		oRegex = new Regex
+		cBase = oRegex.Replace([ :input = cBase, :pattern = aItem[2], :replacement = aItem[3] ])
 	but cKind = "lower"
 		cBase = lower(cBase)
 		cExtension = lower(cExtension)
