@@ -37,9 +37,11 @@ func main
 	#    the form itself also has its title bar and its border.)
 	oForm = uiForm("Picture me",300,200)
 	oPanel = uiPanel(oForm,10,10,240,120)
-	oPanel.BackColor = dnStatic("System.Drawing.Color","FromArgb",[ 255, 220, 40, 40 ])
+	oRed = new Color().FromArgb([ :alpha = 255, :red = 220, :green = 40, :blue = 40 ])
+	oPanel.BackColor = oRed
 	oLabel = uiLabel(oPanel,"Hello",20,20,100,24)
-	oLabel.BackColor = dnStatic("System.Drawing.Color","FromArgb",[ 255, 255, 255, 255 ])
+	oWhite = new Color().FromArgb([ :alpha = 255, :red = 255, :green = 255, :blue = 255 ])
+	oLabel.BackColor = oWhite
 	oForm.Show(NULL)
 	nPanelWidth = oPanel.Width
 	nPanelHeight = oPanel.Height
