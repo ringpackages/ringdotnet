@@ -8,7 +8,8 @@ load "../../libraries/dotnetlib/dotnetlib.ring"
 # Ring keywords are not used as method names: a method that has such a name gets "@" at the start (@New, @Load), as C# writes @class
 aKeywords = split("if to or and not for foreach new func from next load else see while ok class return but end give bye exit try catch done switch on other off in loop package import private step do again call elseif put get set case def endfunc endclass endpackage endif endfor endwhile endswitch endtry function endfunction break continue this self super main init operator"," ")
 # The words that Ring accepts after a dot, as the name of an attribute or a method (o.From = x, o.Set(1)): they keep their names.
-# The others (get and or not next end if for new load call put give see ...) are a syntax error there: methods get "@", attributes are left out.
+# The others (get and or not next end if for new load call put give see ...) are a syntax error there: methods get "@" (o.@Next()), and so do attributes: a property
+# called Next is the attribute @Next, read as o.@Next (Ring calls get@Next) and written as o.@Next = x (set@Next).
 aMemberOk = split("from to set step in on off other done ok"," ")
 aMemberKeywords = []
 for cWord in aKeywords
@@ -278,6 +279,13 @@ func makedir cPath
 
 func split cText, cSep
 	return str2list(substr(cText,cSep,nl))
+
+# "@" for a member whose name is a word of Ring that is not accepted after a dot (Next, End, New...), else ""
+func memberAt cName
+	if find(aMemberKeywords,lower(cName)) > 0 and lower(cName) != "init"
+		return "@"
+	ok
+	return ""
 
 func ringName cName
 	if find(aMemberKeywords,lower(cName)) > 0
@@ -628,9 +636,9 @@ func buildPlan cTypeName, nForceInit
 	aAttrList = []
 	for aMember in aMembers
 		cLowerName = lower(aMember[1])
-		if (find(aMethodNames,cLowerName) = 0) and (find(aAttrs,cLowerName) = 0) and (find(aMemberKeywords,cLowerName) = 0) and (not substr(cReserved,"|" + cLowerName + "|"))
+		if (find(aMethodNames,cLowerName) = 0) and (find(aAttrs,cLowerName) = 0) and (not substr(cReserved,"|" + cLowerName + "|"))
 			aAttrs + cLowerName
-			aAttrList + [cLowerName,aMember[1]]
+			aAttrList + [cLowerName,memberAt(aMember[1]) + aMember[1]]
 		ok
 	next
 	cCode = ""
@@ -1049,6 +1057,7 @@ func buildPlan cTypeName, nForceInit
 		# (an enum is read as the text of its member name, and written from a text or a number: aMember[6] is true for it)
 		lEnum = (len(aMember) >= 6) and aMember[6]
 		lTyped = (not aMember[4]) and (isPrimitiveType(aMember[5]) or lEnum)
+		cAt = memberAt(cName)          # a property called like a word of Ring is the attribute @Next: Ring calls get@Next and set@Next, which call getNext and setNext
 		if aMember[2] and (find(aNames,lower("get" + cName)) = 0)
 			aNames + lower("get" + cName)
 			cB = "	Func get" + cName + nl
@@ -1058,6 +1067,9 @@ func buildPlan cTypeName, nForceInit
 				cB += "		" + propertyReturnCode('"get",[' + cTarget + ',"' + cName + '"]',aMember[5]) + nl
 			ok
 			aBlocks + [lower("get" + cName),cB]
+			if cAt != "" and find(aAttrs,lower(cName)) > 0
+				aBlocks + [lower("get@" + cName),"	Func get@" + cName + nl + "		return get" + cName + "()" + nl + nl]
+			ok
 		ok
 		if aMember[3] and (find(aNames,lower("set" + cName)) = 0)
 			aNames + lower("set" + cName)
@@ -1069,12 +1081,18 @@ func buildPlan cTypeName, nForceInit
 			ok
 			cB += "		return self" + nl + nl
 			aBlocks + [lower("set" + cName),cB]
+			if cAt != "" and find(aAttrs,lower(cName)) > 0
+				aBlocks + [lower("set@" + cName),"	Func set@" + cName + " P1" + nl + "		return set" + cName + "(P1)" + nl + nl]
+			ok
 		but (not aMember[3]) and (find(aAttrs,lower(cName)) > 0) and (find(aNames,lower("set" + cName)) = 0)
 			# read-only property: assigning to the attribute is an error
 			aNames + lower("set" + cName)
 			cB = "	Func set" + cName + " P1" + nl
 			cB += '		raise("DotNet Error: ' + cName + ' is a read-only property")' + nl + nl
 			aBlocks + [lower("set" + cName),cB]
+			if cAt != ""
+				aBlocks + [lower("set@" + cName),"	Func set@" + cName + " P1" + nl + "		return set" + cName + "(P1)" + nl + nl]
+			ok
 		ok
 	next
 
