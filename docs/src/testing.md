@@ -52,7 +52,7 @@ On **Linux** the same script runs the tests, the samples and the package tests; 
 
 ## Package tests
 
-`samples/UsingDotNet/tests/packages/pkgtest_*.ring` are real programs against NuGet packages: 183 tests, one for each package (the ML.NET package has several). Each one asks `dnAssert` about what the package gives back (HTML, a deserialized list, a determinant, a retried call, rows from a query), so a change of the bridge that breaks a library fails here before it fails in a program. The packages that need a class written in .NET have a small helper project, and the tests that need a native library (LibGit2Sharp, ML.NET, SQLite) run on Windows and on Linux.
+`samples/UsingDotNet/tests/packages/pkgtest_*.ring` are real programs against NuGet packages: 187 tests, one for each package (the ML.NET package has several). Each one asks `dnAssert` about what the package gives back (HTML, a deserialized list, a determinant, a retried call, rows from a query), so a change of the bridge that breaks a library fails here before it fails in a program. The packages that need a class written in .NET have a small helper project, and the tests that need a native library (LibGit2Sharp, ML.NET, SQLite) run on Windows and on Linux.
 
 ### Writing a package test
 
@@ -81,7 +81,7 @@ A package that needs a class written in .NET uses a small helper project: a vali
 pkgUseProject("fluentvalidation","helpers/PkgHelpers",[["FluentValidation.dll",[...]],["PkgHelpers.dll",["PkgHelpers"]]])
 ```
 
-The ML.NET tests share their setup in `packages/mlcommon.ring`: `load "mlcommon.ring"` and `mlUse()` restore ML.NET and import its namespaces; `mlNew(seed)` makes a context, `mlColumns([["x","Single"],...])` and `mlLoadCsv(oMl,file,columns)` read a CSV file, `mlColumn(oData,type,name)` gives a column as a Ring list, and `mlWrite(name,text)` writes a file in the cache folder.
+The ML.NET tests share their setup in `packages/mlcommon.ring`: `load "mlcommon.ring"` and `mlUse()` restore ML.NET and import its namespaces; `mlNew(seed)` makes a context, `mlColumns([["x","Single"],...])` and `mlLoadCsv(oMl,file,columns)` read a CSV file, `mlColumn(oData,type,name)` gives a column as a Ring list, and `mlWrite(name,text)` writes a file in the cache folder. The AutoML test uses `mlUseAuto()` and the helper project `MlAutoHelpers`, in a cache folder of its own: AutoML brings the deep learning packages, about 400 megabytes.
 
 ### Newer versions
 
@@ -348,6 +348,10 @@ Each table lists the packages of an area. The second column is the name of the t
 | ML.NET decision trees | `mlnet_trees` | FastTree and FastForest for a number and for a yes or no |
 | ML.NET clustering and PCA | `mlnet_clustering` | k-means with cluster distances and metrics, and principal components |
 | ML.NET saved and loaded models | `mlnet_persistence` | a trained model saved to a file or a stream and loaded again, also by another context, with the same predictions; a pipeline with a text and a category saved with its transforms; a file that is not a model |
+| ML.NET anomaly detection | `mlnet_anomaly` | RandomizedPca trained on normal rows gives high scores and the anomaly label to rows that are far from them, with the area under the curve |
+| ML.NET ranking | `mlnet_ranking` | FastTree and LightGBM rankers over queries of documents, with NDCG and DCG |
+| ML.NET calibrators | `mlnet_calibration` | Platt, naive and isotonic calibrators turn the score of a linear SVM or a perceptron into a probability |
+| ML.NET AutoML | `mlnet_automl` | experiments for a number, a yes or no and several classes, the settings of an experiment, the inferred columns of a CSV file, and the best model used like any other (a restore of hundreds of megabytes) |
 | ML.NET with a CSV file | `mlnet_columns` | any number of columns read with column definitions made in Ring, scores read as a column |
 | ML.NET with in-memory rows | `mlnet_vectorrows` | one row class `VectorRow` for tables of any width |
 | ML.NET with text columns | `mlnet_text` | a category one-hot encoded, a review featurized into word counts, a text label mapped to classes and back |

@@ -17,15 +17,27 @@ func mlUse
 	pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML.Data")
 	pkgImport("mlnet","Microsoft.ML.StandardTrainers.dll","Microsoft.ML.Trainers")
 
+# Restores the ML.NET AutoML package in a cache folder of its own (it brings the deep learning packages: hundreds of megabytes), wraps the DLLs and imports the namespaces
+func mlUseAuto
+
+	pkgUseProject("mlnet_auto","helpers/MlAutoHelpers",[["Microsoft.ML.Data.dll",["Microsoft.ML","Microsoft.ML.Data"]],["Microsoft.ML.AutoML.dll",["Microsoft.ML.AutoML"]],["Microsoft.ML.Core.dll",[]],["Microsoft.ML.StandardTrainers.dll",["Microsoft.ML.Trainers"]],["Microsoft.ML.Transforms.dll",[]],["Microsoft.ML.DataView.dll",[]],["Microsoft.ML.CpuMath.dll",[]],["Microsoft.ML.FastTree.dll",[]],["Microsoft.ML.LightGbm.dll",[]],["Microsoft.ML.Mkl.Components.dll",[]],["Microsoft.ML.SearchSpace.dll",[]]])
+	pkgImport("mlnet_auto","Microsoft.ML.Data.dll","Microsoft.ML")
+	pkgImport("mlnet_auto","Microsoft.ML.Data.dll","Microsoft.ML.Data")
+	pkgImport("mlnet_auto","Microsoft.ML.AutoML.dll","Microsoft.ML.AutoML")
+
 # A context: the seed makes the random choices of the trainers the same each time (trainers that use several threads still vary a little)
 func mlNew nSeed
 
 	return dnNew("Microsoft.ML.MLContext",[nSeed])
 
-# The path of a file in the cache folder of the ML.NET tests
+# The path of a file in the folder of the ML.NET tests (in the cache: it is made when it is not there)
 func mlFile cName
 
-	return cPkgCache + "mlnet/" + cName
+	cFolder = cPkgCache + "mltests/"
+	if not direxists(cFolder)
+		pkgMakeDir(cFolder)
+	ok
+	return cFolder + cName
 
 # Write a file in that folder and answer its path
 func mlWrite cName, cText

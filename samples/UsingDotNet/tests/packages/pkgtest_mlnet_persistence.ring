@@ -30,7 +30,7 @@ dnAssert("the model predicts the new rows",len(aBefore),5)
 dnAssert("a prediction of the trained model (3*9 + 2*0 + 1 = 28)",fabs(aBefore[2] - 28) < 2,1)
 
 # ---- saved to a file with the schema of the data, and loaded again
-cModelFile = cPkgCache + "mlnet/regression.zip"
+cModelFile = mlFile("regression.zip")
 if fexists(cModelFile)
 	remove(cModelFile)
 ok
@@ -92,7 +92,7 @@ oPipeline = oMl.Transforms.Text.callMethod("FeaturizeText",["ReviewFeatures","re
 oPipeline = oPipeline.callMethod("Append",[oMl.Transforms.Categorical.callMethod("OneHotEncoding",["CityEncoded","city"])])
 oPipeline = oPipeline.callMethod("Append",[oMl.Transforms.callMethod("Concatenate",["Features",["ReviewFeatures","CityEncoded"]])])
 oReviewModel = oPipeline.callMethod("Append",[oMl.BinaryClassification.Trainers.callMethod("SdcaLogisticRegression",["positive","Features"])]).Fit(oReviews)
-cReviewFile = cPkgCache + "mlnet/reviews.zip"
+cReviewFile = mlFile("reviews.zip")
 oMl.Model.callMethod("Save",[oReviewModel,oReviews.getProp("Schema"),cReviewFile])
 aReviewLoaded = oMl.Model.callMethod("Load",[cReviewFile])
 cQuestions = "review,city,positive" + nl + "the view was wonderful,Cairo,0" + nl + "the view was horrible,Lima,0" + nl + "the room was great,Cairo,0" + nl
@@ -113,7 +113,7 @@ dnAssert("a wonderful review is positive and a horrible one is negative",aProbab
 # ---- errors: a file that is not there, and a file that is not a model
 cError = ""
 try
-	oMl.Model.callMethod("Load",[cPkgCache + "mlnet/there_is_no_such_model.zip"])
+	oMl.Model.callMethod("Load",[mlFile("there_is_no_such_model.zip")])
 catch
 	cError = cCatchError
 done

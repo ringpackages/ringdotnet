@@ -118,7 +118,7 @@ dnTestSummary()
 func mklAvailable
 
 	cTiny = "a,b,c,label" + nl + "1,2,3,10" + nl + "2,1,0,7" + nl + "3,5,2,24" + nl + "4,2,1,18" + nl + "5,0,4,20" + nl + "0,3,3,11" + nl
-	cTinyFile = cPkgCache + "mlnet/tiny.csv"
+	cTinyFile = mlFile("tiny.csv")
 	write(cTinyFile,cTiny)
 	aTiny = []
 	for n = 1 to 3

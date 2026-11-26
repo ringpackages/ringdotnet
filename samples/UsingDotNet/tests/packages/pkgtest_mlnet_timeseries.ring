@@ -92,7 +92,7 @@ if lMkl
 	for n = 1 to 120
 		cWave += "" + (n * 0.5 + sin(n * 2 * 3.14159265 / 10) * 5) + nl
 	next
-	cWaveFile = cPkgCache + "mlnet/wave.csv"
+	cWaveFile = mlFile("wave.csv")
 	write(cWaveFile,cWave)
 	oWave = mlLoadCsv(oMl,cWaveFile,aOneColumn)
 	oForecaster = oMl.Forecasting.callMethod("ForecastBySsa",["Forecast","value",20,120,120,5])
@@ -118,7 +118,7 @@ func mklAvailable
 	for n = 1 to 40
 		cTiny += "" + (10 + sin(n * 0.7)) + nl
 	next
-	cTinyFile = cPkgCache + "mlnet/tiny_series.csv"
+	cTinyFile = mlFile("tiny_series.csv")
 	write(cTinyFile,cTiny)
 	oTiny = mlLoadCsv(oMl,cTinyFile,aOneColumn)
 	try

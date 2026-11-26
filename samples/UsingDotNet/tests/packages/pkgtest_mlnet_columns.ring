@@ -6,7 +6,7 @@ mlUse()
 oMl = mlNew(11)
 
 # a CSV file with five numbers and a label: label = x1 + 2 * x2 - x3 + 0.5 * x4 + 3 * x5 + 2
-cFile = cPkgCache + "mlnet/columns.csv"
+cFile = mlFile("columns.csv")
 cCsv = "x1,x2,x3,x4,x5,label" + nl
 for a = 0 to 3
 	for b = 0 to 3
