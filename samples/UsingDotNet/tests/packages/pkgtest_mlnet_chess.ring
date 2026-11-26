@@ -1,8 +1,8 @@
-# The chess end game example (samples/UsingDotNet/applications/ChessEndgame): its programs are run as a user runs them: train.ring --quick (a split of 70 and 30 percent, three
+# The chess end game example (samples/UsingDotNet/tests/packages/ChessEndgame): its programs are run as a user runs them: train.ring --quick (a split of 70 and 30 percent, three
 # algorithms, the models saved), evaluate.ring (the saved models tested), and predict.ring (the result of positions). The example restores ML.NET into its own folder.
 load "pkg.ring"
 
-cExample = cPkgHere + "/../../applications/ChessEndgame"
+cExample = cPkgHere + "/ChessEndgame"
 chdir(cExample)
 cRing = exefilename()
 
@@ -79,6 +79,11 @@ cOutput = run(cRing + " predict.ring a1 b3 b2")
 dnAssert("kings that touch each other are called impossible",substr(cOutput,"the kings touch each other") > 0,1)
 cOutput = run(cRing + " predict.ring")
 dnAssert("without squares it shows positions of the test file",substr(cOutput,"real result") > 0 and substr(cOutput,"the model says") > 0,1)
+# ---- the window (Windows only: Windows Forms): it tests itself with the models that were just made
+if iswindows()
+	cOutput = run(cRing + " ChessEndgame.ring --selftest")
+	dnAssert("the window tests itself",substr(cOutput,"SELFTEST OK") > 0,1)
+ok
 dnTestSummary()
 
 # Run a command and give what it prints (the output goes to a file)

@@ -3,14 +3,14 @@ title: "Machine learning: the chess end game"
 lead: Train ML.NET models on a white king and a white rook against a black king, test them on positions they have not seen, save them, and use them to predict the result of a game.
 ---
 
-A white king and a white rook against a black king: is the game a draw, or in how many moves does white win? The data set has 28,056 positions with their results (the "chess end game" data of the UCI repository). The example `samples/UsingDotNet/applications/ChessEndgame` trains **fifteen combinations of algorithm and features** on 70 percent of the positions, tests them on the other 30 percent, saves every model, and uses a saved model to predict the result of a position. It has three console programs and **a window** (`ChessEndgame.ring`, [below](#the-window)) where you drag the pieces and the models answer. All of it is Ring that uses ML.NET through RingDotNet: there is no C# in it.
+A white king and a white rook against a black king: is the game a draw, or in how many moves does white win? The data set has 28,056 positions with their results (the "chess end game" data of the UCI repository). The example `samples/UsingDotNet/tests/packages/ChessEndgame` trains **fifteen combinations of algorithm and features** on 70 percent of the positions, tests them on the other 30 percent, saves every model, and uses a saved model to predict the result of a position. It has three console programs and **a window** (`ChessEndgame.ring`, [below](#the-window)) where you drag the pieces and the models answer. All of it is Ring that uses ML.NET through RingDotNet: there is no C# in it.
 
 The result of a position is one of eighteen words: `draw`, or `zero` to `sixteen`, the number of moves that white needs to win with the best play.
 
 ## Run it
 
 ```
-cd samples/UsingDotNet/applications/ChessEndgame
+cd samples/UsingDotNet/tests/packages/ChessEndgame
 ring train.ring                 # split 70 / 30, train, test, save the models (about a minute)
 ring evaluate.ring              # load the saved models and test them again
 ring predict.ring a1 b3 c2      # the result of a position: white king a1, white rook b3, black king c2
