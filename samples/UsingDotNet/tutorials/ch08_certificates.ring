@@ -22,8 +22,7 @@ func main
 	oName = new X500DistinguishedName("CN=Demo Server, O=RingDotNet, C=EG")
 	oSha = new HashAlgorithmName().SHA256
 	oPadding = new RSASignaturePadding().Pkcs1
-	oRequest = new CertificateRequest
-	oRequest.@New([ :subjectName = oName, :key = oRsa, :hashAlgorithm = oSha, :padding = oPadding ])
+	oRequest = (new CertificateRequest).@New([ :subjectName = oName, :key = oRsa, :hashAlgorithm = oSha, :padding = oPadding ])
 
 	#    Extensions say what the certificate may be used for. This one is a plain server certificate (not a CA that signs others).
 	oBasic = new X509BasicConstraintsExtension().@New([ :certificateAuthority = False, :hasPathLengthConstraint = False, :pathLengthConstraint = 0, :critical = True ])
@@ -76,8 +75,7 @@ func main
 
 func isValidNow oCertificate
 
-	oDateTime = new DateTime
-	oNow = oDateTime.Now
+	oNow = (new DateTime).Now
 	return oNow.CompareTo(oCertificate.NotBefore) >= 0 and oNow.CompareTo(oCertificate.NotAfter) <= 0
 
 func canSign oPublic
