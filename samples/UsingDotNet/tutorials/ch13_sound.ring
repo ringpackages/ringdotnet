@@ -47,7 +47,7 @@ func main
 	? "samples: " + nSamples + ", bytes of the file: " + len(cWav)
 
 	# STEP 4. The bytes go to a MemoryStream, and the stream to a SoundPlayer
-	oStream = dnNew("System.IO.MemoryStream",[ :buffer = cWav ])          # the constructor is chosen by the name of its parameter
+	oStream = new MemoryStream().@New([ :buffer = cWav ])          # the constructor is chosen by the name of its parameter
 	oPlayer = new SoundPlayer().@New([ :stream = oStream ])
 	oPlayer.@Load()
 	? "the sound is loaded: " + oPlayer.IsLoadCompleted
