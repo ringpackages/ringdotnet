@@ -73,7 +73,8 @@ func makeFile cFile,cStart,cFill
 # the first nCount bytes of a file (fewer when the file is shorter), read into a byte buffer
 func firstBytes cFile,nCount
 
-	oStream = dnNew("FileStream",[ :path = cFile, :mode = "Open", :access = "Read" ])
+	oStream = new FileStream
+	oStream.@New([ :path = cFile, :mode = "Open", :access = "Read" ])
 	oBuffer = dnBuffer(nCount)
 	nRead = oStream.Read(oBuffer,0,nCount)
 	oStream.Dispose()
