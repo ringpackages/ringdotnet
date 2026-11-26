@@ -110,7 +110,7 @@ Rules and limits:
 - A method whose Ring name would clash with the getter or setter of a property (the static `GetValue(property)` of a WPF element next to a property `Value`) gets an `@` at the start: `@GetValue(property)`.
 - A name that matches no parameter, or a missing required parameter, raises an error that lists the names you gave. Names are not case sensitive.
 - A list of `[string, value]` pairs passed as the single argument is read as named arguments.
-- Names that are Ring keywords start with `@`, as C# writes `@class`: `oRnd.@Next([ :minValue = 1, :maxValue = 10 ])`, and so does `Init` (`init` is the constructor of a generated class): `oCipher.@Init(1,oParams)`. The words that Ring uses itself (`Get`, `Set`, `Call`) are called with `callMethod`.
+- Names that are Ring keywords start with `@`, as C# writes `@class`: `oRnd.@Next([ :minValue = 1, :maxValue = 10 ])` for a method, `oNode.@Next` for a property, and so does `Init` (`init` is the constructor of a generated class): `oCipher.@Init(1,oParams)`. The words that Ring uses itself (`Get`, `Set`, `Call`) are called with `callMethod`.
 - `dnNew("Class", ...)` takes a Ring class name or a full .NET type name.
 
 ## Arguments in order with `callMethod`
