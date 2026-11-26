@@ -54,7 +54,7 @@ func main
 	aWithDuplicates = [5,3,5,1,3,8,1,5]
 	oIntSet = new HashSet([ :typeArguments = ["System.Int32"] ])
 	for nNumber in aWithDuplicates
-		oIntSet.callMethod("Add",[nNumber])
+		oIntSet.Add(nNumber)
 	next
 	aUnique = sort(oIntSet.toList())
 	? nl + "6. " + len(aWithDuplicates) + " numbers, " + len(aUnique) + " different: " + list2text(aUnique)
