@@ -30,6 +30,7 @@ aExtMap = []	# [.NET name of an extended type, [the extension methods as methods
 cClassPrefix = ""	# :prefix of the namespace being resolved (used for names that are already taken)
 cLastRegister = ""
 aPlanCache = []	# [.NET type name, plan] (see buildPlan)
+lTypedGeneric = false	# true while the members of a generic definition (List`1) are described: a type parameter (T) is typed by the bridge on the real type of the object
 aFolderNamespaces = []          # the namespaces that other assemblies already have in the output folder (wrapassembly): a base class there is derived from
 aWantedNamespaces = []          # the namespaces of this run (empty: all of them): a base class in another namespace is not imported, it is not generated
 
@@ -311,8 +312,26 @@ func returnCode cRequest, cReturnType, nByRef
 # functions like any method; the bridge decides on the real type, and a type with several indexers (several get_Item that take one argument) is the
 # generic request's.
 func isTypedIndexer aIndexer
-	aTyped = ["System.Int32","System.Int64","System.Double","System.Boolean","System.String","System.UInt32","System.Int16","System.UInt16","System.Byte","System.SByte","System.UInt64","System.Single"]
-	return find(aTyped,aIndexer[1]) > 0 and find(aTyped,aIndexer[2]) > 0
+	return isTypedValue(aIndexer[1]) and isTypedValue(aIndexer[2])
+
+# The types that the typed functions pass: a number, a yes/no or a text; and, in a generic definition (List`1), a type parameter (T, TKey): the bridge decides on the real
+# type of the object (List<string> takes a text, List<object> and any other type is the generic request's, which the extension makes itself).
+func isTypedValue cType
+	if find(["System.Int32","System.Int64","System.Double","System.Boolean","System.String","System.UInt32","System.Int16","System.UInt16","System.Byte","System.SByte","System.UInt64","System.Single"],cType) > 0
+		return true
+	ok
+	return lTypedGeneric and isTypeParameter(cType)
+
+# A type parameter of a generic definition: the bridge describes the definition as a type of System.Object (List<object>: T is System.Object), and a name with no
+# namespace (T, TKey) is one too. A member that really has an object is safe as well: the bridge finds no typed call for an object and the generic request makes the call.
+func isTypeParameter cType
+	if cType = "System.Object"
+		return true
+	ok
+	if cType = "" or substr(cType,".") or substr(cType,"`") or substr(cType,"[") or substr(cType,"+") or substr(cType,"&") or substr(cType,"*")
+		return false
+	ok
+	return true
 
 func typedIndexerGetCode
 	return 'return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))' + nl
@@ -331,11 +350,11 @@ func isTypedCall aRec, lStatic
 	if (aRec[2] != lStatic) or aRec[5] > 0 or len(aRec[4]) > 8
 		return false
 	ok
-	if aRec[3] != "System.Void" and not isPrimitiveType(aRec[3])
+	if aRec[3] != "System.Void" and not isPrimitiveType(aRec[3]) and not (lTypedGeneric and isTypeParameter(aRec[3]))
 		return false
 	ok
 	for cParam in aRec[4]
-		if find(["System.Int32","System.Int64","System.Double","System.Boolean","System.String","System.UInt32","System.Int16","System.UInt16","System.Byte","System.SByte","System.UInt64","System.Single"],cParam) = 0
+		if not isTypedValue(cParam)
 			return false
 		ok
 	next
@@ -595,6 +614,7 @@ func buildPlan cTypeName, nForceInit
 	# A generic definition (List`1): init takes the named list that has the type arguments, new List([ :typeArguments = ["System.String"] ]),
 	# and the constructor parameters by name in the same list. The object it wraps can be of any closed type of the definition.
 	lGenericDef = substr(aInfo[1],"`") > 0 and not substr(aInfo[1],"[")
+	lTypedGeneric = lGenericDef
 	if lGenericDef
 		nInit = 1
 		lCreate = false
@@ -892,14 +912,27 @@ func buildPlan cTypeName, nForceInit
 			cReq += "]"
 			aMethod = aInstanceRec
 		ok
+		cAlt = ""          # the text that the method had before a type parameter was typed (a class derived from a closed type of this one has this text, and inherits the method)
 		if cHint = "" and isTypedMethod(aMethod) and find(aBoth,cLower + "|" + nArity) = 0
+			if lTypedGeneric
+				lTypedGeneric = false
+				lPlain = isTypedMethod(aMethod)
+				lTypedGeneric = true
+				if not lPlain
+					cAlt = cB + "		" + returnCode(cReq,aMethod[3],aMethod[5]) + nl
+				ok
+			ok
 			cB += "		" + typedMethodCode(cName,nArity,aMethod[3]) + nl
 		but cHint = "" and isTypedStaticMethod(aMethod) and find(aBoth,cLower + "|" + nArity) = 0
 			cB += "		" + typedStaticMethodCode(cTypeName,cName,nArity,aMethod[3]) + nl
 		else
 			cB += "		" + returnCode(cReq,aMethod[3],aMethod[5]) + nl
 		ok
-		aBlocks + [lower(cRing),cB]
+		if cAlt = ""
+			aBlocks + [lower(cRing),cB]
+		else
+			aBlocks + [lower(cRing),cB,cAlt]
+		ok
 	next
 
 	# Indexer: Item(index) / SetItem(index,value). An indexer with several indexes takes them as a list: Item([row,column]) / SetItem([row,column],value)
@@ -921,14 +954,27 @@ func buildPlan cTypeName, nForceInit
 				cB += '			return callMethod("get_Item",P1)' + nl
 				cB += "		ok" + nl
 			ok
+			cAlt = ""
 			if len(aIndexer) = 3 and isTypedIndexer(aIndexer)
+				if lTypedGeneric
+					lTypedGeneric = false
+					lPlain = isTypedIndexer(aIndexer)
+					lTypedGeneric = true
+					if not lPlain
+						cAlt = cB + "		" + returnCode('"call",[new DotNetObject(nHandle),"get_Item",P1]',aIndexer[2],0) + nl
+					ok
+				ok
 				cB += "		" + typedIndexerGetCode() + nl
 			but len(aIndexer) = 3
 				cB += "		" + returnCode('"call",[new DotNetObject(nHandle),"get_Item",P1]',aIndexer[2],0) + nl
 			else
 				cB += '		raise("DotNet Error: this indexer takes its indexes as a list: Item([index1,index2])")' + nl + nl
 			ok
-			aBlocks + ["item",cB]
+			if cAlt = ""
+				aBlocks + ["item",cB]
+			else
+				aBlocks + ["item",cB,cAlt]
+			ok
 		ok
 		if (len(aIndexer) = 3 and aIndexer[3] or lMultiWrite) and find(aNames,"setitem") = 0
 			cB = "	Func SetItem P1,P2" + nl
@@ -940,7 +986,16 @@ func buildPlan cTypeName, nForceInit
 				cB += "			return self" + nl
 				cB += "		ok" + nl
 			ok
+			cAlt = ""
 			if len(aIndexer) = 3 and aIndexer[3] and isTypedIndexer(aIndexer)
+				if lTypedGeneric
+					lTypedGeneric = false
+					lPlain = isTypedIndexer(aIndexer)
+					lTypedGeneric = true
+					if not lPlain
+						cAlt = cB + "		" + nativeCall('"call",[new DotNetObject(nHandle),"set_Item",P1,P2]',"void") + "		return self" + nl + nl
+					ok
+				ok
 				cB += "		" + 'dotnet_calltv(nHandle,"set_Item",P1,P2)' + nl
 				cB += "		return self" + nl + nl
 			but len(aIndexer) = 3 and aIndexer[3]
@@ -949,7 +1004,11 @@ func buildPlan cTypeName, nForceInit
 			else
 				cB += '		raise("DotNet Error: this indexer takes its indexes as a list: SetItem([index1,index2],value)")' + nl + nl
 			ok
-			aBlocks + ["setitem",cB]
+			if cAlt = ""
+				aBlocks + ["setitem",cB]
+			else
+				aBlocks + ["setitem",cB,cAlt]
+			ok
 		ok
 		aNames + "item"
 		aNames + "setitem"
@@ -1272,7 +1331,7 @@ func genClass cTypeName, cClass, nForceInit
 		lInherited = false
 		if len(aBasePlan) > 0
 			for aOther in aBasePlan[7]
-				if aOther[1] = aBlock[1] and aOther[2] = aBlock[2]
+				if aOther[1] = aBlock[1] and (aOther[2] = aBlock[2] or (len(aOther) >= 3 and aOther[3] = aBlock[2]))
 					lInherited = true
 					exit
 				ok
