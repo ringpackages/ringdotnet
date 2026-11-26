@@ -55,8 +55,7 @@ func tokens cCode,cPattern
 
 	aList = []
 	aKinds = [ "comment","string","number","word","other" ]
-	oRegex = new Regex
-	aMatches = oRegex.Matches([ :input = cCode, :pattern = cPattern ]).toList()
+	aMatches = (new Regex).Matches([ :input = cCode, :pattern = cPattern ]).toList()
 	for oMatch in aMatches
 		for cKind in aKinds
 			if oMatch.Groups.Item(cKind).Success
@@ -120,8 +119,7 @@ func htmlText cText
 # the HTML without the tags (the spans that the program added): what is left must be the escaped code
 func stripTags cHtml
 
-	oRegex = new Regex
-	return oRegex.Replace([ :input = cHtml, :pattern = '</?span[^>]*>', :replacement = "" ])
+	return (new Regex).Replace([ :input = cHtml, :pattern = '</?span[^>]*>', :replacement = "" ])
 
 # a token of spaces, tabs or line breaks only
 func isBlank cText
