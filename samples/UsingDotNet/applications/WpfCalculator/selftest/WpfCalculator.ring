@@ -27,7 +27,7 @@ func selfTest
 	# the buttons of the window work
 	oKeys = wpfFind(oWindow,"keys")
 	dnAssert("20 buttons",oKeys.Children.Count,20)
-	oEvent = dnNew("RoutedEventArgs",[ :routedEvent = new WpfButtonBase().ClickEvent ])
+	oEvent = (new RoutedEventArgs).@New([ :routedEvent = new WpfButtonBase().ClickEvent ])
 	oSeven = oKeys.Children.Item(4)
 	dnAssert("the 5th key is a 7",oKeys.Children.Item(4).Content,"7")
 	oSeven.RaiseEvent(oEvent)
