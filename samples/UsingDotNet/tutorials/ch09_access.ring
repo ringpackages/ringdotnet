@@ -3,6 +3,7 @@
 load "dotnet.ring"
 
 using {
+	"Microsoft.Win32"
 	"System"
 	"System.IO"
 }
@@ -122,7 +123,8 @@ func main
 func driverInstalled cDriver
 
 	try
-		oMachine = dnType("Microsoft.Win32.Registry").getProp("LocalMachine")
+		oRegistry = new Registry
+		oMachine = oRegistry.LocalMachine
 		oKey = oMachine.OpenSubKey("SOFTWARE\ODBC\ODBCINST.INI\ODBC Drivers")
 		if oKey.isNull()
 			return false
