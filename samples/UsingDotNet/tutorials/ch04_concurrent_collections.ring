@@ -15,7 +15,7 @@ func main
 	cText = "System.String"
 
 	# 1. ConcurrentQueue: first in, first out. TryDequeue answers [ success, item ] (an out parameter comes back as a list).
-	oQueue = dnNewGeneric("System.Collections.Concurrent.ConcurrentQueue",[cText],[])
+	oQueue = new ConcurrentQueue([ :typeArguments = [cText] ])
 	for cName in ["Ann","Bob","Cy"]
 		oQueue.Enqueue(cName)
 	next
