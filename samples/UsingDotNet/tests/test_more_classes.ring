@@ -44,4 +44,11 @@ func main
 
 	oConstant = new ExpressionsExpression().Constant(5)
 	dnAssert("Expression.Constant",oConstant.NodeType,"Constant")
+	# a compiled lambda is a delegate: it has the methods of Delegate (DynamicInvoke, Method, Target)
+	oExpression = new ExpressionsExpression()
+	oA = oExpression.Parameter([ :type = dnType("System.Double"), :name = "a" ])
+	oB = oExpression.Parameter([ :type = dnType("System.Double"), :name = "b" ])
+	oAdd = oExpression.Lambda([ :body = oExpression.Add([ :left = oA, :right = oB ]), :parameters = [oA,oB] ]).Compile(NULL)
+	dnAssert("a compiled lambda: DynamicInvoke",oAdd.DynamicInvoke([2,3.5]),5.5)
+	dnAssert("a compiled lambda: Method",oAdd.Method.Name != "",True)
 	dnTestSummary()

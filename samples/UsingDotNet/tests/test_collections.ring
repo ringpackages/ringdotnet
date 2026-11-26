@@ -4,6 +4,7 @@ dnImport("System.Collections")
 dnImport("System.Collections.Specialized")
 dnImport("System.Collections.Generic")
 dnImport("System.Collections.ObjectModel")
+dnImport("System.Collections.Concurrent")
 dnImport("System.Text")
 
 # Non-generic collections
@@ -160,6 +161,21 @@ oStack = new Stack1([ :typeArguments = ["System.Int32"] ])
 oStack.Push(7)  oStack.Push(8)
 dnAssert("Stack<int>.Pop",oStack.Pop(),8)
 dnAssert("Stack<int>.Peek",oStack.Peek(),7)
+
+# the concurrent queue is a generic class too (it lives in System.Private.CoreLib, and the namespace forwards to it)
+oConcurrent = new ConcurrentQueue([ :typeArguments = ["System.String"] ])
+oConcurrent.Enqueue("first")  oConcurrent.Enqueue("second")
+dnAssert("ConcurrentQueue<string>.Count",oConcurrent.Count,2)
+dnAssert("ConcurrentQueue<string>.TryDequeue",oConcurrent.TryDequeue()[2],"first")
+dnAssert("ConcurrentQueue<string>.IsEmpty",oConcurrent.IsEmpty,False)
+
+# a property that is a word of Ring (Next) is the attribute @Next
+oLinked = new LinkedList([ :typeArguments = ["System.String"] ])
+oLinked.AddLast("a")  oLinked.AddLast("b")  oLinked.AddLast("c")
+dnAssert("LinkedListNode.@Next",oLinked.First.@Next.Value,"b")
+dnAssert("LinkedListNode.@Next twice",oLinked.First.@Next.@Next.Value,"c")
+dnAssert("LinkedListNode.Previous",oLinked.Last.Previous.Value,"b")
+dnAssert("the last node has no next one",oLinked.Last.@Next.isNull(),True)
 
 # the event arguments are an object of their own class: the action and the items
 cActions = ""
