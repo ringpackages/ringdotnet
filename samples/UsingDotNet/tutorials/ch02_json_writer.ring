@@ -15,8 +15,7 @@ func main
 	oStream = new MemoryStream
 	oOptions = new JsonWriterOptions()
 	oOptions.Indented = True
-	oWriter = new Utf8JsonWriter
-	oWriter.@New([ :utf8Json = oStream, :options = oOptions ])
+	oWriter = (new Utf8JsonWriter).@New([ :utf8Json = oStream, :options = oOptions ])
 	oWriter.WriteStartObject(NULL)
 	oWriter.WriteString("name","Ann")
 	oWriter.WriteNumber("age",31)
