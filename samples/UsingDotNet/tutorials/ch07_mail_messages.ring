@@ -37,9 +37,8 @@ func main
 	? "   body is HTML: " + oMessage.IsBodyHtml
 
 	# 3. HTML with a text version: AlternateViews hold the same message in more than one form, and the mail program shows the best one
-	oAlternateView = new AlternateView
-	oText = oAlternateView.CreateAlternateViewFromString([ :content = "Meeting on Friday at 10:00", :contentEncoding = dnNull(), :mediaType = "text/plain" ])
-	oHtml = oAlternateView.CreateAlternateViewFromString([ :content = "<p>Meeting on <b>Friday</b> at 10:00</p>", :contentEncoding = dnNull(), :mediaType = "text/html" ])
+	oText = (new AlternateView).CreateAlternateViewFromString([ :content = "Meeting on Friday at 10:00", :contentEncoding = dnNull(), :mediaType = "text/plain" ])
+	oHtml = (new AlternateView).CreateAlternateViewFromString([ :content = "<p>Meeting on <b>Friday</b> at 10:00</p>", :contentEncoding = dnNull(), :mediaType = "text/html" ])
 	oMessage.AlternateViews.Add(oText)
 	oMessage.AlternateViews.Add(oHtml)
 	? nl + "3. views: " + oMessage.AlternateViews.Count + " (" + oText.ContentType.MediaType + ", " + oHtml.ContentType.MediaType + ")"
