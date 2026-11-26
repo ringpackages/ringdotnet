@@ -18,9 +18,7 @@ func main
 	# 1. A listener that writes into memory: a TextWriterTraceListener on a StringWriter. (A StringWriter is a text writer that keeps
 	#    its text in memory; the tutorial about text readers and writers uses it.)
 	oWriter = new StringWriter()
-	oMemory = new TextWriterTraceListener
-	oMemory.@New(oWriter)
-	oTrace.Listeners.Add(oMemory)
+	oTrace.Listeners.Add((new TextWriterTraceListener).@New(oWriter))
 	oTrace.AutoFlush = True               # write each message at once
 	oTrace.WriteLine("program started")
 	oTrace.WriteLine("reading the settings")
@@ -53,8 +51,7 @@ func main
 	# 4. A second listener, on a file: now each message goes to two places. The file keeps the trace after the program ended.
 	oPath = new Path()
 	cFile = oPath.Combine([ oPath.GetTempPath(), "ringdotnet-trace-" + oPath.GetRandomFileName() + ".log" ])
-	oFileListener = new TextWriterTraceListener
-	oFileListener.@New(cFile)
+	oFileListener = (new TextWriterTraceListener).@New(cFile)
 	oTrace.Listeners.Add(oFileListener)
 	oWriter.GetStringBuilder().Clear()
 	oTrace.WriteLine("one message, two listeners")
