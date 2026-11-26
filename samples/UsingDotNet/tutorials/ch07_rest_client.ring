@@ -100,8 +100,7 @@ func request cMethod, cPath, cBody
 
 	oMessage = new HttpRequestMessage().@New([ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
 	if cBody != ""
-		oContent = new StringContent
-		oContent.@New([ :content = cBody, :encoding = new Encoding().UTF8, :mediaType = "application/json" ])
+		oContent = (new StringContent).@New([ :content = cBody, :encoding = new Encoding().UTF8, :mediaType = "application/json" ])
 		oMessage.Content = oContent
 	ok
 	oTask = oClient.SendAsync(oMessage)
