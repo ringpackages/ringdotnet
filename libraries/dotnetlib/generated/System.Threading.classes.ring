@@ -439,6 +439,9 @@ Class AsyncLocalValueChangedArgs from ValueType
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 	Func getPreviousValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:PreviousValue"))
 
@@ -476,9 +479,7 @@ Class AsyncLocal from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
@@ -2518,9 +2519,7 @@ Class ThreadLocal from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))

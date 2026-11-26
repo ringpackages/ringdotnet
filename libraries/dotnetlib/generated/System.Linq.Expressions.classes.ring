@@ -2552,4 +2552,7 @@ Class Expression1 from LambdaExpression
 		ok
 		return dnObj(dn_x)
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 

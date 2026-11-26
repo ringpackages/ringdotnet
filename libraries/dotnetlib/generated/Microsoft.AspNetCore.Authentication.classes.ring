@@ -700,9 +700,7 @@ Class AuthenticationHandler from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getScheme
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Scheme"))
@@ -1642,9 +1640,7 @@ Class BaseContext from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getScheme
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Scheme"))
@@ -2471,9 +2467,7 @@ Class SecureDataFormat from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class TicketSerializer from Object

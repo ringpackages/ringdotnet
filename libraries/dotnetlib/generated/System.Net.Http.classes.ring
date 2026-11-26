@@ -758,6 +758,9 @@ Class HttpRequestOptionsKey from ValueType
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 	Func getKey
 		return dnAnswer(dotnet_getp(nHandle,"Key"))
 

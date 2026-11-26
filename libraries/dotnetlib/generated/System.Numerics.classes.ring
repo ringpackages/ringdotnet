@@ -935,14 +935,10 @@ Class IBinaryFloatingPointIeee754 from DotNetObject
 		return self
 
 	Func CompareTo P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CompareTo",P1))
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func TryFormat P1,P2,P3
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -1026,9 +1022,7 @@ Class IBinaryInteger from DotNetObject
 		return dnAnswer(dotnet_calltd1(nHandle,"WriteLittleEndian",P1))
 
 	Func CompareTo P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CompareTo",P1))
 
 	Func Equals P1
 		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
@@ -1061,9 +1055,7 @@ Class IBinaryNumber from DotNetObject
 		return self
 
 	Func CompareTo P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CompareTo",P1))
 
 	Func Equals P1
 		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
@@ -1176,9 +1168,7 @@ Class IExponentialFunctions from DotNetObject
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func TryFormat P1,P2,P3
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -1208,9 +1198,7 @@ Class IFloatingPointConstants from DotNetObject
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func TryFormat P1,P2,P3
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -1240,9 +1228,7 @@ Class IFloatingPointIeee754 from DotNetObject
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func TryFormat P1,P2,P3
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -1292,9 +1278,7 @@ Class IFloatingPointIeee754 from DotNetObject
 		return dnAnswer(dotnet_calltd1(nHandle,"WriteSignificandLittleEndian",P1))
 
 	Func CompareTo P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CompareTo",P1))
 
 
 Class IFloatingPoint from DotNetObject
@@ -1349,9 +1333,7 @@ Class IFloatingPoint from DotNetObject
 		return dnAnswer(dotnet_calltd1(nHandle,"WriteSignificandLittleEndian",P1))
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func TryFormat P1,P2,P3
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -1365,9 +1347,7 @@ Class IFloatingPoint from DotNetObject
 		raise("DotNet Error: ToString does not take one argument: use named arguments, ToString([ :parameter = value, ... ])")
 
 	Func CompareTo P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CompareTo",P1))
 
 
 Class IHyperbolicFunctions from DotNetObject
@@ -1386,9 +1366,7 @@ Class IHyperbolicFunctions from DotNetObject
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func TryFormat P1,P2,P3
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -1434,9 +1412,7 @@ Class ILogarithmicFunctions from DotNetObject
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func TryFormat P1,P2,P3
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -1560,9 +1536,7 @@ Class INumber from DotNetObject
 		return self
 
 	Func CompareTo P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CompareTo",P1))
 
 	Func Equals P1
 		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
@@ -1595,9 +1569,7 @@ Class IPowerFunctions from DotNetObject
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func TryFormat P1,P2,P3
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -1627,9 +1599,7 @@ Class IRootFunctions from DotNetObject
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func TryFormat P1,P2,P3
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -1721,9 +1691,7 @@ Class ITrigonometricFunctions from DotNetObject
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func TryFormat P1,P2,P3
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -1785,9 +1753,7 @@ Class IUnsignedNumber from DotNetObject
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func TryFormat P1,P2,P3
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -2581,9 +2547,7 @@ Class TotalOrderIeee754Comparer from ValueType
 		return self
 
 	Func Compare P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s7:Compare",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Compare",P1,P2))
 
 	Func Equals P1
 		return dnAnswer(dotnet_calltd1(nHandle,"Equals",P1))
@@ -4037,6 +4001,9 @@ Class Vector1 from ValueType
 		dotnet_calltd1v(nHandle,"CopyTo",P1)
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
@@ -4044,11 +4011,7 @@ Class Vector1 from ValueType
 		return dnSend("s4:call",nHandle,"s9:TryCopyTo",dnPackItem(P1))
 
 	Func Item P1
-		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	# the operators of System.Numerics.Vector`1: + & | / = ^ != << * ~ >> - -x
 	Func operator cOperator, Para

@@ -1686,9 +1686,11 @@ Class StartupBase1 from StartupBase
 		return self
 
 	Func ConfigureContainer P1
-		dotnet_callv("s4:call",nHandle,"s18:ConfigureContainer",P1)
-
+		dotnet_calltv(nHandle,"ConfigureContainer",P1)
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class DelegateStartup from StartupBase1

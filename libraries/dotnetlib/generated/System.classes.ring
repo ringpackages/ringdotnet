@@ -1361,9 +1361,7 @@ Class IComparable1 from DotNetObject
 		return self
 
 	Func CompareTo P1
-		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"CompareTo",P1))
 
 
 Class IConvertible from DotNetObject
@@ -1518,9 +1516,7 @@ Class IEquatable from DotNetObject
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class IFormatProvider from DotNetObject
@@ -1601,8 +1597,7 @@ Class IObserver from DotNetObject
 		return self
 
 	Func OnNext P1
-		dotnet_callv("s4:call",nHandle,"s6:OnNext",P1)
-
+		dotnet_calltv(nHandle,"OnNext",P1)
 		return self
 
 	Func OnError P1
@@ -1647,8 +1642,7 @@ Class IProgress from DotNetObject
 		return self
 
 	Func Report P1
-		dotnet_callv("s4:call",nHandle,"s6:Report",P1)
-
+		dotnet_calltv(nHandle,"Report",P1)
 		return self
 
 
@@ -4901,9 +4895,7 @@ Class Lazy from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getIsValueCreated
 		return dotnet_getp(nHandle,"IsValueCreated")
@@ -5825,9 +5817,7 @@ Class Progress from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func setProgressChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"ProgressChanged",dnCallback(P1)])
@@ -6344,9 +6334,7 @@ Class Tuple1 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -6378,9 +6366,7 @@ Class Tuple2 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -6419,9 +6405,7 @@ Class Tuple3 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -6467,9 +6451,7 @@ Class Tuple4 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -6522,9 +6504,7 @@ Class Tuple5 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -6584,9 +6564,7 @@ Class Tuple6 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -6653,9 +6631,7 @@ Class Tuple7 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -6729,9 +6705,7 @@ Class Tuple8 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -7462,14 +7436,11 @@ Class WeakReference1 from Object
 		return self
 
 	Func SetTarget P1
-		dotnet_callv("s4:call",nHandle,"s9:SetTarget",P1)
-
+		dotnet_calltv(nHandle,"SetTarget",P1)
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class Random from Object
@@ -8471,6 +8442,9 @@ Class ArraySegment from ValueType
 		dotnet_calltd1v(nHandle,"CopyTo",P1)
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 	Func Slice P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Slice",P1))
@@ -8517,14 +8491,10 @@ Class ArraySegment from ValueType
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		dotnet_calltv(nHandle,"set_Item",P1,P2)
 		return self
 
 	Func getArray
@@ -8573,6 +8543,9 @@ Class ArraySegmentEnumerator from ValueType
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getCurrent
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Current"))
@@ -10113,6 +10086,9 @@ Class DelegateInvocationListEnumerator from ValueType
 			return self
 		ok
 		return dnObj(dn_x)
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getCurrent
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Current"))
@@ -12603,6 +12579,9 @@ Class Memory from ValueType
 		ok
 		return dnObj(dn_x)
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 	Func getLength
 		return dotnet_getp(nHandle,"Length")
 
@@ -12817,6 +12796,9 @@ Class Nullable1 from ValueType
 
 	Func GetValueOrDefault P1
 		return dnAnswer(dotnet_calltd(nHandle,"GetValueOrDefault",P1))
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getHasValue
 		return dotnet_getp(nHandle,"HasValue")
@@ -13055,6 +13037,9 @@ Class ReadOnlyMemory from ValueType
 			return self
 		ok
 		return dnObj(dn_x)
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getLength
 		return dotnet_getp(nHandle,"Length")
@@ -15582,6 +15567,9 @@ Class ValueTuple1 from ValueType
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -15616,6 +15604,9 @@ Class ValueTuple2 from ValueType
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -15659,6 +15650,9 @@ Class ValueTuple3 from ValueType
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -15710,6 +15704,9 @@ Class ValueTuple4 from ValueType
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -15769,6 +15766,9 @@ Class ValueTuple5 from ValueType
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -15836,6 +15836,9 @@ Class ValueTuple6 from ValueType
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -15911,6 +15914,9 @@ Class ValueTuple7 from ValueType
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -15994,6 +16000,9 @@ Class ValueTuple8 from ValueType
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)

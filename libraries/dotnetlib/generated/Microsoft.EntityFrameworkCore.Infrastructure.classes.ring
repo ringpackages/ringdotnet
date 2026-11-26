@@ -697,9 +697,7 @@ Class AnnotatableBuilder from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getMetadata
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Metadata"))
@@ -3327,9 +3325,7 @@ Class PooledDbContextFactory from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class ProductInfo from Object
@@ -3368,18 +3364,10 @@ Class RelationalDbContextOptionsBuilder from Object
 		return self
 
 	Func MaxBatchSize P1
-		dn_x = dotnet_callo("s5:calls",nHandle,"s12:MaxBatchSize",P1)
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
+		return dnAnswer(dotnet_callt(nHandle,"MaxBatchSize",P1))
 
 	Func MinBatchSize P1
-		dn_x = dotnet_callo("s5:calls",nHandle,"s12:MinBatchSize",P1)
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
+		return dnAnswer(dotnet_callt(nHandle,"MinBatchSize",P1))
 
 	Func CommandTimeout P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CommandTimeout",P1)
@@ -3389,11 +3377,7 @@ Class RelationalDbContextOptionsBuilder from Object
 		return dnObj(dn_x)
 
 	Func MigrationsAssembly P1
-		dn_x = dotnet_callo("s5:calls",nHandle,"s18:MigrationsAssembly",P1)
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
+		return dnAnswer(dotnet_callt(nHandle,"MigrationsAssembly",P1))
 
 	Func MigrationsHistoryTable P1
 		if dotnet_isnamed(P1)
@@ -3437,23 +3421,13 @@ Class RelationalDbContextOptionsBuilder from Object
 		return dnObj(dn_x)
 
 	Func TranslateParameterizedCollectionsToConstants 
-		dn_x = dotnet_callo("s5:calls",nHandle,"s44:TranslateParameterizedCollectionsToConstants")
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
+		return dnAnswer(dotnet_callt(nHandle,"TranslateParameterizedCollectionsToConstants"))
 
 	Func TranslateParameterizedCollectionsToParameters 
-		dn_x = dotnet_callo("s5:calls",nHandle,"s45:TranslateParameterizedCollectionsToParameters")
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
+		return dnAnswer(dotnet_callt(nHandle,"TranslateParameterizedCollectionsToParameters"))
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class RelationalModelDependencies from Object

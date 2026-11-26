@@ -312,9 +312,7 @@ Class ConfigurationChangeTokenSource from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -346,9 +344,7 @@ Class ConfigureNamedOptions from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -387,9 +383,7 @@ Class ConfigureNamedOptions2 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -435,9 +429,7 @@ Class ConfigureNamedOptions3 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -490,9 +482,7 @@ Class ConfigureNamedOptions4 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -552,9 +542,7 @@ Class ConfigureNamedOptions5 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -621,9 +609,7 @@ Class ConfigureNamedOptions6 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -686,14 +672,11 @@ Class ConfigureOptions from Object
 		return self
 
 	Func Configure P1
-		dotnet_callv("s4:call",nHandle,"s9:Configure",P1)
-
+		dotnet_calltv(nHandle,"Configure",P1)
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getAction
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Action"))
@@ -727,9 +710,7 @@ Class DataAnnotationValidateOptions from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -774,8 +755,7 @@ Class IConfigureOptions from DotNetObject
 		return self
 
 	Func Configure P1
-		dotnet_callv("s4:call",nHandle,"s9:Configure",P1)
-
+		dotnet_calltv(nHandle,"Configure",P1)
 		return self
 
 
@@ -826,11 +806,7 @@ Class IOptionsFactory from DotNetObject
 		return self
 
 	Func Create P1
-		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create",P1)
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
+		return dnAnswer(dotnet_callt(nHandle,"Create",P1))
 
 
 Class IOptionsMonitorCache from DotNetObject
@@ -856,9 +832,7 @@ Class IOptionsMonitorCache from DotNetObject
 		return dnObj(dn_x)
 
 	Func TryAdd P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s6:TryAdd",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"TryAdd",P1,P2))
 
 	Func TryRemove P1
 		return dnAnswer(dotnet_callt(nHandle,"TryRemove",P1))
@@ -886,11 +860,7 @@ Class IOptionsMonitor from DotNetObject
 		return self
 
 	Func @Get P1
-		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Get",P1)
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
+		return dnAnswer(dotnet_callt(nHandle,"Get",P1))
 
 	Func OnChange P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:OnChange",P1)
@@ -924,11 +894,7 @@ Class IOptionsSnapshot from DotNetObject
 		return self
 
 	Func @Get P1
-		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Get",P1)
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
+		return dnAnswer(dotnet_callt(nHandle,"Get",P1))
 
 	Func getValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
@@ -977,8 +943,7 @@ Class IPostConfigureOptions from DotNetObject
 		return self
 
 	Func PostConfigure P1,P2
-		dotnet_callv("s4:call",nHandle,"s13:PostConfigure",P1,P2)
-
+		dotnet_calltv(nHandle,"PostConfigure",P1,P2)
 		return self
 
 
@@ -1094,9 +1059,7 @@ Class OptionsBuilder from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func Bind P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsBuilderConfigurationExtensions, Microsoft.Extensions.Options.ConfigurationExtensions")
@@ -1176,17 +1139,13 @@ Class OptionsCache from Object
 		return dnObj(dn_x)
 
 	Func TryAdd P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s6:TryAdd",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"TryAdd",P1,P2))
 
 	Func TryRemove P1
 		return dnAnswer(dotnet_callt(nHandle,"TryRemove",P1))
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class OptionsFactory from Object
@@ -1205,16 +1164,10 @@ Class OptionsFactory from Object
 		return self
 
 	Func Create P1
-		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create",P1)
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
+		return dnAnswer(dotnet_callt(nHandle,"Create",P1))
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class OptionsManager from Object
@@ -1235,16 +1188,10 @@ Class OptionsManager from Object
 		return self
 
 	Func @Get P1
-		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Get",P1)
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
+		return dnAnswer(dotnet_callt(nHandle,"Get",P1))
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
@@ -1291,11 +1238,7 @@ Class OptionsMonitor from Object
 		return self
 
 	Func @Get P1
-		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Get",P1)
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
+		return dnAnswer(dotnet_callt(nHandle,"Get",P1))
 
 	Func OnChange P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:OnChange",P1)
@@ -1309,9 +1252,7 @@ Class OptionsMonitor from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getCurrentValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s12:CurrentValue"))
@@ -1395,9 +1336,7 @@ Class OptionsWrapper from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
@@ -1425,14 +1364,11 @@ Class PostConfigureOptions from Object
 		return self
 
 	Func PostConfigure P1,P2
-		dotnet_callv("s4:call",nHandle,"s13:PostConfigure",P1,P2)
-
+		dotnet_calltv(nHandle,"PostConfigure",P1,P2)
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -1471,9 +1407,7 @@ Class PostConfigureOptions2 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -1519,9 +1453,7 @@ Class PostConfigureOptions3 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -1574,9 +1506,7 @@ Class PostConfigureOptions4 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -1636,9 +1566,7 @@ Class PostConfigureOptions5 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -1705,9 +1633,7 @@ Class PostConfigureOptions6 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -1999,9 +1925,7 @@ Class ValidateOptions from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -2050,9 +1974,7 @@ Class ValidateOptions2 from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -2108,9 +2030,7 @@ Class ValidateOptions3 from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -2173,9 +2093,7 @@ Class ValidateOptions4 from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -2245,9 +2163,7 @@ Class ValidateOptions5 from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -2324,9 +2240,7 @@ Class ValidateOptions6 from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))

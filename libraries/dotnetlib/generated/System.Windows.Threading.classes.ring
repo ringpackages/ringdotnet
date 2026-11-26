@@ -777,6 +777,9 @@ Class DispatcherOperation1 from DispatcherOperation
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class DispatcherUnhandledExceptionEventArgs from DispatcherEventArgs
 

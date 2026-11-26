@@ -1371,11 +1371,7 @@ Class BindingList from Collection
 		return self
 
 	Func AddNew 
-		dn_x = dotnet_callo("s5:calls",nHandle,"s6:AddNew")
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
+		return dnAnswer(dotnet_callt(nHandle,"AddNew"))
 
 	Func setAddingNewEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"AddingNew",dnCallback(P1)])

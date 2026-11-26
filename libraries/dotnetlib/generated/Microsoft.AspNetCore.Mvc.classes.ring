@@ -1014,9 +1014,7 @@ Class ActionResult1 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getResult
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Result"))
@@ -4490,12 +4488,6 @@ Class SerializableError from Dictionary
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func ContainsKey P1
-		return dnAnswer(dotnet_callt(nHandle,"ContainsKey",P1))
-
-	Func Remove P1
-		return dnAnswer(dotnet_callt(nHandle,"Remove",P1))
-
 
 Class ServiceFilterAttribute from Attribute
 
@@ -5540,6 +5532,12 @@ Class MiddlewareFilterAttribute1 from MiddlewareFilterAttribute
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
+	Func Match P1
+		return dnAnswer(dotnet_callt(nHandle,"Match",P1))
+
 
 Class ModelBinderAttribute1 from ModelBinderAttribute
 
@@ -5556,6 +5554,12 @@ Class ModelBinderAttribute1 from ModelBinderAttribute
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
+	Func Match P1
+		return dnAnswer(dotnet_callt(nHandle,"Match",P1))
+
 
 Class ModelMetadataTypeAttribute1 from ModelMetadataTypeAttribute
 
@@ -5571,6 +5575,12 @@ Class ModelMetadataTypeAttribute1 from ModelMetadataTypeAttribute
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
+	Func Match P1
+		return dnAnswer(dotnet_callt(nHandle,"Match",P1))
 
 
 Class ObjectResult from ActionResult
@@ -5763,6 +5773,12 @@ Class ProducesAttribute1 from ProducesAttribute
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
+	Func Match P1
+		return dnAnswer(dotnet_callt(nHandle,"Match",P1))
+
 
 Class ProducesResponseTypeAttribute1 from ProducesResponseTypeAttribute
 
@@ -5778,6 +5794,12 @@ Class ProducesResponseTypeAttribute1 from ProducesResponseTypeAttribute
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
+	Func Match P1
+		return dnAnswer(dotnet_callt(nHandle,"Match",P1))
 
 
 Class RedirectResult from ActionResult
@@ -6152,6 +6174,12 @@ Class ServiceFilterAttribute1 from ServiceFilterAttribute
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
+	Func Match P1
+		return dnAnswer(dotnet_callt(nHandle,"Match",P1))
+
 
 Class SignInResult from ActionResult
 
@@ -6297,6 +6325,12 @@ Class TypeFilterAttribute1 from TypeFilterAttribute
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
+	Func Match P1
+		return dnAnswer(dotnet_callt(nHandle,"Match",P1))
 
 
 Class ViewComponentResult from ActionResult

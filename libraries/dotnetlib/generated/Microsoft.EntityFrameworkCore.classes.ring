@@ -1872,9 +1872,7 @@ Class DbSet from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func FromSqlRaw P1,P2
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalQueryableExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -5942,6 +5940,9 @@ Class DbContextOptionsBuilder1 from DbContextOptionsBuilder
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class DbContextOptions1 from DbContextOptions
 
@@ -5957,6 +5958,9 @@ Class DbContextOptions1 from DbContextOptions
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class DbUpdateConcurrencyException from DbUpdateException
@@ -6010,6 +6014,12 @@ Class EntityTypeConfigurationAttribute2 from EntityTypeConfigurationAttribute
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
+	Func Match P1
+		return dnAnswer(dotnet_callt(nHandle,"Match",P1))
 
 
 Class SaveChangesFailedEventArgs from SaveChangesEventArgs

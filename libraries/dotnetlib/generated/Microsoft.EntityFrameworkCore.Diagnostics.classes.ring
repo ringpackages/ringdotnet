@@ -6340,6 +6340,9 @@ Class InterceptionResult1 from ValueType
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 	Func getResult
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Result"))
 
@@ -6378,9 +6381,7 @@ Class InterceptorAggregator from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getInterceptorType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:InterceptorType"))
@@ -6405,9 +6406,7 @@ Class LoggerCategory from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class LoggingDefinitions from Object
@@ -10434,14 +10433,15 @@ Class EventDefinition1 from EventDefinitionBase
 		return self
 
 	Func GenerateMessage P1
-		dn_x = dotnet_call("s4:call",nHandle,"s15:GenerateMessage",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GenerateMessage",P1))
 
 	Func Log P1,P2
 		dotnet_callv("s4:call",nHandle,"s3:Log",P1,P2)
 
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class EventDefinition2 from EventDefinitionBase
@@ -10460,14 +10460,15 @@ Class EventDefinition2 from EventDefinitionBase
 		return self
 
 	Func GenerateMessage P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s15:GenerateMessage",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GenerateMessage",P1,P2))
 
 	Func Log P1,P2,P3
 		dotnet_callv("s4:call",nHandle,"s3:Log",P1,P2,P3)
 
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class EventDefinition3 from EventDefinitionBase
@@ -10500,6 +10501,9 @@ Class EventDefinition3 from EventDefinitionBase
 		ok
 		raise("DotNet Error: Log does not take one argument: use named arguments, Log([ :parameter = value, ... ])")
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class EventDefinition4 from EventDefinitionBase
 
@@ -10517,14 +10521,15 @@ Class EventDefinition4 from EventDefinitionBase
 		return self
 
 	Func GenerateMessage P1,P2,P3,P4
-		dn_x = dotnet_call("s4:call",nHandle,"s15:GenerateMessage",P1,P2,P3,P4)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GenerateMessage",P1,P2,P3,P4))
 
 	Func Log P1,P2,P3,P4,P5
 		dotnet_callv("s4:call",nHandle,"s3:Log",P1,P2,P3,P4,P5)
 
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class EventDefinition5 from EventDefinitionBase
@@ -10543,14 +10548,15 @@ Class EventDefinition5 from EventDefinitionBase
 		return self
 
 	Func GenerateMessage P1,P2,P3,P4,P5
-		dn_x = dotnet_call("s4:call",nHandle,"s15:GenerateMessage",P1,P2,P3,P4,P5)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GenerateMessage",P1,P2,P3,P4,P5))
 
 	Func Log P1,P2,P3,P4,P5,P6
 		dotnet_callv("s4:call",nHandle,"s3:Log",P1,P2,P3,P4,P5,P6)
 
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class EventDefinition6 from EventDefinitionBase
@@ -10569,14 +10575,15 @@ Class EventDefinition6 from EventDefinitionBase
 		return self
 
 	Func GenerateMessage P1,P2,P3,P4,P5,P6
-		dn_x = dotnet_call("s4:call",nHandle,"s15:GenerateMessage",P1,P2,P3,P4,P5,P6)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"GenerateMessage",P1,P2,P3,P4,P5,P6))
 
 	Func Log P1,P2,P3,P4,P5,P6,P7
 		dotnet_callv("s4:call",nHandle,"s3:Log",P1,P2,P3,P4,P5,P6,P7)
 
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class ExecutionStrategyEventData from EventData

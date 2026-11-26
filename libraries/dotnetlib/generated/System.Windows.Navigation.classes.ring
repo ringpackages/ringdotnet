@@ -1056,6 +1056,9 @@ Class ReturnEventArgs from EventArgs
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 	Func getResult
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Result"))
 
@@ -1078,6 +1081,22 @@ Class PageFunction from PageFunctionBase
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func FindResource P1
+		return dnAnswer(dotnet_callt(nHandle,"FindResource",P1))
+
+	Func TryFindResource P1
+		return dnAnswer(dotnet_callt(nHandle,"TryFindResource",P1))
+
+	Func RegisterName P1,P2
+		dotnet_calltv(nHandle,"RegisterName",P1,P2)
+		return self
+
+	Func FindName P1
+		return dnAnswer(dotnet_callt(nHandle,"FindName",P1))
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func setReturnEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"Return",dnCallback(P1)])

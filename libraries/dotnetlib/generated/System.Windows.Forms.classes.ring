@@ -10700,10 +10700,6 @@ Class FileDialogCustomPlacesCollection from Collection
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func Add P1
-		dotnet_calltv(nHandle,"Add",P1)
-		return self
-
 
 Class FlatButtonAppearance from Object
 

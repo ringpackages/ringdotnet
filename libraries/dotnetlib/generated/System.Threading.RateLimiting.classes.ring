@@ -281,9 +281,7 @@ Class MetadataName1 from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -383,9 +381,7 @@ Class PartitionedRateLimiter1 from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func ConfigureAwait P1
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
@@ -494,6 +490,9 @@ Class RateLimitPartition1 from ValueType
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getPartitionKey
 		return dnObj(dotnet_callo("s3:get",nHandle,"s12:PartitionKey"))

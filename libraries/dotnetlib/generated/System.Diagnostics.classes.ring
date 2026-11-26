@@ -857,6 +857,9 @@ Class ActivityEnumerator from ValueType
 	Func MoveNext 
 		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 	Func getCurrent
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Current"))
 
@@ -1014,6 +1017,9 @@ Class ActivityCreationOptions from ValueType
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getSource
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Source"))

@@ -89,8 +89,7 @@ Class Collection from Object
 		return self
 
 	Func Add P1
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-
+		dotnet_calltv(nHandle,"Add",P1)
 		return self
 
 	Func Clear 
@@ -103,9 +102,7 @@ Class Collection from Object
 		return self
 
 	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func GetEnumerator 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
@@ -115,28 +112,21 @@ Class Collection from Object
 		return dnObj(dn_x)
 
 	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IndexOf",P1))
 
 	Func Insert P1,P2
-		dotnet_callv("s4:call",nHandle,"s6:Insert",P1,P2)
-
+		dotnet_calltv(nHandle,"Insert",P1,P2)
 		return self
 
 	Func Remove P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Remove",P1))
 
 	Func RemoveAt P1
 		dotnet_calltv(nHandle,"RemoveAt",P1)
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -167,14 +157,10 @@ Class Collection from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		dotnet_calltv(nHandle,"set_Item",P1,P2)
 		return self
 
 	Func getCount
@@ -202,9 +188,7 @@ Class ReadOnlyCollection from Object
 		return self
 
 	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -219,14 +203,10 @@ Class ReadOnlyCollection from Object
 		return dnObj(dn_x)
 
 	Func IndexOf P1
-		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"IndexOf",P1))
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -257,11 +237,7 @@ Class ReadOnlyCollection from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -290,9 +266,7 @@ Class ReadOnlyDictionary from Object
 		return self
 
 	Func ContainsKey P1
-		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsKey",P1))
 
 	Func TryGetValue P1
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
@@ -305,9 +279,7 @@ Class ReadOnlyDictionary from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -338,11 +310,7 @@ Class ReadOnlyDictionary from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func getKeys
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Keys"))
@@ -381,9 +349,7 @@ Class ReadOnlyDictionaryKeyCollection from Object
 		return self
 
 	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -398,9 +364,7 @@ Class ReadOnlyDictionaryKeyCollection from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -467,9 +431,7 @@ Class ReadOnlyDictionaryValueCollection from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -820,30 +782,6 @@ Class ObservableStringList from Collection
 
 	Func Move P1,P2
 		dotnet_calltv(nHandle,"Move",P1,P2)
-		return self
-
-	Func Add P1
-		dotnet_calltv(nHandle,"Add",P1)
-		return self
-
-	Func Contains P1
-		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
-
-	Func IndexOf P1
-		return dnAnswer(dotnet_callt(nHandle,"IndexOf",P1))
-
-	Func Insert P1,P2
-		dotnet_calltv(nHandle,"Insert",P1,P2)
-		return self
-
-	Func Remove P1
-		return dnAnswer(dotnet_callt(nHandle,"Remove",P1))
-
-	Func Item P1
-		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
-
-	Func SetItem P1,P2
-		dotnet_calltv(nHandle,"set_Item",P1,P2)
 		return self
 
 	Func setCollectionChangedEvent P1

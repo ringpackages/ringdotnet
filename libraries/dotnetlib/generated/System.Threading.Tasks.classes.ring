@@ -600,14 +600,11 @@ Class TaskCompletionSource1 from Object
 		return dn_x
 
 	Func SetResult P1
-		dotnet_callv("s4:call",nHandle,"s9:SetResult",P1)
-
+		dotnet_calltv(nHandle,"SetResult",P1)
 		return self
 
 	Func TrySetResult P1
-		dn_x = dotnet_call("s4:call",nHandle,"s12:TrySetResult",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"TrySetResult",P1))
 
 	Func SetCanceled P1
 		dotnet_calltdv(nHandle,"SetCanceled",P1)
@@ -627,9 +624,7 @@ Class TaskCompletionSource1 from Object
 		return dn_x
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getTask
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Task"))
@@ -806,9 +801,7 @@ Class TaskFactory1 from Object
 		raise("DotNet Error: ContinueWhenAny does not take one argument: use named arguments, ContinueWhenAny([ :parameter = value, ... ])")
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getCancellationToken
 		return dnObj(dotnet_callo("s3:get",nHandle,"s17:CancellationToken"))
@@ -1121,6 +1114,9 @@ Class ValueTask1 from ValueType
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func AsTask 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s6:AsTask")
@@ -1435,6 +1431,9 @@ Class Task1 from Task
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getResult
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Result"))

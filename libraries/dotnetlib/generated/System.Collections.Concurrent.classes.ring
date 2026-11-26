@@ -182,9 +182,7 @@ Class BlockingCollection from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -258,8 +256,7 @@ Class ConcurrentBag from Object
 		return self
 
 	Func Add P1
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-
+		dotnet_calltv(nHandle,"Add",P1)
 		return self
 
 	Func TryTake 
@@ -292,9 +289,7 @@ Class ConcurrentBag from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -375,14 +370,10 @@ Class ConcurrentDictionary from Object
 		return dnSend("s4:call",nHandle,"s21:TryGetAlternateLookup","")
 
 	Func TryAdd P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s6:TryAdd",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"TryAdd",P1,P2))
 
 	Func ContainsKey P1
-		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsKey",P1))
 
 	Func TryRemove P1
 		return dnSend("s4:call",nHandle,"s9:TryRemove",dnPackItem(P1))
@@ -391,9 +382,7 @@ Class ConcurrentDictionary from Object
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func TryUpdate P1,P2,P3
-		dn_x = dotnet_call("s4:call",nHandle,"s9:TryUpdate",P1,P2,P3)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"TryUpdate",P1,P2,P3))
 
 	Func Clear 
 		dotnet_calltv(nHandle,"Clear")
@@ -426,9 +415,7 @@ Class ConcurrentDictionary from Object
 		raise("DotNet Error: AddOrUpdate does not take one argument: use named arguments, AddOrUpdate([ :parameter = value, ... ])")
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -459,14 +446,10 @@ Class ConcurrentDictionary from Object
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		dotnet_calltv(nHandle,"set_Item",P1,P2)
 		return self
 
 	Func getComparer
@@ -518,14 +501,10 @@ Class ConcurrentDictionaryAlternateLookup from ValueType
 		return self
 
 	Func ContainsKey P1
-		dn_x = dotnet_call("s4:call",nHandle,"s11:ContainsKey",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"ContainsKey",P1))
 
 	Func TryAdd P1,P2
-		dn_x = dotnet_call("s4:call",nHandle,"s6:TryAdd",P1,P2)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"TryAdd",P1,P2))
 
 	Func TryGetValue P1
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
@@ -533,15 +512,14 @@ Class ConcurrentDictionaryAlternateLookup from ValueType
 	Func TryRemove P1
 		return dnSend("s4:call",nHandle,"s9:TryRemove",dnPackItem(P1))
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 	Func Item P1
-		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
+		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
 
 	Func SetItem P1,P2
-		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
+		dotnet_calltv(nHandle,"set_Item",P1,P2)
 		return self
 
 	Func getDictionary
@@ -579,8 +557,7 @@ Class ConcurrentStack from Object
 		return self
 
 	Func Push P1
-		dotnet_callv("s4:call",nHandle,"s4:Push",P1)
-
+		dotnet_calltv(nHandle,"Push",P1)
 		return self
 
 	Func PushRange P1
@@ -611,9 +588,7 @@ Class ConcurrentStack from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -711,9 +686,7 @@ Class Partitioner1 from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getSupportsDynamicPartitions
 		return dotnet_getp(nHandle,"SupportsDynamicPartitions")

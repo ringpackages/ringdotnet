@@ -1098,8 +1098,7 @@ Class LocalView from Object
 		return dnObj(dn_x)
 
 	Func Add P1
-		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
-
+		dotnet_calltv(nHandle,"Add",P1)
 		return self
 
 	Func Clear 
@@ -1107,9 +1106,7 @@ Class LocalView from Object
 		return self
 
 	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -1117,9 +1114,7 @@ Class LocalView from Object
 		return self
 
 	Func Remove P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Remove",P1))
 
 	Func ToBindingList 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ToBindingList")
@@ -1157,9 +1152,7 @@ Class LocalView from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -1340,18 +1333,14 @@ Class ObservableHashSet from Object
 		return self
 
 	Func Contains P1
-		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func CopyTo P1
 		dotnet_calltd1v(nHandle,"CopyTo",P1)
 		return self
 
 	Func Remove P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Remove",P1))
 
 	Func GetEnumerator 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
@@ -1361,9 +1350,7 @@ Class ObservableHashSet from Object
 		return dnObj(dn_x)
 
 	Func Add P1
-		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Add",P1))
 
 	Func UnionWith P1
 		dotnet_callv("s4:call",nHandle,"s9:UnionWith",P1)
@@ -1425,9 +1412,7 @@ Class ObservableHashSet from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -1815,6 +1800,9 @@ Class EntityEntryGraphNode1 from EntityEntryGraphNode
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 	Func getNodeState
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:NodeState"))
 
@@ -1837,6 +1825,9 @@ Class EntityEntry1 from EntityEntry
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class EntityStateChangedEventArgs from EntityEntryEventArgs
@@ -2043,6 +2034,9 @@ Class ValueComparer1 from ValueComparer
 		ok
 		return self
 
+	Func Snapshot P1
+		return dnAnswer(dotnet_callt(nHandle,"Snapshot",P1))
+
 
 Class ArrayStructuralComparer from ValueComparer1
 
@@ -2116,6 +2110,9 @@ Class ComplexPropertyEntry2 from ComplexPropertyEntry
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class GeometryValueComparer from ValueComparer1
@@ -2299,6 +2296,9 @@ Class PropertyEntry2 from PropertyEntry
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class ReferenceEntry from NavigationEntry
 
@@ -2337,6 +2337,9 @@ Class CollectionEntry2 from CollectionEntry
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class ReferenceEntry2 from ReferenceEntry
 
@@ -2352,5 +2355,8 @@ Class ReferenceEntry2 from ReferenceEntry
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 

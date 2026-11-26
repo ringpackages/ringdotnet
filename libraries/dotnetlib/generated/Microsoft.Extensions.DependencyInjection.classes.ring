@@ -4740,14 +4740,11 @@ Class OAuthPostConfigureOptions from Object
 		return self
 
 	Func PostConfigure P1,P2
-		dotnet_callv("s4:call",nHandle,"s13:PostConfigure",P1,P2)
-
+		dotnet_calltv(nHandle,"PostConfigure",P1,P2)
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class OptionsBuilderConfigurationExtensions from Object

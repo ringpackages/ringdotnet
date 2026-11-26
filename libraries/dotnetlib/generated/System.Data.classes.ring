@@ -4919,6 +4919,9 @@ Class EnumerableRowCollection1 from EnumerableRowCollection
 		ok
 		return dnObj(dn_x)
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class ForeignKeyConstraint from Constraint
 
@@ -5325,6 +5328,12 @@ Class TypedTableBase from DataTable
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func Compute P1,P2
+		return dnAnswer(dotnet_callt(nHandle,"Compute",P1,P2))
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func OfType P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")

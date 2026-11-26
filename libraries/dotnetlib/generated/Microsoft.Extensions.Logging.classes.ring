@@ -1437,9 +1437,7 @@ Class Logger from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func LogDebug P1
 		dnEnsureExt("Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions")

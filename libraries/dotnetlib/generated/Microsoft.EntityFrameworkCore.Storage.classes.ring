@@ -852,9 +852,7 @@ Class DatabaseProvider from Object
 		return dn_x
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -908,9 +906,7 @@ Class ExecutionResult from Object
 		return self
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getIsSuccessful
 		return dotnet_getp(nHandle,"IsSuccessful")
@@ -5395,6 +5391,9 @@ Class ReaderColumn1 from ReaderColumn
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 	Func getGetFieldValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:GetFieldValue"))
 
@@ -6211,12 +6210,21 @@ Class RelationalGeometryTypeMapping from RelationalTypeMapping
 		ok
 		return self
 
+	Func GenerateSqlLiteral P1
+		return dnAnswer(dotnet_callt(nHandle,"GenerateSqlLiteral",P1))
+
+	Func GenerateProviderValueSqlLiteral P1
+		return dnAnswer(dotnet_callt(nHandle,"GenerateProviderValueSqlLiteral",P1))
+
 	Func GetDataReaderMethod 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s19:GetDataReaderMethod")
 		if isnumber(dn_x) and dn_x = -1
 			return self
 		ok
 		return dnObj(dn_x)
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class SByteTypeMapping from RelationalTypeMapping

@@ -275,10 +275,6 @@ Class MailAddressCollection from Collection
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func Add P1
-		dotnet_calltv(nHandle,"Add",P1)
-		return self
-
 
 Class MailMessage from Object
 

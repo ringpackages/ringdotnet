@@ -2138,9 +2138,7 @@ Class DiscriminatorBuilder1 from Object
 		return dnObj(dn_x)
 
 	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class ElementTypeBuilder from Object
@@ -10300,6 +10298,9 @@ Class CollectionCollectionBuilder2 from CollectionCollectionBuilder
 		ok
 		return dnObj(dn_x)
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class CollectionNavigationBuilder2 from CollectionNavigationBuilder
 
@@ -10315,6 +10316,9 @@ Class CollectionNavigationBuilder2 from CollectionNavigationBuilder
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class ColumnBuilder1 from ColumnBuilder
@@ -10332,6 +10336,9 @@ Class ColumnBuilder1 from ColumnBuilder
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class ComplexPropertiesConfigurationBuilder1 from ComplexPropertiesConfigurationBuilder
 
@@ -10347,6 +10354,9 @@ Class ComplexPropertiesConfigurationBuilder1 from ComplexPropertiesConfiguration
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class ComplexPropertyBuilder1 from ComplexPropertyBuilder
@@ -10364,6 +10374,9 @@ Class ComplexPropertyBuilder1 from ComplexPropertyBuilder
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class ComplexTypePrimitiveCollectionBuilder1 from ComplexTypePrimitiveCollectionBuilder
 
@@ -10379,6 +10392,9 @@ Class ComplexTypePrimitiveCollectionBuilder1 from ComplexTypePrimitiveCollection
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class ComplexTypePropertyBuilder1 from ComplexTypePropertyBuilder
@@ -10396,6 +10412,9 @@ Class ComplexTypePropertyBuilder1 from ComplexTypePropertyBuilder
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class DataBuilder1 from DataBuilder
 
@@ -10411,6 +10430,9 @@ Class DataBuilder1 from DataBuilder
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class DbFunctionBuilder from DbFunctionBuilderBase
@@ -10558,6 +10580,9 @@ Class EntityTypeBuilder1 from EntityTypeBuilder
 		ok
 		return dnObj(dn_x)
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class IndexBuilder1 from IndexBuilder
 
@@ -10573,6 +10598,9 @@ Class IndexBuilder1 from IndexBuilder
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class KeyBuilder1 from KeyBuilder
@@ -10590,6 +10618,9 @@ Class KeyBuilder1 from KeyBuilder
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class NavigationBuilder2 from NavigationBuilder
 
@@ -10606,6 +10637,9 @@ Class NavigationBuilder2 from NavigationBuilder
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class OwnedEntityTypeBuilder1 from OwnedEntityTypeBuilder
 
@@ -10621,6 +10655,9 @@ Class OwnedEntityTypeBuilder1 from OwnedEntityTypeBuilder
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class OwnedNavigationBuilder2 from OwnedNavigationBuilder
@@ -10675,6 +10712,9 @@ Class OwnedNavigationBuilder2 from OwnedNavigationBuilder
 		ok
 		return dnObj(dn_x)
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class OwnedNavigationSplitTableBuilder2 from OwnedNavigationSplitTableBuilder
 
@@ -10690,6 +10730,9 @@ Class OwnedNavigationSplitTableBuilder2 from OwnedNavigationSplitTableBuilder
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class OwnedNavigationSplitViewBuilder2 from OwnedNavigationSplitViewBuilder
@@ -10707,6 +10750,9 @@ Class OwnedNavigationSplitViewBuilder2 from OwnedNavigationSplitViewBuilder
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class OwnedNavigationStoredProcedureBuilder2 from OwnedNavigationStoredProcedureBuilder
 
@@ -10723,6 +10769,9 @@ Class OwnedNavigationStoredProcedureBuilder2 from OwnedNavigationStoredProcedure
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class OwnedNavigationTableBuilder2 from OwnedNavigationTableBuilder
 
@@ -10738,6 +10787,9 @@ Class OwnedNavigationTableBuilder2 from OwnedNavigationTableBuilder
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class OwnedNavigationTableValuedFunctionBuilder from DbFunctionBuilderBase
@@ -10775,6 +10827,9 @@ Class OwnedNavigationViewBuilder2 from OwnedNavigationViewBuilder
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class OwnershipBuilder from RelationshipBuilderBase
@@ -10835,6 +10890,9 @@ Class PrimitiveCollectionBuilder1 from PrimitiveCollectionBuilder
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class PropertiesConfigurationBuilder1 from PropertiesConfigurationBuilder
 
@@ -10851,6 +10909,9 @@ Class PropertiesConfigurationBuilder1 from PropertiesConfigurationBuilder
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class PropertyBuilder1 from PropertyBuilder
 
@@ -10866,6 +10927,9 @@ Class PropertyBuilder1 from PropertyBuilder
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class ReferenceCollectionBuilder from RelationshipBuilderBase
@@ -10950,6 +11014,9 @@ Class ReferenceNavigationBuilder2 from ReferenceNavigationBuilder
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class ReferenceReferenceBuilder from InvertibleRelationshipBuilderBase
 
@@ -11033,6 +11100,9 @@ Class SplitTableBuilder1 from SplitTableBuilder
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class SplitViewBuilder1 from SplitViewBuilder
 
@@ -11048,6 +11118,9 @@ Class SplitViewBuilder1 from SplitViewBuilder
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class StoredProcedureBuilder1 from StoredProcedureBuilder
@@ -11065,6 +11138,9 @@ Class StoredProcedureBuilder1 from StoredProcedureBuilder
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class TableBuilder1 from TableBuilder
 
@@ -11080,6 +11156,9 @@ Class TableBuilder1 from TableBuilder
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class TableTriggerBuilder from TriggerBuilder
@@ -11139,6 +11218,9 @@ Class TypeMappingConfigurationBuilder1 from TypeMappingConfigurationBuilder
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class ViewBuilder1 from ViewBuilder
 
@@ -11154,6 +11236,9 @@ Class ViewBuilder1 from ViewBuilder
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class ViewColumnBuilder1 from ViewColumnBuilder
@@ -11171,6 +11256,9 @@ Class ViewColumnBuilder1 from ViewColumnBuilder
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class OwnedNavigationTableValuedFunctionBuilder2 from OwnedNavigationTableValuedFunctionBuilder
 
@@ -11186,6 +11274,9 @@ Class OwnedNavigationTableValuedFunctionBuilder2 from OwnedNavigationTableValued
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class OwnershipBuilder2 from OwnershipBuilder
@@ -11203,6 +11294,9 @@ Class OwnershipBuilder2 from OwnershipBuilder
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class ReferenceCollectionBuilder2 from ReferenceCollectionBuilder
 
@@ -11218,6 +11312,9 @@ Class ReferenceCollectionBuilder2 from ReferenceCollectionBuilder
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class ReferenceReferenceBuilder2 from ReferenceReferenceBuilder
@@ -11255,6 +11352,9 @@ Class ReferenceReferenceBuilder2 from ReferenceReferenceBuilder
 		ok
 		return dnObj(dn_x)
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class TableValuedFunctionBuilder1 from TableValuedFunctionBuilder
 
@@ -11270,5 +11370,8 @@ Class TableValuedFunctionBuilder1 from TableValuedFunctionBuilder
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 

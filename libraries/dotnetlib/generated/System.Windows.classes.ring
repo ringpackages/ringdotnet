@@ -4201,6 +4201,9 @@ Class FreezableCollection from Animatable
 		ok
 		return dnObj(dn_x)
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
 		if dotnet_isnamed(P1)
@@ -4270,6 +4273,9 @@ Class FreezableCollectionEnumerator from ValueType
 	Func Reset 
 		dotnet_calltv(nHandle,"Reset")
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getCurrent
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Current"))
@@ -18826,6 +18832,9 @@ Class RoutedPropertyChangedEventArgs from RoutedEventArgs
 		ok
 		return self
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 	Func getOldValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:OldValue"))
 
@@ -19374,6 +19383,9 @@ Class WeakEventManager2 from WeakEventManager
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 
 Class DataObjectCopyingEventArgs from DataObjectEventArgs

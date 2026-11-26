@@ -567,6 +567,9 @@ Class FeatureReference from ValueType
 		ok
 		return dnObj(dn_x)
 
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
 
 Class FeatureReferences from ValueType
 
@@ -598,6 +601,9 @@ Class FeatureReferences from ValueType
 		return dn_x
 		ok
 		raise("DotNet Error: Fetch does not take one argument: use named arguments, Fetch([ :parameter = value, ... ])")
+
+	Func Equals P1
+		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getCollection
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Collection"))
