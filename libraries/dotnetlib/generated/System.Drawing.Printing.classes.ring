@@ -181,7 +181,11 @@ Class Margins from Object
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -291,7 +295,11 @@ Class PageSettings from Object
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyToHdevmode P1
 		dotnet_callv("s4:call",nHandle,"s14:CopyToHdevmode",P1)
@@ -562,7 +570,11 @@ Class PrintController from Object
 		return self
 
 	Func OnStartPage P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:OnStartPage",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:OnStartPage",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OnEndPage P1,P2
 		dotnet_callv("s4:call",nHandle,"s9:OnEndPage",P1,P2)
@@ -878,28 +890,52 @@ Class PrinterSettings from Object
 		return dn_x
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateMeasurementGraphics P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:CreateMeasurementGraphics",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s25:CreateMeasurementGraphics"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s25:CreateMeasurementGraphics")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:CreateMeasurementGraphics",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:CreateMeasurementGraphics",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetHdevmode P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetHdevmode",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetHdevmode"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetHdevmode")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetHdevmode",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetHdevmode",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetHdevnames 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetHdevnames"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetHdevnames")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetHdevmode P1
 		dotnet_callv("s4:call",nHandle,"s11:SetHdevmode",P1)
@@ -1082,7 +1118,11 @@ Class PrinterSettingsPaperSizeCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -1105,7 +1145,11 @@ Class PrinterSettingsPaperSizeCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1115,12 +1159,20 @@ Class PrinterSettingsPaperSizeCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -1145,7 +1197,11 @@ Class PrinterSettingsPaperSourceCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -1168,7 +1224,11 @@ Class PrinterSettingsPaperSourceCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1178,12 +1238,20 @@ Class PrinterSettingsPaperSourceCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -1208,7 +1276,11 @@ Class PrinterSettingsPrinterResolutionCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -1231,7 +1303,11 @@ Class PrinterSettingsPrinterResolutionCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1241,12 +1317,20 @@ Class PrinterSettingsPrinterResolutionCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -1271,7 +1355,11 @@ Class PrinterSettingsStringCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -1292,7 +1380,11 @@ Class PrinterSettingsStringCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1302,7 +1394,11 @@ Class PrinterSettingsStringCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1361,7 +1457,11 @@ Class PreviewPrintController from PrintController
 		return self
 
 	Func GetPreviewPageInfo 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetPreviewPageInfo"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetPreviewPageInfo")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getUseAntiAlias
 		return dotnet_getp(nHandle,"UseAntiAlias")

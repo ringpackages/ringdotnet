@@ -576,7 +576,11 @@ Class ArrayWithOffset from ValueType
 		return self
 
 	Func GetArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetOffset 
 		return dnAnswer(dotnet_callt(nHandle,"GetOffset"))
@@ -1140,10 +1144,18 @@ Class ComWrappers from Object
 		return self
 
 	Func GetOrCreateComInterfaceForObject P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s32:GetOrCreateComInterfaceForObject",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s32:GetOrCreateComInterfaceForObject",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetOrCreateObjectForComInstance P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetOrCreateObjectForComInstance",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s31:GetOrCreateObjectForComInstance",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetOrRegisterObjectForComInstance P1
 		if dotnet_isnamed(P1)
@@ -1277,7 +1289,11 @@ Class CriticalHandle from DotNetObject
 		return self
 
 	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToString 
 		return dnAnswer(dotnet_callt(nHandle,"ToString"))
@@ -1647,7 +1663,11 @@ Class GCHandle from ValueType
 		return self
 
 	Func AddrOfPinnedObject 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddrOfPinnedObject"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:AddrOfPinnedObject")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Alloc P1
 		if dotnet_isnamed(P1)
@@ -1839,7 +1859,11 @@ Class ICustomAdapter from DotNetObject
 		return self
 
 	Func GetUnderlyingObject 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetUnderlyingObject"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:GetUnderlyingObject")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ICustomFactory from DotNetObject
@@ -1854,7 +1878,11 @@ Class ICustomFactory from DotNetObject
 		return self
 
 	Func CreateInstance P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CreateInstance",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ICustomMarshaler from DotNetObject
@@ -1869,10 +1897,18 @@ Class ICustomMarshaler from DotNetObject
 		return self
 
 	Func MarshalNativeToManaged P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:MarshalNativeToManaged",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:MarshalNativeToManaged",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MarshalManagedToNative P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:MarshalManagedToNative",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:MarshalManagedToNative",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CleanUpNativeData P1
 		dotnet_callv("s4:call",nHandle,"s17:CleanUpNativeData",P1)
@@ -1920,7 +1956,11 @@ Class IDynamicInterfaceCastable from DotNetObject
 		return dn_x
 
 	Func GetInterfaceImplementation P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetInterfaceImplementation",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s26:GetInterfaceImplementation",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ImportedFromTypeLibAttribute from Attribute
@@ -3908,7 +3948,11 @@ Class SafeBuffer from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Read",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Read",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Read",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadArray P1,P2,P3,P4
 		dotnet_callv("s4:call",nHandle,"s9:ReadArray",P1,P2,P3,P4)
@@ -3934,7 +3978,11 @@ Class SafeBuffer from DotNetObject
 		return self
 
 	Func DangerousGetHandle 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:DangerousGetHandle"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:DangerousGetHandle")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Close 
 		dotnet_calltv(nHandle,"Close")
@@ -3956,7 +4004,11 @@ Class SafeBuffer from DotNetObject
 		return self
 
 	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToString 
 		return dnAnswer(dotnet_callt(nHandle,"ToString"))
@@ -4003,7 +4055,11 @@ Class SafeHandle from DotNetObject
 		return self
 
 	Func DangerousGetHandle 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:DangerousGetHandle"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:DangerousGetHandle")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Close 
 		dotnet_calltv(nHandle,"Close")
@@ -4025,7 +4081,11 @@ Class SafeHandle from DotNetObject
 		return self
 
 	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToString 
 		return dnAnswer(dotnet_callt(nHandle,"ToString"))

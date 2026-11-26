@@ -569,7 +569,11 @@ Class DefaultInlineConstraintResolver from Object
 		return self
 
 	Func ResolveConstraint P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ResolveConstraint",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ResolveConstraint",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -591,10 +595,18 @@ Class EndpointDataSource from Object
 		return self
 
 	Func GetChangeToken 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetChangeToken"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetChangeToken")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetGroupedEndpoints P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetGroupedEndpoints",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:GetGroupedEndpoints",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -836,7 +848,11 @@ Class IEndpointAddressScheme from DotNetObject
 		return self
 
 	Func FindEndpoints P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:FindEndpoints",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:FindEndpoints",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IEndpointGroupNameMetadata from DotNetObject
@@ -894,7 +910,11 @@ Class IEndpointRouteBuilder from DotNetObject
 		return self
 
 	Func CreateApplicationBuilder 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:CreateApplicationBuilder"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:CreateApplicationBuilder")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapBlazorHub P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Server")
@@ -902,9 +922,17 @@ Class IEndpointRouteBuilder from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:MapBlazorHub",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s12:MapBlazorHub"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s12:MapBlazorHub")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:MapBlazorHub",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:MapBlazorHub",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapConnections P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.ConnectionEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Http.Connections")
@@ -918,15 +946,27 @@ Class IEndpointRouteBuilder from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:MapConnectionHandler",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:MapConnectionHandler",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:MapConnectionHandler",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapControllers 
 		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:MapControllers"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:MapControllers")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapDefaultControllerRoute 
 		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:MapDefaultControllerRoute"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:MapDefaultControllerRoute")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapControllerRoute P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
@@ -968,56 +1008,100 @@ Class IEndpointRouteBuilder from DotNetObject
 
 	Func MapGroup P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:MapGroup",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:MapGroup",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapGet P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapGet",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:MapGet",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapPost P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:MapPost",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:MapPost",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapPut P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapPut",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:MapPut",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapDelete P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:MapDelete",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:MapDelete",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapPatch P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:MapPatch",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:MapPatch",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapMethods P1,P2,P3
 		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:MapMethods",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:MapMethods",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Map P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Map",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Map",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapFallback P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:MapFallback",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:MapFallback",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:MapFallback",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapHealthChecks P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.HealthCheckEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Diagnostics.HealthChecks")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:MapHealthChecks",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapHealthChecks",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:MapHealthChecks",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapHub P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.HubEndpointRouteBuilderExtensions, Microsoft.AspNetCore.SignalR")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:MapHub",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapHub",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:MapHub",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapRazorComponents P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorComponentsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints")
@@ -1025,20 +1109,32 @@ Class IEndpointRouteBuilder from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:MapRazorComponents",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s18:MapRazorComponents"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s18:MapRazorComponents")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: MapRazorComponents needs its type arguments: MapRazorComponents([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func MapRazorPages 
 		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:MapRazorPages"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:MapRazorPages")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapFallbackToPage P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:MapFallbackToPage",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:MapFallbackToPage",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:MapFallbackToPage",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapFallbackToAreaPage P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
@@ -1063,16 +1159,28 @@ Class IEndpointRouteBuilder from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:MapStaticAssets",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapStaticAssets"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s15:MapStaticAssets")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapStaticAssets",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:MapStaticAssets",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapFallbackToFile P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.StaticFilesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticFiles")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:MapFallbackToFile",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:MapFallbackToFile",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:MapFallbackToFile",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapIdentityApi P1
 		dnEnsureExt("Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Identity")
@@ -1080,13 +1188,21 @@ Class IEndpointRouteBuilder from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:MapIdentityApi",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s14:MapIdentityApi"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s14:MapIdentityApi")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: MapIdentityApi needs its type arguments: MapIdentityApi([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func MapShortCircuit P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RouteShortCircuitEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapShortCircuit",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:MapShortCircuit",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getServiceProvider
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ServiceProvider"))
@@ -1181,7 +1297,11 @@ Class IInlineConstraintResolver from DotNetObject
 		return self
 
 	Func ResolveConstraint P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ResolveConstraint",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ResolveConstraint",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class INamedRouter from DotNetObject
@@ -1198,10 +1318,18 @@ Class INamedRouter from DotNetObject
 		return self
 
 	Func RouteAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:RouteAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:RouteAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetVirtualPath P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetVirtualPath",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetVirtualPath",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -1256,7 +1384,11 @@ Class IRouteBuilder from DotNetObject
 		return self
 
 	Func Build 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Build")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapRoute P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
@@ -1274,47 +1406,91 @@ Class IRouteBuilder from DotNetObject
 
 	Func MapMiddlewareRoute P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:MapMiddlewareRoute",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:MapMiddlewareRoute",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapDelete P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:MapDelete",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:MapDelete",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapMiddlewareDelete P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:MapMiddlewareDelete",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:MapMiddlewareDelete",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapGet P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapGet",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:MapGet",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapMiddlewareGet P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:MapMiddlewareGet",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:MapMiddlewareGet",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapPost P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:MapPost",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:MapPost",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapMiddlewarePost P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:MapMiddlewarePost",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:MapMiddlewarePost",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapPut P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapPut",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:MapPut",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapMiddlewarePut P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:MapMiddlewarePut",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:MapMiddlewarePut",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapVerb P1,P2,P3
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:MapVerb",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:MapVerb",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapMiddlewareVerb P1,P2,P3
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:MapMiddlewareVerb",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:MapMiddlewareVerb",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getApplicationBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:ApplicationBuilder"))
@@ -1359,10 +1535,18 @@ Class IRouteCollection from DotNetObject
 		return self
 
 	Func RouteAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:RouteAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:RouteAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetVirtualPath P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetVirtualPath",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetVirtualPath",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IRouteConstraint from DotNetObject
@@ -1394,7 +1578,11 @@ Class IRouteHandler from DotNetObject
 		return self
 
 	Func GetRequestHandler P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetRequestHandler",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetRequestHandler",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IRouteNameMetadata from DotNetObject
@@ -1429,10 +1617,18 @@ Class IRouter from DotNetObject
 		return self
 
 	Func RouteAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:RouteAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:RouteAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetVirtualPath P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetVirtualPath",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetVirtualPath",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IRoutingFeature from DotNetObject
@@ -1785,7 +1981,11 @@ Class LinkParser from Object
 		return self
 
 	Func ParsePathByAddress P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ParsePathByAddress",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:ParsePathByAddress",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1794,7 +1994,11 @@ Class LinkParser from Object
 
 	Func ParsePathByEndpointName P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.LinkParserEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:ParsePathByEndpointName",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:ParsePathByEndpointName",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class LinkParserEndpointNameAddressExtensions from Object
@@ -1887,7 +2091,11 @@ Class ParameterPolicyFactory from Object
 		return self
 
 	Func Create P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1966,10 +2174,18 @@ Class RouteBase from Object
 		return self
 
 	Func RouteAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:RouteAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:RouteAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetVirtualPath P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetVirtualPath",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetVirtualPath",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2041,7 +2257,11 @@ Class RouteBuilder from Object
 		return self
 
 	Func Build 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Build")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2064,47 +2284,91 @@ Class RouteBuilder from Object
 
 	Func MapMiddlewareRoute P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:MapMiddlewareRoute",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:MapMiddlewareRoute",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapDelete P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:MapDelete",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:MapDelete",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapMiddlewareDelete P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:MapMiddlewareDelete",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:MapMiddlewareDelete",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapGet P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapGet",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:MapGet",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapMiddlewareGet P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:MapMiddlewareGet",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:MapMiddlewareGet",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapPost P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:MapPost",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:MapPost",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapMiddlewarePost P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:MapMiddlewarePost",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:MapMiddlewarePost",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapPut P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapPut",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:MapPut",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapMiddlewarePut P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:MapMiddlewarePut",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:MapMiddlewarePut",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapVerb P1,P2,P3
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:MapVerb",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:MapVerb",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapMiddlewareVerb P1,P2,P3
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:MapMiddlewareVerb",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:MapMiddlewareVerb",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getApplicationBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:ApplicationBuilder"))
@@ -2160,10 +2424,18 @@ Class RouteCollection from Object
 		return self
 
 	Func RouteAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:RouteAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:RouteAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetVirtualPath P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetVirtualPath",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetVirtualPath",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2171,7 +2443,11 @@ Class RouteCollection from Object
 		return dn_x
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -2194,7 +2470,11 @@ Class RouteConstraintBuilder from Object
 		return self
 
 	Func Build 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Build")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddResolvedConstraint P1,P2
 		dotnet_calltv(nHandle,"AddResolvedConstraint",P1,P2)
@@ -2345,7 +2625,11 @@ Class RouteData from Object
 		return self
 
 	Func PushState P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:PushState",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:PushState",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2494,7 +2778,11 @@ Class RouteGroupBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddEndpointFilter",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddEndpointFilter"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s17:AddEndpointFilter")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: AddEndpointFilter needs its type arguments: AddEndpointFilter([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -2504,9 +2792,17 @@ Class RouteGroupBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:MapBlazorHub",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s12:MapBlazorHub"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s12:MapBlazorHub")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:MapBlazorHub",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:MapBlazorHub",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapConnections P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.ConnectionEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Http.Connections")
@@ -2520,15 +2816,27 @@ Class RouteGroupBuilder from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:MapConnectionHandler",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:MapConnectionHandler",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:MapConnectionHandler",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapControllers 
 		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:MapControllers"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:MapControllers")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapDefaultControllerRoute 
 		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:MapDefaultControllerRoute"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:MapDefaultControllerRoute")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapControllerRoute P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core")
@@ -2570,56 +2878,100 @@ Class RouteGroupBuilder from Object
 
 	Func MapGroup P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:MapGroup",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:MapGroup",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapGet P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapGet",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:MapGet",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapPost P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:MapPost",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:MapPost",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapPut P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapPut",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:MapPut",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapDelete P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:MapDelete",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:MapDelete",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapPatch P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:MapPatch",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:MapPatch",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapMethods P1,P2,P3
 		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:MapMethods",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:MapMethods",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Map P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Map",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Map",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapFallback P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:MapFallback",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:MapFallback",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:MapFallback",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapHealthChecks P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.HealthCheckEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Diagnostics.HealthChecks")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:MapHealthChecks",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapHealthChecks",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:MapHealthChecks",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapHub P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.HubEndpointRouteBuilderExtensions, Microsoft.AspNetCore.SignalR")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:MapHub",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:MapHub",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:MapHub",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapRazorComponents P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorComponentsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints")
@@ -2627,20 +2979,32 @@ Class RouteGroupBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:MapRazorComponents",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s18:MapRazorComponents"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s18:MapRazorComponents")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: MapRazorComponents needs its type arguments: MapRazorComponents([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func MapRazorPages 
 		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:MapRazorPages"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:MapRazorPages")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapFallbackToPage P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:MapFallbackToPage",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:MapFallbackToPage",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:MapFallbackToPage",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapFallbackToAreaPage P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages")
@@ -2665,16 +3029,28 @@ Class RouteGroupBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:MapStaticAssets",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapStaticAssets"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s15:MapStaticAssets")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapStaticAssets",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:MapStaticAssets",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapFallbackToFile P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.StaticFilesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticFiles")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:MapFallbackToFile",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:MapFallbackToFile",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:MapFallbackToFile",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapIdentityApi P1
 		dnEnsureExt("Microsoft.AspNetCore.Routing.IdentityApiEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Identity")
@@ -2682,21 +3058,37 @@ Class RouteGroupBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:MapIdentityApi",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s14:MapIdentityApi"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s14:MapIdentityApi")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: MapIdentityApi needs its type arguments: MapIdentityApi([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func MapShortCircuit P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RouteShortCircuitEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:MapShortCircuit",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:MapShortCircuit",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WithRequestTimeout P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:WithRequestTimeout",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:WithRequestTimeout",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DisableRequestTimeout 
 		dnEnsureExt("Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:DisableRequestTimeout"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:DisableRequestTimeout")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ShortCircuit P1
 		dnEnsureExt("Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing")
@@ -2704,9 +3096,17 @@ Class RouteGroupBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ShortCircuit",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s12:ShortCircuit")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ShortCircuit",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ShortCircuit",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class RouteGroupContext from Object
@@ -2782,13 +3182,25 @@ Class RouteHandler from Object
 		return self
 
 	Func GetRequestHandler P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetRequestHandler",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetRequestHandler",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetVirtualPath P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetVirtualPath",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetVirtualPath",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RouteAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:RouteAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:RouteAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2994,7 +3406,11 @@ Class RouteValueDictionary from Object
 		return dnAnswer(dotnet_callt(nHandle,"ContainsKey",P1))
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Remove P1
 		return dnAnswer(dotnet_callt(nHandle,"Remove",P1))
@@ -3021,7 +3437,11 @@ Class RouteValueDictionary from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -3031,12 +3451,20 @@ Class RouteValueDictionary from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)

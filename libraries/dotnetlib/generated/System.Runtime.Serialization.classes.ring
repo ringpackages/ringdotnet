@@ -378,13 +378,25 @@ Class ISerializationSurrogateProvider from DotNetObject
 		return self
 
 	Func GetSurrogateType P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetSurrogateType",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetSurrogateType",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetObjectToSerialize P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetObjectToSerialize",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetObjectToSerialize",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDeserializedObject P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDeserializedObject",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:GetDeserializedObject",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ISerializationSurrogateProvider2 from DotNetObject
@@ -399,7 +411,11 @@ Class ISerializationSurrogateProvider2 from DotNetObject
 		return self
 
 	Func GetCustomDataToExport P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetCustomDataToExport",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:GetCustomDataToExport",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetKnownCustomDataTypes P1
 		dotnet_callv("s4:call",nHandle,"s23:GetKnownCustomDataTypes",P1)
@@ -407,16 +423,32 @@ Class ISerializationSurrogateProvider2 from DotNetObject
 		return self
 
 	Func GetReferencedTypeOnImport P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetReferencedTypeOnImport",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:GetReferencedTypeOnImport",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetSurrogateType P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetSurrogateType",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetSurrogateType",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetObjectToSerialize P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetObjectToSerialize",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetObjectToSerialize",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDeserializedObject P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDeserializedObject",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:GetDeserializedObject",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IgnoreDataMemberAttribute from Attribute
@@ -494,7 +526,11 @@ Class KnownTypeAttribute from Attribute
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getMethodName
 		return dnAnswer(dotnet_getp(nHandle,"MethodName"))

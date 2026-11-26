@@ -551,7 +551,11 @@ Class XmlAtomicValue from XPathItem
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class XmlSchemaCollectionEnumerator from Object
@@ -634,7 +638,11 @@ Class XmlSchemaDatatype from Object
 		return self
 
 	Func ParseValue P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ParseValue",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ParseValue",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ChangeType P1
 		if dotnet_isnamed(P1)
@@ -770,7 +778,11 @@ Class XmlSchemaInference from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:InferSchema",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:InferSchema",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:InferSchema",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1008,7 +1020,11 @@ Class XmlSchemaObjectCollection from CollectionBase
 		return self
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -1068,7 +1084,11 @@ Class XmlSchemaObjectTable from Object
 		return dn_x
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1076,7 +1096,11 @@ Class XmlSchemaObjectTable from Object
 		return dn_x
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -1153,7 +1177,11 @@ Class XmlSchemaSet from Object
 		return self
 
 	Func Remove P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Remove",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Remove",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RemoveRecursive P1
 		dn_x = dotnet_call("s4:call",nHandle,"s15:RemoveRecursive",P1)
@@ -1168,7 +1196,11 @@ Class XmlSchemaSet from Object
 		return self
 
 	Func Reprocess P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Reprocess",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Reprocess",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -1180,9 +1212,17 @@ Class XmlSchemaSet from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Schemas",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s7:Schemas"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s7:Schemas")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Schemas",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Schemas",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1280,7 +1320,11 @@ Class XmlSchemaValidator from Object
 		raise("DotNet Error: ValidateElement does not take one argument: use named arguments, ValidateElement([ :parameter = value, ... ])")
 
 	Func ValidateAttribute P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ValidateAttribute",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ValidateAttribute",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetUnspecifiedDefaultAttributes P1
 		dotnet_callv("s4:call",nHandle,"s31:GetUnspecifiedDefaultAttributes",P1)
@@ -1304,7 +1348,11 @@ Class XmlSchemaValidator from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:ValidateEndElement",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ValidateEndElement",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:ValidateEndElement",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SkipToEndElement P1
 		dotnet_callv("s4:call",nHandle,"s16:SkipToEndElement",P1)
@@ -1316,10 +1364,18 @@ Class XmlSchemaValidator from Object
 		return self
 
 	Func GetExpectedParticles 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetExpectedParticles"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetExpectedParticles")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetExpectedAttributes 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetExpectedAttributes"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:GetExpectedAttributes")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

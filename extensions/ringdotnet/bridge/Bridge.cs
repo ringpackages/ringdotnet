@@ -227,6 +227,13 @@ namespace RingDotNet
 					return CreateInstance(TypeOf(a, 0), Rest(a, 1));
 				case "call":
 					return CallMethod(a[0], Str(a, 1), Rest(a, 2));
+				case "calls":
+					{
+						/* the same call; when the method answers the object that it was called on (a fluent method), the answer is SameAsReceiver: Ring keeps the wrapper it has */
+						object receiver = a[0];
+						object answer = CallMethod(receiver, Str(a, 1), Rest(a, 2));
+						return answer != null && !(receiver is TypeRef) && !receiver.GetType().IsValueType && ReferenceEquals(answer, receiver) ? SameAsReceiver.Instance : answer;
+					}
 				case "operator":
 					return CallOperator(a[0], Str(a, 1), a.Length > 2 ? a[2] : null);
 				case "convert":

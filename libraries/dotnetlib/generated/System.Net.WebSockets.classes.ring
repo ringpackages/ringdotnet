@@ -263,17 +263,29 @@ Class WebSocket from Object
 		return self
 
 	Func CloseAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:CloseAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:CloseAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CloseOutputAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CloseOutputAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:CloseOutputAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func ReceiveAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ReceiveAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ReceiveAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SendAsync P1
 		if dotnet_isnamed(P1)
@@ -713,7 +725,11 @@ Class ClientWebSocket from WebSocket
 		raise("DotNet Error: ConnectAsync does not take one argument: use named arguments, ConnectAsync([ :parameter = value, ... ])")
 
 	Func SendAsync P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:SendAsync",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:SendAsync",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getOptions
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Options"))

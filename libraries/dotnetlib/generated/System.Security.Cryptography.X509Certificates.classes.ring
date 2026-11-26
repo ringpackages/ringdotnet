@@ -260,15 +260,27 @@ Class CertificateRequest from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:CreateSigningRequest",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s20:CreateSigningRequest"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s20:CreateSigningRequest")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:CreateSigningRequest",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:CreateSigningRequest",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateSigningRequestPem P1
 		return dnAnswer(dotnet_calltd(nHandle,"CreateSigningRequestPem",P1))
 
 	Func CreateSelfSigned P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateSelfSigned",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:CreateSelfSigned",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Create P1
 		if dotnet_isnamed(P1)
@@ -636,19 +648,39 @@ Class PublicKey from Object
 		return dnSend("s4:call",nHandle,"s29:TryExportSubjectPublicKeyInfo",dnPackItem(P1))
 
 	Func ExportSubjectPublicKeyInfo 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s26:ExportSubjectPublicKeyInfo"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s26:ExportSubjectPublicKeyInfo")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetRSAPublicKey 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetRSAPublicKey"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetRSAPublicKey")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDSAPublicKey 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetDSAPublicKey"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetDSAPublicKey")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetECDsaPublicKey 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetECDsaPublicKey"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetECDsaPublicKey")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetECDiffieHellmanPublicKey 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetECDiffieHellmanPublicKey"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:GetECDiffieHellmanPublicKey")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -756,9 +788,17 @@ Class SubjectAlternativeNameBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Build",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s5:Build")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Build",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -806,9 +846,17 @@ Class X500DistinguishedName from AsnEncodedData
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s35:EnumerateRelativeDistinguishedNames",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s35:EnumerateRelativeDistinguishedNames"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s35:EnumerateRelativeDistinguishedNames")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s35:EnumerateRelativeDistinguishedNames",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s35:EnumerateRelativeDistinguishedNames",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -877,7 +925,11 @@ Class X500DistinguishedNameBuilder from Object
 		return self
 
 	Func Build 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Build")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -900,7 +952,11 @@ Class X500RelativeDistinguishedName from Object
 		return self
 
 	Func GetSingleElementType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetSingleElementType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetSingleElementType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetSingleElementValue 
 		return dnAnswer(dotnet_callt(nHandle,"GetSingleElementValue"))
@@ -981,7 +1037,11 @@ Class X509Certificate from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Export",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Export",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Export",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetRawCertDataString 
 		return dnAnswer(dotnet_callt(nHandle,"GetRawCertDataString"))
@@ -991,9 +1051,17 @@ Class X509Certificate from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetCertHash",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetCertHash"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetCertHash")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetCertHash",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetCertHash",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryGetCertHash P1,P2
 		return dnSend("s4:call",nHandle,"s14:TryGetCertHash",dnPackItem(P1) + dnPackItem(P2))
@@ -1014,22 +1082,38 @@ Class X509Certificate from Object
 		return dnAnswer(dotnet_callt(nHandle,"GetPublicKeyString"))
 
 	Func GetRawCertData 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetRawCertData"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetRawCertData")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetKeyAlgorithm 
 		return dnAnswer(dotnet_callt(nHandle,"GetKeyAlgorithm"))
 
 	Func GetKeyAlgorithmParameters 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetKeyAlgorithmParameters"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:GetKeyAlgorithmParameters")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetKeyAlgorithmParametersString 
 		return dnAnswer(dotnet_callt(nHandle,"GetKeyAlgorithmParametersString"))
 
 	Func GetPublicKey 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetPublicKey"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetPublicKey")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetSerialNumber 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetSerialNumber"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetSerialNumber")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetSerialNumberString 
 		return dnAnswer(dotnet_callt(nHandle,"GetSerialNumberString"))
@@ -1182,7 +1266,11 @@ Class X509CertificateCollection from CollectionBase
 		return self
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -1425,7 +1513,11 @@ Class X509ChainElementCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1438,7 +1530,11 @@ Class X509ChainElementCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1448,12 +1544,20 @@ Class X509ChainElementCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -1544,7 +1648,11 @@ Class X509ChainPolicy from Object
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1743,7 +1851,11 @@ Class X509ExtensionCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1756,7 +1868,11 @@ Class X509ExtensionCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1766,12 +1882,20 @@ Class X509ExtensionCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -1838,10 +1962,18 @@ Class X509SignatureGenerator from Object
 		return self
 
 	Func GetSignatureAlgorithmIdentifier P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetSignatureAlgorithmIdentifier",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s31:GetSignatureAlgorithmIdentifier",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SignData P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SignData",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:SignData",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2009,13 +2141,25 @@ Class X509AuthorityInformationAccessExtension from X509Extension
 		return self
 
 	Func EnumerateUris P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:EnumerateUris",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:EnumerateUris",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EnumerateCAIssuersUris 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:EnumerateCAIssuersUris"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:EnumerateCAIssuersUris")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EnumerateOcspUris 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:EnumerateOcspUris"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:EnumerateOcspUris")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class X509AuthorityKeyIdentifierExtension from X509Extension
@@ -2235,13 +2379,25 @@ Class X509Certificate2 from X509Certificate
 		return dnAnswer(dotnet_callt(nHandle,"Verify"))
 
 	Func GetECDiffieHellmanPublicKey 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetECDiffieHellmanPublicKey"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:GetECDiffieHellmanPublicKey")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetECDiffieHellmanPrivateKey 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetECDiffieHellmanPrivateKey"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s28:GetECDiffieHellmanPrivateKey")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyWithPrivateKey P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:CopyWithPrivateKey",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:CopyWithPrivateKey",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExportCertificatePem 
 		return dnAnswer(dotnet_callt(nHandle,"ExportCertificatePem"))
@@ -2253,10 +2409,18 @@ Class X509Certificate2 from X509Certificate
 		return dnAnswer(dotnet_calltd1(nHandle,"MatchesHostname",P1))
 
 	Func @GetPublicKey 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetPublicKey"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetPublicKey")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @GetSerialNumber 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetSerialNumber"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetSerialNumber")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @GetIssuerName 
 		return dnAnswer(dotnet_callt(nHandle,"GetIssuerName"))
@@ -2287,27 +2451,51 @@ Class X509Certificate2 from X509Certificate
 
 	Func GetDSAPublicKey 
 		dnEnsureExt("System.Security.Cryptography.X509Certificates.DSACertificateExtensions, System.Security.Cryptography")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetDSAPublicKey"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetDSAPublicKey")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDSAPrivateKey 
 		dnEnsureExt("System.Security.Cryptography.X509Certificates.DSACertificateExtensions, System.Security.Cryptography")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetDSAPrivateKey"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetDSAPrivateKey")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetECDsaPublicKey 
 		dnEnsureExt("System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions, System.Security.Cryptography")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetECDsaPublicKey"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetECDsaPublicKey")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetECDsaPrivateKey 
 		dnEnsureExt("System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions, System.Security.Cryptography")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetECDsaPrivateKey"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetECDsaPrivateKey")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetRSAPublicKey 
 		dnEnsureExt("System.Security.Cryptography.X509Certificates.RSACertificateExtensions, System.Security.Cryptography")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetRSAPublicKey"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetRSAPublicKey")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetRSAPrivateKey 
 		dnEnsureExt("System.Security.Cryptography.X509Certificates.RSACertificateExtensions, System.Security.Cryptography")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetRSAPrivateKey"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetRSAPrivateKey")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getArchived
 		return dotnet_getp(nHandle,"Archived")
@@ -2449,10 +2637,18 @@ Class X509Certificate2Collection from X509CertificateCollection
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Export",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Export",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Export",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Find P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Find",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Find",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @Import P1
 		dotnet_calltd1v(nHandle,"Import",P1)
@@ -2612,10 +2808,18 @@ Class X509SubjectAlternativeNameExtension from X509Extension
 		return self
 
 	Func EnumerateDnsNames 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:EnumerateDnsNames"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:EnumerateDnsNames")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EnumerateIPAddresses 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:EnumerateIPAddresses"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:EnumerateIPAddresses")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class X509SubjectKeyIdentifierExtension from X509Extension

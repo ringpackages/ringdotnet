@@ -121,9 +121,17 @@ Class BlockingCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Take",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Take"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Take")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Take",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Take",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryTake P1
 		if dotnet_isnamed(P1)
@@ -145,7 +153,11 @@ Class BlockingCollection from Object
 		return self
 
 	Func ToArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -157,9 +169,17 @@ Class BlockingCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:GetConsumingEnumerable",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConsumingEnumerable"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s22:GetConsumingEnumerable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConsumingEnumerable",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:GetConsumingEnumerable",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -172,7 +192,11 @@ Class BlockingCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -182,7 +206,11 @@ Class BlockingCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -246,14 +274,22 @@ Class ConcurrentBag from Object
 		return self
 
 	Func ToArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clear 
 		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -266,7 +302,11 @@ Class ConcurrentBag from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -276,7 +316,11 @@ Class ConcurrentBag from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -319,7 +363,11 @@ Class ConcurrentDictionary from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetAlternateLookup",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetAlternateLookup"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetAlternateLookup")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: GetAlternateLookup needs its type arguments: GetAlternateLookup([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -352,10 +400,18 @@ Class ConcurrentDictionary from Object
 		return self
 
 	Func ToArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetOrAdd P1
 		if dotnet_isnamed(P1)
@@ -380,7 +436,11 @@ Class ConcurrentDictionary from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -390,12 +450,20 @@ Class ConcurrentDictionary from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -466,7 +534,11 @@ Class ConcurrentDictionaryAlternateLookup from ValueType
 		return dnSend("s4:call",nHandle,"s9:TryRemove",dnPackItem(P1))
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -525,10 +597,18 @@ Class ConcurrentStack from Object
 		return dnAnswer(dotnet_calltd1(nHandle,"TryPopRange",P1))
 
 	Func ToArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -541,7 +621,11 @@ Class ConcurrentStack from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -551,7 +635,11 @@ Class ConcurrentStack from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -609,10 +697,18 @@ Class Partitioner1 from Object
 		return self
 
 	Func GetPartitions P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetPartitions",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetPartitions",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDynamicPartitions 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetDynamicPartitions"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetDynamicPartitions")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -666,7 +762,11 @@ Class ConcurrentStringQueue from Object
 		return self
 
 	Func ToArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -674,7 +774,11 @@ Class ConcurrentStringQueue from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Enqueue P1
 		dotnet_calltv(nHandle,"Enqueue",P1)
@@ -701,7 +805,11 @@ Class ConcurrentStringQueue from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -711,7 +819,11 @@ Class ConcurrentStringQueue from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -768,7 +880,11 @@ Class ConcurrentObjectQueue from Object
 		return self
 
 	Func ToArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -776,7 +892,11 @@ Class ConcurrentObjectQueue from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Enqueue P1
 		dotnet_callv("s4:call",nHandle,"s7:Enqueue",P1)
@@ -804,7 +924,11 @@ Class ConcurrentObjectQueue from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -814,7 +938,11 @@ Class ConcurrentObjectQueue from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -898,10 +1026,18 @@ Class ConcurrentObjectStack from Object
 		return dnAnswer(dotnet_calltd1(nHandle,"TryPopRange",P1))
 
 	Func ToArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -914,7 +1050,11 @@ Class ConcurrentObjectStack from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -924,7 +1064,11 @@ Class ConcurrentObjectStack from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -997,14 +1141,22 @@ Class ConcurrentObjectBag from Object
 		return self
 
 	Func ToArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clear 
 		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1017,7 +1169,11 @@ Class ConcurrentObjectBag from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1027,7 +1183,11 @@ Class ConcurrentObjectBag from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1091,7 +1251,11 @@ Class ConcurrentObjectDictionary from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetAlternateLookup",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetAlternateLookup"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetAlternateLookup")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: GetAlternateLookup needs its type arguments: GetAlternateLookup([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1122,10 +1286,18 @@ Class ConcurrentObjectDictionary from Object
 		return self
 
 	Func ToArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetOrAdd P1
 		if dotnet_isnamed(P1)
@@ -1150,7 +1322,11 @@ Class ConcurrentObjectDictionary from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1160,12 +1336,20 @@ Class ConcurrentObjectDictionary from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -1249,7 +1433,11 @@ Class ConcurrentStringDictionary from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetAlternateLookup",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetAlternateLookup"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetAlternateLookup")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: GetAlternateLookup needs its type arguments: GetAlternateLookup([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1276,10 +1464,18 @@ Class ConcurrentStringDictionary from Object
 		return self
 
 	Func ToArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetOrAdd P1
 		if dotnet_isnamed(P1)
@@ -1308,7 +1504,11 @@ Class ConcurrentStringDictionary from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1318,7 +1518,11 @@ Class ConcurrentStringDictionary from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1413,9 +1617,17 @@ Class BlockingObjectCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Take",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Take"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Take")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Take",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Take",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryTake P1
 		if dotnet_isnamed(P1)
@@ -1437,7 +1649,11 @@ Class BlockingObjectCollection from Object
 		return self
 
 	Func ToArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -1449,9 +1665,17 @@ Class BlockingObjectCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:GetConsumingEnumerable",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConsumingEnumerable"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s22:GetConsumingEnumerable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetConsumingEnumerable",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:GetConsumingEnumerable",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1496,7 +1720,11 @@ Class BlockingObjectCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1506,7 +1734,11 @@ Class BlockingObjectCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1555,10 +1787,18 @@ Class OrderablePartitioner from Partitioner1
 		return self
 
 	Func GetOrderablePartitions P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetOrderablePartitions",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:GetOrderablePartitions",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetOrderableDynamicPartitions 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetOrderableDynamicPartitions"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s29:GetOrderableDynamicPartitions")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getKeysOrderedInEachPartition
 		return dotnet_getp(nHandle,"KeysOrderedInEachPartition")

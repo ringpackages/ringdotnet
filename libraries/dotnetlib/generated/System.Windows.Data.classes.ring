@@ -404,7 +404,11 @@ Class BindingGroup from DependencyObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryGetValue P1,P2
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1) + dnPackItem(P2))
@@ -702,7 +706,11 @@ Class CollectionView from DispatcherObject
 		return self
 
 	Func DeferRefresh 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DeferRefresh"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DeferRefresh")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MoveCurrentToFirst 
 		return dnAnswer(dotnet_callt(nHandle,"MoveCurrentToFirst"))
@@ -735,7 +743,11 @@ Class CollectionView from DispatcherObject
 		return dn_x
 
 	Func GetItemAt P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetItemAt",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetItemAt",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DetachFromSourceCollection 
 		dotnet_calltv(nHandle,"DetachFromSourceCollection")
@@ -747,7 +759,11 @@ Class CollectionView from DispatcherObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -757,7 +773,11 @@ Class CollectionView from DispatcherObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1012,7 +1032,11 @@ Class CollectionViewSource from DependencyObject
 		return self
 
 	Func DeferRefresh 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DeferRefresh"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DeferRefresh")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDefaultView P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Data.CollectionViewSource, PresentationFramework',"s14:GetDefaultView",P1))
@@ -1304,7 +1328,11 @@ Class CompositeCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1314,12 +1342,20 @@ Class CompositeCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -1388,7 +1424,11 @@ Class DataSourceProvider from Object
 		return self
 
 	Func DeferRefresh 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DeferRefresh"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DeferRefresh")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1490,10 +1530,18 @@ Class IMultiValueConverter from DotNetObject
 		return self
 
 	Func Convert P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Convert",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Convert",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConvertBack P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ConvertBack",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ConvertBack",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IValueConverter from DotNetObject
@@ -1508,10 +1556,18 @@ Class IValueConverter from DotNetObject
 		return self
 
 	Func Convert P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Convert",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Convert",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConvertBack P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ConvertBack",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ConvertBack",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class PropertyGroupDescription from DotNetObject
@@ -1560,7 +1616,11 @@ Class PropertyGroupDescription from DotNetObject
 		return self
 
 	Func GroupNameFromItem P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GroupNameFromItem",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GroupNameFromItem",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func NamesMatch P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s10:NamesMatch",P1,P2)
@@ -1574,7 +1634,11 @@ Class PropertyGroupDescription from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeSortDescriptions"))
 
 	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToString 
 		return dnAnswer(dotnet_callt(nHandle,"ToString"))
@@ -2279,7 +2343,11 @@ Class BindingListCollectionView from CollectionView
 		return self
 
 	Func AddNew 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AddNew"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:AddNew")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CommitNew 
 		dotnet_calltv(nHandle,"CommitNew")
@@ -2488,10 +2556,18 @@ Class ListCollectionView from CollectionView
 		return self
 
 	Func AddNew 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AddNew"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:AddNew")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddNewItem P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddNewItem",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AddNewItem",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CommitNew 
 		dotnet_calltv(nHandle,"CommitNew")

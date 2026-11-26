@@ -234,7 +234,11 @@ Class DataAdapter from Component
 		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeFillLoadOption"))
 
 	Func FillSchema P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FillSchema",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:FillSchema",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Fill P1
 		dn_x = dotnet_call("s4:call",nHandle,"s4:Fill",P1)
@@ -242,7 +246,11 @@ Class DataAdapter from Component
 		return dn_x
 
 	Func GetFillParameters 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetFillParameters"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetFillParameters")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Update P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Update",P1)
@@ -426,10 +434,18 @@ Class DataColumnMappingCollection from MarshalByRefObject
 		return self
 
 	Func GetByDataSetColumn P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetByDataSetColumn",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetByDataSetColumn",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
@@ -465,7 +481,11 @@ Class DataColumnMappingCollection from MarshalByRefObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -475,12 +495,20 @@ Class DataColumnMappingCollection from MarshalByRefObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -534,13 +562,25 @@ Class DataTableMapping from MarshalByRefObject
 		return self
 
 	Func GetDataColumn P1,P2,P3,P4,P5
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetDataColumn",P1,P2,P3,P4,P5))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetDataColumn",P1,P2,P3,P4,P5)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetColumnMappingBySchemaAction P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetColumnMappingBySchemaAction",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s30:GetColumnMappingBySchemaAction",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDataTableBySchemaAction P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetDataTableBySchemaAction",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s26:GetDataTableBySchemaAction",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getColumnMappings
 		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ColumnMappings"))
@@ -613,10 +653,18 @@ Class DataTableMappingCollection from MarshalByRefObject
 		return self
 
 	Func GetByDataSetTable P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetByDataSetTable",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetByDataSetTable",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
@@ -649,7 +697,11 @@ Class DataTableMappingCollection from MarshalByRefObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -659,12 +711,20 @@ Class DataTableMappingCollection from MarshalByRefObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -698,18 +758,34 @@ Class DbBatch from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:ExecuteReader",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteReader"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s13:ExecuteReader")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteReader",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ExecuteReader",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExecuteReaderAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:ExecuteReaderAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteReaderAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s18:ExecuteReaderAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteReaderAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:ExecuteReaderAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExecuteNonQuery 
 		return dnAnswer(dotnet_callt(nHandle,"ExecuteNonQuery"))
@@ -719,21 +795,41 @@ Class DbBatch from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:ExecuteNonQueryAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s20:ExecuteNonQueryAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s20:ExecuteNonQueryAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ExecuteNonQueryAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:ExecuteNonQueryAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExecuteScalar 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteScalar"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ExecuteScalar")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExecuteScalarAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:ExecuteScalarAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteScalarAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s18:ExecuteScalarAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteScalarAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:ExecuteScalarAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Prepare 
 		dotnet_calltv(nHandle,"Prepare")
@@ -744,23 +840,39 @@ Class DbBatch from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:PrepareAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s12:PrepareAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s12:PrepareAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:PrepareAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:PrepareAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Cancel 
 		dotnet_calltv(nHandle,"Cancel")
 		return self
 
 	Func CreateBatchCommand 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:CreateBatchCommand"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:CreateBatchCommand")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func DisposeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DisposeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -769,7 +881,11 @@ Class DbBatch from Object
 
 	Func ConfigureAwait P1
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ConfigureAwait",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getBatchCommands
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:BatchCommands"))
@@ -817,7 +933,11 @@ Class DbBatchCommand from Object
 		return self
 
 	Func CreateParameter 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateParameter"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreateParameter")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -872,7 +992,11 @@ Class DbBatchCommandCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Add P1
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
@@ -923,7 +1047,11 @@ Class DbBatchCommandCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -933,12 +1061,20 @@ Class DbBatchCommandCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -998,7 +1134,11 @@ Class DbColumn from Object
 		return dn_x
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getAllowDBNull
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:AllowDBNull"))
@@ -1164,7 +1304,11 @@ Class DbCommand from Component
 		return self
 
 	Func CreateParameter 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateParameter"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreateParameter")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExecuteNonQuery 
 		return dnAnswer(dotnet_callt(nHandle,"ExecuteNonQuery"))
@@ -1174,39 +1318,75 @@ Class DbCommand from Component
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:ExecuteReader",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteReader"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s13:ExecuteReader")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteReader",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ExecuteReader",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExecuteNonQueryAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:ExecuteNonQueryAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s20:ExecuteNonQueryAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s20:ExecuteNonQueryAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ExecuteNonQueryAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:ExecuteNonQueryAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExecuteReaderAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:ExecuteReaderAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteReaderAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s18:ExecuteReaderAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteReaderAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:ExecuteReaderAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExecuteScalarAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:ExecuteScalarAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteScalarAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s18:ExecuteScalarAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteScalarAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:ExecuteScalarAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExecuteScalar 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteScalar"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ExecuteScalar")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Prepare 
 		dotnet_calltv(nHandle,"Prepare")
@@ -1217,16 +1397,32 @@ Class DbCommand from Component
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:PrepareAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s12:PrepareAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s12:PrepareAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:PrepareAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:PrepareAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DisposeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DisposeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConfigureAwait P1
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ConfigureAwait",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCommandText
 		return dnAnswer(dotnet_getp(nHandle,"CommandText"))
@@ -1309,27 +1505,51 @@ Class DbCommandBuilder from Component
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetInsertCommand",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetInsertCommand"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetInsertCommand")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetInsertCommand",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetInsertCommand",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetUpdateCommand P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetUpdateCommand",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetUpdateCommand"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetUpdateCommand")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetUpdateCommand",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetUpdateCommand",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDeleteCommand P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetDeleteCommand",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetDeleteCommand"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetDeleteCommand")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetDeleteCommand",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetDeleteCommand",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func QuoteIdentifier P1
 		return dnAnswer(dotnet_callt(nHandle,"QuoteIdentifier",P1))
@@ -1422,28 +1642,52 @@ Class DbConnection from Component
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:BeginTransaction",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s16:BeginTransaction"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s16:BeginTransaction")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:BeginTransaction",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:BeginTransaction",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BeginTransactionAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s21:BeginTransactionAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s21:BeginTransactionAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s21:BeginTransactionAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:BeginTransactionAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:BeginTransactionAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Close 
 		dotnet_calltv(nHandle,"Close")
 		return self
 
 	Func CloseAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:CloseAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:CloseAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DisposeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DisposeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ChangeDatabase P1
 		dotnet_calltv(nHandle,"ChangeDatabase",P1)
@@ -1453,13 +1697,25 @@ Class DbConnection from Component
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:ChangeDatabaseAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:ChangeDatabaseAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:ChangeDatabaseAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateBatch 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateBatch"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:CreateBatch")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateCommand 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:CreateCommand"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:CreateCommand")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EnlistTransaction P1
 		dotnet_callv("s4:call",nHandle,"s17:EnlistTransaction",P1)
@@ -1471,18 +1727,34 @@ Class DbConnection from Component
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:GetSchema",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetSchema"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetSchema")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetSchema",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetSchema",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetSchemaAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:GetSchemaAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetSchemaAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetSchemaAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetSchemaAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetSchemaAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Open 
 		dotnet_calltv(nHandle,"Open")
@@ -1493,13 +1765,25 @@ Class DbConnection from Component
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:OpenAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s9:OpenAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s9:OpenAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:OpenAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:OpenAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConfigureAwait P1
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ConfigureAwait",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func setStateChangeEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"StateChange",dnCallback(P1)])
@@ -1641,7 +1925,11 @@ Class DbConnectionStringBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1651,12 +1939,20 @@ Class DbConnectionStringBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -1730,23 +2026,39 @@ Class DbDataReader from MarshalByRefObject
 		return self
 
 	Func CloseAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:CloseAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:CloseAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func DisposeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DisposeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDataTypeName P1
 		return dnAnswer(dotnet_callt(nHandle,"GetDataTypeName",P1))
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetFieldType P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetFieldType",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetFieldType",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetName P1
 		return dnAnswer(dotnet_callt(nHandle,"GetName",P1))
@@ -1755,25 +2067,45 @@ Class DbDataReader from MarshalByRefObject
 		return dnAnswer(dotnet_callt(nHandle,"GetOrdinal",P1))
 
 	Func GetSchemaTable 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetSchemaTable"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetSchemaTable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetSchemaTableAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetSchemaTableAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetSchemaTableAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s19:GetSchemaTableAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetSchemaTableAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:GetSchemaTableAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetColumnSchemaAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:GetColumnSchemaAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetColumnSchemaAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetColumnSchemaAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetColumnSchemaAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetColumnSchemaAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetBoolean P1
 		return dnAnswer(dotnet_callt(nHandle,"GetBoolean",P1))
@@ -1787,7 +2119,11 @@ Class DbDataReader from MarshalByRefObject
 		return dn_x
 
 	Func GetChar P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetChar",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetChar",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetChars P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",nHandle,"s8:GetChars",P1,P2,P3,P4,P5)
@@ -1795,10 +2131,18 @@ Class DbDataReader from MarshalByRefObject
 		return dn_x
 
 	Func GetData P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetData",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetData",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDateTime P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetDateTime",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetDateTime",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDecimal P1
 		return dnAnswer(dotnet_callt(nHandle,"GetDecimal",P1))
@@ -1810,7 +2154,11 @@ Class DbDataReader from MarshalByRefObject
 		return dnAnswer(dotnet_callt(nHandle,"GetFloat",P1))
 
 	Func GetGuid P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetGuid",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetGuid",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInt16 P1
 		return dnAnswer(dotnet_callt(nHandle,"GetInt16",P1))
@@ -1822,10 +2170,18 @@ Class DbDataReader from MarshalByRefObject
 		return dnAnswer(dotnet_callt(nHandle,"GetInt64",P1))
 
 	Func GetProviderSpecificFieldType P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetProviderSpecificFieldType",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s28:GetProviderSpecificFieldType",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetProviderSpecificValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetProviderSpecificValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:GetProviderSpecificValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetProviderSpecificValues P1
 		dn_x = dotnet_call("s4:call",nHandle,"s25:GetProviderSpecificValues",P1)
@@ -1836,22 +2192,42 @@ Class DbDataReader from MarshalByRefObject
 		return dnAnswer(dotnet_callt(nHandle,"GetString",P1))
 
 	Func GetStream P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetStream",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetStream",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetTextReader P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetTextReader",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetTextReader",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetFieldValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetFieldValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetFieldValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetFieldValueAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetFieldValueAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetFieldValueAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetFieldValueAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetValues P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:GetValues",P1)
@@ -1865,7 +2241,11 @@ Class DbDataReader from MarshalByRefObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:IsDBNullAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:IsDBNullAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:IsDBNullAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func NextResult 
 		return dnAnswer(dotnet_callt(nHandle,"NextResult"))
@@ -1878,22 +2258,42 @@ Class DbDataReader from MarshalByRefObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:ReadAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s9:ReadAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s9:ReadAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ReadAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ReadAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func NextResultAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:NextResultAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s15:NextResultAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s15:NextResultAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:NextResultAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:NextResultAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetColumnSchema 
 		dnEnsureExt("System.Data.Common.DbDataReaderExtensions, System.Data.Common")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetColumnSchema"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetColumnSchema")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CanGetColumnSchema 
 		dnEnsureExt("System.Data.Common.DbDataReaderExtensions, System.Data.Common")
@@ -1907,7 +2307,11 @@ Class DbDataReader from MarshalByRefObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1917,16 +2321,28 @@ Class DbDataReader from MarshalByRefObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func ConfigureAwait P1
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ConfigureAwait",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getDepth
 		return dotnet_getp(nHandle,"Depth")
@@ -2015,7 +2431,11 @@ Class DbDataRecord from Object
 		return dn_x
 
 	Func GetChar P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetChar",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetChar",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetChars P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",nHandle,"s8:GetChars",P1,P2,P3,P4,P5)
@@ -2023,13 +2443,21 @@ Class DbDataRecord from Object
 		return dn_x
 
 	Func GetData P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetData",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetData",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDataTypeName P1
 		return dnAnswer(dotnet_callt(nHandle,"GetDataTypeName",P1))
 
 	Func GetDateTime P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetDateTime",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetDateTime",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDecimal P1
 		return dnAnswer(dotnet_callt(nHandle,"GetDecimal",P1))
@@ -2038,13 +2466,21 @@ Class DbDataRecord from Object
 		return dnAnswer(dotnet_callt(nHandle,"GetDouble",P1))
 
 	Func GetFieldType P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetFieldType",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetFieldType",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetFloat P1
 		return dnAnswer(dotnet_callt(nHandle,"GetFloat",P1))
 
 	Func GetGuid P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetGuid",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetGuid",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInt16 P1
 		return dnAnswer(dotnet_callt(nHandle,"GetInt16",P1))
@@ -2065,7 +2501,11 @@ Class DbDataRecord from Object
 		return dnAnswer(dotnet_callt(nHandle,"GetString",P1))
 
 	Func GetValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetValues P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:GetValues",P1)
@@ -2081,7 +2521,11 @@ Class DbDataRecord from Object
 		return dn_x
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getFieldCount
 		return dotnet_getp(nHandle,"FieldCount")
@@ -2104,38 +2548,70 @@ Class DbDataSource from Object
 		return self
 
 	Func CreateConnection 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateConnection"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:CreateConnection")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OpenConnection 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:OpenConnection"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:OpenConnection")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OpenConnectionAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:OpenConnectionAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s19:OpenConnectionAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s19:OpenConnectionAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:OpenConnectionAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:OpenConnectionAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateCommand P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:CreateCommand",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s13:CreateCommand"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s13:CreateCommand")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:CreateCommand",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:CreateCommand",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateBatch 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateBatch"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:CreateBatch")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func DisposeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DisposeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2144,7 +2620,11 @@ Class DbDataSource from Object
 
 	Func ConfigureAwait P1
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ConfigureAwait",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getConnectionString
 		return dnAnswer(dotnet_getp(nHandle,"ConnectionString"))
@@ -2165,7 +2645,11 @@ Class DbDataSourceEnumerator from Object
 		return self
 
 	Func GetDataSources 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetDataSources"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetDataSources")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2867,7 +3351,11 @@ Class DbParameterCollection from MarshalByRefObject
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
@@ -2894,7 +3382,11 @@ Class DbParameterCollection from MarshalByRefObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -2904,12 +3396,20 @@ Class DbParameterCollection from MarshalByRefObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -2999,34 +3499,74 @@ Class DbProviderFactory from Object
 		return self
 
 	Func CreateBatch 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateBatch"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:CreateBatch")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateBatchCommand 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:CreateBatchCommand"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:CreateBatchCommand")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateCommand 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:CreateCommand"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:CreateCommand")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateCommandBuilder 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:CreateCommandBuilder"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:CreateCommandBuilder")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateConnection 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateConnection"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:CreateConnection")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateConnectionStringBuilder 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s29:CreateConnectionStringBuilder"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s29:CreateConnectionStringBuilder")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateDataAdapter 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:CreateDataAdapter"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:CreateDataAdapter")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateParameter 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateParameter"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreateParameter")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateDataSourceEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s26:CreateDataSourceEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s26:CreateDataSourceEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateDataSource P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateDataSource",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:CreateDataSource",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3104,16 +3644,28 @@ Class DbTransaction from MarshalByRefObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CommitAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:CommitAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:CommitAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CommitAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:CommitAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func DisposeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DisposeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Rollback P1
 		dotnet_calltdv(nHandle,"Rollback",P1)
@@ -3124,21 +3676,37 @@ Class DbTransaction from MarshalByRefObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:RollbackAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s13:RollbackAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s13:RollbackAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:RollbackAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:RollbackAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SaveAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:SaveAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:SaveAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:SaveAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReleaseAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ReleaseAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ReleaseAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ReleaseAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Save P1
 		dotnet_calltv(nHandle,"Save",P1)
@@ -3146,7 +3714,11 @@ Class DbTransaction from MarshalByRefObject
 
 	Func ConfigureAwait P1
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ConfigureAwait",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getConnection
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Connection"))
@@ -3179,7 +3751,11 @@ Class IDbColumnSchemaGenerator from DotNetObject
 		return self
 
 	Func GetColumnSchema 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetColumnSchema"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetColumnSchema")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class RowUpdatedEventArgs from EventArgs

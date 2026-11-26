@@ -88,19 +88,35 @@ Class AssemblyLoadContext from Object
 		return self
 
 	Func LoadFromAssemblyName P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:LoadFromAssemblyName",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:LoadFromAssemblyName",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LoadFromAssemblyPath P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:LoadFromAssemblyPath",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:LoadFromAssemblyPath",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LoadFromNativeImagePath P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:LoadFromNativeImagePath",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:LoadFromNativeImagePath",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LoadFromStream P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:LoadFromStream",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:LoadFromStream",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:LoadFromStream",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Unload 
 		dotnet_calltv(nHandle,"Unload")
@@ -114,7 +130,11 @@ Class AssemblyLoadContext from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:EnterContextualReflection",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s25:EnterContextualReflection"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s25:EnterContextualReflection")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib',"s25:EnterContextualReflection",P1))
 

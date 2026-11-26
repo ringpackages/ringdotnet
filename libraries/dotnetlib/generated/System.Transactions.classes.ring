@@ -248,7 +248,11 @@ Class IPromotableSinglePhaseNotification from DotNetObject
 		return self
 
 	Func Promote 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Promote"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Promote")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ISimpleTransactionSuperior from DotNetObject
@@ -267,7 +271,11 @@ Class ISimpleTransactionSuperior from DotNetObject
 		return self
 
 	Func Promote 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Promote"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Promote")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ISinglePhaseNotification from DotNetObject
@@ -319,7 +327,11 @@ Class ITransactionPromoter from DotNetObject
 		return self
 
 	Func Promote 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Promote"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Promote")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class Transaction from Object
@@ -344,23 +356,43 @@ Class Transaction from Object
 		return dn_x
 
 	Func GetPromotedToken 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetPromotedToken"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetPromotedToken")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EnlistDurable P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:EnlistDurable",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:EnlistDurable",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Rollback P1
 		dotnet_calltdv(nHandle,"Rollback",P1)
 		return self
 
 	Func EnlistVolatile P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:EnlistVolatile",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:EnlistVolatile",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DependentClone P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:DependentClone",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:DependentClone",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -370,7 +402,11 @@ Class Transaction from Object
 		return dnAnswer(dotnet_calltd1(nHandle,"EnlistPromotableSinglePhase",P1))
 
 	Func PromoteAndEnlistDurable P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:PromoteAndEnlistDurable",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:PromoteAndEnlistDurable",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetDistributedTransactionIdentifier P1,P2
 		dotnet_callv("s4:call",nHandle,"s35:SetDistributedTransactionIdentifier",P1,P2)
@@ -768,7 +804,11 @@ Class CommittableTransaction from Transaction
 		return self
 
 	Func BeginCommit P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:BeginCommit",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:BeginCommit",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Commit 
 		dotnet_calltv(nHandle,"Commit")
@@ -816,7 +856,11 @@ Class PreparingEnlistment from Enlistment
 		return self
 
 	Func RecoveryInformation 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:RecoveryInformation"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:RecoveryInformation")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class SinglePhaseEnlistment from Enlistment

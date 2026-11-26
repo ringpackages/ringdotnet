@@ -134,7 +134,11 @@ Class CaptureCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -152,7 +156,11 @@ Class CaptureCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -162,12 +170,20 @@ Class CaptureCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getIsReadOnly
 		return dotnet_getp(nHandle,"IsReadOnly")
@@ -271,7 +287,11 @@ Class GroupCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -295,7 +315,11 @@ Class GroupCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -305,12 +329,20 @@ Class GroupCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getIsReadOnly
 		return dotnet_getp(nHandle,"IsReadOnly")
@@ -366,7 +398,11 @@ Class MatchCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -384,7 +420,11 @@ Class MatchCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -394,12 +434,20 @@ Class MatchCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getIsReadOnly
 		return dotnet_getp(nHandle,"IsReadOnly")
@@ -461,10 +509,18 @@ Class Regex from Object
 		return self
 
 	Func GetGroupNames 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetGroupNames"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetGroupNames")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetGroupNumbers 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetGroupNumbers"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetGroupNumbers")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GroupNameFromNumber P1
 		return dnAnswer(dotnet_callt(nHandle,"GroupNameFromNumber",P1))
@@ -509,7 +565,11 @@ Class Regex from Object
 			ok
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Match",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Match",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Match",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Matches P1
 		if dotnet_isnamed(P1)
@@ -518,7 +578,11 @@ Class Regex from Object
 			ok
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Matches",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Matches",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Matches",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Replace P1
 		if dotnet_isnamed(P1)
@@ -540,7 +604,11 @@ Class Regex from Object
 			ok
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Split",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Split",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Split",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EnumerateMatches P1
 		if dotnet_isnamed(P1)
@@ -549,7 +617,11 @@ Class Regex from Object
 			ok
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:EnumerateMatches",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:EnumerateMatches",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:EnumerateMatches",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EnumerateSplits P1
 		if dotnet_isnamed(P1)
@@ -558,7 +630,11 @@ Class Regex from Object
 			ok
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:EnumerateSplits",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:EnumerateSplits",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:EnumerateSplits",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -787,7 +863,11 @@ Class Match from Group
 		return self
 
 	Func NextMatch 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:NextMatch"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:NextMatch")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Result P1
 		return dnAnswer(dotnet_callt(nHandle,"Result",P1))

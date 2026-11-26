@@ -257,7 +257,11 @@ Class ActionFilterAttribute from Attribute
 		return self
 
 	Func OnActionExecutionAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:OnActionExecutionAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:OnActionExecutionAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OnResultExecuting P1
 		dotnet_callv("s4:call",nHandle,"s17:OnResultExecuting",P1)
@@ -270,7 +274,11 @@ Class ActionFilterAttribute from Attribute
 		return self
 
 	Func OnResultExecutionAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:OnResultExecutionAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:OnResultExecutionAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getOrder
 		return dotnet_getp(nHandle,"Order")
@@ -294,7 +302,11 @@ Class ExceptionFilterAttribute from Attribute
 		return self
 
 	Func OnExceptionAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:OnExceptionAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:OnExceptionAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OnException P1
 		dotnet_callv("s4:call",nHandle,"s11:OnException",P1)
@@ -336,18 +348,34 @@ Class FilterCollection from Collection
 		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s3:Add")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Add",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddService P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddService",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddService"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:AddService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddService",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AddService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class FilterContext from ActionContext
@@ -373,7 +401,11 @@ Class FilterContext from ActionContext
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:FindEffectivePolicy",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s19:FindEffectivePolicy"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s19:FindEffectivePolicy")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: FindEffectivePolicy needs its type arguments: FindEffectivePolicy([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -629,7 +661,11 @@ Class IAsyncActionFilter from DotNetObject
 		return self
 
 	Func OnActionExecutionAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:OnActionExecutionAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:OnActionExecutionAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAsyncAlwaysRunResultFilter from DotNetObject
@@ -644,7 +680,11 @@ Class IAsyncAlwaysRunResultFilter from DotNetObject
 		return self
 
 	Func OnResultExecutionAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:OnResultExecutionAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:OnResultExecutionAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAsyncAuthorizationFilter from DotNetObject
@@ -659,7 +699,11 @@ Class IAsyncAuthorizationFilter from DotNetObject
 		return self
 
 	Func OnAuthorizationAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:OnAuthorizationAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:OnAuthorizationAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAsyncExceptionFilter from DotNetObject
@@ -674,7 +718,11 @@ Class IAsyncExceptionFilter from DotNetObject
 		return self
 
 	Func OnExceptionAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:OnExceptionAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:OnExceptionAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAsyncPageFilter from DotNetObject
@@ -689,10 +737,18 @@ Class IAsyncPageFilter from DotNetObject
 		return self
 
 	Func OnPageHandlerSelectionAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:OnPageHandlerSelectionAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:OnPageHandlerSelectionAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OnPageHandlerExecutionAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:OnPageHandlerExecutionAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:OnPageHandlerExecutionAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAsyncResourceFilter from DotNetObject
@@ -707,7 +763,11 @@ Class IAsyncResourceFilter from DotNetObject
 		return self
 
 	Func OnResourceExecutionAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:OnResourceExecutionAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:OnResourceExecutionAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAsyncResultFilter from DotNetObject
@@ -722,7 +782,11 @@ Class IAsyncResultFilter from DotNetObject
 		return self
 
 	Func OnResultExecutionAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:OnResultExecutionAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:OnResultExecutionAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAuthorizationFilter from DotNetObject
@@ -794,7 +858,11 @@ Class IFilterFactory from DotNetObject
 		return self
 
 	Func CreateInstance P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CreateInstance",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getIsReusable
 		return dotnet_getp(nHandle,"IsReusable")
@@ -960,7 +1028,11 @@ Class ResultFilterAttribute from Attribute
 		return self
 
 	Func OnResultExecutionAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:OnResultExecutionAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:OnResultExecutionAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getOrder
 		return dotnet_getp(nHandle,"Order")

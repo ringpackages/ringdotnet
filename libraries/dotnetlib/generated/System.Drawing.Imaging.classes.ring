@@ -693,7 +693,11 @@ Class EncoderParameter from Object
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -854,7 +858,11 @@ Class ImageAttributes from Object
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetColorMatrix P1
 		dotnet_calltd1v(nHandle,"SetColorMatrix",P1)
@@ -1095,7 +1103,11 @@ Class MetaHeader from Object
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1193,12 +1205,20 @@ Class Metafile from Image
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:GetMetafileHeader",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetMetafileHeader"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetMetafileHeader")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.Imaging.Metafile, System.Drawing.Common',"s17:GetMetafileHeader",P1))
 
 	Func GetHenhmetafile 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetHenhmetafile"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetHenhmetafile")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class MetafileHeader from Object
@@ -1248,7 +1268,11 @@ Class MetafileHeader from Object
 		return dnAnswer(dotnet_callt(nHandle,"IsDisplay"))
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1333,7 +1357,11 @@ Class PropertyItem from Object
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

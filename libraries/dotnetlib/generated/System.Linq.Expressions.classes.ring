@@ -256,7 +256,11 @@ Class CatchBlock from Object
 		return self
 
 	Func Update P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -304,10 +308,18 @@ Class ElementInit from Object
 		return self
 
 	Func GetArgument P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetArgument",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetArgument",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Update P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -349,16 +361,32 @@ Class ExpressionsExpression from Object
 		return self
 
 	Func Reduce 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Reduce"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Reduce")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReduceAndCheck 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ReduceAndCheck"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ReduceAndCheck")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReduceExtensions 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ReduceExtensions"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:ReduceExtensions")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -977,21 +1005,33 @@ Class ExpressionsExpression from Object
 
 	Func CreateValueBufferReadValueExpression P1,P2,P3
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s36:CreateValueBufferReadValueExpression",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s36:CreateValueBufferReadValueExpression",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateKeyValuesExpression P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:CreateKeyValuesExpression",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:CreateKeyValuesExpression",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:CreateKeyValuesExpression",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateEFPropertyExpression P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s26:CreateEFPropertyExpression",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s26:CreateEFPropertyExpression",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s26:CreateEFPropertyExpression",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getNodeType
 		return dnAnswer(dotnet_getp(nHandle,"NodeType"))
@@ -1030,10 +1070,18 @@ Class ExpressionVisitor from Object
 			ok
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Visit",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Visit",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func VisitAndConvert P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:VisitAndConvert",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:VisitAndConvert",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1055,7 +1103,11 @@ Class IArgumentProvider from DotNetObject
 		return self
 
 	Func GetArgument P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetArgument",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetArgument",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getArgumentCount
 		return dotnet_getp(nHandle,"ArgumentCount")
@@ -1079,13 +1131,25 @@ Class IDynamicExpression from DotNetObject
 		return self
 
 	Func Rewrite P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Rewrite",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Rewrite",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateCallSite 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateCallSite"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CreateCallSite")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetArgument P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetArgument",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetArgument",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getDelegateType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s12:DelegateType"))
@@ -1115,7 +1179,11 @@ Class LabelTarget from Object
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1182,7 +1250,11 @@ Class SwitchCase from Object
 		return self
 
 	Func Update P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1267,7 +1339,11 @@ Class BinaryExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getRight
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Right"))
@@ -1322,7 +1398,11 @@ Class BlockExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getExpressions
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Expressions"))
@@ -1359,7 +1439,11 @@ Class ConditionalExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getTest
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Test"))
@@ -1483,7 +1567,11 @@ Class DynamicExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dynamic P1
 		if dotnet_isnamed(P1)
@@ -1537,7 +1625,11 @@ Class DynamicExpressionVisitor from ExpressionVisitor
 		return self
 
 	Func Visit P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Visit",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class GotoExpression from ExpressionsExpression
@@ -1556,7 +1648,11 @@ Class GotoExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
@@ -1594,10 +1690,18 @@ Class IndexExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetArgument P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetArgument",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetArgument",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getObject
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Object"))
@@ -1640,10 +1744,18 @@ Class InvocationExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetArgument P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetArgument",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetArgument",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getExpression
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Expression"))
@@ -1679,7 +1791,11 @@ Class LabelExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getTarget
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Target"))
@@ -1718,25 +1834,49 @@ Class LambdaExpression from ExpressionsExpression
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Compile",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s7:Compile"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s7:Compile")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Compile",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Compile",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetPropertyAccess 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetPropertyAccess"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetPropertyAccess")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetMemberAccess 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetMemberAccess"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetMemberAccess")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetPropertyAccessList 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetPropertyAccessList"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:GetPropertyAccessList")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetMemberAccessList 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetMemberAccessList"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:GetMemberAccessList")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getParameters
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Parameters"))
@@ -1796,7 +1936,11 @@ Class ListInitExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getNewExpression
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:NewExpression"))
@@ -1827,7 +1971,11 @@ Class LoopExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getBody
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Body"))
@@ -1862,7 +2010,11 @@ Class MemberAssignment from MemberBinding
 		return self
 
 	Func Update P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getExpression
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Expression"))
@@ -1886,11 +2038,19 @@ Class MemberExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Assign P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Assign",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Assign",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getMember
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Member"))
@@ -1920,7 +2080,11 @@ Class MemberInitExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getNewExpression
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:NewExpression"))
@@ -1949,7 +2113,11 @@ Class MemberListBinding from MemberBinding
 		return self
 
 	Func Update P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getInitializers
 		return dnObj(dotnet_callo("s3:get",nHandle,"s12:Initializers"))
@@ -1972,7 +2140,11 @@ Class MemberMemberBinding from MemberBinding
 		return self
 
 	Func Update P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getBindings
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Bindings"))
@@ -1998,10 +2170,18 @@ Class MethodCallExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetArgument P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetArgument",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetArgument",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryGetEFPropertyArguments 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore")
@@ -2050,7 +2230,11 @@ Class NewArrayExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getExpressions
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Expressions"))
@@ -2076,10 +2260,18 @@ Class NewExpression from ExpressionsExpression
 		return self
 
 	Func GetArgument P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetArgument",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetArgument",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Update P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getConstructor
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:Constructor"))
@@ -2147,7 +2339,11 @@ Class RuntimeVariablesExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getVariables
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Variables"))
@@ -2173,7 +2369,11 @@ Class SwitchExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getSwitchValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:SwitchValue"))
@@ -2217,7 +2417,11 @@ Class TryExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getBody
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Body"))
@@ -2259,7 +2463,11 @@ Class TypeBinaryExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getExpression
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Expression"))
@@ -2291,7 +2499,11 @@ Class UnaryExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getOperand
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Operand"))
@@ -2334,6 +2546,10 @@ Class Expression1 from LambdaExpression
 		return self
 
 	Func Update P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 

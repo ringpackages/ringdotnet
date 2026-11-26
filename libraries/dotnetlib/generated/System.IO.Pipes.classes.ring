@@ -129,7 +129,11 @@ Class PipeAccessRule from DotNetObject
 		return self
 
 	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToString 
 		return dnAnswer(dotnet_callt(nHandle,"ToString"))
@@ -200,7 +204,11 @@ Class PipeAuditRule from DotNetObject
 		return self
 
 	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToString 
 		return dnAnswer(dotnet_callt(nHandle,"ToString"))
@@ -329,19 +337,39 @@ Class PipeSecurity from DotNetObject
 		return self
 
 	Func AccessRuleFactory P1,P2,P3,P4,P5,P6
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AccessRuleFactory",P1,P2,P3,P4,P5,P6))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:AccessRuleFactory",P1,P2,P3,P4,P5,P6)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AuditRuleFactory P1,P2,P3,P4,P5,P6
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AuditRuleFactory",P1,P2,P3,P4,P5,P6))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:AuditRuleFactory",P1,P2,P3,P4,P5,P6)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetAccessRules P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAccessRules",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetAccessRules",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetAuditRules P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAuditRules",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetAuditRules",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetOwner P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetOwner",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetOwner",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetOwner P1
 		dotnet_callv("s4:call",nHandle,"s8:SetOwner",P1)
@@ -349,7 +377,11 @@ Class PipeSecurity from DotNetObject
 		return self
 
 	Func GetGroup P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetGroup",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetGroup",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetGroup P1
 		dotnet_callv("s4:call",nHandle,"s8:SetGroup",P1)
@@ -384,7 +416,11 @@ Class PipeSecurity from DotNetObject
 		return self
 
 	Func GetSecurityDescriptorBinaryForm 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s31:GetSecurityDescriptorBinaryForm"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s31:GetSecurityDescriptorBinaryForm")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetSecurityDescriptorBinaryForm P1
 		dotnet_calltd1v(nHandle,"SetSecurityDescriptorBinaryForm",P1)
@@ -397,7 +433,11 @@ Class PipeSecurity from DotNetObject
 		return dnSend("s4:call",nHandle,"s15:ModifyAuditRule",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToString 
 		return dnAnswer(dotnet_callt(nHandle,"ToString"))
@@ -479,7 +519,11 @@ Class PipeStream from Stream
 
 	Func GetAccessControl 
 		dnEnsureExt("System.IO.Pipes.PipesAclExtensions, System.IO.Pipes")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetAccessControl"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetAccessControl")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetAccessControl P1
 		dnEnsureExt("System.IO.Pipes.PipesAclExtensions, System.IO.Pipes")
@@ -678,12 +722,24 @@ Class NamedPipeServerStream from PipeStream
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:WaitForConnectionAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s22:WaitForConnectionAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s22:WaitForConnectionAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:WaitForConnectionAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:WaitForConnectionAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BeginWaitForConnection P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:BeginWaitForConnection",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:BeginWaitForConnection",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EndWaitForConnection P1
 		dotnet_callv("s4:call",nHandle,"s20:EndWaitForConnection",P1)
@@ -752,9 +808,17 @@ Class NamedPipeClientStream from PipeStream
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ConnectAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s12:ConnectAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s12:ConnectAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ConnectAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ConnectAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getNumberOfServerInstances
 		return dotnet_getp(nHandle,"NumberOfServerInstances")

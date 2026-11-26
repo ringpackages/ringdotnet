@@ -191,6 +191,9 @@ namespace RingDotNet
 						WriteItem(ms, 'l', inner.ToArray());
 						return;
 					}
+				case SameAsReceiver:
+					WriteItem(ms, 'q', new byte[0]);
+					return;
 				default:
 					WriteItem(ms, 'o', Encoding.UTF8.GetBytes(Register(value).ToString(Inv) + TypeChain(value)));
 					return;

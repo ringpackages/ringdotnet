@@ -164,10 +164,18 @@ Class DynamicRouteValueTransformer from Object
 		return self
 
 	Func TransformAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:TransformAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:TransformAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FilterAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:FilterAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:FilterAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -318,7 +326,11 @@ Class IUrlHelperFactory from DotNetObject
 		return self
 
 	Func GetUrlHelper P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetUrlHelper",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetUrlHelper",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class KnownRouteValueConstraint from Object
@@ -557,7 +569,11 @@ Class UrlHelperFactory from Object
 		return self
 
 	Func GetUrlHelper P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetUrlHelper",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetUrlHelper",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

@@ -303,7 +303,7 @@ func returnCode cRequest, cReturnType, nByRef
 	but nByRef = 0 and isPrimitiveType(cReturnType)
 		return nativeCall(cRequest,"value")
 	but nByRef = 0
-		return "return dnObj(" + nativeCall(cRequest,"object") + ")" + nl
+		return objectReturnCode(cRequest)
 	ok
 	return "return " + sendCall(cRequest) + nl
 
@@ -409,6 +409,18 @@ func nativeCall cRequest, cMode
 	off
 	# a text, a number or a yes/no: any other answer (null...) comes back as a list that dnFinish reads
 	return "dn_x = dotnet_call(" + cNative + ")" + nl + "		if islist(dn_x) return dnFinish(dn_x[2]) ok" + nl + "		return dn_x" + nl
+
+# The statements that return the object that a call answers. A call on an object ("call" with the handle of the object) asks the extension with the operation "calls":
+# when the method answered the object itself (StringBuilder.Append, every fluent method), the answer is -1 and the method returns self, so no new wrapper is made
+# (and no new handle: the wrapper of the receiver is the answer). Any other object is wrapped by dnObj, as before.
+func objectReturnCode cRequest
+	cCall = nativeCall(cRequest,"object")
+	cPrefix = 'dotnet_callo("s4:call",nHandle,'
+	if left(cCall,len(cPrefix)) = cPrefix
+		cCall = 'dotnet_callo("s5:calls",nHandle,' + right(cCall,len(cCall) - len(cPrefix))
+		return "dn_x = " + cCall + nl + "		if isnumber(dn_x) and dn_x = -1" + nl + "			return self" + nl + "		ok" + nl + "		return dnObj(dn_x)" + nl
+	ok
+	return "return dnObj(" + cCall + ")" + nl
 
 # The code of a request for a member of an object. The generated method does not make the target object and the list of the request:
 # it passes the handle as a number and the pieces that never change (the operation and the name) as ready wire items, so that the
@@ -1152,7 +1164,7 @@ func namedCall cRequest, cMode, cIndent
 	on "void"
 		return nativeCall(cRequest,"void") + cIndent + "return self" + nl
 	on "object"
-		return "return dnObj(" + nativeCall(cRequest,"object") + ")" + nl
+		return objectReturnCode(cRequest)
 	off
 	return nativeCall(cRequest,cMode)
 

@@ -1360,10 +1360,18 @@ Class AlternationConverter from Object
 		return self
 
 	Func Convert P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Convert",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Convert",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConvertBack P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ConvertBack",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ConvertBack",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1398,10 +1406,18 @@ Class BooleanToVisibilityConverter from Object
 		return self
 
 	Func Convert P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Convert",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Convert",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConvertBack P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ConvertBack",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ConvertBack",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1430,10 +1446,18 @@ Class BorderGapMaskConverter from Object
 		return self
 
 	Func Convert P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Convert",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Convert",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConvertBack P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ConvertBack",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ConvertBack",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1782,7 +1806,11 @@ Class ColumnDefinitionCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1792,12 +1820,20 @@ Class ColumnDefinitionCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -2997,7 +3033,11 @@ Class DataGrid from MultiSelector
 		return self
 
 	Func ColumnFromDisplayIndex P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:ColumnFromDisplayIndex",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:ColumnFromDisplayIndex",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetDetailsVisibilityForItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s27:SetDetailsVisibilityForItem",P1,P2)
@@ -3005,7 +3045,11 @@ Class DataGrid from MultiSelector
 		return self
 
 	Func GetDetailsVisibilityForItem P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDetailsVisibilityForItem",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:GetDetailsVisibilityForItem",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ClearDetailsVisibilityForItem P1
 		dotnet_callv("s4:call",nHandle,"s29:ClearDetailsVisibilityForItem",P1)
@@ -4309,10 +4353,18 @@ Class DataGridColumn from DependencyObject
 		return self
 
 	Func GetCellContent P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetCellContent",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetCellContent",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OnCopyingCellClipboardContent P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s29:OnCopyingCellClipboardContent",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s29:OnCopyingCellClipboardContent",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OnPastingCellClipboardContent P1,P2
 		dotnet_callv("s4:call",nHandle,"s29:OnPastingCellClipboardContent",P1,P2)
@@ -4987,7 +5039,11 @@ Class DataTemplateSelector from Object
 		return self
 
 	Func SelectTemplate P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:SelectTemplate",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:SelectTemplate",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -6624,7 +6680,11 @@ Class InkCanvas from FrameworkElement
 		return self
 
 	Func GetEnabledGestures 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetEnabledGestures"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetEnabledGestures")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetEnabledGestures P1
 		dotnet_callv("s4:call",nHandle,"s18:SetEnabledGestures",P1)
@@ -6632,20 +6692,36 @@ Class InkCanvas from FrameworkElement
 		return self
 
 	Func GetSelectionBounds 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetSelectionBounds"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetSelectionBounds")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetSelectedElements 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetSelectedElements"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:GetSelectedElements")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetSelectedStrokes 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetSelectedStrokes"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetSelectedStrokes")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Select P1
 		dotnet_calltd1v(nHandle,"Select",P1)
 		return self
 
 	Func HitTestSelection P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:HitTestSelection",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:HitTestSelection",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopySelection 
 		dotnet_calltv(nHandle,"CopySelection")
@@ -7013,7 +7089,11 @@ Class InkCanvasGestureEventArgs from RoutedEventArgs
 		return self
 
 	Func GetGestureRecognitionResults 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetGestureRecognitionResults"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s28:GetGestureRecognitionResults")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getStrokes
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Strokes"))
@@ -7046,7 +7126,11 @@ Class InkCanvasSelectionChangingEventArgs from CancelEventArgs
 		return self
 
 	Func GetSelectedElements 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetSelectedElements"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:GetSelectedElements")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetSelectedStrokes P1
 		dotnet_callv("s4:call",nHandle,"s18:SetSelectedStrokes",P1)
@@ -7054,7 +7138,11 @@ Class InkCanvasSelectionChangingEventArgs from CancelEventArgs
 		return self
 
 	Func GetSelectedStrokes 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetSelectedStrokes"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetSelectedStrokes")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class InkCanvasSelectionEditingEventArgs from CancelEventArgs
@@ -7204,7 +7292,11 @@ Class ItemCollection from CollectionView
 		return self
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -7283,19 +7375,35 @@ Class ItemContainerGenerator from Object
 		return self
 
 	Func GenerateBatches 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GenerateBatches"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GenerateBatches")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ItemFromContainer P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ItemFromContainer",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ItemFromContainer",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ContainerFromItem P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ContainerFromItem",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ContainerFromItem",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IndexFromContainer P1
 		return dnAnswer(dotnet_calltd1(nHandle,"IndexFromContainer",P1))
 
 	Func ContainerFromIndex P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ContainerFromIndex",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:ContainerFromIndex",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -7409,7 +7517,11 @@ Class ItemContainerTemplateSelector from Object
 		return self
 
 	Func SelectTemplate P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:SelectTemplate",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:SelectTemplate",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -7929,10 +8041,18 @@ Class MenuScrollingVisibilityConverter from Object
 		return self
 
 	Func Convert P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Convert",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Convert",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConvertBack P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ConvertBack",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ConvertBack",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -8311,7 +8431,11 @@ Class WpfPrintDialog from Object
 		return self
 
 	Func ShowDialog 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ShowDialog"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ShowDialog")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func PrintVisual P1,P2
 		dotnet_callv("s4:call",nHandle,"s11:PrintVisual",P1,P2)
@@ -8573,16 +8697,32 @@ Class WpfRichTextBox from WpfTextBoxBase
 		return self
 
 	Func GetPositionFromPoint P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetPositionFromPoint",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetPositionFromPoint",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetSpellingError P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetSpellingError",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetSpellingError",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetSpellingErrorRange P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetSpellingErrorRange",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:GetSpellingErrorRange",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetNextSpellingErrorPosition P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetNextSpellingErrorPosition",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s28:GetNextSpellingErrorPosition",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ShouldSerializeDocument 
 		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeDocument"))
@@ -8690,7 +8830,11 @@ Class RowDefinitionCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -8700,12 +8844,20 @@ Class RowDefinitionCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -9359,7 +9511,11 @@ Class StyleSelector from Object
 		return self
 
 	Func SelectStyle P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SelectStyle",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:SelectStyle",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -9585,7 +9741,11 @@ Class TextBlock from FrameworkElement
 		return self
 
 	Func GetPositionFromPoint P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetPositionFromPoint",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetPositionFromPoint",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ShouldSerializeText 
 		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeText"))
@@ -9689,21 +9849,33 @@ Class TextBlock from FrameworkElement
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:GetKeyedService",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetKeyedService",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetKeyedService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetRequiredKeyedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:GetRequiredKeyedService",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:GetRequiredKeyedService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetKeyedServices P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetKeyedServices",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetKeyedServices",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
@@ -9711,7 +9883,11 @@ Class TextBlock from FrameworkElement
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetService"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: GetService needs its type arguments: GetService([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -9721,9 +9897,17 @@ Class TextBlock from FrameworkElement
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetRequiredService",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetRequiredService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetRequiredService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetServices P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
@@ -9731,17 +9915,33 @@ Class TextBlock from FrameworkElement
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetServices",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetServices")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetServices",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateScope 
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateScope"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:CreateScope")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateAsyncScope 
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateAsyncScope"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:CreateAsyncScope")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getInlines
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Inlines"))
@@ -10096,10 +10296,18 @@ Class WpfTextBox from WpfTextBoxBase
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:GetRectFromCharacterIndex",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetRectFromCharacterIndex",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:GetRectFromCharacterIndex",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetSpellingError P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetSpellingError",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetSpellingError",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetSpellingErrorStart P1
 		return dnAnswer(dotnet_callt(nHandle,"GetSpellingErrorStart",P1))
@@ -10824,7 +11032,11 @@ Class UIElementCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -10837,7 +11049,11 @@ Class UIElementCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -10847,12 +11063,20 @@ Class UIElementCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -11453,7 +11677,11 @@ Class WpfWebBrowser from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:InvokeScript",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:InvokeScript",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:InvokeScript",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -11484,10 +11712,18 @@ Class WpfWebBrowser from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeResources"))
 
 	Func FindResource P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindResource",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:FindResource",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryFindResource P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:TryFindResource",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:TryFindResource",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetResourceReference P1,P2
 		dotnet_callv("s4:call",nHandle,"s20:SetResourceReference",P1,P2)
@@ -11495,10 +11731,18 @@ Class WpfWebBrowser from DotNetObject
 		return self
 
 	Func GetBindingExpression P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetBindingExpression",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetBindingExpression",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetBinding P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:SetBinding",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:SetBinding",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BringIntoView P1
 		dotnet_calltdv(nHandle,"BringIntoView",P1)
@@ -11510,7 +11754,11 @@ Class WpfWebBrowser from DotNetObject
 		return dn_x
 
 	Func PredictFocus P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:PredictFocus",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:PredictFocus",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BeginInit 
 		dotnet_calltv(nHandle,"BeginInit")
@@ -11530,7 +11778,11 @@ Class WpfWebBrowser from DotNetObject
 		return self
 
 	Func FindName P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:FindName",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:FindName",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UpdateDefaultStyle 
 		dotnet_calltv(nHandle,"UpdateDefaultStyle")
@@ -11551,7 +11803,11 @@ Class WpfWebBrowser from DotNetObject
 		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
 
 	Func GetAnimationBaseValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetAnimationBaseValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:GetAnimationBaseValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ShouldSerializeInputBindings 
 		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeInputBindings"))
@@ -11608,10 +11864,18 @@ Class WpfWebBrowser from DotNetObject
 		return self
 
 	Func TranslatePoint P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:TranslatePoint",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:TranslatePoint",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func InputHitTest P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:InputHitTest",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:InputHitTest",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CaptureMouse 
 		return dnAnswer(dotnet_callt(nHandle,"CaptureMouse"))
@@ -11655,22 +11919,46 @@ Class WpfWebBrowser from DotNetObject
 		return dn_x
 
 	Func FindCommonVisualAncestor P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:FindCommonVisualAncestor",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:FindCommonVisualAncestor",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TransformToAncestor P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:TransformToAncestor",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:TransformToAncestor",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TransformToDescendant P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:TransformToDescendant",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:TransformToDescendant",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TransformToVisual P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:TransformToVisual",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:TransformToVisual",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func PointToScreen P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:PointToScreen",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:PointToScreen",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func PointFromScreen P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:PointFromScreen",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:PointFromScreen",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -11681,7 +11969,11 @@ Class WpfWebBrowser from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func GetValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetValue P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
@@ -11709,10 +12001,18 @@ Class WpfWebBrowser from DotNetObject
 		return self
 
 	Func ReadLocalValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ReadLocalValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ReadLocalValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetLocalValueEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetLocalValueEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:GetLocalValueEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CheckAccess 
 		return dnAnswer(dotnet_callt(nHandle,"CheckAccess"))
@@ -11722,7 +12022,11 @@ Class WpfWebBrowser from DotNetObject
 		return self
 
 	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToString 
 		return dnAnswer(dotnet_callt(nHandle,"ToString"))
@@ -15171,21 +15475,33 @@ Class FlowDocumentScrollViewer from WpfControl
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:GetKeyedService",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetKeyedService",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetKeyedService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetRequiredKeyedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:GetRequiredKeyedService",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:GetRequiredKeyedService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetKeyedServices P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetKeyedServices",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetKeyedServices",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
@@ -15193,7 +15509,11 @@ Class FlowDocumentScrollViewer from WpfControl
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetService",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetService"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: GetService needs its type arguments: GetService([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -15203,9 +15523,17 @@ Class FlowDocumentScrollViewer from WpfControl
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetRequiredService",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetRequiredService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetRequiredService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetServices P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
@@ -15213,17 +15541,33 @@ Class FlowDocumentScrollViewer from WpfControl
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetServices",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetServices")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetServices",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateScope 
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateScope"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:CreateScope")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateAsyncScope 
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateAsyncScope"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:CreateAsyncScope")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getDocument
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Document"))
@@ -15856,7 +16200,11 @@ Class ItemsControl from WpfControl
 			ok
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:ContainerFromElement",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ContainerFromElement",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:ContainerFromElement",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IsItemItsOwnContainer P1
 		dn_x = dotnet_call("s4:call",nHandle,"s21:IsItemItsOwnContainer",P1)
@@ -16501,7 +16849,11 @@ Class ScrollContentPresenter from ContentPresenter
 		return self
 
 	Func MakeVisible P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:MakeVisible",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:MakeVisible",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getAdornerLayer
 		return dnObj(dotnet_callo("s3:get",nHandle,"s12:AdornerLayer"))
@@ -16684,7 +17036,11 @@ Class StackPanel from WpfPanel
 		return self
 
 	Func MakeVisible P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:MakeVisible",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:MakeVisible",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getOrientation
 		return dnAnswer(dotnet_getp(nHandle,"Orientation"))
@@ -17622,7 +17978,11 @@ Class Frame from ContentControl
 		return self
 
 	Func RemoveBackEntry 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:RemoveBackEntry"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:RemoveBackEntry")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Navigate P1
 		return dnAnswer(dotnet_calltd1(nHandle,"Navigate",P1))
@@ -17969,7 +18329,11 @@ Class HeaderedItemsControl from ItemsControl
 		return self
 
 	Func ContainerFromElement P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ContainerFromElement",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:ContainerFromElement",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getHeader
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Header"))
@@ -18798,7 +19162,11 @@ Class WpfTreeView from ItemsControl
 		return self
 
 	Func ContainerFromElement P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ContainerFromElement",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:ContainerFromElement",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func setSelectedItemChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"SelectedItemChanged",dnCallback(P1)])
@@ -18960,7 +19328,11 @@ Class VirtualizingStackPanel from VirtualizingPanel
 		return self
 
 	Func MakeVisible P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:MakeVisible",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:MakeVisible",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddCleanUpVirtualizedItemHandler P1,P2
 		dotnet_callv("s4:call",'System.Windows.Controls.VirtualizingStackPanel, PresentationFramework',"s32:AddCleanUpVirtualizedItemHandler",P1,P2)

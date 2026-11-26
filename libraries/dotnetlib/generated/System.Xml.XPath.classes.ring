@@ -53,7 +53,11 @@ Class IXPathNavigable from DotNetObject
 		return self
 
 	Func CreateNavigator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateNavigator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreateNavigator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class XPathDocument from Object
@@ -85,7 +89,11 @@ Class XPathDocument from Object
 		return self
 
 	Func CreateNavigator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateNavigator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreateNavigator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -152,7 +160,11 @@ Class XPathExpression from Object
 		raise("DotNet Error: AddSort does not take one argument: use named arguments, AddSort([ :parameter = value, ... ])")
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetContext P1
 		dotnet_callv("s4:call",nHandle,"s10:SetContext",P1)
@@ -209,7 +221,11 @@ Class XPathItem from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:ValueAs",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ValueAs",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ValueAs",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -293,13 +309,21 @@ Class XPathNodeIterator from Object
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MoveNext 
 		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -312,7 +336,11 @@ Class XPathNodeIterator from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -322,7 +350,11 @@ Class XPathNodeIterator from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -384,7 +416,11 @@ Class XPathNavigator from XPathItem
 		return self
 
 	Func CreateNavigator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateNavigator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreateNavigator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LookupNamespace P1
 		return dnAnswer(dotnet_callt(nHandle,"LookupNamespace",P1))
@@ -393,13 +429,25 @@ Class XPathNavigator from XPathItem
 		return dnAnswer(dotnet_callt(nHandle,"LookupPrefix",P1))
 
 	Func GetNamespacesInScope P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetNamespacesInScope",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetNamespacesInScope",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadSubtree 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ReadSubtree"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ReadSubtree")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteSubtree P1
 		dotnet_callv("s4:call",nHandle,"s12:WriteSubtree",P1)
@@ -474,7 +522,11 @@ Class XPathNavigator from XPathItem
 		return dn_x
 
 	Func ComparePosition P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ComparePosition",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:ComparePosition",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CheckValidity P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s13:CheckValidity",P1,P2)
@@ -482,25 +534,41 @@ Class XPathNavigator from XPathItem
 		return dn_x
 
 	Func Compile P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Compile",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Compile",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SelectSingleNode P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:SelectSingleNode",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SelectSingleNode",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:SelectSingleNode",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Select P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Select",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Select",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Select",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Evaluate P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Evaluate",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Evaluate",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Evaluate",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Matches P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:Matches",P1)
@@ -511,7 +579,11 @@ Class XPathNavigator from XPathItem
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:SelectChildren",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:SelectChildren",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:SelectChildren",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SelectAncestors P1
 		if dotnet_isnamed(P1)
@@ -532,7 +604,11 @@ Class XPathNavigator from XPathItem
 		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s12:PrependChild"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s12:PrependChild")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		dotnet_callv("s4:call",nHandle,"s12:PrependChild",P1)
 
@@ -545,7 +621,11 @@ Class XPathNavigator from XPathItem
 		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:AppendChild"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:AppendChild")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		dotnet_callv("s4:call",nHandle,"s11:AppendChild",P1)
 
@@ -558,7 +638,11 @@ Class XPathNavigator from XPathItem
 		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:InsertAfter"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:InsertAfter")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		dotnet_callv("s4:call",nHandle,"s11:InsertAfter",P1)
 
@@ -571,17 +655,29 @@ Class XPathNavigator from XPathItem
 		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s12:InsertBefore"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s12:InsertBefore")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		dotnet_callv("s4:call",nHandle,"s12:InsertBefore",P1)
 
 		return self
 
 	Func CreateAttributes 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateAttributes"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:CreateAttributes")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReplaceRange P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ReplaceRange",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ReplaceRange",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReplaceSelf P1
 		dotnet_calltv(nHandle,"ReplaceSelf",P1)

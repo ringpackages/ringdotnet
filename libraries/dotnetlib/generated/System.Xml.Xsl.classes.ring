@@ -76,7 +76,11 @@ Class IXsltContextFunction from DotNetObject
 		return self
 
 	Func Invoke P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Invoke",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Invoke",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getMinargs
 		return dotnet_getp(nHandle,"Minargs")
@@ -119,7 +123,11 @@ Class IXsltContextVariable from DotNetObject
 		return self
 
 	Func Evaluate P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Evaluate",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Evaluate",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getIsLocal
 		return dotnet_getp(nHandle,"IsLocal")
@@ -266,10 +274,18 @@ Class XsltArgumentList from Object
 		return self
 
 	Func GetParam P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetParam",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetParam",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetExtensionObject P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetExtensionObject",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetExtensionObject",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddParam P1,P2,P3
 		dotnet_callv("s4:call",nHandle,"s8:AddParam",P1,P2,P3)
@@ -282,10 +298,18 @@ Class XsltArgumentList from Object
 		return self
 
 	Func RemoveParam P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:RemoveParam",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:RemoveParam",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RemoveExtensionObject P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:RemoveExtensionObject",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:RemoveExtensionObject",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clear 
 		dotnet_calltv(nHandle,"Clear")
@@ -319,10 +343,18 @@ Class XsltContext from XmlNamespaceManager
 		return self
 
 	Func ResolveVariable P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ResolveVariable",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:ResolveVariable",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ResolveFunction P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ResolveFunction",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:ResolveFunction",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func PreserveWhitespace P1
 		dn_x = dotnet_call("s4:call",nHandle,"s18:PreserveWhitespace",P1)

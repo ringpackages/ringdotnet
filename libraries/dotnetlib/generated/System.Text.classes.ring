@@ -344,7 +344,11 @@ Class DecoderFallback from Object
 		return self
 
 	Func CreateFallbackBuffer 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:CreateFallbackBuffer"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:CreateFallbackBuffer")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -389,7 +393,11 @@ Class DecoderFallbackBuffer from Object
 		return dn_x
 
 	Func GetNextChar 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetNextChar"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetNextChar")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MovePrevious 
 		return dnAnswer(dotnet_callt(nHandle,"MovePrevious"))
@@ -528,7 +536,11 @@ Class EncoderFallback from Object
 		return self
 
 	Func CreateFallbackBuffer 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:CreateFallbackBuffer"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:CreateFallbackBuffer")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -576,7 +588,11 @@ Class EncoderFallbackBuffer from Object
 		raise("DotNet Error: Fallback does not take one argument: use named arguments, Fallback([ :parameter = value, ... ])")
 
 	Func GetNextChar 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetNextChar"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetNextChar")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MovePrevious 
 		return dnAnswer(dotnet_callt(nHandle,"MovePrevious"))
@@ -702,10 +718,18 @@ Class Encoding from Object
 		return self
 
 	Func @GetPreamble 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetPreamble"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetPreamble")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetByteCount P1
 		return dnAnswer(dotnet_calltd1(nHandle,"GetByteCount",P1))
@@ -716,7 +740,11 @@ Class Encoding from Object
 		if islist(dn_x) return dnAny(dn_x) ok
 		return dn_x
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetBytes",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetBytes",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryGetBytes P1,P2
 		return dnSend("s4:call",nHandle,"s11:TryGetBytes",dnPackItem(P1) + dnPackItem(P2))
@@ -730,7 +758,11 @@ Class Encoding from Object
 		if islist(dn_x) return dnAny(dn_x) ok
 		return dn_x
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetChars",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetChars",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryGetChars P1,P2
 		return dnSend("s4:call",nHandle,"s11:TryGetChars",dnPackItem(P1) + dnPackItem(P2))
@@ -739,10 +771,18 @@ Class Encoding from Object
 		return dnAnswer(dotnet_calltd(nHandle,"IsAlwaysNormalized",P1))
 
 	Func GetDecoder 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetDecoder"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetDecoder")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEncoder 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetEncoder"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetEncoder")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetMaxByteCount P1
 		return dnAnswer(dotnet_callt(nHandle,"GetMaxByteCount",P1))
@@ -943,7 +983,11 @@ Class EncodingInfo from Object
 		return self
 
 	Func GetEncoding 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetEncoding"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetEncoding")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -984,10 +1028,18 @@ Class EncodingProvider from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetEncoding",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetEncoding",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetEncoding",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEncodings 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetEncodings"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetEncodings")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1275,7 +1327,11 @@ Class StringBuilderChunkEnumerator from ValueType
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MoveNext 
 		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
@@ -1310,7 +1366,11 @@ Class StringRuneEnumerator from ValueType
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MoveNext 
 		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
@@ -1321,7 +1381,11 @@ Class StringRuneEnumerator from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1331,7 +1395,11 @@ Class StringRuneEnumerator from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1398,10 +1466,18 @@ Class StringBuilder from Object
 		raise("DotNet Error: ToString does not take one argument: use named arguments, ToString([ :parameter = value, ... ])")
 
 	Func Clear 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clear"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clear")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetChunks 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetChunks"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetChunks")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Append P1
 		if dotnet_isnamed(P1)
@@ -1409,7 +1485,11 @@ Class StringBuilder from Object
 		if islist(dn_x) return dnAny(dn_x) ok
 		return dn_x
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Append",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Append",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AppendLine P1
 		if dotnet_isnamed(P1)
@@ -1418,9 +1498,17 @@ Class StringBuilder from Object
 		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendLine"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:AppendLine")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendLine",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AppendLine",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1,P2,P3,P4
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2,P3,P4)
@@ -1434,10 +1522,18 @@ Class StringBuilder from Object
 		raise("DotNet Error: Insert does not take one argument: use named arguments, Insert([ :parameter = value, ... ])")
 
 	Func Remove P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Remove",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Remove",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AppendJoin P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendJoin",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AppendJoin",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AppendFormat P1
 		if dotnet_isnamed(P1)
@@ -1457,7 +1553,11 @@ Class StringBuilder from Object
 		return dn_x
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)

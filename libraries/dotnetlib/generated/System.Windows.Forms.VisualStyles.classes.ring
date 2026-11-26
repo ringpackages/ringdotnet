@@ -7983,7 +7983,11 @@ Class VisualStyleRenderer from Object
 		raise("DotNet Error: DrawBackground does not take one argument: use named arguments, DrawBackground([ :parameter = value, ... ])")
 
 	Func DrawEdge P1,P2,P3,P4,P5
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:DrawEdge",P1,P2,P3,P4,P5))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:DrawEdge",P1,P2,P3,P4,P5)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DrawImage P1
 		if dotnet_isnamed(P1)
@@ -8005,13 +8009,25 @@ Class VisualStyleRenderer from Object
 		raise("DotNet Error: DrawText does not take one argument: use named arguments, DrawText([ :parameter = value, ... ])")
 
 	Func GetBackgroundContentRectangle P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetBackgroundContentRectangle",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s29:GetBackgroundContentRectangle",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetBackgroundExtent P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetBackgroundExtent",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:GetBackgroundExtent",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetBackgroundRegion P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetBackgroundRegion",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:GetBackgroundRegion",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetBoolean P1
 		dn_x = dotnet_call("s4:call",nHandle,"s10:GetBoolean",P1)
@@ -8019,7 +8035,11 @@ Class VisualStyleRenderer from Object
 		return dn_x
 
 	Func GetColor P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetColor",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetColor",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEnumValue P1
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetEnumValue",P1)
@@ -8032,7 +8052,11 @@ Class VisualStyleRenderer from Object
 		return dn_x
 
 	Func GetFont P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetFont",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetFont",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInteger P1
 		dn_x = dotnet_call("s4:call",nHandle,"s10:GetInteger",P1)
@@ -8046,10 +8070,18 @@ Class VisualStyleRenderer from Object
 		raise("DotNet Error: GetPartSize does not take one argument: use named arguments, GetPartSize([ :parameter = value, ... ])")
 
 	Func GetPoint P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetPoint",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetPoint",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetMargins P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetMargins",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetMargins",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetString P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:GetString",P1)
@@ -8063,7 +8095,11 @@ Class VisualStyleRenderer from Object
 		raise("DotNet Error: GetTextExtent does not take one argument: use named arguments, GetTextExtent([ :parameter = value, ... ])")
 
 	Func GetTextMetrics P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetTextMetrics",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetTextMetrics",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func HitTestBackground P1
 		if dotnet_isnamed(P1)

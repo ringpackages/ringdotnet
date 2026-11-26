@@ -187,7 +187,11 @@ Class SqlBinary from ValueType
 		return self
 
 	Func ToSqlGuid 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ToSqlGuid"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ToSqlGuid")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -312,31 +316,67 @@ Class SqlBoolean from ValueType
 		return self
 
 	Func ToSqlByte 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ToSqlByte"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ToSqlByte")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlDouble 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlDouble"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlDouble")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt16 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt16"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt16")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt32 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt32"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt32")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt64 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt64"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt64")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlMoney 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlMoney"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlMoney")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlDecimal 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlDecimal"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlDecimal")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlSingle 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlSingle"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlSingle")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlString 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlString"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlString")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -496,31 +536,67 @@ Class SqlByte from ValueType
 		return self
 
 	Func ToSqlBoolean 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlBoolean"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlBoolean")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlDouble 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlDouble"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlDouble")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt16 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt16"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt16")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt32 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt32"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt32")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt64 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt64"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt64")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlMoney 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlMoney"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlMoney")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlDecimal 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlDecimal"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlDecimal")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlSingle 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlSingle"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlSingle")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlString 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlString"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlString")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -694,7 +770,11 @@ Class SqlBytes from Object
 		return self
 
 	Func ToSqlBinary 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlBinary"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlBinary")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -814,7 +894,11 @@ Class SqlChars from Object
 		return self
 
 	Func ToSqlString 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlString"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlString")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -825,7 +909,11 @@ Class SqlChars from Object
 		return dnObj(dotnet_callo("s4:call",'System.Data.SqlTypes.SqlChars, System.Data.Common',"s10:GetXsdType",P1))
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -912,7 +1000,11 @@ Class SqlDateTime from ValueType
 		return self
 
 	Func ToSqlString 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlString"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlString")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -1078,31 +1170,67 @@ Class SqlDecimal from ValueType
 		return dnSend("s4:call",nHandle,"s13:WriteTdsValue",dnPackItem(P1))
 
 	Func ToSqlBoolean 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlBoolean"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlBoolean")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlByte 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ToSqlByte"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ToSqlByte")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlDouble 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlDouble"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlDouble")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt16 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt16"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt16")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt32 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt32"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt32")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt64 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt64"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt64")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlMoney 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlMoney"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlMoney")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlSingle 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlSingle"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlSingle")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlString 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlString"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlString")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -1301,31 +1429,67 @@ Class SqlDouble from ValueType
 		return self
 
 	Func ToSqlBoolean 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlBoolean"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlBoolean")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlByte 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ToSqlByte"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ToSqlByte")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt16 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt16"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt16")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt32 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt32"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt32")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt64 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt64"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt64")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlMoney 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlMoney"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlMoney")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlDecimal 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlDecimal"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlDecimal")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlSingle 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlSingle"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlSingle")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlString 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlString"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlString")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -1458,13 +1622,25 @@ Class SqlGuid from ValueType
 		return self
 
 	Func ToByteArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToByteArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToByteArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlString 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlString"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlString")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlBinary 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlBinary"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlBinary")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -1570,31 +1746,67 @@ Class SqlInt16 from ValueType
 		return self
 
 	Func ToSqlBoolean 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlBoolean"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlBoolean")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlByte 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ToSqlByte"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ToSqlByte")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlDouble 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlDouble"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlDouble")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt32 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt32"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt32")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt64 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt64"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt64")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlMoney 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlMoney"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlMoney")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlDecimal 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlDecimal"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlDecimal")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlSingle 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlSingle"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlSingle")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlString 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlString"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlString")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -1748,31 +1960,67 @@ Class SqlInt32 from ValueType
 		return self
 
 	Func ToSqlBoolean 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlBoolean"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlBoolean")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlByte 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ToSqlByte"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ToSqlByte")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlDouble 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlDouble"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlDouble")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt16 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt16"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt16")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt64 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt64"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt64")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlMoney 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlMoney"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlMoney")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlDecimal 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlDecimal"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlDecimal")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlSingle 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlSingle"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlSingle")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlString 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlString"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlString")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -1926,31 +2174,67 @@ Class SqlInt64 from ValueType
 		return self
 
 	Func ToSqlBoolean 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlBoolean"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlBoolean")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlByte 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ToSqlByte"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ToSqlByte")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlDouble 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlDouble"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlDouble")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt16 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt16"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt16")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt32 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt32"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt32")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlMoney 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlMoney"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlMoney")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlDecimal 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlDecimal"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlDecimal")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlSingle 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlSingle"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlSingle")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlString 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlString"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlString")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -2119,31 +2403,67 @@ Class SqlMoney from ValueType
 		return dnAnswer(dotnet_callt(nHandle,"GetTdsValue"))
 
 	Func ToSqlBoolean 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlBoolean"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlBoolean")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlByte 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ToSqlByte"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ToSqlByte")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlDouble 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlDouble"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlDouble")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt16 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt16"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt16")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt32 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt32"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt32")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt64 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt64"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt64")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlDecimal 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlDecimal"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlDecimal")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlSingle 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlSingle"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlSingle")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlString 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlString"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlString")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -2282,31 +2602,67 @@ Class SqlSingle from ValueType
 		return self
 
 	Func ToSqlBoolean 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlBoolean"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlBoolean")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlByte 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ToSqlByte"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ToSqlByte")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlDouble 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlDouble"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlDouble")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt16 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt16"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt16")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt32 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt32"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt32")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt64 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt64"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt64")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlMoney 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlMoney"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlMoney")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlDecimal 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlDecimal"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlDecimal")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlString 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlString"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlString")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -2449,46 +2805,102 @@ Class SqlString from ValueType
 		return self
 
 	Func GetUnicodeBytes 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetUnicodeBytes"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetUnicodeBytes")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetNonUnicodeBytes 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetNonUnicodeBytes"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetNonUnicodeBytes")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlBoolean 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlBoolean"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlBoolean")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlByte 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ToSqlByte"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ToSqlByte")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlDateTime 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ToSqlDateTime"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ToSqlDateTime")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlDouble 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlDouble"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlDouble")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt16 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt16"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt16")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt32 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt32"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt32")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlInt64 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlInt64"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlInt64")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlMoney 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ToSqlMoney"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ToSqlMoney")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlDecimal 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToSqlDecimal"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlDecimal")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlSingle 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToSqlSingle"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlSingle")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSqlGuid 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ToSqlGuid"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ToSqlGuid")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CompareTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
@@ -2694,7 +3106,11 @@ Class SqlXml from Object
 		return self
 
 	Func CreateReader 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateReader"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:CreateReader")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

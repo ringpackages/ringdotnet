@@ -82,7 +82,11 @@ Class CancellationChangeToken from Object
 		return self
 
 	Func RegisterChangeCallback P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:RegisterChangeCallback",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:RegisterChangeCallback",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -143,7 +147,11 @@ Class CompositeChangeToken from Object
 		return self
 
 	Func RegisterChangeCallback P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:RegisterChangeCallback",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:RegisterChangeCallback",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -204,7 +212,11 @@ Class IChangeToken from DotNetObject
 		return self
 
 	Func RegisterChangeCallback P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:RegisterChangeCallback",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:RegisterChangeCallback",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getHasChanged
 		return dotnet_getp(nHandle,"HasChanged")
@@ -267,12 +279,24 @@ Class StringSegment from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:AsSpan",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:AsSpan"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:AsSpan")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AsSpan",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:AsSpan",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AsMemory 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AsMemory"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:AsMemory")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		if dotnet_isnamed(P1)
@@ -306,7 +330,11 @@ Class StringSegment from ValueType
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:Subsegment",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:Subsegment",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:Subsegment",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IndexOf P1
 		return dnAnswer(dotnet_calltd1(nHandle,"IndexOf",P1))
@@ -320,16 +348,32 @@ Class StringSegment from ValueType
 		return dn_x
 
 	Func Trim 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Trim"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Trim")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TrimStart 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:TrimStart"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:TrimStart")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TrimEnd 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:TrimEnd"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:TrimEnd")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Split P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Split",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Split",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Compare P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',"s7:Compare",P1,P2,P3)
@@ -342,7 +386,11 @@ Class StringSegment from ValueType
 		return dn_x
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getBuffer
 		return dnAnswer(dotnet_getp(nHandle,"Buffer"))
@@ -460,7 +508,11 @@ Class StringTokenizer from ValueType
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -468,7 +520,11 @@ Class StringTokenizer from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -478,7 +534,11 @@ Class StringTokenizer from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -579,10 +639,18 @@ Class StringValues from ValueType
 		return self
 
 	Func ToArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		if dotnet_isnamed(P1)
@@ -613,7 +681,11 @@ Class StringValues from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -623,7 +695,11 @@ Class StringValues from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 

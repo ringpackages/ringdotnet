@@ -216,22 +216,46 @@ Class AuthorizationBuilder from Object
 		return self
 
 	Func SetInvokeHandlersAfterFailure P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s29:SetInvokeHandlersAfterFailure",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s29:SetInvokeHandlersAfterFailure",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetDefaultPolicy P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SetDefaultPolicy",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:SetDefaultPolicy",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetFallbackPolicy P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:SetFallbackPolicy",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:SetFallbackPolicy",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddPolicy P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddPolicy",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:AddPolicy",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddDefaultPolicy P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddDefaultPolicy",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:AddDefaultPolicy",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddFallbackPolicy P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddFallbackPolicy",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:AddFallbackPolicy",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -418,7 +442,11 @@ Class AuthorizationHandler from Object
 		return self
 
 	Func HandleAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:HandleAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:HandleAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -442,7 +470,11 @@ Class AuthorizationHandler2 from Object
 		return self
 
 	Func HandleAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:HandleAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:HandleAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -479,7 +511,11 @@ Class AuthorizationMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Invoke",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Invoke",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -517,7 +553,11 @@ Class AuthorizationOptions from Object
 		return self
 
 	Func GetPolicy P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetPolicy",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetPolicy",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -606,34 +646,70 @@ Class AuthorizationPolicyBuilder from Object
 		return self
 
 	Func AddAuthenticationSchemes P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:AddAuthenticationSchemes",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:AddAuthenticationSchemes",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddRequirements P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddRequirements",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:AddRequirements",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Combine P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Combine",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Combine",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RequireClaim P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:RequireClaim",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:RequireClaim",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:RequireClaim",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RequireRole P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:RequireRole",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:RequireRole",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RequireUserName P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:RequireUserName",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:RequireUserName",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RequireAuthenticatedUser 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:RequireAuthenticatedUser"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:RequireAuthenticatedUser")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RequireAssertion P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RequireAssertion",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:RequireAssertion",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Build 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Build")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -805,7 +881,11 @@ Class DefaultAuthorizationEvaluator from Object
 		return self
 
 	Func Evaluate P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Evaluate",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Evaluate",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -834,7 +914,11 @@ Class DefaultAuthorizationHandlerContextFactory from Object
 		return self
 
 	Func CreateContext P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:CreateContext",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:CreateContext",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -856,7 +940,11 @@ Class DefaultAuthorizationHandlerProvider from Object
 		return self
 
 	Func GetHandlersAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetHandlersAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetHandlersAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -880,13 +968,25 @@ Class DefaultAuthorizationPolicyProvider from Object
 		return self
 
 	Func GetDefaultPolicyAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDefaultPolicyAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:GetDefaultPolicyAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetFallbackPolicyAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetFallbackPolicyAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:GetFallbackPolicyAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetPolicyAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetPolicyAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetPolicyAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -914,7 +1014,11 @@ Class DefaultAuthorizationService from Object
 		return self
 
 	Func AuthorizeAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AuthorizeAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:AuthorizeAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -946,7 +1050,11 @@ Class IAuthorizationEvaluator from DotNetObject
 		return self
 
 	Func Evaluate P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Evaluate",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Evaluate",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAuthorizationHandler from DotNetObject
@@ -961,7 +1069,11 @@ Class IAuthorizationHandler from DotNetObject
 		return self
 
 	Func HandleAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:HandleAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:HandleAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAuthorizationHandlerContextFactory from DotNetObject
@@ -976,7 +1088,11 @@ Class IAuthorizationHandlerContextFactory from DotNetObject
 		return self
 
 	Func CreateContext P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:CreateContext",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:CreateContext",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAuthorizationHandlerProvider from DotNetObject
@@ -991,7 +1107,11 @@ Class IAuthorizationHandlerProvider from DotNetObject
 		return self
 
 	Func GetHandlersAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetHandlersAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetHandlersAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAuthorizationMiddlewareResultHandler from DotNetObject
@@ -1006,7 +1126,11 @@ Class IAuthorizationMiddlewareResultHandler from DotNetObject
 		return self
 
 	Func HandleAsync P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:HandleAsync",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:HandleAsync",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAuthorizationPolicyProvider from DotNetObject
@@ -1023,13 +1147,25 @@ Class IAuthorizationPolicyProvider from DotNetObject
 		return self
 
 	Func GetPolicyAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetPolicyAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetPolicyAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDefaultPolicyAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetDefaultPolicyAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:GetDefaultPolicyAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetFallbackPolicyAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetFallbackPolicyAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:GetFallbackPolicyAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getAllowsCachingPolicies
 		return dotnet_getp(nHandle,"AllowsCachingPolicies")
@@ -1062,7 +1198,11 @@ Class IAuthorizationRequirementData from DotNetObject
 		return self
 
 	Func GetRequirements 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetRequirements"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetRequirements")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAuthorizationService from DotNetObject
@@ -1077,7 +1217,11 @@ Class IAuthorizationService from DotNetObject
 		return self
 
 	Func AuthorizeAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AuthorizeAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:AuthorizeAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAuthorizeData from DotNetObject

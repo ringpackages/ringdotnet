@@ -35,7 +35,11 @@ Class MemoryMappedFile from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:CreateViewStream",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateViewStream"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s16:CreateViewStream")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: CreateViewStream does not take one argument: use named arguments, CreateViewStream([ :parameter = value, ... ])")
 
@@ -44,7 +48,11 @@ Class MemoryMappedFile from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:CreateViewAccessor",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s18:CreateViewAccessor"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s18:CreateViewAccessor")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: CreateViewAccessor does not take one argument: use named arguments, CreateViewAccessor([ :parameter = value, ... ])")
 

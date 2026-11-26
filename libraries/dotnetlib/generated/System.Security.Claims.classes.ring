@@ -70,9 +70,17 @@ Class Claim from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Clone",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteTo P1
 		dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
@@ -80,7 +88,11 @@ Class Claim from Object
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -945,7 +957,11 @@ Class ClaimsIdentity from Object
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddClaim P1
 		dotnet_callv("s4:call",nHandle,"s8:AddClaim",P1)
@@ -968,10 +984,18 @@ Class ClaimsIdentity from Object
 		return self
 
 	Func FindAll P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:FindAll",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:FindAll",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FindFirst P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:FindFirst",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:FindFirst",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func HasClaim P1
 		return dnAnswer(dotnet_calltd1(nHandle,"HasClaim",P1))
@@ -1122,13 +1146,25 @@ Class ClaimsPrincipal from Object
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FindAll P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:FindAll",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:FindAll",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FindFirst P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:FindFirst",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:FindFirst",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func HasClaim P1
 		return dnAnswer(dotnet_calltd1(nHandle,"HasClaim",P1))

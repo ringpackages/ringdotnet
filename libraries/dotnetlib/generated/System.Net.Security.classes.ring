@@ -952,7 +952,11 @@ Class NegotiateStream from AuthenticatedStream
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AuthenticateAsClientAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s25:AuthenticateAsClientAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s25:AuthenticateAsClientAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: AuthenticateAsClientAsync does not take one argument: use named arguments, AuthenticateAsClientAsync([ :parameter = value, ... ])")
 
@@ -961,9 +965,17 @@ Class NegotiateStream from AuthenticatedStream
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AuthenticateAsServerAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s25:AuthenticateAsServerAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s25:AuthenticateAsServerAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:AuthenticateAsServerAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:AuthenticateAsServerAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getImpersonationLevel
 		return dnAnswer(dotnet_getp(nHandle,"ImpersonationLevel"))
@@ -1055,25 +1067,45 @@ Class SslStream from AuthenticatedStream
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AuthenticateAsClientAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:AuthenticateAsClientAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:AuthenticateAsClientAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AuthenticateAsServerAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:AuthenticateAsServerAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:AuthenticateAsServerAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:AuthenticateAsServerAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ShutdownAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ShutdownAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ShutdownAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func NegotiateClientCertificateAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s31:NegotiateClientCertificateAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s31:NegotiateClientCertificateAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s31:NegotiateClientCertificateAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s31:NegotiateClientCertificateAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s31:NegotiateClientCertificateAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Write P1
 		dotnet_calltd1v(nHandle,"Write",P1)

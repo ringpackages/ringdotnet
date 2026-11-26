@@ -142,10 +142,18 @@ Class Dispatcher from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:InvokeAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:InvokeAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:InvokeAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DisableProcessing 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:DisableProcessing"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:DisableProcessing")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -409,16 +417,28 @@ Class DispatcherOperation from Object
 		return self
 
 	Func GetAwaiter 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetAwaiter"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetAwaiter")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Wait P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Wait",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Wait"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Wait")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Wait",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Wait",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Abort 
 		return dnAnswer(dotnet_callt(nHandle,"Abort"))
@@ -497,7 +517,11 @@ Class DispatcherPriorityAwaitable from ValueType
 		return self
 
 	Func GetAwaiter 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetAwaiter"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetAwaiter")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class DispatcherPriorityAwaiter from ValueType

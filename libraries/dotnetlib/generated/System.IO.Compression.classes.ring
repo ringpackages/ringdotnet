@@ -471,14 +471,22 @@ Class ZipArchive from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CreateEntry",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateEntry",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:CreateEntry",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func GetEntry P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetEntry",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetEntry",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -549,7 +557,11 @@ Class ZipArchiveEntry from Object
 		return self
 
 	Func Open 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Open"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Open")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

@@ -1775,10 +1775,18 @@ Class AspMediaTypeHeaderValue from Object
 		return dn_x
 
 	Func Copy 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Copy"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Copy")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyAsReadOnly 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CopyAsReadOnly"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CopyAsReadOnly")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MatchesMediaType P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:MatchesMediaType",P1)
@@ -1791,7 +1799,11 @@ Class AspMediaTypeHeaderValue from Object
 		return dn_x
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Net.Http.Headers.MediaTypeHeaderValue, Microsoft.Net.Http.Headers',"s5:Parse",P1))
@@ -1970,10 +1982,18 @@ Class AspNameValueHeaderValue from Object
 		return self
 
 	Func Copy 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Copy"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Copy")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyAsReadOnly 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CopyAsReadOnly"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CopyAsReadOnly")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1981,7 +2001,11 @@ Class AspNameValueHeaderValue from Object
 		return dn_x
 
 	Func GetUnescapedValue 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetUnescapedValue"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetUnescapedValue")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetAndEscapeValue P1
 		dotnet_callv("s4:call",nHandle,"s17:SetAndEscapeValue",P1)

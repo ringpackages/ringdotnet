@@ -263,7 +263,11 @@ Class IHasXmlNode from DotNetObject
 		return self
 
 	Func GetNode 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetNode"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetNode")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IXmlLineInfo from DotNetObject
@@ -308,7 +312,11 @@ Class IXmlNamespaceResolver from DotNetObject
 		return self
 
 	Func GetNamespacesInScope P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetNamespacesInScope",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetNamespacesInScope",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LookupNamespace P1
 		return dnAnswer(dotnet_callt(nHandle,"LookupNamespace",P1))
@@ -577,7 +585,11 @@ Class XmlImplementation from Object
 		return dnAnswer(dotnet_callt(nHandle,"HasFeature",P1,P2))
 
 	Func CreateDocument 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateDocument"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CreateDocument")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -625,22 +637,42 @@ Class XmlNamedNodeMap from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:GetNamedItem",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetNamedItem",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetNamedItem",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetNamedItem P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SetNamedItem",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:SetNamedItem",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RemoveNamedItem P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:RemoveNamedItem",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:RemoveNamedItem",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:RemoveNamedItem",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -653,7 +685,11 @@ Class XmlNamedNodeMap from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -663,7 +699,11 @@ Class XmlNamedNodeMap from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -706,10 +746,18 @@ Class XmlNamespaceManager from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetNamespacesInScope P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetNamespacesInScope",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetNamespacesInScope",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LookupNamespace P1
 		return dnAnswer(dotnet_callt(nHandle,"LookupNamespace",P1))
@@ -731,7 +779,11 @@ Class XmlNamespaceManager from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -741,7 +793,11 @@ Class XmlNamespaceManager from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -793,40 +849,80 @@ Class XmlNode from Object
 		return self
 
 	Func CreateNavigator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateNavigator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreateNavigator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SelectSingleNode P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:SelectSingleNode",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SelectSingleNode",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:SelectSingleNode",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SelectNodes P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:SelectNodes",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SelectNodes",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:SelectNodes",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func InsertBefore P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:InsertBefore",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:InsertBefore",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func InsertAfter P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:InsertAfter",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:InsertAfter",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReplaceChild P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ReplaceChild",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ReplaceChild",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RemoveChild P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:RemoveChild",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:RemoveChild",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func PrependChild P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:PrependChild",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:PrependChild",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AppendChild P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AppendChild",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AppendChild",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CloneNode P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:CloneNode",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:CloneNode",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Normalize 
 		dotnet_calltv(nHandle,"Normalize")
@@ -836,10 +932,18 @@ Class XmlNode from Object
 		return dnAnswer(dotnet_callt(nHandle,"Supports",P1,P2))
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteTo P1
 		dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
@@ -872,7 +976,11 @@ Class XmlNode from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -882,7 +990,11 @@ Class XmlNode from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -890,7 +1002,11 @@ Class XmlNode from Object
 		if islist(P1)
 			return callMethod("get_Item",P1)
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -1100,10 +1216,18 @@ Class XmlNodeList from Object
 		return self
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1116,7 +1240,11 @@ Class XmlNodeList from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1126,7 +1254,11 @@ Class XmlNodeList from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1378,16 +1510,28 @@ Class XmlReader from Object
 		return self
 
 	Func ReadContentAsObject 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:ReadContentAsObject"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:ReadContentAsObject")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadContentAsBoolean 
 		return dnAnswer(dotnet_callt(nHandle,"ReadContentAsBoolean"))
 
 	Func ReadContentAsDateTime 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:ReadContentAsDateTime"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:ReadContentAsDateTime")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadContentAsDateTimeOffset 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:ReadContentAsDateTimeOffset"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:ReadContentAsDateTimeOffset")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadContentAsDouble 
 		return dnAnswer(dotnet_callt(nHandle,"ReadContentAsDouble"))
@@ -1408,14 +1552,22 @@ Class XmlReader from Object
 		return dnAnswer(dotnet_callt(nHandle,"ReadContentAsString"))
 
 	Func ReadContentAs P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadContentAs",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ReadContentAs",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadElementContentAsObject P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s26:ReadElementContentAsObject",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s26:ReadElementContentAsObject"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s26:ReadElementContentAsObject")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: ReadElementContentAsObject does not take one argument: use named arguments, ReadElementContentAsObject([ :parameter = value, ... ])")
 
@@ -1437,7 +1589,11 @@ Class XmlReader from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s28:ReadElementContentAsDateTime",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s28:ReadElementContentAsDateTime"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s28:ReadElementContentAsDateTime")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: ReadElementContentAsDateTime does not take one argument: use named arguments, ReadElementContentAsDateTime([ :parameter = value, ... ])")
 
@@ -1597,7 +1753,11 @@ Class XmlReader from Object
 		return dnAnswer(dotnet_callt(nHandle,"ReadString"))
 
 	Func MoveToContent 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:MoveToContent"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:MoveToContent")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadStartElement P1
 		dotnet_calltdv(nHandle,"ReadStartElement",P1)
@@ -1629,62 +1789,134 @@ Class XmlReader from Object
 		return dnAnswer(dotnet_callt(nHandle,"ReadOuterXml"))
 
 	Func ReadSubtree 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ReadSubtree"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ReadSubtree")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func GetValueAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetValueAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetValueAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadContentAsObjectAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ReadContentAsObjectAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:ReadContentAsObjectAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadContentAsStringAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ReadContentAsStringAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:ReadContentAsStringAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadContentAsAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ReadContentAsAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:ReadContentAsAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadElementContentAsObjectAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s31:ReadElementContentAsObjectAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s31:ReadElementContentAsObjectAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadElementContentAsStringAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s31:ReadElementContentAsStringAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s31:ReadElementContentAsStringAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadElementContentAsAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:ReadElementContentAsAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:ReadElementContentAsAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ReadAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ReadAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SkipAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:SkipAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:SkipAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadContentAsBase64Async P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ReadContentAsBase64Async",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:ReadContentAsBase64Async",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadElementContentAsBase64Async P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s31:ReadElementContentAsBase64Async",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s31:ReadElementContentAsBase64Async",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadContentAsBinHexAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ReadContentAsBinHexAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:ReadContentAsBinHexAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadElementContentAsBinHexAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s31:ReadElementContentAsBinHexAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s31:ReadElementContentAsBinHexAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadValueChunkAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:ReadValueChunkAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:ReadValueChunkAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MoveToContentAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:MoveToContentAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:MoveToContentAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadInnerXmlAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadInnerXmlAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ReadInnerXmlAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadOuterXmlAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadOuterXmlAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ReadOuterXmlAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1904,7 +2136,11 @@ Class XmlReaderSettings from Object
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2059,13 +2295,25 @@ Class XmlResolver from Object
 		return self
 
 	Func GetEntity P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetEntity",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetEntity",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEntityAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetEntityAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetEntityAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ResolveUri P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ResolveUri",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ResolveUri",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SupportsType P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s12:SupportsType",P1,P2)
@@ -2256,90 +2504,202 @@ Class XmlWriter from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:WriteStartDocumentAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s23:WriteStartDocumentAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s23:WriteStartDocumentAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:WriteStartDocumentAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:WriteStartDocumentAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteEndDocumentAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:WriteEndDocumentAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:WriteEndDocumentAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteDocTypeAsync P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:WriteDocTypeAsync",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:WriteDocTypeAsync",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteStartElementAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:WriteStartElementAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:WriteStartElementAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteEndElementAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:WriteEndElementAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:WriteEndElementAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteFullEndElementAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:WriteFullEndElementAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:WriteFullEndElementAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteAttributeStringAsync P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:WriteAttributeStringAsync",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:WriteAttributeStringAsync",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteCDataAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:WriteCDataAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:WriteCDataAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteCommentAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:WriteCommentAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:WriteCommentAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteProcessingInstructionAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s31:WriteProcessingInstructionAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s31:WriteProcessingInstructionAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteEntityRefAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:WriteEntityRefAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:WriteEntityRefAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteCharEntityAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:WriteCharEntityAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:WriteCharEntityAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteWhitespaceAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:WriteWhitespaceAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:WriteWhitespaceAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteStringAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:WriteStringAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:WriteStringAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteSurrogateCharEntityAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s29:WriteSurrogateCharEntityAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s29:WriteSurrogateCharEntityAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteCharsAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:WriteCharsAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:WriteCharsAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteRawAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:WriteRawAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:WriteRawAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:WriteRawAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteBase64Async P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:WriteBase64Async",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:WriteBase64Async",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteBinHexAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:WriteBinHexAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:WriteBinHexAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FlushAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FlushAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:FlushAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteNmTokenAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:WriteNmTokenAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:WriteNmTokenAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteNameAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:WriteNameAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:WriteNameAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteQualifiedNameAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:WriteQualifiedNameAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:WriteQualifiedNameAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteAttributesAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:WriteAttributesAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:WriteAttributesAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteNodeAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:WriteNodeAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:WriteNodeAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteElementStringAsync P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:WriteElementStringAsync",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:WriteElementStringAsync",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DisposeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DisposeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2354,7 +2714,11 @@ Class XmlWriter from Object
 
 	Func ConfigureAwait P1
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ConfigureAwait",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getSettings
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Settings"))
@@ -2422,7 +2786,11 @@ Class XmlWriterSettings from Object
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2594,22 +2962,46 @@ Class XmlAttributeCollection from XmlNamedNodeMap
 		return self
 
 	Func Prepend P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Prepend",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Prepend",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Append P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Append",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Append",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func InsertBefore P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:InsertBefore",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:InsertBefore",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func InsertAfter P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:InsertAfter",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:InsertAfter",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Remove P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Remove",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Remove",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RemoveAt P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:RemoveAt",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:RemoveAt",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RemoveAll 
 		dotnet_calltv(nHandle,"RemoveAll")
@@ -2669,55 +3061,115 @@ Class XmlDocument from XmlNode
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:CreateAttribute",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateAttribute",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreateAttribute",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateCDataSection P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:CreateCDataSection",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:CreateCDataSection",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateComment P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:CreateComment",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:CreateComment",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateDocumentType P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:CreateDocumentType",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:CreateDocumentType",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateDocumentFragment 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:CreateDocumentFragment"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:CreateDocumentFragment")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateElement P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:CreateElement",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:CreateElement",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:CreateElement",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateEntityReference P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:CreateEntityReference",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:CreateEntityReference",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateProcessingInstruction P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:CreateProcessingInstruction",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:CreateProcessingInstruction",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateXmlDeclaration P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:CreateXmlDeclaration",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:CreateXmlDeclaration",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateTextNode P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateTextNode",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CreateTextNode",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateSignificantWhitespace P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:CreateSignificantWhitespace",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:CreateSignificantWhitespace",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateWhitespace P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateWhitespace",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:CreateWhitespace",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetElementsByTagName P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:GetElementsByTagName",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetElementsByTagName",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetElementsByTagName",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetElementById P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetElementById",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetElementById",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ImportNode P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ImportNode",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ImportNode",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateNode P1
 		if dotnet_isnamed(P1)
@@ -2726,7 +3178,11 @@ Class XmlDocument from XmlNode
 		raise("DotNet Error: CreateNode does not take one argument: use named arguments, CreateNode([ :parameter = value, ... ])")
 
 	Func ReadNode P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:ReadNode",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:ReadNode",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @Load P1
 		dotnet_calltv(nHandle,"Load",P1)
@@ -2977,14 +3433,22 @@ Class XmlTextReader from XmlReader
 		return dnAnswer(dotnet_callt(nHandle,"HasLineInfo"))
 
 	Func GetNamespacesInScope P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetNamespacesInScope",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetNamespacesInScope",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ResetState 
 		dotnet_calltv(nHandle,"ResetState")
 		return self
 
 	Func GetRemainder 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetRemainder"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetRemainder")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadChars P1,P2,P3
 		dn_x = dotnet_call("s4:call",nHandle,"s9:ReadChars",P1,P2,P3)
@@ -3339,31 +3803,51 @@ Class XmlElement from XmlLinkedNode
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetAttributeNode",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetAttributeNode",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetAttributeNode",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetAttributeNode P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:SetAttributeNode",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:SetAttributeNode",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:SetAttributeNode",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RemoveAttributeNode P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:RemoveAttributeNode",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:RemoveAttributeNode",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:RemoveAttributeNode",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetElementsByTagName P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:GetElementsByTagName",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetElementsByTagName",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetElementsByTagName",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func HasAttribute P1
 		return dnAnswer(dotnet_calltd1(nHandle,"HasAttribute",P1))
 
 	Func RemoveAttributeAt P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:RemoveAttributeAt",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:RemoveAttributeAt",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RemoveAllAttributes 
 		dotnet_calltv(nHandle,"RemoveAllAttributes")
@@ -3471,7 +3955,11 @@ Class XmlText from XmlCharacterData
 		return self
 
 	Func SplitText P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:SplitText",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:SplitText",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class XmlWhitespace from XmlCharacterData

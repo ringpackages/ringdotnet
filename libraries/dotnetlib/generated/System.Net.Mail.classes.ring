@@ -540,7 +540,11 @@ Class SmtpClient from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SendMailAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SendMailAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:SendMailAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")

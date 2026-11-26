@@ -291,7 +291,11 @@ Class BinaryReader from Object
 		return dnAnswer(dotnet_callt(nHandle,"ReadBoolean"))
 
 	Func ReadChar 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:ReadChar"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:ReadChar")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadInt16 
 		return dnAnswer(dotnet_callt(nHandle,"ReadInt16"))
@@ -312,7 +316,11 @@ Class BinaryReader from Object
 		return dnAnswer(dotnet_callt(nHandle,"ReadUInt64"))
 
 	Func ReadHalf 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:ReadHalf"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:ReadHalf")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadSingle 
 		return dnAnswer(dotnet_callt(nHandle,"ReadSingle"))
@@ -327,10 +335,18 @@ Class BinaryReader from Object
 		return dnAnswer(dotnet_callt(nHandle,"ReadString"))
 
 	Func ReadChars P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ReadChars",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ReadChars",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadBytes P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ReadBytes",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ReadBytes",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Read7BitEncodedInt 
 		return dnAnswer(dotnet_callt(nHandle,"Read7BitEncodedInt"))
@@ -390,7 +406,11 @@ Class BinaryWriter from Object
 		return self
 
 	Func DisposeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DisposeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Flush 
 		dotnet_calltv(nHandle,"Flush")
@@ -420,7 +440,11 @@ Class BinaryWriter from Object
 
 	Func ConfigureAwait P1
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ConfigureAwait",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getBaseStream
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:BaseStream"))
@@ -781,7 +805,11 @@ Class ErrorEventArgs from EventArgs
 		return self
 
 	Func GetException 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetException"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetException")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class File from Object
@@ -1221,7 +1249,11 @@ Class FileSystemInfo from MarshalByRefObject
 		return self
 
 	Func ResolveLinkTarget P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ResolveLinkTarget",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ResolveLinkTarget",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Refresh 
 		dotnet_calltv(nHandle,"Refresh")
@@ -1363,7 +1395,11 @@ Class FileSystemWatcher from Component
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:WaitForChanged",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:WaitForChanged",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:WaitForChanged",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BeginInit 
 		dotnet_calltv(nHandle,"BeginInit")
@@ -1808,7 +1844,11 @@ Class Stream from MarshalByRefObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CopyToAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CopyToAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:CopyToAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -1819,7 +1859,11 @@ Class Stream from MarshalByRefObject
 		return self
 
 	Func DisposeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DisposeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Flush 
 		dotnet_calltv(nHandle,"Flush")
@@ -1830,12 +1874,24 @@ Class Stream from MarshalByRefObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:FlushAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:FlushAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:FlushAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FlushAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:FlushAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BeginRead P1,P2,P3,P4,P5
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:BeginRead",P1,P2,P3,P4,P5))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:BeginRead",P1,P2,P3,P4,P5)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EndRead P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:EndRead",P1)
@@ -1846,13 +1902,21 @@ Class Stream from MarshalByRefObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:ReadAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ReadAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ReadAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadExactlyAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:ReadExactlyAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ReadExactlyAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:ReadExactlyAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadAtLeastAsync P1
 		if dotnet_isnamed(P1)
@@ -1861,7 +1925,11 @@ Class Stream from MarshalByRefObject
 		raise("DotNet Error: ReadAtLeastAsync does not take one argument: use named arguments, ReadAtLeastAsync([ :parameter = value, ... ])")
 
 	Func BeginWrite P1,P2,P3,P4,P5
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:BeginWrite",P1,P2,P3,P4,P5))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:BeginWrite",P1,P2,P3,P4,P5)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EndWrite P1
 		dotnet_callv("s4:call",nHandle,"s8:EndWrite",P1)
@@ -1872,7 +1940,11 @@ Class Stream from MarshalByRefObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:WriteAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:WriteAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:WriteAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Seek P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s4:Seek",P1,P2)
@@ -1921,11 +1993,19 @@ Class Stream from MarshalByRefObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:DrainAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:DrainAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:DrainAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConfigureAwait P1
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ConfigureAwait",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCanRead
 		return dotnet_getp(nHandle,"CanRead")
@@ -2035,30 +2115,54 @@ Class TextReader from MarshalByRefObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:ReadLineAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadLineAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s13:ReadLineAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadLineAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ReadLineAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadToEndAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:ReadToEndAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s14:ReadToEndAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s14:ReadToEndAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ReadToEndAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ReadToEndAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:ReadAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ReadAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ReadAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadBlockAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:ReadBlockAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ReadBlockAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ReadBlockAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Synchronized P1
 		return dnObj(dotnet_callo("s4:call",'System.IO.TextReader, System.Private.CoreLib',"s12:Synchronized",P1))
@@ -2095,7 +2199,11 @@ Class TextWriter from MarshalByRefObject
 		return self
 
 	Func DisposeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DisposeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Flush 
 		dotnet_calltv(nHandle,"Flush")
@@ -2113,25 +2221,45 @@ Class TextWriter from MarshalByRefObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:WriteAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:WriteAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:WriteAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteLineAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:WriteLineAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s14:WriteLineAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s14:WriteLineAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:WriteLineAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:WriteLineAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FlushAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:FlushAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:FlushAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:FlushAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FlushAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:FlushAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Synchronized P1
 		return dnObj(dotnet_callo("s4:call",'System.IO.TextWriter, System.Private.CoreLib',"s12:Synchronized",P1))
@@ -2141,7 +2269,11 @@ Class TextWriter from MarshalByRefObject
 
 	Func ConfigureAwait P1
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ConfigureAwait",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getFormatProvider
 		return dnObj(dotnet_callo("s3:get",nHandle,"s14:FormatProvider"))
@@ -2212,7 +2344,11 @@ Class UnmanagedMemoryAccessor from Object
 		return dnAnswer(dotnet_callt(nHandle,"ReadByte",P1))
 
 	Func ReadChar P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:ReadChar",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:ReadChar",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadInt16 P1
 		return dnAnswer(dotnet_callt(nHandle,"ReadInt16",P1))
@@ -2400,7 +2536,11 @@ Class DirectoryInfo from FileSystemInfo
 		return self
 
 	Func CreateSubdirectory P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:CreateSubdirectory",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:CreateSubdirectory",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Create 
 		dotnet_calltv(nHandle,"Create")
@@ -2411,54 +2551,102 @@ Class DirectoryInfo from FileSystemInfo
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetFiles",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetFiles"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetFiles")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetFiles",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetFiles",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetFileSystemInfos P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetFileSystemInfos",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetFileSystemInfos"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetFileSystemInfos")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetFileSystemInfos",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetFileSystemInfos",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDirectories P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:GetDirectories",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetDirectories"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetDirectories")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetDirectories",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetDirectories",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EnumerateDirectories P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:EnumerateDirectories",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s20:EnumerateDirectories"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s20:EnumerateDirectories")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:EnumerateDirectories",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:EnumerateDirectories",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EnumerateFiles P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:EnumerateFiles",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s14:EnumerateFiles"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s14:EnumerateFiles")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:EnumerateFiles",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:EnumerateFiles",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EnumerateFileSystemInfos P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:EnumerateFileSystemInfos",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s24:EnumerateFileSystemInfos"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s24:EnumerateFileSystemInfos")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:EnumerateFileSystemInfos",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:EnumerateFileSystemInfos",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MoveTo P1
 		dotnet_calltv(nHandle,"MoveTo",P1)
@@ -2614,31 +2802,63 @@ Class FileInfo from FileSystemInfo
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Open",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Open",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Open",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OpenText 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:OpenText"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:OpenText")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateText 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:CreateText"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:CreateText")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AppendText 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendText"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AppendText")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:CopyTo",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:CopyTo",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:CopyTo",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Create 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OpenRead 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:OpenRead"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:OpenRead")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OpenWrite 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:OpenWrite"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:OpenWrite")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MoveTo P1
 		dotnet_calltd1v(nHandle,"MoveTo",P1)
@@ -2897,13 +3117,21 @@ Class MemoryStream from Stream
 		return self
 
 	Func GetBuffer 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetBuffer"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetBuffer")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryGetBuffer 
 		return dnSend("s4:call",nHandle,"s12:TryGetBuffer","")
 
 	Func ToArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteTo P1
 		dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
@@ -3141,7 +3369,11 @@ Class StringWriter from TextWriter
 		return self
 
 	Func GetStringBuilder 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetStringBuilder"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetStringBuilder")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class UnmanagedMemoryStream from Stream

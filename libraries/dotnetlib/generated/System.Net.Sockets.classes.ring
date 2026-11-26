@@ -381,7 +381,11 @@ Class SafeSocketHandle from DotNetObject
 		return self
 
 	Func DangerousGetHandle 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:DangerousGetHandle"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:DangerousGetHandle")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Close 
 		dotnet_calltv(nHandle,"Close")
@@ -403,7 +407,11 @@ Class SafeSocketHandle from DotNetObject
 		return self
 
 	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToString 
 		return dnAnswer(dotnet_callt(nHandle,"ToString"))
@@ -596,7 +604,11 @@ Class Socket from Object
 		return self
 
 	Func Accept 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Accept"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Accept")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Send P1
 		if dotnet_isnamed(P1)
@@ -689,7 +701,11 @@ Class Socket from Object
 		return self
 
 	Func BeginDisconnect P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:BeginDisconnect",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:BeginDisconnect",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Disconnect P1
 		dotnet_calltv(nHandle,"Disconnect",P1)
@@ -725,7 +741,11 @@ Class Socket from Object
 		return self
 
 	Func BeginSendTo P1,P2,P3,P4,P5,P6,P7
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:BeginSendTo",P1,P2,P3,P4,P5,P6,P7))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:BeginSendTo",P1,P2,P3,P4,P5,P6,P7)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EndSendTo P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:EndSendTo",P1)
@@ -764,7 +784,11 @@ Class Socket from Object
 		raise("DotNet Error: BeginAccept does not take one argument: use named arguments, BeginAccept([ :parameter = value, ... ])")
 
 	Func EndAccept P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:EndAccept",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:EndAccept",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Shutdown P1
 		dotnet_callv("s4:call",nHandle,"s8:Shutdown",P1)
@@ -778,7 +802,11 @@ Class Socket from Object
 		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:AcceptAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:AcceptAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		dn_x = dotnet_call("s4:call",nHandle,"s11:AcceptAsync",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -872,10 +900,18 @@ Class Socket from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SendFileAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SendFileAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:SendFileAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DuplicateAndClose P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:DuplicateAndClose",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:DuplicateAndClose",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1510,10 +1546,18 @@ Class TcpClient from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ConnectAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ConnectAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ConnectAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BeginConnect P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:BeginConnect",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:BeginConnect",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EndConnect P1
 		dotnet_callv("s4:call",nHandle,"s10:EndConnect",P1)
@@ -1521,7 +1565,11 @@ Class TcpClient from Object
 		return self
 
 	Func GetStream 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetStream"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetStream")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Close 
 		dotnet_calltv(nHandle,"Close")
@@ -1669,7 +1717,11 @@ Class UdpClient from Object
 		return dn_x
 
 	Func BeginReceive P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:BeginReceive",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:BeginReceive",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EndReceive P1,P2
 		return dnSend("s4:call",nHandle,"s10:EndReceive",dnPackItem(P1) + dnPackItem(P2))
@@ -1686,16 +1738,28 @@ Class UdpClient from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:SendAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:SendAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:SendAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReceiveAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ReceiveAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s12:ReceiveAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s12:ReceiveAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ReceiveAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ReceiveAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Close 
 		dotnet_calltv(nHandle,"Close")
@@ -1892,40 +1956,80 @@ Class TcpListener from Object
 		return dnAnswer(dotnet_callt(nHandle,"Pending"))
 
 	Func AcceptSocket 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AcceptSocket"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:AcceptSocket")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AcceptTcpClient 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AcceptTcpClient"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:AcceptTcpClient")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BeginAcceptSocket P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:BeginAcceptSocket",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:BeginAcceptSocket",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EndAcceptSocket P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:EndAcceptSocket",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:EndAcceptSocket",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BeginAcceptTcpClient P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:BeginAcceptTcpClient",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:BeginAcceptTcpClient",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EndAcceptTcpClient P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:EndAcceptTcpClient",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:EndAcceptTcpClient",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AcceptSocketAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AcceptSocketAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s17:AcceptSocketAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s17:AcceptSocketAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AcceptSocketAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:AcceptSocketAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AcceptTcpClientAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:AcceptTcpClientAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s20:AcceptTcpClientAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s20:AcceptTcpClientAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AcceptTcpClientAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:AcceptTcpClientAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

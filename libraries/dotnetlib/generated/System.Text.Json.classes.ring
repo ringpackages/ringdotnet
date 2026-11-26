@@ -140,9 +140,17 @@ Class JsonDocument from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:Deserialize",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:Deserialize")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:Deserialize",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getRootElement
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:RootElement"))
@@ -226,7 +234,11 @@ Class JsonElement from ValueType
 		return dnAnswer(dotnet_callt(nHandle,"GetPropertyCount"))
 
 	Func GetProperty P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetProperty",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetProperty",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryGetProperty P1
 		return dnSend("s4:call",nHandle,"s14:TryGetProperty",dnPackItem(P1))
@@ -241,7 +253,11 @@ Class JsonElement from ValueType
 		return dnSend("s4:call",nHandle,"s21:TryGetBytesFromBase64","")
 
 	Func GetBytesFromBase64 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetBytesFromBase64"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetBytesFromBase64")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryGetSByte 
 		return dnSend("s4:call",nHandle,"s11:TryGetSByte","")
@@ -313,19 +329,31 @@ Class JsonElement from ValueType
 		return dnSend("s4:call",nHandle,"s14:TryGetDateTime","")
 
 	Func GetDateTime 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetDateTime"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetDateTime")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryGetDateTimeOffset 
 		return dnSend("s4:call",nHandle,"s20:TryGetDateTimeOffset","")
 
 	Func GetDateTimeOffset 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetDateTimeOffset"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetDateTimeOffset")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryGetGuid 
 		return dnSend("s4:call",nHandle,"s10:TryGetGuid","")
 
 	Func GetGuid 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetGuid"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetGuid")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetRawText 
 		return dnAnswer(dotnet_callt(nHandle,"GetRawText"))
@@ -339,13 +367,25 @@ Class JsonElement from ValueType
 		return self
 
 	Func EnumerateArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:EnumerateArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:EnumerateArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EnumerateObject 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:EnumerateObject"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:EnumerateObject")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DeepEquals P1,P2
 		dn_x = dotnet_call("s4:call",'System.Text.Json.JsonElement, System.Text.Json',"s10:DeepEquals",P1,P2)
@@ -364,12 +404,24 @@ Class JsonElement from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:Deserialize",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:Deserialize")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:Deserialize",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getValueKind
 		return dnAnswer(dotnet_getp(nHandle,"ValueKind"))
@@ -401,7 +453,11 @@ Class JsonElementArrayEnumerator from ValueType
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -420,7 +476,11 @@ Class JsonElementArrayEnumerator from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -430,7 +490,11 @@ Class JsonElementArrayEnumerator from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -464,7 +528,11 @@ Class JsonElementObjectEnumerator from ValueType
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -483,7 +551,11 @@ Class JsonElementObjectEnumerator from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -493,7 +565,11 @@ Class JsonElementObjectEnumerator from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -956,13 +1032,21 @@ Class JsonSerializerOptions from Object
 		return self
 
 	Func GetTypeInfo P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetTypeInfo",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetTypeInfo",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryGetTypeInfo P1
 		return dnSend("s4:call",nHandle,"s14:TryGetTypeInfo",dnPackItem(P1))
 
 	Func GetConverter P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetConverter",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetConverter",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddContext P1
 		if dotnet_isnamed(P1)
@@ -1322,16 +1406,28 @@ Class Utf8JsonWriter from Object
 		return self
 
 	Func DisposeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DisposeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FlushAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:FlushAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:FlushAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:FlushAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FlushAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:FlushAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteStartArray P1
 		dotnet_calltdv(nHandle,"WriteStartArray",P1)
@@ -1417,7 +1513,11 @@ Class Utf8JsonWriter from Object
 
 	Func ConfigureAwait P1
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ConfigureAwait",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getBytesPending
 		return dotnet_getp(nHandle,"BytesPending")

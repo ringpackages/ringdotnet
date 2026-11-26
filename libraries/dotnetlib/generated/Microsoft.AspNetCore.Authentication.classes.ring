@@ -378,7 +378,11 @@ Class AuthenticateResult from Object
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -462,7 +466,11 @@ Class AuthenticationBuilder from Object
 		raise("DotNet Error: AddRemoteScheme needs its type arguments: AddRemoteScheme([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func AddPolicyScheme P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddPolicyScheme",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:AddPolicyScheme",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -475,9 +483,17 @@ Class AuthenticationBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddBearerToken",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddBearerToken"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s14:AddBearerToken")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddBearerToken",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:AddBearerToken",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddCookie P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.CookieExtensions, Microsoft.AspNetCore.Authentication.Cookies")
@@ -485,9 +501,17 @@ Class AuthenticationBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:AddCookie",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddCookie"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s9:AddCookie")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddCookie",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:AddCookie",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddOAuth P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OAuthExtensions, Microsoft.AspNetCore.Authentication.OAuth")
@@ -611,7 +635,11 @@ Class AuthenticationHandlerProvider from Object
 		return self
 
 	Func GetHandlerAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetHandlerAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetHandlerAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -644,16 +672,32 @@ Class AuthenticationHandler from Object
 		return self
 
 	Func InitializeAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:InitializeAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:InitializeAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AuthenticateAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AuthenticateAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:AuthenticateAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ChallengeAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ChallengeAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ChallengeAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ForbidAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ForbidAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ForbidAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -742,7 +786,11 @@ Class AuthenticationMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Invoke",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Invoke",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -904,7 +952,11 @@ Class AuthenticationProperties from Object
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetString P1
 		return dnAnswer(dotnet_callt(nHandle,"GetString",P1))
@@ -917,7 +969,11 @@ Class AuthenticationProperties from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:GetParameter",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetParameter",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetParameter",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetParameter P1,P2
 		dotnet_callv("s4:call",nHandle,"s12:SetParameter",P1,P2)
@@ -949,7 +1005,11 @@ Class AuthenticationProperties from Object
 
 	Func GetTokens 
 		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetTokens"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetTokens")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getItems
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Items"))
@@ -1058,7 +1118,11 @@ Class AuthenticationSchemeBuilder from Object
 		return self
 
 	Func Build 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Build")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1219,25 +1283,53 @@ Class AuthenticationSchemeProvider from Object
 		return self
 
 	Func GetDefaultAuthenticateSchemeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetDefaultAuthenticateSchemeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s33:GetDefaultAuthenticateSchemeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDefaultChallengeSchemeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetDefaultChallengeSchemeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s30:GetDefaultChallengeSchemeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDefaultForbidSchemeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDefaultForbidSchemeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:GetDefaultForbidSchemeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDefaultSignInSchemeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDefaultSignInSchemeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:GetDefaultSignInSchemeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDefaultSignOutSchemeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetDefaultSignOutSchemeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s28:GetDefaultSignOutSchemeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetSchemeAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetSchemeAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetSchemeAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetRequestHandlerSchemesAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetRequestHandlerSchemesAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s29:GetRequestHandlerSchemesAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryAddScheme P1
 		dn_x = dotnet_call("s4:call",nHandle,"s12:TryAddScheme",P1)
@@ -1254,7 +1346,11 @@ Class AuthenticationSchemeProvider from Object
 		return self
 
 	Func GetAllSchemesAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetAllSchemesAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetAllSchemesAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1281,19 +1377,39 @@ Class AuthenticationService from Object
 		return self
 
 	Func AuthenticateAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AuthenticateAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:AuthenticateAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ChallengeAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ChallengeAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ChallengeAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ForbidAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ForbidAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ForbidAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SignInAsync P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SignInAsync",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:SignInAsync",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SignOutAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SignOutAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:SignOutAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1365,7 +1481,11 @@ Class AuthenticationTicket from Object
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1651,7 +1771,11 @@ Class IAuthenticationConfigurationProvider from DotNetObject
 
 	Func GetSchemeConfiguration P1
 		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationConfigurationProviderExtensions, Microsoft.AspNetCore.Authentication")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetSchemeConfiguration",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:GetSchemeConfiguration",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getAuthenticationConfiguration
 		return dnObj(dotnet_callo("s3:get",nHandle,"s27:AuthenticationConfiguration"))
@@ -1701,16 +1825,32 @@ Class IAuthenticationHandler from DotNetObject
 		return self
 
 	Func InitializeAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:InitializeAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:InitializeAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AuthenticateAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AuthenticateAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:AuthenticateAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ChallengeAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ChallengeAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ChallengeAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ForbidAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ForbidAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ForbidAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAuthenticationHandlerProvider from DotNetObject
@@ -1725,7 +1865,11 @@ Class IAuthenticationHandlerProvider from DotNetObject
 		return self
 
 	Func GetHandlerAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetHandlerAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetHandlerAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAuthenticationRequestHandler from DotNetObject
@@ -1740,19 +1884,39 @@ Class IAuthenticationRequestHandler from DotNetObject
 		return self
 
 	Func HandleRequestAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:HandleRequestAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:HandleRequestAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func InitializeAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:InitializeAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:InitializeAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AuthenticateAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AuthenticateAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:AuthenticateAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ChallengeAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ChallengeAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ChallengeAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ForbidAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ForbidAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ForbidAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAuthenticationSchemeProvider from DotNetObject
@@ -1767,25 +1931,53 @@ Class IAuthenticationSchemeProvider from DotNetObject
 		return self
 
 	Func GetAllSchemesAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetAllSchemesAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetAllSchemesAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetSchemeAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetSchemeAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetSchemeAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDefaultAuthenticateSchemeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s33:GetDefaultAuthenticateSchemeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s33:GetDefaultAuthenticateSchemeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDefaultChallengeSchemeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s30:GetDefaultChallengeSchemeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s30:GetDefaultChallengeSchemeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDefaultForbidSchemeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDefaultForbidSchemeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:GetDefaultForbidSchemeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDefaultSignInSchemeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetDefaultSignInSchemeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:GetDefaultSignInSchemeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDefaultSignOutSchemeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetDefaultSignOutSchemeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s28:GetDefaultSignOutSchemeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddScheme P1
 		dotnet_callv("s4:call",nHandle,"s9:AddScheme",P1)
@@ -1802,7 +1994,11 @@ Class IAuthenticationSchemeProvider from DotNetObject
 		return self
 
 	Func GetRequestHandlerSchemesAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetRequestHandlerSchemesAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s29:GetRequestHandlerSchemesAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAuthenticationService from DotNetObject
@@ -1817,19 +2013,39 @@ Class IAuthenticationService from DotNetObject
 		return self
 
 	Func AuthenticateAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AuthenticateAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:AuthenticateAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ChallengeAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ChallengeAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ChallengeAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ForbidAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ForbidAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ForbidAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SignInAsync P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SignInAsync",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:SignInAsync",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SignOutAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SignOutAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:SignOutAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetTokenAsync P1
 		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
@@ -1851,22 +2067,46 @@ Class IAuthenticationSignInHandler from DotNetObject
 		return self
 
 	Func SignInAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SignInAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:SignInAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SignOutAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SignOutAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:SignOutAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func InitializeAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:InitializeAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:InitializeAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AuthenticateAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AuthenticateAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:AuthenticateAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ChallengeAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ChallengeAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ChallengeAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ForbidAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ForbidAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ForbidAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAuthenticationSignOutHandler from DotNetObject
@@ -1881,19 +2121,39 @@ Class IAuthenticationSignOutHandler from DotNetObject
 		return self
 
 	Func SignOutAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SignOutAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:SignOutAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func InitializeAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:InitializeAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:InitializeAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AuthenticateAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AuthenticateAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:AuthenticateAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ChallengeAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ChallengeAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ChallengeAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ForbidAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ForbidAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ForbidAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IClaimsTransformation from DotNetObject
@@ -1908,7 +2168,11 @@ Class IClaimsTransformation from DotNetObject
 		return self
 
 	Func TransformAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:TransformAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:TransformAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IDataSerializer from DotNetObject
@@ -1927,10 +2191,18 @@ Class IDataSerializer from DotNetObject
 		return self
 
 	Func Serialize P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Serialize",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Serialize",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Deserialize P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:Deserialize",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ISecureDataFormat from DotNetObject
@@ -1955,7 +2227,11 @@ Class ISecureDataFormat from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Unprotect",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Unprotect",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Unprotect",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class JsonDocumentAuthExtensions from Object
@@ -2001,7 +2277,11 @@ Class NoopClaimsTransformation from Object
 		return self
 
 	Func TransformAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:TransformAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:TransformAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2032,10 +2312,18 @@ Class PropertiesSerializer from Object
 		return self
 
 	Func Serialize P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Serialize",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Serialize",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Deserialize P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:Deserialize",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Write P1,P2
 		dotnet_callv("s4:call",nHandle,"s5:Write",P1,P2)
@@ -2043,7 +2331,11 @@ Class PropertiesSerializer from Object
 		return self
 
 	Func Read P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Read",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Read",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2082,13 +2374,25 @@ Class RemoteAuthenticationEvents from Object
 		return self
 
 	Func AccessDenied P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AccessDenied",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:AccessDenied",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RemoteFailure P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:RemoteFailure",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:RemoteFailure",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TicketReceived P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:TicketReceived",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:TicketReceived",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2160,7 +2464,11 @@ Class SecureDataFormat from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Unprotect",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Unprotect",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Unprotect",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2191,10 +2499,18 @@ Class TicketSerializer from Object
 		return self
 
 	Func Serialize P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Serialize",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Serialize",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Deserialize P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:Deserialize",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Write P1,P2
 		dotnet_callv("s4:call",nHandle,"s5:Write",P1,P2)
@@ -2202,7 +2518,11 @@ Class TicketSerializer from Object
 		return self
 
 	Func Read P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Read",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Read",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2377,10 +2697,18 @@ Class RemoteAuthenticationHandler from AuthenticationHandler
 		return self
 
 	Func ShouldHandleRequestAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ShouldHandleRequestAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:ShouldHandleRequestAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func HandleRequestAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:HandleRequestAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:HandleRequestAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class RemoteAuthenticationOptions from AuthenticationSchemeOptions
@@ -2562,7 +2890,11 @@ Class SignOutAuthenticationHandler from AuthenticationHandler
 		return self
 
 	Func SignOutAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SignOutAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:SignOutAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class TicketDataFormat from SecureDataFormat
@@ -2765,7 +3097,11 @@ Class SignInAuthenticationHandler from SignOutAuthenticationHandler
 		return self
 
 	Func SignInAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SignInAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:SignInAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class PolicySchemeHandler from SignInAuthenticationHandler

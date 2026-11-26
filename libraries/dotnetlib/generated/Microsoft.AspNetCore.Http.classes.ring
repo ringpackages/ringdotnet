@@ -718,9 +718,17 @@ Class ConnectionInfo from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:GetClientCertificateAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetClientCertificateAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s25:GetClientCertificateAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetClientCertificateAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:GetClientCertificateAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RequestClose 
 		dotnet_calltv(nHandle,"RequestClose")
@@ -809,7 +817,11 @@ Class CookieBuilder from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Build",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Build",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -933,7 +945,11 @@ Class CookieOptions from Object
 		return self
 
 	Func CreateCookieHeader P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:CreateCookieHeader",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:CreateCookieHeader",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1017,7 +1033,11 @@ Class DefaultHttpContextFactory from Object
 		return self
 
 	Func Create P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose P1
 		dotnet_callv("s4:call",nHandle,"s7:Dispose",P1)
@@ -1201,7 +1221,11 @@ Class EndpointFilterInvocationContext from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetArgument",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetArgument",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetArgument",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1273,7 +1297,11 @@ Class EndpointMetadataCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetMetadata",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetMetadata"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetMetadata")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: GetMetadata needs its type arguments: GetMetadata([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1282,7 +1310,11 @@ Class EndpointMetadataCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetOrderedMetadata",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetOrderedMetadata"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetOrderedMetadata")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: GetOrderedMetadata needs its type arguments: GetOrderedMetadata([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1291,12 +1323,20 @@ Class EndpointMetadataCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:GetRequiredMetadata",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetRequiredMetadata"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s19:GetRequiredMetadata")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: GetRequiredMetadata needs its type arguments: GetRequiredMetadata([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1309,7 +1349,11 @@ Class EndpointMetadataCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1319,12 +1363,20 @@ Class EndpointMetadataCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -1441,7 +1493,11 @@ Class AspFormCollection from Object
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1454,7 +1510,11 @@ Class AspFormCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1464,12 +1524,20 @@ Class AspFormCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getFiles
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Files"))
@@ -1553,7 +1621,11 @@ Class FormFile from Object
 		return self
 
 	Func OpenReadStream 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:OpenReadStream"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:OpenReadStream")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
@@ -1564,7 +1636,11 @@ Class FormFile from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CopyToAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CopyToAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:CopyToAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1632,10 +1708,18 @@ Class FormFileCollection from List
 		return self
 
 	Func GetFile P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetFile",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetFile",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetFiles P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetFiles",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetFiles",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class FragmentString from ValueType
@@ -1779,7 +1863,11 @@ Class HeaderDictionary from Object
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1800,7 +1888,11 @@ Class HeaderDictionary from Object
 
 	Func GetCommaSeparatedValues P1
 		dnEnsureExt("Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCommaSeparatedValues",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:GetCommaSeparatedValues",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetCommaSeparatedValues P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions")
@@ -1820,7 +1912,11 @@ Class HeaderDictionary from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1830,12 +1926,20 @@ Class HeaderDictionary from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -2085,7 +2189,11 @@ Class HttpContext from Object
 
 	Func GetEndpoint 
 		dnEnsureExt("Microsoft.AspNetCore.Http.EndpointHttpContextExtensions, Microsoft.AspNetCore.Http.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetEndpoint"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetEndpoint")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetEndpoint P1
 		dnEnsureExt("Microsoft.AspNetCore.Http.EndpointHttpContextExtensions, Microsoft.AspNetCore.Http.Abstractions")
@@ -2101,11 +2209,19 @@ Class HttpContext from Object
 
 	Func GetRouteData 
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RoutingHttpContextExtensions, Microsoft.AspNetCore.Routing.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetRouteData"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetRouteData")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetRouteValue P1
 		dnEnsureExt("Microsoft.AspNetCore.Routing.RoutingHttpContextExtensions, Microsoft.AspNetCore.Routing.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetRouteValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetRouteValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AuthenticateAsync P1
 		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
@@ -2113,9 +2229,17 @@ Class HttpContext from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AuthenticateAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s17:AuthenticateAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s17:AuthenticateAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AuthenticateAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:AuthenticateAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ChallengeAsync P1
 		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
@@ -2123,9 +2247,17 @@ Class HttpContext from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:ChallengeAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s14:ChallengeAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s14:ChallengeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ChallengeAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ChallengeAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ForbidAsync P1
 		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
@@ -2133,16 +2265,28 @@ Class HttpContext from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:ForbidAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:ForbidAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:ForbidAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ForbidAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ForbidAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SignInAsync P1
 		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:SignInAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SignInAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:SignInAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SignOutAsync P1
 		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
@@ -2150,16 +2294,28 @@ Class HttpContext from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:SignOutAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s12:SignOutAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s12:SignOutAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SignOutAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:SignOutAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetTokenAsync P1
 		dnEnsureExt("Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetTokenAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetTokenAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetTokenAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getFeatures
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Features"))
@@ -2541,9 +2697,17 @@ Class HttpRequest from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:ReadFormAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadFormAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s13:ReadFormAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadFormAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ReadFormAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2552,7 +2716,11 @@ Class HttpRequest from Object
 
 	Func GetTypedHeaders 
 		dnEnsureExt("Microsoft.AspNetCore.Http.HeaderDictionaryTypeExtensions, Microsoft.AspNetCore.Http.Extensions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetTypedHeaders"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetTypedHeaders")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadFromJsonAsync P1
 		dnEnsureExt("Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions")
@@ -2560,9 +2728,17 @@ Class HttpRequest from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ReadFromJsonAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadFromJsonAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s17:ReadFromJsonAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadFromJsonAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ReadFromJsonAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func HasJsonContentType 
 		dnEnsureExt("Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions")
@@ -2587,7 +2763,11 @@ Class HttpRequest from Object
 
 	Func GetDeclaredTrailers 
 		dnEnsureExt("Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetDeclaredTrailers"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:GetDeclaredTrailers")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SupportsTrailers 
 		dnEnsureExt("Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions")
@@ -2603,7 +2783,11 @@ Class HttpRequest from Object
 
 	Func GetTrailer P1
 		dnEnsureExt("Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetTrailer",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetTrailer",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetMultipartBoundary 
 		dnEnsureExt("Microsoft.AspNetCore.Http.Extensions.HttpRequestMultipartExtensions, Microsoft.AspNetCore.Http.Extensions")
@@ -2861,12 +3045,24 @@ Class HttpResponse from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:StartAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:StartAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:StartAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CompleteAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:CompleteAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:CompleteAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2875,21 +3071,33 @@ Class HttpResponse from Object
 
 	Func GetTypedHeaders 
 		dnEnsureExt("Microsoft.AspNetCore.Http.HeaderDictionaryTypeExtensions, Microsoft.AspNetCore.Http.Extensions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetTypedHeaders"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetTypedHeaders")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteAsJsonAsync P1
 		dnEnsureExt("Microsoft.AspNetCore.Http.HttpResponseJsonExtensions, Microsoft.AspNetCore.Http.Extensions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:WriteAsJsonAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:WriteAsJsonAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:WriteAsJsonAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteAsync P1
 		dnEnsureExt("Microsoft.AspNetCore.Http.HttpResponseWritingExtensions, Microsoft.AspNetCore.Http.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:WriteAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:WriteAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:WriteAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clear 
 		dnEnsureExt("Microsoft.AspNetCore.Http.ResponseExtensions, Microsoft.AspNetCore.Http.Extensions")
@@ -2920,7 +3128,11 @@ Class HttpResponse from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SendFileAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SendFileAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:SendFileAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getHttpContext
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:HttpContext"))
@@ -3121,7 +3333,11 @@ Class IEndpointFilter from DotNetObject
 		return self
 
 	Func InvokeAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:InvokeAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:InvokeAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IFileHttpResult from DotNetObject
@@ -3173,7 +3389,11 @@ Class IFormCollection from DotNetObject
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -3181,7 +3401,11 @@ Class IFormCollection from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -3191,12 +3415,20 @@ Class IFormCollection from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -3236,7 +3468,11 @@ Class IFormFile from DotNetObject
 		return self
 
 	Func OpenReadStream 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:OpenReadStream"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:OpenReadStream")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1)
@@ -3247,7 +3483,11 @@ Class IFormFile from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CopyToAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CopyToAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:CopyToAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getContentType
 		return dnAnswer(dotnet_getp(nHandle,"ContentType"))
@@ -3300,13 +3540,25 @@ Class IFormFileCollection from DotNetObject
 		return self
 
 	Func GetFile P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetFile",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetFile",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetFiles P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetFiles",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetFiles",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -3314,7 +3566,11 @@ Class IFormFileCollection from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -3324,12 +3580,20 @@ Class IFormFileCollection from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -3472,7 +3736,11 @@ Class IHeaderDictionary from DotNetObject
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Append P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions")
@@ -3488,7 +3756,11 @@ Class IHeaderDictionary from DotNetObject
 
 	Func GetCommaSeparatedValues P1
 		dnEnsureExt("Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCommaSeparatedValues",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:GetCommaSeparatedValues",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetCommaSeparatedValues P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Http.HeaderDictionaryExtensions, Microsoft.AspNetCore.Http.Abstractions")
@@ -3508,7 +3780,11 @@ Class IHeaderDictionary from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -3518,12 +3794,20 @@ Class IHeaderDictionary from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -4217,7 +4501,11 @@ Class IHttpContextFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose P1
 		dotnet_callv("s4:call",nHandle,"s7:Dispose",P1)
@@ -4237,7 +4525,11 @@ Class IMiddleware from DotNetObject
 		return self
 
 	Func InvokeAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:InvokeAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:InvokeAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IMiddlewareFactory from DotNetObject
@@ -4252,7 +4544,11 @@ Class IMiddlewareFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class INestedHttpResult from DotNetObject
@@ -4287,10 +4583,18 @@ Class IProblemDetailsService from DotNetObject
 		return self
 
 	Func WriteAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:WriteAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:WriteAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryWriteAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:TryWriteAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:TryWriteAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IProblemDetailsWriter from DotNetObject
@@ -4305,7 +4609,11 @@ Class IProblemDetailsWriter from DotNetObject
 		return self
 
 	Func WriteAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:WriteAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:WriteAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CanWrite P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:CanWrite",P1)
@@ -4334,7 +4642,11 @@ Class IQueryCollection from DotNetObject
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -4342,7 +4654,11 @@ Class IQueryCollection from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -4352,12 +4668,20 @@ Class IQueryCollection from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -4393,7 +4717,11 @@ Class IRequestCookieCollection from DotNetObject
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -4401,7 +4729,11 @@ Class IRequestCookieCollection from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -4411,7 +4743,11 @@ Class IRequestCookieCollection from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -4466,7 +4802,11 @@ Class IResult from DotNetObject
 		return self
 
 	Func ExecuteAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ExecuteAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ExecuteAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IResultExtensions from DotNetObject
@@ -4501,18 +4841,34 @@ Class ISession from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:LoadAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s9:LoadAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s9:LoadAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:LoadAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:LoadAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CommitAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CommitAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:CommitAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:CommitAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CommitAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:CommitAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryGetValue P1
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
@@ -4538,7 +4894,11 @@ Class ISession from DotNetObject
 
 	Func GetInt32 P1
 		dnEnsureExt("Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetInt32",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetInt32",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetString P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions")
@@ -4554,7 +4914,11 @@ Class ISession from DotNetObject
 
 	Func @Get P1
 		dnEnsureExt("Microsoft.AspNetCore.Http.SessionExtensions, Microsoft.AspNetCore.Http.Extensions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Get",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getIsAvailable
 		return dotnet_getp(nHandle,"IsAvailable")
@@ -4653,7 +5017,11 @@ Class MiddlewareFactory from Object
 		return self
 
 	Func Create P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4768,7 +5136,11 @@ Class PathString from ValueType
 		return dn_x
 
 	Func Add P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Add",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		return dnAnswer(dotnet_calltd1(nHandle,"Equals",P1))
@@ -4926,7 +5298,11 @@ Class ProducesResponseTypeMetadata from Object
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4999,7 +5375,11 @@ Class QueryCollection from Object
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -5012,7 +5392,11 @@ Class QueryCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -5022,12 +5406,20 @@ Class QueryCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -5131,7 +5523,11 @@ Class QueryString from ValueType
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Add",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Add",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FromUriComponent P1
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions',"s16:FromUriComponent",P1))
@@ -6279,19 +6675,35 @@ Class StreamResponseBodyFeature from Object
 		return self
 
 	Func SendFileAsync P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SendFileAsync",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:SendFileAsync",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func StartAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:StartAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:StartAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:StartAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CompleteAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:CompleteAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:CompleteAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -6682,9 +7094,17 @@ Class WebSocketManager from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:AcceptWebSocketAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s20:AcceptWebSocketAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s20:AcceptWebSocketAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AcceptWebSocketAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:AcceptWebSocketAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

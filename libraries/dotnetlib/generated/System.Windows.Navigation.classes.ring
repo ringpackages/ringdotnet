@@ -206,7 +206,11 @@ Class IProvideCustomContentState from DotNetObject
 		return self
 
 	Func GetContentState 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetContentState"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetContentState")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class JournalEntry from DependencyObject
@@ -305,10 +309,18 @@ Class JournalEntryListConverter from Object
 		return self
 
 	Func Convert P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Convert",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Convert",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConvertBack P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ConvertBack",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ConvertBack",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -339,10 +351,18 @@ Class JournalEntryUnifiedViewConverter from Object
 		return self
 
 	Func Convert P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Convert",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Convert",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConvertBack P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ConvertBack",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ConvertBack",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -623,7 +643,11 @@ Class NavigationService from Object
 		return self
 
 	Func RemoveBackEntry 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:RemoveBackEntry"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:RemoveBackEntry")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Navigate P1
 		return dnAnswer(dotnet_calltd1(nHandle,"Navigate",P1))
@@ -803,7 +827,11 @@ Class NavigationWindow from Window
 		return self
 
 	Func RemoveBackEntry 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:RemoveBackEntry"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:RemoveBackEntry")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func setNavigatingEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"Navigating",dnCallback(P1)])

@@ -61,7 +61,11 @@ Class DefaultFilesMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Invoke",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Invoke",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -98,7 +102,11 @@ Class DirectoryBrowserMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Invoke",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Invoke",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -173,7 +181,11 @@ Class HtmlDirectoryFormatter from Object
 		return self
 
 	Func GenerateContentAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GenerateContentAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GenerateContentAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -208,7 +220,11 @@ Class IDirectoryFormatter from DotNetObject
 		return self
 
 	Func GenerateContentAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GenerateContentAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GenerateContentAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class StaticFileMiddleware from Object
@@ -225,7 +241,11 @@ Class StaticFileMiddleware from Object
 		return self
 
 	Func Invoke P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Invoke",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Invoke",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

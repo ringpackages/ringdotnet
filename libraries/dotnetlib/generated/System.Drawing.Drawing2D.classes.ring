@@ -239,7 +239,11 @@ Class CustomLineCap from MarshalByRefObject
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetStrokeCaps P1,P2
 		dotnet_callv("s4:call",nHandle,"s13:SetStrokeCaps",P1,P2)
@@ -333,7 +337,11 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -368,7 +376,11 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func GetLastPoint 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetLastPoint"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetLastPoint")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IsVisible P1
 		return dnAnswer(dotnet_calltd1(nHandle,"IsVisible",P1))
@@ -471,9 +483,17 @@ Class GraphicsPath from MarshalByRefObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:GetBounds",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetBounds"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetBounds")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetBounds",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetBounds",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Flatten P1
 		dotnet_calltdv(nHandle,"Flatten",P1)
@@ -831,7 +851,11 @@ Class Matrix from MarshalByRefObject
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Reset 
 		dotnet_calltv(nHandle,"Reset")

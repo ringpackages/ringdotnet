@@ -463,6 +463,23 @@ namespace MyCompany.Tools
 		public string Add(string a, string b) { return a + b; }
 	}
 
+	// Methods that answer the object they were called on (a fluent class): Ring keeps the wrapper it has instead of making a new one
+	public interface IFluentChain { int Value { get; } }
+
+	public class FluentChain : IFluentChain
+	{
+		public int Value { get; set; }
+		public FluentChain Add(int n) { Value += n; return this; }
+		public FluentChain Copy() { return new FluentChain { Value = Value }; }
+		public FluentChain Maybe(bool same) { return same ? this : new FluentChain { Value = Value + 100 }; }
+		public FluentChain Nothing() { return null; }
+		public object AsObject() { return this; }
+		public IFluentChain AsInterface() { return this; }
+		public FluentChain Over(int n) { return Add(n); }
+		public FluentChain Over(string s) { return new FluentChain { Value = s.Length }; }
+		public static FluentChain Make(int n) { return new FluentChain { Value = n }; }
+	}
+
 	// A class with two indexers (the first that .NET lists maps a number to a text, the other a text to a number): its Item is the generic request's,
 	// because two get_Item can take one argument
 	public class TypedIndexed

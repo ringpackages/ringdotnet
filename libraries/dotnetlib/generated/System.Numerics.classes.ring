@@ -322,9 +322,17 @@ Class BigInteger from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:ToByteArray",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToByteArray"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToByteArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToByteArray",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToByteArray",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryWriteBytes P1
 		if dotnet_isnamed(P1)
@@ -2369,7 +2377,11 @@ Class Plane from ValueType
 
 	Func AsVector4 
 		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector4"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:AsVector4")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getNormal
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Normal"))
@@ -2489,7 +2501,11 @@ Class Quaternion from ValueType
 
 	Func AsVector4 
 		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector4"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:AsVector4")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
@@ -3194,11 +3210,19 @@ Class Vector2 from ValueType
 
 	Func AsVector4 
 		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector4"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:AsVector4")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AsVector4Unsafe 
 		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AsVector4Unsafe"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:AsVector4Unsafe")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
@@ -3510,11 +3534,19 @@ Class Vector3 from ValueType
 
 	Func AsVector4 
 		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector4"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:AsVector4")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AsVector4Unsafe 
 		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AsVector4Unsafe"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:AsVector4Unsafe")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
@@ -3832,19 +3864,35 @@ Class Vector4 from ValueType
 
 	Func AsPlane 
 		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AsPlane"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:AsPlane")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AsQuaternion 
 		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsQuaternion"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:AsQuaternion")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AsVector2 
 		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector2"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:AsVector2")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AsVector3 
 		dnEnsureExt("System.Numerics.Vector, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AsVector3"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:AsVector3")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
@@ -3996,7 +4044,11 @@ Class Vector1 from ValueType
 		return dnSend("s4:call",nHandle,"s9:TryCopyTo",dnPackItem(P1))
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	# the operators of System.Numerics.Vector`1: + & | / = ^ != << * ~ >> - -x
 	Func operator cOperator, Para

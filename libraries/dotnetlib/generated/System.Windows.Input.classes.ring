@@ -1235,7 +1235,11 @@ Class CommandBindingCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1248,7 +1252,11 @@ Class CommandBindingCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1258,12 +1266,20 @@ Class CommandBindingCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -2107,7 +2123,11 @@ Class IManipulator from DotNetObject
 		return self
 
 	Func GetPosition P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetPosition",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetPosition",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ManipulationEnded P1
 		dotnet_calltv(nHandle,"ManipulationEnded",P1)
@@ -2433,7 +2453,11 @@ Class InputBindingCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Contains P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
@@ -2456,7 +2480,11 @@ Class InputBindingCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -2466,12 +2494,20 @@ Class InputBindingCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -2629,7 +2665,11 @@ Class InputGestureCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
@@ -2689,7 +2729,11 @@ Class InputGestureCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -2699,12 +2743,20 @@ Class InputGestureCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -5087,7 +5139,11 @@ Class StagingAreaInputItem from Object
 		return self
 
 	Func GetData P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetData",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetData",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetData P1,P2
 		dotnet_callv("s4:call",nHandle,"s7:SetData",P1,P2)
@@ -5659,7 +5715,11 @@ Class StylusButtonCollection from ReadOnlyCollection
 		return self
 
 	Func GetStylusButtonByGuid P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetStylusButtonByGuid",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:GetStylusButtonByGuid",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class StylusDeviceCollection from ReadOnlyCollection
@@ -5733,7 +5793,11 @@ Class StylusPoint from ValueType
 		return self
 
 	Func ToPoint 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToPoint"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToPoint")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		if dotnet_isnamed(P1)
@@ -5833,13 +5897,25 @@ Class StylusPointCollection from Collection
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Reformat P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Reformat",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Reformat",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToHiMetricArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ToHiMetricArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:ToHiMetricArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func setChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"Changed",dnCallback(P1)])
@@ -5900,10 +5976,18 @@ Class StylusPointDescription from Object
 		return dn_x
 
 	Func GetPropertyInfo P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetPropertyInfo",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetPropertyInfo",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetStylusPointProperties 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetStylusPointProperties"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:GetStylusPointProperties")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IsSubsetOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s10:IsSubsetOf",P1)
@@ -6208,7 +6292,11 @@ Class TabletDeviceCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -6218,12 +6306,20 @@ Class TabletDeviceCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -6489,10 +6585,18 @@ Class TouchFrameEventArgs from EventArgs
 		return self
 
 	Func GetTouchPoints P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetTouchPoints",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetTouchPoints",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetPrimaryTouchPoint P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetPrimaryTouchPoint",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetPrimaryTouchPoint",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SuspendMousePromotionUntilTouchUp 
 		dotnet_calltv(nHandle,"SuspendMousePromotionUntilTouchUp")
@@ -6797,7 +6901,11 @@ Class KeyboardDevice from InputDevice
 		return self
 
 	Func Focus P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Focus",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Focus",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IsKeyDown P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:IsKeyDown",P1)
@@ -6815,7 +6923,11 @@ Class KeyboardDevice from InputDevice
 		return dn_x
 
 	Func GetKeyStates P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetKeyStates",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetKeyStates",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getDefaultRestoreFocusMode
 		return dnAnswer(dotnet_getp(nHandle,"DefaultRestoreFocusMode"))
@@ -7286,7 +7398,11 @@ Class MouseDevice from InputDevice
 		return dn_x
 
 	Func GetPosition P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetPosition",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetPosition",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Synchronize 
 		dotnet_calltv(nHandle,"Synchronize")
@@ -7383,7 +7499,11 @@ Class WpfMouseEventArgs from InputEventArgs
 		return self
 
 	Func GetPosition P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetPosition",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetPosition",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getMouseDevice
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:MouseDevice"))
@@ -7497,13 +7617,25 @@ Class ProcessInputEventArgs from NotifyInputEventArgs
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:PushInput",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:PushInput",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:PushInput",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func PopInput 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:PopInput"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:PopInput")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func PeekInput 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:PeekInput"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:PeekInput")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class RoutedUICommand from RoutedCommand
@@ -7585,10 +7717,18 @@ Class StylusDevice from InputDevice
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:GetStylusPoints",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetStylusPoints",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetStylusPoints",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetPosition P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetPosition",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetPosition",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getIsValid
 		return dotnet_getp(nHandle,"IsValid")
@@ -7669,13 +7809,21 @@ Class StylusEventArgs from InputEventArgs
 		return self
 
 	Func GetPosition P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetPosition",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetPosition",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetStylusPoints P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:GetStylusPoints",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetStylusPoints",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetStylusPoints",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getStylusDevice
 		return dnObj(dotnet_callo("s3:get",nHandle,"s12:StylusDevice"))
@@ -7774,7 +7922,11 @@ Class TabletDevice from InputDevice
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getId
 		return dotnet_getp(nHandle,"Id")
@@ -7880,10 +8032,18 @@ Class TouchDevice from InputDevice
 		return self
 
 	Func GetTouchPoint P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetTouchPoint",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetTouchPoint",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetIntermediateTouchPoints P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetIntermediateTouchPoints",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s26:GetIntermediateTouchPoints",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Capture P1
 		return dnAnswer(dotnet_calltd1(nHandle,"Capture",P1))
@@ -7963,10 +8123,18 @@ Class TouchEventArgs from InputEventArgs
 		return self
 
 	Func GetTouchPoint P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetTouchPoint",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetTouchPoint",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetIntermediateTouchPoints P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s26:GetIntermediateTouchPoints",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s26:GetIntermediateTouchPoints",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getTouchDevice
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:TouchDevice"))

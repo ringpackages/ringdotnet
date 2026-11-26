@@ -308,7 +308,11 @@ Class XNamespace from Object
 		return self
 
 	Func GetName P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetName",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetName",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -431,18 +435,34 @@ Class XObject from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:Annotation",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:Annotation"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:Annotation")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:Annotation",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:Annotation",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Annotations P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:Annotations",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:Annotations"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:Annotations")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:Annotations",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:Annotations",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RemoveAnnotations P1
 		dotnet_calltdv(nHandle,"RemoveAnnotations",P1)
@@ -635,42 +655,82 @@ Class XNode from XObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Ancestors",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s9:Ancestors"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s9:Ancestors")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Ancestors",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Ancestors",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateReader P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:CreateReader",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateReader"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s12:CreateReader")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateReader",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:CreateReader",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func NodesAfterSelf 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:NodesAfterSelf"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:NodesAfterSelf")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func NodesBeforeSelf 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:NodesBeforeSelf"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:NodesBeforeSelf")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ElementsAfterSelf P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ElementsAfterSelf",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s17:ElementsAfterSelf"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s17:ElementsAfterSelf")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ElementsAfterSelf",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ElementsAfterSelf",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ElementsBeforeSelf P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:ElementsBeforeSelf",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s18:ElementsBeforeSelf"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s18:ElementsBeforeSelf")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ElementsBeforeSelf",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:ElementsBeforeSelf",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IsAfter P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IsAfter",P1)
@@ -700,7 +760,11 @@ Class XNode from XObject
 		return self
 
 	Func WriteToAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:WriteToAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:WriteToAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CompareDocumentOrder P1,P2
 		dn_x = dotnet_call("s4:call",'System.Xml.Linq.XNode, System.Private.Xml.Linq',"s20:CompareDocumentOrder",P1,P2)
@@ -873,34 +937,66 @@ Class XContainer from XNode
 		return self
 
 	Func CreateWriter 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateWriter"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:CreateWriter")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DescendantNodes 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:DescendantNodes"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:DescendantNodes")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Descendants P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:Descendants",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:Descendants"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:Descendants")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:Descendants",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:Descendants",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Element P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Element",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Element",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Elements P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Elements",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s8:Elements"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s8:Elements")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Elements",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Elements",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Nodes 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Nodes"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Nodes")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RemoveNodes 
 		dotnet_calltv(nHandle,"RemoveNodes")
@@ -1200,39 +1296,79 @@ Class XElement from XContainer
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:AncestorsAndSelf",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s16:AncestorsAndSelf"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s16:AncestorsAndSelf")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AncestorsAndSelf",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:AncestorsAndSelf",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Attribute P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Attribute",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Attribute",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Attributes P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:Attributes",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:Attributes"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:Attributes")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:Attributes",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:Attributes",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DescendantNodesAndSelf 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:DescendantNodesAndSelf"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:DescendantNodesAndSelf")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DescendantsAndSelf P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:DescendantsAndSelf",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s18:DescendantsAndSelf"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s18:DescendantsAndSelf")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:DescendantsAndSelf",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:DescendantsAndSelf",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDefaultNamespace 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetDefaultNamespace"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:GetDefaultNamespace")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetNamespaceOfPrefix P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetNamespaceOfPrefix",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetNamespaceOfPrefix",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetPrefixOfNamespace P1
 		dn_x = dotnet_call("s4:call",nHandle,"s20:GetPrefixOfNamespace",P1)

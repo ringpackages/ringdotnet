@@ -653,7 +653,11 @@ Class CookieCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -666,7 +670,11 @@ Class CookieCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -676,12 +684,20 @@ Class CookieCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getIsReadOnly
 		return dotnet_getp(nHandle,"IsReadOnly")
@@ -757,10 +773,18 @@ Class CookieContainer from Object
 		return self
 
 	Func GetCookies P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetCookies",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetCookies",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetAllCookies 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetAllCookies"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetAllCookies")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetCookieHeader P1
 		dn_x = dotnet_call("s4:call",nHandle,"s15:GetCookieHeader",P1)
@@ -888,7 +912,11 @@ Class CredentialCache from Object
 		raise("DotNet Error: GetCredential does not take one argument: use named arguments, GetCredential([ :parameter = value, ... ])")
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -901,7 +929,11 @@ Class CredentialCache from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -911,7 +943,11 @@ Class CredentialCache from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1086,10 +1122,18 @@ Class EndPoint from Object
 		return self
 
 	Func Serialize 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Serialize"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Serialize")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Create P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1137,7 +1181,11 @@ Class HttpListener from Object
 		return self
 
 	Func GetContextAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetContextAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetContextAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Close 
 		dotnet_calltv(nHandle,"Close")
@@ -1156,13 +1204,25 @@ Class HttpListener from Object
 		return self
 
 	Func GetContext 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetContext"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetContext")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BeginGetContext P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:BeginGetContext",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:BeginGetContext",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EndGetContext P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:EndGetContext",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:EndGetContext",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1274,7 +1334,11 @@ Class HttpListenerBasicIdentity from DotNetObject
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddClaim P1
 		dotnet_callv("s4:call",nHandle,"s8:AddClaim",P1)
@@ -1297,10 +1361,18 @@ Class HttpListenerBasicIdentity from DotNetObject
 		return self
 
 	Func FindAll P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:FindAll",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:FindAll",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FindFirst P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:FindFirst",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:FindFirst",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func HasClaim P1
 		return dnAnswer(dotnet_calltd1(nHandle,"HasClaim",P1))
@@ -1311,7 +1383,11 @@ Class HttpListenerBasicIdentity from DotNetObject
 		return self
 
 	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToString 
 		return dnAnswer(dotnet_callt(nHandle,"ToString"))
@@ -1407,7 +1483,11 @@ Class HttpListenerContext from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:AcceptWebSocketAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AcceptWebSocketAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:AcceptWebSocketAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1498,7 +1578,11 @@ Class HttpListenerPrefixCollection from Object
 		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Remove P1
 		return dnAnswer(dotnet_callt(nHandle,"Remove",P1))
@@ -1518,7 +1602,11 @@ Class HttpListenerPrefixCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1528,7 +1616,11 @@ Class HttpListenerPrefixCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1593,16 +1685,32 @@ Class HttpListenerRequest from Object
 		return self
 
 	Func GetClientCertificate 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetClientCertificate"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetClientCertificate")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BeginGetClientCertificate P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:BeginGetClientCertificate",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:BeginGetClientCertificate",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetClientCertificateAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetClientCertificateAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:GetClientCertificateAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EndGetClientCertificate P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:EndGetClientCertificate",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:EndGetClientCertificate",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2074,10 +2182,18 @@ Class IAuthenticationModule from DotNetObject
 		return self
 
 	Func Authenticate P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:Authenticate",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:Authenticate",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func PreAuthenticate P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:PreAuthenticate",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:PreAuthenticate",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCanPreAuthenticate
 		return dotnet_getp(nHandle,"CanPreAuthenticate")
@@ -2121,7 +2237,11 @@ Class ICredentials from DotNetObject
 		return self
 
 	Func GetCredential P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetCredential",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetCredential",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ICredentialsByHost from DotNetObject
@@ -2136,7 +2256,11 @@ Class ICredentialsByHost from DotNetObject
 		return self
 
 	Func GetCredential P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetCredential",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetCredential",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IPHostEntry from Object
@@ -2274,7 +2398,11 @@ Class IWebProxy from DotNetObject
 		return self
 
 	Func GetProxy P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetProxy",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetProxy",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IsBypassed P1
 		dn_x = dotnet_call("s4:call",nHandle,"s10:IsBypassed",P1)
@@ -2325,7 +2453,11 @@ Class IWebRequestCreate from DotNetObject
 		return self
 
 	Func Create P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class NetworkCredential from Object
@@ -2730,7 +2862,11 @@ Class TransportContext from Object
 		return self
 
 	Func GetChannelBinding P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetChannelBinding",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetChannelBinding",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2893,20 +3029,32 @@ Class WebClient from Component
 		return self
 
 	Func DownloadData P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DownloadData",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DownloadData",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DownloadFile P1,P2
 		dotnet_calltv(nHandle,"DownloadFile",P1,P2)
 		return self
 
 	Func OpenRead P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:OpenRead",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:OpenRead",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OpenWrite P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:OpenWrite",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:OpenWrite",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:OpenWrite",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UploadData P1
 		if dotnet_isnamed(P1)
@@ -2993,16 +3141,28 @@ Class WebClient from Component
 		return self
 
 	Func DownloadStringTaskAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:DownloadStringTaskAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:DownloadStringTaskAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OpenReadTaskAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:OpenReadTaskAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:OpenReadTaskAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OpenWriteTaskAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:OpenWriteTaskAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:OpenWriteTaskAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:OpenWriteTaskAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UploadStringTaskAsync P1
 		if dotnet_isnamed(P1)
@@ -3011,10 +3171,18 @@ Class WebClient from Component
 		raise("DotNet Error: UploadStringTaskAsync does not take one argument: use named arguments, UploadStringTaskAsync([ :parameter = value, ... ])")
 
 	Func DownloadDataTaskAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:DownloadDataTaskAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:DownloadDataTaskAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DownloadFileTaskAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:DownloadFileTaskAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:DownloadFileTaskAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UploadDataTaskAsync P1
 		if dotnet_isnamed(P1)
@@ -3291,7 +3459,11 @@ Class WebHeaderCollection from NameValueCollection
 		return self
 
 	Func ToByteArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToByteArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToByteArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IsRestricted P1
 		if dotnet_isnamed(P1)
@@ -3357,7 +3529,11 @@ Class WebProxy from Object
 		return self
 
 	Func GetProxy P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetProxy",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetProxy",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IsBypassed P1
 		dn_x = dotnet_call("s4:call",nHandle,"s10:IsBypassed",P1)
@@ -3443,28 +3619,60 @@ Class WebRequest from MarshalByRefObject
 		return self
 
 	Func GetRequestStream 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetRequestStream"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetRequestStream")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetResponse 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetResponse"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetResponse")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BeginGetResponse P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:BeginGetResponse",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:BeginGetResponse",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EndGetResponse P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:EndGetResponse",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:EndGetResponse",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BeginGetRequestStream P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:BeginGetRequestStream",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:BeginGetRequestStream",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EndGetRequestStream P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:EndGetRequestStream",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:EndGetRequestStream",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetRequestStreamAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetRequestStreamAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:GetRequestStreamAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetResponseAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetResponseAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetResponseAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Abort 
 		dotnet_calltv(nHandle,"Abort")
@@ -3879,7 +4087,11 @@ Class WebResponse from MarshalByRefObject
 		return self
 
 	Func GetResponseStream 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetResponseStream"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetResponseStream")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getContentLength
 		return dotnet_getp(nHandle,"ContentLength")
@@ -4051,7 +4263,11 @@ Class IPAddress from Object
 		return dnSend("s4:call",nHandle,"s13:TryWriteBytes",dnPackItem(P1))
 
 	Func GetAddressBytes 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetAddressBytes"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetAddressBytes")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryFormat P1
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1))
@@ -4062,10 +4278,18 @@ Class IPAddress from Object
 		return dn_x
 
 	Func MapToIPv6 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:MapToIPv6"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:MapToIPv6")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MapToIPv4 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:MapToIPv4"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:MapToIPv4")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryParse P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.IPAddress, System.Net.Primitives'),"s8:TryParse",dnPackItem(P1))

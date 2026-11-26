@@ -703,7 +703,11 @@ Class TaskFactory from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:StartNew",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:StartNew",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:StartNew",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FromAsync P1
 		if dotnet_isnamed(P1)
@@ -777,7 +781,11 @@ Class TaskFactory1 from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:StartNew",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:StartNew",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:StartNew",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FromAsync P1
 		if dotnet_isnamed(P1)
@@ -1022,16 +1030,32 @@ Class ValueTask from ValueType
 		return self
 
 	Func AsTask 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AsTask"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:AsTask")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Preserve 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Preserve"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Preserve")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetAwaiter 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetAwaiter"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetAwaiter")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConfigureAwait P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ConfigureAwait",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FromResult P1
 		return dnObj(dotnet_callo("s4:call",'System.Threading.Tasks.ValueTask, System.Private.CoreLib',"s10:FromResult",P1))
@@ -1099,16 +1123,32 @@ Class ValueTask1 from ValueType
 		return self
 
 	Func AsTask 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AsTask"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:AsTask")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Preserve 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Preserve"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Preserve")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetAwaiter 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetAwaiter"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetAwaiter")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConfigureAwait P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ConfigureAwait",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getIsCompleted
 		return dotnet_getp(nHandle,"IsCompleted")
@@ -1197,10 +1237,18 @@ Class Task from Object
 		return self
 
 	Func GetAwaiter 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetAwaiter"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetAwaiter")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConfigureAwait P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ConfigureAwait",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Wait P1
 		if dotnet_isnamed(P1)
@@ -1221,13 +1269,21 @@ Class Task from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:WaitAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:WaitAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:WaitAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ContinueWith P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ContinueWith",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ContinueWith",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ContinueWith",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

@@ -336,16 +336,28 @@ Class SqliteDataReader from DbDataReader
 		return self
 
 	Func GetDateTimeOffset P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetDateTimeOffset",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetDateTimeOffset",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetTimeSpan P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetTimeSpan",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetTimeSpan",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetFieldValue P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetFieldValue",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetFieldValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetFieldValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getHandle
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Handle"))
@@ -495,7 +507,11 @@ Class SqliteParameterCollection from DbParameterCollection
 		return dn_x
 
 	Func AddWithValue P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddWithValue",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:AddWithValue",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class SqliteTransaction from DbTransaction

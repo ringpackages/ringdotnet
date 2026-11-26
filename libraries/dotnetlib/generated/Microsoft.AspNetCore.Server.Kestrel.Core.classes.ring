@@ -184,10 +184,18 @@ Class KestrelServer from Object
 		return self
 
 	Func StartAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:StartAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func StopAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:StopAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:StopAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -396,9 +404,17 @@ Class KestrelServerOptions from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Configure",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s9:Configure")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Configure",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Listen P1
 		dotnet_calltd1v(nHandle,"Listen",P1)
@@ -435,9 +451,17 @@ Class KestrelServerOptions from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UseSystemd",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSystemd"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseSystemd")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSystemd",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseSystemd",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getAllowHostHeaderOverride
 		return dotnet_getp(nHandle,"AllowHostHeaderOverride")
@@ -545,10 +569,18 @@ Class ListenOptions from Object
 		return self
 
 	Func Use P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Use",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Use",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Build 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Build")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -561,9 +593,17 @@ Class ListenOptions from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:UseConnectionLogging",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s20:UseConnectionLogging"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s20:UseConnectionLogging")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:UseConnectionLogging",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:UseConnectionLogging",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseHttps P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions, Microsoft.AspNetCore.Server.Kestrel.Core")
@@ -571,9 +611,17 @@ Class ListenOptions from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:UseHttps",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s8:UseHttps"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s8:UseHttps")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:UseHttps",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:UseHttps",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getEndPoint
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:EndPoint"))

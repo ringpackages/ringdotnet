@@ -723,10 +723,18 @@ Class BindingSourceValueProvider from Object
 		return dnAnswer(dotnet_callt(nHandle,"ContainsPrefix",P1))
 
 	Func GetValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Filter P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Filter",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -774,19 +782,35 @@ Class CompositeValueProvider from Collection
 		return dnAnswer(dotnet_callt(nHandle,"ContainsPrefix",P1))
 
 	Func GetValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetKeysFromPrefix P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetKeysFromPrefix",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetKeysFromPrefix",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Filter P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Filter",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:Filter")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Filter",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateAsync P1
 		if dotnet_isnamed(P1)
@@ -859,25 +883,49 @@ Class EmptyModelMetadataProvider from DotNetObject
 		return self
 
 	Func GetMetadataForProperties P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetMetadataForProperties",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:GetMetadataForProperties",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetMetadataForParameter P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:GetMetadataForParameter",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetMetadataForParameter",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:GetMetadataForParameter",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetMetadataForType P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetMetadataForType",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetMetadataForType",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetMetadataForProperty P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetMetadataForProperty",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:GetMetadataForProperty",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetMetadataForConstructor P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetMetadataForConstructor",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:GetMetadataForConstructor",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToString 
 		return dnAnswer(dotnet_callt(nHandle,"ToString"))
@@ -960,7 +1008,11 @@ Class FormFileValueProvider from Object
 		return dnAnswer(dotnet_callt(nHandle,"ContainsPrefix",P1))
 
 	Func GetValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -989,7 +1041,11 @@ Class FormFileValueProviderFactory from Object
 		return self
 
 	Func CreateValueProviderAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:CreateValueProviderAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:CreateValueProviderAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1018,7 +1074,11 @@ Class FormValueProviderFactory from Object
 		return self
 
 	Func CreateValueProviderAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:CreateValueProviderAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:CreateValueProviderAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1085,13 +1145,21 @@ Class IBindingSourceValueProvider from DotNetObject
 		return self
 
 	Func Filter P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Filter",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ContainsPrefix P1
 		return dnAnswer(dotnet_callt(nHandle,"ContainsPrefix",P1))
 
 	Func GetValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ICollectionModelBinder from DotNetObject
@@ -1111,7 +1179,11 @@ Class ICollectionModelBinder from DotNetObject
 		return dn_x
 
 	Func BindModelAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:BindModelAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:BindModelAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IEnumerableValueProvider from DotNetObject
@@ -1126,13 +1198,21 @@ Class IEnumerableValueProvider from DotNetObject
 		return self
 
 	Func GetKeysFromPrefix P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetKeysFromPrefix",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetKeysFromPrefix",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ContainsPrefix P1
 		return dnAnswer(dotnet_callt(nHandle,"ContainsPrefix",P1))
 
 	Func GetValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IKeyRewriterValueProvider from DotNetObject
@@ -1147,13 +1227,21 @@ Class IKeyRewriterValueProvider from DotNetObject
 		return self
 
 	Func Filter 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Filter")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ContainsPrefix P1
 		return dnAnswer(dotnet_callt(nHandle,"ContainsPrefix",P1))
 
 	Func GetValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IModelBinder from DotNetObject
@@ -1168,7 +1256,11 @@ Class IModelBinder from DotNetObject
 		return self
 
 	Func BindModelAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:BindModelAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:BindModelAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IModelBinderFactory from DotNetObject
@@ -1183,7 +1275,11 @@ Class IModelBinderFactory from DotNetObject
 		return self
 
 	Func CreateBinder P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateBinder",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:CreateBinder",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IModelBinderProvider from DotNetObject
@@ -1198,7 +1294,11 @@ Class IModelBinderProvider from DotNetObject
 		return self
 
 	Func GetBinder P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetBinder",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetBinder",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IModelMetadataProvider from DotNetObject
@@ -1213,14 +1313,26 @@ Class IModelMetadataProvider from DotNetObject
 		return self
 
 	Func GetMetadataForType P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetMetadataForType",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetMetadataForType",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetMetadataForProperties P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetMetadataForProperties",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:GetMetadataForProperties",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetMetadataForProperty P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Mvc.ModelBinding.ModelMetadataProviderExtensions, Microsoft.AspNetCore.Mvc.Core")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetMetadataForProperty",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:GetMetadataForProperty",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IModelNameProvider from DotNetObject
@@ -1298,7 +1410,11 @@ Class IValueProvider from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"ContainsPrefix",P1))
 
 	Func GetValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IValueProviderFactory from DotNetObject
@@ -1313,7 +1429,11 @@ Class IValueProviderFactory from DotNetObject
 		return self
 
 	Func CreateValueProviderAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:CreateValueProviderAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:CreateValueProviderAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class JQueryFormValueProviderFactory from Object
@@ -1337,7 +1457,11 @@ Class JQueryFormValueProviderFactory from Object
 		return self
 
 	Func CreateValueProviderAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:CreateValueProviderAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:CreateValueProviderAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1366,7 +1490,11 @@ Class JQueryQueryStringValueProviderFactory from Object
 		return self
 
 	Func CreateValueProviderAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:CreateValueProviderAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:CreateValueProviderAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1449,7 +1577,11 @@ Class ModelBinderFactory from Object
 		return self
 
 	Func CreateBinder P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateBinder",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:CreateBinder",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1528,7 +1660,11 @@ Class ModelBinderProviderContext from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:CreateBinder",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateBinder",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:CreateBinder",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1619,7 +1755,11 @@ Class ModelBindingContext from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:EnterNestedScope",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s16:EnterNestedScope"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s16:EnterNestedScope")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: EnterNestedScope does not take one argument: use named arguments, EnterNestedScope([ :parameter = value, ... ])")
 
@@ -1972,14 +2112,26 @@ Class ModelMetadata from Object
 		return dn_x
 
 	Func GetMetadataForType P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetMetadataForType",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetMetadataForType",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetMetadataForProperties P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetMetadataForProperties",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:GetMetadataForProperties",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetMetadataForProperty P1,P2
 		dnEnsureExt("Microsoft.AspNetCore.Mvc.ModelBinding.ModelMetadataProviderExtensions, Microsoft.AspNetCore.Mvc.Core")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetMetadataForProperty",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:GetMetadataForProperty",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getContainerType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:ContainerType"))
@@ -2330,22 +2482,42 @@ Class ModelMetadataProvider from Object
 		return self
 
 	Func GetMetadataForProperties P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetMetadataForProperties",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:GetMetadataForProperties",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetMetadataForType P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetMetadataForType",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetMetadataForType",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetMetadataForParameter P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:GetMetadataForParameter",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetMetadataForParameter",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:GetMetadataForParameter",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetMetadataForProperty P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetMetadataForProperty",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:GetMetadataForProperty",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetMetadataForConstructor P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetMetadataForConstructor",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:GetMetadataForConstructor",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2478,10 +2650,18 @@ Class ModelStateDictionary from Object
 		raise("DotNet Error: TryAddModelError does not take one argument: use named arguments, TryAddModelError([ :parameter = value, ... ])")
 
 	Func GetFieldValidationState P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetFieldValidationState",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:GetFieldValidationState",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @GetValidationState P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetValidationState",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetValidationState",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MarkFieldValid P1
 		dotnet_calltv(nHandle,"MarkFieldValid",P1)
@@ -2521,10 +2701,18 @@ Class ModelStateDictionary from Object
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FindKeysWithPrefix P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:FindKeysWithPrefix",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:FindKeysWithPrefix",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2546,7 +2734,11 @@ Class ModelStateDictionary from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -2556,12 +2748,20 @@ Class ModelStateDictionary from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getRoot
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Root"))
@@ -2718,7 +2918,11 @@ Class ModelStateDictionaryKeyEnumerable from ValueType
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -2726,7 +2930,11 @@ Class ModelStateDictionaryKeyEnumerable from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -2736,7 +2944,11 @@ Class ModelStateDictionaryKeyEnumerable from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -2834,7 +3046,11 @@ Class ModelStateDictionaryPrefixEnumerable from ValueType
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -2842,7 +3058,11 @@ Class ModelStateDictionaryPrefixEnumerable from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -2852,7 +3072,11 @@ Class ModelStateDictionaryPrefixEnumerable from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -2894,7 +3118,11 @@ Class ModelStateDictionaryValueEnumerable from ValueType
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -2902,7 +3130,11 @@ Class ModelStateDictionaryValueEnumerable from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -2912,7 +3144,11 @@ Class ModelStateDictionaryValueEnumerable from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -3031,7 +3267,11 @@ Class ModelStateEntry from Object
 		return self
 
 	Func GetModelStateForProperty P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetModelStateForProperty",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:GetModelStateForProperty",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3097,7 +3337,11 @@ Class ObjectModelValidator from Object
 		raise("DotNet Error: Validate does not take one argument: use named arguments, Validate([ :parameter = value, ... ])")
 
 	Func GetValidationVisitor P1,P2,P3,P4,P5
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetValidationVisitor",P1,P2,P3,P4,P5))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetValidationVisitor",P1,P2,P3,P4,P5)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3147,7 +3391,11 @@ Class PrefixContainer from Object
 		return dnAnswer(dotnet_callt(nHandle,"ContainsPrefix",P1))
 
 	Func GetKeysFromPrefix P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetKeysFromPrefix",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetKeysFromPrefix",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3176,7 +3424,11 @@ Class QueryStringValueProviderFactory from Object
 		return self
 
 	Func CreateValueProviderAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:CreateValueProviderAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:CreateValueProviderAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3205,7 +3457,11 @@ Class RouteValueProviderFactory from Object
 		return self
 
 	Func CreateValueProviderAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:CreateValueProviderAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:CreateValueProviderAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3235,7 +3491,11 @@ Class SuppressChildValidationMetadataProvider from Object
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3460,7 +3720,11 @@ Class ValueProviderResult from ValueType
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -3468,7 +3732,11 @@ Class ValueProviderResult from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -3478,7 +3746,11 @@ Class ValueProviderResult from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -3632,7 +3904,11 @@ Class FormValueProvider from BindingSourceValueProvider
 		return self
 
 	Func GetKeysFromPrefix P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetKeysFromPrefix",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetKeysFromPrefix",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCulture
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Culture"))
@@ -3655,16 +3931,28 @@ Class JQueryValueProvider from BindingSourceValueProvider
 		return self
 
 	Func GetKeysFromPrefix P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetKeysFromPrefix",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetKeysFromPrefix",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Filter P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Filter",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:Filter")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Filter",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Filter",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCulture
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Culture"))
@@ -3689,7 +3977,11 @@ Class QueryStringValueProvider from BindingSourceValueProvider
 		return self
 
 	Func GetKeysFromPrefix P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetKeysFromPrefix",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetKeysFromPrefix",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCulture
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Culture"))

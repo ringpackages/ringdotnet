@@ -481,68 +481,136 @@ Class Activity from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:SetStatus",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:SetStatus",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:SetStatus",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EnumerateTagObjects 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:EnumerateTagObjects"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:EnumerateTagObjects")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EnumerateEvents 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:EnumerateEvents"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:EnumerateEvents")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EnumerateLinks 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:EnumerateLinks"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:EnumerateLinks")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetBaggageItem P1
 		return dnAnswer(dotnet_callt(nHandle,"GetBaggageItem",P1))
 
 	Func GetTagItem P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetTagItem",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetTagItem",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddTag P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AddTag",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:AddTag",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetTag P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:SetTag",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:SetTag",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddEvent P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddEvent",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:AddEvent",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddException P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:AddException",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AddException",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:AddException",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddLink P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AddLink",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:AddLink",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddBaggage P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddBaggage",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AddBaggage",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetBaggage P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:SetBaggage",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:SetBaggage",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetParentId P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:SetParentId",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetParentId",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:SetParentId",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetStartTime P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:SetStartTime",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:SetStartTime",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetEndTime P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:SetEndTime",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:SetEndTime",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Start 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Start"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Start")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Stop 
 		dotnet_calltv(nHandle,"Stop")
 		return self
 
 	Func SetIdFormat P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetIdFormat",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:SetIdFormat",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -554,7 +622,11 @@ Class Activity from Object
 		return self
 
 	Func GetCustomProperty P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetCustomProperty",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetCustomProperty",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -776,7 +848,11 @@ Class ActivityEnumerator from ValueType
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MoveNext 
 		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
@@ -1036,7 +1112,11 @@ Class ActivityEvent from ValueType
 		return self
 
 	Func EnumerateTagObjects 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:EnumerateTagObjects"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:EnumerateTagObjects")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -1097,7 +1177,11 @@ Class ActivityLink from ValueType
 		return self
 
 	Func EnumerateTagObjects 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:EnumerateTagObjects"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:EnumerateTagObjects")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getContext
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Context"))
@@ -1241,9 +1325,17 @@ Class ActivitySource from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:StartActivity",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s13:StartActivity"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s13:StartActivity")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:StartActivity",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:StartActivity",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -1384,7 +1476,11 @@ Class ActivityTagsCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Remove P1
 		return dnAnswer(dotnet_callt(nHandle,"Remove",P1))
@@ -1403,7 +1499,11 @@ Class ActivityTagsCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1413,12 +1513,20 @@ Class ActivityTagsCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -2049,7 +2157,11 @@ Class DebuggerDisplayAttribute from Attribute
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getValue
 		return dnAnswer(dotnet_getp(nHandle,"Value"))
@@ -2338,7 +2450,11 @@ Class DiagnosticSource from Object
 		return dnAnswer(dotnet_calltd1(nHandle,"IsEnabled",P1))
 
 	Func StartActivity P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:StartActivity",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:StartActivity",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func StopActivity P1,P2
 		dotnet_callv("s4:call",nHandle,"s12:StopActivity",P1,P2)
@@ -2384,7 +2500,11 @@ Class DistributedContextPropagator from Object
 		return dnSend("s4:call",nHandle,"s22:ExtractTraceIdAndState",dnPackItem(P1) + dnPackItem(P2))
 
 	Func ExtractBaggage P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ExtractBaggage",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ExtractBaggage",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2808,9 +2928,17 @@ Class Process from Component
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:WaitForExitAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s16:WaitForExitAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s16:WaitForExitAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:WaitForExitAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:WaitForExitAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BeginOutputReadLine 
 		dotnet_calltv(nHandle,"BeginOutputReadLine")
@@ -3281,7 +3409,11 @@ Class ProcessModuleCollection from ReadOnlyCollectionBase
 		return self
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ProcessStartInfo from Object
@@ -3680,7 +3812,11 @@ Class ProcessThreadCollection from ReadOnlyCollectionBase
 		return self
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class StackFrame from Object
@@ -3722,7 +3858,11 @@ Class StackFrame from Object
 		return self
 
 	Func GetMethod 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetMethod"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetMethod")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetNativeOffset 
 		return dnAnswer(dotnet_callt(nHandle,"GetNativeOffset"))
@@ -3770,11 +3910,19 @@ Class StackFrame from Object
 
 	Func GetNativeIP 
 		dnEnsureExt("System.Diagnostics.StackFrameExtensions, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetNativeIP"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetNativeIP")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetNativeImageBase 
 		dnEnsureExt("System.Diagnostics.StackFrameExtensions, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetNativeImageBase"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetNativeImageBase")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getOFFSET_UNKNOWN
 		return dotnet_call("s3:get",'System.Diagnostics.StackFrame, System.Private.CoreLib',"s14:OFFSET_UNKNOWN")
@@ -3866,10 +4014,18 @@ Class StackTrace from Object
 		return self
 
 	Func GetFrame P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetFrame",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetFrame",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetFrames 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetFrames"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetFrames")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4210,7 +4366,11 @@ Class TagList from ValueType
 		return dn_x
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
@@ -4223,7 +4383,11 @@ Class TagList from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -4233,12 +4397,20 @@ Class TagList from ValueType
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -4703,7 +4875,11 @@ Class TraceListenerCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IndexOf P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IndexOf",P1)
@@ -4735,7 +4911,11 @@ Class TraceListenerCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -4745,12 +4925,20 @@ Class TraceListenerCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -5003,7 +5191,11 @@ Class DiagnosticListener from DiagnosticSource
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Subscribe",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Subscribe",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Subscribe",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")

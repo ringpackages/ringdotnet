@@ -305,7 +305,11 @@ Class ConfigurationChangeTokenSource from Object
 		return self
 
 	Func GetChangeToken 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetChangeToken"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetChangeToken")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -716,7 +720,11 @@ Class DataAnnotationValidateOptions from Object
 		return self
 
 	Func Validate P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Validate",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Validate",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -789,7 +797,11 @@ Class IOptionsChangeTokenSource from DotNetObject
 		return self
 
 	Func GetChangeToken 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetChangeToken"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetChangeToken")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -814,7 +826,11 @@ Class IOptionsFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IOptionsMonitorCache from DotNetObject
@@ -833,7 +849,11 @@ Class IOptionsMonitorCache from DotNetObject
 		return self
 
 	Func GetOrAdd P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetOrAdd",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetOrAdd",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryAdd P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s6:TryAdd",P1,P2)
@@ -866,10 +886,18 @@ Class IOptionsMonitor from DotNetObject
 		return self
 
 	Func @Get P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Get",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OnChange P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:OnChange",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:OnChange",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCurrentValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s12:CurrentValue"))
@@ -896,7 +924,11 @@ Class IOptionsSnapshot from DotNetObject
 		return self
 
 	Func @Get P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Get",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
@@ -982,7 +1014,11 @@ Class IValidateOptions from DotNetObject
 		return self
 
 	Func Validate P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Validate",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Validate",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class Options from Object
@@ -1034,16 +1070,28 @@ Class OptionsBuilder from Object
 		return self
 
 	Func Configure P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Configure",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func PostConfigure P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:PostConfigure",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:PostConfigure",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Validate P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Validate",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Validate",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Validate",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1055,22 +1103,38 @@ Class OptionsBuilder from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Bind",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Bind",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Bind",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BindConfiguration P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsBuilderConfigurationExtensions, Microsoft.Extensions.Options.ConfigurationExtensions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:BindConfiguration",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:BindConfiguration",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:BindConfiguration",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ValidateDataAnnotations 
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsBuilderDataAnnotationsExtensions, Microsoft.Extensions.Options.DataAnnotations")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:ValidateDataAnnotations"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:ValidateDataAnnotations")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ValidateOnStart 
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.OptionsBuilderExtensions, Microsoft.Extensions.Options")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ValidateOnStart"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:ValidateOnStart")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -1105,7 +1169,11 @@ Class OptionsCache from Object
 		return self
 
 	Func GetOrAdd P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetOrAdd",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetOrAdd",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryAdd P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s6:TryAdd",P1,P2)
@@ -1137,7 +1205,11 @@ Class OptionsFactory from Object
 		return self
 
 	Func Create P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1163,7 +1235,11 @@ Class OptionsManager from Object
 		return self
 
 	Func @Get P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Get",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1215,10 +1291,18 @@ Class OptionsMonitor from Object
 		return self
 
 	Func @Get P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Get",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OnChange P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:OnChange",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:OnChange",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -1872,7 +1956,11 @@ Class ValidateOptionsResultBuilder from Object
 		return self
 
 	Func Build 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Build")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clear 
 		dotnet_calltv(nHandle,"Clear")
@@ -1904,7 +1992,11 @@ Class ValidateOptions from Object
 		return self
 
 	Func Validate P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Validate",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Validate",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1951,7 +2043,11 @@ Class ValidateOptions2 from Object
 		return self
 
 	Func Validate P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Validate",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Validate",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2005,7 +2101,11 @@ Class ValidateOptions3 from Object
 		return self
 
 	Func Validate P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Validate",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Validate",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2066,7 +2166,11 @@ Class ValidateOptions4 from Object
 		return self
 
 	Func Validate P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Validate",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Validate",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2134,7 +2238,11 @@ Class ValidateOptions5 from Object
 		return self
 
 	Func Validate P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Validate",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Validate",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2209,7 +2317,11 @@ Class ValidateOptions6 from Object
 		return self
 
 	Func Validate P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Validate",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Validate",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

@@ -311,13 +311,25 @@ Class DisplayAttribute from Attribute
 		return dnAnswer(dotnet_callt(nHandle,"GetGroupName"))
 
 	Func @GetAutoGenerateField 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetAutoGenerateField"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetAutoGenerateField")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @GetAutoGenerateFilter 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetAutoGenerateFilter"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:GetAutoGenerateFilter")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @GetOrder 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetOrder"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetOrder")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getShortName
 		return dnAnswer(dotnet_getp(nHandle,"ShortName"))
@@ -549,7 +561,11 @@ Class IValidatableObject from DotNetObject
 		return self
 
 	Func Validate P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Validate",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Validate",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class KeyAttribute from Attribute
@@ -714,7 +730,11 @@ Class ValidationAttribute from Attribute
 		return dn_x
 
 	Func GetValidationResult P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetValidationResult",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:GetValidationResult",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Validate P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:Validate",P1,P2)
@@ -789,7 +809,11 @@ Class ValidationContext from Object
 		return self
 
 	Func GetService P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetService",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -801,21 +825,33 @@ Class ValidationContext from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:GetKeyedService",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetKeyedService",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetKeyedService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetRequiredKeyedService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:GetRequiredKeyedService",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetRequiredKeyedService",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:GetRequiredKeyedService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetKeyedServices P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetKeyedServices",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetKeyedServices",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetKeyedServices",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetRequiredService P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
@@ -823,9 +859,17 @@ Class ValidationContext from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:GetRequiredService",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetRequiredService")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetRequiredService",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetRequiredService",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetServices P1
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
@@ -833,17 +877,33 @@ Class ValidationContext from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetServices",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetServices")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetServices",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetServices",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateScope 
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateScope"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:CreateScope")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateAsyncScope 
 		dnEnsureExt("Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateAsyncScope"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:CreateAsyncScope")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getObjectInstance
 		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ObjectInstance"))

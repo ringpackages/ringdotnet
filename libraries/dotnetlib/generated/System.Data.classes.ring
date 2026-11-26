@@ -1070,25 +1070,41 @@ Class DataRow from Object
 		return self
 
 	Func GetColumnsInError 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetColumnsInError"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetColumnsInError")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetChildRows P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:GetChildRows",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetChildRows",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetChildRows",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetParentRow P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:GetParentRow",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetParentRow",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetParentRow",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetParentRows P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetParentRows",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetParentRows",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetParentRows",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func HasVersion P1
 		dn_x = dotnet_call("s4:call",nHandle,"s10:HasVersion",P1)
@@ -1121,7 +1137,11 @@ Class DataRow from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Field",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Field",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Field",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetField P1,P2
 		dnEnsureExt("System.Data.DataRowExtensions, System.Data.Common")
@@ -1133,7 +1153,11 @@ Class DataRow from Object
 		if islist(P1)
 			return callMethod("get_Item",P1)
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		if islist(P1)
@@ -1325,7 +1349,11 @@ Class DataRowView from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:CreateChildView",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateChildView",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreateChildView",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BeginEdit 
 		dotnet_calltv(nHandle,"BeginEdit")
@@ -1344,7 +1372,11 @@ Class DataRowView from Object
 		return self
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -1462,19 +1494,35 @@ Class DataSet from MarshalByValueComponent
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Copy 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Copy"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Copy")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetChanges P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetChanges",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetChanges"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetChanges")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetChanges",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetChanges",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetXml 
 		return dnAnswer(dotnet_callt(nHandle,"GetXml"))
@@ -1503,7 +1551,11 @@ Class DataSet from MarshalByValueComponent
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:ReadXml",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ReadXml",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ReadXml",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteXml P1
 		dotnet_calltd1v(nHandle,"WriteXml",P1)
@@ -1533,9 +1585,17 @@ Class DataSet from MarshalByValueComponent
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:CreateDataReader",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateDataReader"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s16:CreateDataReader")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateDataReader",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:CreateDataReader",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDataSetSchema P1
 		return dnObj(dotnet_callo("s4:call",'System.Data.DataSet, System.Data.Common',"s16:GetDataSetSchema",P1))
@@ -1723,29 +1783,53 @@ Class DataTable from MarshalByValueComponent
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Copy 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Copy"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Copy")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clear 
 		dotnet_calltv(nHandle,"Clear")
 		return self
 
 	Func Compute P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Compute",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Compute",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetChanges P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetChanges",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetChanges"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetChanges")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetChanges",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetChanges",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetErrors 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetErrors"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetErrors")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ImportRow P1
 		dotnet_callv("s4:call",nHandle,"s9:ImportRow",P1)
@@ -1753,7 +1837,11 @@ Class DataTable from MarshalByValueComponent
 		return self
 
 	Func NewRow 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:NewRow"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:NewRow")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RejectChanges 
 		dotnet_calltv(nHandle,"RejectChanges")
@@ -1768,9 +1856,17 @@ Class DataTable from MarshalByValueComponent
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Select",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:Select"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:Select")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Select",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Select",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BeginLoadData 
 		dotnet_calltv(nHandle,"BeginLoadData")
@@ -1781,7 +1877,11 @@ Class DataTable from MarshalByValueComponent
 		return self
 
 	Func LoadDataRow P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:LoadDataRow",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:LoadDataRow",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Merge P1
 		dotnet_calltd1v(nHandle,"Merge",P1)
@@ -1792,7 +1892,11 @@ Class DataTable from MarshalByValueComponent
 		return self
 
 	Func CreateDataReader 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateDataReader"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:CreateDataReader")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WriteXml P1
 		dotnet_calltd1v(nHandle,"WriteXml",P1)
@@ -1803,7 +1907,11 @@ Class DataTable from MarshalByValueComponent
 		return self
 
 	Func ReadXml P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ReadXml",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ReadXml",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadXmlSchema P1
 		dotnet_callv("s4:call",nHandle,"s13:ReadXmlSchema",P1)
@@ -1815,11 +1923,19 @@ Class DataTable from MarshalByValueComponent
 
 	Func AsEnumerable 
 		dnEnsureExt("System.Data.DataTableExtensions, System.Data.Common")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:AsEnumerable"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:AsEnumerable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AsDataView 
 		dnEnsureExt("System.Data.DataTableExtensions, System.Data.Common")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AsDataView"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsDataView")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func setColumnChangingEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"ColumnChanging",dnCallback(P1)])
@@ -2131,7 +2247,11 @@ Class DataTableReader from DbDataReader
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetFieldValue",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetFieldValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetFieldValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class DataView from MarshalByValueComponent
@@ -2183,7 +2303,11 @@ Class DataView from MarshalByValueComponent
 		return self
 
 	Func AddNew 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:AddNew"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:AddNew")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BeginInit 
 		dotnet_calltv(nHandle,"BeginInit")
@@ -2208,19 +2332,35 @@ Class DataView from MarshalByValueComponent
 		return dn_x
 
 	Func FindRows P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:FindRows",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:FindRows",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToTable P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:ToTable",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToTable"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToTable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToTable",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToTable",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -2228,7 +2368,11 @@ Class DataView from MarshalByValueComponent
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -2238,12 +2382,20 @@ Class DataView from MarshalByValueComponent
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func setListChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"ListChanged",dnCallback(P1)])
@@ -2377,7 +2529,11 @@ Class DataViewManager from MarshalByValueComponent
 		return self
 
 	Func CreateDataView P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateDataView",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CreateDataView",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -2385,7 +2541,11 @@ Class DataViewManager from MarshalByValueComponent
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -2395,7 +2555,11 @@ Class DataViewManager from MarshalByValueComponent
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -2514,7 +2678,11 @@ Class DataViewSettingCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2527,7 +2695,11 @@ Class DataViewSettingCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -2537,12 +2709,20 @@ Class DataViewSettingCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -2595,7 +2775,11 @@ Class EnumerableRowCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -2605,7 +2789,11 @@ Class EnumerableRowCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -2767,7 +2955,11 @@ Class IColumnMappingCollection from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func GetByDataSetColumn P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetByDataSetColumn",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetByDataSetColumn",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IndexOf P1
 		return dnAnswer(dotnet_callt(nHandle,"IndexOf",P1))
@@ -2796,7 +2988,11 @@ Class IColumnMappingCollection from DotNetObject
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -2804,7 +3000,11 @@ Class IColumnMappingCollection from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -2814,12 +3014,20 @@ Class IColumnMappingCollection from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -2872,7 +3080,11 @@ Class IDataAdapter from DotNetObject
 		return self
 
 	Func FillSchema P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FillSchema",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:FillSchema",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Fill P1
 		dn_x = dotnet_call("s4:call",nHandle,"s4:Fill",P1)
@@ -2880,7 +3092,11 @@ Class IDataAdapter from DotNetObject
 		return dn_x
 
 	Func GetFillParameters 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetFillParameters"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetFillParameters")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Update P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Update",P1)
@@ -3028,7 +3244,11 @@ Class IDataParameterCollection from DotNetObject
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -3036,7 +3256,11 @@ Class IDataParameterCollection from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -3046,12 +3270,20 @@ Class IDataParameterCollection from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -3109,7 +3341,11 @@ Class IDataReader from DotNetObject
 		return self
 
 	Func GetSchemaTable 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetSchemaTable"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetSchemaTable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func NextResult 
 		return dnAnswer(dotnet_callt(nHandle,"NextResult"))
@@ -3128,10 +3364,18 @@ Class IDataReader from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"GetDataTypeName",P1))
 
 	Func GetFieldType P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetFieldType",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetFieldType",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetValues P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:GetValues",P1)
@@ -3153,7 +3397,11 @@ Class IDataReader from DotNetObject
 		return dn_x
 
 	Func GetChar P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetChar",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetChar",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetChars P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",nHandle,"s8:GetChars",P1,P2,P3,P4,P5)
@@ -3161,7 +3409,11 @@ Class IDataReader from DotNetObject
 		return dn_x
 
 	Func GetGuid P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetGuid",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetGuid",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInt16 P1
 		return dnAnswer(dotnet_callt(nHandle,"GetInt16",P1))
@@ -3185,10 +3437,18 @@ Class IDataReader from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"GetDecimal",P1))
 
 	Func GetDateTime P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetDateTime",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetDateTime",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetData P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetData",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetData",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IsDBNull P1
 		return dnAnswer(dotnet_callt(nHandle,"IsDBNull",P1))
@@ -3238,10 +3498,18 @@ Class IDataRecord from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"GetDataTypeName",P1))
 
 	Func GetFieldType P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetFieldType",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetFieldType",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetValues P1
 		dn_x = dotnet_call("s4:call",nHandle,"s9:GetValues",P1)
@@ -3263,7 +3531,11 @@ Class IDataRecord from DotNetObject
 		return dn_x
 
 	Func GetChar P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetChar",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetChar",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetChars P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",nHandle,"s8:GetChars",P1,P2,P3,P4,P5)
@@ -3271,7 +3543,11 @@ Class IDataRecord from DotNetObject
 		return dn_x
 
 	Func GetGuid P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetGuid",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetGuid",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInt16 P1
 		return dnAnswer(dotnet_callt(nHandle,"GetInt16",P1))
@@ -3295,16 +3571,28 @@ Class IDataRecord from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"GetDecimal",P1))
 
 	Func GetDateTime P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetDateTime",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetDateTime",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetData P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetData",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetData",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IsDBNull P1
 		return dnAnswer(dotnet_callt(nHandle,"IsDBNull",P1))
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getFieldCount
 		return dotnet_getp(nHandle,"FieldCount")
@@ -3341,7 +3629,11 @@ Class IDbCommand from DotNetObject
 		return self
 
 	Func CreateParameter 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateParameter"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreateParameter")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExecuteNonQuery 
 		return dnAnswer(dotnet_callt(nHandle,"ExecuteNonQuery"))
@@ -3351,12 +3643,24 @@ Class IDbCommand from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:ExecuteReader",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteReader"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s13:ExecuteReader")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteReader",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ExecuteReader",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExecuteScalar 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExecuteScalar"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ExecuteScalar")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -3432,9 +3736,17 @@ Class IDbConnection from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:BeginTransaction",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s16:BeginTransaction"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s16:BeginTransaction")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:BeginTransaction",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:BeginTransaction",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Close 
 		dotnet_calltv(nHandle,"Close")
@@ -3445,7 +3757,11 @@ Class IDbConnection from DotNetObject
 		return self
 
 	Func CreateCommand 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:CreateCommand"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:CreateCommand")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Open 
 		dotnet_calltv(nHandle,"Open")
@@ -3501,7 +3817,11 @@ Class IDbDataAdapter from DotNetObject
 		return self
 
 	Func FillSchema P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:FillSchema",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:FillSchema",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Fill P1
 		dn_x = dotnet_call("s4:call",nHandle,"s4:Fill",P1)
@@ -3509,7 +3829,11 @@ Class IDbDataAdapter from DotNetObject
 		return dn_x
 
 	Func GetFillParameters 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetFillParameters"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetFillParameters")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Update P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Update",P1)
@@ -3763,7 +4087,11 @@ Class ITableMappingCollection from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
 
 	Func GetByDataSetTable P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetByDataSetTable",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetByDataSetTable",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IndexOf P1
 		return dnAnswer(dotnet_callt(nHandle,"IndexOf",P1))
@@ -3792,7 +4120,11 @@ Class ITableMappingCollection from DotNetObject
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -3800,7 +4132,11 @@ Class ITableMappingCollection from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -3810,12 +4146,20 @@ Class ITableMappingCollection from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -3883,7 +4227,11 @@ Class InternalDataCollectionBase from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3896,7 +4244,11 @@ Class InternalDataCollectionBase from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -3906,7 +4258,11 @@ Class InternalDataCollectionBase from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -4130,7 +4486,11 @@ Class ConstraintCollection from InternalDataCollectionBase
 		return self
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func setCollectionChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"CollectionChanged",dnCallback(P1)])
@@ -4196,7 +4556,11 @@ Class DataColumnCollection from InternalDataCollectionBase
 		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s3:Add")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
@@ -4234,7 +4598,11 @@ Class DataColumnCollection from InternalDataCollectionBase
 		return self
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func setCollectionChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"CollectionChanged",dnCallback(P1)])
@@ -4298,7 +4666,11 @@ Class DataRelationCollection from InternalDataCollectionBase
 		return self
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func setCollectionChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"CollectionChanged",dnCallback(P1)])
@@ -4336,7 +4708,11 @@ Class DataRowCollection from InternalDataCollectionBase
 		return dn_x
 
 	Func Find P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Find",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Find",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clear 
 		dotnet_calltv(nHandle,"Clear")
@@ -4357,7 +4733,11 @@ Class DataRowCollection from InternalDataCollectionBase
 		return self
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class DataTableCollection from InternalDataCollectionBase
@@ -4378,7 +4758,11 @@ Class DataTableCollection from InternalDataCollectionBase
 		return dn_x
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s3:Add")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
 
@@ -4416,7 +4800,11 @@ Class DataTableCollection from InternalDataCollectionBase
 		if islist(P1)
 			return callMethod("get_Item",P1)
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func setCollectionChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"CollectionChanged",dnCallback(P1)])
@@ -4525,7 +4913,11 @@ Class EnumerableRowCollection1 from EnumerableRowCollection
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ForeignKeyConstraint from Constraint
@@ -4915,14 +5307,22 @@ Class TypedTableBase from DataTable
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Cast P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -4932,7 +5332,11 @@ Class TypedTableBase from DataTable
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 

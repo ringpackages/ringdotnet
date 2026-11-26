@@ -978,7 +978,11 @@ Class ActionResult from Object
 		return self
 
 	Func ExecuteResultAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteResultAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:ExecuteResultAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExecuteResult P1
 		dotnet_callv("s4:call",nHandle,"s13:ExecuteResult",P1)
@@ -1066,7 +1070,11 @@ Class ApiBehaviorOptions from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1076,7 +1084,11 @@ Class ApiBehaviorOptions from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1284,7 +1296,11 @@ Class AutoValidateAntiforgeryTokenAttribute from Attribute
 		return self
 
 	Func CreateInstance P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CreateInstance",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getOrder
 		return dotnet_getp(nHandle,"Order")
@@ -1653,136 +1669,256 @@ Class ControllerBase from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:StatusCode",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:StatusCode",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:StatusCode",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Content P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Content",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Content",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Content",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func NoContent 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:NoContent"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:NoContent")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Ok P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s2:Ok",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s2:Ok"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s2:Ok")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s2:Ok",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s2:Ok",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Redirect P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Redirect",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Redirect",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RedirectPermanent P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:RedirectPermanent",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:RedirectPermanent",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RedirectPreserveMethod P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:RedirectPreserveMethod",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:RedirectPreserveMethod",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RedirectPermanentPreserveMethod P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s31:RedirectPermanentPreserveMethod",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s31:RedirectPermanentPreserveMethod",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LocalRedirect P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:LocalRedirect",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:LocalRedirect",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LocalRedirectPermanent P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:LocalRedirectPermanent",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:LocalRedirectPermanent",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LocalRedirectPreserveMethod P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:LocalRedirectPreserveMethod",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:LocalRedirectPreserveMethod",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LocalRedirectPermanentPreserveMethod P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s36:LocalRedirectPermanentPreserveMethod",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s36:LocalRedirectPermanentPreserveMethod",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RedirectToAction P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:RedirectToAction",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s16:RedirectToAction"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s16:RedirectToAction")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:RedirectToAction",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:RedirectToAction",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RedirectToActionPreserveMethod P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s30:RedirectToActionPreserveMethod",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s30:RedirectToActionPreserveMethod"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s30:RedirectToActionPreserveMethod")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s30:RedirectToActionPreserveMethod",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s30:RedirectToActionPreserveMethod",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RedirectToActionPermanent P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:RedirectToActionPermanent",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:RedirectToActionPermanent",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:RedirectToActionPermanent",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RedirectToActionPermanentPreserveMethod P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s39:RedirectToActionPermanentPreserveMethod",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s39:RedirectToActionPermanentPreserveMethod"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s39:RedirectToActionPermanentPreserveMethod")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s39:RedirectToActionPermanentPreserveMethod",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s39:RedirectToActionPermanentPreserveMethod",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RedirectToRoute P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:RedirectToRoute",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:RedirectToRoute",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:RedirectToRoute",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RedirectToRoutePreserveMethod P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s29:RedirectToRoutePreserveMethod",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s29:RedirectToRoutePreserveMethod"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s29:RedirectToRoutePreserveMethod")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s29:RedirectToRoutePreserveMethod",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s29:RedirectToRoutePreserveMethod",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RedirectToRoutePermanent P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:RedirectToRoutePermanent",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:RedirectToRoutePermanent",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:RedirectToRoutePermanent",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RedirectToRoutePermanentPreserveMethod P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s38:RedirectToRoutePermanentPreserveMethod",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s38:RedirectToRoutePermanentPreserveMethod"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s38:RedirectToRoutePermanentPreserveMethod")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s38:RedirectToRoutePermanentPreserveMethod",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s38:RedirectToRoutePermanentPreserveMethod",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RedirectToPage P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:RedirectToPage",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:RedirectToPage",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:RedirectToPage",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RedirectToPagePermanent P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s23:RedirectToPagePermanent",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:RedirectToPagePermanent",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:RedirectToPagePermanent",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RedirectToPagePreserveMethod P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s28:RedirectToPagePreserveMethod",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s28:RedirectToPagePreserveMethod",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s28:RedirectToPagePreserveMethod",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RedirectToPagePermanentPreserveMethod P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s37:RedirectToPagePermanentPreserveMethod",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s37:RedirectToPagePermanentPreserveMethod",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s37:RedirectToPagePermanentPreserveMethod",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func File P1
 		if dotnet_isnamed(P1)
@@ -1801,70 +1937,130 @@ Class ControllerBase from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:Unauthorized",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s12:Unauthorized"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s12:Unauthorized")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:Unauthorized",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:Unauthorized",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func NotFound P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:NotFound",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s8:NotFound"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s8:NotFound")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:NotFound",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:NotFound",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BadRequest P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:BadRequest",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:BadRequest"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:BadRequest")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:BadRequest",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:BadRequest",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UnprocessableEntity P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:UnprocessableEntity",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s19:UnprocessableEntity"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s19:UnprocessableEntity")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UnprocessableEntity",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:UnprocessableEntity",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Conflict P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Conflict",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s8:Conflict"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s8:Conflict")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Conflict",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Conflict",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Problem P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Problem",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s7:Problem"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s7:Problem")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Problem",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Problem",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ValidationProblem P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ValidationProblem",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s17:ValidationProblem"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s17:ValidationProblem")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ValidationProblem",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ValidationProblem",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Created P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:Created",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s7:Created"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s7:Created")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Created does not take one argument: use named arguments, Created([ :parameter = value, ... ])")
 
@@ -1885,60 +2081,108 @@ Class ControllerBase from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Accepted",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s8:Accepted"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s8:Accepted")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Accepted",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Accepted",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AcceptedAtAction P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:AcceptedAtAction",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AcceptedAtAction",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:AcceptedAtAction",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AcceptedAtRoute P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:AcceptedAtRoute",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AcceptedAtRoute",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:AcceptedAtRoute",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Challenge P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Challenge",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s9:Challenge"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s9:Challenge")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Challenge",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Challenge",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Forbid P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:Forbid",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:Forbid"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:Forbid")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Forbid",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Forbid",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SignIn P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:SignIn",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:SignIn",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:SignIn",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SignOut P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:SignOut",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s7:SignOut"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s7:SignOut")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:SignOut",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:SignOut",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryUpdateModelAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:TryUpdateModelAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:TryUpdateModelAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:TryUpdateModelAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryValidateModel P1
 		return dnAnswer(dotnet_calltd1(nHandle,"TryValidateModel",P1))
@@ -2170,7 +2414,11 @@ Class DisableRequestSizeLimitAttribute from Attribute
 		return self
 
 	Func CreateInstance P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CreateInstance",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getOrder
 		return dotnet_getp(nHandle,"Order")
@@ -2209,7 +2457,11 @@ Class FormatFilterAttribute from Attribute
 		return self
 
 	Func CreateInstance P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CreateInstance",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getIsReusable
 		return dotnet_getp(nHandle,"IsReusable")
@@ -2733,7 +2985,11 @@ Class IActionResult from DotNetObject
 		return self
 
 	Func ExecuteResultAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExecuteResultAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:ExecuteResultAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IDesignTimeMvcBuilderConfiguration from DotNetObject
@@ -2873,7 +3129,11 @@ Class IViewComponentHelper from DotNetObject
 		return self
 
 	Func InvokeAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:InvokeAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:InvokeAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IViewComponentResult from DotNetObject
@@ -2893,7 +3153,11 @@ Class IViewComponentResult from DotNetObject
 		return self
 
 	Func ExecuteAsync P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ExecuteAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ExecuteAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IgnoreAntiforgeryTokenAttribute from Attribute
@@ -2986,7 +3250,11 @@ Class MiddlewareFilterAttribute from Attribute
 		return self
 
 	Func CreateInstance P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CreateInstance",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getConfigurationType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s17:ConfigurationType"))
@@ -3151,7 +3419,11 @@ Class MvcOptions from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -3161,7 +3433,11 @@ Class MvcOptions from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -3386,7 +3662,11 @@ Class MvcViewOptions from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -3396,7 +3676,11 @@ Class MvcViewOptions from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -3511,7 +3795,11 @@ Class ProblemDetails from Object
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3610,7 +3898,11 @@ Class ProducesAttribute from Attribute
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
@@ -3680,7 +3972,11 @@ Class ProducesDefaultResponseTypeAttribute from Attribute
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
@@ -3711,7 +4007,11 @@ Class ProducesErrorResponseTypeAttribute from Attribute
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
@@ -3752,7 +4052,11 @@ Class ProducesResponseTypeAttribute from Attribute
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
@@ -3843,7 +4147,11 @@ Class RequestFormLimitsAttribute from Attribute
 		return self
 
 	Func CreateInstance P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CreateInstance",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getOrder
 		return dotnet_getp(nHandle,"Order")
@@ -3946,7 +4254,11 @@ Class RequestSizeLimitAttribute from Attribute
 		return self
 
 	Func CreateInstance P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CreateInstance",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getOrder
 		return dotnet_getp(nHandle,"Order")
@@ -4035,10 +4347,18 @@ Class ResponseCacheAttribute from Attribute
 		return self
 
 	Func GetCacheProfile P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetCacheProfile",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetCacheProfile",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateInstance P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CreateInstance",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getDuration
 		return dotnet_getp(nHandle,"Duration")
@@ -4195,7 +4515,11 @@ Class ServiceFilterAttribute from Attribute
 		return self
 
 	Func CreateInstance P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CreateInstance",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getOrder
 		return dotnet_getp(nHandle,"Order")
@@ -4298,7 +4622,11 @@ Class TypeFilterAttribute from Attribute
 		return self
 
 	Func CreateInstance P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CreateInstance",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getArguments
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:Arguments"))
@@ -4415,7 +4743,11 @@ Class ValidateAntiForgeryTokenAttribute from Attribute
 		return self
 
 	Func CreateInstance P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateInstance",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CreateInstance",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getOrder
 		return dotnet_getp(nHandle,"Order")
@@ -4494,16 +4826,28 @@ Class ViewComponent from Object
 		return self
 
 	Func Content P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Content",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Content",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func View P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:View",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:View"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:View")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:View",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:View",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4793,30 +5137,54 @@ Class Controller from ControllerBase
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:View",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:View"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:View")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:View",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:View",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func PartialView P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:PartialView",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:PartialView"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:PartialView")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:PartialView",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:PartialView",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ViewComponent P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:ViewComponent",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ViewComponent",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ViewComponent",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Json P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Json",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Json",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Json",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OnActionExecuting P1
 		dotnet_callv("s4:call",nHandle,"s17:OnActionExecuting",P1)
@@ -4829,7 +5197,11 @@ Class Controller from ControllerBase
 		return self
 
 	Func OnActionExecutionAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:OnActionExecutionAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:OnActionExecutionAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")

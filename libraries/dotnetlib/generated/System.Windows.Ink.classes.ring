@@ -218,10 +218,18 @@ Class DrawingAttributes from Object
 		return self
 
 	Func GetPropertyData P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetPropertyData",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetPropertyData",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetPropertyDataIds 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetPropertyDataIds"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetPropertyDataIds")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ContainsPropertyData P1
 		dn_x = dotnet_call("s4:call",nHandle,"s20:ContainsPropertyData",P1)
@@ -234,7 +242,11 @@ Class DrawingAttributes from Object
 		return dn_x
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func setAttributeChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"AttributeChanged",dnCallback(P1)])
@@ -442,10 +454,18 @@ Class GestureRecognizer from DependencyObject
 		return self
 
 	Func GetEnabledGestures 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetEnabledGestures"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetEnabledGestures")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Recognize P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Recognize",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Recognize",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -592,7 +612,11 @@ Class Stroke from Object
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Transform P1,P2
 		dotnet_callv("s4:call",nHandle,"s9:Transform",P1,P2)
@@ -600,7 +624,11 @@ Class Stroke from Object
 		return self
 
 	Func GetBezierStylusPoints 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetBezierStylusPoints"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:GetBezierStylusPoints")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddPropertyData P1,P2
 		dotnet_callv("s4:call",nHandle,"s15:AddPropertyData",P1,P2)
@@ -613,10 +641,18 @@ Class Stroke from Object
 		return self
 
 	Func GetPropertyData P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetPropertyData",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetPropertyData",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetPropertyDataIds 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetPropertyDataIds"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetPropertyDataIds")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ContainsPropertyData P1
 		dn_x = dotnet_call("s4:call",nHandle,"s20:ContainsPropertyData",P1)
@@ -624,20 +660,32 @@ Class Stroke from Object
 		return dn_x
 
 	Func GetBounds 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetBounds"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetBounds")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Draw P1
 		dotnet_calltd1v(nHandle,"Draw",P1)
 		return self
 
 	Func GetClipResult P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetClipResult",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetClipResult",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEraseResult P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:GetEraseResult",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetEraseResult",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetEraseResult",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func HitTest P1
 		return dnAnswer(dotnet_calltd1(nHandle,"HitTest",P1))
@@ -647,9 +695,17 @@ Class Stroke from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:GetGeometry",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetGeometry"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetGeometry")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetGeometry",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetGeometry",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -772,10 +828,18 @@ Class StrokeCollection from Collection
 		return self
 
 	Func GetPropertyData P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetPropertyData",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetPropertyData",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetPropertyDataIds 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetPropertyDataIds"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetPropertyDataIds")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ContainsPropertyData P1
 		dn_x = dotnet_call("s4:call",nHandle,"s20:ContainsPropertyData",P1)
@@ -788,7 +852,11 @@ Class StrokeCollection from Collection
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Remove P1
 		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
@@ -801,13 +869,21 @@ Class StrokeCollection from Collection
 		return self
 
 	Func GetBounds 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetBounds"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetBounds")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func HitTest P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:HitTest",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:HitTest",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:HitTest",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clip P1
 		dotnet_callv("s4:call",nHandle,"s4:Clip",P1)
@@ -824,10 +900,18 @@ Class StrokeCollection from Collection
 		return self
 
 	Func GetIncrementalStrokeHitTester P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s29:GetIncrementalStrokeHitTester",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s29:GetIncrementalStrokeHitTester",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetIncrementalLassoHitTester P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetIncrementalLassoHitTester",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s28:GetIncrementalLassoHitTester",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func setStrokesChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"StrokesChanged",dnCallback(P1)])
@@ -897,7 +981,11 @@ Class StrokeHitEventArgs from EventArgs
 		return self
 
 	Func GetPointEraseResults 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetPointEraseResults"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetPointEraseResults")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getHitStroke
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:HitStroke"))

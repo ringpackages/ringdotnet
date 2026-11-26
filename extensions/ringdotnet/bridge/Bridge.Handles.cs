@@ -23,6 +23,12 @@ namespace RingDotNet
 
 		private static long NextHandle = 1;
 
+		/* the answer of a call that returned the object it was called on (the operation "calls") */
+		private sealed class SameAsReceiver
+		{
+			public static readonly SameAsReceiver Instance = new SameAsReceiver();
+		}
+
 		private static long Register(object value)
 		{
 			long id = NextHandle++;

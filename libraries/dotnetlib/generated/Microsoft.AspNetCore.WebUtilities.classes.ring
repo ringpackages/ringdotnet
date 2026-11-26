@@ -205,13 +205,21 @@ Class BufferedReadStream from Stream
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:EnsureBufferedAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:EnsureBufferedAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:EnsureBufferedAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadLine P1
 		return dnAnswer(dotnet_callt(nHandle,"ReadLine",P1))
 
 	Func ReadLineAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadLineAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ReadLineAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getBufferedData
 		return dnObj(dotnet_callo("s3:get",nHandle,"s12:BufferedData"))
@@ -325,7 +333,11 @@ Class FileBufferingWriteStream from Stream
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:DrainBufferAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:DrainBufferAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:DrainBufferAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getMemoryThreshold
 		return dotnet_getp(nHandle,"MemoryThreshold")
@@ -433,9 +445,17 @@ Class FormMultipartSection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:GetValueAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetValueAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetValueAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetValueAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetValueAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -492,9 +512,17 @@ Class FormPipeReader from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:ReadFormAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadFormAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s13:ReadFormAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadFormAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ReadFormAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -559,28 +587,52 @@ Class FormReader from Object
 		return self
 
 	Func ReadNextPair 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ReadNextPair"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ReadNextPair")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadNextPairAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ReadNextPairAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadNextPairAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s17:ReadNextPairAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadNextPairAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ReadNextPairAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadForm 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:ReadForm"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:ReadForm")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadFormAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:ReadFormAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadFormAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s13:ReadFormAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ReadFormAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ReadFormAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -718,7 +770,11 @@ Class KeyValueAccumulator from ValueType
 		return self
 
 	Func GetResults 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetResults"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetResults")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getHasValues
 		return dotnet_getp(nHandle,"HasValues")
@@ -778,9 +834,17 @@ Class MultipartReader from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:ReadNextSectionAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s20:ReadNextSectionAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s20:ReadNextSectionAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ReadNextSectionAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:ReadNextSectionAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -854,15 +918,27 @@ Class MultipartSection from Object
 
 	Func AsFileSection 
 		dnEnsureExt("Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AsFileSection"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:AsFileSection")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AsFormDataSection 
 		dnEnsureExt("Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AsFormDataSection"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:AsFormDataSection")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetContentDispositionHeader 
 		dnEnsureExt("Microsoft.AspNetCore.WebUtilities.MultipartSectionConverterExtensions, Microsoft.AspNetCore.WebUtilities")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetContentDispositionHeader"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:GetContentDispositionHeader")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadAsStringAsync P1
 		dnEnsureExt("Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions, Microsoft.AspNetCore.WebUtilities")
@@ -870,9 +946,17 @@ Class MultipartSection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ReadAsStringAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadAsStringAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s17:ReadAsStringAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadAsStringAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ReadAsStringAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getContentType
 		return dnAnswer(dotnet_getp(nHandle,"ContentType"))
@@ -1025,7 +1109,11 @@ Class QueryStringEnumerable from ValueType
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class QueryStringEnumerableEncodedNameValuePair from ValueType
@@ -1052,10 +1140,18 @@ Class QueryStringEnumerableEncodedNameValuePair from ValueType
 		return self
 
 	Func DecodeName 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:DecodeName"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:DecodeName")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DecodeValue 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:DecodeValue"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:DecodeValue")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getEncodedName
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:EncodedName"))

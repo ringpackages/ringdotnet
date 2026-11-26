@@ -234,7 +234,11 @@ Class GatewayIPAddressInformationCollection from Object
 		return dn_x
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Remove P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
@@ -256,7 +260,11 @@ Class GatewayIPAddressInformationCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -266,12 +274,20 @@ Class GatewayIPAddressInformationCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -355,7 +371,11 @@ Class IPAddressInformationCollection from Object
 		return dn_x
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Remove P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
@@ -377,7 +397,11 @@ Class IPAddressInformationCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -387,12 +411,20 @@ Class IPAddressInformationCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -425,49 +457,109 @@ Class IPGlobalProperties from Object
 		return self
 
 	Func GetActiveUdpListeners 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetActiveUdpListeners"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:GetActiveUdpListeners")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetActiveTcpListeners 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetActiveTcpListeners"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:GetActiveTcpListeners")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetActiveTcpConnections 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetActiveTcpConnections"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:GetActiveTcpConnections")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BeginGetUnicastAddresses P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:BeginGetUnicastAddresses",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:BeginGetUnicastAddresses",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EndGetUnicastAddresses P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:EndGetUnicastAddresses",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:EndGetUnicastAddresses",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetTcpIPv4Statistics 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetTcpIPv4Statistics"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetTcpIPv4Statistics")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetTcpIPv6Statistics 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetTcpIPv6Statistics"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetTcpIPv6Statistics")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetUdpIPv4Statistics 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetUdpIPv4Statistics"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetUdpIPv4Statistics")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetUdpIPv6Statistics 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetUdpIPv6Statistics"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetUdpIPv6Statistics")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetIcmpV4Statistics 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetIcmpV4Statistics"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:GetIcmpV4Statistics")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetIcmpV6Statistics 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetIcmpV6Statistics"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:GetIcmpV6Statistics")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetIPv4GlobalStatistics 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetIPv4GlobalStatistics"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:GetIPv4GlobalStatistics")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetIPv6GlobalStatistics 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetIPv6GlobalStatistics"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:GetIPv6GlobalStatistics")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetUnicastAddresses 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:GetUnicastAddresses"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:GetUnicastAddresses")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetUnicastAddressesAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:GetUnicastAddressesAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:GetUnicastAddressesAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -703,10 +795,18 @@ Class IPInterfaceProperties from Object
 		return self
 
 	Func GetIPv4Properties 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetIPv4Properties"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetIPv4Properties")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetIPv6Properties 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetIPv6Properties"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetIPv6Properties")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1554,7 +1654,11 @@ Class MulticastIPAddressInformationCollection from Object
 		return dn_x
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Remove P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
@@ -1576,7 +1680,11 @@ Class MulticastIPAddressInformationCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1586,12 +1694,20 @@ Class MulticastIPAddressInformationCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -1733,16 +1849,32 @@ Class NetworkInterface from Object
 		return self
 
 	Func GetIPProperties 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetIPProperties"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetIPProperties")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetIPStatistics 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetIPStatistics"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetIPStatistics")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetIPv4Statistics 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetIPv4Statistics"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetIPv4Statistics")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetPhysicalAddress 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetPhysicalAddress"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetPhysicalAddress")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Supports P1
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Supports",P1)
@@ -1842,7 +1974,11 @@ Class PhysicalAddress from Object
 		return dn_x
 
 	Func GetAddressBytes 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetAddressBytes"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetAddressBytes")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation',"s5:Parse",P1))
@@ -1881,7 +2017,11 @@ Class Ping from Component
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Send",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Send",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Send",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SendAsync P1
 		if dotnet_isnamed(P1)
@@ -1894,7 +2034,11 @@ Class Ping from Component
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:SendPingAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SendPingAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:SendPingAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SendAsyncCancel 
 		dotnet_calltv(nHandle,"SendAsyncCancel")
@@ -2308,7 +2452,11 @@ Class UnicastIPAddressInformationCollection from Object
 		return dn_x
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Remove P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Remove",P1)
@@ -2330,7 +2478,11 @@ Class UnicastIPAddressInformationCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -2340,12 +2492,20 @@ Class UnicastIPAddressInformationCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")

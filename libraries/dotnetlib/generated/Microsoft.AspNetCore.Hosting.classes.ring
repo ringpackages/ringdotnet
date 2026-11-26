@@ -276,7 +276,11 @@ Class IStartup from DotNetObject
 		return self
 
 	Func ConfigureServices P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConfigureServices",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ConfigureServices",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Configure P1
 		dotnet_callv("s4:call",nHandle,"s9:Configure",P1)
@@ -296,7 +300,11 @@ Class IStartupFilter from DotNetObject
 		return self
 
 	Func Configure P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Configure",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IWebHost from DotNetObject
@@ -322,18 +330,34 @@ Class IWebHost from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:StartAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:StartAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:StartAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:StartAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func StopAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:StopAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s9:StopAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s9:StopAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:StopAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:StopAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -351,9 +375,17 @@ Class IWebHost from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:WaitForShutdownAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s20:WaitForShutdownAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s20:WaitForShutdownAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:WaitForShutdownAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:WaitForShutdownAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Run 
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting")
@@ -367,9 +399,17 @@ Class IWebHost from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:RunAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s8:RunAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s8:RunAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:RunAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:RunAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getServerFeatures
 		return dnObj(dotnet_callo("s3:get",nHandle,"s14:ServerFeatures"))
@@ -396,27 +436,51 @@ Class IWebHostBuilder from DotNetObject
 		return self
 
 	Func Build 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Build")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConfigureAppConfiguration P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:ConfigureAppConfiguration",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:ConfigureAppConfiguration",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConfigureServices P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConfigureServices",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ConfigureServices",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetSetting P1
 		return dnAnswer(dotnet_callt(nHandle,"GetSetting",P1))
 
 	Func UseSetting P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSetting",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseSetting",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseConfiguration P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:UseConfiguration",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:UseConfiguration",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CaptureStartupErrors P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:CaptureStartupErrors",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:CaptureStartupErrors",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseStartup P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
@@ -424,61 +488,121 @@ Class IWebHostBuilder from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UseStartup",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseStartup"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseStartup")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseStartup",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseStartup",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseServer P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:UseServer",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:UseServer",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseEnvironment P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseEnvironment",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:UseEnvironment",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseContentRoot P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseContentRoot",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:UseContentRoot",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseWebRoot P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseWebRoot",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseWebRoot",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseUrls P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseUrls",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:UseUrls",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func PreferHostingUrls P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:PreferHostingUrls",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:PreferHostingUrls",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SuppressStatusMessages P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:SuppressStatusMessages",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:SuppressStatusMessages",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseShutdownTimeout P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseShutdownTimeout",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:UseShutdownTimeout",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Start P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Start",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Start",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Configure P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Configure",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseDefaultServiceProvider P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:UseDefaultServiceProvider",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:UseDefaultServiceProvider",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConfigureLogging P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureLogging",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:ConfigureLogging",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseStaticWebAssets 
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseStaticWebAssets"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:UseStaticWebAssets")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseHttpSys P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions, Microsoft.AspNetCore.Server.HttpSys")
@@ -486,17 +610,33 @@ Class IWebHostBuilder from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UseHttpSys",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseHttpSys"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseHttpSys")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseHttpSys",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseHttpSys",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseIIS 
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions, Microsoft.AspNetCore.Server.IIS")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:UseIIS"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:UseIIS")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseKestrelHttpsConfiguration 
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s28:UseKestrelHttpsConfiguration"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s28:UseKestrelHttpsConfiguration")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseKestrel P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel")
@@ -504,17 +644,33 @@ Class IWebHostBuilder from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UseKestrel",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseKestrel"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseKestrel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseKestrel",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseKestrel",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseKestrelCore 
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseKestrelCore"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:UseKestrelCore")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConfigureKestrel P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureKestrel",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:ConfigureKestrel",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseNamedPipes P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderNamedPipeExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.NamedPipes")
@@ -522,9 +678,17 @@ Class IWebHostBuilder from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:UseNamedPipes",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseNamedPipes"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s13:UseNamedPipes")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseNamedPipes",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:UseNamedPipes",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseQuic P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderQuicExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Quic")
@@ -532,9 +696,17 @@ Class IWebHostBuilder from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:UseQuic",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseQuic"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s7:UseQuic")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseQuic",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:UseQuic",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseSockets P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderSocketExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets")
@@ -542,9 +714,17 @@ Class IWebHostBuilder from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UseSockets",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSockets"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseSockets")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSockets",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseSockets",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IWebHostEnvironment from DotNetObject
@@ -723,7 +903,11 @@ Class StartupBase from Object
 		return self
 
 	Func CreateServiceProvider P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:CreateServiceProvider",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:CreateServiceProvider",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -755,16 +939,32 @@ Class WebHostBuilder from Object
 		return dnAnswer(dotnet_callt(nHandle,"GetSetting",P1))
 
 	Func UseSetting P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSetting",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseSetting",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConfigureServices P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConfigureServices",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ConfigureServices",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConfigureAppConfiguration P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:ConfigureAppConfiguration",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:ConfigureAppConfiguration",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Build 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Build"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Build")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -773,11 +973,19 @@ Class WebHostBuilder from Object
 
 	Func UseConfiguration P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:UseConfiguration",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:UseConfiguration",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CaptureStartupErrors P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:CaptureStartupErrors",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:CaptureStartupErrors",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseStartup P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
@@ -785,61 +993,121 @@ Class WebHostBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UseStartup",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseStartup"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseStartup")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseStartup",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseStartup",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseServer P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:UseServer",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:UseServer",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseEnvironment P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseEnvironment",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:UseEnvironment",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseContentRoot P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseContentRoot",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:UseContentRoot",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseWebRoot P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseWebRoot",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseWebRoot",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseUrls P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseUrls",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:UseUrls",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func PreferHostingUrls P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:PreferHostingUrls",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:PreferHostingUrls",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SuppressStatusMessages P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:SuppressStatusMessages",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:SuppressStatusMessages",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseShutdownTimeout P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseShutdownTimeout",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:UseShutdownTimeout",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Start P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Start",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Start",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Configure P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Configure",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseDefaultServiceProvider P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:UseDefaultServiceProvider",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:UseDefaultServiceProvider",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConfigureLogging P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureLogging",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:ConfigureLogging",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseStaticWebAssets 
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:UseStaticWebAssets"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:UseStaticWebAssets")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseHttpSys P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions, Microsoft.AspNetCore.Server.HttpSys")
@@ -847,17 +1115,33 @@ Class WebHostBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UseHttpSys",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseHttpSys"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseHttpSys")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseHttpSys",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseHttpSys",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseIIS 
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions, Microsoft.AspNetCore.Server.IIS")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:UseIIS"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:UseIIS")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseKestrelHttpsConfiguration 
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s28:UseKestrelHttpsConfiguration"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s28:UseKestrelHttpsConfiguration")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseKestrel P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel")
@@ -865,17 +1149,33 @@ Class WebHostBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UseKestrel",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseKestrel"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseKestrel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseKestrel",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseKestrel",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseKestrelCore 
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UseKestrelCore"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:UseKestrelCore")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConfigureKestrel P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ConfigureKestrel",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:ConfigureKestrel",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseNamedPipes P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderNamedPipeExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.NamedPipes")
@@ -883,9 +1183,17 @@ Class WebHostBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:UseNamedPipes",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseNamedPipes"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s13:UseNamedPipes")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:UseNamedPipes",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:UseNamedPipes",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseQuic P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderQuicExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Quic")
@@ -893,9 +1201,17 @@ Class WebHostBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:UseQuic",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseQuic"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s7:UseQuic")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:UseQuic",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:UseQuic",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UseSockets P1
 		dnEnsureExt("Microsoft.AspNetCore.Hosting.WebHostBuilderSocketExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets")
@@ -903,9 +1219,17 @@ Class WebHostBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:UseSockets",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSockets"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseSockets")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:UseSockets",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:UseSockets",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class WebHostBuilderContext from Object

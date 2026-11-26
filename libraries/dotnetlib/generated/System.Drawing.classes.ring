@@ -305,7 +305,11 @@ Class Brush from MarshalByRefObject
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -1373,7 +1377,11 @@ Class BufferedGraphicsContext from Object
 		return self
 
 	Func Allocate P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Allocate",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Allocate",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -1665,7 +1673,11 @@ Class Color from ValueType
 		return dnAnswer(dotnet_callt(nHandle,"ToArgb"))
 
 	Func ToKnownColor 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ToKnownColor"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToKnownColor")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FromArgb P1
 		if dotnet_isnamed(P1)
@@ -2841,7 +2853,11 @@ Class Graphics from MarshalByRefObject
 		return self
 
 	Func GetHdc 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:GetHdc"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:GetHdc")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReleaseHdc P1
 		dotnet_calltdv(nHandle,"ReleaseHdc",P1)
@@ -3040,7 +3056,11 @@ Class Graphics from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s21:MeasureStringInternal",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func MeasureCharacterRanges P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:MeasureCharacterRanges",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:MeasureCharacterRanges",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DrawImage P1
 		if dotnet_isnamed(P1)
@@ -3093,7 +3113,11 @@ Class Graphics from MarshalByRefObject
 		return self
 
 	Func GetNearestColor P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetNearestColor",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetNearestColor",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DrawBeziers P1,P2
 		dotnet_callv("s4:call",nHandle,"s11:DrawBeziers",P1,P2)
@@ -3123,10 +3147,18 @@ Class Graphics from MarshalByRefObject
 		return self
 
 	Func GetContextInfo 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetContextInfo"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetContextInfo")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Save 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Save"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Save")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Restore P1
 		dotnet_callv("s4:call",nHandle,"s7:Restore",P1)
@@ -3138,7 +3170,11 @@ Class Graphics from MarshalByRefObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:BeginContainer",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s14:BeginContainer"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s14:BeginContainer")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: BeginContainer does not take one argument: use named arguments, BeginContainer([ :parameter = value, ... ])")
 
@@ -3318,7 +3354,11 @@ Class IDeviceContext from DotNetObject
 		return self
 
 	Func GetHdc 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:GetHdc"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:GetHdc")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReleaseHdc 
 		dotnet_calltv(nHandle,"ReleaseHdc")
@@ -3363,14 +3403,22 @@ Class Icon from MarshalByRefObject
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func ToBitmap 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:ToBitmap"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:ToBitmap")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Save P1
 		dotnet_callv("s4:call",nHandle,"s4:Save",P1)
@@ -3466,7 +3514,11 @@ Class Image from MarshalByRefObject
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Save P1
 		dotnet_calltd1v(nHandle,"Save",P1)
@@ -3480,7 +3532,11 @@ Class Image from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s9:GetBounds",dnPackItem(P1))
 
 	Func GetThumbnailImage P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetThumbnailImage",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetThumbnailImage",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetFrameCount P1
 		dn_x = dotnet_call("s4:call",nHandle,"s13:GetFrameCount",P1)
@@ -3488,7 +3544,11 @@ Class Image from MarshalByRefObject
 		return dn_x
 
 	Func GetPropertyItem P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetPropertyItem",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetPropertyItem",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SelectActiveFrame P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s17:SelectActiveFrame",P1,P2)
@@ -3510,7 +3570,11 @@ Class Image from MarshalByRefObject
 		return self
 
 	Func GetEncoderParameterList P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetEncoderParameterList",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:GetEncoderParameterList",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FromFile P1
 		if dotnet_isnamed(P1)
@@ -4767,7 +4831,11 @@ Class Region from MarshalByRefObject
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReleaseHrgn P1
 		dotnet_callv("s4:call",nHandle,"s11:ReleaseHrgn",P1)
@@ -4821,10 +4889,18 @@ Class Region from MarshalByRefObject
 		return self
 
 	Func GetBounds P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetBounds",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetBounds",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetHrgn P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetHrgn",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetHrgn",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IsEmpty P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IsEmpty",P1)
@@ -4840,13 +4916,21 @@ Class Region from MarshalByRefObject
 		return dnAnswer(dotnet_calltd1(nHandle,"Equals",P1))
 
 	Func GetRegionData 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetRegionData"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetRegionData")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IsVisible P1
 		return dnAnswer(dotnet_calltd1(nHandle,"IsVisible",P1))
 
 	Func GetRegionScans P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetRegionScans",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetRegionScans",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FromHrgn P1
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.Region, System.Drawing.Common',"s8:FromHrgn",P1))
@@ -4903,7 +4987,11 @@ Class StringFormat from MarshalByRefObject
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetMeasurableCharacterRanges P1
 		dotnet_callv("s4:call",nHandle,"s28:SetMeasurableCharacterRanges",P1)
@@ -5949,7 +6037,11 @@ Class ToolboxBitmapAttribute from Attribute
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetImage",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetImage",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetImage",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetImageFromResource P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.ToolboxBitmapAttribute, System.Drawing.Common',"s20:GetImageFromResource",P1,P2,P3))
@@ -6078,7 +6170,11 @@ Class PointF from ValueType
 		return self
 
 	Func ToVector2 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ToVector2"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ToVector2")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Add P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.PointF, System.Drawing.Primitives',"s3:Add",P1,P2))
@@ -6230,13 +6326,25 @@ Class SizeF from ValueType
 		return self
 
 	Func ToVector2 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ToVector2"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ToVector2")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToPointF 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:ToPointF"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:ToPointF")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToSize 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:ToSize"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:ToSize")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Add P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.SizeF, System.Drawing.Primitives',"s3:Add",P1,P2))
@@ -6498,7 +6606,11 @@ Class RectangleF from ValueType
 		return self
 
 	Func ToVector4 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ToVector4"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ToVector4")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Contains P1
 		return dnAnswer(dotnet_calltd1(nHandle,"Contains",P1))
@@ -6695,10 +6807,18 @@ Class Font from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s9:ToLogFont",dnPackItem(P1))
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToHfont 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToHfont"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToHfont")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FromHfont P1
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.Font, System.Drawing.Common',"s9:FromHfont",P1))
@@ -6856,7 +6976,11 @@ Class Pen from MarshalByRefObject
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -7124,19 +7248,35 @@ Class Bitmap from Image
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetHbitmap",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetHbitmap"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetHbitmap")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetHbitmap",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetHbitmap",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetHicon 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetHicon"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetHicon")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clone P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s5:Clone",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Clone does not take one argument: use named arguments, Clone([ :parameter = value, ... ])")
 
@@ -7156,7 +7296,11 @@ Class Bitmap from Image
 		return self
 
 	Func GetPixel P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetPixel",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetPixel",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetPixel P1,P2,P3
 		dotnet_callv("s4:call",nHandle,"s8:SetPixel",P1,P2,P3)

@@ -171,9 +171,17 @@ Class HistoryRepository from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:ExistsAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:ExistsAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:ExistsAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ExistsAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ExistsAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetCreateIfNotExistsScript 
 		return dnAnswer(dotnet_callt(nHandle,"GetCreateIfNotExistsScript"))
@@ -190,33 +198,65 @@ Class HistoryRepository from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CreateAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:CreateAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:CreateAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AcquireDatabaseLock 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AcquireDatabaseLock"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:AcquireDatabaseLock")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AcquireDatabaseLockAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:AcquireDatabaseLockAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s24:AcquireDatabaseLockAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s24:AcquireDatabaseLockAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:AcquireDatabaseLockAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:AcquireDatabaseLockAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetAppliedMigrations 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetAppliedMigrations"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetAppliedMigrations")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetAppliedMigrationsAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:GetAppliedMigrationsAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetAppliedMigrationsAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s25:GetAppliedMigrationsAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetAppliedMigrationsAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:GetAppliedMigrationsAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetInsertScript P1
 		dn_x = dotnet_call("s4:call",nHandle,"s15:GetInsertScript",P1)
@@ -454,9 +494,17 @@ Class IHistoryRepository from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:ExistsAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:ExistsAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:ExistsAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ExistsAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ExistsAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Create 
 		dotnet_calltv(nHandle,"Create")
@@ -467,9 +515,17 @@ Class IHistoryRepository from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CreateAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:CreateAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:CreateAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateIfNotExists 
 		return dnAnswer(dotnet_callt(nHandle,"CreateIfNotExists"))
@@ -479,33 +535,65 @@ Class IHistoryRepository from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:CreateIfNotExistsAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s22:CreateIfNotExistsAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s22:CreateIfNotExistsAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:CreateIfNotExistsAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:CreateIfNotExistsAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetAppliedMigrations 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetAppliedMigrations"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetAppliedMigrations")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetAppliedMigrationsAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s25:GetAppliedMigrationsAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetAppliedMigrationsAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s25:GetAppliedMigrationsAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s25:GetAppliedMigrationsAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s25:GetAppliedMigrationsAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AcquireDatabaseLock 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AcquireDatabaseLock"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:AcquireDatabaseLock")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AcquireDatabaseLockAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:AcquireDatabaseLockAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s24:AcquireDatabaseLockAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s24:AcquireDatabaseLockAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:AcquireDatabaseLockAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:AcquireDatabaseLockAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetCreateScript 
 		return dnAnswer(dotnet_callt(nHandle,"GetCreateScript"))
@@ -575,10 +663,18 @@ Class IMigrationsAnnotationProvider from DotNetObject
 		return self
 
 	Func ForRemove P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ForRemove",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ForRemove",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ForRename P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ForRename",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ForRename",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IMigrationsAssembly from DotNetObject
@@ -600,7 +696,11 @@ Class IMigrationsAssembly from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"FindMigrationId",P1))
 
 	Func CreateMigration P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateMigration",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreateMigration",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetMigrationId P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Migrations.MigrationsAssemblyExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -639,7 +739,11 @@ Class IMigrationsDatabaseLock from DotNetObject
 		return self
 
 	Func ReacquireIfNeeded P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReacquireIfNeeded",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ReacquireIfNeeded",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReacquireIfNeededAsync P1
 		if dotnet_isnamed(P1)
@@ -652,11 +756,19 @@ Class IMigrationsDatabaseLock from DotNetObject
 		return self
 
 	Func DisposeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DisposeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConfigureAwait P1
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ConfigureAwait",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IMigrationsIdGenerator from DotNetObject
@@ -697,7 +809,11 @@ Class IMigrationsModelDiffer from DotNetObject
 		return dn_x
 
 	Func GetDifferences P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetDifferences",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetDifferences",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IMigrationsSqlGenerator from DotNetObject
@@ -715,7 +831,11 @@ Class IMigrationsSqlGenerator from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Generate",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Generate",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Generate",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IMigrator from DotNetObject
@@ -738,9 +858,17 @@ Class IMigrator from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:MigrateAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s12:MigrateAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s12:MigrateAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:MigrateAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:MigrateAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GenerateScript P1
 		return dnAnswer(dotnet_calltd(nHandle,"GenerateScript",P1))
@@ -878,21 +1006,37 @@ Class MigrationBuilder from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AlterDatabase",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s13:AlterDatabase"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s13:AlterDatabase")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AlterDatabase",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:AlterDatabase",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AlterSequence P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s13:AlterSequence",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:AlterSequence",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:AlterSequence",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AlterTable P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AlterTable",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AlterTable",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AlterTable",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateIndex P1
 		if dotnet_isnamed(P1)
@@ -901,13 +1045,21 @@ Class MigrationBuilder from Object
 		raise("DotNet Error: CreateIndex does not take one argument: use named arguments, CreateIndex([ :parameter = value, ... ])")
 
 	Func EnsureSchema P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:EnsureSchema",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:EnsureSchema",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateSequence P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:CreateSequence",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CreateSequence",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CreateSequence",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateCheckConstraint P1
 		if dotnet_isnamed(P1)
@@ -943,7 +1095,11 @@ Class MigrationBuilder from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:DropIndex",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:DropIndex",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:DropIndex",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DropPrimaryKey P1
 		if dotnet_isnamed(P1)
@@ -952,13 +1108,21 @@ Class MigrationBuilder from Object
 		raise("DotNet Error: DropPrimaryKey does not take one argument: use named arguments, DropPrimaryKey([ :parameter = value, ... ])")
 
 	Func DropSchema P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:DropSchema",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:DropSchema",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DropSequence P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:DropSequence",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DropSequence",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DropSequence",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DropCheckConstraint P1
 		if dotnet_isnamed(P1)
@@ -970,7 +1134,11 @@ Class MigrationBuilder from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:DropTable",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:DropTable",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:DropTable",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DropUniqueConstraint P1
 		if dotnet_isnamed(P1)
@@ -994,25 +1162,41 @@ Class MigrationBuilder from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:RenameSequence",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:RenameSequence",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:RenameSequence",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RenameTable P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:RenameTable",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:RenameTable",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:RenameTable",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RestartSequence P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:RestartSequence",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:RestartSequence",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:RestartSequence",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Sql P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s3:Sql",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Sql",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Sql",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func InsertData P1
 		if dotnet_isnamed(P1)
@@ -1095,7 +1279,11 @@ Class MigrationCommand from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:ExecuteNonQueryAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ExecuteNonQueryAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:ExecuteNonQueryAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1135,40 +1323,80 @@ Class MigrationCommandListBuilder from Object
 		return self
 
 	Func GetCommandList 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetCommandList"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetCommandList")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EndCommand P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:EndCommand",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:EndCommand"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:EndCommand")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:EndCommand",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:EndCommand",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Append P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Append",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Append",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AppendLine P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AppendLine",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendLine"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:AppendLine")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendLine",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AppendLine",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AppendLines P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AppendLines",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AppendLines",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Indent 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Indent"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Indent")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IncrementIndent 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:IncrementIndent"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:IncrementIndent")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DecrementIndent 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:DecrementIndent"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:DecrementIndent")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1257,10 +1485,18 @@ Class MigrationsAnnotationProvider from Object
 		return self
 
 	Func ForRemove P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ForRemove",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ForRemove",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ForRename P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:ForRename",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ForRename",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1337,7 +1573,11 @@ Class MigrationsSqlGenerator from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Generate",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Generate",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Generate",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

@@ -279,7 +279,11 @@ Class ChangeTracker from Object
 		return self
 
 	Func Entries 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Entries"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Entries")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func HasChanges 
 		return dnAnswer(dotnet_callt(nHandle,"HasChanges"))
@@ -516,34 +520,70 @@ Class EntityEntry from Object
 		return self
 
 	Func Member P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Member",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Member",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Navigation P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:Navigation",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:Navigation",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Property P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Property",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Property",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ComplexProperty P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ComplexProperty",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:ComplexProperty",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Reference P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Reference",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Reference",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Collection P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:Collection",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:Collection",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDatabaseValues 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetDatabaseValues"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetDatabaseValues")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDatabaseValuesAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:GetDatabaseValuesAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetDatabaseValuesAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s22:GetDatabaseValuesAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetDatabaseValuesAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:GetDatabaseValuesAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Reload 
 		dotnet_calltv(nHandle,"Reload")
@@ -554,9 +594,17 @@ Class EntityEntry from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:ReloadAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:ReloadAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:ReloadAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ReloadAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ReloadAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -565,7 +613,11 @@ Class EntityEntry from Object
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getEntity
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Entity"))
@@ -693,7 +745,11 @@ Class EntityEntryGraphNode from Object
 		return self
 
 	Func CreateNode P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:CreateNode",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:CreateNode",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -702,7 +758,11 @@ Class EntityEntryGraphNode from Object
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getSourceEntry
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:SourceEntry"))
@@ -765,13 +825,21 @@ Class IDependentKeyValueFactory from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:CreatePrincipalEquatableKey",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:CreatePrincipalEquatableKey",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:CreatePrincipalEquatableKey",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateDependentEquatableKey P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:CreateDependentEquatableKey",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:CreateDependentEquatableKey",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:CreateDependentEquatableKey",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IDependentKeyValueFactory1 from DotNetObject
@@ -810,13 +878,21 @@ Class IDependentKeyValueFactory1 from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:CreatePrincipalEquatableKey",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:CreatePrincipalEquatableKey",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:CreatePrincipalEquatableKey",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateDependentEquatableKey P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s27:CreateDependentEquatableKey",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:CreateDependentEquatableKey",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:CreateDependentEquatableKey",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getEqualityComparer
 		return dnObj(dotnet_callo("s3:get",nHandle,"s16:EqualityComparer"))
@@ -863,7 +939,11 @@ Class IPrincipalKeyValueFactory from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:CreateEquatableKey",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:CreateEquatableKey",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:CreateEquatableKey",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IPrincipalKeyValueFactory1 from DotNetObject
@@ -884,31 +964,63 @@ Class IPrincipalKeyValueFactory1 from DotNetObject
 		return self
 
 	Func CreateFromKeyValues P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:CreateFromKeyValues",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:CreateFromKeyValues",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateFromBuffer P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateFromBuffer",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:CreateFromBuffer",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FindNullPropertyInKeyValues P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:FindNullPropertyInKeyValues",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:FindNullPropertyInKeyValues",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateFromCurrentValues P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:CreateFromCurrentValues",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:CreateFromCurrentValues",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FindNullPropertyInCurrentValues P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s31:FindNullPropertyInCurrentValues",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s31:FindNullPropertyInCurrentValues",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateFromOriginalValues P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:CreateFromOriginalValues",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:CreateFromOriginalValues",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateFromRelationshipSnapshot P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s30:CreateFromRelationshipSnapshot",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s30:CreateFromRelationshipSnapshot",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateEquatableKey P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s18:CreateEquatableKey",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:CreateEquatableKey",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:CreateEquatableKey",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getEqualityComparer
 		return dnObj(dotnet_callo("s3:get",nHandle,"s16:EqualityComparer"))
@@ -936,10 +1048,18 @@ Class LocalView from Object
 		return self
 
 	Func ToObservableCollection 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:ToObservableCollection"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:ToObservableCollection")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Add P1
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1)
@@ -966,7 +1086,11 @@ Class LocalView from Object
 		return dn_x
 
 	Func ToBindingList 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ToBindingList"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ToBindingList")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Reset 
 		dotnet_calltv(nHandle,"Reset")
@@ -976,13 +1100,25 @@ Class LocalView from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:FindEntry",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:FindEntry",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:FindEntry",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FindEntryUntyped P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:FindEntryUntyped",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:FindEntryUntyped",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEntries P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetEntries",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetEntries",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -995,7 +1131,11 @@ Class LocalView from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1005,7 +1145,11 @@ Class LocalView from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1069,7 +1213,11 @@ Class MemberEntry from Object
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getIsModified
 		return dotnet_getp(nHandle,"IsModified")
@@ -1152,7 +1300,11 @@ Class ObservableHashSet from Object
 		return dn_x
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Add P1
 		dn_x = dotnet_call("s4:call",nHandle,"s3:Add",P1)
@@ -1229,7 +1381,11 @@ Class ObservableHashSet from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1239,7 +1395,11 @@ Class ObservableHashSet from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1301,7 +1461,11 @@ Class PropertyValues from Object
 		return self
 
 	Func ToObject 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:ToObject"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:ToObject")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetValues P1
 		dotnet_callv("s4:call",nHandle,"s9:SetValues",P1)
@@ -1309,13 +1473,21 @@ Class PropertyValues from Object
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetValue P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryGetValue P1
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
@@ -1326,7 +1498,11 @@ Class PropertyValues from Object
 		return dn_x
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -1370,19 +1546,39 @@ Class ValueComparer from Object
 		return dnAnswer(dotnet_calltd(nHandle,"GetHashCode",P1))
 
 	Func Snapshot P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Snapshot",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Snapshot",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExtractEqualsBody P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ExtractEqualsBody",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ExtractEqualsBody",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExtractHashCodeBody P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:ExtractHashCodeBody",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:ExtractHashCodeBody",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExtractSnapshotBody P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:ExtractSnapshotBody",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:ExtractSnapshotBody",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetGenericSnapshotMethod P1
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore',"s24:GetGenericSnapshotMethod",P1))
@@ -1478,10 +1674,18 @@ Class ComplexPropertyEntry from MemberEntry
 		return self
 
 	Func Property P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Property",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Property",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ComplexProperty P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ComplexProperty",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:ComplexProperty",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getProperties
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Properties"))
@@ -1712,12 +1916,24 @@ Class NavigationEntry from MemberEntry
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:LoadAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s9:LoadAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s9:LoadAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:LoadAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:LoadAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Query 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Query"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Query")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getIsLoaded
 		return dotnet_getp(nHandle,"IsLoaded")
@@ -1825,7 +2041,11 @@ Class CollectionEntry from NavigationEntry
 		return self
 
 	Func FindEntry P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:FindEntry",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:FindEntry",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ComplexPropertyEntry2 from ComplexPropertyEntry
@@ -1879,7 +2099,11 @@ Class ListOfNullableValueTypesComparer from ValueComparer1
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getElementComparer
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ElementComparer"))
@@ -1907,7 +2131,11 @@ Class ListOfReferenceTypesComparer from ValueComparer1
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getElementComparer
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ElementComparer"))
@@ -1935,7 +2163,11 @@ Class ListOfValueTypesComparer from ValueComparer1
 
 	Func GetInfrastructure 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetInfrastructure"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetInfrastructure")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getElementComparer
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:ElementComparer"))

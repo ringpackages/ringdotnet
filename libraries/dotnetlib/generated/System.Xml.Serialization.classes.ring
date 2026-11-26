@@ -468,7 +468,11 @@ Class CodeIdentifiers from Object
 		return self
 
 	Func ToArray P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToArray",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -495,7 +499,11 @@ Class IXmlSerializable from DotNetObject
 		return self
 
 	Func GetSchema 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetSchema"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetSchema")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadXml P1
 		dotnet_callv("s4:call",nHandle,"s7:ReadXml",P1)
@@ -693,7 +701,11 @@ Class SoapAttributeOverrides from Object
 		if islist(P1)
 			return callMethod("get_Item",P1)
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class SoapAttributes from Object
@@ -932,7 +944,11 @@ Class SoapIncludeAttribute from Attribute
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
@@ -992,7 +1008,11 @@ Class SoapReflectionImporter from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ImportTypeMapping",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ImportTypeMapping",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ImportTypeMapping",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ImportMembersMapping P1
 		if dotnet_isnamed(P1)
@@ -1273,7 +1293,11 @@ Class XmlAnyElementAttributes from CollectionBase
 		return self
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -1403,7 +1427,11 @@ Class XmlArrayItemAttribute from Attribute
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
@@ -1506,7 +1534,11 @@ Class XmlArrayItemAttributes from CollectionBase
 		return self
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -1556,7 +1588,11 @@ Class XmlAttributeAttribute from Attribute
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
@@ -1678,7 +1714,11 @@ Class XmlAttributeOverrides from Object
 		if islist(P1)
 			return callMethod("get_Item",P1)
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class XmlAttributes from Object
@@ -1977,7 +2017,11 @@ Class XmlElementAttribute from Attribute
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
@@ -2080,7 +2124,11 @@ Class XmlElementAttributes from CollectionBase
 		return self
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -2218,7 +2266,11 @@ Class XmlIncludeAttribute from Attribute
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
@@ -2488,7 +2540,11 @@ Class XmlReflectionImporter from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ImportTypeMapping",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ImportTypeMapping",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ImportTypeMapping",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ImportMembersMapping P1
 		if dotnet_isnamed(P1)
@@ -2765,7 +2821,11 @@ Class XmlSchemas from CollectionBase
 		return self
 
 	Func GetSchemas P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetSchemas",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetSchemas",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Add P1
 		if dotnet_isnamed(P1)
@@ -2808,7 +2868,11 @@ Class XmlSchemas from CollectionBase
 		return self
 
 	Func Find P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Find",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Find",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Compile P1,P2
 		dotnet_callv("s4:call",nHandle,"s7:Compile",P1,P2)
@@ -2821,7 +2885,11 @@ Class XmlSchemas from CollectionBase
 		return dn_x
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -2890,7 +2958,11 @@ Class XmlSerializer from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:Deserialize",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:Deserialize",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:Deserialize",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CanDeserialize P1
 		dn_x = dotnet_call("s4:call",nHandle,"s14:CanDeserialize",P1)
@@ -3032,7 +3104,11 @@ Class XmlSerializerFactory from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:CreateSerializer",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreateSerializer",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:CreateSerializer",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3063,7 +3139,11 @@ Class XmlSerializerImplementation from Object
 		return dn_x
 
 	Func GetSerializer P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetSerializer",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetSerializer",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3144,7 +3224,11 @@ Class XmlSerializerNamespaces from Object
 		return self
 
 	Func ToArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3200,7 +3284,11 @@ Class XmlSerializerVersionAttribute from Attribute
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getParentAssemblyId
 		return dnAnswer(dotnet_getp(nHandle,"ParentAssemblyId"))
@@ -3271,7 +3359,11 @@ Class XmlTextAttribute from Attribute
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Type"))
@@ -3372,7 +3464,11 @@ Class XmlMembersMapping from XmlMapping
 		return self
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getTypeName
 		return dnAnswer(dotnet_getp(nHandle,"TypeName"))
@@ -3428,19 +3524,35 @@ Class XmlSchemaImporter from SchemaImporter
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:ImportSchemaType",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ImportSchemaType",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:ImportSchemaType",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ImportTypeMapping P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ImportTypeMapping",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ImportTypeMapping",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ImportMembersMapping P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:ImportMembersMapping",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ImportMembersMapping",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:ImportMembersMapping",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ImportAnyType P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ImportAnyType",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ImportAnyType",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class XmlSerializationReader from XmlSerializationGeneratedCode

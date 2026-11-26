@@ -114,7 +114,11 @@ Class RegistryKey from MarshalByRefObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:CreateSubKey",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateSubKey",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:CreateSubKey",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DeleteSubKey P1
 		dotnet_calltd1v(nHandle,"DeleteSubKey",P1)
@@ -132,16 +136,28 @@ Class RegistryKey from MarshalByRefObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:OpenSubKey",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:OpenSubKey",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:OpenSubKey",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetAccessControl P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetAccessControl",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetAccessControl"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetAccessControl")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetAccessControl",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetAccessControl",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetAccessControl P1
 		dotnet_callv("s4:call",nHandle,"s16:SetAccessControl",P1)
@@ -149,19 +165,35 @@ Class RegistryKey from MarshalByRefObject
 		return self
 
 	Func GetSubKeyNames 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetSubKeyNames"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetSubKeyNames")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetValueNames 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetValueNames"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetValueNames")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetValue P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetValue",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetValueKind P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetValueKind",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetValueKind",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetValue P1
 		if dotnet_isnamed(P1)

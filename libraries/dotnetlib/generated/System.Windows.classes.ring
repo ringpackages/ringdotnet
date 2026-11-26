@@ -1105,10 +1105,18 @@ Class WpfApplication from DispatcherObject
 		return self
 
 	Func FindResource P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindResource",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:FindResource",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryFindResource P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:TryFindResource",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:TryFindResource",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LoadComponent P1
 		if dotnet_isnamed(P1)
@@ -2069,7 +2077,11 @@ Class WpfDataObject from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:GetData",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetData",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetData",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDataPresent P1
 		return dnAnswer(dotnet_calltd1(nHandle,"GetDataPresent",P1))
@@ -2079,9 +2091,17 @@ Class WpfDataObject from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetFormats",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetFormats"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetFormats")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetFormats",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetFormats",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetData P1
 		dotnet_calltd1v(nHandle,"SetData",P1)
@@ -2100,13 +2120,25 @@ Class WpfDataObject from Object
 		return dnAnswer(dotnet_calltd(nHandle,"ContainsText",P1))
 
 	Func GetAudioStream 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetAudioStream"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetAudioStream")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetFileDropList 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetFileDropList"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetFileDropList")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetImage 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetImage"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetImage")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetText P1
 		return dnAnswer(dotnet_calltd(nHandle,"GetText",P1))
@@ -2246,7 +2278,11 @@ Class DependencyObject from DispatcherObject
 		return self
 
 	Func GetValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetValue P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
@@ -2274,10 +2310,18 @@ Class DependencyObject from DispatcherObject
 		return self
 
 	Func ReadLocalValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ReadLocalValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ReadLocalValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetLocalValueEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetLocalValueEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:GetLocalValueEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getDependencyObjectType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s20:DependencyObjectType"))
@@ -2379,13 +2423,21 @@ Class DependencyProperty from Object
 		raise("DotNet Error: OverrideMetadata does not take one argument: use named arguments, OverrideMetadata([ :parameter = value, ... ])")
 
 	Func GetMetadata P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetMetadata",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetMetadata",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddOwner P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:AddOwner",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddOwner",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:AddOwner",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func IsValidType P1
 		dn_x = dotnet_call("s4:call",nHandle,"s11:IsValidType",P1)
@@ -2954,7 +3006,11 @@ Class Duration from ValueType
 		return self
 
 	Func Add P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Add",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Add",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		if dotnet_isnamed(P1)
@@ -2972,7 +3028,11 @@ Class Duration from ValueType
 		return dn_x
 
 	Func Subtract P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Subtract",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Subtract",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Compare P1,P2
 		dn_x = dotnet_call("s4:call",'System.Windows.Duration, PresentationCore',"s7:Compare",P1,P2)
@@ -3182,13 +3242,25 @@ Class EventRoute from Object
 		return self
 
 	Func PopBranchNode 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:PopBranchNode"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:PopBranchNode")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func PeekBranchNode 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:PeekBranchNode"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:PeekBranchNode")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func PeekBranchSource 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:PeekBranchSource"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:PeekBranchSource")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3924,7 +3996,11 @@ Class FrameworkElementFactory from Object
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3998,7 +4074,11 @@ Class FrameworkTemplate from DispatcherObject
 		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeVisualTree"))
 
 	Func FindName P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:FindName",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:FindName",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RegisterName P1,P2
 		dotnet_callv("s4:call",nHandle,"s12:RegisterName",P1,P2)
@@ -4014,7 +4094,11 @@ Class FrameworkTemplate from DispatcherObject
 		return self
 
 	Func LoadContent 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:LoadContent"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:LoadContent")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ShouldSerializeResources P1
 		dn_x = dotnet_call("s4:call",nHandle,"s24:ShouldSerializeResources",P1)
@@ -4111,7 +4195,11 @@ Class FreezableCollection from Animatable
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -4119,7 +4207,11 @@ Class FreezableCollection from Animatable
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -4129,12 +4221,20 @@ Class FreezableCollection from Animatable
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -4247,10 +4347,18 @@ Class IContentHost from DotNetObject
 		return self
 
 	Func InputHitTest P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:InputHitTest",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:InputHitTest",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetRectangles P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetRectangles",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetRectangles",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OnChildDesiredSizeChanged P1
 		dotnet_callv("s4:call",nHandle,"s25:OnChildDesiredSizeChanged",P1)
@@ -4279,7 +4387,11 @@ Class WpfIDataObject from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s7:GetData",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetData",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetData",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDataPresent P1
 		return dnAnswer(dotnet_calltd1(nHandle,"GetDataPresent",P1))
@@ -4289,9 +4401,17 @@ Class WpfIDataObject from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetFormats",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetFormats"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetFormats")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetFormats",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetFormats",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetData P1
 		dotnet_calltd1v(nHandle,"SetData",P1)
@@ -5790,7 +5910,11 @@ Class NameScope from Object
 		return self
 
 	Func FindName P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:FindName",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:FindName",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clear 
 		dotnet_calltv(nHandle,"Clear")
@@ -5840,7 +5964,11 @@ Class NameScope from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -5850,12 +5978,20 @@ Class NameScope from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -6204,7 +6340,11 @@ Class ResourceDictionary from Object
 		return self
 
 	Func FindName P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:FindName",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:FindName",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Add P1,P2
 		dotnet_callv("s4:call",nHandle,"s3:Add",P1,P2)
@@ -6221,7 +6361,11 @@ Class ResourceDictionary from Object
 		return dn_x
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Remove P1
 		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
@@ -6247,7 +6391,11 @@ Class ResourceDictionary from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -6257,12 +6405,20 @@ Class ResourceDictionary from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -6408,7 +6564,11 @@ Class RoutedEvent from Object
 		return self
 
 	Func AddOwner P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddOwner",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:AddOwner",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -10483,13 +10643,25 @@ Class TemplateContentLoader from DotNetObject
 		return self
 
 	Func @Load P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Load",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Load",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Save P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Save",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Save",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToString 
 		return dnAnswer(dotnet_callt(nHandle,"ToString"))
@@ -10527,7 +10699,11 @@ Class TemplatePartAttribute from Attribute
 		return self
 
 	Func @GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -10772,7 +10948,11 @@ Class TextDecorationCollection from Animatable
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryRemove P1
 		return dnSend("s4:call",nHandle,"s9:TryRemove",dnPackItem(P1))
@@ -10783,7 +10963,11 @@ Class TextDecorationCollection from Animatable
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -10793,12 +10977,20 @@ Class TextDecorationCollection from Animatable
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -10877,7 +11069,11 @@ Class TextDecorationCollectionConverter from TypeConverter
 		if nHandle = 0
 			return dnObj(dotnet_callo("s4:call",'System.Windows.TextDecorationCollectionConverter, PresentationCore',"s17:ConvertFromString",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConvertFromString",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ConvertFromString",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class TextDecorations from Object
@@ -11198,7 +11394,11 @@ Class TriggerActionCollection from Object
 		return dn_x
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -11211,7 +11411,11 @@ Class TriggerActionCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -11221,12 +11425,20 @@ Class TriggerActionCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetItem P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:set_Item",P1,P2)
@@ -11465,7 +11677,11 @@ Class UIElement from Visual
 		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
 
 	Func GetAnimationBaseValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetAnimationBaseValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:GetAnimationBaseValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ShouldSerializeInputBindings 
 		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeInputBindings"))
@@ -11522,10 +11738,18 @@ Class UIElement from Visual
 		return self
 
 	Func TranslatePoint P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:TranslatePoint",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:TranslatePoint",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func InputHitTest P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:InputHitTest",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:InputHitTest",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CaptureMouse 
 		return dnAnswer(dotnet_callt(nHandle,"CaptureMouse"))
@@ -11550,7 +11774,11 @@ Class UIElement from Visual
 		return dn_x
 
 	Func PredictFocus P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:PredictFocus",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:PredictFocus",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CaptureTouch P1
 		dn_x = dotnet_call("s4:call",nHandle,"s12:CaptureTouch",P1)
@@ -13282,7 +13510,11 @@ Class UIElement3D from Visual3D
 		return dn_x
 
 	Func PredictFocus P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:PredictFocus",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:PredictFocus",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CaptureTouch P1
 		dn_x = dotnet_call("s4:call",nHandle,"s12:CaptureTouch",P1)
@@ -14701,7 +14933,11 @@ Class WindowCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -14719,7 +14955,11 @@ Class WindowCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -14729,12 +14969,20 @@ Class WindowCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -15540,7 +15788,11 @@ Class Window from ContentControl
 		return self
 
 	Func ShowDialog 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:ShowDialog"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:ShowDialog")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Activate 
 		return dnAnswer(dotnet_callt(nHandle,"Activate"))
@@ -16130,7 +16382,11 @@ Class ContentElement from DependencyObject
 		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
 
 	Func GetAnimationBaseValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:GetAnimationBaseValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:GetAnimationBaseValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ShouldSerializeInputBindings 
 		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeInputBindings"))
@@ -16183,7 +16439,11 @@ Class ContentElement from DependencyObject
 		return dn_x
 
 	Func PredictFocus P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:PredictFocus",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:PredictFocus",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CaptureTouch P1
 		dn_x = dotnet_call("s4:call",nHandle,"s12:CaptureTouch",P1)
@@ -17529,7 +17789,11 @@ Class WpfDragEventArgs from RoutedEventArgs
 		return self
 
 	Func GetPosition P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetPosition",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetPosition",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getData
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Data"))
@@ -17749,10 +18013,18 @@ Class FrameworkElement from UIElement
 		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeResources"))
 
 	Func FindResource P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindResource",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:FindResource",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryFindResource P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:TryFindResource",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:TryFindResource",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetResourceReference P1,P2
 		dotnet_callv("s4:call",nHandle,"s20:SetResourceReference",P1,P2)
@@ -17760,10 +18032,18 @@ Class FrameworkElement from UIElement
 		return self
 
 	Func GetBindingExpression P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetBindingExpression",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetBindingExpression",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetBinding P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:SetBinding",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:SetBinding",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BringIntoView P1
 		dotnet_calltdv(nHandle,"BringIntoView",P1)
@@ -17787,7 +18067,11 @@ Class FrameworkElement from UIElement
 		return self
 
 	Func FindName P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:FindName",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:FindName",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UpdateDefaultStyle 
 		dotnet_calltv(nHandle,"UpdateDefaultStyle")
@@ -18323,16 +18607,32 @@ Class Freezable from DependencyObject
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CloneCurrentValue 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:CloneCurrentValue"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:CloneCurrentValue")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetAsFrozen 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetAsFrozen"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetAsFrozen")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetCurrentValueAsFrozen 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:GetCurrentValueAsFrozen"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:GetCurrentValueAsFrozen")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Freeze 
 		dotnet_calltv(nHandle,"Freeze")
@@ -19227,7 +19527,11 @@ Class DataTrigger from TriggerBase
 		return self
 
 	Func @GetValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @SetValue P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)
@@ -19389,10 +19693,18 @@ Class FrameworkContentElement from ContentElement
 		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeResources"))
 
 	Func FindResource P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:FindResource",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:FindResource",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryFindResource P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:TryFindResource",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:TryFindResource",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetResourceReference P1,P2
 		dotnet_callv("s4:call",nHandle,"s20:SetResourceReference",P1,P2)
@@ -19408,10 +19720,18 @@ Class FrameworkContentElement from ContentElement
 		return self
 
 	Func GetBindingExpression P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetBindingExpression",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetBindingExpression",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetBinding P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:SetBinding",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:SetBinding",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BeginInit 
 		dotnet_calltv(nHandle,"BeginInit")
@@ -19431,7 +19751,11 @@ Class FrameworkContentElement from ContentElement
 		return self
 
 	Func FindName P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:FindName",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:FindName",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UpdateDefaultStyle 
 		dotnet_calltv(nHandle,"UpdateDefaultStyle")
@@ -20077,7 +20401,11 @@ Class Trigger from TriggerBase
 		return self
 
 	Func @GetValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @SetValue P1,P2
 		dotnet_callv("s4:call",nHandle,"s8:SetValue",P1,P2)

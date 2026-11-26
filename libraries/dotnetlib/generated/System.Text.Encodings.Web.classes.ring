@@ -174,7 +174,11 @@ Class TextEncoderSettings from Object
 		return self
 
 	Func GetAllowedCodePoints 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetAllowedCodePoints"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetAllowedCodePoints")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

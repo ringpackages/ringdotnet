@@ -827,7 +827,11 @@ Class CollectionResultExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Print P1
 		dotnet_callv("s4:call",nHandle,"s5:Print",P1)
@@ -867,7 +871,11 @@ Class CompiledQueryCacheKeyGenerator from Object
 		return self
 
 	Func GenerateCacheKey P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GenerateCacheKey",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GenerateCacheKey",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1011,19 +1019,39 @@ Class EnumerableExpression from ExpressionsExpression
 		return self
 
 	Func ApplySelector P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ApplySelector",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ApplySelector",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ApplyDistinct 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ApplyDistinct"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ApplyDistinct")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ApplyPredicate P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ApplyPredicate",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ApplyPredicate",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ApplyOrdering P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ApplyOrdering",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ApplyOrdering",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AppendOrdering P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AppendOrdering",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:AppendOrdering",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Print P1
 		dotnet_callv("s4:call",nHandle,"s5:Print",P1)
@@ -1182,21 +1210,41 @@ Class ExpressionPrinter from ExpressionVisitor
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AppendLine",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendLine"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:AppendLine")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AppendLine",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AppendLine",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AppendLines P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AppendLines",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AppendLines",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AppendLines",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Indent 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Indent"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Indent")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Append P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Append",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Append",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func PrintExpression P1
 		return dnAnswer(dotnet_calltd1(nHandle,"PrintExpression",P1))
@@ -1216,7 +1264,11 @@ Class ExpressionPrinter from ExpressionVisitor
 		return self
 
 	Func Visit P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Visit",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Print P1
 		dn_x = dotnet_call("s4:call",'Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore',"s5:Print",P1)
@@ -1246,7 +1298,11 @@ Class GroupByShaperExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Print P1
 		dotnet_callv("s4:call",nHandle,"s5:Print",P1)
@@ -1278,7 +1334,11 @@ Class IAggregateMethodCallTranslator from DotNetObject
 		return self
 
 	Func Translate P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Translate",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAggregateMethodCallTranslatorPlugin from DotNetObject
@@ -1313,7 +1373,11 @@ Class IAggregateMethodCallTranslatorProvider from DotNetObject
 		return self
 
 	Func Translate P1,P2,P3,P4,P5
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1,P2,P3,P4,P5))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Translate",P1,P2,P3,P4,P5)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IAsyncQueryProvider from DotNetObject
@@ -1331,13 +1395,25 @@ Class IAsyncQueryProvider from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ExecuteAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ExecuteAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ExecuteAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateQuery P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateQuery",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:CreateQuery",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Execute P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Execute",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Execute",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ICompiledQueryCacheKeyGenerator from DotNetObject
@@ -1352,7 +1428,11 @@ Class ICompiledQueryCacheKeyGenerator from DotNetObject
 		return self
 
 	Func GenerateCacheKey P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GenerateCacheKey",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GenerateCacheKey",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IEntityMaterializerSource from DotNetObject
@@ -1373,10 +1453,18 @@ Class IEntityMaterializerSource from DotNetObject
 		raise("DotNet Error: CreateMaterializeExpression does not take one argument: use named arguments, CreateMaterializeExpression([ :parameter = value, ... ])")
 
 	Func GetMaterializer P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetMaterializer",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetMaterializer",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEmptyMaterializer P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetEmptyMaterializer",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetEmptyMaterializer",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IEvaluatableExpressionFilter from DotNetObject
@@ -1433,11 +1521,19 @@ Class IIncludableQueryable from DotNetObject
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ThenInclude P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ThenInclude",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ThenInclude",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -1445,7 +1541,11 @@ Class IIncludableQueryable from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1455,7 +1555,11 @@ Class IIncludableQueryable from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1467,7 +1571,11 @@ Class IIncludableQueryable from DotNetObject
 
 	Func CreateDbCommand 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalQueryableExtensions, Microsoft.EntityFrameworkCore.Relational")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateDbCommand"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreateDbCommand")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getExpression
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Expression"))
@@ -1500,7 +1608,11 @@ Class ILiftableConstantFactory from DotNetObject
 		return self
 
 	Func CreateLiftableConstant P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:CreateLiftableConstant",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:CreateLiftableConstant",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ILiftableConstantProcessor from DotNetObject
@@ -1517,10 +1629,18 @@ Class ILiftableConstantProcessor from DotNetObject
 		return self
 
 	Func InlineConstants P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:InlineConstants",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:InlineConstants",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LiftConstants P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:LiftConstants",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:LiftConstants",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getLiftedConstants
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:LiftedConstants"))
@@ -1541,7 +1661,11 @@ Class IMemberTranslator from DotNetObject
 		return self
 
 	Func Translate P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Translate",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IMemberTranslatorPlugin from DotNetObject
@@ -1576,7 +1700,11 @@ Class IMemberTranslatorProvider from DotNetObject
 		return self
 
 	Func Translate P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Translate",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IMethodCallTranslator from DotNetObject
@@ -1591,7 +1719,11 @@ Class IMethodCallTranslator from DotNetObject
 		return self
 
 	Func Translate P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Translate",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IMethodCallTranslatorPlugin from DotNetObject
@@ -1626,7 +1758,11 @@ Class IMethodCallTranslatorProvider from DotNetObject
 		return self
 
 	Func Translate P1,P2,P3,P4,P5
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1,P2,P3,P4,P5))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Translate",P1,P2,P3,P4,P5)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class INavigationExpansionExtensibilityHelper from DotNetObject
@@ -1641,7 +1777,11 @@ Class INavigationExpansionExtensibilityHelper from DotNetObject
 		return self
 
 	Func CreateQueryRoot P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateQueryRoot",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreateQueryRoot",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ValidateQueryRootCreation P1,P2
 		dotnet_callv("s4:call",nHandle,"s25:ValidateQueryRootCreation",P1,P2)
@@ -1683,10 +1823,18 @@ Class IQueryCompilationContextFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreatePrecompiled P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:CreatePrecompiled",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:CreatePrecompiled",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IQueryContextFactory from DotNetObject
@@ -1701,7 +1849,11 @@ Class IQueryContextFactory from DotNetObject
 		return self
 
 	Func Create 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IQuerySqlGeneratorFactory from DotNetObject
@@ -1716,7 +1868,11 @@ Class IQuerySqlGeneratorFactory from DotNetObject
 		return self
 
 	Func Create 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IQueryTranslationPostprocessorFactory from DotNetObject
@@ -1731,7 +1887,11 @@ Class IQueryTranslationPostprocessorFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IQueryTranslationPreprocessorFactory from DotNetObject
@@ -1746,7 +1906,11 @@ Class IQueryTranslationPreprocessorFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IQueryableMethodTranslatingExpressionVisitorFactory from DotNetObject
@@ -1761,7 +1925,11 @@ Class IQueryableMethodTranslatingExpressionVisitorFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IQueryingEnumerable from DotNetObject
@@ -1791,7 +1959,11 @@ Class IRelationalLiftableConstantFactory from DotNetObject
 		return self
 
 	Func CreateLiftableConstant P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:CreateLiftableConstant",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:CreateLiftableConstant",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IRelationalParameterBasedSqlProcessorFactory from DotNetObject
@@ -1806,7 +1978,11 @@ Class IRelationalParameterBasedSqlProcessorFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IRelationalQueryStringFactory from DotNetObject
@@ -1838,7 +2014,11 @@ Class IRelationalQuotableExpression from DotNetObject
 		return self
 
 	Func Quote 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Quote"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Quote")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IRelationalSqlTranslatingExpressionVisitorFactory from DotNetObject
@@ -1853,7 +2033,11 @@ Class IRelationalSqlTranslatingExpressionVisitorFactory from DotNetObject
 		return self
 
 	Func Create P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IShapedQueryCompilingExpressionVisitorFactory from DotNetObject
@@ -1868,7 +2052,11 @@ Class IShapedQueryCompilingExpressionVisitorFactory from DotNetObject
 		return self
 
 	Func Create P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ISqlAliasManagerFactory from DotNetObject
@@ -1883,7 +2071,11 @@ Class ISqlAliasManagerFactory from DotNetObject
 		return self
 
 	Func Create 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ISqlExpressionFactory from DotNetObject
@@ -1898,10 +2090,18 @@ Class ISqlExpressionFactory from DotNetObject
 		return self
 
 	Func ApplyTypeMapping P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ApplyTypeMapping",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:ApplyTypeMapping",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ApplyDefaultTypeMapping P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:ApplyDefaultTypeMapping",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:ApplyDefaultTypeMapping",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MakeUnary P1
 		if dotnet_isnamed(P1)
@@ -1916,28 +2116,60 @@ Class ISqlExpressionFactory from DotNetObject
 		raise("DotNet Error: MakeBinary does not take one argument: use named arguments, MakeBinary([ :parameter = value, ... ])")
 
 	Func Equal P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Equal",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Equal",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func NotEqual P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:NotEqual",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:NotEqual",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GreaterThan P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GreaterThan",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GreaterThan",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GreaterThanOrEqual P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GreaterThanOrEqual",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GreaterThanOrEqual",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LessThan P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:LessThan",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:LessThan",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LessThanOrEqual P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:LessThanOrEqual",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:LessThanOrEqual",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AndAlso P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AndAlso",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:AndAlso",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OrElse P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:OrElse",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:OrElse",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Add P1
 		if dotnet_isnamed(P1)
@@ -1988,7 +2220,11 @@ Class ISqlExpressionFactory from DotNetObject
 		raise("DotNet Error: Coalesce does not take one argument: use named arguments, Coalesce([ :parameter = value, ... ])")
 
 	Func IsNotNull P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:IsNotNull",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:IsNotNull",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Convert P1
 		if dotnet_isnamed(P1)
@@ -1997,10 +2233,18 @@ Class ISqlExpressionFactory from DotNetObject
 		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
 	Func @Not P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Not",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Not",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Negate P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Negate",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Negate",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @Case P1
 		if dotnet_isnamed(P1)
@@ -2021,10 +2265,18 @@ Class ISqlExpressionFactory from DotNetObject
 		raise("DotNet Error: NiladicFunction does not take one argument: use named arguments, NiladicFunction([ :parameter = value, ... ])")
 
 	Func Exists P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Exists",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Exists",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func In P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s2:In",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s2:In",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Like P1
 		if dotnet_isnamed(P1)
@@ -2036,10 +2288,18 @@ Class ISqlExpressionFactory from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Constant",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Constant",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Constant",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Fragment P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Fragment",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Fragment",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IncludeExpression from ExpressionsExpression
@@ -2076,7 +2336,11 @@ Class IncludeExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getEntityExpression
 		return dnObj(dotnet_callo("s3:get",nHandle,"s16:EntityExpression"))
@@ -2124,16 +2388,32 @@ Class JsonQueryExpression from ExpressionsExpression
 		return self
 
 	Func BindProperty P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:BindProperty",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:BindProperty",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BindNavigation P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:BindNavigation",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:BindNavigation",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BindCollectionElement P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:BindCollectionElement",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:BindCollectionElement",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MakeNullable 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:MakeNullable"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:MakeNullable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Print P1
 		dotnet_callv("s4:call",nHandle,"s5:Print",P1)
@@ -2141,7 +2421,11 @@ Class JsonQueryExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
@@ -2198,7 +2482,11 @@ Class LiftableConstantExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Print P1
 		dotnet_callv("s4:call",nHandle,"s5:Print",P1)
@@ -2316,7 +2604,11 @@ Class LiftableConstantFactory from Object
 		return self
 
 	Func CreateLiftableConstant P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:CreateLiftableConstant",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:CreateLiftableConstant",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2346,13 +2638,25 @@ Class LiftableConstantProcessor from ExpressionVisitor
 		return self
 
 	Func InlineConstants P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:InlineConstants",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:InlineConstants",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LiftConstants P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:LiftConstants",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:LiftConstants",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Visit P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Visit",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getLiftedConstants
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:LiftedConstants"))
@@ -2378,7 +2682,11 @@ Class MaterializeCollectionNavigationExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getSubquery
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Subquery"))
@@ -2442,7 +2750,11 @@ Class NavigationExpansionExtensibilityHelper from Object
 		return self
 
 	Func CreateQueryRoot P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateQueryRoot",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreateQueryRoot",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ValidateQueryRootCreation P1,P2
 		dotnet_callv("s4:call",nHandle,"s25:ValidateQueryRootCreation",P1,P2)
@@ -2522,7 +2834,11 @@ Class NonQueryExpression from ExpressionsExpression
 		return self
 
 	Func Update P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Print P1
 		dotnet_callv("s4:call",nHandle,"s5:Print",P1)
@@ -2603,7 +2919,11 @@ Class EfPathSegment from ValueType
 		return self
 
 	Func Quote 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Quote"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Quote")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getPropertyName
 		return dnAnswer(dotnet_getp(nHandle,"PropertyName"))
@@ -2677,10 +2997,18 @@ Class ProjectionMember from Object
 		return self
 
 	Func Append P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Append",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Append",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Prepend P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Prepend",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Prepend",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2749,16 +3077,28 @@ Class QueryCompilationContext from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:CreateQueryExecutor",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:CreateQueryExecutor",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:CreateQueryExecutor",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateQueryExecutorExpression P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s29:CreateQueryExecutorExpression",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s29:CreateQueryExecutorExpression",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s29:CreateQueryExecutorExpression",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RegisterRuntimeParameter P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:RegisterRuntimeParameter",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:RegisterRuntimeParameter",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3046,7 +3386,11 @@ Class QueryContext from Object
 		return dnSend("s4:call",nHandle,"s11:TryGetEntry",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func StartTracking P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:StartTracking",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:StartTracking",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3197,7 +3541,11 @@ Class QueryRootExpression from ExpressionsExpression
 		return self
 
 	Func DetachQueryProvider 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:DetachQueryProvider"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:DetachQueryProvider")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getQueryProvider
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:QueryProvider"))
@@ -3226,7 +3574,11 @@ Class QueryRootProcessor from ExpressionVisitor
 		return self
 
 	Func Visit P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Visit",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class QuerySqlGeneratorDependencies from Object
@@ -3283,7 +3635,11 @@ Class QueryTranslationPostprocessor from Object
 		return self
 
 	Func Process P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Process",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Process",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3335,10 +3691,18 @@ Class QueryTranslationPreprocessor from Object
 		return self
 
 	Func Process P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Process",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Process",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func NormalizeQueryableMethod P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:NormalizeQueryableMethod",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:NormalizeQueryableMethod",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3408,13 +3772,25 @@ Class QueryableMethodTranslatingExpressionVisitor from ExpressionVisitor
 		return self
 
 	Func Translate P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Translate",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TranslateSubquery P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:TranslateSubquery",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:TranslateSubquery",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Visit P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Visit",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getTranslationErrorDetails
 		return dnAnswer(dotnet_getp(nHandle,"TranslationErrorDetails"))
@@ -3916,7 +4292,11 @@ Class RelationalAggregateMethodCallTranslatorProvider from Object
 		return self
 
 	Func Translate P1,P2,P3,P4,P5
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1,P2,P3,P4,P5))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Translate",P1,P2,P3,P4,P5)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3996,7 +4376,11 @@ Class RelationalCollectionShaperExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getParentIdentifier
 		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ParentIdentifier"))
@@ -4166,7 +4550,11 @@ Class RelationalGroupByResultExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getKeyIdentifier
 		return dnObj(dotnet_callo("s3:get",nHandle,"s13:KeyIdentifier"))
@@ -4237,7 +4625,11 @@ Class RelationalMemberTranslatorProvider from Object
 		return self
 
 	Func Translate P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Translate",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4299,7 +4691,11 @@ Class RelationalMethodCallTranslatorProvider from Object
 		return self
 
 	Func Translate P1,P2,P3,P4,P5
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1,P2,P3,P4,P5))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Translate",P1,P2,P3,P4,P5)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4687,7 +5083,11 @@ Class RelationalShapedQueryCompilingExpressionVisitorShaperProcessingExpressionV
 		return dnSend("s4:call",nHandle,"s13:ProcessShaper",dnPackItem(P1) + dnPackItem(P2))
 
 	Func Visit P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Visit",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ThrowReadValueException P1
 		if dotnet_isnamed(P1)
@@ -4868,7 +5268,11 @@ Class RelationalSplitCollectionShaperExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getParentIdentifier
 		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ParentIdentifier"))
@@ -4932,25 +5336,45 @@ Class RelationalSqlTranslatingExpressionVisitor from ExpressionVisitor
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Translate",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Translate",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Translate",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TranslateProjection P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:TranslateProjection",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:TranslateProjection",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:TranslateProjection",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryBindMember P1,P2
 		return dnSend("s4:call",nHandle,"s13:TryBindMember",dnPackItem(P1) + dnPackItem(P2))
 
 	Func GenerateGreatest P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GenerateGreatest",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GenerateGreatest",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GenerateLeast P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GenerateLeast",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GenerateLeast",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Visit P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Visit",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ParameterValueExtractor P1
 		if dotnet_isnamed(P1)
@@ -5056,7 +5480,11 @@ Class RelationalSqlTranslatingExpressionVisitorFactory from Object
 		return self
 
 	Func Create P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -5078,10 +5506,18 @@ Class RelationalTypeMappingPostprocessor from ExpressionVisitor
 		return self
 
 	Func Process P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Process",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Process",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Visit P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Visit",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ReplacingExpressionVisitor from ExpressionVisitor
@@ -5098,7 +5534,11 @@ Class ReplacingExpressionVisitor from ExpressionVisitor
 		return self
 
 	Func Visit P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Visit",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Replace P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.ReplacingExpressionVisitor, Microsoft.EntityFrameworkCore',"s7:Replace",P1,P2,P3))
@@ -5120,7 +5560,11 @@ Class SetPropertyCalls from Object
 		return self
 
 	Func SetProperty P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetProperty",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:SetProperty",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -5140,7 +5584,11 @@ Class ShapedQueryCompilingExpressionVisitor from ExpressionVisitor
 		return self
 
 	Func Visit P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Visit",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SingleAsync P1
 		if dotnet_isnamed(P1)
@@ -5272,16 +5720,32 @@ Class ShapedQueryExpression from ExpressionsExpression
 		return self
 
 	Func Update P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UpdateQueryExpression P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:UpdateQueryExpression",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:UpdateQueryExpression",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UpdateShaperExpression P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:UpdateShaperExpression",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:UpdateShaperExpression",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UpdateResultCardinality P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:UpdateResultCardinality",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:UpdateResultCardinality",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getQueryExpression
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:QueryExpression"))
@@ -5326,7 +5790,11 @@ Class SqlAliasManager from Object
 		return dnAnswer(dotnet_callt(nHandle,"GenerateTableAlias",P1))
 
 	Func PostprocessAliases P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:PostprocessAliases",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:PostprocessAliases",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -5355,7 +5823,11 @@ Class SqlAliasManagerFactory from Object
 		return self
 
 	Func Create 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Create"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Create")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -5377,10 +5849,18 @@ Class SqlExpressionFactory from Object
 		return self
 
 	Func ApplyDefaultTypeMapping P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:ApplyDefaultTypeMapping",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:ApplyDefaultTypeMapping",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ApplyTypeMapping P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ApplyTypeMapping",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:ApplyTypeMapping",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MakeBinary P1
 		if dotnet_isnamed(P1)
@@ -5389,28 +5869,60 @@ Class SqlExpressionFactory from Object
 		raise("DotNet Error: MakeBinary does not take one argument: use named arguments, MakeBinary([ :parameter = value, ... ])")
 
 	Func Equal P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Equal",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Equal",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func NotEqual P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:NotEqual",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:NotEqual",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GreaterThan P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GreaterThan",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GreaterThan",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GreaterThanOrEqual P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GreaterThanOrEqual",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GreaterThanOrEqual",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LessThan P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:LessThan",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:LessThan",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LessThanOrEqual P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:LessThanOrEqual",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:LessThanOrEqual",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AndAlso P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AndAlso",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:AndAlso",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OrElse P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:OrElse",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:OrElse",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Add P1
 		if dotnet_isnamed(P1)
@@ -5467,7 +5979,11 @@ Class SqlExpressionFactory from Object
 		raise("DotNet Error: MakeUnary does not take one argument: use named arguments, MakeUnary([ :parameter = value, ... ])")
 
 	Func IsNotNull P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:IsNotNull",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:IsNotNull",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Convert P1
 		if dotnet_isnamed(P1)
@@ -5476,10 +5992,18 @@ Class SqlExpressionFactory from Object
 		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
 	Func @Not P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Not",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Not",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Negate P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Negate",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Negate",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @Case P1
 		if dotnet_isnamed(P1)
@@ -5500,10 +6024,18 @@ Class SqlExpressionFactory from Object
 		raise("DotNet Error: NiladicFunction does not take one argument: use named arguments, NiladicFunction([ :parameter = value, ... ])")
 
 	Func Exists P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Exists",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Exists",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func In P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s2:In",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s2:In",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Like P1
 		if dotnet_isnamed(P1)
@@ -5512,13 +6044,21 @@ Class SqlExpressionFactory from Object
 		raise("DotNet Error: Like does not take one argument: use named arguments, Like([ :parameter = value, ... ])")
 
 	Func Fragment P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Fragment",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Fragment",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Constant P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Constant",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Constant",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Constant",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -5578,7 +6118,11 @@ Class SqlExpressionVisitor from ExpressionVisitor
 		return self
 
 	Func Visit P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Visit",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class SqlNullabilityProcessor from Object
@@ -5624,10 +6168,18 @@ Class SqlTreePruner from ExpressionVisitor
 		return self
 
 	Func Prune P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Prune",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Prune",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Visit P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Visit",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Visit",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class StructuralTypeProjectionExpression from ExpressionsExpression
@@ -5664,19 +6216,39 @@ Class StructuralTypeProjectionExpression from ExpressionsExpression
 		return self
 
 	Func MakeNullable 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:MakeNullable"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:MakeNullable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UpdateEntityType P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:UpdateEntityType",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:UpdateEntityType",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UpdateTableMap P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UpdateTableMap",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:UpdateTableMap",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BindProperty P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:BindProperty",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:BindProperty",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func BindComplexProperty P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:BindComplexProperty",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:BindComplexProperty",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddNavigationBinding P1,P2
 		dotnet_callv("s4:call",nHandle,"s20:AddNavigationBinding",P1,P2)
@@ -5684,7 +6256,11 @@ Class StructuralTypeProjectionExpression from ExpressionsExpression
 		return self
 
 	Func BindNavigation P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:BindNavigation",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:BindNavigation",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getStructuralType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s14:StructuralType"))
@@ -5730,19 +6306,35 @@ Class StructuralTypeShaperExpression from ExpressionsExpression
 		return self
 
 	Func WithType P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:WithType",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:WithType",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func MakeNullable P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:MakeNullable",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s12:MakeNullable"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s12:MakeNullable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:MakeNullable",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:MakeNullable",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Update P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DebuggerDisplay 
 		return dnAnswer(dotnet_callt(nHandle,"DebuggerDisplay"))
@@ -5826,7 +6418,11 @@ Class EntityQueryRootExpression from QueryRootExpression
 		return self
 
 	Func UpdateEntityType P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:UpdateEntityType",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:UpdateEntityType",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
@@ -5866,7 +6462,11 @@ Class InlineQueryRootExpression from QueryRootExpression
 		return self
 
 	Func Update P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Update",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getValues
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Values"))
@@ -5926,7 +6526,11 @@ Class QuerySqlGenerator from SqlExpressionVisitor
 		return self
 
 	Func GetCommand P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetCommand",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetCommand",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class RelationalCompiledQueryCacheKeyGenerator from CompiledQueryCacheKeyGenerator

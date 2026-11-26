@@ -370,7 +370,11 @@ Class IExternalScopeProvider from DotNetObject
 		return self
 
 	Func Push P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Push",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Push",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ILogger from DotNetObject
@@ -395,7 +399,11 @@ Class ILogger from DotNetObject
 		return dn_x
 
 	Func BeginScope P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:BeginScope",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:BeginScope",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LogDebug P1
 		dnEnsureExt("Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions")
@@ -458,7 +466,11 @@ Class ILoggerFactory from DotNetObject
 		return self
 
 	Func CreateLogger P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateLogger",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:CreateLogger",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddProvider P1
 		dotnet_callv("s4:call",nHandle,"s11:AddProvider",P1)
@@ -475,9 +487,17 @@ Class ILoggerFactory from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddConsole",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddConsole"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:AddConsole")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddConsole",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AddConsole",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddDebug P1
 		dnEnsureExt("Microsoft.Extensions.Logging.DebugLoggerFactoryExtensions, Microsoft.Extensions.Logging.Debug")
@@ -485,9 +505,17 @@ Class ILoggerFactory from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:AddDebug",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddDebug"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s8:AddDebug")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddDebug",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:AddDebug",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddEventLog P1
 		dnEnsureExt("Microsoft.Extensions.Logging.EventLoggerFactoryExtensions, Microsoft.Extensions.Logging.EventLog")
@@ -495,20 +523,36 @@ Class ILoggerFactory from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddEventLog",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddEventLog"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:AddEventLog")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddEventLog",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AddEventLog",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddEventSourceLogger 
 		dnEnsureExt("Microsoft.Extensions.Logging.EventSourceLoggerFactoryExtensions, Microsoft.Extensions.Logging.EventSource")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddEventSourceLogger"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:AddEventSourceLogger")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddTraceSource P1
 		dnEnsureExt("Microsoft.Extensions.Logging.TraceSourceFactoryExtensions, Microsoft.Extensions.Logging.TraceSource")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddTraceSource",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddTraceSource",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:AddTraceSource",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ILoggerProvider from DotNetObject
@@ -523,7 +567,11 @@ Class ILoggerProvider from DotNetObject
 		return self
 
 	Func CreateLogger P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateLogger",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:CreateLogger",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -556,7 +604,11 @@ Class ILogger1 from DotNetObject
 		return dn_x
 
 	Func BeginScope P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:BeginScope",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:BeginScope",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LogDebug P1
 		dnEnsureExt("Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions")
@@ -626,9 +678,17 @@ Class ILoggingBuilder from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddConsole",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddConsole"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:AddConsole")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddConsole",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AddConsole",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddSimpleConsole P1
 		dnEnsureExt("Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console")
@@ -636,9 +696,17 @@ Class ILoggingBuilder from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:AddSimpleConsole",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddSimpleConsole"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s16:AddSimpleConsole")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:AddSimpleConsole",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:AddSimpleConsole",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddJsonConsole P1
 		dnEnsureExt("Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console")
@@ -646,9 +714,17 @@ Class ILoggingBuilder from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddJsonConsole",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddJsonConsole"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s14:AddJsonConsole")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddJsonConsole",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:AddJsonConsole",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddSystemdConsole P1
 		dnEnsureExt("Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console")
@@ -656,9 +732,17 @@ Class ILoggingBuilder from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:AddSystemdConsole",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddSystemdConsole"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s17:AddSystemdConsole")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:AddSystemdConsole",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:AddSystemdConsole",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddConsoleFormatter P1
 		dnEnsureExt("Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console")
@@ -666,13 +750,25 @@ Class ILoggingBuilder from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:AddConsoleFormatter",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddConsoleFormatter"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s19:AddConsoleFormatter")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:AddConsoleFormatter",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:AddConsoleFormatter",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddDebug 
 		dnEnsureExt("Microsoft.Extensions.Logging.DebugLoggerFactoryExtensions, Microsoft.Extensions.Logging.Debug")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddDebug"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:AddDebug")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddEventLog P1
 		dnEnsureExt("Microsoft.Extensions.Logging.EventLoggerFactoryExtensions, Microsoft.Extensions.Logging.EventLog")
@@ -680,43 +776,79 @@ Class ILoggingBuilder from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddEventLog",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddEventLog"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:AddEventLog")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddEventLog",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AddEventLog",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddEventSourceLogger 
 		dnEnsureExt("Microsoft.Extensions.Logging.EventSourceLoggerFactoryExtensions, Microsoft.Extensions.Logging.EventSource")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddEventSourceLogger"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:AddEventSourceLogger")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddFilter P1
 		dnEnsureExt("Microsoft.Extensions.Logging.FilterLoggingBuilderExtensions, Microsoft.Extensions.Logging")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:AddFilter",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddFilter",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:AddFilter",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetMinimumLevel P1
 		dnEnsureExt("Microsoft.Extensions.Logging.LoggingBuilderExtensions, Microsoft.Extensions.Logging")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:SetMinimumLevel",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:SetMinimumLevel",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddProvider P1
 		dnEnsureExt("Microsoft.Extensions.Logging.LoggingBuilderExtensions, Microsoft.Extensions.Logging")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddProvider",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AddProvider",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ClearProviders 
 		dnEnsureExt("Microsoft.Extensions.Logging.LoggingBuilderExtensions, Microsoft.Extensions.Logging")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ClearProviders"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ClearProviders")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Configure P1
 		dnEnsureExt("Microsoft.Extensions.Logging.LoggingBuilderExtensions, Microsoft.Extensions.Logging")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:Configure",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:Configure",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddTraceSource P1
 		dnEnsureExt("Microsoft.Extensions.Logging.TraceSourceFactoryExtensions, Microsoft.Extensions.Logging.TraceSource")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddTraceSource",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddTraceSource",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:AddTraceSource",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getServices
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Services"))
@@ -872,7 +1004,11 @@ Class LoggerExternalScopeProvider from Object
 		return self
 
 	Func Push P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Push",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Push",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -917,7 +1053,11 @@ Class LoggerFactory from Object
 		return self
 
 	Func CreateLogger P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateLogger",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:CreateLogger",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddProvider P1
 		dotnet_callv("s4:call",nHandle,"s11:AddProvider",P1)
@@ -942,9 +1082,17 @@ Class LoggerFactory from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:AddConsole",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddConsole"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s10:AddConsole")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddConsole",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AddConsole",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddDebug P1
 		dnEnsureExt("Microsoft.Extensions.Logging.DebugLoggerFactoryExtensions, Microsoft.Extensions.Logging.Debug")
@@ -952,9 +1100,17 @@ Class LoggerFactory from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:AddDebug",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddDebug"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s8:AddDebug")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddDebug",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:AddDebug",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddEventLog P1
 		dnEnsureExt("Microsoft.Extensions.Logging.EventLoggerFactoryExtensions, Microsoft.Extensions.Logging.EventLog")
@@ -962,20 +1118,36 @@ Class LoggerFactory from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:AddEventLog",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddEventLog"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s11:AddEventLog")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:AddEventLog",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AddEventLog",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddEventSourceLogger 
 		dnEnsureExt("Microsoft.Extensions.Logging.EventSourceLoggerFactoryExtensions, Microsoft.Extensions.Logging.EventSource")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:AddEventSourceLogger"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:AddEventSourceLogger")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddTraceSource P1
 		dnEnsureExt("Microsoft.Extensions.Logging.TraceSourceFactoryExtensions, Microsoft.Extensions.Logging.TraceSource")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:AddTraceSource",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:AddTraceSource",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:AddTraceSource",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class LoggerFactoryExtensions from Object
@@ -1070,7 +1242,11 @@ Class LoggerFilterOptions from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:AddFilter",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddFilter",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:AddFilter",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCaptureScopes
 		return dotnet_getp(nHandle,"CaptureScopes")
@@ -1323,7 +1499,11 @@ Class Logger from Object
 
 	Func BeginScope P1,P2
 		dnEnsureExt("Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:BeginScope",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:BeginScope",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class LoggingBuilderExtensions from Object

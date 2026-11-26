@@ -4194,22 +4194,46 @@ Class DbCommandInterceptor from Object
 		return self
 
 	Func CommandCreating P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CommandCreating",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CommandCreating",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CommandCreated P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CommandCreated",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CommandCreated",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CommandInitialized P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:CommandInitialized",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:CommandInitialized",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReaderExecuting P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ReaderExecuting",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:ReaderExecuting",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ScalarExecuting P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ScalarExecuting",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:ScalarExecuting",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func NonQueryExecuting P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:NonQueryExecuting",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:NonQueryExecuting",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReaderExecutingAsync P1
 		if dotnet_isnamed(P1)
@@ -4230,10 +4254,18 @@ Class DbCommandInterceptor from Object
 		raise("DotNet Error: NonQueryExecutingAsync does not take one argument: use named arguments, NonQueryExecutingAsync([ :parameter = value, ... ])")
 
 	Func ReaderExecuted P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ReaderExecuted",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ReaderExecuted",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ScalarExecuted P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ScalarExecuted",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ScalarExecuted",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func NonQueryExecuted P1,P2,P3
 		dn_x = dotnet_call("s4:call",nHandle,"s16:NonQueryExecuted",P1,P2,P3)
@@ -4281,13 +4313,25 @@ Class DbCommandInterceptor from Object
 		raise("DotNet Error: CommandFailedAsync does not take one argument: use named arguments, CommandFailedAsync([ :parameter = value, ... ])")
 
 	Func DataReaderClosing P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:DataReaderClosing",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:DataReaderClosing",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DataReaderClosingAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:DataReaderClosingAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:DataReaderClosingAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DataReaderDisposing P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:DataReaderDisposing",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:DataReaderDisposing",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4307,13 +4351,25 @@ Class DbConnectionInterceptor from Object
 		return self
 
 	Func ConnectionCreating P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ConnectionCreating",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:ConnectionCreating",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionCreated P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConnectionCreated",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ConnectionCreated",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionOpening P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConnectionOpening",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ConnectionOpening",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionOpeningAsync P1
 		if dotnet_isnamed(P1)
@@ -4333,10 +4389,18 @@ Class DbConnectionInterceptor from Object
 		raise("DotNet Error: ConnectionOpenedAsync does not take one argument: use named arguments, ConnectionOpenedAsync([ :parameter = value, ... ])")
 
 	Func ConnectionClosing P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConnectionClosing",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ConnectionClosing",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionClosingAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:ConnectionClosingAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:ConnectionClosingAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionClosed P1,P2
 		dotnet_callv("s4:call",nHandle,"s16:ConnectionClosed",P1,P2)
@@ -4344,13 +4408,25 @@ Class DbConnectionInterceptor from Object
 		return self
 
 	Func ConnectionClosedAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:ConnectionClosedAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:ConnectionClosedAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionDisposing P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:ConnectionDisposing",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:ConnectionDisposing",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionDisposingAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ConnectionDisposingAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:ConnectionDisposingAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionDisposed P1,P2
 		dotnet_callv("s4:call",nHandle,"s18:ConnectionDisposed",P1,P2)
@@ -4358,7 +4434,11 @@ Class DbConnectionInterceptor from Object
 		return self
 
 	Func ConnectionDisposedAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:ConnectionDisposedAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:ConnectionDisposedAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionFailed P1,P2
 		dotnet_callv("s4:call",nHandle,"s16:ConnectionFailed",P1,P2)
@@ -4389,10 +4469,18 @@ Class DbTransactionInterceptor from Object
 		return self
 
 	Func TransactionStarting P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:TransactionStarting",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:TransactionStarting",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TransactionStarted P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:TransactionStarted",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:TransactionStarted",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TransactionStartingAsync P1
 		if dotnet_isnamed(P1)
@@ -4407,7 +4495,11 @@ Class DbTransactionInterceptor from Object
 		raise("DotNet Error: TransactionStartedAsync does not take one argument: use named arguments, TransactionStartedAsync([ :parameter = value, ... ])")
 
 	Func TransactionUsed P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:TransactionUsed",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:TransactionUsed",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TransactionUsedAsync P1
 		if dotnet_isnamed(P1)
@@ -4416,7 +4508,11 @@ Class DbTransactionInterceptor from Object
 		raise("DotNet Error: TransactionUsedAsync does not take one argument: use named arguments, TransactionUsedAsync([ :parameter = value, ... ])")
 
 	Func TransactionCommitting P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:TransactionCommitting",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:TransactionCommitting",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TransactionCommitted P1,P2
 		dotnet_callv("s4:call",nHandle,"s20:TransactionCommitted",P1,P2)
@@ -4436,7 +4532,11 @@ Class DbTransactionInterceptor from Object
 		raise("DotNet Error: TransactionCommittedAsync does not take one argument: use named arguments, TransactionCommittedAsync([ :parameter = value, ... ])")
 
 	Func TransactionRollingBack P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:TransactionRollingBack",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:TransactionRollingBack",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TransactionRolledBack P1,P2
 		dotnet_callv("s4:call",nHandle,"s21:TransactionRolledBack",P1,P2)
@@ -4456,7 +4556,11 @@ Class DbTransactionInterceptor from Object
 		raise("DotNet Error: TransactionRolledBackAsync does not take one argument: use named arguments, TransactionRolledBackAsync([ :parameter = value, ... ])")
 
 	Func CreatingSavepoint P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:CreatingSavepoint",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:CreatingSavepoint",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreatedSavepoint P1,P2
 		dotnet_callv("s4:call",nHandle,"s16:CreatedSavepoint",P1,P2)
@@ -4476,7 +4580,11 @@ Class DbTransactionInterceptor from Object
 		raise("DotNet Error: CreatedSavepointAsync does not take one argument: use named arguments, CreatedSavepointAsync([ :parameter = value, ... ])")
 
 	Func RollingBackToSavepoint P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:RollingBackToSavepoint",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:RollingBackToSavepoint",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RolledBackToSavepoint P1,P2
 		dotnet_callv("s4:call",nHandle,"s21:RolledBackToSavepoint",P1,P2)
@@ -4496,7 +4604,11 @@ Class DbTransactionInterceptor from Object
 		raise("DotNet Error: RolledBackToSavepointAsync does not take one argument: use named arguments, RolledBackToSavepointAsync([ :parameter = value, ... ])")
 
 	Func ReleasingSavepoint P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ReleasingSavepoint",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:ReleasingSavepoint",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReleasedSavepoint P1,P2
 		dotnet_callv("s4:call",nHandle,"s17:ReleasedSavepoint",P1,P2)
@@ -4665,22 +4777,46 @@ Class IDbCommandInterceptor from DotNetObject
 		return self
 
 	Func CommandCreating P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CommandCreating",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CommandCreating",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CommandCreated P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CommandCreated",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CommandCreated",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CommandInitialized P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:CommandInitialized",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:CommandInitialized",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReaderExecuting P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ReaderExecuting",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:ReaderExecuting",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ScalarExecuting P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:ScalarExecuting",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:ScalarExecuting",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func NonQueryExecuting P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:NonQueryExecuting",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:NonQueryExecuting",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReaderExecutingAsync P1
 		if dotnet_isnamed(P1)
@@ -4701,10 +4837,18 @@ Class IDbCommandInterceptor from DotNetObject
 		raise("DotNet Error: NonQueryExecutingAsync does not take one argument: use named arguments, NonQueryExecutingAsync([ :parameter = value, ... ])")
 
 	Func ReaderExecuted P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ReaderExecuted",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ReaderExecuted",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ScalarExecuted P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ScalarExecuted",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ScalarExecuted",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func NonQueryExecuted P1,P2,P3
 		dn_x = dotnet_call("s4:call",nHandle,"s16:NonQueryExecuted",P1,P2,P3)
@@ -4752,13 +4896,25 @@ Class IDbCommandInterceptor from DotNetObject
 		raise("DotNet Error: CommandFailedAsync does not take one argument: use named arguments, CommandFailedAsync([ :parameter = value, ... ])")
 
 	Func DataReaderClosing P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:DataReaderClosing",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:DataReaderClosing",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DataReaderClosingAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:DataReaderClosingAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:DataReaderClosingAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DataReaderDisposing P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:DataReaderDisposing",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:DataReaderDisposing",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IDbConnectionInterceptor from DotNetObject
@@ -4773,13 +4929,25 @@ Class IDbConnectionInterceptor from DotNetObject
 		return self
 
 	Func ConnectionCreating P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ConnectionCreating",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:ConnectionCreating",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionCreated P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConnectionCreated",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ConnectionCreated",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionOpening P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConnectionOpening",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ConnectionOpening",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionOpeningAsync P1
 		if dotnet_isnamed(P1)
@@ -4799,10 +4967,18 @@ Class IDbConnectionInterceptor from DotNetObject
 		raise("DotNet Error: ConnectionOpenedAsync does not take one argument: use named arguments, ConnectionOpenedAsync([ :parameter = value, ... ])")
 
 	Func ConnectionClosing P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConnectionClosing",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ConnectionClosing",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionClosingAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:ConnectionClosingAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:ConnectionClosingAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionClosed P1,P2
 		dotnet_callv("s4:call",nHandle,"s16:ConnectionClosed",P1,P2)
@@ -4810,13 +4986,25 @@ Class IDbConnectionInterceptor from DotNetObject
 		return self
 
 	Func ConnectionClosedAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:ConnectionClosedAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:ConnectionClosedAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionDisposing P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:ConnectionDisposing",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:ConnectionDisposing",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionDisposingAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ConnectionDisposingAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:ConnectionDisposingAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionDisposed P1,P2
 		dotnet_callv("s4:call",nHandle,"s18:ConnectionDisposed",P1,P2)
@@ -4824,7 +5012,11 @@ Class IDbConnectionInterceptor from DotNetObject
 		return self
 
 	Func ConnectionDisposedAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:ConnectionDisposedAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:ConnectionDisposedAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionFailed P1,P2
 		dotnet_callv("s4:call",nHandle,"s16:ConnectionFailed",P1,P2)
@@ -4872,10 +5064,18 @@ Class IDbTransactionInterceptor from DotNetObject
 		return self
 
 	Func TransactionStarting P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:TransactionStarting",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:TransactionStarting",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TransactionStarted P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:TransactionStarted",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:TransactionStarted",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TransactionStartingAsync P1
 		if dotnet_isnamed(P1)
@@ -4890,7 +5090,11 @@ Class IDbTransactionInterceptor from DotNetObject
 		raise("DotNet Error: TransactionStartedAsync does not take one argument: use named arguments, TransactionStartedAsync([ :parameter = value, ... ])")
 
 	Func TransactionUsed P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:TransactionUsed",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:TransactionUsed",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TransactionUsedAsync P1
 		if dotnet_isnamed(P1)
@@ -4899,7 +5103,11 @@ Class IDbTransactionInterceptor from DotNetObject
 		raise("DotNet Error: TransactionUsedAsync does not take one argument: use named arguments, TransactionUsedAsync([ :parameter = value, ... ])")
 
 	Func TransactionCommitting P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:TransactionCommitting",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:TransactionCommitting",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TransactionCommitted P1,P2
 		dotnet_callv("s4:call",nHandle,"s20:TransactionCommitted",P1,P2)
@@ -4919,7 +5127,11 @@ Class IDbTransactionInterceptor from DotNetObject
 		raise("DotNet Error: TransactionCommittedAsync does not take one argument: use named arguments, TransactionCommittedAsync([ :parameter = value, ... ])")
 
 	Func TransactionRollingBack P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:TransactionRollingBack",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:TransactionRollingBack",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TransactionRolledBack P1,P2
 		dotnet_callv("s4:call",nHandle,"s21:TransactionRolledBack",P1,P2)
@@ -4939,7 +5151,11 @@ Class IDbTransactionInterceptor from DotNetObject
 		raise("DotNet Error: TransactionRolledBackAsync does not take one argument: use named arguments, TransactionRolledBackAsync([ :parameter = value, ... ])")
 
 	Func CreatingSavepoint P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:CreatingSavepoint",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:CreatingSavepoint",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreatedSavepoint P1,P2
 		dotnet_callv("s4:call",nHandle,"s16:CreatedSavepoint",P1,P2)
@@ -4959,7 +5175,11 @@ Class IDbTransactionInterceptor from DotNetObject
 		raise("DotNet Error: CreatedSavepointAsync does not take one argument: use named arguments, CreatedSavepointAsync([ :parameter = value, ... ])")
 
 	Func RollingBackToSavepoint P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:RollingBackToSavepoint",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:RollingBackToSavepoint",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RolledBackToSavepoint P1,P2
 		dotnet_callv("s4:call",nHandle,"s21:RolledBackToSavepoint",P1,P2)
@@ -4979,7 +5199,11 @@ Class IDbTransactionInterceptor from DotNetObject
 		raise("DotNet Error: RolledBackToSavepointAsync does not take one argument: use named arguments, RolledBackToSavepointAsync([ :parameter = value, ... ])")
 
 	Func ReleasingSavepoint P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ReleasingSavepoint",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:ReleasingSavepoint",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReleasedSavepoint P1,P2
 		dotnet_callv("s4:call",nHandle,"s17:ReleasedSavepoint",P1,P2)
@@ -5211,7 +5435,11 @@ Class IInstantiationBindingInterceptor from DotNetObject
 		return self
 
 	Func ModifyBinding P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ModifyBinding",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ModifyBinding",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IInterceptor from DotNetObject
@@ -5240,7 +5468,11 @@ Class IInterceptorAggregator from DotNetObject
 		return self
 
 	Func AggregateInterceptors P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AggregateInterceptors",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:AggregateInterceptors",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getInterceptorType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s15:InterceptorType"))
@@ -5265,7 +5497,11 @@ Class IInterceptors from DotNetObject
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:Aggregate",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s9:Aggregate"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s9:Aggregate")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Aggregate needs its type arguments: Aggregate([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -5339,16 +5575,32 @@ Class IMaterializationInterceptor from DotNetObject
 		return self
 
 	Func CreatingInstance P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:CreatingInstance",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:CreatingInstance",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreatedInstance P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreatedInstance",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreatedInstance",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func InitializingInstance P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:InitializingInstance",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:InitializingInstance",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func InitializedInstance P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:InitializedInstance",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:InitializedInstance",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class INavigationBaseEventData from DotNetObject
@@ -5383,7 +5635,11 @@ Class IQueryExpressionInterceptor from DotNetObject
 		return self
 
 	Func QueryCompilationStarting P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:QueryCompilationStarting",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:QueryCompilationStarting",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class IRelationalCommandDiagnosticsLogger from DotNetObject
@@ -5405,22 +5661,46 @@ Class IRelationalCommandDiagnosticsLogger from DotNetObject
 		return self
 
 	Func CommandCreating P1,P2,P3,P4,P5,P6,P7
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CommandCreating",P1,P2,P3,P4,P5,P6,P7))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CommandCreating",P1,P2,P3,P4,P5,P6,P7)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CommandCreated P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CommandCreated",P1,P2,P3,P4,P5,P6,P7,P8,P9))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CommandCreated",P1,P2,P3,P4,P5,P6,P7,P8,P9)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CommandInitialized P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:CommandInitialized",P1,P2,P3,P4,P5,P6,P7,P8,P9))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:CommandInitialized",P1,P2,P3,P4,P5,P6,P7,P8,P9)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CommandReaderExecuting P1,P2,P3,P4,P5,P6,P7
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:CommandReaderExecuting",P1,P2,P3,P4,P5,P6,P7))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:CommandReaderExecuting",P1,P2,P3,P4,P5,P6,P7)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CommandScalarExecuting P1,P2,P3,P4,P5,P6,P7
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:CommandScalarExecuting",P1,P2,P3,P4,P5,P6,P7))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:CommandScalarExecuting",P1,P2,P3,P4,P5,P6,P7)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CommandNonQueryExecuting P1,P2,P3,P4,P5,P6,P7
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:CommandNonQueryExecuting",P1,P2,P3,P4,P5,P6,P7))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:CommandNonQueryExecuting",P1,P2,P3,P4,P5,P6,P7)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CommandReaderExecutingAsync P1
 		if dotnet_isnamed(P1)
@@ -5441,10 +5721,18 @@ Class IRelationalCommandDiagnosticsLogger from DotNetObject
 		raise("DotNet Error: CommandNonQueryExecutingAsync does not take one argument: use named arguments, CommandNonQueryExecutingAsync([ :parameter = value, ... ])")
 
 	Func CommandReaderExecuted P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:CommandReaderExecuted",P1,P2,P3,P4,P5,P6,P7,P8,P9))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:CommandReaderExecuted",P1,P2,P3,P4,P5,P6,P7,P8,P9)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CommandScalarExecuted P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:CommandScalarExecuted",P1,P2,P3,P4,P5,P6,P7,P8,P9))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:CommandScalarExecuted",P1,P2,P3,P4,P5,P6,P7,P8,P9)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CommandNonQueryExecuted P1,P2,P3,P4,P5,P6,P7,P8,P9
 		dn_x = dotnet_call("s4:call",nHandle,"s23:CommandNonQueryExecuted",P1,P2,P3,P4,P5,P6,P7,P8,P9)
@@ -5492,13 +5780,25 @@ Class IRelationalCommandDiagnosticsLogger from DotNetObject
 		raise("DotNet Error: CommandCanceledAsync does not take one argument: use named arguments, CommandCanceledAsync([ :parameter = value, ... ])")
 
 	Func DataReaderDisposing P1,P2,P3,P4,P5,P6,P7,P8
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:DataReaderDisposing",P1,P2,P3,P4,P5,P6,P7,P8))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:DataReaderDisposing",P1,P2,P3,P4,P5,P6,P7,P8)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DataReaderClosing P1,P2,P3,P4,P5,P6,P7
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:DataReaderClosing",P1,P2,P3,P4,P5,P6,P7))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:DataReaderClosing",P1,P2,P3,P4,P5,P6,P7)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DataReaderClosingAsync P1,P2,P3,P4,P5,P6,P7
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:DataReaderClosingAsync",P1,P2,P3,P4,P5,P6,P7))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:DataReaderClosingAsync",P1,P2,P3,P4,P5,P6,P7)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ShouldLogCommandCreate P1
 		dn_x = dotnet_call("s4:call",nHandle,"s22:ShouldLogCommandCreate",P1)
@@ -5598,16 +5898,32 @@ Class IRelationalConnectionDiagnosticsLogger from DotNetObject
 		return self
 
 	Func ConnectionCreating P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ConnectionCreating",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:ConnectionCreating",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionCreated P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConnectionCreated",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ConnectionCreated",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionDisposing P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:ConnectionDisposing",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:ConnectionDisposing",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionDisposingAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ConnectionDisposingAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:ConnectionDisposingAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionDisposed P1,P2,P3
 		dotnet_callv("s4:call",nHandle,"s18:ConnectionDisposed",P1,P2,P3)
@@ -5615,13 +5931,25 @@ Class IRelationalConnectionDiagnosticsLogger from DotNetObject
 		return self
 
 	Func ConnectionDisposedAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:ConnectionDisposedAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:ConnectionDisposedAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionOpening P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConnectionOpening",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ConnectionOpening",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionOpeningAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:ConnectionOpeningAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:ConnectionOpeningAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionOpened P1,P2,P3
 		dotnet_callv("s4:call",nHandle,"s16:ConnectionOpened",P1,P2,P3)
@@ -5635,10 +5963,18 @@ Class IRelationalConnectionDiagnosticsLogger from DotNetObject
 		raise("DotNet Error: ConnectionOpenedAsync does not take one argument: use named arguments, ConnectionOpenedAsync([ :parameter = value, ... ])")
 
 	Func ConnectionClosing P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ConnectionClosing",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ConnectionClosing",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionClosingAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:ConnectionClosingAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:ConnectionClosingAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionClosed P1,P2,P3
 		dotnet_callv("s4:call",nHandle,"s16:ConnectionClosed",P1,P2,P3)
@@ -5646,7 +5982,11 @@ Class IRelationalConnectionDiagnosticsLogger from DotNetObject
 		return self
 
 	Func ConnectionClosedAsync P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:ConnectionClosedAsync",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:ConnectionClosedAsync",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConnectionError P1,P2,P3,P4,P5
 		dotnet_callv("s4:call",nHandle,"s15:ConnectionError",P1,P2,P3,P4,P5)
@@ -5750,7 +6090,11 @@ Class ISaveChangesInterceptor from DotNetObject
 		return self
 
 	Func SavingChanges P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SavingChanges",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:SavingChanges",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SavedChanges P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s12:SavedChanges",P1,P2)
@@ -5778,7 +6122,11 @@ Class ISaveChangesInterceptor from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:SaveChangesFailedAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:SaveChangesFailedAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:SaveChangesFailedAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SaveChangesCanceled P1
 		dotnet_callv("s4:call",nHandle,"s19:SaveChangesCanceled",P1)
@@ -5789,10 +6137,18 @@ Class ISaveChangesInterceptor from DotNetObject
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:SaveChangesCanceledAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:SaveChangesCanceledAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:SaveChangesCanceledAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ThrowingConcurrencyException P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s28:ThrowingConcurrencyException",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s28:ThrowingConcurrencyException",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ThrowingConcurrencyExceptionAsync P1
 		if dotnet_isnamed(P1)
@@ -6015,7 +6371,11 @@ Class InterceptorAggregator from Object
 		return self
 
 	Func AggregateInterceptors P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:AggregateInterceptors",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:AggregateInterceptors",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -6781,7 +7141,11 @@ Class MaterializationInterceptionData from ValueType
 		return self
 
 	Func GetPropertyValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetPropertyValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetPropertyValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getContext
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Context"))
@@ -9366,7 +9730,11 @@ Class SaveChangesInterceptor from Object
 		return self
 
 	Func SavingChanges P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:SavingChanges",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:SavingChanges",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SavedChanges P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s12:SavedChanges",P1,P2)
@@ -9394,7 +9762,11 @@ Class SaveChangesInterceptor from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:SaveChangesFailedAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:SaveChangesFailedAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:SaveChangesFailedAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SaveChangesCanceled P1
 		dotnet_callv("s4:call",nHandle,"s19:SaveChangesCanceled",P1)
@@ -9405,10 +9777,18 @@ Class SaveChangesInterceptor from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s24:SaveChangesCanceledAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:SaveChangesCanceledAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:SaveChangesCanceledAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ThrowingConcurrencyException P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s28:ThrowingConcurrencyException",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s28:ThrowingConcurrencyException",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ThrowingConcurrencyExceptionAsync P1
 		if dotnet_isnamed(P1)
@@ -9636,22 +10016,42 @@ Class WarningsConfiguration from Object
 		return self
 
 	Func WithDefaultBehavior P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:WithDefaultBehavior",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:WithDefaultBehavior",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func WithExplicit P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:WithExplicit",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:WithExplicit",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:WithExplicit",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetBehavior P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetBehavior",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetBehavior",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetLevel P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetLevel",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetLevel",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryWithExplicit P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:TryWithExplicit",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:TryWithExplicit",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ShouldUseSameServiceProvider P1
 		dn_x = dotnet_call("s4:call",nHandle,"s28:ShouldUseSameServiceProvider",P1)
@@ -9687,16 +10087,32 @@ Class WarningsConfigurationBuilder from Object
 		return self
 
 	Func Default P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Default",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Default",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Throw P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Throw",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Throw",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Log P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Log",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Log",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Ignore P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Ignore",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Ignore",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

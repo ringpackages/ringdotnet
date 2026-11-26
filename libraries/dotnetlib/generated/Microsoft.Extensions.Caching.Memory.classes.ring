@@ -177,38 +177,70 @@ Class ICacheEntry from DotNetObject
 
 	Func @SetPriority P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetPriority",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:SetPriority",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddExpirationToken P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddExpirationToken",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:AddExpirationToken",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @SetAbsoluteExpiration P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetAbsoluteExpiration",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:SetAbsoluteExpiration",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @SetSlidingExpiration P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetSlidingExpiration",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:SetSlidingExpiration",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RegisterPostEvictionCallback P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s28:RegisterPostEvictionCallback",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s28:RegisterPostEvictionCallback",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s28:RegisterPostEvictionCallback",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @SetValue P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SetValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:SetValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @SetSize P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:SetSize",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:SetSize",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetOptions P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:SetOptions",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:SetOptions",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getKey
 		return dnObj(dotnet_callo("s3:get",nHandle,"s3:Key"))
@@ -286,7 +318,11 @@ Class IMemoryCache from DotNetObject
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
 
 	Func CreateEntry P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateEntry",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:CreateEntry",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Remove P1
 		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
@@ -294,7 +330,11 @@ Class IMemoryCache from DotNetObject
 		return self
 
 	Func GetCurrentStatistics 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetCurrentStatistics"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetCurrentStatistics")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -302,7 +342,11 @@ Class IMemoryCache from DotNetObject
 
 	Func @Get P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Get",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Set P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions")
@@ -358,7 +402,11 @@ Class MemoryCache from Object
 		return self
 
 	Func CreateEntry P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CreateEntry",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:CreateEntry",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryGetValue P1
 		return dnSend("s4:call",nHandle,"s11:TryGetValue",dnPackItem(P1))
@@ -373,7 +421,11 @@ Class MemoryCache from Object
 		return self
 
 	Func GetCurrentStatistics 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:GetCurrentStatistics"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetCurrentStatistics")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Compact P1
 		dotnet_calltv(nHandle,"Compact",P1)
@@ -390,7 +442,11 @@ Class MemoryCache from Object
 
 	Func @Get P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s3:Get",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s3:Get",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Set P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions")
@@ -499,30 +555,54 @@ Class MemoryCacheEntryOptions from Object
 
 	Func @SetPriority P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:SetPriority",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:SetPriority",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @SetSize P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:SetSize",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:SetSize",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddExpirationToken P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:AddExpirationToken",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:AddExpirationToken",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @SetAbsoluteExpiration P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:SetAbsoluteExpiration",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:SetAbsoluteExpiration",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @SetSlidingExpiration P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:SetSlidingExpiration",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:SetSlidingExpiration",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RegisterPostEvictionCallback P1
 		dnEnsureExt("Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s28:RegisterPostEvictionCallback",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s28:RegisterPostEvictionCallback",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s28:RegisterPostEvictionCallback",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getAbsoluteExpiration
 		return dnObj(dotnet_callo("s3:get",nHandle,"s18:AbsoluteExpiration"))

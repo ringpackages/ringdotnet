@@ -945,7 +945,11 @@ Class AsnEncodedDataCollection from Object
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -963,7 +967,11 @@ Class AsnEncodedDataCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -973,12 +981,20 @@ Class AsnEncodedDataCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -1072,13 +1088,25 @@ Class AsymmetricAlgorithm from Object
 		return dnSend("s4:call",nHandle,"s26:ImportSubjectPublicKeyInfo",dnPackItem(P1))
 
 	Func ExportEncryptedPkcs8PrivateKey P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s30:ExportEncryptedPkcs8PrivateKey",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s30:ExportEncryptedPkcs8PrivateKey",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExportPkcs8PrivateKey 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s21:ExportPkcs8PrivateKey"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s21:ExportPkcs8PrivateKey")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExportSubjectPublicKeyInfo 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s26:ExportSubjectPublicKeyInfo"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s26:ExportSubjectPublicKeyInfo")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryExportEncryptedPkcs8PrivateKey P1,P2,P3
 		return dnSend("s4:call",nHandle,"s33:TryExportEncryptedPkcs8PrivateKey",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -1178,7 +1206,11 @@ Class AsymmetricKeyExchangeDeformatter from Object
 		return self
 
 	Func DecryptKeyExchange P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:DecryptKeyExchange",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:DecryptKeyExchange",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1215,7 +1247,11 @@ Class AsymmetricKeyExchangeFormatter from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:CreateKeyExchange",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:CreateKeyExchange",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:CreateKeyExchange",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1281,7 +1317,11 @@ Class AsymmetricSignatureFormatter from Object
 		return self
 
 	Func CreateSignature P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateSignature",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreateSignature",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1564,10 +1604,18 @@ Class CngKey from Object
 		return self
 
 	Func Export P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Export",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Export",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetProperty P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:GetProperty",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetProperty",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func HasProperty P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s11:HasProperty",P1,P2)
@@ -1907,7 +1955,11 @@ Class CngProperty from ValueType
 		return self
 
 	Func GetValue 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetValue"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetValue")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -2164,9 +2216,17 @@ Class CryptoStream from Stream
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:FlushFinalBlockAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s20:FlushFinalBlockAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s20:FlushFinalBlockAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:FlushFinalBlockAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:FlushFinalBlockAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clear 
 		dotnet_calltv(nHandle,"Clear")
@@ -2566,7 +2626,11 @@ Class DeriveBytes from Object
 		return self
 
 	Func GetBytes P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetBytes",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetBytes",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Reset 
 		dotnet_calltv(nHandle,"Reset")
@@ -2885,22 +2949,38 @@ Class ECDiffieHellmanPublicKey from Object
 		return self
 
 	Func ToByteArray 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ToByteArray"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToByteArray")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToXmlString 
 		return dnAnswer(dotnet_callt(nHandle,"ToXmlString"))
 
 	Func ExportParameters 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ExportParameters"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:ExportParameters")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExportExplicitParameters 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ExportExplicitParameters"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:ExportExplicitParameters")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryExportSubjectPublicKeyInfo P1
 		return dnSend("s4:call",nHandle,"s29:TryExportSubjectPublicKeyInfo",dnPackItem(P1))
 
 	Func ExportSubjectPublicKeyInfo 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s26:ExportSubjectPublicKeyInfo"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s26:ExportSubjectPublicKeyInfo")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3043,7 +3123,11 @@ Class FromBase64Transform from Object
 		return dn_x
 
 	Func TransformFinalBlock P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:TransformFinalBlock",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:TransformFinalBlock",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clear 
 		dotnet_calltv(nHandle,"Clear")
@@ -3140,7 +3224,11 @@ Class HashAlgorithm from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:ComputeHash",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ComputeHash",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ComputeHash",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryComputeHash P1,P2
 		return dnSend("s4:call",nHandle,"s14:TryComputeHash",dnPackItem(P1) + dnPackItem(P2))
@@ -3149,7 +3237,11 @@ Class HashAlgorithm from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:ComputeHashAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ComputeHashAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:ComputeHashAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -3165,7 +3257,11 @@ Class HashAlgorithm from Object
 		return dn_x
 
 	Func TransformFinalBlock P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:TransformFinalBlock",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:TransformFinalBlock",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Initialize 
 		dotnet_calltv(nHandle,"Initialize")
@@ -3355,7 +3451,11 @@ Class ICryptoTransform from DotNetObject
 		return dn_x
 
 	Func TransformFinalBlock P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:TransformFinalBlock",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:TransformFinalBlock",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -3400,7 +3500,11 @@ Class ICspAsymmetricAlgorithm from DotNetObject
 		return self
 
 	Func ExportCspBlob P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExportCspBlob",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ExportCspBlob",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ImportCspBlob P1
 		dotnet_callv("s4:call",nHandle,"s13:ImportCspBlob",P1)
@@ -3433,19 +3537,31 @@ Class IncrementalHash from Object
 		return self
 
 	Func GetHashAndReset 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetHashAndReset"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetHashAndReset")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryGetHashAndReset P1
 		return dnSend("s4:call",nHandle,"s18:TryGetHashAndReset",dnPackItem(P1))
 
 	Func GetCurrentHash 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetCurrentHash"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetCurrentHash")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryGetCurrentHash P1
 		return dnSend("s4:call",nHandle,"s17:TryGetCurrentHash",dnPackItem(P1))
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -3552,13 +3668,25 @@ Class Kmac128 from Object
 		return self
 
 	Func GetHashAndReset P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetHashAndReset",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetHashAndReset",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetCurrentHash P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetCurrentHash",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetCurrentHash",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -3624,13 +3752,25 @@ Class Kmac256 from Object
 		return self
 
 	Func GetHashAndReset P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetHashAndReset",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetHashAndReset",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetCurrentHash P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetCurrentHash",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetCurrentHash",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -3696,13 +3836,25 @@ Class KmacXof128 from Object
 		return self
 
 	Func GetHashAndReset P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetHashAndReset",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetHashAndReset",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetCurrentHash P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetCurrentHash",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetCurrentHash",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -3768,13 +3920,25 @@ Class KmacXof256 from Object
 		return self
 
 	Func GetHashAndReset P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetHashAndReset",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetHashAndReset",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetCurrentHash P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetCurrentHash",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetCurrentHash",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -3816,7 +3980,11 @@ Class MaskGenerationMethod from Object
 		return self
 
 	Func GenerateMask P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GenerateMask",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GenerateMask",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3919,7 +4087,11 @@ Class OidCollection from Object
 		return dn_x
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1,P2
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2)
@@ -3937,7 +4109,11 @@ Class OidCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -3947,12 +4123,20 @@ Class OidCollection from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func Item P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:get_Item",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -4458,7 +4642,11 @@ Class SP800108HmacCounterKdf from Object
 		return self
 
 	Func DeriveKey P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:DeriveKey",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:DeriveKey",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -4512,7 +4700,11 @@ Class SafeEvpPKeyHandle from SafeHandle
 		return self
 
 	Func DuplicateHandle 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:DuplicateHandle"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:DuplicateHandle")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func OpenPrivateKeyFromEngine P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography',"s24:OpenPrivateKeyFromEngine",P1,P2))
@@ -4558,20 +4750,36 @@ Class Shake128 from Object
 		return self
 
 	Func GetHashAndReset P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetHashAndReset",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetHashAndReset",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetCurrentHash P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetCurrentHash",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetCurrentHash",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Read P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Read",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Read",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Reset 
 		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -4626,20 +4834,36 @@ Class Shake256 from Object
 		return self
 
 	Func GetHashAndReset P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:GetHashAndReset",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetHashAndReset",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetCurrentHash P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetCurrentHash",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetCurrentHash",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Read P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Read",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Read",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Reset 
 		dotnet_calltv(nHandle,"Reset")
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -4708,13 +4932,25 @@ Class SignatureDescription from Object
 		return self
 
 	Func CreateDeformatter P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:CreateDeformatter",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:CreateDeformatter",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateFormatter P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateFormatter",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreateFormatter",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateDigest 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:CreateDigest"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:CreateDigest")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4776,7 +5012,11 @@ Class SymmetricAlgorithm from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:CreateDecryptor",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateDecryptor"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreateDecryptor")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: CreateDecryptor does not take one argument: use named arguments, CreateDecryptor([ :parameter = value, ... ])")
 
@@ -4785,7 +5025,11 @@ Class SymmetricAlgorithm from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:CreateEncryptor",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateEncryptor"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreateEncryptor")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: CreateEncryptor does not take one argument: use named arguments, CreateEncryptor([ :parameter = value, ... ])")
 
@@ -4820,13 +5064,21 @@ Class SymmetricAlgorithm from Object
 		return dnAnswer(dotnet_calltd1(nHandle,"GetCiphertextLengthCfb",P1))
 
 	Func DecryptEcb P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:DecryptEcb",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:DecryptEcb",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryDecryptEcb P1,P2,P3
 		return dnSend("s4:call",nHandle,"s13:TryDecryptEcb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
 
 	Func EncryptEcb P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:EncryptEcb",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:EncryptEcb",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryEncryptEcb P1,P2,P3
 		return dnSend("s4:call",nHandle,"s13:TryEncryptEcb",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3))
@@ -4994,7 +5246,11 @@ Class ToBase64Transform from Object
 		return dn_x
 
 	Func TransformFinalBlock P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:TransformFinalBlock",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:TransformFinalBlock",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -5172,7 +5428,11 @@ Class DSA from AsymmetricAlgorithm
 		return self
 
 	Func ExportParameters P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ExportParameters",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:ExportParameters",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ImportParameters P1
 		dotnet_callv("s4:call",nHandle,"s16:ImportParameters",P1)
@@ -5183,7 +5443,11 @@ Class DSA from AsymmetricAlgorithm
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s15:CreateSignature",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:CreateSignature",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:CreateSignature",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func VerifySignature P1
 		if dotnet_isnamed(P1)
@@ -5324,10 +5588,18 @@ Class ECAlgorithm from AsymmetricAlgorithm
 		return self
 
 	Func ExportParameters P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ExportParameters",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:ExportParameters",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ExportExplicitParameters P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:ExportExplicitParameters",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:ExportExplicitParameters",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ImportParameters P1
 		dotnet_callv("s4:call",nHandle,"s16:ImportParameters",P1)
@@ -5343,7 +5615,11 @@ Class ECAlgorithm from AsymmetricAlgorithm
 		return dnSend("s4:call",nHandle,"s18:ImportECPrivateKey",dnPackItem(P1))
 
 	Func ExportECPrivateKey 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExportECPrivateKey"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:ExportECPrivateKey")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryExportECPrivateKey P1
 		return dnSend("s4:call",nHandle,"s21:TryExportECPrivateKey",dnPackItem(P1))
@@ -5369,7 +5645,11 @@ Class ECDiffieHellmanCngPublicKey from ECDiffieHellmanPublicKey
 		return self
 
 	Func @Import 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s6:Import"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Import")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FromXmlString P1
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.ECDiffieHellmanCngPublicKey, System.Security.Cryptography',"s13:FromXmlString",P1))
@@ -5525,7 +5805,11 @@ Class PasswordDeriveBytes from DeriveBytes
 		return self
 
 	Func CryptDeriveKey P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CryptDeriveKey",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CryptDeriveKey",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getHashName
 		return dnAnswer(dotnet_getp(nHandle,"HashName"))
@@ -5594,7 +5878,11 @@ Class RSA from AsymmetricAlgorithm
 		return dnAnswer(dotnet_callt(nHandle,"GetMaxOutputSize"))
 
 	Func ExportParameters P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:ExportParameters",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:ExportParameters",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ImportParameters P1
 		dotnet_callv("s4:call",nHandle,"s16:ImportParameters",P1)
@@ -5602,13 +5890,25 @@ Class RSA from AsymmetricAlgorithm
 		return self
 
 	Func Encrypt P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Encrypt",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Encrypt",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Decrypt P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Decrypt",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Decrypt",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SignHash P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SignHash",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:SignHash",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func VerifyHash P1,P2,P3,P4
 		dn_x = dotnet_call("s4:call",nHandle,"s10:VerifyHash",P1,P2,P3,P4)
@@ -5625,10 +5925,18 @@ Class RSA from AsymmetricAlgorithm
 		return dnSend("s4:call",nHandle,"s11:TrySignHash",dnPackItem(P1) + dnPackItem(P2) + dnPackItem(P3) + dnPackItem(P4))
 
 	Func DecryptValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DecryptValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DecryptValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func EncryptValue P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:EncryptValue",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:EncryptValue",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SignData P1
 		if dotnet_isnamed(P1)
@@ -5648,13 +5956,21 @@ Class RSA from AsymmetricAlgorithm
 		raise("DotNet Error: VerifyData does not take one argument: use named arguments, VerifyData([ :parameter = value, ... ])")
 
 	Func ExportRSAPrivateKey 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:ExportRSAPrivateKey"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:ExportRSAPrivateKey")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryExportRSAPrivateKey P1
 		return dnSend("s4:call",nHandle,"s22:TryExportRSAPrivateKey",dnPackItem(P1))
 
 	Func ExportRSAPublicKey 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:ExportRSAPublicKey"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:ExportRSAPublicKey")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryExportRSAPublicKey P1
 		return dnSend("s4:call",nHandle,"s21:TryExportRSAPublicKey",dnPackItem(P1))
@@ -5977,7 +6293,11 @@ Class Rfc2898DeriveBytes from DeriveBytes
 		return self
 
 	Func CryptDeriveKey P1,P2,P3,P4
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:CryptDeriveKey",P1,P2,P3,P4))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:CryptDeriveKey",P1,P2,P3,P4)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Pbkdf2 P1,P2,P3,P4,P5
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.Rfc2898DeriveBytes, System.Security.Cryptography',"s6:Pbkdf2",P1,P2,P3,P4,P5))
@@ -6492,7 +6812,11 @@ Class DSACryptoServiceProvider from DSA
 		return self
 
 	Func ExportCspBlob P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExportCspBlob",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ExportCspBlob",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ImportCspBlob P1
 		dotnet_callv("s4:call",nHandle,"s13:ImportCspBlob",P1)
@@ -6503,10 +6827,18 @@ Class DSACryptoServiceProvider from DSA
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SignData",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SignData",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:SignData",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SignHash P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SignHash",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:SignHash",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func VerifyHash P1,P2,P3
 		dn_x = dotnet_call("s4:call",nHandle,"s10:VerifyHash",P1,P2,P3)
@@ -6580,7 +6912,11 @@ Class DSAOpenSsl from DSA
 		return self
 
 	Func DuplicateKeyHandle 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:DuplicateKeyHandle"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:DuplicateKeyHandle")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ECDiffieHellman from ECAlgorithm
@@ -6597,7 +6933,11 @@ Class ECDiffieHellman from ECAlgorithm
 		return self
 
 	Func DeriveKeyMaterial P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:DeriveKeyMaterial",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:DeriveKeyMaterial",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DeriveKeyFromHash P1
 		if dotnet_isnamed(P1)
@@ -6612,10 +6952,18 @@ Class ECDiffieHellman from ECAlgorithm
 		raise("DotNet Error: DeriveKeyFromHmac does not take one argument: use named arguments, DeriveKeyFromHmac([ :parameter = value, ... ])")
 
 	Func DeriveKeyTls P1,P2,P3
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DeriveKeyTls",P1,P2,P3))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DeriveKeyTls",P1,P2,P3)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DeriveRawSecretAgreement P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s24:DeriveRawSecretAgreement",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s24:DeriveRawSecretAgreement",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Create P1
 		if dotnet_isnamed(P1)
@@ -6654,7 +7002,11 @@ Class ECDsa from ECAlgorithm
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SignHash",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SignHash",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:SignHash",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TrySignData P1
 		if dotnet_isnamed(P1)
@@ -6820,7 +7172,11 @@ Class RSACryptoServiceProvider from RSA
 		return self
 
 	Func ExportCspBlob P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:ExportCspBlob",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ExportCspBlob",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ImportCspBlob P1
 		dotnet_callv("s4:call",nHandle,"s13:ImportCspBlob",P1)
@@ -6908,7 +7264,11 @@ Class RSAOpenSsl from RSA
 		return self
 
 	Func DuplicateKeyHandle 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:DuplicateKeyHandle"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:DuplicateKeyHandle")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class TripleDESCng from TripleDES
@@ -6995,7 +7355,11 @@ Class ECDiffieHellmanCng from ECDiffieHellman
 		return self
 
 	Func DeriveSecretAgreementHandle P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:DeriveSecretAgreementHandle",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:DeriveSecretAgreementHandle",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func FromXmlString P1
 		dotnet_calltd1v(nHandle,"FromXmlString",P1)
@@ -7105,7 +7469,11 @@ Class ECDiffieHellmanOpenSsl from ECDiffieHellman
 		return self
 
 	Func DuplicateKeyHandle 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:DuplicateKeyHandle"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:DuplicateKeyHandle")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ECDsaCng from ECDsa
@@ -7155,7 +7523,11 @@ Class ECDsaCng from ECDsa
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:SignData",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:SignData",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:SignData",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToXmlString P1
 		dn_x = dotnet_call("s4:call",nHandle,"s11:ToXmlString",P1)
@@ -7213,7 +7585,11 @@ Class ECDsaOpenSsl from ECDsa
 		return self
 
 	Func DuplicateKeyHandle 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:DuplicateKeyHandle"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:DuplicateKeyHandle")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class HMACMD5 from HMAC

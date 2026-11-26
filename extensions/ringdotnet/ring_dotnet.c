@@ -955,6 +955,12 @@ static void ringdotnet_answer ( void *pPointer, int nMode, const unsigned char *
 				g_pFree((void *) pOut);
 				return ;
 			}
+			if ( cTag == 'q' ) {
+				/* the call answered the object it was called on (the operation "calls"): -1, and the generated method returns self */
+				RING_API_RETNUMBER(-1);
+				g_pFree((void *) pOut);
+				return ;
+			}
 		}
 		if ( nMode == DN_MODE_ANY && cTag == 'o' ) {
 			List *pList = RING_API_NEWLIST ;

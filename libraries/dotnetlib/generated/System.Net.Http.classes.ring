@@ -173,36 +173,68 @@ Class HttpContent from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ReadAsStringAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadAsStringAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s17:ReadAsStringAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadAsStringAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ReadAsStringAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadAsByteArrayAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:ReadAsByteArrayAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s20:ReadAsByteArrayAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s20:ReadAsByteArrayAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:ReadAsByteArrayAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:ReadAsByteArrayAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadAsStream P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s12:ReadAsStream",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s12:ReadAsStream"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s12:ReadAsStream")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:ReadAsStream",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ReadAsStream",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadAsStreamAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ReadAsStreamAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadAsStreamAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s17:ReadAsStreamAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadAsStreamAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ReadAsStreamAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CopyTo P1,P2,P3
 		dotnet_callv("s4:call",nHandle,"s6:CopyTo",P1,P2,P3)
@@ -213,16 +245,28 @@ Class HttpContent from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:CopyToAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CopyToAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:CopyToAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func LoadIntoBufferAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:LoadIntoBufferAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s19:LoadIntoBufferAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s19:LoadIntoBufferAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:LoadIntoBufferAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:LoadIntoBufferAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -239,9 +283,17 @@ Class HttpContent from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s29:ReadFromJsonAsAsyncEnumerable",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s29:ReadFromJsonAsAsyncEnumerable"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s29:ReadFromJsonAsAsyncEnumerable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s29:ReadFromJsonAsAsyncEnumerable",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s29:ReadFromJsonAsAsyncEnumerable",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ReadFromJsonAsync P1
 		dnEnsureExt("System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json")
@@ -249,9 +301,17 @@ Class HttpContent from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:ReadFromJsonAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadFromJsonAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s17:ReadFromJsonAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:ReadFromJsonAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:ReadFromJsonAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getHeaders
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Headers"))
@@ -347,10 +407,18 @@ Class HttpMessageInvoker from Object
 		return self
 
 	Func Send P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Send",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Send",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SendAsync P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:SendAsync",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:SendAsync",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -650,7 +718,11 @@ Class HttpRequestOptions from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -660,7 +732,11 @@ Class HttpRequestOptions from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -735,7 +811,11 @@ Class HttpResponseMessage from Object
 		return self
 
 	Func EnsureSuccessStatusCode 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:EnsureSuccessStatusCode"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:EnsureSuccessStatusCode")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -1009,25 +1089,41 @@ Class HttpClient from HttpMessageInvoker
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:GetStringAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetStringAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetStringAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetByteArrayAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s17:GetByteArrayAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetByteArrayAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetByteArrayAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetStreamAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s14:GetStreamAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:GetStreamAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetStreamAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:GetAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:GetAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:GetAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func PostAsync P1
 		if dotnet_isnamed(P1)
@@ -1051,19 +1147,31 @@ Class HttpClient from HttpMessageInvoker
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s11:DeleteAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:DeleteAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:DeleteAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Send P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Send",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s4:Send",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s4:Send",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SendAsync P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:SendAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:SendAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:SendAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CancelPendingRequests 
 		dotnet_calltv(nHandle,"CancelPendingRequests")
@@ -1074,21 +1182,33 @@ Class HttpClient from HttpMessageInvoker
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s28:GetFromJsonAsAsyncEnumerable",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s28:GetFromJsonAsAsyncEnumerable",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s28:GetFromJsonAsAsyncEnumerable",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DeleteFromJsonAsync P1
 		dnEnsureExt("System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s19:DeleteFromJsonAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:DeleteFromJsonAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:DeleteFromJsonAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetFromJsonAsync P1
 		dnEnsureExt("System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json")
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s16:GetFromJsonAsync",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s16:GetFromJsonAsync",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s16:GetFromJsonAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func PostAsJsonAsync P1
 		dnEnsureExt("System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json")
@@ -1442,7 +1562,11 @@ Class MultipartContent from HttpContent
 		return self
 
 	Func GetEnumerator 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s13:GetEnumerator"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Cast P1
 		dnEnsureExt("System.Linq.Enumerable, System.Linq")
@@ -1450,7 +1574,11 @@ Class MultipartContent from HttpContent
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s4:Cast",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s4:Cast"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s4:Cast")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: Cast needs its type arguments: Cast([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
@@ -1460,7 +1588,11 @@ Class MultipartContent from HttpContent
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s6:OfType",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s6:OfType"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s6:OfType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 

@@ -211,31 +211,67 @@ Class Calendar from Object
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddMilliseconds P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s15:AddMilliseconds",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s15:AddMilliseconds",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddDays P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:AddDays",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:AddDays",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddHours P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddHours",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:AddHours",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddMinutes P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddMinutes",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AddMinutes",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddMonths P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:AddMonths",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:AddMonths",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddSeconds P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:AddSeconds",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AddSeconds",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddWeeks P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddWeeks",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:AddWeeks",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func AddYears P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:AddYears",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:AddYears",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDayOfMonth P1
 		dn_x = dotnet_call("s4:call",nHandle,"s13:GetDayOfMonth",P1)
@@ -243,7 +279,11 @@ Class Calendar from Object
 		return dn_x
 
 	Func GetDayOfWeek P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:GetDayOfWeek",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetDayOfWeek",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDayOfYear P1
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetDayOfYear",P1)
@@ -499,7 +539,11 @@ Class CompareInfo from Object
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s10:GetSortKey",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:GetSortKey",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:GetSortKey",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetSortKeyLength P1
 		return dnAnswer(dotnet_calltd1(nHandle,"GetSortKeyLength",P1))
@@ -535,7 +579,11 @@ Class CompareInfo from Object
 
 	Func GetStringComparer P1
 		dnEnsureExt("System.Globalization.GlobalizationExtensions, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetStringComparer",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetStringComparer",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -618,17 +666,29 @@ Class CultureInfo from Object
 		return dn_x
 
 	Func GetFormat P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetFormat",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetFormat",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ClearCachedData 
 		dotnet_calltv(nHandle,"ClearCachedData")
 		return self
 
 	Func GetConsoleFallbackUICulture 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s27:GetConsoleFallbackUICulture"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s27:GetConsoleFallbackUICulture")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CreateSpecificCulture P1
 		return dnObj(dotnet_callo("s4:call",'System.Globalization.CultureInfo, System.Private.CoreLib',"s21:CreateSpecificCulture",P1))
@@ -919,10 +979,18 @@ Class DateTimeFormatInfo from Object
 		return self
 
 	Func GetFormat P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetFormat",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetFormat",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetEra P1
 		return dnAnswer(dotnet_callt(nHandle,"GetEra",P1))
@@ -948,9 +1016,17 @@ Class DateTimeFormatInfo from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s22:GetAllDateTimePatterns",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetAllDateTimePatterns"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s22:GetAllDateTimePatterns")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s22:GetAllDateTimePatterns",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s22:GetAllDateTimePatterns",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetDayName P1
 		dn_x = dotnet_call("s4:call",nHandle,"s10:GetDayName",P1)
@@ -1366,10 +1442,18 @@ Class NumberFormatInfo from Object
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func GetFormat P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:GetFormat",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetFormat",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1937,13 +2021,25 @@ Class TextInfo from Object
 		return self
 
 	Func Clone 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s5:Clone"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToLower P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToLower",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToLower",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToUpper P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:ToUpper",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToUpper",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

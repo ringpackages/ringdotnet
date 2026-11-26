@@ -659,10 +659,18 @@ Class CancellationToken from ValueType
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s8:Register",P1))
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s8:Register",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s8:Register",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func UnsafeRegister P1,P2
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:UnsafeRegister",P1,P2))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:UnsafeRegister",P1,P2)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ThrowIfCancellationRequested 
 		dotnet_calltv(nHandle,"ThrowIfCancellationRequested")
@@ -724,14 +732,22 @@ Class CancellationTokenRegistration from ValueType
 		return self
 
 	Func DisposeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DisposeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Unregister 
 		return dnAnswer(dotnet_callt(nHandle,"Unregister"))
 
 	Func ConfigureAwait P1
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ConfigureAwait",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getToken
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Token"))
@@ -788,7 +804,11 @@ Class CancellationTokenSource from Object
 		return self
 
 	Func CancelAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:CancelAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:CancelAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func CancelAfter P1
 		dotnet_callv("s4:call",nHandle,"s11:CancelAfter",P1)
@@ -843,7 +863,11 @@ Class CompressedStack from Object
 		return self
 
 	Func CreateCopy 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:CreateCopy"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:CreateCopy")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -960,7 +984,11 @@ Class ExecutionContext from Object
 		return self
 
 	Func CreateCopy 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:CreateCopy"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:CreateCopy")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -1032,7 +1060,11 @@ Class HostExecutionContext from Object
 		return self
 
 	Func CreateCopy 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:CreateCopy"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:CreateCopy")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose P1
 		dotnet_calltdv(nHandle,"Dispose",P1)
@@ -1065,10 +1097,18 @@ Class HostExecutionContextManager from Object
 		return self
 
 	Func Capture 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:Capture"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:Capture")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetHostExecutionContext P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s23:SetHostExecutionContext",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s23:SetHostExecutionContext",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Revert P1
 		dotnet_callv("s4:call",nHandle,"s6:Revert",P1)
@@ -1118,11 +1158,19 @@ Class ITimer from DotNetObject
 		return self
 
 	Func DisposeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DisposeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConfigureAwait P1
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ConfigureAwait",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class Interlocked from Object
@@ -1226,7 +1274,11 @@ Class Lock from Object
 		return self
 
 	Func EnterScope 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:EnterScope"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:EnterScope")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func TryEnter P1
 		return dnAnswer(dotnet_calltd(nHandle,"TryEnter",P1))
@@ -1669,9 +1721,17 @@ Class PeriodicTimer from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s20:WaitForNextTickAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s20:WaitForNextTickAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s20:WaitForNextTickAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s20:WaitForNextTickAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s20:WaitForNextTickAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -1760,19 +1820,31 @@ Class ReaderWriterLock from DotNetObject
 		return self
 
 	Func UpgradeToWriterLock P1
-		return dnObj(dotnet_callo("s4:call",nHandle,"s19:UpgradeToWriterLock",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s19:UpgradeToWriterLock",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DowngradeFromWriterLock P1
 		return dnSend("s4:call",nHandle,"s23:DowngradeFromWriterLock",dnPackItem(P1))
 
 	Func ReleaseLock 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s11:ReleaseLock"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ReleaseLock")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func RestoreLock P1
 		return dnSend("s4:call",nHandle,"s11:RestoreLock",dnPackItem(P1))
 
 	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToString 
 		return dnAnswer(dotnet_callt(nHandle,"ToString"))
@@ -2072,9 +2144,17 @@ Class SemaphoreSlim from Object
 			return dnObj(dotnet_callo("s9:callnamed",nHandle,"s9:WaitAsync",P1))
 		ok
 		if isstring(P1) and P1 = ""
-			return dnObj(dotnet_callo("s4:call",nHandle,"s9:WaitAsync"))
+			dn_x = dotnet_callo("s5:calls",nHandle,"s9:WaitAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
 		ok
-		return dnObj(dotnet_callo("s4:call",nHandle,"s9:WaitAsync",P1))
+		return dnObj(dn_x)
+		ok
+		dn_x = dotnet_callo("s5:calls",nHandle,"s9:WaitAsync",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
@@ -2275,7 +2355,11 @@ Class SynchronizationContext from Object
 		return dn_x
 
 	Func CreateCopy 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s10:CreateCopy"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:CreateCopy")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2724,11 +2808,19 @@ Class Timer from MarshalByRefObject
 		return dn_x
 
 	Func DisposeAsync 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s12:DisposeAsync"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s12:DisposeAsync")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ConfigureAwait P1
 		dnEnsureExt("System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s14:ConfigureAwait",P1))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s14:ConfigureAwait",P1)
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getActiveCount
 		return dotnet_call("s3:get",'System.Threading.Timer, System.Private.CoreLib',"s11:ActiveCount")
@@ -2816,7 +2908,11 @@ Class WaitHandle from MarshalByRefObject
 
 	Func @GetSafeWaitHandle 
 		dnEnsureExt("System.Threading.WaitHandleExtensions, System.Private.CoreLib")
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetSafeWaitHandle"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetSafeWaitHandle")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func @SetSafeWaitHandle P1
 		dnEnsureExt("System.Threading.WaitHandleExtensions, System.Private.CoreLib")
@@ -2948,7 +3044,11 @@ Class Thread from DotNetObject
 		return self
 
 	Func @GetApartmentState 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s17:GetApartmentState"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s17:GetApartmentState")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func DisableComObjectEagerCleanup 
 		dotnet_calltv(nHandle,"DisableComObjectEagerCleanup")
@@ -3004,7 +3104,11 @@ Class Thread from DotNetObject
 		return dn_x
 
 	Func GetCompressedStack 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s18:GetCompressedStack"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetCompressedStack")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func SetCompressedStack P1
 		dotnet_callv("s4:call",nHandle,"s18:SetCompressedStack",P1)
@@ -3015,7 +3119,11 @@ Class Thread from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func GetType 
-		return dnObj(dotnet_callo("s4:call",nHandle,"s7:GetType"))
+		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func ToString 
 		return dnAnswer(dotnet_callt(nHandle,"ToString"))
