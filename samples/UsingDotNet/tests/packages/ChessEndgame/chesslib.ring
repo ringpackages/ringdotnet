@@ -21,20 +21,25 @@ func chessSetup
 		? "ML.NET could not be restored: the computer needs the internet once."
 		bye
 	ok
-	# the classes of the namespaces that the example uses (the generator is a Ring program of this package: tools/dotnettools/wrapassembly.ring)
-	if not fexists(cClasses + "/Microsoft.ML.classes.ring")
+	# the classes of the namespaces that the example uses (the generator is a Ring program of this package: tools/dotnettools/wrapassembly.ring). The assemblies that belong together
+	# are wrapped in one run: the extension methods of the trainers (LightGbm, FastTree) join the classes of the catalogs of Microsoft.ML.Data, and the result of a call is wrapped
+	# by its real type (an estimator has Fit).
+	if not fexists(cClasses + "/Microsoft.ML.Trainers.LightGbm.classes.ring")
 		? "Making the Ring classes of ML.NET (the first time only) ..."
+		cDlls = ""
+		for cDll in ["Microsoft.ML.Data","Microsoft.ML.DataView","Microsoft.ML.Transforms","Microsoft.ML.StandardTrainers","Microsoft.ML.FastTree","Microsoft.ML.LightGbm"]
+			cDlls += cLibs + "/" + cDll + ".dll;"
+		next
 		chdir("../../../../../tools/dotnettools")
-		system(exefilename() + ' wrapassembly.ring "' + cMain + '" "' + cClasses + '" Microsoft.ML Microsoft.ML.Data' + chessQuiet())
-		system(exefilename() + ' wrapassembly.ring "' + cLibs + '/Microsoft.ML.StandardTrainers.dll" "' + cClasses + '" Microsoft.ML.Trainers' + chessQuiet())
+		system(exefilename() + ' wrapassembly.ring "' + left(cDlls,len(cDlls) - 1) + '" "' + cClasses + '" Microsoft.ML Microsoft.ML.Data Microsoft.ML.Transforms Microsoft.ML.Trainers Microsoft.ML.Trainers.FastTree Microsoft.ML.Trainers.LightGbm' + chessQuiet())
 		chdir(cHere)
 	ok
 	for cDll in ["Microsoft.ML.Data","Microsoft.ML.Core","Microsoft.ML.StandardTrainers","Microsoft.ML.Transforms","Microsoft.ML.DataView","Microsoft.ML.CpuMath","Microsoft.ML.FastTree","Microsoft.ML.LightGbm"]
 		dnLoad(cLibs + "/" + cDll + ".dll")
 	next
-	dnImportFrom(cClasses + "/","Microsoft.ML")
-	dnImportFrom(cClasses + "/","Microsoft.ML.Data")
-	dnImportFrom(cClasses + "/","Microsoft.ML.Trainers")
+	for cNamespace in ["Microsoft.ML","Microsoft.ML.Data","Microsoft.ML.Transforms","Microsoft.ML.Trainers","Microsoft.ML.Trainers.FastTree","Microsoft.ML.Trainers.LightGbm"]
+		dnImportFrom(cClasses + "/",cNamespace)
+	next
 
 func chessQuiet
 
@@ -46,7 +51,7 @@ func chessQuiet
 # A context: the seed makes the random choices of the trainers the same each time (the trainers that use several threads still vary a little)
 func chessContext nSeed
 
-	return dnNew("Microsoft.ML.MLContext",[nSeed])
+	return new MLContext().@New([ :seed = nSeed ])
 
 # ---------------------------------------------------------------- the data
 
@@ -232,16 +237,16 @@ func chessColumns
 	aColumns = []
 	nPlace = 0
 	for cName in chessColumnNames()
-		aColumns + dnNew("Microsoft.ML.Data.TextLoader+Column",[cName,"Single",nPlace])
+		aColumns + new TextLoaderColumn().@New([ :name = cName, :dataKind = "Single", :index = nPlace ])
 		nPlace++
 	next
-	aColumns + dnNew("Microsoft.ML.Data.TextLoader+Column",["GameResult","String",nPlace])
+	aColumns + new TextLoaderColumn().@New([ :name = "GameResult", :dataKind = "String", :index = nPlace ])
 	return aColumns
 
 # A file of the example as a data view
 func chessLoad oMl, cFile
 
-	return oMl.Data.callMethod("LoadFromTextFile",[cFile,chessColumns(),",",1])
+	return oMl.Data.LoadFromTextFile([ :path = cFile, :columns = chessColumns(), :separatorChar = ",", :hasHeader = true ])
 
 # A column of a data view as a Ring list
 func chessColumn oData, cType, cName
@@ -295,12 +300,12 @@ func chessFeaturePipeline oMl, cSet
 	oChain = ""
 	switch cSet
 	on "squares"
-		return oMl.Transforms.callMethod("Concatenate",["Features",["WhiteKingFile","WhiteKingRank","WhiteRookFile","WhiteRookRank","BlackKingFile","BlackKingRank"]])
+		return oMl.Transforms.Concatenate("Features",["WhiteKingFile","WhiteKingRank","WhiteRookFile","WhiteRookRank","BlackKingFile","BlackKingRank"])
 	on "onehot"
 		aNames = ["WhiteKingFile","WhiteKingRank","WhiteRookFile","WhiteRookRank","BlackKingFile","BlackKingRank"]
 		aHot = []
 		for cName in aNames
-			oOne = oMl.Transforms.Categorical.callMethod("OneHotEncoding",[cName + "Hot",cName])
+			oOne = oMl.Transforms.Categorical.OneHotEncoding([ :outputColumnName = cName + "Hot", :inputColumnName = cName ])
 			if isstring(oChain)
 				oChain = oOne
 			else
@@ -308,9 +313,9 @@ func chessFeaturePipeline oMl, cSet
 			ok
 			aHot + (cName + "Hot")
 		next
-		return oChain.callMethod("Append",[oMl.Transforms.callMethod("Concatenate",["Features",aHot])])
+		return oChain.callMethod("Append",[oMl.Transforms.Concatenate("Features",aHot)])
 	off
-	return oMl.Transforms.callMethod("Concatenate",["Features",chessColumnNames()])
+	return oMl.Transforms.Concatenate("Features",chessColumnNames())
 
 # The trainer of an algorithm (the label is the key of the result, the features are in the column Features). The binary trainers are made into trainers of many classes
 # with OneVersusAll: one model for each result, and the model with the highest score answers.
@@ -318,44 +323,47 @@ func chessTrainer oMl, cKey
 
 	oBinary = oMl.BinaryClassification.Trainers
 	oMulti = oMl.MulticlassClassification.Trainers
+	aColumns = [ :labelColumnName = "Label", :featureColumnName = "Features" ]          # the arguments that the methods have names for: a call with names finds the overload
 	switch cKey
 	on "logistic"
-		return oMulti.callMethod("SdcaMaximumEntropy",["Label","Features"])
+		return oMulti.SdcaMaximumEntropy(aColumns)
 	on "lbfgs"
-		return oMulti.callMethod("LbfgsMaximumEntropy",["Label","Features"])
+		return oMulti.LbfgsMaximumEntropy(aColumns)
 	on "sdca"
-		return oMulti.callMethod("SdcaNonCalibrated",["Label","Features"])
+		return oMulti.SdcaNonCalibrated(aColumns)
 	on "naive"
-		return oMulti.callMethod("NaiveBayes",["Label","Features"])
+		return oMulti.NaiveBayes(aColumns)
 	on "perceptron"
-		return oMulti.callMethod("OneVersusAll",[oBinary.callMethod("AveragedPerceptron",["Label","Features"]),"Label"])
+		return oMulti.OneVersusAll([ :binaryEstimator = oBinary.AveragedPerceptron(aColumns), :labelColumnName = "Label" ])
 	on "svm"
-		return oMulti.callMethod("OneVersusAll",[oBinary.callMethod("LinearSvm",["Label","Features"]),"Label"])
+		return oMulti.OneVersusAll([ :binaryEstimator = oBinary.LinearSvm(aColumns), :labelColumnName = "Label" ])
 	on "forest-tuned"
 		# trees with more leaves that may hold two positions: 200 trees of 200 leaves
-		return oMulti.callMethod("OneVersusAll",[oBinary.callMethod("FastForest",["Label","Features",dnNull(),200,200,2]),"Label"])
+		return oMulti.OneVersusAll([ :binaryEstimator = oBinary.FastForest([ :labelColumnName = "Label", :featureColumnName = "Features", :numberOfLeaves = 200, :numberOfTrees = 200, :minimumExampleCountPerLeaf = 2 ]), :labelColumnName = "Label" ])
 	on "fasttree-tuned"
 		# the number of leaves, the number of trees, the least positions of a leaf and the learning rate
-		return oMulti.callMethod("OneVersusAll",[oBinary.callMethod("FastTree",["Label","Features",dnNull(),127,200,2,0.15]),"Label"])
+		return oMulti.OneVersusAll([ :binaryEstimator = oBinary.FastTree([ :labelColumnName = "Label", :featureColumnName = "Features", :numberOfLeaves = 127, :numberOfTrees = 200, :minimumExampleCountPerLeaf = 2, :learningRate = 0.15 ]), :labelColumnName = "Label" ])
 	on "lightgbm-tuned"
 		# the options of LightGBM are an object: 127 leaves, 300 rounds of trees, a learning rate of 0.1, and leaves that may hold two positions
-		oOptions = dnNew("Microsoft.ML.Trainers.LightGbm.LightGbmMulticlassTrainer+Options",[])
-		oOptions.setProp("LabelColumnName","Label")
-		oOptions.setProp("FeatureColumnName","Features")
-		oOptions.setProp("NumberOfLeaves",127)
-		oOptions.setProp("NumberOfIterations",300)
-		oOptions.setProp("LearningRate",0.1)
-		oOptions.setProp("MinimumExampleCountPerLeaf",2)
-		return oMulti.callMethod("LightGbm",[oOptions])
+		oOptions = new LightGbmMulticlassTrainerOptions()
+		oOptions {
+			LabelColumnName = "Label"
+			FeatureColumnName = "Features"
+			NumberOfLeaves = 127
+			NumberOfIterations = 300
+			LearningRate = 0.1
+			MinimumExampleCountPerLeaf = 2
+		}
+		return oMulti.LightGbm(oOptions)
 	on "tree"
 		# a single decision tree for each result: a forest of one tree, with many leaves
-		return oMulti.callMethod("OneVersusAll",[oBinary.callMethod("FastForest",["Label","Features",dnNull(),200,1,2]),"Label"])
+		return oMulti.OneVersusAll([ :binaryEstimator = oBinary.FastForest([ :labelColumnName = "Label", :featureColumnName = "Features", :numberOfLeaves = 200, :numberOfTrees = 1, :minimumExampleCountPerLeaf = 2 ]), :labelColumnName = "Label" ])
 	on "forest"
-		return oMulti.callMethod("OneVersusAll",[oBinary.callMethod("FastForest",["Label","Features"]),"Label"])
+		return oMulti.OneVersusAll([ :binaryEstimator = oBinary.FastForest(aColumns), :labelColumnName = "Label" ])
 	on "fasttree"
-		return oMulti.callMethod("OneVersusAll",[oBinary.callMethod("FastTree",["Label","Features"]),"Label"])
+		return oMulti.OneVersusAll([ :binaryEstimator = oBinary.FastTree(aColumns), :labelColumnName = "Label" ])
 	on "lightgbm"
-		return oMulti.callMethod("LightGbm",["Label","Features"])
+		return oMulti.LightGbm(aColumns)
 	off
 	raise("The algorithm is not known: " + cKey)
 
@@ -392,10 +400,10 @@ func chessModelFile aAlgorithm
 # The whole pipeline of an algorithm: the label as a key, the features, the trainer, and the key of the answer as the text of the result
 func chessPipeline oMl, aAlgorithm
 
-	oPipeline = oMl.Transforms.Conversion.callMethod("MapValueToKey",["Label","GameResult"])
+	oPipeline = oMl.Transforms.Conversion.MapValueToKey([ :outputColumnName = "Label", :inputColumnName = "GameResult" ])
 	oPipeline = oPipeline.callMethod("Append",[chessFeaturePipeline(oMl,aAlgorithm[3])])
 	oPipeline = oPipeline.callMethod("Append",[chessTrainer(oMl,aAlgorithm[1])])
-	return oPipeline.callMethod("Append",[oMl.Transforms.Conversion.callMethod("MapKeyToValue",["PredictedResult","PredictedLabel"])])
+	return oPipeline.callMethod("Append",[oMl.Transforms.Conversion.MapKeyToValue([ :outputColumnName = "PredictedResult", :inputColumnName = "PredictedLabel" ])])
 
 # ---------------------------------------------------------------- training and answers
 
@@ -417,13 +425,13 @@ func chessTrainAll oMl, lQuick, cEach
 	for nAlgorithm = 1 to nAlgorithms
 		aAlgorithm = aAlgorithms[nAlgorithm]
 		nStart = clock()
-		oModel = chessPipeline(oMl,aAlgorithm).callMethod("Fit",[oTrain])
+		oModel = chessPipeline(oMl,aAlgorithm).Fit(oTrain)
 		nSeconds = (clock() - nStart) / clockspersecond()
 		# the test: the model answers for the test positions, and the answers are compared with the real results
 		aPredicted = chessColumn(oModel.Transform(oTest),"System.String","PredictedResult")
 		aAccuracy = chessAccuracy(aActual,aPredicted)
 		# the model is saved with the schema of the data that trained it
-		oMl.Model.callMethod("Save",[oModel,oTrain.getProp("Schema"),currentdir() + "/" + chessModelFile(aAlgorithm)])
+		oMl.Model.Save(oModel,oTrain.Schema,currentdir() + "/" + chessModelFile(aAlgorithm))
 		aResults + [aAccuracy[1],aAccuracy[2],aAlgorithm,nSeconds]
 		if cEach != ""
 			call cEach(nAlgorithm,nAlgorithms,aAlgorithm,aAccuracy[1],aAccuracy[2],nSeconds)
@@ -474,7 +482,7 @@ func chessModels
 # A saved model: the model of the file models/<key>_<features>.zip
 func chessLoadModel oMl, aModel
 
-	return oMl.Model.callMethod("Load",[currentdir() + "/models/" + aModel[1] + "_" + aModel[3] + ".zip"])[1]
+	return oMl.Model.callMethod("Load",[currentdir() + "/models/" + aModel[1] + "_" + aModel[3] + ".zip"])[1]          # Load is a keyword of Ring
 
 # The answer of a model for one position (the squares as file and rank numbers 1 to 8): the word of the result. The position is turned to the way of the data first
 # (chessFeatures), and written as the only line of data/positions.csv, which the model reads.

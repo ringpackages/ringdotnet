@@ -59,27 +59,27 @@ The data gives the six squares: the file and the rank of each piece. `chessFeatu
 
 ## The algorithms
 
-ML.NET has algorithms for many classes (`MulticlassClassification.Trainers`), and binary algorithms that `OneVersusAll` turns into algorithms for many classes: it trains one model for each result, and the model with the highest score answers. Each trainer is one call, and the rest of the pipeline is the same:
+ML.NET has algorithms for many classes (`MulticlassClassification.Trainers`), and binary algorithms that `OneVersusAll` turns into algorithms for many classes: it trains one model for each result, and the model with the highest score answers. Each trainer is one call, and the rest of the pipeline is the same. The methods of ML.NET have many overloads with optional arguments, so the calls give their arguments by name (`[ :labelColumnName = "Label", ... ]`): the name finds the overload. `Append` is a generic method that the bridge does not call with the dot yet, so the pipeline is joined with `callMethod("Append",[...])`.
 
 ```ring
-oPipeline = oMl.Transforms.Conversion.callMethod("MapValueToKey",["Label","GameResult"])      # the result as a key
-oPipeline = oPipeline.callMethod("Append",[chessFeaturePipeline(oMl,"engineered")])             # the features
-oPipeline = oPipeline.callMethod("Append",[oMl.MulticlassClassification.Trainers.callMethod("LightGbm",["Label","Features"])])
-oPipeline = oPipeline.callMethod("Append",[oMl.Transforms.Conversion.callMethod("MapKeyToValue",["PredictedResult","PredictedLabel"])])   # the answer as the word
+oPipeline = oMl.Transforms.Conversion.MapValueToKey([ :outputColumnName = "Label", :inputColumnName = "GameResult" ])          # the result as a key
+oPipeline = oPipeline.callMethod("Append",[chessFeaturePipeline(oMl,"engineered")])                                           # the features
+oPipeline = oPipeline.callMethod("Append",[oMl.MulticlassClassification.Trainers.LightGbm([ :labelColumnName = "Label", :featureColumnName = "Features" ])])
+oPipeline = oPipeline.callMethod("Append",[oMl.Transforms.Conversion.MapKeyToValue([ :outputColumnName = "PredictedResult", :inputColumnName = "PredictedLabel" ])])   # the answer as the word
 
-oModel = oPipeline.callMethod("Fit",[oTrain])                                                    # learn from the training positions
+oModel = oPipeline.Fit(oTrain)                                                                   # learn from the training positions
 aPredicted = chessColumn(oModel.Transform(oTest),"System.String","PredictedResult")             # answer for the test positions
 ```
 
-Some algorithms have a "tuned" version with settings that are not the defaults: trees with more leaves that may hold two positions, and more of them. LightGBM takes its options as an object (`LightGbmMulticlassTrainer+Options`), which Ring makes with `dnNew()` and fills with `setProp()`:
+Some algorithms have a "tuned" version with settings that are not the defaults: trees with more leaves that may hold two positions, and more of them. LightGBM takes its options as an object (the class `LightGbmMulticlassTrainer+Options` of .NET is `LightGbmMulticlassTrainerOptions` in Ring), whose properties are set like those of any object:
 
 ```ring
-oOptions = dnNew("Microsoft.ML.Trainers.LightGbm.LightGbmMulticlassTrainer+Options",[])
-oOptions.setProp("NumberOfLeaves",127)
-oOptions.setProp("NumberOfIterations",300)
-oOptions.setProp("LearningRate",0.1)
-oOptions.setProp("MinimumExampleCountPerLeaf",2)
-oTrainer = oMl.MulticlassClassification.Trainers.callMethod("LightGbm",[oOptions])
+oOptions = new LightGbmMulticlassTrainerOptions()
+oOptions.NumberOfLeaves = 127
+oOptions.NumberOfIterations = 300
+oOptions.LearningRate = 0.1
+oOptions.MinimumExampleCountPerLeaf = 2
+oTrainer = oMl.MulticlassClassification.Trainers.LightGbm(oOptions)
 ```
 
 These are the results of `ring train.ring` (the accuracy is the share of the 8,417 test positions whose result is exactly right; "within 1" also accepts a win that is one move off):
@@ -116,7 +116,7 @@ What the numbers show:
 Each model is saved with the schema of the data that trained it. A model file has the whole pipeline in it: the features, the trainer, and the answer as a word.
 
 ```ring
-oMl.Model.callMethod("Save",[oModel,oTrain.getProp("Schema"),currentdir() + "/models/lightgbm_engineered.zip"])
+oMl.Model.Save(oModel,oTrain.Schema,currentdir() + "/models/lightgbm_engineered.zip")
 ```
 
 `evaluate.ring` and `predict.ring` start from the files. `Load` answers a list: the model, and the schema that was saved with it.

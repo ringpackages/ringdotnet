@@ -3,6 +3,10 @@
 
 		ring wrapassembly.ring <assembly.dll> <output folder> [namespace ...]
 
+	Several assemblies that belong together (Microsoft.ML and its trainers) are wrapped in one run when their paths are joined with ";": the namespaces
+	are the ones of all of them, and the extension methods of an assembly (LightGbm of Microsoft.ML.LightGbm) join the classes of the others
+	(the trainers catalog of Microsoft.ML.Data).
+
 	Then in your program:
 
 		load "dotnet.ring"
@@ -29,16 +33,29 @@ func main
 	if not direxists(sysargv[4])
 		makedir(sysargv[4])
 	ok
-	cAssembly = dnLoad(cDll)
+	aAssemblies = []
+	for cOne in str2list(substr(cDll,";",nl))
+		aAssemblies + dnLoad(cOne)
+	next
+	cAssembly = aAssemblies[1]
 	aWanted = []
 	for x = 5 to len(sysargv)
 		aWanted + sysargv[x]
 	next
-	aNamespaces = dnRequest("listnamespaces",[cAssembly])
-	for cNamespace in aNamespaces
-		aDotNetManifest + [ :namespace = cNamespace, :assemblies = [cAssembly], :all = true ]
+	aNamespaces = []
+	for cOneAssembly in aAssemblies
+		for cNamespace in dnRequest("listnamespaces",[cOneAssembly])
+			if find(aNamespaces,cNamespace) = 0
+				aNamespaces + cNamespace
+			ok
+		next
 	next
-	? "Assembly " + cAssembly
+	for cNamespace in aNamespaces
+		aDotNetManifest + [ :namespace = cNamespace, :assemblies = aAssemblies, :all = true ]
+	next
+	for cOneAssembly in aAssemblies
+		? "Assembly " + cOneAssembly
+	next
 	reserveLibraryNames()
 	genAll(aWanted)
 	for aRename in aRenamed

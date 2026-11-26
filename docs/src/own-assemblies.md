@@ -100,11 +100,11 @@ oTable.AddColumn("Name")            # TableExtensions.AddColumn(oTable, "Name")
 oTable.AddRow(["Ann","31"])
 ```
 
-The classes that implement an interface get the extension methods of the interface. `wrapassembly.ring` wraps one assembly at a time, so the extension methods of a type of **another** assembly (a sink of Serilog that extends a class of Serilog itself), and of a type that has no class (a generic type, `string`), are static calls (`new StringHumanizeExtensions().Humanize("PascalCaseText")`) or a `callMethod` on the object (`oNode.callMethod("QuerySelectorAll",["li"])`, the selectors of Fizzler on a node of HtmlAgilityPack).
+The classes that implement an interface get the extension methods of the interface. `wrapassembly.ring` wraps the assemblies of one run (join the paths with `;` for assemblies that belong together, as ML.NET and its trainers do: `Microsoft.ML.Data.dll;Microsoft.ML.LightGbm.dll`), so the extension methods of a type of **another** assembly that is not in the run (a sink of Serilog that extends a class of Serilog itself), and of a type that has no class (a generic type, `string`), are static calls (`new StringHumanizeExtensions().Humanize("PascalCaseText")`) or a `callMethod` on the object (`oNode.callMethod("QuerySelectorAll",["li"])`, the selectors of Fizzler on a node of HtmlAgilityPack).
 
 ## Which namespaces to wrap
 
-`wrapassembly.ring <dll> <folder> [namespace ...]` wraps only the namespaces you list. Without names, every namespace of the assembly is wrapped.
+`wrapassembly.ring <dll> <folder> [namespace ...]` wraps only the namespaces you list (`<dll>` can be several paths joined with `;`). Without names, every namespace of the assembly is wrapped.
 
 Several assemblies can go into one folder (the index of the classes keeps the types of all of them when each one is wrapped without names), or each one into a folder of its own, as the project lesson does for its three packages. An object that comes back from a namespace that was not imported is wrapped when the folder has the index: its namespace is loaded from that folder.
 
