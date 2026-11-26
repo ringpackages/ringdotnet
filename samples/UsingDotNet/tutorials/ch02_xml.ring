@@ -38,8 +38,7 @@ func main
 	? "   the title of book 3: " + oXml.SelectSingleNode("//book[@id='3']/title").InnerText
 
 	# 4. Build a new document from scratch. An element is made with a name and, if you like, content.
-	oNew = new XElement
-	oNew.@New([ :name = "book" ])
+	oNew = (new XElement).@New([ :name = "book" ])
 	oNew.SetAttributeValue("id","4")
 	oNew.SetAttributeValue("year","1951")
 	oNew.Add(new XElement("title","Foundation"))
