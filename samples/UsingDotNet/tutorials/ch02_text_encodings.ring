@@ -83,7 +83,8 @@ func main
 # does the text of bytes decode without a replacement as UTF-8? (the strict encoding raises an error for bad bytes)
 func isValidUtf8 cBytes
 
-	oStrict = dnNew("UTF8Encoding",[ False, True ])
+	oStrict = new UTF8Encoding
+	oStrict.@New([ :encoderShouldEmitUTF8Identifier = False, :throwOnInvalidBytes = True ])
 	try
 		oStrict.GetString(cBytes)
 		return True
