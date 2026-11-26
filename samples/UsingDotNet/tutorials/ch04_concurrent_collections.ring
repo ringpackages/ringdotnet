@@ -28,7 +28,7 @@ func main
 
 	# 2. ConcurrentStack: last in, first out. This closed generic type has no Ring class, so the objects of dnNewGeneric are
 	#    used in the plain style: callMethod(name, [arguments]) and getProp(name).
-	oStack = dnNewGeneric("System.Collections.Concurrent.ConcurrentStack",[cInt],[])
+	oStack = new ConcurrentStack([ :typeArguments = [cInt] ])
 	for n = 1 to 3
 		oStack.callMethod("Push",[n])
 	next
@@ -38,7 +38,7 @@ func main
 
 	# 3. BlockingCollection: a queue for a producer and a consumer. Take waits while the queue is empty; CompleteAdding says
 	#    that nothing more will come, and then IsCompleted becomes true when the queue is empty.
-	oBlocking = dnNewGeneric("System.Collections.Concurrent.BlockingCollection",[cInt],[])
+	oBlocking = new BlockingCollection([ :typeArguments = [cInt] ])
 	for n = 1 to 5
 		oBlocking.callMethod("Add",[n * n])
 	next
@@ -50,11 +50,11 @@ func main
 	? nl + "3. blocking collection, taken in order: " + cTaken
 
 	# 4. A bounded queue holds at most N items: Add waits when it is full, TryAdd answers at once
-	oSmall = dnNewGeneric("System.Collections.Concurrent.BlockingCollection",[cInt],[2])
+	oSmall = new BlockingCollection([ :typeArguments = [cInt], :boundedCapacity = 2 ])
 	? nl + "4. bounded to 2: TryAdd gives " + oSmall.callMethod("TryAdd",[10]) + ", " + oSmall.callMethod("TryAdd",[20]) + ", " + oSmall.callMethod("TryAdd",[30]) + " (the third does not fit)"
 
 	# 5. ConcurrentDictionary: TryAdd, TryUpdate (key, new value, the value we expect) and TryRemove
-	oCount = dnNewGeneric("System.Collections.Concurrent.ConcurrentDictionary",[cText,cInt],[])
+	oCount = new ConcurrentDictionary([ :typeArguments = [cText,cInt] ])
 	for cWord in ["red","green","red","blue","red","green"]
 		oCount.callMethod("TryAdd",[cWord,0])          # does nothing when the key exists
 		nOld = oCount.callMethod("get_Item",[cWord])
