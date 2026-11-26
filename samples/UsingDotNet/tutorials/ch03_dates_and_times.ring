@@ -62,4 +62,6 @@ func makeDate nYear,nMonth,nDay
 
 func makeDateTime nYear,nMonth,nDay,nHour,nMinute
 
-	return dnNew("DateTime",[ :year = nYear, :month = nMonth, :day = nDay, :hour = nHour, :minute = nMinute, :second = 0 ])
+	oDateTime = new DateTime
+	oDateTime.@New([ :year = nYear, :month = nMonth, :day = nDay, :hour = nHour, :minute = nMinute, :second = 0 ])
+	return oDateTime
