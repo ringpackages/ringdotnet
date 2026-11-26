@@ -55,7 +55,7 @@ func sqliteWorks
 func aspNetInstalled
 
 	try
-		cRuntime = dnStatic("System.Runtime.InteropServices.RuntimeEnvironment","GetRuntimeDirectory",[])
+		cRuntime = new RuntimeEnvironment().GetRuntimeDirectory()
 		# ...\shared\Microsoft.NETCore.App\9.0.15\ : two folders up is "shared", the folder of all the shared runtimes
 		oShared = new Directory().GetParent(cRuntime).Parent.Parent
 		return new Directory().Exists(new Path().Combine([oShared.FullName,"Microsoft.AspNetCore.App"]))
