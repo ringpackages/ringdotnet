@@ -2,13 +2,13 @@
 load "dotnet.ring"
 
 using {
+	"Microsoft.Net.Http.Headers"
 	"Microsoft.AspNetCore.StaticFiles"
 	"System"
 	"System.Net.Mime"
 	"RingDotNet.Web"                  # the content type classes of ASP.NET Core are part of its runtime: this line starts it
 }
 
-cHeaders = "Microsoft.Net.Http.Headers."
 
 func main
 
@@ -30,7 +30,7 @@ func main
 	# 3. Reading a Content-Type header: the type, the subtype and the parameters (the charset says how text is encoded)
 	oContentType = (new ContentType).@New("text/html; charset=utf-8")
 	? nl + "3. text/html; charset=utf-8  ->  media type: " + oContentType.MediaType + ", charset: " + oContentType.CharSet
-	oSplit = dnStatic(cHeaders + "MediaTypeHeaderValue","Parse",["application/json; charset=utf-8; q=0.9"])
+	oSplit = (new AspMediaTypeHeaderValue).Parse("application/json; charset=utf-8; q=0.9")
 	? "   with the headers library: type " + oSplit.Type.toString() + ", subtype " + oSplit.SubType.toString() + ", quality " + oSplit.Quality
 
 	# 4. The Accept header lists what the client understands, with a QUALITY (q) from 0 to 1 for each: the higher, the better. */* means
@@ -67,7 +67,7 @@ func parseAccept cAccept
 	aItems = []
 	aParts = str2list(substr(cAccept,",",nl))
 	for cPart in aParts
-		oValue = dnStatic(cHeaders + "MediaTypeHeaderValue","Parse",[trim(cPart)])
+		oValue = (new AspMediaTypeHeaderValue).Parse(trim(cPart))
 		nQuality = oValue.Quality
 		if isObject(nQuality)
 			nQuality = 1                                        # no q parameter: quality 1
