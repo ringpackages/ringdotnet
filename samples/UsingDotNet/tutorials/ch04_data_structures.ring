@@ -18,8 +18,8 @@ func main
 	oTasks.Enqueue("fix the server",1)
 	oTasks.Enqueue("answer the mail",5)
 	oTasks.Enqueue("call the customer",2)
-	? "1. " + oTasks.getProp("Count") + " tasks, most urgent first:"
-	while oTasks.getProp("Count") > 0
+	? "1. " + oTasks.Count + " tasks, most urgent first:"
+	while oTasks.Count > 0
 		? "   " + oTasks.Dequeue()
 	end
 
@@ -28,7 +28,7 @@ func main
 	for n in [42,7,19,7,3,42,100]
 		oSet.Add(n)
 	next
-	? nl + "2. sorted set of 7 numbers with duplicates: " + oSet.getProp("Count") + " kept, from " + oSet.getProp("Min") + " to " + oSet.getProp("Max")
+	? nl + "2. sorted set of 7 numbers with duplicates: " + oSet.Count + " kept, from " + oSet.Min + " to " + oSet.Max
 	? "   in order: " + list2str2(oSet.toList())
 	? "   Contains(19): " + oSet.Contains(19) + ", Contains(20): " + oSet.Contains(20)
 
@@ -38,7 +38,7 @@ func main
 		oDict.Add(cName,len(cName))
 	next
 	cKeys = ""
-	aKeys = oDict.getProp("Keys").toList()
+	aKeys = oDict.Keys.toList()
 	for cKey in aKeys
 		cKeys += cKey + " "
 	next
@@ -51,7 +51,7 @@ func main
 	oList.AddFirst("a")
 	oNodeB = oList.First.getProp("Next")
 	oList.AddAfter(oNodeB,"b2")
-	? nl + "4. linked list: " + list2str2(oList.toList()) + " (first = " + oList.First.getProp("Value") + ", last = " + oList.Last.getProp("Value") + ")"
+	? nl + "4. linked list: " + list2str2(oList.toList()) + " (first = " + oList.First.Value + ", last = " + oList.Last.Value + ")"
 	oList.Remove("b")
 	? "   after Remove(b): " + list2str2(oList.toList())
 
