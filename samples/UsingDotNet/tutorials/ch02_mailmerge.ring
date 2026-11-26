@@ -63,7 +63,8 @@ func main
 func fieldNames cTemplate
 
 	aNames = []
-	aMatches = dnStatic("System.Text.RegularExpressions.Regex","Matches",[ cTemplate, cPattern() ]).toList()
+	oRegex = new Regex
+	aMatches = oRegex.Matches([ :input = cTemplate, :pattern = cPattern() ]).toList()
 	for oMatch in aMatches
 		aNames + oMatch.Groups.Item(1).Value
 	next
@@ -78,7 +79,8 @@ func cPattern
 func merge cTemplate,aRow
 
 	aFields = aRow
-	return dnStatic("System.Text.RegularExpressions.Regex","Replace",[ cTemplate, cPattern(), dnCallback("replaceField") ])
+	oRegex = new Regex
+	return oRegex.Replace([ :input = cTemplate, :pattern = cPattern(), :evaluator = dnCallback("replaceField") ])
 
 # The callback. A callback that is the NAME of a function gets the arguments as a list: aArgs[1] is the Match. Group 1 is the name of the
 # field and group 2 the format (empty when there is none). The text that the function RETURNS replaces the field in the letter.
@@ -102,7 +104,8 @@ func formatValue cValue,cFormat
 
 	oInvariant = new CultureInfo("en-US").InvariantCulture
 	if isDate(cValue)
-		oDate = dnStatic("System.DateTime","Parse",[ cValue, oInvariant ])
+		oDateTime = new DateTime
+		oDate = oDateTime.Parse([ :s = cValue, :provider = oInvariant ])
 		return oDate.Format([ :format = cFormat, :provider = oInvariant ])
 	ok
 	return new String().Format([ :provider = oInvariant, :format = "{0:" + cFormat + "}", :arg0 = 0 + cValue ])
