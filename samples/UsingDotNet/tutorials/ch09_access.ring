@@ -123,8 +123,7 @@ func main
 func driverInstalled cDriver
 
 	try
-		oRegistry = new Registry
-		oMachine = oRegistry.LocalMachine
+		oMachine = (new Registry).LocalMachine
 		oKey = oMachine.OpenSubKey("SOFTWARE\ODBC\ODBCINST.INI\ODBC Drivers")
 		if oKey.isNull()
 			return false
