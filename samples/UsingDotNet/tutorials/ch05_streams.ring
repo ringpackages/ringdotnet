@@ -32,7 +32,8 @@ func main
 	next
 	aBytes = oUtf8.GetBytes(cText)
 	oPacked = new MemoryStream()
-	oGzip = dnNew("GZipStream",[ :stream = oPacked, :mode = "Compress", :leaveOpen = True ])   # leaveOpen: keep the inner stream usable
+	oGzip = new GZipStream
+	oGzip.@New([ :stream = oPacked, :mode = "Compress", :leaveOpen = True ])  # leaveOpen: keep the inner stream usable
 	oGzipWriter = new StreamWriter(oGzip)
 	oGzipWriter.Write(cText)
 	oGzipWriter.Dispose()                             # Dispose finishes the compressed data: without it the result is incomplete
