@@ -4,6 +4,7 @@ load "dotnet.ring"
 using {
 	"System.Collections.Generic"
 	"System.Collections.ObjectModel"
+	"System.Collections.Specialized"
 }
 
 # Callback code can only see global variables
@@ -36,7 +37,7 @@ func main
 
 	# 5. An EVENT: .NET calls your code when something happens
 	oList = new ObservableStringList()
-	oList.setCollectionChangedEvent("nChanges++ ? '   event ' + nChanges + ': ' + aDotNetArgs[2].getProp('Action')")
+	oList.setCollectionChangedEvent("nChanges++ ? '   event ' + nChanges + ': ' + aDotNetArgs[2].Action")
 	? nl + "5. Changing an observable list:"
 	oList.Add("one")
 	oList.Add("two")
