@@ -111,4 +111,11 @@ oObs.Add(1)  oObs.Add("two")
 dnAssert("ObservableCollection events",nAdded,2)
 dnAssert("ObservableCollection.Count",oObs.Count,2)
 
+# the event arguments are an object of their own class: the action and the items
+cActions = ""
+oAction = new ObservableObjectList()
+oAction.setCollectionChangedEvent("cActions += aDotNetArgs[2].Action + ' ' + aDotNetArgs[2].NewItems.Count + ';'")
+oAction.Add("a")
+dnAssert("the event arguments have their class",cActions,"Add 1;")
+
 nFail = dnTestSummary()
