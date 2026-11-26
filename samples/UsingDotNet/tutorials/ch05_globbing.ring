@@ -18,22 +18,22 @@ func main
 
 	# 1. A Matcher has include rules and exclude rules. A file is in the result when an include rule matches it and no exclude rule does.
 	oMatcher = new Matcher()
-	oMatcher.callMethod("AddInclude",["**/*.ring"])
+	oMatcher.AddInclude("**/*.ring")
 	? "1. **/*.ring :"
 	showFiles(oMatcher,cBase)
 
 	# 2. Exclude: everything under "tests" and every file whose name starts with "old_" is left out
 	oMatcher2 = new Matcher()
-	oMatcher2.callMethod("AddInclude",["**/*.ring"])
-	oMatcher2.callMethod("AddExclude",["tests/**"])
-	oMatcher2.callMethod("AddExclude",["**/old_*"])
+	oMatcher2.AddInclude("**/*.ring")
+	oMatcher2.AddExclude("tests/**")
+	oMatcher2.AddExclude("**/old_*")
 	? nl + "2. **/*.ring without tests/** and old_* :"
 	showFiles(oMatcher2,cBase)
 
 	# 3. Several include rules at once: the code and the documents
 	oMatcher3 = new Matcher()
-	oMatcher3.callMethod("AddInclude",["src/*.ring"])
-	oMatcher3.callMethod("AddInclude",["docs/**/*.md"])
+	oMatcher3.AddInclude("src/*.ring")
+	oMatcher3.AddInclude("docs/**/*.md")
 	? nl + "3. src/*.ring (one folder only) and docs/**/*.md :"
 	showFiles(oMatcher3,cBase)
 
@@ -49,7 +49,7 @@ func main
 
 	# 5. By default a Matcher ignores case (OrdinalIgnoreCase). The constructor takes a StringComparison: with Ordinal, case counts.
 	oStrict = (new Matcher).@New([ :comparisonType = "Ordinal" ])
-	oStrict.callMethod("AddInclude",["**/*.RING"])
+	oStrict.AddInclude("**/*.RING")
 	oResultStrict = oStrict.Match([ :rootDir = ".", :files = ["a.ring","b.RING"] ])
 	? nl + "5. with Ordinal comparison, **/*.RING matches only: " + oResultStrict.getProp("Files").toList()[1].getProp("Path")
 
