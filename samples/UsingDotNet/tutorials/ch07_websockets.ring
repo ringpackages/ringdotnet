@@ -35,12 +35,12 @@ func main
 	oConnect = oClient.ConnectAsync([ :uri = new Uri("ws://localhost:" + nPort + "/chat"), :cancellationToken = oToken ])
 	oContextTask = oListener.GetContextAsync()
 	oContextTask.Wait(NULL)
-	oContext = oContextTask.getProp("Result")
+	oContext = oContextTask.Result
 	? nl + "2. a request arrived for " + oContext.Request.Url.AbsolutePath + ", it is a WebSocket request: " + yesNo(oContext.Request.IsWebSocketRequest)
 	oAccept = oContext.AcceptWebSocketAsync(dnNull())                  # (no sub protocol)
 	oAccept.Wait(NULL)
 	oConnect.Wait(NULL)
-	oServer = oAccept.getProp("Result").WebSocket
+	oServer = oAccept.Result.WebSocket
 	? "   client state: " + oClient.State + ", server state: " + oServer.State
 
 	# 3. Text messages. The client sends, the server receives and answers, the client receives the answer.
@@ -115,7 +115,7 @@ func receive oSocket,nSize
 	oSegment = new ArraySegment([ :typeArguments = ["System.Byte"], :array = oBuffer ])
 	oTask = oSocket.ReceiveAsync(oSegment,oToken)
 	oTask.Wait(NULL)
-	oResult = oTask.getProp("Result")
+	oResult = oTask.Result
 	return [ dnBufferBytes(oBuffer,oResult.Count), "" + oResult.MessageType, oResult.EndOfMessage ]
 
 func receiveText oSocket
