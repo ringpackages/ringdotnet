@@ -46,7 +46,7 @@ func main
 	? "2. the size of the code for " + cText + " (modules on a side, with the empty border):"
 	for cLevel in ["L","M","Q","H"]
 		oSized = oGenerator.CreateQrCode([ :plainText = cText, :eccLevel = cLevel ])
-		? "   level " + cLevel + ": " + oSized.ModuleMatrix.getProp("Count")
+		? "   level " + cLevel + ": " + oSized.ModuleMatrix.Count
 	next
 
 	# 3. A picture: PngByteQRCode gives the bytes of a PNG file, and a byte[] that .NET returns is a Ring text
