@@ -58,7 +58,7 @@ func main
 	# STEP 4. The other direction: a team with its players
 	aTeams = oDb.query("Teams",[ ["include",["Players"]] ])
 	for oTeam in aTeams
-		? nl + "STEP 4: team " + oTeam.getProp("Name") + " has " + oTeam.getProp("Players").getProp("Count") + " players"
+		? nl + "STEP 4: team " + oTeam.getProp("Name") + " has " + oTeam.getProp("Players").Count + " players"
 	next
 
 	# STEP 5. Remove an object
