@@ -69,7 +69,7 @@ func main
 		oDoc.Add([ :key = "product", :value = oCsv.GetField("product") ])
 		oDoc.Add([ :key = "units", :value = number(oCsv.GetField("units")) ])
 		oDoc.Add([ :key = "price", :value = number(oCsv.GetField("price")) ])
-		oSales.callMethod("Insert",[ oDoc ])
+		oSales.Insert(oDoc)
 		nRows++
 	end
 	oText.Dispose()
