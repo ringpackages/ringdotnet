@@ -1,12 +1,9 @@
 # ML.NET: more regression trainers (ordinary least squares with the native MKL library, online gradient descent, Poisson regression, tweedie, additive models, gradient boosted
 # trees), and the tools around them: a split into a train set and a test set, cross validation, and the importance of each feature; the data is a CSV file with three features
-load "pkg.ring"
-pkgUseProject("mlnet","helpers/MlHelpers",[["MlHelpers.dll",["MlHelpers"]],["Microsoft.ML.Data.dll",["Microsoft.ML","Microsoft.ML.Data"]],["Microsoft.ML.Core.dll",[]],["Microsoft.ML.StandardTrainers.dll",["Microsoft.ML.Trainers"]],["Microsoft.ML.Transforms.dll",[]],["Microsoft.ML.DataView.dll",[]],["Microsoft.ML.CpuMath.dll",[]],["Microsoft.ML.FastTree.dll",[]],["Microsoft.ML.KMeansClustering.dll",[]],["Microsoft.ML.PCA.dll",[]],["Microsoft.ML.Mkl.Components.dll",[]],["Microsoft.ML.TimeSeries.dll",[]],["Microsoft.ML.LightGbm.dll",[]],["Microsoft.ML.Recommender.dll",[]]])
-pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML")
-pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML.Data")
-pkgImport("mlnet","Microsoft.ML.StandardTrainers.dll","Microsoft.ML.Trainers")
+load "mlcommon.ring"
+mlUse()
 
-oMl = dnNew("Microsoft.ML.MLContext",[51])
+oMl = mlNew(51)
 
 # 200 rows: label = 4 * a + 2 * b + 0.5 * c + 3, with features that do not depend on each other (a small number generator)
 cCsv = "a,b,c,label" + nl
@@ -20,14 +17,13 @@ for n = 1 to 200
 	c = nSeed % 10
 	cCsv += "" + a + "," + b + "," + c + "," + (4 * a + 2 * b + 0.5 * c + 3) + nl
 next
-cFile = cPkgCache + "mlnet/regressors.csv"
-write(cFile,cCsv)
+cFile = mlWrite("regressors.csv",cCsv)
 aColumns = []
 for n = 1 to 3
 	aColumns + dnNew("Microsoft.ML.Data.TextLoader+Column",[char(96 + n),"Single",n - 1])
 next
 aColumns + dnNew("Microsoft.ML.Data.TextLoader+Column",["label","Single",3])
-oData = oMl.Data.callMethod("LoadFromTextFile",[cFile,aColumns,",",1])
+oData = mlLoadCsv(oMl,cFile,aColumns)
 
 # the features are joined; every trainer gets the same pipeline start
 # the native MKL library (a Linux computer needs libiomp5 for it) is used by OLS: without it those checks are left out, and the test says so
@@ -71,9 +67,8 @@ for n = 1 to 200
 	b = nSeed % 5
 	cCounts += "" + a + "," + b + ",0," + (a + 2 * b) + nl
 next
-cCountsFile = cPkgCache + "mlnet/counts.csv"
-write(cCountsFile,cCounts)
-oCounts = oMl.Data.callMethod("LoadFromTextFile",[cCountsFile,aColumns,",",1])
+cCountsFile = mlWrite("counts.csv",cCounts)
+oCounts = mlLoadCsv(oMl,cCountsFile,aColumns)
 oPoisson = oMl.Transforms.callMethod("Concatenate",["Features",["a","b","c"]]).callMethod("Append",[oMl.Regression.Trainers.callMethod("LbfgsPoissonRegression",["label","Features"])]).Fit(oCounts)
 dnAssert("Poisson regression: R squared for counts",oMl.Regression.callMethod("Evaluate",[oPoisson.Transform(oCounts),"label"]).RSquared > 0.8,1)
 oTweedie = oMl.Transforms.callMethod("Concatenate",["Features",["a","b","c"]]).callMethod("Append",[oMl.Regression.Trainers.callMethod("FastTreeTweedie",["label","Features"])]).Fit(oCounts)
@@ -81,9 +76,8 @@ dnAssert("Tweedie trees: R squared for counts",oMl.Regression.callMethod("Evalua
 
 # a train set and a test set: the model is measured on rows it has not seen
 oSplit = oMl.Data.callMethod("TrainTestSplit",[oData,0.25])
-oColumns = dnType("Microsoft.ML.Data.ColumnCursorExtensions")
-nTrain = len(oColumns.callGeneric("GetColumn",["System.Single"],[oSplit.TrainSet,"a"]).toList())
-nTest = len(oColumns.callGeneric("GetColumn",["System.Single"],[oSplit.TestSet,"a"]).toList())
+nTrain = len(mlColumn(oSplit.TrainSet,"System.Single","a"))
+nTest = len(mlColumn(oSplit.TestSet,"System.Single","a"))
 dnAssert("the two sets together are all the rows",nTrain + nTest,200)
 dnAssert("the test set is about a quarter of them",nTest > 30 and nTest < 70,1)
 oPipeline = oMl.Transforms.callMethod("Concatenate",["Features",["a","b","c"]])
@@ -131,7 +125,7 @@ func mklAvailable
 		aTiny + dnNew("Microsoft.ML.Data.TextLoader+Column",[char(96 + n),"Single",n - 1])
 	next
 	aTiny + dnNew("Microsoft.ML.Data.TextLoader+Column",["label","Single",3])
-	oTiny = oMl.Data.callMethod("LoadFromTextFile",[cTinyFile,aTiny,",",1])
+	oTiny = mlLoadCsv(oMl,cTinyFile,aTiny)
 	try
 		oMl.Transforms.callMethod("Concatenate",["Features",["a","b","c"]]).callMethod("Append",[oMl.Regression.Trainers.callMethod("Ols",["label","Features"])]).Fit(oTiny)
 	catch

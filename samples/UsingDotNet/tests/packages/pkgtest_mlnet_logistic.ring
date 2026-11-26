@@ -1,12 +1,8 @@
 # ML.NET: logistic regression (a yes or no from two numbers) with two trainers, the metrics of a binary classifier, and the probability that a row gets
-load "pkg.ring"
-pkgUseProject("mlnet","helpers/MlHelpers",[["MlHelpers.dll",["MlHelpers"]],["Microsoft.ML.Data.dll",["Microsoft.ML","Microsoft.ML.Data"]],["Microsoft.ML.Core.dll",[]],["Microsoft.ML.StandardTrainers.dll",["Microsoft.ML.Trainers"]],["Microsoft.ML.Transforms.dll",[]],["Microsoft.ML.DataView.dll",[]],["Microsoft.ML.CpuMath.dll",[]],["Microsoft.ML.FastTree.dll",[]],["Microsoft.ML.KMeansClustering.dll",[]],["Microsoft.ML.PCA.dll",[]]])
-pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML")
-pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML.Data")
-pkgImport("mlnet","MlHelpers.dll","MlHelpers")
-pkgImport("mlnet","Microsoft.ML.StandardTrainers.dll","Microsoft.ML.Trainers")
+load "mlcommon.ring"
+mlUse()
 
-oMl = dnNew("Microsoft.ML.MLContext",[1])
+oMl = mlNew(1)
 
 # the class is yes when F1 + F2 is above 10; the rows are on a grid, so the classes are separated by a line
 oRows = dnNew("System.Collections.Generic.List`1[[MlHelpers.ClassRow, MlHelpers]]",[])

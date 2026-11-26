@@ -1,11 +1,8 @@
 # ML.NET: k-means clustering (two groups of points that are far apart) and principal components analysis (points on a line become one number)
-load "pkg.ring"
-pkgUseProject("mlnet","helpers/MlHelpers",[["MlHelpers.dll",["MlHelpers"]],["Microsoft.ML.Data.dll",["Microsoft.ML","Microsoft.ML.Data"]],["Microsoft.ML.Core.dll",[]],["Microsoft.ML.StandardTrainers.dll",["Microsoft.ML.Trainers"]],["Microsoft.ML.Transforms.dll",[]],["Microsoft.ML.DataView.dll",[]],["Microsoft.ML.CpuMath.dll",[]],["Microsoft.ML.FastTree.dll",[]],["Microsoft.ML.KMeansClustering.dll",[]],["Microsoft.ML.PCA.dll",[]]])
-pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML")
-pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML.Data")
-pkgImport("mlnet","MlHelpers.dll","MlHelpers")
+load "mlcommon.ring"
+mlUse()
 
-oMl = dnNew("Microsoft.ML.MLContext",[5])
+oMl = mlNew(5)
 
 # two groups: around (1, 1) and around (10, 10)
 oPoints = dnNew("System.Collections.Generic.List`1[[MlHelpers.PointRow, MlHelpers]]",[])

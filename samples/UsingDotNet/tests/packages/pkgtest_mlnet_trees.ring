@@ -1,12 +1,9 @@
 # ML.NET: decision trees (FastTree and FastForest) for a number and for a yes or no; a tree learns a step that a straight line can not: the label is 10 when F1
 # is below 5 and 20 when it is not
-load "pkg.ring"
-pkgUseProject("mlnet","helpers/MlHelpers",[["MlHelpers.dll",["MlHelpers"]],["Microsoft.ML.Data.dll",["Microsoft.ML","Microsoft.ML.Data"]],["Microsoft.ML.Core.dll",[]],["Microsoft.ML.StandardTrainers.dll",["Microsoft.ML.Trainers"]],["Microsoft.ML.Transforms.dll",[]],["Microsoft.ML.DataView.dll",[]],["Microsoft.ML.CpuMath.dll",[]],["Microsoft.ML.FastTree.dll",[]],["Microsoft.ML.KMeansClustering.dll",[]],["Microsoft.ML.PCA.dll",[]]])
-pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML")
-pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML.Data")
-pkgImport("mlnet","MlHelpers.dll","MlHelpers")
+load "mlcommon.ring"
+mlUse()
 
-oMl = dnNew("Microsoft.ML.MLContext",[3])
+oMl = mlNew(3)
 oRows = dnNew("System.Collections.Generic.List`1[[MlHelpers.RegressionRow, MlHelpers]]",[])
 for x = 0 to 9
 	for y = 0 to 5

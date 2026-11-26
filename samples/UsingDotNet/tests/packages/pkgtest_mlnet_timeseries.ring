@@ -1,12 +1,9 @@
 # ML.NET time series: spikes (the IID and the SSA detectors), a change of level (change point detection) and a forecast of the next values; the series is a column of a CSV file
 # and the answers are columns of vectors that are read back as lists
-load "pkg.ring"
-pkgUseProject("mlnet","helpers/MlHelpers",[["MlHelpers.dll",["MlHelpers"]],["Microsoft.ML.Data.dll",["Microsoft.ML","Microsoft.ML.Data"]],["Microsoft.ML.Core.dll",[]],["Microsoft.ML.StandardTrainers.dll",["Microsoft.ML.Trainers"]],["Microsoft.ML.Transforms.dll",[]],["Microsoft.ML.DataView.dll",[]],["Microsoft.ML.CpuMath.dll",[]],["Microsoft.ML.FastTree.dll",[]],["Microsoft.ML.KMeansClustering.dll",[]],["Microsoft.ML.PCA.dll",[]],["Microsoft.ML.Mkl.Components.dll",[]],["Microsoft.ML.TimeSeries.dll",[]],["Microsoft.ML.LightGbm.dll",[]],["Microsoft.ML.Recommender.dll",[]]])
-pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML")
-pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML.Data")
+load "mlcommon.ring"
+mlUse()
 
-oMl = dnNew("Microsoft.ML.MLContext",[61])
-oColumns = dnType("Microsoft.ML.Data.ColumnCursorExtensions")
+oMl = mlNew(61)
 aOneColumn = [ dnNew("Microsoft.ML.Data.TextLoader+Column",["value","Single",0]) ]
 
 # ---- a series around 10 with a small wave, and two spikes (at the places 40 and 80)
@@ -21,10 +18,9 @@ cSeries = "value" + nl
 for nValue in aSeries
 	cSeries += "" + nValue + nl
 next
-cSeriesFile = cPkgCache + "mlnet/series.csv"
-write(cSeriesFile,cSeries)
-oSeries = oMl.Data.callMethod("LoadFromTextFile",[cSeriesFile,aOneColumn,",",1])
-dnAssert("100 values",len(oColumns.callGeneric("GetColumn",["System.Single"],[oSeries,"value"]).toList()),100)
+cSeriesFile = mlWrite("series.csv",cSeries)
+oSeries = mlLoadCsv(oMl,cSeriesFile,aOneColumn)
+dnAssert("100 values",len(mlColumn(oSeries,"System.Single","value")),100)
 
 # the detector gives a vector of three numbers for each value: an alert (0 or 1), the score and the p-value
 # the SSA detectors and the forecast use the native MKL library (a Linux computer needs libiomp5 for it): without it they are left out, and the test says so
@@ -43,7 +39,7 @@ for cDetector in aSpikeDetectors
 		oEstimator = oMl.Transforms.callMethod("DetectSpikeBySsa",["Alert","value",95,20,50,10])
 	ok
 	oModel = oEstimator.callMethod("Fit",[oSeries])
-	aAlerts = oColumns.callGeneric("GetColumn",["System.Double[]"],[oModel.callMethod("Transform",[oSeries]),"Alert"]).toList()
+	aAlerts = mlColumn(oModel.callMethod("Transform",[oSeries]),"System.Double[]","Alert")
 	dnAssert(cDetector + ": a vector for each value",len(aAlerts),100)
 	dnAssert(cDetector + ": a vector of three numbers",len(aAlerts[1].toList()),3)
 	dnAssert(cDetector + ": the first spike is an alert",aAlerts[40].toList()[1],1)
@@ -64,9 +60,8 @@ for n = 1 to 100
 		cLevel += "" + (20 + sin(n * 0.9) * 0.4) + nl
 	ok
 next
-cLevelFile = cPkgCache + "mlnet/level.csv"
-write(cLevelFile,cLevel)
-oLevel = oMl.Data.callMethod("LoadFromTextFile",[cLevelFile,aOneColumn,",",1])
+cLevelFile = mlWrite("level.csv",cLevel)
+oLevel = mlLoadCsv(oMl,cLevelFile,aOneColumn)
 aChangeDetectors = ["DetectIidChangePoint"]
 if lMkl
 	aChangeDetectors + "DetectChangePointBySsa"
@@ -78,7 +73,7 @@ for cDetector in aChangeDetectors
 		oEstimator = oMl.Transforms.callMethod(cDetector,["Change","value",95,10])
 	ok
 	oChange = oEstimator.callMethod("Fit",[oLevel])
-	aChange = oColumns.callGeneric("GetColumn",["System.Double[]"],[oChange.callMethod("Transform",[oLevel]),"Change"]).toList()
+	aChange = mlColumn(oChange.callMethod("Transform",[oLevel]),"System.Double[]","Change")
 	dnAssert(cDetector + ": a vector for each value",len(aChange),100)
 	# the first alert after the start of the series (the detector may warn once while it starts)
 	nFirst = 0
@@ -99,10 +94,10 @@ if lMkl
 	next
 	cWaveFile = cPkgCache + "mlnet/wave.csv"
 	write(cWaveFile,cWave)
-	oWave = oMl.Data.callMethod("LoadFromTextFile",[cWaveFile,aOneColumn,",",1])
+	oWave = mlLoadCsv(oMl,cWaveFile,aOneColumn)
 	oForecaster = oMl.Forecasting.callMethod("ForecastBySsa",["Forecast","value",20,120,120,5])
 	oForecastModel = oForecaster.callMethod("Fit",[oWave])
-	aForecast = oColumns.callGeneric("GetColumn",["System.Single[]"],[oForecastModel.callMethod("Transform",[oWave]),"Forecast"]).toList()
+	aForecast = mlColumn(oForecastModel.callMethod("Transform",[oWave]),"System.Single[]","Forecast")
 	aNext = aForecast[len(aForecast)].toList()
 	dnAssert("five values forecast",len(aNext),5)
 	lClose = 1
@@ -125,7 +120,7 @@ func mklAvailable
 	next
 	cTinyFile = cPkgCache + "mlnet/tiny_series.csv"
 	write(cTinyFile,cTiny)
-	oTiny = oMl.Data.callMethod("LoadFromTextFile",[cTinyFile,aOneColumn,",",1])
+	oTiny = mlLoadCsv(oMl,cTinyFile,aOneColumn)
 	try
 		oMl.Transforms.callMethod("DetectSpikeBySsa",["Alert","value",95,10,20,5]).callMethod("Fit",[oTiny])
 	catch

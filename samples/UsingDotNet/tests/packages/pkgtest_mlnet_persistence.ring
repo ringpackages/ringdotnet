@@ -1,14 +1,10 @@
 # ML.NET: a trained model saved to a file or to a stream and loaded again, also by another MLContext, gives the same predictions; the pipeline with a text column and a
 # category is saved with its transforms; a file that is not a model, and a file that is not there, are errors
-load "pkg.ring"
-pkgUseProject("mlnet","helpers/MlHelpers",[["MlHelpers.dll",["MlHelpers"]],["Microsoft.ML.Data.dll",["Microsoft.ML","Microsoft.ML.Data"]],["Microsoft.ML.Core.dll",[]],["Microsoft.ML.StandardTrainers.dll",["Microsoft.ML.Trainers"]],["Microsoft.ML.Transforms.dll",[]],["Microsoft.ML.DataView.dll",[]],["Microsoft.ML.CpuMath.dll",[]],["Microsoft.ML.FastTree.dll",[]],["Microsoft.ML.KMeansClustering.dll",[]],["Microsoft.ML.PCA.dll",[]],["Microsoft.ML.Mkl.Components.dll",[]],["Microsoft.ML.TimeSeries.dll",[]],["Microsoft.ML.LightGbm.dll",[]],["Microsoft.ML.Recommender.dll",[]]])
-pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML")
-pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML.Data")
-pkgImport("mlnet","MlHelpers.dll","MlHelpers")
+load "mlcommon.ring"
+mlUse()
 using { "System.IO" }
 
-oMl = dnNew("Microsoft.ML.MLContext",[91])
-oColumns = dnType("Microsoft.ML.Data.ColumnCursorExtensions")
+oMl = mlNew(91)
 
 # ---- a regression: label = 3 * a + 2 * b + 1, with features that do not depend on each other
 cCsv = "F1,F2,Label" + nl
@@ -20,21 +16,16 @@ for n = 1 to 150
 	b = nSeed % 10
 	cCsv += "" + a + "," + b + "," + (3 * a + 2 * b + 1) + nl
 next
-cFile = cPkgCache + "mlnet/persist_train.csv"
-write(cFile,cCsv)
-aColumns = []
-aColumns + dnNew("Microsoft.ML.Data.TextLoader+Column",["F1","Single",0])
-aColumns + dnNew("Microsoft.ML.Data.TextLoader+Column",["F2","Single",1])
-aColumns + dnNew("Microsoft.ML.Data.TextLoader+Column",["Label","Single",2])
-oData = oMl.Data.callMethod("LoadFromTextFile",[cFile,aColumns,",",1])
+cFile = mlWrite("persist_train.csv",cCsv)
+aColumns = mlColumns([["F1","Single"],["F2","Single"],["Label","Single"]])
+oData = mlLoadCsv(oMl,cFile,aColumns)
 oModel = oMl.Transforms.callMethod("Concatenate",["Features",["F1","F2"]]).callMethod("Append",[oMl.Regression.Trainers.callMethod("Sdca",["Label","Features"])]).Fit(oData)
 
 # rows that the model has not seen
 cNew = "F1,F2,Label" + nl + "1,1,0" + nl + "9,0,0" + nl + "0,9,0" + nl + "5,5,0" + nl + "7,3,0" + nl
-cNewFile = cPkgCache + "mlnet/persist_new.csv"
-write(cNewFile,cNew)
-oNew = oMl.Data.callMethod("LoadFromTextFile",[cNewFile,aColumns,",",1])
-aBefore = oColumns.callGeneric("GetColumn",["System.Single"],[oModel.Transform(oNew),"Score"]).toList()
+cNewFile = mlWrite("persist_new.csv",cNew)
+oNew = mlLoadCsv(oMl,cNewFile,aColumns)
+aBefore = mlColumn(oModel.Transform(oNew),"System.Single","Score")
 dnAssert("the model predicts the new rows",len(aBefore),5)
 dnAssert("a prediction of the trained model (3*9 + 2*0 + 1 = 28)",fabs(aBefore[2] - 28) < 2,1)
 
@@ -51,7 +42,7 @@ aLoaded = oMl.Model.callMethod("Load",[cModelFile])
 oLoaded = aLoaded[1]
 oSchema = aLoaded[2]
 dnAssert("the schema that came with the model has the columns of the data",oSchema.Count,3)
-aAfter = oColumns.callGeneric("GetColumn",["System.Single"],[oLoaded.Transform(oNew),"Score"]).toList()
+aAfter = mlColumn(oLoaded.Transform(oNew),"System.Single","Score")
 dnAssert("the loaded model gives a prediction for each row",len(aAfter),5)
 lSame = 1
 for n = 1 to 5
@@ -62,10 +53,10 @@ next
 dnAssert("the loaded model gives exactly the predictions of the trained one",lSame,1)
 
 # another context loads the file too (a model does not belong to the context that trained it)
-oOther = dnNew("Microsoft.ML.MLContext",[7])
+oOther = mlNew(7)
 aOtherLoaded = oOther.Model.callMethod("Load",[cModelFile])
-oNewForOther = oOther.Data.callMethod("LoadFromTextFile",[cNewFile,aColumns,",",1])
-aOtherScores = oColumns.callGeneric("GetColumn",["System.Single"],[aOtherLoaded[1].Transform(oNewForOther),"Score"]).toList()
+oNewForOther = mlLoadCsv(oOther,cNewFile,aColumns)
+aOtherScores = mlColumn(aOtherLoaded[1].Transform(oNewForOther),"System.Single","Score")
 dnAssert("another context gives the same predictions",aOtherScores[2],aBefore[2])
 
 # ---- saved to a stream (a memory stream) and loaded from it
@@ -74,7 +65,7 @@ oMl.Model.callMethod("Save",[oModel,oData.getProp("Schema"),oStream])
 dnAssert("the stream has the model",oStream.Length > 100,1)
 oStream.Position = 0
 aFromStream = oMl.Model.callMethod("Load",[oStream])
-aStreamScores = oColumns.callGeneric("GetColumn",["System.Single"],[aFromStream[1].Transform(oNew),"Score"]).toList()
+aStreamScores = mlColumn(aFromStream[1].Transform(oNew),"System.Single","Score")
 dnAssert("a model loaded from a stream gives the same predictions",aStreamScores[3],aBefore[3])
 
 # ---- the loaded model in a prediction engine (the row classes of the helper project)
@@ -94,13 +85,9 @@ for cThing in ["service","food","room","price"]
 		cReviews += "the " + cThing + " was " + aBad[n] + ",Lima,0" + nl
 	next
 next
-cReviewsFile = cPkgCache + "mlnet/persist_reviews.csv"
-write(cReviewsFile,cReviews)
-aReviewColumns = []
-aReviewColumns + dnNew("Microsoft.ML.Data.TextLoader+Column",["review","String",0])
-aReviewColumns + dnNew("Microsoft.ML.Data.TextLoader+Column",["city","String",1])
-aReviewColumns + dnNew("Microsoft.ML.Data.TextLoader+Column",["positive","Boolean",2])
-oReviews = oMl.Data.callMethod("LoadFromTextFile",[cReviewsFile,aReviewColumns,",",1])
+cReviewsFile = mlWrite("persist_reviews.csv",cReviews)
+aReviewColumns = mlColumns([["review","String"],["city","String"],["positive","Boolean"]])
+oReviews = mlLoadCsv(oMl,cReviewsFile,aReviewColumns)
 oPipeline = oMl.Transforms.Text.callMethod("FeaturizeText",["ReviewFeatures","review"])
 oPipeline = oPipeline.callMethod("Append",[oMl.Transforms.Categorical.callMethod("OneHotEncoding",["CityEncoded","city"])])
 oPipeline = oPipeline.callMethod("Append",[oMl.Transforms.callMethod("Concatenate",["Features",["ReviewFeatures","CityEncoded"]])])
@@ -109,11 +96,10 @@ cReviewFile = cPkgCache + "mlnet/reviews.zip"
 oMl.Model.callMethod("Save",[oReviewModel,oReviews.getProp("Schema"),cReviewFile])
 aReviewLoaded = oMl.Model.callMethod("Load",[cReviewFile])
 cQuestions = "review,city,positive" + nl + "the view was wonderful,Cairo,0" + nl + "the view was horrible,Lima,0" + nl + "the room was great,Cairo,0" + nl
-cQuestionsFile = cPkgCache + "mlnet/persist_questions.csv"
-write(cQuestionsFile,cQuestions)
-oQuestions = oMl.Data.callMethod("LoadFromTextFile",[cQuestionsFile,aReviewColumns,",",1])
-aProbabilityBefore = oColumns.callGeneric("GetColumn",["System.Single"],[oReviewModel.Transform(oQuestions),"Probability"]).toList()
-aProbabilityAfter = oColumns.callGeneric("GetColumn",["System.Single"],[aReviewLoaded[1].Transform(oQuestions),"Probability"]).toList()
+cQuestionsFile = mlWrite("persist_questions.csv",cQuestions)
+oQuestions = mlLoadCsv(oMl,cQuestionsFile,aReviewColumns)
+aProbabilityBefore = mlColumn(oReviewModel.Transform(oQuestions),"System.Single","Probability")
+aProbabilityAfter = mlColumn(aReviewLoaded[1].Transform(oQuestions),"System.Single","Probability")
 dnAssert("the loaded sentiment model gives a probability for each question",len(aProbabilityAfter),3)
 lSame = 1
 for n = 1 to 3
@@ -132,8 +118,7 @@ catch
 	cError = cCatchError
 done
 dnAssert("a model file that is not there is an error",len(cError) > 0,1)
-cNotModel = cPkgCache + "mlnet/not_a_model.zip"
-write(cNotModel,"this is not a model")
+cNotModel = mlWrite("not_a_model.zip","this is not a model")
 cError = ""
 try
 	oMl.Model.callMethod("Load",[cNotModel])

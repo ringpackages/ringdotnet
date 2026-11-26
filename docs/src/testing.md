@@ -81,6 +81,8 @@ A package that needs a class written in .NET uses a small helper project: a vali
 pkgUseProject("fluentvalidation","helpers/PkgHelpers",[["FluentValidation.dll",[...]],["PkgHelpers.dll",["PkgHelpers"]]])
 ```
 
+The ML.NET tests share their setup in `packages/mlcommon.ring`: `load "mlcommon.ring"` and `mlUse()` restore ML.NET and import its namespaces; `mlNew(seed)` makes a context, `mlColumns([["x","Single"],...])` and `mlLoadCsv(oMl,file,columns)` read a CSV file, `mlColumn(oData,type,name)` gives a column as a Ring list, and `mlWrite(name,text)` writes a file in the cache folder.
+
 ### Newer versions
 
 The newest versions of many packages are audited by `tools/dotnettools/auditpackages.py` (see [The generator](generator.html)).

@@ -1,12 +1,9 @@
 # ML.NET with any number of columns and no C# class for the dataset: a CSV file is read with column definitions made in Ring (TextLoader.Column), and the scores
 # are read as a column of the scored data
-load "pkg.ring"
-pkgUseProject("mlnet","helpers/MlHelpers",[["MlHelpers.dll",["MlHelpers"]],["Microsoft.ML.Data.dll",["Microsoft.ML","Microsoft.ML.Data"]],["Microsoft.ML.Core.dll",[]],["Microsoft.ML.StandardTrainers.dll",["Microsoft.ML.Trainers"]],["Microsoft.ML.Transforms.dll",[]],["Microsoft.ML.DataView.dll",[]],["Microsoft.ML.CpuMath.dll",[]],["Microsoft.ML.FastTree.dll",[]],["Microsoft.ML.KMeansClustering.dll",[]],["Microsoft.ML.PCA.dll",[]]])
-pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML")
-pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML.Data")
-pkgImport("mlnet","Microsoft.ML.StandardTrainers.dll","Microsoft.ML.Trainers")
+load "mlcommon.ring"
+mlUse()
 
-oMl = dnNew("Microsoft.ML.MLContext",[11])
+oMl = mlNew(11)
 
 # a CSV file with five numbers and a label: label = x1 + 2 * x2 - x3 + 0.5 * x4 + 3 * x5 + 2
 cFile = cPkgCache + "mlnet/columns.csv"
@@ -30,7 +27,7 @@ cNames = ["x1","x2","x3","x4","x5","label"]
 for nColumn = 1 to len(cNames)
 	aColumns + dnNew("Microsoft.ML.Data.TextLoader+Column",[cNames[nColumn],"Single",nColumn - 1])
 next
-oData = oMl.Data.callMethod("LoadFromTextFile",[cFile,aColumns,",",1])
+oData = mlLoadCsv(oMl,cFile,aColumns)
 dnAssert("the file was read",oData.getProp("Schema").getProp("Count"),6)
 
 # the same pipeline as with classes, with five features
@@ -54,9 +51,8 @@ next
 dnAssert("the weights are near 1, 2, -1, 0.5 and 3",lClose,1)
 
 # the scores and the labels as columns, without a class
-oColumns = dnType("Microsoft.ML.Data.ColumnCursorExtensions")
-aScores = oColumns.callGeneric("GetColumn",["System.Single"],[oScored,"Score"]).toList()
-aLabels = oColumns.callGeneric("GetColumn",["System.Single"],[oScored,"label"]).toList()
+aScores = mlColumn(oScored,"System.Single","Score")
+aLabels = mlColumn(oScored,"System.Single","label")
 dnAssert("a score for each row",len(aScores),432)
 dnAssert("a label for each row",len(aLabels),432)
 nWorst = 0

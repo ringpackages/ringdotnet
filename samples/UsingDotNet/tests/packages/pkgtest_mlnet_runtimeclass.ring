@@ -1,12 +1,9 @@
 # ML.NET with row classes that Ring defines while it runs: System.Reflection.Emit makes a type with the fields of the table (numbers, a text, a yes/no), the bridge finds the
 # new type by its name, and the rest is the same as with a class in C#: List<T>, LoadFromEnumerable<T>, a pipeline, a prediction engine. No helper project is needed for the rows.
-load "pkg.ring"
-pkgUseProject("mlnet","helpers/MlHelpers",[["MlHelpers.dll",["MlHelpers"]],["Microsoft.ML.Data.dll",["Microsoft.ML","Microsoft.ML.Data"]],["Microsoft.ML.Core.dll",[]],["Microsoft.ML.StandardTrainers.dll",["Microsoft.ML.Trainers"]],["Microsoft.ML.Transforms.dll",[]],["Microsoft.ML.DataView.dll",[]],["Microsoft.ML.CpuMath.dll",[]],["Microsoft.ML.FastTree.dll",[]],["Microsoft.ML.KMeansClustering.dll",[]],["Microsoft.ML.PCA.dll",[]]])
-pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML")
-pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML.Data")
-pkgImport("mlnet","Microsoft.ML.StandardTrainers.dll","Microsoft.ML.Trainers")
+load "mlcommon.ring"
+mlUse()
 
-oMl = dnNew("Microsoft.ML.MLContext",[31])
+oMl = mlNew(31)
 oModule = dnStatic("System.Reflection.Emit.AssemblyBuilder","DefineDynamicAssembly",[dnNew("System.Reflection.AssemblyName",["RingRows"]),"Run"]).callMethod("DefineDynamicModule",["RingRows"])
 
 # ---- a class with three numbers and a label, defined at run time

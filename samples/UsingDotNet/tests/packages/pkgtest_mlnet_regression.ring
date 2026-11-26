@@ -1,13 +1,9 @@
 # ML.NET: linear regression trained from rows made in Ring (the row classes are in a helper project); the pipeline, the trainer, the model and its metrics are
 # .NET objects, and the generic methods (LoadFromEnumerable<T>, CreatePredictionEngine<TIn,TOut>) get their type arguments from Ring
-load "pkg.ring"
-pkgUseProject("mlnet","helpers/MlHelpers",[["MlHelpers.dll",["MlHelpers"]],["Microsoft.ML.Data.dll",["Microsoft.ML","Microsoft.ML.Data"]],["Microsoft.ML.Core.dll",[]],["Microsoft.ML.StandardTrainers.dll",["Microsoft.ML.Trainers"]],["Microsoft.ML.Transforms.dll",[]],["Microsoft.ML.DataView.dll",[]],["Microsoft.ML.CpuMath.dll",[]],["Microsoft.ML.FastTree.dll",[]],["Microsoft.ML.KMeansClustering.dll",[]],["Microsoft.ML.PCA.dll",[]]])
-pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML")
-pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML.Data")
-pkgImport("mlnet","MlHelpers.dll","MlHelpers")
-pkgImport("mlnet","Microsoft.ML.StandardTrainers.dll","Microsoft.ML.Trainers")
+load "mlcommon.ring"
+mlUse()
 
-oMl = dnNew("Microsoft.ML.MLContext",[42])
+oMl = mlNew(42)
 dnAssert("a context with a seed",oMl.typeName(),"Microsoft.ML.MLContext")
 
 # 40 rows of Label = 2 * F1 + 3 * F2 + 1
@@ -65,7 +61,7 @@ dnAssert("a score for each new row",len(aScores),2)
 dnAssert("the first score",fabs(aScores[1].Score - 33) < 1.5,1)
 
 # a model trained with another seed learns the same line
-oOther2 = dnNew("Microsoft.ML.MLContext",[7])
+oOther2 = mlNew(7)
 oData2 = oOther2.Data.callGeneric("LoadFromEnumerable",["MlHelpers.RegressionRow"],[oRows])
 oModel2 = oOther2.Transforms.callMethod("Concatenate",["Features",["F1","F2"]]).callMethod("Append",[oOther2.Regression.Trainers.callMethod("Sdca",["Label","Features"])]).Fit(oData2)
 dnAssert("another seed gives a model of the same quality",oOther2.Regression.Evaluate(oModel2.Transform(oData2)).RSquared > 0.99,1)
