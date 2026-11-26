@@ -89,7 +89,8 @@ func matches cTemplate,cPath,oValues
 		ok
 	next
 	oMatcher = dnNew(cRouting + "Template.TemplateMatcher",[oTemplate,oDefaults])
-	oPath = dnNew("Microsoft.AspNetCore.Http.PathString",[cPath])
+	oPath = new PathString
+	oPath.@New(cPath)
 	return oMatcher.callMethod("TryMatch",[oPath,oValues])
 
 func chooseRoute aTable,cPath
