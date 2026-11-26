@@ -52,7 +52,7 @@ On **Linux** the same script runs the tests, the samples and the package tests; 
 
 ## Package tests
 
-`samples/UsingDotNet/tests/packages/pkgtest_*.ring` are real programs against NuGet packages: 182 tests, one for each package (the ML.NET package has several). Each one asks `dnAssert` about what the package gives back (HTML, a deserialized list, a determinant, a retried call, rows from a query), so a change of the bridge that breaks a library fails here before it fails in a program. The packages that need a class written in .NET have a small helper project, and the tests that need a native library (LibGit2Sharp, ML.NET, SQLite) run on Windows and on Linux.
+`samples/UsingDotNet/tests/packages/pkgtest_*.ring` are real programs against NuGet packages: 183 tests, one for each package (the ML.NET package has several). Each one asks `dnAssert` about what the package gives back (HTML, a deserialized list, a determinant, a retried call, rows from a query), so a change of the bridge that breaks a library fails here before it fails in a program. The packages that need a class written in .NET have a small helper project, and the tests that need a native library (LibGit2Sharp, ML.NET, SQLite) run on Windows and on Linux.
 
 ### Writing a package test
 
@@ -345,6 +345,7 @@ Each table lists the packages of an area. The second column is the name of the t
 | ML.NET logistic regression | `mlnet_logistic` | two trainers, accuracy, AUC, probabilities and the confusion matrix |
 | ML.NET decision trees | `mlnet_trees` | FastTree and FastForest for a number and for a yes or no |
 | ML.NET clustering and PCA | `mlnet_clustering` | k-means with cluster distances and metrics, and principal components |
+| ML.NET saved and loaded models | `mlnet_persistence` | a trained model saved to a file or a stream and loaded again, also by another context, with the same predictions; a pipeline with a text and a category saved with its transforms; a file that is not a model |
 | ML.NET with a CSV file | `mlnet_columns` | any number of columns read with column definitions made in Ring, scores read as a column |
 | ML.NET with in-memory rows | `mlnet_vectorrows` | one row class `VectorRow` for tables of any width |
 | ML.NET with text columns | `mlnet_text` | a category one-hot encoded, a review featurized into word counts, a text label mapped to classes and back |
