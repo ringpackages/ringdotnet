@@ -838,6 +838,7 @@ Class ApplicationCommands from Object
 	Replace
 	SelectAll
 	Help
+	@New
 	Open
 	Close
 	Save
@@ -927,6 +928,15 @@ Class ApplicationCommands from Object
 
 	Func getNew
 		return dnObj(dotnet_callo("s3:get",'System.Windows.Input.ApplicationCommands, PresentationCore',"s3:New"))
+
+	Func get@New
+		return getNew()
+
+	Func setNew P1
+		raise("DotNet Error: New is a read-only property")
+
+	Func set@New P1
+		return setNew(P1)
 
 	Func getOpen
 		return dnObj(dotnet_callo("s3:get",'System.Windows.Input.ApplicationCommands, PresentationCore',"s4:Open"))

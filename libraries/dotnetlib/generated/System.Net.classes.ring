@@ -3997,8 +3997,10 @@ Class WebRequestMethodsFtp from Object
 
 Class WebRequestMethodsHttp from Object
 
+	@Get
 	Connect
 	Head
+	@Put
 	Post
 	MkCol
 
@@ -4021,6 +4023,15 @@ Class WebRequestMethodsHttp from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func get@Get
+		return getGet()
+
+	Func setGet P1
+		raise("DotNet Error: Get is a read-only property")
+
+	Func set@Get P1
+		return setGet(P1)
+
 	Func getConnect
 		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Http, System.Net.Requests',"s7:Connect")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4041,6 +4052,15 @@ Class WebRequestMethodsHttp from Object
 		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Http, System.Net.Requests',"s3:Put")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func get@Put
+		return getPut()
+
+	Func setPut P1
+		raise("DotNet Error: Put is a read-only property")
+
+	Func set@Put P1
+		return setPut(P1)
 
 	Func getPost
 		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Http, System.Net.Requests',"s4:Post")

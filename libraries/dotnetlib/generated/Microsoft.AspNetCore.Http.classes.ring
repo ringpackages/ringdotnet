@@ -2451,10 +2451,12 @@ Class HttpMethods from Object
 
 	Connect
 	Delete
+	@Get
 	Head
 	Options
 	Patch
 	Post
+	@Put
 	Trace
 
 	Func init 
@@ -2532,6 +2534,15 @@ Class HttpMethods from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func get@Get
+		return getGet()
+
+	Func setGet P1
+		raise("DotNet Error: Get is a read-only property")
+
+	Func set@Get P1
+		return setGet(P1)
+
 	Func getHead
 		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s4:Head")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2568,6 +2579,15 @@ Class HttpMethods from Object
 		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s3:Put")
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func get@Put
+		return getPut()
+
+	Func setPut P1
+		raise("DotNet Error: Put is a read-only property")
+
+	Func set@Put P1
+		return setPut(P1)
 
 	Func getTrace
 		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s5:Trace")

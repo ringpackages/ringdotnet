@@ -2424,6 +2424,7 @@ Class KeyValuePair2 from ValueType
 Class LinkedListNode from Object
 
 	List
+	@Next
 	Previous
 	Value
 	ValueRef
@@ -2452,6 +2453,15 @@ Class LinkedListNode from Object
 
 	Func getNext
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Next"))
+
+	Func get@Next
+		return getNext()
+
+	Func setNext P1
+		raise("DotNet Error: Next is a read-only property")
+
+	Func set@Next P1
+		return setNext(P1)
 
 	Func getPrevious
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Previous"))

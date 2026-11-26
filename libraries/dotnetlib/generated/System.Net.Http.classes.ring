@@ -433,6 +433,8 @@ Class HttpMessageInvoker from Object
 Class HttpMethod from Object
 
 	Method
+	@Get
+	@Put
 	Post
 	Delete
 	Head
@@ -469,8 +471,26 @@ Class HttpMethod from Object
 	Func getGet
 		return dnObj(dotnet_callo("s3:get",'System.Net.Http.HttpMethod, System.Net.Http',"s3:Get"))
 
+	Func get@Get
+		return getGet()
+
+	Func setGet P1
+		raise("DotNet Error: Get is a read-only property")
+
+	Func set@Get P1
+		return setGet(P1)
+
 	Func getPut
 		return dnObj(dotnet_callo("s3:get",'System.Net.Http.HttpMethod, System.Net.Http',"s3:Put"))
+
+	Func get@Put
+		return getPut()
+
+	Func setPut P1
+		raise("DotNet Error: Put is a read-only property")
+
+	Func set@Put P1
+		return setPut(P1)
 
 	Func getPost
 		return dnObj(dotnet_callo("s3:get",'System.Net.Http.HttpMethod, System.Net.Http',"s4:Post"))

@@ -9755,6 +9755,7 @@ Class DateBoldEventArgs from EventArgs
 Class DateRangeEventArgs from EventArgs
 
 	Start
+	@End
 
 	Func init P1,P2
 		if nDotNetWrapHandle != 0
@@ -9775,6 +9776,15 @@ Class DateRangeEventArgs from EventArgs
 
 	Func getEnd
 		return dnObj(dotnet_callo("s3:get",nHandle,"s3:End"))
+
+	Func get@End
+		return getEnd()
+
+	Func setEnd P1
+		raise("DotNet Error: End is a read-only property")
+
+	Func set@End P1
+		return setEnd(P1)
 
 
 Class DockingAttribute from Attribute
@@ -18535,6 +18545,7 @@ Class SelectedGridItemChangedEventArgs from EventArgs
 
 Class SelectionRange from Object
 
+	@End
 	Start
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'selectionrange'          # new X without parentheses: the default object
@@ -18579,9 +18590,15 @@ Class SelectionRange from Object
 	Func getEnd
 		return dnObj(dotnet_callo("s3:get",nHandle,"s3:End"))
 
+	Func get@End
+		return getEnd()
+
 	Func setEnd P1
 		dotnet_callv("s3:set",nHandle,"s3:End",P1)
 		return self
+
+	Func set@End P1
+		return setEnd(P1)
 
 	Func getStart
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Start"))
@@ -30787,6 +30804,7 @@ Class TaskDialogButton from TaskDialogControl
 	Close
 	Help
 	TryAgain
+	@Continue
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'taskdialogbutton'          # new X without parentheses: the default object
 		dnDefaultObject('System.Windows.Forms.TaskDialogButton, System.Windows.Forms')
@@ -30931,6 +30949,15 @@ Class TaskDialogButton from TaskDialogControl
 
 	Func getContinue
 		return dnObj(dotnet_callo("s3:get",'System.Windows.Forms.TaskDialogButton, System.Windows.Forms',"s8:Continue"))
+
+	Func get@Continue
+		return getContinue()
+
+	Func setContinue P1
+		raise("DotNet Error: Continue is a read-only property")
+
+	Func set@Continue P1
+		return setContinue(P1)
 
 	# the operators of System.Windows.Forms.TaskDialogButton: = !=
 	Func operator cOperator, Para

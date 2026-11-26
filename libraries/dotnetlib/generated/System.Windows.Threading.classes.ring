@@ -720,6 +720,8 @@ Class DispatcherTimer from Object
 
 Class DispatcherFrame from DispatcherObject
 
+	@Continue
+
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'dispatcherframe'          # new X without parentheses: the default object
 		dnDefaultObject('System.Windows.Threading.DispatcherFrame, WindowsBase')
 	ok
@@ -757,9 +759,15 @@ Class DispatcherFrame from DispatcherObject
 	Func getContinue
 		return dotnet_getp(nHandle,"Continue")
 
+	Func get@Continue
+		return getContinue()
+
 	Func setContinue P1
 		dotnet_setp(nHandle,"Continue",P1)
 		return self
+
+	Func set@Continue P1
+		return setContinue(P1)
 
 
 Class DispatcherOperation1 from DispatcherOperation

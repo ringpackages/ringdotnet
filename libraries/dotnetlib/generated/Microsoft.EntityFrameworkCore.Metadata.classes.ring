@@ -4244,6 +4244,7 @@ Class IConventionDbFunction from DotNetObject
 
 Class IConventionDbFunctionParameter from DotNetObject
 
+	@Function
 	Builder
 	Name
 	ClrType
@@ -4353,6 +4354,15 @@ Class IConventionDbFunctionParameter from DotNetObject
 
 	Func getFunction
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Function"))
+
+	Func get@Function
+		return getFunction()
+
+	Func setFunction P1
+		raise("DotNet Error: Function is a read-only property")
+
+	Func set@Function P1
+		return setFunction(P1)
 
 	Func getBuilder
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Builder"))
@@ -12202,6 +12212,7 @@ Class IDbFunction from DotNetObject
 Class IDbFunctionParameter from DotNetObject
 
 	StoreType
+	@Function
 	StoreFunctionParameter
 	Name
 	ClrType
@@ -12301,6 +12312,15 @@ Class IDbFunctionParameter from DotNetObject
 
 	Func getFunction
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Function"))
+
+	Func get@Function
+		return getFunction()
+
+	Func setFunction P1
+		raise("DotNet Error: Function is a read-only property")
+
+	Func set@Function P1
+		return setFunction(P1)
 
 	Func getStoreFunctionParameter
 		return dnObj(dotnet_callo("s3:get",nHandle,"s22:StoreFunctionParameter"))
@@ -14153,6 +14173,7 @@ Class IForeignKeyConstraint from DotNetObject
 
 Class IFunctionColumn from DotNetObject
 
+	@Function
 	PropertyMappings
 	Name
 	StoreType
@@ -14256,6 +14277,15 @@ Class IFunctionColumn from DotNetObject
 
 	Func getFunction
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Function"))
+
+	Func get@Function
+		return getFunction()
+
+	Func setFunction P1
+		raise("DotNet Error: Function is a read-only property")
+
+	Func set@Function P1
+		return setFunction(P1)
 
 	Func getPropertyMappings
 		return dnObj(dotnet_callo("s3:get",nHandle,"s16:PropertyMappings"))
@@ -16250,6 +16280,7 @@ Class IMutableDbFunction from DotNetObject
 
 Class IMutableDbFunctionParameter from DotNetObject
 
+	@Function
 	StoreType
 	TypeMapping
 	Name
@@ -16323,6 +16354,15 @@ Class IMutableDbFunctionParameter from DotNetObject
 
 	Func getFunction
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Function"))
+
+	Func get@Function
+		return getFunction()
+
+	Func setFunction P1
+		raise("DotNet Error: Function is a read-only property")
+
+	Func set@Function P1
+		return setFunction(P1)
 
 	Func getStoreType
 		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
@@ -24127,6 +24167,7 @@ Class IReadOnlyDbFunction from DotNetObject
 
 Class IReadOnlyDbFunctionParameter from DotNetObject
 
+	@Function
 	Name
 	ClrType
 	StoreType
@@ -24171,6 +24212,15 @@ Class IReadOnlyDbFunctionParameter from DotNetObject
 
 	Func getFunction
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Function"))
+
+	Func get@Function
+		return getFunction()
+
+	Func setFunction P1
+		raise("DotNet Error: Function is a read-only property")
+
+	Func set@Function P1
+		return setFunction(P1)
 
 	Func getName
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
@@ -29820,6 +29870,7 @@ Class IStoreFunction from DotNetObject
 
 Class IStoreFunctionParameter from DotNetObject
 
+	@Function
 	DbFunctionParameters
 	Name
 	StoreType
@@ -29912,6 +29963,15 @@ Class IStoreFunctionParameter from DotNetObject
 
 	Func getFunction
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Function"))
+
+	Func get@Function
+		return getFunction()
+
+	Func setFunction P1
+		raise("DotNet Error: Function is a read-only property")
+
+	Func set@Function P1
+		return setFunction(P1)
 
 	Func getDbFunctionParameters
 		return dnObj(dotnet_callo("s3:get",nHandle,"s20:DbFunctionParameters"))
@@ -35000,6 +35060,7 @@ Class RuntimeDbFunction from AnnotatableBase
 Class RuntimeDbFunctionParameter from AnnotatableBase
 
 	Name
+	@Function
 	TypeMapping
 	DebugView
 
@@ -35022,6 +35083,15 @@ Class RuntimeDbFunctionParameter from AnnotatableBase
 
 	Func getFunction
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Function"))
+
+	Func get@Function
+		return getFunction()
+
+	Func setFunction P1
+		raise("DotNet Error: Function is a read-only property")
+
+	Func set@Function P1
+		return setFunction(P1)
 
 	Func getTypeMapping
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:TypeMapping"))

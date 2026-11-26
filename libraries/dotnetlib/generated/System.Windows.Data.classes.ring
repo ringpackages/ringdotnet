@@ -1711,6 +1711,7 @@ Class RelativeSource from MarkupExtension
 	AncestorLevel
 	PreviousData
 	TemplatedParent
+	@Self
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'relativesource'          # new X without parentheses: the default object
 		dnDefaultObject('System.Windows.Data.RelativeSource, PresentationFramework')
@@ -1787,6 +1788,15 @@ Class RelativeSource from MarkupExtension
 
 	Func getSelf
 		return dnObj(dotnet_callo("s3:get",'System.Windows.Data.RelativeSource, PresentationFramework',"s4:Self"))
+
+	Func get@Self
+		return getSelf()
+
+	Func setSelf P1
+		raise("DotNet Error: Self is a read-only property")
+
+	Func set@Self P1
+		return setSelf(P1)
 
 
 Class ValueConversionAttribute from Attribute

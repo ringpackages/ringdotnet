@@ -120,6 +120,7 @@ Class AspCacheControlHeaderValue from Object
 	NoTransform
 	OnlyIfCached
 	Public
+	@Private
 	PrivateHeaders
 	MustRevalidate
 	ProxyRevalidate
@@ -245,9 +246,15 @@ Class AspCacheControlHeaderValue from Object
 	Func getPrivate
 		return dotnet_getp(nHandle,"Private")
 
+	Func get@Private
+		return getPrivate()
+
 	Func setPrivate P1
 		dotnet_setp(nHandle,"Private",P1)
 		return self
+
+	Func set@Private P1
+		return setPrivate(P1)
 
 	Func getPrivateHeaders
 		return dnObj(dotnet_callo("s3:get",nHandle,"s14:PrivateHeaders"))

@@ -765,6 +765,7 @@ Class ListDictionaryDictionaryNode from Object
 
 	key
 	value
+	@next
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'listdictionarydictionarynode'          # new X without parentheses: the default object
 		dnDefaultObject('System.Collections.Specialized.ListDictionary+DictionaryNode, System.Collections.Specialized')
@@ -806,9 +807,15 @@ Class ListDictionaryDictionaryNode from Object
 	Func getnext
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:next"))
 
+	Func get@next
+		return getnext()
+
 	Func setnext P1
 		dotnet_callv("s3:set",nHandle,"s4:next",P1)
 		return self
+
+	Func set@next P1
+		return setnext(P1)
 
 
 Class NameObjectCollectionBase from Object

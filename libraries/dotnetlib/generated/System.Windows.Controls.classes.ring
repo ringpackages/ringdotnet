@@ -1586,6 +1586,7 @@ Class CalendarDateChangedEventArgs from RoutedEventArgs
 
 Class CalendarDateRange from Object
 
+	@End
 	Start
 
 	if nDotNetWrapHandle = 0 and nHandle = 0 and lower(classname(self)) = 'calendardaterange'          # new X without parentheses: the default object
@@ -1638,9 +1639,15 @@ Class CalendarDateRange from Object
 	Func getEnd
 		return dnObj(dotnet_callo("s3:get",nHandle,"s3:End"))
 
+	Func get@End
+		return getEnd()
+
 	Func setEnd P1
 		dotnet_callv("s3:set",nHandle,"s3:End",P1)
 		return self
+
+	Func set@End P1
+		return setEnd(P1)
 
 	Func getStart
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Start"))

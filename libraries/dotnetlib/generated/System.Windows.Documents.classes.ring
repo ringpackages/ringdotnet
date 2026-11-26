@@ -4044,6 +4044,7 @@ Class TextElementEditingBehaviorAttribute from Attribute
 Class TextRange from Object
 
 	Start
+	@End
 	IsEmpty
 	Text
 
@@ -4123,6 +4124,15 @@ Class TextRange from Object
 
 	Func getEnd
 		return dnObj(dotnet_callo("s3:get",nHandle,"s3:End"))
+
+	Func get@End
+		return getEnd()
+
+	Func setEnd P1
+		raise("DotNet Error: End is a read-only property")
+
+	Func set@End P1
+		return setEnd(P1)
 
 	Func getIsEmpty
 		return dotnet_getp(nHandle,"IsEmpty")

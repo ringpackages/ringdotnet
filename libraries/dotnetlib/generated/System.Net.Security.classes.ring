@@ -167,6 +167,7 @@ Class NegotiateAuthentication from Object
 	IsEncrypted
 	IsMutuallyAuthenticated
 	IsServer
+	@Package
 	TargetName
 	RemoteIdentity
 	ImpersonationLevel
@@ -252,6 +253,15 @@ Class NegotiateAuthentication from Object
 	Func getPackage
 		return dnAnswer(dotnet_getp(nHandle,"Package"))
 
+	Func get@Package
+		return getPackage()
+
+	Func setPackage P1
+		raise("DotNet Error: Package is a read-only property")
+
+	Func set@Package P1
+		return setPackage(P1)
+
 	Func getTargetName
 		return dnAnswer(dotnet_getp(nHandle,"TargetName"))
 
@@ -273,6 +283,7 @@ Class NegotiateAuthentication from Object
 
 Class NegotiateAuthenticationClientOptions from Object
 
+	@Package
 	Credential
 	TargetName
 	Binding
@@ -306,9 +317,15 @@ Class NegotiateAuthenticationClientOptions from Object
 	Func getPackage
 		return dnAnswer(dotnet_getp(nHandle,"Package"))
 
+	Func get@Package
+		return getPackage()
+
 	Func setPackage P1
 		dotnet_setp(nHandle,"Package",P1)
 		return self
+
+	Func set@Package P1
+		return setPackage(P1)
 
 	Func getCredential
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Credential"))
@@ -355,6 +372,7 @@ Class NegotiateAuthenticationClientOptions from Object
 
 Class NegotiateAuthenticationServerOptions from Object
 
+	@Package
 	Credential
 	Binding
 	RequiredProtectionLevel
@@ -387,9 +405,15 @@ Class NegotiateAuthenticationServerOptions from Object
 	Func getPackage
 		return dnAnswer(dotnet_getp(nHandle,"Package"))
 
+	Func get@Package
+		return getPackage()
+
 	Func setPackage P1
 		dotnet_setp(nHandle,"Package",P1)
 		return self
+
+	Func set@Package P1
+		return setPackage(P1)
 
 	Func getCredential
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:Credential"))

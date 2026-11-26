@@ -2752,6 +2752,8 @@ Class FileVersionInfo from Object
 
 Class InitializingSwitchEventArgs from EventArgs
 
+	@Switch
+
 	Func init P1
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -2765,6 +2767,15 @@ Class InitializingSwitchEventArgs from EventArgs
 
 	Func getSwitch
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Switch"))
+
+	Func get@Switch
+		return getSwitch()
+
+	Func setSwitch P1
+		raise("DotNet Error: Switch is a read-only property")
+
+	Func set@Switch P1
+		return setSwitch(P1)
 
 
 Class InitializingTraceSourceEventArgs from EventArgs
@@ -4963,6 +4974,7 @@ Class TraceSource from Object
 	DefaultLevel
 	Name
 	Listeners
+	@Switch
 
 	Func init P1
 		if nDotNetWrapHandle != 0
@@ -5059,9 +5071,15 @@ Class TraceSource from Object
 	Func getSwitch
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Switch"))
 
+	Func get@Switch
+		return getSwitch()
+
 	Func setSwitch P1
 		dotnet_callv("s3:set",nHandle,"s6:Switch",P1)
 		return self
+
+	Func set@Switch P1
+		return setSwitch(P1)
 
 
 Class UnreachableException from Exception

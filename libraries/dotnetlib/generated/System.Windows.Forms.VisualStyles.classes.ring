@@ -7939,6 +7939,7 @@ Class VisualStyleInformation from Object
 
 Class VisualStyleRenderer from Object
 
+	@Class
 	Part
 	State
 	Handle
@@ -8122,6 +8123,15 @@ Class VisualStyleRenderer from Object
 
 	Func getClass
 		return dnAnswer(dotnet_getp(nHandle,"Class"))
+
+	Func get@Class
+		return getClass()
+
+	Func setClass P1
+		raise("DotNet Error: Class is a read-only property")
+
+	Func set@Class P1
+		return setClass(P1)
 
 	Func getPart
 		return dotnet_getp(nHandle,"Part")

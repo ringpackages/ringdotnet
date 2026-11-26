@@ -1248,6 +1248,7 @@ Class DateTimeFormatInfo from Object
 Class DaylightTime from Object
 
 	Start
+	@End
 	Delta
 
 	Func init P1,P2,P3
@@ -1274,6 +1275,15 @@ Class DaylightTime from Object
 
 	Func getEnd
 		return dnObj(dotnet_callo("s3:get",nHandle,"s3:End"))
+
+	Func get@End
+		return getEnd()
+
+	Func setEnd P1
+		raise("DotNet Error: End is a read-only property")
+
+	Func set@End P1
+		return setEnd(P1)
 
 	Func getDelta
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Delta"))

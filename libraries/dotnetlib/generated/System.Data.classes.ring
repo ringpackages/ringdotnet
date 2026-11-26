@@ -2853,6 +2853,7 @@ Class EnumerableRowCollectionExtensions from Object
 
 Class FillErrorEventArgs from EventArgs
 
+	@Continue
 	DataTable
 	Errors
 	Values
@@ -2871,9 +2872,15 @@ Class FillErrorEventArgs from EventArgs
 	Func getContinue
 		return dotnet_getp(nHandle,"Continue")
 
+	Func get@Continue
+		return getContinue()
+
 	Func setContinue P1
 		dotnet_setp(nHandle,"Continue",P1)
 		return self
+
+	Func set@Continue P1
+		return setContinue(P1)
 
 	Func getDataTable
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:DataTable"))
