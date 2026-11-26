@@ -15,8 +15,7 @@ func main
 	# 1. A ZIP archive does not have to be a file. ZipArchive works on any stream: a MemoryStream keeps the whole archive in memory, which is
 	#    what a web program does when it sends a download, or a test that does not want to leave files on the disk.
 	oMemory = new MemoryStream
-	oZip = new ZipArchive
-	oZip.@New([ :stream = oMemory, :mode = "Create", :leaveOpen = True ])
+	oZip = (new ZipArchive).@New([ :stream = oMemory, :mode = "Create", :leaveOpen = True ])
 	addEntry(oZip,"readme.txt","Read me first." + nl + "Second line.")
 	addEntry(oZip,"data/numbers.txt",copy("1234567890 ",500))
 	addEntry(oZip,"data/names.txt","Ann" + nl + "Bob" + nl + "Cy")
@@ -25,8 +24,7 @@ func main
 
 	# 2. Read it: open the archive again for reading and list the entries (full name, size, compressed size)
 	oMemory.Position = 0
-	oRead = new ZipArchive
-	oRead.@New([ :stream = oMemory, :mode = "Read", :leaveOpen = True ])
+	oRead = (new ZipArchive).@New([ :stream = oMemory, :mode = "Read", :leaveOpen = True ])
 	? nl + "2. the entries:"
 	aEntries = oRead.Entries.toList()
 	for oEntry in aEntries
@@ -55,14 +53,12 @@ func main
 
 	# 5. Update: open the archive in Update mode, add a file and delete another one
 	oMemory.Position = 0
-	oUpdate = new ZipArchive
-	oUpdate.@New([ :stream = oMemory, :mode = "Update", :leaveOpen = True ])
+	oUpdate = (new ZipArchive).@New([ :stream = oMemory, :mode = "Update", :leaveOpen = True ])
 	addEntry(oUpdate,"notes/new.txt","added later")
 	oUpdate.GetEntry("data/numbers.txt").Delete()
 	oUpdate.Dispose()
 	oMemory.Position = 0
-	oCheck = new ZipArchive
-	oCheck.@New([ :stream = oMemory, :mode = "Read" ])
+	oCheck = (new ZipArchive).@New([ :stream = oMemory, :mode = "Read" ])
 	cNames = ""
 	aItems = oCheck.Entries.toList()
 	for oItem in aItems
@@ -85,8 +81,7 @@ func addEntry oZip,cName,cText
 func packSize cLevel,cText
 
 	oStream = new MemoryStream
-	oZip = new ZipArchive
-	oZip.@New([ :stream = oStream, :mode = "Create", :leaveOpen = True ])
+	oZip = (new ZipArchive).@New([ :stream = oStream, :mode = "Create", :leaveOpen = True ])
 	oEntry = oZip.CreateEntry([ :entryName = "text.txt", :compressionLevel = cLevel ])
 	oWriter = new StreamWriter(oEntry.Open())
 	oWriter.Write(cText)
