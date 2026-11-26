@@ -106,7 +106,8 @@ func looksLikeText cBytes
 			return False
 		ok
 	next
-	oStrict = dnNew("UTF8Encoding",[ False, True ])
+	oStrict = new UTF8Encoding
+	oStrict.@New([ :encoderShouldEmitUTF8Identifier = False, :throwOnInvalidBytes = True ])
 	try
 		oStrict.GetString(cBytes)
 		return True
