@@ -67,7 +67,9 @@ func main
 # a FileStream: the path, the mode, the access and the share
 func openFile cFile,cMode,cAccess,cShare
 
-	return dnNew("FileStream",[ :path = cFile, :mode = cMode, :access = cAccess, :share = cShare ])
+	oFileStream = new FileStream
+	oFileStream.@New([ :path = cFile, :mode = cMode, :access = cAccess, :share = cShare ])
+	return oFileStream
 
 # a record: the name to 12 characters (spaces on the right), the quantity to 4 digits (zeros on the left), and 4 spaces
 func makeRecord cName,nQuantity
