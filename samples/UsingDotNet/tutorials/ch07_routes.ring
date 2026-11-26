@@ -90,9 +90,7 @@ func matches cTemplate,cPath,oValues
 		ok
 	next
 	oMatcher = dnNew(cRouting + "Template.TemplateMatcher",[oTemplate,oDefaults])
-	oPath = new PathString
-	oPath.@New(cPath)
-	return oMatcher.callMethod("TryMatch",[oPath,oValues])
+	return oMatcher.callMethod("TryMatch",[(new PathString).@New(cPath),oValues])
 
 func chooseRoute aTable,cPath
 
