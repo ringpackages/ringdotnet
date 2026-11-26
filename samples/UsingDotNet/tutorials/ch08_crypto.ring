@@ -53,7 +53,8 @@ func main
 # the keys of a password: PBKDF2 with SHA-256, 100000 rounds, nBytes long
 func deriveKeys cPassword, cSalt
 
-	oDerive = dnNew("Rfc2898DeriveBytes",[ :password = cPassword, :salt = cSalt, :iterations = 100000, :hashAlgorithm = new HashAlgorithmName().SHA256 ])
+	oDerive = new Rfc2898DeriveBytes
+	oDerive.@New([ :password = cPassword, :salt = cSalt, :iterations = 100000, :hashAlgorithm = new HashAlgorithmName().SHA256 ])
 	cKeys = oDerive.GetBytes(64)
 	oDerive.Dispose()
 	return cKeys
