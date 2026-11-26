@@ -3,6 +3,7 @@
 load "dotnet.ring"
 
 using {
+	"System.Data.Odbc"
 	"Microsoft.Win32"
 	"System"
 	"System.IO"
@@ -35,7 +36,7 @@ func main
 
 	#    The connection string names the driver and the file (Dbq). The ODBC classes have no generated Ring classes: dnNew makes the
 	#    objects and callMethod / getProp use them.
-	oConnection = dnNew("System.Data.Odbc.OdbcConnection",["Driver={" + cDriver + "};Dbq=" + cFile + ";"])
+	oConnection = (new OdbcConnection).@New("Driver={" + cDriver + "};Dbq=" + cFile + ";")
 	oConnection.Open()
 	? "   the connection is: " + oConnection.State
 
@@ -98,7 +99,7 @@ func main
 
 	# 10. A transaction makes several statements ONE change: all of them happen or none. Here the second statement fails (a table that
 	#     does not exist), so the first one is undone.
-	oTransaction = oConnection.callMethod("BeginTransaction",[])
+	oTransaction = oConnection.BeginTransaction(NULL)
 	lFailed = False
 	try
 		runSqlIn(oConnection,oTransaction,"UPDATE Customers SET City = ? WHERE Id = ?",["Luxor",1])
@@ -106,7 +107,7 @@ func main
 		oTransaction.Commit()
 	catch
 		lFailed = True
-		oTransaction.callMethod("Rollback",[])
+		oTransaction.Rollback(NULL)
 	done
 	? nl + "10. the second statement failed: " + lFailed + "; the city of Ann is still " + scalar(oConnection,"SELECT City FROM Customers WHERE Id = ?",[1])
 
@@ -114,7 +115,7 @@ func main
 	#     until the program ends, so the program does not delete it here.
 	oConnection.Close()
 	oConnection.Dispose()
-	dnStatic("System.Data.Odbc.OdbcConnection","ReleaseObjectPool",[])
+	(new OdbcConnection).ReleaseObjectPool()
 	? nl + "11. the connection is closed; the file stays on the disk until the next run of the program deletes it"
 
 # ---------------------------------------------------------------- the database
@@ -161,7 +162,7 @@ func makeCommand oConnection,cSql,aValues
 	nNumber = 0
 	for xValue in aValues
 		nNumber++
-		oParameters.callMethod("AddWithValue",["p" + nNumber,xValue])
+		oParameters.AddWithValue("p" + nNumber,xValue)
 	next
 	return oCommand
 
@@ -185,7 +186,7 @@ func scalar oConnection,cSql,aValues
 func rows oConnection,cSql,aValues
 
 	aRows = []
-	oReader = makeCommand(oConnection,cSql,aValues).callMethod("ExecuteReader",[])
+	oReader = makeCommand(oConnection,cSql,aValues).ExecuteReader(NULL)
 	nColumns = oReader.FieldCount
 	while oReader.Read()
 		aRow = []
@@ -221,7 +222,7 @@ func tableNames oConnection
 func columnNames oConnection,cTable
 
 	aNames = []
-	oReader = makeCommand(oConnection,"SELECT * FROM " + cTable + " WHERE 1 = 0",[]).callMethod("ExecuteReader",[])
+	oReader = makeCommand(oConnection,"SELECT * FROM " + cTable + " WHERE 1 = 0",[]).ExecuteReader(NULL)
 	for nColumn = 0 to oReader.FieldCount - 1
 		aNames + (oReader.GetName(nColumn) + " (" + lower(oReader.GetDataTypeName(nColumn)) + ")")
 	next
