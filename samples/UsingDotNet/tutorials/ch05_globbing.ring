@@ -2,6 +2,7 @@
 load "dotnet.ring"
 
 using {
+	"Microsoft.Extensions.FileSystemGlobbing"
 	"System"
 	"System.IO"
 	"RingDotNet.Web"                  # Microsoft.Extensions.FileSystemGlobbing is part of the ASP.NET Core runtime: this line starts it
@@ -14,16 +15,15 @@ func main
 	#   **     any number of folders (also none)         **/*.ring  src/a.ring, src/sub/b.ring, a.ring
 	#   ?      one character                             file?.txt  file1.txt, fileA.txt
 	cBase = makeTree()
-	cExt = "Microsoft.Extensions.FileSystemGlobbing.MatcherExtensions"          # Match and GetResultsInFullPath are extension methods (the tutorial "Caching")
 
 	# 1. A Matcher has include rules and exclude rules. A file is in the result when an include rule matches it and no exclude rule does.
-	oMatcher = dnNew("Microsoft.Extensions.FileSystemGlobbing.Matcher",[])
+	oMatcher = new Matcher()
 	oMatcher.callMethod("AddInclude",["**/*.ring"])
 	? "1. **/*.ring :"
 	showFiles(oMatcher,cBase)
 
 	# 2. Exclude: everything under "tests" and every file whose name starts with "old_" is left out
-	oMatcher2 = dnNew("Microsoft.Extensions.FileSystemGlobbing.Matcher",[])
+	oMatcher2 = new Matcher()
 	oMatcher2.callMethod("AddInclude",["**/*.ring"])
 	oMatcher2.callMethod("AddExclude",["tests/**"])
 	oMatcher2.callMethod("AddExclude",["**/old_*"])
@@ -31,7 +31,7 @@ func main
 	showFiles(oMatcher2,cBase)
 
 	# 3. Several include rules at once: the code and the documents
-	oMatcher3 = dnNew("Microsoft.Extensions.FileSystemGlobbing.Matcher",[])
+	oMatcher3 = new Matcher()
 	oMatcher3.callMethod("AddInclude",["src/*.ring"])
 	oMatcher3.callMethod("AddInclude",["docs/**/*.md"])
 	? nl + "3. src/*.ring (one folder only) and docs/**/*.md :"
@@ -40,7 +40,7 @@ func main
 	# 4. A pattern does not need files on a disk: Match(root, list of paths) tests a list of names, for example the files of an archive
 	#    (the tutorial "ZIP archives in memory") or the changed files of a project. The paths use / and are relative to the root.
 	aPaths = ["src/main.ring","src/old_main.ring","README.md","docs/guide/intro.md","docs/logo.png"]
-	oResult = dnStatic(cExt,"Match",[oMatcher3,".",aPaths])
+	oResult = oMatcher3.Match([ :rootDir = ".", :files = aPaths ])
 	? nl + "4. which of the names are matched: has matches = " + oResult.getProp("HasMatches")
 	aFiles = oResult.getProp("Files").toList()
 	for oFile in aFiles
@@ -48,9 +48,9 @@ func main
 	next
 
 	# 5. By default a Matcher ignores case (OrdinalIgnoreCase). The constructor takes a StringComparison: with Ordinal, case counts.
-	oStrict = dnNew("Microsoft.Extensions.FileSystemGlobbing.Matcher",[ :comparisonType = "Ordinal" ])
+	oStrict = (new Matcher).@New([ :comparisonType = "Ordinal" ])
 	oStrict.callMethod("AddInclude",["**/*.RING"])
-	oResultStrict = dnStatic(cExt,"Match",[oStrict,".",["a.ring","b.RING"]])
+	oResultStrict = oStrict.Match([ :rootDir = ".", :files = ["a.ring","b.RING"] ])
 	? nl + "5. with Ordinal comparison, **/*.RING matches only: " + oResultStrict.getProp("Files").toList()[1].getProp("Path")
 
 	new Directory().Delete([ :path = cBase, :recursive = True ])
@@ -58,7 +58,7 @@ func main
 # the files of the program, with their relative paths in sorted order (the order of a disk is not the same on every system)
 func showFiles oMatcher,cBase
 
-	oResult = dnStatic("Microsoft.Extensions.FileSystemGlobbing.MatcherExtensions","GetResultsInFullPath",[oMatcher,cBase])
+	oResult = oMatcher.GetResultsInFullPath(cBase)
 	aNames = []
 	aFullNames = oResult.toList()
 	for cFull in aFullNames
