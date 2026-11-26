@@ -36,9 +36,7 @@ func main
 	? nl + "2. the byte order marks:"
 	oFile.WriteAllText([ :path = cFolder + "/a.txt", :contents = cText ])
 	? "   File.WriteAllText with no encoding writes UTF-8 and no BOM: first bytes " + toHex(left(oFile.ReadAllBytes(cFolder + "/a.txt"),3))
-	oWithBom = new UTF8Encoding
-	oWithBom.@New(True)  # True: write the byte order mark
-	oFile.WriteAllText([ :path = cFolder + "/e.txt", :contents = cText, :encoding = oWithBom ])
+	oFile.WriteAllText([ :path = cFolder + "/e.txt", :contents = cText, :encoding = (new UTF8Encoding).@New(True) ])
 	? "   with UTF8Encoding(True) the file starts with " + toHex(left(oFile.ReadAllBytes(cFolder + "/e.txt"),3)) + "   (the BOM of UTF-8)"
 	oFile.WriteAllText([ :path = cFolder + "/b.txt", :contents = cText, :encoding = oUtf16 ])
 	? "   with the UTF-16 encoding the file starts with " + toHex(left(oFile.ReadAllBytes(cFolder + "/b.txt"),2)) + " and has " + len(oFile.ReadAllBytes(cFolder + "/b.txt")) + " bytes   (the BOM FF FE: little endian)"
@@ -83,8 +81,7 @@ func main
 # does the text of bytes decode without a replacement as UTF-8? (the strict encoding raises an error for bad bytes)
 func isValidUtf8 cBytes
 
-	oStrict = new UTF8Encoding
-	oStrict.@New([ :encoderShouldEmitUTF8Identifier = False, :throwOnInvalidBytes = True ])
+	oStrict = (new UTF8Encoding).@New([ :encoderShouldEmitUTF8Identifier = False, :throwOnInvalidBytes = True ])
 	try
 		oStrict.GetString(cBytes)
 		return True
