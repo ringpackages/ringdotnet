@@ -310,6 +310,9 @@ namespace RingDotNet
 					return Audit.Assembly(File.Exists(Str(a, 0)) ? System.Reflection.Assembly.LoadFrom(Str(a, 0)) : System.Reflection.Assembly.Load(Str(a, 0)));
 				case "describe":
 					return Describe(TypeOf(a, 0));
+				case "typekind":
+					/* what a type is, by its name: interface, abstract, class, struct, enum or delegate ("" when the name is not a type): the generator takes the extension methods of a closed generic type only when its type arguments can have other types (interfaces, abstract classes) */
+					return TypeKind(Str(a, 0));
 				case "isnull":
 					return a[0] == null;
 				default:

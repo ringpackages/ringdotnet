@@ -26,6 +26,19 @@ namespace RingDotNet
 
 		/* The type of a name: a plain name ("System.IO.File", "System.IO.File, System.Runtime") or a closed generic type; raises an error when
 		   there is no such type */
+		private static string TypeKind(string name)
+		{
+			Type t = null;
+			try { t = ResolveType(name); } catch (Exception) { }
+			if (t == null) return "";
+			if (t.IsInterface) return "interface";
+			if (t.IsEnum) return "enum";
+			if (typeof(Delegate).IsAssignableFrom(t)) return "delegate";
+			if (t.IsValueType) return "struct";
+			if (t.IsAbstract && !t.IsSealed) return "abstract";
+			return "class";
+		}
+
 		private static Type ResolveType(string name)
 		{
 			Type t = ResolveSimple(name);
