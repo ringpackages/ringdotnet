@@ -1386,7 +1386,7 @@ func findExtensions aPlan
 							but closedOfInterfaces(cTarget,nClosed)
 								# a closed generic type outside System (ML.NET's IEstimator<ITransformer>: Append is an extension of it): the classes that implement the generic definition
 								# get the method, and the bridge finds it for an object only when the object is of the closed type (a covariant IEstimator<T> is). Only when the type
-								# arguments are interfaces (IIdentity): an interface is what a covariant type takes, a class (IDiagnosticsLogger<DbLoggerCategory.Query>) would give the
+								# arguments are interfaces or abstract classes (ITransformer): that is what a covariant type takes; a sealed class (IDiagnosticsLogger<DbLoggerCategory.Query>) would give the
 								# method to every class of the definition, and most of them can not take it
 								cTarget = left(cTarget,nClosed - 1)
 								lTarget = true
@@ -1414,8 +1414,8 @@ func findExtensions aPlan
 	next
 	? "Extension methods: " + nCount + " (" + len(aExtMap) + " extended types)"
 
-# Are all the type arguments of a closed generic type interfaces? cTarget is  Definition`1[[Argument, Assembly, ...]]  (nClosed: where the arguments start). An interface is
-# named by the convention of .NET: the last part of its name starts with I and a capital letter.
+# Can all the type arguments of a closed generic type have other types: are they interfaces or abstract classes? cTarget is  Definition`1[[Argument, Assembly, ...]]
+# (nClosed: where the arguments start). The bridge tells what each type is (the request "typekind").
 func closedOfInterfaces cTarget, nClosed
 	cArguments = substr(cTarget,nClosed + 2)
 	aParts = str2list(substr(cArguments,"],[",nl))
@@ -1428,18 +1428,8 @@ func closedOfInterfaces cTarget, nClosed
 		if nComma > 0
 			cName = left(cName,nComma - 1)
 		ok
-		cName = trim(cName)
-		nDot = 0
-		for nChar = 1 to len(cName)
-			if cName[nChar] = "." or cName[nChar] = "+"
-				nDot = nChar
-			ok
-		next
-		cLast = right(cName,len(cName) - nDot)
-		if len(cLast) < 2
-			return false
-		ok
-		if ascii(cLast[1]) != 73 or ascii(cLast[2]) < 65 or ascii(cLast[2]) > 90
+		cKind = dnRequest("typekind",[trim(cName)])
+		if cKind != "interface" and cKind != "abstract"
 			return false
 		ok
 	next
