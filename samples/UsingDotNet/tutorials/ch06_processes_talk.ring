@@ -31,7 +31,8 @@ func runParent
 	? "1. the parent got the lock: " + yesNo(oLock.WaitOne(0))              # WaitOne(0): do not wait, just try
 
 	# 2. A named pipe server waits for a client. The pipe has a name that any program of this computer can open.
-	oServer = dnNew("NamedPipeServerStream",[ :pipeName = C_PIPE, :direction = "InOut" ])
+	oServer = new NamedPipeServerStream
+	oServer.@New([ :pipeName = C_PIPE, :direction = "InOut" ])
 	? nl + "2. the pipe server is listening on '" + C_PIPE + "'"
 
 	# 3. Start the child: a second copy of this program, with its output redirected so that the parent can read it
@@ -73,7 +74,8 @@ func runChild
 	else
 		? "another copy of the program holds the lock: I am the second copy"
 	ok
-	oClient = dnNew("NamedPipeClientStream",[ :serverName = ".", :pipeName = C_PIPE, :direction = "InOut" ])
+	oClient = new NamedPipeClientStream
+	oClient.@New([ :serverName = ".", :pipeName = C_PIPE, :direction = "InOut" ])
 	oClient.Connect(5000)                                  # wait up to 5 seconds for the server
 	oReader = new StreamReader(oClient)
 	oWriter = new StreamWriter(oClient)
