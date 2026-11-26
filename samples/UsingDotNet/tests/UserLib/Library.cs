@@ -622,4 +622,24 @@ namespace MyCompany.Tools
 		public static Transform Plus(this Transform t, int n) { return x => t(x) + n; }
 		public static Step<T> Repeat<T>(this Step<T> s, int times) { return x => { for (int i = 0; i < times; i++) x = s(x); return x; }; }
 	}
+
+	// a covariant generic interface (ML.NET's IEstimator<out T>) and an extension method on a closed type of it with a type parameter of its own (Append<TNext>): the classes that
+	// implement the generic interface get the method, and the type argument is inferred from the argument
+	public interface IStage<out T> { string Name { get; } }
+	public interface IStageMarker { }
+	public sealed class StageOne : IStage<StageOneResult> { public string Name { get { return "one"; } } }
+	public sealed class StageTwo : IStage<StageTwoResult> { public string Name { get { return "two"; } } }
+	public class StageOneResult : IStageMarker { }
+	public class StageTwoResult : IStageMarker { }
+	public sealed class StageChain : IStage<IStageMarker>
+	{
+		private readonly string name;
+		public StageChain(string name) { this.name = name; }
+		public string Name { get { return name; } }
+	}
+
+	public static class StageExtensions
+	{
+		public static StageChain Append<TNext>(this IStage<IStageMarker> start, IStage<TNext> next) where TNext : IStageMarker { return new StageChain(start.Name + ">" + next.Name); }
+	}
 }

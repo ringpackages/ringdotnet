@@ -309,11 +309,11 @@ func chessFeaturePipeline oMl, cSet
 			if isstring(oChain)
 				oChain = oOne
 			else
-				oChain = oChain.callMethod("Append",[oOne])
+				oChain = oChain.Append(oOne)
 			ok
 			aHot + (cName + "Hot")
 		next
-		return oChain.callMethod("Append",[oMl.Transforms.Concatenate("Features",aHot)])
+		return oChain.Append(oMl.Transforms.Concatenate("Features",aHot))
 	off
 	return oMl.Transforms.Concatenate("Features",chessColumnNames())
 
@@ -401,9 +401,9 @@ func chessModelFile aAlgorithm
 func chessPipeline oMl, aAlgorithm
 
 	oPipeline = oMl.Transforms.Conversion.MapValueToKey([ :outputColumnName = "Label", :inputColumnName = "GameResult" ])
-	oPipeline = oPipeline.callMethod("Append",[chessFeaturePipeline(oMl,aAlgorithm[3])])
-	oPipeline = oPipeline.callMethod("Append",[chessTrainer(oMl,aAlgorithm[1])])
-	return oPipeline.callMethod("Append",[oMl.Transforms.Conversion.MapKeyToValue([ :outputColumnName = "PredictedResult", :inputColumnName = "PredictedLabel" ])])
+	oPipeline = oPipeline.Append(chessFeaturePipeline(oMl,aAlgorithm[3]))
+	oPipeline = oPipeline.Append(chessTrainer(oMl,aAlgorithm[1]))
+	return oPipeline.Append(oMl.Transforms.Conversion.MapKeyToValue([ :outputColumnName = "PredictedResult", :inputColumnName = "PredictedLabel" ]))
 
 # ---------------------------------------------------------------- training and answers
 

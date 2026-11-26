@@ -1383,6 +1383,11 @@ func findExtensions aPlan
 							if isDelegateDefinition(left(cTarget,nClosed - 1))
 								cTarget = left(cTarget,nClosed - 1)
 								lTarget = true
+							else
+								# a closed generic type outside System (ML.NET's IEstimator<ITransformer>: Append is an extension of it): the classes that implement the generic definition
+								# get the method, and the bridge finds it for an object only when the object is of the closed type (a covariant IEstimator<T> is)
+								cTarget = left(cTarget,nClosed - 1)
+								lTarget = true
 							ok
 						ok
 						if lTarget

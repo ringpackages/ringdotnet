@@ -228,6 +228,12 @@ dnAssert("a chain of them",oIncrement.Twice().Plus(10).Invoke(0),12)
 oExclaim = dnStatic("MyCompany.Tools.DelegateFactory","Exclaim",[])
 dnAssert("a generic delegate",oExclaim.Repeat(3).Invoke("hi"),"hi!!!")
 
+# an extension method of a closed generic type with a type parameter of its own (IStage<IStageMarker>.Append<TNext>): the implementing classes have it
+oChain = new StageOne().Append(new StageTwo())
+dnAssert("an extension method on a closed generic interface",oChain.Name,"one>two")
+dnAssert("its result is wrapped by its real type",classname(oChain),"stagechain")
+dnAssert("and it is chained",oChain.Append(new StageTwo()).Name,"one>two>two")
+
 # dnIsNull: true for the .NET null, false for every other value
 dnAssert("a method that returns null",dnIsNull(dnStatic("MyCompany.Tools.ParamsTools","NoShape",[])),1)
 dnAssert("the null of dnNull",dnIsNull(dnNull()),1)

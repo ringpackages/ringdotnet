@@ -59,13 +59,13 @@ The data gives the six squares: the file and the rank of each piece. `chessFeatu
 
 ## The algorithms
 
-ML.NET has algorithms for many classes (`MulticlassClassification.Trainers`), and binary algorithms that `OneVersusAll` turns into algorithms for many classes: it trains one model for each result, and the model with the highest score answers. Each trainer is one call, and the rest of the pipeline is the same. The methods of ML.NET have many overloads with optional arguments, so the calls give their arguments by name (`[ :labelColumnName = "Label", ... ]`): the name finds the overload. `Append` is a generic method that the bridge does not call with the dot yet, so the pipeline is joined with `callMethod("Append",[...])`.
+ML.NET has algorithms for many classes (`MulticlassClassification.Trainers`), and binary algorithms that `OneVersusAll` turns into algorithms for many classes: it trains one model for each result, and the model with the highest score answers. Each trainer is one call, and the rest of the pipeline is the same. The methods of ML.NET have many overloads with optional arguments, so the calls give their arguments by name (`[ :labelColumnName = "Label", ... ]`): the name finds the overload. `Append` joins the steps: it is a generic extension method of ML.NET, and the bridge works out its type argument from the step that you give.
 
 ```ring
 oPipeline = oMl.Transforms.Conversion.MapValueToKey([ :outputColumnName = "Label", :inputColumnName = "GameResult" ])          # the result as a key
-oPipeline = oPipeline.callMethod("Append",[chessFeaturePipeline(oMl,"engineered")])                                           # the features
-oPipeline = oPipeline.callMethod("Append",[oMl.MulticlassClassification.Trainers.LightGbm([ :labelColumnName = "Label", :featureColumnName = "Features" ])])
-oPipeline = oPipeline.callMethod("Append",[oMl.Transforms.Conversion.MapKeyToValue([ :outputColumnName = "PredictedResult", :inputColumnName = "PredictedLabel" ])])   # the answer as the word
+oPipeline = oPipeline.Append(chessFeaturePipeline(oMl,"engineered"))                                                         # the features
+oPipeline = oPipeline.Append(oMl.MulticlassClassification.Trainers.LightGbm([ :labelColumnName = "Label", :featureColumnName = "Features" ]))
+oPipeline = oPipeline.Append(oMl.Transforms.Conversion.MapKeyToValue([ :outputColumnName = "PredictedResult", :inputColumnName = "PredictedLabel" ]))   # the answer as the word
 
 oModel = oPipeline.Fit(oTrain)                                                                   # learn from the training positions
 aPredicted = chessColumn(oModel.Transform(oTest),"System.String","PredictedResult")             # answer for the test positions
