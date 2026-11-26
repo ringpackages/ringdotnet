@@ -1,0 +1,13 @@
+load "pkg.ring"
+pkgUseProject("mlnet","helpers/MlHelpers",[["MlHelpers.dll",["MlHelpers"]],["Microsoft.ML.Data.dll",["Microsoft.ML","Microsoft.ML.Data"]],["Microsoft.ML.Core.dll",[]],["Microsoft.ML.StandardTrainers.dll",["Microsoft.ML.Trainers"]],["Microsoft.ML.Transforms.dll",[]],["Microsoft.ML.DataView.dll",[]],["Microsoft.ML.CpuMath.dll",[]],["Microsoft.ML.FastTree.dll",[]],["Microsoft.ML.KMeansClustering.dll",[]],["Microsoft.ML.PCA.dll",[]]])
+pkgImport("mlnet","Microsoft.ML.Data.dll","Microsoft.ML")
+oMl = dnNew("Microsoft.ML.MLContext",[1])
+oAsm = dnStatic("System.Reflection.Emit.AssemblyBuilder","DefineDynamicAssembly",[dnNew("System.Reflection.AssemblyName",["DynRows"]),"Run"])
+oModule = oAsm.callMethod("DefineDynamicModule",["DynRows"])
+oSingle = dnStatic("System.Type","GetType",["System.Single"])
+oBuilder = oModule.callMethod("DefineType",["DynRow","Public"])
+oBuilder.callMethod("DefineField",["F1",oSingle,"Public"])
+oBuilder.callMethod("DefineField",["Label",oSingle,"Public"])
+oBuilder.callMethod("DefineDefaultConstructor",["Public"])
+oType = oBuilder.callMethod("CreateType",[])
+? "resolved by name: " + dnType("DynRow").typeName()
