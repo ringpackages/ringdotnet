@@ -45,7 +45,7 @@ func main
 	oBlocking.CompleteAdding()
 	cTaken = ""
 	while not oBlocking.getProp("IsCompleted")
-		cTaken += "" + oBlocking.callMethod("Take",[]) + " "
+		cTaken += "" + oBlocking.Take(NULL) + " "
 	end
 	? nl + "3. blocking collection, taken in order: " + cTaken
 
