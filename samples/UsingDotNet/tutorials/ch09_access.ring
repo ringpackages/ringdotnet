@@ -211,8 +211,8 @@ func tableNames oConnection
 	aNames = []
 	aTableRows = oConnection.GetSchema("Tables").Rows.toList()
 	for oRow in aTableRows
-		if oRow.callMethod("get_Item",["TABLE_TYPE"]) = "TABLE"
-			aNames + oRow.callMethod("get_Item",["TABLE_NAME"])
+		if oRow.Item("TABLE_TYPE") = "TABLE"
+			aNames + oRow.Item("TABLE_NAME")
 		ok
 	next
 	return sort(aNames)
