@@ -111,6 +111,56 @@ oObs.Add(1)  oObs.Add("two")
 dnAssert("ObservableCollection events",nAdded,2)
 dnAssert("ObservableCollection.Count",oObs.Count,2)
 
+# generic collections made with :typeArguments: the methods of a type parameter are called without a request text when the real type takes them (a text, a number, a yes/no),
+# and by the general request for any other type, with the same answers
+oTexts = new List([ :typeArguments = ["System.String"] ])
+oTexts.Add("pear")  oTexts.Add("apple")  oTexts.Insert(1,"fig")
+dnAssert("List<string>.Item",oTexts.Item(1),"fig")
+dnAssert("List<string>.Contains",oTexts.Contains("apple"),True)
+dnAssert("List<string>.Contains, a text that is not there",oTexts.Contains("kiwi"),False)
+dnAssert("List<string>.IndexOf",oTexts.IndexOf("apple"),2)
+dnAssert("List<string>.Remove",oTexts.Remove("fig"),True)
+oTexts.SetItem(0,"plum")
+dnAssert("List<string>.SetItem",oTexts.Item(0),"plum")
+dnAssert("List<string>.Count",oTexts.Count,2)
+oInts = new List([ :typeArguments = ["System.Int32"] ])
+oInts.Add(30)  oInts.Add(10)  oInts.Add(20)
+dnAssert("List<int>.Item",oInts.Item(2),20)
+dnAssert("List<int>.Contains",oInts.Contains(10),True)
+dnAssert("List<int>.IndexOf",oInts.IndexOf(20),2)
+lRefused = False
+try
+	oInts.Add("not a number")
+catch
+	lRefused = True
+done
+dnAssert("List<int>.Add with a text is refused by .NET",lRefused,True)
+oDoubles = new List([ :typeArguments = ["System.Double"] ])
+oDoubles.Add(2.5)
+dnAssert("List<double>.Item",oDoubles.Item(0),2.5)
+oObjects = new List([ :typeArguments = ["System.Object"] ])
+oObjects.Add("text")  oObjects.Add(42)  oObjects.Add(new Uri("http://example.com/a"))
+dnAssert("List<object>.Item, a text",oObjects.Item(0),"text")
+dnAssert("List<object>.Item, a number",oObjects.Item(1),42)
+dnAssert("List<object>.Item, an object keeps its class",oObjects.Item(2).Host,"example.com")
+dnAssert("List<object>.Contains",oObjects.Contains(42),True)
+oAges = new Dictionary([ :typeArguments = ["System.String","System.Int32"] ])
+oAges.Add("ann",31)  oAges.Add("bob",25)
+dnAssert("Dictionary<string,int>.Item",oAges.Item("bob"),25)
+dnAssert("Dictionary<string,int>.ContainsKey",oAges.ContainsKey("ann"),True)
+oAges.SetItem("ann",32)
+dnAssert("Dictionary<string,int>.SetItem",oAges.Item("ann"),32)
+dnAssert("Dictionary<string,int>.Remove",oAges.Remove("bob"),True)
+dnAssert("Dictionary<string,int>.Count",oAges.Count,1)
+oQueue = new Queue1([ :typeArguments = ["System.String"] ])
+oQueue.Enqueue("first")  oQueue.Enqueue("second")
+dnAssert("Queue<string>.Peek",oQueue.Peek(),"first")
+dnAssert("Queue<string>.Dequeue",oQueue.Dequeue(),"first")
+oStack = new Stack1([ :typeArguments = ["System.Int32"] ])
+oStack.Push(7)  oStack.Push(8)
+dnAssert("Stack<int>.Pop",oStack.Pop(),8)
+dnAssert("Stack<int>.Peek",oStack.Peek(),7)
+
 # the event arguments are an object of their own class: the action and the items
 cActions = ""
 oAction = new ObservableObjectList()
