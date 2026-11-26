@@ -76,7 +76,7 @@ func main
 	? "1. rows read from the CSV and stored: " + nRows + ", in the database: " + oSales.callMethod("Count",[])
 
 	# 4. A query: the rows with 9 units or more. The condition is a text in the query language of LiteDB.
-	oBig = oSales.callMethod("Find",[ new BsonExpression().Create("$.units >= 9") ])
+	oBig = oSales.Find(new BsonExpression().Create("$.units >= 9"))
 	aBig = []
 	aRows = oBig.toList()
 	for oRow in aRows
@@ -91,7 +91,7 @@ func main
 	# 5. Totals by region: the rows come out of the database as documents and Ring adds them up
 	aTotals = []          # [region, amount]
 	aAll = []
-	aRows = oSales.callMethod("FindAll",[]).toList()
+	aRows = oSales.FindAll().toList()
 	for oRow in aRows
 		cRegion = oRow.Item("region").AsString
 		nAmount = oRow.Item("units").AsInt32 * oRow.Item("price").AsDouble
