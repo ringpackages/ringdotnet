@@ -11,10 +11,18 @@ func main
 	# A claim is a statement about a user: a type and a value ("Role" = "Admin", "Email" = "ann@example.com").
 	# An identity is a list of claims from one source; a principal holds identities. ASP.NET uses these classes for every login.
 	oIdentity = new ClaimsIdentity().@New([ :authenticationType = "Password" ])
-	oIdentity.AddClaim(dnNew("Claim",[ :type = "Name", :value = "Ann" ]))
-	oIdentity.AddClaim(dnNew("Claim",[ :type = "Email", :value = "ann@example.com" ]))
-	oIdentity.AddClaim(dnNew("Claim",[ :type = "Role", :value = "Editor" ]))
-	oIdentity.AddClaim(dnNew("Claim",[ :type = "Role", :value = "Reviewer" ]))
+	oClaim = new Claim
+	oClaim.@New([ :type = "Name", :value = "Ann" ])
+	oIdentity.AddClaim(oClaim)
+	oClaim = new Claim
+	oClaim.@New([ :type = "Email", :value = "ann@example.com" ])
+	oIdentity.AddClaim(oClaim)
+	oClaim = new Claim
+	oClaim.@New([ :type = "Role", :value = "Editor" ])
+	oIdentity.AddClaim(oClaim)
+	oClaim = new Claim
+	oClaim.@New([ :type = "Role", :value = "Reviewer" ])
+	oIdentity.AddClaim(oClaim)
 	oPrincipal = new ClaimsPrincipal().@New([ :identity = oIdentity ])
 
 	? "1. authentication type: " + oIdentity.AuthenticationType + ", authenticated: " + oIdentity.IsAuthenticated
@@ -36,8 +44,12 @@ func main
 
 	# 3. Roles: IsInRole looks at the claims of the role type. A new identity must say which claim type is the role.
 	oRoleIdentity = new ClaimsIdentity().@New([ :authenticationType = "Password", :nameType = "Name", :roleType = "Role" ])
-	oRoleIdentity.AddClaim(dnNew("Claim",[ :type = "Name", :value = "Ann" ]))
-	oRoleIdentity.AddClaim(dnNew("Claim",[ :type = "Role", :value = "Editor" ]))
+	oClaim = new Claim
+	oClaim.@New([ :type = "Name", :value = "Ann" ])
+	oRoleIdentity.AddClaim(oClaim)
+	oClaim = new Claim
+	oClaim.@New([ :type = "Role", :value = "Editor" ])
+	oRoleIdentity.AddClaim(oClaim)
 	oRolePrincipal = new ClaimsPrincipal().@New([ :identity = oRoleIdentity ])
 	? nl + "3. name: " + oRoleIdentity.Name
 	? "   is Editor: " + oRolePrincipal.IsInRole("Editor") + ", is Admin: " + oRolePrincipal.IsInRole("Admin")
