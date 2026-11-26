@@ -39,3 +39,5 @@ samples/UsingDotNet/tutorials/Speech/classes/
 samples/UsingDotNet/tutorials/Report/libs/
 samples/UsingDotNet/tutorials/Report/bin/
 samples/UsingDotNet/tutorials/Report/classes/
+samples/UsingDotNet/tests/packages/helpers/*/bin/
+samples/UsingDotNet/tests/packages/helpers/*/obj/
