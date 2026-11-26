@@ -2,6 +2,7 @@
 load "dotnet.ring"
 
 using {
+	"Microsoft.AspNetCore.Routing"
 	"System"
 	"RingDotNet.Web"                  # the routing classes are part of the ASP.NET Core runtime: this line starts it
 }
@@ -65,7 +66,7 @@ func main
 # the dictionary of values for a template and a path, as text; "no match" when the path does not fit the template
 func showMatch cTemplate,cPath
 
-	oValues = dnNew(cRouting + "RouteValueDictionary",[])
+	oValues = new RouteValueDictionary
 	if not matches(cTemplate,cPath,oValues)
 		return "no match"
 	ok
@@ -80,7 +81,7 @@ func matches cTemplate,cPath,oValues
 
 	oTemplate = dnStatic(cRouting + "Template.TemplateParser","Parse",[cTemplate])
 	# the defaults of the template ({page=1}) are given to the matcher: a part with a default may be missing at the END of the path
-	oDefaults = dnNew(cRouting + "RouteValueDictionary",[])
+	oDefaults = new RouteValueDictionary
 	aParts = oTemplate.getProp("Parameters").toList()
 	for oPart in aParts
 		xDefault = oPart.getProp("DefaultValue")
@@ -96,7 +97,8 @@ func matches cTemplate,cPath,oValues
 func chooseRoute aTable,cPath
 
 	for aRoute in aTable
-		if matches(aRoute[1],cPath,dnNew(cRouting + "RouteValueDictionary",[]))
+		oValues = new RouteValueDictionary
+		if matches(aRoute[1],cPath,oValues)
 			return aRoute[1] + "  ->  " + aRoute[2]
 		ok
 	next
