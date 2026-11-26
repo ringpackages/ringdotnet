@@ -45,7 +45,8 @@ func main
 	? "   Lazy                    : " + new Regex("<.*?>").Match(cHtml).Value
 
 	# 10. Options: ignore the case of the letters
-	oIgnoreCase = dnNew("Regex",[ :pattern = "BOB", :options = "IgnoreCase" ])     # an enum is a text
+	oIgnoreCase = new Regex
+	oIgnoreCase.@New([ :pattern = "BOB", :options = "IgnoreCase" ])  # an enum is a text
 	? "10. 'BOB' ignoring case    : " + oIgnoreCase.IsMatch(cText)
 
 	# 11. Validation: the whole text must match. ^ and $ make it all or nothing
