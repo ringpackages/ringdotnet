@@ -36,7 +36,8 @@ func main
 	? nl + "2. the byte order marks:"
 	oFile.WriteAllText([ :path = cFolder + "/a.txt", :contents = cText ])
 	? "   File.WriteAllText with no encoding writes UTF-8 and no BOM: first bytes " + toHex(left(oFile.ReadAllBytes(cFolder + "/a.txt"),3))
-	oWithBom = dnNew("UTF8Encoding",[ True ])             # True: write the byte order mark
+	oWithBom = new UTF8Encoding
+	oWithBom.@New(True)  # True: write the byte order mark
 	oFile.WriteAllText([ :path = cFolder + "/e.txt", :contents = cText, :encoding = oWithBom ])
 	? "   with UTF8Encoding(True) the file starts with " + toHex(left(oFile.ReadAllBytes(cFolder + "/e.txt"),3)) + "   (the BOM of UTF-8)"
 	oFile.WriteAllText([ :path = cFolder + "/b.txt", :contents = cText, :encoding = oUtf16 ])
