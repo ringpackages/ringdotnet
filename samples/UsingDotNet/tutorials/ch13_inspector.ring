@@ -24,9 +24,7 @@ func main
 	cTempFile = new Path().Combine([ new Path().GetTempPath(), "ringdotnet-inspect.txt" ])
 	new File().WriteAllText([ :path = cTempFile, :contents = "Hello, inspector" ])
 	aObjects + [ "A Uri", new Uri("https://example.com:8080/docs/page?x=1#top") ]
-	oDateTime = new DateTime
-	oDateTime.@New([ :year = 2030, :month = 3, :day = 9, :hour = 14, :minute = 5, :second = 7 ])
-	aObjects + [ "A DateTime", oDateTime ]
+	aObjects + [ "A DateTime", (new DateTime).@New([ :year = 2030, :month = 3, :day = 9, :hour = 14, :minute = 5, :second = 7 ]) ]
 	aObjects + [ "A FileInfo", new FileInfo(cTempFile) ]
 	aObjects + [ "A StringBuilder", new StringBuilder("Hello") ]
 
