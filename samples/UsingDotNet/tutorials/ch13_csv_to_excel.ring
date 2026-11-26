@@ -52,14 +52,14 @@ func main
 	cCsv += "2024-03-04,South,Cake,2,8" + nl
 
 	# 2. CsvHelper reads it: ReadHeader takes the first line, and Read goes to the next row. A field is read by the name of its column.
-	oText = dnNew("System.IO.StringReader",[ :s = cCsv ])
-	oCulture = dnNew("System.Globalization.CultureInfo",[ :name = "en-US" ])
+	oText = new StringReader(cCsv)
+	oCulture = new CultureInfo("en-US")
 	oCsv = dnNew("CsvHelper.CsvReader",[ :reader = oText, :culture = oCulture ])
 	oCsv.Read()
 	oCsv.ReadHeader()
 
 	# 3. LiteDB keeps each row as a document. The database is a file, the collection is like a table.
-	oDb = dnNew("LiteDB.LiteDatabase",[ :connectionString = cDbFile ])
+	oDb = new LiteDatabase(cDbFile)
 	oSales = oDb.GetCollection([ :name = "sales" ])
 	nRows = 0
 	while oCsv.Read()
