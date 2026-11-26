@@ -24,7 +24,8 @@ func main
 	? "   name without extension: " + oPath.GetFileNameWithoutExtension(cFile) + ", size: " + oInfo.Length + " bytes"
 
 	# 2. The times of a file: created, last written, last read. The program sets one to a known moment, so that the output is always the same.
-	oMoment = dnNew("DateTime",[ :year = 2024, :month = 3, :day = 15, :hour = 9, :minute = 30, :second = 0 ])
+	oMoment = new DateTime
+	oMoment.@New([ :year = 2024, :month = 3, :day = 15, :hour = 9, :minute = 30, :second = 0 ])
 	oFile.SetLastWriteTime(cFile,oMoment)
 	oInfo.Refresh()                                        # FileInfo keeps what it read: Refresh reads it again
 	? nl + "2. last written: " + oInfo.LastWriteTime.Format("yyyy-MM-dd HH:mm")
