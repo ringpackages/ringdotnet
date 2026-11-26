@@ -319,6 +319,7 @@ class UiCanvas
 	nHeight
 	aBrushes = []
 	aPens = []
+	nColorType = 0          # the handle of System.Drawing.Color, found when the first pixel is set
 
 	# draw on a new bitmap of the size of the picture box, and show it there
 	func init  oPictureBox
@@ -402,6 +403,20 @@ class UiCanvas
 	func text  cText, nX, nY, xColor, nSize
 		ui_oFont = new Font("Segoe UI",nSize)
 		oGraphics.DrawString([ :s = cText, :font = ui_oFont, :brush = brush(xColor), :point = new PointF(nX,nY) ])
+
+	# the color of one pixel from its red, green and blue parts (0 to 255). A Color has about 150 members, so its Ring object is slow to make (a few hundred
+	# microseconds): this keeps only the handle of the .NET Color, which takes about ten, enough for a picture of tens of thousands of pixels
+	func setPixel  nX, nY, nRed, nGreen, nBlue
+		if nColorType = 0
+			nColorType = dnTypeHandle("System.Drawing.Color")
+		ok
+		ui_cColor = dotnet_callo("s4:call",nColorType,"s8:FromArgb",nRed,nGreen,nBlue)
+		oBitmap.SetPixel(nX,nY,new DotNetOwned(number(left(ui_cColor,substr(ui_cColor,"|") - 1))))
+
+	# a rectangle of pixels from one text of 3 bytes for each pixel (red, green, blue: char(r) + char(g) + char(b) ...), row after row: the pixel nX, nY first, then
+	# nX + 1, nY ... A call from Ring into .NET costs several microseconds, so a picture made of tens of thousands of pixels is drawn with one call
+	func setPixels  nX, nY, nWidth, nHeight, cRgb
+		dnStatic("RingDotNet.DrawingHelpers","SetPixels",[oBitmap,nX,nY,nWidth,nHeight,cRgb])
 
 	# Refresh the picture box after drawing
 	func show

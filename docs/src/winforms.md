@@ -96,6 +96,8 @@ oCanvas.show()                         # refresh the picture box
 | `fillEllipse(x,y,w,h,color)` | ellipse |
 | `line(x1,y1,x2,y2,color,width)` | line |
 | `text(text,x,y,color,size)` | text |
+| `setPixel(x,y,red,green,blue)` | one pixel, from its red, green and blue parts (0 to 255) |
+| `setPixels(x,y,width,height,rgb)` | a rectangle of pixels from one text of 3 bytes for each pixel (`char(red) + char(green) + char(blue)` ...), row after row, in one call: for pictures made pixel by pixel |
 | `show()` | refresh the picture box |
 | `pixel(x,y)` | the color of a pixel as a hex text (for tests) |
 | `brush(color)`, `pen(color,width)`, `color(x)` | the .NET objects, for anything the helpers don't cover |

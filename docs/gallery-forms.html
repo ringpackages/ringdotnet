@@ -1065,7 +1065,101 @@ oBold {
 	ForeColor = <span class="f">uiColor</span>(<span class="s">"DarkRed"</span>)
 }
 
-<span class="f">uiRun</span>(oForm)</code></pre></div></details></div></div></div>
+<span class="f">uiRun</span>(oForm)</code></pre></div></details></div></div><div class="item" id="color-wheel"><div class="pic"><img src="img/shots/forms-33_color_wheel.png" alt="Color wheel" loading="lazy"></div><div class="info"><h3>Color wheel</h3><p>A color wheel drawn pixel by pixel on a bitmap when the button is clicked: first the color of every pixel is computed, then the pixels are drawn (the RingQt sample ColorWheel). A call into .NET costs several microseconds, so the whole picture is drawn with one call: one text of 3 bytes for each pixel. Run it with --draw to draw without a click.</p><div class="run"><code>ring samples/UsingDotNet/Forms/33_color_wheel.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A color wheel drawn pixel by pixel on a bitmap when the button is clicked: first the color of every pixel is computed, then the pixels are drawn (the RingQt sample</span>
+<span class="c"># ColorWheel). A call into .NET costs several microseconds, so the whole picture is drawn with one call: one text of 3 bytes for each pixel.</span>
+<span class="c"># Run it with --draw to draw without a click.</span>
+
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
+
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
+
+nSize = <span class="n">300</span>                    <span class="c"># the bitmap is nSize x nSize pixels</span>
+nRadius = nSize / <span class="n">2</span>
+nPi = <span class="n">3.14159265359</span>
+cPixels = <span class="s">""</span>                   <span class="c"># the computed colors of the picture: the bytes red, green, blue for each pixel, row after row</span>
+nComputeTime = <span class="n">0</span>
+nDrawTime = <span class="n">0</span>
+
+oForm = <span class="f">uiForm</span>(<span class="s">"Color wheel"</span>,nSize + <span class="n">20</span>,nSize + <span class="n">100</span>)
+oPicture = <span class="f">uiPictureBox</span>(oForm,<span class="n">10</span>,<span class="n">10</span>,nSize,nSize)
+oButton = <span class="f">uiButton</span>(oForm,<span class="s">"Draw"</span>,<span class="n">10</span>,nSize + <span class="n">20</span>,nSize,<span class="n">32</span>,<span class="s">"startDraw()"</span>)
+oStatus = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">10</span>,nSize + <span class="n">62</span>,nSize,<span class="n">20</span>)
+oCanvas = <span class="k">new</span> <span class="t">UiCanvas</span>(oPicture)
+oCanvas.<span class="f">clear</span>(<span class="s">"White"</span>)
+<span class="k">if</span> find(sysargv,<span class="s">"--draw"</span>) &gt; <span class="n">0</span>
+	startDraw()
+<span class="k">ok</span>
+
+<span class="f">uiRun</span>(oForm)
+
+<span class="c"># --------------------------------------------------------------------------</span>
+
+<span class="c"># The click of the button: clear the picture, compute the color of every pixel, then draw them</span>
+<span class="k">func</span> <span class="f">startDraw</span>
+
+	oCanvas.<span class="f">clear</span>(<span class="s">"White"</span>)
+	nStart = clock()
+	computeWheel()
+	nComputeTime = (clock() - nStart) / clockspersecond()
+	nStart = clock()
+	drawWheel()
+	nDrawTime = (clock() - nStart) / clockspersecond()
+	oStatus.Text = <span class="s">"Computed in "</span> + (floor(nComputeTime * <span class="n">100</span>) / <span class="n">100</span>) + <span class="s">" s, drawn in "</span> + (floor(nDrawTime * <span class="n">1000</span>) / <span class="n">1000</span>) + <span class="s">" s"</span>
+	oButton.Text = <span class="s">"Draw again"</span>
+
+<span class="c"># The color of every pixel, row after row: the hue is the angle around the center, the saturation is the distance from it. A pixel outside of the wheel is white.</span>
+<span class="k">func</span> <span class="f">computeWheel</span>
+
+	cPixels = <span class="s">""</span>
+	cWhite = char(<span class="n">255</span>) + char(<span class="n">255</span>) + char(<span class="n">255</span>)
+	<span class="k">for</span> nRow = <span class="n">1</span> <span class="k">to</span> nSize
+		nY = nRow - nRadius
+		nYSquared = nY * nY
+		cLine = <span class="s">""</span>
+		<span class="k">for</span> nCol = <span class="n">1</span> <span class="k">to</span> nSize
+			nX = nCol - nRadius
+			nSaturation = sqrt(nX * nX + nYSquared) / nRadius
+			<span class="k">if</span> nSaturation &lt;= <span class="n">1</span>
+				nHue = (atan2(nX,nY) + nPi) / (<span class="n">2</span> * nPi)
+				aRGB = hsvToRgb(nHue,nSaturation)
+				cLine += char(aRGB[<span class="n">1</span>]) + char(aRGB[<span class="n">2</span>]) + char(aRGB[<span class="n">3</span>])
+			<span class="k">else</span>
+				cLine += cWhite
+			<span class="k">ok</span>
+		<span class="k">next</span>
+		cPixels += cLine
+	<span class="k">next</span>
+
+<span class="c"># Draw the computed colors, all in one call, and show the picture once</span>
+<span class="k">func</span> <span class="f">drawWheel</span>
+
+	oCanvas.<span class="f">setPixels</span>(<span class="n">0</span>,<span class="n">0</span>,nSize,nSize,cPixels)
+	oCanvas.<span class="f">show</span>()
+
+<span class="c"># The color of a hue and a saturation (0 to 1) at full brightness: [red, green, blue] from 0 to 255</span>
+<span class="k">func</span> <span class="f">hsvToRgb</span> nHue, nSaturation
+
+	nSector = floor(nHue * <span class="n">6</span>)
+	nFraction = nHue * <span class="n">6</span> - nSector
+	nP = floor((<span class="n">1</span> - nSaturation) * <span class="n">255</span> + <span class="n">0.5</span>)
+	nQ = floor((<span class="n">1</span> - nSaturation * nFraction) * <span class="n">255</span> + <span class="n">0.5</span>)
+	nT = floor((<span class="n">1</span> - nSaturation * (<span class="n">1</span> - nFraction)) * <span class="n">255</span> + <span class="n">0.5</span>)
+	<span class="k">switch</span> nSector % <span class="n">6</span>
+	<span class="k">on</span> <span class="n">0</span>
+		<span class="k">return</span> [<span class="n">255</span>,nT,nP]
+	<span class="k">on</span> <span class="n">1</span>
+		<span class="k">return</span> [nQ,<span class="n">255</span>,nP]
+	<span class="k">on</span> <span class="n">2</span>
+		<span class="k">return</span> [nP,<span class="n">255</span>,nT]
+	<span class="k">on</span> <span class="n">3</span>
+		<span class="k">return</span> [nP,nQ,<span class="n">255</span>]
+	<span class="k">on</span> <span class="n">4</span>
+		<span class="k">return</span> [nT,nP,<span class="n">255</span>]
+	<span class="k">off</span>
+	<span class="k">return</span> [<span class="n">255</span>,nP,nQ]</code></pre></div></details></div></div></div>
 <div class="pager"><a href="winforms.html"><small>Previous</small>Windows Forms</a><a class="next" href="gallery-apps.html"><small>Next</small>Applications</a></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>

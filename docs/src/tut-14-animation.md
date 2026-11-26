@@ -38,6 +38,8 @@ lead: Draw shapes and text on a canvas, move them with a timer and control them 
 | `fillCircle(x,y,radius,color)` | a filled circle |
 | `fillRect(x,y,w,h,color)` | a filled rectangle |
 | `text(text,x,y,color,size)` | text |
+| `setPixel(x,y,red,green,blue)` | one pixel from its red, green and blue parts (0 to 255) |
+| `setPixels(x,y,width,height,rgb)` | a rectangle of pixels from a text of 3 bytes for each pixel, much faster than one `setPixel` for each |
 | `show()` | puts the finished picture on the screen |
 
 A color is a name (`"Orange"`), a `#RRGGBB` text, or a .NET `Color`. Every frame the program clears the canvas and draws everything again; `show()` makes the result visible.
