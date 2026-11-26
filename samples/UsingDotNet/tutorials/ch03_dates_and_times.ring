@@ -51,10 +51,9 @@ func main
 	? "   days between the two dates: " + (oToday.DayNumber - oBirthday.DayNumber)
 
 	# 6. Parsing a date from text with an exact format, so that 03/04/2024 can not be read as the wrong day and month
-	oDateOnly = new DateOnly
-	aParsed = oDateOnly.TryParseExact([ :s = "03/04/2024", :format = "dd/MM/yyyy", :provider = new CultureInfo(""), :style = "None" ])
+	aParsed = (new DateOnly).TryParseExact([ :s = "03/04/2024", :format = "dd/MM/yyyy", :provider = new CultureInfo(""), :style = "None" ])
 	? nl + "6. '03/04/2024' read as day/month/year: " + aParsed[2].Format("yyyy-MM-dd") + " (the 3rd of April)"
-	aParsed = oDateOnly.TryParseExact([ :s = "31/04/2024", :format = "dd/MM/yyyy", :provider = new CultureInfo(""), :style = "None" ])
+	aParsed = (new DateOnly).TryParseExact([ :s = "31/04/2024", :format = "dd/MM/yyyy", :provider = new CultureInfo(""), :style = "None" ])
 	? "   '31/04/2024' is a date: " + aParsed[1] + "   (April has 30 days)"
 
 func makeDate nYear,nMonth,nDay
@@ -63,6 +62,4 @@ func makeDate nYear,nMonth,nDay
 
 func makeDateTime nYear,nMonth,nDay,nHour,nMinute
 
-	oDateTime = new DateTime
-	oDateTime.@New([ :year = nYear, :month = nMonth, :day = nDay, :hour = nHour, :minute = nMinute, :second = 0 ])
-	return oDateTime
+	return (new DateTime).@New([ :year = nYear, :month = nMonth, :day = nDay, :hour = nHour, :minute = nMinute, :second = 0 ])
