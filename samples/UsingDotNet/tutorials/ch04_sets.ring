@@ -44,7 +44,7 @@ func main
 	? "   A equals A with the same items in another order: " + oSetA.SetEquals(makeSet(["web","json","linq","dotnet","ring"]))
 
 	# 5. A set with a comparer: names that differ only in case are the same item (the tutorial "Comparing text")
-	oNames = dnNewGeneric("System.Collections.Generic.HashSet",[cText],[new StringComparer().OrdinalIgnoreCase])
+	oNames = new HashSet([ :typeArguments = [cText], :comparer = new StringComparer().OrdinalIgnoreCase ])
 	for cName in ["Ann","ann","BOB","Bob","Cy"]
 		oNames.Add(cName)
 	next
@@ -52,7 +52,7 @@ func main
 
 	# 6. Removing duplicates from a Ring list is one line with a set. The order of a HashSet is not defined: sort when it matters.
 	aWithDuplicates = [5,3,5,1,3,8,1,5]
-	oIntSet = dnNewGeneric("System.Collections.Generic.HashSet",["System.Int32"],[])
+	oIntSet = new HashSet([ :typeArguments = ["System.Int32"] ])
 	for nNumber in aWithDuplicates
 		oIntSet.callMethod("Add",[nNumber])
 	next
@@ -61,7 +61,7 @@ func main
 
 func makeSet aList
 
-	oSet = dnNewGeneric("System.Collections.Generic.HashSet",["System.String"],[])
+	oSet = new HashSet([ :typeArguments = ["System.String"] ])
 	for cItem in aList
 		oSet.Add(cItem)
 	next
@@ -70,7 +70,7 @@ func makeSet aList
 # a copy of a set: the constructor of HashSet takes a collection
 func copySet oSet
 
-	return dnNewGeneric("System.Collections.Generic.HashSet",["System.String"],[oSet])
+	return new HashSet([ :typeArguments = ["System.String"], :collection = oSet ])
 
 func sortedText oSet
 
