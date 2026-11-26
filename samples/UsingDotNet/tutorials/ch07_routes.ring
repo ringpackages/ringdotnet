@@ -22,20 +22,20 @@ func main
 	for cRoute in ["users/{id}/orders/{orderId?}","products/{category}/{page=1}","files/{*path}","items/{id:int}"]
 		oTemplate = (new TemplateParser).Parse(cRoute)
 		cParts = ""
-		aParts = oTemplate.getProp("Parameters").toList()
+		aParts = oTemplate.Parameters.toList()
 		for oPart in aParts
 			cKind = "required"
-			if oPart.getProp("IsOptional")
+			if oPart.IsOptional
 				cKind = "optional"
 			ok
-			if oPart.getProp("IsCatchAll")
+			if oPart.IsCatchAll
 				cKind = "catch-all"
 			ok
-			xDefault = oPart.getProp("DefaultValue")          # a text, or the null object when there is no default
+			xDefault = oPart.DefaultValue          # a text, or the null object when there is no default
 			if not isObject(xDefault)
 				cKind = "default " + xDefault
 			ok
-			cParts += oPart.getProp("Name") + " (" + cKind + ")  "
+			cParts += oPart.Name + " (" + cKind + ")  "
 		next
 		? "   " + padRight(cRoute,32) + cParts
 	next
@@ -82,11 +82,11 @@ func matches cTemplate,cPath,oValues
 	oTemplate = (new TemplateParser).Parse(cTemplate)
 	# the defaults of the template ({page=1}) are given to the matcher: a part with a default may be missing at the END of the path
 	oDefaults = new RouteValueDictionary
-	aParts = oTemplate.getProp("Parameters").toList()
+	aParts = oTemplate.Parameters.toList()
 	for oPart in aParts
-		xDefault = oPart.getProp("DefaultValue")
+		xDefault = oPart.DefaultValue
 		if not isObject(xDefault)
-			oDefaults.Add(oPart.getProp("Name"),xDefault)
+			oDefaults.Add(oPart.Name,xDefault)
 		ok
 	next
 	oMatcher = new TemplateMatcher(oTemplate,oDefaults)
