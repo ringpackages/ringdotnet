@@ -25,7 +25,7 @@ func main
 	#    a culture puts "a" and "A" next to each other
 	oOrdinal = new StringComparer().Ordinal
 	oCulture = new StringComparer().InvariantCulture
-	oWords = dnNewGeneric("System.Collections.Generic.List",["System.String"],[])
+	oWords = new List([ :typeArguments = ["System.String"] ])
 	for cWord in ["banana","Cherry","apple","Banana","cherry","Apple"]
 		oWords.Add(cWord)
 	next
@@ -37,15 +37,15 @@ func main
 	? "   ignore case:    " + joinList(oWords.toList()) + "   (equal words can come in any order)"
 
 	# 4. A dictionary that ignores case: the comparer is the second argument of the constructor
-	oPeople = dnNewGeneric("System.Collections.Generic.Dictionary",["System.String","System.Int32"],[new StringComparer().OrdinalIgnoreCase])
+	oPeople = new Dictionary([ :typeArguments = ["System.String","System.Int32"], :comparer = new StringComparer().OrdinalIgnoreCase ])
 	oPeople.callMethod("Add",["Ann",31])
 	? nl + "4. the key 'ANN' finds the key 'Ann': " + oPeople.callMethod("ContainsKey",["ANN"])
-	oPlain = dnNewGeneric("System.Collections.Generic.Dictionary",["System.String","System.Int32"],[])
+	oPlain = new Dictionary([ :typeArguments = ["System.String","System.Int32"] ])
 	oPlain.callMethod("Add",["Ann",31])
 	? "   a plain dictionary does not: " + oPlain.callMethod("ContainsKey",["ANN"])
 
 	# 5. A sorted set with the same idea keeps one of 'Apple' and 'apple'
-	oSet = dnNewGeneric("System.Collections.Generic.SortedSet",["System.String"],[new StringComparer().OrdinalIgnoreCase])
+	oSet = new SortedSet([ :typeArguments = ["System.String"], :comparer = new StringComparer().OrdinalIgnoreCase ])
 	for cWord in ["Apple","apple","Pear","APPLE","pear"]
 		oSet.Add(cWord)
 	next
