@@ -480,6 +480,7 @@ namespace MyCompany.Tools
 		public List<int> Numbers() { return new List<int> { 0, 1, -1, 2147483647, -2147483648 }; }
 		public List<long> Longs() { return new List<long> { 9007199254740993, -9007199254740993, long.MaxValue }; }
 		public List<double> Doubles() { return new List<double> { 0.1, -2.5, 1e300, double.Epsilon }; }
+		public List<double> NotFinite() { return new List<double> { 1.5, double.NaN, double.PositiveInfinity, double.NegativeInfinity, -2 }; }
 		public List<float> Floats() { return new List<float> { 0.1f, 1.5f }; }
 		public List<decimal> Decimals() { return new List<decimal> { 1.5m, 12345678.9m }; }
 		public List<bool> Bools() { return new List<bool> { true, false, true }; }

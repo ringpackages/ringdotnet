@@ -1600,10 +1600,13 @@ static int dn_unpackitems ( List *pList, const char *p, size_t nSize, int nDepth
 				if ( (nLen == 0) || (nLen >= sizeof(cNum)) ) {
 					return 0 ;
 				}
-				for ( x = 0 ; x < nLen ; x++ ) {
-					char c = p[nPos + x] ;
-					if ( ! ((c >= '0' && c <= '9') || c == '-' || c == '+' || c == '.' || c == 'e' || c == 'E') ) {
-						return 0 ;
+				/* (NaN, Infinity and -Infinity are the texts that .NET writes for a double that is not a finite number: strtod reads them) */
+				if ( ! (((nLen == 3) && (memcmp(p + nPos,"NaN",3) == 0)) || ((nLen == 8) && (memcmp(p + nPos,"Infinity",8) == 0)) || ((nLen == 9) && (memcmp(p + nPos,"-Infinity",9) == 0))) ) {
+					for ( x = 0 ; x < nLen ; x++ ) {
+						char c = p[nPos + x] ;
+						if ( ! ((c >= '0' && c <= '9') || c == '-' || c == '+' || c == '.' || c == 'e' || c == 'E') ) {
+							return 0 ;
+						}
 					}
 				}
 				if ( pList ) {

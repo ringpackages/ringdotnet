@@ -16,7 +16,7 @@ dnLoad(cLib)
 dnImportFrom(cOut + "/","MyCompany.Tools")
 
 oLists = new TypedLists()
-aNames = ["Texts","Numbers","Longs","Doubles","Floats","Decimals","Bools","Mixed","WithNull","WithObject","Nulls","Empty","Bytes","Nested","Dict","Array","Ints",
+aNames = ["Texts","Numbers","Longs","Doubles","NotFinite","Floats","Decimals","Bools","Mixed","WithNull","WithObject","Nulls","Empty","Bytes","Nested","Dict","Array","Ints",
           "Big","BigTexts","Throws","Lazy"]
 nMismatch = 0
 for cName in aNames
@@ -59,6 +59,15 @@ dnAssert("a call after the error",len(oLists.Texts().toList()),6)
 # the null object
 oNull = new DotNetObject(0)
 dnAssert("the null object raises the same error as the request",tryList(oNull,true),tryList(oNull,false))
+
+# a double that is not a finite number (NaN, Infinity) is a number in the list, like the other doubles
+aNotFinite = oLists.NotFinite().toList()
+dnAssert("a list with NaN and infinities has all its items",len(aNotFinite),5)
+dnAssert("a number before them",aNotFinite[1],1.5)
+dnAssert("NaN is a number that is not equal to itself",aNotFinite[2] != aNotFinite[2],1)
+dnAssert("positive infinity is above every number",aNotFinite[3] > 1000000000000000,1)
+dnAssert("negative infinity is below every number",aNotFinite[4] < -1000000000000000,1)
+dnAssert("a number after them",aNotFinite[5],-2)
 
 dnTestSummary()
 

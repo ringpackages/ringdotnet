@@ -52,7 +52,7 @@ On **Linux** the same script runs the tests, the samples and the package tests; 
 
 ## Package tests
 
-`samples/UsingDotNet/tests/packages/pkgtest_*.ring` are real programs against NuGet packages: 177 tests, one for each package (the ML.NET package has several). Each one asks `dnAssert` about what the package gives back (HTML, a deserialized list, a determinant, a retried call, rows from a query), so a change of the bridge that breaks a library fails here before it fails in a program. The packages that need a class written in .NET have a small helper project, and the tests that need a native library (LibGit2Sharp, ML.NET, SQLite) run on Windows and on Linux.
+`samples/UsingDotNet/tests/packages/pkgtest_*.ring` are real programs against NuGet packages: 182 tests, one for each package (the ML.NET package has several). Each one asks `dnAssert` about what the package gives back (HTML, a deserialized list, a determinant, a retried call, rows from a query), so a change of the bridge that breaks a library fails here before it fails in a program. The packages that need a class written in .NET have a small helper project, and the tests that need a native library (LibGit2Sharp, ML.NET, SQLite) run on Windows and on Linux.
 
 ### Writing a package test
 
@@ -73,7 +73,7 @@ To add a package, copy one of the tests and run it, or run all of them with `sh 
 
 ### Helper projects
 
-A package that needs a class written in .NET uses a small helper project: a validator that derives from `AbstractValidator<T>`, a mapping profile, request handlers, an interceptor that calls a Ring callback, a class with `[MessagePackObject]` or `[Option]` attributes, a job of a scheduler, the rows of an ML.NET model. `packages/helpers/` has `PkgHelpers`, `CastleHelpers`, `AttributeHelpers`, `QuartzHelpers` and `MlHelpers` with those classes.
+A package that needs a class written in .NET uses a small helper project: a validator that derives from `AbstractValidator<T>`, a mapping profile, request handlers, an interceptor that calls a Ring callback, a class with `[MessagePackObject]` or `[Option]` attributes, a job of a scheduler, the rows of an ML.NET model (that helper also references the ML.NET packages for OLS, time series, LightGBM and recommendation). On Linux the MKL library of ML.NET needs the Intel OpenMP runtime (`libiomp5`, for example `apt install libiomp5`); without it the tests that use MKL print a `NOTE` and leave those checks out. `packages/helpers/` has `PkgHelpers`, `CastleHelpers`, `AttributeHelpers`, `QuartzHelpers` and `MlHelpers` with those classes.
 
 `pkgUseProject` publishes a helper project (the packages it references come with it) and wraps the DLLs in the order given: a package first, then the helper whose classes derive from it. The cache is made again when a file of the helper project changed.
 
@@ -337,6 +337,11 @@ Each table lists the packages of an area. The second column is the name of the t
 | Package | Test | What it checks |
 |---|---|---|
 | ML.NET linear regression | `mlnet_regression` | an SDCA model with weights, metrics and a prediction engine, trained from rows made in Ring (a helper project has the row classes) |
+| ML.NET more classifiers | `mlnet_classifiers` | linear SVM, averaged perceptron, SGD and SDCA for a yes or no; naive Bayes, maximum entropy and one-versus-all for several classes |
+| ML.NET more regression and tools | `mlnet_regressors` | OLS (native MKL: left out on a Linux computer without libiomp5), online gradient descent, Poisson, tweedie, additive models, LightGBM (native), a train and test split, cross validation, and the importance of each feature |
+| ML.NET time series | `mlnet_timeseries` | spike detection (IID and SSA), change point detection, and a forecast of the next values (the SSA parts use the native MKL library and are left out on a Linux computer without libiomp5) |
+| ML.NET recommendation | `mlnet_recommendation` | matrix factorization (native) learns the taste of users from ratings and scores pairs it has not seen |
+| ML.NET data transforms | `mlnet_transforms` | min-max, mean-variance and binning scalers, missing values replaced, rows filtered, columns chosen and dropped, keys, one-hot and hashing, words and word bags |
 | ML.NET logistic regression | `mlnet_logistic` | two trainers, accuracy, AUC, probabilities and the confusion matrix |
 | ML.NET decision trees | `mlnet_trees` | FastTree and FastForest for a number and for a yes or no |
 | ML.NET clustering and PCA | `mlnet_clustering` | k-means with cluster distances and metrics, and principal components |

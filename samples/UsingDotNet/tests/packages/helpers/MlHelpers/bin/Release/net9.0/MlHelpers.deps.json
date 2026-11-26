@@ -9,10 +9,38 @@
       "MlHelpers/1.0.0": {
         "dependencies": {
           "Microsoft.ML": "5.0.1",
-          "Microsoft.ML.FastTree": "5.0.1"
+          "Microsoft.ML.FastTree": "5.0.1",
+          "Microsoft.ML.LightGbm": "5.0.1",
+          "Microsoft.ML.Mkl.Components": "5.0.1",
+          "Microsoft.ML.Recommender": "0.23.1",
+          "Microsoft.ML.TimeSeries": "5.0.1"
         },
         "runtime": {
           "MlHelpers.dll": {}
+        }
+      },
+      "LightGBM/4.6.0": {
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/lib_lightgbm.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/lib_lightgbm.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/lib_lightgbm.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/lightgbm.exe": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
         }
       },
       "Microsoft.Bcl.AsyncInterfaces/9.0.4": {
@@ -209,6 +237,257 @@
           }
         }
       },
+      "Microsoft.ML.LightGbm/5.0.1": {
+        "dependencies": {
+          "LightGBM": "4.6.0",
+          "Microsoft.Bcl.AsyncInterfaces": "9.0.4",
+          "Microsoft.ML": "5.0.1",
+          "Microsoft.ML.FastTree": "5.0.1",
+          "Newtonsoft.Json": "13.0.3",
+          "System.Buffers": "4.6.1",
+          "System.CodeDom": "9.0.4",
+          "System.Collections.Immutable": "9.0.4",
+          "System.Memory": "4.6.3",
+          "System.Numerics.Tensors": "9.0.4",
+          "System.Reflection.Emit.Lightweight": "4.7.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.1.2",
+          "System.Threading.Channels": "9.0.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.ML.LightGbm.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "5.0.126.51308"
+          }
+        }
+      },
+      "Microsoft.ML.Mkl.Components/5.0.1": {
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "9.0.4",
+          "Microsoft.ML": "5.0.1",
+          "Microsoft.ML.Mkl.Redist": "5.0.1",
+          "Newtonsoft.Json": "13.0.3",
+          "System.Buffers": "4.6.1",
+          "System.CodeDom": "9.0.4",
+          "System.Collections.Immutable": "9.0.4",
+          "System.Memory": "4.6.3",
+          "System.Numerics.Tensors": "9.0.4",
+          "System.Reflection.Emit.Lightweight": "4.7.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.1.2",
+          "System.Threading.Channels": "9.0.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.ML.Mkl.Components.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "5.0.126.51308"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libSymSgdNative.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libSymSgdNative.so.dbg": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libSymSgdNative.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libSymSgdNative.dylib.dwarf": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/SymSgdNative.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.2300.126.51308"
+          },
+          "runtimes/win-x86/native/SymSgdNative.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.2300.126.51308"
+          }
+        }
+      },
+      "Microsoft.ML.Mkl.Redist/5.0.1": {
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libMklImports.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libMklProxyNative.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libMklProxyNative.so.dbg": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libMklImports.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libMklProxyNative.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libMklProxyNative.dylib.dwarf": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/MklImports.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "2021.3.1.0"
+          },
+          "runtimes/win-x64/native/MklProxyNative.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.2300.126.51308"
+          },
+          "runtimes/win-x64/native/libiomp5md.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "5.0.2018.913"
+          },
+          "runtimes/win-x86/native/MklImports.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "2021.3.1.0"
+          },
+          "runtimes/win-x86/native/MklProxyNative.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.2300.126.51308"
+          },
+          "runtimes/win-x86/native/libiomp5md.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "5.0.2018.913"
+          }
+        }
+      },
+      "Microsoft.ML.Recommender/0.23.1": {
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "9.0.4",
+          "Microsoft.ML": "5.0.1",
+          "Newtonsoft.Json": "13.0.3",
+          "System.Buffers": "4.6.1",
+          "System.CodeDom": "9.0.4",
+          "System.Collections.Immutable": "9.0.4",
+          "System.Memory": "4.6.3",
+          "System.Numerics.Tensors": "9.0.4",
+          "System.Reflection.Emit.Lightweight": "4.7.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.1.2",
+          "System.Threading.Channels": "9.0.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.ML.Recommender.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "0.2300.126.51308"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm/native/libMatrixFactorizationNative.so": {
+            "rid": "linux-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm/native/libMatrixFactorizationNative.so.dbg": {
+            "rid": "linux-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm64/native/libMatrixFactorizationNative.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm64/native/libMatrixFactorizationNative.so.dbg": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libMatrixFactorizationNative.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libMatrixFactorizationNative.so.dbg": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-arm64/native/libMatrixFactorizationNative.dylib": {
+            "rid": "osx-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-arm64/native/libMatrixFactorizationNative.dylib.dwarf": {
+            "rid": "osx-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libMatrixFactorizationNative.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libMatrixFactorizationNative.dylib.dwarf": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/MatrixFactorizationNative.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.2300.126.51308"
+          },
+          "runtimes/win-x64/native/MatrixFactorizationNative.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.2300.126.51308"
+          },
+          "runtimes/win-x86/native/MatrixFactorizationNative.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.2300.126.51308"
+          }
+        }
+      },
+      "Microsoft.ML.TimeSeries/5.0.1": {
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "9.0.4",
+          "Microsoft.ML": "5.0.1",
+          "Microsoft.ML.Mkl.Redist": "5.0.1",
+          "Newtonsoft.Json": "13.0.3",
+          "System.Buffers": "4.6.1",
+          "System.CodeDom": "9.0.4",
+          "System.Collections.Immutable": "9.0.4",
+          "System.Memory": "4.6.3",
+          "System.Numerics.Tensors": "9.0.4",
+          "System.Reflection.Emit.Lightweight": "4.7.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.1.2",
+          "System.Threading.Channels": "9.0.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.ML.TimeSeries.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "5.0.126.51308"
+          }
+        }
+      },
       "Newtonsoft.Json/13.0.3": {
         "runtime": {
           "lib/net6.0/Newtonsoft.Json.dll": {
@@ -247,6 +526,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "LightGBM/4.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BVzUkYViYacaEH7gsM5y6Wf2rwlcEToQb24kyKhjKtwRRdKnVYmJ3kw0r21woickk5GdBpxCAQ3az3/t0+nFJw==",
+      "path": "lightgbm/4.6.0",
+      "hashPath": "lightgbm.4.6.0.nupkg.sha512"
+    },
     "Microsoft.Bcl.AsyncInterfaces/9.0.4": {
       "type": "package",
       "serviceable": true,
@@ -281,6 +567,41 @@
       "sha512": "sha512-H1UDCpKgZPzQfGcyFeHQeH1zD4JKhpuaTeHvkEcvVl9zThKerfzoNnXINQMqoc2Qdt2AYcmYxriDzluZRddMuA==",
       "path": "microsoft.ml.fasttree/5.0.1",
       "hashPath": "microsoft.ml.fasttree.5.0.1.nupkg.sha512"
+    },
+    "Microsoft.ML.LightGbm/5.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hhAJsU0c9iqDxk3RzC9gwnFdMFxYeHOUmsczg8iYefllEg3TH8OQrAIOnZORkok97McH5BaR5ps0W3rUsumW6w==",
+      "path": "microsoft.ml.lightgbm/5.0.1",
+      "hashPath": "microsoft.ml.lightgbm.5.0.1.nupkg.sha512"
+    },
+    "Microsoft.ML.Mkl.Components/5.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-spOlQtDwqd8MkwyINKJaQVt1i9uCdsIR60E0reIpo2AXkEtuR0c+AOuWb/7kMjdYbMWRpytGKefQa3+racWCtg==",
+      "path": "microsoft.ml.mkl.components/5.0.1",
+      "hashPath": "microsoft.ml.mkl.components.5.0.1.nupkg.sha512"
+    },
+    "Microsoft.ML.Mkl.Redist/5.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-L0iVtIJsGgIt0xZxgR1VoyuYIx5tkboQ0/a0bxCnu+/c6XB+00EsPjQk2mvCSVMJt9LyK2pDJT2SEJvA8aBndg==",
+      "path": "microsoft.ml.mkl.redist/5.0.1",
+      "hashPath": "microsoft.ml.mkl.redist.5.0.1.nupkg.sha512"
+    },
+    "Microsoft.ML.Recommender/0.23.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7cGUbXiAVMug53D3rtmNWI36MPpAk/jvZDIbpRjzgv9f8s5ctnBwbaVUOiJekFuOQ6tPQXPvtQnZftbwl8KMWw==",
+      "path": "microsoft.ml.recommender/0.23.1",
+      "hashPath": "microsoft.ml.recommender.0.23.1.nupkg.sha512"
+    },
+    "Microsoft.ML.TimeSeries/5.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hH6QqjxY1MZlVo9NQdoyB2BJ6hMHPFBD0eAqMj8v2pDo9CctGzXAJ9h6MOWHAHcDuCjK9b94iEBb5eSufcC58A==",
+      "path": "microsoft.ml.timeseries/5.0.1",
+      "hashPath": "microsoft.ml.timeseries.5.0.1.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.3": {
       "type": "package",
