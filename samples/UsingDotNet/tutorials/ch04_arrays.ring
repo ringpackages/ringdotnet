@@ -26,17 +26,17 @@ func main
 	# 3. Searching: IndexOf answers the position (0-based, as in .NET) or -1. BinarySearch is much faster, but the array must be
 	#    SORTED; it answers a negative number (the complement of the place to insert) when the value is not there.
 	new Array().Sort(oInts)
-	? nl + "3. IndexOf(19) in the sorted array: " + dnStatic("System.Array","IndexOf",[oInts,19]) + "   (0-based: Ring would say 3)"
-	? "   IndexOf(99): " + dnStatic("System.Array","IndexOf",[oInts,99])
-	nFound = dnStatic("System.Array","BinarySearch",[oInts,19])
-	nMissing = dnStatic("System.Array","BinarySearch",[oInts,20])
+	? nl + "3. IndexOf(19) in the sorted array: " + new Array().IndexOf([ :array = oInts, :value = 19 ]) + "   (0-based: Ring would say 3)"
+	? "   IndexOf(99): " + new Array().IndexOf([ :array = oInts, :value = 99 ])
+	nFound = new Array().BinarySearch([ :array = oInts, :value = 19 ])
+	nMissing = new Array().BinarySearch([ :array = oInts, :value = 20 ])
 	? "   BinarySearch(19): " + nFound + ", BinarySearch(20): " + nMissing + "   (negative: not found; the complement " + (-nMissing - 1) + " is where 20 would go, 0-based)"
 
 	# 4. Copy and Clear. Array.Copy(source, target, count) copies the first items into another array; Clear(array, start, count) sets items to zero
 	oTarget = makeIntArray([0,0,0,0,0,0,0,0])
-	dnStatic("System.Array","Copy",[oInts,oTarget,oInts.Length])
+	new Array().Copy([ :sourceArray = oInts, :destinationArray = oTarget, :length = oInts.Length ])
 	? nl + "4. copied into a bigger array: " + arrayText(oTarget)
-	dnStatic("System.Array","Clear",[oTarget,0,3])
+	new Array().Clear([ :array = oTarget, :index = 0, :length = 3 ])
 	? "   Array.Clear(array, 0, 3) sets 3 items to zero: " + arrayText(oTarget)
 
 	# 5. An array of texts, and the join of a list into one text
