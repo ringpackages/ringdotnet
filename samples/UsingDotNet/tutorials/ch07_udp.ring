@@ -38,13 +38,13 @@ func main
 	oClient.Send([ :dgram = oUtf8.GetBytes("ping"), :bytes = 4, :hostname = "127.0.0.1", :port = nPort ])
 	oTask = oServer.ReceiveAsync(NULL)
 	oTask.Wait(NULL)
-	oResult = oTask.getProp("Result")
+	oResult = oTask.Result
 	? nl + "3. the server got '" + oUtf8.GetString(oResult.Buffer) + "' from the port of the client socket: " + (oResult.RemoteEndPoint.Port > 0)
 	cAnswer = oUtf8.GetBytes("pong")
 	oServer.Send([ :dgram = cAnswer, :bytes = len(cAnswer), :endPoint = oResult.RemoteEndPoint ])
 	oTask2 = oClient.ReceiveAsync(NULL)
 	oTask2.Wait(NULL)
-	? "   the client got '" + oUtf8.GetString(oTask2.getProp("Result").Buffer) + "'"
+	? "   the client got '" + oUtf8.GetString(oTask2.Result.Buffer) + "'"
 
 	# 4. UDP does not promise delivery. Nothing is waiting now, so a Receive with a time limit ends without data:
 	#    ReceiveAsync + Wait(ms) answers false when nothing arrived.
