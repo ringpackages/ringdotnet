@@ -53,7 +53,8 @@ dnTestSummary()
 
 func qpBuildHello aArgs
 
-	aArgs[1].Page(dnCallback("qpHelloPage"))
+	oDocumentContainer = aArgs[1]
+	oDocumentContainer.Page(dnCallback("qpHelloPage"))
 
 func qpHelloPage aArgs
 
@@ -71,7 +72,8 @@ func qpFooter aArgs
 
 func qpBuildLong aArgs
 
-	aArgs[1].Page(dnCallback("qpLongPage"))
+	oDocumentContainer = aArgs[1]
+	oDocumentContainer.Page(dnCallback("qpLongPage"))
 
 func qpLongPage aArgs
 
