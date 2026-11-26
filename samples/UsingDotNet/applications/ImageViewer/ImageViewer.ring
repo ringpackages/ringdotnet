@@ -117,7 +117,7 @@ func grayscale
 	oAttributes.SetColorMatrix(oMatrix)
 	oGray = new Bitmap(nWidth,nHeight)
 	oGraphics = new Graphics().FromImage(oGray)
-	oGraphics.callMethod("DrawImage",[oImage,new Rectangle(0,0,nWidth,nHeight),0,0,nWidth,nHeight,"Pixel",oAttributes])
+	oGraphics.DrawImage([ :image = oImage, :destRect = new Rectangle(0,0,nWidth,nHeight), :srcX = 0, :srcY = 0, :srcWidth = nWidth, :srcHeight = nHeight, :srcUnit = "Pixel", :imageAttr = oAttributes ])
 	oGraphics.Dispose()
 	oImage.Dispose()
 	oImage = oGray
