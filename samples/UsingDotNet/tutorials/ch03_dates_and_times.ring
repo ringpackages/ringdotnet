@@ -51,9 +51,10 @@ func main
 	? "   days between the two dates: " + (oToday.DayNumber - oBirthday.DayNumber)
 
 	# 6. Parsing a date from text with an exact format, so that 03/04/2024 can not be read as the wrong day and month
-	aParsed = dnStatic("System.DateOnly","TryParseExact",["03/04/2024","dd/MM/yyyy",new CultureInfo(""),"None"])
+	oDateOnly = new DateOnly
+	aParsed = oDateOnly.TryParseExact([ :s = "03/04/2024", :format = "dd/MM/yyyy", :provider = new CultureInfo(""), :style = "None" ])
 	? nl + "6. '03/04/2024' read as day/month/year: " + aParsed[2].Format("yyyy-MM-dd") + " (the 3rd of April)"
-	aParsed = dnStatic("System.DateOnly","TryParseExact",["31/04/2024","dd/MM/yyyy",new CultureInfo(""),"None"])
+	aParsed = oDateOnly.TryParseExact([ :s = "31/04/2024", :format = "dd/MM/yyyy", :provider = new CultureInfo(""), :style = "None" ])
 	? "   '31/04/2024' is a date: " + aParsed[1] + "   (April has 30 days)"
 
 func makeDate nYear,nMonth,nDay
