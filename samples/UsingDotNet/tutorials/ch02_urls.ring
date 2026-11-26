@@ -43,8 +43,7 @@ func main
 
 	# 6. Combining an address with a relative path
 	oBase = new Uri("https://example.com/docs/guide/index.html")
-	oUri = new Uri
-	oUri.@New([ :baseUri = oBase, :relativeUri = "../images/logo.png" ])
+	oUri = (new Uri).@New([ :baseUri = oBase, :relativeUri = "../images/logo.png" ])
 	? nl + "6. ../images/logo.png from the guide page: " + oUri.ToString()
 
 	# 7. Base64: bytes as safe text (e-mails, JSON, data URLs). It is NOT encryption: anybody can decode it.
