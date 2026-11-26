@@ -25,7 +25,8 @@ func main
 	? "   TryParse of 'hello': success = " + oGuid.TryParse("hello")[1]
 
 	# 3. Version: major.minor.build.revision, compared by NUMBER. As text, "1.10" comes before "1.9"; as Version it is later.
-	oVer = dnNew("Version",[ :major = 0, :minor = 0 ])      # any Version works as a handle for the static methods
+	oVer = new Version
+	oVer.@New([ :major = 0, :minor = 0 ])  # any Version works as a handle for the static methods
 	oV9 = oVer.Parse("1.9.0")
 	oV10 = oVer.Parse("1.10.0")
 	? nl + "3. as text, '1.10.0' < '1.9.0' is " + (strcmp("1.10.0","1.9.0") < 0)
