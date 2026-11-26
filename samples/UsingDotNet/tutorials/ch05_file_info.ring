@@ -90,7 +90,8 @@ func yesNo lValue
 # how many days ago the file was written
 func daysOld oInfo
 
-	oNow = dnStatic("System.DateTime","get_Now",[])
+	oDateTime = new DateTime
+	oNow = oDateTime.Now
 	oSpan = oNow.Subtract(oInfo.LastWriteTime)
 	return oSpan.TotalDays
 
