@@ -49,7 +49,7 @@ func main
 	oList.AddLast("b")
 	oList.AddLast("c")
 	oList.AddFirst("a")
-	oNodeB = oList.First.getProp("Next")
+	oNodeB = oList.First.@Next
 	oList.AddAfter(oNodeB,"b2")
 	? nl + "4. linked list: " + list2str2(oList.toList()) + " (first = " + oList.First.Value + ", last = " + oList.Last.Value + ")"
 	oList.Remove("b")
