@@ -58,10 +58,8 @@ func main
 # target is then deleted. The answer is the number of bytes copied.
 func copyFile cSource,cTarget,nBufferSize,nStopAfter
 
-	oIn = new FileStream
-	oIn.@New([ :path = cSource, :mode = "Open", :access = "Read" ])
-	oOut = new FileStream
-	oOut.@New([ :path = cTarget, :mode = "Create", :access = "Write" ])
+	oIn = (new FileStream).@New([ :path = cSource, :mode = "Open", :access = "Read" ])
+	oOut = (new FileStream).@New([ :path = cTarget, :mode = "Create", :access = "Write" ])
 	nTotal = oIn.Length
 	oBuffer = dnBuffer(nBufferSize)
 	nCopied = 0
@@ -94,8 +92,7 @@ func copyFile cSource,cTarget,nBufferSize,nStopAfter
 # how many calls of Read a buffer of this size needs for the whole file
 func countCalls cFile,nBufferSize
 
-	oIn = new FileStream
-	oIn.@New([ :path = cFile, :mode = "Open", :access = "Read" ])
+	oIn = (new FileStream).@New([ :path = cFile, :mode = "Open", :access = "Read" ])
 	oBuffer = dnBuffer(nBufferSize)
 	nCalls = 0
 	while oIn.Read(oBuffer,0,nBufferSize) > 0
