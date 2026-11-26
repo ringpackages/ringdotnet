@@ -27,7 +27,8 @@ func main
 	? "   (a file with an unknown type is sent as application/octet-stream: 'some bytes, download them')"
 
 	# 3. Reading a Content-Type header: the type, the subtype and the parameters (the charset says how text is encoded)
-	oContentType = dnNew("ContentType",["text/html; charset=utf-8"])
+	oContentType = new ContentType
+	oContentType.@New("text/html; charset=utf-8")
 	? nl + "3. text/html; charset=utf-8  ->  media type: " + oContentType.MediaType + ", charset: " + oContentType.CharSet
 	oSplit = dnStatic(cHeaders + "MediaTypeHeaderValue","Parse",["application/json; charset=utf-8; q=0.9"])
 	? "   with the headers library: type " + oSplit.Type.toString() + ", subtype " + oSplit.SubType.toString() + ", quality " + oSplit.Quality
