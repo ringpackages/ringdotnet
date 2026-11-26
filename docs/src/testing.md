@@ -352,7 +352,7 @@ Each table lists the packages of an area. The second column is the name of the t
 | ML.NET ranking | `mlnet_ranking` | FastTree and LightGBM rankers over queries of documents, with NDCG and DCG |
 | ML.NET calibrators | `mlnet_calibration` | Platt, naive and isotonic calibrators turn the score of a linear SVM or a perceptron into a probability |
 | ML.NET AutoML | `mlnet_automl` | experiments for a number, a yes or no and several classes, the settings of an experiment, the inferred columns of a CSV file, and the best model used like any other (a restore of hundreds of megabytes) |
-| ML.NET chess end game example | `mlnet_chess` | the example of samples/UsingDotNet/machinelearning/ChessEndgame run as a user runs it: a split of 70 and 30 percent, many algorithms trained and tested, the models saved, evaluated and used to predict (see [the chess end game](ml-chess.html)) |
+| ML.NET chess end game example | `mlnet_chess` | the example of samples/UsingDotNet/applications/ChessEndgame run as a user runs it: a split of 70 and 30 percent, many algorithms trained and tested, the models saved, evaluated and used to predict (see [the chess end game](ml-chess.html)) |
 | ML.NET with a CSV file | `mlnet_columns` | any number of columns read with column definitions made in Ring, scores read as a column |
 | ML.NET with in-memory rows | `mlnet_vectorrows` | one row class `VectorRow` for tables of any width |
 | ML.NET with text columns | `mlnet_text` | a category one-hot encoded, a review featurized into word counts, a text label mapped to classes and back |

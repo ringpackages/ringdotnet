@@ -1,8 +1,8 @@
-# The chess end game example (samples/UsingDotNet/machinelearning/ChessEndgame): its programs are run as a user runs them: train.ring --quick (a split of 70 and 30 percent, three
+# The chess end game example (samples/UsingDotNet/applications/ChessEndgame): its programs are run as a user runs them: train.ring --quick (a split of 70 and 30 percent, three
 # algorithms, the models saved), evaluate.ring (the saved models tested), and predict.ring (the result of positions). The example restores ML.NET into its own folder.
 load "pkg.ring"
 
-cExample = cPkgHere + "/../../machinelearning/ChessEndgame"
+cExample = cPkgHere + "/../../applications/ChessEndgame"
 chdir(cExample)
 cRing = exefilename()
 
@@ -55,7 +55,8 @@ dnAssert("it tested the saved model of LightGBM",substr(cOutput,"LightGBM (boost
 dnAssert("it gives the best model result by result",substr(cOutput,"result by result") > 0,1)
 dnAssert("a draw is a result of the list",substr(cOutput,"draw") > 0,1)
 dnAssert("and the answers for the wins",substr(cOutput,"exactly right:") > 0,1)
-cAccuracy = "" + (floor(number(aBest[4]) / 100 + 0.5) / 10)
+nTenths = floor(number(aBest[4]) / 100 + 0.5)
+cAccuracy = "" + floor(nTenths / 10) + "." + (nTenths % 10)
 dnAssert("the accuracy of the saved model is the one that train.ring measured",substr(cOutput,cAccuracy + "%") > 0,1)
 
 # ---- predict.ring: the result of positions
@@ -69,6 +70,9 @@ dnAssert("another saved model can be chosen",substr(cOutput,"the model: logistic
 dnAssert("it gives an answer too",substr(cOutput,"the model says:") > 0,1)
 cOutput = run(cRing + " predict.ring a1 b3 c2 f6 g7 h8")
 dnAssert("two positions are two answers",substr(cOutput,"the model says:") > 0 and substr(cOutput,"white king f6") > 0,1)
+cOutput = run(cRing + " predict.ring e4 e1 h8")
+cMirror = run(cRing + " predict.ring d5 d8 a1")          # the same position turned half a turn: the same answer
+dnAssert("a position and the same position turned give the same answer",substr(cOutput,"the model says:") > 0 and right(trim(cOutput),20) = right(trim(cMirror),20),1)
 cOutput = run(cRing + " predict.ring a1 a1 c2")
 dnAssert("two pieces on the same square are not a position",substr(cOutput,"not a position") > 0,1)
 cOutput = run(cRing + " predict.ring a1 b3 b2")

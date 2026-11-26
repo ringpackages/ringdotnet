@@ -9,10 +9,10 @@ Every application can test itself: `ring Calculator.ring --selftest` drives the 
 They use the helpers of `libraries/dotnetlib/gui.ring` (`uiForm`, `uiButton`, `uiLabel`, `uiTextBox`, `uiTimer`, `uiMenu`, `UiCanvas`, `uiTest`, `uiRun`...), loaded together with `dnImport("System.Windows.Forms")`.
 
 
-## The applications (45)
+## The applications (46)
 
-AddressBook, AnalogClock, AsciiTable, BMICalculator, Calculator, Calendar, ColorMixer, Countdown, DiceRoller, EightQueens, EpochTime, FifteenPuzzle, FileExplorer, Game2048, GameOfLife, Hangman, ImageViewer, JulianDay, LightsOut, LoanCalculator, LoginForm, MemoryGame, Minesweeper, Notepad, NumberGuess, Paint, PasswordGenerator, Pong, RockPaperScissors, Snake, Sokoban, Stopwatch, Sudoku, TemperatureConverter, Tetris, TicTacToe, TodoList, TowersOfHanoi, TypingQuiz, UnitConverter, WordCounter
+AddressBook, AnalogClock, AsciiTable, BMICalculator, Calculator, Calendar, ChessEndgame, ColorMixer, Countdown, DiceRoller, EightQueens, EpochTime, FifteenPuzzle, FileExplorer, Game2048, GameOfLife, Hangman, ImageViewer, JulianDay, LightsOut, LoanCalculator, LoginForm, MemoryGame, Minesweeper, Notepad, NumberGuess, Paint, PasswordGenerator, Pong, RockPaperScissors, Snake, Sokoban, Stopwatch, Sudoku, TemperatureConverter, Tetris, TicTacToe, TodoList, TowersOfHanoi, TypingQuiz, UnitConverter, WordCounter
 
 Four more use other parts of the package: **Contacts** (a console contacts book on SQLite with Entity Framework Core), **WebApi** (a to-do web page and JSON API on ASP.NET Core), and **WpfCalculator** and **WpfColorMixer** (windows described in XAML).
 
-Ports of RingQt applications: Calculator, Stopwatch, TicTacToe, FifteenPuzzle, LightsOut, Game2048, MemoryGame, Snake, TowersOfHanoi, AnalogClock, RockPaperScissors, BMICalculator, GameOfLife, Minesweeper, EpochTime, AsciiTable, Calendar, EightQueens, Sudoku, Pong, Tetris, Sokoban, TypingQuiz, JulianDay. The others are new: Notepad, Paint, TodoList, ColorMixer, NumberGuess, Hangman, DiceRoller, UnitConverter, PasswordGenerator, WordCounter, Countdown, LoanCalculator, ImageViewer, LoginForm, TemperatureConverter, FileExplorer, AddressBook.
+Ports of RingQt applications: Calculator, Stopwatch, TicTacToe, FifteenPuzzle, LightsOut, Game2048, MemoryGame, Snake, TowersOfHanoi, AnalogClock, RockPaperScissors, BMICalculator, GameOfLife, Minesweeper, EpochTime, AsciiTable, Calendar, EightQueens, Sudoku, Pong, Tetris, Sokoban, TypingQuiz, JulianDay, ChessEndgame (with the models of ML.NET). The others are new: Notepad, Paint, TodoList, ColorMixer, NumberGuess, Hangman, DiceRoller, UnitConverter, PasswordGenerator, WordCounter, Countdown, LoanCalculator, ImageViewer, LoginForm, TemperatureConverter, FileExplorer, AddressBook.

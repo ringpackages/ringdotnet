@@ -251,7 +251,7 @@
 <article>
 <h1>Applications</h1><p class="lead">Complete desktop programs written in Ring — utilities, games and tools. Many are ports of the RingQt applications. Every one tests itself with --selftest.</p>
 <p>Run one: <code>cd samples/UsingDotNet/applications/Calculator</code> then <code>ring Calculator.ring</code>. With <code>ring Calculator.ring --selftest</code> the application drives its own form, checks the results with <code>dnAssert()</code> and prints <code>SELFTEST OK</code>.</p>
-<p>Ports of RingQt applications: Calculator, Stopwatch, TicTacToe, FifteenPuzzle, LightsOut, Game2048, MemoryGame, Snake, TowersOfHanoi, AnalogClock, RockPaperScissors, BMICalculator, GameOfLife, Minesweeper, EpochTime, AsciiTable, Calendar, EightQueens, Sudoku, Pong, Tetris, Sokoban, TypingQuiz, JulianDay. The others are new: Notepad, Paint, TodoList, ColorMixer, NumberGuess, Hangman, DiceRoller, UnitConverter, PasswordGenerator, WordCounter, Countdown, LoanCalculator, ImageViewer, LoginForm, TemperatureConverter, FileExplorer, AddressBook, plus the WPF applications WpfCalculator and WpfColorMixer.</p>
+<p>Ports of RingQt applications: Calculator, Stopwatch, TicTacToe, FifteenPuzzle, LightsOut, Game2048, MemoryGame, Snake, TowersOfHanoi, AnalogClock, RockPaperScissors, BMICalculator, GameOfLife, Minesweeper, EpochTime, AsciiTable, Calendar, EightQueens, Sudoku, Pong, Tetris, Sokoban, TypingQuiz, JulianDay, ChessEndgame (with the models of ML.NET). The others are new: Notepad, Paint, TodoList, ColorMixer, NumberGuess, Hangman, DiceRoller, UnitConverter, PasswordGenerator, WordCounter, Countdown, LoanCalculator, ImageViewer, LoginForm, TemperatureConverter, FileExplorer, AddressBook, plus the WPF applications WpfCalculator and WpfColorMixer.</p>
 <p>Applications that are not windows: <code>samples/UsingDotNet/applications/WebApi</code> (<a href="aspnet.html">ASP.NET Core</a>) and <code>samples/UsingDotNet/applications/Contacts</code> (<a href="ef.html">Entity Framework</a>).</p>
 <div class="gallery"><div class="item" id="address-book"><div class="pic"><img src="img/shots/app-AddressBook.png" alt="Address Book" loading="lazy"></div><div class="info"><h3>Address Book</h3><p>Address book - a DataGridView bound to a DataTable, search, edit, delete and save/load as XML</p><div class="run"><code>cd samples/UsingDotNet/applications/AddressBook  then  ring AddressBook.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Address book - a DataGridView bound to a DataTable, search, edit, delete and save/load as XML</span>
 
@@ -846,7 +846,706 @@ showFacts()
 
 <span class="k">func</span> <span class="f">showFacts</span>
 
-	oFacts.Text = factsOf(oCalendar.SelectionStart)</code></pre></div></details></div></div><div class="item" id="color-mixer"><div class="pic"><img src="img/shots/app-ColorMixer.png" alt="Color Mixer" loading="lazy"></div><div class="info"><h3>Color Mixer</h3><p>Color mixer - three track bars, the color, its #RRGGBB code and HSV values</p><div class="run"><code>cd samples/UsingDotNet/applications/ColorMixer  then  ring ColorMixer.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Color mixer - three track bars, the color, its #RRGGBB code and HSV values</span>
+	oFacts.Text = factsOf(oCalendar.SelectionStart)</code></pre></div></details></div></div><div class="item" id="chess-endgame"><div class="pic"><img src="img/shots/app-ChessEndgame.png" alt="Chess Endgame" loading="lazy"></div><div class="info"><h3>Chess Endgame</h3><p>Chess end game: a window for the ML.NET models of the example (a white king and a white rook against a black king). ring train.ring           first: makes the models (or use the button of the tab Models) ring ChessEndgame.ring    the window Play: drag the pieces on the board, and the models say how the game ends. Data: the 28,056 positions of the data set. Statistics: the results of the data in numbers and a chart. Models: the saved models and their accuracy on the test positions, training of all the algorithms, and the test of a model. A port of ring/applications/chessendgame (RingQt, and models of Azure), with the models of ML.NET that train.ring makes and without C#.</p><div class="run"><code>cd samples/UsingDotNet/applications/ChessEndgame  then  ring ChessEndgame.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Chess end game: a window for the ML.NET models of the example (a white king and a white rook against a black king).</span>
+<span class="c">#   ring train.ring           first: makes the models (or use the button of the tab Models)</span>
+<span class="c">#   ring ChessEndgame.ring    the window</span>
+<span class="c"># Play: drag the pieces on the board, and the models say how the game ends. Data: the 28,056 positions of the data set. Statistics: the results of the data in numbers and a chart.</span>
+<span class="c"># Models: the saved models and their accuracy on the test positions, training of all the algorithms, and the test of a model. A port of ring/applications/chessendgame (RingQt, and</span>
+<span class="c"># models of Azure), with the models of ML.NET that train.ring makes and without C#.</span>
+
+<span class="k">load</span> <span class="s">"chesslib.ring"</span>
+
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
+
+C_CELL = <span class="n">50</span>                     <span class="c"># the size of a square of the board in pixels</span>
+C_LEFT = <span class="n">30</span>                     <span class="c"># where the board starts in the picture</span>
+C_TOP = <span class="n">10</span>
+C_PAGE = <span class="n">500</span>                    <span class="c"># the rows of the data that one page of the tab Data shows</span>
+C_RESULTS = [<span class="s">"draw"</span>,<span class="s">"zero"</span>,<span class="s">"one"</span>,<span class="s">"two"</span>,<span class="s">"three"</span>,<span class="s">"four"</span>,<span class="s">"five"</span>,<span class="s">"six"</span>,<span class="s">"seven"</span>,<span class="s">"eight"</span>,<span class="s">"nine"</span>,<span class="s">"ten"</span>,<span class="s">"eleven"</span>,<span class="s">"twelve"</span>,<span class="s">"thirteen"</span>,<span class="s">"fourteen"</span>,<span class="s">"fifteen"</span>,<span class="s">"sixteen"</span>]
+
+gPiece = [[<span class="n">5</span>,<span class="n">4</span>],[<span class="n">5</span>,<span class="n">1</span>],[<span class="n">8</span>,<span class="n">8</span>]]    <span class="c"># the squares of the white king, the white rook and the black king: [file, rank]</span>
+gDrag = <span class="n">0</span>                       <span class="c"># the piece that is dragged (0: none), and where the mouse is</span>
+gDragX = <span class="n">0</span>
+gDragY = <span class="n">0</span>
+gBusy = <span class="k">false</span>                   <span class="c"># true while the program changes a control itself (the controls then do not answer)</span>
+gModels = []                    <span class="c"># the models of models/index.txt, the best first</span>
+gLoaded = [:none = <span class="n">0</span>]           <span class="c"># the models that are loaded: the key of a model is key_features</span>
+gRows = []                      <span class="c"># the positions of the data: [white king, white rook, black king, result] with the squares as a1 to h8</span>
+gKnown = [:none = <span class="s">""</span>]           <span class="c"># the result of a position of the data: the key is the six squares</span>
+gFilter = []                    <span class="c"># the numbers of the rows that the tab Data shows (the filter of the result)</span>
+gPage = <span class="n">1</span>
+gCounts = []                    <span class="c"># the number of positions of each result</span>
+gImages = []
+
+<span class="c"># the controls (made by the functions that build the tabs): the variables exist first, so that the functions change these ones.</span>
+<span class="c"># (No variable here is called oPicture, oBitmap or oGraphics: these are attributes of UiCanvas, and a global of the same name takes their place inside its methods.)</span>
+oBoardPicture = <span class="s">""</span>
+oCanvas = <span class="s">""</span>
+oModelBox = <span class="s">""</span>
+oKingBox = <span class="s">""</span>
+oRookBox = <span class="s">""</span>
+oBlackBox = <span class="s">""</span>
+oAnswer = <span class="s">""</span>
+oReal = <span class="s">""</span>
+oVerdict = <span class="s">""</span>
+oNote = <span class="s">""</span>
+oAll = <span class="s">""</span>
+oFilterBox = <span class="s">""</span>
+oPageLabel = <span class="s">""</span>
+oRowList = <span class="s">""</span>
+oDataNote = <span class="s">""</span>
+oStatList = <span class="s">""</span>
+oChartPicture = <span class="s">""</span>
+oChart = <span class="s">""</span>
+oStatNote = <span class="s">""</span>
+oModelList = <span class="s">""</span>
+oProgress = <span class="s">""</span>
+oModelNote = <span class="s">""</span>
+
+chessSetup()
+oMl = chessContext(<span class="n">1</span>)
+loadTheData()
+gModels = chessModels()
+loadImages()
+
+oForm = <span class="f">uiForm</span>(<span class="s">"Chess end game - ML.NET with RingDotNet"</span>,<span class="n">1000</span>,<span class="n">700</span>)
+oForm.StartPosition = <span class="s">"CenterScreen"</span>
+oTabs = <span class="k">new</span> <span class="t">TabControl</span>()
+oTabs.Dock = <span class="s">"Fill"</span>
+oStatus = <span class="k">new</span> <span class="t">StatusStrip</span>()
+oStatusText = <span class="k">new</span> <span class="t">ToolStripStatusLabel</span>()
+oStatus.Items.<span class="f">Add</span>(oStatusText)
+oForm.Controls.<span class="f">Add</span>(oTabs)
+oForm.Controls.<span class="f">Add</span>(oStatus)
+aPages = []
+<span class="k">for</span> cName <span class="k">in</span> [<span class="s">"Play"</span>,<span class="s">"Data"</span>,<span class="s">"Statistics"</span>,<span class="s">"Models"</span>]
+	oPage = <span class="k">new</span> <span class="t">TabPage</span>()
+	oPage.Text = cName
+	oTabs.TabPages.<span class="f">Add</span>(oPage)
+	aPages + oPage
+<span class="k">next</span>
+
+buildPlay(aPages[<span class="n">1</span>])
+buildData(aPages[<span class="n">2</span>])
+buildStatistics(aPages[<span class="n">3</span>])
+buildModels(aPages[<span class="n">4</span>])
+showModels()
+showStatistics()
+showPage()
+fillModelBox()
+showPosition()
+
+<span class="f">uiRun</span>(oForm)
+
+<span class="c"># ---------------------------------------------------------------- the data</span>
+
+<span class="c"># data/chess.csv: the squares of the pieces and the result. gKnown finds the result of a position from its squares.</span>
+<span class="k">func</span> <span class="f">loadTheData</span>
+
+	aLines = str2list(read(<span class="s">"data/chess.csv"</span>))
+	nLines = len(aLines)
+	gCounts = list(len(C_RESULTS))
+	<span class="k">for</span> nLine = <span class="n">2</span> <span class="k">to</span> nLines
+		cLine = aLines[nLine]
+		<span class="k">if</span> len(cLine) &gt; <span class="n">5</span>
+			aParts = str2list(substr(cLine,<span class="s">","</span>,nl))
+			cWhiteKing = aParts[<span class="n">1</span>] + aParts[<span class="n">2</span>]
+			cWhiteRook = aParts[<span class="n">3</span>] + aParts[<span class="n">4</span>]
+			cBlackKing = aParts[<span class="n">5</span>] + aParts[<span class="n">6</span>]
+			gRows + [cWhiteKing,cWhiteRook,cBlackKing,aParts[<span class="n">7</span>]]
+			gKnown[cWhiteKing + cWhiteRook + cBlackKing] = aParts[<span class="n">7</span>]
+			nPlace = find(C_RESULTS,aParts[<span class="n">7</span>])
+			gCounts[nPlace] += <span class="n">1</span>
+		<span class="k">ok</span>
+	<span class="k">next</span>
+
+<span class="c"># The result that the data has for a position (the squares are [file, rank]), or "" for a position that the data does not have. The data has one way of each position</span>
+<span class="c"># (see chessCanonical), so the position is turned to that way first; a position with the white king on the diagonal has two ways, and the other one is tried as well.</span>
+<span class="k">func</span> <span class="f">knownResult</span> aKing, aRook, aBlack
+
+	aWay = chessCanonical(aKing[<span class="n">1</span>],aKing[<span class="n">2</span>],aRook[<span class="n">1</span>],aRook[<span class="n">2</span>],aBlack[<span class="n">1</span>],aBlack[<span class="n">2</span>])
+	cResult = gKnown[wayKey(aWay)]
+	<span class="k">if</span> isstring(cResult) <span class="k">and</span> cResult != <span class="s">""</span>
+		<span class="k">return</span> cResult
+	<span class="k">ok</span>
+	cResult = gKnown[wayKey([aWay[<span class="n">2</span>],aWay[<span class="n">1</span>],aWay[<span class="n">4</span>],aWay[<span class="n">3</span>],aWay[<span class="n">6</span>],aWay[<span class="n">5</span>]])]          <span class="c"># the same position mirrored along the diagonal</span>
+	<span class="k">if</span> isstring(cResult)
+		<span class="k">return</span> cResult
+	<span class="k">ok</span>
+	<span class="k">return</span> <span class="s">""</span>
+
+<span class="k">func</span> <span class="f">wayKey</span> aWay
+
+	<span class="k">return</span> squareName([aWay[<span class="n">1</span>],aWay[<span class="n">2</span>]]) + squareName([aWay[<span class="n">3</span>],aWay[<span class="n">4</span>]]) + squareName([aWay[<span class="n">5</span>],aWay[<span class="n">6</span>]])
+
+<span class="k">func</span> <span class="f">squareName</span> aSquare
+
+	<span class="k">return</span> char(<span class="n">96</span> + aSquare[<span class="n">1</span>]) + aSquare[<span class="n">2</span>]
+
+<span class="c"># the squares as a text a1 to h8 to [file, rank]</span>
+<span class="k">func</span> <span class="f">squareOf</span> cSquare
+
+	<span class="k">return</span> [ascii(left(cSquare,<span class="n">1</span>)) - <span class="n">96</span>,number(substr(cSquare,<span class="n">2</span>,<span class="n">1</span>))]
+
+<span class="k">func</span> <span class="f">loadImages</span>
+
+	<span class="k">for</span> cName <span class="k">in</span> [<span class="s">"WK"</span>,<span class="s">"WR"</span>,<span class="s">"BK"</span>]
+		gImages + <span class="k">new</span> <span class="t">Image</span>().<span class="f">FromFile</span>(currentdir() + <span class="s">"/images/"</span> + cName + <span class="s">".png"</span>)
+	<span class="k">next</span>
+
+<span class="c"># ---------------------------------------------------------------- the tab Play</span>
+
+<span class="k">func</span> <span class="f">buildPlay</span> oPage
+
+	oBoardPicture = <span class="f">uiPictureBox</span>(oPage,<span class="n">10</span>,<span class="n">10</span>,C_LEFT + C_CELL * <span class="n">8</span> + <span class="n">10</span>,C_TOP + C_CELL * <span class="n">8</span> + <span class="n">30</span>)
+	oCanvas = <span class="k">new</span> <span class="t">UiCanvas</span>(oBoardPicture)
+	oBoardPicture {
+		setMouseDownEvent(<span class="s">"boardDown(aDotNetArgs[2].X,aDotNetArgs[2].Y)"</span>)
+		setMouseMoveEvent(<span class="s">"boardMove(aDotNetArgs[2].X,aDotNetArgs[2].Y)"</span>)
+		setMouseUpEvent(<span class="s">"boardUp(aDotNetArgs[2].X,aDotNetArgs[2].Y)"</span>)
+	}
+	<span class="f">uiLabel</span>(oPage,<span class="s">"Drag the pieces on the board: the white king, the white rook and the black king (it is white's turn)."</span>,<span class="n">10</span>,<span class="n">462</span>,<span class="n">440</span>,<span class="n">40</span>)
+
+	<span class="f">uiLabel</span>(oPage,<span class="s">"Model"</span>,<span class="n">470</span>,<span class="n">14</span>,<span class="n">50</span>,<span class="n">22</span>)
+	oModelBox = <span class="f">uiComboBox</span>(oPage,<span class="n">530</span>,<span class="n">10</span>,<span class="n">420</span>,[<span class="s">""</span>])
+	oModelBox.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"modelChanged()"</span>)
+	aSquares = []
+	<span class="k">for</span> nFile = <span class="n">1</span> <span class="k">to</span> <span class="n">8</span>
+		<span class="k">for</span> nRank = <span class="n">1</span> <span class="k">to</span> <span class="n">8</span>
+			aSquares + squareName([nFile,nRank])
+		<span class="k">next</span>
+	<span class="k">next</span>
+	aBoxes = []
+	nX = <span class="n">470</span>
+	<span class="k">for</span> cPiece <span class="k">in</span> [<span class="s">"White king"</span>,<span class="s">"White rook"</span>,<span class="s">"Black king"</span>]
+		<span class="f">uiLabel</span>(oPage,cPiece,nX,<span class="n">52</span>,<span class="n">140</span>,<span class="n">22</span>)
+		aBoxes + <span class="f">uiComboBox</span>(oPage,nX,<span class="n">76</span>,<span class="n">100</span>,aSquares)
+		nX += <span class="n">160</span>
+	<span class="k">next</span>
+	oKingBox = aBoxes[<span class="n">1</span>]
+	oRookBox = aBoxes[<span class="n">2</span>]
+	oBlackBox = aBoxes[<span class="n">3</span>]
+	oKingBox.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"squareChosen(1,oKingBox)"</span>)
+	oRookBox.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"squareChosen(2,oRookBox)"</span>)
+	oBlackBox.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"squareChosen(3,oBlackBox)"</span>)
+	<span class="k">for</span> oBox <span class="k">in</span> aBoxes
+		oBox.<span class="f">setDropDownClosedEvent</span>(<span class="s">"drawBoard()"</span>)          <span class="c"># the list is closed: the board is drawn again (it may have been painted under the open list)</span>
+	<span class="k">next</span>
+	<span class="f">uiButton</span>(oPage,<span class="s">"Random position"</span>,<span class="n">470</span>,<span class="n">116</span>,<span class="n">140</span>,<span class="n">30</span>,<span class="s">"randomPosition()"</span>)
+	<span class="f">uiButton</span>(oPage,<span class="s">"From the data"</span>,<span class="n">620</span>,<span class="n">116</span>,<span class="n">140</span>,<span class="n">30</span>,<span class="s">"dataPosition()"</span>)
+	<span class="f">uiButton</span>(oPage,<span class="s">"Ask all the models"</span>,<span class="n">770</span>,<span class="n">116</span>,<span class="n">180</span>,<span class="n">30</span>,<span class="s">"askAll()"</span>)
+
+	oAnswer = <span class="f">uiLabel</span>(oPage,<span class="s">""</span>,<span class="n">470</span>,<span class="n">162</span>,<span class="n">480</span>,<span class="n">40</span>)
+	oAnswer.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">16</span>,<span class="k">true</span>)
+	oReal = <span class="f">uiLabel</span>(oPage,<span class="s">""</span>,<span class="n">470</span>,<span class="n">206</span>,<span class="n">480</span>,<span class="n">24</span>)
+	oVerdict = <span class="f">uiLabel</span>(oPage,<span class="s">""</span>,<span class="n">470</span>,<span class="n">232</span>,<span class="n">480</span>,<span class="n">24</span>)
+	oNote = <span class="f">uiLabel</span>(oPage,<span class="s">""</span>,<span class="n">470</span>,<span class="n">258</span>,<span class="n">480</span>,<span class="n">24</span>)
+	oAll = <span class="k">new</span> <span class="t">ListView</span>() {
+		Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">470</span>,<span class="n">290</span>)
+		Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">480</span>,<span class="n">280</span>)
+		View = <span class="s">"Details"</span>
+		FullRowSelect = <span class="k">True</span>
+		GridLines = <span class="k">True</span>
+	}
+	oAll.Columns.<span class="f">Add</span>([ :text = <span class="s">"Model"</span>, :width = <span class="n">250</span> ])
+	oAll.Columns.<span class="f">Add</span>([ :text = <span class="s">"Answer"</span>, :width = <span class="n">140</span> ])
+	oAll.Columns.<span class="f">Add</span>([ :text = <span class="s">"Right"</span>, :width = <span class="n">70</span> ])
+	oPage.Controls.<span class="f">Add</span>(oAll)
+
+<span class="c"># the way the board is drawn: the squares, the names of the files and the ranks, the pieces, and the piece that is dragged on top</span>
+<span class="k">func</span> <span class="f">drawBoard</span>
+
+	oCanvas.<span class="f">clear</span>(<span class="s">"#f0f0f0"</span>)
+	<span class="k">for</span> nRank = <span class="n">1</span> <span class="k">to</span> <span class="n">8</span>
+		<span class="k">for</span> nFile = <span class="n">1</span> <span class="k">to</span> <span class="n">8</span>
+			cColor = <span class="s">"#f0d9b5"</span>
+			<span class="k">if</span> (nFile + nRank) % <span class="n">2</span> = <span class="n">0</span>
+				cColor = <span class="s">"#b58863"</span>
+			<span class="k">ok</span>
+			oCanvas.<span class="f">fillRect</span>(C_LEFT + (nFile - <span class="n">1</span>) * C_CELL,C_TOP + (<span class="n">8</span> - nRank) * C_CELL,C_CELL,C_CELL,cColor)
+		<span class="k">next</span>
+	<span class="k">next</span>
+	<span class="k">for</span> nPlace = <span class="n">1</span> <span class="k">to</span> <span class="n">8</span>
+		oCanvas.<span class="f">text</span>(char(<span class="n">96</span> + nPlace),C_LEFT + (nPlace - <span class="n">1</span>) * C_CELL + <span class="n">20</span>,C_TOP + <span class="n">8</span> * C_CELL + <span class="n">4</span>,<span class="s">"Black"</span>,<span class="n">10</span>)
+		oCanvas.<span class="f">text</span>(<span class="s">""</span> + nPlace,<span class="n">10</span>,C_TOP + (<span class="n">8</span> - nPlace) * C_CELL + <span class="n">15</span>,<span class="s">"Black"</span>,<span class="n">10</span>)
+	<span class="k">next</span>
+	<span class="k">for</span> nPiece = <span class="n">1</span> <span class="k">to</span> <span class="n">3</span>
+		<span class="k">if</span> nPiece != gDrag
+			drawPiece(nPiece,C_LEFT + (gPiece[nPiece][<span class="n">1</span>] - <span class="n">1</span>) * C_CELL,C_TOP + (<span class="n">8</span> - gPiece[nPiece][<span class="n">2</span>]) * C_CELL)
+		<span class="k">ok</span>
+	<span class="k">next</span>
+	<span class="k">if</span> gDrag &gt; <span class="n">0</span>
+		drawPiece(gDrag,gDragX - C_CELL / <span class="n">2</span>,gDragY - C_CELL / <span class="n">2</span>)
+	<span class="k">ok</span>
+	oCanvas.<span class="f">show</span>()
+
+<span class="k">func</span> <span class="f">drawPiece</span> nPiece, nX, nY
+
+	oCanvas.oGraphics.<span class="f">DrawImage</span>([ :image = gImages[nPiece], :x = nX, :y = nY, :width = C_CELL, :height = C_CELL ])
+
+<span class="c"># the square under a point of the picture: [file, rank], or an empty list outside the board</span>
+<span class="k">func</span> <span class="f">squareAt</span> nX, nY
+
+	nFile = floor((nX - C_LEFT) / C_CELL) + <span class="n">1</span>
+	nRank = <span class="n">8</span> - floor((nY - C_TOP) / C_CELL)
+	<span class="k">if</span> nX &lt; C_LEFT <span class="k">or</span> nY &lt; C_TOP <span class="k">or</span> nFile &lt; <span class="n">1</span> <span class="k">or</span> nFile &gt; <span class="n">8</span> <span class="k">or</span> nRank &lt; <span class="n">1</span> <span class="k">or</span> nRank &gt; <span class="n">8</span>
+		<span class="k">return</span> []
+	<span class="k">ok</span>
+	<span class="k">return</span> [nFile,nRank]
+
+<span class="c"># the piece that is on a square (0: none)</span>
+<span class="k">func</span> <span class="f">pieceAt</span> aSquare
+
+	<span class="k">for</span> nPiece = <span class="n">1</span> <span class="k">to</span> <span class="n">3</span>
+		<span class="k">if</span> gPiece[nPiece][<span class="n">1</span>] = aSquare[<span class="n">1</span>] <span class="k">and</span> gPiece[nPiece][<span class="n">2</span>] = aSquare[<span class="n">2</span>]
+			<span class="k">return</span> nPiece
+		<span class="k">ok</span>
+	<span class="k">next</span>
+	<span class="k">return</span> <span class="n">0</span>
+
+<span class="k">func</span> <span class="f">boardDown</span> nX, nY
+
+	aSquare = squareAt(nX,nY)
+	<span class="k">if</span> len(aSquare) = <span class="n">2</span>
+		gDrag = pieceAt(aSquare)
+		gDragX = nX
+		gDragY = nY
+		<span class="k">if</span> gDrag &gt; <span class="n">0</span>
+			drawBoard()
+		<span class="k">ok</span>
+	<span class="k">ok</span>
+
+<span class="k">func</span> <span class="f">boardMove</span> nX, nY
+
+	<span class="k">if</span> gDrag &gt; <span class="n">0</span>
+		gDragX = nX
+		gDragY = nY
+		drawBoard()
+	<span class="k">ok</span>
+
+<span class="c"># the piece is dropped: on a free square it stays there, anywhere else it goes back</span>
+<span class="k">func</span> <span class="f">boardUp</span> nX, nY
+
+	<span class="k">if</span> gDrag = <span class="n">0</span>
+		<span class="k">return</span>
+	<span class="k">ok</span>
+	nPiece = gDrag
+	gDrag = <span class="n">0</span>
+	aSquare = squareAt(nX,nY)
+	<span class="k">if</span> len(aSquare) = <span class="n">2</span> <span class="k">and</span> pieceAt(aSquare) = <span class="n">0</span>
+		gPiece[nPiece] = aSquare
+	<span class="k">ok</span>
+	showPosition()
+
+<span class="c"># a piece is moved with the box of its square</span>
+<span class="k">func</span> <span class="f">squareChosen</span> nPiece, oBox
+
+	<span class="k">if</span> gBusy
+		<span class="k">return</span>
+	<span class="k">ok</span>
+	nIndex = oBox.SelectedIndex
+	aSquare = [floor(nIndex / <span class="n">8</span>) + <span class="n">1</span>,nIndex % <span class="n">8</span> + <span class="n">1</span>]
+	<span class="k">if</span> pieceAt(aSquare) = <span class="n">0</span>
+		gPiece[nPiece] = aSquare
+	<span class="k">ok</span>
+	showPosition()
+
+<span class="c"># a position is shown: the board, the boxes of the squares, and the answer of the model</span>
+<span class="k">func</span> <span class="f">showPosition</span>
+
+	gBusy = <span class="k">true</span>
+	oKingBox.SelectedIndex = (gPiece[<span class="n">1</span>][<span class="n">1</span>] - <span class="n">1</span>) * <span class="n">8</span> + gPiece[<span class="n">1</span>][<span class="n">2</span>] - <span class="n">1</span>
+	oRookBox.SelectedIndex = (gPiece[<span class="n">2</span>][<span class="n">1</span>] - <span class="n">1</span>) * <span class="n">8</span> + gPiece[<span class="n">2</span>][<span class="n">2</span>] - <span class="n">1</span>
+	oBlackBox.SelectedIndex = (gPiece[<span class="n">3</span>][<span class="n">1</span>] - <span class="n">1</span>) * <span class="n">8</span> + gPiece[<span class="n">3</span>][<span class="n">2</span>] - <span class="n">1</span>
+	gBusy = <span class="k">false</span>
+	drawBoard()
+	oAll.Items.<span class="f">Clear</span>()
+	aKing = gPiece[<span class="n">1</span>]
+	aRook = gPiece[<span class="n">2</span>]
+	aBlack = gPiece[<span class="n">3</span>]
+	oNote.Text = <span class="s">""</span>
+	oVerdict.Text = <span class="s">""</span>
+	cReal = knownResult(aKing,aRook,aBlack)
+	<span class="k">if</span> cReal = <span class="s">""</span>
+		oReal.Text = <span class="s">"The data does not have this position."</span>
+	<span class="k">else</span>
+		oReal.Text = <span class="s">"The data says: "</span> + chessSay(cReal)
+	<span class="k">ok</span>
+	<span class="k">if</span> chessDistance(aKing[<span class="n">1</span>],aKing[<span class="n">2</span>],aBlack[<span class="n">1</span>],aBlack[<span class="n">2</span>]) &lt;= <span class="n">1</span>
+		oNote.Text = <span class="s">"The kings touch each other: this can not be a position of a game."</span>
+	<span class="k">ok</span>
+	<span class="k">if</span> len(gModels) = <span class="n">0</span>
+		oAnswer.Text = <span class="s">"There are no models yet"</span>
+		oNote.Text = <span class="s">"Make them with the tab Models (or ring train.ring)."</span>
+		<span class="k">return</span>
+	<span class="k">ok</span>
+	cAnswer = answerOf(oModelBox.SelectedIndex + <span class="n">1</span>)
+	oAnswer.Text = <span class="s">"The model says: "</span> + chessSay(cAnswer)
+	<span class="k">if</span> cReal != <span class="s">""</span>
+		<span class="k">if</span> cAnswer = cReal
+			oVerdict.Text = <span class="s">"The model is right."</span>
+		<span class="k">but</span> cAnswer != <span class="s">"draw"</span> <span class="k">and</span> cReal != <span class="s">"draw"</span> <span class="k">and</span> fabs(chessDepth(cAnswer) - chessDepth(cReal)) = <span class="n">1</span>
+			oVerdict.Text = <span class="s">"The model is wrong by one move."</span>
+		<span class="k">else</span>
+			oVerdict.Text = <span class="s">"The model is wrong."</span>
+		<span class="k">ok</span>
+	<span class="k">ok</span>
+
+<span class="c"># the answer (the word of the result) of a model of the list for the position on the board</span>
+<span class="k">func</span> <span class="f">answerOf</span> nModel
+
+	aModel = gModels[nModel]
+	cKey = aModel[<span class="n">1</span>] + <span class="s">"_"</span> + aModel[<span class="n">3</span>]
+	<span class="k">if</span> <span class="k">not</span> isobject(gLoaded[cKey])
+		oStatusText.Text = <span class="s">"Loading the model "</span> + aModel[<span class="n">2</span>] + <span class="s">" ..."</span>
+		<span class="k">new</span> <span class="t">Application</span>().<span class="f">DoEvents</span>()
+		gLoaded[cKey] = chessLoadModel(oMl,aModel)
+		oStatusText.Text = <span class="s">""</span>
+	<span class="k">ok</span>
+	<span class="k">return</span> chessPredictOne(oMl,gLoaded[cKey],gPiece[<span class="n">1</span>],gPiece[<span class="n">2</span>],gPiece[<span class="n">3</span>])
+
+<span class="c"># the models of the list with their accuracy</span>
+<span class="k">func</span> <span class="f">fillModelBox</span>
+
+	gBusy = <span class="k">true</span>
+	oModelBox.Items.<span class="f">Clear</span>()
+	<span class="k">for</span> aModel <span class="k">in</span> gModels
+		oModelBox.Items.<span class="f">Add</span>(aModel[<span class="n">2</span>] + <span class="s">" ["</span> + aModel[<span class="n">3</span>] + <span class="s">"]   "</span> + chessPercent(aModel[<span class="n">4</span>]))
+	<span class="k">next</span>
+	<span class="k">if</span> len(gModels) &gt; <span class="n">0</span>
+		oModelBox.SelectedIndex = <span class="n">0</span>
+	<span class="k">ok</span>
+	gBusy = <span class="k">false</span>
+
+<span class="k">func</span> <span class="f">modelChanged</span>
+
+	<span class="k">if</span> <span class="k">not</span> gBusy
+		showPosition()
+	<span class="k">ok</span>
+
+<span class="c"># a position of the game: the pieces on squares that are not the same, and the kings that do not touch</span>
+<span class="k">func</span> <span class="f">randomPosition</span>
+
+	lFound = <span class="k">false</span>
+	<span class="k">while</span> <span class="k">not</span> lFound
+		aTry = []
+		<span class="k">for</span> nPiece = <span class="n">1</span> <span class="k">to</span> <span class="n">3</span>
+			aTry + [random(<span class="n">7</span>) + <span class="n">1</span>,random(<span class="n">7</span>) + <span class="n">1</span>]
+		<span class="k">next</span>
+		lFound = (chessDistance(aTry[<span class="n">1</span>][<span class="n">1</span>],aTry[<span class="n">1</span>][<span class="n">2</span>],aTry[<span class="n">3</span>][<span class="n">1</span>],aTry[<span class="n">3</span>][<span class="n">2</span>]) &gt; <span class="n">1</span>)
+		<span class="k">if</span> aTry[<span class="n">2</span>][<span class="n">1</span>] = aTry[<span class="n">1</span>][<span class="n">1</span>] <span class="k">and</span> aTry[<span class="n">2</span>][<span class="n">2</span>] = aTry[<span class="n">1</span>][<span class="n">2</span>]
+			lFound = <span class="k">false</span>
+		<span class="k">ok</span>
+		<span class="k">if</span> aTry[<span class="n">2</span>][<span class="n">1</span>] = aTry[<span class="n">3</span>][<span class="n">1</span>] <span class="k">and</span> aTry[<span class="n">2</span>][<span class="n">2</span>] = aTry[<span class="n">3</span>][<span class="n">2</span>]
+			lFound = <span class="k">false</span>
+		<span class="k">ok</span>
+	<span class="k">end</span>
+	gPiece = aTry
+	showPosition()
+
+<span class="c"># a position of the data (with its real result)</span>
+<span class="k">func</span> <span class="f">dataPosition</span>
+
+	nRow = random(len(gRows) - <span class="n">1</span>) + <span class="n">1</span>
+	setRow(nRow)
+	showPosition()
+
+<span class="k">func</span> <span class="f">setRow</span> nRow
+
+	gPiece = [squareOf(gRows[nRow][<span class="n">1</span>]),squareOf(gRows[nRow][<span class="n">2</span>]),squareOf(gRows[nRow][<span class="n">3</span>])]
+
+<span class="c"># what all the models say about the position</span>
+<span class="k">func</span> <span class="f">askAll</span>
+
+	<span class="k">if</span> len(gModels) = <span class="n">0</span>
+		<span class="k">return</span>
+	<span class="k">ok</span>
+	oAll.Items.<span class="f">Clear</span>()
+	cReal = knownResult(gPiece[<span class="n">1</span>],gPiece[<span class="n">2</span>],gPiece[<span class="n">3</span>])
+	nModels = len(gModels)
+	<span class="k">for</span> nModel = <span class="n">1</span> <span class="k">to</span> nModels
+		cAnswer = answerOf(nModel)
+		cRight = <span class="s">""</span>
+		<span class="k">if</span> cReal != <span class="s">""</span>
+			cRight = <span class="s">"no"</span>
+			<span class="k">if</span> cAnswer = cReal
+				cRight = <span class="s">"yes"</span>
+			<span class="k">ok</span>
+		<span class="k">ok</span>
+		oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().@<span class="k">New</span>([ :<span class="t">text</span> = gModels[nModel][<span class="n">2</span>] + <span class="s">" ["</span> + gModels[nModel][<span class="n">3</span>] + <span class="s">"]"</span> ])
+		oItem.SubItems.<span class="f">Add</span>(chessSay(cAnswer))
+		oItem.SubItems.<span class="f">Add</span>(cRight)
+		oAll.Items.<span class="f">Add</span>(oItem)
+	<span class="k">next</span>
+	oStatusText.Text = <span class="s">"The models answered for "</span> + squareName(gPiece[<span class="n">1</span>]) + <span class="s">" "</span> + squareName(gPiece[<span class="n">2</span>]) + <span class="s">" "</span> + squareName(gPiece[<span class="n">3</span>])
+
+<span class="c"># ---------------------------------------------------------------- the tab Data</span>
+
+<span class="k">func</span> <span class="f">buildData</span> oPage
+
+	<span class="f">uiLabel</span>(oPage,<span class="s">"Result"</span>,<span class="n">10</span>,<span class="n">14</span>,<span class="n">50</span>,<span class="n">22</span>)
+	aFilters = [<span class="s">"all"</span>]
+	<span class="k">for</span> cResult <span class="k">in</span> C_RESULTS
+		aFilters + cResult
+	<span class="k">next</span>
+	oFilterBox = <span class="f">uiComboBox</span>(oPage,<span class="n">66</span>,<span class="n">10</span>,<span class="n">120</span>,aFilters)
+	oFilterBox.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"filterChanged()"</span>)
+	<span class="f">uiButton</span>(oPage,<span class="s">"&lt;"</span>,<span class="n">200</span>,<span class="n">8</span>,<span class="n">40</span>,<span class="n">28</span>,<span class="s">"pageMove(-1)"</span>)
+	oPageLabel = <span class="f">uiLabel</span>(oPage,<span class="s">""</span>,<span class="n">246</span>,<span class="n">14</span>,<span class="n">360</span>,<span class="n">22</span>)
+	<span class="f">uiButton</span>(oPage,<span class="s">"&gt;"</span>,<span class="n">612</span>,<span class="n">8</span>,<span class="n">40</span>,<span class="n">28</span>,<span class="s">"pageMove(1)"</span>)
+	<span class="f">uiButton</span>(oPage,<span class="s">"Show on the board"</span>,<span class="n">670</span>,<span class="n">8</span>,<span class="n">160</span>,<span class="n">28</span>,<span class="s">"showSelectedRow()"</span>)
+	oRowList = <span class="k">new</span> <span class="t">ListView</span>() {
+		Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">10</span>,<span class="n">48</span>)
+		Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">690</span>,<span class="n">540</span>)
+		View = <span class="s">"Details"</span>
+		FullRowSelect = <span class="k">True</span>
+		GridLines = <span class="k">True</span>
+	}
+	oRowList.Columns.<span class="f">Add</span>([ :text = <span class="s">"#"</span>, :width = <span class="n">70</span> ])
+	oRowList.Columns.<span class="f">Add</span>([ :text = <span class="s">"White king"</span>, :width = <span class="n">110</span> ])
+	oRowList.Columns.<span class="f">Add</span>([ :text = <span class="s">"White rook"</span>, :width = <span class="n">110</span> ])
+	oRowList.Columns.<span class="f">Add</span>([ :text = <span class="s">"Black king"</span>, :width = <span class="n">110</span> ])
+	oRowList.Columns.<span class="f">Add</span>([ :text = <span class="s">"Result"</span>, :width = <span class="n">200</span> ])
+	oPage.Controls.<span class="f">Add</span>(oRowList)
+	oRowList.<span class="f">setDoubleClickEvent</span>(<span class="s">"showSelectedRow()"</span>)
+	oDataNote = <span class="f">uiLabel</span>(oPage,<span class="s">""</span>,<span class="n">720</span>,<span class="n">48</span>,<span class="n">250</span>,<span class="n">200</span>)
+	oDataNote.Text = <span class="s">"The positions of the data set: where the pieces are, and the result of the game with the best play: a draw, or the number of moves that white needs to win."</span> + nl + nl + <span class="s">"Double click a row (or use the button) to see the position on the board and what the models say."</span>
+
+<span class="k">func</span> <span class="f">filterChanged</span>
+
+	<span class="k">if</span> gBusy
+		<span class="k">return</span>
+	<span class="k">ok</span>
+	gPage = <span class="n">1</span>
+	showPage()
+
+<span class="c"># the rows of the filter, one page of them</span>
+<span class="k">func</span> <span class="f">showPage</span>
+
+	cResult = oFilterBox.Text
+	gFilter = []
+	nRows = len(gRows)
+	<span class="k">for</span> nRow = <span class="n">1</span> <span class="k">to</span> nRows
+		<span class="k">if</span> cResult = <span class="s">"all"</span> <span class="k">or</span> gRows[nRow][<span class="n">4</span>] = cResult
+			gFilter + nRow
+		<span class="k">ok</span>
+	<span class="k">next</span>
+	nPages = floor((len(gFilter) - <span class="n">1</span>) / C_PAGE) + <span class="n">1</span>
+	<span class="k">if</span> gPage &gt; nPages
+		gPage = nPages
+	<span class="k">ok</span>
+	<span class="k">if</span> gPage &lt; <span class="n">1</span>
+		gPage = <span class="n">1</span>
+	<span class="k">ok</span>
+	nFrom = (gPage - <span class="n">1</span>) * C_PAGE + <span class="n">1</span>
+	nTo = nFrom + C_PAGE - <span class="n">1</span>
+	<span class="k">if</span> nTo &gt; len(gFilter)
+		nTo = len(gFilter)
+	<span class="k">ok</span>
+	oRowList.<span class="f">BeginUpdate</span>()
+	oRowList.Items.<span class="f">Clear</span>()
+	<span class="k">for</span> nPlace = nFrom <span class="k">to</span> nTo
+		nRow = gFilter[nPlace]
+		oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().@<span class="k">New</span>([ :<span class="t">text</span> = <span class="s">""</span> + nRow ])
+		oItem.SubItems.<span class="f">Add</span>(gRows[nRow][<span class="n">1</span>])
+		oItem.SubItems.<span class="f">Add</span>(gRows[nRow][<span class="n">2</span>])
+		oItem.SubItems.<span class="f">Add</span>(gRows[nRow][<span class="n">3</span>])
+		oItem.SubItems.<span class="f">Add</span>(chessSay(gRows[nRow][<span class="n">4</span>]))
+		oRowList.Items.<span class="f">Add</span>(oItem)
+	<span class="k">next</span>
+	oRowList.<span class="f">EndUpdate</span>()
+	oPageLabel.Text = <span class="s">"positions "</span> + nFrom + <span class="s">" to "</span> + nTo + <span class="s">" of "</span> + len(gFilter) + <span class="s">" (page "</span> + gPage + <span class="s">" of "</span> + nPages + <span class="s">")"</span>
+
+<span class="k">func</span> <span class="f">pageMove</span> nStep
+
+	gPage += nStep
+	showPage()
+
+<span class="k">func</span> <span class="f">showSelectedRow</span>
+
+	<span class="k">if</span> oRowList.SelectedItems.Count = <span class="n">0</span>
+		<span class="k">return</span>
+	<span class="k">ok</span>
+	nRow = number(oRowList.SelectedItems.<span class="f">Item</span>(<span class="n">0</span>).Text)
+	setRow(nRow)
+	oTabs.SelectedIndex = <span class="n">0</span>
+	showPosition()
+
+<span class="c"># ---------------------------------------------------------------- the tab Statistics</span>
+
+<span class="k">func</span> <span class="f">buildStatistics</span> oPage
+
+	oStatList = <span class="k">new</span> <span class="t">ListView</span>() {
+		Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">10</span>,<span class="n">10</span>)
+		Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">380</span>,<span class="n">470</span>)
+		View = <span class="s">"Details"</span>
+		FullRowSelect = <span class="k">True</span>
+		GridLines = <span class="k">True</span>
+	}
+	oStatList.Columns.<span class="f">Add</span>([ :text = <span class="s">"Result"</span>, :width = <span class="n">120</span> ])
+	oStatList.Columns.<span class="f">Add</span>([ :text = <span class="s">"Positions"</span>, :width = <span class="n">90</span> ])
+	oStatList.Columns.<span class="f">Add</span>([ :text = <span class="s">"Share"</span>, :width = <span class="n">90</span> ])
+	oPage.Controls.<span class="f">Add</span>(oStatList)
+	oStatList.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"drawChart()"</span>)
+	oChartPicture = <span class="f">uiPictureBox</span>(oPage,<span class="n">410</span>,<span class="n">10</span>,<span class="n">560</span>,<span class="n">470</span>)
+	oChart = <span class="k">new</span> <span class="t">UiCanvas</span>(oChartPicture)
+	oStatNote = <span class="f">uiLabel</span>(oPage,<span class="s">""</span>,<span class="n">10</span>,<span class="n">490</span>,<span class="n">960</span>,<span class="n">60</span>)
+
+<span class="k">func</span> <span class="f">showStatistics</span>
+
+	nTotal = len(gRows)
+	oStatList.Items.<span class="f">Clear</span>()
+	<span class="k">for</span> nResult = <span class="n">1</span> <span class="k">to</span> len(C_RESULTS)
+		oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().@<span class="k">New</span>([ :<span class="t">text</span> = chessSay(C_RESULTS[nResult]) ])
+		oItem.SubItems.<span class="f">Add</span>(<span class="s">""</span> + gCounts[nResult])
+		oItem.SubItems.<span class="f">Add</span>(chessPercent(gCounts[nResult] / nTotal))
+		oStatList.Items.<span class="f">Add</span>(oItem)
+	<span class="k">next</span>
+	oStatNote.Text = <span class="s">""</span> + nTotal + <span class="s">" positions: "</span> + gCounts[<span class="n">1</span>] + <span class="s">" draws ("</span> + chessPercent(gCounts[<span class="n">1</span>] / nTotal) + <span class="s">") and "</span> + (nTotal - gCounts[<span class="n">1</span>]) + <span class="s">" wins for white, in 0 to 16 moves."</span>
+	drawChart()
+
+<span class="c"># the bars of the number of positions of each result; the result that is selected in the table has another color</span>
+<span class="k">func</span> <span class="f">drawChart</span>
+
+	nMax = <span class="n">0</span>
+	<span class="k">for</span> nCount <span class="k">in</span> gCounts
+		<span class="k">if</span> nCount &gt; nMax
+			nMax = nCount
+		<span class="k">ok</span>
+	<span class="k">next</span>
+	nSelected = <span class="n">0</span>
+	<span class="k">if</span> oStatList.SelectedIndices.Count &gt; <span class="n">0</span>
+		nSelected = oStatList.SelectedIndices.<span class="f">Item</span>(<span class="n">0</span>) + <span class="n">1</span>
+	<span class="k">ok</span>
+	oChart.<span class="f">clear</span>(<span class="s">"White"</span>)
+	nBars = len(C_RESULTS)
+	nWidth = <span class="n">26</span>
+	nHeight = <span class="n">380</span>
+	<span class="k">for</span> nBar = <span class="n">1</span> <span class="k">to</span> nBars
+		nBarHeight = floor(gCounts[nBar] / nMax * nHeight)
+		cColor = <span class="s">"#4c78a8"</span>
+		<span class="k">if</span> nBar = <span class="n">1</span>
+			cColor = <span class="s">"#9a9a9a"</span>
+		<span class="k">ok</span>
+		<span class="k">if</span> nBar = nSelected
+			cColor = <span class="s">"#e45756"</span>
+		<span class="k">ok</span>
+		nX = <span class="n">14</span> + (nBar - <span class="n">1</span>) * <span class="n">30</span>
+		oChart.<span class="f">fillRect</span>(nX,<span class="n">10</span> + nHeight - nBarHeight,nWidth,nBarHeight,cColor)
+		cName = <span class="s">"d"</span>
+		<span class="k">if</span> nBar &gt; <span class="n">1</span>
+			cName = <span class="s">""</span> + (nBar - <span class="n">2</span>)
+		<span class="k">ok</span>
+		oChart.<span class="f">text</span>(cName,nX + <span class="n">4</span>,<span class="n">10</span> + nHeight + <span class="n">4</span>,<span class="s">"Black"</span>,<span class="n">9</span>)
+	<span class="k">next</span>
+	<span class="k">if</span> nSelected &gt; <span class="n">0</span>
+		oChart.<span class="f">text</span>(chessSay(C_RESULTS[nSelected]) + <span class="s">": "</span> + gCounts[nSelected] + <span class="s">" positions"</span>,<span class="n">14</span>,<span class="n">4</span>,<span class="s">"Black"</span>,<span class="n">11</span>)
+	<span class="k">else</span>
+		oChart.<span class="f">text</span>(<span class="s">"positions of each result (d: draw, then the moves to win)"</span>,<span class="n">14</span>,<span class="n">4</span>,<span class="s">"Black"</span>,<span class="n">11</span>)
+	<span class="k">ok</span>
+	oChart.<span class="f">show</span>()
+
+<span class="c"># ---------------------------------------------------------------- the tab Models</span>
+
+<span class="k">func</span> <span class="f">buildModels</span> oPage
+
+	oModelList = <span class="k">new</span> <span class="t">ListView</span>() {
+		Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">10</span>,<span class="n">10</span>)
+		Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">960</span>,<span class="n">330</span>)
+		View = <span class="s">"Details"</span>
+		FullRowSelect = <span class="k">True</span>
+		GridLines = <span class="k">True</span>
+	}
+	oModelList.Columns.<span class="f">Add</span>([ :text = <span class="s">"#"</span>, :width = <span class="n">40</span> ])
+	oModelList.Columns.<span class="f">Add</span>([ :text = <span class="s">"Algorithm"</span>, :width = <span class="n">360</span> ])
+	oModelList.Columns.<span class="f">Add</span>([ :text = <span class="s">"Features"</span>, :width = <span class="n">120</span> ])
+	oModelList.Columns.<span class="f">Add</span>([ :text = <span class="s">"Accuracy"</span>, :width = <span class="n">100</span> ])
+	oModelList.Columns.<span class="f">Add</span>([ :text = <span class="s">"Within 1 move"</span>, :width = <span class="n">120</span> ])
+	oPage.Controls.<span class="f">Add</span>(oModelList)
+	<span class="f">uiButton</span>(oPage,<span class="s">"Train all the algorithms"</span>,<span class="n">10</span>,<span class="n">350</span>,<span class="n">200</span>,<span class="n">32</span>,<span class="s">"trainModels(false)"</span>)
+	<span class="f">uiButton</span>(oPage,<span class="s">"Quick training (3 algorithms)"</span>,<span class="n">220</span>,<span class="n">350</span>,<span class="n">220</span>,<span class="n">32</span>,<span class="s">"trainModels(true)"</span>)
+	<span class="f">uiButton</span>(oPage,<span class="s">"Test the selected model"</span>,<span class="n">450</span>,<span class="n">350</span>,<span class="n">200</span>,<span class="n">32</span>,<span class="s">"testSelected()"</span>)
+	oProgress = <span class="k">new</span> <span class="t">ProgressBar</span>()
+	oProgress.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">10</span>,<span class="n">394</span>)
+	oProgress.Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">960</span>,<span class="n">22</span>)
+	oPage.Controls.<span class="f">Add</span>(oProgress)
+	oModelNote = <span class="f">uiLabel</span>(oPage,<span class="s">""</span>,<span class="n">10</span>,<span class="n">424</span>,<span class="n">960</span>,<span class="n">160</span>)
+	oModelNote.Text = <span class="s">"The models learn from 70 percent of the positions and are tested on the other 30 percent that they have not seen. Accuracy is the share of the test positions whose result is exactly right; within 1 move also accepts a win that is one move off."</span> + nl + nl + <span class="s">"Training all the algorithms takes about a minute."</span>
+
+<span class="k">func</span> <span class="f">showModels</span>
+
+	oModelList.Items.<span class="f">Clear</span>()
+	nPlace = <span class="n">1</span>
+	<span class="k">for</span> aModel <span class="k">in</span> gModels
+		oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().@<span class="k">New</span>([ :<span class="t">text</span> = <span class="s">""</span> + nPlace ])
+		oItem.SubItems.<span class="f">Add</span>(aModel[<span class="n">2</span>])
+		oItem.SubItems.<span class="f">Add</span>(aModel[<span class="n">3</span>])
+		oItem.SubItems.<span class="f">Add</span>(chessPercent(aModel[<span class="n">4</span>]))
+		oItem.SubItems.<span class="f">Add</span>(chessPercent(aModel[<span class="n">5</span>]))
+		oModelList.Items.<span class="f">Add</span>(oItem)
+		nPlace++
+	<span class="k">next</span>
+
+<span class="c"># split the data (70 / 30), train the algorithms and save the models; the window shows the progress</span>
+<span class="k">func</span> <span class="f">trainModels</span> lQuick
+
+	oProgress.Value = <span class="n">0</span>
+	oModelNote.Text = <span class="s">"Splitting the positions: 70 percent to train, 30 percent to test ..."</span>
+	<span class="k">new</span> <span class="t">Application</span>().<span class="f">DoEvents</span>()
+	aCounts = chessSplit(lQuick)
+	oModelNote.Text = <span class="s">""</span> + aCounts[<span class="n">1</span>] + <span class="s">" positions to train, "</span> + aCounts[<span class="n">2</span>] + <span class="s">" to test."</span> + nl
+	aResults = chessTrainAll(oMl,lQuick,<span class="s">"trained"</span>)
+	gModels = chessModels()
+	gLoaded = [:none = <span class="n">0</span>]
+	showModels()
+	fillModelBox()
+	showPosition()
+	oProgress.Value = <span class="n">100</span>
+	oModelNote.Text += nl + <span class="s">"Done: the best model is "</span> + aResults[<span class="n">1</span>][<span class="n">3</span>][<span class="n">2</span>] + <span class="s">" ["</span> + aResults[<span class="n">1</span>][<span class="n">3</span>][<span class="n">3</span>] + <span class="s">"], "</span> + chessPercent(aResults[<span class="n">1</span>][<span class="n">1</span>]) + <span class="s">" of the test positions."</span>
+
+<span class="c"># the progress after each algorithm (called by chessTrainAll)</span>
+<span class="k">func</span> <span class="f">trained</span> nAlgorithm, nAlgorithms, aAlgorithm, nExact, nNear, nSeconds
+
+	oProgress.Value = floor(nAlgorithm / nAlgorithms * <span class="n">100</span>)
+	oModelNote.Text += aAlgorithm[<span class="n">2</span>] + <span class="s">" ["</span> + aAlgorithm[<span class="n">3</span>] + <span class="s">"]: "</span> + chessPercent(nExact) + <span class="s">" ("</span> + (floor(nSeconds * <span class="n">10</span>) / <span class="n">10</span>) + <span class="s">" seconds)"</span> + nl
+	oStatusText.Text = <span class="s">"Trained "</span> + nAlgorithm + <span class="s">" of "</span> + nAlgorithms
+	<span class="k">new</span> <span class="t">Application</span>().<span class="f">DoEvents</span>()
+
+<span class="c"># the selected model on the test positions of data/test.csv</span>
+<span class="k">func</span> <span class="f">testSelected</span>
+
+	<span class="k">if</span> oModelList.SelectedIndices.Count = <span class="n">0</span>
+		oModelNote.Text = <span class="s">"Select a model of the list first."</span>
+		<span class="k">return</span>
+	<span class="k">ok</span>
+	<span class="k">if</span> <span class="k">not</span> fexists(<span class="s">"data/test.csv"</span>)
+		oModelNote.Text = <span class="s">"There are no test positions yet: train the models first."</span>
+		<span class="k">return</span>
+	<span class="k">ok</span>
+	aModel = gModels[oModelList.SelectedIndices.<span class="f">Item</span>(<span class="n">0</span>) + <span class="n">1</span>]
+	oModelNote.Text = <span class="s">"Testing "</span> + aModel[<span class="n">2</span>] + <span class="s">" ["</span> + aModel[<span class="n">3</span>] + <span class="s">"] ..."</span>
+	<span class="k">new</span> <span class="t">Application</span>().<span class="f">DoEvents</span>()
+	oModel = chessLoadModel(oMl,aModel)
+	oTest = chessLoad(oMl,<span class="s">"data/test.csv"</span>)
+	aActual = chessColumn(oTest,<span class="s">"System.String"</span>,<span class="s">"GameResult"</span>)
+	aPredicted = chessColumn(oModel.<span class="f">Transform</span>(oTest),<span class="s">"System.String"</span>,<span class="s">"PredictedResult"</span>)
+	aAccuracy = chessAccuracy(aActual,aPredicted)
+	nDraws = <span class="n">0</span>
+	nFound = <span class="n">0</span>
+	nTotal = len(aActual)
+	<span class="k">for</span> nPlace = <span class="n">1</span> <span class="k">to</span> nTotal
+		<span class="k">if</span> aActual[nPlace] = <span class="s">"draw"</span>
+			nDraws++
+			<span class="k">if</span> aPredicted[nPlace] = <span class="s">"draw"</span>
+				nFound++
+			<span class="k">ok</span>
+		<span class="k">ok</span>
+	<span class="k">next</span>
+	oModelNote.Text = aModel[<span class="n">2</span>] + <span class="s">" ["</span> + aModel[<span class="n">3</span>] + <span class="s">"] on "</span> + nTotal + <span class="s">" test positions:"</span> + nl + <span class="s">"exactly right: "</span> + chessPercent(aAccuracy[<span class="n">1</span>]) + nl + <span class="s">"within 1 move: "</span> + chessPercent(aAccuracy[<span class="n">2</span>]) + nl + <span class="s">"draws found: "</span> + nFound + <span class="s">" of "</span> + nDraws</code></pre></div></details></div></div><div class="item" id="color-mixer"><div class="pic"><img src="img/shots/app-ColorMixer.png" alt="Color Mixer" loading="lazy"></div><div class="info"><h3>Color Mixer</h3><p>Color mixer - three track bars, the color, its #RRGGBB code and HSV values</p><div class="run"><code>cd samples/UsingDotNet/applications/ColorMixer  then  ring ColorMixer.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Color mixer - three track bars, the color, its #RRGGBB code and HSV values</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 

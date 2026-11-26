@@ -8,9 +8,10 @@ Run the programs from this folder (the first run downloads ML.NET from nuget.org
 
 | Program | What it does |
 |---|---|
-| `ring train.ring` | splits the data (70 / 30), trains 12 combinations of algorithm and features, tests them, saves every model in `models`, and ranks them. About half a minute. `--quick` tries three of them on a seventh of the data. |
+| `ring train.ring` | splits the data (70 / 30), trains 15 combinations of algorithm and features, tests them, saves every model in `models`, and ranks them. About a minute. `--quick` tries three of them on a seventh of the data. |
 | `ring evaluate.ring` | loads the saved models and tests them again on the 30 percent: the accuracy of each, then the best one result by result. |
 | `ring predict.ring a1 b3 c2` | the result of a position: the white king on a1, the white rook on b3, the black king on c2 (more positions: three squares for each). Without squares it shows positions of the test file with their real results. `--model=tree_engineered` uses another saved model. |
+| `ring ChessEndgame.ring` | **the window**: drag the pieces on the board and the models answer; the data, the statistics, and the models (train and test them). |
 
 The files: `chesslib.ring` (getting ML.NET, the split, the features, the algorithms), `ChessEndgame.csproj` (the packages), `data/chess.csv` (the data).
 `train.ring` makes `data/train.csv`, `data/test.csv` and `models/`.
