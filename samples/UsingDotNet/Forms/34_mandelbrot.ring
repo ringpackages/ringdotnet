@@ -110,12 +110,11 @@ func makePalette
 	aPalette = []
 	for nSteps = 0 to nMaxSteps - 1
 		nHue = (0.6 + nSteps * 0.035) % 1
-		aRGB = hsvToRgb(nHue,0.85)
-		aPalette + (char(aRGB[1]) + char(aRGB[2]) + char(aRGB[3]))
+		aPalette + hsvToBytes(nHue,0.85)
 	next
 
-# The color of a hue and a saturation (0 to 1) at full brightness: [red, green, blue] from 0 to 255
-func hsvToRgb nHue, nSaturation
+# The color of a hue and a saturation (0 to 1) at full brightness, as the 3 bytes red, green, blue (a text, not a list: no list is made for each pixel)
+func hsvToBytes nHue, nSaturation
 
 	nSector = floor(nHue * 6)
 	nFraction = nHue * 6 - nSector
@@ -124,14 +123,14 @@ func hsvToRgb nHue, nSaturation
 	nT = floor((1 - nSaturation * (1 - nFraction)) * 255 + 0.5)
 	switch nSector % 6
 	on 0
-		return [255,nT,nP]
+		return char(255) + char(nT) + char(nP)
 	on 1
-		return [nQ,255,nP]
+		return char(nQ) + char(255) + char(nP)
 	on 2
-		return [nP,255,nT]
+		return char(nP) + char(255) + char(nT)
 	on 3
-		return [nP,nQ,255]
+		return char(nP) + char(nQ) + char(255)
 	on 4
-		return [nT,nP,255]
+		return char(nT) + char(nP) + char(255)
 	off
-	return [255,nP,nQ]
+	return char(255) + char(nP) + char(nQ)
