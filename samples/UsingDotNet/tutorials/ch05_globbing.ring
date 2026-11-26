@@ -41,17 +41,17 @@ func main
 	#    (the tutorial "ZIP archives in memory") or the changed files of a project. The paths use / and are relative to the root.
 	aPaths = ["src/main.ring","src/old_main.ring","README.md","docs/guide/intro.md","docs/logo.png"]
 	oResult = oMatcher3.Match([ :rootDir = ".", :files = aPaths ])
-	? nl + "4. which of the names are matched: has matches = " + oResult.getProp("HasMatches")
-	aFiles = oResult.getProp("Files").toList()
+	? nl + "4. which of the names are matched: has matches = " + oResult.HasMatches
+	aFiles = oResult.Files.toList()
 	for oFile in aFiles
-		? "   " + oFile.getProp("Path")
+		? "   " + oFile.Path
 	next
 
 	# 5. By default a Matcher ignores case (OrdinalIgnoreCase). The constructor takes a StringComparison: with Ordinal, case counts.
 	oStrict = (new Matcher).@New([ :comparisonType = "Ordinal" ])
 	oStrict.AddInclude("**/*.RING")
 	oResultStrict = oStrict.Match([ :rootDir = ".", :files = ["a.ring","b.RING"] ])
-	? nl + "5. with Ordinal comparison, **/*.RING matches only: " + oResultStrict.getProp("Files").toList()[1].getProp("Path")
+	? nl + "5. with Ordinal comparison, **/*.RING matches only: " + oResultStrict.Files.toList()[1].Path
 
 	new Directory().Delete([ :path = cBase, :recursive = True ])
 
