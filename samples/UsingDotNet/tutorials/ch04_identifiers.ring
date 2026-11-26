@@ -37,7 +37,7 @@ func main
 	for cText in ["2.0.1","1.10.0","1.2.0","1.9.0","10.0.0"]
 		oList.Add(oVer.Parse(cText))
 	next
-	oList.callMethod("Sort",[])
+	oList.Sort(NULL)
 	cSorted = ""
 	aItems = oList.toList()
 	for oItem in aItems
