@@ -46,7 +46,7 @@ func sqliteWorks
 		oConnection = (new SqliteConnection).@New("Data Source=:memory:")
 		oConnection.Open()
 		oCommand = oConnection.CreateCommand()
-		oCommand.setProp("CommandText","SELECT 40 + 2")
+		oCommand.CommandText = "SELECT 40 + 2"
 		xAnswer = oCommand.ExecuteScalar()
 		oConnection.Dispose()
 		return (xAnswer = 42)
