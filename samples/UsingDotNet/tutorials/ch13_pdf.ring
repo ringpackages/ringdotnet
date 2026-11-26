@@ -37,8 +37,8 @@ func main
 	#    parameters of the constructor; the brush and the pen are ready objects of the classes XBrushes and XPens.
 	oDocument = new PdfDocument()
 	oDocument.Info.Title = "Sales report"
-	oTitleFont = dnNew("PdfSharp.Drawing.XFont",[ :familyName = "Arial", :emSize = 22 ])
-	oTextFont = dnNew("PdfSharp.Drawing.XFont",[ :familyName = "Arial", :emSize = 12 ])
+	oTitleFont = new XFont("Arial",22)
+	oTextFont = new XFont("Arial",12)
 	oBlack = new XBrushes().Black
 	oPen = new XPens().Black
 
