@@ -98,8 +98,8 @@ func makePicture
 
 	oBitmap = new Bitmap(120,80)
 	oGraphics = new Graphics().FromImage(oBitmap)
-	oGraphics.Clear(dnStatic("System.Drawing.Color","FromArgb",[ 255, 40, 90, 200 ]))
-	oBrush = new SolidBrush(dnStatic("System.Drawing.Color","FromArgb",[ 255, 250, 210, 40 ]))
+	oGraphics.Clear(new Color().FromArgb([ :alpha = 255, :red = 40, :green = 90, :blue = 200 ]))
+	oBrush = new SolidBrush(new Color().FromArgb([ :alpha = 255, :red = 250, :green = 210, :blue = 40 ]))
 	oGraphics.FillEllipse([ :brush = oBrush, :rect = new Rectangle(35,15,50,50) ])
 	oGraphics.Dispose()
 	return oBitmap
