@@ -107,8 +107,7 @@ func grayscale
 	ok
 	nWidth = oImage.Width
 	nHeight = oImage.Height
-	oMatrix = new ColorMatrix
-	oMatrix.@New([
+	oMatrix = (new ColorMatrix).@New([
 		[0.299,0.299,0.299,0,0],
 		[0.587,0.587,0.587,0,0],
 		[0.114,0.114,0.114,0,0],
