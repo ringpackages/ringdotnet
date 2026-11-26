@@ -3,6 +3,7 @@
 load "dotnet.ring"
 
 using {
+	"Microsoft.Data.Sqlite"
 	"System"
 	"System.IO"
 }
@@ -41,7 +42,8 @@ func sqliteWorks
 		dnLoad(dnRequest("bridgefolder",[]) + "/RingDotNet.Data.dll")      # it knows where the native SQLite library of this system is
 		dnLoadName("SQLitePCLRaw.batteries_v2")               # the assembly that starts the native SQLite library
 		dnStatic("SQLitePCL.Batteries_V2","Init",[])
-		oConnection = dnNew("Microsoft.Data.Sqlite.SqliteConnection",["Data Source=:memory:"])
+		oConnection = new SqliteConnection
+		oConnection.@New("Data Source=:memory:")
 		oConnection.Open()
 		oCommand = oConnection.CreateCommand()
 		oCommand.setProp("CommandText","SELECT 40 + 2")
