@@ -72,4 +72,14 @@ dnAssert("user globals untouched",cData + aItems[2] + nPos + x + xResult,"mine25
 # the command line of the program: a library that reads its first item (System.CommandLine) needs one on every system
 dnAssert("the command line has the program",len(dnStatic("System.Environment","GetCommandLineArgs",[]).toList()) >= 1,1)
 
+# what a type is, by its name (the generator uses it to take the extension methods of a closed generic type)
+dnAssert("typekind: an interface",dnRequest("typekind",["System.IDisposable"]),"interface")
+dnAssert("typekind: an abstract class",dnRequest("typekind",["System.IO.Stream"]),"abstract")
+dnAssert("typekind: a sealed class is a class",dnRequest("typekind",["System.String"]),"class")
+dnAssert("typekind: a class",dnRequest("typekind",["System.Text.StringBuilder"]),"class")
+dnAssert("typekind: a struct",dnRequest("typekind",["System.DateTime"]),"struct")
+dnAssert("typekind: an enum",dnRequest("typekind",["System.DayOfWeek"]),"enum")
+dnAssert("typekind: a delegate",dnRequest("typekind",["System.EventHandler"]),"delegate")
+dnAssert("typekind: not a type",dnRequest("typekind",["No.Such.Type"]),"")
+
 nFail = dnTestSummary()
