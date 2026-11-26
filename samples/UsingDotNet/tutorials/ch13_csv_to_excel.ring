@@ -54,8 +54,7 @@ func main
 	# 2. CsvHelper reads it: ReadHeader takes the first line, and Read goes to the next row. A field is read by the name of its column.
 	oText = new StringReader(cCsv)
 	oCulture = new CultureInfo("en-US")
-	oCsv = new CsvReader
-	oCsv.@New([ :reader = oText, :culture = oCulture ])
+	oCsv = (new CsvReader).@New([ :reader = oText, :culture = oCulture ])
 	oCsv.Read()
 	oCsv.ReadHeader()
 
