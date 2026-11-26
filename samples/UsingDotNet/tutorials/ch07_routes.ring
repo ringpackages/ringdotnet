@@ -73,7 +73,7 @@ func showMatch cTemplate,cPath
 	cText = ""
 	aKeys = sort(oValues.Keys.toList())
 	for cKey in aKeys
-		cText += cKey + " = " + oValues.callMethod("get_Item",[cKey]) + "   "
+		cText += cKey + " = " + oValues.Item(cKey) + "   "
 	next
 	return "match   " + cText
 
@@ -90,7 +90,7 @@ func matches cTemplate,cPath,oValues
 		ok
 	next
 	oMatcher = new TemplateMatcher(oTemplate,oDefaults)
-	return oMatcher.callMethod("TryMatch",[(new PathString).@New(cPath),oValues])
+	return oMatcher.TryMatch((new PathString).@New(cPath),oValues)
 
 func chooseRoute aTable,cPath
 
