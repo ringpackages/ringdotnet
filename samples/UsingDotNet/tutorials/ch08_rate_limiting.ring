@@ -2,12 +2,12 @@
 load "dotnet.ring"
 
 using {
+	"System.Threading.RateLimiting"
 	"System"
 	"System.Threading"
 	"RingDotNet.Web"                  # System.Threading.RateLimiting is part of the ASP.NET Core runtime: this line starts it
 }
 
-cNs = "System.Threading.RateLimiting."
 
 func main
 
@@ -35,7 +35,7 @@ func main
 
 	# 3. CONCURRENCY LIMITER: at most 2 requests are being handled at the same time. A request gets a LEASE and gives it back when it is
 	#    finished (Dispose). While two leases are out, the third request is refused. This protects a slow resource (a database connection).
-	oConcurrency = dnNew(cNs + "ConcurrencyLimiter",[makeConcurrencyOptions(2)])
+	oConcurrency = new ConcurrencyLimiter(makeConcurrencyOptions(2))
 	oLeaseA = oConcurrency.callMethod("AttemptAcquire",[1])
 	oLeaseB = oConcurrency.callMethod("AttemptAcquire",[1])
 	oLeaseC = oConcurrency.callMethod("AttemptAcquire",[1])
@@ -67,17 +67,17 @@ func main
 
 func makeBucket nTokens,nPeriodMs
 
-	oOptions = dnNew(cNs + "TokenBucketRateLimiterOptions",[])
+	oOptions = new TokenBucketRateLimiterOptions
 	oOptions.setProp("TokenLimit",nTokens)
 	oOptions.setProp("TokensPerPeriod",1)
 	oOptions.setProp("ReplenishmentPeriod",new TimeSpan().FromMilliseconds(nPeriodMs))
 	oOptions.setProp("AutoReplenishment",False)
 	oOptions.setProp("QueueLimit",0)
-	return dnNew(cNs + "TokenBucketRateLimiter",[oOptions])
+	return new TokenBucketRateLimiter(oOptions)
 
 func makeConcurrencyOptions nLimit
 
-	oOptions = dnNew(cNs + "ConcurrencyLimiterOptions",[])
+	oOptions = new ConcurrencyLimiterOptions
 	oOptions.setProp("PermitLimit",nLimit)
 	oOptions.setProp("QueueLimit",0)
 	return oOptions
