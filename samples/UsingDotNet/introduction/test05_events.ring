@@ -1,7 +1,7 @@
 # Events: setXXXEvent(code) runs Ring code when a .NET event is raised
 load "dotnet.ring"
 
-using { "System.Collections.ObjectModel" }
+using { "System.Collections.ObjectModel" "System.Collections.Specialized" }
 
 # .NET events: setXXXEvent(cRingCode) like RingQt, the code reads aDotNetArgs = [sender, eventArgs]
 oList = new ObservableStringList()
@@ -27,6 +27,6 @@ oList {
 
 # The event arguments are .NET objects
 oList {
-	setCollectionChangedEvent("? '  action = ' + aDotNetArgs[2].getProp('Action')")
+	setCollectionChangedEvent("? '  action = ' + aDotNetArgs[2].Action")
 	Add("five")
 }
