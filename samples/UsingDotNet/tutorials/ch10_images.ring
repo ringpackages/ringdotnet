@@ -47,7 +47,8 @@ func main
 	? "STEP 4: saved " + new Path().GetFileName(cPng) + ", " + (new FileInfo(cPng).Length > 0) + " (the file has data)"
 
 	# STEP 5. Load it again and make a gray copy: gray = the average of red, green and blue
-	oLoaded = dnNew("Bitmap",[ :filename = cPng ])          # a constructor chosen by the name of its parameter
+	oLoaded = new Bitmap
+	oLoaded.@New([ :filename = cPng ])  # a constructor chosen by the name of its parameter
 	oGray = new Bitmap(oLoaded.Width,oLoaded.Height)
 	for nY = 0 to oLoaded.Height - 1
 		for nX = 0 to oLoaded.Width - 1
