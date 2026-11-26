@@ -33,7 +33,7 @@ func main
 	? "   parts of 1.10.0: major " + oV10.Major + ", minor " + oV10.Minor + ", build " + oV10.Build
 
 	# 4. Sorting versions: a sorted list of Version objects. Sort() uses CompareTo of every Version.
-	oList = dnNewGeneric("System.Collections.Generic.List",["System.Version"],[])
+	oList = new List([ :typeArguments = ["System.Version"] ])
 	for cText in ["2.0.1","1.10.0","1.2.0","1.9.0","10.0.0"]
 		oList.callMethod("Add",[oVer.Parse(cText)])
 	next
