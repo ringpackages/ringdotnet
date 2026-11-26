@@ -405,6 +405,25 @@ namespace MyCompany.Tools
 		public string Say(string a, string b) { return "hi " + a + b; }
 	}
 
+	// Delegates that Ring callbacks become: the method of the delegate must have a type (some libraries, ML.NET CustomMapping among them, read it), and every arity must work
+	public delegate int EightInts(int a, int b, int c, int d, int e, int f, int g, int h);
+	public delegate int NineInts(int a, int b, int c, int d, int e, int f, int g, int h, int i);
+
+	public static class DelegateInfo
+	{
+		private static string TypeOf(Delegate d) { return d.Method.DeclaringType == null ? "none" : d.Method.DeclaringType.Name; }
+		public static string TypeOfAction2(Action<int, int> d) { return TypeOf(d); }
+		public static string TypeOfFunc2(Func<int, int, int> d) { return TypeOf(d); }
+		public static string TypeOfEight(EightInts d) { return TypeOf(d); }
+		public static void CallAction0(Action a) { a(); }
+		public static void CallAction2(Action<int, int> a, int x, int y) { a(x, y); }
+		public static int CallFunc0(Func<int> f) { return f(); }
+		public static int CallFunc2(Func<int, int, int> f, int a, int b) { return f(a, b); }
+		public static string CallText(Func<string, string> f, string s) { return f(s); }
+		public static int CallEight(EightInts e) { return e(1, 2, 3, 4, 5, 6, 7, 8); }
+		public static int CallNine(NineInts n) { return n(1, 2, 3, 4, 5, 6, 7, 8, 9); }
+	}
+
 	// Static methods for the typed static call (dotnet_callts): the same kinds as TypedMath, and the cases that stay with the generic request
 	public static class TypedStatic
 	{

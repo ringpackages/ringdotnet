@@ -58,7 +58,7 @@ A class that is not public can be two interfaces at once, with no interface name
 
 ## Callbacks: Ring code called from .NET
 
-`dnCallback("...")` passes Ring code where .NET expects a delegate. The bridge builds a delegate of the exact type with a compiled expression; when .NET invokes it, the C extension runs the Ring function on the **Ring thread** and returns its result. Callbacks run synchronously during a call, which is why events from timers on other threads are ignored (see [Rules and limits](rules-and-limits.html)).
+`dnCallback("...")` passes Ring code where .NET expects a delegate. The bridge builds a delegate of the exact type, bound to a method of the bridge (a compiled expression for a delegate that a method cannot be bound to: ref and out parameters, more than 8 parameters); when .NET invokes it, the C extension runs the Ring function on the **Ring thread** and returns its result. Callbacks run synchronously during a call, which is why events from timers on other threads are ignored (see [Rules and limits](rules-and-limits.html)).
 
 ## Threads
 

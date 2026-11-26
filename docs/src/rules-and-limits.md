@@ -78,7 +78,7 @@ The runtime mode (desktop, web, both) is chosen by the `using { }` block (or by 
 
 ### Callbacks run on the Ring thread only
 
-Events from timers on other threads (`System.Threading.Timer`, `Task.Run(...)`) do not run Ring code; they print a message on stderr instead. Use the Windows Forms `Timer` (`uiTimer`) or wait for tasks on the Ring thread. The web server queues requests for the same reason.
+Events from timers on other threads (`System.Threading.Timer`, `Task.Run(...)`) do not run Ring code; they print a message on stderr instead. Use the Windows Forms `Timer` (`uiTimer`) or wait for tasks on the Ring thread. The web server queues requests for the same reason. The same holds for a library that calls your function from its own background threads: the `CustomMapping` transform of ML.NET, for example, runs its function on the threads that read the rows, so it cannot be written as a Ring callback.
 
 ### Value types are returned by value
 

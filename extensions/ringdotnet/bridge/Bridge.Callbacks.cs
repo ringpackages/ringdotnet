@@ -58,6 +58,8 @@ namespace RingDotNet
 		{
 			MethodInfo invoke = delegateType.GetMethod("Invoke");
 			ParameterInfo[] ps = invoke.GetParameters();
+			Delegate thunk = TryThunkDelegate(delegateType, invoke, ps, ringFunction);
+			if (thunk != null) return thunk;
 			ParameterExpression[] pe = new ParameterExpression[ps.Length];
 			Expression[] boxed = new Expression[ps.Length];
 			for (int i = 0; i < ps.Length; i++)
