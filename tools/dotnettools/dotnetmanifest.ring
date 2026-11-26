@@ -258,7 +258,7 @@ aDotNetManifest = [
 	  :all = true ],
 
 	[ :namespace = "System.Collections.Concurrent",
-	  :assemblies = ["System.Collections.Concurrent"],
+	  :assemblies = ["System.Collections.Concurrent","System.Private.CoreLib"],
 	  :types = [
 		["System.Collections.Concurrent.ConcurrentQueue`1[[System.String]]","ConcurrentStringQueue",0],
 		["System.Collections.Concurrent.ConcurrentQueue`1[[System.Object]]","ConcurrentObjectQueue",0],
