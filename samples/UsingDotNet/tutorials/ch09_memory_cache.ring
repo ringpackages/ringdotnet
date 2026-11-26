@@ -24,7 +24,8 @@ func main
 
 	# 2. Absolute expiration: the value lives for a fixed time after it was stored. After that it is gone, even if it was used.
 	oOptions = new MemoryCacheEntryOptions()
-	oOptions.AbsoluteExpirationRelativeToNow = dnStatic("System.TimeSpan","FromMilliseconds",[500])
+	oLimit = new TimeSpan().FromMilliseconds(500)
+	oOptions.AbsoluteExpirationRelativeToNow = oLimit
 	cacheSet(oCache,"price",9.99,oOptions)
 	? nl + "2. right after storing, the price is there:  " + oCache.TryGetValue("price")[1]
 	sleepMs(900)
@@ -33,7 +34,8 @@ func main
 	# 3. Sliding expiration: the time starts again every time the value is READ. A value that is used often stays, one that is
 	#    not used goes. (Good for sessions and for caches of things that are used in bursts.)
 	oSliding = new MemoryCacheEntryOptions()
-	oSliding.SlidingExpiration = dnStatic("System.TimeSpan","FromMilliseconds",[1000])
+	oWindow = new TimeSpan().FromMilliseconds(1000)
+	oSliding.SlidingExpiration = oWindow
 	cacheSet(oCache,"session","token-123",oSliding)
 	cResult = ""
 	for i = 1 to 4
