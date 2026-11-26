@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The packages of the chess end game example: ML.NET with the trees (FastTree) and LightGBM trainers. dotnet publish copies their DLLs, with the native libraries, into libs. -->
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <AssemblyName>ChessEndgame</AssemblyName>
+    <DebugType>none</DebugType>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ML" Version="5.0.1" />
+    <PackageReference Include="Microsoft.ML.FastTree" Version="5.0.1" />
+    <PackageReference Include="Microsoft.ML.LightGbm" Version="5.0.1" />
+  </ItemGroup>
+</Project>

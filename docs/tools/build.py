@@ -204,6 +204,7 @@ PAGES = [
     ("aspnet", "ASP.NET Core", "Guide: web and data"),
     ("ef", "Entity Framework Core", "Guide: web and data"),
     ("ef-reference", "Entity Framework reference", "Guide: web and data"),
+    ("ml-chess", "Machine learning: the chess end game", "Guide: web and data"),
     ("own-assemblies", "Your own assemblies", "Guide: extending"),
     ("generator", "Class generator", "Guide: extending"),
     ("testing", "Testing", "Testing and limits"),

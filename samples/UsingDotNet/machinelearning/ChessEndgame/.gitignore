@@ -1,0 +1,10 @@
+# made by the programs of the example
+libs/
+classes/
+obj/
+bin/
+models/
+data/train.csv
+data/test.csv
+data/positions.csv
+chess_output.txt
