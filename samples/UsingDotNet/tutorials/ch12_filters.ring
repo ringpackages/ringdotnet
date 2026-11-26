@@ -229,6 +229,4 @@ func showPixels oPicture, aPixels
 	nFile++
 	cFile = new Path().Combine([cFolder,"image" + nFile + ".bmp"])
 	saveBmp(aPixels,cFile)
-	oBitmap = new Bitmap
-	oBitmap.@New([ :filename = cFile ])
-	oPicture.Image = oBitmap
+	oPicture.Image = (new Bitmap).@New([ :filename = cFile ])
