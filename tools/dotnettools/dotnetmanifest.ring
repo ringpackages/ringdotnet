@@ -275,7 +275,7 @@ aDotNetManifest = [
 	  :all = true ],
 
 	[ :namespace = "System.Collections.Specialized",
-	  :assemblies = ["System.Collections.Specialized","System.Collections.NonGeneric","System.Collections"],
+	  :assemblies = ["System.Collections.Specialized","System.Collections.NonGeneric","System.Collections","System.ObjectModel"],
 	  :all = true ],
 
 	[ :namespace = "System.Collections.Generic",
