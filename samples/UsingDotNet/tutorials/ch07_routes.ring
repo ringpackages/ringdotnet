@@ -2,12 +2,12 @@
 load "dotnet.ring"
 
 using {
+	"Microsoft.AspNetCore.Routing.Template"
 	"Microsoft.AspNetCore.Routing"
 	"System"
 	"RingDotNet.Web"                  # the routing classes are part of the ASP.NET Core runtime: this line starts it
 }
 
-cRouting = "Microsoft.AspNetCore.Routing."
 
 func main
 
@@ -20,7 +20,7 @@ func main
 	# {id:int}         a constraint (a router checks it: only whole numbers): the template keeps it as a name
 	? "1. the templates and their parts:"
 	for cRoute in ["users/{id}/orders/{orderId?}","products/{category}/{page=1}","files/{*path}","items/{id:int}"]
-		oTemplate = dnStatic(cRouting + "Template.TemplateParser","Parse",[cRoute])
+		oTemplate = (new TemplateParser).Parse(cRoute)
 		cParts = ""
 		aParts = oTemplate.getProp("Parameters").toList()
 		for oPart in aParts
@@ -79,7 +79,7 @@ func showMatch cTemplate,cPath
 
 func matches cTemplate,cPath,oValues
 
-	oTemplate = dnStatic(cRouting + "Template.TemplateParser","Parse",[cTemplate])
+	oTemplate = (new TemplateParser).Parse(cTemplate)
 	# the defaults of the template ({page=1}) are given to the matcher: a part with a default may be missing at the END of the path
 	oDefaults = new RouteValueDictionary
 	aParts = oTemplate.getProp("Parameters").toList()
@@ -89,7 +89,7 @@ func matches cTemplate,cPath,oValues
 			oDefaults.Add(oPart.getProp("Name"),xDefault)
 		ok
 	next
-	oMatcher = dnNew(cRouting + "Template.TemplateMatcher",[oTemplate,oDefaults])
+	oMatcher = new TemplateMatcher(oTemplate,oDefaults)
 	return oMatcher.callMethod("TryMatch",[(new PathString).@New(cPath),oValues])
 
 func chooseRoute aTable,cPath
