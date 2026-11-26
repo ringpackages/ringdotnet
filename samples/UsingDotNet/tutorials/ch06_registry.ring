@@ -93,7 +93,7 @@ func padRight cText,nWidth
 # a string[] from a Ring list (the registry wants the exact type)
 func stringArray aList
 
-	oList = dnNewGeneric("System.Collections.Generic.List",["System.String"],[])
+	oList = new List([ :typeArguments = ["System.String"] ])
 	for cItem in aList
 		oList.Add(cItem)
 	next
