@@ -38,11 +38,11 @@ func main
 
 	# 4. A dictionary that ignores case: the comparer is the second argument of the constructor
 	oPeople = new Dictionary([ :typeArguments = ["System.String","System.Int32"], :comparer = new StringComparer().OrdinalIgnoreCase ])
-	oPeople.callMethod("Add",["Ann",31])
-	? nl + "4. the key 'ANN' finds the key 'Ann': " + oPeople.callMethod("ContainsKey",["ANN"])
+	oPeople.Add("Ann",31)
+	? nl + "4. the key 'ANN' finds the key 'Ann': " + oPeople.ContainsKey("ANN")
 	oPlain = new Dictionary([ :typeArguments = ["System.String","System.Int32"] ])
-	oPlain.callMethod("Add",["Ann",31])
-	? "   a plain dictionary does not: " + oPlain.callMethod("ContainsKey",["ANN"])
+	oPlain.Add("Ann",31)
+	? "   a plain dictionary does not: " + oPlain.ContainsKey("ANN")
 
 	# 5. A sorted set with the same idea keeps one of 'Apple' and 'apple'
 	oSet = new SortedSet([ :typeArguments = ["System.String"], :comparer = new StringComparer().OrdinalIgnoreCase ])
