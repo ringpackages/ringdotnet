@@ -50,7 +50,8 @@ func main
 
 	# 5. Dates: the letters mean year (yyyy), month (MM), day (dd), hour (HH), minute (mm), second (ss), month name (MMMM, MMM) and the
 	#    day of the week (dddd). A standard letter is a ready-made pattern: d short date, D long date, t short time, o round trip.
-	oDate = dnNew("DateTime",[ :year = 2030, :month = 3, :day = 9, :hour = 14, :minute = 5, :second = 7 ])
+	oDate = new DateTime
+	oDate.@New([ :year = 2030, :month = 3, :day = 9, :hour = 14, :minute = 5, :second = 7 ])
 	? nl + "5. dates (2030-03-09 14:05:07):"
 	for cPattern in [ "yyyy-MM-dd", "dd/MM/yyyy", "d MMMM yyyy", "dddd", "MMM d, yyyy", "HH:mm:ss", "h:mm tt", "yyyyMMdd_HHmmss", "d", "D", "t", "o" ]
 		? "   " + padRight(cPattern,18) + oDate.Format([ :format = cPattern, :provider = oInvariant ])
