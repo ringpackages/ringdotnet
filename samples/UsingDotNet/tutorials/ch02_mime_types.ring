@@ -2,6 +2,7 @@
 load "dotnet.ring"
 
 using {
+	"Microsoft.AspNetCore.StaticFiles"
 	"System"
 	"System.Net.Mime"
 	"RingDotNet.Web"                  # the content type classes of ASP.NET Core are part of its runtime: this line starts it
@@ -15,7 +16,7 @@ func main
 	# the Content-Type header so that the browser knows what to do with the bytes, and a client sends Accept to say what it understands.
 
 	# 1. From a file name to a type. The provider knows the common extensions.
-	oProvider = dnNew("Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider",[])
+	oProvider = new FileExtensionContentTypeProvider
 	? "1. file name -> content type:"
 	for cFile in ["index.html","logo.png","photo.JPG","data.json","report.pdf","archive.zip","notes.txt","song.mp3","movie.mp4","style.css","app.js","unknown.xyz123"]
 		? "   " + padRight(cFile,16) + contentTypeOf(oProvider,cFile)
