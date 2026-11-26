@@ -34,7 +34,7 @@ func main
 	next
 	nFirst = oStack.TryPop()[2]
 	nSecond = oStack.TryPop()[2]
-	? nl + "2. stack: pop gives " + nFirst + " then " + nSecond + ", " + oStack.getProp("Count") + " left"
+	? nl + "2. stack: pop gives " + nFirst + " then " + nSecond + ", " + oStack.Count + " left"
 
 	# 3. BlockingCollection: a queue for a producer and a consumer. Take waits while the queue is empty; CompleteAdding says
 	#    that nothing more will come, and then IsCompleted becomes true when the queue is empty.
@@ -44,7 +44,7 @@ func main
 	next
 	oBlocking.CompleteAdding()
 	cTaken = ""
-	while not oBlocking.getProp("IsCompleted")
+	while not oBlocking.IsCompleted
 		cTaken += "" + oBlocking.Take(NULL) + " "
 	end
 	? nl + "3. blocking collection, taken in order: " + cTaken
@@ -63,4 +63,4 @@ func main
 	? nl + "5. word counts: red = " + oCount.Item("red") + ", green = " + oCount.Item("green") + ", blue = " + oCount.Item("blue")
 	? "   TryAdd of an existing key: " + oCount.TryAdd("red",99) + " (the value stays " + oCount.Item("red") + ")"
 	aRemoved = oCount.TryRemove("blue")
-	? "   TryRemove(blue): success = " + aRemoved[1] + ", the removed value was " + aRemoved[2] + ", keys left: " + oCount.getProp("Count")
+	? "   TryRemove(blue): success = " + aRemoved[1] + ", the removed value was " + aRemoved[2] + ", keys left: " + oCount.Count
