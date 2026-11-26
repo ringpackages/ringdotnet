@@ -30,19 +30,19 @@ func main
 	#    used in the plain style: callMethod(name, [arguments]) and getProp(name).
 	oStack = new ConcurrentStack([ :typeArguments = [cInt] ])
 	for n = 1 to 3
-		oStack.callMethod("Push",[n])
+		oStack.Push(n)
 	next
-	nFirst = oStack.callMethod("TryPop",[])[2]
-	nSecond = oStack.callMethod("TryPop",[])[2]
+	nFirst = oStack.TryPop()[2]
+	nSecond = oStack.TryPop()[2]
 	? nl + "2. stack: pop gives " + nFirst + " then " + nSecond + ", " + oStack.getProp("Count") + " left"
 
 	# 3. BlockingCollection: a queue for a producer and a consumer. Take waits while the queue is empty; CompleteAdding says
 	#    that nothing more will come, and then IsCompleted becomes true when the queue is empty.
 	oBlocking = new BlockingCollection([ :typeArguments = [cInt] ])
 	for n = 1 to 5
-		oBlocking.callMethod("Add",[n * n])
+		oBlocking.Add(n * n)
 	next
-	oBlocking.callMethod("CompleteAdding",[])
+	oBlocking.CompleteAdding()
 	cTaken = ""
 	while not oBlocking.getProp("IsCompleted")
 		cTaken += "" + oBlocking.callMethod("Take",[]) + " "
@@ -51,16 +51,16 @@ func main
 
 	# 4. A bounded queue holds at most N items: Add waits when it is full, TryAdd answers at once
 	oSmall = new BlockingCollection([ :typeArguments = [cInt], :boundedCapacity = 2 ])
-	? nl + "4. bounded to 2: TryAdd gives " + oSmall.callMethod("TryAdd",[10]) + ", " + oSmall.callMethod("TryAdd",[20]) + ", " + oSmall.callMethod("TryAdd",[30]) + " (the third does not fit)"
+	? nl + "4. bounded to 2: TryAdd gives " + oSmall.TryAdd(10) + ", " + oSmall.TryAdd(20) + ", " + oSmall.TryAdd(30) + " (the third does not fit)"
 
 	# 5. ConcurrentDictionary: TryAdd, TryUpdate (key, new value, the value we expect) and TryRemove
 	oCount = new ConcurrentDictionary([ :typeArguments = [cText,cInt] ])
 	for cWord in ["red","green","red","blue","red","green"]
-		oCount.callMethod("TryAdd",[cWord,0])          # does nothing when the key exists
-		nOld = oCount.callMethod("get_Item",[cWord])
-		oCount.callMethod("TryUpdate",[cWord,nOld + 1,nOld])
+		oCount.TryAdd(cWord,0)          # does nothing when the key exists
+		nOld = oCount.Item(cWord)
+		oCount.TryUpdate(cWord,nOld + 1,nOld)
 	next
-	? nl + "5. word counts: red = " + oCount.callMethod("get_Item",["red"]) + ", green = " + oCount.callMethod("get_Item",["green"]) + ", blue = " + oCount.callMethod("get_Item",["blue"])
-	? "   TryAdd of an existing key: " + oCount.callMethod("TryAdd",["red",99]) + " (the value stays " + oCount.callMethod("get_Item",["red"]) + ")"
-	aRemoved = oCount.callMethod("TryRemove",["blue"])
+	? nl + "5. word counts: red = " + oCount.Item("red") + ", green = " + oCount.Item("green") + ", blue = " + oCount.Item("blue")
+	? "   TryAdd of an existing key: " + oCount.TryAdd("red",99) + " (the value stays " + oCount.Item("red") + ")"
+	aRemoved = oCount.TryRemove("blue")
 	? "   TryRemove(blue): success = " + aRemoved[1] + ", the removed value was " + aRemoved[2] + ", keys left: " + oCount.getProp("Count")
