@@ -157,7 +157,7 @@ func createDatabase cFile
 func makeCommand oConnection,cSql,aValues
 
 	oCommand = oConnection.CreateCommand()
-	oCommand.setProp("CommandText",cSql)
+	oCommand.CommandText = cSql
 	oParameters = oCommand.Parameters
 	nNumber = 0
 	for xValue in aValues
@@ -174,7 +174,7 @@ func runSql oConnection,cSql,aValues
 func runSqlIn oConnection,oTransaction,cSql,aValues
 
 	oCommand = makeCommand(oConnection,cSql,aValues)
-	oCommand.setProp("Transaction",oTransaction)
+	oCommand.Transaction = oTransaction
 	return oCommand.ExecuteNonQuery()
 
 # one value: the first column of the first row
