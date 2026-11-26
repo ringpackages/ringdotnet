@@ -43,7 +43,7 @@ func main
 
 	# 4. More sources. AddInMemoryCollection adds values from a dictionary (good for defaults and for tests). Because it comes AFTER the
 	#    file, its values win.
-	oOverrides = dnNewGeneric("System.Collections.Generic.Dictionary",["System.String","System.String"],[])
+	oOverrides = new Dictionary([ :typeArguments = ["System.String","System.String"] ])
 	oOverrides.Add("App:Port","9090")
 	oOverrides.Add("App:Extra","only in memory")
 	oBuilder.AddInMemoryCollection([ :initialData = oOverrides ])
