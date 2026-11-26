@@ -27,10 +27,9 @@ func main
 	? "   a key that does not exist is null: " + oConfig.Item("App:Missing").isNull()
 
 	# 2. Every value is TEXT. GetValue converts it to the type you ask for, and takes a default for a missing key
-	cBinder = "Microsoft.Extensions.Configuration.ConfigurationBinder"
-	nPort = dnStatic(cBinder,"GetValue",[oConfig,dnType("System.Int32"),"App:Port"])
-	lDebug = dnStatic(cBinder,"GetValue",[oConfig,dnType("System.Boolean"),"App:Debug"])
-	nMissing = dnStatic(cBinder,"GetValue",[oConfig,dnType("System.Int32"),"App:Retries",3])
+	nPort = oConfig.GetValue([ :typeArguments = ["System.Int32"], :key = "App:Port" ])
+	lDebug = oConfig.GetValue([ :typeArguments = ["System.Boolean"], :key = "App:Debug" ])
+	nMissing = oConfig.GetValue([ :typeArguments = ["System.Int32"], :key = "App:Retries", :defaultValue = 3 ])
 	? nl + "2. the port as a number: " + nPort + " (+1 = " + (nPort + 1) + "), debug as a yes or no: " + lDebug + ", Retries (not set, default 3): " + nMissing
 
 	# 3. A section: GetSection gives a part of the tree. Its Key is the last name; GetChildren lists what is directly inside
