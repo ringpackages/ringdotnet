@@ -346,7 +346,8 @@ using {
 <span class="c"># how many days ago the file was written</span>
 <span class="k">func</span> <span class="f">daysOld</span> oInfo
 
-	oNow = <span class="f">dnStatic</span>(<span class="s">"System.DateTime"</span>,<span class="s">"get_Now"</span>,[])
+	oDateTime = <span class="k">new</span> <span class="t">DateTime</span>
+	oNow = oDateTime.Now
 	oSpan = oNow.<span class="f">Subtract</span>(oInfo.LastWriteTime)
 	<span class="k">return</span> oSpan.TotalDays
 

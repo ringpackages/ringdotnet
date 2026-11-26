@@ -332,7 +332,8 @@ using {
 
 <span class="k">func</span> <span class="f">isValidNow</span> oCertificate
 
-	oNow = <span class="f">dnStatic</span>(<span class="s">"System.DateTime"</span>,<span class="s">"get_Now"</span>,[])
+	oDateTime = <span class="k">new</span> <span class="t">DateTime</span>
+	oNow = oDateTime.Now
 	<span class="k">return</span> oNow.<span class="f">CompareTo</span>(oCertificate.NotBefore) &gt;= <span class="n">0</span> <span class="k">and</span> oNow.<span class="f">CompareTo</span>(oCertificate.NotAfter) &lt;= <span class="n">0</span>
 
 <span class="k">func</span> <span class="f">canSign</span> oPublic

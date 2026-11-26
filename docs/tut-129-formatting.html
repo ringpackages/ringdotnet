@@ -326,10 +326,11 @@ oInvariant = <span class="s">""</span>
 		? nl + <span class="s">"7. a wrong format: "</span> + errorKind(cCatchError)
 	<span class="k">done</span>
 
-<span class="c"># a whole number in another base (a static method of Convert, called by its name because ToString is also a method of every object)</span>
+<span class="c"># a whole number in another base (a static method of Convert)</span>
 <span class="k">func</span> <span class="f">toBase</span> nNumber,nBase
 
-	<span class="k">return</span> <span class="f">dnStatic</span>(<span class="s">"System.Convert"</span>,<span class="s">"ToString"</span>,[ nNumber, nBase ])
+	oConvert = <span class="k">new</span> <span class="t">Convert</span>
+	<span class="k">return</span> oConvert.<span class="f">Format</span>([ :value = nNumber, :toBase = nBase ])
 
 <span class="c"># format one value with the invariant culture</span>
 <span class="k">func</span> <span class="f">one</span> cFormat,value

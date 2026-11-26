@@ -259,6 +259,7 @@
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 
 using {
+	<span class="s">"Microsoft.AspNetCore.StaticFiles"</span>
 	<span class="s">"System"</span>
 	<span class="s">"System.Net.Mime"</span>
 	<span class="s">"RingDotNet.Web"</span>                  <span class="c"># the content type classes of ASP.NET Core are part of its runtime: this line starts it</span>
@@ -272,7 +273,7 @@ cHeaders = <span class="s">"Microsoft.Net.Http.Headers."</span>
 	<span class="c"># the Content-Type header so that the browser knows what to do with the bytes, and a client sends Accept to say what it understands.</span>
 
 	<span class="c"># 1. From a file name to a type. The provider knows the common extensions.</span>
-	oProvider = <span class="f">dnNew</span>(<span class="s">"Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider"</span>,[])
+	oProvider = <span class="k">new</span> <span class="t">FileExtensionContentTypeProvider</span>
 	? <span class="s">"1. file name -&gt; content type:"</span>
 	<span class="k">for</span> cFile <span class="k">in</span> [<span class="s">"index.html"</span>,<span class="s">"logo.png"</span>,<span class="s">"photo.JPG"</span>,<span class="s">"data.json"</span>,<span class="s">"report.pdf"</span>,<span class="s">"archive.zip"</span>,<span class="s">"notes.txt"</span>,<span class="s">"song.mp3"</span>,<span class="s">"movie.mp4"</span>,<span class="s">"style.css"</span>,<span class="s">"app.js"</span>,<span class="s">"unknown.xyz123"</span>]
 		? <span class="s">"   "</span> + padRight(cFile,<span class="n">16</span>) + contentTypeOf(oProvider,cFile)

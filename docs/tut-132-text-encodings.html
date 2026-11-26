@@ -339,7 +339,8 @@ using {
 <span class="c"># does the text of bytes decode without a replacement as UTF-8? (the strict encoding raises an error for bad bytes)</span>
 <span class="k">func</span> <span class="f">isValidUtf8</span> cBytes
 
-	oStrict = <span class="f">dnNew</span>(<span class="s">"UTF8Encoding"</span>,[ <span class="k">False</span>, <span class="k">True</span> ])
+	oStrict = <span class="k">new</span> <span class="t">UTF8Encoding</span>
+	oStrict.@<span class="k">New</span>([ :<span class="t">encoderShouldEmitUTF8Identifier</span> = <span class="k">False</span>, :throwOnInvalidBytes = <span class="k">True</span> ])
 	<span class="k">try</span>
 		oStrict.<span class="f">GetString</span>(cBytes)
 		<span class="k">return</span> <span class="k">True</span>
