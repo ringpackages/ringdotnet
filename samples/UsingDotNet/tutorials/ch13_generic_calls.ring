@@ -28,8 +28,8 @@ func main
 	? nl + "2. dnType(...).callMethod: " + oMath.callMethod("Max",[3,9]) + "   the same with a class: " + new Math().Max(3,9)
 	? "   a static property: " + oMath.getProp("PI")
 
-	# 3. A constructor with named values. A class that has no constructor without values (FileStream is one) is made without parentheses (new FileStream)
-	#    and @New chooses the constructor by the NAMES of its parameters; dnNew("Class",[ :name = value ]) does the same in one call.
+	# 3. A constructor with named values. A class that has no constructor without values (FileStream is one) is made without parentheses, (new FileStream),
+	#    and @New chooses the constructor by the NAMES of its parameters: (new FileStream).@New([ :name = value ]); dnNew("Class",[ :name = value ]) does the same.
 	cFile = new Path().Combine([ new Path().GetTempPath(), "ringdotnet-generic.txt" ])
 	new File().WriteAllText([ :path = cFile, :contents = "Hello, generic calls" ])
 	oStream = dnNew("FileStream",[ :path = cFile, :mode = "Open", :access = "Read" ])
