@@ -14,28 +14,28 @@ func main
 
 	# 1. PriorityQueue<element, priority>: Dequeue always gives the element with the SMALLEST priority, whatever the order of Enqueue.
 	oTasks = new PriorityQueue([ :typeArguments = [cText,cInt] ])
-	oTasks.callMethod("Enqueue",["write the report",3])
-	oTasks.callMethod("Enqueue",["fix the server",1])
-	oTasks.callMethod("Enqueue",["answer the mail",5])
-	oTasks.callMethod("Enqueue",["call the customer",2])
+	oTasks.Enqueue("write the report",3)
+	oTasks.Enqueue("fix the server",1)
+	oTasks.Enqueue("answer the mail",5)
+	oTasks.Enqueue("call the customer",2)
 	? "1. " + oTasks.getProp("Count") + " tasks, most urgent first:"
 	while oTasks.getProp("Count") > 0
-		? "   " + oTasks.callMethod("Dequeue",[])
+		? "   " + oTasks.Dequeue()
 	end
 
 	# 2. SortedSet: no duplicates, always sorted. Add answers false for a value that is already there. Min and Max are ready.
 	oSet = new SortedSet([ :typeArguments = [cInt] ])
 	for n in [42,7,19,7,3,42,100]
-		oSet.callMethod("Add",[n])
+		oSet.Add(n)
 	next
 	? nl + "2. sorted set of 7 numbers with duplicates: " + oSet.getProp("Count") + " kept, from " + oSet.getProp("Min") + " to " + oSet.getProp("Max")
 	? "   in order: " + list2str2(oSet.toList())
-	? "   Contains(19): " + oSet.callMethod("Contains",[19]) + ", Contains(20): " + oSet.callMethod("Contains",[20])
+	? "   Contains(19): " + oSet.Contains(19) + ", Contains(20): " + oSet.Contains(20)
 
 	# 3. SortedDictionary: keys stay in order, so a loop over it is alphabetical
 	oDict = new SortedDictionary([ :typeArguments = [cText,cInt] ])
 	for cName in ["pear","apple","fig","banana"]
-		oDict.callMethod("Add",[cName,len(cName)])
+		oDict.Add(cName,len(cName))
 	next
 	cKeys = ""
 	aKeys = oDict.getProp("Keys").toList()
