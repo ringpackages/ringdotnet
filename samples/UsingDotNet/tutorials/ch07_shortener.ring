@@ -25,8 +25,7 @@ func main
 	# The client does NOT follow redirects, so that the test can see the answer 302 and its Location header
 	oHandler = new HttpClientHandler()
 	oHandler.AllowAutoRedirect = False
-	oClient = new HttpClient
-	oClient.@New(oHandler)
+	oClient = (new HttpClient).@New(oHandler)
 
 	# 1. A code is a number written in base 62 (0-9, a-z, A-Z): short and made of safe characters. The numbers start at 1000 so that the
 	#    codes have at least two characters.
@@ -35,8 +34,7 @@ func main
 	# 2. Make short links
 	? nl + "2. POST /shorten"
 	for cAddress in [ "https://example.com/a/very/long/address?with=parameters&and=more", "https://example.org/", "https://example.com/a/very/long/address?with=parameters&and=more" ]
-		oUriType = new Uri
-		aResult = post("/shorten","address=" + oUriType.EscapeDataString(cAddress))
+		aResult = post("/shorten","address=" + (new Uri).EscapeDataString(cAddress))
 		? "   " + aResult[1] + "  " + aResult[2]
 	next
 
@@ -57,8 +55,7 @@ func main
 	? "   GET /zzzz                   -> " + fetch("/zzzz")[1]
 	? "   POST /shorten, no address   -> " + post("/shorten","")[1]
 	? "   POST /shorten, not a URL    -> " + post("/shorten","address=hello+world")[1]
-	oUriType = new Uri
-	? "   POST /shorten, a script     -> " + post("/shorten","address=" + oUriType.EscapeDataString("javascript:alert(1)"))[1]
+	? "   POST /shorten, a script     -> " + post("/shorten","address=" + (new Uri).EscapeDataString("javascript:alert(1)"))[1]
 	oServer.close()
 
 # ---------------------------------------------------------------- the service
@@ -79,8 +76,7 @@ func toCode nNumber
 # the visitor: a shortener must check what it redirects to.
 func isAllowed cAddress
 
-	oUriType = new Uri
-	oAbsolute = oUriType.TryCreate(cAddress,"Absolute")
+	oAbsolute = (new Uri).TryCreate(cAddress,"Absolute")
 	if not oAbsolute[1]
 		return False
 	ok
@@ -146,9 +142,7 @@ func fetch cPath
 
 func post cPath,cForm
 
-	oContent = new StringContent
-	oContent.@New([ :content = cForm, :encoding = new UTF8Encoding(), :mediaType = "application/x-www-form-urlencoded" ])
-	return exchange(oClient.PostAsync([ :requestUri = cUrl + cPath, :content = oContent ]))
+	return exchange(oClient.PostAsync([ :requestUri = cUrl + cPath, :content = (new StringContent).@New([ :content = cForm, :encoding = new UTF8Encoding(), :mediaType = "application/x-www-form-urlencoded" ]) ]))
 
 func exchange oTask
 
