@@ -23,15 +23,15 @@ func main
 	? "1. a bucket of 3 tokens, 5 requests at once:"
 	for nRequest = 1 to 5
 		oLease = oBucket.AttemptAcquire(1)
-		? "   request " + nRequest + ": " + answer(oLease.getProp("IsAcquired"))
+		? "   request " + nRequest + ": " + answer(oLease.IsAcquired)
 	next
 	new Thread().Sleep(300)      # more than the period of 100 ms
 	? "   after the period, TryReplenish adds a token: " + oBucket.TryReplenish()
-	? "   the next request: " + answer(oBucket.AttemptAcquire(1).getProp("IsAcquired")) + "   (how many tokens come back depends on how long the pause was)"
+	? "   the next request: " + answer(oBucket.AttemptAcquire(1).IsAcquired) + "   (how many tokens come back depends on how long the pause was)"
 
 	# 2. Statistics: how many tokens are left, how many requests were granted and how many refused
 	oStatistics = oBucket.GetStatistics()
-	? nl + "2. tokens left (not more than the bucket holds): " + (oStatistics.getProp("CurrentAvailablePermits") <= 3) + ", granted in total: " + oStatistics.getProp("TotalSuccessfulLeases") + ", refused in total: " + oStatistics.getProp("TotalFailedLeases")
+	? nl + "2. tokens left (not more than the bucket holds): " + (oStatistics.CurrentAvailablePermits <= 3) + ", granted in total: " + oStatistics.TotalSuccessfulLeases + ", refused in total: " + oStatistics.TotalFailedLeases
 
 	# 3. CONCURRENCY LIMITER: at most 2 requests are being handled at the same time. A request gets a LEASE and gives it back when it is
 	#    finished (Dispose). While two leases are out, the third request is refused. This protects a slow resource (a database connection).
@@ -39,10 +39,10 @@ func main
 	oLeaseA = oConcurrency.AttemptAcquire(1)
 	oLeaseB = oConcurrency.AttemptAcquire(1)
 	oLeaseC = oConcurrency.AttemptAcquire(1)
-	? nl + "3. three requests at once, 2 allowed: " + answer(oLeaseA.getProp("IsAcquired")) + ", " + answer(oLeaseB.getProp("IsAcquired")) + ", " + answer(oLeaseC.getProp("IsAcquired"))
+	? nl + "3. three requests at once, 2 allowed: " + answer(oLeaseA.IsAcquired) + ", " + answer(oLeaseB.IsAcquired) + ", " + answer(oLeaseC.IsAcquired)
 	oLeaseA.Dispose()                  # the first request is finished: its place is free
 	oLeaseD = oConcurrency.AttemptAcquire(1)
-	? "   after the first one finished, a new request: " + answer(oLeaseD.getProp("IsAcquired"))
+	? "   after the first one finished, a new request: " + answer(oLeaseD.IsAcquired)
 
 	# 4. Why a request was refused: a refused lease can carry the time to wait (the metadata RETRY_AFTER). The answer to the client
 	#    ("try again in 5 seconds") is better than only "no".
@@ -68,18 +68,18 @@ func main
 func makeBucket nTokens,nPeriodMs
 
 	oOptions = new TokenBucketRateLimiterOptions
-	oOptions.setProp("TokenLimit",nTokens)
-	oOptions.setProp("TokensPerPeriod",1)
+	oOptions.TokenLimit = nTokens
+	oOptions.TokensPerPeriod = 1
 	oOptions.setProp("ReplenishmentPeriod",new TimeSpan().FromMilliseconds(nPeriodMs))
-	oOptions.setProp("AutoReplenishment",False)
-	oOptions.setProp("QueueLimit",0)
+	oOptions.AutoReplenishment = False
+	oOptions.QueueLimit = 0
 	return new TokenBucketRateLimiter(oOptions)
 
 func makeConcurrencyOptions nLimit
 
 	oOptions = new ConcurrencyLimiterOptions
-	oOptions.setProp("PermitLimit",nLimit)
-	oOptions.setProp("QueueLimit",0)
+	oOptions.PermitLimit = nLimit
+	oOptions.QueueLimit = 0
 	return oOptions
 
 # the answers of one client for n requests, as a text of yes and no
@@ -87,7 +87,7 @@ func asks oBucket,nCount
 
 	cText = ""
 	for i = 1 to nCount
-		cText += answer(oBucket.AttemptAcquire(1).getProp("IsAcquired")) + " "
+		cText += answer(oBucket.AttemptAcquire(1).IsAcquired) + " "
 	next
 	return cText
 
