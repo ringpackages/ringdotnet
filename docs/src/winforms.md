@@ -102,6 +102,33 @@ oCanvas.show()                         # refresh the picture box
 | `pixel(x,y)` | the color of a pixel as a hex text (for tests) |
 | `brush(color)`, `pen(color,width)`, `color(x)` | the .NET objects, for anything the helpers don't cover |
 
+### Drawing pixel by pixel
+
+For a picture that a formula makes (a fractal, a plasma, a heat map), compute the color of every pixel in Ring and give them all to `setPixels` in **one call**. A call from Ring into .NET costs several microseconds, and `setPixel` for each pixel is a call for each pixel: about 12 microseconds each, so a picture of 70,000 pixels takes about a second. One text of 3 bytes for each pixel (`char(red) + char(green) + char(blue)`, row after row) is copied into the bitmap in a single step, which takes less than a millisecond for the same picture.
+
+```ring
+cPixels = ""                                   # 3 bytes for each pixel, row after row
+for nRow = 1 to nSize
+	for nCol = 1 to nSize
+		cPixels += char(nRed) + char(nGreen) + char(nBlue)       # the color of the pixel nCol, nRow
+	next
+next
+oCanvas.setPixels(0,0,nSize,nSize,cPixels)     # the whole picture, one call
+oCanvas.show()
+```
+
+Two samples draw this way, when you click **Draw**. Both compute the colors first and show the times under the button.
+
+![The color wheel](img/shots/forms-33_color_wheel.png "samples/UsingDotNet/Forms/33_color_wheel.ring")
+
+**Color wheel** (`33_color_wheel.ring`): the hue of a pixel is its angle around the center and the saturation is its distance from it. The 70,679 pixels of the wheel are computed in about 0.26 seconds and drawn in less than a millisecond. It is the RingQt sample ColorWheel, with a bitmap in a picture box.
+
+![The Mandelbrot set](img/shots/forms-34_mandelbrot.png "samples/UsingDotNet/Forms/34_mandelbrot.ring")
+
+**Mandelbrot set** (`34_mandelbrot.ring`): the color of a pixel is the number of steps that `z = z * z + c` takes to leave the circle of radius 2 (black for a point that never does). The main cardioid and the disc beside it are known to be in the set, so the program does not iterate there; the picture of 320 x 240 pixels takes about a third of a second. The colors of the 80 possible step counts are made once, in a palette.
+
+Both samples are in the [Forms samples](gallery-forms.html), with their source.
+
 ## Every control is available
 
 The helpers are optional. The whole of `System.Windows.Forms` (454 classes), `System.Drawing` and its sub-namespaces are wrapped, so you can use any control directly:
