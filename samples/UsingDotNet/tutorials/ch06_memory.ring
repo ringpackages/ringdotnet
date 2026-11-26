@@ -19,7 +19,7 @@ func main
 
 	# 2. A list with the capacity of 10 million bytes takes about 10 MB at once. GetTotalMemory(True) collects first and then answers.
 	#    release() lets the bridge forget its handle, so nothing keeps the list alive.
-	oBig = dnNewGeneric("System.Collections.Generic.List",["System.Byte"],[10000000])
+	oBig = new List([ :typeArguments = ["System.Byte"], :capacity = 10000000 ])
 	nWith = oGC.GetTotalMemory(True)
 	? nl + "2. a list with room for 10 million bytes grew the memory by at least 9 MB: " + (nWith - nBefore > 9000000)
 	oBig = NULL                     # nothing in Ring uses the list now: Ring frees it, and its handle is released with the next .NET calls
