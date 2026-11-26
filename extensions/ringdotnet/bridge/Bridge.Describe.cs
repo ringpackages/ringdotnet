@@ -80,9 +80,10 @@ namespace RingDotNet
 					{
 						continue;
 					}
-					if (typeof(Delegate).IsAssignableFrom(t) && !HasExtensionMethods(t))
+					if (typeof(Delegate).IsAssignableFrom(t) && t != typeof(Delegate) && t != typeof(MulticastDelegate) && !HasExtensionMethods(t))
 					{
-						/* a delegate is a callback in Ring, and has no class, unless extension methods extend it (Sprache's Parser<T>) */
+						/* a delegate is a callback in Ring, and has no class, unless extension methods extend it (Sprache's Parser<T>). Delegate and MulticastDelegate have one: the
+						   base classes of every delegate object (a compiled lambda, Func<double,double>), so that it has DynamicInvoke, Method and Target */
 						continue;
 					}
 					/* the types that the compiler makes (the marker types of C# 14 extension blocks: IArchiveEntryExtensions+<G>$E1C2...) have no Ring name */
