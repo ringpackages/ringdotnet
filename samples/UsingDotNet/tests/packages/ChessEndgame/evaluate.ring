@@ -24,7 +24,8 @@ func main
 			aParts = str2list(substr(cLine,"|",nl))
 			aAlgorithm = [aParts[1],aParts[2],aParts[3]]
 			# the model is read from its file: the whole pipeline is in it (the features, the trainer and the answer as the text of the result)
-			aLoaded = oMl.Model.callMethod("Load",[currentdir() + "/" + chessModelFile(aAlgorithm)])          # Load is a keyword of Ring
+			oCatalog = oMl.Model
+			aLoaded = oCatalog.@Load(currentdir() + "/" + chessModelFile(aAlgorithm))          # Load is a keyword of Ring: it is @Load
 			aPredicted = chessColumn(aLoaded[1].Transform(oTest),"System.String","PredictedResult")
 			aAccuracy = chessAccuracy(aActual,aPredicted)
 			? padRight(aParts[2] + " [" + aParts[3] + "]",62) + padRight(percent(aAccuracy[1]),10) + percent(aAccuracy[2])

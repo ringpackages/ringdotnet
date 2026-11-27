@@ -262,7 +262,8 @@ func chessLoad oMl, cFile
 # A column of a data view as a Ring list
 func chessColumn oData, cType, cName
 
-	return dnType("Microsoft.ML.Data.ColumnCursorExtensions").callGeneric("GetColumn",[cType],[oData,cName]).toList()
+	oCursors = new ColumnCursorExtensions()
+	return oCursors.GetColumn([ :typeArguments = [cType], :data = oData, :columnName = cName ]).toList()          # the type of the column is only in the result: :typeArguments
 
 # ---------------------------------------------------------------- the results
 
@@ -493,7 +494,9 @@ func chessModels
 # A saved model: the model of the file models/<key>_<features>.zip
 func chessLoadModel oMl, aModel
 
-	return oMl.Model.callMethod("Load",[currentdir() + "/models/" + aModel[1] + "_" + aModel[3] + ".zip"])[1]          # Load is a keyword of Ring
+	oCatalog = oMl.Model
+	aLoaded = oCatalog.@Load(currentdir() + "/models/" + aModel[1] + "_" + aModel[3] + ".zip")          # Load is a keyword of Ring: it is @Load; the answer is the model and its schema
+	return aLoaded[1]
 
 # The answer of a model for one position (the squares as file and rank numbers 1 to 8): the word of the result. The position is turned to the way of the data first
 # (chessFeatures), and written as the only line of data/positions.csv, which the model reads.

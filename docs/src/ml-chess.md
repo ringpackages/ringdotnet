@@ -122,7 +122,8 @@ oMl.Model.Save(oModel,oTrain.Schema,currentdir() + "/models/lightgbm_engineered.
 `evaluate.ring` and `predict.ring` start from the files. `Load` answers a list: the model, and the schema that was saved with it.
 
 ```ring
-aLoaded = oMl.Model.callMethod("Load",[currentdir() + "/models/lightgbm_engineered.zip"])
+oCatalog = oMl.Model
+aLoaded = oCatalog.@Load(currentdir() + "/models/lightgbm_engineered.zip")
 aPredicted = chessColumn(aLoaded[1].Transform(chessLoad(oMl,"data/positions.csv")),"System.String","PredictedResult")
 ```
 

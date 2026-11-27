@@ -32,7 +32,8 @@ func main
 	ok
 	chessSetup()
 	oMl = chessContext(1)
-	aLoaded = oMl.Model.callMethod("Load",[currentdir() + "/models/" + cModel + ".zip"])          # Load is a keyword of Ring
+	oCatalog = oMl.Model
+	aLoaded = oCatalog.@Load(currentdir() + "/models/" + cModel + ".zip")          # Load is a keyword of Ring: it is @Load
 
 	if len(aSquares) = 0
 		# the positions of the test file, with their real results
