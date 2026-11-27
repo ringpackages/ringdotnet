@@ -52,6 +52,10 @@ oSB.Append(", Ring!")
 * `tutorials`: the programs of the lessons, named by chapter (`chNN_name.ring`),
 * `tests`: the automated tests, including tests against real NuGet packages.
 
+## Building from source
+
+[Building.md](Building.md) has the steps: the C extension and the C# bridge, the generated classes, the tests, the package zip, and the documentation (HTML, PDF and screenshots, made by Ring programs in `docs/tools`).
+
 ## License
 
 The RingDotNet package is released under the MIT License.

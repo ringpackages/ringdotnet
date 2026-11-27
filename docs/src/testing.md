@@ -412,9 +412,18 @@ With `--selftest`, `uiRun` loads that file, shows the form, runs `selfTest()` on
 
 `uiSendKeys(oForm,"12{+}30{ENTER}")` types into the focused control of **your own form**. It posts window messages through the real Windows Forms key processing, so it behaves like a user and can never type into another program (which `SendKeys` could). Keys: `{LEFT} {RIGHT} {UP} {DOWN} {ENTER} {ESC} {BACKSPACE} {TAB} {DELETE}`, `{+}` for a plus sign.
 
-## Testing the screenshots
+## Making the screenshots
 
-The screenshots in this documentation are made by `docs/tools/shoot_all.sh`: it starts each sample, finds its window, captures it with `PrintWindow` and closes it.
+The screenshots in this documentation are made by Ring programs in `docs/tools`: `shoot_all.ring` (the samples and the applications) and `shoot_tutorials.ring` (the tutorial programs). Each one starts a program, waits for its window, captures it with `PrintWindow`, crops it to the frame that Windows draws, saves a PNG and closes the program. The Windows API is called with [ring-cffi](https://github.com/ysdragon/ring-cffi), so install it once, then run the tools from the `docs/tools` folder (Windows only):
+
+```
+ringpm install ring-cffi from ysdragon
+cd docs/tools
+ring shoot_all.ring forms
+ring shoot_tutorials.ring g01c
+```
+
+`shoot_all.ring` takes the kinds to photograph (`forms`, `wpf`, `apps`; no name means all three) and `shoot_tutorials.ring` takes shot names (no name means every shot). A tutorial shot can run a few lines of Ring in a temporary copy of the program just before its window is shown, to put it in a later state: they are listed in `tutorialshots.ring`.
 
 ## Where to go next
 
