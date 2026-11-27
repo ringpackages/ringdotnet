@@ -75,7 +75,8 @@ func findAll
 			exit
 		ok
 		oRich.Select([ :start = nPlace, :length = len(cWord) ])
-		oRich.SelectionBackColor = new Color().FromArgb([ :alpha = 255, :red = 255, :green = 235, :blue = 120 ])
+		oYellow = new Color().FromArgb([ :alpha = 255, :red = 255, :green = 235, :blue = 120 ])
+		oRich.SelectionBackColor = oYellow
 		nCount++
 		nStart = nPlace + len(cWord)
 	end

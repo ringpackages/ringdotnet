@@ -29,6 +29,10 @@ func main
 			loop
 		ok
 		cScript = cProgram
+		# the address book keeps its contacts in a file: every shot starts with a new one
+		if cProgram = "ch12_addressbook.ring" and fexists(cTut + "/addressbook.db")
+			remove(cTut + "/addressbook.db")
+		ok
 		if cMarker != ""
 			cSource = readText(cTut + "/" + cProgram)
 			nAt = substr(cSource,cMarker)
@@ -43,5 +47,8 @@ func main
 		? shootWindow(cTut,cScript,cOut + "/tut-" + cName + ".png",aShot[5],"")
 		if cMarker != ""
 			remove(cTut + "/" + cScript)
+		ok
+		if cProgram = "ch12_addressbook.ring" and fexists(cTut + "/addressbook.db")
+			remove(cTut + "/addressbook.db")
 		ok
 	next
