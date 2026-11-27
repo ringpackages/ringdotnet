@@ -148,7 +148,7 @@ dnAssert("a System.Enum parameter takes the full name of an enum member",new Cal
 
 # a class that is not public comes back as the interface named after it (IBox), and an interface has the members of the interfaces it inherits
 oBox = new Shapes().NewBox(3)
-dnAssert("a non-public class is wrapped as the interface named after it",classname(oBox),"ibox")
+dnAssert("a non-public class is wrapped as the interface named after it (and the interfaces that it implements)",parentclassname(oBox),"ibox")
 dnAssert("a member of the interface itself",oBox.Side,3)
 dnAssert("a method inherited from another interface",oBox.Area(),9)
 dnAssert("a property inherited from another interface",oBox.Name,"box")

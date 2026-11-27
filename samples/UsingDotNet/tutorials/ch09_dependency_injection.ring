@@ -42,9 +42,11 @@ func main
 	oStream = dnType("System.IO.MemoryStream")
 	oScope1 = oProvider.CreateScope()
 	oScope2 = oProvider.CreateScope()
-	oInScope1a = oScope1.ServiceProvider.callMethod("GetService",[oStream])
-	oInScope1b = oScope1.ServiceProvider.callMethod("GetService",[oStream])
-	oInScope2 = oScope2.ServiceProvider.callMethod("GetService",[oStream])
+	oServices1 = oScope1.ServiceProvider
+	oServices2 = oScope2.ServiceProvider
+	oInScope1a = oServices1.GetService(oStream)
+	oInScope1b = oServices1.GetService(oStream)
+	oInScope2 = oServices2.GetService(oStream)
 	? nl + "4. scoped: made " + nScoped + " time(s) for 2 scopes"
 	? "   twice in the same scope, the same object: " + oInScope1a.Equals(oInScope1b)
 	? "   in another scope, the same object:        " + oInScope1a.Equals(oInScope2)
@@ -74,7 +76,7 @@ func makeScoped aArguments
 
 	nScoped++
 	oProvider = aArguments[1]
-	oList = oProvider.callMethod("GetService",[dnType("System.Collections.ArrayList")])
+	oList = oProvider.GetService(dnType("System.Collections.ArrayList"))
 	if nScoped = 1
 		oList.Add("first scope")
 	else

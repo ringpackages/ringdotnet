@@ -21,11 +21,13 @@ func main
 	oProvider = oServices.BuildServiceProvider(NULL)
 	dnAssert("an extension method of an interface is a method of the class that implements it",classname(oProvider),"serviceprovider")
 	oScope = oProvider.CreateScope()
-	dnAssert("an extension method of IServiceProvider is a method of ServiceProvider",classname(oScope),"iservicescope")
+	dnAssert("a class that is not public is wrapped as the interface named after it, with the members of its other interfaces",parentclassname(oScope),"iservicescope")
+	dnAssert("the scope is an IServiceProvider too: it has GetService",ismethod(oScope,"getservice"),true)
 	oScope.Dispose()          # IServiceScope inherits Dispose from IDisposable
 	lRefused = false
 	try
-		oScope.ServiceProvider.callMethod("GetService",[dnType("System.Collections.ArrayList")])
+		oScopeServices = oScope.ServiceProvider
+		oScopeServices.GetService(dnType("System.Collections.ArrayList"))
 	catch
 		lRefused = true
 	done

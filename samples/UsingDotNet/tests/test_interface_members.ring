@@ -9,7 +9,7 @@ func main
 	oTable = new Hashtable
 	oTable.Add("a",1)
 	oKeys = oTable.Keys
-	dnAssert("the keys come back as the interface ICollection",classname(oKeys),"icollection")
+	dnAssert("the keys come back as the interface ICollection (with the members of the others)",parentclassname(oKeys),"icollection")
 	dnAssert("a member of ICollection",oKeys.Count,1)
 	oEnumerator = oKeys.GetEnumerator()
 	dnAssert("a member that ICollection inherits from IEnumerable",oEnumerator.MoveNext(),1)

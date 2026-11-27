@@ -113,6 +113,20 @@ namespace RingDotNet
 			   class that is not public and implements IElement and IContainer (the elements of a fluent API) is both. When two or more of them are
 			   interfaces of the assembly of the class itself, they are one part of the chain, joined with '&', and Ring wraps the object with a class that
 			   has the members of all of them. The interfaces of the framework (IDisposable ...) stay separate parts, after them. */
+			/* A class that is not public is returned as one of its interfaces (ServiceProviderEngineScope as IServiceScope), and it is all of them: IServiceScope has
+			   the property ServiceProvider, IServiceProvider the method GetService. Its interfaces that are not generic (up to 6, the one named after the class
+			   first) are one part of the chain, joined with '&': Ring wraps the object with a class that has the members of every one of them that has a class. */
+			if (!type.IsVisible)
+			{
+				List<Type> all = interfaces.Take(6).ToList();
+				if (all.Count >= 2)
+				{
+					/* a generic interface is named by its definition (IDictionary`2): the generated class of the definition has the members */
+					sb.Append('|').Append(string.Join("&", all.Select(i => (i.IsGenericType ? i.GetGenericTypeDefinition().FullName : i.FullName) ?? i.Name)));
+					count += all.Count;
+					interfaces = interfaces.Where(i => !all.Contains(i)).ToArray();
+				}
+			}
 			for (int start = 0; start < interfaces.Length;)
 			{
 				int end = start;
