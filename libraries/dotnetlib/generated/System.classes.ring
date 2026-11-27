@@ -3082,17 +3082,13 @@ Class AppContext from Object
 		return self
 
 	Func getBaseDirectory
-		dn_x = dotnet_call("s3:get",'System.AppContext, System.Private.CoreLib',"s13:BaseDirectory")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.AppContext, System.Private.CoreLib','BaseDirectory')
 
 	Func setBaseDirectory P1
 		raise("DotNet Error: BaseDirectory is a read-only property")
 
 	Func getTargetFrameworkName
-		dn_x = dotnet_call("s3:get",'System.AppContext, System.Private.CoreLib',"s19:TargetFrameworkName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.AppContext, System.Private.CoreLib','TargetFrameworkName'))
 
 	Func setTargetFrameworkName P1
 		raise("DotNet Error: TargetFrameworkName is a read-only property")
@@ -3499,7 +3495,7 @@ Class Array from Object
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getMaxLength
-		return dotnet_call("s3:get",'System.Array, System.Private.CoreLib',"s9:MaxLength")
+		return dotnet_getps('System.Array, System.Private.CoreLib','MaxLength')
 
 	Func setMaxLength P1
 		raise("DotNet Error: MaxLength is a read-only property")
@@ -3695,7 +3691,7 @@ Class BitConverter from Object
 		return dnObj(dotnet_callo("s4:call",'System.BitConverter, System.Private.CoreLib',"s16:UInt16BitsToHalf",P1))
 
 	Func getIsLittleEndian
-		return dotnet_call("s3:get",'System.BitConverter, System.Private.CoreLib',"s14:IsLittleEndian")
+		return dotnet_getps('System.BitConverter, System.Private.CoreLib','IsLittleEndian')
 
 	Func setIsLittleEndian P1
 		raise("DotNet Error: IsLittleEndian is a read-only property")
@@ -3982,7 +3978,7 @@ Class Console from Object
 		return self
 
 	Func getKeyAvailable
-		return dotnet_call("s3:get",'System.Console, System.Console',"s12:KeyAvailable")
+		return dotnet_getps('System.Console, System.Console','KeyAvailable')
 
 	Func setKeyAvailable P1
 		raise("DotNet Error: KeyAvailable is a read-only property")
@@ -3994,145 +3990,143 @@ Class Console from Object
 		return dnObj(dotnet_callo("s3:get",'System.Console, System.Console',"s5:Error"))
 
 	Func getIsInputRedirected
-		return dotnet_call("s3:get",'System.Console, System.Console',"s17:IsInputRedirected")
+		return dotnet_getps('System.Console, System.Console','IsInputRedirected')
 
 	Func setIsInputRedirected P1
 		raise("DotNet Error: IsInputRedirected is a read-only property")
 
 	Func getIsOutputRedirected
-		return dotnet_call("s3:get",'System.Console, System.Console',"s18:IsOutputRedirected")
+		return dotnet_getps('System.Console, System.Console','IsOutputRedirected')
 
 	Func setIsOutputRedirected P1
 		raise("DotNet Error: IsOutputRedirected is a read-only property")
 
 	Func getIsErrorRedirected
-		return dotnet_call("s3:get",'System.Console, System.Console',"s17:IsErrorRedirected")
+		return dotnet_getps('System.Console, System.Console','IsErrorRedirected')
 
 	Func setIsErrorRedirected P1
 		raise("DotNet Error: IsErrorRedirected is a read-only property")
 
 	Func getCursorSize
-		return dotnet_call("s3:get",'System.Console, System.Console',"s10:CursorSize")
+		return dotnet_getps('System.Console, System.Console','CursorSize')
 
 	Func setCursorSize P1
-		dotnet_callv("s3:set",'System.Console, System.Console',"s10:CursorSize",P1)
+		dotnet_setps('System.Console, System.Console','CursorSize',P1)
 		return self
 
 	Func getNumberLock
-		return dotnet_call("s3:get",'System.Console, System.Console',"s10:NumberLock")
+		return dotnet_getps('System.Console, System.Console','NumberLock')
 
 	Func setNumberLock P1
 		raise("DotNet Error: NumberLock is a read-only property")
 
 	Func getCapsLock
-		return dotnet_call("s3:get",'System.Console, System.Console',"s8:CapsLock")
+		return dotnet_getps('System.Console, System.Console','CapsLock')
 
 	Func setCapsLock P1
 		raise("DotNet Error: CapsLock is a read-only property")
 
 	Func getBackgroundColor
-		return dnObj(dotnet_callo("s3:get",'System.Console, System.Console',"s15:BackgroundColor"))
+		return dotnet_getps('System.Console, System.Console','BackgroundColor')
 
 	Func setBackgroundColor P1
-		dotnet_callv("s3:set",'System.Console, System.Console',"s15:BackgroundColor",P1)
+		dotnet_setps('System.Console, System.Console','BackgroundColor',P1)
 		return self
 
 	Func getForegroundColor
-		return dnObj(dotnet_callo("s3:get",'System.Console, System.Console',"s15:ForegroundColor"))
+		return dotnet_getps('System.Console, System.Console','ForegroundColor')
 
 	Func setForegroundColor P1
-		dotnet_callv("s3:set",'System.Console, System.Console',"s15:ForegroundColor",P1)
+		dotnet_setps('System.Console, System.Console','ForegroundColor',P1)
 		return self
 
 	Func getBufferWidth
-		return dotnet_call("s3:get",'System.Console, System.Console',"s11:BufferWidth")
+		return dotnet_getps('System.Console, System.Console','BufferWidth')
 
 	Func setBufferWidth P1
-		dotnet_callv("s3:set",'System.Console, System.Console',"s11:BufferWidth",P1)
+		dotnet_setps('System.Console, System.Console','BufferWidth',P1)
 		return self
 
 	Func getBufferHeight
-		return dotnet_call("s3:get",'System.Console, System.Console',"s12:BufferHeight")
+		return dotnet_getps('System.Console, System.Console','BufferHeight')
 
 	Func setBufferHeight P1
-		dotnet_callv("s3:set",'System.Console, System.Console',"s12:BufferHeight",P1)
+		dotnet_setps('System.Console, System.Console','BufferHeight',P1)
 		return self
 
 	Func getWindowLeft
-		return dotnet_call("s3:get",'System.Console, System.Console',"s10:WindowLeft")
+		return dotnet_getps('System.Console, System.Console','WindowLeft')
 
 	Func setWindowLeft P1
-		dotnet_callv("s3:set",'System.Console, System.Console',"s10:WindowLeft",P1)
+		dotnet_setps('System.Console, System.Console','WindowLeft',P1)
 		return self
 
 	Func getWindowTop
-		return dotnet_call("s3:get",'System.Console, System.Console',"s9:WindowTop")
+		return dotnet_getps('System.Console, System.Console','WindowTop')
 
 	Func setWindowTop P1
-		dotnet_callv("s3:set",'System.Console, System.Console',"s9:WindowTop",P1)
+		dotnet_setps('System.Console, System.Console','WindowTop',P1)
 		return self
 
 	Func getWindowWidth
-		return dotnet_call("s3:get",'System.Console, System.Console',"s11:WindowWidth")
+		return dotnet_getps('System.Console, System.Console','WindowWidth')
 
 	Func setWindowWidth P1
-		dotnet_callv("s3:set",'System.Console, System.Console',"s11:WindowWidth",P1)
+		dotnet_setps('System.Console, System.Console','WindowWidth',P1)
 		return self
 
 	Func getWindowHeight
-		return dotnet_call("s3:get",'System.Console, System.Console',"s12:WindowHeight")
+		return dotnet_getps('System.Console, System.Console','WindowHeight')
 
 	Func setWindowHeight P1
-		dotnet_callv("s3:set",'System.Console, System.Console',"s12:WindowHeight",P1)
+		dotnet_setps('System.Console, System.Console','WindowHeight',P1)
 		return self
 
 	Func getLargestWindowWidth
-		return dotnet_call("s3:get",'System.Console, System.Console',"s18:LargestWindowWidth")
+		return dotnet_getps('System.Console, System.Console','LargestWindowWidth')
 
 	Func setLargestWindowWidth P1
 		raise("DotNet Error: LargestWindowWidth is a read-only property")
 
 	Func getLargestWindowHeight
-		return dotnet_call("s3:get",'System.Console, System.Console',"s19:LargestWindowHeight")
+		return dotnet_getps('System.Console, System.Console','LargestWindowHeight')
 
 	Func setLargestWindowHeight P1
 		raise("DotNet Error: LargestWindowHeight is a read-only property")
 
 	Func getCursorVisible
-		return dotnet_call("s3:get",'System.Console, System.Console',"s13:CursorVisible")
+		return dotnet_getps('System.Console, System.Console','CursorVisible')
 
 	Func setCursorVisible P1
-		dotnet_callv("s3:set",'System.Console, System.Console',"s13:CursorVisible",P1)
+		dotnet_setps('System.Console, System.Console','CursorVisible',P1)
 		return self
 
 	Func getCursorLeft
-		return dotnet_call("s3:get",'System.Console, System.Console',"s10:CursorLeft")
+		return dotnet_getps('System.Console, System.Console','CursorLeft')
 
 	Func setCursorLeft P1
-		dotnet_callv("s3:set",'System.Console, System.Console',"s10:CursorLeft",P1)
+		dotnet_setps('System.Console, System.Console','CursorLeft',P1)
 		return self
 
 	Func getCursorTop
-		return dotnet_call("s3:get",'System.Console, System.Console',"s9:CursorTop")
+		return dotnet_getps('System.Console, System.Console','CursorTop')
 
 	Func setCursorTop P1
-		dotnet_callv("s3:set",'System.Console, System.Console',"s9:CursorTop",P1)
+		dotnet_setps('System.Console, System.Console','CursorTop',P1)
 		return self
 
 	Func getTitle
-		dn_x = dotnet_call("s3:get",'System.Console, System.Console',"s5:Title")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Console, System.Console','Title')
 
 	Func setTitle P1
-		dotnet_callv("s3:set",'System.Console, System.Console',"s5:Title",P1)
+		dotnet_setps('System.Console, System.Console','Title',P1)
 		return self
 
 	Func getTreatControlCAsInput
-		return dotnet_call("s3:get",'System.Console, System.Console',"s20:TreatControlCAsInput")
+		return dotnet_getps('System.Console, System.Console','TreatControlCAsInput')
 
 	Func setTreatControlCAsInput P1
-		dotnet_callv("s3:set",'System.Console, System.Console',"s20:TreatControlCAsInput",P1)
+		dotnet_setps('System.Console, System.Console','TreatControlCAsInput',P1)
 		return self
 
 
@@ -4631,95 +4625,87 @@ Class Environment from Object
 		return dnObj(dotnet_callo("s4:call",'System.Environment, System.Private.CoreLib',"s16:GetLogicalDrives"))
 
 	Func getCurrentManagedThreadId
-		return dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s22:CurrentManagedThreadId")
+		return dotnet_getps('System.Environment, System.Private.CoreLib','CurrentManagedThreadId')
 
 	Func setCurrentManagedThreadId P1
 		raise("DotNet Error: CurrentManagedThreadId is a read-only property")
 
 	Func getExitCode
-		return dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s8:ExitCode")
+		return dotnet_getps('System.Environment, System.Private.CoreLib','ExitCode')
 
 	Func setExitCode P1
-		dotnet_callv("s3:set",'System.Environment, System.Private.CoreLib',"s8:ExitCode",P1)
+		dotnet_setps('System.Environment, System.Private.CoreLib','ExitCode',P1)
 		return self
 
 	Func getTickCount
-		return dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s9:TickCount")
+		return dotnet_getps('System.Environment, System.Private.CoreLib','TickCount')
 
 	Func setTickCount P1
 		raise("DotNet Error: TickCount is a read-only property")
 
 	Func getTickCount64
-		return dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s11:TickCount64")
+		return dotnet_getps('System.Environment, System.Private.CoreLib','TickCount64')
 
 	Func setTickCount64 P1
 		raise("DotNet Error: TickCount64 is a read-only property")
 
 	Func getProcessorCount
-		return dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s14:ProcessorCount")
+		return dotnet_getps('System.Environment, System.Private.CoreLib','ProcessorCount')
 
 	Func setProcessorCount P1
 		raise("DotNet Error: ProcessorCount is a read-only property")
 
 	Func getIsPrivilegedProcess
-		return dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s19:IsPrivilegedProcess")
+		return dotnet_getps('System.Environment, System.Private.CoreLib','IsPrivilegedProcess')
 
 	Func setIsPrivilegedProcess P1
 		raise("DotNet Error: IsPrivilegedProcess is a read-only property")
 
 	Func getHasShutdownStarted
-		return dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s18:HasShutdownStarted")
+		return dotnet_getps('System.Environment, System.Private.CoreLib','HasShutdownStarted')
 
 	Func setHasShutdownStarted P1
 		raise("DotNet Error: HasShutdownStarted is a read-only property")
 
 	Func getCommandLine
-		dn_x = dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s11:CommandLine")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Environment, System.Private.CoreLib','CommandLine')
 
 	Func setCommandLine P1
 		raise("DotNet Error: CommandLine is a read-only property")
 
 	Func getCurrentDirectory
-		dn_x = dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s16:CurrentDirectory")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Environment, System.Private.CoreLib','CurrentDirectory')
 
 	Func setCurrentDirectory P1
-		dotnet_callv("s3:set",'System.Environment, System.Private.CoreLib',"s16:CurrentDirectory",P1)
+		dotnet_setps('System.Environment, System.Private.CoreLib','CurrentDirectory',P1)
 		return self
 
 	Func getProcessId
-		return dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s9:ProcessId")
+		return dotnet_getps('System.Environment, System.Private.CoreLib','ProcessId')
 
 	Func setProcessId P1
 		raise("DotNet Error: ProcessId is a read-only property")
 
 	Func getProcessPath
-		dn_x = dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s11:ProcessPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Environment, System.Private.CoreLib','ProcessPath'))
 
 	Func setProcessPath P1
 		raise("DotNet Error: ProcessPath is a read-only property")
 
 	Func getIs64BitProcess
-		return dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s14:Is64BitProcess")
+		return dotnet_getps('System.Environment, System.Private.CoreLib','Is64BitProcess')
 
 	Func setIs64BitProcess P1
 		raise("DotNet Error: Is64BitProcess is a read-only property")
 
 	Func getIs64BitOperatingSystem
-		return dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s22:Is64BitOperatingSystem")
+		return dotnet_getps('System.Environment, System.Private.CoreLib','Is64BitOperatingSystem')
 
 	Func setIs64BitOperatingSystem P1
 		raise("DotNet Error: Is64BitOperatingSystem is a read-only property")
 
 	Func getNewLine
-		dn_x = dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s7:NewLine")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Environment, System.Private.CoreLib','NewLine')
 
 	Func setNewLine P1
 		raise("DotNet Error: NewLine is a read-only property")
@@ -4731,59 +4717,49 @@ Class Environment from Object
 		raise("DotNet Error: OSVersion is a read-only property")
 
 	Func getStackTrace
-		dn_x = dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s10:StackTrace")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Environment, System.Private.CoreLib','StackTrace')
 
 	Func setStackTrace P1
 		raise("DotNet Error: StackTrace is a read-only property")
 
 	Func getSystemPageSize
-		return dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s14:SystemPageSize")
+		return dotnet_getps('System.Environment, System.Private.CoreLib','SystemPageSize')
 
 	Func setSystemPageSize P1
 		raise("DotNet Error: SystemPageSize is a read-only property")
 
 	Func getUserName
-		dn_x = dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s8:UserName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Environment, System.Private.CoreLib','UserName')
 
 	Func setUserName P1
 		raise("DotNet Error: UserName is a read-only property")
 
 	Func getUserDomainName
-		dn_x = dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s14:UserDomainName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Environment, System.Private.CoreLib','UserDomainName')
 
 	Func setUserDomainName P1
 		raise("DotNet Error: UserDomainName is a read-only property")
 
 	Func getMachineName
-		dn_x = dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s11:MachineName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Environment, System.Private.CoreLib','MachineName')
 
 	Func setMachineName P1
 		raise("DotNet Error: MachineName is a read-only property")
 
 	Func getSystemDirectory
-		dn_x = dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s15:SystemDirectory")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Environment, System.Private.CoreLib','SystemDirectory')
 
 	Func setSystemDirectory P1
 		raise("DotNet Error: SystemDirectory is a read-only property")
 
 	Func getUserInteractive
-		return dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s15:UserInteractive")
+		return dotnet_getps('System.Environment, System.Private.CoreLib','UserInteractive')
 
 	Func setUserInteractive P1
 		raise("DotNet Error: UserInteractive is a read-only property")
 
 	Func getWorkingSet
-		return dotnet_call("s3:get",'System.Environment, System.Private.CoreLib',"s10:WorkingSet")
+		return dotnet_getps('System.Environment, System.Private.CoreLib','WorkingSet')
 
 	Func setWorkingSet P1
 		raise("DotNet Error: WorkingSet is a read-only property")
@@ -5179,7 +5155,7 @@ Class GC from Object
 		return self
 
 	Func getMaxGeneration
-		return dotnet_call("s3:get",'System.GC, System.Private.CoreLib',"s13:MaxGeneration")
+		return dotnet_getps('System.GC, System.Private.CoreLib','MaxGeneration')
 
 	Func setMaxGeneration P1
 		raise("DotNet Error: MaxGeneration is a read-only property")
@@ -5435,19 +5411,19 @@ Class Math from Object
 		return dnAnswer(dotnet_callts('System.Math, System.Private.CoreLib','ScaleB',P1,P2))
 
 	Func getE
-		return dotnet_call("s3:get",'System.Math, System.Private.CoreLib',"s1:E")
+		return dotnet_getps('System.Math, System.Private.CoreLib','E')
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getPI
-		return dotnet_call("s3:get",'System.Math, System.Private.CoreLib',"s2:PI")
+		return dotnet_getps('System.Math, System.Private.CoreLib','PI')
 
 	Func setPI P1
 		raise("DotNet Error: PI is a read-only property")
 
 	Func getTau
-		return dotnet_call("s3:get",'System.Math, System.Private.CoreLib',"s3:Tau")
+		return dotnet_getps('System.Math, System.Private.CoreLib','Tau')
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
@@ -5608,19 +5584,19 @@ Class MathF from Object
 		return dnAnswer(dotnet_callts('System.MathF, System.Private.CoreLib','ScaleB',P1,P2))
 
 	Func getE
-		return dotnet_call("s3:get",'System.MathF, System.Private.CoreLib',"s1:E")
+		return dotnet_getps('System.MathF, System.Private.CoreLib','E')
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getPI
-		return dotnet_call("s3:get",'System.MathF, System.Private.CoreLib',"s2:PI")
+		return dotnet_getps('System.MathF, System.Private.CoreLib','PI')
 
 	Func setPI P1
 		raise("DotNet Error: PI is a read-only property")
 
 	Func getTau
-		return dotnet_call("s3:get",'System.MathF, System.Private.CoreLib',"s3:Tau")
+		return dotnet_getps('System.MathF, System.Private.CoreLib','Tau')
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
@@ -7396,137 +7372,103 @@ Class Uri from Object
 		raise("DotNet Error: UserInfo is a read-only property")
 
 	Func getUriSchemeFile
-		dn_x = dotnet_call("s3:get",'System.Uri, System.Private.Uri',"s13:UriSchemeFile")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Uri, System.Private.Uri','UriSchemeFile')
 
 	Func setUriSchemeFile P1
 		raise("DotNet Error: UriSchemeFile is a read-only property")
 
 	Func getUriSchemeFtp
-		dn_x = dotnet_call("s3:get",'System.Uri, System.Private.Uri',"s12:UriSchemeFtp")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Uri, System.Private.Uri','UriSchemeFtp')
 
 	Func setUriSchemeFtp P1
 		raise("DotNet Error: UriSchemeFtp is a read-only property")
 
 	Func getUriSchemeSftp
-		dn_x = dotnet_call("s3:get",'System.Uri, System.Private.Uri',"s13:UriSchemeSftp")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Uri, System.Private.Uri','UriSchemeSftp')
 
 	Func setUriSchemeSftp P1
 		raise("DotNet Error: UriSchemeSftp is a read-only property")
 
 	Func getUriSchemeFtps
-		dn_x = dotnet_call("s3:get",'System.Uri, System.Private.Uri',"s13:UriSchemeFtps")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Uri, System.Private.Uri','UriSchemeFtps')
 
 	Func setUriSchemeFtps P1
 		raise("DotNet Error: UriSchemeFtps is a read-only property")
 
 	Func getUriSchemeGopher
-		dn_x = dotnet_call("s3:get",'System.Uri, System.Private.Uri',"s15:UriSchemeGopher")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Uri, System.Private.Uri','UriSchemeGopher')
 
 	Func setUriSchemeGopher P1
 		raise("DotNet Error: UriSchemeGopher is a read-only property")
 
 	Func getUriSchemeHttp
-		dn_x = dotnet_call("s3:get",'System.Uri, System.Private.Uri',"s13:UriSchemeHttp")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Uri, System.Private.Uri','UriSchemeHttp')
 
 	Func setUriSchemeHttp P1
 		raise("DotNet Error: UriSchemeHttp is a read-only property")
 
 	Func getUriSchemeHttps
-		dn_x = dotnet_call("s3:get",'System.Uri, System.Private.Uri',"s14:UriSchemeHttps")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Uri, System.Private.Uri','UriSchemeHttps')
 
 	Func setUriSchemeHttps P1
 		raise("DotNet Error: UriSchemeHttps is a read-only property")
 
 	Func getUriSchemeWs
-		dn_x = dotnet_call("s3:get",'System.Uri, System.Private.Uri',"s11:UriSchemeWs")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Uri, System.Private.Uri','UriSchemeWs')
 
 	Func setUriSchemeWs P1
 		raise("DotNet Error: UriSchemeWs is a read-only property")
 
 	Func getUriSchemeWss
-		dn_x = dotnet_call("s3:get",'System.Uri, System.Private.Uri',"s12:UriSchemeWss")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Uri, System.Private.Uri','UriSchemeWss')
 
 	Func setUriSchemeWss P1
 		raise("DotNet Error: UriSchemeWss is a read-only property")
 
 	Func getUriSchemeMailto
-		dn_x = dotnet_call("s3:get",'System.Uri, System.Private.Uri',"s15:UriSchemeMailto")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Uri, System.Private.Uri','UriSchemeMailto')
 
 	Func setUriSchemeMailto P1
 		raise("DotNet Error: UriSchemeMailto is a read-only property")
 
 	Func getUriSchemeNews
-		dn_x = dotnet_call("s3:get",'System.Uri, System.Private.Uri',"s13:UriSchemeNews")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Uri, System.Private.Uri','UriSchemeNews')
 
 	Func setUriSchemeNews P1
 		raise("DotNet Error: UriSchemeNews is a read-only property")
 
 	Func getUriSchemeNntp
-		dn_x = dotnet_call("s3:get",'System.Uri, System.Private.Uri',"s13:UriSchemeNntp")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Uri, System.Private.Uri','UriSchemeNntp')
 
 	Func setUriSchemeNntp P1
 		raise("DotNet Error: UriSchemeNntp is a read-only property")
 
 	Func getUriSchemeSsh
-		dn_x = dotnet_call("s3:get",'System.Uri, System.Private.Uri',"s12:UriSchemeSsh")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Uri, System.Private.Uri','UriSchemeSsh')
 
 	Func setUriSchemeSsh P1
 		raise("DotNet Error: UriSchemeSsh is a read-only property")
 
 	Func getUriSchemeTelnet
-		dn_x = dotnet_call("s3:get",'System.Uri, System.Private.Uri',"s15:UriSchemeTelnet")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Uri, System.Private.Uri','UriSchemeTelnet')
 
 	Func setUriSchemeTelnet P1
 		raise("DotNet Error: UriSchemeTelnet is a read-only property")
 
 	Func getUriSchemeNetTcp
-		dn_x = dotnet_call("s3:get",'System.Uri, System.Private.Uri',"s15:UriSchemeNetTcp")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Uri, System.Private.Uri','UriSchemeNetTcp')
 
 	Func setUriSchemeNetTcp P1
 		raise("DotNet Error: UriSchemeNetTcp is a read-only property")
 
 	Func getUriSchemeNetPipe
-		dn_x = dotnet_call("s3:get",'System.Uri, System.Private.Uri',"s16:UriSchemeNetPipe")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Uri, System.Private.Uri','UriSchemeNetPipe')
 
 	Func setUriSchemeNetPipe P1
 		raise("DotNet Error: UriSchemeNetPipe is a read-only property")
 
 	Func getSchemeDelimiter
-		dn_x = dotnet_call("s3:get",'System.Uri, System.Private.Uri',"s15:SchemeDelimiter")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Uri, System.Private.Uri','SchemeDelimiter')
 
 	Func setSchemeDelimiter P1
 		raise("DotNet Error: SchemeDelimiter is a read-only property")
@@ -8222,9 +8164,7 @@ Class String from Object
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getEmpty
-		dn_x = dotnet_call("s3:get",'System.String, System.Private.CoreLib',"s5:Empty")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.String, System.Private.CoreLib','Empty')
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")
@@ -8732,14 +8672,14 @@ Class AppDomain from MarshalByRefObject
 		raise("DotNet Error: CurrentDomain is a read-only property")
 
 	Func getMonitoringIsEnabled
-		return dotnet_call("s3:get",'System.AppDomain, System.Private.CoreLib',"s19:MonitoringIsEnabled")
+		return dotnet_getps('System.AppDomain, System.Private.CoreLib','MonitoringIsEnabled')
 
 	Func setMonitoringIsEnabled P1
-		dotnet_callv("s3:set",'System.AppDomain, System.Private.CoreLib',"s19:MonitoringIsEnabled",P1)
+		dotnet_setps('System.AppDomain, System.Private.CoreLib','MonitoringIsEnabled',P1)
 		return self
 
 	Func getMonitoringSurvivedProcessMemorySize
-		return dotnet_call("s3:get",'System.AppDomain, System.Private.CoreLib',"s35:MonitoringSurvivedProcessMemorySize")
+		return dotnet_getps('System.AppDomain, System.Private.CoreLib','MonitoringSurvivedProcessMemorySize')
 
 	Func setMonitoringSurvivedProcessMemorySize P1
 		raise("DotNet Error: MonitoringSurvivedProcessMemorySize is a read-only property")
@@ -9051,17 +8991,13 @@ Class Boolean from ValueType
 		return dnSend("s4:call",dnTypeHandle('System.Boolean, System.Private.CoreLib'),"s8:TryParse",dnPackItem(P1))
 
 	Func getTrueString
-		dn_x = dotnet_call("s3:get",'System.Boolean, System.Private.CoreLib',"s10:TrueString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Boolean, System.Private.CoreLib','TrueString')
 
 	Func setTrueString P1
 		raise("DotNet Error: TrueString is a read-only property")
 
 	Func getFalseString
-		dn_x = dotnet_call("s3:get",'System.Boolean, System.Private.CoreLib',"s11:FalseString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Boolean, System.Private.CoreLib','FalseString')
 
 	Func setFalseString P1
 		raise("DotNet Error: FalseString is a read-only property")
@@ -9196,13 +9132,13 @@ Class Byte from ValueType
 		return dnAnswer(dotnet_callts('System.Byte, System.Private.CoreLib','IsOddInteger',P1))
 
 	Func getMaxValue
-		return dotnet_call("s3:get",'System.Byte, System.Private.CoreLib',"s8:MaxValue")
+		return dotnet_getps('System.Byte, System.Private.CoreLib','MaxValue')
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dotnet_call("s3:get",'System.Byte, System.Private.CoreLib',"s8:MinValue")
+		return dotnet_getps('System.Byte, System.Private.CoreLib','MinValue')
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -10427,31 +10363,31 @@ Class Decimal from ValueType
 		raise("DotNet Error: Scale is a read-only property")
 
 	Func getZero
-		return dotnet_call("s3:get",'System.Decimal, System.Private.CoreLib',"s4:Zero")
+		return dotnet_getps('System.Decimal, System.Private.CoreLib','Zero')
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getOne
-		return dotnet_call("s3:get",'System.Decimal, System.Private.CoreLib',"s3:One")
+		return dotnet_getps('System.Decimal, System.Private.CoreLib','One')
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getMinusOne
-		return dotnet_call("s3:get",'System.Decimal, System.Private.CoreLib',"s8:MinusOne")
+		return dotnet_getps('System.Decimal, System.Private.CoreLib','MinusOne')
 
 	Func setMinusOne P1
 		raise("DotNet Error: MinusOne is a read-only property")
 
 	Func getMaxValue
-		return dotnet_call("s3:get",'System.Decimal, System.Private.CoreLib',"s8:MaxValue")
+		return dotnet_getps('System.Decimal, System.Private.CoreLib','MaxValue')
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dotnet_call("s3:get",'System.Decimal, System.Private.CoreLib',"s8:MinValue")
+		return dotnet_getps('System.Decimal, System.Private.CoreLib','MinValue')
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -10858,61 +10794,61 @@ Class Double from ValueType
 		return dnAnswer(dotnet_callts('System.Double, System.Private.CoreLib','TanPi',P1))
 
 	Func getMinValue
-		return dotnet_call("s3:get",'System.Double, System.Private.CoreLib',"s8:MinValue")
+		return dotnet_getps('System.Double, System.Private.CoreLib','MinValue')
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dotnet_call("s3:get",'System.Double, System.Private.CoreLib',"s8:MaxValue")
+		return dotnet_getps('System.Double, System.Private.CoreLib','MaxValue')
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getEpsilon
-		return dotnet_call("s3:get",'System.Double, System.Private.CoreLib',"s7:Epsilon")
+		return dotnet_getps('System.Double, System.Private.CoreLib','Epsilon')
 
 	Func setEpsilon P1
 		raise("DotNet Error: Epsilon is a read-only property")
 
 	Func getNegativeInfinity
-		return dotnet_call("s3:get",'System.Double, System.Private.CoreLib',"s16:NegativeInfinity")
+		return dotnet_getps('System.Double, System.Private.CoreLib','NegativeInfinity')
 
 	Func setNegativeInfinity P1
 		raise("DotNet Error: NegativeInfinity is a read-only property")
 
 	Func getPositiveInfinity
-		return dotnet_call("s3:get",'System.Double, System.Private.CoreLib',"s16:PositiveInfinity")
+		return dotnet_getps('System.Double, System.Private.CoreLib','PositiveInfinity')
 
 	Func setPositiveInfinity P1
 		raise("DotNet Error: PositiveInfinity is a read-only property")
 
 	Func getNaN
-		return dotnet_call("s3:get",'System.Double, System.Private.CoreLib',"s3:NaN")
+		return dotnet_getps('System.Double, System.Private.CoreLib','NaN')
 
 	Func setNaN P1
 		raise("DotNet Error: NaN is a read-only property")
 
 	Func getNegativeZero
-		return dotnet_call("s3:get",'System.Double, System.Private.CoreLib',"s12:NegativeZero")
+		return dotnet_getps('System.Double, System.Private.CoreLib','NegativeZero')
 
 	Func setNegativeZero P1
 		raise("DotNet Error: NegativeZero is a read-only property")
 
 	Func getE
-		return dotnet_call("s3:get",'System.Double, System.Private.CoreLib',"s1:E")
+		return dotnet_getps('System.Double, System.Private.CoreLib','E')
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getPi
-		return dotnet_call("s3:get",'System.Double, System.Private.CoreLib',"s2:Pi")
+		return dotnet_getps('System.Double, System.Private.CoreLib','Pi')
 
 	Func setPi P1
 		raise("DotNet Error: Pi is a read-only property")
 
 	Func getTau
-		return dotnet_call("s3:get",'System.Double, System.Private.CoreLib',"s3:Tau")
+		return dotnet_getps('System.Double, System.Private.CoreLib','Tau')
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
@@ -12300,13 +12236,13 @@ Class Int16 from ValueType
 		return dnAnswer(dotnet_callts('System.Int16, System.Private.CoreLib','MinMagnitude',P1,P2))
 
 	Func getMaxValue
-		return dotnet_call("s3:get",'System.Int16, System.Private.CoreLib',"s8:MaxValue")
+		return dotnet_getps('System.Int16, System.Private.CoreLib','MaxValue')
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dotnet_call("s3:get",'System.Int16, System.Private.CoreLib',"s8:MinValue")
+		return dotnet_getps('System.Int16, System.Private.CoreLib','MinValue')
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -12462,13 +12398,13 @@ Class Int32 from ValueType
 		return dnAnswer(dotnet_callts('System.Int32, System.Private.CoreLib','MinMagnitude',P1,P2))
 
 	Func getMaxValue
-		return dotnet_call("s3:get",'System.Int32, System.Private.CoreLib',"s8:MaxValue")
+		return dotnet_getps('System.Int32, System.Private.CoreLib','MaxValue')
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dotnet_call("s3:get",'System.Int32, System.Private.CoreLib',"s8:MinValue")
+		return dotnet_getps('System.Int32, System.Private.CoreLib','MinValue')
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -12624,13 +12560,13 @@ Class Int64 from ValueType
 		return dnAnswer(dotnet_callts('System.Int64, System.Private.CoreLib','MinMagnitude',P1,P2))
 
 	Func getMaxValue
-		return dotnet_call("s3:get",'System.Int64, System.Private.CoreLib',"s8:MaxValue")
+		return dotnet_getps('System.Int64, System.Private.CoreLib','MaxValue')
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dotnet_call("s3:get",'System.Int64, System.Private.CoreLib',"s8:MinValue")
+		return dotnet_getps('System.Int64, System.Private.CoreLib','MinValue')
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -12811,7 +12747,7 @@ Class IntPtr from ValueType
 		return dnObj(dotnet_callo("s4:call",'System.IntPtr, System.Private.CoreLib',"s12:MinMagnitude",P1,P2))
 
 	Func getSize
-		return dotnet_call("s3:get",'System.IntPtr, System.Private.CoreLib',"s4:Size")
+		return dotnet_getps('System.IntPtr, System.Private.CoreLib','Size')
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
@@ -13866,13 +13802,13 @@ Class SByte from ValueType
 		return dnAnswer(dotnet_callts('System.SByte, System.Private.CoreLib','MinMagnitude',P1,P2))
 
 	Func getMaxValue
-		return dotnet_call("s3:get",'System.SByte, System.Private.CoreLib',"s8:MaxValue")
+		return dotnet_getps('System.SByte, System.Private.CoreLib','MaxValue')
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dotnet_call("s3:get",'System.SByte, System.Private.CoreLib',"s8:MinValue")
+		return dotnet_getps('System.SByte, System.Private.CoreLib','MinValue')
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -14331,61 +14267,61 @@ Class Single from ValueType
 		return dnAnswer(dotnet_callts('System.Single, System.Private.CoreLib','TanPi',P1))
 
 	Func getMinValue
-		return dotnet_call("s3:get",'System.Single, System.Private.CoreLib',"s8:MinValue")
+		return dotnet_getps('System.Single, System.Private.CoreLib','MinValue')
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		return dotnet_call("s3:get",'System.Single, System.Private.CoreLib',"s8:MaxValue")
+		return dotnet_getps('System.Single, System.Private.CoreLib','MaxValue')
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getEpsilon
-		return dotnet_call("s3:get",'System.Single, System.Private.CoreLib',"s7:Epsilon")
+		return dotnet_getps('System.Single, System.Private.CoreLib','Epsilon')
 
 	Func setEpsilon P1
 		raise("DotNet Error: Epsilon is a read-only property")
 
 	Func getNegativeInfinity
-		return dotnet_call("s3:get",'System.Single, System.Private.CoreLib',"s16:NegativeInfinity")
+		return dotnet_getps('System.Single, System.Private.CoreLib','NegativeInfinity')
 
 	Func setNegativeInfinity P1
 		raise("DotNet Error: NegativeInfinity is a read-only property")
 
 	Func getPositiveInfinity
-		return dotnet_call("s3:get",'System.Single, System.Private.CoreLib',"s16:PositiveInfinity")
+		return dotnet_getps('System.Single, System.Private.CoreLib','PositiveInfinity')
 
 	Func setPositiveInfinity P1
 		raise("DotNet Error: PositiveInfinity is a read-only property")
 
 	Func getNaN
-		return dotnet_call("s3:get",'System.Single, System.Private.CoreLib',"s3:NaN")
+		return dotnet_getps('System.Single, System.Private.CoreLib','NaN')
 
 	Func setNaN P1
 		raise("DotNet Error: NaN is a read-only property")
 
 	Func getNegativeZero
-		return dotnet_call("s3:get",'System.Single, System.Private.CoreLib',"s12:NegativeZero")
+		return dotnet_getps('System.Single, System.Private.CoreLib','NegativeZero')
 
 	Func setNegativeZero P1
 		raise("DotNet Error: NegativeZero is a read-only property")
 
 	Func getE
-		return dotnet_call("s3:get",'System.Single, System.Private.CoreLib',"s1:E")
+		return dotnet_getps('System.Single, System.Private.CoreLib','E')
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getPi
-		return dotnet_call("s3:get",'System.Single, System.Private.CoreLib',"s2:Pi")
+		return dotnet_getps('System.Single, System.Private.CoreLib','Pi')
 
 	Func setPi P1
 		raise("DotNet Error: Pi is a read-only property")
 
 	Func getTau
-		return dotnet_call("s3:get",'System.Single, System.Private.CoreLib',"s3:Tau")
+		return dotnet_getps('System.Single, System.Private.CoreLib','Tau')
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")
@@ -14984,133 +14920,133 @@ Class TimeSpan from ValueType
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getNanosecondsPerTick
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s18:NanosecondsPerTick")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','NanosecondsPerTick')
 
 	Func setNanosecondsPerTick P1
 		raise("DotNet Error: NanosecondsPerTick is a read-only property")
 
 	Func getTicksPerMicrosecond
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s19:TicksPerMicrosecond")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','TicksPerMicrosecond')
 
 	Func setTicksPerMicrosecond P1
 		raise("DotNet Error: TicksPerMicrosecond is a read-only property")
 
 	Func getTicksPerMillisecond
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s19:TicksPerMillisecond")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','TicksPerMillisecond')
 
 	Func setTicksPerMillisecond P1
 		raise("DotNet Error: TicksPerMillisecond is a read-only property")
 
 	Func getTicksPerSecond
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s14:TicksPerSecond")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','TicksPerSecond')
 
 	Func setTicksPerSecond P1
 		raise("DotNet Error: TicksPerSecond is a read-only property")
 
 	Func getTicksPerMinute
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s14:TicksPerMinute")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','TicksPerMinute')
 
 	Func setTicksPerMinute P1
 		raise("DotNet Error: TicksPerMinute is a read-only property")
 
 	Func getTicksPerHour
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s12:TicksPerHour")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','TicksPerHour')
 
 	Func setTicksPerHour P1
 		raise("DotNet Error: TicksPerHour is a read-only property")
 
 	Func getTicksPerDay
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s11:TicksPerDay")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','TicksPerDay')
 
 	Func setTicksPerDay P1
 		raise("DotNet Error: TicksPerDay is a read-only property")
 
 	Func getMicrosecondsPerMillisecond
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s26:MicrosecondsPerMillisecond")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','MicrosecondsPerMillisecond')
 
 	Func setMicrosecondsPerMillisecond P1
 		raise("DotNet Error: MicrosecondsPerMillisecond is a read-only property")
 
 	Func getMicrosecondsPerSecond
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s21:MicrosecondsPerSecond")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','MicrosecondsPerSecond')
 
 	Func setMicrosecondsPerSecond P1
 		raise("DotNet Error: MicrosecondsPerSecond is a read-only property")
 
 	Func getMicrosecondsPerMinute
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s21:MicrosecondsPerMinute")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','MicrosecondsPerMinute')
 
 	Func setMicrosecondsPerMinute P1
 		raise("DotNet Error: MicrosecondsPerMinute is a read-only property")
 
 	Func getMicrosecondsPerHour
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s19:MicrosecondsPerHour")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','MicrosecondsPerHour')
 
 	Func setMicrosecondsPerHour P1
 		raise("DotNet Error: MicrosecondsPerHour is a read-only property")
 
 	Func getMicrosecondsPerDay
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s18:MicrosecondsPerDay")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','MicrosecondsPerDay')
 
 	Func setMicrosecondsPerDay P1
 		raise("DotNet Error: MicrosecondsPerDay is a read-only property")
 
 	Func getMillisecondsPerSecond
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s21:MillisecondsPerSecond")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','MillisecondsPerSecond')
 
 	Func setMillisecondsPerSecond P1
 		raise("DotNet Error: MillisecondsPerSecond is a read-only property")
 
 	Func getMillisecondsPerMinute
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s21:MillisecondsPerMinute")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','MillisecondsPerMinute')
 
 	Func setMillisecondsPerMinute P1
 		raise("DotNet Error: MillisecondsPerMinute is a read-only property")
 
 	Func getMillisecondsPerHour
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s19:MillisecondsPerHour")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','MillisecondsPerHour')
 
 	Func setMillisecondsPerHour P1
 		raise("DotNet Error: MillisecondsPerHour is a read-only property")
 
 	Func getMillisecondsPerDay
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s18:MillisecondsPerDay")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','MillisecondsPerDay')
 
 	Func setMillisecondsPerDay P1
 		raise("DotNet Error: MillisecondsPerDay is a read-only property")
 
 	Func getSecondsPerMinute
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s16:SecondsPerMinute")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','SecondsPerMinute')
 
 	Func setSecondsPerMinute P1
 		raise("DotNet Error: SecondsPerMinute is a read-only property")
 
 	Func getSecondsPerHour
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s14:SecondsPerHour")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','SecondsPerHour')
 
 	Func setSecondsPerHour P1
 		raise("DotNet Error: SecondsPerHour is a read-only property")
 
 	Func getSecondsPerDay
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s13:SecondsPerDay")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','SecondsPerDay')
 
 	Func setSecondsPerDay P1
 		raise("DotNet Error: SecondsPerDay is a read-only property")
 
 	Func getMinutesPerHour
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s14:MinutesPerHour")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','MinutesPerHour')
 
 	Func setMinutesPerHour P1
 		raise("DotNet Error: MinutesPerHour is a read-only property")
 
 	Func getMinutesPerDay
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s13:MinutesPerDay")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','MinutesPerDay')
 
 	Func setMinutesPerDay P1
 		raise("DotNet Error: MinutesPerDay is a read-only property")
 
 	Func getHoursPerDay
-		return dotnet_call("s3:get",'System.TimeSpan, System.Private.CoreLib',"s11:HoursPerDay")
+		return dotnet_getps('System.TimeSpan, System.Private.CoreLib','HoursPerDay')
 
 	Func setHoursPerDay P1
 		raise("DotNet Error: HoursPerDay is a read-only property")
@@ -15518,13 +15454,13 @@ Class UInt16 from ValueType
 		return dnAnswer(dotnet_callts('System.UInt16, System.Private.CoreLib','IsOddInteger',P1))
 
 	Func getMaxValue
-		return dotnet_call("s3:get",'System.UInt16, System.Private.CoreLib',"s8:MaxValue")
+		return dotnet_getps('System.UInt16, System.Private.CoreLib','MaxValue')
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dotnet_call("s3:get",'System.UInt16, System.Private.CoreLib',"s8:MinValue")
+		return dotnet_getps('System.UInt16, System.Private.CoreLib','MinValue')
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -15662,13 +15598,13 @@ Class UInt32 from ValueType
 		return dnAnswer(dotnet_callts('System.UInt32, System.Private.CoreLib','IsOddInteger',P1))
 
 	Func getMaxValue
-		return dotnet_call("s3:get",'System.UInt32, System.Private.CoreLib',"s8:MaxValue")
+		return dotnet_getps('System.UInt32, System.Private.CoreLib','MaxValue')
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dotnet_call("s3:get",'System.UInt32, System.Private.CoreLib',"s8:MinValue")
+		return dotnet_getps('System.UInt32, System.Private.CoreLib','MinValue')
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -15806,13 +15742,13 @@ Class UInt64 from ValueType
 		return dnAnswer(dotnet_callts('System.UInt64, System.Private.CoreLib','IsOddInteger',P1))
 
 	Func getMaxValue
-		return dotnet_call("s3:get",'System.UInt64, System.Private.CoreLib',"s8:MaxValue")
+		return dotnet_getps('System.UInt64, System.Private.CoreLib','MaxValue')
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		return dotnet_call("s3:get",'System.UInt64, System.Private.CoreLib',"s8:MinValue")
+		return dotnet_getps('System.UInt64, System.Private.CoreLib','MinValue')
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
@@ -15971,7 +15907,7 @@ Class UIntPtr from ValueType
 		return dn_x
 
 	Func getSize
-		return dotnet_call("s3:get",'System.UIntPtr, System.Private.CoreLib',"s4:Size")
+		return dotnet_getps('System.UIntPtr, System.Private.CoreLib','Size')
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")

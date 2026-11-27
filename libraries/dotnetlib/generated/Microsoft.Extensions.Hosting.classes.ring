@@ -260,25 +260,19 @@ Class Environments from Object
 		return dn_x
 
 	Func getDevelopment
-		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions',"s11:Development")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions','Development')
 
 	Func setDevelopment P1
 		raise("DotNet Error: Development is a read-only property")
 
 	Func getStaging
-		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions',"s7:Staging")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions','Staging')
 
 	Func setStaging P1
 		raise("DotNet Error: Staging is a read-only property")
 
 	Func getProduction
-		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions',"s10:Production")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.Extensions.Hosting.Environments, Microsoft.Extensions.Hosting.Abstractions','Production')
 
 	Func setProduction P1
 		raise("DotNet Error: Production is a read-only property")
@@ -860,25 +854,19 @@ Class HostDefaults from Object
 		return dn_x
 
 	Func getApplicationKey
-		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions',"s14:ApplicationKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions','ApplicationKey')
 
 	Func setApplicationKey P1
 		raise("DotNet Error: ApplicationKey is a read-only property")
 
 	Func getEnvironmentKey
-		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions',"s14:EnvironmentKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions','EnvironmentKey')
 
 	Func setEnvironmentKey P1
 		raise("DotNet Error: EnvironmentKey is a read-only property")
 
 	Func getContentRootKey
-		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions',"s14:ContentRootKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions','ContentRootKey')
 
 	Func setContentRootKey P1
 		raise("DotNet Error: ContentRootKey is a read-only property")

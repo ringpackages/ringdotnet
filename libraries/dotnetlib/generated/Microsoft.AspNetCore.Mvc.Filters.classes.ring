@@ -575,31 +575,31 @@ Class FilterScope from Object
 		return dn_x
 
 	Func getFirst
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s5:First")
+		return dotnet_getps('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core','First')
 
 	Func setFirst P1
 		raise("DotNet Error: First is a read-only property")
 
 	Func getGlobal
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s6:Global")
+		return dotnet_getps('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core','Global')
 
 	Func setGlobal P1
 		raise("DotNet Error: Global is a read-only property")
 
 	Func getController
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s10:Controller")
+		return dotnet_getps('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core','Controller')
 
 	Func setController P1
 		raise("DotNet Error: Controller is a read-only property")
 
 	Func getAction
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s6:Action")
+		return dotnet_getps('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core','Action')
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
 
 	Func getLast
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core',"s4:Last")
+		return dotnet_getps('Microsoft.AspNetCore.Mvc.Filters.FilterScope, Microsoft.AspNetCore.Mvc.Core','Last')
 
 	Func setLast P1
 		raise("DotNet Error: Last is a read-only property")

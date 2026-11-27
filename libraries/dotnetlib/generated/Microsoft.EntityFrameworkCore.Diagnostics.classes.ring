@@ -865,9 +865,7 @@ Class AbstractionsStrings from Object
 		return dn_x
 
 	Func getCannotSpecifyBothIsDescendingAndAllDescending
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions',"s45:CannotSpecifyBothIsDescendingAndAllDescending")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions','CannotSpecifyBothIsDescendingAndAllDescending')
 
 	Func setCannotSpecifyBothIsDescendingAndAllDescending P1
 		raise("DotNet Error: CannotSpecifyBothIsDescendingAndAllDescending is a read-only property")
@@ -1392,25 +1390,25 @@ Class CoreEventId from Object
 		raise("DotNet Error: CollectionWithoutComparer is a read-only property")
 
 	Func getCoreBaseId
-		return dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s10:CoreBaseId")
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore','CoreBaseId')
 
 	Func setCoreBaseId P1
 		raise("DotNet Error: CoreBaseId is a read-only property")
 
 	Func getRelationalBaseId
-		return dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s16:RelationalBaseId")
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore','RelationalBaseId')
 
 	Func setRelationalBaseId P1
 		raise("DotNet Error: RelationalBaseId is a read-only property")
 
 	Func getProviderBaseId
-		return dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s14:ProviderBaseId")
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore','ProviderBaseId')
 
 	Func setProviderBaseId P1
 		raise("DotNet Error: ProviderBaseId is a read-only property")
 
 	Func getProviderDesignBaseId
-		return dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore',"s20:ProviderDesignBaseId")
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore','ProviderDesignBaseId')
 
 	Func setProviderDesignBaseId P1
 		raise("DotNet Error: ProviderDesignBaseId is a read-only property")
@@ -3758,425 +3756,319 @@ Class CoreStrings from Object
 		return dn_x
 
 	Func getCannotConvertQueryableToEnumerableMethod
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s40:CannotConvertQueryableToEnumerableMethod")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','CannotConvertQueryableToEnumerableMethod')
 
 	Func setCannotConvertQueryableToEnumerableMethod P1
 		raise("DotNet Error: CannotConvertQueryableToEnumerableMethod is a read-only property")
 
 	Func getConcurrentMethodInvocation
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:ConcurrentMethodInvocation")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','ConcurrentMethodInvocation')
 
 	Func setConcurrentMethodInvocation P1
 		raise("DotNet Error: ConcurrentMethodInvocation is a read-only property")
 
 	Func getContextDisposed
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:ContextDisposed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','ContextDisposed')
 
 	Func setContextDisposed P1
 		raise("DotNet Error: ContextDisposed is a read-only property")
 
 	Func getConventionsInfiniteLoop
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:ConventionsInfiniteLoop")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','ConventionsInfiniteLoop')
 
 	Func setConventionsInfiniteLoop P1
 		raise("DotNet Error: ConventionsInfiniteLoop is a read-only property")
 
 	Func getDataBindingToLocalWithIListSource
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s33:DataBindingToLocalWithIListSource")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','DataBindingToLocalWithIListSource')
 
 	Func setDataBindingToLocalWithIListSource P1
 		raise("DotNet Error: DataBindingToLocalWithIListSource is a read-only property")
 
 	Func getDataBindingWithIListSource
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:DataBindingWithIListSource")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','DataBindingWithIListSource')
 
 	Func setDataBindingWithIListSource P1
 		raise("DotNet Error: DataBindingWithIListSource is a read-only property")
 
 	Func getDefaultMethodInvoked
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:DefaultMethodInvoked")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','DefaultMethodInvoked')
 
 	Func setDefaultMethodInvoked P1
 		raise("DotNet Error: DefaultMethodInvoked is a read-only property")
 
 	Func getEFConstantInvoked
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:EFConstantInvoked")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','EFConstantInvoked')
 
 	Func setEFConstantInvoked P1
 		raise("DotNet Error: EFConstantInvoked is a read-only property")
 
 	Func getEFConstantNotSupported
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:EFConstantNotSupported")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','EFConstantNotSupported')
 
 	Func setEFConstantNotSupported P1
 		raise("DotNet Error: EFConstantNotSupported is a read-only property")
 
 	Func getEFConstantNotSupportedInPrecompiledQueries
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s42:EFConstantNotSupportedInPrecompiledQueries")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','EFConstantNotSupportedInPrecompiledQueries')
 
 	Func setEFConstantNotSupportedInPrecompiledQueries P1
 		raise("DotNet Error: EFConstantNotSupportedInPrecompiledQueries is a read-only property")
 
 	Func getEFConstantWithNonEvaluatableArgument
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s36:EFConstantWithNonEvaluatableArgument")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','EFConstantWithNonEvaluatableArgument')
 
 	Func setEFConstantWithNonEvaluatableArgument P1
 		raise("DotNet Error: EFConstantWithNonEvaluatableArgument is a read-only property")
 
 	Func getEFParameterInvoked
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:EFParameterInvoked")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','EFParameterInvoked')
 
 	Func setEFParameterInvoked P1
 		raise("DotNet Error: EFParameterInvoked is a read-only property")
 
 	Func getEFParameterWithNonEvaluatableArgument
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s37:EFParameterWithNonEvaluatableArgument")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','EFParameterWithNonEvaluatableArgument')
 
 	Func setEFParameterWithNonEvaluatableArgument P1
 		raise("DotNet Error: EFParameterWithNonEvaluatableArgument is a read-only property")
 
 	Func getEmptyJsonString
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:EmptyJsonString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','EmptyJsonString')
 
 	Func setEmptyJsonString P1
 		raise("DotNet Error: EmptyJsonString is a read-only property")
 
 	Func getEnumerableResetNotSupported
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:EnumerableResetNotSupported")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','EnumerableResetNotSupported')
 
 	Func setEnumerableResetNotSupported P1
 		raise("DotNet Error: EnumerableResetNotSupported is a read-only property")
 
 	Func getErrorInvalidQueryable
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:ErrorInvalidQueryable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','ErrorInvalidQueryable')
 
 	Func setErrorInvalidQueryable P1
 		raise("DotNet Error: ErrorInvalidQueryable is a read-only property")
 
 	Func getExpressionParameterizationException
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s35:ExpressionParameterizationException")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','ExpressionParameterizationException')
 
 	Func setExpressionParameterizationException P1
 		raise("DotNet Error: ExpressionParameterizationException is a read-only property")
 
 	Func getHiLoBadBlockSize
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:HiLoBadBlockSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','HiLoBadBlockSize')
 
 	Func setHiLoBadBlockSize P1
 		raise("DotNet Error: HiLoBadBlockSize is a read-only property")
 
 	Func getIncompatibleSourcesForSetOperation
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s34:IncompatibleSourcesForSetOperation")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','IncompatibleSourcesForSetOperation')
 
 	Func setIncompatibleSourcesForSetOperation P1
 		raise("DotNet Error: IncompatibleSourcesForSetOperation is a read-only property")
 
 	Func getInvalidDbContext
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s16:InvalidDbContext")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','InvalidDbContext')
 
 	Func setInvalidDbContext P1
 		raise("DotNet Error: InvalidDbContext is a read-only property")
 
 	Func getInvalidPoolSize
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s15:InvalidPoolSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','InvalidPoolSize')
 
 	Func setInvalidPoolSize P1
 		raise("DotNet Error: InvalidPoolSize is a read-only property")
 
 	Func getIQueryableProviderNotAsync
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:IQueryableProviderNotAsync")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','IQueryableProviderNotAsync')
 
 	Func setIQueryableProviderNotAsync P1
 		raise("DotNet Error: IQueryableProviderNotAsync is a read-only property")
 
 	Func getMemberListBindingNotSupported
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s29:MemberListBindingNotSupported")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','MemberListBindingNotSupported')
 
 	Func setMemberListBindingNotSupported P1
 		raise("DotNet Error: MemberListBindingNotSupported is a read-only property")
 
 	Func getMemberMemberBindingNotSupported
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s31:MemberMemberBindingNotSupported")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','MemberMemberBindingNotSupported')
 
 	Func setMemberMemberBindingNotSupported P1
 		raise("DotNet Error: MemberMemberBindingNotSupported is a read-only property")
 
 	Func getMissingAsyncSeeder
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s18:MissingAsyncSeeder")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','MissingAsyncSeeder')
 
 	Func setMissingAsyncSeeder P1
 		raise("DotNet Error: MissingAsyncSeeder is a read-only property")
 
 	Func getMissingSeeder
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s13:MissingSeeder")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','MissingSeeder')
 
 	Func setMissingSeeder P1
 		raise("DotNet Error: MissingSeeder is a read-only property")
 
 	Func getModelMutable
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s12:ModelMutable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','ModelMutable')
 
 	Func setModelMutable P1
 		raise("DotNet Error: ModelMutable is a read-only property")
 
 	Func getModelReadOnly
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s13:ModelReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','ModelReadOnly')
 
 	Func setModelReadOnly P1
 		raise("DotNet Error: ModelReadOnly is a read-only property")
 
 	Func getNativeAotDesignTimeModel
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:NativeAotDesignTimeModel")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','NativeAotDesignTimeModel')
 
 	Func setNativeAotDesignTimeModel P1
 		raise("DotNet Error: NativeAotDesignTimeModel is a read-only property")
 
 	Func getNativeAotNoCompiledModel
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:NativeAotNoCompiledModel")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','NativeAotNoCompiledModel')
 
 	Func setNativeAotNoCompiledModel P1
 		raise("DotNet Error: NativeAotNoCompiledModel is a read-only property")
 
 	Func getNoEfServices
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s12:NoEfServices")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','NoEfServices')
 
 	Func setNoEfServices P1
 		raise("DotNet Error: NoEfServices is a read-only property")
 
 	Func getNoInterceptionResult
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:NoInterceptionResult")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','NoInterceptionResult')
 
 	Func setNoInterceptionResult P1
 		raise("DotNet Error: NoInterceptionResult is a read-only property")
 
 	Func getNoProviderConfigured
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s20:NoProviderConfigured")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','NoProviderConfigured')
 
 	Func setNoProviderConfigured P1
 		raise("DotNet Error: NoProviderConfigured is a read-only property")
 
 	Func getNotQueryingEnumerable
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:NotQueryingEnumerable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','NotQueryingEnumerable')
 
 	Func setNotQueryingEnumerable P1
 		raise("DotNet Error: NotQueryingEnumerable is a read-only property")
 
 	Func getOwnedEntitiesCannotBeTrackedWithoutTheirOwner
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s45:OwnedEntitiesCannotBeTrackedWithoutTheirOwner")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','OwnedEntitiesCannotBeTrackedWithoutTheirOwner')
 
 	Func setOwnedEntitiesCannotBeTrackedWithoutTheirOwner P1
 		raise("DotNet Error: OwnedEntitiesCannotBeTrackedWithoutTheirOwner is a read-only property")
 
 	Func getPoolingOptionsModified
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:PoolingOptionsModified")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','PoolingOptionsModified')
 
 	Func setPoolingOptionsModified P1
 		raise("DotNet Error: PoolingOptionsModified is a read-only property")
 
 	Func getPrecompiledQueryNotSupported
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:PrecompiledQueryNotSupported")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','PrecompiledQueryNotSupported')
 
 	Func setPrecompiledQueryNotSupported P1
 		raise("DotNet Error: PrecompiledQueryNotSupported is a read-only property")
 
 	Func getPropertyMethodInvoked
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:PropertyMethodInvoked")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','PropertyMethodInvoked')
 
 	Func setPropertyMethodInvoked P1
 		raise("DotNet Error: PropertyMethodInvoked is a read-only property")
 
 	Func getQuerySelectContainsGrouping
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s27:QuerySelectContainsGrouping")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','QuerySelectContainsGrouping')
 
 	Func setQuerySelectContainsGrouping P1
 		raise("DotNet Error: QuerySelectContainsGrouping is a read-only property")
 
 	Func getQueryUnableToTranslateStringEqualsWithStringComparison
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s54:QueryUnableToTranslateStringEqualsWithStringComparison")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','QueryUnableToTranslateStringEqualsWithStringComparison')
 
 	Func setQueryUnableToTranslateStringEqualsWithStringComparison P1
 		raise("DotNet Error: QueryUnableToTranslateStringEqualsWithStringComparison is a read-only property")
 
 	Func getRecursiveOnConfiguring
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:RecursiveOnConfiguring")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','RecursiveOnConfiguring')
 
 	Func setRecursiveOnConfiguring P1
 		raise("DotNet Error: RecursiveOnConfiguring is a read-only property")
 
 	Func getRecursiveOnModelCreating
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:RecursiveOnModelCreating")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','RecursiveOnModelCreating')
 
 	Func setRecursiveOnModelCreating P1
 		raise("DotNet Error: RecursiveOnModelCreating is a read-only property")
 
 	Func getRelationshipCannotBeInverted
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s28:RelationshipCannotBeInverted")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','RelationshipCannotBeInverted')
 
 	Func setRelationshipCannotBeInverted P1
 		raise("DotNet Error: RelationshipCannotBeInverted is a read-only property")
 
 	Func getResetNotSupported
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s17:ResetNotSupported")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','ResetNotSupported')
 
 	Func setResetNotSupported P1
 		raise("DotNet Error: ResetNotSupported is a read-only property")
 
 	Func getRuntimeModelMissingData
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s23:RuntimeModelMissingData")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','RuntimeModelMissingData')
 
 	Func setRuntimeModelMissingData P1
 		raise("DotNet Error: RuntimeModelMissingData is a read-only property")
 
 	Func getRuntimeParameterMissingParameter
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s32:RuntimeParameterMissingParameter")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','RuntimeParameterMissingParameter')
 
 	Func setRuntimeParameterMissingParameter P1
 		raise("DotNet Error: RuntimeParameterMissingParameter is a read-only property")
 
 	Func getSavepointsNotSupported
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s22:SavepointsNotSupported")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','SavepointsNotSupported')
 
 	Func setSavepointsNotSupported P1
 		raise("DotNet Error: SavepointsNotSupported is a read-only property")
 
 	Func getSensitiveDataDisabled
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s21:SensitiveDataDisabled")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','SensitiveDataDisabled')
 
 	Func setSensitiveDataDisabled P1
 		raise("DotNet Error: SensitiveDataDisabled is a read-only property")
 
 	Func getSequenceContainsMoreThanOneElement
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s34:SequenceContainsMoreThanOneElement")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','SequenceContainsMoreThanOneElement')
 
 	Func setSequenceContainsMoreThanOneElement P1
 		raise("DotNet Error: SequenceContainsMoreThanOneElement is a read-only property")
 
 	Func getSequenceContainsNoElements
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s26:SequenceContainsNoElements")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','SequenceContainsNoElements')
 
 	Func setSequenceContainsNoElements P1
 		raise("DotNet Error: SequenceContainsNoElements is a read-only property")
 
 	Func getSetOperationWithDifferentIncludesInOperands
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s43:SetOperationWithDifferentIncludesInOperands")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','SetOperationWithDifferentIncludesInOperands')
 
 	Func setSetOperationWithDifferentIncludesInOperands P1
 		raise("DotNet Error: SetOperationWithDifferentIncludesInOperands is a read-only property")
 
 	Func getSetPropertyMethodInvoked
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:SetPropertyMethodInvoked")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','SetPropertyMethodInvoked')
 
 	Func setSetPropertyMethodInvoked P1
 		raise("DotNet Error: SetPropertyMethodInvoked is a read-only property")
 
 	Func getTransactionsNotSupported
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore',"s24:TransactionsNotSupported")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.CoreStrings, Microsoft.EntityFrameworkCore','TransactionsNotSupported')
 
 	Func setTransactionsNotSupported P1
 		raise("DotNet Error: TransactionsNotSupported is a read-only property")
@@ -9347,377 +9239,283 @@ Class RelationalStrings from Object
 		return dn_x
 
 	Func getBadSequenceString
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s17:BadSequenceString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','BadSequenceString')
 
 	Func setBadSequenceString P1
 		raise("DotNet Error: BadSequenceString is a read-only property")
 
 	Func getBadSequenceType
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s15:BadSequenceType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','BadSequenceType')
 
 	Func setBadSequenceType P1
 		raise("DotNet Error: BadSequenceType is a read-only property")
 
 	Func getCannotChangeWhenOpen
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:CannotChangeWhenOpen")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','CannotChangeWhenOpen')
 
 	Func setCannotChangeWhenOpen P1
 		raise("DotNet Error: CannotChangeWhenOpen is a read-only property")
 
 	Func getCannotCompareComplexTypeToNull
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:CannotCompareComplexTypeToNull")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','CannotCompareComplexTypeToNull')
 
 	Func setCannotCompareComplexTypeToNull P1
 		raise("DotNet Error: CannotCompareComplexTypeToNull is a read-only property")
 
 	Func getCannotSetAliasOnJoin
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:CannotSetAliasOnJoin")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','CannotSetAliasOnJoin')
 
 	Func setCannotSetAliasOnJoin P1
 		raise("DotNet Error: CannotSetAliasOnJoin is a read-only property")
 
 	Func getClientGroupByNotSupported
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:ClientGroupByNotSupported")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','ClientGroupByNotSupported')
 
 	Func setClientGroupByNotSupported P1
 		raise("DotNet Error: ClientGroupByNotSupported is a read-only property")
 
 	Func getConflictingAmbientTransaction
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:ConflictingAmbientTransaction")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','ConflictingAmbientTransaction')
 
 	Func setConflictingAmbientTransaction P1
 		raise("DotNet Error: ConflictingAmbientTransaction is a read-only property")
 
 	Func getConflictingEnlistedTransaction
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:ConflictingEnlistedTransaction")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','ConflictingEnlistedTransaction')
 
 	Func setConflictingEnlistedTransaction P1
 		raise("DotNet Error: ConflictingEnlistedTransaction is a read-only property")
 
 	Func getDistinctOnCollectionNotSupported
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s32:DistinctOnCollectionNotSupported")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','DistinctOnCollectionNotSupported')
 
 	Func setDistinctOnCollectionNotSupported P1
 		raise("DotNet Error: DistinctOnCollectionNotSupported is a read-only property")
 
 	Func getEmptyCollectionNotSupportedAsInlineQueryRoot
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:EmptyCollectionNotSupportedAsInlineQueryRoot")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','EmptyCollectionNotSupportedAsInlineQueryRoot')
 
 	Func setEmptyCollectionNotSupportedAsInlineQueryRoot P1
 		raise("DotNet Error: EmptyCollectionNotSupportedAsInlineQueryRoot is a read-only property")
 
 	Func getErrorMaterializingValue
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:ErrorMaterializingValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','ErrorMaterializingValue')
 
 	Func setErrorMaterializingValue P1
 		raise("DotNet Error: ErrorMaterializingValue is a read-only property")
 
 	Func getExecuteDeleteOnNonEntityType
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s28:ExecuteDeleteOnNonEntityType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','ExecuteDeleteOnNonEntityType')
 
 	Func setExecuteDeleteOnNonEntityType P1
 		raise("DotNet Error: ExecuteDeleteOnNonEntityType is a read-only property")
 
 	Func getFromSqlNonComposable
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:FromSqlNonComposable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','FromSqlNonComposable')
 
 	Func setFromSqlNonComposable P1
 		raise("DotNet Error: FromSqlNonComposable is a read-only property")
 
 	Func getInsufficientInformationToIdentifyElementOfCollectionJoin
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s56:InsufficientInformationToIdentifyElementOfCollectionJoin")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','InsufficientInformationToIdentifyElementOfCollectionJoin')
 
 	Func setInsufficientInformationToIdentifyElementOfCollectionJoin P1
 		raise("DotNet Error: InsufficientInformationToIdentifyElementOfCollectionJoin is a read-only property")
 
 	Func getInvalidArgumentToExecuteUpdate
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:InvalidArgumentToExecuteUpdate")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','InvalidArgumentToExecuteUpdate')
 
 	Func setInvalidArgumentToExecuteUpdate P1
 		raise("DotNet Error: InvalidArgumentToExecuteUpdate is a read-only property")
 
 	Func getJsonEmptyString
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s15:JsonEmptyString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','JsonEmptyString')
 
 	Func setJsonEmptyString P1
 		raise("DotNet Error: JsonEmptyString is a read-only property")
 
 	Func getJsonEntityWithTableSplittingIsNotSupported
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s42:JsonEntityWithTableSplittingIsNotSupported")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','JsonEntityWithTableSplittingIsNotSupported')
 
 	Func setJsonEntityWithTableSplittingIsNotSupported P1
 		raise("DotNet Error: JsonEntityWithTableSplittingIsNotSupported is a read-only property")
 
 	Func getJsonNodeMustBeHandledByProviderSpecificVisitor
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s46:JsonNodeMustBeHandledByProviderSpecificVisitor")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','JsonNodeMustBeHandledByProviderSpecificVisitor')
 
 	Func setJsonNodeMustBeHandledByProviderSpecificVisitor P1
 		raise("DotNet Error: JsonNodeMustBeHandledByProviderSpecificVisitor is a read-only property")
 
 	Func getJsonPropertyNameShouldBeConfiguredOnNestedNavigation
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s52:JsonPropertyNameShouldBeConfiguredOnNestedNavigation")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','JsonPropertyNameShouldBeConfiguredOnNestedNavigation')
 
 	Func setJsonPropertyNameShouldBeConfiguredOnNestedNavigation P1
 		raise("DotNet Error: JsonPropertyNameShouldBeConfiguredOnNestedNavigation is a read-only property")
 
 	Func getJsonQueryLinqOperatorsNotSupported
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s34:JsonQueryLinqOperatorsNotSupported")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','JsonQueryLinqOperatorsNotSupported')
 
 	Func setJsonQueryLinqOperatorsNotSupported P1
 		raise("DotNet Error: JsonQueryLinqOperatorsNotSupported is a read-only property")
 
 	Func getMappingFragmentMissingName
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:MappingFragmentMissingName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','MappingFragmentMissingName')
 
 	Func setMappingFragmentMissingName P1
 		raise("DotNet Error: MappingFragmentMissingName is a read-only property")
 
 	Func getMethodNeedsToBeImplementedInTheProvider
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s39:MethodNeedsToBeImplementedInTheProvider")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','MethodNeedsToBeImplementedInTheProvider')
 
 	Func setMethodNeedsToBeImplementedInTheProvider P1
 		raise("DotNet Error: MethodNeedsToBeImplementedInTheProvider is a read-only property")
 
 	Func getMigrationDownMissing
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:MigrationDownMissing")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','MigrationDownMissing')
 
 	Func setMigrationDownMissing P1
 		raise("DotNet Error: MigrationDownMissing is a read-only property")
 
 	Func getMissingOrderingInSelectExpression
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s33:MissingOrderingInSelectExpression")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','MissingOrderingInSelectExpression')
 
 	Func setMissingOrderingInSelectExpression P1
 		raise("DotNet Error: MissingOrderingInSelectExpression is a read-only property")
 
 	Func getMissingResultSetWhenSaving
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s26:MissingResultSetWhenSaving")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','MissingResultSetWhenSaving')
 
 	Func setMissingResultSetWhenSaving P1
 		raise("DotNet Error: MissingResultSetWhenSaving is a read-only property")
 
 	Func getModificationCommandBatchAlreadyComplete
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s39:ModificationCommandBatchAlreadyComplete")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','ModificationCommandBatchAlreadyComplete')
 
 	Func setModificationCommandBatchAlreadyComplete P1
 		raise("DotNet Error: ModificationCommandBatchAlreadyComplete is a read-only property")
 
 	Func getModificationCommandBatchNotComplete
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s35:ModificationCommandBatchNotComplete")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','ModificationCommandBatchNotComplete')
 
 	Func setModificationCommandBatchNotComplete P1
 		raise("DotNet Error: ModificationCommandBatchNotComplete is a read-only property")
 
 	Func getMultipleProvidersConfigured
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s27:MultipleProvidersConfigured")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','MultipleProvidersConfigured')
 
 	Func setMultipleProvidersConfigured P1
 		raise("DotNet Error: MultipleProvidersConfigured is a read-only property")
 
 	Func getNestedAmbientTransactionError
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:NestedAmbientTransactionError")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','NestedAmbientTransactionError')
 
 	Func setNestedAmbientTransactionError P1
 		raise("DotNet Error: NestedAmbientTransactionError is a read-only property")
 
 	Func getNoActiveTransaction
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s19:NoActiveTransaction")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','NoActiveTransaction')
 
 	Func setNoActiveTransaction P1
 		raise("DotNet Error: NoActiveTransaction is a read-only property")
 
 	Func getNoDbCommand
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s11:NoDbCommand")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','NoDbCommand')
 
 	Func setNoDbCommand P1
 		raise("DotNet Error: NoDbCommand is a read-only property")
 
 	Func getNoneRelationalTypeMappingOnARelationalTypeMappingSource
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s55:NoneRelationalTypeMappingOnARelationalTypeMappingSource")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','NoneRelationalTypeMappingOnARelationalTypeMappingSource')
 
 	Func setNoneRelationalTypeMappingOnARelationalTypeMappingSource P1
 		raise("DotNet Error: NoneRelationalTypeMappingOnARelationalTypeMappingSource is a read-only property")
 
 	Func getNoProviderConfigured
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:NoProviderConfigured")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','NoProviderConfigured')
 
 	Func setNoProviderConfigured P1
 		raise("DotNet Error: NoProviderConfigured is a read-only property")
 
 	Func getNoSetPropertyInvocation
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s23:NoSetPropertyInvocation")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','NoSetPropertyInvocation')
 
 	Func setNoSetPropertyInvocation P1
 		raise("DotNet Error: NoSetPropertyInvocation is a read-only property")
 
 	Func getOnlyConstantsSupportedInInlineCollectionQueryRoots
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s50:OnlyConstantsSupportedInInlineCollectionQueryRoots")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','OnlyConstantsSupportedInInlineCollectionQueryRoots')
 
 	Func setOnlyConstantsSupportedInInlineCollectionQueryRoots P1
 		raise("DotNet Error: OnlyConstantsSupportedInInlineCollectionQueryRoots is a read-only property")
 
 	Func getPendingAmbientTransaction
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:PendingAmbientTransaction")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','PendingAmbientTransaction')
 
 	Func setPendingAmbientTransaction P1
 		raise("DotNet Error: PendingAmbientTransaction is a read-only property")
 
 	Func getProjectionMappingCountMismatch
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s30:ProjectionMappingCountMismatch")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','ProjectionMappingCountMismatch')
 
 	Func setProjectionMappingCountMismatch P1
 		raise("DotNet Error: ProjectionMappingCountMismatch is a read-only property")
 
 	Func getRelationalNotInUse
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s18:RelationalNotInUse")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','RelationalNotInUse')
 
 	Func setRelationalNotInUse P1
 		raise("DotNet Error: RelationalNotInUse is a read-only property")
 
 	Func getSelectCanOnlyBeBuiltOnCollectionJsonQuery
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s41:SelectCanOnlyBeBuiltOnCollectionJsonQuery")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','SelectCanOnlyBeBuiltOnCollectionJsonQuery')
 
 	Func setSelectCanOnlyBeBuiltOnCollectionJsonQuery P1
 		raise("DotNet Error: SelectCanOnlyBeBuiltOnCollectionJsonQuery is a read-only property")
 
 	Func getSelectExpressionUpdateNotSupportedWhileMutable
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s46:SelectExpressionUpdateNotSupportedWhileMutable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','SelectExpressionUpdateNotSupportedWhileMutable')
 
 	Func setSelectExpressionUpdateNotSupportedWhileMutable P1
 		raise("DotNet Error: SelectExpressionUpdateNotSupportedWhileMutable is a read-only property")
 
 	Func getSetOperationsNotAllowedAfterClientEvaluation
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:SetOperationsNotAllowedAfterClientEvaluation")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','SetOperationsNotAllowedAfterClientEvaluation')
 
 	Func setSetOperationsNotAllowedAfterClientEvaluation P1
 		raise("DotNet Error: SetOperationsNotAllowedAfterClientEvaluation is a read-only property")
 
 	Func getSplitQueryString
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s16:SplitQueryString")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','SplitQueryString')
 
 	Func setSplitQueryString P1
 		raise("DotNet Error: SplitQueryString is a read-only property")
 
 	Func getTransactionAlreadyStarted
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s25:TransactionAlreadyStarted")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','TransactionAlreadyStarted')
 
 	Func setTransactionAlreadyStarted P1
 		raise("DotNet Error: TransactionAlreadyStarted is a read-only property")
 
 	Func getTransactionAssociatedWithDifferentConnection
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s44:TransactionAssociatedWithDifferentConnection")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','TransactionAssociatedWithDifferentConnection')
 
 	Func setTransactionAssociatedWithDifferentConnection P1
 		raise("DotNet Error: TransactionAssociatedWithDifferentConnection is a read-only property")
 
 	Func getTransactionSuppressedMigrationInUserTransaction
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s47:TransactionSuppressedMigrationInUserTransaction")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','TransactionSuppressedMigrationInUserTransaction')
 
 	Func setTransactionSuppressedMigrationInUserTransaction P1
 		raise("DotNet Error: TransactionSuppressedMigrationInUserTransaction is a read-only property")
 
 	Func getUpdateStoreException
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s20:UpdateStoreException")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','UpdateStoreException')
 
 	Func setUpdateStoreException P1
 		raise("DotNet Error: UpdateStoreException is a read-only property")
 
 	Func getVisitChildrenMustBeOverridden
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational',"s29:VisitChildrenMustBeOverridden")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Diagnostics.RelationalStrings, Microsoft.EntityFrameworkCore.Relational','VisitChildrenMustBeOverridden')
 
 	Func setVisitChildrenMustBeOverridden P1
 		raise("DotNet Error: VisitChildrenMustBeOverridden is a read-only property")

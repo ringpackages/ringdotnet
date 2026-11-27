@@ -1927,13 +1927,13 @@ Class LambdaExpression from ExpressionsExpression
 		raise("DotNet Error: TailCall is a read-only property")
 
 	Func getCanCompileToIL
-		return dotnet_call("s3:get",'System.Linq.Expressions.LambdaExpression, System.Linq.Expressions',"s14:CanCompileToIL")
+		return dotnet_getps('System.Linq.Expressions.LambdaExpression, System.Linq.Expressions','CanCompileToIL')
 
 	Func setCanCompileToIL P1
 		raise("DotNet Error: CanCompileToIL is a read-only property")
 
 	Func getCanInterpret
-		return dotnet_call("s3:get",'System.Linq.Expressions.LambdaExpression, System.Linq.Expressions',"s12:CanInterpret")
+		return dotnet_getps('System.Linq.Expressions.LambdaExpression, System.Linq.Expressions','CanInterpret')
 
 	Func setCanInterpret P1
 		raise("DotNet Error: CanInterpret is a read-only property")

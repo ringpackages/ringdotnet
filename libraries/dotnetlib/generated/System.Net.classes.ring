@@ -848,19 +848,19 @@ Class CookieContainer from Object
 		return self
 
 	Func getDefaultCookieLimit
-		return dotnet_call("s3:get",'System.Net.CookieContainer, System.Net.Primitives',"s18:DefaultCookieLimit")
+		return dotnet_getps('System.Net.CookieContainer, System.Net.Primitives','DefaultCookieLimit')
 
 	Func setDefaultCookieLimit P1
 		raise("DotNet Error: DefaultCookieLimit is a read-only property")
 
 	Func getDefaultPerDomainCookieLimit
-		return dotnet_call("s3:get",'System.Net.CookieContainer, System.Net.Primitives',"s27:DefaultPerDomainCookieLimit")
+		return dotnet_getps('System.Net.CookieContainer, System.Net.Primitives','DefaultPerDomainCookieLimit')
 
 	Func setDefaultPerDomainCookieLimit P1
 		raise("DotNet Error: DefaultPerDomainCookieLimit is a read-only property")
 
 	Func getDefaultCookieLengthLimit
-		return dotnet_call("s3:get",'System.Net.CookieContainer, System.Net.Primitives',"s24:DefaultCookieLengthLimit")
+		return dotnet_getps('System.Net.CookieContainer, System.Net.Primitives','DefaultCookieLengthLimit')
 
 	Func setDefaultCookieLengthLimit P1
 		raise("DotNet Error: DefaultCookieLengthLimit is a read-only property")
@@ -1338,7 +1338,7 @@ Class HttpListener from Object
 		raise("DotNet Error: TimeoutManager is a read-only property")
 
 	Func getIsSupported
-		return dotnet_call("s3:get",'System.Net.HttpListener, System.Net.HttpListener',"s11:IsSupported")
+		return dotnet_getps('System.Net.HttpListener, System.Net.HttpListener','IsSupported')
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -3774,17 +3774,13 @@ Class WebRequestMethodsFile from Object
 		return dn_x
 
 	Func getDownloadFile
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+File, System.Net.Requests',"s12:DownloadFile")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+File, System.Net.Requests','DownloadFile')
 
 	Func setDownloadFile P1
 		raise("DotNet Error: DownloadFile is a read-only property")
 
 	Func getUploadFile
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+File, System.Net.Requests',"s10:UploadFile")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+File, System.Net.Requests','UploadFile')
 
 	Func setUploadFile P1
 		raise("DotNet Error: UploadFile is a read-only property")
@@ -3821,105 +3817,79 @@ Class WebRequestMethodsFtp from Object
 		return dn_x
 
 	Func getDownloadFile
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Ftp, System.Net.Requests',"s12:DownloadFile")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+Ftp, System.Net.Requests','DownloadFile')
 
 	Func setDownloadFile P1
 		raise("DotNet Error: DownloadFile is a read-only property")
 
 	Func getListDirectory
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Ftp, System.Net.Requests',"s13:ListDirectory")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+Ftp, System.Net.Requests','ListDirectory')
 
 	Func setListDirectory P1
 		raise("DotNet Error: ListDirectory is a read-only property")
 
 	Func getUploadFile
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Ftp, System.Net.Requests',"s10:UploadFile")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+Ftp, System.Net.Requests','UploadFile')
 
 	Func setUploadFile P1
 		raise("DotNet Error: UploadFile is a read-only property")
 
 	Func getDeleteFile
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Ftp, System.Net.Requests',"s10:DeleteFile")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+Ftp, System.Net.Requests','DeleteFile')
 
 	Func setDeleteFile P1
 		raise("DotNet Error: DeleteFile is a read-only property")
 
 	Func getAppendFile
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Ftp, System.Net.Requests',"s10:AppendFile")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+Ftp, System.Net.Requests','AppendFile')
 
 	Func setAppendFile P1
 		raise("DotNet Error: AppendFile is a read-only property")
 
 	Func getGetFileSize
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Ftp, System.Net.Requests',"s11:GetFileSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+Ftp, System.Net.Requests','GetFileSize')
 
 	Func setGetFileSize P1
 		raise("DotNet Error: GetFileSize is a read-only property")
 
 	Func getUploadFileWithUniqueName
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Ftp, System.Net.Requests',"s24:UploadFileWithUniqueName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+Ftp, System.Net.Requests','UploadFileWithUniqueName')
 
 	Func setUploadFileWithUniqueName P1
 		raise("DotNet Error: UploadFileWithUniqueName is a read-only property")
 
 	Func getMakeDirectory
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Ftp, System.Net.Requests',"s13:MakeDirectory")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+Ftp, System.Net.Requests','MakeDirectory')
 
 	Func setMakeDirectory P1
 		raise("DotNet Error: MakeDirectory is a read-only property")
 
 	Func getRemoveDirectory
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Ftp, System.Net.Requests',"s15:RemoveDirectory")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+Ftp, System.Net.Requests','RemoveDirectory')
 
 	Func setRemoveDirectory P1
 		raise("DotNet Error: RemoveDirectory is a read-only property")
 
 	Func getListDirectoryDetails
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Ftp, System.Net.Requests',"s20:ListDirectoryDetails")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+Ftp, System.Net.Requests','ListDirectoryDetails')
 
 	Func setListDirectoryDetails P1
 		raise("DotNet Error: ListDirectoryDetails is a read-only property")
 
 	Func getGetDateTimestamp
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Ftp, System.Net.Requests',"s16:GetDateTimestamp")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+Ftp, System.Net.Requests','GetDateTimestamp')
 
 	Func setGetDateTimestamp P1
 		raise("DotNet Error: GetDateTimestamp is a read-only property")
 
 	Func getPrintWorkingDirectory
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Ftp, System.Net.Requests',"s21:PrintWorkingDirectory")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+Ftp, System.Net.Requests','PrintWorkingDirectory')
 
 	Func setPrintWorkingDirectory P1
 		raise("DotNet Error: PrintWorkingDirectory is a read-only property")
 
 	Func getRename
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Ftp, System.Net.Requests',"s6:Rename")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+Ftp, System.Net.Requests','Rename')
 
 	Func setRename P1
 		raise("DotNet Error: Rename is a read-only property")
@@ -3949,9 +3919,7 @@ Class WebRequestMethodsHttp from Object
 		return dn_x
 
 	Func getGet
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Http, System.Net.Requests',"s3:Get")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+Http, System.Net.Requests','Get')
 
 	Func get@Get
 		return getGet()
@@ -3963,25 +3931,19 @@ Class WebRequestMethodsHttp from Object
 		return setGet(P1)
 
 	Func getConnect
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Http, System.Net.Requests',"s7:Connect")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+Http, System.Net.Requests','Connect')
 
 	Func setConnect P1
 		raise("DotNet Error: Connect is a read-only property")
 
 	Func getHead
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Http, System.Net.Requests',"s4:Head")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+Http, System.Net.Requests','Head')
 
 	Func setHead P1
 		raise("DotNet Error: Head is a read-only property")
 
 	Func getPut
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Http, System.Net.Requests',"s3:Put")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+Http, System.Net.Requests','Put')
 
 	Func get@Put
 		return getPut()
@@ -3993,17 +3955,13 @@ Class WebRequestMethodsHttp from Object
 		return setPut(P1)
 
 	Func getPost
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Http, System.Net.Requests',"s4:Post")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+Http, System.Net.Requests','Post')
 
 	Func setPost P1
 		raise("DotNet Error: Post is a read-only property")
 
 	Func getMkCol
-		dn_x = dotnet_call("s3:get",'System.Net.WebRequestMethods+Http, System.Net.Requests',"s5:MkCol")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.WebRequestMethods+Http, System.Net.Requests','MkCol')
 
 	Func setMkCol P1
 		raise("DotNet Error: MkCol is a read-only property")
@@ -4855,17 +4813,17 @@ Class HttpWebRequest from WebRequest
 		raise("DotNet Error: SupportsCookieContainer is a read-only property")
 
 	Func getDefaultMaximumResponseHeadersLength
-		return dotnet_call("s3:get",'System.Net.HttpWebRequest, System.Net.Requests',"s35:DefaultMaximumResponseHeadersLength")
+		return dotnet_getps('System.Net.HttpWebRequest, System.Net.Requests','DefaultMaximumResponseHeadersLength')
 
 	Func setDefaultMaximumResponseHeadersLength P1
-		dotnet_callv("s3:set",'System.Net.HttpWebRequest, System.Net.Requests',"s35:DefaultMaximumResponseHeadersLength",P1)
+		dotnet_setps('System.Net.HttpWebRequest, System.Net.Requests','DefaultMaximumResponseHeadersLength',P1)
 		return self
 
 	Func getDefaultMaximumErrorResponseLength
-		return dotnet_call("s3:get",'System.Net.HttpWebRequest, System.Net.Requests',"s33:DefaultMaximumErrorResponseLength")
+		return dotnet_getps('System.Net.HttpWebRequest, System.Net.Requests','DefaultMaximumErrorResponseLength')
 
 	Func setDefaultMaximumErrorResponseLength P1
-		dotnet_callv("s3:set",'System.Net.HttpWebRequest, System.Net.Requests',"s33:DefaultMaximumErrorResponseLength",P1)
+		dotnet_setps('System.Net.HttpWebRequest, System.Net.Requests','DefaultMaximumErrorResponseLength',P1)
 		return self
 
 	Func getDefaultCachePolicy
@@ -5013,13 +4971,13 @@ Class IPEndPoint from EndPoint
 		return self
 
 	Func getMinPort
-		return dotnet_call("s3:get",'System.Net.IPEndPoint, System.Net.Primitives',"s7:MinPort")
+		return dotnet_getps('System.Net.IPEndPoint, System.Net.Primitives','MinPort')
 
 	Func setMinPort P1
 		raise("DotNet Error: MinPort is a read-only property")
 
 	Func getMaxPort
-		return dotnet_call("s3:get",'System.Net.IPEndPoint, System.Net.Primitives',"s7:MaxPort")
+		return dotnet_getps('System.Net.IPEndPoint, System.Net.Primitives','MaxPort')
 
 	Func setMaxPort P1
 		raise("DotNet Error: MaxPort is a read-only property")

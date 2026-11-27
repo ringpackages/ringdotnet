@@ -2333,1453 +2333,1453 @@ Class raw from Object
 		return dn_x
 
 	Func getSQLITE_UTF8
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s11:SQLITE_UTF8")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_UTF8')
 
 	Func setSQLITE_UTF8 P1
 		raise("DotNet Error: SQLITE_UTF8 is a read-only property")
 
 	Func getSQLITE_UTF16LE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s14:SQLITE_UTF16LE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_UTF16LE')
 
 	Func setSQLITE_UTF16LE P1
 		raise("DotNet Error: SQLITE_UTF16LE is a read-only property")
 
 	Func getSQLITE_UTF16BE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s14:SQLITE_UTF16BE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_UTF16BE')
 
 	Func setSQLITE_UTF16BE P1
 		raise("DotNet Error: SQLITE_UTF16BE is a read-only property")
 
 	Func getSQLITE_UTF16
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s12:SQLITE_UTF16")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_UTF16')
 
 	Func setSQLITE_UTF16 P1
 		raise("DotNet Error: SQLITE_UTF16 is a read-only property")
 
 	Func getSQLITE_ANY
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s10:SQLITE_ANY")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_ANY')
 
 	Func setSQLITE_ANY P1
 		raise("DotNet Error: SQLITE_ANY is a read-only property")
 
 	Func getSQLITE_UTF16_ALIGNED
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s20:SQLITE_UTF16_ALIGNED")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_UTF16_ALIGNED')
 
 	Func setSQLITE_UTF16_ALIGNED P1
 		raise("DotNet Error: SQLITE_UTF16_ALIGNED is a read-only property")
 
 	Func getSQLITE_DETERMINISTIC
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s20:SQLITE_DETERMINISTIC")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DETERMINISTIC')
 
 	Func setSQLITE_DETERMINISTIC P1
 		raise("DotNet Error: SQLITE_DETERMINISTIC is a read-only property")
 
 	Func getSQLITE_LIMIT_LENGTH
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s19:SQLITE_LIMIT_LENGTH")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_LIMIT_LENGTH')
 
 	Func setSQLITE_LIMIT_LENGTH P1
 		raise("DotNet Error: SQLITE_LIMIT_LENGTH is a read-only property")
 
 	Func getSQLITE_LIMIT_SQL_LENGTH
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s23:SQLITE_LIMIT_SQL_LENGTH")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_LIMIT_SQL_LENGTH')
 
 	Func setSQLITE_LIMIT_SQL_LENGTH P1
 		raise("DotNet Error: SQLITE_LIMIT_SQL_LENGTH is a read-only property")
 
 	Func getSQLITE_LIMIT_COLUMN
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s19:SQLITE_LIMIT_COLUMN")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_LIMIT_COLUMN')
 
 	Func setSQLITE_LIMIT_COLUMN P1
 		raise("DotNet Error: SQLITE_LIMIT_COLUMN is a read-only property")
 
 	Func getSQLITE_LIMIT_EXPR_DEPTH
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s23:SQLITE_LIMIT_EXPR_DEPTH")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_LIMIT_EXPR_DEPTH')
 
 	Func setSQLITE_LIMIT_EXPR_DEPTH P1
 		raise("DotNet Error: SQLITE_LIMIT_EXPR_DEPTH is a read-only property")
 
 	Func getSQLITE_LIMIT_COMPOUND_SELECT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s28:SQLITE_LIMIT_COMPOUND_SELECT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_LIMIT_COMPOUND_SELECT')
 
 	Func setSQLITE_LIMIT_COMPOUND_SELECT P1
 		raise("DotNet Error: SQLITE_LIMIT_COMPOUND_SELECT is a read-only property")
 
 	Func getSQLITE_LIMIT_VDBE_OP
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s20:SQLITE_LIMIT_VDBE_OP")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_LIMIT_VDBE_OP')
 
 	Func setSQLITE_LIMIT_VDBE_OP P1
 		raise("DotNet Error: SQLITE_LIMIT_VDBE_OP is a read-only property")
 
 	Func getSQLITE_LIMIT_FUNCTION_ARG
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s25:SQLITE_LIMIT_FUNCTION_ARG")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_LIMIT_FUNCTION_ARG')
 
 	Func setSQLITE_LIMIT_FUNCTION_ARG P1
 		raise("DotNet Error: SQLITE_LIMIT_FUNCTION_ARG is a read-only property")
 
 	Func getSQLITE_LIMIT_ATTACHED
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s21:SQLITE_LIMIT_ATTACHED")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_LIMIT_ATTACHED')
 
 	Func setSQLITE_LIMIT_ATTACHED P1
 		raise("DotNet Error: SQLITE_LIMIT_ATTACHED is a read-only property")
 
 	Func getSQLITE_LIMIT_LIKE_PATTERN_LENGTH
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s32:SQLITE_LIMIT_LIKE_PATTERN_LENGTH")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_LIMIT_LIKE_PATTERN_LENGTH')
 
 	Func setSQLITE_LIMIT_LIKE_PATTERN_LENGTH P1
 		raise("DotNet Error: SQLITE_LIMIT_LIKE_PATTERN_LENGTH is a read-only property")
 
 	Func getSQLITE_LIMIT_VARIABLE_NUMBER
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s28:SQLITE_LIMIT_VARIABLE_NUMBER")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_LIMIT_VARIABLE_NUMBER')
 
 	Func setSQLITE_LIMIT_VARIABLE_NUMBER P1
 		raise("DotNet Error: SQLITE_LIMIT_VARIABLE_NUMBER is a read-only property")
 
 	Func getSQLITE_LIMIT_TRIGGER_DEPTH
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s26:SQLITE_LIMIT_TRIGGER_DEPTH")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_LIMIT_TRIGGER_DEPTH')
 
 	Func setSQLITE_LIMIT_TRIGGER_DEPTH P1
 		raise("DotNet Error: SQLITE_LIMIT_TRIGGER_DEPTH is a read-only property")
 
 	Func getSQLITE_LIMIT_WORKER_THREADS
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s27:SQLITE_LIMIT_WORKER_THREADS")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_LIMIT_WORKER_THREADS')
 
 	Func setSQLITE_LIMIT_WORKER_THREADS P1
 		raise("DotNet Error: SQLITE_LIMIT_WORKER_THREADS is a read-only property")
 
 	Func getSQLITE_CONFIG_SINGLETHREAD
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s26:SQLITE_CONFIG_SINGLETHREAD")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_SINGLETHREAD')
 
 	Func setSQLITE_CONFIG_SINGLETHREAD P1
 		raise("DotNet Error: SQLITE_CONFIG_SINGLETHREAD is a read-only property")
 
 	Func getSQLITE_CONFIG_MULTITHREAD
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s25:SQLITE_CONFIG_MULTITHREAD")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_MULTITHREAD')
 
 	Func setSQLITE_CONFIG_MULTITHREAD P1
 		raise("DotNet Error: SQLITE_CONFIG_MULTITHREAD is a read-only property")
 
 	Func getSQLITE_CONFIG_SERIALIZED
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s24:SQLITE_CONFIG_SERIALIZED")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_SERIALIZED')
 
 	Func setSQLITE_CONFIG_SERIALIZED P1
 		raise("DotNet Error: SQLITE_CONFIG_SERIALIZED is a read-only property")
 
 	Func getSQLITE_CONFIG_MALLOC
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s20:SQLITE_CONFIG_MALLOC")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_MALLOC')
 
 	Func setSQLITE_CONFIG_MALLOC P1
 		raise("DotNet Error: SQLITE_CONFIG_MALLOC is a read-only property")
 
 	Func getSQLITE_CONFIG_GETMALLOC
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s23:SQLITE_CONFIG_GETMALLOC")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_GETMALLOC')
 
 	Func setSQLITE_CONFIG_GETMALLOC P1
 		raise("DotNet Error: SQLITE_CONFIG_GETMALLOC is a read-only property")
 
 	Func getSQLITE_CONFIG_SCRATCH
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s21:SQLITE_CONFIG_SCRATCH")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_SCRATCH')
 
 	Func setSQLITE_CONFIG_SCRATCH P1
 		raise("DotNet Error: SQLITE_CONFIG_SCRATCH is a read-only property")
 
 	Func getSQLITE_CONFIG_PAGECACHE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s23:SQLITE_CONFIG_PAGECACHE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_PAGECACHE')
 
 	Func setSQLITE_CONFIG_PAGECACHE P1
 		raise("DotNet Error: SQLITE_CONFIG_PAGECACHE is a read-only property")
 
 	Func getSQLITE_CONFIG_HEAP
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s18:SQLITE_CONFIG_HEAP")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_HEAP')
 
 	Func setSQLITE_CONFIG_HEAP P1
 		raise("DotNet Error: SQLITE_CONFIG_HEAP is a read-only property")
 
 	Func getSQLITE_CONFIG_MEMSTATUS
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s23:SQLITE_CONFIG_MEMSTATUS")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_MEMSTATUS')
 
 	Func setSQLITE_CONFIG_MEMSTATUS P1
 		raise("DotNet Error: SQLITE_CONFIG_MEMSTATUS is a read-only property")
 
 	Func getSQLITE_CONFIG_MUTEX
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s19:SQLITE_CONFIG_MUTEX")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_MUTEX')
 
 	Func setSQLITE_CONFIG_MUTEX P1
 		raise("DotNet Error: SQLITE_CONFIG_MUTEX is a read-only property")
 
 	Func getSQLITE_CONFIG_GETMUTEX
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s22:SQLITE_CONFIG_GETMUTEX")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_GETMUTEX')
 
 	Func setSQLITE_CONFIG_GETMUTEX P1
 		raise("DotNet Error: SQLITE_CONFIG_GETMUTEX is a read-only property")
 
 	Func getSQLITE_CONFIG_LOOKASIDE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s23:SQLITE_CONFIG_LOOKASIDE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_LOOKASIDE')
 
 	Func setSQLITE_CONFIG_LOOKASIDE P1
 		raise("DotNet Error: SQLITE_CONFIG_LOOKASIDE is a read-only property")
 
 	Func getSQLITE_CONFIG_PCACHE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s20:SQLITE_CONFIG_PCACHE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_PCACHE')
 
 	Func setSQLITE_CONFIG_PCACHE P1
 		raise("DotNet Error: SQLITE_CONFIG_PCACHE is a read-only property")
 
 	Func getSQLITE_CONFIG_GETPCACHE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s23:SQLITE_CONFIG_GETPCACHE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_GETPCACHE')
 
 	Func setSQLITE_CONFIG_GETPCACHE P1
 		raise("DotNet Error: SQLITE_CONFIG_GETPCACHE is a read-only property")
 
 	Func getSQLITE_CONFIG_LOG
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s17:SQLITE_CONFIG_LOG")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_LOG')
 
 	Func setSQLITE_CONFIG_LOG P1
 		raise("DotNet Error: SQLITE_CONFIG_LOG is a read-only property")
 
 	Func getSQLITE_CONFIG_URI
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s17:SQLITE_CONFIG_URI")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_URI')
 
 	Func setSQLITE_CONFIG_URI P1
 		raise("DotNet Error: SQLITE_CONFIG_URI is a read-only property")
 
 	Func getSQLITE_CONFIG_PCACHE2
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s21:SQLITE_CONFIG_PCACHE2")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_PCACHE2')
 
 	Func setSQLITE_CONFIG_PCACHE2 P1
 		raise("DotNet Error: SQLITE_CONFIG_PCACHE2 is a read-only property")
 
 	Func getSQLITE_CONFIG_GETPCACHE2
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s24:SQLITE_CONFIG_GETPCACHE2")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_GETPCACHE2')
 
 	Func setSQLITE_CONFIG_GETPCACHE2 P1
 		raise("DotNet Error: SQLITE_CONFIG_GETPCACHE2 is a read-only property")
 
 	Func getSQLITE_CONFIG_COVERING_INDEX_SCAN
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s33:SQLITE_CONFIG_COVERING_INDEX_SCAN")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_COVERING_INDEX_SCAN')
 
 	Func setSQLITE_CONFIG_COVERING_INDEX_SCAN P1
 		raise("DotNet Error: SQLITE_CONFIG_COVERING_INDEX_SCAN is a read-only property")
 
 	Func getSQLITE_CONFIG_SQLLOG
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s20:SQLITE_CONFIG_SQLLOG")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONFIG_SQLLOG')
 
 	Func setSQLITE_CONFIG_SQLLOG P1
 		raise("DotNet Error: SQLITE_CONFIG_SQLLOG is a read-only property")
 
 	Func getSQLITE_DBCONFIG_MAINDBNAME
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s26:SQLITE_DBCONFIG_MAINDBNAME")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBCONFIG_MAINDBNAME')
 
 	Func setSQLITE_DBCONFIG_MAINDBNAME P1
 		raise("DotNet Error: SQLITE_DBCONFIG_MAINDBNAME is a read-only property")
 
 	Func getSQLITE_DBCONFIG_LOOKASIDE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s25:SQLITE_DBCONFIG_LOOKASIDE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBCONFIG_LOOKASIDE')
 
 	Func setSQLITE_DBCONFIG_LOOKASIDE P1
 		raise("DotNet Error: SQLITE_DBCONFIG_LOOKASIDE is a read-only property")
 
 	Func getSQLITE_DBCONFIG_ENABLE_FKEY
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s27:SQLITE_DBCONFIG_ENABLE_FKEY")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBCONFIG_ENABLE_FKEY')
 
 	Func setSQLITE_DBCONFIG_ENABLE_FKEY P1
 		raise("DotNet Error: SQLITE_DBCONFIG_ENABLE_FKEY is a read-only property")
 
 	Func getSQLITE_DBCONFIG_ENABLE_TRIGGER
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s30:SQLITE_DBCONFIG_ENABLE_TRIGGER")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBCONFIG_ENABLE_TRIGGER')
 
 	Func setSQLITE_DBCONFIG_ENABLE_TRIGGER P1
 		raise("DotNet Error: SQLITE_DBCONFIG_ENABLE_TRIGGER is a read-only property")
 
 	Func getSQLITE_DBCONFIG_ENABLE_FTS3_TOKENIZER
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s37:SQLITE_DBCONFIG_ENABLE_FTS3_TOKENIZER")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBCONFIG_ENABLE_FTS3_TOKENIZER')
 
 	Func setSQLITE_DBCONFIG_ENABLE_FTS3_TOKENIZER P1
 		raise("DotNet Error: SQLITE_DBCONFIG_ENABLE_FTS3_TOKENIZER is a read-only property")
 
 	Func getSQLITE_DBCONFIG_ENABLE_LOAD_EXTENSION
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s37:SQLITE_DBCONFIG_ENABLE_LOAD_EXTENSION")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBCONFIG_ENABLE_LOAD_EXTENSION')
 
 	Func setSQLITE_DBCONFIG_ENABLE_LOAD_EXTENSION P1
 		raise("DotNet Error: SQLITE_DBCONFIG_ENABLE_LOAD_EXTENSION is a read-only property")
 
 	Func getSQLITE_DBCONFIG_NO_CKPT_ON_CLOSE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s32:SQLITE_DBCONFIG_NO_CKPT_ON_CLOSE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBCONFIG_NO_CKPT_ON_CLOSE')
 
 	Func setSQLITE_DBCONFIG_NO_CKPT_ON_CLOSE P1
 		raise("DotNet Error: SQLITE_DBCONFIG_NO_CKPT_ON_CLOSE is a read-only property")
 
 	Func getSQLITE_DBCONFIG_ENABLE_QPSG
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s27:SQLITE_DBCONFIG_ENABLE_QPSG")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBCONFIG_ENABLE_QPSG')
 
 	Func setSQLITE_DBCONFIG_ENABLE_QPSG P1
 		raise("DotNet Error: SQLITE_DBCONFIG_ENABLE_QPSG is a read-only property")
 
 	Func getSQLITE_DBCONFIG_TRIGGER_EQP
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s27:SQLITE_DBCONFIG_TRIGGER_EQP")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBCONFIG_TRIGGER_EQP')
 
 	Func setSQLITE_DBCONFIG_TRIGGER_EQP P1
 		raise("DotNet Error: SQLITE_DBCONFIG_TRIGGER_EQP is a read-only property")
 
 	Func getSQLITE_DBCONFIG_RESET_DATABASE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s30:SQLITE_DBCONFIG_RESET_DATABASE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBCONFIG_RESET_DATABASE')
 
 	Func setSQLITE_DBCONFIG_RESET_DATABASE P1
 		raise("DotNet Error: SQLITE_DBCONFIG_RESET_DATABASE is a read-only property")
 
 	Func getSQLITE_DBCONFIG_DEFENSIVE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s25:SQLITE_DBCONFIG_DEFENSIVE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBCONFIG_DEFENSIVE')
 
 	Func setSQLITE_DBCONFIG_DEFENSIVE P1
 		raise("DotNet Error: SQLITE_DBCONFIG_DEFENSIVE is a read-only property")
 
 	Func getSQLITE_DBCONFIG_WRITABLE_SCHEMA
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s31:SQLITE_DBCONFIG_WRITABLE_SCHEMA")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBCONFIG_WRITABLE_SCHEMA')
 
 	Func setSQLITE_DBCONFIG_WRITABLE_SCHEMA P1
 		raise("DotNet Error: SQLITE_DBCONFIG_WRITABLE_SCHEMA is a read-only property")
 
 	Func getSQLITE_DBCONFIG_LEGACY_ALTER_TABLE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s34:SQLITE_DBCONFIG_LEGACY_ALTER_TABLE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBCONFIG_LEGACY_ALTER_TABLE')
 
 	Func setSQLITE_DBCONFIG_LEGACY_ALTER_TABLE P1
 		raise("DotNet Error: SQLITE_DBCONFIG_LEGACY_ALTER_TABLE is a read-only property")
 
 	Func getSQLITE_DBCONFIG_DQS_DML
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s23:SQLITE_DBCONFIG_DQS_DML")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBCONFIG_DQS_DML')
 
 	Func setSQLITE_DBCONFIG_DQS_DML P1
 		raise("DotNet Error: SQLITE_DBCONFIG_DQS_DML is a read-only property")
 
 	Func getSQLITE_DBCONFIG_DQS_DDL
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s23:SQLITE_DBCONFIG_DQS_DDL")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBCONFIG_DQS_DDL')
 
 	Func setSQLITE_DBCONFIG_DQS_DDL P1
 		raise("DotNet Error: SQLITE_DBCONFIG_DQS_DDL is a read-only property")
 
 	Func getSQLITE_DBCONFIG_ENABLE_VIEW
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s27:SQLITE_DBCONFIG_ENABLE_VIEW")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBCONFIG_ENABLE_VIEW')
 
 	Func setSQLITE_DBCONFIG_ENABLE_VIEW P1
 		raise("DotNet Error: SQLITE_DBCONFIG_ENABLE_VIEW is a read-only property")
 
 	Func getSQLITE_DBCONFIG_LEGACY_FILE_FORMAT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s34:SQLITE_DBCONFIG_LEGACY_FILE_FORMAT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBCONFIG_LEGACY_FILE_FORMAT')
 
 	Func setSQLITE_DBCONFIG_LEGACY_FILE_FORMAT P1
 		raise("DotNet Error: SQLITE_DBCONFIG_LEGACY_FILE_FORMAT is a read-only property")
 
 	Func getSQLITE_DBCONFIG_TRUSTED_SCHEMA
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s30:SQLITE_DBCONFIG_TRUSTED_SCHEMA")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBCONFIG_TRUSTED_SCHEMA')
 
 	Func setSQLITE_DBCONFIG_TRUSTED_SCHEMA P1
 		raise("DotNet Error: SQLITE_DBCONFIG_TRUSTED_SCHEMA is a read-only property")
 
 	Func getSQLITE_DBCONFIG_MAX
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s19:SQLITE_DBCONFIG_MAX")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBCONFIG_MAX')
 
 	Func setSQLITE_DBCONFIG_MAX P1
 		raise("DotNet Error: SQLITE_DBCONFIG_MAX is a read-only property")
 
 	Func getSQLITE_OPEN_READONLY
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s20:SQLITE_OPEN_READONLY")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_READONLY')
 
 	Func setSQLITE_OPEN_READONLY P1
 		raise("DotNet Error: SQLITE_OPEN_READONLY is a read-only property")
 
 	Func getSQLITE_OPEN_READWRITE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s21:SQLITE_OPEN_READWRITE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_READWRITE')
 
 	Func setSQLITE_OPEN_READWRITE P1
 		raise("DotNet Error: SQLITE_OPEN_READWRITE is a read-only property")
 
 	Func getSQLITE_OPEN_CREATE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s18:SQLITE_OPEN_CREATE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_CREATE')
 
 	Func setSQLITE_OPEN_CREATE P1
 		raise("DotNet Error: SQLITE_OPEN_CREATE is a read-only property")
 
 	Func getSQLITE_OPEN_DELETEONCLOSE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s25:SQLITE_OPEN_DELETEONCLOSE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_DELETEONCLOSE')
 
 	Func setSQLITE_OPEN_DELETEONCLOSE P1
 		raise("DotNet Error: SQLITE_OPEN_DELETEONCLOSE is a read-only property")
 
 	Func getSQLITE_OPEN_EXCLUSIVE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s21:SQLITE_OPEN_EXCLUSIVE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_EXCLUSIVE')
 
 	Func setSQLITE_OPEN_EXCLUSIVE P1
 		raise("DotNet Error: SQLITE_OPEN_EXCLUSIVE is a read-only property")
 
 	Func getSQLITE_OPEN_AUTOPROXY
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s21:SQLITE_OPEN_AUTOPROXY")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_AUTOPROXY')
 
 	Func setSQLITE_OPEN_AUTOPROXY P1
 		raise("DotNet Error: SQLITE_OPEN_AUTOPROXY is a read-only property")
 
 	Func getSQLITE_OPEN_URI
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s15:SQLITE_OPEN_URI")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_URI')
 
 	Func setSQLITE_OPEN_URI P1
 		raise("DotNet Error: SQLITE_OPEN_URI is a read-only property")
 
 	Func getSQLITE_OPEN_MEMORY
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s18:SQLITE_OPEN_MEMORY")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_MEMORY')
 
 	Func setSQLITE_OPEN_MEMORY P1
 		raise("DotNet Error: SQLITE_OPEN_MEMORY is a read-only property")
 
 	Func getSQLITE_OPEN_MAIN_DB
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s19:SQLITE_OPEN_MAIN_DB")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_MAIN_DB')
 
 	Func setSQLITE_OPEN_MAIN_DB P1
 		raise("DotNet Error: SQLITE_OPEN_MAIN_DB is a read-only property")
 
 	Func getSQLITE_OPEN_TEMP_DB
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s19:SQLITE_OPEN_TEMP_DB")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_TEMP_DB')
 
 	Func setSQLITE_OPEN_TEMP_DB P1
 		raise("DotNet Error: SQLITE_OPEN_TEMP_DB is a read-only property")
 
 	Func getSQLITE_OPEN_TRANSIENT_DB
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s24:SQLITE_OPEN_TRANSIENT_DB")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_TRANSIENT_DB')
 
 	Func setSQLITE_OPEN_TRANSIENT_DB P1
 		raise("DotNet Error: SQLITE_OPEN_TRANSIENT_DB is a read-only property")
 
 	Func getSQLITE_OPEN_MAIN_JOURNAL
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s24:SQLITE_OPEN_MAIN_JOURNAL")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_MAIN_JOURNAL')
 
 	Func setSQLITE_OPEN_MAIN_JOURNAL P1
 		raise("DotNet Error: SQLITE_OPEN_MAIN_JOURNAL is a read-only property")
 
 	Func getSQLITE_OPEN_TEMP_JOURNAL
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s24:SQLITE_OPEN_TEMP_JOURNAL")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_TEMP_JOURNAL')
 
 	Func setSQLITE_OPEN_TEMP_JOURNAL P1
 		raise("DotNet Error: SQLITE_OPEN_TEMP_JOURNAL is a read-only property")
 
 	Func getSQLITE_OPEN_SUBJOURNAL
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s22:SQLITE_OPEN_SUBJOURNAL")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_SUBJOURNAL')
 
 	Func setSQLITE_OPEN_SUBJOURNAL P1
 		raise("DotNet Error: SQLITE_OPEN_SUBJOURNAL is a read-only property")
 
 	Func getSQLITE_OPEN_MASTER_JOURNAL
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s26:SQLITE_OPEN_MASTER_JOURNAL")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_MASTER_JOURNAL')
 
 	Func setSQLITE_OPEN_MASTER_JOURNAL P1
 		raise("DotNet Error: SQLITE_OPEN_MASTER_JOURNAL is a read-only property")
 
 	Func getSQLITE_OPEN_NOMUTEX
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s19:SQLITE_OPEN_NOMUTEX")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_NOMUTEX')
 
 	Func setSQLITE_OPEN_NOMUTEX P1
 		raise("DotNet Error: SQLITE_OPEN_NOMUTEX is a read-only property")
 
 	Func getSQLITE_OPEN_FULLMUTEX
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s21:SQLITE_OPEN_FULLMUTEX")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_FULLMUTEX')
 
 	Func setSQLITE_OPEN_FULLMUTEX P1
 		raise("DotNet Error: SQLITE_OPEN_FULLMUTEX is a read-only property")
 
 	Func getSQLITE_OPEN_SHAREDCACHE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s23:SQLITE_OPEN_SHAREDCACHE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_SHAREDCACHE')
 
 	Func setSQLITE_OPEN_SHAREDCACHE P1
 		raise("DotNet Error: SQLITE_OPEN_SHAREDCACHE is a read-only property")
 
 	Func getSQLITE_OPEN_PRIVATECACHE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s24:SQLITE_OPEN_PRIVATECACHE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_PRIVATECACHE')
 
 	Func setSQLITE_OPEN_PRIVATECACHE P1
 		raise("DotNet Error: SQLITE_OPEN_PRIVATECACHE is a read-only property")
 
 	Func getSQLITE_OPEN_WAL
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s15:SQLITE_OPEN_WAL")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OPEN_WAL')
 
 	Func setSQLITE_OPEN_WAL P1
 		raise("DotNet Error: SQLITE_OPEN_WAL is a read-only property")
 
 	Func getSQLITE_PREPARE_PERSISTENT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s25:SQLITE_PREPARE_PERSISTENT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_PREPARE_PERSISTENT')
 
 	Func setSQLITE_PREPARE_PERSISTENT P1
 		raise("DotNet Error: SQLITE_PREPARE_PERSISTENT is a read-only property")
 
 	Func getSQLITE_PREPARE_NORMALIZE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s24:SQLITE_PREPARE_NORMALIZE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_PREPARE_NORMALIZE')
 
 	Func setSQLITE_PREPARE_NORMALIZE P1
 		raise("DotNet Error: SQLITE_PREPARE_NORMALIZE is a read-only property")
 
 	Func getSQLITE_PREPARE_NO_VTAB
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s22:SQLITE_PREPARE_NO_VTAB")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_PREPARE_NO_VTAB')
 
 	Func setSQLITE_PREPARE_NO_VTAB P1
 		raise("DotNet Error: SQLITE_PREPARE_NO_VTAB is a read-only property")
 
 	Func getSQLITE_INTEGER
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s14:SQLITE_INTEGER")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_INTEGER')
 
 	Func setSQLITE_INTEGER P1
 		raise("DotNet Error: SQLITE_INTEGER is a read-only property")
 
 	Func getSQLITE_FLOAT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s12:SQLITE_FLOAT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_FLOAT')
 
 	Func setSQLITE_FLOAT P1
 		raise("DotNet Error: SQLITE_FLOAT is a read-only property")
 
 	Func getSQLITE_TEXT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s11:SQLITE_TEXT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_TEXT')
 
 	Func setSQLITE_TEXT P1
 		raise("DotNet Error: SQLITE_TEXT is a read-only property")
 
 	Func getSQLITE_BLOB
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s11:SQLITE_BLOB")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_BLOB')
 
 	Func setSQLITE_BLOB P1
 		raise("DotNet Error: SQLITE_BLOB is a read-only property")
 
 	Func getSQLITE_NULL
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s11:SQLITE_NULL")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_NULL')
 
 	Func setSQLITE_NULL P1
 		raise("DotNet Error: SQLITE_NULL is a read-only property")
 
 	Func getSQLITE_OK
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s9:SQLITE_OK")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_OK')
 
 	Func setSQLITE_OK P1
 		raise("DotNet Error: SQLITE_OK is a read-only property")
 
 	Func getSQLITE_ERROR
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s12:SQLITE_ERROR")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_ERROR')
 
 	Func setSQLITE_ERROR P1
 		raise("DotNet Error: SQLITE_ERROR is a read-only property")
 
 	Func getSQLITE_INTERNAL
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s15:SQLITE_INTERNAL")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_INTERNAL')
 
 	Func setSQLITE_INTERNAL P1
 		raise("DotNet Error: SQLITE_INTERNAL is a read-only property")
 
 	Func getSQLITE_PERM
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s11:SQLITE_PERM")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_PERM')
 
 	Func setSQLITE_PERM P1
 		raise("DotNet Error: SQLITE_PERM is a read-only property")
 
 	Func getSQLITE_ABORT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s12:SQLITE_ABORT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_ABORT')
 
 	Func setSQLITE_ABORT P1
 		raise("DotNet Error: SQLITE_ABORT is a read-only property")
 
 	Func getSQLITE_BUSY
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s11:SQLITE_BUSY")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_BUSY')
 
 	Func setSQLITE_BUSY P1
 		raise("DotNet Error: SQLITE_BUSY is a read-only property")
 
 	Func getSQLITE_LOCKED
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s13:SQLITE_LOCKED")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_LOCKED')
 
 	Func setSQLITE_LOCKED P1
 		raise("DotNet Error: SQLITE_LOCKED is a read-only property")
 
 	Func getSQLITE_NOMEM
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s12:SQLITE_NOMEM")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_NOMEM')
 
 	Func setSQLITE_NOMEM P1
 		raise("DotNet Error: SQLITE_NOMEM is a read-only property")
 
 	Func getSQLITE_READONLY
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s15:SQLITE_READONLY")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_READONLY')
 
 	Func setSQLITE_READONLY P1
 		raise("DotNet Error: SQLITE_READONLY is a read-only property")
 
 	Func getSQLITE_INTERRUPT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s16:SQLITE_INTERRUPT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_INTERRUPT')
 
 	Func setSQLITE_INTERRUPT P1
 		raise("DotNet Error: SQLITE_INTERRUPT is a read-only property")
 
 	Func getSQLITE_IOERR
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s12:SQLITE_IOERR")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR')
 
 	Func setSQLITE_IOERR P1
 		raise("DotNet Error: SQLITE_IOERR is a read-only property")
 
 	Func getSQLITE_CORRUPT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s14:SQLITE_CORRUPT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CORRUPT')
 
 	Func setSQLITE_CORRUPT P1
 		raise("DotNet Error: SQLITE_CORRUPT is a read-only property")
 
 	Func getSQLITE_NOTFOUND
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s15:SQLITE_NOTFOUND")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_NOTFOUND')
 
 	Func setSQLITE_NOTFOUND P1
 		raise("DotNet Error: SQLITE_NOTFOUND is a read-only property")
 
 	Func getSQLITE_FULL
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s11:SQLITE_FULL")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_FULL')
 
 	Func setSQLITE_FULL P1
 		raise("DotNet Error: SQLITE_FULL is a read-only property")
 
 	Func getSQLITE_CANTOPEN
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s15:SQLITE_CANTOPEN")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CANTOPEN')
 
 	Func setSQLITE_CANTOPEN P1
 		raise("DotNet Error: SQLITE_CANTOPEN is a read-only property")
 
 	Func getSQLITE_PROTOCOL
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s15:SQLITE_PROTOCOL")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_PROTOCOL')
 
 	Func setSQLITE_PROTOCOL P1
 		raise("DotNet Error: SQLITE_PROTOCOL is a read-only property")
 
 	Func getSQLITE_EMPTY
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s12:SQLITE_EMPTY")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_EMPTY')
 
 	Func setSQLITE_EMPTY P1
 		raise("DotNet Error: SQLITE_EMPTY is a read-only property")
 
 	Func getSQLITE_SCHEMA
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s13:SQLITE_SCHEMA")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_SCHEMA')
 
 	Func setSQLITE_SCHEMA P1
 		raise("DotNet Error: SQLITE_SCHEMA is a read-only property")
 
 	Func getSQLITE_TOOBIG
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s13:SQLITE_TOOBIG")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_TOOBIG')
 
 	Func setSQLITE_TOOBIG P1
 		raise("DotNet Error: SQLITE_TOOBIG is a read-only property")
 
 	Func getSQLITE_CONSTRAINT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s17:SQLITE_CONSTRAINT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONSTRAINT')
 
 	Func setSQLITE_CONSTRAINT P1
 		raise("DotNet Error: SQLITE_CONSTRAINT is a read-only property")
 
 	Func getSQLITE_MISMATCH
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s15:SQLITE_MISMATCH")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_MISMATCH')
 
 	Func setSQLITE_MISMATCH P1
 		raise("DotNet Error: SQLITE_MISMATCH is a read-only property")
 
 	Func getSQLITE_MISUSE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s13:SQLITE_MISUSE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_MISUSE')
 
 	Func setSQLITE_MISUSE P1
 		raise("DotNet Error: SQLITE_MISUSE is a read-only property")
 
 	Func getSQLITE_NOLFS
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s12:SQLITE_NOLFS")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_NOLFS')
 
 	Func setSQLITE_NOLFS P1
 		raise("DotNet Error: SQLITE_NOLFS is a read-only property")
 
 	Func getSQLITE_AUTH
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s11:SQLITE_AUTH")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_AUTH')
 
 	Func setSQLITE_AUTH P1
 		raise("DotNet Error: SQLITE_AUTH is a read-only property")
 
 	Func getSQLITE_FORMAT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s13:SQLITE_FORMAT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_FORMAT')
 
 	Func setSQLITE_FORMAT P1
 		raise("DotNet Error: SQLITE_FORMAT is a read-only property")
 
 	Func getSQLITE_RANGE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s12:SQLITE_RANGE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_RANGE')
 
 	Func setSQLITE_RANGE P1
 		raise("DotNet Error: SQLITE_RANGE is a read-only property")
 
 	Func getSQLITE_NOTADB
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s13:SQLITE_NOTADB")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_NOTADB')
 
 	Func setSQLITE_NOTADB P1
 		raise("DotNet Error: SQLITE_NOTADB is a read-only property")
 
 	Func getSQLITE_NOTICE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s13:SQLITE_NOTICE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_NOTICE')
 
 	Func setSQLITE_NOTICE P1
 		raise("DotNet Error: SQLITE_NOTICE is a read-only property")
 
 	Func getSQLITE_WARNING
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s14:SQLITE_WARNING")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_WARNING')
 
 	Func setSQLITE_WARNING P1
 		raise("DotNet Error: SQLITE_WARNING is a read-only property")
 
 	Func getSQLITE_ROW
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s10:SQLITE_ROW")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_ROW')
 
 	Func setSQLITE_ROW P1
 		raise("DotNet Error: SQLITE_ROW is a read-only property")
 
 	Func getSQLITE_DONE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s11:SQLITE_DONE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DONE')
 
 	Func setSQLITE_DONE P1
 		raise("DotNet Error: SQLITE_DONE is a read-only property")
 
 	Func getSQLITE_IOERR_READ
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s17:SQLITE_IOERR_READ")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_READ')
 
 	Func setSQLITE_IOERR_READ P1
 		raise("DotNet Error: SQLITE_IOERR_READ is a read-only property")
 
 	Func getSQLITE_IOERR_SHORT_READ
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s23:SQLITE_IOERR_SHORT_READ")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_SHORT_READ')
 
 	Func setSQLITE_IOERR_SHORT_READ P1
 		raise("DotNet Error: SQLITE_IOERR_SHORT_READ is a read-only property")
 
 	Func getSQLITE_IOERR_WRITE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s18:SQLITE_IOERR_WRITE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_WRITE')
 
 	Func setSQLITE_IOERR_WRITE P1
 		raise("DotNet Error: SQLITE_IOERR_WRITE is a read-only property")
 
 	Func getSQLITE_IOERR_FSYNC
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s18:SQLITE_IOERR_FSYNC")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_FSYNC')
 
 	Func setSQLITE_IOERR_FSYNC P1
 		raise("DotNet Error: SQLITE_IOERR_FSYNC is a read-only property")
 
 	Func getSQLITE_IOERR_DIR_FSYNC
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s22:SQLITE_IOERR_DIR_FSYNC")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_DIR_FSYNC')
 
 	Func setSQLITE_IOERR_DIR_FSYNC P1
 		raise("DotNet Error: SQLITE_IOERR_DIR_FSYNC is a read-only property")
 
 	Func getSQLITE_IOERR_TRUNCATE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s21:SQLITE_IOERR_TRUNCATE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_TRUNCATE')
 
 	Func setSQLITE_IOERR_TRUNCATE P1
 		raise("DotNet Error: SQLITE_IOERR_TRUNCATE is a read-only property")
 
 	Func getSQLITE_IOERR_FSTAT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s18:SQLITE_IOERR_FSTAT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_FSTAT')
 
 	Func setSQLITE_IOERR_FSTAT P1
 		raise("DotNet Error: SQLITE_IOERR_FSTAT is a read-only property")
 
 	Func getSQLITE_IOERR_UNLOCK
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s19:SQLITE_IOERR_UNLOCK")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_UNLOCK')
 
 	Func setSQLITE_IOERR_UNLOCK P1
 		raise("DotNet Error: SQLITE_IOERR_UNLOCK is a read-only property")
 
 	Func getSQLITE_IOERR_RDLOCK
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s19:SQLITE_IOERR_RDLOCK")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_RDLOCK')
 
 	Func setSQLITE_IOERR_RDLOCK P1
 		raise("DotNet Error: SQLITE_IOERR_RDLOCK is a read-only property")
 
 	Func getSQLITE_IOERR_DELETE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s19:SQLITE_IOERR_DELETE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_DELETE')
 
 	Func setSQLITE_IOERR_DELETE P1
 		raise("DotNet Error: SQLITE_IOERR_DELETE is a read-only property")
 
 	Func getSQLITE_IOERR_BLOCKED
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s20:SQLITE_IOERR_BLOCKED")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_BLOCKED')
 
 	Func setSQLITE_IOERR_BLOCKED P1
 		raise("DotNet Error: SQLITE_IOERR_BLOCKED is a read-only property")
 
 	Func getSQLITE_IOERR_NOMEM
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s18:SQLITE_IOERR_NOMEM")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_NOMEM')
 
 	Func setSQLITE_IOERR_NOMEM P1
 		raise("DotNet Error: SQLITE_IOERR_NOMEM is a read-only property")
 
 	Func getSQLITE_IOERR_ACCESS
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s19:SQLITE_IOERR_ACCESS")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_ACCESS')
 
 	Func setSQLITE_IOERR_ACCESS P1
 		raise("DotNet Error: SQLITE_IOERR_ACCESS is a read-only property")
 
 	Func getSQLITE_IOERR_CHECKRESERVEDLOCK
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s30:SQLITE_IOERR_CHECKRESERVEDLOCK")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_CHECKRESERVEDLOCK')
 
 	Func setSQLITE_IOERR_CHECKRESERVEDLOCK P1
 		raise("DotNet Error: SQLITE_IOERR_CHECKRESERVEDLOCK is a read-only property")
 
 	Func getSQLITE_IOERR_LOCK
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s17:SQLITE_IOERR_LOCK")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_LOCK')
 
 	Func setSQLITE_IOERR_LOCK P1
 		raise("DotNet Error: SQLITE_IOERR_LOCK is a read-only property")
 
 	Func getSQLITE_IOERR_CLOSE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s18:SQLITE_IOERR_CLOSE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_CLOSE')
 
 	Func setSQLITE_IOERR_CLOSE P1
 		raise("DotNet Error: SQLITE_IOERR_CLOSE is a read-only property")
 
 	Func getSQLITE_IOERR_DIR_CLOSE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s22:SQLITE_IOERR_DIR_CLOSE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_DIR_CLOSE')
 
 	Func setSQLITE_IOERR_DIR_CLOSE P1
 		raise("DotNet Error: SQLITE_IOERR_DIR_CLOSE is a read-only property")
 
 	Func getSQLITE_IOERR_SHMOPEN
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s20:SQLITE_IOERR_SHMOPEN")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_SHMOPEN')
 
 	Func setSQLITE_IOERR_SHMOPEN P1
 		raise("DotNet Error: SQLITE_IOERR_SHMOPEN is a read-only property")
 
 	Func getSQLITE_IOERR_SHMSIZE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s20:SQLITE_IOERR_SHMSIZE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_SHMSIZE')
 
 	Func setSQLITE_IOERR_SHMSIZE P1
 		raise("DotNet Error: SQLITE_IOERR_SHMSIZE is a read-only property")
 
 	Func getSQLITE_IOERR_SHMLOCK
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s20:SQLITE_IOERR_SHMLOCK")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_SHMLOCK')
 
 	Func setSQLITE_IOERR_SHMLOCK P1
 		raise("DotNet Error: SQLITE_IOERR_SHMLOCK is a read-only property")
 
 	Func getSQLITE_IOERR_SHMMAP
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s19:SQLITE_IOERR_SHMMAP")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_SHMMAP')
 
 	Func setSQLITE_IOERR_SHMMAP P1
 		raise("DotNet Error: SQLITE_IOERR_SHMMAP is a read-only property")
 
 	Func getSQLITE_IOERR_SEEK
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s17:SQLITE_IOERR_SEEK")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_SEEK')
 
 	Func setSQLITE_IOERR_SEEK P1
 		raise("DotNet Error: SQLITE_IOERR_SEEK is a read-only property")
 
 	Func getSQLITE_IOERR_DELETE_NOENT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s25:SQLITE_IOERR_DELETE_NOENT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_DELETE_NOENT')
 
 	Func setSQLITE_IOERR_DELETE_NOENT P1
 		raise("DotNet Error: SQLITE_IOERR_DELETE_NOENT is a read-only property")
 
 	Func getSQLITE_IOERR_MMAP
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s17:SQLITE_IOERR_MMAP")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_MMAP')
 
 	Func setSQLITE_IOERR_MMAP P1
 		raise("DotNet Error: SQLITE_IOERR_MMAP is a read-only property")
 
 	Func getSQLITE_IOERR_GETTEMPPATH
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s24:SQLITE_IOERR_GETTEMPPATH")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_GETTEMPPATH')
 
 	Func setSQLITE_IOERR_GETTEMPPATH P1
 		raise("DotNet Error: SQLITE_IOERR_GETTEMPPATH is a read-only property")
 
 	Func getSQLITE_IOERR_CONVPATH
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s21:SQLITE_IOERR_CONVPATH")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IOERR_CONVPATH')
 
 	Func setSQLITE_IOERR_CONVPATH P1
 		raise("DotNet Error: SQLITE_IOERR_CONVPATH is a read-only property")
 
 	Func getSQLITE_LOCKED_SHAREDCACHE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s25:SQLITE_LOCKED_SHAREDCACHE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_LOCKED_SHAREDCACHE')
 
 	Func setSQLITE_LOCKED_SHAREDCACHE P1
 		raise("DotNet Error: SQLITE_LOCKED_SHAREDCACHE is a read-only property")
 
 	Func getSQLITE_BUSY_RECOVERY
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s20:SQLITE_BUSY_RECOVERY")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_BUSY_RECOVERY')
 
 	Func setSQLITE_BUSY_RECOVERY P1
 		raise("DotNet Error: SQLITE_BUSY_RECOVERY is a read-only property")
 
 	Func getSQLITE_BUSY_SNAPSHOT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s20:SQLITE_BUSY_SNAPSHOT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_BUSY_SNAPSHOT')
 
 	Func setSQLITE_BUSY_SNAPSHOT P1
 		raise("DotNet Error: SQLITE_BUSY_SNAPSHOT is a read-only property")
 
 	Func getSQLITE_CANTOPEN_NOTEMPDIR
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s25:SQLITE_CANTOPEN_NOTEMPDIR")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CANTOPEN_NOTEMPDIR')
 
 	Func setSQLITE_CANTOPEN_NOTEMPDIR P1
 		raise("DotNet Error: SQLITE_CANTOPEN_NOTEMPDIR is a read-only property")
 
 	Func getSQLITE_CANTOPEN_ISDIR
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s21:SQLITE_CANTOPEN_ISDIR")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CANTOPEN_ISDIR')
 
 	Func setSQLITE_CANTOPEN_ISDIR P1
 		raise("DotNet Error: SQLITE_CANTOPEN_ISDIR is a read-only property")
 
 	Func getSQLITE_CANTOPEN_FULLPATH
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s24:SQLITE_CANTOPEN_FULLPATH")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CANTOPEN_FULLPATH')
 
 	Func setSQLITE_CANTOPEN_FULLPATH P1
 		raise("DotNet Error: SQLITE_CANTOPEN_FULLPATH is a read-only property")
 
 	Func getSQLITE_CANTOPEN_CONVPATH
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s24:SQLITE_CANTOPEN_CONVPATH")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CANTOPEN_CONVPATH')
 
 	Func setSQLITE_CANTOPEN_CONVPATH P1
 		raise("DotNet Error: SQLITE_CANTOPEN_CONVPATH is a read-only property")
 
 	Func getSQLITE_CORRUPT_VTAB
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s19:SQLITE_CORRUPT_VTAB")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CORRUPT_VTAB')
 
 	Func setSQLITE_CORRUPT_VTAB P1
 		raise("DotNet Error: SQLITE_CORRUPT_VTAB is a read-only property")
 
 	Func getSQLITE_READONLY_RECOVERY
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s24:SQLITE_READONLY_RECOVERY")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_READONLY_RECOVERY')
 
 	Func setSQLITE_READONLY_RECOVERY P1
 		raise("DotNet Error: SQLITE_READONLY_RECOVERY is a read-only property")
 
 	Func getSQLITE_READONLY_CANTLOCK
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s24:SQLITE_READONLY_CANTLOCK")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_READONLY_CANTLOCK')
 
 	Func setSQLITE_READONLY_CANTLOCK P1
 		raise("DotNet Error: SQLITE_READONLY_CANTLOCK is a read-only property")
 
 	Func getSQLITE_READONLY_ROLLBACK
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s24:SQLITE_READONLY_ROLLBACK")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_READONLY_ROLLBACK')
 
 	Func setSQLITE_READONLY_ROLLBACK P1
 		raise("DotNet Error: SQLITE_READONLY_ROLLBACK is a read-only property")
 
 	Func getSQLITE_READONLY_DBMOVED
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s23:SQLITE_READONLY_DBMOVED")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_READONLY_DBMOVED')
 
 	Func setSQLITE_READONLY_DBMOVED P1
 		raise("DotNet Error: SQLITE_READONLY_DBMOVED is a read-only property")
 
 	Func getSQLITE_ABORT_ROLLBACK
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s21:SQLITE_ABORT_ROLLBACK")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_ABORT_ROLLBACK')
 
 	Func setSQLITE_ABORT_ROLLBACK P1
 		raise("DotNet Error: SQLITE_ABORT_ROLLBACK is a read-only property")
 
 	Func getSQLITE_CONSTRAINT_CHECK
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s23:SQLITE_CONSTRAINT_CHECK")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONSTRAINT_CHECK')
 
 	Func setSQLITE_CONSTRAINT_CHECK P1
 		raise("DotNet Error: SQLITE_CONSTRAINT_CHECK is a read-only property")
 
 	Func getSQLITE_CONSTRAINT_COMMITHOOK
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s28:SQLITE_CONSTRAINT_COMMITHOOK")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONSTRAINT_COMMITHOOK')
 
 	Func setSQLITE_CONSTRAINT_COMMITHOOK P1
 		raise("DotNet Error: SQLITE_CONSTRAINT_COMMITHOOK is a read-only property")
 
 	Func getSQLITE_CONSTRAINT_FOREIGNKEY
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s28:SQLITE_CONSTRAINT_FOREIGNKEY")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONSTRAINT_FOREIGNKEY')
 
 	Func setSQLITE_CONSTRAINT_FOREIGNKEY P1
 		raise("DotNet Error: SQLITE_CONSTRAINT_FOREIGNKEY is a read-only property")
 
 	Func getSQLITE_CONSTRAINT_FUNCTION
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s26:SQLITE_CONSTRAINT_FUNCTION")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONSTRAINT_FUNCTION')
 
 	Func setSQLITE_CONSTRAINT_FUNCTION P1
 		raise("DotNet Error: SQLITE_CONSTRAINT_FUNCTION is a read-only property")
 
 	Func getSQLITE_CONSTRAINT_NOTNULL
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s25:SQLITE_CONSTRAINT_NOTNULL")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONSTRAINT_NOTNULL')
 
 	Func setSQLITE_CONSTRAINT_NOTNULL P1
 		raise("DotNet Error: SQLITE_CONSTRAINT_NOTNULL is a read-only property")
 
 	Func getSQLITE_CONSTRAINT_PRIMARYKEY
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s28:SQLITE_CONSTRAINT_PRIMARYKEY")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONSTRAINT_PRIMARYKEY')
 
 	Func setSQLITE_CONSTRAINT_PRIMARYKEY P1
 		raise("DotNet Error: SQLITE_CONSTRAINT_PRIMARYKEY is a read-only property")
 
 	Func getSQLITE_CONSTRAINT_TRIGGER
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s25:SQLITE_CONSTRAINT_TRIGGER")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONSTRAINT_TRIGGER')
 
 	Func setSQLITE_CONSTRAINT_TRIGGER P1
 		raise("DotNet Error: SQLITE_CONSTRAINT_TRIGGER is a read-only property")
 
 	Func getSQLITE_CONSTRAINT_UNIQUE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s24:SQLITE_CONSTRAINT_UNIQUE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONSTRAINT_UNIQUE')
 
 	Func setSQLITE_CONSTRAINT_UNIQUE P1
 		raise("DotNet Error: SQLITE_CONSTRAINT_UNIQUE is a read-only property")
 
 	Func getSQLITE_CONSTRAINT_VTAB
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s22:SQLITE_CONSTRAINT_VTAB")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONSTRAINT_VTAB')
 
 	Func setSQLITE_CONSTRAINT_VTAB P1
 		raise("DotNet Error: SQLITE_CONSTRAINT_VTAB is a read-only property")
 
 	Func getSQLITE_CONSTRAINT_ROWID
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s23:SQLITE_CONSTRAINT_ROWID")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CONSTRAINT_ROWID')
 
 	Func setSQLITE_CONSTRAINT_ROWID P1
 		raise("DotNet Error: SQLITE_CONSTRAINT_ROWID is a read-only property")
 
 	Func getSQLITE_NOTICE_RECOVER_WAL
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s25:SQLITE_NOTICE_RECOVER_WAL")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_NOTICE_RECOVER_WAL')
 
 	Func setSQLITE_NOTICE_RECOVER_WAL P1
 		raise("DotNet Error: SQLITE_NOTICE_RECOVER_WAL is a read-only property")
 
 	Func getSQLITE_NOTICE_RECOVER_ROLLBACK
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s30:SQLITE_NOTICE_RECOVER_ROLLBACK")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_NOTICE_RECOVER_ROLLBACK')
 
 	Func setSQLITE_NOTICE_RECOVER_ROLLBACK P1
 		raise("DotNet Error: SQLITE_NOTICE_RECOVER_ROLLBACK is a read-only property")
 
 	Func getSQLITE_WARNING_AUTOINDEX
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s24:SQLITE_WARNING_AUTOINDEX")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_WARNING_AUTOINDEX')
 
 	Func setSQLITE_WARNING_AUTOINDEX P1
 		raise("DotNet Error: SQLITE_WARNING_AUTOINDEX is a read-only property")
 
 	Func getSQLITE_CREATE_INDEX
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s19:SQLITE_CREATE_INDEX")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CREATE_INDEX')
 
 	Func setSQLITE_CREATE_INDEX P1
 		raise("DotNet Error: SQLITE_CREATE_INDEX is a read-only property")
 
 	Func getSQLITE_CREATE_TABLE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s19:SQLITE_CREATE_TABLE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CREATE_TABLE')
 
 	Func setSQLITE_CREATE_TABLE P1
 		raise("DotNet Error: SQLITE_CREATE_TABLE is a read-only property")
 
 	Func getSQLITE_CREATE_TEMP_INDEX
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s24:SQLITE_CREATE_TEMP_INDEX")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CREATE_TEMP_INDEX')
 
 	Func setSQLITE_CREATE_TEMP_INDEX P1
 		raise("DotNet Error: SQLITE_CREATE_TEMP_INDEX is a read-only property")
 
 	Func getSQLITE_CREATE_TEMP_TABLE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s24:SQLITE_CREATE_TEMP_TABLE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CREATE_TEMP_TABLE')
 
 	Func setSQLITE_CREATE_TEMP_TABLE P1
 		raise("DotNet Error: SQLITE_CREATE_TEMP_TABLE is a read-only property")
 
 	Func getSQLITE_CREATE_TEMP_TRIGGER
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s26:SQLITE_CREATE_TEMP_TRIGGER")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CREATE_TEMP_TRIGGER')
 
 	Func setSQLITE_CREATE_TEMP_TRIGGER P1
 		raise("DotNet Error: SQLITE_CREATE_TEMP_TRIGGER is a read-only property")
 
 	Func getSQLITE_CREATE_TEMP_VIEW
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s23:SQLITE_CREATE_TEMP_VIEW")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CREATE_TEMP_VIEW')
 
 	Func setSQLITE_CREATE_TEMP_VIEW P1
 		raise("DotNet Error: SQLITE_CREATE_TEMP_VIEW is a read-only property")
 
 	Func getSQLITE_CREATE_TRIGGER
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s21:SQLITE_CREATE_TRIGGER")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CREATE_TRIGGER')
 
 	Func setSQLITE_CREATE_TRIGGER P1
 		raise("DotNet Error: SQLITE_CREATE_TRIGGER is a read-only property")
 
 	Func getSQLITE_CREATE_VIEW
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s18:SQLITE_CREATE_VIEW")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CREATE_VIEW')
 
 	Func setSQLITE_CREATE_VIEW P1
 		raise("DotNet Error: SQLITE_CREATE_VIEW is a read-only property")
 
 	Func getSQLITE_DELETE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s13:SQLITE_DELETE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DELETE')
 
 	Func setSQLITE_DELETE P1
 		raise("DotNet Error: SQLITE_DELETE is a read-only property")
 
 	Func getSQLITE_DROP_INDEX
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s17:SQLITE_DROP_INDEX")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DROP_INDEX')
 
 	Func setSQLITE_DROP_INDEX P1
 		raise("DotNet Error: SQLITE_DROP_INDEX is a read-only property")
 
 	Func getSQLITE_DROP_TABLE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s17:SQLITE_DROP_TABLE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DROP_TABLE')
 
 	Func setSQLITE_DROP_TABLE P1
 		raise("DotNet Error: SQLITE_DROP_TABLE is a read-only property")
 
 	Func getSQLITE_DROP_TEMP_INDEX
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s22:SQLITE_DROP_TEMP_INDEX")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DROP_TEMP_INDEX')
 
 	Func setSQLITE_DROP_TEMP_INDEX P1
 		raise("DotNet Error: SQLITE_DROP_TEMP_INDEX is a read-only property")
 
 	Func getSQLITE_DROP_TEMP_TABLE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s22:SQLITE_DROP_TEMP_TABLE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DROP_TEMP_TABLE')
 
 	Func setSQLITE_DROP_TEMP_TABLE P1
 		raise("DotNet Error: SQLITE_DROP_TEMP_TABLE is a read-only property")
 
 	Func getSQLITE_DROP_TEMP_TRIGGER
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s24:SQLITE_DROP_TEMP_TRIGGER")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DROP_TEMP_TRIGGER')
 
 	Func setSQLITE_DROP_TEMP_TRIGGER P1
 		raise("DotNet Error: SQLITE_DROP_TEMP_TRIGGER is a read-only property")
 
 	Func getSQLITE_DROP_TEMP_VIEW
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s21:SQLITE_DROP_TEMP_VIEW")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DROP_TEMP_VIEW')
 
 	Func setSQLITE_DROP_TEMP_VIEW P1
 		raise("DotNet Error: SQLITE_DROP_TEMP_VIEW is a read-only property")
 
 	Func getSQLITE_DROP_TRIGGER
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s19:SQLITE_DROP_TRIGGER")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DROP_TRIGGER')
 
 	Func setSQLITE_DROP_TRIGGER P1
 		raise("DotNet Error: SQLITE_DROP_TRIGGER is a read-only property")
 
 	Func getSQLITE_DROP_VIEW
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s16:SQLITE_DROP_VIEW")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DROP_VIEW')
 
 	Func setSQLITE_DROP_VIEW P1
 		raise("DotNet Error: SQLITE_DROP_VIEW is a read-only property")
 
 	Func getSQLITE_INSERT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s13:SQLITE_INSERT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_INSERT')
 
 	Func setSQLITE_INSERT P1
 		raise("DotNet Error: SQLITE_INSERT is a read-only property")
 
 	Func getSQLITE_PRAGMA
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s13:SQLITE_PRAGMA")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_PRAGMA')
 
 	Func setSQLITE_PRAGMA P1
 		raise("DotNet Error: SQLITE_PRAGMA is a read-only property")
 
 	Func getSQLITE_READ
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s11:SQLITE_READ")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_READ')
 
 	Func setSQLITE_READ P1
 		raise("DotNet Error: SQLITE_READ is a read-only property")
 
 	Func getSQLITE_SELECT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s13:SQLITE_SELECT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_SELECT')
 
 	Func setSQLITE_SELECT P1
 		raise("DotNet Error: SQLITE_SELECT is a read-only property")
 
 	Func getSQLITE_TRANSACTION
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s18:SQLITE_TRANSACTION")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_TRANSACTION')
 
 	Func setSQLITE_TRANSACTION P1
 		raise("DotNet Error: SQLITE_TRANSACTION is a read-only property")
 
 	Func getSQLITE_UPDATE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s13:SQLITE_UPDATE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_UPDATE')
 
 	Func setSQLITE_UPDATE P1
 		raise("DotNet Error: SQLITE_UPDATE is a read-only property")
 
 	Func getSQLITE_ATTACH
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s13:SQLITE_ATTACH")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_ATTACH')
 
 	Func setSQLITE_ATTACH P1
 		raise("DotNet Error: SQLITE_ATTACH is a read-only property")
 
 	Func getSQLITE_DETACH
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s13:SQLITE_DETACH")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DETACH')
 
 	Func setSQLITE_DETACH P1
 		raise("DotNet Error: SQLITE_DETACH is a read-only property")
 
 	Func getSQLITE_ALTER_TABLE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s18:SQLITE_ALTER_TABLE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_ALTER_TABLE')
 
 	Func setSQLITE_ALTER_TABLE P1
 		raise("DotNet Error: SQLITE_ALTER_TABLE is a read-only property")
 
 	Func getSQLITE_REINDEX
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s14:SQLITE_REINDEX")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_REINDEX')
 
 	Func setSQLITE_REINDEX P1
 		raise("DotNet Error: SQLITE_REINDEX is a read-only property")
 
 	Func getSQLITE_ANALYZE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s14:SQLITE_ANALYZE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_ANALYZE')
 
 	Func setSQLITE_ANALYZE P1
 		raise("DotNet Error: SQLITE_ANALYZE is a read-only property")
 
 	Func getSQLITE_CREATE_VTABLE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s20:SQLITE_CREATE_VTABLE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CREATE_VTABLE')
 
 	Func setSQLITE_CREATE_VTABLE P1
 		raise("DotNet Error: SQLITE_CREATE_VTABLE is a read-only property")
 
 	Func getSQLITE_DROP_VTABLE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s18:SQLITE_DROP_VTABLE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DROP_VTABLE')
 
 	Func setSQLITE_DROP_VTABLE P1
 		raise("DotNet Error: SQLITE_DROP_VTABLE is a read-only property")
 
 	Func getSQLITE_FUNCTION
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s15:SQLITE_FUNCTION")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_FUNCTION')
 
 	Func setSQLITE_FUNCTION P1
 		raise("DotNet Error: SQLITE_FUNCTION is a read-only property")
 
 	Func getSQLITE_SAVEPOINT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s16:SQLITE_SAVEPOINT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_SAVEPOINT')
 
 	Func setSQLITE_SAVEPOINT P1
 		raise("DotNet Error: SQLITE_SAVEPOINT is a read-only property")
 
 	Func getSQLITE_COPY
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s11:SQLITE_COPY")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_COPY')
 
 	Func setSQLITE_COPY P1
 		raise("DotNet Error: SQLITE_COPY is a read-only property")
 
 	Func getSQLITE_RECURSIVE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s16:SQLITE_RECURSIVE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_RECURSIVE')
 
 	Func setSQLITE_RECURSIVE P1
 		raise("DotNet Error: SQLITE_RECURSIVE is a read-only property")
 
 	Func getSQLITE_CHECKPOINT_PASSIVE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s25:SQLITE_CHECKPOINT_PASSIVE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CHECKPOINT_PASSIVE')
 
 	Func setSQLITE_CHECKPOINT_PASSIVE P1
 		raise("DotNet Error: SQLITE_CHECKPOINT_PASSIVE is a read-only property")
 
 	Func getSQLITE_CHECKPOINT_FULL
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s22:SQLITE_CHECKPOINT_FULL")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CHECKPOINT_FULL')
 
 	Func setSQLITE_CHECKPOINT_FULL P1
 		raise("DotNet Error: SQLITE_CHECKPOINT_FULL is a read-only property")
 
 	Func getSQLITE_CHECKPOINT_RESTART
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s25:SQLITE_CHECKPOINT_RESTART")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CHECKPOINT_RESTART')
 
 	Func setSQLITE_CHECKPOINT_RESTART P1
 		raise("DotNet Error: SQLITE_CHECKPOINT_RESTART is a read-only property")
 
 	Func getSQLITE_CHECKPOINT_TRUNCATE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s26:SQLITE_CHECKPOINT_TRUNCATE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_CHECKPOINT_TRUNCATE')
 
 	Func setSQLITE_CHECKPOINT_TRUNCATE P1
 		raise("DotNet Error: SQLITE_CHECKPOINT_TRUNCATE is a read-only property")
 
 	Func getSQLITE_DBSTATUS_LOOKASIDE_USED
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s30:SQLITE_DBSTATUS_LOOKASIDE_USED")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBSTATUS_LOOKASIDE_USED')
 
 	Func setSQLITE_DBSTATUS_LOOKASIDE_USED P1
 		raise("DotNet Error: SQLITE_DBSTATUS_LOOKASIDE_USED is a read-only property")
 
 	Func getSQLITE_DBSTATUS_CACHE_USED
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s26:SQLITE_DBSTATUS_CACHE_USED")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBSTATUS_CACHE_USED')
 
 	Func setSQLITE_DBSTATUS_CACHE_USED P1
 		raise("DotNet Error: SQLITE_DBSTATUS_CACHE_USED is a read-only property")
 
 	Func getSQLITE_DBSTATUS_SCHEMA_USED
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s27:SQLITE_DBSTATUS_SCHEMA_USED")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBSTATUS_SCHEMA_USED')
 
 	Func setSQLITE_DBSTATUS_SCHEMA_USED P1
 		raise("DotNet Error: SQLITE_DBSTATUS_SCHEMA_USED is a read-only property")
 
 	Func getSQLITE_DBSTATUS_STMT_USED
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s25:SQLITE_DBSTATUS_STMT_USED")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBSTATUS_STMT_USED')
 
 	Func setSQLITE_DBSTATUS_STMT_USED P1
 		raise("DotNet Error: SQLITE_DBSTATUS_STMT_USED is a read-only property")
 
 	Func getSQLITE_DBSTATUS_LOOKASIDE_HIT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s29:SQLITE_DBSTATUS_LOOKASIDE_HIT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBSTATUS_LOOKASIDE_HIT')
 
 	Func setSQLITE_DBSTATUS_LOOKASIDE_HIT P1
 		raise("DotNet Error: SQLITE_DBSTATUS_LOOKASIDE_HIT is a read-only property")
 
 	Func getSQLITE_DBSTATUS_LOOKASIDE_MISS_SIZE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s35:SQLITE_DBSTATUS_LOOKASIDE_MISS_SIZE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBSTATUS_LOOKASIDE_MISS_SIZE')
 
 	Func setSQLITE_DBSTATUS_LOOKASIDE_MISS_SIZE P1
 		raise("DotNet Error: SQLITE_DBSTATUS_LOOKASIDE_MISS_SIZE is a read-only property")
 
 	Func getSQLITE_DBSTATUS_LOOKASIDE_MISS_FULL
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s35:SQLITE_DBSTATUS_LOOKASIDE_MISS_FULL")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBSTATUS_LOOKASIDE_MISS_FULL')
 
 	Func setSQLITE_DBSTATUS_LOOKASIDE_MISS_FULL P1
 		raise("DotNet Error: SQLITE_DBSTATUS_LOOKASIDE_MISS_FULL is a read-only property")
 
 	Func getSQLITE_DBSTATUS_CACHE_HIT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s25:SQLITE_DBSTATUS_CACHE_HIT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBSTATUS_CACHE_HIT')
 
 	Func setSQLITE_DBSTATUS_CACHE_HIT P1
 		raise("DotNet Error: SQLITE_DBSTATUS_CACHE_HIT is a read-only property")
 
 	Func getSQLITE_DBSTATUS_CACHE_MISS
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s26:SQLITE_DBSTATUS_CACHE_MISS")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBSTATUS_CACHE_MISS')
 
 	Func setSQLITE_DBSTATUS_CACHE_MISS P1
 		raise("DotNet Error: SQLITE_DBSTATUS_CACHE_MISS is a read-only property")
 
 	Func getSQLITE_DBSTATUS_CACHE_WRITE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s27:SQLITE_DBSTATUS_CACHE_WRITE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBSTATUS_CACHE_WRITE')
 
 	Func setSQLITE_DBSTATUS_CACHE_WRITE P1
 		raise("DotNet Error: SQLITE_DBSTATUS_CACHE_WRITE is a read-only property")
 
 	Func getSQLITE_DBSTATUS_DEFERRED_FKS
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s28:SQLITE_DBSTATUS_DEFERRED_FKS")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DBSTATUS_DEFERRED_FKS')
 
 	Func setSQLITE_DBSTATUS_DEFERRED_FKS P1
 		raise("DotNet Error: SQLITE_DBSTATUS_DEFERRED_FKS is a read-only property")
 
 	Func getSQLITE_STATUS_MEMORY_USED
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s25:SQLITE_STATUS_MEMORY_USED")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_STATUS_MEMORY_USED')
 
 	Func setSQLITE_STATUS_MEMORY_USED P1
 		raise("DotNet Error: SQLITE_STATUS_MEMORY_USED is a read-only property")
 
 	Func getSQLITE_STATUS_PAGECACHE_USED
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s28:SQLITE_STATUS_PAGECACHE_USED")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_STATUS_PAGECACHE_USED')
 
 	Func setSQLITE_STATUS_PAGECACHE_USED P1
 		raise("DotNet Error: SQLITE_STATUS_PAGECACHE_USED is a read-only property")
 
 	Func getSQLITE_STATUS_PAGECACHE_OVERFLOW
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s32:SQLITE_STATUS_PAGECACHE_OVERFLOW")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_STATUS_PAGECACHE_OVERFLOW')
 
 	Func setSQLITE_STATUS_PAGECACHE_OVERFLOW P1
 		raise("DotNet Error: SQLITE_STATUS_PAGECACHE_OVERFLOW is a read-only property")
 
 	Func getSQLITE_STATUS_SCRATCH_USED
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s26:SQLITE_STATUS_SCRATCH_USED")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_STATUS_SCRATCH_USED')
 
 	Func setSQLITE_STATUS_SCRATCH_USED P1
 		raise("DotNet Error: SQLITE_STATUS_SCRATCH_USED is a read-only property")
 
 	Func getSQLITE_STATUS_SCRATCH_OVERFLOW
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s30:SQLITE_STATUS_SCRATCH_OVERFLOW")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_STATUS_SCRATCH_OVERFLOW')
 
 	Func setSQLITE_STATUS_SCRATCH_OVERFLOW P1
 		raise("DotNet Error: SQLITE_STATUS_SCRATCH_OVERFLOW is a read-only property")
 
 	Func getSQLITE_STATUS_MALLOC_SIZE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s25:SQLITE_STATUS_MALLOC_SIZE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_STATUS_MALLOC_SIZE')
 
 	Func setSQLITE_STATUS_MALLOC_SIZE P1
 		raise("DotNet Error: SQLITE_STATUS_MALLOC_SIZE is a read-only property")
 
 	Func getSQLITE_STATUS_PARSER_STACK
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s26:SQLITE_STATUS_PARSER_STACK")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_STATUS_PARSER_STACK')
 
 	Func setSQLITE_STATUS_PARSER_STACK P1
 		raise("DotNet Error: SQLITE_STATUS_PARSER_STACK is a read-only property")
 
 	Func getSQLITE_STATUS_PAGECACHE_SIZE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s28:SQLITE_STATUS_PAGECACHE_SIZE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_STATUS_PAGECACHE_SIZE')
 
 	Func setSQLITE_STATUS_PAGECACHE_SIZE P1
 		raise("DotNet Error: SQLITE_STATUS_PAGECACHE_SIZE is a read-only property")
 
 	Func getSQLITE_STATUS_SCRATCH_SIZE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s26:SQLITE_STATUS_SCRATCH_SIZE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_STATUS_SCRATCH_SIZE')
 
 	Func setSQLITE_STATUS_SCRATCH_SIZE P1
 		raise("DotNet Error: SQLITE_STATUS_SCRATCH_SIZE is a read-only property")
 
 	Func getSQLITE_STATUS_MALLOC_COUNT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s26:SQLITE_STATUS_MALLOC_COUNT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_STATUS_MALLOC_COUNT')
 
 	Func setSQLITE_STATUS_MALLOC_COUNT P1
 		raise("DotNet Error: SQLITE_STATUS_MALLOC_COUNT is a read-only property")
 
 	Func getSQLITE_STMTSTATUS_FULLSCAN_STEP
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s31:SQLITE_STMTSTATUS_FULLSCAN_STEP")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_STMTSTATUS_FULLSCAN_STEP')
 
 	Func setSQLITE_STMTSTATUS_FULLSCAN_STEP P1
 		raise("DotNet Error: SQLITE_STMTSTATUS_FULLSCAN_STEP is a read-only property")
 
 	Func getSQLITE_STMTSTATUS_SORT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s22:SQLITE_STMTSTATUS_SORT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_STMTSTATUS_SORT')
 
 	Func setSQLITE_STMTSTATUS_SORT P1
 		raise("DotNet Error: SQLITE_STMTSTATUS_SORT is a read-only property")
 
 	Func getSQLITE_STMTSTATUS_AUTOINDEX
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s27:SQLITE_STMTSTATUS_AUTOINDEX")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_STMTSTATUS_AUTOINDEX')
 
 	Func setSQLITE_STMTSTATUS_AUTOINDEX P1
 		raise("DotNet Error: SQLITE_STMTSTATUS_AUTOINDEX is a read-only property")
 
 	Func getSQLITE_STMTSTATUS_VM_STEP
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s25:SQLITE_STMTSTATUS_VM_STEP")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_STMTSTATUS_VM_STEP')
 
 	Func setSQLITE_STMTSTATUS_VM_STEP P1
 		raise("DotNet Error: SQLITE_STMTSTATUS_VM_STEP is a read-only property")
 
 	Func getSQLITE_DENY
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s11:SQLITE_DENY")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DENY')
 
 	Func setSQLITE_DENY P1
 		raise("DotNet Error: SQLITE_DENY is a read-only property")
 
 	Func getSQLITE_IGNORE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s13:SQLITE_IGNORE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_IGNORE')
 
 	Func setSQLITE_IGNORE P1
 		raise("DotNet Error: SQLITE_IGNORE is a read-only property")
 
 	Func getSQLITE_TRACE_STMT
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s17:SQLITE_TRACE_STMT")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_TRACE_STMT')
 
 	Func setSQLITE_TRACE_STMT P1
 		raise("DotNet Error: SQLITE_TRACE_STMT is a read-only property")
 
 	Func getSQLITE_TRACE_PROFILE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s20:SQLITE_TRACE_PROFILE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_TRACE_PROFILE')
 
 	Func setSQLITE_TRACE_PROFILE P1
 		raise("DotNet Error: SQLITE_TRACE_PROFILE is a read-only property")
 
 	Func getSQLITE_TRACE_ROW
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s16:SQLITE_TRACE_ROW")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_TRACE_ROW')
 
 	Func setSQLITE_TRACE_ROW P1
 		raise("DotNet Error: SQLITE_TRACE_ROW is a read-only property")
 
 	Func getSQLITE_TRACE_CLOSE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s18:SQLITE_TRACE_CLOSE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_TRACE_CLOSE')
 
 	Func setSQLITE_TRACE_CLOSE P1
 		raise("DotNet Error: SQLITE_TRACE_CLOSE is a read-only property")
 
 	Func getSQLITE_SERIALIZE_NOCOPY
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s23:SQLITE_SERIALIZE_NOCOPY")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_SERIALIZE_NOCOPY')
 
 	Func setSQLITE_SERIALIZE_NOCOPY P1
 		raise("DotNet Error: SQLITE_SERIALIZE_NOCOPY is a read-only property")
 
 	Func getSQLITE_DESERIALIZE_FREEONCLOSE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s30:SQLITE_DESERIALIZE_FREEONCLOSE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DESERIALIZE_FREEONCLOSE')
 
 	Func setSQLITE_DESERIALIZE_FREEONCLOSE P1
 		raise("DotNet Error: SQLITE_DESERIALIZE_FREEONCLOSE is a read-only property")
 
 	Func getSQLITE_DESERIALIZE_RESIZEABLE
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s29:SQLITE_DESERIALIZE_RESIZEABLE")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DESERIALIZE_RESIZEABLE')
 
 	Func setSQLITE_DESERIALIZE_RESIZEABLE P1
 		raise("DotNet Error: SQLITE_DESERIALIZE_RESIZEABLE is a read-only property")
 
 	Func getSQLITE_DESERIALIZE_READONLY
-		return dotnet_call("s3:get",'SQLitePCL.raw, SQLitePCLRaw.core',"s27:SQLITE_DESERIALIZE_READONLY")
+		return dotnet_getps('SQLitePCL.raw, SQLitePCLRaw.core','SQLITE_DESERIALIZE_READONLY')
 
 	Func setSQLITE_DESERIALIZE_READONLY P1
 		raise("DotNet Error: SQLITE_DESERIALIZE_READONLY is a read-only property")

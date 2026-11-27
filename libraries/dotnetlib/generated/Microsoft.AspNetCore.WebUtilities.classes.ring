@@ -665,19 +665,19 @@ Class FormReader from Object
 		return self
 
 	Func getDefaultValueCountLimit
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',"s22:DefaultValueCountLimit")
+		return dotnet_getps('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities','DefaultValueCountLimit')
 
 	Func setDefaultValueCountLimit P1
 		raise("DotNet Error: DefaultValueCountLimit is a read-only property")
 
 	Func getDefaultKeyLengthLimit
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',"s21:DefaultKeyLengthLimit")
+		return dotnet_getps('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities','DefaultKeyLengthLimit')
 
 	Func setDefaultKeyLengthLimit P1
 		raise("DotNet Error: DefaultKeyLengthLimit is a read-only property")
 
 	Func getDefaultValueLengthLimit
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',"s23:DefaultValueLengthLimit")
+		return dotnet_getps('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities','DefaultValueLengthLimit')
 
 	Func setDefaultValueLengthLimit P1
 		raise("DotNet Error: DefaultValueLengthLimit is a read-only property")
@@ -873,13 +873,13 @@ Class MultipartReader from Object
 		return self
 
 	Func getDefaultHeadersCountLimit
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',"s24:DefaultHeadersCountLimit")
+		return dotnet_getps('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities','DefaultHeadersCountLimit')
 
 	Func setDefaultHeadersCountLimit P1
 		raise("DotNet Error: DefaultHeadersCountLimit is a read-only property")
 
 	Func getDefaultHeadersLengthLimit
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',"s25:DefaultHeadersLengthLimit")
+		return dotnet_getps('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities','DefaultHeadersLengthLimit')
 
 	Func setDefaultHeadersLengthLimit P1
 		raise("DotNet Error: DefaultHeadersLengthLimit is a read-only property")

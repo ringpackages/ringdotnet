@@ -5411,7 +5411,7 @@ Class LicenseManager from Object
 		return self
 
 	Func getUsageMode
-		return dnObj(dotnet_callo("s3:get",'System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter',"s9:UsageMode"))
+		return dotnet_getps('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter','UsageMode')
 
 	Func setUsageMode P1
 		raise("DotNet Error: UsageMode is a read-only property")
@@ -6357,7 +6357,7 @@ Class MaskedTextProvider from Object
 		raise("DotNet Error: DefaultPasswordChar is a read-only property")
 
 	Func getInvalidIndex
-		return dotnet_call("s3:get",'System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',"s12:InvalidIndex")
+		return dotnet_getps('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter','InvalidIndex')
 
 	Func setInvalidIndex P1
 		raise("DotNet Error: InvalidIndex is a read-only property")

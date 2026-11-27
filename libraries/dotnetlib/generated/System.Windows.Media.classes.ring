@@ -5464,7 +5464,7 @@ Class Geometry from Animatable
 		raise("DotNet Error: Empty is a read-only property")
 
 	Func getStandardFlatteningTolerance
-		return dotnet_call("s3:get",'System.Windows.Media.Geometry, PresentationCore',"s27:StandardFlatteningTolerance")
+		return dotnet_getps('System.Windows.Media.Geometry, PresentationCore','StandardFlatteningTolerance')
 
 	Func setStandardFlatteningTolerance P1
 		raise("DotNet Error: StandardFlatteningTolerance is a read-only property")
@@ -8982,13 +8982,13 @@ Class RenderCapability from Object
 		return self
 
 	Func getTier
-		return dotnet_call("s3:get",'System.Windows.Media.RenderCapability, PresentationCore',"s4:Tier")
+		return dotnet_getps('System.Windows.Media.RenderCapability, PresentationCore','Tier')
 
 	Func setTier P1
 		raise("DotNet Error: Tier is a read-only property")
 
 	Func getIsShaderEffectSoftwareRenderingSupported
-		return dotnet_call("s3:get",'System.Windows.Media.RenderCapability, PresentationCore',"s40:IsShaderEffectSoftwareRenderingSupported")
+		return dotnet_getps('System.Windows.Media.RenderCapability, PresentationCore','IsShaderEffectSoftwareRenderingSupported')
 
 	Func setIsShaderEffectSoftwareRenderingSupported P1
 		raise("DotNet Error: IsShaderEffectSoftwareRenderingSupported is a read-only property")
@@ -9077,10 +9077,10 @@ Class RenderOptions from Object
 		return self
 
 	Func getProcessRenderMode
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Media.RenderOptions, PresentationCore',"s17:ProcessRenderMode"))
+		return dotnet_getps('System.Windows.Media.RenderOptions, PresentationCore','ProcessRenderMode')
 
 	Func setProcessRenderMode P1
-		dotnet_callv("s3:set",'System.Windows.Media.RenderOptions, PresentationCore',"s17:ProcessRenderMode",P1)
+		dotnet_setps('System.Windows.Media.RenderOptions, PresentationCore','ProcessRenderMode',P1)
 		return self
 
 	Func getEdgeModeProperty

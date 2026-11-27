@@ -2109,13 +2109,13 @@ Class NetworkInterface from Object
 		raise("DotNet Error: NetworkInterfaceType is a read-only property")
 
 	Func getIPv6LoopbackInterfaceIndex
-		return dotnet_call("s3:get",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s26:IPv6LoopbackInterfaceIndex")
+		return dotnet_getps('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation','IPv6LoopbackInterfaceIndex')
 
 	Func setIPv6LoopbackInterfaceIndex P1
 		raise("DotNet Error: IPv6LoopbackInterfaceIndex is a read-only property")
 
 	Func getLoopbackInterfaceIndex
-		return dotnet_call("s3:get",'System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation',"s22:LoopbackInterfaceIndex")
+		return dotnet_getps('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation','LoopbackInterfaceIndex')
 
 	Func setLoopbackInterfaceIndex P1
 		raise("DotNet Error: LoopbackInterfaceIndex is a read-only property")

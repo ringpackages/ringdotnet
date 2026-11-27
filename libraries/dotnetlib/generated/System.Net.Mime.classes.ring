@@ -267,17 +267,13 @@ Class DispositionTypeNames from Object
 		return dn_x
 
 	Func getInline
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.DispositionTypeNames, System.Net.Mail',"s6:Inline")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.DispositionTypeNames, System.Net.Mail','Inline')
 
 	Func setInline P1
 		raise("DotNet Error: Inline is a read-only property")
 
 	Func getAttachment
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.DispositionTypeNames, System.Net.Mail',"s10:Attachment")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.DispositionTypeNames, System.Net.Mail','Attachment')
 
 	Func setAttachment P1
 		raise("DotNet Error: Attachment is a read-only property")
@@ -335,137 +331,103 @@ Class MediaTypeNamesApplication from Object
 		return dn_x
 
 	Func getFormUrlEncoded
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Application, System.Net.Mail',"s14:FormUrlEncoded")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Application, System.Net.Mail','FormUrlEncoded')
 
 	Func setFormUrlEncoded P1
 		raise("DotNet Error: FormUrlEncoded is a read-only property")
 
 	Func getGZip
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Application, System.Net.Mail',"s4:GZip")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Application, System.Net.Mail','GZip')
 
 	Func setGZip P1
 		raise("DotNet Error: GZip is a read-only property")
 
 	Func getJson
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Application, System.Net.Mail',"s4:Json")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Application, System.Net.Mail','Json')
 
 	Func setJson P1
 		raise("DotNet Error: Json is a read-only property")
 
 	Func getJsonPatch
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Application, System.Net.Mail',"s9:JsonPatch")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Application, System.Net.Mail','JsonPatch')
 
 	Func setJsonPatch P1
 		raise("DotNet Error: JsonPatch is a read-only property")
 
 	Func getJsonSequence
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Application, System.Net.Mail',"s12:JsonSequence")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Application, System.Net.Mail','JsonSequence')
 
 	Func setJsonSequence P1
 		raise("DotNet Error: JsonSequence is a read-only property")
 
 	Func getManifest
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Application, System.Net.Mail',"s8:Manifest")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Application, System.Net.Mail','Manifest')
 
 	Func setManifest P1
 		raise("DotNet Error: Manifest is a read-only property")
 
 	Func getOctet
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Application, System.Net.Mail',"s5:Octet")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Application, System.Net.Mail','Octet')
 
 	Func setOctet P1
 		raise("DotNet Error: Octet is a read-only property")
 
 	Func getPdf
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Application, System.Net.Mail',"s3:Pdf")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Application, System.Net.Mail','Pdf')
 
 	Func setPdf P1
 		raise("DotNet Error: Pdf is a read-only property")
 
 	Func getProblemJson
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Application, System.Net.Mail',"s11:ProblemJson")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Application, System.Net.Mail','ProblemJson')
 
 	Func setProblemJson P1
 		raise("DotNet Error: ProblemJson is a read-only property")
 
 	Func getProblemXml
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Application, System.Net.Mail',"s10:ProblemXml")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Application, System.Net.Mail','ProblemXml')
 
 	Func setProblemXml P1
 		raise("DotNet Error: ProblemXml is a read-only property")
 
 	Func getRtf
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Application, System.Net.Mail',"s3:Rtf")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Application, System.Net.Mail','Rtf')
 
 	Func setRtf P1
 		raise("DotNet Error: Rtf is a read-only property")
 
 	Func getSoap
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Application, System.Net.Mail',"s4:Soap")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Application, System.Net.Mail','Soap')
 
 	Func setSoap P1
 		raise("DotNet Error: Soap is a read-only property")
 
 	Func getWasm
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Application, System.Net.Mail',"s4:Wasm")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Application, System.Net.Mail','Wasm')
 
 	Func setWasm P1
 		raise("DotNet Error: Wasm is a read-only property")
 
 	Func getXml
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Application, System.Net.Mail',"s3:Xml")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Application, System.Net.Mail','Xml')
 
 	Func setXml P1
 		raise("DotNet Error: Xml is a read-only property")
 
 	Func getXmlDtd
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Application, System.Net.Mail',"s6:XmlDtd")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Application, System.Net.Mail','XmlDtd')
 
 	Func setXmlDtd P1
 		raise("DotNet Error: XmlDtd is a read-only property")
 
 	Func getXmlPatch
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Application, System.Net.Mail',"s8:XmlPatch")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Application, System.Net.Mail','XmlPatch')
 
 	Func setXmlPatch P1
 		raise("DotNet Error: XmlPatch is a read-only property")
 
 	Func getZip
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Application, System.Net.Mail',"s3:Zip")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Application, System.Net.Mail','Zip')
 
 	Func setZip P1
 		raise("DotNet Error: Zip is a read-only property")
@@ -495,49 +457,37 @@ Class MediaTypeNamesFont from Object
 		return dn_x
 
 	Func getCollection
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Font, System.Net.Mail',"s10:Collection")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Font, System.Net.Mail','Collection')
 
 	Func setCollection P1
 		raise("DotNet Error: Collection is a read-only property")
 
 	Func getOtf
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Font, System.Net.Mail',"s3:Otf")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Font, System.Net.Mail','Otf')
 
 	Func setOtf P1
 		raise("DotNet Error: Otf is a read-only property")
 
 	Func getSfnt
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Font, System.Net.Mail',"s4:Sfnt")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Font, System.Net.Mail','Sfnt')
 
 	Func setSfnt P1
 		raise("DotNet Error: Sfnt is a read-only property")
 
 	Func getTtf
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Font, System.Net.Mail',"s3:Ttf")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Font, System.Net.Mail','Ttf')
 
 	Func setTtf P1
 		raise("DotNet Error: Ttf is a read-only property")
 
 	Func getWoff
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Font, System.Net.Mail',"s4:Woff")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Font, System.Net.Mail','Woff')
 
 	Func setWoff P1
 		raise("DotNet Error: Woff is a read-only property")
 
 	Func getWoff2
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Font, System.Net.Mail',"s5:Woff2")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Font, System.Net.Mail','Woff2')
 
 	Func setWoff2 P1
 		raise("DotNet Error: Woff2 is a read-only property")
@@ -570,73 +520,55 @@ Class MediaTypeNamesImage from Object
 		return dn_x
 
 	Func getAvif
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Image, System.Net.Mail',"s4:Avif")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Image, System.Net.Mail','Avif')
 
 	Func setAvif P1
 		raise("DotNet Error: Avif is a read-only property")
 
 	Func getBmp
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Image, System.Net.Mail',"s3:Bmp")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Image, System.Net.Mail','Bmp')
 
 	Func setBmp P1
 		raise("DotNet Error: Bmp is a read-only property")
 
 	Func getGif
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Image, System.Net.Mail',"s3:Gif")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Image, System.Net.Mail','Gif')
 
 	Func setGif P1
 		raise("DotNet Error: Gif is a read-only property")
 
 	Func getIcon
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Image, System.Net.Mail',"s4:Icon")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Image, System.Net.Mail','Icon')
 
 	Func setIcon P1
 		raise("DotNet Error: Icon is a read-only property")
 
 	Func getJpeg
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Image, System.Net.Mail',"s4:Jpeg")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Image, System.Net.Mail','Jpeg')
 
 	Func setJpeg P1
 		raise("DotNet Error: Jpeg is a read-only property")
 
 	Func getPng
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Image, System.Net.Mail',"s3:Png")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Image, System.Net.Mail','Png')
 
 	Func setPng P1
 		raise("DotNet Error: Png is a read-only property")
 
 	Func getSvg
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Image, System.Net.Mail',"s3:Svg")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Image, System.Net.Mail','Svg')
 
 	Func setSvg P1
 		raise("DotNet Error: Svg is a read-only property")
 
 	Func getTiff
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Image, System.Net.Mail',"s4:Tiff")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Image, System.Net.Mail','Tiff')
 
 	Func setTiff P1
 		raise("DotNet Error: Tiff is a read-only property")
 
 	Func getWebp
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Image, System.Net.Mail',"s4:Webp")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Image, System.Net.Mail','Webp')
 
 	Func setWebp P1
 		raise("DotNet Error: Webp is a read-only property")
@@ -664,33 +596,25 @@ Class MediaTypeNamesMultipart from Object
 		return dn_x
 
 	Func getByteRanges
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Multipart, System.Net.Mail',"s10:ByteRanges")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Multipart, System.Net.Mail','ByteRanges')
 
 	Func setByteRanges P1
 		raise("DotNet Error: ByteRanges is a read-only property")
 
 	Func getFormData
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Multipart, System.Net.Mail',"s8:FormData")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Multipart, System.Net.Mail','FormData')
 
 	Func setFormData P1
 		raise("DotNet Error: FormData is a read-only property")
 
 	Func getMixed
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Multipart, System.Net.Mail',"s5:Mixed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Multipart, System.Net.Mail','Mixed')
 
 	Func setMixed P1
 		raise("DotNet Error: Mixed is a read-only property")
 
 	Func getRelated
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Multipart, System.Net.Mail',"s7:Related")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Multipart, System.Net.Mail','Related')
 
 	Func setRelated P1
 		raise("DotNet Error: Related is a read-only property")
@@ -724,81 +648,61 @@ Class MediaTypeNamesText from Object
 		return dn_x
 
 	Func getCss
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Text, System.Net.Mail',"s3:Css")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Text, System.Net.Mail','Css')
 
 	Func setCss P1
 		raise("DotNet Error: Css is a read-only property")
 
 	Func getCsv
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Text, System.Net.Mail',"s3:Csv")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Text, System.Net.Mail','Csv')
 
 	Func setCsv P1
 		raise("DotNet Error: Csv is a read-only property")
 
 	Func getEventStream
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Text, System.Net.Mail',"s11:EventStream")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Text, System.Net.Mail','EventStream')
 
 	Func setEventStream P1
 		raise("DotNet Error: EventStream is a read-only property")
 
 	Func getHtml
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Text, System.Net.Mail',"s4:Html")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Text, System.Net.Mail','Html')
 
 	Func setHtml P1
 		raise("DotNet Error: Html is a read-only property")
 
 	Func getJavaScript
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Text, System.Net.Mail',"s10:JavaScript")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Text, System.Net.Mail','JavaScript')
 
 	Func setJavaScript P1
 		raise("DotNet Error: JavaScript is a read-only property")
 
 	Func getMarkdown
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Text, System.Net.Mail',"s8:Markdown")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Text, System.Net.Mail','Markdown')
 
 	Func setMarkdown P1
 		raise("DotNet Error: Markdown is a read-only property")
 
 	Func getPlain
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Text, System.Net.Mail',"s5:Plain")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Text, System.Net.Mail','Plain')
 
 	Func setPlain P1
 		raise("DotNet Error: Plain is a read-only property")
 
 	Func getRichText
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Text, System.Net.Mail',"s8:RichText")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Text, System.Net.Mail','RichText')
 
 	Func setRichText P1
 		raise("DotNet Error: RichText is a read-only property")
 
 	Func getRtf
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Text, System.Net.Mail',"s3:Rtf")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Text, System.Net.Mail','Rtf')
 
 	Func setRtf P1
 		raise("DotNet Error: Rtf is a read-only property")
 
 	Func getXml
-		dn_x = dotnet_call("s3:get",'System.Net.Mime.MediaTypeNames+Text, System.Net.Mail',"s3:Xml")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Net.Mime.MediaTypeNames+Text, System.Net.Mail','Xml')
 
 	Func setXml P1
 		raise("DotNet Error: Xml is a read-only property")

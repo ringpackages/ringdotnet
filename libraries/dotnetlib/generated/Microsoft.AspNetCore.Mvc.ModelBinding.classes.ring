@@ -2465,7 +2465,7 @@ Class ModelMetadata from Object
 		raise("DotNet Error: BoundConstructorInvoker is a read-only property")
 
 	Func getDefaultOrder
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelMetadata, Microsoft.AspNetCore.Mvc.Abstractions',"s12:DefaultOrder")
+		return dotnet_getps('Microsoft.AspNetCore.Mvc.ModelBinding.ModelMetadata, Microsoft.AspNetCore.Mvc.Abstractions','DefaultOrder')
 
 	Func setDefaultOrder P1
 		raise("DotNet Error: DefaultOrder is a read-only property")
@@ -2836,7 +2836,7 @@ Class ModelStateDictionary from Object
 		raise("DotNet Error: ValidationState is a read-only property")
 
 	Func getDefaultMaxAllowedErrors
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',"s23:DefaultMaxAllowedErrors")
+		return dotnet_getps('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions','DefaultMaxAllowedErrors')
 
 	Func setDefaultMaxAllowedErrors P1
 		raise("DotNet Error: DefaultMaxAllowedErrors is a read-only property")

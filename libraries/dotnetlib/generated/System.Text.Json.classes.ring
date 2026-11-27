@@ -998,7 +998,7 @@ Class JsonSerializer from Object
 		return dn_x
 
 	Func getIsReflectionEnabledByDefault
-		return dotnet_call("s3:get",'System.Text.Json.JsonSerializer, System.Text.Json',"s28:IsReflectionEnabledByDefault")
+		return dotnet_getps('System.Text.Json.JsonSerializer, System.Text.Json','IsReflectionEnabledByDefault')
 
 	Func setIsReflectionEnabledByDefault P1
 		raise("DotNet Error: IsReflectionEnabledByDefault is a read-only property")

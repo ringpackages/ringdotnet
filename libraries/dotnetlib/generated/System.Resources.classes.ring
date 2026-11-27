@@ -380,13 +380,13 @@ Class ResourceManager from Object
 		raise("DotNet Error: ResourceSetType is a read-only property")
 
 	Func getMagicNumber
-		return dotnet_call("s3:get",'System.Resources.ResourceManager, System.Private.CoreLib',"s11:MagicNumber")
+		return dotnet_getps('System.Resources.ResourceManager, System.Private.CoreLib','MagicNumber')
 
 	Func setMagicNumber P1
 		raise("DotNet Error: MagicNumber is a read-only property")
 
 	Func getHeaderVersionNumber
-		return dotnet_call("s3:get",'System.Resources.ResourceManager, System.Private.CoreLib',"s19:HeaderVersionNumber")
+		return dotnet_getps('System.Resources.ResourceManager, System.Private.CoreLib','HeaderVersionNumber')
 
 	Func setHeaderVersionNumber P1
 		raise("DotNet Error: HeaderVersionNumber is a read-only property")

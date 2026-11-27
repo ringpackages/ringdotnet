@@ -3136,7 +3136,7 @@ Class Application from Object
 		return self
 
 	Func getAllowQuit
-		return dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s9:AllowQuit")
+		return dotnet_getps('System.Windows.Forms.Application, System.Windows.Forms','AllowQuit')
 
 	Func setAllowQuit P1
 		raise("DotNet Error: AllowQuit is a read-only property")
@@ -3148,17 +3148,13 @@ Class Application from Object
 		raise("DotNet Error: CommonAppDataRegistry is a read-only property")
 
 	Func getCommonAppDataPath
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s17:CommonAppDataPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.Application, System.Windows.Forms','CommonAppDataPath')
 
 	Func setCommonAppDataPath P1
 		raise("DotNet Error: CommonAppDataPath is a read-only property")
 
 	Func getCompanyName
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s11:CompanyName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.Forms.Application, System.Windows.Forms','CompanyName'))
 
 	Func setCompanyName P1
 		raise("DotNet Error: CompanyName is a read-only property")
@@ -3178,41 +3174,37 @@ Class Application from Object
 		return self
 
 	Func getColorMode
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s9:ColorMode"))
+		return dotnet_getps('System.Windows.Forms.Application, System.Windows.Forms','ColorMode')
 
 	Func getSystemColorMode
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s15:SystemColorMode"))
+		return dotnet_getps('System.Windows.Forms.Application, System.Windows.Forms','SystemColorMode')
 
 	Func setSystemColorMode P1
 		raise("DotNet Error: SystemColorMode is a read-only property")
 
 	Func getIsDarkModeEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s17:IsDarkModeEnabled")
+		return dotnet_getps('System.Windows.Forms.Application, System.Windows.Forms','IsDarkModeEnabled')
 
 	Func setIsDarkModeEnabled P1
 		raise("DotNet Error: IsDarkModeEnabled is a read-only property")
 
 	Func getExecutablePath
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s14:ExecutablePath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.Application, System.Windows.Forms','ExecutablePath')
 
 	Func setExecutablePath P1
 		raise("DotNet Error: ExecutablePath is a read-only property")
 
 	Func getHighDpiMode
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s11:HighDpiMode"))
+		return dotnet_getps('System.Windows.Forms.Application, System.Windows.Forms','HighDpiMode')
 
 	Func getLocalUserAppDataPath
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s20:LocalUserAppDataPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.Application, System.Windows.Forms','LocalUserAppDataPath')
 
 	Func setLocalUserAppDataPath P1
 		raise("DotNet Error: LocalUserAppDataPath is a read-only property")
 
 	Func getMessageLoop
-		return dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s11:MessageLoop")
+		return dotnet_getps('System.Windows.Forms.Application, System.Windows.Forms','MessageLoop')
 
 	Func setMessageLoop P1
 		raise("DotNet Error: MessageLoop is a read-only property")
@@ -3224,55 +3216,45 @@ Class Application from Object
 		raise("DotNet Error: OpenForms is a read-only property")
 
 	Func getProductName
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s11:ProductName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.Forms.Application, System.Windows.Forms','ProductName'))
 
 	Func setProductName P1
 		raise("DotNet Error: ProductName is a read-only property")
 
 	Func getProductVersion
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s14:ProductVersion")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.Application, System.Windows.Forms','ProductVersion')
 
 	Func setProductVersion P1
 		raise("DotNet Error: ProductVersion is a read-only property")
 
 	Func getRenderWithVisualStyles
-		return dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s22:RenderWithVisualStyles")
+		return dotnet_getps('System.Windows.Forms.Application, System.Windows.Forms','RenderWithVisualStyles')
 
 	Func setRenderWithVisualStyles P1
 		raise("DotNet Error: RenderWithVisualStyles is a read-only property")
 
 	Func getSafeTopLevelCaptionFormat
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s25:SafeTopLevelCaptionFormat")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.Application, System.Windows.Forms','SafeTopLevelCaptionFormat')
 
 	Func setSafeTopLevelCaptionFormat P1
-		dotnet_callv("s3:set",'System.Windows.Forms.Application, System.Windows.Forms',"s25:SafeTopLevelCaptionFormat",P1)
+		dotnet_setps('System.Windows.Forms.Application, System.Windows.Forms','SafeTopLevelCaptionFormat',P1)
 		return self
 
 	Func getStartupPath
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s11:StartupPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.Application, System.Windows.Forms','StartupPath')
 
 	Func setStartupPath P1
 		raise("DotNet Error: StartupPath is a read-only property")
 
 	Func getUseWaitCursor
-		return dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s13:UseWaitCursor")
+		return dotnet_getps('System.Windows.Forms.Application, System.Windows.Forms','UseWaitCursor')
 
 	Func setUseWaitCursor P1
-		dotnet_callv("s3:set",'System.Windows.Forms.Application, System.Windows.Forms',"s13:UseWaitCursor",P1)
+		dotnet_setps('System.Windows.Forms.Application, System.Windows.Forms','UseWaitCursor',P1)
 		return self
 
 	Func getUserAppDataPath
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s15:UserAppDataPath")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.Application, System.Windows.Forms','UserAppDataPath')
 
 	Func setUserAppDataPath P1
 		raise("DotNet Error: UserAppDataPath is a read-only property")
@@ -3284,16 +3266,16 @@ Class Application from Object
 		raise("DotNet Error: UserAppDataRegistry is a read-only property")
 
 	Func getUseVisualStyles
-		return dotnet_call("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s15:UseVisualStyles")
+		return dotnet_getps('System.Windows.Forms.Application, System.Windows.Forms','UseVisualStyles')
 
 	Func setUseVisualStyles P1
 		raise("DotNet Error: UseVisualStyles is a read-only property")
 
 	Func getVisualStyleState
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Forms.Application, System.Windows.Forms',"s16:VisualStyleState"))
+		return dotnet_getps('System.Windows.Forms.Application, System.Windows.Forms','VisualStyleState')
 
 	Func setVisualStyleState P1
-		dotnet_callv("s3:set",'System.Windows.Forms.Application, System.Windows.Forms',"s16:VisualStyleState",P1)
+		dotnet_setps('System.Windows.Forms.Application, System.Windows.Forms','VisualStyleState',P1)
 		return self
 
 
@@ -4948,10 +4930,10 @@ Class ButtonRenderer from Object
 		raise("DotNet Error: DrawButton does not take one argument: use named arguments, DrawButton([ :parameter = value, ... ])")
 
 	Func getRenderMatchingApplicationState
-		return dotnet_call("s3:get",'System.Windows.Forms.ButtonRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState")
+		return dotnet_getps('System.Windows.Forms.ButtonRenderer, System.Windows.Forms','RenderMatchingApplicationState')
 
 	Func setRenderMatchingApplicationState P1
-		dotnet_callv("s3:set",'System.Windows.Forms.ButtonRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState",P1)
+		dotnet_setps('System.Windows.Forms.ButtonRenderer, System.Windows.Forms','RenderMatchingApplicationState',P1)
 		return self
 
 
@@ -5023,10 +5005,10 @@ Class CheckBoxRenderer from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms',"s12:GetGlyphSize",P1,P2))
 
 	Func getRenderMatchingApplicationState
-		return dotnet_call("s3:get",'System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState")
+		return dotnet_getps('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms','RenderMatchingApplicationState')
 
 	Func setRenderMatchingApplicationState P1
-		dotnet_callv("s3:set",'System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState",P1)
+		dotnet_setps('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms','RenderMatchingApplicationState',P1)
 		return self
 
 
@@ -5458,7 +5440,7 @@ Class ComboBoxRenderer from Object
 		return self
 
 	Func getIsSupported
-		return dotnet_call("s3:get",'System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms',"s11:IsSupported")
+		return dotnet_getps('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms','IsSupported')
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -6966,10 +6948,10 @@ Class Control from Component
 		return self
 
 	Func getCheckForIllegalCrossThreadCalls
-		return dotnet_call("s3:get",'System.Windows.Forms.Control, System.Windows.Forms',"s31:CheckForIllegalCrossThreadCalls")
+		return dotnet_getps('System.Windows.Forms.Control, System.Windows.Forms','CheckForIllegalCrossThreadCalls')
 
 	Func setCheckForIllegalCrossThreadCalls P1
-		dotnet_callv("s3:set",'System.Windows.Forms.Control, System.Windows.Forms',"s31:CheckForIllegalCrossThreadCalls",P1)
+		dotnet_setps('System.Windows.Forms.Control, System.Windows.Forms','CheckForIllegalCrossThreadCalls',P1)
 		return self
 
 	Func getDefaultBackColor
@@ -6991,13 +6973,13 @@ Class Control from Component
 		raise("DotNet Error: DefaultForeColor is a read-only property")
 
 	Func getModifierKeys
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Forms.Control, System.Windows.Forms',"s12:ModifierKeys"))
+		return dotnet_getps('System.Windows.Forms.Control, System.Windows.Forms','ModifierKeys')
 
 	Func setModifierKeys P1
 		raise("DotNet Error: ModifierKeys is a read-only property")
 
 	Func getMouseButtons
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Forms.Control, System.Windows.Forms',"s12:MouseButtons"))
+		return dotnet_getps('System.Windows.Forms.Control, System.Windows.Forms','MouseButtons')
 
 	Func setMouseButtons P1
 		raise("DotNet Error: MouseButtons is a read-only property")
@@ -7771,169 +7753,127 @@ Class DataFormats from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s9:GetFormat",P1))
 
 	Func getText
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s4:Text")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','Text')
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getUnicodeText
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s11:UnicodeText")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','UnicodeText')
 
 	Func setUnicodeText P1
 		raise("DotNet Error: UnicodeText is a read-only property")
 
 	Func getDib
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s3:Dib")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','Dib')
 
 	Func setDib P1
 		raise("DotNet Error: Dib is a read-only property")
 
 	Func getBitmap
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s6:Bitmap")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','Bitmap')
 
 	Func setBitmap P1
 		raise("DotNet Error: Bitmap is a read-only property")
 
 	Func getEnhancedMetafile
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s16:EnhancedMetafile")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','EnhancedMetafile')
 
 	Func setEnhancedMetafile P1
 		raise("DotNet Error: EnhancedMetafile is a read-only property")
 
 	Func getMetafilePict
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s12:MetafilePict")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','MetafilePict')
 
 	Func setMetafilePict P1
 		raise("DotNet Error: MetafilePict is a read-only property")
 
 	Func getSymbolicLink
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s12:SymbolicLink")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','SymbolicLink')
 
 	Func setSymbolicLink P1
 		raise("DotNet Error: SymbolicLink is a read-only property")
 
 	Func getDif
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s3:Dif")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','Dif')
 
 	Func setDif P1
 		raise("DotNet Error: Dif is a read-only property")
 
 	Func getTiff
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s4:Tiff")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','Tiff')
 
 	Func setTiff P1
 		raise("DotNet Error: Tiff is a read-only property")
 
 	Func getOemText
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s7:OemText")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','OemText')
 
 	Func setOemText P1
 		raise("DotNet Error: OemText is a read-only property")
 
 	Func getPalette
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s7:Palette")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','Palette')
 
 	Func setPalette P1
 		raise("DotNet Error: Palette is a read-only property")
 
 	Func getPenData
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s7:PenData")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','PenData')
 
 	Func setPenData P1
 		raise("DotNet Error: PenData is a read-only property")
 
 	Func getRiff
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s4:Riff")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','Riff')
 
 	Func setRiff P1
 		raise("DotNet Error: Riff is a read-only property")
 
 	Func getWaveAudio
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s9:WaveAudio")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','WaveAudio')
 
 	Func setWaveAudio P1
 		raise("DotNet Error: WaveAudio is a read-only property")
 
 	Func getFileDrop
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s8:FileDrop")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','FileDrop')
 
 	Func setFileDrop P1
 		raise("DotNet Error: FileDrop is a read-only property")
 
 	Func getLocale
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s6:Locale")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','Locale')
 
 	Func setLocale P1
 		raise("DotNet Error: Locale is a read-only property")
 
 	Func getHtml
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s4:Html")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','Html')
 
 	Func setHtml P1
 		raise("DotNet Error: Html is a read-only property")
 
 	Func getRtf
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s3:Rtf")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','Rtf')
 
 	Func setRtf P1
 		raise("DotNet Error: Rtf is a read-only property")
 
 	Func getCommaSeparatedValue
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s19:CommaSeparatedValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','CommaSeparatedValue')
 
 	Func setCommaSeparatedValue P1
 		raise("DotNet Error: CommaSeparatedValue is a read-only property")
 
 	Func getStringFormat
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s12:StringFormat")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','StringFormat')
 
 	Func setStringFormat P1
 		raise("DotNet Error: StringFormat is a read-only property")
 
 	Func getSerializable
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.DataFormats, System.Windows.Forms',"s12:Serializable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.DataFormats, System.Windows.Forms','Serializable')
 
 	Func setSerializable P1
 		raise("DotNet Error: Serializable is a read-only property")
@@ -11237,10 +11177,10 @@ Class GroupBoxRenderer from Object
 		raise("DotNet Error: DrawGroupBox does not take one argument: use named arguments, DrawGroupBox([ :parameter = value, ... ])")
 
 	Func getRenderMatchingApplicationState
-		return dotnet_call("s3:get",'System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState")
+		return dotnet_getps('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms','RenderMatchingApplicationState')
 
 	Func setRenderMatchingApplicationState P1
-		dotnet_callv("s3:set",'System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState",P1)
+		dotnet_setps('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms','RenderMatchingApplicationState',P1)
 		return self
 
 
@@ -13484,7 +13424,7 @@ Class ImeModeConversion from ValueType
 		raise("DotNet Error: ImeModeConversionBits is a read-only property")
 
 	Func getIsCurrentConversionTableSupported
-		return dotnet_call("s3:get",'System.Windows.Forms.ImeModeConversion, System.Windows.Forms',"s33:IsCurrentConversionTableSupported")
+		return dotnet_getps('System.Windows.Forms.ImeModeConversion, System.Windows.Forms','IsCurrentConversionTableSupported')
 
 	Func setIsCurrentConversionTableSupported P1
 		raise("DotNet Error: IsCurrentConversionTableSupported is a read-only property")
@@ -17962,19 +17902,19 @@ Class ProgressBarRenderer from Object
 		return self
 
 	Func getIsSupported
-		return dotnet_call("s3:get",'System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms',"s11:IsSupported")
+		return dotnet_getps('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms','IsSupported')
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
 
 	Func getChunkThickness
-		return dotnet_call("s3:get",'System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms',"s14:ChunkThickness")
+		return dotnet_getps('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms','ChunkThickness')
 
 	Func setChunkThickness P1
 		raise("DotNet Error: ChunkThickness is a read-only property")
 
 	Func getChunkSpaceThickness
-		return dotnet_call("s3:get",'System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms',"s19:ChunkSpaceThickness")
+		return dotnet_getps('System.Windows.Forms.ProgressBarRenderer, System.Windows.Forms','ChunkSpaceThickness')
 
 	Func setChunkSpaceThickness P1
 		raise("DotNet Error: ChunkSpaceThickness is a read-only property")
@@ -18319,10 +18259,10 @@ Class RadioButtonRenderer from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms',"s12:GetGlyphSize",P1,P2))
 
 	Func getRenderMatchingApplicationState
-		return dotnet_call("s3:get",'System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState")
+		return dotnet_getps('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms','RenderMatchingApplicationState')
 
 	Func setRenderMatchingApplicationState P1
-		dotnet_callv("s3:set",'System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms',"s30:RenderMatchingApplicationState",P1)
+		dotnet_setps('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms','RenderMatchingApplicationState',P1)
 		return self
 
 
@@ -18541,7 +18481,7 @@ Class ScrollBarRenderer from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms',"s14:GetSizeBoxSize",P1,P2))
 
 	Func getIsSupported
-		return dotnet_call("s3:get",'System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms',"s11:IsSupported")
+		return dotnet_getps('System.Windows.Forms.ScrollBarRenderer, System.Windows.Forms','IsSupported')
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -19218,19 +19158,19 @@ Class SystemInformation from Object
 		return dnAnswer(dotnet_callts('System.Windows.Forms.SystemInformation, System.Windows.Forms','GetHorizontalScrollBarArrowWidthForDpi',P1))
 
 	Func getDragFullWindows
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s15:DragFullWindows")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','DragFullWindows')
 
 	Func setDragFullWindows P1
 		raise("DotNet Error: DragFullWindows is a read-only property")
 
 	Func getHighContrast
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s12:HighContrast")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','HighContrast')
 
 	Func setHighContrast P1
 		raise("DotNet Error: HighContrast is a read-only property")
 
 	Func getMouseWheelScrollLines
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s21:MouseWheelScrollLines")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','MouseWheelScrollLines')
 
 	Func setMouseWheelScrollLines P1
 		raise("DotNet Error: MouseWheelScrollLines is a read-only property")
@@ -19242,19 +19182,19 @@ Class SystemInformation from Object
 		raise("DotNet Error: PrimaryMonitorSize is a read-only property")
 
 	Func getVerticalScrollBarWidth
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:VerticalScrollBarWidth")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','VerticalScrollBarWidth')
 
 	Func setVerticalScrollBarWidth P1
 		raise("DotNet Error: VerticalScrollBarWidth is a read-only property")
 
 	Func getHorizontalScrollBarHeight
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s25:HorizontalScrollBarHeight")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','HorizontalScrollBarHeight')
 
 	Func setHorizontalScrollBarHeight P1
 		raise("DotNet Error: HorizontalScrollBarHeight is a read-only property")
 
 	Func getCaptionHeight
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s13:CaptionHeight")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','CaptionHeight')
 
 	Func setCaptionHeight P1
 		raise("DotNet Error: CaptionHeight is a read-only property")
@@ -19272,13 +19212,13 @@ Class SystemInformation from Object
 		raise("DotNet Error: FixedFrameBorderSize is a read-only property")
 
 	Func getVerticalScrollBarThumbHeight
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s28:VerticalScrollBarThumbHeight")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','VerticalScrollBarThumbHeight')
 
 	Func setVerticalScrollBarThumbHeight P1
 		raise("DotNet Error: VerticalScrollBarThumbHeight is a read-only property")
 
 	Func getHorizontalScrollBarThumbWidth
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s29:HorizontalScrollBarThumbWidth")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','HorizontalScrollBarThumbWidth')
 
 	Func setHorizontalScrollBarThumbWidth P1
 		raise("DotNet Error: HorizontalScrollBarThumbWidth is a read-only property")
@@ -19302,7 +19242,7 @@ Class SystemInformation from Object
 		raise("DotNet Error: MenuFont is a read-only property")
 
 	Func getMenuHeight
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s10:MenuHeight")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','MenuHeight')
 
 	Func setMenuHeight P1
 		raise("DotNet Error: MenuHeight is a read-only property")
@@ -19320,37 +19260,37 @@ Class SystemInformation from Object
 		raise("DotNet Error: WorkingArea is a read-only property")
 
 	Func getKanjiWindowHeight
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:KanjiWindowHeight")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','KanjiWindowHeight')
 
 	Func setKanjiWindowHeight P1
 		raise("DotNet Error: KanjiWindowHeight is a read-only property")
 
 	Func getMousePresent
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s12:MousePresent")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','MousePresent')
 
 	Func setMousePresent P1
 		raise("DotNet Error: MousePresent is a read-only property")
 
 	Func getVerticalScrollBarArrowHeight
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s28:VerticalScrollBarArrowHeight")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','VerticalScrollBarArrowHeight')
 
 	Func setVerticalScrollBarArrowHeight P1
 		raise("DotNet Error: VerticalScrollBarArrowHeight is a read-only property")
 
 	Func getHorizontalScrollBarArrowWidth
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s29:HorizontalScrollBarArrowWidth")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','HorizontalScrollBarArrowWidth')
 
 	Func setHorizontalScrollBarArrowWidth P1
 		raise("DotNet Error: HorizontalScrollBarArrowWidth is a read-only property")
 
 	Func getDebugOS
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s7:DebugOS")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','DebugOS')
 
 	Func setDebugOS P1
 		raise("DotNet Error: DebugOS is a read-only property")
 
 	Func getMouseButtonsSwapped
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s19:MouseButtonsSwapped")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','MouseButtonsSwapped')
 
 	Func setMouseButtonsSwapped P1
 		raise("DotNet Error: MouseButtonsSwapped is a read-only property")
@@ -19386,7 +19326,7 @@ Class SystemInformation from Object
 		raise("DotNet Error: DoubleClickSize is a read-only property")
 
 	Func getDoubleClickTime
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s15:DoubleClickTime")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','DoubleClickTime')
 
 	Func setDoubleClickTime P1
 		raise("DotNet Error: DoubleClickTime is a read-only property")
@@ -19398,31 +19338,31 @@ Class SystemInformation from Object
 		raise("DotNet Error: IconSpacingSize is a read-only property")
 
 	Func getRightAlignedMenus
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:RightAlignedMenus")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','RightAlignedMenus')
 
 	Func setRightAlignedMenus P1
 		raise("DotNet Error: RightAlignedMenus is a read-only property")
 
 	Func getPenWindows
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s10:PenWindows")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','PenWindows')
 
 	Func setPenWindows P1
 		raise("DotNet Error: PenWindows is a read-only property")
 
 	Func getDbcsEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s11:DbcsEnabled")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','DbcsEnabled')
 
 	Func setDbcsEnabled P1
 		raise("DotNet Error: DbcsEnabled is a read-only property")
 
 	Func getMouseButtons
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s12:MouseButtons")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','MouseButtons')
 
 	Func setMouseButtons P1
 		raise("DotNet Error: MouseButtons is a read-only property")
 
 	Func getSecure
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s6:Secure")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','Secure')
 
 	Func setSecure P1
 		raise("DotNet Error: Secure is a read-only property")
@@ -19446,7 +19386,7 @@ Class SystemInformation from Object
 		raise("DotNet Error: SmallIconSize is a read-only property")
 
 	Func getToolWindowCaptionHeight
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s23:ToolWindowCaptionHeight")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','ToolWindowCaptionHeight')
 
 	Func setToolWindowCaptionHeight P1
 		raise("DotNet Error: ToolWindowCaptionHeight is a read-only property")
@@ -19464,13 +19404,13 @@ Class SystemInformation from Object
 		raise("DotNet Error: MenuButtonSize is a read-only property")
 
 	Func getArrangeStartingPosition
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s23:ArrangeStartingPosition"))
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','ArrangeStartingPosition')
 
 	Func setArrangeStartingPosition P1
 		raise("DotNet Error: ArrangeStartingPosition is a read-only property")
 
 	Func getArrangeDirection
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s16:ArrangeDirection"))
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','ArrangeDirection')
 
 	Func setArrangeDirection P1
 		raise("DotNet Error: ArrangeDirection is a read-only property")
@@ -19494,19 +19434,19 @@ Class SystemInformation from Object
 		raise("DotNet Error: PrimaryMonitorMaximizedWindowSize is a read-only property")
 
 	Func getNetwork
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s7:Network")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','Network')
 
 	Func setNetwork P1
 		raise("DotNet Error: Network is a read-only property")
 
 	Func getTerminalServerSession
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s21:TerminalServerSession")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','TerminalServerSession')
 
 	Func setTerminalServerSession P1
 		raise("DotNet Error: TerminalServerSession is a read-only property")
 
 	Func getBootMode
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s8:BootMode"))
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','BootMode')
 
 	Func setBootMode P1
 		raise("DotNet Error: BootMode is a read-only property")
@@ -19518,7 +19458,7 @@ Class SystemInformation from Object
 		raise("DotNet Error: DragSize is a read-only property")
 
 	Func getShowSounds
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s10:ShowSounds")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','ShowSounds')
 
 	Func setShowSounds P1
 		raise("DotNet Error: ShowSounds is a read-only property")
@@ -19530,19 +19470,19 @@ Class SystemInformation from Object
 		raise("DotNet Error: MenuCheckSize is a read-only property")
 
 	Func getMidEastEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s14:MidEastEnabled")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','MidEastEnabled')
 
 	Func setMidEastEnabled P1
 		raise("DotNet Error: MidEastEnabled is a read-only property")
 
 	Func getNativeMouseWheelSupport
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s23:NativeMouseWheelSupport")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','NativeMouseWheelSupport')
 
 	Func setNativeMouseWheelSupport P1
 		raise("DotNet Error: NativeMouseWheelSupport is a read-only property")
 
 	Func getMouseWheelPresent
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:MouseWheelPresent")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','MouseWheelPresent')
 
 	Func setMouseWheelPresent P1
 		raise("DotNet Error: MouseWheelPresent is a read-only property")
@@ -19554,115 +19494,109 @@ Class SystemInformation from Object
 		raise("DotNet Error: VirtualScreen is a read-only property")
 
 	Func getMonitorCount
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s12:MonitorCount")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','MonitorCount')
 
 	Func setMonitorCount P1
 		raise("DotNet Error: MonitorCount is a read-only property")
 
 	Func getMonitorsSameDisplayFormat
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s25:MonitorsSameDisplayFormat")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','MonitorsSameDisplayFormat')
 
 	Func setMonitorsSameDisplayFormat P1
 		raise("DotNet Error: MonitorsSameDisplayFormat is a read-only property")
 
 	Func getComputerName
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s12:ComputerName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','ComputerName')
 
 	Func setComputerName P1
 		raise("DotNet Error: ComputerName is a read-only property")
 
 	Func getUserDomainName
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s14:UserDomainName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','UserDomainName')
 
 	Func setUserDomainName P1
 		raise("DotNet Error: UserDomainName is a read-only property")
 
 	Func getUserInteractive
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s15:UserInteractive")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','UserInteractive')
 
 	Func setUserInteractive P1
 		raise("DotNet Error: UserInteractive is a read-only property")
 
 	Func getUserName
-		dn_x = dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s8:UserName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','UserName')
 
 	Func setUserName P1
 		raise("DotNet Error: UserName is a read-only property")
 
 	Func getIsDropShadowEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s19:IsDropShadowEnabled")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','IsDropShadowEnabled')
 
 	Func setIsDropShadowEnabled P1
 		raise("DotNet Error: IsDropShadowEnabled is a read-only property")
 
 	Func getIsFlatMenuEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:IsFlatMenuEnabled")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','IsFlatMenuEnabled')
 
 	Func setIsFlatMenuEnabled P1
 		raise("DotNet Error: IsFlatMenuEnabled is a read-only property")
 
 	Func getIsFontSmoothingEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:IsFontSmoothingEnabled")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','IsFontSmoothingEnabled')
 
 	Func setIsFontSmoothingEnabled P1
 		raise("DotNet Error: IsFontSmoothingEnabled is a read-only property")
 
 	Func getFontSmoothingContrast
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s21:FontSmoothingContrast")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','FontSmoothingContrast')
 
 	Func setFontSmoothingContrast P1
 		raise("DotNet Error: FontSmoothingContrast is a read-only property")
 
 	Func getFontSmoothingType
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:FontSmoothingType")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','FontSmoothingType')
 
 	Func setFontSmoothingType P1
 		raise("DotNet Error: FontSmoothingType is a read-only property")
 
 	Func getIconHorizontalSpacing
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s21:IconHorizontalSpacing")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','IconHorizontalSpacing')
 
 	Func setIconHorizontalSpacing P1
 		raise("DotNet Error: IconHorizontalSpacing is a read-only property")
 
 	Func getIconVerticalSpacing
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s19:IconVerticalSpacing")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','IconVerticalSpacing')
 
 	Func setIconVerticalSpacing P1
 		raise("DotNet Error: IconVerticalSpacing is a read-only property")
 
 	Func getIsIconTitleWrappingEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s26:IsIconTitleWrappingEnabled")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','IsIconTitleWrappingEnabled')
 
 	Func setIsIconTitleWrappingEnabled P1
 		raise("DotNet Error: IsIconTitleWrappingEnabled is a read-only property")
 
 	Func getMenuAccessKeysUnderlined
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s24:MenuAccessKeysUnderlined")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','MenuAccessKeysUnderlined')
 
 	Func setMenuAccessKeysUnderlined P1
 		raise("DotNet Error: MenuAccessKeysUnderlined is a read-only property")
 
 	Func getKeyboardDelay
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s13:KeyboardDelay")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','KeyboardDelay')
 
 	Func setKeyboardDelay P1
 		raise("DotNet Error: KeyboardDelay is a read-only property")
 
 	Func getIsKeyboardPreferred
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s19:IsKeyboardPreferred")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','IsKeyboardPreferred')
 
 	Func setIsKeyboardPreferred P1
 		raise("DotNet Error: IsKeyboardPreferred is a read-only property")
 
 	Func getKeyboardSpeed
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s13:KeyboardSpeed")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','KeyboardSpeed')
 
 	Func setKeyboardSpeed P1
 		raise("DotNet Error: KeyboardSpeed is a read-only property")
@@ -19674,163 +19608,163 @@ Class SystemInformation from Object
 		raise("DotNet Error: MouseHoverSize is a read-only property")
 
 	Func getMouseHoverTime
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s14:MouseHoverTime")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','MouseHoverTime')
 
 	Func setMouseHoverTime P1
 		raise("DotNet Error: MouseHoverTime is a read-only property")
 
 	Func getMouseSpeed
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s10:MouseSpeed")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','MouseSpeed')
 
 	Func setMouseSpeed P1
 		raise("DotNet Error: MouseSpeed is a read-only property")
 
 	Func getIsSnapToDefaultEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:IsSnapToDefaultEnabled")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','IsSnapToDefaultEnabled')
 
 	Func setIsSnapToDefaultEnabled P1
 		raise("DotNet Error: IsSnapToDefaultEnabled is a read-only property")
 
 	Func getPopupMenuAlignment
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s18:PopupMenuAlignment"))
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','PopupMenuAlignment')
 
 	Func setPopupMenuAlignment P1
 		raise("DotNet Error: PopupMenuAlignment is a read-only property")
 
 	Func getIsMenuFadeEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:IsMenuFadeEnabled")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','IsMenuFadeEnabled')
 
 	Func setIsMenuFadeEnabled P1
 		raise("DotNet Error: IsMenuFadeEnabled is a read-only property")
 
 	Func getMenuShowDelay
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s13:MenuShowDelay")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','MenuShowDelay')
 
 	Func setMenuShowDelay P1
 		raise("DotNet Error: MenuShowDelay is a read-only property")
 
 	Func getIsComboBoxAnimationEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s26:IsComboBoxAnimationEnabled")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','IsComboBoxAnimationEnabled')
 
 	Func setIsComboBoxAnimationEnabled P1
 		raise("DotNet Error: IsComboBoxAnimationEnabled is a read-only property")
 
 	Func getIsTitleBarGradientEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s25:IsTitleBarGradientEnabled")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','IsTitleBarGradientEnabled')
 
 	Func setIsTitleBarGradientEnabled P1
 		raise("DotNet Error: IsTitleBarGradientEnabled is a read-only property")
 
 	Func getIsHotTrackingEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s20:IsHotTrackingEnabled")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','IsHotTrackingEnabled')
 
 	Func setIsHotTrackingEnabled P1
 		raise("DotNet Error: IsHotTrackingEnabled is a read-only property")
 
 	Func getIsListBoxSmoothScrollingEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s31:IsListBoxSmoothScrollingEnabled")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','IsListBoxSmoothScrollingEnabled')
 
 	Func setIsListBoxSmoothScrollingEnabled P1
 		raise("DotNet Error: IsListBoxSmoothScrollingEnabled is a read-only property")
 
 	Func getIsMenuAnimationEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:IsMenuAnimationEnabled")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','IsMenuAnimationEnabled')
 
 	Func setIsMenuAnimationEnabled P1
 		raise("DotNet Error: IsMenuAnimationEnabled is a read-only property")
 
 	Func getIsSelectionFadeEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:IsSelectionFadeEnabled")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','IsSelectionFadeEnabled')
 
 	Func setIsSelectionFadeEnabled P1
 		raise("DotNet Error: IsSelectionFadeEnabled is a read-only property")
 
 	Func getIsToolTipAnimationEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s25:IsToolTipAnimationEnabled")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','IsToolTipAnimationEnabled')
 
 	Func setIsToolTipAnimationEnabled P1
 		raise("DotNet Error: IsToolTipAnimationEnabled is a read-only property")
 
 	Func getUIEffectsEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s16:UIEffectsEnabled")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','UIEffectsEnabled')
 
 	Func setUIEffectsEnabled P1
 		raise("DotNet Error: UIEffectsEnabled is a read-only property")
 
 	Func getIsActiveWindowTrackingEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s29:IsActiveWindowTrackingEnabled")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','IsActiveWindowTrackingEnabled')
 
 	Func setIsActiveWindowTrackingEnabled P1
 		raise("DotNet Error: IsActiveWindowTrackingEnabled is a read-only property")
 
 	Func getActiveWindowTrackingDelay
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s25:ActiveWindowTrackingDelay")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','ActiveWindowTrackingDelay')
 
 	Func setActiveWindowTrackingDelay P1
 		raise("DotNet Error: ActiveWindowTrackingDelay is a read-only property")
 
 	Func getIsMinimizeRestoreAnimationEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s33:IsMinimizeRestoreAnimationEnabled")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','IsMinimizeRestoreAnimationEnabled')
 
 	Func setIsMinimizeRestoreAnimationEnabled P1
 		raise("DotNet Error: IsMinimizeRestoreAnimationEnabled is a read-only property")
 
 	Func getBorderMultiplierFactor
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:BorderMultiplierFactor")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','BorderMultiplierFactor')
 
 	Func setBorderMultiplierFactor P1
 		raise("DotNet Error: BorderMultiplierFactor is a read-only property")
 
 	Func getCaretBlinkTime
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s14:CaretBlinkTime")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','CaretBlinkTime')
 
 	Func setCaretBlinkTime P1
 		raise("DotNet Error: CaretBlinkTime is a read-only property")
 
 	Func getCaretWidth
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s10:CaretWidth")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','CaretWidth')
 
 	Func setCaretWidth P1
 		raise("DotNet Error: CaretWidth is a read-only property")
 
 	Func getMouseWheelScrollDelta
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s21:MouseWheelScrollDelta")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','MouseWheelScrollDelta')
 
 	Func setMouseWheelScrollDelta P1
 		raise("DotNet Error: MouseWheelScrollDelta is a read-only property")
 
 	Func getVerticalFocusThickness
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s22:VerticalFocusThickness")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','VerticalFocusThickness')
 
 	Func setVerticalFocusThickness P1
 		raise("DotNet Error: VerticalFocusThickness is a read-only property")
 
 	Func getHorizontalFocusThickness
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s24:HorizontalFocusThickness")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','HorizontalFocusThickness')
 
 	Func setHorizontalFocusThickness P1
 		raise("DotNet Error: HorizontalFocusThickness is a read-only property")
 
 	Func getVerticalResizeBorderThickness
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s29:VerticalResizeBorderThickness")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','VerticalResizeBorderThickness')
 
 	Func setVerticalResizeBorderThickness P1
 		raise("DotNet Error: VerticalResizeBorderThickness is a read-only property")
 
 	Func getHorizontalResizeBorderThickness
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s31:HorizontalResizeBorderThickness")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','HorizontalResizeBorderThickness')
 
 	Func setHorizontalResizeBorderThickness P1
 		raise("DotNet Error: HorizontalResizeBorderThickness is a read-only property")
 
 	Func getScreenOrientation
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:ScreenOrientation"))
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','ScreenOrientation')
 
 	Func setScreenOrientation P1
 		raise("DotNet Error: ScreenOrientation is a read-only property")
 
 	Func getSizingBorderWidth
-		return dotnet_call("s3:get",'System.Windows.Forms.SystemInformation, System.Windows.Forms',"s17:SizingBorderWidth")
+		return dotnet_getps('System.Windows.Forms.SystemInformation, System.Windows.Forms','SizingBorderWidth')
 
 	Func setSizingBorderWidth P1
 		raise("DotNet Error: SizingBorderWidth is a read-only property")
@@ -19951,7 +19885,7 @@ Class TabRenderer from Object
 		return self
 
 	Func getIsSupported
-		return dotnet_call("s3:get",'System.Windows.Forms.TabRenderer, System.Windows.Forms',"s11:IsSupported")
+		return dotnet_getps('System.Windows.Forms.TabRenderer, System.Windows.Forms','IsSupported')
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -20620,7 +20554,7 @@ Class TextBoxRenderer from Object
 		raise("DotNet Error: DrawTextBox does not take one argument: use named arguments, DrawTextBox([ :parameter = value, ... ])")
 
 	Func getIsSupported
-		return dotnet_call("s3:get",'System.Windows.Forms.TextBoxRenderer, System.Windows.Forms',"s11:IsSupported")
+		return dotnet_getps('System.Windows.Forms.TextBoxRenderer, System.Windows.Forms','IsSupported')
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -21113,17 +21047,17 @@ Class ToolStripManager from Object
 		return self
 
 	Func getRenderMode
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s10:RenderMode"))
+		return dotnet_getps('System.Windows.Forms.ToolStripManager, System.Windows.Forms','RenderMode')
 
 	Func setRenderMode P1
-		dotnet_callv("s3:set",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s10:RenderMode",P1)
+		dotnet_setps('System.Windows.Forms.ToolStripManager, System.Windows.Forms','RenderMode',P1)
 		return self
 
 	Func getVisualStylesEnabled
-		return dotnet_call("s3:get",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s19:VisualStylesEnabled")
+		return dotnet_getps('System.Windows.Forms.ToolStripManager, System.Windows.Forms','VisualStylesEnabled')
 
 	Func setVisualStylesEnabled P1
-		dotnet_callv("s3:set",'System.Windows.Forms.ToolStripManager, System.Windows.Forms',"s19:VisualStylesEnabled",P1)
+		dotnet_setps('System.Windows.Forms.ToolStripManager, System.Windows.Forms','VisualStylesEnabled',P1)
 		return self
 
 
@@ -21955,7 +21889,7 @@ Class TrackBarRenderer from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.TrackBarRenderer, System.Windows.Forms',"s26:GetBottomPointingThumbSize",P1,P2))
 
 	Func getIsSupported
-		return dotnet_call("s3:get",'System.Windows.Forms.TrackBarRenderer, System.Windows.Forms',"s11:IsSupported")
+		return dotnet_getps('System.Windows.Forms.TrackBarRenderer, System.Windows.Forms','IsSupported')
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")
@@ -22919,10 +22853,10 @@ Class WindowsFormsSynchronizationContext from SynchronizationContext
 		return self
 
 	Func getAutoInstall
-		return dotnet_call("s3:get",'System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms',"s11:AutoInstall")
+		return dotnet_getps('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms','AutoInstall')
 
 	Func setAutoInstall P1
-		dotnet_callv("s3:set",'System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms',"s11:AutoInstall",P1)
+		dotnet_setps('System.Windows.Forms.WindowsFormsSynchronizationContext, System.Windows.Forms','AutoInstall',P1)
 		return self
 
 
@@ -35635,13 +35569,13 @@ Class ListBox from ListControl
 		raise("DotNet Error: CustomTabOffsets is a read-only property")
 
 	Func getNoMatches
-		return dotnet_call("s3:get",'System.Windows.Forms.ListBox, System.Windows.Forms',"s9:NoMatches")
+		return dotnet_getps('System.Windows.Forms.ListBox, System.Windows.Forms','NoMatches')
 
 	Func setNoMatches P1
 		raise("DotNet Error: NoMatches is a read-only property")
 
 	Func getDefaultItemHeight
-		return dotnet_call("s3:get",'System.Windows.Forms.ListBox, System.Windows.Forms',"s17:DefaultItemHeight")
+		return dotnet_getps('System.Windows.Forms.ListBox, System.Windows.Forms','DefaultItemHeight')
 
 	Func setDefaultItemHeight P1
 		raise("DotNet Error: DefaultItemHeight is a read-only property")

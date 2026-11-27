@@ -1093,31 +1093,31 @@ Class Socket from Object
 		return self
 
 	Func getSupportsIPv4
-		return dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s12:SupportsIPv4")
+		return dotnet_getps('System.Net.Sockets.Socket, System.Net.Sockets','SupportsIPv4')
 
 	Func setSupportsIPv4 P1
 		raise("DotNet Error: SupportsIPv4 is a read-only property")
 
 	Func getSupportsIPv6
-		return dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s12:SupportsIPv6")
+		return dotnet_getps('System.Net.Sockets.Socket, System.Net.Sockets','SupportsIPv6')
 
 	Func setSupportsIPv6 P1
 		raise("DotNet Error: SupportsIPv6 is a read-only property")
 
 	Func getOSSupportsIPv4
-		return dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s14:OSSupportsIPv4")
+		return dotnet_getps('System.Net.Sockets.Socket, System.Net.Sockets','OSSupportsIPv4')
 
 	Func setOSSupportsIPv4 P1
 		raise("DotNet Error: OSSupportsIPv4 is a read-only property")
 
 	Func getOSSupportsIPv6
-		return dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s14:OSSupportsIPv6")
+		return dotnet_getps('System.Net.Sockets.Socket, System.Net.Sockets','OSSupportsIPv6')
 
 	Func setOSSupportsIPv6 P1
 		raise("DotNet Error: OSSupportsIPv6 is a read-only property")
 
 	Func getOSSupportsUnixDomainSockets
-		return dotnet_call("s3:get",'System.Net.Sockets.Socket, System.Net.Sockets',"s27:OSSupportsUnixDomainSockets")
+		return dotnet_getps('System.Net.Sockets.Socket, System.Net.Sockets','OSSupportsUnixDomainSockets')
 
 	Func setOSSupportsUnixDomainSockets P1
 		raise("DotNet Error: OSSupportsUnixDomainSockets is a read-only property")

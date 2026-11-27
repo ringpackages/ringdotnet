@@ -1627,7 +1627,7 @@ Class ConsumesAttribute from Attribute
 		return self
 
 	Func getConsumesActionConstraintOrder
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Mvc.ConsumesAttribute, Microsoft.AspNetCore.Mvc.Core',"s29:ConsumesActionConstraintOrder")
+		return dotnet_getps('Microsoft.AspNetCore.Mvc.ConsumesAttribute, Microsoft.AspNetCore.Mvc.Core','ConsumesActionConstraintOrder')
 
 	Func setConsumesActionConstraintOrder P1
 		raise("DotNet Error: ConsumesActionConstraintOrder is a read-only property")

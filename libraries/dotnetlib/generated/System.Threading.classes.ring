@@ -1522,7 +1522,7 @@ Class Monitor from Object
 		return self
 
 	Func getLockContentionCount
-		return dotnet_call("s3:get",'System.Threading.Monitor, System.Private.CoreLib',"s19:LockContentionCount")
+		return dotnet_getps('System.Threading.Monitor, System.Private.CoreLib','LockContentionCount')
 
 	Func setLockContentionCount P1
 		raise("DotNet Error: LockContentionCount is a read-only property")
@@ -2611,19 +2611,19 @@ Class ThreadPool from Object
 		return dnSend("s4:call",dnTypeHandle('System.Threading.ThreadPool, System.Private.CoreLib'),"s19:GetAvailableThreads","")
 
 	Func getPendingWorkItemCount
-		return dotnet_call("s3:get",'System.Threading.ThreadPool, System.Private.CoreLib',"s20:PendingWorkItemCount")
+		return dotnet_getps('System.Threading.ThreadPool, System.Private.CoreLib','PendingWorkItemCount')
 
 	Func setPendingWorkItemCount P1
 		raise("DotNet Error: PendingWorkItemCount is a read-only property")
 
 	Func getThreadCount
-		return dotnet_call("s3:get",'System.Threading.ThreadPool, System.Private.CoreLib',"s11:ThreadCount")
+		return dotnet_getps('System.Threading.ThreadPool, System.Private.CoreLib','ThreadCount')
 
 	Func setThreadCount P1
 		raise("DotNet Error: ThreadCount is a read-only property")
 
 	Func getCompletedWorkItemCount
-		return dotnet_call("s3:get",'System.Threading.ThreadPool, System.Private.CoreLib',"s22:CompletedWorkItemCount")
+		return dotnet_getps('System.Threading.ThreadPool, System.Private.CoreLib','CompletedWorkItemCount')
 
 	Func setCompletedWorkItemCount P1
 		raise("DotNet Error: CompletedWorkItemCount is a read-only property")
@@ -2752,7 +2752,7 @@ Class Timeout from Object
 		raise("DotNet Error: InfiniteTimeSpan is a read-only property")
 
 	Func getInfinite
-		return dotnet_call("s3:get",'System.Threading.Timeout, System.Private.CoreLib',"s8:Infinite")
+		return dotnet_getps('System.Threading.Timeout, System.Private.CoreLib','Infinite')
 
 	Func setInfinite P1
 		raise("DotNet Error: Infinite is a read-only property")
@@ -2822,7 +2822,7 @@ Class Timer from MarshalByRefObject
 		return dnObj(dn_x)
 
 	Func getActiveCount
-		return dotnet_call("s3:get",'System.Threading.Timer, System.Private.CoreLib',"s11:ActiveCount")
+		return dotnet_getps('System.Threading.Timer, System.Private.CoreLib','ActiveCount')
 
 	Func setActiveCount P1
 		raise("DotNet Error: ActiveCount is a read-only property")
@@ -2934,7 +2934,7 @@ Class WaitHandle from MarshalByRefObject
 		return self
 
 	Func getWaitTimeout
-		return dotnet_call("s3:get",'System.Threading.WaitHandle, System.Private.CoreLib',"s11:WaitTimeout")
+		return dotnet_getps('System.Threading.WaitHandle, System.Private.CoreLib','WaitTimeout')
 
 	Func setWaitTimeout P1
 		raise("DotNet Error: WaitTimeout is a read-only property")

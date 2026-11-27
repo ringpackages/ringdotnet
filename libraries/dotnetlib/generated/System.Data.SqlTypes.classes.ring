@@ -1087,19 +1087,19 @@ Class SqlDateTime from ValueType
 		raise("DotNet Error: TimeTicks is a read-only property")
 
 	Func getSQLTicksPerSecond
-		return dotnet_call("s3:get",'System.Data.SqlTypes.SqlDateTime, System.Data.Common',"s17:SQLTicksPerSecond")
+		return dotnet_getps('System.Data.SqlTypes.SqlDateTime, System.Data.Common','SQLTicksPerSecond')
 
 	Func setSQLTicksPerSecond P1
 		raise("DotNet Error: SQLTicksPerSecond is a read-only property")
 
 	Func getSQLTicksPerMinute
-		return dotnet_call("s3:get",'System.Data.SqlTypes.SqlDateTime, System.Data.Common',"s17:SQLTicksPerMinute")
+		return dotnet_getps('System.Data.SqlTypes.SqlDateTime, System.Data.Common','SQLTicksPerMinute')
 
 	Func setSQLTicksPerMinute P1
 		raise("DotNet Error: SQLTicksPerMinute is a read-only property")
 
 	Func getSQLTicksPerHour
-		return dotnet_call("s3:get",'System.Data.SqlTypes.SqlDateTime, System.Data.Common',"s15:SQLTicksPerHour")
+		return dotnet_getps('System.Data.SqlTypes.SqlDateTime, System.Data.Common','SQLTicksPerHour')
 
 	Func setSQLTicksPerHour P1
 		raise("DotNet Error: SQLTicksPerHour is a read-only property")
@@ -1367,13 +1367,13 @@ Class SqlDecimal from ValueType
 		raise("DotNet Error: BinData is a read-only property")
 
 	Func getMaxPrecision
-		return dotnet_call("s3:get",'System.Data.SqlTypes.SqlDecimal, System.Data.Common',"s12:MaxPrecision")
+		return dotnet_getps('System.Data.SqlTypes.SqlDecimal, System.Data.Common','MaxPrecision')
 
 	Func setMaxPrecision P1
 		raise("DotNet Error: MaxPrecision is a read-only property")
 
 	Func getMaxScale
-		return dotnet_call("s3:get",'System.Data.SqlTypes.SqlDecimal, System.Data.Common',"s8:MaxScale")
+		return dotnet_getps('System.Data.SqlTypes.SqlDecimal, System.Data.Common','MaxScale')
 
 	Func setMaxScale P1
 		raise("DotNet Error: MaxScale is a read-only property")
@@ -3028,37 +3028,37 @@ Class SqlString from ValueType
 		raise("DotNet Error: Null is a read-only property")
 
 	Func getIgnoreCase
-		return dotnet_call("s3:get",'System.Data.SqlTypes.SqlString, System.Data.Common',"s10:IgnoreCase")
+		return dotnet_getps('System.Data.SqlTypes.SqlString, System.Data.Common','IgnoreCase')
 
 	Func setIgnoreCase P1
 		raise("DotNet Error: IgnoreCase is a read-only property")
 
 	Func getIgnoreWidth
-		return dotnet_call("s3:get",'System.Data.SqlTypes.SqlString, System.Data.Common',"s11:IgnoreWidth")
+		return dotnet_getps('System.Data.SqlTypes.SqlString, System.Data.Common','IgnoreWidth')
 
 	Func setIgnoreWidth P1
 		raise("DotNet Error: IgnoreWidth is a read-only property")
 
 	Func getIgnoreNonSpace
-		return dotnet_call("s3:get",'System.Data.SqlTypes.SqlString, System.Data.Common',"s14:IgnoreNonSpace")
+		return dotnet_getps('System.Data.SqlTypes.SqlString, System.Data.Common','IgnoreNonSpace')
 
 	Func setIgnoreNonSpace P1
 		raise("DotNet Error: IgnoreNonSpace is a read-only property")
 
 	Func getIgnoreKanaType
-		return dotnet_call("s3:get",'System.Data.SqlTypes.SqlString, System.Data.Common',"s14:IgnoreKanaType")
+		return dotnet_getps('System.Data.SqlTypes.SqlString, System.Data.Common','IgnoreKanaType')
 
 	Func setIgnoreKanaType P1
 		raise("DotNet Error: IgnoreKanaType is a read-only property")
 
 	Func getBinarySort
-		return dotnet_call("s3:get",'System.Data.SqlTypes.SqlString, System.Data.Common',"s10:BinarySort")
+		return dotnet_getps('System.Data.SqlTypes.SqlString, System.Data.Common','BinarySort')
 
 	Func setBinarySort P1
 		raise("DotNet Error: BinarySort is a read-only property")
 
 	Func getBinarySort2
-		return dotnet_call("s3:get",'System.Data.SqlTypes.SqlString, System.Data.Common',"s11:BinarySort2")
+		return dotnet_getps('System.Data.SqlTypes.SqlString, System.Data.Common','BinarySort2')
 
 	Func setBinarySort2 P1
 		raise("DotNet Error: BinarySort2 is a read-only property")

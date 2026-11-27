@@ -727,10 +727,10 @@ Class Regex from Object
 		raise("DotNet Error: MatchTimeout is a read-only property")
 
 	Func getCacheSize
-		return dotnet_call("s3:get",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s9:CacheSize")
+		return dotnet_getps('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions','CacheSize')
 
 	Func setCacheSize P1
-		dotnet_callv("s3:set",'System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',"s9:CacheSize",P1)
+		dotnet_setps('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions','CacheSize',P1)
 		return self
 
 	Func getInfiniteMatchTimeout

@@ -1492,137 +1492,103 @@ Class WebHostDefaults from Object
 		return dn_x
 
 	Func getApplicationKey
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s14:ApplicationKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions','ApplicationKey')
 
 	Func setApplicationKey P1
 		raise("DotNet Error: ApplicationKey is a read-only property")
 
 	Func getStartupAssemblyKey
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s18:StartupAssemblyKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions','StartupAssemblyKey')
 
 	Func setStartupAssemblyKey P1
 		raise("DotNet Error: StartupAssemblyKey is a read-only property")
 
 	Func getHostingStartupAssembliesKey
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s27:HostingStartupAssembliesKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions','HostingStartupAssembliesKey')
 
 	Func setHostingStartupAssembliesKey P1
 		raise("DotNet Error: HostingStartupAssembliesKey is a read-only property")
 
 	Func getHostingStartupExcludeAssembliesKey
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s34:HostingStartupExcludeAssembliesKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions','HostingStartupExcludeAssembliesKey')
 
 	Func setHostingStartupExcludeAssembliesKey P1
 		raise("DotNet Error: HostingStartupExcludeAssembliesKey is a read-only property")
 
 	Func getDetailedErrorsKey
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s17:DetailedErrorsKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions','DetailedErrorsKey')
 
 	Func setDetailedErrorsKey P1
 		raise("DotNet Error: DetailedErrorsKey is a read-only property")
 
 	Func getEnvironmentKey
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s14:EnvironmentKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions','EnvironmentKey')
 
 	Func setEnvironmentKey P1
 		raise("DotNet Error: EnvironmentKey is a read-only property")
 
 	Func getWebRootKey
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s10:WebRootKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions','WebRootKey')
 
 	Func setWebRootKey P1
 		raise("DotNet Error: WebRootKey is a read-only property")
 
 	Func getCaptureStartupErrorsKey
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s23:CaptureStartupErrorsKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions','CaptureStartupErrorsKey')
 
 	Func setCaptureStartupErrorsKey P1
 		raise("DotNet Error: CaptureStartupErrorsKey is a read-only property")
 
 	Func getServerUrlsKey
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s13:ServerUrlsKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions','ServerUrlsKey')
 
 	Func setServerUrlsKey P1
 		raise("DotNet Error: ServerUrlsKey is a read-only property")
 
 	Func getHttpPortsKey
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s12:HttpPortsKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions','HttpPortsKey')
 
 	Func setHttpPortsKey P1
 		raise("DotNet Error: HttpPortsKey is a read-only property")
 
 	Func getHttpsPortsKey
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s13:HttpsPortsKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions','HttpsPortsKey')
 
 	Func setHttpsPortsKey P1
 		raise("DotNet Error: HttpsPortsKey is a read-only property")
 
 	Func getContentRootKey
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s14:ContentRootKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions','ContentRootKey')
 
 	Func setContentRootKey P1
 		raise("DotNet Error: ContentRootKey is a read-only property")
 
 	Func getPreferHostingUrlsKey
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s20:PreferHostingUrlsKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions','PreferHostingUrlsKey')
 
 	Func setPreferHostingUrlsKey P1
 		raise("DotNet Error: PreferHostingUrlsKey is a read-only property")
 
 	Func getPreventHostingStartupKey
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s24:PreventHostingStartupKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions','PreventHostingStartupKey')
 
 	Func setPreventHostingStartupKey P1
 		raise("DotNet Error: PreventHostingStartupKey is a read-only property")
 
 	Func getSuppressStatusMessagesKey
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s25:SuppressStatusMessagesKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions','SuppressStatusMessagesKey')
 
 	Func setSuppressStatusMessagesKey P1
 		raise("DotNet Error: SuppressStatusMessagesKey is a read-only property")
 
 	Func getShutdownTimeoutKey
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s18:ShutdownTimeoutKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions','ShutdownTimeoutKey')
 
 	Func setShutdownTimeoutKey P1
 		raise("DotNet Error: ShutdownTimeoutKey is a read-only property")
 
 	Func getStaticWebAssetsKey
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions',"s18:StaticWebAssetsKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions','StaticWebAssetsKey')
 
 	Func setStaticWebAssetsKey P1
 		raise("DotNet Error: StaticWebAssetsKey is a read-only property")

@@ -4860,17 +4860,13 @@ Class ConstructorInfo from MethodBase
 		return dnObj(dn_x)
 
 	Func getConstructorName
-		dn_x = dotnet_call("s3:get",'System.Reflection.ConstructorInfo, System.Private.CoreLib',"s15:ConstructorName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Reflection.ConstructorInfo, System.Private.CoreLib','ConstructorName')
 
 	Func setConstructorName P1
 		raise("DotNet Error: ConstructorName is a read-only property")
 
 	Func getTypeConstructorName
-		dn_x = dotnet_call("s3:get",'System.Reflection.ConstructorInfo, System.Private.CoreLib',"s19:TypeConstructorName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Reflection.ConstructorInfo, System.Private.CoreLib','TypeConstructorName')
 
 	Func setTypeConstructorName P1
 		raise("DotNet Error: TypeConstructorName is a read-only property")

@@ -2580,25 +2580,19 @@ Class HttpMethods from Object
 		return dotnet_callts('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','GetCanonicalizedValue',P1)
 
 	Func getConnect
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s7:Connect")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','Connect')
 
 	Func setConnect P1
 		raise("DotNet Error: Connect is a read-only property")
 
 	Func getDelete
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s6:Delete")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','Delete')
 
 	Func setDelete P1
 		raise("DotNet Error: Delete is a read-only property")
 
 	Func getGet
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s3:Get")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','Get')
 
 	Func get@Get
 		return getGet()
@@ -2610,41 +2604,31 @@ Class HttpMethods from Object
 		return setGet(P1)
 
 	Func getHead
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s4:Head")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','Head')
 
 	Func setHead P1
 		raise("DotNet Error: Head is a read-only property")
 
 	Func getOptions
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s7:Options")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','Options')
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getPatch
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s5:Patch")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','Patch')
 
 	Func setPatch P1
 		raise("DotNet Error: Patch is a read-only property")
 
 	Func getPost
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s4:Post")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','Post')
 
 	Func setPost P1
 		raise("DotNet Error: Post is a read-only property")
 
 	Func getPut
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s3:Put")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','Put')
 
 	Func get@Put
 		return getPut()
@@ -2656,9 +2640,7 @@ Class HttpMethods from Object
 		return setPut(P1)
 
 	Func getTrace
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s5:Trace")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','Trace')
 
 	Func setTrace P1
 		raise("DotNet Error: Trace is a read-only property")
@@ -2707,41 +2689,31 @@ Class HttpProtocol from Object
 		return dn_x
 
 	Func getHttp09
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s6:Http09")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions','Http09')
 
 	Func setHttp09 P1
 		raise("DotNet Error: Http09 is a read-only property")
 
 	Func getHttp10
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s6:Http10")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions','Http10')
 
 	Func setHttp10 P1
 		raise("DotNet Error: Http10 is a read-only property")
 
 	Func getHttp11
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s6:Http11")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions','Http11')
 
 	Func setHttp11 P1
 		raise("DotNet Error: Http11 is a read-only property")
 
 	Func getHttp2
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s5:Http2")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions','Http2')
 
 	Func setHttp2 P1
 		raise("DotNet Error: Http2 is a read-only property")
 
 	Func getHttp3
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions',"s5:Http3")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Http.HttpProtocol, Microsoft.AspNetCore.Http.Abstractions','Http3')
 
 	Func setHttp3 P1
 		raise("DotNet Error: Http3 is a read-only property")
@@ -6433,397 +6405,397 @@ Class StatusCodes from Object
 		return dn_x
 
 	Func getStatus100Continue
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status100Continue")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status100Continue')
 
 	Func setStatus100Continue P1
 		raise("DotNet Error: Status100Continue is a read-only property")
 
 	Func getStatus101SwitchingProtocols
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status101SwitchingProtocols")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status101SwitchingProtocols')
 
 	Func setStatus101SwitchingProtocols P1
 		raise("DotNet Error: Status101SwitchingProtocols is a read-only property")
 
 	Func getStatus102Processing
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status102Processing")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status102Processing')
 
 	Func setStatus102Processing P1
 		raise("DotNet Error: Status102Processing is a read-only property")
 
 	Func getStatus200OK
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s11:Status200OK")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status200OK')
 
 	Func setStatus200OK P1
 		raise("DotNet Error: Status200OK is a read-only property")
 
 	Func getStatus201Created
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s16:Status201Created")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status201Created')
 
 	Func setStatus201Created P1
 		raise("DotNet Error: Status201Created is a read-only property")
 
 	Func getStatus202Accepted
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status202Accepted")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status202Accepted')
 
 	Func setStatus202Accepted P1
 		raise("DotNet Error: Status202Accepted is a read-only property")
 
 	Func getStatus203NonAuthoritative
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status203NonAuthoritative")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status203NonAuthoritative')
 
 	Func setStatus203NonAuthoritative P1
 		raise("DotNet Error: Status203NonAuthoritative is a read-only property")
 
 	Func getStatus204NoContent
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s18:Status204NoContent")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status204NoContent')
 
 	Func setStatus204NoContent P1
 		raise("DotNet Error: Status204NoContent is a read-only property")
 
 	Func getStatus205ResetContent
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s21:Status205ResetContent")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status205ResetContent')
 
 	Func setStatus205ResetContent P1
 		raise("DotNet Error: Status205ResetContent is a read-only property")
 
 	Func getStatus206PartialContent
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status206PartialContent")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status206PartialContent')
 
 	Func setStatus206PartialContent P1
 		raise("DotNet Error: Status206PartialContent is a read-only property")
 
 	Func getStatus207MultiStatus
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status207MultiStatus")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status207MultiStatus')
 
 	Func setStatus207MultiStatus P1
 		raise("DotNet Error: Status207MultiStatus is a read-only property")
 
 	Func getStatus208AlreadyReported
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status208AlreadyReported")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status208AlreadyReported')
 
 	Func setStatus208AlreadyReported P1
 		raise("DotNet Error: Status208AlreadyReported is a read-only property")
 
 	Func getStatus226IMUsed
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s15:Status226IMUsed")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status226IMUsed')
 
 	Func setStatus226IMUsed P1
 		raise("DotNet Error: Status226IMUsed is a read-only property")
 
 	Func getStatus300MultipleChoices
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status300MultipleChoices")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status300MultipleChoices')
 
 	Func setStatus300MultipleChoices P1
 		raise("DotNet Error: Status300MultipleChoices is a read-only property")
 
 	Func getStatus301MovedPermanently
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status301MovedPermanently")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status301MovedPermanently')
 
 	Func setStatus301MovedPermanently P1
 		raise("DotNet Error: Status301MovedPermanently is a read-only property")
 
 	Func getStatus302Found
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s14:Status302Found")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status302Found')
 
 	Func setStatus302Found P1
 		raise("DotNet Error: Status302Found is a read-only property")
 
 	Func getStatus303SeeOther
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status303SeeOther")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status303SeeOther')
 
 	Func setStatus303SeeOther P1
 		raise("DotNet Error: Status303SeeOther is a read-only property")
 
 	Func getStatus304NotModified
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status304NotModified")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status304NotModified')
 
 	Func setStatus304NotModified P1
 		raise("DotNet Error: Status304NotModified is a read-only property")
 
 	Func getStatus305UseProxy
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status305UseProxy")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status305UseProxy')
 
 	Func setStatus305UseProxy P1
 		raise("DotNet Error: Status305UseProxy is a read-only property")
 
 	Func getStatus306SwitchProxy
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status306SwitchProxy")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status306SwitchProxy')
 
 	Func setStatus306SwitchProxy P1
 		raise("DotNet Error: Status306SwitchProxy is a read-only property")
 
 	Func getStatus307TemporaryRedirect
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status307TemporaryRedirect")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status307TemporaryRedirect')
 
 	Func setStatus307TemporaryRedirect P1
 		raise("DotNet Error: Status307TemporaryRedirect is a read-only property")
 
 	Func getStatus308PermanentRedirect
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status308PermanentRedirect")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status308PermanentRedirect')
 
 	Func setStatus308PermanentRedirect P1
 		raise("DotNet Error: Status308PermanentRedirect is a read-only property")
 
 	Func getStatus400BadRequest
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status400BadRequest")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status400BadRequest')
 
 	Func setStatus400BadRequest P1
 		raise("DotNet Error: Status400BadRequest is a read-only property")
 
 	Func getStatus401Unauthorized
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s21:Status401Unauthorized")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status401Unauthorized')
 
 	Func setStatus401Unauthorized P1
 		raise("DotNet Error: Status401Unauthorized is a read-only property")
 
 	Func getStatus402PaymentRequired
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status402PaymentRequired")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status402PaymentRequired')
 
 	Func setStatus402PaymentRequired P1
 		raise("DotNet Error: Status402PaymentRequired is a read-only property")
 
 	Func getStatus403Forbidden
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s18:Status403Forbidden")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status403Forbidden')
 
 	Func setStatus403Forbidden P1
 		raise("DotNet Error: Status403Forbidden is a read-only property")
 
 	Func getStatus404NotFound
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status404NotFound")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status404NotFound')
 
 	Func setStatus404NotFound P1
 		raise("DotNet Error: Status404NotFound is a read-only property")
 
 	Func getStatus405MethodNotAllowed
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status405MethodNotAllowed")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status405MethodNotAllowed')
 
 	Func setStatus405MethodNotAllowed P1
 		raise("DotNet Error: Status405MethodNotAllowed is a read-only property")
 
 	Func getStatus406NotAcceptable
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s22:Status406NotAcceptable")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status406NotAcceptable')
 
 	Func setStatus406NotAcceptable P1
 		raise("DotNet Error: Status406NotAcceptable is a read-only property")
 
 	Func getStatus407ProxyAuthenticationRequired
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s36:Status407ProxyAuthenticationRequired")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status407ProxyAuthenticationRequired')
 
 	Func setStatus407ProxyAuthenticationRequired P1
 		raise("DotNet Error: Status407ProxyAuthenticationRequired is a read-only property")
 
 	Func getStatus408RequestTimeout
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status408RequestTimeout")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status408RequestTimeout')
 
 	Func setStatus408RequestTimeout P1
 		raise("DotNet Error: Status408RequestTimeout is a read-only property")
 
 	Func getStatus409Conflict
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s17:Status409Conflict")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status409Conflict')
 
 	Func setStatus409Conflict P1
 		raise("DotNet Error: Status409Conflict is a read-only property")
 
 	Func getStatus410Gone
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s13:Status410Gone")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status410Gone')
 
 	Func setStatus410Gone P1
 		raise("DotNet Error: Status410Gone is a read-only property")
 
 	Func getStatus411LengthRequired
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status411LengthRequired")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status411LengthRequired')
 
 	Func setStatus411LengthRequired P1
 		raise("DotNet Error: Status411LengthRequired is a read-only property")
 
 	Func getStatus412PreconditionFailed
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status412PreconditionFailed")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status412PreconditionFailed')
 
 	Func setStatus412PreconditionFailed P1
 		raise("DotNet Error: Status412PreconditionFailed is a read-only property")
 
 	Func getStatus413RequestEntityTooLarge
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s30:Status413RequestEntityTooLarge")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status413RequestEntityTooLarge')
 
 	Func setStatus413RequestEntityTooLarge P1
 		raise("DotNet Error: Status413RequestEntityTooLarge is a read-only property")
 
 	Func getStatus413PayloadTooLarge
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status413PayloadTooLarge")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status413PayloadTooLarge')
 
 	Func setStatus413PayloadTooLarge P1
 		raise("DotNet Error: Status413PayloadTooLarge is a read-only property")
 
 	Func getStatus414RequestUriTooLong
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status414RequestUriTooLong")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status414RequestUriTooLong')
 
 	Func setStatus414RequestUriTooLong P1
 		raise("DotNet Error: Status414RequestUriTooLong is a read-only property")
 
 	Func getStatus414UriTooLong
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status414UriTooLong")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status414UriTooLong')
 
 	Func setStatus414UriTooLong P1
 		raise("DotNet Error: Status414UriTooLong is a read-only property")
 
 	Func getStatus415UnsupportedMediaType
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s29:Status415UnsupportedMediaType")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status415UnsupportedMediaType')
 
 	Func setStatus415UnsupportedMediaType P1
 		raise("DotNet Error: Status415UnsupportedMediaType is a read-only property")
 
 	Func getStatus416RequestedRangeNotSatisfiable
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s37:Status416RequestedRangeNotSatisfiable")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status416RequestedRangeNotSatisfiable')
 
 	Func setStatus416RequestedRangeNotSatisfiable P1
 		raise("DotNet Error: Status416RequestedRangeNotSatisfiable is a read-only property")
 
 	Func getStatus416RangeNotSatisfiable
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status416RangeNotSatisfiable")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status416RangeNotSatisfiable')
 
 	Func setStatus416RangeNotSatisfiable P1
 		raise("DotNet Error: Status416RangeNotSatisfiable is a read-only property")
 
 	Func getStatus417ExpectationFailed
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s26:Status417ExpectationFailed")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status417ExpectationFailed')
 
 	Func setStatus417ExpectationFailed P1
 		raise("DotNet Error: Status417ExpectationFailed is a read-only property")
 
 	Func getStatus418ImATeapot
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s18:Status418ImATeapot")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status418ImATeapot')
 
 	Func setStatus418ImATeapot P1
 		raise("DotNet Error: Status418ImATeapot is a read-only property")
 
 	Func getStatus419AuthenticationTimeout
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s30:Status419AuthenticationTimeout")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status419AuthenticationTimeout')
 
 	Func setStatus419AuthenticationTimeout P1
 		raise("DotNet Error: Status419AuthenticationTimeout is a read-only property")
 
 	Func getStatus421MisdirectedRequest
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status421MisdirectedRequest")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status421MisdirectedRequest')
 
 	Func setStatus421MisdirectedRequest P1
 		raise("DotNet Error: Status421MisdirectedRequest is a read-only property")
 
 	Func getStatus422UnprocessableEntity
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status422UnprocessableEntity")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status422UnprocessableEntity')
 
 	Func setStatus422UnprocessableEntity P1
 		raise("DotNet Error: Status422UnprocessableEntity is a read-only property")
 
 	Func getStatus423Locked
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s15:Status423Locked")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status423Locked')
 
 	Func setStatus423Locked P1
 		raise("DotNet Error: Status423Locked is a read-only property")
 
 	Func getStatus424FailedDependency
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s25:Status424FailedDependency")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status424FailedDependency')
 
 	Func setStatus424FailedDependency P1
 		raise("DotNet Error: Status424FailedDependency is a read-only property")
 
 	Func getStatus426UpgradeRequired
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status426UpgradeRequired")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status426UpgradeRequired')
 
 	Func setStatus426UpgradeRequired P1
 		raise("DotNet Error: Status426UpgradeRequired is a read-only property")
 
 	Func getStatus428PreconditionRequired
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s29:Status428PreconditionRequired")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status428PreconditionRequired')
 
 	Func setStatus428PreconditionRequired P1
 		raise("DotNet Error: Status428PreconditionRequired is a read-only property")
 
 	Func getStatus429TooManyRequests
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s24:Status429TooManyRequests")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status429TooManyRequests')
 
 	Func setStatus429TooManyRequests P1
 		raise("DotNet Error: Status429TooManyRequests is a read-only property")
 
 	Func getStatus431RequestHeaderFieldsTooLarge
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s36:Status431RequestHeaderFieldsTooLarge")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status431RequestHeaderFieldsTooLarge')
 
 	Func setStatus431RequestHeaderFieldsTooLarge P1
 		raise("DotNet Error: Status431RequestHeaderFieldsTooLarge is a read-only property")
 
 	Func getStatus451UnavailableForLegalReasons
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s35:Status451UnavailableForLegalReasons")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status451UnavailableForLegalReasons')
 
 	Func setStatus451UnavailableForLegalReasons P1
 		raise("DotNet Error: Status451UnavailableForLegalReasons is a read-only property")
 
 	Func getStatus499ClientClosedRequest
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status499ClientClosedRequest")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status499ClientClosedRequest')
 
 	Func setStatus499ClientClosedRequest P1
 		raise("DotNet Error: Status499ClientClosedRequest is a read-only property")
 
 	Func getStatus500InternalServerError
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status500InternalServerError")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status500InternalServerError')
 
 	Func setStatus500InternalServerError P1
 		raise("DotNet Error: Status500InternalServerError is a read-only property")
 
 	Func getStatus501NotImplemented
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status501NotImplemented")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status501NotImplemented')
 
 	Func setStatus501NotImplemented P1
 		raise("DotNet Error: Status501NotImplemented is a read-only property")
 
 	Func getStatus502BadGateway
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s19:Status502BadGateway")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status502BadGateway')
 
 	Func setStatus502BadGateway P1
 		raise("DotNet Error: Status502BadGateway is a read-only property")
 
 	Func getStatus503ServiceUnavailable
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s27:Status503ServiceUnavailable")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status503ServiceUnavailable')
 
 	Func setStatus503ServiceUnavailable P1
 		raise("DotNet Error: Status503ServiceUnavailable is a read-only property")
 
 	Func getStatus504GatewayTimeout
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s23:Status504GatewayTimeout")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status504GatewayTimeout')
 
 	Func setStatus504GatewayTimeout P1
 		raise("DotNet Error: Status504GatewayTimeout is a read-only property")
 
 	Func getStatus505HttpVersionNotsupported
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s32:Status505HttpVersionNotsupported")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status505HttpVersionNotsupported')
 
 	Func setStatus505HttpVersionNotsupported P1
 		raise("DotNet Error: Status505HttpVersionNotsupported is a read-only property")
 
 	Func getStatus506VariantAlsoNegotiates
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s30:Status506VariantAlsoNegotiates")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status506VariantAlsoNegotiates')
 
 	Func setStatus506VariantAlsoNegotiates P1
 		raise("DotNet Error: Status506VariantAlsoNegotiates is a read-only property")
 
 	Func getStatus507InsufficientStorage
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s28:Status507InsufficientStorage")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status507InsufficientStorage')
 
 	Func setStatus507InsufficientStorage P1
 		raise("DotNet Error: Status507InsufficientStorage is a read-only property")
 
 	Func getStatus508LoopDetected
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s21:Status508LoopDetected")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status508LoopDetected')
 
 	Func setStatus508LoopDetected P1
 		raise("DotNet Error: Status508LoopDetected is a read-only property")
 
 	Func getStatus510NotExtended
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s20:Status510NotExtended")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status510NotExtended')
 
 	Func setStatus510NotExtended P1
 		raise("DotNet Error: Status510NotExtended is a read-only property")
 
 	Func getStatus511NetworkAuthenticationRequired
-		return dotnet_call("s3:get",'Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions',"s38:Status511NetworkAuthenticationRequired")
+		return dotnet_getps('Microsoft.AspNetCore.Http.StatusCodes, Microsoft.AspNetCore.Http.Abstractions','Status511NetworkAuthenticationRequired')
 
 	Func setStatus511NetworkAuthenticationRequired P1
 		raise("DotNet Error: Status511NetworkAuthenticationRequired is a read-only property")

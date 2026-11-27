@@ -1229,9 +1229,7 @@ Class ConfigurationPath from Object
 		return dnAnswer(dotnet_callts('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions','GetParentPath',P1))
 
 	Func getKeyDelimiter
-		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions',"s12:KeyDelimiter")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions','KeyDelimiter')
 
 	Func setKeyDelimiter P1
 		raise("DotNet Error: KeyDelimiter is a read-only property")

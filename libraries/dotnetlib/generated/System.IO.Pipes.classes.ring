@@ -763,7 +763,7 @@ Class NamedPipeServerStream from PipeStream
 		return self
 
 	Func getMaxAllowedServerInstances
-		return dotnet_call("s3:get",'System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes',"s25:MaxAllowedServerInstances")
+		return dotnet_getps('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes','MaxAllowedServerInstances')
 
 	Func setMaxAllowedServerInstances P1
 		raise("DotNet Error: MaxAllowedServerInstances is a read-only property")

@@ -1008,9 +1008,7 @@ Class Options from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options',"s6:Create",P1))
 
 	Func getDefaultName
-		dn_x = dotnet_call("s3:get",'Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options',"s11:DefaultName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.Extensions.Options.Options, Microsoft.Extensions.Options','DefaultName')
 
 	Func setDefaultName P1
 		raise("DotNet Error: DefaultName is a read-only property")

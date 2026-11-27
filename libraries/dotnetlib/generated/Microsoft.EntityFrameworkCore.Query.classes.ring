@@ -3248,9 +3248,7 @@ Class QueryCompilationContext from Object
 		raise("DotNet Error: NotTranslatedExpression is a read-only property")
 
 	Func getQueryParameterPrefix
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore',"s20:QueryParameterPrefix")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore','QueryParameterPrefix')
 
 	Func setQueryParameterPrefix P1
 		raise("DotNet Error: QueryParameterPrefix is a read-only property")
@@ -6893,17 +6891,13 @@ Class RelationalQueryableMethodTranslatingExpressionVisitor from QueryableMethod
 		return self
 
 	Func getValuesOrderingColumnName
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s24:ValuesOrderingColumnName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational','ValuesOrderingColumnName')
 
 	Func setValuesOrderingColumnName P1
 		raise("DotNet Error: ValuesOrderingColumnName is a read-only property")
 
 	Func getValuesValueColumnName
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',"s21:ValuesValueColumnName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational','ValuesValueColumnName')
 
 	Func setValuesValueColumnName P1
 		raise("DotNet Error: ValuesValueColumnName is a read-only property")

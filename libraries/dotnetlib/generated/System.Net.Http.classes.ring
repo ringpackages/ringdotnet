@@ -1960,7 +1960,7 @@ Class SocketsHttpHandler from HttpMessageHandler
 		return self
 
 	Func getIsSupported
-		return dotnet_call("s3:get",'System.Net.Http.SocketsHttpHandler, System.Net.Http',"s11:IsSupported")
+		return dotnet_getps('System.Net.Http.SocketsHttpHandler, System.Net.Http','IsSupported')
 
 	Func setIsSupported P1
 		raise("DotNet Error: IsSupported is a read-only property")

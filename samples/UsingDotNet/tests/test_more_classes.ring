@@ -74,4 +74,14 @@ func main
 	oEncodingType.RegisterProvider(oProvider.Instance)
 	oWindows1252 = oEncodingType.GetEncoding(1252)
 	dnAssert("CodePagesEncodingProvider: windows-1252 is available",oWindows1252.WebName,"windows-1252")
+	# static properties and fields of numbers, texts and enums are read and written by the typed functions (dotnet_getps and dotnet_setps)
+	oEnvironment = new Environment()
+	dnAssert("a static number property is read",oEnvironment.ProcessorCount > 0,True)
+	oEnvironment.ExitCode = 9
+	dnAssert("a static property is written and read back",oEnvironment.ExitCode,9)
+	oEnvironment.ExitCode = 0
+	dnAssert("a static text property",len(oEnvironment.NewLine) >= 1,True)
+	oMath = new Math()
+	dnAssert("a constant (a literal field)",floor(oMath.PI * 1000),3141)
+	dnAssert("a static yes/no property",oEnvironment.Is64BitProcess,True)
 	dnTestSummary()

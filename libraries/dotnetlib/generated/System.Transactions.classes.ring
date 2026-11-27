@@ -668,10 +668,10 @@ Class TransactionManager from Object
 		return self
 
 	Func getImplicitDistributedTransactions
-		return dotnet_call("s3:get",'System.Transactions.TransactionManager, System.Transactions.Local',"s31:ImplicitDistributedTransactions")
+		return dotnet_getps('System.Transactions.TransactionManager, System.Transactions.Local','ImplicitDistributedTransactions')
 
 	Func setImplicitDistributedTransactions P1
-		dotnet_callv("s3:set",'System.Transactions.TransactionManager, System.Transactions.Local',"s31:ImplicitDistributedTransactions",P1)
+		dotnet_setps('System.Transactions.TransactionManager, System.Transactions.Local','ImplicitDistributedTransactions',P1)
 		return self
 
 

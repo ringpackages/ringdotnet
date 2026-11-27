@@ -2049,7 +2049,7 @@ Class UnicodeEncoding from Encoding
 		return self
 
 	Func getCharSize
-		return dotnet_call("s3:get",'System.Text.UnicodeEncoding, System.Private.CoreLib',"s8:CharSize")
+		return dotnet_getps('System.Text.UnicodeEncoding, System.Private.CoreLib','CharSize')
 
 	Func setCharSize P1
 		raise("DotNet Error: CharSize is a read-only property")

@@ -2916,9 +2916,7 @@ Class FallbackEndpointRouteBuilderExtensions from Object
 		raise("DotNet Error: MapFallback does not take one argument: use named arguments, MapFallback([ :parameter = value, ... ])")
 
 	Func getDefaultPattern
-		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Builder.FallbackEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing',"s14:DefaultPattern")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.AspNetCore.Builder.FallbackEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing','DefaultPattern')
 
 	Func setDefaultPattern P1
 		raise("DotNet Error: DefaultPattern is a read-only property")

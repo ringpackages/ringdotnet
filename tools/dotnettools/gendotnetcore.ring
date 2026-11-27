@@ -412,6 +412,19 @@ func typedGetterCode cName, cType, lNotNull
 func typedSetterCode cName
 	return 'dotnet_setp(nHandle,"' + cName + '",P1)' + nl
 
+# The same for a static property or field: dotnet_getps and dotnet_setps (ring_dotnet.c) name the type by its text, like dotnet_callts
+func typedStaticGetterCode cTypeName, cName, cType, lNotNull
+	if lNotNull
+		return "return dotnet_getps('" + cTypeName + "','" + cName + "')" + nl
+	ok
+	if cType = "System.String" or not isPrimitiveType(cType)
+		return "return dnAnswer(dotnet_getps('" + cTypeName + "','" + cName + "'))" + nl
+	ok
+	return "return dotnet_getps('" + cTypeName + "','" + cName + "')" + nl
+
+func typedStaticSetterCode cTypeName, cName
+	return "dotnet_setps('" + cTypeName + "','" + cName + "',P1)" + nl
+
 # The statement that returns the value of a property. A property has no overloads, so its declared type is what it answers: a number or a yes/no is
 # returned as it is, with nothing to finish. (The indexer is not a property: it is described by the first indexer that .NET lists, which is not always
 # the one that is called, so it uses returnCode.)
@@ -1068,12 +1081,15 @@ func buildPlan cTypeName, nForceInit
 		# (an enum is read as the text of its member name, and written from a text or a number: aMember[6] is true for it)
 		lEnum = (len(aMember) >= 6) and aMember[6]
 		lTyped = (not aMember[4]) and (isPrimitiveType(aMember[5]) or lEnum)
+		lTypedStatic = aMember[4] and (isPrimitiveType(aMember[5]) or lEnum)
 		cAt = memberAt(cName)          # a property called like a word of Ring is the attribute @Next: Ring calls get@Next and set@Next, which call getNext and setNext
 		if aMember[2] and (find(aNames,lower("get" + cName)) = 0)
 			aNames + lower("get" + cName)
 			cB = "	Func get" + cName + nl
 			if lTyped
 				cB += "		" + typedGetterCode(cName,aMember[5],len(aMember) >= 7 and aMember[7] = 1) + nl
+			but lTypedStatic
+				cB += "		" + typedStaticGetterCode(cTypeName,cName,aMember[5],len(aMember) >= 7 and aMember[7] = 1) + nl
 			else
 				cB += "		" + propertyReturnCode('"get",[' + cTarget + ',"' + cName + '"]',aMember[5]) + nl
 			ok
@@ -1087,6 +1103,8 @@ func buildPlan cTypeName, nForceInit
 			cB = "	Func set" + cName + " P1" + nl
 			if lTyped
 				cB += "		" + typedSetterCode(cName)
+			but lTypedStatic
+				cB += "		" + typedStaticSetterCode(cTypeName,cName)
 			else
 				cB += "		" + nativeCall('"set",[' + cTarget + ',"' + cName + '",P1]',"void")
 			ok

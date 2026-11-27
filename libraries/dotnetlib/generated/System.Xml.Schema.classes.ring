@@ -1614,17 +1614,13 @@ Class XmlSchema from XmlSchemaObject
 		raise("DotNet Error: Notations is a read-only property")
 
 	Func getNamespace
-		dn_x = dotnet_call("s3:get",'System.Xml.Schema.XmlSchema, System.Private.Xml',"s9:Namespace")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Xml.Schema.XmlSchema, System.Private.Xml','Namespace')
 
 	Func setNamespace P1
 		raise("DotNet Error: Namespace is a read-only property")
 
 	Func getInstanceNamespace
-		dn_x = dotnet_call("s3:get",'System.Xml.Schema.XmlSchema, System.Private.Xml',"s17:InstanceNamespace")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Xml.Schema.XmlSchema, System.Private.Xml','InstanceNamespace')
 
 	Func setInstanceNamespace P1
 		raise("DotNet Error: InstanceNamespace is a read-only property")

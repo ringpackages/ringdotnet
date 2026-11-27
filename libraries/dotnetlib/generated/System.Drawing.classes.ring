@@ -5720,10 +5720,10 @@ Class SystemColors from Object
 		raise("DotNet Error: WindowText is a read-only property")
 
 	Func getUseAlternativeColorSet
-		return dotnet_call("s3:get",'System.Drawing.SystemColors, System.Drawing.Primitives',"s22:UseAlternativeColorSet")
+		return dotnet_getps('System.Drawing.SystemColors, System.Drawing.Primitives','UseAlternativeColorSet')
 
 	Func setUseAlternativeColorSet P1
-		dotnet_callv("s3:set",'System.Drawing.SystemColors, System.Drawing.Primitives',"s22:UseAlternativeColorSet",P1)
+		dotnet_setps('System.Drawing.SystemColors, System.Drawing.Primitives','UseAlternativeColorSet',P1)
 		return self
 
 

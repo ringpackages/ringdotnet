@@ -321,25 +321,25 @@ Class DrawingAttributes from Object
 		return self
 
 	Func getMinHeight
-		return dotnet_call("s3:get",'System.Windows.Ink.DrawingAttributes, PresentationCore',"s9:MinHeight")
+		return dotnet_getps('System.Windows.Ink.DrawingAttributes, PresentationCore','MinHeight')
 
 	Func setMinHeight P1
 		raise("DotNet Error: MinHeight is a read-only property")
 
 	Func getMinWidth
-		return dotnet_call("s3:get",'System.Windows.Ink.DrawingAttributes, PresentationCore',"s8:MinWidth")
+		return dotnet_getps('System.Windows.Ink.DrawingAttributes, PresentationCore','MinWidth')
 
 	Func setMinWidth P1
 		raise("DotNet Error: MinWidth is a read-only property")
 
 	Func getMaxHeight
-		return dotnet_call("s3:get",'System.Windows.Ink.DrawingAttributes, PresentationCore',"s9:MaxHeight")
+		return dotnet_getps('System.Windows.Ink.DrawingAttributes, PresentationCore','MaxHeight')
 
 	Func setMaxHeight P1
 		raise("DotNet Error: MaxHeight is a read-only property")
 
 	Func getMaxWidth
-		return dotnet_call("s3:get",'System.Windows.Ink.DrawingAttributes, PresentationCore',"s8:MaxWidth")
+		return dotnet_getps('System.Windows.Ink.DrawingAttributes, PresentationCore','MaxWidth')
 
 	Func setMaxWidth P1
 		raise("DotNet Error: MaxWidth is a read-only property")
@@ -930,9 +930,7 @@ Class StrokeCollection from Collection
 		return self
 
 	Func getInkSerializedFormat
-		dn_x = dotnet_call("s3:get",'System.Windows.Ink.StrokeCollection, PresentationCore',"s19:InkSerializedFormat")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.Ink.StrokeCollection, PresentationCore','InkSerializedFormat'))
 
 	Func setInkSerializedFormat P1
 		raise("DotNet Error: InkSerializedFormat is a read-only property")

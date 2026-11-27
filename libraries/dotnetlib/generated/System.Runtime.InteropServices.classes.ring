@@ -2764,13 +2764,13 @@ Class Marshal from Object
 		return dotnet_callts('System.Runtime.InteropServices.Marshal, System.Private.CoreLib','GetPInvokeErrorMessage',P1)
 
 	Func getSystemDefaultCharSize
-		return dotnet_call("s3:get",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:SystemDefaultCharSize")
+		return dotnet_getps('System.Runtime.InteropServices.Marshal, System.Private.CoreLib','SystemDefaultCharSize')
 
 	Func setSystemDefaultCharSize P1
 		raise("DotNet Error: SystemDefaultCharSize is a read-only property")
 
 	Func getSystemMaxDBCSCharSize
-		return dotnet_call("s3:get",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:SystemMaxDBCSCharSize")
+		return dotnet_getps('System.Runtime.InteropServices.Marshal, System.Private.CoreLib','SystemMaxDBCSCharSize')
 
 	Func setSystemMaxDBCSCharSize P1
 		raise("DotNet Error: SystemMaxDBCSCharSize is a read-only property")
@@ -3418,7 +3418,7 @@ Class NFloat from ValueType
 		raise("DotNet Error: PositiveInfinity is a read-only property")
 
 	Func getSize
-		return dotnet_call("s3:get",'System.Runtime.InteropServices.NFloat, System.Private.CoreLib',"s4:Size")
+		return dotnet_getps('System.Runtime.InteropServices.NFloat, System.Private.CoreLib','Size')
 
 	Func setSize P1
 		raise("DotNet Error: Size is a read-only property")
@@ -3848,9 +3848,7 @@ Class RuntimeEnvironment from Object
 		return dotnet_callts('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices','GetSystemVersion')
 
 	Func getSystemConfigurationFile
-		dn_x = dotnet_call("s3:get",'System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices',"s23:SystemConfigurationFile")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices','SystemConfigurationFile')
 
 	Func setSystemConfigurationFile P1
 		raise("DotNet Error: SystemConfigurationFile is a read-only property")
@@ -3884,37 +3882,31 @@ Class RuntimeInformation from Object
 		return dn_x
 
 	Func getRuntimeIdentifier
-		dn_x = dotnet_call("s3:get",'System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib',"s17:RuntimeIdentifier")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib','RuntimeIdentifier')
 
 	Func setRuntimeIdentifier P1
 		raise("DotNet Error: RuntimeIdentifier is a read-only property")
 
 	Func getProcessArchitecture
-		return dnObj(dotnet_callo("s3:get",'System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib',"s19:ProcessArchitecture"))
+		return dotnet_getps('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib','ProcessArchitecture')
 
 	Func setProcessArchitecture P1
 		raise("DotNet Error: ProcessArchitecture is a read-only property")
 
 	Func getOSDescription
-		dn_x = dotnet_call("s3:get",'System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib',"s13:OSDescription")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib','OSDescription')
 
 	Func setOSDescription P1
 		raise("DotNet Error: OSDescription is a read-only property")
 
 	Func getOSArchitecture
-		return dnObj(dotnet_callo("s3:get",'System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib',"s14:OSArchitecture"))
+		return dotnet_getps('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib','OSArchitecture')
 
 	Func setOSArchitecture P1
 		raise("DotNet Error: OSArchitecture is a read-only property")
 
 	Func getFrameworkDescription
-		dn_x = dotnet_call("s3:get",'System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib',"s20:FrameworkDescription")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib','FrameworkDescription'))
 
 	Func setFrameworkDescription P1
 		raise("DotNet Error: FrameworkDescription is a read-only property")

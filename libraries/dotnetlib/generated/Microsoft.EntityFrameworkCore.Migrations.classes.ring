@@ -287,9 +287,7 @@ Class HistoryRepository from Object
 		raise("DotNet Error: LockReleaseBehavior is a read-only property")
 
 	Func getDefaultTableName
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Migrations.HistoryRepository, Microsoft.EntityFrameworkCore.Relational',"s16:DefaultTableName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Migrations.HistoryRepository, Microsoft.EntityFrameworkCore.Relational','DefaultTableName')
 
 	Func setDefaultTableName P1
 		raise("DotNet Error: DefaultTableName is a read-only property")
@@ -928,9 +926,7 @@ Class Migration from Object
 		return self
 
 	Func getInitialDatabase
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.Migrations.Migration, Microsoft.EntityFrameworkCore.Relational',"s15:InitialDatabase")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.Migrations.Migration, Microsoft.EntityFrameworkCore.Relational','InitialDatabase')
 
 	Func setInitialDatabase P1
 		raise("DotNet Error: InitialDatabase is a read-only property")

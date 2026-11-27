@@ -3876,14 +3876,14 @@ Class Keyboard from Object
 		raise("DotNet Error: FocusedElement is a read-only property")
 
 	Func getDefaultRestoreFocusMode
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Input.Keyboard, PresentationCore',"s23:DefaultRestoreFocusMode"))
+		return dotnet_getps('System.Windows.Input.Keyboard, PresentationCore','DefaultRestoreFocusMode')
 
 	Func setDefaultRestoreFocusMode P1
-		dotnet_callv("s3:set",'System.Windows.Input.Keyboard, PresentationCore',"s23:DefaultRestoreFocusMode",P1)
+		dotnet_setps('System.Windows.Input.Keyboard, PresentationCore','DefaultRestoreFocusMode',P1)
 		return self
 
 	Func getModifiers
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Input.Keyboard, PresentationCore',"s9:Modifiers"))
+		return dotnet_getps('System.Windows.Input.Keyboard, PresentationCore','Modifiers')
 
 	Func setModifiers P1
 		raise("DotNet Error: Modifiers is a read-only property")
@@ -4764,31 +4764,31 @@ Class Mouse from Object
 		return self
 
 	Func getLeftButton
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Input.Mouse, PresentationCore',"s10:LeftButton"))
+		return dotnet_getps('System.Windows.Input.Mouse, PresentationCore','LeftButton')
 
 	Func setLeftButton P1
 		raise("DotNet Error: LeftButton is a read-only property")
 
 	Func getRightButton
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Input.Mouse, PresentationCore',"s11:RightButton"))
+		return dotnet_getps('System.Windows.Input.Mouse, PresentationCore','RightButton')
 
 	Func setRightButton P1
 		raise("DotNet Error: RightButton is a read-only property")
 
 	Func getMiddleButton
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Input.Mouse, PresentationCore',"s12:MiddleButton"))
+		return dotnet_getps('System.Windows.Input.Mouse, PresentationCore','MiddleButton')
 
 	Func setMiddleButton P1
 		raise("DotNet Error: MiddleButton is a read-only property")
 
 	Func getXButton1
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Input.Mouse, PresentationCore',"s8:XButton1"))
+		return dotnet_getps('System.Windows.Input.Mouse, PresentationCore','XButton1')
 
 	Func setXButton1 P1
 		raise("DotNet Error: XButton1 is a read-only property")
 
 	Func getXButton2
-		return dnObj(dotnet_callo("s3:get",'System.Windows.Input.Mouse, PresentationCore',"s8:XButton2"))
+		return dotnet_getps('System.Windows.Input.Mouse, PresentationCore','XButton2')
 
 	Func setXButton2 P1
 		raise("DotNet Error: XButton2 is a read-only property")
@@ -4890,7 +4890,7 @@ Class Mouse from Object
 		raise("DotNet Error: QueryCursorEvent is a read-only property")
 
 	Func getMouseWheelDeltaForOneLine
-		return dotnet_call("s3:get",'System.Windows.Input.Mouse, PresentationCore',"s25:MouseWheelDeltaForOneLine")
+		return dotnet_getps('System.Windows.Input.Mouse, PresentationCore','MouseWheelDeltaForOneLine')
 
 	Func setMouseWheelDeltaForOneLine P1
 		raise("DotNet Error: MouseWheelDeltaForOneLine is a read-only property")
@@ -5936,13 +5936,13 @@ Class StylusPoint from ValueType
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getMaxXY
-		return dotnet_call("s3:get",'System.Windows.Input.StylusPoint, PresentationCore',"s5:MaxXY")
+		return dotnet_getps('System.Windows.Input.StylusPoint, PresentationCore','MaxXY')
 
 	Func setMaxXY P1
 		raise("DotNet Error: MaxXY is a read-only property")
 
 	Func getMinXY
-		return dotnet_call("s3:get",'System.Windows.Input.StylusPoint, PresentationCore',"s5:MinXY")
+		return dotnet_getps('System.Windows.Input.StylusPoint, PresentationCore','MinXY')
 
 	Func setMinXY P1
 		raise("DotNet Error: MinXY is a read-only property")

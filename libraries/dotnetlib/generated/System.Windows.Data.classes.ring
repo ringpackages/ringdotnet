@@ -2299,9 +2299,7 @@ Class WpfBinding from BindingBase
 		raise("DotNet Error: DoNothing is a read-only property")
 
 	Func getIndexerName
-		dn_x = dotnet_call("s3:get",'System.Windows.Data.Binding, PresentationFramework',"s11:IndexerName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.Data.Binding, PresentationFramework','IndexerName'))
 
 	Func setIndexerName P1
 		raise("DotNet Error: IndexerName is a read-only property")

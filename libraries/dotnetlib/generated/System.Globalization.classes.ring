@@ -421,7 +421,7 @@ Class Calendar from Object
 		return self
 
 	Func getCurrentEra
-		return dotnet_call("s3:get",'System.Globalization.Calendar, System.Private.CoreLib',"s10:CurrentEra")
+		return dotnet_getps('System.Globalization.Calendar, System.Private.CoreLib','CurrentEra')
 
 	Func setCurrentEra P1
 		raise("DotNet Error: CurrentEra is a read-only property")
@@ -2203,7 +2203,7 @@ Class GregorianCalendar from Calendar
 		return self
 
 	Func getADEra
-		return dotnet_call("s3:get",'System.Globalization.GregorianCalendar, System.Private.CoreLib',"s5:ADEra")
+		return dotnet_getps('System.Globalization.GregorianCalendar, System.Private.CoreLib','ADEra')
 
 	Func setADEra P1
 		raise("DotNet Error: ADEra is a read-only property")
@@ -2232,7 +2232,7 @@ Class HebrewCalendar from Calendar
 		return self
 
 	Func getHebrewEra
-		return dotnet_call("s3:get",'System.Globalization.HebrewCalendar, System.Private.CoreLib',"s9:HebrewEra")
+		return dotnet_getps('System.Globalization.HebrewCalendar, System.Private.CoreLib','HebrewEra')
 
 	Func setHebrewEra P1
 		raise("DotNet Error: HebrewEra is a read-only property")
@@ -2269,7 +2269,7 @@ Class HijriCalendar from Calendar
 		return self
 
 	Func getHijriEra
-		return dotnet_call("s3:get",'System.Globalization.HijriCalendar, System.Private.CoreLib',"s8:HijriEra")
+		return dotnet_getps('System.Globalization.HijriCalendar, System.Private.CoreLib','HijriEra')
 
 	Func setHijriEra P1
 		raise("DotNet Error: HijriEra is a read-only property")
@@ -2319,7 +2319,7 @@ Class JulianCalendar from Calendar
 		return self
 
 	Func getJulianEra
-		return dotnet_call("s3:get",'System.Globalization.JulianCalendar, System.Private.CoreLib',"s9:JulianEra")
+		return dotnet_getps('System.Globalization.JulianCalendar, System.Private.CoreLib','JulianEra')
 
 	Func setJulianEra P1
 		raise("DotNet Error: JulianEra is a read-only property")
@@ -2348,7 +2348,7 @@ Class KoreanCalendar from Calendar
 		return self
 
 	Func getKoreanEra
-		return dotnet_call("s3:get",'System.Globalization.KoreanCalendar, System.Private.CoreLib',"s9:KoreanEra")
+		return dotnet_getps('System.Globalization.KoreanCalendar, System.Private.CoreLib','KoreanEra')
 
 	Func setKoreanEra P1
 		raise("DotNet Error: KoreanEra is a read-only property")
@@ -2377,7 +2377,7 @@ Class PersianCalendar from Calendar
 		return self
 
 	Func getPersianEra
-		return dotnet_call("s3:get",'System.Globalization.PersianCalendar, System.Private.CoreLib',"s10:PersianEra")
+		return dotnet_getps('System.Globalization.PersianCalendar, System.Private.CoreLib','PersianEra')
 
 	Func setPersianEra P1
 		raise("DotNet Error: PersianEra is a read-only property")
@@ -2427,7 +2427,7 @@ Class ThaiBuddhistCalendar from Calendar
 		return self
 
 	Func getThaiBuddhistEra
-		return dotnet_call("s3:get",'System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib',"s15:ThaiBuddhistEra")
+		return dotnet_getps('System.Globalization.ThaiBuddhistCalendar, System.Private.CoreLib','ThaiBuddhistEra')
 
 	Func setThaiBuddhistEra P1
 		raise("DotNet Error: ThaiBuddhistEra is a read-only property")
@@ -2456,7 +2456,7 @@ Class UmAlQuraCalendar from Calendar
 		return self
 
 	Func getUmAlQuraEra
-		return dotnet_call("s3:get",'System.Globalization.UmAlQuraCalendar, System.Private.CoreLib',"s11:UmAlQuraEra")
+		return dotnet_getps('System.Globalization.UmAlQuraCalendar, System.Private.CoreLib','UmAlQuraEra')
 
 	Func setUmAlQuraEra P1
 		raise("DotNet Error: UmAlQuraEra is a read-only property")
@@ -2485,7 +2485,7 @@ Class ChineseLunisolarCalendar from EastAsianLunisolarCalendar
 		return self
 
 	Func getChineseEra
-		return dotnet_call("s3:get",'System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib',"s10:ChineseEra")
+		return dotnet_getps('System.Globalization.ChineseLunisolarCalendar, System.Private.CoreLib','ChineseEra')
 
 	Func setChineseEra P1
 		raise("DotNet Error: ChineseEra is a read-only property")
@@ -2514,7 +2514,7 @@ Class JapaneseLunisolarCalendar from EastAsianLunisolarCalendar
 		return self
 
 	Func getJapaneseEra
-		return dotnet_call("s3:get",'System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib',"s11:JapaneseEra")
+		return dotnet_getps('System.Globalization.JapaneseLunisolarCalendar, System.Private.CoreLib','JapaneseEra')
 
 	Func setJapaneseEra P1
 		raise("DotNet Error: JapaneseEra is a read-only property")
@@ -2543,7 +2543,7 @@ Class KoreanLunisolarCalendar from EastAsianLunisolarCalendar
 		return self
 
 	Func getGregorianEra
-		return dotnet_call("s3:get",'System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib',"s12:GregorianEra")
+		return dotnet_getps('System.Globalization.KoreanLunisolarCalendar, System.Private.CoreLib','GregorianEra')
 
 	Func setGregorianEra P1
 		raise("DotNet Error: GregorianEra is a read-only property")

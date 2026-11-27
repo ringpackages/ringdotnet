@@ -1366,31 +1366,31 @@ Class BaseCompatibilityPreferences from Object
 		return dn_x
 
 	Func getReuseDispatcherSynchronizationContextInstance
-		return dotnet_call("s3:get",'System.Windows.BaseCompatibilityPreferences, WindowsBase',"s45:ReuseDispatcherSynchronizationContextInstance")
+		return dotnet_getps('System.Windows.BaseCompatibilityPreferences, WindowsBase','ReuseDispatcherSynchronizationContextInstance')
 
 	Func setReuseDispatcherSynchronizationContextInstance P1
-		dotnet_callv("s3:set",'System.Windows.BaseCompatibilityPreferences, WindowsBase',"s45:ReuseDispatcherSynchronizationContextInstance",P1)
+		dotnet_setps('System.Windows.BaseCompatibilityPreferences, WindowsBase','ReuseDispatcherSynchronizationContextInstance',P1)
 		return self
 
 	Func getFlowDispatcherSynchronizationContextPriority
-		return dotnet_call("s3:get",'System.Windows.BaseCompatibilityPreferences, WindowsBase',"s44:FlowDispatcherSynchronizationContextPriority")
+		return dotnet_getps('System.Windows.BaseCompatibilityPreferences, WindowsBase','FlowDispatcherSynchronizationContextPriority')
 
 	Func setFlowDispatcherSynchronizationContextPriority P1
-		dotnet_callv("s3:set",'System.Windows.BaseCompatibilityPreferences, WindowsBase',"s44:FlowDispatcherSynchronizationContextPriority",P1)
+		dotnet_setps('System.Windows.BaseCompatibilityPreferences, WindowsBase','FlowDispatcherSynchronizationContextPriority',P1)
 		return self
 
 	Func getInlineDispatcherSynchronizationContextSend
-		return dotnet_call("s3:get",'System.Windows.BaseCompatibilityPreferences, WindowsBase',"s42:InlineDispatcherSynchronizationContextSend")
+		return dotnet_getps('System.Windows.BaseCompatibilityPreferences, WindowsBase','InlineDispatcherSynchronizationContextSend')
 
 	Func setInlineDispatcherSynchronizationContextSend P1
-		dotnet_callv("s3:set",'System.Windows.BaseCompatibilityPreferences, WindowsBase',"s42:InlineDispatcherSynchronizationContextSend",P1)
+		dotnet_setps('System.Windows.BaseCompatibilityPreferences, WindowsBase','InlineDispatcherSynchronizationContextSend',P1)
 		return self
 
 	Func getHandleDispatcherRequestProcessingFailure
-		return dnObj(dotnet_callo("s3:get",'System.Windows.BaseCompatibilityPreferences, WindowsBase',"s40:HandleDispatcherRequestProcessingFailure"))
+		return dotnet_getps('System.Windows.BaseCompatibilityPreferences, WindowsBase','HandleDispatcherRequestProcessingFailure')
 
 	Func setHandleDispatcherRequestProcessingFailure P1
-		dotnet_callv("s3:set",'System.Windows.BaseCompatibilityPreferences, WindowsBase',"s40:HandleDispatcherRequestProcessingFailure",P1)
+		dotnet_setps('System.Windows.BaseCompatibilityPreferences, WindowsBase','HandleDispatcherRequestProcessingFailure',P1)
 		return self
 
 
@@ -1715,10 +1715,10 @@ Class CoreCompatibilityPreferences from Object
 		return dn_x
 
 	Func getIsAltKeyRequiredInAccessKeyDefaultScope
-		return dotnet_call("s3:get",'System.Windows.CoreCompatibilityPreferences, PresentationCore',"s39:IsAltKeyRequiredInAccessKeyDefaultScope")
+		return dotnet_getps('System.Windows.CoreCompatibilityPreferences, PresentationCore','IsAltKeyRequiredInAccessKeyDefaultScope')
 
 	Func setIsAltKeyRequiredInAccessKeyDefaultScope P1
-		dotnet_callv("s3:set",'System.Windows.CoreCompatibilityPreferences, PresentationCore',"s39:IsAltKeyRequiredInAccessKeyDefaultScope",P1)
+		dotnet_setps('System.Windows.CoreCompatibilityPreferences, PresentationCore','IsAltKeyRequiredInAccessKeyDefaultScope',P1)
 		return self
 
 	Func getEnableMultiMonitorDisplayClipping
@@ -1849,185 +1849,139 @@ Class WpfDataFormats from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.DataFormats, PresentationCore',"s13:GetDataFormat",P1))
 
 	Func getText
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s4:Text")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','Text'))
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")
 
 	Func getUnicodeText
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s11:UnicodeText")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','UnicodeText'))
 
 	Func setUnicodeText P1
 		raise("DotNet Error: UnicodeText is a read-only property")
 
 	Func getDib
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s3:Dib")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','Dib'))
 
 	Func setDib P1
 		raise("DotNet Error: Dib is a read-only property")
 
 	Func getBitmap
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s6:Bitmap")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','Bitmap'))
 
 	Func setBitmap P1
 		raise("DotNet Error: Bitmap is a read-only property")
 
 	Func getEnhancedMetafile
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s16:EnhancedMetafile")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','EnhancedMetafile'))
 
 	Func setEnhancedMetafile P1
 		raise("DotNet Error: EnhancedMetafile is a read-only property")
 
 	Func getMetafilePicture
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s15:MetafilePicture")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','MetafilePicture'))
 
 	Func setMetafilePicture P1
 		raise("DotNet Error: MetafilePicture is a read-only property")
 
 	Func getSymbolicLink
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s12:SymbolicLink")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','SymbolicLink'))
 
 	Func setSymbolicLink P1
 		raise("DotNet Error: SymbolicLink is a read-only property")
 
 	Func getDif
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s3:Dif")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','Dif'))
 
 	Func setDif P1
 		raise("DotNet Error: Dif is a read-only property")
 
 	Func getTiff
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s4:Tiff")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','Tiff'))
 
 	Func setTiff P1
 		raise("DotNet Error: Tiff is a read-only property")
 
 	Func getOemText
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s7:OemText")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','OemText'))
 
 	Func setOemText P1
 		raise("DotNet Error: OemText is a read-only property")
 
 	Func getPalette
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s7:Palette")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','Palette'))
 
 	Func setPalette P1
 		raise("DotNet Error: Palette is a read-only property")
 
 	Func getPenData
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s7:PenData")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','PenData'))
 
 	Func setPenData P1
 		raise("DotNet Error: PenData is a read-only property")
 
 	Func getRiff
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s4:Riff")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','Riff'))
 
 	Func setRiff P1
 		raise("DotNet Error: Riff is a read-only property")
 
 	Func getWaveAudio
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s9:WaveAudio")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','WaveAudio'))
 
 	Func setWaveAudio P1
 		raise("DotNet Error: WaveAudio is a read-only property")
 
 	Func getFileDrop
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s8:FileDrop")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','FileDrop'))
 
 	Func setFileDrop P1
 		raise("DotNet Error: FileDrop is a read-only property")
 
 	Func getLocale
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s6:Locale")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','Locale'))
 
 	Func setLocale P1
 		raise("DotNet Error: Locale is a read-only property")
 
 	Func getHtml
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s4:Html")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','Html'))
 
 	Func setHtml P1
 		raise("DotNet Error: Html is a read-only property")
 
 	Func getRtf
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s3:Rtf")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','Rtf'))
 
 	Func setRtf P1
 		raise("DotNet Error: Rtf is a read-only property")
 
 	Func getCommaSeparatedValue
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s19:CommaSeparatedValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','CommaSeparatedValue'))
 
 	Func setCommaSeparatedValue P1
 		raise("DotNet Error: CommaSeparatedValue is a read-only property")
 
 	Func getStringFormat
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s12:StringFormat")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','StringFormat'))
 
 	Func setStringFormat P1
 		raise("DotNet Error: StringFormat is a read-only property")
 
 	Func getSerializable
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s12:Serializable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','Serializable'))
 
 	Func setSerializable P1
 		raise("DotNet Error: Serializable is a read-only property")
 
 	Func getXaml
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s4:Xaml")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','Xaml'))
 
 	Func setXaml P1
 		raise("DotNet Error: Xaml is a read-only property")
 
 	Func getXamlPackage
-		dn_x = dotnet_call("s3:get",'System.Windows.DataFormats, PresentationCore',"s11:XamlPackage")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.DataFormats, PresentationCore','XamlPackage'))
 
 	Func setXamlPackage P1
 		raise("DotNet Error: XamlPackage is a read-only property")
@@ -3898,24 +3852,24 @@ Class FrameworkCompatibilityPreferences from Object
 		return dn_x
 
 	Func getAreInactiveSelectionHighlightBrushKeysSupported
-		return dotnet_call("s3:get",'System.Windows.FrameworkCompatibilityPreferences, PresentationFramework',"s47:AreInactiveSelectionHighlightBrushKeysSupported")
+		return dotnet_getps('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework','AreInactiveSelectionHighlightBrushKeysSupported')
 
 	Func setAreInactiveSelectionHighlightBrushKeysSupported P1
-		dotnet_callv("s3:set",'System.Windows.FrameworkCompatibilityPreferences, PresentationFramework',"s47:AreInactiveSelectionHighlightBrushKeysSupported",P1)
+		dotnet_setps('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework','AreInactiveSelectionHighlightBrushKeysSupported',P1)
 		return self
 
 	Func getKeepTextBoxDisplaySynchronizedWithTextProperty
-		return dotnet_call("s3:get",'System.Windows.FrameworkCompatibilityPreferences, PresentationFramework',"s46:KeepTextBoxDisplaySynchronizedWithTextProperty")
+		return dotnet_getps('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework','KeepTextBoxDisplaySynchronizedWithTextProperty')
 
 	Func setKeepTextBoxDisplaySynchronizedWithTextProperty P1
-		dotnet_callv("s3:set",'System.Windows.FrameworkCompatibilityPreferences, PresentationFramework',"s46:KeepTextBoxDisplaySynchronizedWithTextProperty",P1)
+		dotnet_setps('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework','KeepTextBoxDisplaySynchronizedWithTextProperty',P1)
 		return self
 
 	Func getShouldThrowOnCopyOrCutFailure
-		return dotnet_call("s3:get",'System.Windows.FrameworkCompatibilityPreferences, PresentationFramework',"s29:ShouldThrowOnCopyOrCutFailure")
+		return dotnet_getps('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework','ShouldThrowOnCopyOrCutFailure')
 
 	Func setShouldThrowOnCopyOrCutFailure P1
-		dotnet_callv("s3:set",'System.Windows.FrameworkCompatibilityPreferences, PresentationFramework',"s29:ShouldThrowOnCopyOrCutFailure",P1)
+		dotnet_setps('System.Windows.FrameworkCompatibilityPreferences, PresentationFramework','ShouldThrowOnCopyOrCutFailure',P1)
 		return self
 
 
@@ -8408,7 +8362,7 @@ Class WpfSystemFonts from Object
 		return dn_x
 
 	Func getIconFontSize
-		return dotnet_call("s3:get",'System.Windows.SystemFonts, PresentationFramework',"s12:IconFontSize")
+		return dotnet_getps('System.Windows.SystemFonts, PresentationFramework','IconFontSize')
 
 	Func setIconFontSize P1
 		raise("DotNet Error: IconFontSize is a read-only property")
@@ -8438,7 +8392,7 @@ Class WpfSystemFonts from Object
 		raise("DotNet Error: IconFontTextDecorations is a read-only property")
 
 	Func getCaptionFontSize
-		return dotnet_call("s3:get",'System.Windows.SystemFonts, PresentationFramework',"s15:CaptionFontSize")
+		return dotnet_getps('System.Windows.SystemFonts, PresentationFramework','CaptionFontSize')
 
 	Func setCaptionFontSize P1
 		raise("DotNet Error: CaptionFontSize is a read-only property")
@@ -8468,7 +8422,7 @@ Class WpfSystemFonts from Object
 		raise("DotNet Error: CaptionFontTextDecorations is a read-only property")
 
 	Func getSmallCaptionFontSize
-		return dotnet_call("s3:get",'System.Windows.SystemFonts, PresentationFramework',"s20:SmallCaptionFontSize")
+		return dotnet_getps('System.Windows.SystemFonts, PresentationFramework','SmallCaptionFontSize')
 
 	Func setSmallCaptionFontSize P1
 		raise("DotNet Error: SmallCaptionFontSize is a read-only property")
@@ -8498,7 +8452,7 @@ Class WpfSystemFonts from Object
 		raise("DotNet Error: SmallCaptionFontTextDecorations is a read-only property")
 
 	Func getMenuFontSize
-		return dotnet_call("s3:get",'System.Windows.SystemFonts, PresentationFramework',"s12:MenuFontSize")
+		return dotnet_getps('System.Windows.SystemFonts, PresentationFramework','MenuFontSize')
 
 	Func setMenuFontSize P1
 		raise("DotNet Error: MenuFontSize is a read-only property")
@@ -8528,7 +8482,7 @@ Class WpfSystemFonts from Object
 		raise("DotNet Error: MenuFontTextDecorations is a read-only property")
 
 	Func getStatusFontSize
-		return dotnet_call("s3:get",'System.Windows.SystemFonts, PresentationFramework',"s14:StatusFontSize")
+		return dotnet_getps('System.Windows.SystemFonts, PresentationFramework','StatusFontSize')
 
 	Func setStatusFontSize P1
 		raise("DotNet Error: StatusFontSize is a read-only property")
@@ -8558,7 +8512,7 @@ Class WpfSystemFonts from Object
 		raise("DotNet Error: StatusFontTextDecorations is a read-only property")
 
 	Func getMessageFontSize
-		return dotnet_call("s3:get",'System.Windows.SystemFonts, PresentationFramework',"s15:MessageFontSize")
+		return dotnet_getps('System.Windows.SystemFonts, PresentationFramework','MessageFontSize')
 
 	Func setMessageFontSize P1
 		raise("DotNet Error: MessageFontSize is a read-only property")
@@ -9045,19 +8999,19 @@ Class SystemParameters from Object
 		return self
 
 	Func getFocusBorderWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s16:FocusBorderWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','FocusBorderWidth')
 
 	Func setFocusBorderWidth P1
 		raise("DotNet Error: FocusBorderWidth is a read-only property")
 
 	Func getFocusBorderHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s17:FocusBorderHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','FocusBorderHeight')
 
 	Func setFocusBorderHeight P1
 		raise("DotNet Error: FocusBorderHeight is a read-only property")
 
 	Func getHighContrast
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s12:HighContrast")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','HighContrast')
 
 	Func setHighContrast P1
 		raise("DotNet Error: HighContrast is a read-only property")
@@ -9081,13 +9035,13 @@ Class SystemParameters from Object
 		raise("DotNet Error: HighContrastKey is a read-only property")
 
 	Func getDropShadow
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s10:DropShadow")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','DropShadow')
 
 	Func setDropShadow P1
 		raise("DotNet Error: DropShadow is a read-only property")
 
 	Func getFlatMenu
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s8:FlatMenu")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','FlatMenu')
 
 	Func setFlatMenu P1
 		raise("DotNet Error: FlatMenu is a read-only property")
@@ -9117,19 +9071,19 @@ Class SystemParameters from Object
 		raise("DotNet Error: WorkAreaKey is a read-only property")
 
 	Func getIconHorizontalSpacing
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s21:IconHorizontalSpacing")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','IconHorizontalSpacing')
 
 	Func setIconHorizontalSpacing P1
 		raise("DotNet Error: IconHorizontalSpacing is a read-only property")
 
 	Func getIconVerticalSpacing
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s19:IconVerticalSpacing")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','IconVerticalSpacing')
 
 	Func setIconVerticalSpacing P1
 		raise("DotNet Error: IconVerticalSpacing is a read-only property")
 
 	Func getIconTitleWrap
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s13:IconTitleWrap")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','IconTitleWrap')
 
 	Func setIconTitleWrap P1
 		raise("DotNet Error: IconTitleWrap is a read-only property")
@@ -9153,37 +9107,37 @@ Class SystemParameters from Object
 		raise("DotNet Error: IconTitleWrapKey is a read-only property")
 
 	Func getKeyboardCues
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s12:KeyboardCues")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','KeyboardCues')
 
 	Func setKeyboardCues P1
 		raise("DotNet Error: KeyboardCues is a read-only property")
 
 	Func getKeyboardDelay
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s13:KeyboardDelay")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','KeyboardDelay')
 
 	Func setKeyboardDelay P1
 		raise("DotNet Error: KeyboardDelay is a read-only property")
 
 	Func getKeyboardPreference
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s18:KeyboardPreference")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','KeyboardPreference')
 
 	Func setKeyboardPreference P1
 		raise("DotNet Error: KeyboardPreference is a read-only property")
 
 	Func getKeyboardSpeed
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s13:KeyboardSpeed")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','KeyboardSpeed')
 
 	Func setKeyboardSpeed P1
 		raise("DotNet Error: KeyboardSpeed is a read-only property")
 
 	Func getSnapToDefaultButton
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s19:SnapToDefaultButton")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','SnapToDefaultButton')
 
 	Func setSnapToDefaultButton P1
 		raise("DotNet Error: SnapToDefaultButton is a read-only property")
 
 	Func getWheelScrollLines
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s16:WheelScrollLines")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','WheelScrollLines')
 
 	Func setWheelScrollLines P1
 		raise("DotNet Error: WheelScrollLines is a read-only property")
@@ -9195,13 +9149,13 @@ Class SystemParameters from Object
 		raise("DotNet Error: MouseHoverTime is a read-only property")
 
 	Func getMouseHoverHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s16:MouseHoverHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MouseHoverHeight')
 
 	Func setMouseHoverHeight P1
 		raise("DotNet Error: MouseHoverHeight is a read-only property")
 
 	Func getMouseHoverWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s15:MouseHoverWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MouseHoverWidth')
 
 	Func setMouseHoverWidth P1
 		raise("DotNet Error: MouseHoverWidth is a read-only property")
@@ -9261,19 +9215,19 @@ Class SystemParameters from Object
 		raise("DotNet Error: MouseHoverWidthKey is a read-only property")
 
 	Func getMenuDropAlignment
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s17:MenuDropAlignment")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MenuDropAlignment')
 
 	Func setMenuDropAlignment P1
 		raise("DotNet Error: MenuDropAlignment is a read-only property")
 
 	Func getMenuFade
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s8:MenuFade")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MenuFade')
 
 	Func setMenuFade P1
 		raise("DotNet Error: MenuFade is a read-only property")
 
 	Func getMenuShowDelay
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s13:MenuShowDelay")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MenuShowDelay')
 
 	Func setMenuShowDelay P1
 		raise("DotNet Error: MenuShowDelay is a read-only property")
@@ -9297,91 +9251,91 @@ Class SystemParameters from Object
 		raise("DotNet Error: MenuShowDelayKey is a read-only property")
 
 	Func getComboBoxPopupAnimation
-		return dnObj(dotnet_callo("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s22:ComboBoxPopupAnimation"))
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','ComboBoxPopupAnimation')
 
 	Func setComboBoxPopupAnimation P1
 		raise("DotNet Error: ComboBoxPopupAnimation is a read-only property")
 
 	Func getComboBoxAnimation
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s17:ComboBoxAnimation")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','ComboBoxAnimation')
 
 	Func setComboBoxAnimation P1
 		raise("DotNet Error: ComboBoxAnimation is a read-only property")
 
 	Func getClientAreaAnimation
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s19:ClientAreaAnimation")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','ClientAreaAnimation')
 
 	Func setClientAreaAnimation P1
 		raise("DotNet Error: ClientAreaAnimation is a read-only property")
 
 	Func getCursorShadow
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s12:CursorShadow")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','CursorShadow')
 
 	Func setCursorShadow P1
 		raise("DotNet Error: CursorShadow is a read-only property")
 
 	Func getGradientCaptions
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s16:GradientCaptions")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','GradientCaptions')
 
 	Func setGradientCaptions P1
 		raise("DotNet Error: GradientCaptions is a read-only property")
 
 	Func getHotTracking
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s11:HotTracking")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','HotTracking')
 
 	Func setHotTracking P1
 		raise("DotNet Error: HotTracking is a read-only property")
 
 	Func getListBoxSmoothScrolling
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s22:ListBoxSmoothScrolling")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','ListBoxSmoothScrolling')
 
 	Func setListBoxSmoothScrolling P1
 		raise("DotNet Error: ListBoxSmoothScrolling is a read-only property")
 
 	Func getMenuPopupAnimation
-		return dnObj(dotnet_callo("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s18:MenuPopupAnimation"))
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MenuPopupAnimation')
 
 	Func setMenuPopupAnimation P1
 		raise("DotNet Error: MenuPopupAnimation is a read-only property")
 
 	Func getMenuAnimation
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s13:MenuAnimation")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MenuAnimation')
 
 	Func setMenuAnimation P1
 		raise("DotNet Error: MenuAnimation is a read-only property")
 
 	Func getSelectionFade
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s13:SelectionFade")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','SelectionFade')
 
 	Func setSelectionFade P1
 		raise("DotNet Error: SelectionFade is a read-only property")
 
 	Func getStylusHotTracking
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s17:StylusHotTracking")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','StylusHotTracking')
 
 	Func setStylusHotTracking P1
 		raise("DotNet Error: StylusHotTracking is a read-only property")
 
 	Func getToolTipPopupAnimation
-		return dnObj(dotnet_callo("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s21:ToolTipPopupAnimation"))
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','ToolTipPopupAnimation')
 
 	Func setToolTipPopupAnimation P1
 		raise("DotNet Error: ToolTipPopupAnimation is a read-only property")
 
 	Func getToolTipAnimation
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s16:ToolTipAnimation")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','ToolTipAnimation')
 
 	Func setToolTipAnimation P1
 		raise("DotNet Error: ToolTipAnimation is a read-only property")
 
 	Func getToolTipFade
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s11:ToolTipFade")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','ToolTipFade')
 
 	Func setToolTipFade P1
 		raise("DotNet Error: ToolTipFade is a read-only property")
 
 	Func getUIEffects
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s9:UIEffects")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','UIEffects')
 
 	Func setUIEffects P1
 		raise("DotNet Error: UIEffects is a read-only property")
@@ -9477,85 +9431,85 @@ Class SystemParameters from Object
 		raise("DotNet Error: ToolTipPopupAnimationKey is a read-only property")
 
 	Func getMinimizeAnimation
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s17:MinimizeAnimation")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MinimizeAnimation')
 
 	Func setMinimizeAnimation P1
 		raise("DotNet Error: MinimizeAnimation is a read-only property")
 
 	Func getBorder
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s6:Border")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','Border')
 
 	Func setBorder P1
 		raise("DotNet Error: Border is a read-only property")
 
 	Func getCaretWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s10:CaretWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','CaretWidth')
 
 	Func setCaretWidth P1
 		raise("DotNet Error: CaretWidth is a read-only property")
 
 	Func getDragFullWindows
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s15:DragFullWindows")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','DragFullWindows')
 
 	Func setDragFullWindows P1
 		raise("DotNet Error: DragFullWindows is a read-only property")
 
 	Func getForegroundFlashCount
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s20:ForegroundFlashCount")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','ForegroundFlashCount')
 
 	Func setForegroundFlashCount P1
 		raise("DotNet Error: ForegroundFlashCount is a read-only property")
 
 	Func getBorderWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s11:BorderWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','BorderWidth')
 
 	Func setBorderWidth P1
 		raise("DotNet Error: BorderWidth is a read-only property")
 
 	Func getScrollWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s11:ScrollWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','ScrollWidth')
 
 	Func setScrollWidth P1
 		raise("DotNet Error: ScrollWidth is a read-only property")
 
 	Func getScrollHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s12:ScrollHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','ScrollHeight')
 
 	Func setScrollHeight P1
 		raise("DotNet Error: ScrollHeight is a read-only property")
 
 	Func getCaptionWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s12:CaptionWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','CaptionWidth')
 
 	Func setCaptionWidth P1
 		raise("DotNet Error: CaptionWidth is a read-only property")
 
 	Func getCaptionHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s13:CaptionHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','CaptionHeight')
 
 	Func setCaptionHeight P1
 		raise("DotNet Error: CaptionHeight is a read-only property")
 
 	Func getSmallCaptionWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s17:SmallCaptionWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','SmallCaptionWidth')
 
 	Func setSmallCaptionWidth P1
 		raise("DotNet Error: SmallCaptionWidth is a read-only property")
 
 	Func getSmallCaptionHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s18:SmallCaptionHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','SmallCaptionHeight')
 
 	Func setSmallCaptionHeight P1
 		raise("DotNet Error: SmallCaptionHeight is a read-only property")
 
 	Func getMenuWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s9:MenuWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MenuWidth')
 
 	Func setMenuWidth P1
 		raise("DotNet Error: MenuWidth is a read-only property")
 
 	Func getMenuHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s10:MenuHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MenuHeight')
 
 	Func setMenuHeight P1
 		raise("DotNet Error: MenuHeight is a read-only property")
@@ -9639,421 +9593,421 @@ Class SystemParameters from Object
 		raise("DotNet Error: MenuHeightKey is a read-only property")
 
 	Func getThinHorizontalBorderHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s26:ThinHorizontalBorderHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','ThinHorizontalBorderHeight')
 
 	Func setThinHorizontalBorderHeight P1
 		raise("DotNet Error: ThinHorizontalBorderHeight is a read-only property")
 
 	Func getThinVerticalBorderWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s23:ThinVerticalBorderWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','ThinVerticalBorderWidth')
 
 	Func setThinVerticalBorderWidth P1
 		raise("DotNet Error: ThinVerticalBorderWidth is a read-only property")
 
 	Func getCursorWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s11:CursorWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','CursorWidth')
 
 	Func setCursorWidth P1
 		raise("DotNet Error: CursorWidth is a read-only property")
 
 	Func getCursorHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s12:CursorHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','CursorHeight')
 
 	Func setCursorHeight P1
 		raise("DotNet Error: CursorHeight is a read-only property")
 
 	Func getThickHorizontalBorderHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s27:ThickHorizontalBorderHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','ThickHorizontalBorderHeight')
 
 	Func setThickHorizontalBorderHeight P1
 		raise("DotNet Error: ThickHorizontalBorderHeight is a read-only property")
 
 	Func getThickVerticalBorderWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s24:ThickVerticalBorderWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','ThickVerticalBorderWidth')
 
 	Func setThickVerticalBorderWidth P1
 		raise("DotNet Error: ThickVerticalBorderWidth is a read-only property")
 
 	Func getMinimumHorizontalDragDistance
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s29:MinimumHorizontalDragDistance")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MinimumHorizontalDragDistance')
 
 	Func setMinimumHorizontalDragDistance P1
 		raise("DotNet Error: MinimumHorizontalDragDistance is a read-only property")
 
 	Func getMinimumVerticalDragDistance
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s27:MinimumVerticalDragDistance")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MinimumVerticalDragDistance')
 
 	Func setMinimumVerticalDragDistance P1
 		raise("DotNet Error: MinimumVerticalDragDistance is a read-only property")
 
 	Func getFixedFrameHorizontalBorderHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s32:FixedFrameHorizontalBorderHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','FixedFrameHorizontalBorderHeight')
 
 	Func setFixedFrameHorizontalBorderHeight P1
 		raise("DotNet Error: FixedFrameHorizontalBorderHeight is a read-only property")
 
 	Func getFixedFrameVerticalBorderWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s29:FixedFrameVerticalBorderWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','FixedFrameVerticalBorderWidth')
 
 	Func setFixedFrameVerticalBorderWidth P1
 		raise("DotNet Error: FixedFrameVerticalBorderWidth is a read-only property")
 
 	Func getFocusHorizontalBorderHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s27:FocusHorizontalBorderHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','FocusHorizontalBorderHeight')
 
 	Func setFocusHorizontalBorderHeight P1
 		raise("DotNet Error: FocusHorizontalBorderHeight is a read-only property")
 
 	Func getFocusVerticalBorderWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s24:FocusVerticalBorderWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','FocusVerticalBorderWidth')
 
 	Func setFocusVerticalBorderWidth P1
 		raise("DotNet Error: FocusVerticalBorderWidth is a read-only property")
 
 	Func getFullPrimaryScreenWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s22:FullPrimaryScreenWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','FullPrimaryScreenWidth')
 
 	Func setFullPrimaryScreenWidth P1
 		raise("DotNet Error: FullPrimaryScreenWidth is a read-only property")
 
 	Func getFullPrimaryScreenHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s23:FullPrimaryScreenHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','FullPrimaryScreenHeight')
 
 	Func setFullPrimaryScreenHeight P1
 		raise("DotNet Error: FullPrimaryScreenHeight is a read-only property")
 
 	Func getHorizontalScrollBarButtonWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s30:HorizontalScrollBarButtonWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','HorizontalScrollBarButtonWidth')
 
 	Func setHorizontalScrollBarButtonWidth P1
 		raise("DotNet Error: HorizontalScrollBarButtonWidth is a read-only property")
 
 	Func getHorizontalScrollBarHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s25:HorizontalScrollBarHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','HorizontalScrollBarHeight')
 
 	Func setHorizontalScrollBarHeight P1
 		raise("DotNet Error: HorizontalScrollBarHeight is a read-only property")
 
 	Func getHorizontalScrollBarThumbWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s29:HorizontalScrollBarThumbWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','HorizontalScrollBarThumbWidth')
 
 	Func setHorizontalScrollBarThumbWidth P1
 		raise("DotNet Error: HorizontalScrollBarThumbWidth is a read-only property")
 
 	Func getIconWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s9:IconWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','IconWidth')
 
 	Func setIconWidth P1
 		raise("DotNet Error: IconWidth is a read-only property")
 
 	Func getIconHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s10:IconHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','IconHeight')
 
 	Func setIconHeight P1
 		raise("DotNet Error: IconHeight is a read-only property")
 
 	Func getIconGridWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s13:IconGridWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','IconGridWidth')
 
 	Func setIconGridWidth P1
 		raise("DotNet Error: IconGridWidth is a read-only property")
 
 	Func getIconGridHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s14:IconGridHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','IconGridHeight')
 
 	Func setIconGridHeight P1
 		raise("DotNet Error: IconGridHeight is a read-only property")
 
 	Func getMaximizedPrimaryScreenWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s27:MaximizedPrimaryScreenWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MaximizedPrimaryScreenWidth')
 
 	Func setMaximizedPrimaryScreenWidth P1
 		raise("DotNet Error: MaximizedPrimaryScreenWidth is a read-only property")
 
 	Func getMaximizedPrimaryScreenHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s28:MaximizedPrimaryScreenHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MaximizedPrimaryScreenHeight')
 
 	Func setMaximizedPrimaryScreenHeight P1
 		raise("DotNet Error: MaximizedPrimaryScreenHeight is a read-only property")
 
 	Func getMaximumWindowTrackWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s23:MaximumWindowTrackWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MaximumWindowTrackWidth')
 
 	Func setMaximumWindowTrackWidth P1
 		raise("DotNet Error: MaximumWindowTrackWidth is a read-only property")
 
 	Func getMaximumWindowTrackHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s24:MaximumWindowTrackHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MaximumWindowTrackHeight')
 
 	Func setMaximumWindowTrackHeight P1
 		raise("DotNet Error: MaximumWindowTrackHeight is a read-only property")
 
 	Func getMenuCheckmarkWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s18:MenuCheckmarkWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MenuCheckmarkWidth')
 
 	Func setMenuCheckmarkWidth P1
 		raise("DotNet Error: MenuCheckmarkWidth is a read-only property")
 
 	Func getMenuCheckmarkHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s19:MenuCheckmarkHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MenuCheckmarkHeight')
 
 	Func setMenuCheckmarkHeight P1
 		raise("DotNet Error: MenuCheckmarkHeight is a read-only property")
 
 	Func getMenuButtonWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s15:MenuButtonWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MenuButtonWidth')
 
 	Func setMenuButtonWidth P1
 		raise("DotNet Error: MenuButtonWidth is a read-only property")
 
 	Func getMenuButtonHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s16:MenuButtonHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MenuButtonHeight')
 
 	Func setMenuButtonHeight P1
 		raise("DotNet Error: MenuButtonHeight is a read-only property")
 
 	Func getMinimumWindowWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s18:MinimumWindowWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MinimumWindowWidth')
 
 	Func setMinimumWindowWidth P1
 		raise("DotNet Error: MinimumWindowWidth is a read-only property")
 
 	Func getMinimumWindowHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s19:MinimumWindowHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MinimumWindowHeight')
 
 	Func setMinimumWindowHeight P1
 		raise("DotNet Error: MinimumWindowHeight is a read-only property")
 
 	Func getMinimizedWindowWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s20:MinimizedWindowWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MinimizedWindowWidth')
 
 	Func setMinimizedWindowWidth P1
 		raise("DotNet Error: MinimizedWindowWidth is a read-only property")
 
 	Func getMinimizedWindowHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s21:MinimizedWindowHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MinimizedWindowHeight')
 
 	Func setMinimizedWindowHeight P1
 		raise("DotNet Error: MinimizedWindowHeight is a read-only property")
 
 	Func getMinimizedGridWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s18:MinimizedGridWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MinimizedGridWidth')
 
 	Func setMinimizedGridWidth P1
 		raise("DotNet Error: MinimizedGridWidth is a read-only property")
 
 	Func getMinimizedGridHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s19:MinimizedGridHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MinimizedGridHeight')
 
 	Func setMinimizedGridHeight P1
 		raise("DotNet Error: MinimizedGridHeight is a read-only property")
 
 	Func getMinimumWindowTrackWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s23:MinimumWindowTrackWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MinimumWindowTrackWidth')
 
 	Func setMinimumWindowTrackWidth P1
 		raise("DotNet Error: MinimumWindowTrackWidth is a read-only property")
 
 	Func getMinimumWindowTrackHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s24:MinimumWindowTrackHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MinimumWindowTrackHeight')
 
 	Func setMinimumWindowTrackHeight P1
 		raise("DotNet Error: MinimumWindowTrackHeight is a read-only property")
 
 	Func getPrimaryScreenWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s18:PrimaryScreenWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','PrimaryScreenWidth')
 
 	Func setPrimaryScreenWidth P1
 		raise("DotNet Error: PrimaryScreenWidth is a read-only property")
 
 	Func getPrimaryScreenHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s19:PrimaryScreenHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','PrimaryScreenHeight')
 
 	Func setPrimaryScreenHeight P1
 		raise("DotNet Error: PrimaryScreenHeight is a read-only property")
 
 	Func getWindowCaptionButtonWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s24:WindowCaptionButtonWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','WindowCaptionButtonWidth')
 
 	Func setWindowCaptionButtonWidth P1
 		raise("DotNet Error: WindowCaptionButtonWidth is a read-only property")
 
 	Func getWindowCaptionButtonHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s25:WindowCaptionButtonHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','WindowCaptionButtonHeight')
 
 	Func setWindowCaptionButtonHeight P1
 		raise("DotNet Error: WindowCaptionButtonHeight is a read-only property")
 
 	Func getResizeFrameHorizontalBorderHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s33:ResizeFrameHorizontalBorderHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','ResizeFrameHorizontalBorderHeight')
 
 	Func setResizeFrameHorizontalBorderHeight P1
 		raise("DotNet Error: ResizeFrameHorizontalBorderHeight is a read-only property")
 
 	Func getResizeFrameVerticalBorderWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s30:ResizeFrameVerticalBorderWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','ResizeFrameVerticalBorderWidth')
 
 	Func setResizeFrameVerticalBorderWidth P1
 		raise("DotNet Error: ResizeFrameVerticalBorderWidth is a read-only property")
 
 	Func getSmallIconWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s14:SmallIconWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','SmallIconWidth')
 
 	Func setSmallIconWidth P1
 		raise("DotNet Error: SmallIconWidth is a read-only property")
 
 	Func getSmallIconHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s15:SmallIconHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','SmallIconHeight')
 
 	Func setSmallIconHeight P1
 		raise("DotNet Error: SmallIconHeight is a read-only property")
 
 	Func getSmallWindowCaptionButtonWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s29:SmallWindowCaptionButtonWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','SmallWindowCaptionButtonWidth')
 
 	Func setSmallWindowCaptionButtonWidth P1
 		raise("DotNet Error: SmallWindowCaptionButtonWidth is a read-only property")
 
 	Func getSmallWindowCaptionButtonHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s30:SmallWindowCaptionButtonHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','SmallWindowCaptionButtonHeight')
 
 	Func setSmallWindowCaptionButtonHeight P1
 		raise("DotNet Error: SmallWindowCaptionButtonHeight is a read-only property")
 
 	Func getVirtualScreenWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s18:VirtualScreenWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','VirtualScreenWidth')
 
 	Func setVirtualScreenWidth P1
 		raise("DotNet Error: VirtualScreenWidth is a read-only property")
 
 	Func getVirtualScreenHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s19:VirtualScreenHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','VirtualScreenHeight')
 
 	Func setVirtualScreenHeight P1
 		raise("DotNet Error: VirtualScreenHeight is a read-only property")
 
 	Func getVerticalScrollBarWidth
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s22:VerticalScrollBarWidth")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','VerticalScrollBarWidth')
 
 	Func setVerticalScrollBarWidth P1
 		raise("DotNet Error: VerticalScrollBarWidth is a read-only property")
 
 	Func getVerticalScrollBarButtonHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s29:VerticalScrollBarButtonHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','VerticalScrollBarButtonHeight')
 
 	Func setVerticalScrollBarButtonHeight P1
 		raise("DotNet Error: VerticalScrollBarButtonHeight is a read-only property")
 
 	Func getWindowCaptionHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s19:WindowCaptionHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','WindowCaptionHeight')
 
 	Func setWindowCaptionHeight P1
 		raise("DotNet Error: WindowCaptionHeight is a read-only property")
 
 	Func getKanjiWindowHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s17:KanjiWindowHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','KanjiWindowHeight')
 
 	Func setKanjiWindowHeight P1
 		raise("DotNet Error: KanjiWindowHeight is a read-only property")
 
 	Func getMenuBarHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s13:MenuBarHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','MenuBarHeight')
 
 	Func setMenuBarHeight P1
 		raise("DotNet Error: MenuBarHeight is a read-only property")
 
 	Func getVerticalScrollBarThumbHeight
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s28:VerticalScrollBarThumbHeight")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','VerticalScrollBarThumbHeight')
 
 	Func setVerticalScrollBarThumbHeight P1
 		raise("DotNet Error: VerticalScrollBarThumbHeight is a read-only property")
 
 	Func getIsImmEnabled
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s12:IsImmEnabled")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','IsImmEnabled')
 
 	Func setIsImmEnabled P1
 		raise("DotNet Error: IsImmEnabled is a read-only property")
 
 	Func getIsMediaCenter
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s13:IsMediaCenter")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','IsMediaCenter')
 
 	Func setIsMediaCenter P1
 		raise("DotNet Error: IsMediaCenter is a read-only property")
 
 	Func getIsMenuDropRightAligned
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s22:IsMenuDropRightAligned")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','IsMenuDropRightAligned')
 
 	Func setIsMenuDropRightAligned P1
 		raise("DotNet Error: IsMenuDropRightAligned is a read-only property")
 
 	Func getIsMiddleEastEnabled
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s19:IsMiddleEastEnabled")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','IsMiddleEastEnabled')
 
 	Func setIsMiddleEastEnabled P1
 		raise("DotNet Error: IsMiddleEastEnabled is a read-only property")
 
 	Func getIsMousePresent
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s14:IsMousePresent")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','IsMousePresent')
 
 	Func setIsMousePresent P1
 		raise("DotNet Error: IsMousePresent is a read-only property")
 
 	Func getIsMouseWheelPresent
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s19:IsMouseWheelPresent")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','IsMouseWheelPresent')
 
 	Func setIsMouseWheelPresent P1
 		raise("DotNet Error: IsMouseWheelPresent is a read-only property")
 
 	Func getIsPenWindows
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s12:IsPenWindows")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','IsPenWindows')
 
 	Func setIsPenWindows P1
 		raise("DotNet Error: IsPenWindows is a read-only property")
 
 	Func getIsRemotelyControlled
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s20:IsRemotelyControlled")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','IsRemotelyControlled')
 
 	Func setIsRemotelyControlled P1
 		raise("DotNet Error: IsRemotelyControlled is a read-only property")
 
 	Func getIsRemoteSession
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s15:IsRemoteSession")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','IsRemoteSession')
 
 	Func setIsRemoteSession P1
 		raise("DotNet Error: IsRemoteSession is a read-only property")
 
 	Func getShowSounds
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s10:ShowSounds")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','ShowSounds')
 
 	Func setShowSounds P1
 		raise("DotNet Error: ShowSounds is a read-only property")
 
 	Func getIsSlowMachine
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s13:IsSlowMachine")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','IsSlowMachine')
 
 	Func setIsSlowMachine P1
 		raise("DotNet Error: IsSlowMachine is a read-only property")
 
 	Func getSwapButtons
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s11:SwapButtons")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','SwapButtons')
 
 	Func setSwapButtons P1
 		raise("DotNet Error: SwapButtons is a read-only property")
 
 	Func getIsTabletPC
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s10:IsTabletPC")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','IsTabletPC')
 
 	Func setIsTabletPC P1
 		raise("DotNet Error: IsTabletPC is a read-only property")
 
 	Func getVirtualScreenLeft
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s17:VirtualScreenLeft")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','VirtualScreenLeft')
 
 	Func setVirtualScreenLeft P1
 		raise("DotNet Error: VirtualScreenLeft is a read-only property")
 
 	Func getVirtualScreenTop
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s16:VirtualScreenTop")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','VirtualScreenTop')
 
 	Func setVirtualScreenTop P1
 		raise("DotNet Error: VirtualScreenTop is a read-only property")
@@ -10491,7 +10445,7 @@ Class SystemParameters from Object
 		raise("DotNet Error: NavigationChromeDownLevelStyleKey is a read-only property")
 
 	Func getPowerLineStatus
-		return dnObj(dotnet_callo("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s15:PowerLineStatus"))
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','PowerLineStatus')
 
 	Func setPowerLineStatus P1
 		raise("DotNet Error: PowerLineStatus is a read-only property")
@@ -10503,23 +10457,19 @@ Class SystemParameters from Object
 		raise("DotNet Error: PowerLineStatusKey is a read-only property")
 
 	Func getIsGlassEnabled
-		return dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s14:IsGlassEnabled")
+		return dotnet_getps('System.Windows.SystemParameters, PresentationFramework','IsGlassEnabled')
 
 	Func setIsGlassEnabled P1
 		raise("DotNet Error: IsGlassEnabled is a read-only property")
 
 	Func getUxThemeName
-		dn_x = dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s11:UxThemeName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.SystemParameters, PresentationFramework','UxThemeName'))
 
 	Func setUxThemeName P1
 		raise("DotNet Error: UxThemeName is a read-only property")
 
 	Func getUxThemeColor
-		dn_x = dotnet_call("s3:get",'System.Windows.SystemParameters, PresentationFramework',"s12:UxThemeColor")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Windows.SystemParameters, PresentationFramework','UxThemeColor'))
 
 	Func setUxThemeColor P1
 		raise("DotNet Error: UxThemeColor is a read-only property")

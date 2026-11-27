@@ -1473,9 +1473,7 @@ Class DbLoggerCategory from Object
 		return dn_x
 
 	Func getName
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.DbLoggerCategory, Microsoft.EntityFrameworkCore',"s4:Name")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.DbLoggerCategory, Microsoft.EntityFrameworkCore','Name')
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2095,10 +2093,10 @@ Class EF from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.EF, Microsoft.EntityFrameworkCore',"s9:Parameter",P1))
 
 	Func getIsDesignTime
-		return dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.EF, Microsoft.EntityFrameworkCore',"s12:IsDesignTime")
+		return dotnet_getps('Microsoft.EntityFrameworkCore.EF, Microsoft.EntityFrameworkCore','IsDesignTime')
 
 	Func setIsDesignTime P1
-		dotnet_callv("s3:set",'Microsoft.EntityFrameworkCore.EF, Microsoft.EntityFrameworkCore',"s12:IsDesignTime",P1)
+		dotnet_setps('Microsoft.EntityFrameworkCore.EF, Microsoft.EntityFrameworkCore','IsDesignTime',P1)
 		return self
 
 	Func getFunctions
@@ -4106,9 +4104,7 @@ Class RelationalEntityTypeExtensions from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational',"s38:GetJsonPropertyNameConfigurationSource",P1))
 
 	Func getDefaultQueryNameBase
-		dn_x = dotnet_call("s3:get",'Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational',"s20:DefaultQueryNameBase")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational','DefaultQueryNameBase')
 
 	Func setDefaultQueryNameBase P1
 		raise("DotNet Error: DefaultQueryNameBase is a read-only property")

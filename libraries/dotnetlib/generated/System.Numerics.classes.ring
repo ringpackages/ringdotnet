@@ -2979,7 +2979,7 @@ Class Vector from Object
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector, System.Private.CoreLib',"s9:AsVector3",P1))
 
 	Func getIsHardwareAccelerated
-		return dotnet_call("s3:get",'System.Numerics.Vector, System.Private.CoreLib',"s21:IsHardwareAccelerated")
+		return dotnet_getps('System.Numerics.Vector, System.Private.CoreLib','IsHardwareAccelerated')
 
 	Func setIsHardwareAccelerated P1
 		raise("DotNet Error: IsHardwareAccelerated is a read-only property")

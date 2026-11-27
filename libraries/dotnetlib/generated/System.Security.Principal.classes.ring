@@ -567,9 +567,7 @@ Class WindowsIdentity from ClaimsIdentity
 		raise("DotNet Error: DeviceClaims is a read-only property")
 
 	Func getDefaultIssuer
-		dn_x = dotnet_call("s3:get",'System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows',"s13:DefaultIssuer")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows','DefaultIssuer')
 
 
 Class NTAccount from IdentityReference
@@ -674,13 +672,13 @@ Class SecurityIdentifier from IdentityReference
 		raise("DotNet Error: AccountDomainSid is a read-only property")
 
 	Func getMinBinaryLength
-		return dotnet_call("s3:get",'System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',"s15:MinBinaryLength")
+		return dotnet_getps('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows','MinBinaryLength')
 
 	Func setMinBinaryLength P1
 		raise("DotNet Error: MinBinaryLength is a read-only property")
 
 	Func getMaxBinaryLength
-		return dotnet_call("s3:get",'System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',"s15:MaxBinaryLength")
+		return dotnet_getps('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows','MaxBinaryLength')
 
 	Func setMaxBinaryLength P1
 		raise("DotNet Error: MaxBinaryLength is a read-only property")

@@ -96,6 +96,9 @@ typedef struct {
 	double nNumber ;
 	const unsigned char *pText ;
 } DnTypedArg ;
+typedef int32_t (DN_CALLTYPE *dn_getpropstatic_fn)(const unsigned char *pType, int32_t nTypeLength, const unsigned char *pName, int32_t nNameLength, DnTyped *pResult);
+typedef int32_t (DN_CALLTYPE *dn_setpropstaticn_fn)(const unsigned char *pType, int32_t nTypeLength, const unsigned char *pName, int32_t nNameLength, double nValue, DnTyped *pResult);
+typedef int32_t (DN_CALLTYPE *dn_setpropstatict_fn)(const unsigned char *pType, int32_t nTypeLength, const unsigned char *pName, int32_t nNameLength, const unsigned char *pText, int32_t nTextLength, DnTyped *pResult);
 typedef int32_t (DN_CALLTYPE *dn_calltyped_fn)(int64_t nHandle, const unsigned char *pName, int32_t nNameLength, DnTypedArg *pArgs, int32_t nArgs, DnTyped *pResult);
 typedef int32_t (DN_CALLTYPE *dn_calltypedstatic_fn)(const unsigned char *pType, int32_t nTypeLength, const unsigned char *pName, int32_t nNameLength, DnTypedArg *pArgs, int32_t nArgs, DnTyped *pResult);
 
@@ -114,6 +117,9 @@ static dn_free_fn g_pFree = NULL ;
 static dn_getprop_fn g_pGetProp = NULL ;
 static dn_setpropn_fn g_pSetPropNumber = NULL ;
 static dn_setpropt_fn g_pSetPropText = NULL ;
+static dn_getpropstatic_fn g_pGetPropStatic = NULL ;
+static dn_setpropstaticn_fn g_pSetPropStaticNumber = NULL ;
+static dn_setpropstatict_fn g_pSetPropStaticText = NULL ;
 static dn_calltyped_fn g_pCallTyped = NULL ;
 static dn_calltypedstatic_fn g_pCallTypedStatic = NULL ;
 static char g_cHostFxr[DN_PATHSIZE] = "" ;
@@ -440,6 +446,30 @@ static int ringdotnet_startruntime ( const char *cMode )
 		return 0 ;
 	}
 	g_pSetPropText = (dn_setpropt_fn) pFn ;
+	pFn = NULL ;
+	nRC = pLoad(wPath,DN_STR(DN_BRIDGE_TYPE),DN_STR("GetPropStatic"),DN_UNMANAGEDCALLERSONLY,NULL,&pFn);
+	if ( (nRC < 0) || (! pFn) ) {
+		snprintf(cNum,sizeof(cNum),"0x%08X",(unsigned) nRC);
+		ringdotnet_seterror("Can't bind Bridge.GetPropStatic",cNum);
+		return 0 ;
+	}
+	g_pGetPropStatic = (dn_getpropstatic_fn) pFn ;
+	pFn = NULL ;
+	nRC = pLoad(wPath,DN_STR(DN_BRIDGE_TYPE),DN_STR("SetPropStaticNumber"),DN_UNMANAGEDCALLERSONLY,NULL,&pFn);
+	if ( (nRC < 0) || (! pFn) ) {
+		snprintf(cNum,sizeof(cNum),"0x%08X",(unsigned) nRC);
+		ringdotnet_seterror("Can't bind Bridge.SetPropStaticNumber",cNum);
+		return 0 ;
+	}
+	g_pSetPropStaticNumber = (dn_setpropstaticn_fn) pFn ;
+	pFn = NULL ;
+	nRC = pLoad(wPath,DN_STR(DN_BRIDGE_TYPE),DN_STR("SetPropStaticText"),DN_UNMANAGEDCALLERSONLY,NULL,&pFn);
+	if ( (nRC < 0) || (! pFn) ) {
+		snprintf(cNum,sizeof(cNum),"0x%08X",(unsigned) nRC);
+		ringdotnet_seterror("Can't bind Bridge.SetPropStaticText",cNum);
+		return 0 ;
+	}
+	g_pSetPropStaticText = (dn_setpropstatict_fn) pFn ;
 	pFn = NULL ;
 	nRC = pLoad(wPath,DN_STR(DN_BRIDGE_TYPE),DN_STR("CallTyped"),DN_UNMANAGEDCALLERSONLY,NULL,&pFn);
 	if ( (nRC < 0) || (! pFn) ) {
@@ -1255,6 +1285,136 @@ RING_FUNC(ring_dotnet_setp)
 	ringdotnet_typedrequest(pPointer,"s3:set",DN_MODE_VOID,3,3);
 }
 
+/* dotnet_getps(cType, cName) and dotnet_setps(cType, cName, xValue): the typed read and write of a static property or field (see GetPropStatic in
+   Bridge.Typed.cs). Status 3 makes the generic request that dotnet_call makes: "get" or "set" with the type, the name and the value. */
+static void ringdotnet_staticrequest ( void *pPointer, const char *cOperation, int nMode, int lValue )
+{
+	DnBuf oRequest ;
+	const unsigned char *pOut ;
+	int nOutSize = 0, nPacked ;
+	double nTarget ;
+	void *pOldVM ;
+	if ( ! ringdotnet_typehandle(RING_API_GETSTRING(1),(int) RING_API_GETSTRINGSIZE(1),&nTarget) ) {
+		RING_API_ERROR("Can't find the .NET type");
+		return ;
+	}
+	dnbuf_init(&oRequest);
+	nPacked = dnbuf_add(&oRequest,cOperation,strlen(cOperation)) && dnbuf_handle(&oRequest,nTarget) &&
+	          dnbuf_item(&oRequest,'s',RING_API_GETSTRING(2),(size_t) RING_API_GETSTRINGSIZE(2)) ;
+	if ( lValue && nPacked > 0 ) {
+		nPacked = dn_packparam(&oRequest,pPointer,3) ;
+	}
+	if ( nPacked == 0 ) {
+		dnbuf_free(&oRequest);
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	if ( nPacked < 0 ) {
+		dnbuf_free(&oRequest);
+		RING_API_ERROR("DotNet Error: Unsupported parameter type (use strings, numbers, lists and .NET objects)");
+		return ;
+	}
+	pOldVM = g_pVM ;
+	g_pVM = pPointer ;
+	g_nDepth++ ;
+	pOut = g_pInvoke((const unsigned char *) oRequest.p,(int) oRequest.nSize,&nOutSize);
+	g_nDepth-- ;
+	g_pVM = pOldVM ;
+	dnbuf_free(&oRequest);
+	if ( ! pOut ) {
+		RING_API_ERROR("The .NET bridge returned no response");
+		return ;
+	}
+	ringdotnet_answer(pPointer,nMode,pOut,nOutSize);
+}
+
+RING_FUNC(ring_dotnet_getps)
+{
+	DnTyped oResult ;
+	int nStatus ;
+	void *pOldVM ;
+	if ( (RING_API_PARACOUNT != 2) || (! RING_API_ISSTRING(1)) || (! RING_API_ISSTRING(2)) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( (! g_pGetPropStatic) && (! ringdotnet_startruntime(NULL)) ) {
+		RING_API_ERROR(g_cError);
+		return ;
+	}
+	fflush(stdout);
+	if ( g_nPending >= DN_FLUSH_AT ) {
+		ringdotnet_flushpending();
+	}
+	pOldVM = g_pVM ;
+	g_pVM = pPointer ;
+	g_nDepth++ ;
+	nStatus = g_pGetPropStatic((const unsigned char *) RING_API_GETSTRING(1),(int32_t) RING_API_GETSTRINGSIZE(1),
+	                           (const unsigned char *) RING_API_GETSTRING(2),(int32_t) RING_API_GETSTRINGSIZE(2),&oResult) ;
+	g_nDepth-- ;
+	g_pVM = pOldVM ;
+	switch ( nStatus ) {
+		case 0 :
+			RING_API_RETNUMBER(oResult.nNumber);
+			return ;
+		case 1 :
+			RING_API_RETSTRING2((const char *) oResult.pText,(unsigned int) oResult.nTextLength);
+			return ;
+		case 2 : {
+			List *pList = RING_API_NEWLIST ;
+			ring_list_adddouble(pList,1);
+			ring_list_addstring2(pList,"z0:",3);
+			RING_API_RETLISTBYREF(pList);
+			return ;
+		}
+		case 4 :
+			ringdotnet_typederror(pPointer,&oResult);
+			return ;
+		default :
+			ringdotnet_staticrequest(pPointer,"s3:get",DN_MODE_VALUE,0);
+	}
+}
+
+RING_FUNC(ring_dotnet_setps)
+{
+	DnTyped oResult ;
+	int nStatus = 3 ;
+	void *pOldVM ;
+	if ( (RING_API_PARACOUNT != 3) || (! RING_API_ISSTRING(1)) || (! RING_API_ISSTRING(2)) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( (! g_pSetPropStaticNumber) && (! ringdotnet_startruntime(NULL)) ) {
+		RING_API_ERROR(g_cError);
+		return ;
+	}
+	fflush(stdout);
+	if ( g_nPending >= DN_FLUSH_AT ) {
+		ringdotnet_flushpending();
+	}
+	pOldVM = g_pVM ;
+	g_pVM = pPointer ;
+	g_nDepth++ ;
+	if ( RING_API_ISNUMBER(3) ) {
+		nStatus = g_pSetPropStaticNumber((const unsigned char *) RING_API_GETSTRING(1),(int32_t) RING_API_GETSTRINGSIZE(1),
+		                                 (const unsigned char *) RING_API_GETSTRING(2),(int32_t) RING_API_GETSTRINGSIZE(2),RING_API_GETNUMBER(3),&oResult) ;
+	} else if ( RING_API_ISSTRING(3) ) {
+		nStatus = g_pSetPropStaticText((const unsigned char *) RING_API_GETSTRING(1),(int32_t) RING_API_GETSTRINGSIZE(1),
+		                               (const unsigned char *) RING_API_GETSTRING(2),(int32_t) RING_API_GETSTRINGSIZE(2),
+		                               (const unsigned char *) RING_API_GETSTRING(3),(int32_t) RING_API_GETSTRINGSIZE(3),&oResult) ;
+	}
+	g_nDepth-- ;
+	g_pVM = pOldVM ;
+	if ( nStatus == 0 ) {
+		RING_API_RETNUMBER(1);
+		return ;
+	}
+	if ( nStatus == 4 ) {
+		ringdotnet_typederror(pPointer,&oResult);
+		return ;
+	}
+	ringdotnet_staticrequest(pPointer,"s3:set",DN_MODE_VOID,1);
+}
+
 static int dn_listisnamed ( List *pList ) ;
 
 /* dotnet_callt(nHandle, cName, arguments...) and dotnet_calltv(...): a call of a method of numbers, yes/nos and texts, without a request text (see
@@ -1817,6 +1977,8 @@ RING_LIBINIT
 	RING_API_REGISTER("dotnet_tolistget",ring_dotnet_tolistget);
 	RING_API_REGISTER("dotnet_tolistraw",ring_dotnet_tolistraw);
 	RING_API_REGISTER("dotnet_setp",ring_dotnet_setp);
+	RING_API_REGISTER("dotnet_getps",ring_dotnet_getps);
+	RING_API_REGISTER("dotnet_setps",ring_dotnet_setps);
 	RING_API_REGISTER("dotnet_callt",ring_dotnet_callt);
 	RING_API_REGISTER("dotnet_callts",ring_dotnet_callts);
 	RING_API_REGISTER("dotnet_calltsv",ring_dotnet_calltsv);

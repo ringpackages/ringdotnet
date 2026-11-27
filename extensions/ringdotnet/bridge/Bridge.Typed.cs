@@ -54,6 +54,8 @@ namespace RingDotNet
 			public Type StaticType;                  /* the type that this name names (a static typed call), when it was resolved */
 			public bool StaticResolved;
 			public readonly ConcurrentDictionary<Type, PropAccessor> ByType = new ConcurrentDictionary<Type, PropAccessor>();
+			public AccessorPair StaticLast;          /* the same for the static member of that name */
+			public readonly ConcurrentDictionary<Type, PropAccessor> StaticByType = new ConcurrentDictionary<Type, PropAccessor>();
 		}
 
 		private static PropEntry[] PropTable = new PropEntry[1024];
@@ -118,11 +120,12 @@ namespace RingDotNet
 		}
 
 		/* The accessor of the property (or field) of a name on a type: the one that the request "get" would find. A member of another kind is NotTyped. */
-		private static PropAccessor BuildAccessor(string name, Type type)
+		private static PropAccessor BuildAccessor(string name, Type type, bool isStatic = false)
 		{
 			try
 			{
-				PropertyInfo p = FindProperty(type, name, InstanceFlags);
+				BindingFlags flags = isStatic ? StaticFlags : InstanceFlags;
+				PropertyInfo p = FindProperty(type, name, flags);
 				FieldInfo fi = null;
 				Type memberType;
 				if (p != null && p.GetIndexParameters().Length == 0 && p.GetMethod != null && p.GetMethod.IsPublic && !p.PropertyType.IsByRef && !p.PropertyType.IsByRefLike && !p.PropertyType.IsPointer)
@@ -132,15 +135,16 @@ namespace RingDotNet
 				else
 				{
 					p = null;
-					fi = type.GetField(name, InstanceFlags);
+					fi = type.GetField(name, flags);
 					if (fi == null || fi.FieldType.IsPointer) return NotTyped;
 					memberType = fi.FieldType;
 				}
 				PropAccessor a = new PropAccessor { PropertyType = memberType };
 				ParameterExpression o = Expression.Parameter(typeof(object), "o");
 				ParameterExpression v = Expression.Parameter(typeof(object), "v");
-				Expression target = Expression.Convert(o, type);
-				Expression read = p != null ? Expression.Property(target, p) : Expression.Field(target, fi);
+				Expression target = isStatic ? null : Expression.Convert(o, type);
+				/* a constant (Math.PI) is a literal field: it has no storage to read, its value is a constant of the expression */
+				Expression read = p != null ? Expression.Property(target, p) : (fi.IsLiteral ? Expression.Constant(fi.GetRawConstantValue(), fi.FieldType) : Expression.Field(target, fi));
 				if (memberType == typeof(string))
 				{
 					a.Kind = 3;
@@ -170,7 +174,7 @@ namespace RingDotNet
 				}
 				/* a write is typed for a class (a struct is changed in its box by reflection) with a public setter */
 				bool canWrite = p != null ? (p.SetMethod != null && p.SetMethod.IsPublic) : (!fi.IsInitOnly && !fi.IsLiteral);
-				if (canWrite && !type.IsValueType)
+				if (canWrite && (isStatic || !type.IsValueType))
 				{
 					Expression place = p != null ? Expression.Property(target, p) : Expression.Field(target, fi);
 					a.Write = Expression.Lambda<Action<object, object>>(Expression.Assign(place, Expression.Convert(v, memberType)), o, v).Compile();
@@ -296,6 +300,107 @@ namespace RingDotNet
 				return 3;
 			}
 			return WriteProp(handle, name, nameLength, value, r);
+		}
+
+		/* The static properties and fields: the same accessors, with no object. The generated getter of a static member calls dotnet_getps(type, name) and the
+		   setter dotnet_setps(type, name, value); the type is named by its text, like the type of a static typed call. */
+		private static PropAccessor StaticAccessorFor(byte* typeName, int typeLength, byte* name, int nameLength)
+		{
+			PropEntry te = FindProp(typeName, typeLength);
+			if (!te.StaticResolved)
+			{
+				Type resolved = null;
+				try { resolved = ResolveType(te.NameText); } catch (Exception) { }
+				te.StaticType = resolved;
+				te.StaticResolved = true;
+			}
+			Type t = te.StaticType;
+			if (t == null) return NotTyped;
+			PropEntry e = FindProp(name, nameLength);
+			AccessorPair last = e.StaticLast;
+			if (last != null && last.Type == t) return last.Accessor;
+			PropAccessor a = e.StaticByType.GetOrAdd(t, type => BuildAccessor(e.NameText, type, true));
+			e.StaticLast = new AccessorPair(t, a);
+			return a;
+		}
+
+		[UnmanagedCallersOnly]
+		public static int GetPropStatic(byte* typeName, int typeLength, byte* name, int nameLength, TypedResult* r)
+		{
+			if (Depth == 0) RingThread = Environment.CurrentManagedThreadId;
+			Depth++;
+			try
+			{
+				PropAccessor a = StaticAccessorFor(typeName, typeLength, name, nameLength);
+				switch (a.Kind)
+				{
+					case 1:
+					case 2:
+						r->Number = a.Number(null);
+						return 0;
+					case 3:
+						string s = a.Text(null);
+						if (s == null)
+						{
+							if (!a.NotNull) return 2;
+							s = "";
+						}
+						return WriteText(r, s);
+					default:
+						return 3;
+				}
+			}
+			catch (Exception ex)
+			{
+				return WriteError(r, Unwrap(ex));
+			}
+			finally
+			{
+				Depth--;
+			}
+		}
+
+		private static int WritePropStatic(byte* typeName, int typeLength, byte* name, int nameLength, object value, TypedResult* r)
+		{
+			if (Depth == 0) RingThread = Environment.CurrentManagedThreadId;
+			Depth++;
+			try
+			{
+				PropAccessor a = StaticAccessorFor(typeName, typeLength, name, nameLength);
+				if (a.Write == null) return 3;
+				if (!TryConvert(value, a.PropertyType, out object converted, out int _)) return 3;
+				a.Write(null, converted);
+				return 0;
+			}
+			catch (Exception ex)
+			{
+				return WriteError(r, Unwrap(ex));
+			}
+			finally
+			{
+				Depth--;
+			}
+		}
+
+		[UnmanagedCallersOnly]
+		public static int SetPropStaticNumber(byte* typeName, int typeLength, byte* name, int nameLength, double value, TypedResult* r)
+		{
+			return WritePropStatic(typeName, typeLength, name, nameLength, value, r);
+		}
+
+		[UnmanagedCallersOnly]
+		public static int SetPropStaticText(byte* typeName, int typeLength, byte* name, int nameLength, byte* text, int textLength, TypedResult* r)
+		{
+			object value;
+			try
+			{
+				value = DecodeString(new ReadOnlySpan<byte>(text, textLength));
+			}
+			catch (Exception)
+			{
+				return 3;
+			}
+			return WritePropStatic(typeName, typeLength, name, nameLength, value, r);
 		}
 	}
 }

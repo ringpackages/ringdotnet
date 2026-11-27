@@ -661,57 +661,43 @@ Class OdbcMetaDataCollectionNames from Object
 		return dn_x
 
 	Func getColumns
-		dn_x = dotnet_call("s3:get",'System.Data.Odbc.OdbcMetaDataCollectionNames, System.Data.Odbc',"s7:Columns")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Odbc.OdbcMetaDataCollectionNames, System.Data.Odbc','Columns')
 
 	Func setColumns P1
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getIndexes
-		dn_x = dotnet_call("s3:get",'System.Data.Odbc.OdbcMetaDataCollectionNames, System.Data.Odbc',"s7:Indexes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Odbc.OdbcMetaDataCollectionNames, System.Data.Odbc','Indexes')
 
 	Func setIndexes P1
 		raise("DotNet Error: Indexes is a read-only property")
 
 	Func getProcedures
-		dn_x = dotnet_call("s3:get",'System.Data.Odbc.OdbcMetaDataCollectionNames, System.Data.Odbc',"s10:Procedures")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Odbc.OdbcMetaDataCollectionNames, System.Data.Odbc','Procedures')
 
 	Func setProcedures P1
 		raise("DotNet Error: Procedures is a read-only property")
 
 	Func getProcedureColumns
-		dn_x = dotnet_call("s3:get",'System.Data.Odbc.OdbcMetaDataCollectionNames, System.Data.Odbc',"s16:ProcedureColumns")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Odbc.OdbcMetaDataCollectionNames, System.Data.Odbc','ProcedureColumns')
 
 	Func setProcedureColumns P1
 		raise("DotNet Error: ProcedureColumns is a read-only property")
 
 	Func getProcedureParameters
-		dn_x = dotnet_call("s3:get",'System.Data.Odbc.OdbcMetaDataCollectionNames, System.Data.Odbc',"s19:ProcedureParameters")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Odbc.OdbcMetaDataCollectionNames, System.Data.Odbc','ProcedureParameters')
 
 	Func setProcedureParameters P1
 		raise("DotNet Error: ProcedureParameters is a read-only property")
 
 	Func getTables
-		dn_x = dotnet_call("s3:get",'System.Data.Odbc.OdbcMetaDataCollectionNames, System.Data.Odbc',"s6:Tables")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Odbc.OdbcMetaDataCollectionNames, System.Data.Odbc','Tables')
 
 	Func setTables P1
 		raise("DotNet Error: Tables is a read-only property")
 
 	Func getViews
-		dn_x = dotnet_call("s3:get",'System.Data.Odbc.OdbcMetaDataCollectionNames, System.Data.Odbc',"s5:Views")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Odbc.OdbcMetaDataCollectionNames, System.Data.Odbc','Views')
 
 	Func setViews P1
 		raise("DotNet Error: Views is a read-only property")
@@ -738,25 +724,19 @@ Class OdbcMetaDataColumnNames from Object
 		return dn_x
 
 	Func getBooleanFalseLiteral
-		dn_x = dotnet_call("s3:get",'System.Data.Odbc.OdbcMetaDataColumnNames, System.Data.Odbc',"s19:BooleanFalseLiteral")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Odbc.OdbcMetaDataColumnNames, System.Data.Odbc','BooleanFalseLiteral')
 
 	Func setBooleanFalseLiteral P1
 		raise("DotNet Error: BooleanFalseLiteral is a read-only property")
 
 	Func getBooleanTrueLiteral
-		dn_x = dotnet_call("s3:get",'System.Data.Odbc.OdbcMetaDataColumnNames, System.Data.Odbc',"s18:BooleanTrueLiteral")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Odbc.OdbcMetaDataColumnNames, System.Data.Odbc','BooleanTrueLiteral')
 
 	Func setBooleanTrueLiteral P1
 		raise("DotNet Error: BooleanTrueLiteral is a read-only property")
 
 	Func getSQLType
-		dn_x = dotnet_call("s3:get",'System.Data.Odbc.OdbcMetaDataColumnNames, System.Data.Odbc',"s7:SQLType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Odbc.OdbcMetaDataColumnNames, System.Data.Odbc','SQLType')
 
 	Func setSQLType P1
 		raise("DotNet Error: SQLType is a read-only property")

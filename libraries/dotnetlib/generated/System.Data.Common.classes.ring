@@ -2852,41 +2852,31 @@ Class DbMetaDataCollectionNames from Object
 		return dn_x
 
 	Func getMetaDataCollections
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataCollectionNames, System.Data.Common',"s19:MetaDataCollections")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common','MetaDataCollections')
 
 	Func setMetaDataCollections P1
 		raise("DotNet Error: MetaDataCollections is a read-only property")
 
 	Func getDataSourceInformation
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataCollectionNames, System.Data.Common',"s21:DataSourceInformation")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common','DataSourceInformation')
 
 	Func setDataSourceInformation P1
 		raise("DotNet Error: DataSourceInformation is a read-only property")
 
 	Func getDataTypes
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataCollectionNames, System.Data.Common',"s9:DataTypes")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common','DataTypes')
 
 	Func setDataTypes P1
 		raise("DotNet Error: DataTypes is a read-only property")
 
 	Func getRestrictions
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataCollectionNames, System.Data.Common',"s12:Restrictions")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common','Restrictions')
 
 	Func setRestrictions P1
 		raise("DotNet Error: Restrictions is a read-only property")
 
 	Func getReservedWords
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataCollectionNames, System.Data.Common',"s13:ReservedWords")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataCollectionNames, System.Data.Common','ReservedWords')
 
 	Func setReservedWords P1
 		raise("DotNet Error: ReservedWords is a read-only property")
@@ -2952,345 +2942,259 @@ Class DbMetaDataColumnNames from Object
 		return dn_x
 
 	Func getCollectionName
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s14:CollectionName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','CollectionName')
 
 	Func setCollectionName P1
 		raise("DotNet Error: CollectionName is a read-only property")
 
 	Func getColumnSize
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s10:ColumnSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','ColumnSize')
 
 	Func setColumnSize P1
 		raise("DotNet Error: ColumnSize is a read-only property")
 
 	Func getCompositeIdentifierSeparatorPattern
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s35:CompositeIdentifierSeparatorPattern")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','CompositeIdentifierSeparatorPattern')
 
 	Func setCompositeIdentifierSeparatorPattern P1
 		raise("DotNet Error: CompositeIdentifierSeparatorPattern is a read-only property")
 
 	Func getCreateFormat
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s12:CreateFormat")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','CreateFormat')
 
 	Func setCreateFormat P1
 		raise("DotNet Error: CreateFormat is a read-only property")
 
 	Func getCreateParameters
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s16:CreateParameters")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','CreateParameters')
 
 	Func setCreateParameters P1
 		raise("DotNet Error: CreateParameters is a read-only property")
 
 	Func getDataSourceProductName
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s21:DataSourceProductName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','DataSourceProductName')
 
 	Func setDataSourceProductName P1
 		raise("DotNet Error: DataSourceProductName is a read-only property")
 
 	Func getDataSourceProductVersion
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s24:DataSourceProductVersion")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','DataSourceProductVersion')
 
 	Func setDataSourceProductVersion P1
 		raise("DotNet Error: DataSourceProductVersion is a read-only property")
 
 	Func getDataType
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s8:DataType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','DataType')
 
 	Func setDataType P1
 		raise("DotNet Error: DataType is a read-only property")
 
 	Func getDataSourceProductVersionNormalized
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s34:DataSourceProductVersionNormalized")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','DataSourceProductVersionNormalized')
 
 	Func setDataSourceProductVersionNormalized P1
 		raise("DotNet Error: DataSourceProductVersionNormalized is a read-only property")
 
 	Func getGroupByBehavior
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s15:GroupByBehavior")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','GroupByBehavior')
 
 	Func setGroupByBehavior P1
 		raise("DotNet Error: GroupByBehavior is a read-only property")
 
 	Func getIdentifierCase
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s14:IdentifierCase")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','IdentifierCase')
 
 	Func setIdentifierCase P1
 		raise("DotNet Error: IdentifierCase is a read-only property")
 
 	Func getIdentifierPattern
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s17:IdentifierPattern")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','IdentifierPattern')
 
 	Func setIdentifierPattern P1
 		raise("DotNet Error: IdentifierPattern is a read-only property")
 
 	Func getIsAutoIncrementable
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s19:IsAutoIncrementable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','IsAutoIncrementable')
 
 	Func setIsAutoIncrementable P1
 		raise("DotNet Error: IsAutoIncrementable is a read-only property")
 
 	Func getIsBestMatch
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s11:IsBestMatch")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','IsBestMatch')
 
 	Func setIsBestMatch P1
 		raise("DotNet Error: IsBestMatch is a read-only property")
 
 	Func getIsCaseSensitive
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s15:IsCaseSensitive")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','IsCaseSensitive')
 
 	Func setIsCaseSensitive P1
 		raise("DotNet Error: IsCaseSensitive is a read-only property")
 
 	Func getIsConcurrencyType
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s17:IsConcurrencyType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','IsConcurrencyType')
 
 	Func setIsConcurrencyType P1
 		raise("DotNet Error: IsConcurrencyType is a read-only property")
 
 	Func getIsFixedLength
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s13:IsFixedLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','IsFixedLength')
 
 	Func setIsFixedLength P1
 		raise("DotNet Error: IsFixedLength is a read-only property")
 
 	Func getIsFixedPrecisionScale
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s21:IsFixedPrecisionScale")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','IsFixedPrecisionScale')
 
 	Func setIsFixedPrecisionScale P1
 		raise("DotNet Error: IsFixedPrecisionScale is a read-only property")
 
 	Func getIsLiteralSupported
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s18:IsLiteralSupported")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','IsLiteralSupported')
 
 	Func setIsLiteralSupported P1
 		raise("DotNet Error: IsLiteralSupported is a read-only property")
 
 	Func getIsLong
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s6:IsLong")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','IsLong')
 
 	Func setIsLong P1
 		raise("DotNet Error: IsLong is a read-only property")
 
 	Func getIsNullable
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s10:IsNullable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','IsNullable')
 
 	Func setIsNullable P1
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getIsSearchable
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s12:IsSearchable")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','IsSearchable')
 
 	Func setIsSearchable P1
 		raise("DotNet Error: IsSearchable is a read-only property")
 
 	Func getIsSearchableWithLike
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s20:IsSearchableWithLike")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','IsSearchableWithLike')
 
 	Func setIsSearchableWithLike P1
 		raise("DotNet Error: IsSearchableWithLike is a read-only property")
 
 	Func getIsUnsigned
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s10:IsUnsigned")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','IsUnsigned')
 
 	Func setIsUnsigned P1
 		raise("DotNet Error: IsUnsigned is a read-only property")
 
 	Func getLiteralPrefix
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s13:LiteralPrefix")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','LiteralPrefix')
 
 	Func setLiteralPrefix P1
 		raise("DotNet Error: LiteralPrefix is a read-only property")
 
 	Func getLiteralSuffix
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s13:LiteralSuffix")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','LiteralSuffix')
 
 	Func setLiteralSuffix P1
 		raise("DotNet Error: LiteralSuffix is a read-only property")
 
 	Func getMaximumScale
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s12:MaximumScale")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','MaximumScale')
 
 	Func setMaximumScale P1
 		raise("DotNet Error: MaximumScale is a read-only property")
 
 	Func getMinimumScale
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s12:MinimumScale")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','MinimumScale')
 
 	Func setMinimumScale P1
 		raise("DotNet Error: MinimumScale is a read-only property")
 
 	Func getNumberOfIdentifierParts
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s23:NumberOfIdentifierParts")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','NumberOfIdentifierParts')
 
 	Func setNumberOfIdentifierParts P1
 		raise("DotNet Error: NumberOfIdentifierParts is a read-only property")
 
 	Func getNumberOfRestrictions
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s20:NumberOfRestrictions")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','NumberOfRestrictions')
 
 	Func setNumberOfRestrictions P1
 		raise("DotNet Error: NumberOfRestrictions is a read-only property")
 
 	Func getOrderByColumnsInSelect
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s22:OrderByColumnsInSelect")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','OrderByColumnsInSelect')
 
 	Func setOrderByColumnsInSelect P1
 		raise("DotNet Error: OrderByColumnsInSelect is a read-only property")
 
 	Func getParameterMarkerFormat
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s21:ParameterMarkerFormat")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','ParameterMarkerFormat')
 
 	Func setParameterMarkerFormat P1
 		raise("DotNet Error: ParameterMarkerFormat is a read-only property")
 
 	Func getParameterMarkerPattern
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s22:ParameterMarkerPattern")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','ParameterMarkerPattern')
 
 	Func setParameterMarkerPattern P1
 		raise("DotNet Error: ParameterMarkerPattern is a read-only property")
 
 	Func getParameterNameMaxLength
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s22:ParameterNameMaxLength")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','ParameterNameMaxLength')
 
 	Func setParameterNameMaxLength P1
 		raise("DotNet Error: ParameterNameMaxLength is a read-only property")
 
 	Func getParameterNamePattern
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s20:ParameterNamePattern")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','ParameterNamePattern')
 
 	Func setParameterNamePattern P1
 		raise("DotNet Error: ParameterNamePattern is a read-only property")
 
 	Func getProviderDbType
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s14:ProviderDbType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','ProviderDbType')
 
 	Func setProviderDbType P1
 		raise("DotNet Error: ProviderDbType is a read-only property")
 
 	Func getQuotedIdentifierCase
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s20:QuotedIdentifierCase")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','QuotedIdentifierCase')
 
 	Func setQuotedIdentifierCase P1
 		raise("DotNet Error: QuotedIdentifierCase is a read-only property")
 
 	Func getQuotedIdentifierPattern
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s23:QuotedIdentifierPattern")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','QuotedIdentifierPattern')
 
 	Func setQuotedIdentifierPattern P1
 		raise("DotNet Error: QuotedIdentifierPattern is a read-only property")
 
 	Func getReservedWord
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s12:ReservedWord")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','ReservedWord')
 
 	Func setReservedWord P1
 		raise("DotNet Error: ReservedWord is a read-only property")
 
 	Func getStatementSeparatorPattern
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s25:StatementSeparatorPattern")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','StatementSeparatorPattern')
 
 	Func setStatementSeparatorPattern P1
 		raise("DotNet Error: StatementSeparatorPattern is a read-only property")
 
 	Func getStringLiteralPattern
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s20:StringLiteralPattern")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','StringLiteralPattern')
 
 	Func setStringLiteralPattern P1
 		raise("DotNet Error: StringLiteralPattern is a read-only property")
 
 	Func getSupportedJoinOperators
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s22:SupportedJoinOperators")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','SupportedJoinOperators')
 
 	Func setSupportedJoinOperators P1
 		raise("DotNet Error: SupportedJoinOperators is a read-only property")
 
 	Func getTypeName
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbMetaDataColumnNames, System.Data.Common',"s8:TypeName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbMetaDataColumnNames, System.Data.Common','TypeName')
 
 
 Class DbParameter from MarshalByRefObject
@@ -4035,137 +3939,103 @@ Class SchemaTableColumn from Object
 		return dn_x
 
 	Func getColumnName
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableColumn, System.Data.Common',"s10:ColumnName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableColumn, System.Data.Common','ColumnName')
 
 	Func setColumnName P1
 		raise("DotNet Error: ColumnName is a read-only property")
 
 	Func getColumnOrdinal
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableColumn, System.Data.Common',"s13:ColumnOrdinal")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableColumn, System.Data.Common','ColumnOrdinal')
 
 	Func setColumnOrdinal P1
 		raise("DotNet Error: ColumnOrdinal is a read-only property")
 
 	Func getColumnSize
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableColumn, System.Data.Common',"s10:ColumnSize")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableColumn, System.Data.Common','ColumnSize')
 
 	Func setColumnSize P1
 		raise("DotNet Error: ColumnSize is a read-only property")
 
 	Func getNumericPrecision
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableColumn, System.Data.Common',"s16:NumericPrecision")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableColumn, System.Data.Common','NumericPrecision')
 
 	Func setNumericPrecision P1
 		raise("DotNet Error: NumericPrecision is a read-only property")
 
 	Func getNumericScale
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableColumn, System.Data.Common',"s12:NumericScale")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableColumn, System.Data.Common','NumericScale')
 
 	Func setNumericScale P1
 		raise("DotNet Error: NumericScale is a read-only property")
 
 	Func getDataType
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableColumn, System.Data.Common',"s8:DataType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableColumn, System.Data.Common','DataType')
 
 	Func setDataType P1
 		raise("DotNet Error: DataType is a read-only property")
 
 	Func getProviderType
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableColumn, System.Data.Common',"s12:ProviderType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableColumn, System.Data.Common','ProviderType')
 
 	Func setProviderType P1
 		raise("DotNet Error: ProviderType is a read-only property")
 
 	Func getNonVersionedProviderType
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableColumn, System.Data.Common',"s24:NonVersionedProviderType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableColumn, System.Data.Common','NonVersionedProviderType')
 
 	Func setNonVersionedProviderType P1
 		raise("DotNet Error: NonVersionedProviderType is a read-only property")
 
 	Func getIsLong
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableColumn, System.Data.Common',"s6:IsLong")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableColumn, System.Data.Common','IsLong')
 
 	Func setIsLong P1
 		raise("DotNet Error: IsLong is a read-only property")
 
 	Func getAllowDBNull
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableColumn, System.Data.Common',"s11:AllowDBNull")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableColumn, System.Data.Common','AllowDBNull')
 
 	Func setAllowDBNull P1
 		raise("DotNet Error: AllowDBNull is a read-only property")
 
 	Func getIsAliased
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableColumn, System.Data.Common',"s9:IsAliased")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableColumn, System.Data.Common','IsAliased')
 
 	Func setIsAliased P1
 		raise("DotNet Error: IsAliased is a read-only property")
 
 	Func getIsExpression
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableColumn, System.Data.Common',"s12:IsExpression")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableColumn, System.Data.Common','IsExpression')
 
 	Func setIsExpression P1
 		raise("DotNet Error: IsExpression is a read-only property")
 
 	Func getIsKey
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableColumn, System.Data.Common',"s5:IsKey")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableColumn, System.Data.Common','IsKey')
 
 	Func setIsKey P1
 		raise("DotNet Error: IsKey is a read-only property")
 
 	Func getIsUnique
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableColumn, System.Data.Common',"s8:IsUnique")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableColumn, System.Data.Common','IsUnique')
 
 	Func setIsUnique P1
 		raise("DotNet Error: IsUnique is a read-only property")
 
 	Func getBaseSchemaName
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableColumn, System.Data.Common',"s14:BaseSchemaName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableColumn, System.Data.Common','BaseSchemaName')
 
 	Func setBaseSchemaName P1
 		raise("DotNet Error: BaseSchemaName is a read-only property")
 
 	Func getBaseTableName
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableColumn, System.Data.Common',"s13:BaseTableName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableColumn, System.Data.Common','BaseTableName')
 
 	Func setBaseTableName P1
 		raise("DotNet Error: BaseTableName is a read-only property")
 
 	Func getBaseColumnName
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableColumn, System.Data.Common',"s14:BaseColumnName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableColumn, System.Data.Common','BaseColumnName')
 
 	Func setBaseColumnName P1
 		raise("DotNet Error: BaseColumnName is a read-only property")
@@ -4203,113 +4073,85 @@ Class SchemaTableOptionalColumn from Object
 		return dn_x
 
 	Func getProviderSpecificDataType
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableOptionalColumn, System.Data.Common',"s24:ProviderSpecificDataType")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common','ProviderSpecificDataType')
 
 	Func setProviderSpecificDataType P1
 		raise("DotNet Error: ProviderSpecificDataType is a read-only property")
 
 	Func getIsAutoIncrement
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableOptionalColumn, System.Data.Common',"s15:IsAutoIncrement")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common','IsAutoIncrement')
 
 	Func setIsAutoIncrement P1
 		raise("DotNet Error: IsAutoIncrement is a read-only property")
 
 	Func getIsHidden
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableOptionalColumn, System.Data.Common',"s8:IsHidden")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common','IsHidden')
 
 	Func setIsHidden P1
 		raise("DotNet Error: IsHidden is a read-only property")
 
 	Func getIsReadOnly
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableOptionalColumn, System.Data.Common',"s10:IsReadOnly")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common','IsReadOnly')
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsRowVersion
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableOptionalColumn, System.Data.Common',"s12:IsRowVersion")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common','IsRowVersion')
 
 	Func setIsRowVersion P1
 		raise("DotNet Error: IsRowVersion is a read-only property")
 
 	Func getBaseServerName
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableOptionalColumn, System.Data.Common',"s14:BaseServerName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common','BaseServerName')
 
 	Func setBaseServerName P1
 		raise("DotNet Error: BaseServerName is a read-only property")
 
 	Func getBaseCatalogName
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableOptionalColumn, System.Data.Common',"s15:BaseCatalogName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common','BaseCatalogName')
 
 	Func setBaseCatalogName P1
 		raise("DotNet Error: BaseCatalogName is a read-only property")
 
 	Func getAutoIncrementSeed
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableOptionalColumn, System.Data.Common',"s17:AutoIncrementSeed")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common','AutoIncrementSeed')
 
 	Func setAutoIncrementSeed P1
 		raise("DotNet Error: AutoIncrementSeed is a read-only property")
 
 	Func getAutoIncrementStep
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableOptionalColumn, System.Data.Common',"s17:AutoIncrementStep")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common','AutoIncrementStep')
 
 	Func setAutoIncrementStep P1
 		raise("DotNet Error: AutoIncrementStep is a read-only property")
 
 	Func getDefaultValue
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableOptionalColumn, System.Data.Common',"s12:DefaultValue")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common','DefaultValue')
 
 	Func setDefaultValue P1
 		raise("DotNet Error: DefaultValue is a read-only property")
 
 	Func getExpression
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableOptionalColumn, System.Data.Common',"s10:Expression")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common','Expression')
 
 	Func setExpression P1
 		raise("DotNet Error: Expression is a read-only property")
 
 	Func getBaseTableNamespace
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableOptionalColumn, System.Data.Common',"s18:BaseTableNamespace")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common','BaseTableNamespace')
 
 	Func setBaseTableNamespace P1
 		raise("DotNet Error: BaseTableNamespace is a read-only property")
 
 	Func getBaseColumnNamespace
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableOptionalColumn, System.Data.Common',"s19:BaseColumnNamespace")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common','BaseColumnNamespace')
 
 	Func setBaseColumnNamespace P1
 		raise("DotNet Error: BaseColumnNamespace is a read-only property")
 
 	Func getColumnMapping
-		dn_x = dotnet_call("s3:get",'System.Data.Common.SchemaTableOptionalColumn, System.Data.Common',"s13:ColumnMapping")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common','ColumnMapping')
 
 	Func setColumnMapping P1
 		raise("DotNet Error: ColumnMapping is a read-only property")
@@ -4381,9 +4223,7 @@ Class DbDataAdapter from DataAdapter
 		return self
 
 	Func getDefaultSourceTableName
-		dn_x = dotnet_call("s3:get",'System.Data.Common.DbDataAdapter, System.Data.Common',"s22:DefaultSourceTableName")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dotnet_getps('System.Data.Common.DbDataAdapter, System.Data.Common','DefaultSourceTableName')
 
 	Func setDefaultSourceTableName P1
 		raise("DotNet Error: DefaultSourceTableName is a read-only property")

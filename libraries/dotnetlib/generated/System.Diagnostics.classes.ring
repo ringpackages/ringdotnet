@@ -802,10 +802,10 @@ Class Activity from Object
 		return dotnet_getp(nHandle,"IdFormat")
 
 	Func getForceDefaultIdFormat
-		return dotnet_call("s3:get",'System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource',"s20:ForceDefaultIdFormat")
+		return dotnet_getps('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource','ForceDefaultIdFormat')
 
 	Func setForceDefaultIdFormat P1
-		dotnet_callv("s3:set",'System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource',"s20:ForceDefaultIdFormat",P1)
+		dotnet_setps('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource','ForceDefaultIdFormat',P1)
 		return self
 
 	Func getCurrent
@@ -823,10 +823,10 @@ Class Activity from Object
 		return self
 
 	Func getDefaultIdFormat
-		return dnObj(dotnet_callo("s3:get",'System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource',"s15:DefaultIdFormat"))
+		return dotnet_getps('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource','DefaultIdFormat')
 
 	Func setDefaultIdFormat P1
-		dotnet_callv("s3:set",'System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource',"s15:DefaultIdFormat",P1)
+		dotnet_setps('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource','DefaultIdFormat',P1)
 		return self
 
 
@@ -1849,24 +1849,24 @@ Class Debug from Object
 		raise("DotNet Error: WriteLineIf does not take one argument: use named arguments, WriteLineIf([ :parameter = value, ... ])")
 
 	Func getAutoFlush
-		return dotnet_call("s3:get",'System.Diagnostics.Debug, System.Private.CoreLib',"s9:AutoFlush")
+		return dotnet_getps('System.Diagnostics.Debug, System.Private.CoreLib','AutoFlush')
 
 	Func setAutoFlush P1
-		dotnet_callv("s3:set",'System.Diagnostics.Debug, System.Private.CoreLib',"s9:AutoFlush",P1)
+		dotnet_setps('System.Diagnostics.Debug, System.Private.CoreLib','AutoFlush',P1)
 		return self
 
 	Func getIndentLevel
-		return dotnet_call("s3:get",'System.Diagnostics.Debug, System.Private.CoreLib',"s11:IndentLevel")
+		return dotnet_getps('System.Diagnostics.Debug, System.Private.CoreLib','IndentLevel')
 
 	Func setIndentLevel P1
-		dotnet_callv("s3:set",'System.Diagnostics.Debug, System.Private.CoreLib',"s11:IndentLevel",P1)
+		dotnet_setps('System.Diagnostics.Debug, System.Private.CoreLib','IndentLevel',P1)
 		return self
 
 	Func getIndentSize
-		return dotnet_call("s3:get",'System.Diagnostics.Debug, System.Private.CoreLib',"s10:IndentSize")
+		return dotnet_getps('System.Diagnostics.Debug, System.Private.CoreLib','IndentSize')
 
 	Func setIndentSize P1
-		dotnet_callv("s3:set",'System.Diagnostics.Debug, System.Private.CoreLib',"s10:IndentSize",P1)
+		dotnet_setps('System.Diagnostics.Debug, System.Private.CoreLib','IndentSize',P1)
 		return self
 
 
@@ -2108,15 +2108,13 @@ Class Debugger from Object
 		return self
 
 	Func getIsAttached
-		return dotnet_call("s3:get",'System.Diagnostics.Debugger, System.Private.CoreLib',"s10:IsAttached")
+		return dotnet_getps('System.Diagnostics.Debugger, System.Private.CoreLib','IsAttached')
 
 	Func setIsAttached P1
 		raise("DotNet Error: IsAttached is a read-only property")
 
 	Func getDefaultCategory
-		dn_x = dotnet_call("s3:get",'System.Diagnostics.Debugger, System.Private.CoreLib',"s15:DefaultCategory")
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
+		return dnAnswer(dotnet_getps('System.Diagnostics.Debugger, System.Private.CoreLib','DefaultCategory'))
 
 	Func setDefaultCategory P1
 		raise("DotNet Error: DefaultCategory is a read-only property")
@@ -3970,7 +3968,7 @@ Class StackFrame from Object
 		return dnObj(dn_x)
 
 	Func getOFFSET_UNKNOWN
-		return dotnet_call("s3:get",'System.Diagnostics.StackFrame, System.Private.CoreLib',"s14:OFFSET_UNKNOWN")
+		return dotnet_getps('System.Diagnostics.StackFrame, System.Private.CoreLib','OFFSET_UNKNOWN')
 
 	Func setOFFSET_UNKNOWN P1
 		raise("DotNet Error: OFFSET_UNKNOWN is a read-only property")
@@ -4087,7 +4085,7 @@ Class StackTrace from Object
 		raise("DotNet Error: FrameCount is a read-only property")
 
 	Func getMETHODS_TO_SKIP
-		return dotnet_call("s3:get",'System.Diagnostics.StackTrace, System.Private.CoreLib',"s15:METHODS_TO_SKIP")
+		return dotnet_getps('System.Diagnostics.StackTrace, System.Private.CoreLib','METHODS_TO_SKIP')
 
 	Func setMETHODS_TO_SKIP P1
 		raise("DotNet Error: METHODS_TO_SKIP is a read-only property")
@@ -4202,13 +4200,13 @@ Class Stopwatch from Object
 		raise("DotNet Error: ElapsedTicks is a read-only property")
 
 	Func getFrequency
-		return dotnet_call("s3:get",'System.Diagnostics.Stopwatch, System.Private.CoreLib',"s9:Frequency")
+		return dotnet_getps('System.Diagnostics.Stopwatch, System.Private.CoreLib','Frequency')
 
 	Func setFrequency P1
 		raise("DotNet Error: Frequency is a read-only property")
 
 	Func getIsHighResolution
-		return dotnet_call("s3:get",'System.Diagnostics.Stopwatch, System.Private.CoreLib',"s16:IsHighResolution")
+		return dotnet_getps('System.Diagnostics.Stopwatch, System.Private.CoreLib','IsHighResolution')
 
 	Func setIsHighResolution P1
 		raise("DotNet Error: IsHighResolution is a read-only property")
@@ -4677,31 +4675,31 @@ Class Trace from Object
 		raise("DotNet Error: Listeners is a read-only property")
 
 	Func getAutoFlush
-		return dotnet_call("s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s9:AutoFlush")
+		return dotnet_getps('System.Diagnostics.Trace, System.Diagnostics.TraceSource','AutoFlush')
 
 	Func setAutoFlush P1
-		dotnet_callv("s3:set",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s9:AutoFlush",P1)
+		dotnet_setps('System.Diagnostics.Trace, System.Diagnostics.TraceSource','AutoFlush',P1)
 		return self
 
 	Func getUseGlobalLock
-		return dotnet_call("s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s13:UseGlobalLock")
+		return dotnet_getps('System.Diagnostics.Trace, System.Diagnostics.TraceSource','UseGlobalLock')
 
 	Func setUseGlobalLock P1
-		dotnet_callv("s3:set",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s13:UseGlobalLock",P1)
+		dotnet_setps('System.Diagnostics.Trace, System.Diagnostics.TraceSource','UseGlobalLock',P1)
 		return self
 
 	Func getIndentLevel
-		return dotnet_call("s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s11:IndentLevel")
+		return dotnet_getps('System.Diagnostics.Trace, System.Diagnostics.TraceSource','IndentLevel')
 
 	Func setIndentLevel P1
-		dotnet_callv("s3:set",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s11:IndentLevel",P1)
+		dotnet_setps('System.Diagnostics.Trace, System.Diagnostics.TraceSource','IndentLevel',P1)
 		return self
 
 	Func getIndentSize
-		return dotnet_call("s3:get",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s10:IndentSize")
+		return dotnet_getps('System.Diagnostics.Trace, System.Diagnostics.TraceSource','IndentSize')
 
 	Func setIndentSize P1
-		dotnet_callv("s3:set",'System.Diagnostics.Trace, System.Diagnostics.TraceSource',"s10:IndentSize",P1)
+		dotnet_setps('System.Diagnostics.Trace, System.Diagnostics.TraceSource','IndentSize',P1)
 		return self
 
 
