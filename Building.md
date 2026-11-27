@@ -126,10 +126,11 @@ Options:
 | `docpages.ring` | The list of the pages of the manual, in the order of the navigation |
 | `page.template`, `pdfdoc.template`, `pdf.css` | The HTML of a page, and of the one document for the PDF |
 | `apipages.ring` | The class reference |
+| `bracify.ring`, `booleans.ring` | Tools for editing Ring samples: turn runs of `oVar.Member = value` into brace blocks, and write `True`/`False` for logical values (`ring bracify.ring [--dry] file ...`) |
 
 ### Screenshots (only when a window sample or tutorial changed)
 
-The pictures in `docs/img/shots` are made by running the GUI programs and capturing their windows (Windows only). These two tools are still Python 3 (standard library only):
+The pictures in `docs/img/shots` are made by running the GUI programs and capturing their windows (Windows only). These two tools are still Python 3 (standard library only), because they drive Windows APIs:
 
 ```
 sh docs/tools/shoot_all.sh               # samples and applications

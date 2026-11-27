@@ -233,6 +233,26 @@ func splitLines cText
 	ok
 	return aLines
 
+# the lines of a text that ends its lines with cEol (a line feed or CR LF), like text.split(eol)
+func splitByEol cText,cEol
+
+	if cEol = nl
+		return splitLines(cText)
+	ok
+	cText = substr(cText,nl,char(2))
+	cText = substr(cText,char(13) + char(2),nl)
+	aLines = str2list(cText)
+	if hasSuffix(cText,nl) or cText = ""
+		aLines + ""
+	ok
+	nMax = len(aLines)
+	for nLine = 1 to nMax
+		if substr(aLines[nLine],char(2)) > 0
+			aLines[nLine] = substr(aLines[nLine],char(2),nl)
+		ok
+	next
+	return aLines
+
 # The pieces of a big text between the occurrences of a separator (text.split(sep)). The text is not copied for each piece.
 func splitOn cText,cSep
 
