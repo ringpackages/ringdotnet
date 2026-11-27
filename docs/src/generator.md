@@ -44,7 +44,7 @@ It takes about a minute and a half. The checks:
 3. `importall.ring` imports every namespace of the manifest, so every generated file loads;
 4. the tests that use the generated classes the most (the library, extension methods, generic collections, keywords, your own assembly);
 5. four package tests whose classes are made again by the new generator (fluent calls inside callbacks, a generic pipeline, properties named like Ring words, generic extension methods); `--all-packages` runs all of them;
-6. the number of public types that have no class (`auditcoverage.ring`) must not grow: the baseline is `tools/dotnettools/coverage-baseline.txt` (`--update-baseline` writes a new one after types were added on purpose).
+6. the number of public types that have no class and are not left out on purpose (`auditcoverage.ring`: enums, delegates, ref structs and obsolete types need none) must not grow: it is 0 now, and the baseline is `tools/dotnettools/coverage-baseline.txt` (`--update-baseline` writes a new one). A type that is listed is usually in another assembly of a namespace that the manifest has: add that assembly to `:assemblies` of the namespace.
 
 The exit code is 0 only when everything passed. Without a change, the generator makes exactly the files that are committed: a check that finds a difference in a clean tree means that the committed library is not the one of the generator.
 
