@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>%(title)s · RingDotNet</title>
+<meta name="description" content="%(lead)s">
+<link rel="stylesheet" href="%(root)sassets/style.css">
+<script>window.SITE_ROOT="%(root)s";</script>
+<script src="%(root)sassets/search-index.js"></script>
+<script src="%(root)sassets/api-index.js"></script>
+<script src="%(root)sassets/site.js"></script>
+</head>
+<body>
+<header class="topbar">
+	<button class="iconbtn" id="menu" aria-label="Menu">☰</button>
+	<a class="brand" href="%(root)sindex.html"><span class="logo">.N</span>RingDotNet<small>for Ring</small></a>
+	<span class="spacer"></span>
+	<div class="search">
+		<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+		<input id="q" type="search" placeholder="Search the docs  ( / )" autocomplete="off">
+		<div class="results" id="results"></div>
+	</div>
+	<button class="iconbtn" id="theme" aria-label="Theme">☾</button>
+</header>
+<nav class="sidebar">
+%(sidebar)s
+</nav>
+<main>
+<article>
+%(head)s
+%(body)s
+<div class="pager">%(prev)s%(next)s</div>
+<footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
+</article>
+%(tocaside)s
+</main>
+</body>
+</html>

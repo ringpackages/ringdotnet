@@ -75,42 +75,61 @@ It writes `extensions/ringdotnet.zip` from the files that git tracks. `setup.rin
 
 ## Building the documentation (HTML and PDF)
 
-The manual is written in Markdown in `docs/src/*.md`. The scripts in `docs/tools` are Python 3 (standard library only). They need to find the Ring executable: set `RING_EXE` (for example `B:/ring/bin/ring.exe`), because the default is `B:/ring/bin/ring.exe`. As in step 5, unset `RING_HOME` and have `ringdotnet/bin` on `PATH`.
+The manual is written in Markdown in `docs/src/*.md`. The tools in `docs/tools` are plain Ring programs (no Python). Run them from the `docs/tools` folder (they load their helper files from it):
+
+```
+cd docs/tools
+```
+
+As in step 5, unset `RING_HOME`. The example programs that the pages show (`{{output:...}}`) have their output kept in `docs/tools/output-cache`, so a normal build does not run them.
 
 ### 7. Make the API data (only when the wrapped classes changed)
 
 ```
-python docs/tools/dumpapi.py
+ring dumpapi.ring
 ```
 
-It asks .NET (by reflection) for the API of every wrapped class and writes `docs/tools/api-data/api.jsonl`. Run it after step 4 and before step 8.
+It lists the wrapped classes of the generated library, asks .NET (by reflection) for the API of each one and writes `docs/tools/api-data/types.txt` and `api.jsonl`. This is the only documentation tool that uses RingDotNet, so `ringdotnet/bin` must be on `PATH`. Run it after step 4 and before step 8.
 
 ### 8. Build the HTML pages
 
 ```
-python docs/tools/build.py
+ring build.ring
 ```
 
-It turns `docs/src/*.md` into `docs/*.html`, makes the gallery pages from the samples, builds the class reference (one page per namespace, `docs/api/*.html`, through `apipages.py`) and writes the search index `docs/assets/search-index.js`.
+It turns `docs/src/*.md` into `docs/*.html`, makes the gallery pages from the samples, builds the class reference (one page per namespace, `docs/api/*.html`, from `apipages.ring`) and writes the search index `docs/assets/search-index.js`. It takes about 25 seconds.
 
-The output of the example programs shown in the pages is cached in `docs/tools/output-cache`. Add `--refresh` to run every example again and replace the cache (do it when the library changed).
+Options:
+
+- `--no-api`: leave out the class reference (about 5 seconds, for writing the pages).
+- `--refresh`: run every example program again and replace the cache in `docs/tools/output-cache` (do it when the library changed; `ringdotnet/bin` must be on `PATH`).
 
 ### 9. Make the PDF (optional)
 
 ```
-python docs/tools/makepdf.py
+ring makepdf.ring
 ```
 
-It joins all the pages, in the order of the navigation, into `docs/pdf/RingDotNet-documentation.html` and prints it with headless Chrome or Edge to `docs/pdf/RingDotNet-documentation.pdf`. The links between pages become links inside the PDF, and the PDF has bookmarks. Chrome or Edge must be installed (the paths it tries are listed at the top of `makepdf.py`).
+It joins all the pages, in the order of the navigation (`docpages.ring`), into `docs/pdf/RingDotNet-documentation.html` and prints it with headless Chrome or Edge to `docs/pdf/RingDotNet-documentation.pdf`. The links between pages become links inside the PDF, and the PDF has bookmarks. Chrome or Edge must be installed (the paths it tries are listed at the top of `makepdf.ring`).
 
 Options:
 
 - `--no-api`: the manual without the class reference (the reference is thousands of pages in print).
 - `--html-only`: write the joined HTML file only, no PDF.
 
+### The files of the tools
+
+| File | What it has |
+|------|-------------|
+| `doclib.ring` | Helpers: text files, escaping, strings, JSON text, base64, templates |
+| `mdlib.ring` | The Markdown converter and the highlighting of code blocks |
+| `docpages.ring` | The list of the pages of the manual, in the order of the navigation |
+| `page.template`, `pdfdoc.template`, `pdf.css` | The HTML of a page, and of the one document for the PDF |
+| `apipages.ring` | The class reference |
+
 ### Screenshots (only when a window sample or tutorial changed)
 
-The pictures in `docs/img/shots` are made by running the GUI programs and capturing their windows (Windows only):
+The pictures in `docs/img/shots` are made by running the GUI programs and capturing their windows (Windows only). These two tools are still Python 3 (standard library only):
 
 ```
 sh docs/tools/shoot_all.sh               # samples and applications

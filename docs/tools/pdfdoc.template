@@ -1,0 +1,7 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>RingDotNet documentation</title>
+<base href="../"><link rel="stylesheet" href="assets/style.css"><style>%(css)s</style></head><body>
+<section class="cover">%(cover)s</section>
+<section class="doc-contents"><h1>Contents</h1>%(toc)s</section>
+<main>%(parts)s</main>
+<script>/* a short code block stays on one page; a long one may be split */
+document.querySelectorAll('.code').forEach(function (c) { if (c.offsetHeight < 480) { c.classList.add('keep'); } });</script></body></html>

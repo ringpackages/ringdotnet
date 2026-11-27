@@ -1,0 +1,68 @@
+
+@page { size: A4; margin: 16mm 14mm 18mm 14mm; }
+:root { --side: 0px; }
+html { scroll-padding-top: 0; font-size: 15px; }
+body { background: #fff; color: #1e2030; font-size: 15px; line-height: 1.55; }
+main { display: block !important; margin: 0 !important; padding: 0 !important; max-width: none !important; }
+article { max-width: none !important; }
+.part { break-before: page; }
+.part h1 { break-after: avoid; }
+@page cover { size: A4; margin: 0; }
+.cover { page: cover; width: 210mm; height: 296.5mm; overflow: hidden; margin: 0; padding: 0; background: #0f0a30; }
+.cover svg { display: block; width: 210mm; height: 296.5mm; }
+.doc-contents { break-before: page; }
+.doc-contents h2 { margin-top: 18px; font-size: 18px; border: 0; }
+.doc-contents ol { margin: 4px 0 0 0; padding: 0; list-style: none; columns: 2; column-gap: 24px; }
+.doc-contents li { break-inside: avoid; }
+.anchor, .copy, .copy-btn, button { display: none !important; }
+pre { white-space: pre-wrap !important; word-break: break-word; font-size: 11.5px !important; max-height: none !important; overflow: visible !important; }
+pre code { white-space: pre-wrap !important; }
+.tablewrap { overflow: visible !important; border: 1px solid #d9dcea; }
+table { width: 100% !important; max-width: 100% !important; table-layout: auto; font-size: 12.5px; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+th, td { word-break: normal; overflow-wrap: break-word; min-width: 0; }
+td:first-child, th:first-child { hyphens: none; }
+td code, th code, td pre { white-space: pre-wrap !important; word-break: normal; overflow-wrap: break-word; }
+.gallery { display: block !important; margin: 10px 0 !important; }
+.item { display: block !important; break-inside: auto; margin: 0 0 16px; box-shadow: none !important; overflow: visible !important; }
+.item .pic { display: block !important; text-align: center; min-height: 0 !important; padding: 12px !important; }
+.item .pic img { max-height: 170px !important; width: auto; box-shadow: 0 1px 4px rgba(0,0,0,.25) !important; }
+.item .info { padding: 10px 14px 12px; }
+.item details { display: block; margin-top: 8px; }
+.item details summary { display: none; }
+.item .pic, .item .info h3, .item .info p, .item .run { break-inside: avoid; break-after: avoid; }
+img { max-width: 100%; break-inside: avoid; }
+figure, .shot { break-inside: avoid; }
+h1, h2, h3 { break-after: avoid; }
+.callout { break-inside: avoid; }
+/* the closing Next / Where to go next section is small, so that it stays on the page of the text before it */
+article h2[id$='-next'], article h2[id$='-where-to-go-next'] { font-size: 1.15rem; margin: 22px 0 6px; padding-top: 0; }
+article h2[id$='-next']::before, article h2[id$='-where-to-go-next']::before { margin-bottom: 10px; }
+.code.keep { break-inside: avoid; }
+.code .bar { break-after: avoid; }
+p, li { orphans: 3; widows: 3; }
+.stattable th { font-size: 8.5px !important; letter-spacing: 0 !important; word-break: normal !important; overflow-wrap: normal !important; text-align: center; }
+.stattable td { font-size: 17px; text-align: center; }
+/* nothing may be wider than the page: one wide element makes the browser shrink every page of the PDF */
+pre, pre code, #p-api td code, #p-api td { overflow-wrap: anywhere !important; word-break: break-word; }
+h1, h2, h3, h4 { overflow-wrap: anywhere; word-break: break-word; }
+.apipart h1 { font-size: 22px; }
+.doc-contents li, .doc-contents a { overflow-wrap: anywhere; }
+#p-api td:last-child code { white-space: pre-wrap; }
+.apipart table { font-size: 10px; }
+.apipart table.api td:first-child, .apipart table.api th:first-child { width: 38mm; min-width: 38mm; }
+.apipart td code, .apipart th code, .apipart p code, .apipart summary code { background: none !important; border: 0 !important; padding: 0 !important; box-shadow: none !important; border-radius: 0 !important; }
+.apipart td code { color: #2a2160; }
+.apipart tr, .apipart td, .apipart th { background: none !important; }
+.apipart .tablewrap { border: 0 !important; border-top: 1px solid #d9dcea !important; border-radius: 0 !important; box-shadow: none !important; }
+.apipart .chips { font-size: 9.5px; line-height: 1.35; }
+.apipart details.cls { margin: 0 0 6px; }
+.apipart details.cls > summary { font-size: 13px; font-weight: 700; margin: 12px 0 2px; border-top: 1px solid #d9dcea; padding-top: 6px; break-after: avoid; list-style: none; }
+.apipart h4 { margin: 8px 0 3px; font-size: 11px; break-after: avoid; }
+.apipart p { margin: 2px 0; font-size: 10.5px; }
+.cardtable td.cardname { width: 32%; font-weight: 600; }
+.cards { display: block !important; }
+.cards .card { display: block !important; margin: 2px 0; padding: 2px 0; box-shadow: none !important; border: 0 !important; background: none !important; }
+.hero .btns { display: none; }
+.pager, footer.site { display: none !important; }
