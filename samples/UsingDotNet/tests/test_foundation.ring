@@ -5,6 +5,7 @@ dnImport("System")
 dnImport("System.Text")
 dnImport("System.Collections.Generic")
 dnImport("System.Collections.ObjectModel")
+dnImport("System.IO")
 
 # dnImport twice is harmless; unknown namespaces are errors
 dnImport("System.Text")
@@ -81,5 +82,14 @@ dnAssert("typekind: a struct",dnRequest("typekind",["System.DateTime"]),"struct"
 dnAssert("typekind: an enum",dnRequest("typekind",["System.DayOfWeek"]),"enum")
 dnAssert("typekind: a delegate",dnRequest("typekind",["System.EventHandler"]),"delegate")
 dnAssert("typekind: not a type",dnRequest("typekind",["No.Such.Type"]),"")
+
+# texts that are declared never null (Uri.Host, Exception.Message) are read without a look for the null; a text that can be null (string?) is still null
+oUriNull = new Uri("http://example.com:8080/a/b")
+dnAssert("a text that is never null: Uri.Host",oUriNull.Host,"example.com")
+dnAssert("an enum is read as its name: Uri.HostNameType",oUriNull.HostNameType,"Dns")
+dnAssert("a text that is never null: Uri.AbsolutePath",oUriNull.AbsolutePath,"/a/b")
+dnAssert("a text that can be null stays null: Path.GetDirectoryName of a root",new Path().GetDirectoryName("/").isNull(),True)
+dnAssert("a text that is not null: Path.GetFileName",new Path().GetFileName("/a/b.txt"),"b.txt")
+dnAssert("a method text that is never null: Uri.ToString",oUriNull.ToString(),"http://example.com:8080/a/b")
 
 nFail = dnTestSummary()
