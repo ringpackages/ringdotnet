@@ -116,7 +116,9 @@ namespace RingDotNet
 				else if (rt == typeof(string))
 				{
 					a.ResultKind = 3;
-					a.Text = Expression.Lambda<Func<object, double[], string[], string>>(call, o, n, s).Compile();
+					/* a text that is declared never null (string, not string?): a null answers an empty text, because the generated method does not look for the null of a text */
+					Expression text = IsNotNull(exact.ReturnParameter) ? Expression.Coalesce(call, Expression.Constant("")) : call;
+					a.Text = Expression.Lambda<Func<object, double[], string[], string>>(text, o, n, s).Compile();
 				}
 				else if (rt == typeof(bool))
 				{

@@ -26,6 +26,23 @@ namespace RingDotNet
 
 		/* The type of a name: a plain name ("System.IO.File", "System.IO.File, System.Runtime") or a closed generic type; raises an error when
 		   there is no such type */
+		/* Is the text of a member declared as one that is never null (string, not string?)? The libraries of .NET say it (a property such as Uri.Host); a library that was not
+		   compiled with nullable annotations says nothing (Unknown), and its texts can be null. */
+		private static bool IsNotNull(PropertyInfo p)
+		{
+			try { return new NullabilityInfoContext().Create(p).ReadState == NullabilityState.NotNull; } catch (Exception) { return false; }
+		}
+
+		private static bool IsNotNull(FieldInfo f)
+		{
+			try { return new NullabilityInfoContext().Create(f).ReadState == NullabilityState.NotNull; } catch (Exception) { return false; }
+		}
+
+		private static bool IsNotNull(ParameterInfo p)
+		{
+			try { return p != null && new NullabilityInfoContext().Create(p).ReadState == NullabilityState.NotNull; } catch (Exception) { return false; }
+		}
+
 		private static string TypeKind(string name)
 		{
 			Type t = null;

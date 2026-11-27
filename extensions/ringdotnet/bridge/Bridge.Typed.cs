@@ -34,6 +34,7 @@ namespace RingDotNet
 			public Func<object, string> Text;
 			public Action<object, object> Write;     /* null when the property can not be written this way */
 			public Type PropertyType;
+			public bool NotNull;                     /* a text that is declared never null: a null answers an empty text (the generated getter does not look for the null of a text) */
 		}
 
 		private sealed class AccessorPair
@@ -143,6 +144,7 @@ namespace RingDotNet
 				if (memberType == typeof(string))
 				{
 					a.Kind = 3;
+					a.NotNull = p != null ? IsNotNull(p) : IsNotNull(fi);
 					a.Text = Expression.Lambda<Func<object, string>>(read, o).Compile();
 				}
 				else if (memberType == typeof(bool))
@@ -154,6 +156,7 @@ namespace RingDotNet
 				{
 					/* an enum is read as the text of its member name (what the wire format answers) and written from a text or a number by TryConvert */
 					a.Kind = 3;
+					a.NotNull = true;
 					a.Text = Expression.Lambda<Func<object, string>>(Expression.Call(Expression.Convert(read, typeof(object)), typeof(object).GetMethod("ToString")), o).Compile();
 				}
 				else if (IsPlainNumber(memberType))
@@ -231,7 +234,12 @@ namespace RingDotNet
 						return 0;
 					case 3:
 						string s = a.Text(target);
-						return s == null ? 2 : WriteText(r, s);
+						if (s == null)
+						{
+							if (!a.NotNull) return 2;
+							s = "";
+						}
+						return WriteText(r, s);
 					default:
 						return 3;
 				}

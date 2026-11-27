@@ -388,7 +388,7 @@ namespace RingDotNet
 					if (HasSpanParameter(m) && plainNames.Contains(m.Name)) continue;
 					if (definition != null && m.IsStatic) continue;
 					if (t.IsInterface && !seenMethods.Add(m.Name + "(" + string.Join(",", m.GetParameters().Select(q => q.ParameterType.FullName)) + ")")) continue;
-					methods.Add(new RingList { m.Name, m.IsStatic, m.ReturnType.IsPointer ? "System.Int64" : TName(Unwrap(m.ReturnType)), ParamTypes(m), ByRefCount(m), RequiredCount(m), m.IsDefined(typeof(System.Runtime.CompilerServices.ExtensionAttribute), false) ? 1 : 0, NotInferable(m) ? 1 : 0 });
+					methods.Add(new RingList { m.Name, m.IsStatic, m.ReturnType.IsPointer ? "System.Int64" : TName(Unwrap(m.ReturnType)), ParamTypes(m), ByRefCount(m), RequiredCount(m), m.IsDefined(typeof(System.Runtime.CompilerServices.ExtensionAttribute), false) ? 1 : 0, NotInferable(m) ? 1 : 0, m.ReturnType == typeof(string) && IsNotNull(m.ReturnParameter) ? 1 : 0 });
 				}
 			}
 			List<object> members = new RingList();
@@ -402,12 +402,12 @@ namespace RingDotNet
 					if (definition != null && (p.GetMethod ?? p.SetMethod).IsStatic) continue;
 					bool canRead = p.GetMethod != null && p.GetMethod.IsPublic;
 					bool canWrite = p.SetMethod != null && p.SetMethod.IsPublic;
-					members.Add(new RingList { p.Name, canRead, canWrite && !p.PropertyType.IsByRef && !p.PropertyType.IsByRefLike, (p.GetMethod ?? p.SetMethod).IsStatic, TName(Unwrap(p.PropertyType)), p.PropertyType.IsEnum });
+					members.Add(new RingList { p.Name, canRead, canWrite && !p.PropertyType.IsByRef && !p.PropertyType.IsByRefLike, (p.GetMethod ?? p.SetMethod).IsStatic, TName(Unwrap(p.PropertyType)), p.PropertyType.IsEnum, p.PropertyType.IsEnum || (p.PropertyType == typeof(string) && IsNotNull(p)) ? 1 : 0 });
 				}
 				foreach (FieldInfo fi in t.GetFields(f))
 				{
 					if (definition != null && fi.IsStatic) continue;
-					members.Add(new RingList { fi.Name, true, !fi.IsInitOnly && !fi.IsLiteral, fi.IsStatic, TName(fi.FieldType), fi.FieldType.IsEnum });
+					members.Add(new RingList { fi.Name, true, !fi.IsInitOnly && !fi.IsLiteral, fi.IsStatic, TName(fi.FieldType), fi.FieldType.IsEnum, fi.FieldType.IsEnum || (fi.FieldType == typeof(string) && IsNotNull(fi)) ? 1 : 0 });
 				}
 			}
 			/* Indexer (like List[i] or Dictionary[key]): [indexType, valueType, canWrite] */
