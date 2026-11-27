@@ -170,12 +170,22 @@ func shootWindow cDir,cScript,cOut,nDelay,cRingArgs
 		ok
 	end
 	if not lFound
+		winCall("GetExitCodeProcess",[hProcess,pCode])
+		nCode = cffi_get(pCode,"uint")
 		winCall("TerminateProcess",[hProcess,1])
 		winCall("CloseHandle",[hProcess])
-		return "NOWINDOW " + cScript
+		if nCode != 259
+			return "NOWINDOW " + cScript + " (the program ended by itself, exit code " + nCode + ", before its window could be captured)"
+		ok
+		return "NOWINDOW " + cScript + " (no window in 25 seconds)"
 	ok
 	winCall("Sleep",[nDelay])
 	hWnd = findWindow(nPid)
+	if cffi_isnull(hWnd)
+		winCall("TerminateProcess",[hProcess,1])
+		winCall("CloseHandle",[hProcess])
+		return "NOWINDOW " + cScript + " (the program closed its window before the capture)"
+	ok
 	aRect = windowRect(hWnd,false)
 	nWidth = aRect[3] - aRect[1]
 	nHeight = aRect[4] - aRect[2]
