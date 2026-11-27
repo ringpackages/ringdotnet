@@ -523,7 +523,7 @@ func functionsTable cRel
 			if not lTop and cClass != ""
 				cLabel = cClass + "."
 			ok
-			cLabel += cName + "(" + substr(cArgs,"  "," ") + ")"
+			cLabel += cName + "(" + dropPrefixes(substr(cArgs,"  "," ")) + ")"
 			aRows + [cLabel,joinList(aComment," ")]
 			aComment = []
 			loop
@@ -585,6 +585,39 @@ func funcLine cLine
 		nAfter++
 	end
 	return [cName,tail(cLine,nAfter),lTop]
+
+# (dn|db|wb|ui|wpf)_ removed: the prefix of the names of the parameters and variables that the library keeps to itself (dn_cResponse is shown as cResponse)
+func dropPrefixes cText
+
+	aOut = []
+	nSize = len(cText)
+	nPos = 1
+	i = 1
+	while i <= nSize
+		nSkip = 0
+		if i = 1 or not isWordCh(cText[i - 1])
+			aPrefixes = ["dn_","db_","wb_","ui_","wpf_"]
+			for cPrefix in aPrefixes
+				if part(cText,i,i + len(cPrefix) - 1) = cPrefix
+					nSkip = len(cPrefix)
+					exit
+				ok
+			next
+		ok
+		if nSkip > 0
+			if i > nPos
+				aOut + part(cText,nPos,i - 1)
+			ok
+			i += nSkip
+			nPos = i
+		else
+			i++
+		ok
+	end
+	if nPos <= nSize
+		aOut + part(cText,nPos,nSize)
+	ok
+	return joinList(aOut,"")
 
 # the numbers of the home page: [:namespaces, :classes, :forms, :wpf, :apps, :tests]
 func statsValues
