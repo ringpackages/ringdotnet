@@ -11,6 +11,18 @@ load "dotnet.ring"
 cPkgHere = currentdir()
 cPkgCache = cPkgHere + "/.cache/"
 aPkgExtra = []          # the DLLs of a package that are not wrapped but are loaded (a native provider ...): a test adds them before pkgUse
+cPkgStamp = ""          # what made the classes of the cache: the generator, the bridge and the classes of the library (see pkgGeneratorStamp)
+
+# A text that changes when the generator, the bridge or the generated library changes: the classes of a cache that was made by other ones are made again (a cache
+# that is only older than the generator hides what the generator does today: the first run on a clean computer shows it)
+func pkgGeneratorStamp
+
+	if cPkgStamp = ""
+		for cFile in ["tools/dotnettools/gendotnetcore.ring","tools/dotnettools/wrapassembly.ring","bin/RingDotNet.Bridge.dll","libraries/dotnetlib/generated/classindex.ring"]
+			cPkgStamp += left(dnStatic("System.Convert","ToHexString",[dnStatic("System.Security.Cryptography.SHA256","HashData",[read(cPkgHere + "/../../../../" + cFile)])]),16) + ";"
+		next
+	ok
+	return cPkgStamp
 
 func pkgUse cName, aPackages, aWraps
 
@@ -52,13 +64,14 @@ func pkgWrapAndLoad cFolder, aWraps
 		for cNamespace in aWrap[2]
 			cArgs += " " + cNamespace
 		next
-		# the classes are made again when the list of namespaces of the test changed
-		if len(aWrap[2]) > 0 and (not direxists(cClasses) or not fexists(cClasses + aWrap[1] + ".namespaces") or read(cClasses + aWrap[1] + ".namespaces") != cArgs)
+		# the classes are made again when the list of namespaces of the test changed, or the generator that made them did
+		cMade = cArgs + "|" + pkgGeneratorStamp()
+		if len(aWrap[2]) > 0 and (not direxists(cClasses) or not fexists(cClasses + aWrap[1] + ".namespaces") or read(cClasses + aWrap[1] + ".namespaces") != cMade)
 			pkgMakeDir(cClasses)
 			chdir(cPkgHere + "/../../../../tools/dotnettools")
 			system(exefilename() + ' wrapassembly.ring "' + cDll + '" "' + cClasses + '"' + cArgs + " " + pkgQuiet())
 			chdir(cPkgHere)
-			write(cClasses + aWrap[1] + ".namespaces",cArgs)
+			write(cClasses + aWrap[1] + ".namespaces",cMade)
 		ok
 		dnLoad(cDll)
 	next
