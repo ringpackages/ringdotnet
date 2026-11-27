@@ -29,6 +29,25 @@ ring gendotnet.ring System.Text System.IO # only these
 
 A run with names writes only those namespaces, and the base classes of the other namespaces are left out of its files: a class that derives from `Object` (the class of `System.Object`) derives from `DotNetObject` instead, and the line `dnImport("System")` is not written. The files of such a run are not the files of the full run, so run the command **without names** before you use or commit the result.
 
+## Check a change of the generator
+
+A rule of the generator, a change of the bridge or a new namespace changes the generated files, sometimes by thousands of lines. `checkgenerator.py` makes the library again and checks the result before you commit it:
+
+```
+python tools/dotnettools/checkgenerator.py --ring B:/ring/bin/ring.exe
+```
+
+It takes about a minute and a half. The checks:
+
+1. the whole library is generated, without errors;
+2. **the size of the change** of the generated files: files and lines against the last commit, and the kinds of line that changed. A small fix changes a few files; a rule that copies the methods of a base class into every derived class shows as hundreds of added lines. The limits are 15 files and 600 lines, and `--allow-large` is for a change that is meant to be big (a new rule). Read the kinds of line before you accept it;
+3. `importall.ring` imports every namespace of the manifest, so every generated file loads;
+4. the tests that use the generated classes the most (the library, extension methods, generic collections, keywords, your own assembly);
+5. four package tests whose classes are made again by the new generator (fluent calls inside callbacks, a generic pipeline, properties named like Ring words, generic extension methods); `--all-packages` runs all of them;
+6. the number of public types that have no class (`auditcoverage.ring`) must not grow: the baseline is `tools/dotnettools/coverage-baseline.txt` (`--update-baseline` writes a new one after types were added on purpose).
+
+The exit code is 0 only when everything passed. Without a change, the generator makes exactly the files that are committed: a check that finds a difference in a clean tree means that the committed library is not the one of the generator.
+
 ## The manifest
 
 Each entry describes one namespace:
