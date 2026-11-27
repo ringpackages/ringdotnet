@@ -126,13 +126,18 @@ Options:
 | `docpages.ring` | The list of the pages of the manual, in the order of the navigation |
 | `page.template`, `pdfdoc.template`, `pdf.css` | The HTML of a page, and of the one document for the PDF |
 | `apipages.ring` | The class reference |
+| `shootlib.ring`, `shoot*.ring`, `tutorialshots.ring` | The screenshots (ring-cffi) |
 | `bracify.ring`, `booleans.ring` | Tools for editing Ring samples: turn runs of `oVar.Member = value` into brace blocks, and write `True`/`False` for logical values (`ring bracify.ring [--dry] file ...`) |
 
 ### Screenshots (only when a window sample or tutorial changed)
 
-The pictures in `docs/img/shots` are made by running the GUI programs and capturing their windows (Windows only). These two tools are still Python 3 (standard library only), because they drive Windows APIs:
+The pictures in `docs/img/shots` are made by running the GUI programs and capturing their windows (Windows only). The tools call the Windows API with [ring-cffi](https://github.com/ysdragon/ring-cffi), so install it once: `ringpm install ring-cffi from ysdragon`.
 
 ```
-sh docs/tools/shoot_all.sh               # samples and applications
-python docs/tools/shoot_tutorials.py     # tutorial programs
+cd docs/tools
+ring shoot_all.ring [forms] [wpf] [apps]        # samples and applications
+ring shoot_tutorials.ring [shot name ...]       # tutorial programs
+ring shoot.ring <folder> <program.ring> <out.png> [delay ms] [arguments]   # one program
 ```
+
+`shootlib.ring` does the work (start the program, find its window, copy it with `PrintWindow`, crop it to the frame, write the PNG with GDI+); `tutorialshots.ring` lists the tutorial shots. The tool puts `ringdotnet/bin` first in `PATH` for the program it starts.
