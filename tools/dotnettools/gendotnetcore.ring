@@ -368,7 +368,7 @@ func isTypedCall aRec, lStatic
 	next
 	return true
 
-func typedMethodCode cName, nArity, cReturnType
+func typedMethodCode cName, nArity, cReturnType, lNotNull
 	cArgs = ""
 	for x = 1 to nArity
 		cArgs += ",P" + x
@@ -376,9 +376,13 @@ func typedMethodCode cName, nArity, cReturnType
 	if cReturnType = "System.Void"
 		return 'dotnet_calltv(nHandle,"' + cName + '"' + cArgs + ')' + nl + "		return self" + nl
 	ok
+	if lNotNull and cReturnType = "System.String"
+		# a text that is declared never null: the bridge answers an empty text for a null, so there is no null to look for
+		return 'return dotnet_callt(nHandle,"' + cName + '"' + cArgs + ')' + nl
+	ok
 	return 'return dnAnswer(dotnet_callt(nHandle,"' + cName + '"' + cArgs + '))' + nl
 
-func typedStaticMethodCode cType, cName, nArity, cReturnType
+func typedStaticMethodCode cType, cName, nArity, cReturnType, lNotNull
 	cArgs = ""
 	for x = 1 to nArity
 		cArgs += ",P" + x
@@ -386,12 +390,19 @@ func typedStaticMethodCode cType, cName, nArity, cReturnType
 	if cReturnType = "System.Void"
 		return "dotnet_calltsv('" + cType + "','" + cName + "'" + cArgs + ")" + nl + "		return self" + nl
 	ok
+	if lNotNull and cReturnType = "System.String"
+		return "return dotnet_callts('" + cType + "','" + cName + "'" + cArgs + ")" + nl
+	ok
 	return "return dnAnswer(dotnet_callts('" + cType + "','" + cName + "'" + cArgs + "))" + nl
 
 # The getter of an instance property or field of a number, a yes/no or a text: dotnet_getp (ring_dotnet.c) reads it without a request text. The bridge
 # answers the value, or asks for the generic request (the property is of another kind on the real type, the handle is not valid...), which the extension
 # makes itself, so every answer and every error is the one of the generic call. A text can be null: the marker list is finished by dnFinish.
-func typedGetterCode cName, cType
+func typedGetterCode cName, cType, lNotNull
+	if lNotNull
+		# a text (or an enum, read as the text of its name) that is declared never null: the bridge answers an empty text for a null, so there is no null to look for
+		return 'return dotnet_getp(nHandle,"' + cName + '")' + nl
+	ok
 	if cType = "System.String" or not isPrimitiveType(cType)
 		return 'return dnAnswer(dotnet_getp(nHandle,"' + cName + '"))' + nl
 	ok
@@ -930,9 +941,9 @@ func buildPlan cTypeName, nForceInit
 					cAlt = cB + "		" + returnCode(cReq,aMethod[3],aMethod[5]) + nl
 				ok
 			ok
-			cB += "		" + typedMethodCode(cName,nArity,aMethod[3]) + nl
+			cB += "		" + typedMethodCode(cName,nArity,aMethod[3],len(aMethod) >= 9 and aMethod[9] = 1) + nl
 		but cHint = "" and isTypedStaticMethod(aMethod) and find(aBoth,cLower + "|" + nArity) = 0
-			cB += "		" + typedStaticMethodCode(cTypeName,cName,nArity,aMethod[3]) + nl
+			cB += "		" + typedStaticMethodCode(cTypeName,cName,nArity,aMethod[3],len(aMethod) >= 9 and aMethod[9] = 1) + nl
 		else
 			cB += "		" + returnCode(cReq,aMethod[3],aMethod[5]) + nl
 		ok
@@ -1062,7 +1073,7 @@ func buildPlan cTypeName, nForceInit
 			aNames + lower("get" + cName)
 			cB = "	Func get" + cName + nl
 			if lTyped
-				cB += "		" + typedGetterCode(cName,aMember[5]) + nl
+				cB += "		" + typedGetterCode(cName,aMember[5],len(aMember) >= 7 and aMember[7] = 1) + nl
 			else
 				cB += "		" + propertyReturnCode('"get",[' + cTarget + ',"' + cName + '"]',aMember[5]) + nl
 			ok
