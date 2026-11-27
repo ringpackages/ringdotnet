@@ -54,6 +54,18 @@ func parentFolder cPath
 	next
 	return left(cPath,nSlash - 1)
 
+# makes a folder (and the folders above it) when it is not there
+func makeFolder cPath
+
+	if direxists(cPath)
+		return
+	ok
+	if isWindows()
+		system("mkdir " + substr(cPath,"/","\"))
+	else
+		system("mkdir -p '" + cPath + "'")
+	ok
+
 # the names in a folder (files and folders), sorted by the bytes of the names
 func listNames cFolder
 

@@ -39,7 +39,7 @@ func main
 		ok
 	next
 	if not direxists(cOut)
-		system("mkdir " + substr(cOut,"/",iff(isWindows(),"\","/")))
+		makeFolder(cOut)
 	ok
 	aPages = []
 	aKnown = []

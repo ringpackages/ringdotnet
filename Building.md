@@ -81,7 +81,7 @@ The manual is written in Markdown in `docs/src/*.md`. The tools in `docs/tools` 
 cd docs/tools
 ```
 
-As in step 5, unset `RING_HOME`. The example programs that the pages show (`{{output:...}}`) have their output kept in `docs/tools/output-cache`, so a normal build does not run them.
+As in step 5, unset `RING_HOME`. `apipages.ring` reads JSON with Ring's standard `jsonlib` (which needs the `ringcjson` extension): a Ring built from source has both, a minimal build may not. On Linux the tools write the same files as on Windows, except that the line ends are LF (Windows writes CR LF). The example programs that the pages show (`{{output:...}}`) have their output kept in `docs/tools/output-cache`, so a normal build does not run them.
 
 ### 7. Make the API data (only when the wrapped classes changed)
 

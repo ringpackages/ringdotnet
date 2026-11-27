@@ -19,7 +19,7 @@ func main
 	cGen = parentFolder(parentFolder(cHere)) + "/libraries/dotnetlib/generated"
 	cOutFolder = cHere + "/api-data"
 	if not direxists(cOutFolder)
-		system("mkdir " + substr(cOutFolder,"/",iff(isWindows(),"\","/")))
+		makeFolder(cOutFolder)
 	ok
 	aLines = typeLines(cGen)
 	write(cOutFolder + "/types.txt",joinList(aLines,nl) + nl)

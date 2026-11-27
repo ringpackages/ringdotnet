@@ -479,7 +479,7 @@ func runRing cRel,aArgs
 	cText = substr(cText,rootFolder(),"<package>")
 	cText = substr(cText,substr(rootFolder(),"/","\"),"<package>")
 	if not direxists(cCache)
-		system("mkdir " + substr(cCache,"/",iff(isWindows(),"\","/")))
+		makeFolder(cCache)
 	ok
 	writeText(cFile,cText)
 	return cText

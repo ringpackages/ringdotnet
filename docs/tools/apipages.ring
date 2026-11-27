@@ -915,7 +915,7 @@ func buildApiPages cDocs
 
 	loadApi(hereFolder() + "/api-data/api.jsonl")
 	if not direxists(cDocs + "/api")
-		system("mkdir " + substr(cDocs + "/api","/",iff(isWindows(),"\","/")))
+		makeFolder(cDocs + "/api")
 	ok
 	aIndexItems = []
 	aNsRows = []
