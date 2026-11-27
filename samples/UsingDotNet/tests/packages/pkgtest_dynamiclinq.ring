@@ -9,7 +9,8 @@ oNumbers = dnNew("System.Collections.Generic.List`1[[System.Int32]]",[])
 for i = 1 to 10
 	oNumbers.Add(i)
 next
-oQuery = dnType("System.Linq.Queryable").callGeneric("AsQueryable",["System.Int32"],[oNumbers])
+oQueryable = new Queryable()
+oQuery = oQueryable.AsQueryable(oNumbers)
 
 oBig = dnType("System.Linq.Dynamic.Core.DynamicQueryableExtensions").callGeneric("Where",["System.Int32"],[oQuery,"it > 7"])
 dnAssert("a condition as text",len(oBig.toList()),3)

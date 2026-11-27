@@ -21,7 +21,7 @@ func main
 	oProvider = oServices.BuildServiceProvider(NULL)
 	dnAssert("an extension method of an interface is a method of the class that implements it",classname(oProvider),"serviceprovider")
 	oScope = oProvider.CreateScope()
-	dnAssert("an extension method of IServiceProvider (a type that has no class) is a method of ServiceProvider",classname(oScope),"iservicescope")
+	dnAssert("an extension method of IServiceProvider is a method of ServiceProvider",classname(oScope),"iservicescope")
 	oScope.Dispose()          # IServiceScope inherits Dispose from IDisposable
 	lRefused = false
 	try

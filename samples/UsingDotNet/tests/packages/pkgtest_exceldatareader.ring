@@ -3,6 +3,7 @@ load "pkg.ring"
 pkgUse("exceldatareader",[["ExcelDataReader","3.9.0"],["ClosedXML","0.104.2"]],[["ExcelDataReader.dll",["ExcelDataReader"]],["ClosedXML.dll",["ClosedXML.Excel"]]])
 pkgImport("exceldatareader","ExcelDataReader.dll","ExcelDataReader")
 pkgImport("exceldatareader","ClosedXML.dll","ClosedXML.Excel")
+dnImport("System.Text")
 
 cFile = cPkgCache + "exceldatareader/data.xlsx"
 oBook = new XLWorkbook()
@@ -17,7 +18,9 @@ oBook.SaveAs(cFile)
 oBook.Dispose()
 
 # ExcelDataReader reads legacy encodings: the code pages provider is registered first
-dnType("System.Text.Encoding").callMethod("RegisterProvider",[dnStatic("System.Text.CodePagesEncodingProvider, System.Text.Encoding.CodePages","Instance",[])])
+oProvider = new CodePagesEncodingProvider()
+oEncodings = new Encoding()
+oEncodings.RegisterProvider(oProvider.Instance)
 
 oStream = dnNew("System.IO.FileStream",[cFile,dnStatic("System.IO.FileMode","Open",[])])
 oReader = dnStatic("ExcelDataReader.ExcelReaderFactory","CreateReader",[oStream])

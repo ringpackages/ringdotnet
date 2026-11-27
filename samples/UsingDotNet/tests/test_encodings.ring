@@ -1,7 +1,13 @@
 # Legacy encodings (Windows-1256 Arabic, Shift-JIS, ISO-8859-1) from the code pages provider of .NET: text to bytes and back, binary safe
 load "dotnet.ring"
 
-dnType("System.Text.Encoding").callMethod("RegisterProvider",[dnStatic("System.Text.CodePagesEncodingProvider, System.Text.Encoding.CodePages","Instance",[])])
+using {
+	"System.Text"
+}
+
+oProvider = new CodePagesEncodingProvider()
+oEncodings = new Encoding()
+oEncodings.RegisterProvider(oProvider.Instance)
 
 oArabic = dnStatic("System.Text.Encoding","GetEncoding",[1256])
 dnAssert("the name",oArabic.WebName,"windows-1256")
