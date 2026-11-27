@@ -960,7 +960,7 @@ Class ActionNameAttribute from Attribute
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2498,7 +2498,7 @@ Class FromBodyAttribute from Attribute
 		raise("DotNet Error: BindingSource is a read-only property")
 
 	Func getEmptyBodyBehavior
-		return dnAnswer(dotnet_getp(nHandle,"EmptyBodyBehavior"))
+		return dotnet_getp(nHandle,"EmptyBodyBehavior")
 
 	Func setEmptyBodyBehavior P1
 		dotnet_setp(nHandle,"EmptyBodyBehavior",P1)
@@ -4086,7 +4086,7 @@ Class RemoteAttributeBase from ValidationAttribute
 		return self
 
 	Func FormatAdditionalFieldsForClientValidation P1
-		return dnAnswer(dotnet_callt(nHandle,"FormatAdditionalFieldsForClientValidation",P1))
+		return dotnet_callt(nHandle,"FormatAdditionalFieldsForClientValidation",P1)
 
 	Func AddValidation P1
 		dotnet_callv("s4:call",nHandle,"s13:AddValidation",P1)
@@ -4094,7 +4094,7 @@ Class RemoteAttributeBase from ValidationAttribute
 		return self
 
 	Func FormatPropertyForClientValidation P1
-		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Mvc.RemoteAttributeBase, Microsoft.AspNetCore.Mvc.ViewFeatures','FormatPropertyForClientValidation',P1))
+		return dotnet_callts('Microsoft.AspNetCore.Mvc.RemoteAttributeBase, Microsoft.AspNetCore.Mvc.ViewFeatures','FormatPropertyForClientValidation',P1)
 
 	Func getHttpMethod
 		return dnAnswer(dotnet_getp(nHandle,"HttpMethod"))
@@ -4104,7 +4104,7 @@ Class RemoteAttributeBase from ValidationAttribute
 		return self
 
 	Func getAdditionalFields
-		return dnAnswer(dotnet_getp(nHandle,"AdditionalFields"))
+		return dotnet_getp(nHandle,"AdditionalFields")
 
 	Func setAdditionalFields P1
 		dotnet_setp(nHandle,"AdditionalFields",P1)
@@ -4366,7 +4366,7 @@ Class ResponseCacheAttribute from Attribute
 		return self
 
 	Func getLocation
-		return dnAnswer(dotnet_getp(nHandle,"Location"))
+		return dotnet_getp(nHandle,"Location")
 
 	Func setLocation P1
 		dotnet_setp(nHandle,"Location",P1)
@@ -4432,7 +4432,7 @@ Class RouteAttribute from Attribute
 		return self
 
 	Func getTemplate
-		return dnAnswer(dotnet_getp(nHandle,"Template"))
+		return dotnet_getp(nHandle,"Template")
 
 	Func setTemplate P1
 		raise("DotNet Error: Template is a read-only property")
@@ -5305,13 +5305,13 @@ Class FileResult from ActionResult
 		return self
 
 	Func getContentType
-		return dnAnswer(dotnet_getp(nHandle,"ContentType"))
+		return dotnet_getp(nHandle,"ContentType")
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getFileDownloadName
-		return dnAnswer(dotnet_getp(nHandle,"FileDownloadName"))
+		return dotnet_getp(nHandle,"FileDownloadName")
 
 	Func setFileDownloadName P1
 		dotnet_setp(nHandle,"FileDownloadName",P1)
@@ -5503,7 +5503,7 @@ Class LocalRedirectResult from ActionResult
 		return self
 
 	Func getUrl
-		return dnAnswer(dotnet_getp(nHandle,"Url"))
+		return dotnet_getp(nHandle,"Url")
 
 	Func setUrl P1
 		dotnet_setp(nHandle,"Url",P1)
@@ -5850,7 +5850,7 @@ Class RedirectResult from ActionResult
 		return self
 
 	Func getUrl
-		return dnAnswer(dotnet_getp(nHandle,"Url"))
+		return dotnet_getp(nHandle,"Url")
 
 	Func setUrl P1
 		dotnet_setp(nHandle,"Url",P1)
@@ -7012,7 +7012,7 @@ Class PhysicalFileResult from FileResult
 		return self
 
 	Func getFileName
-		return dnAnswer(dotnet_getp(nHandle,"FileName"))
+		return dotnet_getp(nHandle,"FileName")
 
 	Func setFileName P1
 		dotnet_setp(nHandle,"FileName",P1)
@@ -7127,7 +7127,7 @@ Class VirtualFileResult from FileResult
 		return self
 
 	Func getFileName
-		return dnAnswer(dotnet_getp(nHandle,"FileName"))
+		return dotnet_getp(nHandle,"FileName")
 
 	Func setFileName P1
 		dotnet_setp(nHandle,"FileName",P1)

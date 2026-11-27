@@ -375,6 +375,9 @@ Class StringSegment from ValueType
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Compare P1,P2,P3
 		dn_x = dotnet_call("s4:call",'Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',"s7:Compare",P1,P2,P3)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -637,6 +640,9 @@ Class StringValues from ValueType
 		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func ToArray 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s7:ToArray")

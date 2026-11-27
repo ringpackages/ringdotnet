@@ -87,6 +87,9 @@ Class Capture from Object
 		ok
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -105,7 +108,7 @@ Class Capture from Object
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -244,13 +247,13 @@ Class GeneratedRegexAttribute from Attribute
 		return self
 
 	Func getPattern
-		return dnAnswer(dotnet_getp(nHandle,"Pattern"))
+		return dotnet_getp(nHandle,"Pattern")
 
 	Func setPattern P1
 		raise("DotNet Error: Pattern is a read-only property")
 
 	Func getOptions
-		return dnAnswer(dotnet_getp(nHandle,"Options"))
+		return dotnet_getp(nHandle,"Options")
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
@@ -262,7 +265,7 @@ Class GeneratedRegexAttribute from Attribute
 		raise("DotNet Error: MatchTimeoutMilliseconds is a read-only property")
 
 	Func getCultureName
-		return dnAnswer(dotnet_getp(nHandle,"CultureName"))
+		return dotnet_getp(nHandle,"CultureName")
 
 	Func setCultureName P1
 		raise("DotNet Error: CultureName is a read-only property")
@@ -508,6 +511,9 @@ Class Regex from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func GetGroupNames 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetGroupNames")
 		if isnumber(dn_x) and dn_x = -1
@@ -523,7 +529,7 @@ Class Regex from Object
 		return dnObj(dn_x)
 
 	Func GroupNameFromNumber P1
-		return dnAnswer(dotnet_callt(nHandle,"GroupNameFromNumber",P1))
+		return dotnet_callt(nHandle,"GroupNameFromNumber",P1)
 
 	Func GroupNumberFromName P1
 		return dnAnswer(dotnet_callt(nHandle,"GroupNumberFromName",P1))
@@ -649,13 +655,13 @@ Class Regex from Object
 		raise("DotNet Error: CompileToAssembly does not take one argument: use named arguments, CompileToAssembly([ :parameter = value, ... ])")
 
 	Func Escape P1
-		return dnAnswer(dotnet_callts('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions','Escape',P1))
+		return dotnet_callts('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions','Escape',P1)
 
 	Func Unescape P1
-		return dnAnswer(dotnet_callts('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions','Unescape',P1))
+		return dotnet_callts('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions','Unescape',P1)
 
 	Func getOptions
-		return dnAnswer(dotnet_getp(nHandle,"Options"))
+		return dotnet_getp(nHandle,"Options")
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
@@ -727,13 +733,13 @@ Class RegexMatchTimeoutException from TimeoutException
 		return self
 
 	Func getInput
-		return dnAnswer(dotnet_getp(nHandle,"Input"))
+		return dotnet_getp(nHandle,"Input")
 
 	Func setInput P1
 		raise("DotNet Error: Input is a read-only property")
 
 	Func getPattern
-		return dnAnswer(dotnet_getp(nHandle,"Pattern"))
+		return dotnet_getp(nHandle,"Pattern")
 
 	Func setPattern P1
 		raise("DotNet Error: Pattern is a read-only property")
@@ -760,7 +766,7 @@ Class RegexParseException from ArgumentException
 		return self
 
 	Func getError
-		return dnAnswer(dotnet_getp(nHandle,"Error"))
+		return dotnet_getp(nHandle,"Error")
 
 	Func setError P1
 		raise("DotNet Error: Error is a read-only property")
@@ -836,7 +842,7 @@ Class Group from Capture
 		raise("DotNet Error: Success is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -870,7 +876,7 @@ Class Match from Group
 		return dnObj(dn_x)
 
 	Func Result P1
-		return dnAnswer(dotnet_callt(nHandle,"Result",P1))
+		return dotnet_callt(nHandle,"Result",P1)
 
 	Func Synchronized P1
 		return dnObj(dotnet_callo("s4:call",'System.Text.RegularExpressions.Match, System.Text.RegularExpressions',"s12:Synchronized",P1))

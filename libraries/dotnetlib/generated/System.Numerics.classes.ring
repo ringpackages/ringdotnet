@@ -348,6 +348,9 @@ Class BigInteger from ValueType
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:TryFormat",P1)
@@ -641,6 +644,9 @@ Class Complex from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -1816,6 +1822,9 @@ Class Matrix3x2 from ValueType
 	Func GetDeterminant 
 		return dnAnswer(dotnet_callt(nHandle,"GetDeterminant"))
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Add P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix3x2, System.Private.CoreLib',"s3:Add",P1,P2))
 
@@ -1997,6 +2006,9 @@ Class Matrix4x4 from ValueType
 
 	Func GetDeterminant 
 		return dnAnswer(dotnet_callt(nHandle,"GetDeterminant"))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Add P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Matrix4x4, System.Private.CoreLib',"s3:Add",P1,P2))
@@ -2317,6 +2329,9 @@ Class Plane from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func CreateFromVertices P1,P2,P3
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Plane, System.Private.CoreLib',"s18:CreateFromVertices",P1,P2,P3))
 
@@ -2417,6 +2432,9 @@ Class Quaternion from ValueType
 
 	Func LengthSquared 
 		return dnAnswer(dotnet_callt(nHandle,"LengthSquared"))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Add P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Quaternion, System.Private.CoreLib',"s3:Add",P1,P2))
@@ -3034,6 +3052,9 @@ Class Vector2 from ValueType
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Abs P1
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector2, System.Private.CoreLib',"s3:Abs",P1))
 
@@ -3354,6 +3375,9 @@ Class Vector3 from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Abs P1
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector3, System.Private.CoreLib',"s3:Abs",P1))
@@ -3694,6 +3718,9 @@ Class Vector4 from ValueType
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Abs P1
 		return dnObj(dotnet_callo("s4:call",'System.Numerics.Vector4, System.Private.CoreLib',"s3:Abs",P1))
 
@@ -4006,6 +4033,9 @@ Class Vector1 from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryCopyTo P1
 		return dnSend("s4:call",nHandle,"s9:TryCopyTo",dnPackItem(P1))

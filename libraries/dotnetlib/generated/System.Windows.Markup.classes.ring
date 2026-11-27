@@ -603,7 +603,7 @@ Class DesignerSerializationOptionsAttribute from Attribute
 		return self
 
 	Func getDesignerSerializationOptions
-		return dnAnswer(dotnet_getp(nHandle,"DesignerSerializationOptions"))
+		return dotnet_getp(nHandle,"DesignerSerializationOptions")
 
 	Func setDesignerSerializationOptions P1
 		raise("DotNet Error: DesignerSerializationOptions is a read-only property")
@@ -1953,13 +1953,13 @@ Class XamlDeferLoadAttribute from Attribute
 		return self
 
 	Func getLoaderTypeName
-		return dnAnswer(dotnet_getp(nHandle,"LoaderTypeName"))
+		return dotnet_getp(nHandle,"LoaderTypeName")
 
 	Func setLoaderTypeName P1
 		raise("DotNet Error: LoaderTypeName is a read-only property")
 
 	Func getContentTypeName
-		return dnAnswer(dotnet_getp(nHandle,"ContentTypeName"))
+		return dotnet_getp(nHandle,"ContentTypeName")
 
 	Func setContentTypeName P1
 		raise("DotNet Error: ContentTypeName is a read-only property")
@@ -2510,13 +2510,13 @@ Class XmlnsCompatibleWithAttribute from Attribute
 		return self
 
 	Func getOldNamespace
-		return dnAnswer(dotnet_getp(nHandle,"OldNamespace"))
+		return dotnet_getp(nHandle,"OldNamespace")
 
 	Func setOldNamespace P1
 		raise("DotNet Error: OldNamespace is a read-only property")
 
 	Func getNewNamespace
-		return dnAnswer(dotnet_getp(nHandle,"NewNamespace"))
+		return dotnet_getp(nHandle,"NewNamespace")
 
 	Func setNewNamespace P1
 		raise("DotNet Error: NewNamespace is a read-only property")
@@ -2540,13 +2540,13 @@ Class XmlnsDefinitionAttribute from Attribute
 		return self
 
 	Func getXmlNamespace
-		return dnAnswer(dotnet_getp(nHandle,"XmlNamespace"))
+		return dotnet_getp(nHandle,"XmlNamespace")
 
 	Func setXmlNamespace P1
 		raise("DotNet Error: XmlNamespace is a read-only property")
 
 	Func getClrNamespace
-		return dnAnswer(dotnet_getp(nHandle,"ClrNamespace"))
+		return dotnet_getp(nHandle,"ClrNamespace")
 
 	Func setClrNamespace P1
 		raise("DotNet Error: ClrNamespace is a read-only property")
@@ -2764,13 +2764,13 @@ Class XmlnsPrefixAttribute from Attribute
 		return self
 
 	Func getXmlNamespace
-		return dnAnswer(dotnet_getp(nHandle,"XmlNamespace"))
+		return dotnet_getp(nHandle,"XmlNamespace")
 
 	Func setXmlNamespace P1
 		raise("DotNet Error: XmlNamespace is a read-only property")
 
 	Func getPrefix
-		return dnAnswer(dotnet_getp(nHandle,"Prefix"))
+		return dotnet_getp(nHandle,"Prefix")
 
 	Func setPrefix P1
 		raise("DotNet Error: Prefix is a read-only property")
@@ -3115,7 +3115,7 @@ Class XamlDesignerSerializationManager from ServiceProviders
 		return self
 
 	Func getXamlWriterMode
-		return dnAnswer(dotnet_getp(nHandle,"XamlWriterMode"))
+		return dotnet_getp(nHandle,"XamlWriterMode")
 
 	Func setXamlWriterMode P1
 		dotnet_setp(nHandle,"XamlWriterMode",P1)

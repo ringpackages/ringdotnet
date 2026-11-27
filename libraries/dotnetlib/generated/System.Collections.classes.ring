@@ -884,6 +884,9 @@ Class DictionaryEntry from ValueType
 	Func Deconstruct 
 		return dnSend("s4:call",nHandle,"s11:Deconstruct","")
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getKey
 		return dnObj(dotnet_callo("s3:get",nHandle,"s3:Key"))
 

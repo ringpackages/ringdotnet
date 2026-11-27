@@ -2402,6 +2402,9 @@ Class KeyValuePair2 from ValueType
 		ok
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Deconstruct 
 		return dnSend("s4:call",nHandle,"s11:Deconstruct","")
 
@@ -6849,7 +6852,7 @@ Class SortedObjectList from Object
 		return dnObj(dn_x)
 
 	Func GetKeyAtIndex P1
-		return dnAnswer(dotnet_callt(nHandle,"GetKeyAtIndex",P1))
+		return dotnet_callt(nHandle,"GetKeyAtIndex",P1)
 
 	Func IndexOfKey P1
 		return dnAnswer(dotnet_callt(nHandle,"IndexOfKey",P1))
@@ -8835,6 +8838,9 @@ Class StringPair from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Deconstruct 
 		return dnSend("s4:call",nHandle,"s11:Deconstruct","")
 
@@ -8890,6 +8896,9 @@ Class ObjectPair from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Deconstruct 
 		return dnSend("s4:call",nHandle,"s11:Deconstruct","")
 
@@ -8944,6 +8953,9 @@ Class NumberPair from ValueType
 		nHandle = dnCreate('System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Deconstruct 
 		return dnSend("s4:call",nHandle,"s11:Deconstruct","")

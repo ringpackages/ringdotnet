@@ -770,7 +770,7 @@ Class IWebHostEnvironment from DotNetObject
 		return dn_x
 
 	Func getWebRootPath
-		return dnAnswer(dotnet_getp(nHandle,"WebRootPath"))
+		return dotnet_getp(nHandle,"WebRootPath")
 
 	Func setWebRootPath P1
 		dotnet_setp(nHandle,"WebRootPath",P1)
@@ -784,21 +784,21 @@ Class IWebHostEnvironment from DotNetObject
 		return self
 
 	Func getEnvironmentName
-		return dnAnswer(dotnet_getp(nHandle,"EnvironmentName"))
+		return dotnet_getp(nHandle,"EnvironmentName")
 
 	Func setEnvironmentName P1
 		dotnet_setp(nHandle,"EnvironmentName",P1)
 		return self
 
 	Func getApplicationName
-		return dnAnswer(dotnet_getp(nHandle,"ApplicationName"))
+		return dotnet_getp(nHandle,"ApplicationName")
 
 	Func setApplicationName P1
 		dotnet_setp(nHandle,"ApplicationName",P1)
 		return self
 
 	Func getContentRootPath
-		return dnAnswer(dotnet_getp(nHandle,"ContentRootPath"))
+		return dotnet_getp(nHandle,"ContentRootPath")
 
 	Func setContentRootPath P1
 		dotnet_setp(nHandle,"ContentRootPath",P1)

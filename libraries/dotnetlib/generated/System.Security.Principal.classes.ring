@@ -185,8 +185,11 @@ Class IdentityReference from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -418,7 +421,7 @@ Class WindowsIdentity from ClaimsIdentity
 		return dnObj(dotnet_callo("s4:call",'System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows',"s20:RunImpersonatedAsync",P1,P2))
 
 	Func getImpersonationLevel
-		return dnAnswer(dotnet_getp(nHandle,"ImpersonationLevel"))
+		return dotnet_getp(nHandle,"ImpersonationLevel")
 
 	Func setImpersonationLevel P1
 		raise("DotNet Error: ImpersonationLevel is a read-only property")
@@ -440,6 +443,9 @@ Class WindowsIdentity from ClaimsIdentity
 
 	Func setIsAnonymous P1
 		raise("DotNet Error: IsAnonymous is a read-only property")
+
+	Func getName
+		return dotnet_getp(nHandle,"Name")
 
 	Func getOwner
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Owner"))

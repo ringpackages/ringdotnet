@@ -2856,13 +2856,13 @@ Class AccessibleObject from StandardOleMarshalObject
 		raise("DotNet Error: Parent is a read-only property")
 
 	Func getRole
-		return dnAnswer(dotnet_getp(nHandle,"Role"))
+		return dotnet_getp(nHandle,"Role")
 
 	Func setRole P1
 		raise("DotNet Error: Role is a read-only property")
 
 	Func getState
-		return dnAnswer(dotnet_getp(nHandle,"State"))
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -3570,7 +3570,7 @@ Class AxHostClsidAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -3945,7 +3945,7 @@ Class Binding from Object
 		raise("DotNet Error: BindingManagerBase is a read-only property")
 
 	Func getPropertyName
-		return dnAnswer(dotnet_getp(nHandle,"PropertyName"))
+		return dotnet_getp(nHandle,"PropertyName")
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
@@ -3965,7 +3965,7 @@ Class Binding from Object
 		return self
 
 	Func getFormatString
-		return dnAnswer(dotnet_getp(nHandle,"FormatString"))
+		return dotnet_getp(nHandle,"FormatString")
 
 	Func setFormatString P1
 		dotnet_setp(nHandle,"FormatString",P1)
@@ -3986,14 +3986,14 @@ Class Binding from Object
 		return self
 
 	Func getControlUpdateMode
-		return dnAnswer(dotnet_getp(nHandle,"ControlUpdateMode"))
+		return dotnet_getp(nHandle,"ControlUpdateMode")
 
 	Func setControlUpdateMode P1
 		dotnet_setp(nHandle,"ControlUpdateMode",P1)
 		return self
 
 	Func getDataSourceUpdateMode
-		return dnAnswer(dotnet_getp(nHandle,"DataSourceUpdateMode"))
+		return dotnet_getp(nHandle,"DataSourceUpdateMode")
 
 	Func setDataSourceUpdateMode P1
 		dotnet_setp(nHandle,"DataSourceUpdateMode",P1)
@@ -4041,19 +4041,19 @@ Class BindingCompleteEventArgs from CancelEventArgs
 		raise("DotNet Error: Binding is a read-only property")
 
 	Func getBindingCompleteState
-		return dnAnswer(dotnet_getp(nHandle,"BindingCompleteState"))
+		return dotnet_getp(nHandle,"BindingCompleteState")
 
 	Func setBindingCompleteState P1
 		raise("DotNet Error: BindingCompleteState is a read-only property")
 
 	Func getBindingCompleteContext
-		return dnAnswer(dotnet_getp(nHandle,"BindingCompleteContext"))
+		return dotnet_getp(nHandle,"BindingCompleteContext")
 
 	Func setBindingCompleteContext P1
 		raise("DotNet Error: BindingCompleteContext is a read-only property")
 
 	Func getErrorText
-		return dnAnswer(dotnet_getp(nHandle,"ErrorText"))
+		return dotnet_getp(nHandle,"ErrorText")
 
 	Func setErrorText P1
 		raise("DotNet Error: ErrorText is a read-only property")
@@ -4341,19 +4341,19 @@ Class BindingMemberInfo from ValueType
 		return self
 
 	Func getBindingPath
-		return dnAnswer(dotnet_getp(nHandle,"BindingPath"))
+		return dotnet_getp(nHandle,"BindingPath")
 
 	Func setBindingPath P1
 		raise("DotNet Error: BindingPath is a read-only property")
 
 	Func getBindingField
-		return dnAnswer(dotnet_getp(nHandle,"BindingField"))
+		return dotnet_getp(nHandle,"BindingField")
 
 	Func setBindingField P1
 		raise("DotNet Error: BindingField is a read-only property")
 
 	Func getBindingMember
-		return dnAnswer(dotnet_getp(nHandle,"BindingMember"))
+		return dotnet_getp(nHandle,"BindingMember")
 
 	Func setBindingMember P1
 		raise("DotNet Error: BindingMember is a read-only property")
@@ -4691,7 +4691,7 @@ Class BindingSource from Component
 		raise("DotNet Error: Current is a read-only property")
 
 	Func getDataMember
-		return dnAnswer(dotnet_getp(nHandle,"DataMember"))
+		return dotnet_getp(nHandle,"DataMember")
 
 	Func setDataMember P1
 		dotnet_setp(nHandle,"DataMember",P1)
@@ -4817,7 +4817,7 @@ Class BindingSource from Component
 		raise("DotNet Error: SortProperty is a read-only property")
 
 	Func getSortDirection
-		return dnAnswer(dotnet_getp(nHandle,"SortDirection"))
+		return dotnet_getp(nHandle,"SortDirection")
 
 	Func setSortDirection P1
 		raise("DotNet Error: SortDirection is a read-only property")
@@ -5191,7 +5191,7 @@ Class ColumnHeader from Component
 		raise("DotNet Error: ImageList is a read-only property")
 
 	Func getImageKey
-		return dnAnswer(dotnet_getp(nHandle,"ImageKey"))
+		return dotnet_getp(nHandle,"ImageKey")
 
 	Func setImageKey P1
 		dotnet_setp(nHandle,"ImageKey",P1)
@@ -5211,14 +5211,14 @@ Class ColumnHeader from Component
 		return self
 
 	Func getText
-		return dnAnswer(dotnet_getp(nHandle,"Text"))
+		return dotnet_getp(nHandle,"Text")
 
 	Func setText P1
 		dotnet_setp(nHandle,"Text",P1)
 		return self
 
 	Func getTextAlign
-		return dnAnswer(dotnet_getp(nHandle,"TextAlign"))
+		return dotnet_getp(nHandle,"TextAlign")
 
 	Func setTextAlign P1
 		dotnet_setp(nHandle,"TextAlign",P1)
@@ -6439,7 +6439,7 @@ Class Control from Component
 		return self
 
 	Func getAccessibleRole
-		return dnAnswer(dotnet_getp(nHandle,"AccessibleRole"))
+		return dotnet_getp(nHandle,"AccessibleRole")
 
 	Func setAccessibleRole P1
 		dotnet_setp(nHandle,"AccessibleRole",P1)
@@ -6453,7 +6453,7 @@ Class Control from Component
 		return self
 
 	Func getAnchor
-		return dnAnswer(dotnet_getp(nHandle,"Anchor"))
+		return dotnet_getp(nHandle,"Anchor")
 
 	Func setAnchor P1
 		dotnet_setp(nHandle,"Anchor",P1)
@@ -6501,7 +6501,7 @@ Class Control from Component
 		return self
 
 	Func getBackgroundImageLayout
-		return dnAnswer(dotnet_getp(nHandle,"BackgroundImageLayout"))
+		return dotnet_getp(nHandle,"BackgroundImageLayout")
 
 	Func setBackgroundImageLayout P1
 		dotnet_setp(nHandle,"BackgroundImageLayout",P1)
@@ -6567,7 +6567,7 @@ Class Control from Component
 		return self
 
 	Func getCompanyName
-		return dnAnswer(dotnet_getp(nHandle,"CompanyName"))
+		return dotnet_getp(nHandle,"CompanyName")
 
 	Func setCompanyName P1
 		raise("DotNet Error: CompanyName is a read-only property")
@@ -6635,7 +6635,7 @@ Class Control from Component
 		raise("DotNet Error: Disposing is a read-only property")
 
 	Func getDock
-		return dnAnswer(dotnet_getp(nHandle,"Dock"))
+		return dotnet_getp(nHandle,"Dock")
 
 	Func setDock P1
 		dotnet_setp(nHandle,"Dock",P1)
@@ -6754,7 +6754,7 @@ Class Control from Component
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -6768,13 +6768,13 @@ Class Control from Component
 		return self
 
 	Func getProductName
-		return dnAnswer(dotnet_getp(nHandle,"ProductName"))
+		return dotnet_getp(nHandle,"ProductName")
 
 	Func setProductName P1
 		raise("DotNet Error: ProductName is a read-only property")
 
 	Func getProductVersion
-		return dnAnswer(dotnet_getp(nHandle,"ProductVersion"))
+		return dotnet_getp(nHandle,"ProductVersion")
 
 	Func setProductVersion P1
 		raise("DotNet Error: ProductVersion is a read-only property")
@@ -6799,7 +6799,7 @@ Class Control from Component
 		raise("DotNet Error: Right is a read-only property")
 
 	Func getRightToLeft
-		return dnAnswer(dotnet_getp(nHandle,"RightToLeft"))
+		return dotnet_getp(nHandle,"RightToLeft")
 
 	Func setRightToLeft P1
 		dotnet_setp(nHandle,"RightToLeft",P1)
@@ -6834,7 +6834,7 @@ Class Control from Component
 		return self
 
 	Func getText
-		return dnAnswer(dotnet_getp(nHandle,"Text"))
+		return dotnet_getp(nHandle,"Text")
 
 	Func setText P1
 		dotnet_setp(nHandle,"Text",P1)
@@ -6895,7 +6895,7 @@ Class Control from Component
 		return self
 
 	Func getImeMode
-		return dnAnswer(dotnet_getp(nHandle,"ImeMode"))
+		return dotnet_getp(nHandle,"ImeMode")
 
 	Func setImeMode P1
 		dotnet_setp(nHandle,"ImeMode",P1)
@@ -7220,6 +7220,9 @@ Class CreateParams from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -7359,6 +7362,9 @@ Class Cursor from Object
 		dotnet_callv("s4:call",nHandle,"s13:DrawStretched",P1,P2)
 
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -7891,7 +7897,7 @@ Class DataFormatsFormat from Object
 		return dn_x
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -7934,36 +7940,39 @@ Class DataGridViewAdvancedBorderStyle from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getAll
-		return dnAnswer(dotnet_getp(nHandle,"All"))
+		return dotnet_getp(nHandle,"All")
 
 	Func setAll P1
 		dotnet_setp(nHandle,"All",P1)
 		return self
 
 	Func getBottom
-		return dnAnswer(dotnet_getp(nHandle,"Bottom"))
+		return dotnet_getp(nHandle,"Bottom")
 
 	Func setBottom P1
 		dotnet_setp(nHandle,"Bottom",P1)
 		return self
 
 	Func getLeft
-		return dnAnswer(dotnet_getp(nHandle,"Left"))
+		return dotnet_getp(nHandle,"Left")
 
 	Func setLeft P1
 		dotnet_setp(nHandle,"Left",P1)
 		return self
 
 	Func getRight
-		return dnAnswer(dotnet_getp(nHandle,"Right"))
+		return dotnet_getp(nHandle,"Right")
 
 	Func setRight P1
 		dotnet_setp(nHandle,"Right",P1)
 		return self
 
 	Func getTop
-		return dnAnswer(dotnet_getp(nHandle,"Top"))
+		return dotnet_getp(nHandle,"Top")
 
 	Func setTop P1
 		dotnet_setp(nHandle,"Top",P1)
@@ -7993,7 +8002,7 @@ Class DataGridViewAutoSizeColumnModeEventArgs from EventArgs
 		raise("DotNet Error: Column is a read-only property")
 
 	Func getPreviousMode
-		return dnAnswer(dotnet_getp(nHandle,"PreviousMode"))
+		return dotnet_getp(nHandle,"PreviousMode")
 
 	Func setPreviousMode P1
 		raise("DotNet Error: PreviousMode is a read-only property")
@@ -8059,7 +8068,7 @@ Class DataGridViewBindingCompleteEventArgs from EventArgs
 		return self
 
 	Func getListChangedType
-		return dnAnswer(dotnet_getp(nHandle,"ListChangedType"))
+		return dotnet_getp(nHandle,"ListChangedType")
 
 	Func setListChangedType P1
 		raise("DotNet Error: ListChangedType is a read-only property")
@@ -8201,7 +8210,7 @@ Class DataGridViewCellPaintingEventArgs from HandledEventArgs
 		raise("DotNet Error: ColumnIndex is a read-only property")
 
 	Func getState
-		return dnAnswer(dotnet_getp(nHandle,"State"))
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -8231,7 +8240,7 @@ Class DataGridViewCellPaintingEventArgs from HandledEventArgs
 		raise("DotNet Error: CellStyle is a read-only property")
 
 	Func getPaintParts
-		return dnAnswer(dotnet_getp(nHandle,"PaintParts"))
+		return dotnet_getp(nHandle,"PaintParts")
 
 	Func setPaintParts P1
 		raise("DotNet Error: PaintParts is a read-only property")
@@ -8260,7 +8269,7 @@ Class DataGridViewCellStateChangedEventArgs from EventArgs
 		raise("DotNet Error: Cell is a read-only property")
 
 	Func getStateChanged
-		return dnAnswer(dotnet_getp(nHandle,"StateChanged"))
+		return dotnet_getp(nHandle,"StateChanged")
 
 	Func setStateChanged P1
 		raise("DotNet Error: StateChanged is a read-only property")
@@ -8336,8 +8345,11 @@ Class DataGridViewCellStyle from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getAlignment
-		return dnAnswer(dotnet_getp(nHandle,"Alignment"))
+		return dotnet_getp(nHandle,"Alignment")
 
 	Func setAlignment P1
 		dotnet_setp(nHandle,"Alignment",P1)
@@ -8372,7 +8384,7 @@ Class DataGridViewCellStyle from Object
 		return self
 
 	Func getFormat
-		return dnAnswer(dotnet_getp(nHandle,"Format"))
+		return dotnet_getp(nHandle,"Format")
 
 	Func setFormat P1
 		dotnet_setp(nHandle,"Format",P1)
@@ -8439,7 +8451,7 @@ Class DataGridViewCellStyle from Object
 		return self
 
 	Func getWrapMode
-		return dnAnswer(dotnet_getp(nHandle,"WrapMode"))
+		return dotnet_getp(nHandle,"WrapMode")
 
 	Func setWrapMode P1
 		dotnet_setp(nHandle,"WrapMode",P1)
@@ -8467,7 +8479,7 @@ Class DataGridViewCellStyleContentChangedEventArgs from EventArgs
 		raise("DotNet Error: CellStyle is a read-only property")
 
 	Func getCellStyleScope
-		return dnAnswer(dotnet_getp(nHandle,"CellStyleScope"))
+		return dotnet_getp(nHandle,"CellStyleScope")
 
 	Func setCellStyleScope P1
 		raise("DotNet Error: CellStyleScope is a read-only property")
@@ -8676,7 +8688,7 @@ Class DataGridViewColumnStateChangedEventArgs from EventArgs
 		raise("DotNet Error: Column is a read-only property")
 
 	Func getStateChanged
-		return dnAnswer(dotnet_getp(nHandle,"StateChanged"))
+		return dotnet_getp(nHandle,"StateChanged")
 
 	Func setStateChanged P1
 		raise("DotNet Error: StateChanged is a read-only property")
@@ -8864,7 +8876,7 @@ Class DataGridViewElement from Object
 		return dn_x
 
 	Func getState
-		return dnAnswer(dotnet_getp(nHandle,"State"))
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -9128,7 +9140,7 @@ Class DataGridViewRowErrorTextNeededEventArgs from EventArgs
 		raise("DotNet Error: RowIndex is a read-only property")
 
 	Func getErrorText
-		return dnAnswer(dotnet_getp(nHandle,"ErrorText"))
+		return dotnet_getp(nHandle,"ErrorText")
 
 	Func setErrorText P1
 		dotnet_setp(nHandle,"ErrorText",P1)
@@ -9300,7 +9312,7 @@ Class DataGridViewRowPostPaintEventArgs from EventArgs
 		raise("DotNet Error: RowIndex is a read-only property")
 
 	Func getState
-		return dnAnswer(dotnet_getp(nHandle,"State"))
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -9404,7 +9416,7 @@ Class DataGridViewRowPrePaintEventArgs from HandledEventArgs
 		raise("DotNet Error: RowIndex is a read-only property")
 
 	Func getState
-		return dnAnswer(dotnet_getp(nHandle,"State"))
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -9434,7 +9446,7 @@ Class DataGridViewRowPrePaintEventArgs from HandledEventArgs
 		raise("DotNet Error: IsLastVisibleRow is a read-only property")
 
 	Func getPaintParts
-		return dnAnswer(dotnet_getp(nHandle,"PaintParts"))
+		return dotnet_getp(nHandle,"PaintParts")
 
 	Func setPaintParts P1
 		dotnet_setp(nHandle,"PaintParts",P1)
@@ -9464,7 +9476,7 @@ Class DataGridViewRowStateChangedEventArgs from EventArgs
 		raise("DotNet Error: Row is a read-only property")
 
 	Func getStateChanged
-		return dnAnswer(dotnet_getp(nHandle,"StateChanged"))
+		return dotnet_getp(nHandle,"StateChanged")
 
 	Func setStateChanged P1
 		raise("DotNet Error: StateChanged is a read-only property")
@@ -9827,7 +9839,7 @@ Class DockingAttribute from Attribute
 		return self
 
 	Func getDockingBehavior
-		return dnAnswer(dotnet_getp(nHandle,"DockingBehavior"))
+		return dotnet_getp(nHandle,"DockingBehavior")
 
 	Func setDockingBehavior P1
 		raise("DotNet Error: DockingBehavior is a read-only property")
@@ -9865,6 +9877,9 @@ Class DpiChangedEventArgs from CancelEventArgs
 			return self
 		ok
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getDeviceDpiOld
 		return dotnet_getp(nHandle,"DeviceDpiOld")
@@ -9948,20 +9963,20 @@ Class DragEventArgs from EventArgs
 		raise("DotNet Error: Y is a read-only property")
 
 	Func getAllowedEffect
-		return dnAnswer(dotnet_getp(nHandle,"AllowedEffect"))
+		return dotnet_getp(nHandle,"AllowedEffect")
 
 	Func setAllowedEffect P1
 		raise("DotNet Error: AllowedEffect is a read-only property")
 
 	Func getEffect
-		return dnAnswer(dotnet_getp(nHandle,"Effect"))
+		return dotnet_getp(nHandle,"Effect")
 
 	Func setEffect P1
 		dotnet_setp(nHandle,"Effect",P1)
 		return self
 
 	Func getDropImageType
-		return dnAnswer(dotnet_getp(nHandle,"DropImageType"))
+		return dotnet_getp(nHandle,"DropImageType")
 
 	Func setDropImageType P1
 		dotnet_setp(nHandle,"DropImageType",P1)
@@ -10055,7 +10070,7 @@ Class DrawItemEventArgs from EventArgs
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getState
-		return dnAnswer(dotnet_getp(nHandle,"State"))
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -10129,7 +10144,7 @@ Class DrawListViewColumnHeaderEventArgs from EventArgs
 		raise("DotNet Error: Header is a read-only property")
 
 	Func getState
-		return dnAnswer(dotnet_getp(nHandle,"State"))
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -10217,7 +10232,7 @@ Class DrawListViewItemEventArgs from EventArgs
 		raise("DotNet Error: ItemIndex is a read-only property")
 
 	Func getState
-		return dnAnswer(dotnet_getp(nHandle,"State"))
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -10309,7 +10324,7 @@ Class DrawListViewSubItemEventArgs from EventArgs
 		raise("DotNet Error: Header is a read-only property")
 
 	Func getItemState
-		return dnAnswer(dotnet_getp(nHandle,"ItemState"))
+		return dotnet_getp(nHandle,"ItemState")
 
 	Func setItemState P1
 		raise("DotNet Error: ItemState is a read-only property")
@@ -10429,7 +10444,7 @@ Class DrawTreeNodeEventArgs from EventArgs
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getState
-		return dnAnswer(dotnet_getp(nHandle,"State"))
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -10547,7 +10562,7 @@ Class ErrorProvider from Component
 		return self
 
 	Func getBlinkStyle
-		return dnAnswer(dotnet_getp(nHandle,"BlinkStyle"))
+		return dotnet_getp(nHandle,"BlinkStyle")
 
 	Func setBlinkStyle P1
 		dotnet_setp(nHandle,"BlinkStyle",P1)
@@ -10670,13 +10685,16 @@ Class FileDialogCustomPlace from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getPath
-		return dnAnswer(dotnet_getp(nHandle,"Path"))
+		return dotnet_getp(nHandle,"Path")
 
 	Func setPath P1
 		dotnet_setp(nHandle,"Path",P1)
@@ -10785,7 +10803,7 @@ Class FormClosedEventArgs from EventArgs
 		return self
 
 	Func getCloseReason
-		return dnAnswer(dotnet_getp(nHandle,"CloseReason"))
+		return dotnet_getp(nHandle,"CloseReason")
 
 	Func setCloseReason P1
 		raise("DotNet Error: CloseReason is a read-only property")
@@ -10807,7 +10825,7 @@ Class FormClosingEventArgs from CancelEventArgs
 		return self
 
 	Func getCloseReason
-		return dnAnswer(dotnet_getp(nHandle,"CloseReason"))
+		return dotnet_getp(nHandle,"CloseReason")
 
 	Func setCloseReason P1
 		raise("DotNet Error: CloseReason is a read-only property")
@@ -10876,7 +10894,7 @@ Class GiveFeedbackEventArgs from EventArgs
 		return self
 
 	Func getEffect
-		return dnAnswer(dotnet_getp(nHandle,"Effect"))
+		return dotnet_getp(nHandle,"Effect")
 
 	Func setEffect P1
 		raise("DotNet Error: Effect is a read-only property")
@@ -10953,7 +10971,7 @@ Class GridItem from Object
 		raise("DotNet Error: GridItems is a read-only property")
 
 	Func getGridItemType
-		return dnAnswer(dotnet_getp(nHandle,"GridItemType"))
+		return dotnet_getp(nHandle,"GridItemType")
 
 	Func setGridItemType P1
 		raise("DotNet Error: GridItemType is a read-only property")
@@ -11467,14 +11485,14 @@ Class HtmlDocument from Object
 		raise("DotNet Error: Body is a read-only property")
 
 	Func getDomain
-		return dnAnswer(dotnet_getp(nHandle,"Domain"))
+		return dotnet_getp(nHandle,"Domain")
 
 	Func setDomain P1
 		dotnet_setp(nHandle,"Domain",P1)
 		return self
 
 	Func getTitle
-		return dnAnswer(dotnet_getp(nHandle,"Title"))
+		return dotnet_getp(nHandle,"Title")
 
 	Func setTitle P1
 		dotnet_setp(nHandle,"Title",P1)
@@ -11540,7 +11558,7 @@ Class HtmlDocument from Object
 		raise("DotNet Error: DomDocument is a read-only property")
 
 	Func getCookie
-		return dnAnswer(dotnet_getp(nHandle,"Cookie"))
+		return dotnet_getp(nHandle,"Cookie")
 
 	Func setCookie P1
 		dotnet_setp(nHandle,"Cookie",P1)
@@ -11554,14 +11572,14 @@ Class HtmlDocument from Object
 		return self
 
 	Func getEncoding
-		return dnAnswer(dotnet_getp(nHandle,"Encoding"))
+		return dotnet_getp(nHandle,"Encoding")
 
 	Func setEncoding P1
 		dotnet_setp(nHandle,"Encoding",P1)
 		return self
 
 	Func getDefaultEncoding
-		return dnAnswer(dotnet_getp(nHandle,"DefaultEncoding"))
+		return dotnet_getp(nHandle,"DefaultEncoding")
 
 	Func setDefaultEncoding P1
 		raise("DotNet Error: DefaultEncoding is a read-only property")
@@ -11653,7 +11671,7 @@ Class HtmlElement from Object
 		return self
 
 	Func GetAttribute P1
-		return dnAnswer(dotnet_callt(nHandle,"GetAttribute",P1))
+		return dotnet_callt(nHandle,"GetAttribute",P1)
 
 	Func GetElementsByTagName P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s20:GetElementsByTagName",P1)
@@ -11896,28 +11914,28 @@ Class HtmlElement from Object
 		raise("DotNet Error: FirstChild is a read-only property")
 
 	Func getId
-		return dnAnswer(dotnet_getp(nHandle,"Id"))
+		return dotnet_getp(nHandle,"Id")
 
 	Func setId P1
 		dotnet_setp(nHandle,"Id",P1)
 		return self
 
 	Func getInnerHtml
-		return dnAnswer(dotnet_getp(nHandle,"InnerHtml"))
+		return dotnet_getp(nHandle,"InnerHtml")
 
 	Func setInnerHtml P1
 		dotnet_setp(nHandle,"InnerHtml",P1)
 		return self
 
 	Func getInnerText
-		return dnAnswer(dotnet_getp(nHandle,"InnerText"))
+		return dotnet_getp(nHandle,"InnerText")
 
 	Func setInnerText P1
 		dotnet_setp(nHandle,"InnerText",P1)
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -11942,14 +11960,14 @@ Class HtmlElement from Object
 		raise("DotNet Error: OffsetParent is a read-only property")
 
 	Func getOuterHtml
-		return dnAnswer(dotnet_getp(nHandle,"OuterHtml"))
+		return dotnet_getp(nHandle,"OuterHtml")
 
 	Func setOuterHtml P1
 		dotnet_setp(nHandle,"OuterHtml",P1)
 		return self
 
 	Func getOuterText
-		return dnAnswer(dotnet_getp(nHandle,"OuterText"))
+		return dotnet_getp(nHandle,"OuterText")
 
 	Func setOuterText P1
 		dotnet_setp(nHandle,"OuterText",P1)
@@ -11982,14 +12000,14 @@ Class HtmlElement from Object
 		return self
 
 	Func getStyle
-		return dnAnswer(dotnet_getp(nHandle,"Style"))
+		return dotnet_getp(nHandle,"Style")
 
 	Func setStyle P1
 		dotnet_setp(nHandle,"Style",P1)
 		return self
 
 	Func getTagName
-		return dnAnswer(dotnet_getp(nHandle,"TagName"))
+		return dotnet_getp(nHandle,"TagName")
 
 	Func setTagName P1
 		raise("DotNet Error: TagName is a read-only property")
@@ -12103,7 +12121,7 @@ Class HtmlElementErrorEventArgs from EventArgs
 		return self
 
 	Func getDescription
-		return dnAnswer(dotnet_getp(nHandle,"Description"))
+		return dotnet_getp(nHandle,"Description")
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
@@ -12154,7 +12172,7 @@ Class HtmlElementEventArgs from EventArgs
 		return self
 
 	Func getMouseButtonsPressed
-		return dnAnswer(dotnet_getp(nHandle,"MouseButtonsPressed"))
+		return dotnet_getp(nHandle,"MouseButtonsPressed")
 
 	Func setMouseButtonsPressed P1
 		raise("DotNet Error: MouseButtonsPressed is a read-only property")
@@ -12209,7 +12227,7 @@ Class HtmlElementEventArgs from EventArgs
 		raise("DotNet Error: ShiftKeyPressed is a read-only property")
 
 	Func getEventType
-		return dnAnswer(dotnet_getp(nHandle,"EventType"))
+		return dotnet_getp(nHandle,"EventType")
 
 	Func setEventType P1
 		raise("DotNet Error: EventType is a read-only property")
@@ -12463,7 +12481,7 @@ Class HtmlWindow from Object
 		raise("DotNet Error: IsClosed is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -12495,7 +12513,7 @@ Class HtmlWindow from Object
 		return self
 
 	Func getStatusBarText
-		return dnAnswer(dotnet_getp(nHandle,"StatusBarText"))
+		return dotnet_getp(nHandle,"StatusBarText")
 
 	Func setStatusBarText P1
 		dotnet_setp(nHandle,"StatusBarText",P1)
@@ -12655,7 +12673,7 @@ Class IButtonControl from DotNetObject
 		return self
 
 	Func getDialogResult
-		return dnAnswer(dotnet_getp(nHandle,"DialogResult"))
+		return dotnet_getp(nHandle,"DialogResult")
 
 	Func setDialogResult P1
 		dotnet_setp(nHandle,"DialogResult",P1)
@@ -13168,7 +13186,7 @@ Class ImageList from Component
 		return self
 
 	Func getColorDepth
-		return dnAnswer(dotnet_getp(nHandle,"ColorDepth"))
+		return dotnet_getp(nHandle,"ColorDepth")
 
 	Func setColorDepth P1
 		dotnet_setp(nHandle,"ColorDepth",P1)
@@ -13367,7 +13385,7 @@ Class InputLanguage from Object
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getLayoutName
-		return dnAnswer(dotnet_getp(nHandle,"LayoutName"))
+		return dotnet_getp(nHandle,"LayoutName")
 
 	Func setLayoutName P1
 		raise("DotNet Error: LayoutName is a read-only property")
@@ -13564,14 +13582,14 @@ Class ItemCheckEventArgs from EventArgs
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getNewValue
-		return dnAnswer(dotnet_getp(nHandle,"NewValue"))
+		return dotnet_getp(nHandle,"NewValue")
 
 	Func setNewValue P1
 		dotnet_setp(nHandle,"NewValue",P1)
 		return self
 
 	Func getCurrentValue
-		return dnAnswer(dotnet_getp(nHandle,"CurrentValue"))
+		return dotnet_getp(nHandle,"CurrentValue")
 
 	Func setCurrentValue P1
 		raise("DotNet Error: CurrentValue is a read-only property")
@@ -13631,7 +13649,7 @@ Class ItemDragEventArgs from EventArgs
 		return self
 
 	Func getButton
-		return dnAnswer(dotnet_getp(nHandle,"Button"))
+		return dotnet_getp(nHandle,"Button")
 
 	Func setButton P1
 		raise("DotNet Error: Button is a read-only property")
@@ -13686,7 +13704,7 @@ Class KeyEventArgs from EventArgs
 		return self
 
 	Func getKeyCode
-		return dnAnswer(dotnet_getp(nHandle,"KeyCode"))
+		return dotnet_getp(nHandle,"KeyCode")
 
 	Func setKeyCode P1
 		raise("DotNet Error: KeyCode is a read-only property")
@@ -13698,13 +13716,13 @@ Class KeyEventArgs from EventArgs
 		raise("DotNet Error: KeyValue is a read-only property")
 
 	Func getKeyData
-		return dnAnswer(dotnet_getp(nHandle,"KeyData"))
+		return dotnet_getp(nHandle,"KeyData")
 
 	Func setKeyData P1
 		raise("DotNet Error: KeyData is a read-only property")
 
 	Func getModifiers
-		return dnAnswer(dotnet_getp(nHandle,"Modifiers"))
+		return dotnet_getp(nHandle,"Modifiers")
 
 	Func setModifiers P1
 		raise("DotNet Error: Modifiers is a read-only property")
@@ -13933,6 +13951,9 @@ Class LinkArea from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getStart
 		return dotnet_getp(nHandle,"Start")
 
@@ -14130,7 +14151,7 @@ Class LinkLabelLink from Object
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -14326,7 +14347,7 @@ Class LinkLabelLinkClickedEventArgs from EventArgs
 		raise("DotNet Error: Link is a read-only property")
 
 	Func getButton
-		return dnAnswer(dotnet_getp(nHandle,"Button"))
+		return dotnet_getp(nHandle,"Button")
 
 	Func setButton P1
 		raise("DotNet Error: Button is a read-only property")
@@ -14900,55 +14921,58 @@ Class ListViewGroup from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getHeader
-		return dnAnswer(dotnet_getp(nHandle,"Header"))
+		return dotnet_getp(nHandle,"Header")
 
 	Func setHeader P1
 		dotnet_setp(nHandle,"Header",P1)
 		return self
 
 	Func getHeaderAlignment
-		return dnAnswer(dotnet_getp(nHandle,"HeaderAlignment"))
+		return dotnet_getp(nHandle,"HeaderAlignment")
 
 	Func setHeaderAlignment P1
 		dotnet_setp(nHandle,"HeaderAlignment",P1)
 		return self
 
 	Func getFooter
-		return dnAnswer(dotnet_getp(nHandle,"Footer"))
+		return dotnet_getp(nHandle,"Footer")
 
 	Func setFooter P1
 		dotnet_setp(nHandle,"Footer",P1)
 		return self
 
 	Func getFooterAlignment
-		return dnAnswer(dotnet_getp(nHandle,"FooterAlignment"))
+		return dotnet_getp(nHandle,"FooterAlignment")
 
 	Func setFooterAlignment P1
 		dotnet_setp(nHandle,"FooterAlignment",P1)
 		return self
 
 	Func getCollapsedState
-		return dnAnswer(dotnet_getp(nHandle,"CollapsedState"))
+		return dotnet_getp(nHandle,"CollapsedState")
 
 	Func setCollapsedState P1
 		dotnet_setp(nHandle,"CollapsedState",P1)
 		return self
 
 	Func getSubtitle
-		return dnAnswer(dotnet_getp(nHandle,"Subtitle"))
+		return dotnet_getp(nHandle,"Subtitle")
 
 	Func setSubtitle P1
 		dotnet_setp(nHandle,"Subtitle",P1)
 		return self
 
 	Func getTaskLink
-		return dnAnswer(dotnet_getp(nHandle,"TaskLink"))
+		return dotnet_getp(nHandle,"TaskLink")
 
 	Func setTaskLink P1
 		dotnet_setp(nHandle,"TaskLink",P1)
@@ -14962,7 +14986,7 @@ Class ListViewGroup from Object
 		return self
 
 	Func getTitleImageKey
-		return dnAnswer(dotnet_getp(nHandle,"TitleImageKey"))
+		return dotnet_getp(nHandle,"TitleImageKey")
 
 	Func setTitleImageKey P1
 		dotnet_setp(nHandle,"TitleImageKey",P1)
@@ -15159,7 +15183,7 @@ Class ListViewHitTestInfo from Object
 		return dn_x
 
 	Func getLocation
-		return dnAnswer(dotnet_getp(nHandle,"Location"))
+		return dotnet_getp(nHandle,"Location")
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")
@@ -15330,6 +15354,9 @@ Class ListViewItem from Object
 		dotnet_calltv(nHandle,"Remove")
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -15391,7 +15418,7 @@ Class ListViewItem from Object
 		return self
 
 	Func getImageKey
-		return dnAnswer(dotnet_getp(nHandle,"ImageKey"))
+		return dotnet_getp(nHandle,"ImageKey")
 
 	Func setImageKey P1
 		dotnet_setp(nHandle,"ImageKey",P1)
@@ -15423,7 +15450,7 @@ Class ListViewItem from Object
 		raise("DotNet Error: ListView is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -15464,14 +15491,14 @@ Class ListViewItem from Object
 		return self
 
 	Func getText
-		return dnAnswer(dotnet_getp(nHandle,"Text"))
+		return dotnet_getp(nHandle,"Text")
 
 	Func setText P1
 		dotnet_setp(nHandle,"Text",P1)
 		return self
 
 	Func getToolTipText
-		return dnAnswer(dotnet_getp(nHandle,"ToolTipText"))
+		return dotnet_getp(nHandle,"ToolTipText")
 
 	Func setToolTipText P1
 		dotnet_setp(nHandle,"ToolTipText",P1)
@@ -15623,7 +15650,7 @@ Class MaskInputRejectedEventArgs from EventArgs
 		raise("DotNet Error: Position is a read-only property")
 
 	Func getRejectionHint
-		return dnAnswer(dotnet_getp(nHandle,"RejectionHint"))
+		return dotnet_getp(nHandle,"RejectionHint")
 
 	Func setRejectionHint P1
 		raise("DotNet Error: RejectionHint is a read-only property")
@@ -15722,6 +15749,9 @@ Class Message from ValueType
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Create P1,P2,P3,P4
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.Message, System.Windows.Forms.Primitives',"s6:Create",P1,P2,P3,P4))
 
@@ -15815,7 +15845,7 @@ Class MonthCalendarHitTestInfo from Object
 		raise("DotNet Error: Point is a read-only property")
 
 	Func getHitArea
-		return dnAnswer(dotnet_getp(nHandle,"HitArea"))
+		return dotnet_getp(nHandle,"HitArea")
 
 	Func setHitArea P1
 		raise("DotNet Error: HitArea is a read-only property")
@@ -15848,7 +15878,7 @@ Class MouseEventArgs from EventArgs
 		return self
 
 	Func getButton
-		return dnAnswer(dotnet_getp(nHandle,"Button"))
+		return dotnet_getp(nHandle,"Button")
 
 	Func setButton P1
 		raise("DotNet Error: Button is a read-only property")
@@ -16141,21 +16171,21 @@ Class NotifyIcon from Component
 		return self
 
 	Func getBalloonTipText
-		return dnAnswer(dotnet_getp(nHandle,"BalloonTipText"))
+		return dotnet_getp(nHandle,"BalloonTipText")
 
 	Func setBalloonTipText P1
 		dotnet_setp(nHandle,"BalloonTipText",P1)
 		return self
 
 	Func getBalloonTipIcon
-		return dnAnswer(dotnet_getp(nHandle,"BalloonTipIcon"))
+		return dotnet_getp(nHandle,"BalloonTipIcon")
 
 	Func setBalloonTipIcon P1
 		dotnet_setp(nHandle,"BalloonTipIcon",P1)
 		return self
 
 	Func getBalloonTipTitle
-		return dnAnswer(dotnet_getp(nHandle,"BalloonTipTitle"))
+		return dotnet_getp(nHandle,"BalloonTipTitle")
 
 	Func setBalloonTipTitle P1
 		dotnet_setp(nHandle,"BalloonTipTitle",P1)
@@ -16176,7 +16206,7 @@ Class NotifyIcon from Component
 		return self
 
 	Func getText
-		return dnAnswer(dotnet_getp(nHandle,"Text"))
+		return dotnet_getp(nHandle,"Text")
 
 	Func setText P1
 		dotnet_setp(nHandle,"Text",P1)
@@ -16443,6 +16473,9 @@ Class Padding from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Add P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.Padding, System.Windows.Forms.Primitives',"s3:Add",P1,P2))
 
@@ -16634,13 +16667,13 @@ Class PowerStatus from Object
 		return dn_x
 
 	Func getPowerLineStatus
-		return dnAnswer(dotnet_getp(nHandle,"PowerLineStatus"))
+		return dotnet_getp(nHandle,"PowerLineStatus")
 
 	Func setPowerLineStatus P1
 		raise("DotNet Error: PowerLineStatus is a read-only property")
 
 	Func getBatteryChargeStatus
-		return dnAnswer(dotnet_getp(nHandle,"BatteryChargeStatus"))
+		return dotnet_getp(nHandle,"BatteryChargeStatus")
 
 	Func setBatteryChargeStatus P1
 		raise("DotNet Error: BatteryChargeStatus is a read-only property")
@@ -16687,7 +16720,7 @@ Class PreviewKeyDownEventArgs from EventArgs
 		return self
 
 	Func getKeyData
-		return dnAnswer(dotnet_getp(nHandle,"KeyData"))
+		return dotnet_getp(nHandle,"KeyData")
 
 	Func setKeyData P1
 		raise("DotNet Error: KeyData is a read-only property")
@@ -16705,7 +16738,7 @@ Class PreviewKeyDownEventArgs from EventArgs
 		raise("DotNet Error: Control is a read-only property")
 
 	Func getKeyCode
-		return dnAnswer(dotnet_getp(nHandle,"KeyCode"))
+		return dotnet_getp(nHandle,"KeyCode")
 
 	Func setKeyCode P1
 		raise("DotNet Error: KeyCode is a read-only property")
@@ -16717,7 +16750,7 @@ Class PreviewKeyDownEventArgs from EventArgs
 		raise("DotNet Error: KeyValue is a read-only property")
 
 	Func getModifiers
-		return dnAnswer(dotnet_getp(nHandle,"Modifiers"))
+		return dotnet_getp(nHandle,"Modifiers")
 
 	Func setModifiers P1
 		raise("DotNet Error: Modifiers is a read-only property")
@@ -17906,7 +17939,7 @@ Class QueryContinueDragEventArgs from EventArgs
 		raise("DotNet Error: EscapePressed is a read-only property")
 
 	Func getAction
-		return dnAnswer(dotnet_getp(nHandle,"Action"))
+		return dotnet_getp(nHandle,"Action")
 
 	Func setAction P1
 		dotnet_setp(nHandle,"Action",P1)
@@ -18081,6 +18114,9 @@ Class Screen from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func FromPoint P1
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.Screen, System.Windows.Forms',"s9:FromPoint",P1))
 
@@ -18112,7 +18148,7 @@ Class Screen from Object
 		raise("DotNet Error: Bounds is a read-only property")
 
 	Func getDeviceName
-		return dnAnswer(dotnet_getp(nHandle,"DeviceName"))
+		return dotnet_getp(nHandle,"DeviceName")
 
 	Func setDeviceName P1
 		raise("DotNet Error: DeviceName is a read-only property")
@@ -18264,7 +18300,7 @@ Class ScrollEventArgs from EventArgs
 		return dnObj(dn_x)
 
 	Func getType
-		return dnAnswer(dotnet_getp(nHandle,"Type"))
+		return dotnet_getp(nHandle,"Type")
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
@@ -18283,7 +18319,7 @@ Class ScrollEventArgs from EventArgs
 		raise("DotNet Error: OldValue is a read-only property")
 
 	Func getScrollOrientation
-		return dnAnswer(dotnet_getp(nHandle,"ScrollOrientation"))
+		return dotnet_getp(nHandle,"ScrollOrientation")
 
 	Func setScrollOrientation P1
 		raise("DotNet Error: ScrollOrientation is a read-only property")
@@ -18384,6 +18420,9 @@ Class ScrollableControlDockPaddingEdges from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getAll
 		return dotnet_getp(nHandle,"All")
@@ -18502,7 +18541,7 @@ Class SearchForVirtualItemEventArgs from EventArgs
 		raise("DotNet Error: StartingPoint is a read-only property")
 
 	Func getDirection
-		return dnAnswer(dotnet_getp(nHandle,"Direction"))
+		return dotnet_getp(nHandle,"Direction")
 
 	Func setDirection P1
 		raise("DotNet Error: Direction is a read-only property")
@@ -18581,6 +18620,9 @@ Class SelectionRange from Object
 		nHandle = dnCreate('System.Windows.Forms.SelectionRange, System.Windows.Forms',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -19548,7 +19590,7 @@ Class TabControlCancelEventArgs from CancelEventArgs
 		raise("DotNet Error: TabPageIndex is a read-only property")
 
 	Func getAction
-		return dnAnswer(dotnet_getp(nHandle,"Action"))
+		return dotnet_getp(nHandle,"Action")
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
@@ -19584,7 +19626,7 @@ Class TabControlEventArgs from EventArgs
 		raise("DotNet Error: TabPageIndex is a read-only property")
 
 	Func getAction
-		return dnAnswer(dotnet_getp(nHandle,"Action"))
+		return dotnet_getp(nHandle,"Action")
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
@@ -19666,6 +19708,9 @@ Class TableLayoutPanelCellPosition from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getRow
 		return dotnet_getp(nHandle,"Row")
 
@@ -19704,7 +19749,7 @@ Class TableLayoutStyle from Object
 		return dn_x
 
 	Func getSizeType
-		return dnAnswer(dotnet_getp(nHandle,"SizeType"))
+		return dotnet_getp(nHandle,"SizeType")
 
 	Func setSizeType P1
 		dotnet_setp(nHandle,"SizeType",P1)
@@ -20012,7 +20057,7 @@ Class TaskDialogLinkClickedEventArgs from EventArgs
 		return self
 
 	Func getLinkHref
-		return dnAnswer(dotnet_getp(nHandle,"LinkHref"))
+		return dotnet_getp(nHandle,"LinkHref")
 
 	Func setLinkHref P1
 		raise("DotNet Error: LinkHref is a read-only property")
@@ -20419,7 +20464,7 @@ Class ToolStripArrowRenderEventArgs from EventArgs
 		return self
 
 	Func getDirection
-		return dnAnswer(dotnet_getp(nHandle,"Direction"))
+		return dotnet_getp(nHandle,"Direction")
 
 	Func setDirection P1
 		dotnet_setp(nHandle,"Direction",P1)
@@ -20491,7 +20536,7 @@ Class ToolStripDropDownClosedEventArgs from EventArgs
 		return self
 
 	Func getCloseReason
-		return dnAnswer(dotnet_getp(nHandle,"CloseReason"))
+		return dotnet_getp(nHandle,"CloseReason")
 
 	Func setCloseReason P1
 		raise("DotNet Error: CloseReason is a read-only property")
@@ -20513,7 +20558,7 @@ Class ToolStripDropDownClosingEventArgs from CancelEventArgs
 		return self
 
 	Func getCloseReason
-		return dnAnswer(dotnet_getp(nHandle,"CloseReason"))
+		return dotnet_getp(nHandle,"CloseReason")
 
 	Func setCloseReason P1
 		raise("DotNet Error: CloseReason is a read-only property")
@@ -20961,7 +21006,7 @@ Class ToolStripPanelRow from Component
 		raise("DotNet Error: ToolStripPanel is a read-only property")
 
 	Func getOrientation
-		return dnAnswer(dotnet_getp(nHandle,"Orientation"))
+		return dotnet_getp(nHandle,"Orientation")
 
 	Func setOrientation P1
 		raise("DotNet Error: Orientation is a read-only property")
@@ -21497,14 +21542,14 @@ Class ToolTip from Component
 		return self
 
 	Func getToolTipIcon
-		return dnAnswer(dotnet_getp(nHandle,"ToolTipIcon"))
+		return dotnet_getp(nHandle,"ToolTipIcon")
 
 	Func setToolTipIcon P1
 		dotnet_setp(nHandle,"ToolTipIcon",P1)
 		return self
 
 	Func getToolTipTitle
-		return dnAnswer(dotnet_getp(nHandle,"ToolTipTitle"))
+		return dotnet_getp(nHandle,"ToolTipTitle")
 
 	Func setToolTipTitle P1
 		dotnet_setp(nHandle,"ToolTipTitle",P1)
@@ -21724,6 +21769,9 @@ Class TreeNode from MarshalByRefObject
 		dotnet_calltv(nHandle,"Toggle")
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func FromHandle P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.TreeNode, System.Windows.Forms',"s10:FromHandle",P1,P2))
 
@@ -21768,7 +21816,7 @@ Class TreeNode from MarshalByRefObject
 		return self
 
 	Func getFullPath
-		return dnAnswer(dotnet_getp(nHandle,"FullPath"))
+		return dotnet_getp(nHandle,"FullPath")
 
 	Func setFullPath P1
 		raise("DotNet Error: FullPath is a read-only property")
@@ -21787,7 +21835,7 @@ Class TreeNode from MarshalByRefObject
 		return self
 
 	Func getImageKey
-		return dnAnswer(dotnet_getp(nHandle,"ImageKey"))
+		return dotnet_getp(nHandle,"ImageKey")
 
 	Func setImageKey P1
 		dotnet_setp(nHandle,"ImageKey",P1)
@@ -21886,14 +21934,14 @@ Class TreeNode from MarshalByRefObject
 		return self
 
 	Func getSelectedImageKey
-		return dnAnswer(dotnet_getp(nHandle,"SelectedImageKey"))
+		return dotnet_getp(nHandle,"SelectedImageKey")
 
 	Func setSelectedImageKey P1
 		dotnet_setp(nHandle,"SelectedImageKey",P1)
 		return self
 
 	Func getStateImageKey
-		return dnAnswer(dotnet_getp(nHandle,"StateImageKey"))
+		return dotnet_getp(nHandle,"StateImageKey")
 
 	Func setStateImageKey P1
 		dotnet_setp(nHandle,"StateImageKey",P1)
@@ -21914,21 +21962,21 @@ Class TreeNode from MarshalByRefObject
 		return self
 
 	Func getText
-		return dnAnswer(dotnet_getp(nHandle,"Text"))
+		return dotnet_getp(nHandle,"Text")
 
 	Func setText P1
 		dotnet_setp(nHandle,"Text",P1)
 		return self
 
 	Func getToolTipText
-		return dnAnswer(dotnet_getp(nHandle,"ToolTipText"))
+		return dotnet_getp(nHandle,"ToolTipText")
 
 	Func setToolTipText P1
 		dotnet_setp(nHandle,"ToolTipText",P1)
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -22155,7 +22203,7 @@ Class TreeViewCancelEventArgs from CancelEventArgs
 		raise("DotNet Error: Node is a read-only property")
 
 	Func getAction
-		return dnAnswer(dotnet_getp(nHandle,"Action"))
+		return dotnet_getp(nHandle,"Action")
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
@@ -22199,7 +22247,7 @@ Class TreeViewEventArgs from EventArgs
 		raise("DotNet Error: Node is a read-only property")
 
 	Func getAction
-		return dnAnswer(dotnet_getp(nHandle,"Action"))
+		return dotnet_getp(nHandle,"Action")
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
@@ -22227,7 +22275,7 @@ Class TreeViewHitTestInfo from Object
 		return dn_x
 
 	Func getLocation
-		return dnAnswer(dotnet_getp(nHandle,"Location"))
+		return dotnet_getp(nHandle,"Location")
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")
@@ -22334,7 +22382,7 @@ Class UICuesEventArgs from EventArgs
 		raise("DotNet Error: ChangeKeyboard is a read-only property")
 
 	Func getChanged
-		return dnAnswer(dotnet_getp(nHandle,"Changed"))
+		return dotnet_getp(nHandle,"Changed")
 
 	Func setChanged P1
 		raise("DotNet Error: Changed is a read-only property")
@@ -23416,6 +23464,9 @@ Class DataGridViewHitTestInfo from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func @GetType 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
 		if isnumber(dn_x) and dn_x = -1
@@ -23448,7 +23499,7 @@ Class DataGridViewHitTestInfo from Object
 		raise("DotNet Error: RowY is a read-only property")
 
 	Func getType
-		return dnAnswer(dotnet_getp(nHandle,"Type"))
+		return dotnet_getp(nHandle,"Type")
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
@@ -23508,6 +23559,9 @@ Class ListViewSubItem from Object
 		dotnet_calltv(nHandle,"ResetStyle")
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -23548,14 +23602,14 @@ Class ListViewSubItem from Object
 		return self
 
 	Func getText
-		return dnAnswer(dotnet_getp(nHandle,"Text"))
+		return dotnet_getp(nHandle,"Text")
 
 	Func setText P1
 		dotnet_setp(nHandle,"Text",P1)
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -24200,9 +24254,6 @@ Class AxHost from Control
 		dotnet_calltdv(nHandle,"ShowPropertyPages",P1)
 		return self
 
-	Func getRightToLeft
-		return dotnet_getp(nHandle,"RightToLeft")
-
 	Func getEditMode
 		return dotnet_getp(nHandle,"EditMode")
 
@@ -24338,7 +24389,7 @@ Class ButtonBase from Control
 		return self
 
 	Func getFlatStyle
-		return dnAnswer(dotnet_getp(nHandle,"FlatStyle"))
+		return dotnet_getp(nHandle,"FlatStyle")
 
 	Func setFlatStyle P1
 		dotnet_setp(nHandle,"FlatStyle",P1)
@@ -24358,7 +24409,7 @@ Class ButtonBase from Control
 		return self
 
 	Func getImageAlign
-		return dnAnswer(dotnet_getp(nHandle,"ImageAlign"))
+		return dotnet_getp(nHandle,"ImageAlign")
 
 	Func setImageAlign P1
 		dotnet_setp(nHandle,"ImageAlign",P1)
@@ -24372,7 +24423,7 @@ Class ButtonBase from Control
 		return self
 
 	Func getImageKey
-		return dnAnswer(dotnet_getp(nHandle,"ImageKey"))
+		return dotnet_getp(nHandle,"ImageKey")
 
 	Func setImageKey P1
 		dotnet_setp(nHandle,"ImageKey",P1)
@@ -24386,14 +24437,14 @@ Class ButtonBase from Control
 		return self
 
 	Func getTextAlign
-		return dnAnswer(dotnet_getp(nHandle,"TextAlign"))
+		return dotnet_getp(nHandle,"TextAlign")
 
 	Func setTextAlign P1
 		dotnet_setp(nHandle,"TextAlign",P1)
 		return self
 
 	Func getTextImageRelation
-		return dnAnswer(dotnet_getp(nHandle,"TextImageRelation"))
+		return dotnet_getp(nHandle,"TextImageRelation")
 
 	Func setTextImageRelation P1
 		dotnet_setp(nHandle,"TextImageRelation",P1)
@@ -24581,6 +24632,9 @@ Class ControlControlAccessibleObject from AccessibleObject
 	Func NotifyClients P1
 		dotnet_calltd1v(nHandle,"NotifyClients",P1)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getHandle
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Handle"))
@@ -25910,14 +25964,14 @@ Class DataGridView from Control
 		return self
 
 	Func getAutoSizeColumnsMode
-		return dnAnswer(dotnet_getp(nHandle,"AutoSizeColumnsMode"))
+		return dotnet_getp(nHandle,"AutoSizeColumnsMode")
 
 	Func setAutoSizeColumnsMode P1
 		dotnet_setp(nHandle,"AutoSizeColumnsMode",P1)
 		return self
 
 	Func getAutoSizeRowsMode
-		return dnAnswer(dotnet_getp(nHandle,"AutoSizeRowsMode"))
+		return dotnet_getp(nHandle,"AutoSizeRowsMode")
 
 	Func setAutoSizeRowsMode P1
 		dotnet_setp(nHandle,"AutoSizeRowsMode",P1)
@@ -25931,21 +25985,21 @@ Class DataGridView from Control
 		return self
 
 	Func getBorderStyle
-		return dnAnswer(dotnet_getp(nHandle,"BorderStyle"))
+		return dotnet_getp(nHandle,"BorderStyle")
 
 	Func setBorderStyle P1
 		dotnet_setp(nHandle,"BorderStyle",P1)
 		return self
 
 	Func getCellBorderStyle
-		return dnAnswer(dotnet_getp(nHandle,"CellBorderStyle"))
+		return dotnet_getp(nHandle,"CellBorderStyle")
 
 	Func setCellBorderStyle P1
 		dotnet_setp(nHandle,"CellBorderStyle",P1)
 		return self
 
 	Func getClipboardCopyMode
-		return dnAnswer(dotnet_getp(nHandle,"ClipboardCopyMode"))
+		return dotnet_getp(nHandle,"ClipboardCopyMode")
 
 	Func setClipboardCopyMode P1
 		dotnet_setp(nHandle,"ClipboardCopyMode",P1)
@@ -25959,7 +26013,7 @@ Class DataGridView from Control
 		return self
 
 	Func getColumnHeadersBorderStyle
-		return dnAnswer(dotnet_getp(nHandle,"ColumnHeadersBorderStyle"))
+		return dotnet_getp(nHandle,"ColumnHeadersBorderStyle")
 
 	Func setColumnHeadersBorderStyle P1
 		dotnet_setp(nHandle,"ColumnHeadersBorderStyle",P1)
@@ -25980,7 +26034,7 @@ Class DataGridView from Control
 		return self
 
 	Func getColumnHeadersHeightSizeMode
-		return dnAnswer(dotnet_getp(nHandle,"ColumnHeadersHeightSizeMode"))
+		return dotnet_getp(nHandle,"ColumnHeadersHeightSizeMode")
 
 	Func setColumnHeadersHeightSizeMode P1
 		dotnet_setp(nHandle,"ColumnHeadersHeightSizeMode",P1)
@@ -26019,7 +26073,7 @@ Class DataGridView from Control
 		raise("DotNet Error: CurrentRow is a read-only property")
 
 	Func getDataMember
-		return dnAnswer(dotnet_getp(nHandle,"DataMember"))
+		return dotnet_getp(nHandle,"DataMember")
 
 	Func setDataMember P1
 		dotnet_setp(nHandle,"DataMember",P1)
@@ -26040,7 +26094,7 @@ Class DataGridView from Control
 		return self
 
 	Func getEditMode
-		return dnAnswer(dotnet_getp(nHandle,"EditMode"))
+		return dotnet_getp(nHandle,"EditMode")
 
 	Func setEditMode P1
 		dotnet_setp(nHandle,"EditMode",P1)
@@ -26152,7 +26206,7 @@ Class DataGridView from Control
 		return self
 
 	Func getRowHeadersBorderStyle
-		return dnAnswer(dotnet_getp(nHandle,"RowHeadersBorderStyle"))
+		return dotnet_getp(nHandle,"RowHeadersBorderStyle")
 
 	Func setRowHeadersBorderStyle P1
 		dotnet_setp(nHandle,"RowHeadersBorderStyle",P1)
@@ -26180,7 +26234,7 @@ Class DataGridView from Control
 		return self
 
 	Func getRowHeadersWidthSizeMode
-		return dnAnswer(dotnet_getp(nHandle,"RowHeadersWidthSizeMode"))
+		return dotnet_getp(nHandle,"RowHeadersWidthSizeMode")
 
 	Func setRowHeadersWidthSizeMode P1
 		dotnet_setp(nHandle,"RowHeadersWidthSizeMode",P1)
@@ -26207,7 +26261,7 @@ Class DataGridView from Control
 		return self
 
 	Func getScrollBars
-		return dnAnswer(dotnet_getp(nHandle,"ScrollBars"))
+		return dotnet_getp(nHandle,"ScrollBars")
 
 	Func setScrollBars P1
 		dotnet_setp(nHandle,"ScrollBars",P1)
@@ -26232,7 +26286,7 @@ Class DataGridView from Control
 		raise("DotNet Error: SelectedRows is a read-only property")
 
 	Func getSelectionMode
-		return dnAnswer(dotnet_getp(nHandle,"SelectionMode"))
+		return dotnet_getp(nHandle,"SelectionMode")
 
 	Func setSelectionMode P1
 		dotnet_setp(nHandle,"SelectionMode",P1)
@@ -26273,7 +26327,7 @@ Class DataGridView from Control
 		raise("DotNet Error: SortedColumn is a read-only property")
 
 	Func getSortOrder
-		return dnAnswer(dotnet_getp(nHandle,"SortOrder"))
+		return dotnet_getp(nHandle,"SortOrder")
 
 	Func setSortOrder P1
 		raise("DotNet Error: SortOrder is a read-only property")
@@ -26367,6 +26421,9 @@ Class DataGridViewBand from DataGridViewElement
 		dotnet_calltv(nHandle,"Dispose")
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getContextMenuStrip
 		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ContextMenuStrip"))
 
@@ -26427,7 +26484,7 @@ Class DataGridViewBand from DataGridViewElement
 		return self
 
 	Func getResizable
-		return dnAnswer(dotnet_getp(nHandle,"Resizable"))
+		return dotnet_getp(nHandle,"Resizable")
 
 	Func setResizable P1
 		dotnet_setp(nHandle,"Resizable",P1)
@@ -26584,6 +26641,9 @@ Class DataGridViewCell from DataGridViewElement
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func MeasureTextHeight P1,P2,P3,P4,P5
 		dn_x = dotnet_call("s4:call",'System.Windows.Forms.DataGridViewCell, System.Windows.Forms',"s17:MeasureTextHeight",P1,P2,P3,P4,P5)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -26656,7 +26716,7 @@ Class DataGridViewCell from DataGridViewElement
 		raise("DotNet Error: ErrorIconBounds is a read-only property")
 
 	Func getErrorText
-		return dnAnswer(dotnet_getp(nHandle,"ErrorText"))
+		return dotnet_getp(nHandle,"ErrorText")
 
 	Func setErrorText P1
 		dotnet_setp(nHandle,"ErrorText",P1)
@@ -26687,7 +26747,7 @@ Class DataGridViewCell from DataGridViewElement
 		raise("DotNet Error: HasStyle is a read-only property")
 
 	Func getInheritedState
-		return dnAnswer(dotnet_getp(nHandle,"InheritedState"))
+		return dotnet_getp(nHandle,"InheritedState")
 
 	Func setInheritedState P1
 		raise("DotNet Error: InheritedState is a read-only property")
@@ -26769,7 +26829,7 @@ Class DataGridViewCell from DataGridViewElement
 		return self
 
 	Func getToolTipText
-		return dnAnswer(dotnet_getp(nHandle,"ToolTipText"))
+		return dotnet_getp(nHandle,"ToolTipText")
 
 	Func setToolTipText P1
 		dotnet_setp(nHandle,"ToolTipText",P1)
@@ -26904,7 +26964,7 @@ Class DataGridViewCellErrorTextNeededEventArgs from DataGridViewCellEventArgs
 		return self
 
 	Func getErrorText
-		return dnAnswer(dotnet_getp(nHandle,"ErrorText"))
+		return dotnet_getp(nHandle,"ErrorText")
 
 	Func setErrorText P1
 		dotnet_setp(nHandle,"ErrorText",P1)
@@ -27175,7 +27235,7 @@ Class DataGridViewDataErrorEventArgs from DataGridViewCellCancelEventArgs
 		return self
 
 	Func getContext
-		return dnAnswer(dotnet_getp(nHandle,"Context"))
+		return dotnet_getp(nHandle,"Context")
 
 	Func setContext P1
 		raise("DotNet Error: Context is a read-only property")
@@ -27432,14 +27492,14 @@ Class DateTimePicker from Control
 		return self
 
 	Func getDropDownAlign
-		return dnAnswer(dotnet_getp(nHandle,"DropDownAlign"))
+		return dotnet_getp(nHandle,"DropDownAlign")
 
 	Func setDropDownAlign P1
 		dotnet_setp(nHandle,"DropDownAlign",P1)
 		return self
 
 	Func getFormat
-		return dnAnswer(dotnet_getp(nHandle,"Format"))
+		return dotnet_getp(nHandle,"Format")
 
 	Func setFormat P1
 		dotnet_setp(nHandle,"Format",P1)
@@ -27596,7 +27656,7 @@ Class FileDialog from CommonDialog
 		return self
 
 	Func getDefaultExt
-		return dnAnswer(dotnet_getp(nHandle,"DefaultExt"))
+		return dotnet_getp(nHandle,"DefaultExt")
 
 	Func setDefaultExt P1
 		dotnet_setp(nHandle,"DefaultExt",P1)
@@ -27610,7 +27670,7 @@ Class FileDialog from CommonDialog
 		return self
 
 	Func getFileName
-		return dnAnswer(dotnet_getp(nHandle,"FileName"))
+		return dotnet_getp(nHandle,"FileName")
 
 	Func setFileName P1
 		dotnet_setp(nHandle,"FileName",P1)
@@ -27623,7 +27683,7 @@ Class FileDialog from CommonDialog
 		raise("DotNet Error: FileNames is a read-only property")
 
 	Func getFilter
-		return dnAnswer(dotnet_getp(nHandle,"Filter"))
+		return dotnet_getp(nHandle,"Filter")
 
 	Func setFilter P1
 		dotnet_setp(nHandle,"Filter",P1)
@@ -27637,7 +27697,7 @@ Class FileDialog from CommonDialog
 		return self
 
 	Func getInitialDirectory
-		return dnAnswer(dotnet_getp(nHandle,"InitialDirectory"))
+		return dotnet_getp(nHandle,"InitialDirectory")
 
 	Func setInitialDirectory P1
 		dotnet_setp(nHandle,"InitialDirectory",P1)
@@ -27672,7 +27732,7 @@ Class FileDialog from CommonDialog
 		return self
 
 	Func getTitle
-		return dnAnswer(dotnet_getp(nHandle,"Title"))
+		return dotnet_getp(nHandle,"Title")
 
 	Func setTitle P1
 		dotnet_setp(nHandle,"Title",P1)
@@ -27738,7 +27798,7 @@ Class FlowLayoutSettings from LayoutSettings
 		return dn_x
 
 	Func getFlowDirection
-		return dnAnswer(dotnet_getp(nHandle,"FlowDirection"))
+		return dotnet_getp(nHandle,"FlowDirection")
 
 	Func setFlowDirection P1
 		dotnet_setp(nHandle,"FlowDirection",P1)
@@ -27844,7 +27904,7 @@ Class FolderBrowserDialog from CommonDialog
 		return self
 
 	Func getSelectedPath
-		return dnAnswer(dotnet_getp(nHandle,"SelectedPath"))
+		return dotnet_getp(nHandle,"SelectedPath")
 
 	Func setSelectedPath P1
 		dotnet_setp(nHandle,"SelectedPath",P1)
@@ -27857,21 +27917,21 @@ Class FolderBrowserDialog from CommonDialog
 		raise("DotNet Error: SelectedPaths is a read-only property")
 
 	Func getInitialDirectory
-		return dnAnswer(dotnet_getp(nHandle,"InitialDirectory"))
+		return dotnet_getp(nHandle,"InitialDirectory")
 
 	Func setInitialDirectory P1
 		dotnet_setp(nHandle,"InitialDirectory",P1)
 		return self
 
 	Func getRootFolder
-		return dnAnswer(dotnet_getp(nHandle,"RootFolder"))
+		return dotnet_getp(nHandle,"RootFolder")
 
 	Func setRootFolder P1
 		dotnet_setp(nHandle,"RootFolder",P1)
 		return self
 
 	Func getDescription
-		return dnAnswer(dotnet_getp(nHandle,"Description"))
+		return dotnet_getp(nHandle,"Description")
 
 	Func setDescription P1
 		dotnet_setp(nHandle,"Description",P1)
@@ -28074,14 +28134,14 @@ Class GroupBox from Control
 		return self
 
 	Func getAutoSizeMode
-		return dnAnswer(dotnet_getp(nHandle,"AutoSizeMode"))
+		return dotnet_getp(nHandle,"AutoSizeMode")
 
 	Func setAutoSizeMode P1
 		dotnet_setp(nHandle,"AutoSizeMode",P1)
 		return self
 
 	Func getFlatStyle
-		return dnAnswer(dotnet_getp(nHandle,"FlatStyle"))
+		return dotnet_getp(nHandle,"FlatStyle")
 
 	Func setFlatStyle P1
 		dotnet_setp(nHandle,"FlatStyle",P1)
@@ -28198,14 +28258,14 @@ Class Label from Control
 		return self
 
 	Func getBorderStyle
-		return dnAnswer(dotnet_getp(nHandle,"BorderStyle"))
+		return dotnet_getp(nHandle,"BorderStyle")
 
 	Func setBorderStyle P1
 		dotnet_setp(nHandle,"BorderStyle",P1)
 		return self
 
 	Func getFlatStyle
-		return dnAnswer(dotnet_getp(nHandle,"FlatStyle"))
+		return dotnet_getp(nHandle,"FlatStyle")
 
 	Func setFlatStyle P1
 		dotnet_setp(nHandle,"FlatStyle",P1)
@@ -28240,14 +28300,14 @@ Class Label from Control
 		return self
 
 	Func getImageAlign
-		return dnAnswer(dotnet_getp(nHandle,"ImageAlign"))
+		return dotnet_getp(nHandle,"ImageAlign")
 
 	Func setImageAlign P1
 		dotnet_setp(nHandle,"ImageAlign",P1)
 		return self
 
 	Func getLiveSetting
-		return dnAnswer(dotnet_getp(nHandle,"LiveSetting"))
+		return dotnet_getp(nHandle,"LiveSetting")
 
 	Func setLiveSetting P1
 		dotnet_setp(nHandle,"LiveSetting",P1)
@@ -28266,7 +28326,7 @@ Class Label from Control
 		raise("DotNet Error: PreferredWidth is a read-only property")
 
 	Func getTextAlign
-		return dnAnswer(dotnet_getp(nHandle,"TextAlign"))
+		return dotnet_getp(nHandle,"TextAlign")
 
 	Func setTextAlign P1
 		dotnet_setp(nHandle,"TextAlign",P1)
@@ -28384,7 +28444,7 @@ Class ListControl from Control
 		return self
 
 	Func getDisplayMember
-		return dnAnswer(dotnet_getp(nHandle,"DisplayMember"))
+		return dotnet_getp(nHandle,"DisplayMember")
 
 	Func setDisplayMember P1
 		dotnet_setp(nHandle,"DisplayMember",P1)
@@ -28398,7 +28458,7 @@ Class ListControl from Control
 		return self
 
 	Func getFormatString
-		return dnAnswer(dotnet_getp(nHandle,"FormatString"))
+		return dotnet_getp(nHandle,"FormatString")
 
 	Func setFormatString P1
 		dotnet_setp(nHandle,"FormatString",P1)
@@ -28412,7 +28472,7 @@ Class ListControl from Control
 		return self
 
 	Func getValueMember
-		return dnAnswer(dotnet_getp(nHandle,"ValueMember"))
+		return dotnet_getp(nHandle,"ValueMember")
 
 	Func setValueMember P1
 		dotnet_setp(nHandle,"ValueMember",P1)
@@ -28784,14 +28844,14 @@ Class ListView from Control
 		return self
 
 	Func getActivation
-		return dnAnswer(dotnet_getp(nHandle,"Activation"))
+		return dotnet_getp(nHandle,"Activation")
 
 	Func setActivation P1
 		dotnet_setp(nHandle,"Activation",P1)
 		return self
 
 	Func getAlignment
-		return dnAnswer(dotnet_getp(nHandle,"Alignment"))
+		return dotnet_getp(nHandle,"Alignment")
 
 	Func setAlignment P1
 		dotnet_setp(nHandle,"Alignment",P1)
@@ -28819,7 +28879,7 @@ Class ListView from Control
 		return self
 
 	Func getBorderStyle
-		return dnAnswer(dotnet_getp(nHandle,"BorderStyle"))
+		return dotnet_getp(nHandle,"BorderStyle")
 
 	Func setBorderStyle P1
 		dotnet_setp(nHandle,"BorderStyle",P1)
@@ -28885,7 +28945,7 @@ Class ListView from Control
 		raise("DotNet Error: Groups is a read-only property")
 
 	Func getHeaderStyle
-		return dnAnswer(dotnet_getp(nHandle,"HeaderStyle"))
+		return dotnet_getp(nHandle,"HeaderStyle")
 
 	Func setHeaderStyle P1
 		dotnet_setp(nHandle,"HeaderStyle",P1)
@@ -29014,7 +29074,7 @@ Class ListView from Control
 		return self
 
 	Func getSorting
-		return dnAnswer(dotnet_getp(nHandle,"Sorting"))
+		return dotnet_getp(nHandle,"Sorting")
 
 	Func setSorting P1
 		dotnet_setp(nHandle,"Sorting",P1)
@@ -29049,7 +29109,7 @@ Class ListView from Control
 		return self
 
 	Func getView
-		return dnAnswer(dotnet_getp(nHandle,"View"))
+		return dotnet_getp(nHandle,"View")
 
 	Func setView P1
 		dotnet_setp(nHandle,"View",P1)
@@ -29305,7 +29365,7 @@ Class MonthCalendar from Control
 		return self
 
 	Func getFirstDayOfWeek
-		return dnAnswer(dotnet_getp(nHandle,"FirstDayOfWeek"))
+		return dotnet_getp(nHandle,"FirstDayOfWeek")
 
 	Func setFirstDayOfWeek P1
 		dotnet_setp(nHandle,"FirstDayOfWeek",P1)
@@ -29672,7 +29732,7 @@ Class PictureBox from Control
 		return self
 
 	Func getBorderStyle
-		return dnAnswer(dotnet_getp(nHandle,"BorderStyle"))
+		return dotnet_getp(nHandle,"BorderStyle")
 
 	Func setBorderStyle P1
 		dotnet_setp(nHandle,"BorderStyle",P1)
@@ -29707,7 +29767,7 @@ Class PictureBox from Control
 		return self
 
 	Func getSizeMode
-		return dnAnswer(dotnet_getp(nHandle,"SizeMode"))
+		return dotnet_getp(nHandle,"SizeMode")
 
 	Func setSizeMode P1
 		dotnet_setp(nHandle,"SizeMode",P1)
@@ -29958,7 +30018,7 @@ Class ProgressBar from Control
 		return self
 
 	Func getStyle
-		return dnAnswer(dotnet_getp(nHandle,"Style"))
+		return dotnet_getp(nHandle,"Style")
 
 	Func setStyle P1
 		dotnet_setp(nHandle,"Style",P1)
@@ -30285,7 +30345,7 @@ Class Splitter from Control
 		return self
 
 	Func getBorderStyle
-		return dnAnswer(dotnet_getp(nHandle,"BorderStyle"))
+		return dotnet_getp(nHandle,"BorderStyle")
 
 	Func setBorderStyle P1
 		dotnet_setp(nHandle,"BorderStyle",P1)
@@ -30428,21 +30488,21 @@ Class TabControl from Control
 		return self
 
 	Func getAlignment
-		return dnAnswer(dotnet_getp(nHandle,"Alignment"))
+		return dotnet_getp(nHandle,"Alignment")
 
 	Func setAlignment P1
 		dotnet_setp(nHandle,"Alignment",P1)
 		return self
 
 	Func getAppearance
-		return dnAnswer(dotnet_getp(nHandle,"Appearance"))
+		return dotnet_getp(nHandle,"Appearance")
 
 	Func setAppearance P1
 		dotnet_setp(nHandle,"Appearance",P1)
 		return self
 
 	Func getDrawMode
-		return dnAnswer(dotnet_getp(nHandle,"DrawMode"))
+		return dotnet_getp(nHandle,"DrawMode")
 
 	Func setDrawMode P1
 		dotnet_setp(nHandle,"DrawMode",P1)
@@ -30504,7 +30564,7 @@ Class TabControl from Control
 		return self
 
 	Func getSizeMode
-		return dnAnswer(dotnet_getp(nHandle,"SizeMode"))
+		return dotnet_getp(nHandle,"SizeMode")
 
 	Func setSizeMode P1
 		dotnet_setp(nHandle,"SizeMode",P1)
@@ -30780,7 +30840,7 @@ Class TableLayoutSettings from LayoutSettings
 		raise("DotNet Error: ColumnStyles is a read-only property")
 
 	Func getGrowStyle
-		return dnAnswer(dotnet_getp(nHandle,"GrowStyle"))
+		return dotnet_getp(nHandle,"GrowStyle")
 
 	Func setGrowStyle P1
 		dotnet_setp(nHandle,"GrowStyle",P1)
@@ -30843,6 +30903,9 @@ Class TaskDialogButton from TaskDialogControl
 	Func PerformClick 
 		dotnet_calltv(nHandle,"PerformClick")
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func setClickEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"Click",dnCallback(P1)])
@@ -31006,6 +31069,9 @@ Class TaskDialogExpander from TaskDialogControl
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func setExpandedChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"ExpandedChanged",dnCallback(P1)])
 		return self
@@ -31043,7 +31109,7 @@ Class TaskDialogExpander from TaskDialogControl
 		return self
 
 	Func getPosition
-		return dnAnswer(dotnet_getp(nHandle,"Position"))
+		return dotnet_getp(nHandle,"Position")
 
 	Func setPosition P1
 		dotnet_setp(nHandle,"Position",P1)
@@ -31088,6 +31154,9 @@ Class TaskDialogFootnote from TaskDialogControl
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogFootnote, System.Windows.Forms',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getText
 		return dnAnswer(dotnet_getp(nHandle,"Text"))
@@ -31147,7 +31216,7 @@ Class TaskDialogProgressBar from TaskDialogControl
 		return self
 
 	Func getState
-		return dnAnswer(dotnet_getp(nHandle,"State"))
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		dotnet_setp(nHandle,"State",P1)
@@ -31222,6 +31291,9 @@ Class TaskDialogRadioButton from TaskDialogControl
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func setCheckedChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"CheckedChanged",dnCallback(P1)])
 		return self
@@ -31290,6 +31362,9 @@ Class TaskDialogVerificationCheckBox from TaskDialogControl
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogVerificationCheckBox, System.Windows.Forms',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func setCheckedChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"CheckedChanged",dnCallback(P1)])
@@ -31485,7 +31560,7 @@ Class TextBoxBase from Control
 		return self
 
 	Func getBorderStyle
-		return dnAnswer(dotnet_getp(nHandle,"BorderStyle"))
+		return dotnet_getp(nHandle,"BorderStyle")
 
 	Func setBorderStyle P1
 		dotnet_setp(nHandle,"BorderStyle",P1)
@@ -31546,7 +31621,7 @@ Class TextBoxBase from Control
 		return self
 
 	Func getSelectedText
-		return dnAnswer(dotnet_getp(nHandle,"SelectedText"))
+		return dotnet_getp(nHandle,"SelectedText")
 
 	Func setSelectedText P1
 		dotnet_setp(nHandle,"SelectedText",P1)
@@ -31604,13 +31679,13 @@ Class ToolStripGripRenderEventArgs from ToolStripRenderEventArgs
 		raise("DotNet Error: GripBounds is a read-only property")
 
 	Func getGripDisplayStyle
-		return dnAnswer(dotnet_getp(nHandle,"GripDisplayStyle"))
+		return dotnet_getp(nHandle,"GripDisplayStyle")
 
 	Func setGripDisplayStyle P1
 		raise("DotNet Error: GripDisplayStyle is a read-only property")
 
 	Func getGripStyle
-		return dnAnswer(dotnet_getp(nHandle,"GripStyle"))
+		return dotnet_getp(nHandle,"GripStyle")
 
 	Func setGripStyle P1
 		raise("DotNet Error: GripStyle is a read-only property")
@@ -32021,14 +32096,14 @@ Class ToolStripItem from BindableComponent
 		return self
 
 	Func getAccessibleRole
-		return dnAnswer(dotnet_getp(nHandle,"AccessibleRole"))
+		return dotnet_getp(nHandle,"AccessibleRole")
 
 	Func setAccessibleRole P1
 		dotnet_setp(nHandle,"AccessibleRole",P1)
 		return self
 
 	Func getAlignment
-		return dnAnswer(dotnet_getp(nHandle,"Alignment"))
+		return dotnet_getp(nHandle,"Alignment")
 
 	Func setAlignment P1
 		dotnet_setp(nHandle,"Alignment",P1)
@@ -32084,7 +32159,7 @@ Class ToolStripItem from BindableComponent
 		return self
 
 	Func getBackgroundImageLayout
-		return dnAnswer(dotnet_getp(nHandle,"BackgroundImageLayout"))
+		return dotnet_getp(nHandle,"BackgroundImageLayout")
 
 	Func setBackgroundImageLayout P1
 		dotnet_setp(nHandle,"BackgroundImageLayout",P1)
@@ -32116,21 +32191,21 @@ Class ToolStripItem from BindableComponent
 		raise("DotNet Error: CanSelect is a read-only property")
 
 	Func getAnchor
-		return dnAnswer(dotnet_getp(nHandle,"Anchor"))
+		return dotnet_getp(nHandle,"Anchor")
 
 	Func setAnchor P1
 		dotnet_setp(nHandle,"Anchor",P1)
 		return self
 
 	Func getDock
-		return dnAnswer(dotnet_getp(nHandle,"Dock"))
+		return dotnet_getp(nHandle,"Dock")
 
 	Func setDock P1
 		dotnet_setp(nHandle,"Dock",P1)
 		return self
 
 	Func getDisplayStyle
-		return dnAnswer(dotnet_getp(nHandle,"DisplayStyle"))
+		return dotnet_getp(nHandle,"DisplayStyle")
 
 	Func setDisplayStyle P1
 		dotnet_setp(nHandle,"DisplayStyle",P1)
@@ -32172,7 +32247,7 @@ Class ToolStripItem from BindableComponent
 		return self
 
 	Func getImageAlign
-		return dnAnswer(dotnet_getp(nHandle,"ImageAlign"))
+		return dotnet_getp(nHandle,"ImageAlign")
 
 	Func setImageAlign P1
 		dotnet_setp(nHandle,"ImageAlign",P1)
@@ -32200,14 +32275,14 @@ Class ToolStripItem from BindableComponent
 		return self
 
 	Func getImageKey
-		return dnAnswer(dotnet_getp(nHandle,"ImageKey"))
+		return dotnet_getp(nHandle,"ImageKey")
 
 	Func setImageKey P1
 		dotnet_setp(nHandle,"ImageKey",P1)
 		return self
 
 	Func getImageScaling
-		return dnAnswer(dotnet_getp(nHandle,"ImageScaling"))
+		return dotnet_getp(nHandle,"ImageScaling")
 
 	Func setImageScaling P1
 		dotnet_setp(nHandle,"ImageScaling",P1)
@@ -32239,7 +32314,7 @@ Class ToolStripItem from BindableComponent
 		return self
 
 	Func getMergeAction
-		return dnAnswer(dotnet_getp(nHandle,"MergeAction"))
+		return dotnet_getp(nHandle,"MergeAction")
 
 	Func setMergeAction P1
 		dotnet_setp(nHandle,"MergeAction",P1)
@@ -32273,7 +32348,7 @@ Class ToolStripItem from BindableComponent
 		raise("DotNet Error: OwnerItem is a read-only property")
 
 	Func getOverflow
-		return dnAnswer(dotnet_getp(nHandle,"Overflow"))
+		return dotnet_getp(nHandle,"Overflow")
 
 	Func setOverflow P1
 		dotnet_setp(nHandle,"Overflow",P1)
@@ -32287,7 +32362,7 @@ Class ToolStripItem from BindableComponent
 		return self
 
 	Func getPlacement
-		return dnAnswer(dotnet_getp(nHandle,"Placement"))
+		return dotnet_getp(nHandle,"Placement")
 
 	Func setPlacement P1
 		raise("DotNet Error: Placement is a read-only property")
@@ -32299,7 +32374,7 @@ Class ToolStripItem from BindableComponent
 		raise("DotNet Error: Pressed is a read-only property")
 
 	Func getRightToLeft
-		return dnAnswer(dotnet_getp(nHandle,"RightToLeft"))
+		return dotnet_getp(nHandle,"RightToLeft")
 
 	Func setRightToLeft P1
 		dotnet_setp(nHandle,"RightToLeft",P1)
@@ -32340,21 +32415,21 @@ Class ToolStripItem from BindableComponent
 		return self
 
 	Func getTextAlign
-		return dnAnswer(dotnet_getp(nHandle,"TextAlign"))
+		return dotnet_getp(nHandle,"TextAlign")
 
 	Func setTextAlign P1
 		dotnet_setp(nHandle,"TextAlign",P1)
 		return self
 
 	Func getTextDirection
-		return dnAnswer(dotnet_getp(nHandle,"TextDirection"))
+		return dotnet_getp(nHandle,"TextDirection")
 
 	Func setTextDirection P1
 		dotnet_setp(nHandle,"TextDirection",P1)
 		return self
 
 	Func getTextImageRelation
-		return dnAnswer(dotnet_getp(nHandle,"TextImageRelation"))
+		return dotnet_getp(nHandle,"TextImageRelation")
 
 	Func setTextImageRelation P1
 		dotnet_setp(nHandle,"TextImageRelation",P1)
@@ -32399,6 +32474,15 @@ Class ToolStripItemToolStripItemAccessibleObject from AccessibleObject
 		dotnet_callv("s4:call",nHandle,"s8:AddState",P1)
 
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
+	Func getDefaultAction
+		return dotnet_getp(nHandle,"DefaultAction")
+
+	Func getKeyboardShortcut
+		return dotnet_getp(nHandle,"KeyboardShortcut")
 
 
 Class ToolStripItemImageRenderEventArgs from ToolStripItemRenderEventArgs
@@ -32494,14 +32578,14 @@ Class ToolStripItemTextRenderEventArgs from ToolStripItemRenderEventArgs
 		return self
 
 	Func getTextFormat
-		return dnAnswer(dotnet_getp(nHandle,"TextFormat"))
+		return dotnet_getp(nHandle,"TextFormat")
 
 	Func setTextFormat P1
 		dotnet_setp(nHandle,"TextFormat",P1)
 		return self
 
 	Func getTextDirection
-		return dnAnswer(dotnet_getp(nHandle,"TextDirection"))
+		return dotnet_getp(nHandle,"TextDirection")
 
 	Func setTextDirection P1
 		dotnet_setp(nHandle,"TextDirection",P1)
@@ -32692,7 +32776,7 @@ Class TrackBar from Control
 		return self
 
 	Func getOrientation
-		return dnAnswer(dotnet_getp(nHandle,"Orientation"))
+		return dotnet_getp(nHandle,"Orientation")
 
 	Func setOrientation P1
 		dotnet_setp(nHandle,"Orientation",P1)
@@ -32713,7 +32797,7 @@ Class TrackBar from Control
 		return self
 
 	Func getTickStyle
-		return dnAnswer(dotnet_getp(nHandle,"TickStyle"))
+		return dotnet_getp(nHandle,"TickStyle")
 
 	Func setTickStyle P1
 		dotnet_setp(nHandle,"TickStyle",P1)
@@ -32978,7 +33062,7 @@ Class TreeView from Control
 		return self
 
 	Func getBorderStyle
-		return dnAnswer(dotnet_getp(nHandle,"BorderStyle"))
+		return dotnet_getp(nHandle,"BorderStyle")
 
 	Func setBorderStyle P1
 		dotnet_setp(nHandle,"BorderStyle",P1)
@@ -33020,7 +33104,7 @@ Class TreeView from Control
 		return self
 
 	Func getImageKey
-		return dnAnswer(dotnet_getp(nHandle,"ImageKey"))
+		return dotnet_getp(nHandle,"ImageKey")
 
 	Func setImageKey P1
 		dotnet_setp(nHandle,"ImageKey",P1)
@@ -33075,14 +33159,14 @@ Class TreeView from Control
 		raise("DotNet Error: Nodes is a read-only property")
 
 	Func getDrawMode
-		return dnAnswer(dotnet_getp(nHandle,"DrawMode"))
+		return dotnet_getp(nHandle,"DrawMode")
 
 	Func setDrawMode P1
 		dotnet_setp(nHandle,"DrawMode",P1)
 		return self
 
 	Func getPathSeparator
-		return dnAnswer(dotnet_getp(nHandle,"PathSeparator"))
+		return dotnet_getp(nHandle,"PathSeparator")
 
 	Func setPathSeparator P1
 		dotnet_setp(nHandle,"PathSeparator",P1)
@@ -33110,7 +33194,7 @@ Class TreeView from Control
 		return self
 
 	Func getSelectedImageKey
-		return dnAnswer(dotnet_getp(nHandle,"SelectedImageKey"))
+		return dotnet_getp(nHandle,"SelectedImageKey")
 
 	Func setSelectedImageKey P1
 		dotnet_setp(nHandle,"SelectedImageKey",P1)
@@ -33304,14 +33388,14 @@ Class Button from ButtonBase
 		return self
 
 	Func getAutoSizeMode
-		return dnAnswer(dotnet_getp(nHandle,"AutoSizeMode"))
+		return dotnet_getp(nHandle,"AutoSizeMode")
 
 	Func setAutoSizeMode P1
 		dotnet_setp(nHandle,"AutoSizeMode",P1)
 		return self
 
 	Func getDialogResult
-		return dnAnswer(dotnet_getp(nHandle,"DialogResult"))
+		return dotnet_getp(nHandle,"DialogResult")
 
 	Func setDialogResult P1
 		dotnet_setp(nHandle,"DialogResult",P1)
@@ -33387,7 +33471,7 @@ Class CheckBox from ButtonBase
 		return self
 
 	Func getAppearance
-		return dnAnswer(dotnet_getp(nHandle,"Appearance"))
+		return dotnet_getp(nHandle,"Appearance")
 
 	Func setAppearance P1
 		dotnet_setp(nHandle,"Appearance",P1)
@@ -33401,7 +33485,7 @@ Class CheckBox from ButtonBase
 		return self
 
 	Func getCheckAlign
-		return dnAnswer(dotnet_getp(nHandle,"CheckAlign"))
+		return dotnet_getp(nHandle,"CheckAlign")
 
 	Func setCheckAlign P1
 		dotnet_setp(nHandle,"CheckAlign",P1)
@@ -33415,7 +33499,7 @@ Class CheckBox from ButtonBase
 		return self
 
 	Func getCheckState
-		return dnAnswer(dotnet_getp(nHandle,"CheckState"))
+		return dotnet_getp(nHandle,"CheckState")
 
 	Func setCheckState P1
 		dotnet_setp(nHandle,"CheckState",P1)
@@ -33568,14 +33652,14 @@ Class ComboBox from ListControl
 		return self
 
 	Func getAutoCompleteMode
-		return dnAnswer(dotnet_getp(nHandle,"AutoCompleteMode"))
+		return dotnet_getp(nHandle,"AutoCompleteMode")
 
 	Func setAutoCompleteMode P1
 		dotnet_setp(nHandle,"AutoCompleteMode",P1)
 		return self
 
 	Func getAutoCompleteSource
-		return dnAnswer(dotnet_getp(nHandle,"AutoCompleteSource"))
+		return dotnet_getp(nHandle,"AutoCompleteSource")
 
 	Func setAutoCompleteSource P1
 		dotnet_setp(nHandle,"AutoCompleteSource",P1)
@@ -33589,7 +33673,7 @@ Class ComboBox from ListControl
 		return self
 
 	Func getDrawMode
-		return dnAnswer(dotnet_getp(nHandle,"DrawMode"))
+		return dotnet_getp(nHandle,"DrawMode")
 
 	Func setDrawMode P1
 		dotnet_setp(nHandle,"DrawMode",P1)
@@ -33617,7 +33701,7 @@ Class ComboBox from ListControl
 		return self
 
 	Func getFlatStyle
-		return dnAnswer(dotnet_getp(nHandle,"FlatStyle"))
+		return dotnet_getp(nHandle,"FlatStyle")
 
 	Func setFlatStyle P1
 		dotnet_setp(nHandle,"FlatStyle",P1)
@@ -33671,7 +33755,7 @@ Class ComboBox from ListControl
 		return self
 
 	Func getSelectedText
-		return dnAnswer(dotnet_getp(nHandle,"SelectedText"))
+		return dotnet_getp(nHandle,"SelectedText")
 
 	Func setSelectedText P1
 		dotnet_setp(nHandle,"SelectedText",P1)
@@ -33699,7 +33783,7 @@ Class ComboBox from ListControl
 		return self
 
 	Func getDropDownStyle
-		return dnAnswer(dotnet_getp(nHandle,"DropDownStyle"))
+		return dotnet_getp(nHandle,"DropDownStyle")
 
 	Func setDropDownStyle P1
 		dotnet_setp(nHandle,"DropDownStyle",P1)
@@ -33759,14 +33843,14 @@ Class ContainerControl from ScrollableControl
 		return self
 
 	Func getAutoScaleMode
-		return dnAnswer(dotnet_getp(nHandle,"AutoScaleMode"))
+		return dotnet_getp(nHandle,"AutoScaleMode")
 
 	Func setAutoScaleMode P1
 		dotnet_setp(nHandle,"AutoScaleMode",P1)
 		return self
 
 	Func getAutoValidate
-		return dnAnswer(dotnet_getp(nHandle,"AutoValidate"))
+		return dotnet_getp(nHandle,"AutoValidate")
 
 	Func setAutoValidate P1
 		dotnet_setp(nHandle,"AutoValidate",P1)
@@ -33845,7 +33929,7 @@ Class ControlBindingsCollection from BindingsCollection
 		raise("DotNet Error: Control is a read-only property")
 
 	Func getDefaultDataSourceUpdateMode
-		return dnAnswer(dotnet_getp(nHandle,"DefaultDataSourceUpdateMode"))
+		return dotnet_getp(nHandle,"DefaultDataSourceUpdateMode")
 
 	Func setDefaultDataSourceUpdateMode P1
 		dotnet_setp(nHandle,"DefaultDataSourceUpdateMode",P1)
@@ -33876,7 +33960,7 @@ Class DataGridViewButtonCell from DataGridViewCell
 		return self
 
 	Func getFlatStyle
-		return dnAnswer(dotnet_getp(nHandle,"FlatStyle"))
+		return dotnet_getp(nHandle,"FlatStyle")
 
 	Func setFlatStyle P1
 		dotnet_setp(nHandle,"FlatStyle",P1)
@@ -33970,7 +34054,7 @@ Class DataGridViewCheckBoxCell from DataGridViewCell
 		return self
 
 	Func getFlatStyle
-		return dnAnswer(dotnet_getp(nHandle,"FlatStyle"))
+		return dotnet_getp(nHandle,"FlatStyle")
 
 	Func setFlatStyle P1
 		dotnet_setp(nHandle,"FlatStyle",P1)
@@ -34067,7 +34151,7 @@ Class DataGridViewColumn from DataGridViewBand
 		return self
 
 	Func getAutoSizeMode
-		return dnAnswer(dotnet_getp(nHandle,"AutoSizeMode"))
+		return dotnet_getp(nHandle,"AutoSizeMode")
 
 	Func setAutoSizeMode P1
 		dotnet_setp(nHandle,"AutoSizeMode",P1)
@@ -34087,7 +34171,7 @@ Class DataGridViewColumn from DataGridViewBand
 		raise("DotNet Error: CellType is a read-only property")
 
 	Func getDataPropertyName
-		return dnAnswer(dotnet_getp(nHandle,"DataPropertyName"))
+		return dotnet_getp(nHandle,"DataPropertyName")
 
 	Func setDataPropertyName P1
 		dotnet_setp(nHandle,"DataPropertyName",P1)
@@ -34122,14 +34206,14 @@ Class DataGridViewColumn from DataGridViewBand
 		return self
 
 	Func getHeaderText
-		return dnAnswer(dotnet_getp(nHandle,"HeaderText"))
+		return dotnet_getp(nHandle,"HeaderText")
 
 	Func setHeaderText P1
 		dotnet_setp(nHandle,"HeaderText",P1)
 		return self
 
 	Func getInheritedAutoSizeMode
-		return dnAnswer(dotnet_getp(nHandle,"InheritedAutoSizeMode"))
+		return dotnet_getp(nHandle,"InheritedAutoSizeMode")
 
 	Func setInheritedAutoSizeMode P1
 		raise("DotNet Error: InheritedAutoSizeMode is a read-only property")
@@ -34148,7 +34232,7 @@ Class DataGridViewColumn from DataGridViewBand
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -34162,14 +34246,14 @@ Class DataGridViewColumn from DataGridViewBand
 		return self
 
 	Func getSortMode
-		return dnAnswer(dotnet_getp(nHandle,"SortMode"))
+		return dotnet_getp(nHandle,"SortMode")
 
 	Func setSortMode P1
 		dotnet_setp(nHandle,"SortMode",P1)
 		return self
 
 	Func getToolTipText
-		return dnAnswer(dotnet_getp(nHandle,"ToolTipText"))
+		return dotnet_getp(nHandle,"ToolTipText")
 
 	Func setToolTipText P1
 		dotnet_setp(nHandle,"ToolTipText",P1)
@@ -34259,14 +34343,14 @@ Class DataGridViewComboBoxCell from DataGridViewCell
 		return self
 
 	Func getDisplayMember
-		return dnAnswer(dotnet_getp(nHandle,"DisplayMember"))
+		return dotnet_getp(nHandle,"DisplayMember")
 
 	Func setDisplayMember P1
 		dotnet_setp(nHandle,"DisplayMember",P1)
 		return self
 
 	Func getDisplayStyle
-		return dnAnswer(dotnet_getp(nHandle,"DisplayStyle"))
+		return dotnet_getp(nHandle,"DisplayStyle")
 
 	Func setDisplayStyle P1
 		dotnet_setp(nHandle,"DisplayStyle",P1)
@@ -34287,7 +34371,7 @@ Class DataGridViewComboBoxCell from DataGridViewCell
 		return self
 
 	Func getFlatStyle
-		return dnAnswer(dotnet_getp(nHandle,"FlatStyle"))
+		return dotnet_getp(nHandle,"FlatStyle")
 
 	Func setFlatStyle P1
 		dotnet_setp(nHandle,"FlatStyle",P1)
@@ -34314,7 +34398,7 @@ Class DataGridViewComboBoxCell from DataGridViewCell
 		return self
 
 	Func getValueMember
-		return dnAnswer(dotnet_getp(nHandle,"ValueMember"))
+		return dotnet_getp(nHandle,"ValueMember")
 
 	Func setValueMember P1
 		dotnet_setp(nHandle,"ValueMember",P1)
@@ -34386,14 +34470,14 @@ Class DataGridViewImageCell from DataGridViewCell
 		return self
 
 	Func getDescription
-		return dnAnswer(dotnet_getp(nHandle,"Description"))
+		return dotnet_getp(nHandle,"Description")
 
 	Func setDescription P1
 		dotnet_setp(nHandle,"Description",P1)
 		return self
 
 	Func getImageLayout
-		return dnAnswer(dotnet_getp(nHandle,"ImageLayout"))
+		return dotnet_getp(nHandle,"ImageLayout")
 
 	Func setImageLayout P1
 		dotnet_setp(nHandle,"ImageLayout",P1)
@@ -34443,7 +34527,7 @@ Class DataGridViewLinkCell from DataGridViewCell
 		return self
 
 	Func getLinkBehavior
-		return dnAnswer(dotnet_getp(nHandle,"LinkBehavior"))
+		return dotnet_getp(nHandle,"LinkBehavior")
 
 	Func setLinkBehavior P1
 		dotnet_setp(nHandle,"LinkBehavior",P1)
@@ -34537,7 +34621,7 @@ Class DataGridViewRow from DataGridViewBand
 		return dnObj(dn_x)
 
 	Func @GetErrorText P1
-		return dnAnswer(dotnet_callt(nHandle,"GetErrorText",P1))
+		return dotnet_callt(nHandle,"GetErrorText",P1)
 
 	Func GetPreferredHeight P1,P2,P3
 		dn_x = dotnet_call("s4:call",nHandle,"s18:GetPreferredHeight",P1,P2,P3)
@@ -34582,7 +34666,7 @@ Class DataGridViewRow from DataGridViewBand
 		return self
 
 	Func getErrorText
-		return dnAnswer(dotnet_getp(nHandle,"ErrorText"))
+		return dotnet_getp(nHandle,"ErrorText")
 
 	Func setErrorText P1
 		dotnet_setp(nHandle,"ErrorText",P1)
@@ -34684,11 +34768,20 @@ Class DateTimePickerDateTimePickerAccessibleObject from ControlControlAccessible
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func getName
+		return dotnet_getp(nHandle,"Name")
+
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
+	Func getValue
+		return dotnet_getp(nHandle,"Value")
+
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
+
+	Func getDefaultAction
+		return dotnet_getp(nHandle,"DefaultAction")
 
 
 Class HScrollBar from ScrollBar
@@ -34771,7 +34864,7 @@ Class LinkLabel from Label
 		return self
 
 	Func getLinkBehavior
-		return dnAnswer(dotnet_getp(nHandle,"LinkBehavior"))
+		return dotnet_getp(nHandle,"LinkBehavior")
 
 	Func setLinkBehavior P1
 		dotnet_setp(nHandle,"LinkBehavior",P1)
@@ -34911,7 +35004,7 @@ Class ListBox from ListControl
 		return self
 
 	Func getBorderStyle
-		return dnAnswer(dotnet_getp(nHandle,"BorderStyle"))
+		return dotnet_getp(nHandle,"BorderStyle")
 
 	Func setBorderStyle P1
 		dotnet_setp(nHandle,"BorderStyle",P1)
@@ -34932,7 +35025,7 @@ Class ListBox from ListControl
 		return self
 
 	Func getDrawMode
-		return dnAnswer(dotnet_getp(nHandle,"DrawMode"))
+		return dotnet_getp(nHandle,"DrawMode")
 
 	Func setDrawMode P1
 		dotnet_setp(nHandle,"DrawMode",P1)
@@ -35012,7 +35105,7 @@ Class ListBox from ListControl
 		raise("DotNet Error: SelectedItems is a read-only property")
 
 	Func getSelectionMode
-		return dnAnswer(dotnet_getp(nHandle,"SelectionMode"))
+		return dotnet_getp(nHandle,"SelectionMode")
 
 	Func setSelectionMode P1
 		dotnet_setp(nHandle,"SelectionMode",P1)
@@ -35194,7 +35287,7 @@ Class MaskedTextBox from TextBoxBase
 		return self
 
 	Func getCutCopyMaskFormat
-		return dnAnswer(dotnet_getp(nHandle,"CutCopyMaskFormat"))
+		return dotnet_getp(nHandle,"CutCopyMaskFormat")
 
 	Func setCutCopyMaskFormat P1
 		dotnet_setp(nHandle,"CutCopyMaskFormat",P1)
@@ -35215,7 +35308,7 @@ Class MaskedTextBox from TextBoxBase
 		return self
 
 	Func getInsertKeyMode
-		return dnAnswer(dotnet_getp(nHandle,"InsertKeyMode"))
+		return dotnet_getp(nHandle,"InsertKeyMode")
 
 	Func setInsertKeyMode P1
 		dotnet_setp(nHandle,"InsertKeyMode",P1)
@@ -35228,7 +35321,7 @@ Class MaskedTextBox from TextBoxBase
 		raise("DotNet Error: IsOverwriteMode is a read-only property")
 
 	Func getMask
-		return dnAnswer(dotnet_getp(nHandle,"Mask"))
+		return dotnet_getp(nHandle,"Mask")
 
 	Func setMask P1
 		dotnet_setp(nHandle,"Mask",P1)
@@ -35295,14 +35388,14 @@ Class MaskedTextBox from TextBoxBase
 		return self
 
 	Func getTextAlign
-		return dnAnswer(dotnet_getp(nHandle,"TextAlign"))
+		return dotnet_getp(nHandle,"TextAlign")
 
 	Func setTextAlign P1
 		dotnet_setp(nHandle,"TextAlign",P1)
 		return self
 
 	Func getTextMaskFormat
-		return dnAnswer(dotnet_getp(nHandle,"TextMaskFormat"))
+		return dotnet_getp(nHandle,"TextMaskFormat")
 
 	Func setTextMaskFormat P1
 		dotnet_setp(nHandle,"TextMaskFormat",P1)
@@ -35394,7 +35487,7 @@ Class OpenFileDialog from FileDialog
 		return self
 
 	Func getSafeFileName
-		return dnAnswer(dotnet_getp(nHandle,"SafeFileName"))
+		return dotnet_getp(nHandle,"SafeFileName")
 
 	Func setSafeFileName P1
 		raise("DotNet Error: SafeFileName is a read-only property")
@@ -35430,14 +35523,14 @@ Class Panel from ScrollableControl
 		return self
 
 	Func getAutoSizeMode
-		return dnAnswer(dotnet_getp(nHandle,"AutoSizeMode"))
+		return dotnet_getp(nHandle,"AutoSizeMode")
 
 	Func setAutoSizeMode P1
 		dotnet_setp(nHandle,"AutoSizeMode",P1)
 		return self
 
 	Func getBorderStyle
-		return dnAnswer(dotnet_getp(nHandle,"BorderStyle"))
+		return dotnet_getp(nHandle,"BorderStyle")
 
 	Func setBorderStyle P1
 		dotnet_setp(nHandle,"BorderStyle",P1)
@@ -35497,14 +35590,14 @@ Class RadioButton from ButtonBase
 		return self
 
 	Func getAppearance
-		return dnAnswer(dotnet_getp(nHandle,"Appearance"))
+		return dotnet_getp(nHandle,"Appearance")
 
 	Func setAppearance P1
 		dotnet_setp(nHandle,"Appearance",P1)
 		return self
 
 	Func getCheckAlign
-		return dnAnswer(dotnet_getp(nHandle,"CheckAlign"))
+		return dotnet_getp(nHandle,"CheckAlign")
 
 	Func setCheckAlign P1
 		dotnet_setp(nHandle,"CheckAlign",P1)
@@ -35530,6 +35623,9 @@ Class RadioButtonRadioButtonAccessibleObject from ControlControlAccessibleObject
 		nHandle = dnCreate('System.Windows.Forms.RadioButton+RadioButtonAccessibleObject, System.Windows.Forms',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func getDefaultAction
+		return dotnet_getp(nHandle,"DefaultAction")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -35698,14 +35794,14 @@ Class RichTextBox from TextBoxBase
 		return self
 
 	Func getLanguageOption
-		return dnAnswer(dotnet_getp(nHandle,"LanguageOption"))
+		return dotnet_getp(nHandle,"LanguageOption")
 
 	Func setLanguageOption P1
 		dotnet_setp(nHandle,"LanguageOption",P1)
 		return self
 
 	Func getRedoActionName
-		return dnAnswer(dotnet_getp(nHandle,"RedoActionName"))
+		return dotnet_getp(nHandle,"RedoActionName")
 
 	Func setRedoActionName P1
 		raise("DotNet Error: RedoActionName is a read-only property")
@@ -35732,14 +35828,14 @@ Class RichTextBox from TextBoxBase
 		return self
 
 	Func getScrollBars
-		return dnAnswer(dotnet_getp(nHandle,"ScrollBars"))
+		return dotnet_getp(nHandle,"ScrollBars")
 
 	Func setScrollBars P1
 		dotnet_setp(nHandle,"ScrollBars",P1)
 		return self
 
 	Func getSelectionAlignment
-		return dnAnswer(dotnet_getp(nHandle,"SelectionAlignment"))
+		return dotnet_getp(nHandle,"SelectionAlignment")
 
 	Func setSelectionAlignment P1
 		dotnet_setp(nHandle,"SelectionAlignment",P1)
@@ -35802,7 +35898,7 @@ Class RichTextBox from TextBoxBase
 		return self
 
 	Func getSelectedRtf
-		return dnAnswer(dotnet_getp(nHandle,"SelectedRtf"))
+		return dotnet_getp(nHandle,"SelectedRtf")
 
 	Func setSelectedRtf P1
 		dotnet_setp(nHandle,"SelectedRtf",P1)
@@ -35823,7 +35919,7 @@ Class RichTextBox from TextBoxBase
 		return self
 
 	Func getSelectionType
-		return dnAnswer(dotnet_getp(nHandle,"SelectionType"))
+		return dotnet_getp(nHandle,"SelectionType")
 
 	Func setSelectionType P1
 		raise("DotNet Error: SelectionType is a read-only property")
@@ -35836,7 +35932,7 @@ Class RichTextBox from TextBoxBase
 		return self
 
 	Func getUndoActionName
-		return dnAnswer(dotnet_getp(nHandle,"UndoActionName"))
+		return dotnet_getp(nHandle,"UndoActionName")
 
 	Func setUndoActionName P1
 		raise("DotNet Error: UndoActionName is a read-only property")
@@ -36007,14 +36103,14 @@ Class TextBox from TextBoxBase
 		return self
 
 	Func getAutoCompleteMode
-		return dnAnswer(dotnet_getp(nHandle,"AutoCompleteMode"))
+		return dotnet_getp(nHandle,"AutoCompleteMode")
 
 	Func setAutoCompleteMode P1
 		dotnet_setp(nHandle,"AutoCompleteMode",P1)
 		return self
 
 	Func getAutoCompleteSource
-		return dnAnswer(dotnet_getp(nHandle,"AutoCompleteSource"))
+		return dotnet_getp(nHandle,"AutoCompleteSource")
 
 	Func setAutoCompleteSource P1
 		dotnet_setp(nHandle,"AutoCompleteSource",P1)
@@ -36028,7 +36124,7 @@ Class TextBox from TextBoxBase
 		return self
 
 	Func getCharacterCasing
-		return dnAnswer(dotnet_getp(nHandle,"CharacterCasing"))
+		return dotnet_getp(nHandle,"CharacterCasing")
 
 	Func setCharacterCasing P1
 		dotnet_setp(nHandle,"CharacterCasing",P1)
@@ -36042,14 +36138,14 @@ Class TextBox from TextBoxBase
 		return self
 
 	Func getScrollBars
-		return dnAnswer(dotnet_getp(nHandle,"ScrollBars"))
+		return dotnet_getp(nHandle,"ScrollBars")
 
 	Func setScrollBars P1
 		dotnet_setp(nHandle,"ScrollBars",P1)
 		return self
 
 	Func getTextAlign
-		return dnAnswer(dotnet_getp(nHandle,"TextAlign"))
+		return dotnet_getp(nHandle,"TextAlign")
 
 	Func setTextAlign P1
 		dotnet_setp(nHandle,"TextAlign",P1)
@@ -36063,7 +36159,7 @@ Class TextBox from TextBoxBase
 		return self
 
 	Func getPlaceholderText
-		return dnAnswer(dotnet_getp(nHandle,"PlaceholderText"))
+		return dotnet_getp(nHandle,"PlaceholderText")
 
 	Func setPlaceholderText P1
 		dotnet_setp(nHandle,"PlaceholderText",P1)
@@ -36252,21 +36348,21 @@ Class ToolStrip from ScrollableControl
 		return self
 
 	Func getDefaultDropDownDirection
-		return dnAnswer(dotnet_getp(nHandle,"DefaultDropDownDirection"))
+		return dotnet_getp(nHandle,"DefaultDropDownDirection")
 
 	Func setDefaultDropDownDirection P1
 		dotnet_setp(nHandle,"DefaultDropDownDirection",P1)
 		return self
 
 	Func getGripStyle
-		return dnAnswer(dotnet_getp(nHandle,"GripStyle"))
+		return dotnet_getp(nHandle,"GripStyle")
 
 	Func setGripStyle P1
 		dotnet_setp(nHandle,"GripStyle",P1)
 		return self
 
 	Func getGripDisplayStyle
-		return dnAnswer(dotnet_getp(nHandle,"GripDisplayStyle"))
+		return dotnet_getp(nHandle,"GripDisplayStyle")
 
 	Func setGripDisplayStyle P1
 		raise("DotNet Error: GripDisplayStyle is a read-only property")
@@ -36324,7 +36420,7 @@ Class ToolStrip from ScrollableControl
 		return self
 
 	Func getLayoutStyle
-		return dnAnswer(dotnet_getp(nHandle,"LayoutStyle"))
+		return dotnet_getp(nHandle,"LayoutStyle")
 
 	Func setLayoutStyle P1
 		dotnet_setp(nHandle,"LayoutStyle",P1)
@@ -36337,7 +36433,7 @@ Class ToolStrip from ScrollableControl
 		raise("DotNet Error: OverflowButton is a read-only property")
 
 	Func getOrientation
-		return dnAnswer(dotnet_getp(nHandle,"Orientation"))
+		return dotnet_getp(nHandle,"Orientation")
 
 	Func setOrientation P1
 		raise("DotNet Error: Orientation is a read-only property")
@@ -36357,7 +36453,7 @@ Class ToolStrip from ScrollableControl
 		return self
 
 	Func getRenderMode
-		return dnAnswer(dotnet_getp(nHandle,"RenderMode"))
+		return dotnet_getp(nHandle,"RenderMode")
 
 	Func setRenderMode P1
 		dotnet_setp(nHandle,"RenderMode",P1)
@@ -36371,7 +36467,7 @@ Class ToolStrip from ScrollableControl
 		return self
 
 	Func getTextDirection
-		return dnAnswer(dotnet_getp(nHandle,"TextDirection"))
+		return dotnet_getp(nHandle,"TextDirection")
 
 	Func setTextDirection P1
 		dotnet_setp(nHandle,"TextDirection",P1)
@@ -36463,7 +36559,7 @@ Class ToolStripButton from ToolStripItem
 		return self
 
 	Func getCheckState
-		return dnAnswer(dotnet_getp(nHandle,"CheckState"))
+		return dotnet_getp(nHandle,"CheckState")
 
 	Func setCheckState P1
 		dotnet_setp(nHandle,"CheckState",P1)
@@ -36587,7 +36683,7 @@ Class ToolStripControlHost from ToolStripItem
 		return self
 
 	Func getControlAlign
-		return dnAnswer(dotnet_getp(nHandle,"ControlAlign"))
+		return dotnet_getp(nHandle,"ControlAlign")
 
 	Func setControlAlign P1
 		dotnet_setp(nHandle,"ControlAlign",P1)
@@ -36604,6 +36700,9 @@ Class ToolStripControlHost from ToolStripItem
 
 	Func setFocused P1
 		raise("DotNet Error: Focused is a read-only property")
+
+	Func getText
+		return dotnet_getp(nHandle,"Text")
 
 
 Class ToolStripControlHostToolStripHostedControlAccessibleObject from ControlControlAccessibleObject
@@ -36685,7 +36784,7 @@ Class ToolStripDropDownItem from ToolStripItem
 		return self
 
 	Func getDropDownDirection
-		return dnAnswer(dotnet_getp(nHandle,"DropDownDirection"))
+		return dotnet_getp(nHandle,"DropDownDirection")
 
 	Func setDropDownDirection P1
 		dotnet_setp(nHandle,"DropDownDirection",P1)
@@ -36782,7 +36881,7 @@ Class ToolStripLabel from ToolStripItem
 		return self
 
 	Func getLinkBehavior
-		return dnAnswer(dotnet_getp(nHandle,"LinkBehavior"))
+		return dotnet_getp(nHandle,"LinkBehavior")
 
 	Func setLinkBehavior P1
 		dotnet_setp(nHandle,"LinkBehavior",P1)
@@ -37100,26 +37199,26 @@ Class WebBrowser from WebBrowserBase
 		return self
 
 	Func getDocumentText
-		return dnAnswer(dotnet_getp(nHandle,"DocumentText"))
+		return dotnet_getp(nHandle,"DocumentText")
 
 	Func setDocumentText P1
 		dotnet_setp(nHandle,"DocumentText",P1)
 		return self
 
 	Func getDocumentTitle
-		return dnAnswer(dotnet_getp(nHandle,"DocumentTitle"))
+		return dotnet_getp(nHandle,"DocumentTitle")
 
 	Func setDocumentTitle P1
 		raise("DotNet Error: DocumentTitle is a read-only property")
 
 	Func getDocumentType
-		return dnAnswer(dotnet_getp(nHandle,"DocumentType"))
+		return dotnet_getp(nHandle,"DocumentType")
 
 	Func setDocumentType P1
 		raise("DotNet Error: DocumentType is a read-only property")
 
 	Func getEncryptionLevel
-		return dnAnswer(dotnet_getp(nHandle,"EncryptionLevel"))
+		return dotnet_getp(nHandle,"EncryptionLevel")
 
 	Func setEncryptionLevel P1
 		raise("DotNet Error: EncryptionLevel is a read-only property")
@@ -37151,13 +37250,13 @@ Class WebBrowser from WebBrowserBase
 		return self
 
 	Func getReadyState
-		return dnAnswer(dotnet_getp(nHandle,"ReadyState"))
+		return dotnet_getp(nHandle,"ReadyState")
 
 	Func setReadyState P1
 		raise("DotNet Error: ReadyState is a read-only property")
 
 	Func getStatusText
-		return dnAnswer(dotnet_getp(nHandle,"StatusText"))
+		return dotnet_getp(nHandle,"StatusText")
 
 	Func setStatusText P1
 		raise("DotNet Error: StatusText is a read-only property")
@@ -37317,7 +37416,7 @@ Class BindingNavigator from ToolStrip
 		return self
 
 	Func getCountItemFormat
-		return dnAnswer(dotnet_getp(nHandle,"CountItemFormat"))
+		return dotnet_getp(nHandle,"CountItemFormat")
 
 	Func setCountItemFormat P1
 		dotnet_setp(nHandle,"CountItemFormat",P1)
@@ -37336,6 +37435,9 @@ Class CheckBoxCheckBoxAccessibleObject from ButtonBaseButtonBaseAccessibleObject
 		nHandle = dnCreate('System.Windows.Forms.CheckBox+CheckBoxAccessibleObject, System.Windows.Forms',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func getDefaultAction
+		return dotnet_getp(nHandle,"DefaultAction")
 
 
 Class CheckedListBox from ListBox
@@ -37450,7 +37552,7 @@ Class DataGridViewButtonColumn from DataGridViewColumn
 		return self
 
 	Func getFlatStyle
-		return dnAnswer(dotnet_getp(nHandle,"FlatStyle"))
+		return dotnet_getp(nHandle,"FlatStyle")
 
 	Func setFlatStyle P1
 		dotnet_setp(nHandle,"FlatStyle",P1)
@@ -37521,7 +37623,7 @@ Class DataGridViewCheckBoxColumn from DataGridViewColumn
 		return self
 
 	Func getFlatStyle
-		return dnAnswer(dotnet_getp(nHandle,"FlatStyle"))
+		return dotnet_getp(nHandle,"FlatStyle")
 
 	Func setFlatStyle P1
 		dotnet_setp(nHandle,"FlatStyle",P1)
@@ -37572,7 +37674,7 @@ Class DataGridViewColumnHeaderCell from DataGridViewHeaderCell
 		return self
 
 	Func getSortGlyphDirection
-		return dnAnswer(dotnet_getp(nHandle,"SortGlyphDirection"))
+		return dotnet_getp(nHandle,"SortGlyphDirection")
 
 	Func setSortGlyphDirection P1
 		dotnet_setp(nHandle,"SortGlyphDirection",P1)
@@ -37626,14 +37728,14 @@ Class DataGridViewComboBoxColumn from DataGridViewColumn
 		return self
 
 	Func getDisplayMember
-		return dnAnswer(dotnet_getp(nHandle,"DisplayMember"))
+		return dotnet_getp(nHandle,"DisplayMember")
 
 	Func setDisplayMember P1
 		dotnet_setp(nHandle,"DisplayMember",P1)
 		return self
 
 	Func getDisplayStyle
-		return dnAnswer(dotnet_getp(nHandle,"DisplayStyle"))
+		return dotnet_getp(nHandle,"DisplayStyle")
 
 	Func setDisplayStyle P1
 		dotnet_setp(nHandle,"DisplayStyle",P1)
@@ -37654,7 +37756,7 @@ Class DataGridViewComboBoxColumn from DataGridViewColumn
 		return self
 
 	Func getFlatStyle
-		return dnAnswer(dotnet_getp(nHandle,"FlatStyle"))
+		return dotnet_getp(nHandle,"FlatStyle")
 
 	Func setFlatStyle P1
 		dotnet_setp(nHandle,"FlatStyle",P1)
@@ -37667,7 +37769,7 @@ Class DataGridViewComboBoxColumn from DataGridViewColumn
 		raise("DotNet Error: Items is a read-only property")
 
 	Func getValueMember
-		return dnAnswer(dotnet_getp(nHandle,"ValueMember"))
+		return dotnet_getp(nHandle,"ValueMember")
 
 	Func setValueMember P1
 		dotnet_setp(nHandle,"ValueMember",P1)
@@ -37820,7 +37922,7 @@ Class DataGridViewImageColumn from DataGridViewColumn
 		return self
 
 	Func getDescription
-		return dnAnswer(dotnet_getp(nHandle,"Description"))
+		return dotnet_getp(nHandle,"Description")
 
 	Func setDescription P1
 		dotnet_setp(nHandle,"Description",P1)
@@ -37841,7 +37943,7 @@ Class DataGridViewImageColumn from DataGridViewColumn
 		return self
 
 	Func getImageLayout
-		return dnAnswer(dotnet_getp(nHandle,"ImageLayout"))
+		return dotnet_getp(nHandle,"ImageLayout")
 
 	Func setImageLayout P1
 		dotnet_setp(nHandle,"ImageLayout",P1)
@@ -37891,7 +37993,7 @@ Class DataGridViewLinkColumn from DataGridViewColumn
 		return self
 
 	Func getLinkBehavior
-		return dnAnswer(dotnet_getp(nHandle,"LinkBehavior"))
+		return dotnet_getp(nHandle,"LinkBehavior")
 
 	Func setLinkBehavior P1
 		dotnet_setp(nHandle,"LinkBehavior",P1)
@@ -38107,7 +38209,7 @@ Class FlowLayoutPanel from Panel
 		return self
 
 	Func getFlowDirection
-		return dnAnswer(dotnet_getp(nHandle,"FlowDirection"))
+		return dotnet_getp(nHandle,"FlowDirection")
 
 	Func setFlowDirection P1
 		dotnet_setp(nHandle,"FlowDirection",P1)
@@ -38509,14 +38611,14 @@ Class Form from ContainerControl
 		return self
 
 	Func getAutoSizeMode
-		return dnAnswer(dotnet_getp(nHandle,"AutoSizeMode"))
+		return dotnet_getp(nHandle,"AutoSizeMode")
 
 	Func setAutoSizeMode P1
 		dotnet_setp(nHandle,"AutoSizeMode",P1)
 		return self
 
 	Func getFormBorderStyle
-		return dnAnswer(dotnet_getp(nHandle,"FormBorderStyle"))
+		return dotnet_getp(nHandle,"FormBorderStyle")
 
 	Func setFormBorderStyle P1
 		dotnet_setp(nHandle,"FormBorderStyle",P1)
@@ -38551,7 +38653,7 @@ Class Form from ContainerControl
 		return self
 
 	Func getDialogResult
-		return dnAnswer(dotnet_getp(nHandle,"DialogResult"))
+		return dotnet_getp(nHandle,"DialogResult")
 
 	Func setDialogResult P1
 		dotnet_setp(nHandle,"DialogResult",P1)
@@ -38692,14 +38794,14 @@ Class Form from ContainerControl
 		return self
 
 	Func getSizeGripStyle
-		return dnAnswer(dotnet_getp(nHandle,"SizeGripStyle"))
+		return dotnet_getp(nHandle,"SizeGripStyle")
 
 	Func setSizeGripStyle P1
 		dotnet_setp(nHandle,"SizeGripStyle",P1)
 		return self
 
 	Func getStartPosition
-		return dnAnswer(dotnet_getp(nHandle,"StartPosition"))
+		return dotnet_getp(nHandle,"StartPosition")
 
 	Func setStartPosition P1
 		dotnet_setp(nHandle,"StartPosition",P1)
@@ -38727,7 +38829,7 @@ Class Form from ContainerControl
 		return self
 
 	Func getFormCornerPreference
-		return dnAnswer(dotnet_getp(nHandle,"FormCornerPreference"))
+		return dotnet_getp(nHandle,"FormCornerPreference")
 
 	Func setFormCornerPreference P1
 		dotnet_setp(nHandle,"FormCornerPreference",P1)
@@ -38755,7 +38857,7 @@ Class Form from ContainerControl
 		return self
 
 	Func getWindowState
-		return dnAnswer(dotnet_getp(nHandle,"WindowState"))
+		return dotnet_getp(nHandle,"WindowState")
 
 	Func setWindowState P1
 		dotnet_setp(nHandle,"WindowState",P1)
@@ -39078,7 +39180,7 @@ Class PropertyGrid from ContainerControl
 		return self
 
 	Func getPropertySort
-		return dnAnswer(dotnet_getp(nHandle,"PropertySort"))
+		return dotnet_getp(nHandle,"PropertySort")
 
 	Func setPropertySort P1
 		dotnet_setp(nHandle,"PropertySort",P1)
@@ -39230,14 +39332,14 @@ Class SplitContainer from ContainerControl
 		return self
 
 	Func getBorderStyle
-		return dnAnswer(dotnet_getp(nHandle,"BorderStyle"))
+		return dotnet_getp(nHandle,"BorderStyle")
 
 	Func setBorderStyle P1
 		dotnet_setp(nHandle,"BorderStyle",P1)
 		return self
 
 	Func getFixedPanel
-		return dnAnswer(dotnet_getp(nHandle,"FixedPanel"))
+		return dotnet_getp(nHandle,"FixedPanel")
 
 	Func setFixedPanel P1
 		dotnet_setp(nHandle,"FixedPanel",P1)
@@ -39251,7 +39353,7 @@ Class SplitContainer from ContainerControl
 		return self
 
 	Func getOrientation
-		return dnAnswer(dotnet_getp(nHandle,"Orientation"))
+		return dotnet_getp(nHandle,"Orientation")
 
 	Func setOrientation P1
 		dotnet_setp(nHandle,"Orientation",P1)
@@ -39428,7 +39530,7 @@ Class TabPage from Panel
 		return self
 
 	Func getImageKey
-		return dnAnswer(dotnet_getp(nHandle,"ImageKey"))
+		return dotnet_getp(nHandle,"ImageKey")
 
 	Func setImageKey P1
 		dotnet_setp(nHandle,"ImageKey",P1)
@@ -39442,7 +39544,7 @@ Class TabPage from Panel
 		return self
 
 	Func getToolTipText
-		return dnAnswer(dotnet_getp(nHandle,"ToolTipText"))
+		return dotnet_getp(nHandle,"ToolTipText")
 
 	Func setToolTipText P1
 		dotnet_setp(nHandle,"ToolTipText",P1)
@@ -39573,7 +39675,7 @@ Class TableLayoutPanel from Panel
 		return self
 
 	Func getCellBorderStyle
-		return dnAnswer(dotnet_getp(nHandle,"CellBorderStyle"))
+		return dotnet_getp(nHandle,"CellBorderStyle")
 
 	Func setCellBorderStyle P1
 		dotnet_setp(nHandle,"CellBorderStyle",P1)
@@ -39587,7 +39689,7 @@ Class TableLayoutPanel from Panel
 		return self
 
 	Func getGrowStyle
-		return dnAnswer(dotnet_getp(nHandle,"GrowStyle"))
+		return dotnet_getp(nHandle,"GrowStyle")
 
 	Func setGrowStyle P1
 		dotnet_setp(nHandle,"GrowStyle",P1)
@@ -39750,14 +39852,14 @@ Class ToolStripComboBox from ToolStripControlHost
 		return self
 
 	Func getAutoCompleteMode
-		return dnAnswer(dotnet_getp(nHandle,"AutoCompleteMode"))
+		return dotnet_getp(nHandle,"AutoCompleteMode")
 
 	Func setAutoCompleteMode P1
 		dotnet_setp(nHandle,"AutoCompleteMode",P1)
 		return self
 
 	Func getAutoCompleteSource
-		return dnAnswer(dotnet_getp(nHandle,"AutoCompleteSource"))
+		return dotnet_getp(nHandle,"AutoCompleteSource")
 
 	Func setAutoCompleteSource P1
 		dotnet_setp(nHandle,"AutoCompleteSource",P1)
@@ -39777,7 +39879,7 @@ Class ToolStripComboBox from ToolStripControlHost
 		return self
 
 	Func getDropDownStyle
-		return dnAnswer(dotnet_getp(nHandle,"DropDownStyle"))
+		return dotnet_getp(nHandle,"DropDownStyle")
 
 	Func setDropDownStyle P1
 		dotnet_setp(nHandle,"DropDownStyle",P1)
@@ -39798,7 +39900,7 @@ Class ToolStripComboBox from ToolStripControlHost
 		return self
 
 	Func getFlatStyle
-		return dnAnswer(dotnet_getp(nHandle,"FlatStyle"))
+		return dotnet_getp(nHandle,"FlatStyle")
 
 	Func setFlatStyle P1
 		dotnet_setp(nHandle,"FlatStyle",P1)
@@ -39846,7 +39948,7 @@ Class ToolStripComboBox from ToolStripControlHost
 		return self
 
 	Func getSelectedText
-		return dnAnswer(dotnet_getp(nHandle,"SelectedText"))
+		return dotnet_getp(nHandle,"SelectedText")
 
 	Func setSelectedText P1
 		dotnet_setp(nHandle,"SelectedText",P1)
@@ -40010,7 +40112,7 @@ Class ToolStripContentPanel from Panel
 		return self
 
 	Func getRenderMode
-		return dnAnswer(dotnet_getp(nHandle,"RenderMode"))
+		return dotnet_getp(nHandle,"RenderMode")
 
 	Func setRenderMode P1
 		dotnet_setp(nHandle,"RenderMode",P1)
@@ -40269,14 +40371,14 @@ Class ToolStripMenuItem from ToolStripDropDownItem
 		return self
 
 	Func getCheckState
-		return dnAnswer(dotnet_getp(nHandle,"CheckState"))
+		return dotnet_getp(nHandle,"CheckState")
 
 	Func setCheckState P1
 		dotnet_setp(nHandle,"CheckState",P1)
 		return self
 
 	Func getShortcutKeys
-		return dnAnswer(dotnet_getp(nHandle,"ShortcutKeys"))
+		return dotnet_getp(nHandle,"ShortcutKeys")
 
 	Func setShortcutKeys P1
 		dotnet_setp(nHandle,"ShortcutKeys",P1)
@@ -40372,7 +40474,7 @@ Class ToolStripPanel from ContainerControl
 		return self
 
 	Func getOrientation
-		return dnAnswer(dotnet_getp(nHandle,"Orientation"))
+		return dotnet_getp(nHandle,"Orientation")
 
 	Func setOrientation P1
 		dotnet_setp(nHandle,"Orientation",P1)
@@ -40386,7 +40488,7 @@ Class ToolStripPanel from ContainerControl
 		return self
 
 	Func getRenderMode
-		return dnAnswer(dotnet_getp(nHandle,"RenderMode"))
+		return dotnet_getp(nHandle,"RenderMode")
 
 	Func setRenderMode P1
 		dotnet_setp(nHandle,"RenderMode",P1)
@@ -40502,7 +40604,7 @@ Class ToolStripProgressBar from ToolStripControlHost
 		return self
 
 	Func getStyle
-		return dnAnswer(dotnet_getp(nHandle,"Style"))
+		return dotnet_getp(nHandle,"Style")
 
 	Func setStyle P1
 		dotnet_setp(nHandle,"Style",P1)
@@ -40698,14 +40800,14 @@ Class ToolStripStatusLabel from ToolStripLabel
 		return self
 
 	Func getBorderStyle
-		return dnAnswer(dotnet_getp(nHandle,"BorderStyle"))
+		return dotnet_getp(nHandle,"BorderStyle")
 
 	Func setBorderStyle P1
 		dotnet_setp(nHandle,"BorderStyle",P1)
 		return self
 
 	Func getBorderSides
-		return dnAnswer(dotnet_getp(nHandle,"BorderSides"))
+		return dotnet_getp(nHandle,"BorderSides")
 
 	Func setBorderSides P1
 		dotnet_setp(nHandle,"BorderSides",P1)
@@ -40719,7 +40821,7 @@ Class ToolStripStatusLabel from ToolStripLabel
 		return self
 
 	Func getLiveSetting
-		return dnAnswer(dotnet_getp(nHandle,"LiveSetting"))
+		return dotnet_getp(nHandle,"LiveSetting")
 
 	Func setLiveSetting P1
 		dotnet_setp(nHandle,"LiveSetting",P1)
@@ -40949,21 +41051,21 @@ Class ToolStripTextBox from ToolStripControlHost
 		return self
 
 	Func getAutoCompleteMode
-		return dnAnswer(dotnet_getp(nHandle,"AutoCompleteMode"))
+		return dotnet_getp(nHandle,"AutoCompleteMode")
 
 	Func setAutoCompleteMode P1
 		dotnet_setp(nHandle,"AutoCompleteMode",P1)
 		return self
 
 	Func getAutoCompleteSource
-		return dnAnswer(dotnet_getp(nHandle,"AutoCompleteSource"))
+		return dotnet_getp(nHandle,"AutoCompleteSource")
 
 	Func setAutoCompleteSource P1
 		dotnet_setp(nHandle,"AutoCompleteSource",P1)
 		return self
 
 	Func getBorderStyle
-		return dnAnswer(dotnet_getp(nHandle,"BorderStyle"))
+		return dotnet_getp(nHandle,"BorderStyle")
 
 	Func setBorderStyle P1
 		dotnet_setp(nHandle,"BorderStyle",P1)
@@ -40976,7 +41078,7 @@ Class ToolStripTextBox from ToolStripControlHost
 		raise("DotNet Error: CanUndo is a read-only property")
 
 	Func getCharacterCasing
-		return dnAnswer(dotnet_getp(nHandle,"CharacterCasing"))
+		return dotnet_getp(nHandle,"CharacterCasing")
 
 	Func setCharacterCasing P1
 		dotnet_setp(nHandle,"CharacterCasing",P1)
@@ -41025,7 +41127,7 @@ Class ToolStripTextBox from ToolStripControlHost
 		return self
 
 	Func getSelectedText
-		return dnAnswer(dotnet_getp(nHandle,"SelectedText"))
+		return dotnet_getp(nHandle,"SelectedText")
 
 	Func setSelectedText P1
 		dotnet_setp(nHandle,"SelectedText",P1)
@@ -41059,7 +41161,7 @@ Class ToolStripTextBox from ToolStripControlHost
 		raise("DotNet Error: TextLength is a read-only property")
 
 	Func getTextBoxTextAlign
-		return dnAnswer(dotnet_getp(nHandle,"TextBoxTextAlign"))
+		return dotnet_getp(nHandle,"TextBoxTextAlign")
 
 	Func setTextBoxTextAlign P1
 		dotnet_setp(nHandle,"TextBoxTextAlign",P1)
@@ -41112,7 +41214,7 @@ Class UpDownBase from ContainerControl
 		return self
 
 	Func getBorderStyle
-		return dnAnswer(dotnet_getp(nHandle,"BorderStyle"))
+		return dotnet_getp(nHandle,"BorderStyle")
 
 	Func setBorderStyle P1
 		dotnet_setp(nHandle,"BorderStyle",P1)
@@ -41139,14 +41241,14 @@ Class UpDownBase from ContainerControl
 		return self
 
 	Func getTextAlign
-		return dnAnswer(dotnet_getp(nHandle,"TextAlign"))
+		return dotnet_getp(nHandle,"TextAlign")
 
 	Func setTextAlign P1
 		dotnet_setp(nHandle,"TextAlign",P1)
 		return self
 
 	Func getUpDownAlign
-		return dnAnswer(dotnet_getp(nHandle,"UpDownAlign"))
+		return dotnet_getp(nHandle,"UpDownAlign")
 
 	Func setUpDownAlign P1
 		dotnet_setp(nHandle,"UpDownAlign",P1)
@@ -41185,14 +41287,14 @@ Class UserControl from ContainerControl
 		return self
 
 	Func getAutoSizeMode
-		return dnAnswer(dotnet_getp(nHandle,"AutoSizeMode"))
+		return dotnet_getp(nHandle,"AutoSizeMode")
 
 	Func setAutoSizeMode P1
 		dotnet_setp(nHandle,"AutoSizeMode",P1)
 		return self
 
 	Func getBorderStyle
-		return dnAnswer(dotnet_getp(nHandle,"BorderStyle"))
+		return dotnet_getp(nHandle,"BorderStyle")
 
 	Func setBorderStyle P1
 		dotnet_setp(nHandle,"BorderStyle",P1)

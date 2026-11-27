@@ -289,7 +289,7 @@ Class ICacheEntry from DotNetObject
 		raise("DotNet Error: PostEvictionCallbacks is a read-only property")
 
 	Func getPriority
-		return dnAnswer(dotnet_getp(nHandle,"Priority"))
+		return dotnet_getp(nHandle,"Priority")
 
 	Func setPriority P1
 		dotnet_setp(nHandle,"Priority",P1)
@@ -638,7 +638,7 @@ Class MemoryCacheEntryOptions from Object
 		raise("DotNet Error: PostEvictionCallbacks is a read-only property")
 
 	Func getPriority
-		return dnAnswer(dotnet_getp(nHandle,"Priority"))
+		return dotnet_getp(nHandle,"Priority")
 
 	Func setPriority P1
 		dotnet_setp(nHandle,"Priority",P1)

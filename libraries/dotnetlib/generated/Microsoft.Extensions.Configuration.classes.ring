@@ -739,13 +739,13 @@ Class ConfigurationDebugViewContext from ValueType
 		return self
 
 	Func getPath
-		return dnAnswer(dotnet_getp(nHandle,"Path"))
+		return dotnet_getp(nHandle,"Path")
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getKey
-		return dnAnswer(dotnet_getp(nHandle,"Key"))
+		return dotnet_getp(nHandle,"Key")
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
@@ -855,7 +855,7 @@ Class ConfigurationKeyNameAttribute from Attribute
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1273,6 +1273,9 @@ Class ConfigurationProvider from Object
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1636,13 +1639,13 @@ Class ConfigurationSection from Object
 		return self
 
 	Func getPath
-		return dnAnswer(dotnet_getp(nHandle,"Path"))
+		return dotnet_getp(nHandle,"Path")
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
 
 	Func getKey
-		return dnAnswer(dotnet_getp(nHandle,"Key"))
+		return dotnet_getp(nHandle,"Key")
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
@@ -2779,13 +2782,13 @@ Class IConfigurationSection from DotNetObject
 		return dnObj(dn_x)
 
 	Func getKey
-		return dnAnswer(dotnet_getp(nHandle,"Key"))
+		return dotnet_getp(nHandle,"Key")
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getPath
-		return dnAnswer(dotnet_getp(nHandle,"Path"))
+		return dotnet_getp(nHandle,"Path")
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")

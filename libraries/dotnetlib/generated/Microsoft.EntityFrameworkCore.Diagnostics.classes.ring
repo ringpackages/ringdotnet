@@ -4661,6 +4661,9 @@ Class EventData from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4673,13 +4676,13 @@ Class EventData from Object
 		raise("DotNet Error: EventId is a read-only property")
 
 	Func getLogLevel
-		return dnAnswer(dotnet_getp(nHandle,"LogLevel"))
+		return dotnet_getp(nHandle,"LogLevel")
 
 	Func setLogLevel P1
 		raise("DotNet Error: LogLevel is a read-only property")
 
 	Func getEventIdCode
-		return dnAnswer(dotnet_getp(nHandle,"EventIdCode"))
+		return dotnet_getp(nHandle,"EventIdCode")
 
 	Func setEventIdCode P1
 		raise("DotNet Error: EventIdCode is a read-only property")
@@ -4713,19 +4716,19 @@ Class EventDefinitionBase from Object
 		raise("DotNet Error: EventId is a read-only property")
 
 	Func getLevel
-		return dnAnswer(dotnet_getp(nHandle,"Level"))
+		return dotnet_getp(nHandle,"Level")
 
 	Func setLevel P1
 		raise("DotNet Error: Level is a read-only property")
 
 	Func getEventIdCode
-		return dnAnswer(dotnet_getp(nHandle,"EventIdCode"))
+		return dotnet_getp(nHandle,"EventIdCode")
 
 	Func setEventIdCode P1
 		raise("DotNet Error: EventIdCode is a read-only property")
 
 	Func getWarningBehavior
-		return dnAnswer(dotnet_getp(nHandle,"WarningBehavior"))
+		return dotnet_getp(nHandle,"WarningBehavior")
 
 	Func setWarningBehavior P1
 		raise("DotNet Error: WarningBehavior is a read-only property")
@@ -6404,6 +6407,9 @@ Class LoggerCategory from Object
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
@@ -10066,7 +10072,7 @@ Class WarningsConfiguration from Object
 		return dn_x
 
 	Func getDefaultBehavior
-		return dnAnswer(dotnet_getp(nHandle,"DefaultBehavior"))
+		return dotnet_getp(nHandle,"DefaultBehavior")
 
 	Func setDefaultBehavior P1
 		raise("DotNet Error: DefaultBehavior is a read-only property")
@@ -10390,7 +10396,7 @@ Class EntityTypeSchemaEventData from EventData
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getSchema
-		return dnAnswer(dotnet_getp(nHandle,"Schema"))
+		return dotnet_getp(nHandle,"Schema")
 
 	Func setSchema P1
 		raise("DotNet Error: Schema is a read-only property")
@@ -10410,7 +10416,7 @@ Class EventDefinition from EventDefinitionBase
 		return self
 
 	Func GenerateMessage 
-		return dnAnswer(dotnet_callt(nHandle,"GenerateMessage"))
+		return dotnet_callt(nHandle,"GenerateMessage")
 
 	Func Log P1
 		dotnet_calltd1v(nHandle,"Log",P1)
@@ -10433,7 +10439,7 @@ Class EventDefinition1 from EventDefinitionBase
 		return self
 
 	Func GenerateMessage P1
-		return dnAnswer(dotnet_callt(nHandle,"GenerateMessage",P1))
+		return dotnet_callt(nHandle,"GenerateMessage",P1)
 
 	Func Log P1,P2
 		dotnet_callv("s4:call",nHandle,"s3:Log",P1,P2)
@@ -10460,7 +10466,7 @@ Class EventDefinition2 from EventDefinitionBase
 		return self
 
 	Func GenerateMessage P1,P2
-		return dnAnswer(dotnet_callt(nHandle,"GenerateMessage",P1,P2))
+		return dotnet_callt(nHandle,"GenerateMessage",P1,P2)
 
 	Func Log P1,P2,P3
 		dotnet_callv("s4:call",nHandle,"s3:Log",P1,P2,P3)
@@ -10521,7 +10527,7 @@ Class EventDefinition4 from EventDefinitionBase
 		return self
 
 	Func GenerateMessage P1,P2,P3,P4
-		return dnAnswer(dotnet_callt(nHandle,"GenerateMessage",P1,P2,P3,P4))
+		return dotnet_callt(nHandle,"GenerateMessage",P1,P2,P3,P4)
 
 	Func Log P1,P2,P3,P4,P5
 		dotnet_callv("s4:call",nHandle,"s3:Log",P1,P2,P3,P4,P5)
@@ -10548,7 +10554,7 @@ Class EventDefinition5 from EventDefinitionBase
 		return self
 
 	Func GenerateMessage P1,P2,P3,P4,P5
-		return dnAnswer(dotnet_callt(nHandle,"GenerateMessage",P1,P2,P3,P4,P5))
+		return dotnet_callt(nHandle,"GenerateMessage",P1,P2,P3,P4,P5)
 
 	Func Log P1,P2,P3,P4,P5,P6
 		dotnet_callv("s4:call",nHandle,"s3:Log",P1,P2,P3,P4,P5,P6)
@@ -10575,7 +10581,7 @@ Class EventDefinition6 from EventDefinitionBase
 		return self
 
 	Func GenerateMessage P1,P2,P3,P4,P5,P6
-		return dnAnswer(dotnet_callt(nHandle,"GenerateMessage",P1,P2,P3,P4,P5,P6))
+		return dotnet_callt(nHandle,"GenerateMessage",P1,P2,P3,P4,P5,P6)
 
 	Func Log P1,P2,P3,P4,P5,P6,P7
 		dotnet_callv("s4:call",nHandle,"s3:Log",P1,P2,P3,P4,P5,P6,P7)
@@ -10670,7 +10676,7 @@ Class FallbackEventDefinition from EventDefinitionBase
 		return self
 
 	Func getMessageFormat
-		return dnAnswer(dotnet_getp(nHandle,"MessageFormat"))
+		return dotnet_getp(nHandle,"MessageFormat")
 
 	Func setMessageFormat P1
 		raise("DotNet Error: MessageFormat is a read-only property")
@@ -10774,7 +10780,7 @@ Class IndexWithPropertiesEventData from EventData
 		raise("DotNet Error: PropertyNames is a read-only property")
 
 	Func getProperty1Name
-		return dnAnswer(dotnet_getp(nHandle,"Property1Name"))
+		return dotnet_getp(nHandle,"Property1Name")
 
 	Func setProperty1Name P1
 		raise("DotNet Error: Property1Name is a read-only property")
@@ -10786,7 +10792,7 @@ Class IndexWithPropertiesEventData from EventData
 		raise("DotNet Error: TablesMappedToProperty1 is a read-only property")
 
 	Func getProperty2Name
-		return dnAnswer(dotnet_getp(nHandle,"Property2Name"))
+		return dotnet_getp(nHandle,"Property2Name")
 
 	Func setProperty2Name P1
 		raise("DotNet Error: Property2Name is a read-only property")
@@ -10835,7 +10841,7 @@ Class IndexWithPropertyEventData from EventData
 		raise("DotNet Error: PropertyNames is a read-only property")
 
 	Func getPropertyName
-		return dnAnswer(dotnet_getp(nHandle,"PropertyName"))
+		return dotnet_getp(nHandle,"PropertyName")
 
 	Func setPropertyName P1
 		raise("DotNet Error: PropertyName is a read-only property")
@@ -10858,13 +10864,13 @@ Class InvalidIncludePathEventData from EventData
 		return self
 
 	Func getNavigationChain
-		return dnAnswer(dotnet_getp(nHandle,"NavigationChain"))
+		return dotnet_getp(nHandle,"NavigationChain")
 
 	Func setNavigationChain P1
 		raise("DotNet Error: NavigationChain is a read-only property")
 
 	Func getNavigationName
-		return dnAnswer(dotnet_getp(nHandle,"NavigationName"))
+		return dotnet_getp(nHandle,"NavigationName")
 
 	Func setNavigationName P1
 		raise("DotNet Error: NavigationName is a read-only property")
@@ -12043,7 +12049,7 @@ Class CascadeDeleteEventData from EntityEntryEventData
 		return self
 
 	Func getState
-		return dnAnswer(dotnet_getp(nHandle,"State"))
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -12072,7 +12078,7 @@ Class CascadeDeleteOrphanEventData from EntityEntryEventData
 		return self
 
 	Func getState
-		return dnAnswer(dotnet_getp(nHandle,"State"))
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -12160,7 +12166,7 @@ Class CommandCorrelatedEventData from DbContextEventData
 		raise("DotNet Error: ConnectionId is a read-only property")
 
 	Func getExecuteMethod
-		return dnAnswer(dotnet_getp(nHandle,"ExecuteMethod"))
+		return dotnet_getp(nHandle,"ExecuteMethod")
 
 	Func setExecuteMethod P1
 		raise("DotNet Error: ExecuteMethod is a read-only property")
@@ -12178,7 +12184,7 @@ Class CommandCorrelatedEventData from DbContextEventData
 		raise("DotNet Error: StartTime is a read-only property")
 
 	Func getCommandSource
-		return dnAnswer(dotnet_getp(nHandle,"CommandSource"))
+		return dotnet_getp(nHandle,"CommandSource")
 
 	Func setCommandSource P1
 		raise("DotNet Error: CommandSource is a read-only property")
@@ -12431,13 +12437,13 @@ Class ForeignKeyCandidateEventData from TwoPropertyBaseCollectionsEventData
 		return self
 
 	Func getDependentToPrincipalNavigationSpecification
-		return dnAnswer(dotnet_getp(nHandle,"DependentToPrincipalNavigationSpecification"))
+		return dotnet_getp(nHandle,"DependentToPrincipalNavigationSpecification")
 
 	Func setDependentToPrincipalNavigationSpecification P1
 		raise("DotNet Error: DependentToPrincipalNavigationSpecification is a read-only property")
 
 	Func getPrincipalToDependentNavigationSpecification
-		return dnAnswer(dotnet_getp(nHandle,"PrincipalToDependentNavigationSpecification"))
+		return dotnet_getp(nHandle,"PrincipalToDependentNavigationSpecification")
 
 	Func setPrincipalToDependentNavigationSpecification P1
 		raise("DotNet Error: PrincipalToDependentNavigationSpecification is a read-only property")
@@ -12466,7 +12472,7 @@ Class LazyLoadingEventData from DbContextEventData
 		raise("DotNet Error: Entity is a read-only property")
 
 	Func getNavigationPropertyName
-		return dnAnswer(dotnet_getp(nHandle,"NavigationPropertyName"))
+		return dotnet_getp(nHandle,"NavigationPropertyName")
 
 	Func setNavigationPropertyName P1
 		raise("DotNet Error: NavigationPropertyName is a read-only property")
@@ -12801,13 +12807,13 @@ Class StateChangedEventData from EntityEntryEventData
 		return self
 
 	Func getOldState
-		return dnAnswer(dotnet_getp(nHandle,"OldState"))
+		return dotnet_getp(nHandle,"OldState")
 
 	Func setOldState P1
 		raise("DotNet Error: OldState is a read-only property")
 
 	Func getNewState
-		return dnAnswer(dotnet_getp(nHandle,"NewState"))
+		return dotnet_getp(nHandle,"NewState")
 
 	Func setNewState P1
 		raise("DotNet Error: NewState is a read-only property")
@@ -12836,7 +12842,7 @@ Class StoredProcedurePropertyEventData from PropertyEventData
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getStoredProcedureName
-		return dnAnswer(dotnet_getp(nHandle,"StoredProcedureName"))
+		return dotnet_getp(nHandle,"StoredProcedureName")
 
 	Func setStoredProcedureName P1
 		raise("DotNet Error: StoredProcedureName is a read-only property")
@@ -12912,7 +12918,7 @@ Class TransactionStartingEventData from DbContextEventData
 		return self
 
 	Func getIsolationLevel
-		return dnAnswer(dotnet_getp(nHandle,"IsolationLevel"))
+		return dotnet_getp(nHandle,"IsolationLevel")
 
 	Func setIsolationLevel P1
 		raise("DotNet Error: IsolationLevel is a read-only property")
@@ -12980,7 +12986,7 @@ Class UniquifiedPropertyEventData from PropertyEventData
 		return self
 
 	Func getBasePropertyName
-		return dnAnswer(dotnet_getp(nHandle,"BasePropertyName"))
+		return dotnet_getp(nHandle,"BasePropertyName")
 
 	Func setBasePropertyName P1
 		raise("DotNet Error: BasePropertyName is a read-only property")
@@ -13294,7 +13300,7 @@ Class TransactionErrorEventData from TransactionEndEventData
 		return self
 
 	Func getAction
-		return dnAnswer(dotnet_getp(nHandle,"Action"))
+		return dotnet_getp(nHandle,"Action")
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")

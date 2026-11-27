@@ -69,7 +69,7 @@ Class FilePatternMatch from ValueType
 		return self
 
 	Func getPath
-		return dnAnswer(dotnet_getp(nHandle,"Path"))
+		return dotnet_getp(nHandle,"Path")
 
 	Func setPath P1
 		raise("DotNet Error: Path is a read-only property")
@@ -138,13 +138,13 @@ Class InMemoryDirectoryInfo from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func getFullName
-		return dnAnswer(dotnet_getp(nHandle,"FullName"))
+		return dotnet_getp(nHandle,"FullName")
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

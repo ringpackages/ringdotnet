@@ -707,6 +707,9 @@ Class CLong from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
 
@@ -752,6 +755,9 @@ Class CULong from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
 
@@ -775,7 +781,7 @@ Class ClassInterfaceAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -850,7 +856,7 @@ Class ComAliasNameAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1083,7 +1089,7 @@ Class ComSourceInterfacesAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1335,7 +1341,7 @@ Class DefaultCharSetAttribute from Attribute
 		return self
 
 	Func getCharSet
-		return dnAnswer(dotnet_getp(nHandle,"CharSet"))
+		return dotnet_getp(nHandle,"CharSet")
 
 	Func setCharSet P1
 		raise("DotNet Error: CharSet is a read-only property")
@@ -1357,7 +1363,7 @@ Class DefaultDllImportSearchPathsAttribute from Attribute
 		return self
 
 	Func getPaths
-		return dnAnswer(dotnet_getp(nHandle,"Paths"))
+		return dotnet_getp(nHandle,"Paths")
 
 	Func setPaths P1
 		raise("DotNet Error: Paths is a read-only property")
@@ -1458,7 +1464,7 @@ Class DllImportAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1471,7 +1477,7 @@ Class DllImportAttribute from Attribute
 		return self
 
 	Func getCharSet
-		return dnAnswer(dotnet_getp(nHandle,"CharSet"))
+		return dotnet_getp(nHandle,"CharSet")
 
 	Func setCharSet P1
 		dotnet_setp(nHandle,"CharSet",P1)
@@ -1492,7 +1498,7 @@ Class DllImportAttribute from Attribute
 		return self
 
 	Func getCallingConvention
-		return dnAnswer(dotnet_getp(nHandle,"CallingConvention"))
+		return dotnet_getp(nHandle,"CallingConvention")
 
 	Func setCallingConvention P1
 		dotnet_setp(nHandle,"CallingConvention",P1)
@@ -1715,7 +1721,7 @@ Class GuidAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1786,7 +1792,7 @@ Class HandleCollector from Object
 		raise("DotNet Error: MaximumThreshold is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1979,7 +1985,7 @@ Class ImportedFromTypeLibAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -2022,7 +2028,7 @@ Class InterfaceTypeAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -2144,7 +2150,7 @@ Class LibraryImportAttribute from Attribute
 		return self
 
 	Func getLibraryName
-		return dnAnswer(dotnet_getp(nHandle,"LibraryName"))
+		return dotnet_getp(nHandle,"LibraryName")
 
 	Func setLibraryName P1
 		raise("DotNet Error: LibraryName is a read-only property")
@@ -2157,7 +2163,7 @@ Class LibraryImportAttribute from Attribute
 		return self
 
 	Func getStringMarshalling
-		return dnAnswer(dotnet_getp(nHandle,"StringMarshalling"))
+		return dotnet_getp(nHandle,"StringMarshalling")
 
 	Func setStringMarshalling P1
 		dotnet_setp(nHandle,"StringMarshalling",P1)
@@ -2201,7 +2207,7 @@ Class ManagedToNativeComInteropStubAttribute from Attribute
 		raise("DotNet Error: ClassType is a read-only property")
 
 	Func getMethodName
-		return dnAnswer(dotnet_getp(nHandle,"MethodName"))
+		return dotnet_getp(nHandle,"MethodName")
 
 	Func setMethodName P1
 		raise("DotNet Error: MethodName is a read-only property")
@@ -2644,7 +2650,7 @@ Class Marshal from Object
 		return dnAnswer(dotnet_callts('System.Runtime.InteropServices.Marshal, System.Private.CoreLib','GetLastWin32Error'))
 
 	Func GetLastPInvokeErrorMessage 
-		return dnAnswer(dotnet_callts('System.Runtime.InteropServices.Marshal, System.Private.CoreLib','GetLastPInvokeErrorMessage'))
+		return dotnet_callts('System.Runtime.InteropServices.Marshal, System.Private.CoreLib','GetLastPInvokeErrorMessage')
 
 	Func PtrToStringAuto P1
 		if dotnet_isnamed(P1)
@@ -2694,7 +2700,7 @@ Class Marshal from Object
 		return self
 
 	Func GetPInvokeErrorMessage P1
-		return dnAnswer(dotnet_callts('System.Runtime.InteropServices.Marshal, System.Private.CoreLib','GetPInvokeErrorMessage',P1))
+		return dotnet_callts('System.Runtime.InteropServices.Marshal, System.Private.CoreLib','GetPInvokeErrorMessage',P1)
 
 	Func getSystemDefaultCharSize
 		return dotnet_call("s3:get",'System.Runtime.InteropServices.Marshal, System.Private.CoreLib',"s21:SystemDefaultCharSize")
@@ -2734,13 +2740,13 @@ Class MarshalAsAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getSafeArraySubType
-		return dnAnswer(dotnet_getp(nHandle,"SafeArraySubType"))
+		return dotnet_getp(nHandle,"SafeArraySubType")
 
 	Func setSafeArraySubType P1
 		dotnet_setp(nHandle,"SafeArraySubType",P1)
@@ -2761,7 +2767,7 @@ Class MarshalAsAttribute from Attribute
 		return self
 
 	Func getArraySubType
-		return dnAnswer(dotnet_getp(nHandle,"ArraySubType"))
+		return dotnet_getp(nHandle,"ArraySubType")
 
 	Func setArraySubType P1
 		dotnet_setp(nHandle,"ArraySubType",P1)
@@ -2980,6 +2986,9 @@ Class NFloat from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -3534,6 +3543,9 @@ Class OSPlatform from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Create P1
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib',"s6:Create",P1))
 
@@ -3630,7 +3642,7 @@ Class PosixSignalContext from Object
 		return dn_x
 
 	Func getSignal
-		return dnAnswer(dotnet_getp(nHandle,"Signal"))
+		return dotnet_getp(nHandle,"Signal")
 
 	Func setSignal P1
 		raise("DotNet Error: Signal is a read-only property")
@@ -3733,7 +3745,7 @@ Class ProgIdAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -3763,7 +3775,7 @@ Class RuntimeEnvironment from Object
 		return dn_x
 
 	Func GetRuntimeDirectory 
-		return dnAnswer(dotnet_callts('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices','GetRuntimeDirectory'))
+		return dotnet_callts('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices','GetRuntimeDirectory')
 
 	Func GetRuntimeInterfaceAsIntPtr P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices',"s27:GetRuntimeInterfaceAsIntPtr",P1,P2))
@@ -3772,7 +3784,7 @@ Class RuntimeEnvironment from Object
 		return dnObj(dotnet_callo("s4:call",'System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices',"s27:GetRuntimeInterfaceAsObject",P1,P2))
 
 	Func GetSystemVersion 
-		return dnAnswer(dotnet_callts('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices','GetSystemVersion'))
+		return dotnet_callts('System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices','GetSystemVersion')
 
 	Func getSystemConfigurationFile
 		dn_x = dotnet_call("s3:get",'System.Runtime.InteropServices.RuntimeEnvironment, System.Runtime.InteropServices',"s23:SystemConfigurationFile")
@@ -4142,7 +4154,7 @@ Class StructLayoutAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -4162,7 +4174,7 @@ Class StructLayoutAttribute from Attribute
 		return self
 
 	Func getCharSet
-		return dnAnswer(dotnet_getp(nHandle,"CharSet"))
+		return dotnet_getp(nHandle,"CharSet")
 
 	Func setCharSet P1
 		dotnet_setp(nHandle,"CharSet",P1)
@@ -4258,7 +4270,7 @@ Class TypeLibFuncAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -4280,7 +4292,7 @@ Class TypeLibImportClassAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -4302,7 +4314,7 @@ Class TypeLibTypeAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -4324,7 +4336,7 @@ Class TypeLibVarAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -4474,7 +4486,7 @@ Class UnmanagedFunctionPointerAttribute from Attribute
 		return self
 
 	Func getCallingConvention
-		return dnAnswer(dotnet_getp(nHandle,"CallingConvention"))
+		return dotnet_getp(nHandle,"CallingConvention")
 
 	Func setCallingConvention P1
 		raise("DotNet Error: CallingConvention is a read-only property")
@@ -4501,7 +4513,7 @@ Class UnmanagedFunctionPointerAttribute from Attribute
 		return self
 
 	Func getCharSet
-		return dnAnswer(dotnet_getp(nHandle,"CharSet"))
+		return dotnet_getp(nHandle,"CharSet")
 
 	Func setCharSet P1
 		dotnet_setp(nHandle,"CharSet",P1)

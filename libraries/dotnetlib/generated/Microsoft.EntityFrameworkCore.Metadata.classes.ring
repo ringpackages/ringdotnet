@@ -1272,6 +1272,9 @@ Class AdHocMapperDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1514,7 +1517,7 @@ Class ICheckConstraint from DotNetObject
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getModelName
-		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
+		return dotnet_getp(nHandle,"ModelName")
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -1526,7 +1529,7 @@ Class ICheckConstraint from DotNetObject
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getSql
-		return dnAnswer(dotnet_getp(nHandle,"Sql"))
+		return dotnet_getp(nHandle,"Sql")
 
 	Func setSql P1
 		raise("DotNet Error: Sql is a read-only property")
@@ -1859,13 +1862,13 @@ Class IColumn from DotNetObject
 		raise("DotNet Error: Collation is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
+		return dotnet_getp(nHandle,"StoreType")
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -1999,13 +2002,13 @@ Class IColumnBase from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
+		return dotnet_getp(nHandle,"StoreType")
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -2434,7 +2437,7 @@ Class IComplexProperty from DotNetObject
 		raise("DotNet Error: IsCollection is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2505,7 +2508,7 @@ Class IComplexType from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
+		return dotnet_callt(nHandle,"ShortName")
 
 	Func IsAssignableFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
@@ -2964,7 +2967,7 @@ Class IComplexType from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -3114,7 +3117,7 @@ Class IConventionAnnotation from DotNetObject
 		return dnObj(dn_x)
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -3238,7 +3241,7 @@ Class IConventionCheckConstraint from DotNetObject
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getModelName
-		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
+		return dotnet_getp(nHandle,"ModelName")
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -3247,7 +3250,7 @@ Class IConventionCheckConstraint from DotNetObject
 		return dnAnswer(dotnet_getp(nHandle,"Name"))
 
 	Func getSql
-		return dnAnswer(dotnet_getp(nHandle,"Sql"))
+		return dotnet_getp(nHandle,"Sql")
 
 	Func setSql P1
 		raise("DotNet Error: Sql is a read-only property")
@@ -3444,7 +3447,7 @@ Class IConventionComplexProperty from DotNetObject
 		raise("DotNet Error: IsCollection is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -3519,7 +3522,7 @@ Class IConventionComplexType from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
+		return dotnet_callt(nHandle,"ShortName")
 
 	Func IsAssignableFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
@@ -3961,7 +3964,7 @@ Class IConventionComplexType from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -4185,13 +4188,13 @@ Class IConventionDbFunction from DotNetObject
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func getSchema
 		return dnAnswer(dotnet_getp(nHandle,"Schema"))
 
 	Func getModelName
-		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
+		return dotnet_getp(nHandle,"ModelName")
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -4371,7 +4374,7 @@ Class IConventionDbFunctionParameter from DotNetObject
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -5442,7 +5445,7 @@ Class IConventionEntityType from DotNetObject
 		return dnObj(dn_x)
 
 	Func GetDefaultDiscriminatorValue 
-		return dnAnswer(dotnet_callt(nHandle,"GetDefaultDiscriminatorValue"))
+		return dotnet_callt(nHandle,"GetDefaultDiscriminatorValue")
 
 	Func GetConcreteDerivedTypesInclusive 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s32:GetConcreteDerivedTypesInclusive")
@@ -5498,7 +5501,7 @@ Class IConventionEntityType from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
+		return dotnet_callt(nHandle,"ShortName")
 
 	Func IsStrictlyDerivedFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s21:IsStrictlyDerivedFrom",P1)
@@ -6487,7 +6490,7 @@ Class IConventionEntityType from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -7032,7 +7035,7 @@ Class IConventionForeignKey from DotNetObject
 		return dotnet_getp(nHandle,"IsOwnership")
 
 	Func getDeleteBehavior
-		return dnAnswer(dotnet_getp(nHandle,"DeleteBehavior"))
+		return dotnet_getp(nHandle,"DeleteBehavior")
 
 	Func getIsInModel
 		return dotnet_getp(nHandle,"IsInModel")
@@ -7102,7 +7105,7 @@ Class IConventionIndex from DotNetObject
 		return dnObj(dn_x)
 
 	Func DisplayName 
-		return dnAnswer(dotnet_callt(nHandle,"DisplayName"))
+		return dotnet_callt(nHandle,"DisplayName")
 
 	Func ToDebugString P1
 		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
@@ -7676,7 +7679,7 @@ Class IConventionModel from DotNetObject
 		return dnObj(dn_x)
 
 	Func GetEmbeddedDiscriminatorName 
-		return dnAnswer(dotnet_callt(nHandle,"GetEmbeddedDiscriminatorName"))
+		return dotnet_callt(nHandle,"GetEmbeddedDiscriminatorName")
 
 	Func GetProductVersion 
 		return dnAnswer(dotnet_callt(nHandle,"GetProductVersion"))
@@ -8160,7 +8163,7 @@ Class IConventionNavigation from DotNetObject
 		return dotnet_getp(nHandle,"LazyLoadingEnabled")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -8410,7 +8413,7 @@ Class IConventionNavigationBase from DotNetObject
 		return dotnet_getp(nHandle,"LazyLoadingEnabled")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -9667,7 +9670,7 @@ Class IConventionProperty from DotNetObject
 		return dotnet_getp(nHandle,"IsNullable")
 
 	Func getValueGenerated
-		return dnAnswer(dotnet_getp(nHandle,"ValueGenerated"))
+		return dotnet_getp(nHandle,"ValueGenerated")
 
 	Func getIsConcurrencyToken
 		return dotnet_getp(nHandle,"IsConcurrencyToken")
@@ -9679,7 +9682,7 @@ Class IConventionProperty from DotNetObject
 		raise("DotNet Error: IsPrimitiveCollection is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -9862,7 +9865,7 @@ Class IConventionPropertyBase from DotNetObject
 		raise("DotNet Error: DeclaringType is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -10231,7 +10234,7 @@ Class IConventionSequence from DotNetObject
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -10451,7 +10454,7 @@ Class IConventionServiceProperty from DotNetObject
 		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ParameterBinding"))
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -10759,7 +10762,7 @@ Class IConventionSkipNavigation from DotNetObject
 		return dotnet_getp(nHandle,"LazyLoadingEnabled")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -11169,7 +11172,7 @@ Class IConventionStoredProcedureParameter from DotNetObject
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func getPropertyName
 		return dnAnswer(dotnet_getp(nHandle,"PropertyName"))
@@ -11178,7 +11181,7 @@ Class IConventionStoredProcedureParameter from DotNetObject
 		raise("DotNet Error: PropertyName is a read-only property")
 
 	Func getDirection
-		return dnAnswer(dotnet_getp(nHandle,"Direction"))
+		return dotnet_getp(nHandle,"Direction")
 
 	Func getForOriginalValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s16:ForOriginalValue"))
@@ -11296,7 +11299,7 @@ Class IConventionStoredProcedureResultColumn from DotNetObject
 		raise("DotNet Error: Builder is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func getPropertyName
 		return dnAnswer(dotnet_getp(nHandle,"PropertyName"))
@@ -11510,7 +11513,7 @@ Class IConventionTrigger from DotNetObject
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getModelName
-		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
+		return dotnet_getp(nHandle,"ModelName")
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -11764,7 +11767,7 @@ Class IConventionTypeBase from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
+		return dotnet_callt(nHandle,"ShortName")
 
 	Func IsAssignableFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
@@ -11985,7 +11988,7 @@ Class IConventionTypeBase from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -12137,7 +12140,7 @@ Class IDbFunction from DotNetObject
 		raise("DotNet Error: StoreFunction is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -12149,7 +12152,7 @@ Class IDbFunction from DotNetObject
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getModelName
-		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
+		return dotnet_getp(nHandle,"ModelName")
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -12305,7 +12308,7 @@ Class IDbFunctionParameter from DotNetObject
 		return dnObj(dn_x)
 
 	Func getStoreType
-		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
+		return dotnet_getp(nHandle,"StoreType")
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -12329,7 +12332,7 @@ Class IDbFunctionParameter from DotNetObject
 		raise("DotNet Error: StoreFunctionParameter is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -13037,7 +13040,7 @@ Class IEntityType from DotNetObject
 		return dnObj(dn_x)
 
 	Func GetDefaultDiscriminatorValue 
-		return dnAnswer(dotnet_callt(nHandle,"GetDefaultDiscriminatorValue"))
+		return dotnet_callt(nHandle,"GetDefaultDiscriminatorValue")
 
 	Func IsAssignableFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
@@ -13086,7 +13089,7 @@ Class IEntityType from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
+		return dotnet_callt(nHandle,"ShortName")
 
 	Func IsStrictlyDerivedFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s21:IsStrictlyDerivedFrom",P1)
@@ -13627,7 +13630,7 @@ Class IEntityType from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -14020,7 +14023,7 @@ Class IForeignKey from DotNetObject
 		raise("DotNet Error: IsOwnership is a read-only property")
 
 	Func getDeleteBehavior
-		return dnAnswer(dotnet_getp(nHandle,"DeleteBehavior"))
+		return dotnet_getp(nHandle,"DeleteBehavior")
 
 	Func setDeleteBehavior P1
 		raise("DotNet Error: DeleteBehavior is a read-only property")
@@ -14123,7 +14126,7 @@ Class IForeignKeyConstraint from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -14165,7 +14168,7 @@ Class IForeignKeyConstraint from DotNetObject
 		raise("DotNet Error: PrincipalUniqueConstraint is a read-only property")
 
 	Func getOnDeleteAction
-		return dnAnswer(dotnet_getp(nHandle,"OnDeleteAction"))
+		return dotnet_getp(nHandle,"OnDeleteAction")
 
 	Func setOnDeleteAction P1
 		raise("DotNet Error: OnDeleteAction is a read-only property")
@@ -14294,13 +14297,13 @@ Class IFunctionColumn from DotNetObject
 		raise("DotNet Error: PropertyMappings is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
+		return dotnet_getp(nHandle,"StoreType")
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -14643,7 +14646,7 @@ Class IIndex from DotNetObject
 		raise("DotNet Error: GetNullableValueFactory needs its type arguments: GetNullableValueFactory([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
 	Func DisplayName 
-		return dnAnswer(dotnet_callt(nHandle,"DisplayName"))
+		return dotnet_callt(nHandle,"DisplayName")
 
 	Func ToDebugString P1
 		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
@@ -15121,7 +15124,7 @@ Class IModel from DotNetObject
 		return dnObj(dn_x)
 
 	Func GetEmbeddedDiscriminatorName 
-		return dnAnswer(dotnet_callt(nHandle,"GetEmbeddedDiscriminatorName"))
+		return dotnet_callt(nHandle,"GetEmbeddedDiscriminatorName")
 
 	Func GetProductVersion 
 		return dnAnswer(dotnet_callt(nHandle,"GetProductVersion"))
@@ -15470,13 +15473,13 @@ Class IMutableCheckConstraint from DotNetObject
 		return self
 
 	Func getModelName
-		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
+		return dotnet_getp(nHandle,"ModelName")
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
 
 	Func getSql
-		return dnAnswer(dotnet_getp(nHandle,"Sql"))
+		return dotnet_getp(nHandle,"Sql")
 
 	Func setSql P1
 		raise("DotNet Error: Sql is a read-only property")
@@ -15604,7 +15607,7 @@ Class IMutableComplexProperty from DotNetObject
 		raise("DotNet Error: IsCollection is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -15674,7 +15677,7 @@ Class IMutableComplexType from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
+		return dotnet_callt(nHandle,"ShortName")
 
 	Func IsAssignableFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
@@ -16080,7 +16083,7 @@ Class IMutableComplexType from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -16187,7 +16190,7 @@ Class IMutableDbFunction from DotNetObject
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -16248,7 +16251,7 @@ Class IMutableDbFunction from DotNetObject
 		return self
 
 	Func getModelName
-		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
+		return dotnet_getp(nHandle,"ModelName")
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -16379,7 +16382,7 @@ Class IMutableDbFunctionParameter from DotNetObject
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -17154,7 +17157,7 @@ Class IMutableEntityType from DotNetObject
 		return dnObj(dn_x)
 
 	Func GetDefaultDiscriminatorValue 
-		return dnAnswer(dotnet_callt(nHandle,"GetDefaultDiscriminatorValue"))
+		return dotnet_callt(nHandle,"GetDefaultDiscriminatorValue")
 
 	Func GetConcreteDerivedTypesInclusive 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s32:GetConcreteDerivedTypesInclusive")
@@ -17210,7 +17213,7 @@ Class IMutableEntityType from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
+		return dotnet_callt(nHandle,"ShortName")
 
 	Func IsStrictlyDerivedFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s21:IsStrictlyDerivedFrom",P1)
@@ -17921,7 +17924,7 @@ Class IMutableEntityType from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -18268,7 +18271,7 @@ Class IMutableForeignKey from DotNetObject
 		return self
 
 	Func getDeleteBehavior
-		return dnAnswer(dotnet_getp(nHandle,"DeleteBehavior"))
+		return dotnet_getp(nHandle,"DeleteBehavior")
 
 	Func setDeleteBehavior P1
 		dotnet_setp(nHandle,"DeleteBehavior",P1)
@@ -18299,7 +18302,7 @@ Class IMutableIndex from DotNetObject
 		return self
 
 	Func DisplayName 
-		return dnAnswer(dotnet_callt(nHandle,"DisplayName"))
+		return dotnet_callt(nHandle,"DisplayName")
 
 	Func ToDebugString P1
 		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
@@ -18723,7 +18726,7 @@ Class IMutableModel from DotNetObject
 		return dn_x
 
 	Func AddIgnored P1
-		return dnAnswer(dotnet_callt(nHandle,"AddIgnored",P1))
+		return dotnet_callt(nHandle,"AddIgnored",P1)
 
 	Func RemoveIgnored P1
 		return dnAnswer(dotnet_callt(nHandle,"RemoveIgnored",P1))
@@ -18753,7 +18756,7 @@ Class IMutableModel from DotNetObject
 		return dnObj(dn_x)
 
 	Func GetEmbeddedDiscriminatorName 
-		return dnAnswer(dotnet_callt(nHandle,"GetEmbeddedDiscriminatorName"))
+		return dotnet_callt(nHandle,"GetEmbeddedDiscriminatorName")
 
 	Func GetProductVersion 
 		return dnAnswer(dotnet_callt(nHandle,"GetProductVersion"))
@@ -19102,7 +19105,7 @@ Class IMutableNavigation from DotNetObject
 		return dotnet_getp(nHandle,"LazyLoadingEnabled")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -19281,7 +19284,7 @@ Class IMutableNavigationBase from DotNetObject
 		return dotnet_getp(nHandle,"LazyLoadingEnabled")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -20072,7 +20075,7 @@ Class IMutableProperty from DotNetObject
 		return self
 
 	Func getValueGenerated
-		return dnAnswer(dotnet_getp(nHandle,"ValueGenerated"))
+		return dotnet_getp(nHandle,"ValueGenerated")
 
 	Func setValueGenerated P1
 		dotnet_setp(nHandle,"ValueGenerated",P1)
@@ -20099,7 +20102,7 @@ Class IMutableProperty from DotNetObject
 		raise("DotNet Error: IsPrimitiveCollection is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -20239,7 +20242,7 @@ Class IMutablePropertyBase from DotNetObject
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -20492,7 +20495,7 @@ Class IMutableSequence from DotNetObject
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -20625,7 +20628,7 @@ Class IMutableServiceProperty from DotNetObject
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -20834,7 +20837,7 @@ Class IMutableSkipNavigation from DotNetObject
 		return dotnet_getp(nHandle,"LazyLoadingEnabled")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -21025,7 +21028,7 @@ Class IMutableStoredProcedure from DotNetObject
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -21145,14 +21148,14 @@ Class IMutableStoredProcedureParameter from DotNetObject
 		raise("DotNet Error: StoredProcedure is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getDirection
-		return dnAnswer(dotnet_getp(nHandle,"Direction"))
+		return dotnet_getp(nHandle,"Direction")
 
 	Func setDirection P1
 		dotnet_setp(nHandle,"Direction",P1)
@@ -21256,7 +21259,7 @@ Class IMutableStoredProcedureResultColumn from DotNetObject
 		raise("DotNet Error: StoredProcedure is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -21414,7 +21417,7 @@ Class IMutableTrigger from DotNetObject
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getModelName
-		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
+		return dotnet_getp(nHandle,"ModelName")
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -21630,7 +21633,7 @@ Class IMutableTypeBase from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
+		return dotnet_callt(nHandle,"ShortName")
 
 	Func IsAssignableFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
@@ -21845,7 +21848,7 @@ Class IMutableTypeBase from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -22072,7 +22075,7 @@ Class INavigation from DotNetObject
 		raise("DotNet Error: LazyLoadingEnabled is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -22294,7 +22297,7 @@ Class INavigationBase from DotNetObject
 		raise("DotNet Error: LazyLoadingEnabled is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -22469,7 +22472,7 @@ Class IPrimaryKeyConstraint from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -23229,7 +23232,7 @@ Class IProperty from DotNetObject
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getValueGenerated
-		return dnAnswer(dotnet_getp(nHandle,"ValueGenerated"))
+		return dotnet_getp(nHandle,"ValueGenerated")
 
 	Func setValueGenerated P1
 		raise("DotNet Error: ValueGenerated is a read-only property")
@@ -23247,7 +23250,7 @@ Class IProperty from DotNetObject
 		raise("DotNet Error: IsPrimitiveCollection is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -23421,7 +23424,7 @@ Class IPropertyBase from DotNetObject
 		raise("DotNet Error: DeclaringType is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -23522,7 +23525,7 @@ Class IReadOnlyCheckConstraint from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getModelName
-		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
+		return dotnet_getp(nHandle,"ModelName")
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -23540,7 +23543,7 @@ Class IReadOnlyCheckConstraint from DotNetObject
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getSql
-		return dnAnswer(dotnet_getp(nHandle,"Sql"))
+		return dotnet_getp(nHandle,"Sql")
 
 	Func setSql P1
 		raise("DotNet Error: Sql is a read-only property")
@@ -23629,7 +23632,7 @@ Class IReadOnlyComplexProperty from DotNetObject
 		raise("DotNet Error: IsCollection is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -23699,7 +23702,7 @@ Class IReadOnlyComplexType from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
+		return dotnet_callt(nHandle,"ShortName")
 
 	Func IsAssignableFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
@@ -24003,7 +24006,7 @@ Class IReadOnlyComplexType from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -24081,7 +24084,7 @@ Class IReadOnlyDbFunction from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -24093,7 +24096,7 @@ Class IReadOnlyDbFunction from DotNetObject
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getModelName
-		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
+		return dotnet_getp(nHandle,"ModelName")
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -24223,7 +24226,7 @@ Class IReadOnlyDbFunctionParameter from DotNetObject
 		return setFunction(P1)
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -24488,7 +24491,7 @@ Class IReadOnlyEntityType from DotNetObject
 		return dnObj(dn_x)
 
 	Func GetDefaultDiscriminatorValue 
-		return dnAnswer(dotnet_callt(nHandle,"GetDefaultDiscriminatorValue"))
+		return dotnet_callt(nHandle,"GetDefaultDiscriminatorValue")
 
 	Func GetAllBaseTypes 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetAllBaseTypes")
@@ -24845,7 +24848,7 @@ Class IReadOnlyEntityType from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
+		return dotnet_callt(nHandle,"ShortName")
 
 	Func IsStrictlyDerivedFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s21:IsStrictlyDerivedFrom",P1)
@@ -25274,7 +25277,7 @@ Class IReadOnlyEntityType from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -25542,7 +25545,7 @@ Class IReadOnlyForeignKey from DotNetObject
 		raise("DotNet Error: IsOwnership is a read-only property")
 
 	Func getDeleteBehavior
-		return dnAnswer(dotnet_getp(nHandle,"DeleteBehavior"))
+		return dotnet_getp(nHandle,"DeleteBehavior")
 
 	Func setDeleteBehavior P1
 		raise("DotNet Error: DeleteBehavior is a read-only property")
@@ -25566,7 +25569,7 @@ Class IReadOnlyIndex from DotNetObject
 		return self
 
 	Func DisplayName 
-		return dnAnswer(dotnet_callt(nHandle,"DisplayName"))
+		return dotnet_callt(nHandle,"DisplayName")
 
 	Func ToDebugString P1
 		return dnAnswer(dotnet_calltd(nHandle,"ToDebugString",P1))
@@ -25814,7 +25817,7 @@ Class IReadOnlyModel from DotNetObject
 		return dnObj(dn_x)
 
 	Func GetEmbeddedDiscriminatorName 
-		return dnAnswer(dotnet_callt(nHandle,"GetEmbeddedDiscriminatorName"))
+		return dotnet_callt(nHandle,"GetEmbeddedDiscriminatorName")
 
 	Func GetProductVersion 
 		return dnAnswer(dotnet_callt(nHandle,"GetProductVersion"))
@@ -26063,7 +26066,7 @@ Class IReadOnlyNavigation from DotNetObject
 		raise("DotNet Error: LazyLoadingEnabled is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -26200,7 +26203,7 @@ Class IReadOnlyNavigationBase from DotNetObject
 		raise("DotNet Error: LazyLoadingEnabled is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -26790,7 +26793,7 @@ Class IReadOnlyProperty from DotNetObject
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getValueGenerated
-		return dnAnswer(dotnet_getp(nHandle,"ValueGenerated"))
+		return dotnet_getp(nHandle,"ValueGenerated")
 
 	Func setValueGenerated P1
 		raise("DotNet Error: ValueGenerated is a read-only property")
@@ -26808,7 +26811,7 @@ Class IReadOnlyProperty from DotNetObject
 		raise("DotNet Error: IsPrimitiveCollection is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -26903,7 +26906,7 @@ Class IReadOnlyPropertyBase from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -27057,7 +27060,7 @@ Class IReadOnlySequence from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -27193,7 +27196,7 @@ Class IReadOnlyServiceProperty from DotNetObject
 		raise("DotNet Error: ParameterBinding is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -27354,7 +27357,7 @@ Class IReadOnlySkipNavigation from DotNetObject
 		raise("DotNet Error: LazyLoadingEnabled is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -27599,7 +27602,7 @@ Class IReadOnlyStoredProcedureParameter from DotNetObject
 		raise("DotNet Error: StoredProcedure is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -27611,7 +27614,7 @@ Class IReadOnlyStoredProcedureParameter from DotNetObject
 		raise("DotNet Error: PropertyName is a read-only property")
 
 	Func getDirection
-		return dnAnswer(dotnet_getp(nHandle,"Direction"))
+		return dotnet_getp(nHandle,"Direction")
 
 	Func setDirection P1
 		raise("DotNet Error: Direction is a read-only property")
@@ -27679,7 +27682,7 @@ Class IReadOnlyStoredProcedureResultColumn from DotNetObject
 		raise("DotNet Error: StoredProcedure is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -27783,7 +27786,7 @@ Class IReadOnlyTrigger from DotNetObject
 		return dn_x
 
 	Func getModelName
-		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
+		return dotnet_getp(nHandle,"ModelName")
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -27820,7 +27823,7 @@ Class IReadOnlyTypeBase from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
+		return dotnet_callt(nHandle,"ShortName")
 
 	Func IsAssignableFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
@@ -28118,7 +28121,7 @@ Class IReadOnlyTypeBase from DotNetObject
 		raise("DotNet Error: ContainingEntityType is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -28577,7 +28580,7 @@ Class ISequence from DotNetObject
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -28780,7 +28783,7 @@ Class IServiceProperty from DotNetObject
 		raise("DotNet Error: ParameterBinding is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -29026,7 +29029,7 @@ Class ISkipNavigation from DotNetObject
 		raise("DotNet Error: LazyLoadingEnabled is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -29198,13 +29201,13 @@ Class ISqlQuery from DotNetObject
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getSql
-		return dnAnswer(dotnet_getp(nHandle,"Sql"))
+		return dotnet_getp(nHandle,"Sql")
 
 	Func setSql P1
 		raise("DotNet Error: Sql is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -29216,7 +29219,7 @@ Class ISqlQuery from DotNetObject
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getSchemaQualifiedName
-		return dnAnswer(dotnet_getp(nHandle,"SchemaQualifiedName"))
+		return dotnet_getp(nHandle,"SchemaQualifiedName")
 
 	Func setSchemaQualifiedName P1
 		raise("DotNet Error: SchemaQualifiedName is a read-only property")
@@ -29357,13 +29360,13 @@ Class ISqlQueryColumn from DotNetObject
 		raise("DotNet Error: PropertyMappings is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
+		return dotnet_getp(nHandle,"StoreType")
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -29832,7 +29835,7 @@ Class IStoreFunction from DotNetObject
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -29844,7 +29847,7 @@ Class IStoreFunction from DotNetObject
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getSchemaQualifiedName
-		return dnAnswer(dotnet_getp(nHandle,"SchemaQualifiedName"))
+		return dotnet_getp(nHandle,"SchemaQualifiedName")
 
 	Func setSchemaQualifiedName P1
 		raise("DotNet Error: SchemaQualifiedName is a read-only property")
@@ -29980,19 +29983,19 @@ Class IStoreFunctionParameter from DotNetObject
 		raise("DotNet Error: DbFunctionParameters is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
+		return dotnet_getp(nHandle,"StoreType")
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
 
 	Func getType
-		return dnAnswer(dotnet_getp(nHandle,"Type"))
+		return dotnet_getp(nHandle,"Type")
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
@@ -30169,7 +30172,7 @@ Class IStoreStoredProcedure from DotNetObject
 		raise("DotNet Error: ResultColumns is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -30181,7 +30184,7 @@ Class IStoreStoredProcedure from DotNetObject
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getSchemaQualifiedName
-		return dnAnswer(dotnet_getp(nHandle,"SchemaQualifiedName"))
+		return dotnet_getp(nHandle,"SchemaQualifiedName")
 
 	Func setSchemaQualifiedName P1
 		raise("DotNet Error: SchemaQualifiedName is a read-only property")
@@ -30337,7 +30340,7 @@ Class IStoreStoredProcedureParameter from DotNetObject
 		raise("DotNet Error: PropertyMappings is a read-only property")
 
 	Func getDirection
-		return dnAnswer(dotnet_getp(nHandle,"Direction"))
+		return dotnet_getp(nHandle,"Direction")
 
 	Func setDirection P1
 		raise("DotNet Error: Direction is a read-only property")
@@ -30349,13 +30352,13 @@ Class IStoreStoredProcedureParameter from DotNetObject
 		raise("DotNet Error: Position is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
+		return dotnet_getp(nHandle,"StoreType")
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -30515,13 +30518,13 @@ Class IStoreStoredProcedureResultColumn from DotNetObject
 		raise("DotNet Error: Position is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
+		return dotnet_getp(nHandle,"StoreType")
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -30668,13 +30671,13 @@ Class IStoreStoredProcedureReturnValue from DotNetObject
 		raise("DotNet Error: StoredProcedure is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
+		return dotnet_getp(nHandle,"StoreType")
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -30857,7 +30860,7 @@ Class IStoredProcedure from DotNetObject
 		return dnObj(dn_x)
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -31180,7 +31183,7 @@ Class IStoredProcedureParameter from DotNetObject
 		raise("DotNet Error: StoreParameter is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -31192,7 +31195,7 @@ Class IStoredProcedureParameter from DotNetObject
 		raise("DotNet Error: PropertyName is a read-only property")
 
 	Func getDirection
-		return dnAnswer(dotnet_getp(nHandle,"Direction"))
+		return dotnet_getp(nHandle,"Direction")
 
 	Func setDirection P1
 		raise("DotNet Error: Direction is a read-only property")
@@ -31454,7 +31457,7 @@ Class IStoredProcedureResultColumn from DotNetObject
 		raise("DotNet Error: StoreResultColumn is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -31814,7 +31817,7 @@ Class ITable from DotNetObject
 		raise("DotNet Error: Comment is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -31826,7 +31829,7 @@ Class ITable from DotNetObject
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getSchemaQualifiedName
-		return dnAnswer(dotnet_getp(nHandle,"SchemaQualifiedName"))
+		return dotnet_getp(nHandle,"SchemaQualifiedName")
 
 	Func setSchemaQualifiedName P1
 		raise("DotNet Error: SchemaQualifiedName is a read-only property")
@@ -31973,7 +31976,7 @@ Class ITableBase from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -31985,7 +31988,7 @@ Class ITableBase from DotNetObject
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getSchemaQualifiedName
-		return dnAnswer(dotnet_getp(nHandle,"SchemaQualifiedName"))
+		return dotnet_getp(nHandle,"SchemaQualifiedName")
 
 	Func setSchemaQualifiedName P1
 		raise("DotNet Error: SchemaQualifiedName is a read-only property")
@@ -32117,7 +32120,7 @@ Class ITableIndex from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -32583,7 +32586,7 @@ Class ITrigger from DotNetObject
 		raise("DotNet Error: EntityType is a read-only property")
 
 	Func getModelName
-		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
+		return dotnet_getp(nHandle,"ModelName")
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -32769,7 +32772,7 @@ Class ITypeBase from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"DisplayName",P1))
 
 	Func ShortName 
-		return dnAnswer(dotnet_callt(nHandle,"ShortName"))
+		return dotnet_callt(nHandle,"ShortName")
 
 	Func IsAssignableFrom P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsAssignableFrom",P1)
@@ -33074,7 +33077,7 @@ Class ITypeBase from DotNetObject
 		raise("DotNet Error: ConstructorBinding is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -33329,7 +33332,7 @@ Class IUniqueConstraint from DotNetObject
 		return dnAnswer(dotnet_calltd(nHandle,"AnnotationsToDebugString",P1))
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -33495,7 +33498,7 @@ Class IView from DotNetObject
 		raise("DotNet Error: ViewDefinitionSql is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -33507,7 +33510,7 @@ Class IView from DotNetObject
 		raise("DotNet Error: Schema is a read-only property")
 
 	Func getSchemaQualifiedName
-		return dnAnswer(dotnet_getp(nHandle,"SchemaQualifiedName"))
+		return dotnet_getp(nHandle,"SchemaQualifiedName")
 
 	Func setSchemaQualifiedName P1
 		raise("DotNet Error: SchemaQualifiedName is a read-only property")
@@ -33648,13 +33651,13 @@ Class IViewColumn from DotNetObject
 		raise("DotNet Error: PropertyMappings is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getStoreType
-		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
+		return dotnet_getp(nHandle,"StoreType")
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
@@ -34080,6 +34083,9 @@ Class LazyLoaderParameterBindingFactoryDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -34256,7 +34262,7 @@ Class ParameterBindingInfo from ValueType
 		raise("DotNet Error: StructuralType is a read-only property")
 
 	Func getInstanceName
-		return dnAnswer(dotnet_getp(nHandle,"InstanceName"))
+		return dotnet_getp(nHandle,"InstanceName")
 
 	Func setInstanceName P1
 		raise("DotNet Error: InstanceName is a read-only property")
@@ -34299,6 +34305,9 @@ Class RelationalAdHocMapperDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.RelationalAdHocMapperDependencies, Microsoft.EntityFrameworkCore.Relational',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -34975,6 +34984,9 @@ Class RelationalAnnotationProviderDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -35025,6 +35037,9 @@ Class RuntimeDbFunction from AnnotatableBase
 		ok
 		raise("DotNet Error: AddParameter does not take one argument: use named arguments, AddParameter([ :parameter = value, ... ])")
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getModel
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
 
@@ -35032,7 +35047,7 @@ Class RuntimeDbFunction from AnnotatableBase
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getModelName
-		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
+		return dotnet_getp(nHandle,"ModelName")
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -35075,8 +35090,11 @@ Class RuntimeDbFunctionParameter from AnnotatableBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -35188,6 +35206,9 @@ Class RuntimeElementType from RuntimeAnnotatableBase
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func GetStoreType 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
 		dn_x = dotnet_call("s4:call",nHandle,"s12:GetStoreType")
@@ -35271,6 +35292,9 @@ Class RuntimeEntityTypeMappingFragment from AnnotatableBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func IsSqlReturningClauseUsed 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.SqliteEntityTypeMappingFragmentExtensions, Microsoft.EntityFrameworkCore.Sqlite")
 		dn_x = dotnet_call("s4:call",nHandle,"s24:IsSqlReturningClauseUsed")
@@ -35326,6 +35350,9 @@ Class RuntimeForeignKey from RuntimeAnnotatableBase
 		dotnet_callv("s4:call",nHandle,"s13:AddNavigation",P1,P2)
 
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func GetMappedConstraints 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -35432,6 +35459,9 @@ Class RuntimeIndex from RuntimeAnnotatableBase
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.RuntimeIndex, Microsoft.EntityFrameworkCore',[P1,P2,P3,P4])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func GetMappedTableIndexes 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -35549,6 +35579,9 @@ Class RuntimeKey from RuntimeAnnotatableBase
 		dotnet_callv("s4:call",nHandle,"s21:SetIdentityMapFactory",P1)
 
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func GetMappedConstraints 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -35856,7 +35889,7 @@ Class RuntimePropertyBase from RuntimeAnnotatableBase
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -35890,6 +35923,9 @@ Class RuntimeRelationalPropertyOverrides from AnnotatableBase
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.RuntimeRelationalPropertyOverrides, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getProperty
 		return dnObj(dotnet_callo("s3:get",nHandle,"s8:Property"))
@@ -35944,6 +35980,9 @@ Class RuntimeSequence from AnnotatableBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getModel
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Model"))
 
@@ -35951,7 +35990,7 @@ Class RuntimeSequence from AnnotatableBase
 		raise("DotNet Error: Model is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -36005,6 +36044,9 @@ Class RuntimeStoredProcedure from AnnotatableBase
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:EntityType"))
 
@@ -36035,6 +36077,9 @@ Class RuntimeTrigger from RuntimeAnnotatableBase
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.RuntimeTrigger, Microsoft.EntityFrameworkCore',[P1,P2])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func GetDatabaseName P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -36081,7 +36126,7 @@ Class RuntimeTrigger from RuntimeAnnotatableBase
 		return dn_x
 
 	Func getModelName
-		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
+		return dotnet_getp(nHandle,"ModelName")
 
 	Func setModelName P1
 		raise("DotNet Error: ModelName is a read-only property")
@@ -36442,7 +36487,7 @@ Class RuntimeTypeBase from RuntimeAnnotatableBase
 		return dn_x
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -36635,7 +36680,10 @@ Class StoreObjectIdentifier from ValueType
 		return dn_x
 
 	Func DisplayName 
-		return dnAnswer(dotnet_callt(nHandle,"DisplayName"))
+		return dotnet_callt(nHandle,"DisplayName")
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Create P1,P2
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational',"s6:Create",P1,P2))
@@ -36677,13 +36725,13 @@ Class StoreObjectIdentifier from ValueType
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational',"s21:UpdateStoredProcedure",P1))
 
 	Func getStoreObjectType
-		return dnAnswer(dotnet_getp(nHandle,"StoreObjectType"))
+		return dotnet_getp(nHandle,"StoreObjectType")
 
 	Func setStoreObjectType P1
 		raise("DotNet Error: StoreObjectType is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -36867,6 +36915,9 @@ Class RuntimeComplexProperty from RuntimePropertyBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getComplexType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s11:ComplexType"))
 
@@ -36896,6 +36947,9 @@ Class RuntimeComplexType from RuntimeTypeBase
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.RuntimeComplexType, Microsoft.EntityFrameworkCore',[P1,P2,P3,P4,P5,P6,P7,P8])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func GetContainerColumnName 
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalComplexTypeExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -37139,6 +37193,9 @@ Class RuntimeEntityType from RuntimeTypeBase
 			return self
 		ok
 		return dnObj(dn_x)
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func SetOriginalValuesFactory P1
 		dotnet_callv("s4:call",nHandle,"s24:SetOriginalValuesFactory",P1)
@@ -37456,6 +37513,9 @@ Class RuntimeNavigation from RuntimePropertyBase
 		ok
 		raise("DotNet Error: SetCollectionAccessor needs its type arguments: SetCollectionAccessor([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getForeignKey
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:ForeignKey"))
 
@@ -37564,6 +37624,9 @@ Class RuntimeProperty from RuntimePropertyBase
 			return self
 		ok
 		return dnObj(dn_x)
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func GetColumnType P1
 		dnEnsureExt("Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational")
@@ -38064,6 +38127,9 @@ Class RuntimeServiceProperty from RuntimePropertyBase
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))
 
@@ -38108,6 +38174,9 @@ Class RuntimeSkipNavigation from RuntimePropertyBase
 			return self
 		ok
 		raise("DotNet Error: SetCollectionAccessor needs its type arguments: SetCollectionAccessor([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getDeclaringEntityType
 		return dnObj(dotnet_callo("s3:get",nHandle,"s19:DeclaringEntityType"))

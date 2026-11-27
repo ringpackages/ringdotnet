@@ -215,6 +215,9 @@ Class XDeclaration from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -257,6 +260,9 @@ Class XName from Object
 		ok
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -269,7 +275,7 @@ Class XName from Object
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.XName, System.Private.Xml.Linq',"s3:Get",P1))
 
 	Func getLocalName
-		return dnAnswer(dotnet_getp(nHandle,"LocalName"))
+		return dotnet_getp(nHandle,"LocalName")
 
 	Func setLocalName P1
 		raise("DotNet Error: LocalName is a read-only property")
@@ -281,7 +287,7 @@ Class XName from Object
 		raise("DotNet Error: Namespace is a read-only property")
 
 	Func getNamespaceName
-		return dnAnswer(dotnet_getp(nHandle,"NamespaceName"))
+		return dotnet_getp(nHandle,"NamespaceName")
 
 	Func setNamespaceName P1
 		raise("DotNet Error: NamespaceName is a read-only property")
@@ -314,6 +320,9 @@ Class XNamespace from Object
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -323,7 +332,7 @@ Class XNamespace from Object
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Linq.XNamespace, System.Private.Xml.Linq',"s3:Get",P1))
 
 	Func getNamespaceName
-		return dnAnswer(dotnet_getp(nHandle,"NamespaceName"))
+		return dotnet_getp(nHandle,"NamespaceName")
 
 	Func setNamespaceName P1
 		raise("DotNet Error: NamespaceName is a read-only property")
@@ -490,7 +499,7 @@ Class XObject from Object
 		return self
 
 	Func getBaseUri
-		return dnAnswer(dotnet_getp(nHandle,"BaseUri"))
+		return dotnet_getp(nHandle,"BaseUri")
 
 	Func setBaseUri P1
 		raise("DotNet Error: BaseUri is a read-only property")
@@ -502,7 +511,7 @@ Class XObject from Object
 		raise("DotNet Error: Document is a read-only property")
 
 	Func getNodeType
-		return dnAnswer(dotnet_getp(nHandle,"NodeType"))
+		return dotnet_getp(nHandle,"NodeType")
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
@@ -534,7 +543,7 @@ Class XObjectChangeEventArgs from EventArgs
 		return self
 
 	Func getObjectChange
-		return dnAnswer(dotnet_getp(nHandle,"ObjectChange"))
+		return dotnet_getp(nHandle,"ObjectChange")
 
 	Func setObjectChange P1
 		raise("DotNet Error: ObjectChange is a read-only property")
@@ -605,6 +614,9 @@ Class XStreamingElement from Object
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func WriteTo P1
 		dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
@@ -754,6 +766,9 @@ Class XNode from XObject
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func WriteTo P1
 		dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
 
@@ -851,6 +866,9 @@ Class XAttribute from XObject
 
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getIsNamespaceDeclaration
 		return dotnet_getp(nHandle,"IsNamespaceDeclaration")
 
@@ -876,7 +894,7 @@ Class XAttribute from XObject
 		raise("DotNet Error: PreviousAttribute is a read-only property")
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		dotnet_setp(nHandle,"Value",P1)
@@ -905,7 +923,7 @@ Class XComment from XNode
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		dotnet_setp(nHandle,"Value",P1)
@@ -1061,7 +1079,7 @@ Class XDocumentType from XNode
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -1114,14 +1132,14 @@ Class XProcessingInstruction from XNode
 		return self
 
 	Func getData
-		return dnAnswer(dotnet_getp(nHandle,"Data"))
+		return dotnet_getp(nHandle,"Data")
 
 	Func setData P1
 		dotnet_setp(nHandle,"Data",P1)
 		return self
 
 	Func getTarget
-		return dnAnswer(dotnet_getp(nHandle,"Target"))
+		return dotnet_getp(nHandle,"Target")
 
 	Func setTarget P1
 		dotnet_setp(nHandle,"Target",P1)
@@ -1144,7 +1162,7 @@ Class XText from XNode
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		dotnet_setp(nHandle,"Value",P1)
@@ -1467,7 +1485,7 @@ Class XElement from XContainer
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		dotnet_setp(nHandle,"Value",P1)

@@ -2255,6 +2255,9 @@ Class Type from MemberInfo
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func IsEnumDefined P1
 		dn_x = dotnet_call("s4:call",nHandle,"s13:IsEnumDefined",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2564,13 +2567,13 @@ Class Type from MemberInfo
 		raise("DotNet Error: GenericParameterPosition is a read-only property")
 
 	Func getGenericParameterAttributes
-		return dnAnswer(dotnet_getp(nHandle,"GenericParameterAttributes"))
+		return dotnet_getp(nHandle,"GenericParameterAttributes")
 
 	Func setGenericParameterAttributes P1
 		raise("DotNet Error: GenericParameterAttributes is a read-only property")
 
 	Func getAttributes
-		return dnAnswer(dotnet_getp(nHandle,"Attributes"))
+		return dotnet_getp(nHandle,"Attributes")
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
@@ -2985,6 +2988,9 @@ Class ApplicationId from Object
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2997,7 +3003,7 @@ Class ApplicationId from Object
 		raise("DotNet Error: Culture is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -4220,6 +4226,9 @@ Class DBNull from Object
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func GetTypeCode 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetTypeCode")
 		if isnumber(dn_x) and dn_x = -1
@@ -4422,7 +4431,7 @@ Class Environment from Object
 		return dnObj(dotnet_callo("s4:call",'System.Environment, System.Private.CoreLib',"s18:GetCommandLineArgs"))
 
 	Func ExpandEnvironmentVariables P1
-		return dnAnswer(dotnet_callts('System.Environment, System.Private.CoreLib','ExpandEnvironmentVariables',P1))
+		return dotnet_callts('System.Environment, System.Private.CoreLib','ExpandEnvironmentVariables',P1)
 
 	Func GetFolderPath P1
 		if dotnet_isnamed(P1)
@@ -4699,6 +4708,9 @@ Class Exception from Object
 
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4711,7 +4723,7 @@ Class Exception from Object
 		raise("DotNet Error: TargetSite is a read-only property")
 
 	Func getMessage
-		return dnAnswer(dotnet_getp(nHandle,"Message"))
+		return dotnet_getp(nHandle,"Message")
 
 	Func setMessage P1
 		raise("DotNet Error: Message is a read-only property")
@@ -4787,6 +4799,9 @@ Class FormattableString from Object
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4803,7 +4818,7 @@ Class FormattableString from Object
 		return dn_x
 
 	Func getFormat
-		return dnAnswer(dotnet_getp(nHandle,"Format"))
+		return dotnet_getp(nHandle,"Format")
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
@@ -5757,6 +5772,9 @@ Class OperatingSystem from Object
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -5887,13 +5905,13 @@ Class OperatingSystem from Object
 		return dn_x
 
 	Func getPlatform
-		return dnAnswer(dotnet_getp(nHandle,"Platform"))
+		return dotnet_getp(nHandle,"Platform")
 
 	Func setPlatform P1
 		raise("DotNet Error: Platform is a read-only property")
 
 	Func getServicePack
-		return dnAnswer(dotnet_getp(nHandle,"ServicePack"))
+		return dotnet_getp(nHandle,"ServicePack")
 
 	Func setServicePack P1
 		raise("DotNet Error: ServicePack is a read-only property")
@@ -5905,7 +5923,7 @@ Class OperatingSystem from Object
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getVersionString
-		return dnAnswer(dotnet_getp(nHandle,"VersionString"))
+		return dotnet_getp(nHandle,"VersionString")
 
 	Func setVersionString P1
 		raise("DotNet Error: VersionString is a read-only property")
@@ -6187,7 +6205,10 @@ Class TimeZoneInfo from Object
 		return dn_x
 
 	Func ToSerializedString 
-		return dnAnswer(dotnet_callt(nHandle,"ToSerializedString"))
+		return dotnet_callt(nHandle,"ToSerializedString")
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func GetAdjustmentRules 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetAdjustmentRules")
@@ -6257,7 +6278,7 @@ Class TimeZoneInfo from Object
 		return dnSend("s4:call",dnTypeHandle('System.TimeZoneInfo, System.Private.CoreLib'),"s27:TryConvertWindowsIdToIanaId",dnPackItem(P1))
 
 	Func getId
-		return dnAnswer(dotnet_getp(nHandle,"Id"))
+		return dotnet_getp(nHandle,"Id")
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -6269,19 +6290,19 @@ Class TimeZoneInfo from Object
 		raise("DotNet Error: HasIanaId is a read-only property")
 
 	Func getDisplayName
-		return dnAnswer(dotnet_getp(nHandle,"DisplayName"))
+		return dotnet_getp(nHandle,"DisplayName")
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getStandardName
-		return dnAnswer(dotnet_getp(nHandle,"StandardName"))
+		return dotnet_getp(nHandle,"StandardName")
 
 	Func setStandardName P1
 		raise("DotNet Error: StandardName is a read-only property")
 
 	Func getDaylightName
-		return dnAnswer(dotnet_getp(nHandle,"DaylightName"))
+		return dotnet_getp(nHandle,"DaylightName")
 
 	Func setDaylightName P1
 		raise("DotNet Error: DaylightName is a read-only property")
@@ -6446,6 +6467,9 @@ Class Tuple1 from Object
 	Func Equals P1
 		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
 
@@ -6477,6 +6501,9 @@ Class Tuple2 from Object
 
 	Func Equals P1
 		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -6516,6 +6543,9 @@ Class Tuple3 from Object
 
 	Func Equals P1
 		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -6562,6 +6592,9 @@ Class Tuple4 from Object
 
 	Func Equals P1
 		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -6615,6 +6648,9 @@ Class Tuple5 from Object
 
 	Func Equals P1
 		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -6675,6 +6711,9 @@ Class Tuple6 from Object
 
 	Func Equals P1
 		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -6742,6 +6781,9 @@ Class Tuple7 from Object
 
 	Func Equals P1
 		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -6816,6 +6858,9 @@ Class Tuple8 from Object
 
 	Func Equals P1
 		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -6943,6 +6988,9 @@ Class Uri from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func TryFormat P1
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1))
 
@@ -7017,46 +7065,46 @@ Class Uri from Object
 		return dn_x
 
 	Func UnescapeDataString P1
-		return dnAnswer(dotnet_callts('System.Uri, System.Private.Uri','UnescapeDataString',P1))
+		return dotnet_callts('System.Uri, System.Private.Uri','UnescapeDataString',P1)
 
 	Func TryUnescapeDataString P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Uri, System.Private.Uri'),"s21:TryUnescapeDataString",dnPackItem(P1) + dnPackItem(P2))
 
 	Func EscapeUriString P1
-		return dnAnswer(dotnet_callts('System.Uri, System.Private.Uri','EscapeUriString',P1))
+		return dotnet_callts('System.Uri, System.Private.Uri','EscapeUriString',P1)
 
 	Func EscapeDataString P1
-		return dnAnswer(dotnet_callts('System.Uri, System.Private.Uri','EscapeDataString',P1))
+		return dotnet_callts('System.Uri, System.Private.Uri','EscapeDataString',P1)
 
 	Func TryEscapeDataString P1,P2
 		return dnSend("s4:call",dnTypeHandle('System.Uri, System.Private.Uri'),"s19:TryEscapeDataString",dnPackItem(P1) + dnPackItem(P2))
 
 	Func getAbsolutePath
-		return dnAnswer(dotnet_getp(nHandle,"AbsolutePath"))
+		return dotnet_getp(nHandle,"AbsolutePath")
 
 	Func setAbsolutePath P1
 		raise("DotNet Error: AbsolutePath is a read-only property")
 
 	Func getAbsoluteUri
-		return dnAnswer(dotnet_getp(nHandle,"AbsoluteUri"))
+		return dotnet_getp(nHandle,"AbsoluteUri")
 
 	Func setAbsoluteUri P1
 		raise("DotNet Error: AbsoluteUri is a read-only property")
 
 	Func getLocalPath
-		return dnAnswer(dotnet_getp(nHandle,"LocalPath"))
+		return dotnet_getp(nHandle,"LocalPath")
 
 	Func setLocalPath P1
 		raise("DotNet Error: LocalPath is a read-only property")
 
 	Func getAuthority
-		return dnAnswer(dotnet_getp(nHandle,"Authority"))
+		return dotnet_getp(nHandle,"Authority")
 
 	Func setAuthority P1
 		raise("DotNet Error: Authority is a read-only property")
 
 	Func getHostNameType
-		return dnAnswer(dotnet_getp(nHandle,"HostNameType"))
+		return dotnet_getp(nHandle,"HostNameType")
 
 	Func setHostNameType P1
 		raise("DotNet Error: HostNameType is a read-only property")
@@ -7080,7 +7128,7 @@ Class Uri from Object
 		raise("DotNet Error: IsLoopback is a read-only property")
 
 	Func getPathAndQuery
-		return dnAnswer(dotnet_getp(nHandle,"PathAndQuery"))
+		return dotnet_getp(nHandle,"PathAndQuery")
 
 	Func setPathAndQuery P1
 		raise("DotNet Error: PathAndQuery is a read-only property")
@@ -7098,7 +7146,7 @@ Class Uri from Object
 		raise("DotNet Error: IsUnc is a read-only property")
 
 	Func getHost
-		return dnAnswer(dotnet_getp(nHandle,"Host"))
+		return dotnet_getp(nHandle,"Host")
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
@@ -7110,37 +7158,37 @@ Class Uri from Object
 		raise("DotNet Error: Port is a read-only property")
 
 	Func getQuery
-		return dnAnswer(dotnet_getp(nHandle,"Query"))
+		return dotnet_getp(nHandle,"Query")
 
 	Func setQuery P1
 		raise("DotNet Error: Query is a read-only property")
 
 	Func getFragment
-		return dnAnswer(dotnet_getp(nHandle,"Fragment"))
+		return dotnet_getp(nHandle,"Fragment")
 
 	Func setFragment P1
 		raise("DotNet Error: Fragment is a read-only property")
 
 	Func getScheme
-		return dnAnswer(dotnet_getp(nHandle,"Scheme"))
+		return dotnet_getp(nHandle,"Scheme")
 
 	Func setScheme P1
 		raise("DotNet Error: Scheme is a read-only property")
 
 	Func getOriginalString
-		return dnAnswer(dotnet_getp(nHandle,"OriginalString"))
+		return dotnet_getp(nHandle,"OriginalString")
 
 	Func setOriginalString P1
 		raise("DotNet Error: OriginalString is a read-only property")
 
 	Func getDnsSafeHost
-		return dnAnswer(dotnet_getp(nHandle,"DnsSafeHost"))
+		return dotnet_getp(nHandle,"DnsSafeHost")
 
 	Func setDnsSafeHost P1
 		raise("DotNet Error: DnsSafeHost is a read-only property")
 
 	Func getIdnHost
-		return dnAnswer(dotnet_getp(nHandle,"IdnHost"))
+		return dotnet_getp(nHandle,"IdnHost")
 
 	Func setIdnHost P1
 		raise("DotNet Error: IdnHost is a read-only property")
@@ -7158,7 +7206,7 @@ Class Uri from Object
 		raise("DotNet Error: UserEscaped is a read-only property")
 
 	Func getUserInfo
-		return dnAnswer(dotnet_getp(nHandle,"UserInfo"))
+		return dotnet_getp(nHandle,"UserInfo")
 
 	Func setUserInfo P1
 		raise("DotNet Error: UserInfo is a read-only property")
@@ -7355,29 +7403,32 @@ Class UriBuilder from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getScheme
-		return dnAnswer(dotnet_getp(nHandle,"Scheme"))
+		return dotnet_getp(nHandle,"Scheme")
 
 	Func setScheme P1
 		dotnet_setp(nHandle,"Scheme",P1)
 		return self
 
 	Func getUserName
-		return dnAnswer(dotnet_getp(nHandle,"UserName"))
+		return dotnet_getp(nHandle,"UserName")
 
 	Func setUserName P1
 		dotnet_setp(nHandle,"UserName",P1)
 		return self
 
 	Func getPassword
-		return dnAnswer(dotnet_getp(nHandle,"Password"))
+		return dotnet_getp(nHandle,"Password")
 
 	Func setPassword P1
 		dotnet_setp(nHandle,"Password",P1)
 		return self
 
 	Func getHost
-		return dnAnswer(dotnet_getp(nHandle,"Host"))
+		return dotnet_getp(nHandle,"Host")
 
 	Func setHost P1
 		dotnet_setp(nHandle,"Host",P1)
@@ -7391,21 +7442,21 @@ Class UriBuilder from Object
 		return self
 
 	Func getPath
-		return dnAnswer(dotnet_getp(nHandle,"Path"))
+		return dotnet_getp(nHandle,"Path")
 
 	Func setPath P1
 		dotnet_setp(nHandle,"Path",P1)
 		return self
 
 	Func getQuery
-		return dnAnswer(dotnet_getp(nHandle,"Query"))
+		return dotnet_getp(nHandle,"Query")
 
 	Func setQuery P1
 		dotnet_setp(nHandle,"Query",P1)
 		return self
 
 	Func getFragment
-		return dnAnswer(dotnet_getp(nHandle,"Fragment"))
+		return dotnet_getp(nHandle,"Fragment")
 
 	Func setFragment P1
 		dotnet_setp(nHandle,"Fragment",P1)
@@ -7729,6 +7780,9 @@ Class String from Object
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func GetEnumerator 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
 		if isnumber(dn_x) and dn_x = -1
@@ -7757,7 +7811,7 @@ Class String from Object
 		return dnAnswer(dotnet_calltd(nHandle,"Normalize",P1))
 
 	Func Insert P1,P2
-		return dnAnswer(dotnet_callt(nHandle,"Insert",P1,P2))
+		return dotnet_callt(nHandle,"Insert",P1,P2)
 
 	Func PadLeft P1
 		return dnAnswer(dotnet_calltd1(nHandle,"PadLeft",P1))
@@ -7796,13 +7850,13 @@ Class String from Object
 		return dnAnswer(dotnet_calltd(nHandle,"ToLower",P1))
 
 	Func ToLowerInvariant 
-		return dnAnswer(dotnet_callt(nHandle,"ToLowerInvariant"))
+		return dotnet_callt(nHandle,"ToLowerInvariant")
 
 	Func ToUpper P1
 		return dnAnswer(dotnet_calltd(nHandle,"ToUpper",P1))
 
 	Func ToUpperInvariant 
-		return dnAnswer(dotnet_callt(nHandle,"ToUpperInvariant"))
+		return dotnet_callt(nHandle,"ToUpperInvariant")
 
 	Func Trim P1
 		return dnAnswer(dotnet_calltd(nHandle,"Trim",P1))
@@ -7829,7 +7883,7 @@ Class String from Object
 		return dnAnswer(dotnet_calltd1(nHandle,"LastIndexOfAny",P1))
 
 	Func Intern P1
-		return dnAnswer(dotnet_callts('System.String, System.Private.CoreLib','Intern',P1))
+		return dotnet_callts('System.String, System.Private.CoreLib','Intern',P1)
 
 	Func IsInterned P1
 		return dnAnswer(dotnet_callts('System.String, System.Private.CoreLib','IsInterned',P1))
@@ -7856,7 +7910,7 @@ Class String from Object
 		return dn_x
 
 	Func Copy P1
-		return dnAnswer(dotnet_callts('System.String, System.Private.CoreLib','Copy',P1))
+		return dotnet_callts('System.String, System.Private.CoreLib','Copy',P1)
 
 	Func IsNullOrEmpty P1
 		return dnAnswer(dotnet_callts('System.String, System.Private.CoreLib','IsNullOrEmpty',P1))
@@ -8047,6 +8101,9 @@ Class Version from Object
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:TryFormat",P1)
@@ -8192,7 +8249,7 @@ Class AppDomain from MarshalByRefObject
 		return self
 
 	Func ApplyPolicy P1
-		return dnAnswer(dotnet_callt(nHandle,"ApplyPolicy",P1))
+		return dotnet_callt(nHandle,"ApplyPolicy",P1)
 
 	Func ExecuteAssembly P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ExecuteAssembly",P1))
@@ -8224,6 +8281,9 @@ Class AppDomain from MarshalByRefObject
 
 	Func IsFinalizingForUnload 
 		return dnAnswer(dotnet_callt(nHandle,"IsFinalizingForUnload"))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func @Load P1
 		if dotnet_isnamed(P1)
@@ -8391,7 +8451,7 @@ Class AppDomain from MarshalByRefObject
 		return self
 
 	Func getBaseDirectory
-		return dnAnswer(dotnet_getp(nHandle,"BaseDirectory"))
+		return dotnet_getp(nHandle,"BaseDirectory")
 
 	Func setBaseDirectory P1
 		raise("DotNet Error: BaseDirectory is a read-only property")
@@ -8421,7 +8481,7 @@ Class AppDomain from MarshalByRefObject
 		raise("DotNet Error: DynamicDirectory is a read-only property")
 
 	Func getFriendlyName
-		return dnAnswer(dotnet_getp(nHandle,"FriendlyName"))
+		return dotnet_getp(nHandle,"FriendlyName")
 
 	Func setFriendlyName P1
 		raise("DotNet Error: FriendlyName is a read-only property")
@@ -8704,7 +8764,7 @@ Class AttributeUsageAttribute from Attribute
 		return self
 
 	Func getValidOn
-		return dnAnswer(dotnet_getp(nHandle,"ValidOn"))
+		return dotnet_getp(nHandle,"ValidOn")
 
 	Func setValidOn P1
 		raise("DotNet Error: ValidOn is a read-only property")
@@ -8749,6 +8809,9 @@ Class Boolean from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1))
@@ -8822,6 +8885,9 @@ Class Byte from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -8999,6 +9065,9 @@ Class Char from ValueType
 		dn_x = dotnet_call("s4:call",nHandle,"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func GetTypeCode 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetTypeCode")
@@ -9241,7 +9310,7 @@ Class Char from ValueType
 		return dnAnswer(dotnet_callts('System.Char, System.Private.CoreLib','IsSurrogatePair',P1,P2))
 
 	Func ConvertFromUtf32 P1
-		return dnAnswer(dotnet_callts('System.Char, System.Private.CoreLib','ConvertFromUtf32',P1))
+		return dotnet_callts('System.Char, System.Private.CoreLib','ConvertFromUtf32',P1)
 
 	Func ConvertToUtf32 P1,P2
 		dn_x = dotnet_call("s4:call",'System.Char, System.Private.CoreLib',"s14:ConvertToUtf32",P1,P2)
@@ -9287,7 +9356,7 @@ Class ConsoleCancelEventArgs from EventArgs
 		return self
 
 	Func getSpecialKey
-		return dnAnswer(dotnet_getp(nHandle,"SpecialKey"))
+		return dotnet_getp(nHandle,"SpecialKey")
 
 	Func setSpecialKey P1
 		raise("DotNet Error: SpecialKey is a read-only property")
@@ -9340,13 +9409,13 @@ Class ConsoleKeyInfo from ValueType
 		raise("DotNet Error: KeyChar is a read-only property")
 
 	Func getKey
-		return dnAnswer(dotnet_getp(nHandle,"Key"))
+		return dotnet_getp(nHandle,"Key")
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
 
 	Func getModifiers
-		return dnAnswer(dotnet_getp(nHandle,"Modifiers"))
+		return dotnet_getp(nHandle,"Modifiers")
 
 	Func setModifiers P1
 		raise("DotNet Error: Modifiers is a read-only property")
@@ -9599,6 +9668,9 @@ Class DateTimeOffset from ValueType
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:TryFormat",P1)
@@ -9685,7 +9757,7 @@ Class DateTimeOffset from ValueType
 		raise("DotNet Error: Day is a read-only property")
 
 	Func getDayOfWeek
-		return dnAnswer(dotnet_getp(nHandle,"DayOfWeek"))
+		return dotnet_getp(nHandle,"DayOfWeek")
 
 	Func setDayOfWeek P1
 		raise("DotNet Error: DayOfWeek is a read-only property")
@@ -9874,6 +9946,9 @@ Class Decimal from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -10245,6 +10320,9 @@ Class Double from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -10648,6 +10726,9 @@ Class Enum from ValueType
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func GetTypeCode 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s11:GetTypeCode")
@@ -11104,6 +11185,9 @@ Class Half from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -11626,6 +11710,9 @@ Class Index from ValueType
 	Func GetOffset P1
 		return dnAnswer(dotnet_callt(nHandle,"GetOffset",P1))
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func FromStart P1
 		return dnObj(dotnet_callo("s4:call",'System.Index, System.Private.CoreLib',"s9:FromStart",P1))
 
@@ -11712,6 +11799,9 @@ Class Int128 from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -11882,6 +11972,9 @@ Class Int16 from ValueType
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:TryFormat",P1)
@@ -12037,6 +12130,9 @@ Class Int32 from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -12196,6 +12292,9 @@ Class Int64 from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -12382,6 +12481,9 @@ Class IntPtr from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -12619,7 +12721,7 @@ Class LoaderOptimizationAttribute from Attribute
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -12664,6 +12766,9 @@ Class Memory from ValueType
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Slice P1
 		if dotnet_isnamed(P1)
@@ -13093,6 +13198,9 @@ Class Range from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func GetOffsetAndLength P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s18:GetOffsetAndLength",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -13149,6 +13257,9 @@ Class ReadOnlyMemory from ValueType
 			oDotNetGuard = dotnet_guard(nHandle)
 		ok
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Slice P1
 		if dotnet_isnamed(P1)
@@ -13238,7 +13349,7 @@ Class ResolveEventArgs from EventArgs
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -13426,6 +13537,9 @@ Class SByte from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -13632,6 +13746,9 @@ Class Single from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -14161,13 +14278,16 @@ Class TimeOnly from ValueType
 		return dn_x
 
 	Func ToLongTimeString 
-		return dnAnswer(dotnet_callt(nHandle,"ToLongTimeString"))
+		return dotnet_callt(nHandle,"ToLongTimeString")
 
 	Func ToShortTimeString 
-		return dnAnswer(dotnet_callt(nHandle,"ToShortTimeString"))
+		return dotnet_callt(nHandle,"ToShortTimeString")
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -14411,6 +14531,9 @@ Class TimeSpan from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -14792,7 +14915,7 @@ Class TimeZoneInfoTransitionTime from ValueType
 		raise("DotNet Error: Day is a read-only property")
 
 	Func getDayOfWeek
-		return dnAnswer(dotnet_getp(nHandle,"DayOfWeek"))
+		return dotnet_getp(nHandle,"DayOfWeek")
 
 	Func setDayOfWeek P1
 		raise("DotNet Error: DayOfWeek is a read-only property")
@@ -14893,6 +15016,9 @@ Class UInt128 from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -15035,6 +15161,9 @@ Class UInt16 from ValueType
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:TryFormat",P1)
@@ -15172,6 +15301,9 @@ Class UInt32 from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -15313,6 +15445,9 @@ Class UInt64 from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -15481,6 +15616,9 @@ Class UIntPtr from ValueType
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -15682,6 +15820,9 @@ Class ValueTuple from ValueType
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Create P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.ValueTuple, System.Private.CoreLib',"s6:Create",P1))
@@ -15721,6 +15862,9 @@ Class ValueTuple1 from ValueType
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
 
@@ -15758,6 +15902,9 @@ Class ValueTuple2 from ValueType
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -15804,6 +15951,9 @@ Class ValueTuple3 from ValueType
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -15858,6 +16008,9 @@ Class ValueTuple4 from ValueType
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -15920,6 +16073,9 @@ Class ValueTuple5 from ValueType
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -15990,6 +16146,9 @@ Class ValueTuple6 from ValueType
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -16068,6 +16227,9 @@ Class ValueTuple7 from ValueType
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -16154,6 +16316,9 @@ Class ValueTuple8 from ValueType
 		dn_x = dotnet_call("s4:call",nHandle,"s9:CompareTo",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getItem1
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Item1"))
@@ -16407,19 +16572,22 @@ Class DateTime from ValueType
 		return dnObj(dn_x)
 
 	Func ToLongDateString 
-		return dnAnswer(dotnet_callt(nHandle,"ToLongDateString"))
+		return dotnet_callt(nHandle,"ToLongDateString")
 
 	Func ToLongTimeString 
-		return dnAnswer(dotnet_callt(nHandle,"ToLongTimeString"))
+		return dotnet_callt(nHandle,"ToLongTimeString")
 
 	Func ToShortDateString 
-		return dnAnswer(dotnet_callt(nHandle,"ToShortDateString"))
+		return dotnet_callt(nHandle,"ToShortDateString")
 
 	Func ToShortTimeString 
-		return dnAnswer(dotnet_callt(nHandle,"ToShortTimeString"))
+		return dotnet_callt(nHandle,"ToShortTimeString")
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -16525,7 +16693,7 @@ Class DateTime from ValueType
 		raise("DotNet Error: Day is a read-only property")
 
 	Func getDayOfWeek
-		return dnAnswer(dotnet_getp(nHandle,"DayOfWeek"))
+		return dotnet_getp(nHandle,"DayOfWeek")
 
 	Func setDayOfWeek P1
 		raise("DotNet Error: DayOfWeek is a read-only property")
@@ -16543,7 +16711,7 @@ Class DateTime from ValueType
 		raise("DotNet Error: Hour is a read-only property")
 
 	Func getKind
-		return dnAnswer(dotnet_getp(nHandle,"Kind"))
+		return dotnet_getp(nHandle,"Kind")
 
 	Func setKind P1
 		raise("DotNet Error: Kind is a read-only property")
@@ -16717,6 +16885,9 @@ Class Guid from ValueType
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:TryFormat",P1)
@@ -16863,13 +17034,16 @@ Class DateOnly from ValueType
 		return dn_x
 
 	Func ToLongDateString 
-		return dnAnswer(dotnet_callt(nHandle,"ToLongDateString"))
+		return dotnet_callt(nHandle,"ToLongDateString")
 
 	Func ToShortDateString 
-		return dnAnswer(dotnet_callt(nHandle,"ToShortDateString"))
+		return dotnet_callt(nHandle,"ToShortDateString")
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		if dotnet_isnamed(P1)
@@ -16932,7 +17106,7 @@ Class DateOnly from ValueType
 		raise("DotNet Error: Day is a read-only property")
 
 	Func getDayOfWeek
-		return dnAnswer(dotnet_getp(nHandle,"DayOfWeek"))
+		return dotnet_getp(nHandle,"DayOfWeek")
 
 	Func setDayOfWeek P1
 		raise("DotNet Error: DayOfWeek is a read-only property")
@@ -17954,7 +18128,7 @@ Class TypeInitializationException from SystemException
 		return self
 
 	Func getTypeName
-		return dnAnswer(dotnet_getp(nHandle,"TypeName"))
+		return dotnet_getp(nHandle,"TypeName")
 
 
 Class TypeLoadException from SystemException
@@ -17994,7 +18168,7 @@ Class TypeLoadException from SystemException
 		return self
 
 	Func getTypeName
-		return dnAnswer(dotnet_getp(nHandle,"TypeName"))
+		return dotnet_getp(nHandle,"TypeName")
 
 
 Class TypeUnloadedException from SystemException
@@ -18608,7 +18782,7 @@ Class ObjectDisposedException from InvalidOperationException
 		return self
 
 	Func getObjectName
-		return dnAnswer(dotnet_getp(nHandle,"ObjectName"))
+		return dotnet_getp(nHandle,"ObjectName")
 
 	Func setObjectName P1
 		raise("DotNet Error: ObjectName is a read-only property")

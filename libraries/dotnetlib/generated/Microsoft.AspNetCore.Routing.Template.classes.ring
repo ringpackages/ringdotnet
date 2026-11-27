@@ -80,7 +80,7 @@ Class InlineConstraint from Object
 		return dn_x
 
 	Func getConstraint
-		return dnAnswer(dotnet_getp(nHandle,"Constraint"))
+		return dotnet_getp(nHandle,"Constraint")
 
 	Func setConstraint P1
 		raise("DotNet Error: Constraint is a read-only property")

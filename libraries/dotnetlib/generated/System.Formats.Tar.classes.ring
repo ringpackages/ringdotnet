@@ -93,6 +93,9 @@ Class TarEntry from Object
 		ok
 		raise("DotNet Error: ExtractToFileAsync does not take one argument: use named arguments, ExtractToFileAsync([ :parameter = value, ... ])")
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -105,13 +108,13 @@ Class TarEntry from Object
 		raise("DotNet Error: Checksum is a read-only property")
 
 	Func getEntryType
-		return dnAnswer(dotnet_getp(nHandle,"EntryType"))
+		return dotnet_getp(nHandle,"EntryType")
 
 	Func setEntryType P1
 		raise("DotNet Error: EntryType is a read-only property")
 
 	Func getFormat
-		return dnAnswer(dotnet_getp(nHandle,"Format"))
+		return dotnet_getp(nHandle,"Format")
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
@@ -137,21 +140,21 @@ Class TarEntry from Object
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getLinkName
-		return dnAnswer(dotnet_getp(nHandle,"LinkName"))
+		return dotnet_getp(nHandle,"LinkName")
 
 	Func setLinkName P1
 		dotnet_setp(nHandle,"LinkName",P1)
 		return self
 
 	Func getMode
-		return dnAnswer(dotnet_getp(nHandle,"Mode"))
+		return dotnet_getp(nHandle,"Mode")
 
 	Func setMode P1
 		dotnet_setp(nHandle,"Mode",P1)
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -373,7 +376,7 @@ Class TarWriter from Object
 		return dnObj(dn_x)
 
 	Func getFormat
-		return dnAnswer(dotnet_getp(nHandle,"Format"))
+		return dotnet_getp(nHandle,"Format")
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
@@ -410,14 +413,14 @@ Class PosixTarEntry from TarEntry
 		return self
 
 	Func getGroupName
-		return dnAnswer(dotnet_getp(nHandle,"GroupName"))
+		return dotnet_getp(nHandle,"GroupName")
 
 	Func setGroupName P1
 		dotnet_setp(nHandle,"GroupName",P1)
 		return self
 
 	Func getUserName
-		return dnAnswer(dotnet_getp(nHandle,"UserName"))
+		return dotnet_getp(nHandle,"UserName")
 
 	Func setUserName P1
 		dotnet_setp(nHandle,"UserName",P1)

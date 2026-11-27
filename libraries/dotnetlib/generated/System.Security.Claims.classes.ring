@@ -87,6 +87,9 @@ Class Claim from Object
 
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func @GetType 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
 		if isnumber(dn_x) and dn_x = -1
@@ -100,13 +103,13 @@ Class Claim from Object
 		return dn_x
 
 	Func getIssuer
-		return dnAnswer(dotnet_getp(nHandle,"Issuer"))
+		return dotnet_getp(nHandle,"Issuer")
 
 	Func setIssuer P1
 		raise("DotNet Error: Issuer is a read-only property")
 
 	Func getOriginalIssuer
-		return dnAnswer(dotnet_getp(nHandle,"OriginalIssuer"))
+		return dotnet_getp(nHandle,"OriginalIssuer")
 
 	Func setOriginalIssuer P1
 		raise("DotNet Error: OriginalIssuer is a read-only property")
@@ -124,19 +127,19 @@ Class Claim from Object
 		raise("DotNet Error: Subject is a read-only property")
 
 	Func getType
-		return dnAnswer(dotnet_getp(nHandle,"Type"))
+		return dotnet_getp(nHandle,"Type")
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getValueType
-		return dnAnswer(dotnet_getp(nHandle,"ValueType"))
+		return dotnet_getp(nHandle,"ValueType")
 
 	Func setValueType P1
 		raise("DotNet Error: ValueType is a read-only property")
@@ -1056,13 +1059,13 @@ Class ClaimsIdentity from Object
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getNameClaimType
-		return dnAnswer(dotnet_getp(nHandle,"NameClaimType"))
+		return dotnet_getp(nHandle,"NameClaimType")
 
 	Func setNameClaimType P1
 		raise("DotNet Error: NameClaimType is a read-only property")
 
 	Func getRoleClaimType
-		return dnAnswer(dotnet_getp(nHandle,"RoleClaimType"))
+		return dotnet_getp(nHandle,"RoleClaimType")
 
 	Func setRoleClaimType P1
 		raise("DotNet Error: RoleClaimType is a read-only property")

@@ -216,13 +216,13 @@ Class NeutralResourcesLanguageAttribute from Attribute
 		return self
 
 	Func getCultureName
-		return dnAnswer(dotnet_getp(nHandle,"CultureName"))
+		return dotnet_getp(nHandle,"CultureName")
 
 	Func setCultureName P1
 		raise("DotNet Error: CultureName is a read-only property")
 
 	Func getLocation
-		return dnAnswer(dotnet_getp(nHandle,"Location"))
+		return dotnet_getp(nHandle,"Location")
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")
@@ -305,7 +305,7 @@ Class ResourceManager from Object
 		return dnObj(dotnet_callo("s4:call",'System.Resources.ResourceManager, System.Private.CoreLib',"s30:CreateFileBasedResourceManager",P1,P2,P3))
 
 	Func getBaseName
-		return dnAnswer(dotnet_getp(nHandle,"BaseName"))
+		return dotnet_getp(nHandle,"BaseName")
 
 	Func setBaseName P1
 		raise("DotNet Error: BaseName is a read-only property")
@@ -506,7 +506,7 @@ Class SatelliteContractVersionAttribute from Attribute
 		return self
 
 	Func getVersion
-		return dnAnswer(dotnet_getp(nHandle,"Version"))
+		return dotnet_getp(nHandle,"Version")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")

@@ -255,6 +255,9 @@ Class CatchBlock from Object
 		ok
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Update P1,P2,P3
 		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2,P3)
 		if isnumber(dn_x) and dn_x = -1
@@ -313,6 +316,9 @@ Class ElementInit from Object
 			return self
 		ok
 		return dnObj(dn_x)
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Update P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1)
@@ -380,6 +386,9 @@ Class ExpressionsExpression from Object
 			return self
 		ok
 		return dnObj(dn_x)
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func @GetType 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
@@ -1034,7 +1043,7 @@ Class ExpressionsExpression from Object
 		return dnObj(dn_x)
 
 	Func getNodeType
-		return dnAnswer(dotnet_getp(nHandle,"NodeType"))
+		return dotnet_getp(nHandle,"NodeType")
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
@@ -1178,6 +1187,9 @@ Class LabelTarget from Object
 		ok
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func @GetType 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
 		if isnumber(dn_x) and dn_x = -1
@@ -1217,13 +1229,16 @@ Class MemberBinding from Object
 		ok
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getBindingType
-		return dnAnswer(dotnet_getp(nHandle,"BindingType"))
+		return dotnet_getp(nHandle,"BindingType")
 
 	Func setBindingType P1
 		raise("DotNet Error: BindingType is a read-only property")
@@ -1248,6 +1263,9 @@ Class SwitchCase from Object
 			return self
 		ok
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Update P1,P2
 		dn_x = dotnet_callo("s5:calls",nHandle,"s6:Update",P1,P2)
@@ -1296,7 +1314,7 @@ Class SymbolDocumentInfo from Object
 		return dn_x
 
 	Func getFileName
-		return dnAnswer(dotnet_getp(nHandle,"FileName"))
+		return dotnet_getp(nHandle,"FileName")
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
@@ -1667,7 +1685,7 @@ Class GotoExpression from ExpressionsExpression
 		raise("DotNet Error: Target is a read-only property")
 
 	Func getKind
-		return dnAnswer(dotnet_getp(nHandle,"Kind"))
+		return dotnet_getp(nHandle,"Kind")
 
 	Func setKind P1
 		raise("DotNet Error: Kind is a read-only property")

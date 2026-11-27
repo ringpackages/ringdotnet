@@ -270,6 +270,9 @@ Class EventId from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getId
 		return dotnet_getp(nHandle,"Id")
 
@@ -1201,7 +1204,7 @@ Class LoggerFactoryOptions from Object
 		return dn_x
 
 	Func getActivityTrackingOptions
-		return dnAnswer(dotnet_getp(nHandle,"ActivityTrackingOptions"))
+		return dotnet_getp(nHandle,"ActivityTrackingOptions")
 
 	Func setActivityTrackingOptions P1
 		dotnet_setp(nHandle,"ActivityTrackingOptions",P1)
@@ -1256,7 +1259,7 @@ Class LoggerFilterOptions from Object
 		return self
 
 	Func getMinLevel
-		return dnAnswer(dotnet_getp(nHandle,"MinLevel"))
+		return dotnet_getp(nHandle,"MinLevel")
 
 	Func setMinLevel P1
 		dotnet_setp(nHandle,"MinLevel",P1)
@@ -1286,6 +1289,9 @@ Class LoggerFilterRule from Object
 		nHandle = dnCreate('Microsoft.Extensions.Logging.LoggerFilterRule, Microsoft.Extensions.Logging',[P1,P2,P3,P4])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1400,14 +1406,14 @@ Class LoggerMessageAttribute from Attribute
 		return self
 
 	Func getLevel
-		return dnAnswer(dotnet_getp(nHandle,"Level"))
+		return dotnet_getp(nHandle,"Level")
 
 	Func setLevel P1
 		dotnet_setp(nHandle,"Level",P1)
 		return self
 
 	Func getMessage
-		return dnAnswer(dotnet_getp(nHandle,"Message"))
+		return dotnet_getp(nHandle,"Message")
 
 	Func setMessage P1
 		dotnet_setp(nHandle,"Message",P1)
@@ -1549,7 +1555,7 @@ Class ProviderAliasAttribute from Attribute
 		return self
 
 	Func getAlias
-		return dnAnswer(dotnet_getp(nHandle,"Alias"))
+		return dotnet_getp(nHandle,"Alias")
 
 	Func setAlias P1
 		raise("DotNet Error: Alias is a read-only property")

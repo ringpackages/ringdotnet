@@ -98,13 +98,16 @@ Class ContentDisposition from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getDispositionType
-		return dnAnswer(dotnet_getp(nHandle,"DispositionType"))
+		return dotnet_getp(nHandle,"DispositionType")
 
 	Func setDispositionType P1
 		dotnet_setp(nHandle,"DispositionType",P1)
@@ -201,6 +204,9 @@ Class ContentType from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -221,14 +227,14 @@ Class ContentType from Object
 		return self
 
 	Func getMediaType
-		return dnAnswer(dotnet_getp(nHandle,"MediaType"))
+		return dotnet_getp(nHandle,"MediaType")
 
 	Func setMediaType P1
 		dotnet_setp(nHandle,"MediaType",P1)
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)

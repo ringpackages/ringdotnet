@@ -555,7 +555,7 @@ Class BackingFieldAttribute from Attribute
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -604,7 +604,7 @@ Class CommentAttribute from Attribute
 		return self
 
 	Func getComment
-		return dnAnswer(dotnet_getp(nHandle,"Comment"))
+		return dotnet_getp(nHandle,"Comment")
 
 	Func setComment P1
 		raise("DotNet Error: Comment is a read-only property")
@@ -904,6 +904,9 @@ Class DbContextId from ValueType
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.DbContextId, Microsoft.EntityFrameworkCore',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getInstanceId
 		return dnObj(dotnet_callo("s3:get",nHandle,"s10:InstanceId"))
@@ -2040,7 +2043,7 @@ Class DeleteBehaviorAttribute from Attribute
 		return self
 
 	Func getBehavior
-		return dnAnswer(dotnet_getp(nHandle,"Behavior"))
+		return dotnet_getp(nHandle,"Behavior")
 
 	Func setBehavior P1
 		raise("DotNet Error: Behavior is a read-only property")
@@ -2892,6 +2895,9 @@ Class ModelCreationDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ModelCreationDependencies, Microsoft.EntityFrameworkCore',[P1,P2,P3,P4,P5])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

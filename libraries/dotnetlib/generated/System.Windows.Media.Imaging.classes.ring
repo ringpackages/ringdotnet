@@ -969,7 +969,7 @@ Class BitmapSizeOptions from Object
 		raise("DotNet Error: PixelHeight is a read-only property")
 
 	Func getRotation
-		return dnAnswer(dotnet_getp(nHandle,"Rotation"))
+		return dotnet_getp(nHandle,"Rotation")
 
 	Func setRotation P1
 		raise("DotNet Error: Rotation is a read-only property")
@@ -1264,7 +1264,7 @@ Class BitmapImage from BitmapSource
 		return self
 
 	Func getRotation
-		return dnAnswer(dotnet_getp(nHandle,"Rotation"))
+		return dotnet_getp(nHandle,"Rotation")
 
 	Func setRotation P1
 		dotnet_setp(nHandle,"Rotation",P1)
@@ -1278,14 +1278,14 @@ Class BitmapImage from BitmapSource
 		return self
 
 	Func getCreateOptions
-		return dnAnswer(dotnet_getp(nHandle,"CreateOptions"))
+		return dotnet_getp(nHandle,"CreateOptions")
 
 	Func setCreateOptions P1
 		dotnet_setp(nHandle,"CreateOptions",P1)
 		return self
 
 	Func getCacheOption
-		return dnAnswer(dotnet_getp(nHandle,"CacheOption"))
+		return dotnet_getp(nHandle,"CacheOption")
 
 	Func setCacheOption P1
 		dotnet_setp(nHandle,"CacheOption",P1)
@@ -1794,7 +1794,7 @@ Class JpegBitmapEncoder from BitmapEncoder
 		return self
 
 	Func getRotation
-		return dnAnswer(dotnet_getp(nHandle,"Rotation"))
+		return dotnet_getp(nHandle,"Rotation")
 
 	Func setRotation P1
 		dotnet_setp(nHandle,"Rotation",P1)
@@ -1872,7 +1872,7 @@ Class PngBitmapEncoder from BitmapEncoder
 		return self
 
 	Func getInterlace
-		return dnAnswer(dotnet_getp(nHandle,"Interlace"))
+		return dotnet_getp(nHandle,"Interlace")
 
 	Func setInterlace P1
 		dotnet_setp(nHandle,"Interlace",P1)
@@ -1939,7 +1939,7 @@ Class TiffBitmapEncoder from BitmapEncoder
 		return self
 
 	Func getCompression
-		return dnAnswer(dotnet_getp(nHandle,"Compression"))
+		return dotnet_getp(nHandle,"Compression")
 
 	Func setCompression P1
 		dotnet_setp(nHandle,"Compression",P1)
@@ -2090,7 +2090,7 @@ Class WmpBitmapEncoder from BitmapEncoder
 		return self
 
 	Func getRotation
-		return dnAnswer(dotnet_getp(nHandle,"Rotation"))
+		return dotnet_getp(nHandle,"Rotation")
 
 	Func setRotation P1
 		dotnet_setp(nHandle,"Rotation",P1)

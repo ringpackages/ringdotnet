@@ -900,6 +900,9 @@ Class CompiledQueryCacheKeyGeneratorDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -982,7 +985,7 @@ Class EntityMaterializerSourceParameters from ValueType
 		return self
 
 	Func getInstanceName
-		return dnAnswer(dotnet_getp(nHandle,"InstanceName"))
+		return dotnet_getp(nHandle,"InstanceName")
 
 	Func setInstanceName P1
 		dotnet_setp(nHandle,"InstanceName",P1)
@@ -1122,6 +1125,9 @@ Class EvaluatableExpressionFilterDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1253,6 +1259,9 @@ Class ExpressionPrinter from ExpressionVisitor
 		dn_x = dotnet_call("s4:call",nHandle,"s20:PrintExpressionDebug",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func GenerateBinaryOperator P1
 		dn_x = dotnet_call("s4:call",nHandle,"s22:GenerateBinaryOperator",P1)
@@ -1944,7 +1953,7 @@ Class IQueryingEnumerable from DotNetObject
 		return self
 
 	Func ToQueryString 
-		return dnAnswer(dotnet_callt(nHandle,"ToQueryString"))
+		return dotnet_callt(nHandle,"ToQueryString")
 
 
 Class IRelationalLiftableConstantFactory from DotNetObject
@@ -2506,7 +2515,7 @@ Class LiftableConstantExpression from ExpressionsExpression
 		raise("DotNet Error: ResolverExpression is a read-only property")
 
 	Func getVariableName
-		return dnAnswer(dotnet_getp(nHandle,"VariableName"))
+		return dotnet_getp(nHandle,"VariableName")
 
 	Func setVariableName P1
 		raise("DotNet Error: VariableName is a read-only property")
@@ -2531,6 +2540,9 @@ Class LiftableConstantExpressionDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionDependencies, Microsoft.EntityFrameworkCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2716,6 +2728,9 @@ Class MaterializerLiftableConstantContext from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2792,6 +2807,9 @@ Class NavigationExpansionExtensibilityHelperDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2852,7 +2870,7 @@ Class NonQueryExpression from ExpressionsExpression
 		raise("DotNet Error: Expression is a read-only property")
 
 	Func getCommandSource
-		return dnAnswer(dotnet_getp(nHandle,"CommandSource"))
+		return dotnet_getp(nHandle,"CommandSource")
 
 	Func setCommandSource P1
 		raise("DotNet Error: CommandSource is a read-only property")
@@ -2924,6 +2942,9 @@ Class EfPathSegment from ValueType
 			return self
 		ok
 		return dnObj(dn_x)
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getPropertyName
 		return dnAnswer(dotnet_getp(nHandle,"PropertyName"))
@@ -3014,6 +3035,9 @@ Class ProjectionMember from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getLast
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Last"))
@@ -3136,7 +3160,7 @@ Class QueryCompilationContext from Object
 		raise("DotNet Error: ContextOptions is a read-only property")
 
 	Func getQueryTrackingBehavior
-		return dnAnswer(dotnet_getp(nHandle,"QueryTrackingBehavior"))
+		return dotnet_getp(nHandle,"QueryTrackingBehavior")
 
 	Func setQueryTrackingBehavior P1
 		raise("DotNet Error: QueryTrackingBehavior is a read-only property")
@@ -3244,6 +3268,9 @@ Class QueryCompilationContextDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3262,7 +3289,7 @@ Class QueryCompilationContextDependencies from Object
 		raise("DotNet Error: ContextType is a read-only property")
 
 	Func getQueryTrackingBehavior
-		return dnAnswer(dotnet_getp(nHandle,"QueryTrackingBehavior"))
+		return dotnet_getp(nHandle,"QueryTrackingBehavior")
 
 	Func setQueryTrackingBehavior P1
 		raise("DotNet Error: QueryTrackingBehavior is a read-only property")
@@ -3468,6 +3495,9 @@ Class QueryContextDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3597,6 +3627,9 @@ Class QuerySqlGeneratorDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3667,6 +3700,9 @@ Class QueryTranslationPostprocessorDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3726,6 +3762,9 @@ Class QueryTranslationPreprocessorDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.QueryTranslationPreprocessorDependencies, Microsoft.EntityFrameworkCore',[P1,P2,P3])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3818,6 +3857,9 @@ Class QueryableMethodTranslatingExpressionVisitorDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitorDependencies, Microsoft.EntityFrameworkCore',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4321,6 +4363,9 @@ Class RelationalAggregateMethodCallTranslatorProviderDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4452,6 +4497,9 @@ Class RelationalCompiledQueryCacheKeyGeneratorDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4488,6 +4536,9 @@ Class RelationalEvaluatableExpressionFilterDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalEvaluatableExpressionFilterDependencies, Microsoft.EntityFrameworkCore.Relational',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4601,6 +4652,9 @@ Class RelationalLiftableConstantExpressionDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4652,6 +4706,9 @@ Class RelationalMemberTranslatorProviderDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalMemberTranslatorProviderDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4719,6 +4776,9 @@ Class RelationalMethodCallTranslatorProviderDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalMethodCallTranslatorProviderDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4790,6 +4850,9 @@ Class RelationalParameterBasedSqlProcessorDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4837,6 +4900,9 @@ Class RelationalParameterBasedSqlProcessorParameters from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4876,6 +4942,9 @@ Class RelationalQueryCompilationContextDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4908,6 +4977,9 @@ Class RelationalQueryContextDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalQueryContextDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4949,6 +5021,9 @@ Class RelationalQueryTranslationPostprocessorDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4988,6 +5063,9 @@ Class RelationalQueryTranslationPreprocessorDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -5022,6 +5100,9 @@ Class RelationalQueryableMethodTranslatingExpressionVisitorDependencies from Obj
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitorDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -5214,6 +5295,9 @@ Class RelationalShapedQueryCompilingExpressionVisitorDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitorDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -5414,6 +5498,9 @@ Class RelationalSqlTranslatingExpressionVisitorDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitorDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -5627,6 +5714,9 @@ Class ShapedQueryCompilingExpressionVisitorDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -5752,7 +5842,7 @@ Class ShapedQueryExpression from ExpressionsExpression
 		raise("DotNet Error: QueryExpression is a read-only property")
 
 	Func getResultCardinality
-		return dnAnswer(dotnet_getp(nHandle,"ResultCardinality"))
+		return dotnet_getp(nHandle,"ResultCardinality")
 
 	Func setResultCardinality P1
 		raise("DotNet Error: ResultCardinality is a read-only property")
@@ -5785,7 +5875,7 @@ Class SqlAliasManager from Object
 		return self
 
 	Func GenerateTableAlias P1
-		return dnAnswer(dotnet_callt(nHandle,"GenerateTableAlias",P1))
+		return dotnet_callt(nHandle,"GenerateTableAlias",P1)
 
 	Func PostprocessAliases P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s18:PostprocessAliases",P1)
@@ -6080,6 +6170,9 @@ Class SqlExpressionFactoryDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -6335,7 +6428,7 @@ Class StructuralTypeShaperExpression from ExpressionsExpression
 		return dnObj(dn_x)
 
 	Func DebuggerDisplay 
-		return dnAnswer(dotnet_callt(nHandle,"DebuggerDisplay"))
+		return dotnet_callt(nHandle,"DebuggerDisplay")
 
 	Func CreateUnableToDiscriminateException P1,P2
 		return dnObj(dotnet_callo("s4:call",'Microsoft.EntityFrameworkCore.Query.StructuralTypeShaperExpression, Microsoft.EntityFrameworkCore',"s35:CreateUnableToDiscriminateException",P1,P2))

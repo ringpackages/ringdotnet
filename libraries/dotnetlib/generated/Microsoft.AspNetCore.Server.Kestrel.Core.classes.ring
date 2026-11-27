@@ -660,7 +660,7 @@ Class ListenOptions from Object
 		raise("DotNet Error: KestrelServerOptions is a read-only property")
 
 	Func getProtocols
-		return dnAnswer(dotnet_getp(nHandle,"Protocols"))
+		return dotnet_getp(nHandle,"Protocols")
 
 	Func setProtocols P1
 		dotnet_setp(nHandle,"Protocols",P1)
@@ -695,6 +695,9 @@ Class MinDataRate from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.MinDataRate, Microsoft.AspNetCore.Server.Kestrel.Core',[P1,P2])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

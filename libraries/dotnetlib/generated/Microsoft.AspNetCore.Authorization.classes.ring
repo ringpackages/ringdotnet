@@ -199,6 +199,9 @@ Class AllowAnonymousAttribute from Attribute
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 
 Class AuthorizationBuilder from Object
 
@@ -336,7 +339,7 @@ Class AuthorizationFailureReason from Object
 		return dn_x
 
 	Func getMessage
-		return dnAnswer(dotnet_getp(nHandle,"Message"))
+		return dotnet_getp(nHandle,"Message")
 
 	Func setMessage P1
 		raise("DotNet Error: Message is a read-only property")
@@ -833,6 +836,9 @@ Class AuthorizeAttribute from Attribute
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizeAttribute, Microsoft.AspNetCore.Authorization',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getPolicy
 		return dnAnswer(dotnet_getp(nHandle,"Policy"))

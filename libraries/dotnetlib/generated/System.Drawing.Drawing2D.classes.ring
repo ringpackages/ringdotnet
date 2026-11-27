@@ -254,14 +254,14 @@ Class CustomLineCap from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s13:GetStrokeCaps","")
 
 	Func getStrokeJoin
-		return dnAnswer(dotnet_getp(nHandle,"StrokeJoin"))
+		return dotnet_getp(nHandle,"StrokeJoin")
 
 	Func setStrokeJoin P1
 		dotnet_setp(nHandle,"StrokeJoin",P1)
 		return self
 
 	Func getBaseCap
-		return dnAnswer(dotnet_getp(nHandle,"BaseCap"))
+		return dotnet_getp(nHandle,"BaseCap")
 
 	Func setBaseCap P1
 		dotnet_setp(nHandle,"BaseCap",P1)
@@ -517,7 +517,7 @@ Class GraphicsPath from MarshalByRefObject
 		return dnSend("s4:call",nHandle,"s13:GetPathPoints",dnPackItem(P1))
 
 	Func getFillMode
-		return dnAnswer(dotnet_getp(nHandle,"FillMode"))
+		return dotnet_getp(nHandle,"FillMode")
 
 	Func setFillMode P1
 		dotnet_setp(nHandle,"FillMode",P1)
@@ -666,7 +666,7 @@ Class HatchBrush from Brush
 		return self
 
 	Func getHatchStyle
-		return dnAnswer(dotnet_getp(nHandle,"HatchStyle"))
+		return dotnet_getp(nHandle,"HatchStyle")
 
 	Func setHatchStyle P1
 		raise("DotNet Error: HatchStyle is a read-only property")
@@ -789,7 +789,7 @@ Class LinearGradientBrush from Brush
 		return self
 
 	Func getWrapMode
-		return dnAnswer(dotnet_getp(nHandle,"WrapMode"))
+		return dotnet_getp(nHandle,"WrapMode")
 
 	Func setWrapMode P1
 		dotnet_setp(nHandle,"WrapMode",P1)
@@ -1125,7 +1125,7 @@ Class PathGradientBrush from Brush
 		return self
 
 	Func getWrapMode
-		return dnAnswer(dotnet_getp(nHandle,"WrapMode"))
+		return dotnet_getp(nHandle,"WrapMode")
 
 	Func setWrapMode P1
 		dotnet_setp(nHandle,"WrapMode",P1)

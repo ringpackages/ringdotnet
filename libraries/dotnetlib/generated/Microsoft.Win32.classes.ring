@@ -202,6 +202,9 @@ Class RegistryKey from MarshalByRefObject
 		ok
 		raise("DotNet Error: SetValue does not take one argument: use named arguments, SetValue([ :parameter = value, ... ])")
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func OpenBaseKey P1,P2
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry',"s11:OpenBaseKey",P1,P2))
 
@@ -224,7 +227,7 @@ Class RegistryKey from MarshalByRefObject
 		raise("DotNet Error: SubKeyCount is a read-only property")
 
 	Func getView
-		return dnAnswer(dotnet_getp(nHandle,"View"))
+		return dotnet_getp(nHandle,"View")
 
 	Func setView P1
 		raise("DotNet Error: View is a read-only property")
@@ -242,7 +245,7 @@ Class RegistryKey from MarshalByRefObject
 		raise("DotNet Error: ValueCount is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

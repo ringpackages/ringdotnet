@@ -332,7 +332,7 @@ Class BinaryReader from Object
 		return dnAnswer(dotnet_callt(nHandle,"ReadDecimal"))
 
 	Func ReadString 
-		return dnAnswer(dotnet_callt(nHandle,"ReadString"))
+		return dotnet_callt(nHandle,"ReadString")
 
 	Func ReadChars P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ReadChars",P1)
@@ -581,10 +581,10 @@ Class Directory from Object
 		return dnObj(dotnet_callo("s4:call",'System.IO.Directory, System.Private.CoreLib',"s26:EnumerateFileSystemEntries",P1))
 
 	Func GetDirectoryRoot P1
-		return dnAnswer(dotnet_callts('System.IO.Directory, System.Private.CoreLib','GetDirectoryRoot',P1))
+		return dotnet_callts('System.IO.Directory, System.Private.CoreLib','GetDirectoryRoot',P1)
 
 	Func GetCurrentDirectory 
-		return dnAnswer(dotnet_callts('System.IO.Directory, System.Private.CoreLib','GetCurrentDirectory'))
+		return dotnet_callts('System.IO.Directory, System.Private.CoreLib','GetCurrentDirectory')
 
 	Func SetCurrentDirectory P1
 		dotnet_calltsv('System.IO.Directory, System.Private.CoreLib','SetCurrentDirectory',P1)
@@ -636,6 +636,9 @@ Class DriveInfo from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -645,7 +648,7 @@ Class DriveInfo from Object
 		return dnObj(dotnet_callo("s4:call",'System.IO.DriveInfo, System.IO.FileSystem.DriveInfo',"s9:GetDrives"))
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -663,13 +666,13 @@ Class DriveInfo from Object
 		raise("DotNet Error: RootDirectory is a read-only property")
 
 	Func getDriveType
-		return dnAnswer(dotnet_getp(nHandle,"DriveType"))
+		return dotnet_getp(nHandle,"DriveType")
 
 	Func setDriveType P1
 		raise("DotNet Error: DriveType is a read-only property")
 
 	Func getDriveFormat
-		return dnAnswer(dotnet_getp(nHandle,"DriveFormat"))
+		return dotnet_getp(nHandle,"DriveFormat")
 
 	Func setDriveFormat P1
 		raise("DotNet Error: DriveFormat is a read-only property")
@@ -693,7 +696,7 @@ Class DriveInfo from Object
 		raise("DotNet Error: TotalSize is a read-only property")
 
 	Func getVolumeLabel
-		return dnAnswer(dotnet_getp(nHandle,"VolumeLabel"))
+		return dotnet_getp(nHandle,"VolumeLabel")
 
 	Func setVolumeLabel P1
 		dotnet_setp(nHandle,"VolumeLabel",P1)
@@ -756,21 +759,21 @@ Class EnumerationOptions from Object
 		return self
 
 	Func getAttributesToSkip
-		return dnAnswer(dotnet_getp(nHandle,"AttributesToSkip"))
+		return dotnet_getp(nHandle,"AttributesToSkip")
 
 	Func setAttributesToSkip P1
 		dotnet_setp(nHandle,"AttributesToSkip",P1)
 		return self
 
 	Func getMatchType
-		return dnAnswer(dotnet_getp(nHandle,"MatchType"))
+		return dotnet_getp(nHandle,"MatchType")
 
 	Func setMatchType P1
 		dotnet_setp(nHandle,"MatchType",P1)
 		return self
 
 	Func getMatchCasing
-		return dnAnswer(dotnet_getp(nHandle,"MatchCasing"))
+		return dotnet_getp(nHandle,"MatchCasing")
 
 	Func setMatchCasing P1
 		dotnet_setp(nHandle,"MatchCasing",P1)
@@ -1125,28 +1128,28 @@ Class FileStreamOptions from Object
 		return dn_x
 
 	Func getMode
-		return dnAnswer(dotnet_getp(nHandle,"Mode"))
+		return dotnet_getp(nHandle,"Mode")
 
 	Func setMode P1
 		dotnet_setp(nHandle,"Mode",P1)
 		return self
 
 	Func getAccess
-		return dnAnswer(dotnet_getp(nHandle,"Access"))
+		return dotnet_getp(nHandle,"Access")
 
 	Func setAccess P1
 		dotnet_setp(nHandle,"Access",P1)
 		return self
 
 	Func getShare
-		return dnAnswer(dotnet_getp(nHandle,"Share"))
+		return dotnet_getp(nHandle,"Share")
 
 	Func setShare P1
 		dotnet_setp(nHandle,"Share",P1)
 		return self
 
 	Func getOptions
-		return dnAnswer(dotnet_getp(nHandle,"Options"))
+		return dotnet_getp(nHandle,"Options")
 
 	Func setOptions P1
 		dotnet_setp(nHandle,"Options",P1)
@@ -1192,13 +1195,13 @@ Class FileSystemEventArgs from EventArgs
 		return self
 
 	Func getChangeType
-		return dnAnswer(dotnet_getp(nHandle,"ChangeType"))
+		return dotnet_getp(nHandle,"ChangeType")
 
 	Func setChangeType P1
 		raise("DotNet Error: ChangeType is a read-only property")
 
 	Func getFullPath
-		return dnAnswer(dotnet_getp(nHandle,"FullPath"))
+		return dotnet_getp(nHandle,"FullPath")
 
 	Func setFullPath P1
 		raise("DotNet Error: FullPath is a read-only property")
@@ -1255,24 +1258,27 @@ Class FileSystemInfo from MarshalByRefObject
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Refresh 
 		dotnet_calltv(nHandle,"Refresh")
 		return self
 
 	Func getFullName
-		return dnAnswer(dotnet_getp(nHandle,"FullName"))
+		return dotnet_getp(nHandle,"FullName")
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")
 
 	Func getExtension
-		return dnAnswer(dotnet_getp(nHandle,"Extension"))
+		return dotnet_getp(nHandle,"Extension")
 
 	Func setExtension P1
 		raise("DotNet Error: Extension is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1332,14 +1338,14 @@ Class FileSystemInfo from MarshalByRefObject
 		raise("DotNet Error: LinkTarget is a read-only property")
 
 	Func getUnixFileMode
-		return dnAnswer(dotnet_getp(nHandle,"UnixFileMode"))
+		return dotnet_getp(nHandle,"UnixFileMode")
 
 	Func setUnixFileMode P1
 		dotnet_setp(nHandle,"UnixFileMode",P1)
 		return self
 
 	Func getAttributes
-		return dnAnswer(dotnet_getp(nHandle,"Attributes"))
+		return dotnet_getp(nHandle,"Attributes")
 
 	Func setAttributes P1
 		dotnet_setp(nHandle,"Attributes",P1)
@@ -1450,7 +1456,7 @@ Class FileSystemWatcher from Component
 		return self
 
 	Func getNotifyFilter
-		return dnAnswer(dotnet_getp(nHandle,"NotifyFilter"))
+		return dotnet_getp(nHandle,"NotifyFilter")
 
 	Func setNotifyFilter P1
 		dotnet_setp(nHandle,"NotifyFilter",P1)
@@ -1470,7 +1476,7 @@ Class FileSystemWatcher from Component
 		return self
 
 	Func getFilter
-		return dnAnswer(dotnet_getp(nHandle,"Filter"))
+		return dotnet_getp(nHandle,"Filter")
 
 	Func setFilter P1
 		dotnet_setp(nHandle,"Filter",P1)
@@ -1491,7 +1497,7 @@ Class FileSystemWatcher from Component
 		return self
 
 	Func getPath
-		return dnAnswer(dotnet_getp(nHandle,"Path"))
+		return dotnet_getp(nHandle,"Path")
 
 	Func setPath P1
 		dotnet_setp(nHandle,"Path",P1)
@@ -1657,7 +1663,7 @@ Class Path from Object
 		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','GetFileNameWithoutExtension',P1))
 
 	Func GetRandomFileName 
-		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','GetRandomFileName'))
+		return dotnet_callts('System.IO.Path, System.Private.CoreLib','GetRandomFileName')
 
 	Func IsPathFullyQualified P1
 		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','IsPathFullyQualified',P1))
@@ -1694,10 +1700,10 @@ Class Path from Object
 		raise("DotNet Error: TryJoin does not take one argument: use named arguments, TryJoin([ :parameter = value, ... ])")
 
 	Func GetRelativePath P1,P2
-		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','GetRelativePath',P1,P2))
+		return dotnet_callts('System.IO.Path, System.Private.CoreLib','GetRelativePath',P1,P2)
 
 	Func TrimEndingDirectorySeparator P1
-		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','TrimEndingDirectorySeparator',P1))
+		return dotnet_callts('System.IO.Path, System.Private.CoreLib','TrimEndingDirectorySeparator',P1)
 
 	Func EndsInDirectorySeparator P1
 		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','EndsInDirectorySeparator',P1))
@@ -1719,10 +1725,10 @@ Class Path from Object
 		return dn_x
 
 	Func GetTempPath 
-		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','GetTempPath'))
+		return dotnet_callts('System.IO.Path, System.Private.CoreLib','GetTempPath')
 
 	Func GetTempFileName 
-		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','GetTempFileName'))
+		return dotnet_callts('System.IO.Path, System.Private.CoreLib','GetTempFileName')
 
 	Func IsPathRooted P1
 		return dnAnswer(dotnet_callts('System.IO.Path, System.Private.CoreLib','IsPathRooted',P1))
@@ -2100,7 +2106,7 @@ Class TextReader from MarshalByRefObject
 		raise("DotNet Error: Read does not take one argument: use named arguments, Read([ :parameter = value, ... ])")
 
 	Func ReadToEnd 
-		return dnAnswer(dotnet_callt(nHandle,"ReadToEnd"))
+		return dotnet_callt(nHandle,"ReadToEnd")
 
 	Func ReadBlock P1,P2,P3
 		dn_x = dotnet_call("s4:call",nHandle,"s9:ReadBlock",P1,P2,P3)
@@ -2288,7 +2294,7 @@ Class TextWriter from MarshalByRefObject
 		raise("DotNet Error: Encoding is a read-only property")
 
 	Func getNewLine
-		return dnAnswer(dotnet_getp(nHandle,"NewLine"))
+		return dotnet_getp(nHandle,"NewLine")
 
 	Func setNewLine P1
 		dotnet_setp(nHandle,"NewLine",P1)
@@ -2447,7 +2453,7 @@ Class WaitForChangedResult from ValueType
 		return self
 
 	Func getChangeType
-		return dnAnswer(dotnet_getp(nHandle,"ChangeType"))
+		return dotnet_getp(nHandle,"ChangeType")
 
 	Func setChangeType P1
 		dotnet_setp(nHandle,"ChangeType",P1)
@@ -3066,7 +3072,7 @@ Class FileStream from Stream
 		raise("DotNet Error: SafeFileHandle is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -3200,7 +3206,7 @@ Class RenamedEventArgs from FileSystemEventArgs
 		return self
 
 	Func getOldFullPath
-		return dnAnswer(dotnet_getp(nHandle,"OldFullPath"))
+		return dotnet_getp(nHandle,"OldFullPath")
 
 	Func setOldFullPath P1
 		raise("DotNet Error: OldFullPath is a read-only property")
@@ -3374,6 +3380,9 @@ Class StringWriter from TextWriter
 			return self
 		ok
 		return dnObj(dn_x)
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 
 Class UnmanagedMemoryStream from Stream

@@ -195,7 +195,7 @@ Class ContractNamespaceAttribute from Attribute
 		return self
 
 	Func getContractNamespace
-		return dnAnswer(dotnet_getp(nHandle,"ContractNamespace"))
+		return dotnet_getp(nHandle,"ContractNamespace")
 
 	Func setContractNamespace P1
 		raise("DotNet Error: ContractNamespace is a read-only property")

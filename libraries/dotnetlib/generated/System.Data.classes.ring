@@ -440,13 +440,16 @@ Class Constraint from Object
 		ok
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getConstraintName
-		return dnAnswer(dotnet_getp(nHandle,"ConstraintName"))
+		return dotnet_getp(nHandle,"ConstraintName")
 
 	Func setConstraintName P1
 		dotnet_setp(nHandle,"ConstraintName",P1)
@@ -582,6 +585,9 @@ Class DataColumn from MarshalByValueComponent
 		dotnet_calltv(nHandle,"SetOrdinal",P1)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getAllowDBNull
 		return dotnet_getp(nHandle,"AllowDBNull")
 
@@ -611,21 +617,21 @@ Class DataColumn from MarshalByValueComponent
 		return self
 
 	Func getCaption
-		return dnAnswer(dotnet_getp(nHandle,"Caption"))
+		return dotnet_getp(nHandle,"Caption")
 
 	Func setCaption P1
 		dotnet_setp(nHandle,"Caption",P1)
 		return self
 
 	Func getColumnName
-		return dnAnswer(dotnet_getp(nHandle,"ColumnName"))
+		return dotnet_getp(nHandle,"ColumnName")
 
 	Func setColumnName P1
 		dotnet_setp(nHandle,"ColumnName",P1)
 		return self
 
 	Func getPrefix
-		return dnAnswer(dotnet_getp(nHandle,"Prefix"))
+		return dotnet_getp(nHandle,"Prefix")
 
 	Func setPrefix P1
 		dotnet_setp(nHandle,"Prefix",P1)
@@ -639,7 +645,7 @@ Class DataColumn from MarshalByValueComponent
 		return self
 
 	Func getDateTimeMode
-		return dnAnswer(dotnet_getp(nHandle,"DateTimeMode"))
+		return dotnet_getp(nHandle,"DateTimeMode")
 
 	Func setDateTimeMode P1
 		dotnet_setp(nHandle,"DateTimeMode",P1)
@@ -653,7 +659,7 @@ Class DataColumn from MarshalByValueComponent
 		return self
 
 	Func getExpression
-		return dnAnswer(dotnet_getp(nHandle,"Expression"))
+		return dotnet_getp(nHandle,"Expression")
 
 	Func setExpression P1
 		dotnet_setp(nHandle,"Expression",P1)
@@ -673,7 +679,7 @@ Class DataColumn from MarshalByValueComponent
 		return self
 
 	Func getNamespace
-		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
+		return dotnet_getp(nHandle,"Namespace")
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
@@ -703,7 +709,7 @@ Class DataColumn from MarshalByValueComponent
 		return self
 
 	Func getColumnMapping
-		return dnAnswer(dotnet_getp(nHandle,"ColumnMapping"))
+		return dotnet_getp(nHandle,"ColumnMapping")
 
 	Func setColumnMapping P1
 		dotnet_setp(nHandle,"ColumnMapping",P1)
@@ -953,6 +959,9 @@ Class DataRelation from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -989,7 +998,7 @@ Class DataRelation from Object
 		raise("DotNet Error: ParentTable is a read-only property")
 
 	Func getRelationName
-		return dnAnswer(dotnet_getp(nHandle,"RelationName"))
+		return dotnet_getp(nHandle,"RelationName")
 
 	Func setRelationName P1
 		dotnet_setp(nHandle,"RelationName",P1)
@@ -1063,7 +1072,7 @@ Class DataRow from Object
 		return self
 
 	Func GetColumnError P1
-		return dnAnswer(dotnet_callt(nHandle,"GetColumnError",P1))
+		return dotnet_callt(nHandle,"GetColumnError",P1)
 
 	Func ClearErrors 
 		dotnet_calltv(nHandle,"ClearErrors")
@@ -1170,14 +1179,14 @@ Class DataRow from Object
 		return self
 
 	Func getRowError
-		return dnAnswer(dotnet_getp(nHandle,"RowError"))
+		return dotnet_getp(nHandle,"RowError")
 
 	Func setRowError P1
 		dotnet_setp(nHandle,"RowError",P1)
 		return self
 
 	Func getRowState
-		return dnAnswer(dotnet_getp(nHandle,"RowState"))
+		return dotnet_getp(nHandle,"RowState")
 
 	Func setRowState P1
 		raise("DotNet Error: RowState is a read-only property")
@@ -1242,7 +1251,7 @@ Class DataRowChangeEventArgs from EventArgs
 		raise("DotNet Error: Row is a read-only property")
 
 	Func getAction
-		return dnAnswer(dotnet_getp(nHandle,"Action"))
+		return dotnet_getp(nHandle,"Action")
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
@@ -1397,7 +1406,7 @@ Class DataRowView from Object
 		raise("DotNet Error: DataView is a read-only property")
 
 	Func getRowVersion
-		return dnAnswer(dotnet_getp(nHandle,"RowVersion"))
+		return dotnet_getp(nHandle,"RowVersion")
 
 	Func setRowVersion P1
 		raise("DotNet Error: RowVersion is a read-only property")
@@ -1525,10 +1534,10 @@ Class DataSet from MarshalByValueComponent
 		return dnObj(dn_x)
 
 	Func GetXml 
-		return dnAnswer(dotnet_callt(nHandle,"GetXml"))
+		return dotnet_callt(nHandle,"GetXml")
 
 	Func GetXmlSchema 
-		return dnAnswer(dotnet_callt(nHandle,"GetXmlSchema"))
+		return dotnet_callt(nHandle,"GetXmlSchema")
 
 	Func HasChanges P1
 		return dnAnswer(dotnet_calltd(nHandle,"HasChanges",P1))
@@ -1617,14 +1626,14 @@ Class DataSet from MarshalByValueComponent
 		return self
 
 	Func getRemotingFormat
-		return dnAnswer(dotnet_getp(nHandle,"RemotingFormat"))
+		return dotnet_getp(nHandle,"RemotingFormat")
 
 	Func setRemotingFormat P1
 		dotnet_setp(nHandle,"RemotingFormat",P1)
 		return self
 
 	Func getSchemaSerializationMode
-		return dnAnswer(dotnet_getp(nHandle,"SchemaSerializationMode"))
+		return dotnet_getp(nHandle,"SchemaSerializationMode")
 
 	Func setSchemaSerializationMode P1
 		dotnet_setp(nHandle,"SchemaSerializationMode",P1)
@@ -1651,21 +1660,21 @@ Class DataSet from MarshalByValueComponent
 		return self
 
 	Func getDataSetName
-		return dnAnswer(dotnet_getp(nHandle,"DataSetName"))
+		return dotnet_getp(nHandle,"DataSetName")
 
 	Func setDataSetName P1
 		dotnet_setp(nHandle,"DataSetName",P1)
 		return self
 
 	Func getNamespace
-		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
+		return dotnet_getp(nHandle,"Namespace")
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
 		return self
 
 	Func getPrefix
-		return dnAnswer(dotnet_getp(nHandle,"Prefix"))
+		return dotnet_getp(nHandle,"Prefix")
 
 	Func setPrefix P1
 		dotnet_setp(nHandle,"Prefix",P1)
@@ -1868,6 +1877,9 @@ Class DataTable from MarshalByValueComponent
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func BeginLoadData 
 		dotnet_calltv(nHandle,"BeginLoadData")
 		return self
@@ -2031,7 +2043,7 @@ Class DataTable from MarshalByValueComponent
 		raise("DotNet Error: IsInitialized is a read-only property")
 
 	Func getRemotingFormat
-		return dnAnswer(dotnet_getp(nHandle,"RemotingFormat"))
+		return dotnet_getp(nHandle,"RemotingFormat")
 
 	Func setRemotingFormat P1
 		dotnet_setp(nHandle,"RemotingFormat",P1)
@@ -2068,7 +2080,7 @@ Class DataTable from MarshalByValueComponent
 		raise("DotNet Error: DefaultView is a read-only property")
 
 	Func getDisplayExpression
-		return dnAnswer(dotnet_getp(nHandle,"DisplayExpression"))
+		return dotnet_getp(nHandle,"DisplayExpression")
 
 	Func setDisplayExpression P1
 		dotnet_setp(nHandle,"DisplayExpression",P1)
@@ -2120,21 +2132,21 @@ Class DataTable from MarshalByValueComponent
 		raise("DotNet Error: Rows is a read-only property")
 
 	Func getTableName
-		return dnAnswer(dotnet_getp(nHandle,"TableName"))
+		return dotnet_getp(nHandle,"TableName")
 
 	Func setTableName P1
 		dotnet_setp(nHandle,"TableName",P1)
 		return self
 
 	Func getNamespace
-		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
+		return dotnet_getp(nHandle,"Namespace")
 
 	Func setNamespace P1
 		dotnet_setp(nHandle,"Namespace",P1)
 		return self
 
 	Func getPrefix
-		return dnAnswer(dotnet_getp(nHandle,"Prefix"))
+		return dotnet_getp(nHandle,"Prefix")
 
 	Func setPrefix P1
 		dotnet_setp(nHandle,"Prefix",P1)
@@ -2165,13 +2177,13 @@ Class DataTableClearEventArgs from EventArgs
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getTableName
-		return dnAnswer(dotnet_getp(nHandle,"TableName"))
+		return dotnet_getp(nHandle,"TableName")
 
 	Func setTableName P1
 		raise("DotNet Error: TableName is a read-only property")
 
 	Func getTableNamespace
-		return dnAnswer(dotnet_getp(nHandle,"TableNamespace"))
+		return dotnet_getp(nHandle,"TableNamespace")
 
 	Func setTableNamespace P1
 		raise("DotNet Error: TableNamespace is a read-only property")
@@ -2467,14 +2479,14 @@ Class DataView from MarshalByValueComponent
 		return self
 
 	Func getRowStateFilter
-		return dnAnswer(dotnet_getp(nHandle,"RowStateFilter"))
+		return dotnet_getp(nHandle,"RowStateFilter")
 
 	Func setRowStateFilter P1
 		dotnet_setp(nHandle,"RowStateFilter",P1)
 		return self
 
 	Func getSort
-		return dnAnswer(dotnet_getp(nHandle,"Sort"))
+		return dotnet_getp(nHandle,"Sort")
 
 	Func setSort P1
 		dotnet_setp(nHandle,"Sort",P1)
@@ -2585,7 +2597,7 @@ Class DataViewManager from MarshalByValueComponent
 		raise("DotNet Error: DataViewSettings is a read-only property")
 
 	Func getDataViewSettingCollectionString
-		return dnAnswer(dotnet_getp(nHandle,"DataViewSettingCollectionString"))
+		return dotnet_getp(nHandle,"DataViewSettingCollectionString")
 
 	Func setDataViewSettingCollectionString P1
 		dotnet_setp(nHandle,"DataViewSettingCollectionString",P1)
@@ -2635,21 +2647,21 @@ Class DataViewSetting from Object
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getRowFilter
-		return dnAnswer(dotnet_getp(nHandle,"RowFilter"))
+		return dotnet_getp(nHandle,"RowFilter")
 
 	Func setRowFilter P1
 		dotnet_setp(nHandle,"RowFilter",P1)
 		return self
 
 	Func getRowStateFilter
-		return dnAnswer(dotnet_getp(nHandle,"RowStateFilter"))
+		return dotnet_getp(nHandle,"RowStateFilter")
 
 	Func setRowStateFilter P1
 		dotnet_setp(nHandle,"RowStateFilter",P1)
 		return self
 
 	Func getSort
-		return dnAnswer(dotnet_getp(nHandle,"Sort"))
+		return dotnet_getp(nHandle,"Sort")
 
 	Func setSort P1
 		dotnet_setp(nHandle,"Sort",P1)
@@ -2917,14 +2929,14 @@ Class IColumnMapping from DotNetObject
 		return self
 
 	Func getDataSetColumn
-		return dnAnswer(dotnet_getp(nHandle,"DataSetColumn"))
+		return dotnet_getp(nHandle,"DataSetColumn")
 
 	Func setDataSetColumn P1
 		dotnet_setp(nHandle,"DataSetColumn",P1)
 		return self
 
 	Func getSourceColumn
-		return dnAnswer(dotnet_getp(nHandle,"SourceColumn"))
+		return dotnet_getp(nHandle,"SourceColumn")
 
 	Func setSourceColumn P1
 		dotnet_setp(nHandle,"SourceColumn",P1)
@@ -3111,14 +3123,14 @@ Class IDataAdapter from DotNetObject
 		return dn_x
 
 	Func getMissingMappingAction
-		return dnAnswer(dotnet_getp(nHandle,"MissingMappingAction"))
+		return dotnet_getp(nHandle,"MissingMappingAction")
 
 	Func setMissingMappingAction P1
 		dotnet_setp(nHandle,"MissingMappingAction",P1)
 		return self
 
 	Func getMissingSchemaAction
-		return dnAnswer(dotnet_getp(nHandle,"MissingSchemaAction"))
+		return dotnet_getp(nHandle,"MissingSchemaAction")
 
 	Func setMissingSchemaAction P1
 		dotnet_setp(nHandle,"MissingSchemaAction",P1)
@@ -3151,14 +3163,14 @@ Class IDataParameter from DotNetObject
 		return self
 
 	Func getDbType
-		return dnAnswer(dotnet_getp(nHandle,"DbType"))
+		return dotnet_getp(nHandle,"DbType")
 
 	Func setDbType P1
 		dotnet_setp(nHandle,"DbType",P1)
 		return self
 
 	Func getDirection
-		return dnAnswer(dotnet_getp(nHandle,"Direction"))
+		return dotnet_getp(nHandle,"Direction")
 
 	Func setDirection P1
 		dotnet_setp(nHandle,"Direction",P1)
@@ -3171,21 +3183,21 @@ Class IDataParameter from DotNetObject
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getParameterName
-		return dnAnswer(dotnet_getp(nHandle,"ParameterName"))
+		return dotnet_getp(nHandle,"ParameterName")
 
 	Func setParameterName P1
 		dotnet_setp(nHandle,"ParameterName",P1)
 		return self
 
 	Func getSourceColumn
-		return dnAnswer(dotnet_getp(nHandle,"SourceColumn"))
+		return dotnet_getp(nHandle,"SourceColumn")
 
 	Func setSourceColumn P1
 		dotnet_setp(nHandle,"SourceColumn",P1)
 		return self
 
 	Func getSourceVersion
-		return dnAnswer(dotnet_getp(nHandle,"SourceVersion"))
+		return dotnet_getp(nHandle,"SourceVersion")
 
 	Func setSourceVersion P1
 		dotnet_setp(nHandle,"SourceVersion",P1)
@@ -3365,10 +3377,10 @@ Class IDataReader from DotNetObject
 		return self
 
 	Func GetName P1
-		return dnAnswer(dotnet_callt(nHandle,"GetName",P1))
+		return dotnet_callt(nHandle,"GetName",P1)
 
 	Func GetDataTypeName P1
-		return dnAnswer(dotnet_callt(nHandle,"GetDataTypeName",P1))
+		return dotnet_callt(nHandle,"GetDataTypeName",P1)
 
 	Func GetFieldType P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetFieldType",P1)
@@ -3438,7 +3450,7 @@ Class IDataReader from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"GetDouble",P1))
 
 	Func GetString P1
-		return dnAnswer(dotnet_callt(nHandle,"GetString",P1))
+		return dotnet_callt(nHandle,"GetString",P1)
 
 	Func GetDecimal P1
 		return dnAnswer(dotnet_callt(nHandle,"GetDecimal",P1))
@@ -3499,10 +3511,10 @@ Class IDataRecord from DotNetObject
 		return self
 
 	Func GetName P1
-		return dnAnswer(dotnet_callt(nHandle,"GetName",P1))
+		return dotnet_callt(nHandle,"GetName",P1)
 
 	Func GetDataTypeName P1
-		return dnAnswer(dotnet_callt(nHandle,"GetDataTypeName",P1))
+		return dotnet_callt(nHandle,"GetDataTypeName",P1)
 
 	Func GetFieldType P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetFieldType",P1)
@@ -3572,7 +3584,7 @@ Class IDataRecord from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"GetDouble",P1))
 
 	Func GetString P1
-		return dnAnswer(dotnet_callt(nHandle,"GetString",P1))
+		return dotnet_callt(nHandle,"GetString",P1)
 
 	Func GetDecimal P1
 		return dnAnswer(dotnet_callt(nHandle,"GetDecimal",P1))
@@ -3688,7 +3700,7 @@ Class IDbCommand from DotNetObject
 		return self
 
 	Func getCommandText
-		return dnAnswer(dotnet_getp(nHandle,"CommandText"))
+		return dotnet_getp(nHandle,"CommandText")
 
 	Func setCommandText P1
 		dotnet_setp(nHandle,"CommandText",P1)
@@ -3702,7 +3714,7 @@ Class IDbCommand from DotNetObject
 		return self
 
 	Func getCommandType
-		return dnAnswer(dotnet_getp(nHandle,"CommandType"))
+		return dotnet_getp(nHandle,"CommandType")
 
 	Func setCommandType P1
 		dotnet_setp(nHandle,"CommandType",P1)
@@ -3715,7 +3727,7 @@ Class IDbCommand from DotNetObject
 		raise("DotNet Error: Parameters is a read-only property")
 
 	Func getUpdatedRowSource
-		return dnAnswer(dotnet_getp(nHandle,"UpdatedRowSource"))
+		return dotnet_getp(nHandle,"UpdatedRowSource")
 
 	Func setUpdatedRowSource P1
 		dotnet_setp(nHandle,"UpdatedRowSource",P1)
@@ -3779,7 +3791,7 @@ Class IDbConnection from DotNetObject
 		return self
 
 	Func getConnectionString
-		return dnAnswer(dotnet_getp(nHandle,"ConnectionString"))
+		return dotnet_getp(nHandle,"ConnectionString")
 
 	Func setConnectionString P1
 		dotnet_setp(nHandle,"ConnectionString",P1)
@@ -3792,13 +3804,13 @@ Class IDbConnection from DotNetObject
 		raise("DotNet Error: ConnectionTimeout is a read-only property")
 
 	Func getDatabase
-		return dnAnswer(dotnet_getp(nHandle,"Database"))
+		return dotnet_getp(nHandle,"Database")
 
 	Func setDatabase P1
 		raise("DotNet Error: Database is a read-only property")
 
 	Func getState
-		return dnAnswer(dotnet_getp(nHandle,"State"))
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -3876,14 +3888,14 @@ Class IDbDataAdapter from DotNetObject
 		return self
 
 	Func getMissingMappingAction
-		return dnAnswer(dotnet_getp(nHandle,"MissingMappingAction"))
+		return dotnet_getp(nHandle,"MissingMappingAction")
 
 	Func setMissingMappingAction P1
 		dotnet_setp(nHandle,"MissingMappingAction",P1)
 		return self
 
 	Func getMissingSchemaAction
-		return dnAnswer(dotnet_getp(nHandle,"MissingSchemaAction"))
+		return dotnet_getp(nHandle,"MissingSchemaAction")
 
 	Func setMissingSchemaAction P1
 		dotnet_setp(nHandle,"MissingSchemaAction",P1)
@@ -3940,14 +3952,14 @@ Class IDbDataParameter from DotNetObject
 		return self
 
 	Func getDbType
-		return dnAnswer(dotnet_getp(nHandle,"DbType"))
+		return dotnet_getp(nHandle,"DbType")
 
 	Func setDbType P1
 		dotnet_setp(nHandle,"DbType",P1)
 		return self
 
 	Func getDirection
-		return dnAnswer(dotnet_getp(nHandle,"Direction"))
+		return dotnet_getp(nHandle,"Direction")
 
 	Func setDirection P1
 		dotnet_setp(nHandle,"Direction",P1)
@@ -3960,21 +3972,21 @@ Class IDbDataParameter from DotNetObject
 		raise("DotNet Error: IsNullable is a read-only property")
 
 	Func getParameterName
-		return dnAnswer(dotnet_getp(nHandle,"ParameterName"))
+		return dotnet_getp(nHandle,"ParameterName")
 
 	Func setParameterName P1
 		dotnet_setp(nHandle,"ParameterName",P1)
 		return self
 
 	Func getSourceColumn
-		return dnAnswer(dotnet_getp(nHandle,"SourceColumn"))
+		return dotnet_getp(nHandle,"SourceColumn")
 
 	Func setSourceColumn P1
 		dotnet_setp(nHandle,"SourceColumn",P1)
 		return self
 
 	Func getSourceVersion
-		return dnAnswer(dotnet_getp(nHandle,"SourceVersion"))
+		return dotnet_getp(nHandle,"SourceVersion")
 
 	Func setSourceVersion P1
 		dotnet_setp(nHandle,"SourceVersion",P1)
@@ -4021,7 +4033,7 @@ Class IDbTransaction from DotNetObject
 		raise("DotNet Error: Connection is a read-only property")
 
 	Func getIsolationLevel
-		return dnAnswer(dotnet_getp(nHandle,"IsolationLevel"))
+		return dotnet_getp(nHandle,"IsolationLevel")
 
 	Func setIsolationLevel P1
 		raise("DotNet Error: IsolationLevel is a read-only property")
@@ -4049,14 +4061,14 @@ Class ITableMapping from DotNetObject
 		raise("DotNet Error: ColumnMappings is a read-only property")
 
 	Func getDataSetTable
-		return dnAnswer(dotnet_getp(nHandle,"DataSetTable"))
+		return dotnet_getp(nHandle,"DataSetTable")
 
 	Func setDataSetTable P1
 		dotnet_setp(nHandle,"DataSetTable",P1)
 		return self
 
 	Func getSourceTable
-		return dnAnswer(dotnet_getp(nHandle,"SourceTable"))
+		return dotnet_getp(nHandle,"SourceTable")
 
 	Func setSourceTable P1
 		dotnet_setp(nHandle,"SourceTable",P1)
@@ -4321,7 +4333,7 @@ Class MergeFailedEventArgs from EventArgs
 		raise("DotNet Error: Table is a read-only property")
 
 	Func getConflict
-		return dnAnswer(dotnet_getp(nHandle,"Conflict"))
+		return dotnet_getp(nHandle,"Conflict")
 
 	Func setConflict P1
 		raise("DotNet Error: Conflict is a read-only property")
@@ -4365,13 +4377,13 @@ Class StateChangeEventArgs from EventArgs
 		return self
 
 	Func getCurrentState
-		return dnAnswer(dotnet_getp(nHandle,"CurrentState"))
+		return dotnet_getp(nHandle,"CurrentState")
 
 	Func setCurrentState P1
 		raise("DotNet Error: CurrentState is a read-only property")
 
 	Func getOriginalState
-		return dnAnswer(dotnet_getp(nHandle,"OriginalState"))
+		return dotnet_getp(nHandle,"OriginalState")
 
 	Func setOriginalState P1
 		raise("DotNet Error: OriginalState is a read-only property")
@@ -4972,14 +4984,14 @@ Class ForeignKeyConstraint from Constraint
 		raise("DotNet Error: Columns is a read-only property")
 
 	Func getAcceptRejectRule
-		return dnAnswer(dotnet_getp(nHandle,"AcceptRejectRule"))
+		return dotnet_getp(nHandle,"AcceptRejectRule")
 
 	Func setAcceptRejectRule P1
 		dotnet_setp(nHandle,"AcceptRejectRule",P1)
 		return self
 
 	Func getDeleteRule
-		return dnAnswer(dotnet_getp(nHandle,"DeleteRule"))
+		return dotnet_getp(nHandle,"DeleteRule")
 
 	Func setDeleteRule P1
 		dotnet_setp(nHandle,"DeleteRule",P1)
@@ -4998,7 +5010,7 @@ Class ForeignKeyConstraint from Constraint
 		raise("DotNet Error: RelatedTable is a read-only property")
 
 	Func getUpdateRule
-		return dnAnswer(dotnet_getp(nHandle,"UpdateRule"))
+		return dotnet_getp(nHandle,"UpdateRule")
 
 	Func setUpdateRule P1
 		dotnet_setp(nHandle,"UpdateRule",P1)

@@ -734,7 +734,7 @@ Class Annotation from Object
 		return dn_x
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1073,7 +1073,7 @@ Class CoreOptionsExtension from Object
 		raise("DotNet Error: WarningsConfiguration is a read-only property")
 
 	Func getQueryTrackingBehavior
-		return dnAnswer(dotnet_getp(nHandle,"QueryTrackingBehavior"))
+		return dotnet_getp(nHandle,"QueryTrackingBehavior")
 
 	Func setQueryTrackingBehavior P1
 		raise("DotNet Error: QueryTrackingBehavior is a read-only property")
@@ -1614,7 +1614,7 @@ Class DatabaseFacade from Object
 		return self
 
 	Func getAutoTransactionBehavior
-		return dnAnswer(dotnet_getp(nHandle,"AutoTransactionBehavior"))
+		return dotnet_getp(nHandle,"AutoTransactionBehavior")
 
 	Func setAutoTransactionBehavior P1
 		dotnet_setp(nHandle,"AutoTransactionBehavior",P1)
@@ -1731,7 +1731,7 @@ Class DbContextOptionsExtensionInfo from Object
 		raise("DotNet Error: IsDatabaseProvider is a read-only property")
 
 	Func getLogFragment
-		return dnAnswer(dotnet_getp(nHandle,"LogFragment"))
+		return dotnet_getp(nHandle,"LogFragment")
 
 	Func setLogFragment P1
 		raise("DotNet Error: LogFragment is a read-only property")
@@ -1785,7 +1785,7 @@ Class DbSetProperty from ValueType
 		return dnObj(dn_x)
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1825,13 +1825,13 @@ Class DebugView from Object
 		return dn_x
 
 	Func getLongView
-		return dnAnswer(dotnet_getp(nHandle,"LongView"))
+		return dotnet_getp(nHandle,"LongView")
 
 	Func setLongView P1
 		raise("DotNet Error: LongView is a read-only property")
 
 	Func getShortView
-		return dnAnswer(dotnet_getp(nHandle,"ShortView"))
+		return dotnet_getp(nHandle,"ShortView")
 
 	Func setShortView P1
 		raise("DotNet Error: ShortView is a read-only property")
@@ -2145,7 +2145,7 @@ Class IAnnotation from DotNetObject
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2810,6 +2810,9 @@ Class IndentedStringBuilder from Object
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2958,6 +2961,9 @@ Class ModelCacheKeyFactoryDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3012,6 +3018,9 @@ Class ModelCustomizerDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3036,6 +3045,9 @@ Class ModelDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelDependencies, Microsoft.EntityFrameworkCore',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3098,6 +3110,9 @@ Class ModelRuntimeInitializerDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelRuntimeInitializerDependencies, Microsoft.EntityFrameworkCore',[P1,P2])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3198,6 +3213,9 @@ Class ModelSourceDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3267,6 +3285,9 @@ Class ModelValidatorDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelValidatorDependencies, Microsoft.EntityFrameworkCore',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3345,7 +3366,7 @@ Class ProductInfo from Object
 		return dn_x
 
 	Func GetVersion 
-		return dnAnswer(dotnet_callts('Microsoft.EntityFrameworkCore.Infrastructure.ProductInfo, Microsoft.EntityFrameworkCore','GetVersion'))
+		return dotnet_callts('Microsoft.EntityFrameworkCore.Infrastructure.ProductInfo, Microsoft.EntityFrameworkCore','GetVersion')
 
 
 Class RelationalDbContextOptionsBuilder from Object
@@ -3448,6 +3469,9 @@ Class RelationalModelDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3525,6 +3549,9 @@ Class RelationalModelRuntimeInitializerDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3563,6 +3590,9 @@ Class RelationalModelValidatorDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelValidatorDependencies, Microsoft.EntityFrameworkCore.Relational',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3971,6 +4001,9 @@ Class RuntimeModelDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4042,7 +4075,7 @@ Class ServiceCharacteristics from ValueType
 		return self
 
 	Func getLifetime
-		return dnAnswer(dotnet_getp(nHandle,"Lifetime"))
+		return dotnet_getp(nHandle,"Lifetime")
 
 	Func setLifetime P1
 		raise("DotNet Error: Lifetime is a read-only property")

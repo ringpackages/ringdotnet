@@ -314,7 +314,7 @@ Class BindingExpressionBase from Expression
 		raise("DotNet Error: BindingGroup is a read-only property")
 
 	Func getStatus
-		return dnAnswer(dotnet_getp(nHandle,"Status"))
+		return dotnet_getp(nHandle,"Status")
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
@@ -1666,7 +1666,7 @@ Class PropertyGroupDescription from DotNetObject
 		return self
 
 	Func getStringComparison
-		return dnAnswer(dotnet_getp(nHandle,"StringComparison"))
+		return dotnet_getp(nHandle,"StringComparison")
 
 	Func setStringComparison P1
 		dotnet_setp(nHandle,"StringComparison",P1)
@@ -1754,7 +1754,7 @@ Class RelativeSource from MarkupExtension
 		return dnAnswer(dotnet_callt(nHandle,"ShouldSerializeAncestorLevel"))
 
 	Func getMode
-		return dnAnswer(dotnet_getp(nHandle,"Mode"))
+		return dotnet_getp(nHandle,"Mode")
 
 	Func setMode P1
 		dotnet_setp(nHandle,"Mode",P1)
@@ -2138,14 +2138,14 @@ Class WpfBinding from BindingBase
 		return self
 
 	Func getMode
-		return dnAnswer(dotnet_getp(nHandle,"Mode"))
+		return dotnet_getp(nHandle,"Mode")
 
 	Func setMode P1
 		dotnet_setp(nHandle,"Mode",P1)
 		return self
 
 	Func getUpdateSourceTrigger
-		return dnAnswer(dotnet_getp(nHandle,"UpdateSourceTrigger"))
+		return dotnet_getp(nHandle,"UpdateSourceTrigger")
 
 	Func setUpdateSourceTrigger P1
 		dotnet_setp(nHandle,"UpdateSourceTrigger",P1)
@@ -2417,7 +2417,7 @@ Class BindingListCollectionView from CollectionView
 		return self
 
 	Func getNewItemPlaceholderPosition
-		return dnAnswer(dotnet_getp(nHandle,"NewItemPlaceholderPosition"))
+		return dotnet_getp(nHandle,"NewItemPlaceholderPosition")
 
 	Func setNewItemPlaceholderPosition P1
 		dotnet_setp(nHandle,"NewItemPlaceholderPosition",P1)
@@ -2631,7 +2631,7 @@ Class ListCollectionView from CollectionView
 		return self
 
 	Func getNewItemPlaceholderPosition
-		return dnAnswer(dotnet_getp(nHandle,"NewItemPlaceholderPosition"))
+		return dotnet_getp(nHandle,"NewItemPlaceholderPosition")
 
 	Func setNewItemPlaceholderPosition P1
 		dotnet_setp(nHandle,"NewItemPlaceholderPosition",P1)
@@ -2797,14 +2797,14 @@ Class MultiBinding from BindingBase
 		raise("DotNet Error: Bindings is a read-only property")
 
 	Func getMode
-		return dnAnswer(dotnet_getp(nHandle,"Mode"))
+		return dotnet_getp(nHandle,"Mode")
 
 	Func setMode P1
 		dotnet_setp(nHandle,"Mode",P1)
 		return self
 
 	Func getUpdateSourceTrigger
-		return dnAnswer(dotnet_getp(nHandle,"UpdateSourceTrigger"))
+		return dotnet_getp(nHandle,"UpdateSourceTrigger")
 
 	Func setUpdateSourceTrigger P1
 		dotnet_setp(nHandle,"UpdateSourceTrigger",P1)

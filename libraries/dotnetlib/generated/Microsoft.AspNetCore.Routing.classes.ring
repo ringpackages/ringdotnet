@@ -483,7 +483,7 @@ Class ContentEncodingMetadata from Object
 		return dn_x
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -542,6 +542,9 @@ Class DataTokensMetadata from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.DataTokensMetadata, Microsoft.AspNetCore.Routing',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -636,7 +639,7 @@ Class EndpointGroupNameAttribute from Attribute
 		return self
 
 	Func getEndpointGroupName
-		return dnAnswer(dotnet_getp(nHandle,"EndpointGroupName"))
+		return dotnet_getp(nHandle,"EndpointGroupName")
 
 	Func setEndpointGroupName P1
 		raise("DotNet Error: EndpointGroupName is a read-only property")
@@ -658,7 +661,7 @@ Class EndpointNameAttribute from Attribute
 		return self
 
 	Func getEndpointName
-		return dnAnswer(dotnet_getp(nHandle,"EndpointName"))
+		return dotnet_getp(nHandle,"EndpointName")
 
 	Func setEndpointName P1
 		raise("DotNet Error: EndpointName is a read-only property")
@@ -679,13 +682,16 @@ Class EndpointNameMetadata from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getEndpointName
-		return dnAnswer(dotnet_getp(nHandle,"EndpointName"))
+		return dotnet_getp(nHandle,"EndpointName")
 
 	Func setEndpointName P1
 		raise("DotNet Error: EndpointName is a read-only property")
@@ -713,6 +719,9 @@ Class ExcludeFromDescriptionAttribute from Attribute
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getExcludeFromDescription
 		return dotnet_getp(nHandle,"ExcludeFromDescription")
 
@@ -734,6 +743,9 @@ Class HostAttribute from Attribute
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.HostAttribute, Microsoft.AspNetCore.Routing',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getHosts
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Hosts"))
@@ -772,6 +784,9 @@ Class HttpMethodMetadata from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.HttpMethodMetadata, Microsoft.AspNetCore.Routing',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -869,7 +884,7 @@ Class IEndpointGroupNameMetadata from DotNetObject
 		return self
 
 	Func getEndpointGroupName
-		return dnAnswer(dotnet_getp(nHandle,"EndpointGroupName"))
+		return dotnet_getp(nHandle,"EndpointGroupName")
 
 	Func setEndpointGroupName P1
 		raise("DotNet Error: EndpointGroupName is a read-only property")
@@ -889,7 +904,7 @@ Class IEndpointNameMetadata from DotNetObject
 		return self
 
 	Func getEndpointName
-		return dnAnswer(dotnet_getp(nHandle,"EndpointName"))
+		return dotnet_getp(nHandle,"EndpointName")
 
 	Func setEndpointName P1
 		raise("DotNet Error: EndpointName is a read-only property")
@@ -2187,6 +2202,9 @@ Class RouteBase from Object
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3281,6 +3299,9 @@ Class RouteNameMetadata from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3717,6 +3738,9 @@ Class SuppressLinkGenerationMetadata from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -3750,6 +3774,9 @@ Class SuppressMatchingMetadata from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.SuppressMatchingMetadata, Microsoft.AspNetCore.Routing',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3878,7 +3905,7 @@ Class VirtualPathData from Object
 		return self
 
 	Func getVirtualPath
-		return dnAnswer(dotnet_getp(nHandle,"VirtualPath"))
+		return dotnet_getp(nHandle,"VirtualPath")
 
 	Func setVirtualPath P1
 		dotnet_setp(nHandle,"VirtualPath",P1)

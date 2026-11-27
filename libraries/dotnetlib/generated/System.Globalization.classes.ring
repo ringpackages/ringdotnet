@@ -396,7 +396,7 @@ Class Calendar from Object
 		raise("DotNet Error: MaxSupportedDateTime is a read-only property")
 
 	Func getAlgorithmType
-		return dnAnswer(dotnet_getp(nHandle,"AlgorithmType"))
+		return dotnet_getp(nHandle,"AlgorithmType")
 
 	Func setAlgorithmType P1
 		raise("DotNet Error: AlgorithmType is a read-only property")
@@ -566,6 +566,9 @@ Class CompareInfo from Object
 		ok
 		raise("DotNet Error: GetHashCode does not take one argument: use named arguments, GetHashCode([ :parameter = value, ... ])")
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func GetCompareInfo P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Globalization.CompareInfo, System.Private.CoreLib',"s14:GetCompareInfo",P1))
@@ -586,7 +589,7 @@ Class CompareInfo from Object
 		return dnObj(dn_x)
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -665,6 +668,9 @@ Class CultureInfo from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func GetFormat P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s9:GetFormat",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -727,49 +733,49 @@ Class CultureInfo from Object
 		raise("DotNet Error: KeyboardLayoutId is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getIetfLanguageTag
-		return dnAnswer(dotnet_getp(nHandle,"IetfLanguageTag"))
+		return dotnet_getp(nHandle,"IetfLanguageTag")
 
 	Func setIetfLanguageTag P1
 		raise("DotNet Error: IetfLanguageTag is a read-only property")
 
 	Func getDisplayName
-		return dnAnswer(dotnet_getp(nHandle,"DisplayName"))
+		return dotnet_getp(nHandle,"DisplayName")
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getNativeName
-		return dnAnswer(dotnet_getp(nHandle,"NativeName"))
+		return dotnet_getp(nHandle,"NativeName")
 
 	Func setNativeName P1
 		raise("DotNet Error: NativeName is a read-only property")
 
 	Func getEnglishName
-		return dnAnswer(dotnet_getp(nHandle,"EnglishName"))
+		return dotnet_getp(nHandle,"EnglishName")
 
 	Func setEnglishName P1
 		raise("DotNet Error: EnglishName is a read-only property")
 
 	Func getTwoLetterISOLanguageName
-		return dnAnswer(dotnet_getp(nHandle,"TwoLetterISOLanguageName"))
+		return dotnet_getp(nHandle,"TwoLetterISOLanguageName")
 
 	Func setTwoLetterISOLanguageName P1
 		raise("DotNet Error: TwoLetterISOLanguageName is a read-only property")
 
 	Func getThreeLetterISOLanguageName
-		return dnAnswer(dotnet_getp(nHandle,"ThreeLetterISOLanguageName"))
+		return dotnet_getp(nHandle,"ThreeLetterISOLanguageName")
 
 	Func setThreeLetterISOLanguageName P1
 		raise("DotNet Error: ThreeLetterISOLanguageName is a read-only property")
 
 	Func getThreeLetterWindowsLanguageName
-		return dnAnswer(dotnet_getp(nHandle,"ThreeLetterWindowsLanguageName"))
+		return dotnet_getp(nHandle,"ThreeLetterWindowsLanguageName")
 
 	Func setThreeLetterWindowsLanguageName P1
 		raise("DotNet Error: ThreeLetterWindowsLanguageName is a read-only property")
@@ -793,7 +799,7 @@ Class CultureInfo from Object
 		raise("DotNet Error: IsNeutralCulture is a read-only property")
 
 	Func getCultureTypes
-		return dnAnswer(dotnet_getp(nHandle,"CultureTypes"))
+		return dotnet_getp(nHandle,"CultureTypes")
 
 	Func setCultureTypes P1
 		raise("DotNet Error: CultureTypes is a read-only property")
@@ -996,10 +1002,10 @@ Class DateTimeFormatInfo from Object
 		return dnAnswer(dotnet_callt(nHandle,"GetEra",P1))
 
 	Func GetEraName P1
-		return dnAnswer(dotnet_callt(nHandle,"GetEraName",P1))
+		return dotnet_callt(nHandle,"GetEraName",P1)
 
 	Func GetAbbreviatedEraName P1
-		return dnAnswer(dotnet_callt(nHandle,"GetAbbreviatedEraName",P1))
+		return dotnet_callt(nHandle,"GetAbbreviatedEraName",P1)
 
 	Func GetAbbreviatedDayName P1
 		dn_x = dotnet_call("s4:call",nHandle,"s21:GetAbbreviatedDayName",P1)
@@ -1034,10 +1040,10 @@ Class DateTimeFormatInfo from Object
 		return dn_x
 
 	Func GetAbbreviatedMonthName P1
-		return dnAnswer(dotnet_callt(nHandle,"GetAbbreviatedMonthName",P1))
+		return dotnet_callt(nHandle,"GetAbbreviatedMonthName",P1)
 
 	Func GetMonthName P1
-		return dnAnswer(dotnet_callt(nHandle,"GetMonthName",P1))
+		return dotnet_callt(nHandle,"GetMonthName",P1)
 
 	Func SetAllDateTimePatterns P1,P2
 		dotnet_callv("s4:call",nHandle,"s22:SetAllDateTimePatterns",P1,P2)
@@ -1056,7 +1062,7 @@ Class DateTimeFormatInfo from Object
 		return dnObj(dotnet_callo("s4:call",'System.Globalization.DateTimeFormatInfo, System.Private.CoreLib',"s8:ReadOnly",P1))
 
 	Func getAMDesignator
-		return dnAnswer(dotnet_getp(nHandle,"AMDesignator"))
+		return dotnet_getp(nHandle,"AMDesignator")
 
 	Func setAMDesignator P1
 		dotnet_setp(nHandle,"AMDesignator",P1)
@@ -1070,102 +1076,102 @@ Class DateTimeFormatInfo from Object
 		return self
 
 	Func getDateSeparator
-		return dnAnswer(dotnet_getp(nHandle,"DateSeparator"))
+		return dotnet_getp(nHandle,"DateSeparator")
 
 	Func setDateSeparator P1
 		dotnet_setp(nHandle,"DateSeparator",P1)
 		return self
 
 	Func getFirstDayOfWeek
-		return dnAnswer(dotnet_getp(nHandle,"FirstDayOfWeek"))
+		return dotnet_getp(nHandle,"FirstDayOfWeek")
 
 	Func setFirstDayOfWeek P1
 		dotnet_setp(nHandle,"FirstDayOfWeek",P1)
 		return self
 
 	Func getCalendarWeekRule
-		return dnAnswer(dotnet_getp(nHandle,"CalendarWeekRule"))
+		return dotnet_getp(nHandle,"CalendarWeekRule")
 
 	Func setCalendarWeekRule P1
 		dotnet_setp(nHandle,"CalendarWeekRule",P1)
 		return self
 
 	Func getFullDateTimePattern
-		return dnAnswer(dotnet_getp(nHandle,"FullDateTimePattern"))
+		return dotnet_getp(nHandle,"FullDateTimePattern")
 
 	Func setFullDateTimePattern P1
 		dotnet_setp(nHandle,"FullDateTimePattern",P1)
 		return self
 
 	Func getLongDatePattern
-		return dnAnswer(dotnet_getp(nHandle,"LongDatePattern"))
+		return dotnet_getp(nHandle,"LongDatePattern")
 
 	Func setLongDatePattern P1
 		dotnet_setp(nHandle,"LongDatePattern",P1)
 		return self
 
 	Func getLongTimePattern
-		return dnAnswer(dotnet_getp(nHandle,"LongTimePattern"))
+		return dotnet_getp(nHandle,"LongTimePattern")
 
 	Func setLongTimePattern P1
 		dotnet_setp(nHandle,"LongTimePattern",P1)
 		return self
 
 	Func getMonthDayPattern
-		return dnAnswer(dotnet_getp(nHandle,"MonthDayPattern"))
+		return dotnet_getp(nHandle,"MonthDayPattern")
 
 	Func setMonthDayPattern P1
 		dotnet_setp(nHandle,"MonthDayPattern",P1)
 		return self
 
 	Func getPMDesignator
-		return dnAnswer(dotnet_getp(nHandle,"PMDesignator"))
+		return dotnet_getp(nHandle,"PMDesignator")
 
 	Func setPMDesignator P1
 		dotnet_setp(nHandle,"PMDesignator",P1)
 		return self
 
 	Func getRFC1123Pattern
-		return dnAnswer(dotnet_getp(nHandle,"RFC1123Pattern"))
+		return dotnet_getp(nHandle,"RFC1123Pattern")
 
 	Func setRFC1123Pattern P1
 		raise("DotNet Error: RFC1123Pattern is a read-only property")
 
 	Func getShortDatePattern
-		return dnAnswer(dotnet_getp(nHandle,"ShortDatePattern"))
+		return dotnet_getp(nHandle,"ShortDatePattern")
 
 	Func setShortDatePattern P1
 		dotnet_setp(nHandle,"ShortDatePattern",P1)
 		return self
 
 	Func getShortTimePattern
-		return dnAnswer(dotnet_getp(nHandle,"ShortTimePattern"))
+		return dotnet_getp(nHandle,"ShortTimePattern")
 
 	Func setShortTimePattern P1
 		dotnet_setp(nHandle,"ShortTimePattern",P1)
 		return self
 
 	Func getSortableDateTimePattern
-		return dnAnswer(dotnet_getp(nHandle,"SortableDateTimePattern"))
+		return dotnet_getp(nHandle,"SortableDateTimePattern")
 
 	Func setSortableDateTimePattern P1
 		raise("DotNet Error: SortableDateTimePattern is a read-only property")
 
 	Func getTimeSeparator
-		return dnAnswer(dotnet_getp(nHandle,"TimeSeparator"))
+		return dotnet_getp(nHandle,"TimeSeparator")
 
 	Func setTimeSeparator P1
 		dotnet_setp(nHandle,"TimeSeparator",P1)
 		return self
 
 	Func getUniversalSortableDateTimePattern
-		return dnAnswer(dotnet_getp(nHandle,"UniversalSortableDateTimePattern"))
+		return dotnet_getp(nHandle,"UniversalSortableDateTimePattern")
 
 	Func setUniversalSortableDateTimePattern P1
 		raise("DotNet Error: UniversalSortableDateTimePattern is a read-only property")
 
 	Func getYearMonthPattern
-		return dnAnswer(dotnet_getp(nHandle,"YearMonthPattern"))
+		return dotnet_getp(nHandle,"YearMonthPattern")
 
 	Func setYearMonthPattern P1
 		dotnet_setp(nHandle,"YearMonthPattern",P1)
@@ -1213,7 +1219,7 @@ Class DateTimeFormatInfo from Object
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getNativeCalendarName
-		return dnAnswer(dotnet_getp(nHandle,"NativeCalendarName"))
+		return dotnet_getp(nHandle,"NativeCalendarName")
 
 	Func setNativeCalendarName P1
 		raise("DotNet Error: NativeCalendarName is a read-only property")
@@ -1484,7 +1490,7 @@ Class NumberFormatInfo from Object
 		return self
 
 	Func getCurrencyDecimalSeparator
-		return dnAnswer(dotnet_getp(nHandle,"CurrencyDecimalSeparator"))
+		return dotnet_getp(nHandle,"CurrencyDecimalSeparator")
 
 	Func setCurrencyDecimalSeparator P1
 		dotnet_setp(nHandle,"CurrencyDecimalSeparator",P1)
@@ -1518,21 +1524,21 @@ Class NumberFormatInfo from Object
 		return self
 
 	Func getCurrencyGroupSeparator
-		return dnAnswer(dotnet_getp(nHandle,"CurrencyGroupSeparator"))
+		return dotnet_getp(nHandle,"CurrencyGroupSeparator")
 
 	Func setCurrencyGroupSeparator P1
 		dotnet_setp(nHandle,"CurrencyGroupSeparator",P1)
 		return self
 
 	Func getCurrencySymbol
-		return dnAnswer(dotnet_getp(nHandle,"CurrencySymbol"))
+		return dotnet_getp(nHandle,"CurrencySymbol")
 
 	Func setCurrencySymbol P1
 		dotnet_setp(nHandle,"CurrencySymbol",P1)
 		return self
 
 	Func getNaNSymbol
-		return dnAnswer(dotnet_getp(nHandle,"NaNSymbol"))
+		return dotnet_getp(nHandle,"NaNSymbol")
 
 	Func setNaNSymbol P1
 		dotnet_setp(nHandle,"NaNSymbol",P1)
@@ -1567,14 +1573,14 @@ Class NumberFormatInfo from Object
 		return self
 
 	Func getNegativeInfinitySymbol
-		return dnAnswer(dotnet_getp(nHandle,"NegativeInfinitySymbol"))
+		return dotnet_getp(nHandle,"NegativeInfinitySymbol")
 
 	Func setNegativeInfinitySymbol P1
 		dotnet_setp(nHandle,"NegativeInfinitySymbol",P1)
 		return self
 
 	Func getNegativeSign
-		return dnAnswer(dotnet_getp(nHandle,"NegativeSign"))
+		return dotnet_getp(nHandle,"NegativeSign")
 
 	Func setNegativeSign P1
 		dotnet_setp(nHandle,"NegativeSign",P1)
@@ -1588,14 +1594,14 @@ Class NumberFormatInfo from Object
 		return self
 
 	Func getNumberDecimalSeparator
-		return dnAnswer(dotnet_getp(nHandle,"NumberDecimalSeparator"))
+		return dotnet_getp(nHandle,"NumberDecimalSeparator")
 
 	Func setNumberDecimalSeparator P1
 		dotnet_setp(nHandle,"NumberDecimalSeparator",P1)
 		return self
 
 	Func getNumberGroupSeparator
-		return dnAnswer(dotnet_getp(nHandle,"NumberGroupSeparator"))
+		return dotnet_getp(nHandle,"NumberGroupSeparator")
 
 	Func setNumberGroupSeparator P1
 		dotnet_setp(nHandle,"NumberGroupSeparator",P1)
@@ -1609,14 +1615,14 @@ Class NumberFormatInfo from Object
 		return self
 
 	Func getPositiveInfinitySymbol
-		return dnAnswer(dotnet_getp(nHandle,"PositiveInfinitySymbol"))
+		return dotnet_getp(nHandle,"PositiveInfinitySymbol")
 
 	Func setPositiveInfinitySymbol P1
 		dotnet_setp(nHandle,"PositiveInfinitySymbol",P1)
 		return self
 
 	Func getPositiveSign
-		return dnAnswer(dotnet_getp(nHandle,"PositiveSign"))
+		return dotnet_getp(nHandle,"PositiveSign")
 
 	Func setPositiveSign P1
 		dotnet_setp(nHandle,"PositiveSign",P1)
@@ -1630,28 +1636,28 @@ Class NumberFormatInfo from Object
 		return self
 
 	Func getPercentDecimalSeparator
-		return dnAnswer(dotnet_getp(nHandle,"PercentDecimalSeparator"))
+		return dotnet_getp(nHandle,"PercentDecimalSeparator")
 
 	Func setPercentDecimalSeparator P1
 		dotnet_setp(nHandle,"PercentDecimalSeparator",P1)
 		return self
 
 	Func getPercentGroupSeparator
-		return dnAnswer(dotnet_getp(nHandle,"PercentGroupSeparator"))
+		return dotnet_getp(nHandle,"PercentGroupSeparator")
 
 	Func setPercentGroupSeparator P1
 		dotnet_setp(nHandle,"PercentGroupSeparator",P1)
 		return self
 
 	Func getPercentSymbol
-		return dnAnswer(dotnet_getp(nHandle,"PercentSymbol"))
+		return dotnet_getp(nHandle,"PercentSymbol")
 
 	Func setPercentSymbol P1
 		dotnet_setp(nHandle,"PercentSymbol",P1)
 		return self
 
 	Func getPerMilleSymbol
-		return dnAnswer(dotnet_getp(nHandle,"PerMilleSymbol"))
+		return dotnet_getp(nHandle,"PerMilleSymbol")
 
 	Func setPerMilleSymbol P1
 		dotnet_setp(nHandle,"PerMilleSymbol",P1)
@@ -1665,7 +1671,7 @@ Class NumberFormatInfo from Object
 		return self
 
 	Func getDigitSubstitution
-		return dnAnswer(dotnet_getp(nHandle,"DigitSubstitution"))
+		return dotnet_getp(nHandle,"DigitSubstitution")
 
 	Func setDigitSubstitution P1
 		dotnet_setp(nHandle,"DigitSubstitution",P1)
@@ -1717,44 +1723,47 @@ Class RegionInfo from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getEnglishName
-		return dnAnswer(dotnet_getp(nHandle,"EnglishName"))
+		return dotnet_getp(nHandle,"EnglishName")
 
 	Func setEnglishName P1
 		raise("DotNet Error: EnglishName is a read-only property")
 
 	Func getDisplayName
-		return dnAnswer(dotnet_getp(nHandle,"DisplayName"))
+		return dotnet_getp(nHandle,"DisplayName")
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getNativeName
-		return dnAnswer(dotnet_getp(nHandle,"NativeName"))
+		return dotnet_getp(nHandle,"NativeName")
 
 	Func setNativeName P1
 		raise("DotNet Error: NativeName is a read-only property")
 
 	Func getTwoLetterISORegionName
-		return dnAnswer(dotnet_getp(nHandle,"TwoLetterISORegionName"))
+		return dotnet_getp(nHandle,"TwoLetterISORegionName")
 
 	Func setTwoLetterISORegionName P1
 		raise("DotNet Error: TwoLetterISORegionName is a read-only property")
 
 	Func getThreeLetterISORegionName
-		return dnAnswer(dotnet_getp(nHandle,"ThreeLetterISORegionName"))
+		return dotnet_getp(nHandle,"ThreeLetterISORegionName")
 
 	Func setThreeLetterISORegionName P1
 		raise("DotNet Error: ThreeLetterISORegionName is a read-only property")
 
 	Func getThreeLetterWindowsRegionName
-		return dnAnswer(dotnet_getp(nHandle,"ThreeLetterWindowsRegionName"))
+		return dotnet_getp(nHandle,"ThreeLetterWindowsRegionName")
 
 	Func setThreeLetterWindowsRegionName P1
 		raise("DotNet Error: ThreeLetterWindowsRegionName is a read-only property")
@@ -1772,25 +1781,25 @@ Class RegionInfo from Object
 		raise("DotNet Error: GeoId is a read-only property")
 
 	Func getCurrencyEnglishName
-		return dnAnswer(dotnet_getp(nHandle,"CurrencyEnglishName"))
+		return dotnet_getp(nHandle,"CurrencyEnglishName")
 
 	Func setCurrencyEnglishName P1
 		raise("DotNet Error: CurrencyEnglishName is a read-only property")
 
 	Func getCurrencyNativeName
-		return dnAnswer(dotnet_getp(nHandle,"CurrencyNativeName"))
+		return dotnet_getp(nHandle,"CurrencyNativeName")
 
 	Func setCurrencyNativeName P1
 		raise("DotNet Error: CurrencyNativeName is a read-only property")
 
 	Func getCurrencySymbol
-		return dnAnswer(dotnet_getp(nHandle,"CurrencySymbol"))
+		return dotnet_getp(nHandle,"CurrencySymbol")
 
 	Func setCurrencySymbol P1
 		raise("DotNet Error: CurrencySymbol is a read-only property")
 
 	Func getISOCurrencySymbol
-		return dnAnswer(dotnet_getp(nHandle,"ISOCurrencySymbol"))
+		return dotnet_getp(nHandle,"ISOCurrencySymbol")
 
 	Func setISOCurrencySymbol P1
 		raise("DotNet Error: ISOCurrencySymbol is a read-only property")
@@ -1821,13 +1830,16 @@ Class SortKey from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Compare P1,P2
 		dn_x = dotnet_call("s4:call",'System.Globalization.SortKey, System.Private.CoreLib',"s7:Compare",P1,P2)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getOriginalString
-		return dnAnswer(dotnet_getp(nHandle,"OriginalString"))
+		return dotnet_getp(nHandle,"OriginalString")
 
 	Func setOriginalString P1
 		raise("DotNet Error: OriginalString is a read-only property")
@@ -1954,7 +1966,7 @@ Class StringInfo from Object
 		return dnObj(dotnet_callo("s4:call",'System.Globalization.StringInfo, System.Private.CoreLib',"s24:ParseCombiningCharacters",P1))
 
 	Func getString
-		return dnAnswer(dotnet_getp(nHandle,"String"))
+		return dotnet_getp(nHandle,"String")
 
 	Func setString P1
 		dotnet_setp(nHandle,"String",P1)
@@ -1985,7 +1997,7 @@ Class TextElementEnumerator from Object
 		return dnAnswer(dotnet_callt(nHandle,"MoveNext"))
 
 	Func GetTextElement 
-		return dnAnswer(dotnet_callt(nHandle,"GetTextElement"))
+		return dotnet_callt(nHandle,"GetTextElement")
 
 	Func Reset 
 		dotnet_calltv(nHandle,"Reset")
@@ -2056,8 +2068,11 @@ Class TextInfo from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func ToTitleCase P1
-		return dnAnswer(dotnet_callt(nHandle,"ToTitleCase",P1))
+		return dotnet_callt(nHandle,"ToTitleCase",P1)
 
 	Func ReadOnly P1
 		return dnObj(dotnet_callo("s4:call",'System.Globalization.TextInfo, System.Private.CoreLib',"s8:ReadOnly",P1))
@@ -2093,7 +2108,7 @@ Class TextInfo from Object
 		raise("DotNet Error: LCID is a read-only property")
 
 	Func getCultureName
-		return dnAnswer(dotnet_getp(nHandle,"CultureName"))
+		return dotnet_getp(nHandle,"CultureName")
 
 	Func setCultureName P1
 		raise("DotNet Error: CultureName is a read-only property")
@@ -2105,7 +2120,7 @@ Class TextInfo from Object
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getListSeparator
-		return dnAnswer(dotnet_getp(nHandle,"ListSeparator"))
+		return dotnet_getp(nHandle,"ListSeparator")
 
 	Func setListSeparator P1
 		dotnet_setp(nHandle,"ListSeparator",P1)
@@ -2181,7 +2196,7 @@ Class GregorianCalendar from Calendar
 		return self
 
 	Func getCalendarType
-		return dnAnswer(dotnet_getp(nHandle,"CalendarType"))
+		return dotnet_getp(nHandle,"CalendarType")
 
 	Func setCalendarType P1
 		dotnet_setp(nHandle,"CalendarType",P1)

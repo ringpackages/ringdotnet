@@ -274,7 +274,7 @@ Class OdbcConnection from DbConnection
 		return self
 
 	Func getDriver
-		return dnAnswer(dotnet_getp(nHandle,"Driver"))
+		return dotnet_getp(nHandle,"Driver")
 
 	Func setDriver P1
 		raise("DotNet Error: Driver is a read-only property")
@@ -320,14 +320,14 @@ Class OdbcConnectionStringBuilder from DbConnectionStringBuilder
 		return self
 
 	Func getDriver
-		return dnAnswer(dotnet_getp(nHandle,"Driver"))
+		return dotnet_getp(nHandle,"Driver")
 
 	Func setDriver P1
 		dotnet_setp(nHandle,"Driver",P1)
 		return self
 
 	Func getDsn
-		return dnAnswer(dotnet_getp(nHandle,"Dsn"))
+		return dotnet_getp(nHandle,"Dsn")
 
 	Func setDsn P1
 		dotnet_setp(nHandle,"Dsn",P1)
@@ -439,19 +439,22 @@ Class OdbcError from Object
 		ok
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getMessage
-		return dnAnswer(dotnet_getp(nHandle,"Message"))
+		return dotnet_getp(nHandle,"Message")
 
 	Func setMessage P1
 		raise("DotNet Error: Message is a read-only property")
 
 	Func getSQLState
-		return dnAnswer(dotnet_getp(nHandle,"SQLState"))
+		return dotnet_getp(nHandle,"SQLState")
 
 	Func setSQLState P1
 		raise("DotNet Error: SQLState is a read-only property")
@@ -463,7 +466,7 @@ Class OdbcError from Object
 		raise("DotNet Error: NativeError is a read-only property")
 
 	Func getSource
-		return dnAnswer(dotnet_getp(nHandle,"Source"))
+		return dotnet_getp(nHandle,"Source")
 
 	Func setSource P1
 		raise("DotNet Error: Source is a read-only property")
@@ -560,6 +563,9 @@ Class OdbcException from DbException
 	Func setErrors P1
 		raise("DotNet Error: Errors is a read-only property")
 
+	Func getSource
+		return dotnet_getp(nHandle,"Source")
+
 	Func setSource P1
 		raise("DotNet Error: Source is a read-only property")
 
@@ -598,6 +604,9 @@ Class OdbcInfoMessageEventArgs from EventArgs
 		ok
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getErrors
 		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Errors"))
 
@@ -605,7 +614,7 @@ Class OdbcInfoMessageEventArgs from EventArgs
 		raise("DotNet Error: Errors is a read-only property")
 
 	Func getMessage
-		return dnAnswer(dotnet_getp(nHandle,"Message"))
+		return dotnet_getp(nHandle,"Message")
 
 	Func setMessage P1
 		raise("DotNet Error: Message is a read-only property")
@@ -780,8 +789,11 @@ Class OdbcParameter from DbParameter
 		dotnet_calltv(nHandle,"ResetOdbcType")
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getOdbcType
-		return dnAnswer(dotnet_getp(nHandle,"OdbcType"))
+		return dotnet_getp(nHandle,"OdbcType")
 
 	Func setOdbcType P1
 		dotnet_setp(nHandle,"OdbcType",P1)

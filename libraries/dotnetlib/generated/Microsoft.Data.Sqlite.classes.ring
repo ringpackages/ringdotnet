@@ -266,28 +266,28 @@ Class SqliteConnectionStringBuilder from DbConnectionStringBuilder
 		return self
 
 	Func getDataSource
-		return dnAnswer(dotnet_getp(nHandle,"DataSource"))
+		return dotnet_getp(nHandle,"DataSource")
 
 	Func setDataSource P1
 		dotnet_setp(nHandle,"DataSource",P1)
 		return self
 
 	Func getMode
-		return dnAnswer(dotnet_getp(nHandle,"Mode"))
+		return dotnet_getp(nHandle,"Mode")
 
 	Func setMode P1
 		dotnet_setp(nHandle,"Mode",P1)
 		return self
 
 	Func getCache
-		return dnAnswer(dotnet_getp(nHandle,"Cache"))
+		return dotnet_getp(nHandle,"Cache")
 
 	Func setCache P1
 		dotnet_setp(nHandle,"Cache",P1)
 		return self
 
 	Func getPassword
-		return dnAnswer(dotnet_getp(nHandle,"Password"))
+		return dotnet_getp(nHandle,"Password")
 
 	Func setPassword P1
 		dotnet_setp(nHandle,"Password",P1)
@@ -478,7 +478,7 @@ Class SqliteParameter from DbParameter
 		return self
 
 	Func getSqliteType
-		return dnAnswer(dotnet_getp(nHandle,"SqliteType"))
+		return dotnet_getp(nHandle,"SqliteType")
 
 	Func setSqliteType P1
 		dotnet_setp(nHandle,"SqliteType",P1)

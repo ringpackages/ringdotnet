@@ -471,14 +471,14 @@ Class DispatcherOperation from Object
 		raise("DotNet Error: Dispatcher is a read-only property")
 
 	Func getPriority
-		return dnAnswer(dotnet_getp(nHandle,"Priority"))
+		return dotnet_getp(nHandle,"Priority")
 
 	Func setPriority P1
 		dotnet_setp(nHandle,"Priority",P1)
 		return self
 
 	Func getStatus
-		return dnAnswer(dotnet_getp(nHandle,"Status"))
+		return dotnet_getp(nHandle,"Status")
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")

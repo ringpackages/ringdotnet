@@ -411,21 +411,21 @@ Class ChangeTracker from Object
 		return self
 
 	Func getQueryTrackingBehavior
-		return dnAnswer(dotnet_getp(nHandle,"QueryTrackingBehavior"))
+		return dotnet_getp(nHandle,"QueryTrackingBehavior")
 
 	Func setQueryTrackingBehavior P1
 		dotnet_setp(nHandle,"QueryTrackingBehavior",P1)
 		return self
 
 	Func getDeleteOrphansTiming
-		return dnAnswer(dotnet_getp(nHandle,"DeleteOrphansTiming"))
+		return dotnet_getp(nHandle,"DeleteOrphansTiming")
 
 	Func setDeleteOrphansTiming P1
 		dotnet_setp(nHandle,"DeleteOrphansTiming",P1)
 		return self
 
 	Func getCascadeDeleteTiming
-		return dnAnswer(dotnet_getp(nHandle,"CascadeDeleteTiming"))
+		return dotnet_getp(nHandle,"CascadeDeleteTiming")
 
 	Func setCascadeDeleteTiming P1
 		dotnet_setp(nHandle,"CascadeDeleteTiming",P1)
@@ -606,6 +606,9 @@ Class EntityEntry from Object
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -644,7 +647,7 @@ Class EntityEntry from Object
 		raise("DotNet Error: Entity is a read-only property")
 
 	Func getState
-		return dnAnswer(dotnet_getp(nHandle,"State"))
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		dotnet_setp(nHandle,"State",P1)
@@ -1847,13 +1850,13 @@ Class EntityStateChangedEventArgs from EntityEntryEventArgs
 		return self
 
 	Func getOldState
-		return dnAnswer(dotnet_getp(nHandle,"OldState"))
+		return dotnet_getp(nHandle,"OldState")
 
 	Func setOldState P1
 		raise("DotNet Error: OldState is a read-only property")
 
 	Func getNewState
-		return dnAnswer(dotnet_getp(nHandle,"NewState"))
+		return dotnet_getp(nHandle,"NewState")
 
 	Func setNewState P1
 		raise("DotNet Error: NewState is a read-only property")
@@ -1876,13 +1879,13 @@ Class EntityStateChangingEventArgs from EntityEntryEventArgs
 		return self
 
 	Func getOldState
-		return dnAnswer(dotnet_getp(nHandle,"OldState"))
+		return dotnet_getp(nHandle,"OldState")
 
 	Func setOldState P1
 		raise("DotNet Error: OldState is a read-only property")
 
 	Func getNewState
-		return dnAnswer(dotnet_getp(nHandle,"NewState"))
+		return dotnet_getp(nHandle,"NewState")
 
 	Func setNewState P1
 		raise("DotNet Error: NewState is a read-only property")
@@ -1927,7 +1930,7 @@ Class EntityTrackingEventArgs from EntityEntryEventArgs
 		return self
 
 	Func getState
-		return dnAnswer(dotnet_getp(nHandle,"State"))
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")

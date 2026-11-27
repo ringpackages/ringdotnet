@@ -1462,7 +1462,7 @@ Class BeginStoryboard from TriggerAction
 		return self
 
 	Func getHandoffBehavior
-		return dnAnswer(dotnet_getp(nHandle,"HandoffBehavior"))
+		return dotnet_getp(nHandle,"HandoffBehavior")
 
 	Func setHandoffBehavior P1
 		dotnet_setp(nHandle,"HandoffBehavior",P1)
@@ -2192,7 +2192,7 @@ Class Clock from DispatcherObject
 		raise("DotNet Error: CurrentProgress is a read-only property")
 
 	Func getCurrentState
-		return dnAnswer(dotnet_getp(nHandle,"CurrentState"))
+		return dotnet_getp(nHandle,"CurrentState")
 
 	Func setCurrentState P1
 		raise("DotNet Error: CurrentState is a read-only property")
@@ -3064,7 +3064,7 @@ Class EasingFunctionBase from Freezable
 		return dnAnswer(dotnet_callt(nHandle,"Ease",P1))
 
 	Func getEasingMode
-		return dnAnswer(dotnet_getp(nHandle,"EasingMode"))
+		return dotnet_getp(nHandle,"EasingMode")
 
 	Func setEasingMode P1
 		dotnet_setp(nHandle,"EasingMode",P1)
@@ -3947,7 +3947,7 @@ Class KeyTime from ValueType
 		raise("DotNet Error: Percent is a read-only property")
 
 	Func getType
-		return dnAnswer(dotnet_getp(nHandle,"Type"))
+		return dotnet_getp(nHandle,"Type")
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
@@ -9674,7 +9674,7 @@ Class SeekStoryboard from ControllableStoryboardAction
 		return self
 
 	Func getOrigin
-		return dnAnswer(dotnet_getp(nHandle,"Origin"))
+		return dotnet_getp(nHandle,"Origin")
 
 	Func setOrigin P1
 		dotnet_setp(nHandle,"Origin",P1)
@@ -10822,7 +10822,7 @@ Class Timeline from Animatable
 		return self
 
 	Func getFillBehavior
-		return dnAnswer(dotnet_getp(nHandle,"FillBehavior"))
+		return dotnet_getp(nHandle,"FillBehavior")
 
 	Func setFillBehavior P1
 		dotnet_setp(nHandle,"FillBehavior",P1)
@@ -11287,7 +11287,7 @@ Class ParallelTimeline from TimelineGroup
 		return self
 
 	Func getSlipBehavior
-		return dnAnswer(dotnet_getp(nHandle,"SlipBehavior"))
+		return dotnet_getp(nHandle,"SlipBehavior")
 
 	Func setSlipBehavior P1
 		dotnet_setp(nHandle,"SlipBehavior",P1)
@@ -12185,7 +12185,7 @@ Class DoubleAnimationUsingPath from DoubleAnimationBase
 		return self
 
 	Func getSource
-		return dnAnswer(dotnet_getp(nHandle,"Source"))
+		return dotnet_getp(nHandle,"Source")
 
 	Func setSource P1
 		dotnet_setp(nHandle,"Source",P1)

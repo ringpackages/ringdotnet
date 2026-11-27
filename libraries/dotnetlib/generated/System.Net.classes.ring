@@ -505,8 +505,11 @@ Class Cookie from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getComment
-		return dnAnswer(dotnet_getp(nHandle,"Comment"))
+		return dotnet_getp(nHandle,"Comment")
 
 	Func setComment P1
 		dotnet_setp(nHandle,"Comment",P1)
@@ -534,7 +537,7 @@ Class Cookie from Object
 		return self
 
 	Func getDomain
-		return dnAnswer(dotnet_getp(nHandle,"Domain"))
+		return dotnet_getp(nHandle,"Domain")
 
 	Func setDomain P1
 		dotnet_setp(nHandle,"Domain",P1)
@@ -555,21 +558,21 @@ Class Cookie from Object
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getPath
-		return dnAnswer(dotnet_getp(nHandle,"Path"))
+		return dotnet_getp(nHandle,"Path")
 
 	Func setPath P1
 		dotnet_setp(nHandle,"Path",P1)
 		return self
 
 	Func getPort
-		return dnAnswer(dotnet_getp(nHandle,"Port"))
+		return dotnet_getp(nHandle,"Port")
 
 	Func setPort P1
 		dotnet_setp(nHandle,"Port",P1)
@@ -589,7 +592,7 @@ Class Cookie from Object
 		raise("DotNet Error: TimeStamp is a read-only property")
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		dotnet_setp(nHandle,"Value",P1)
@@ -981,7 +984,7 @@ Class Dns from Object
 		return dn_x
 
 	Func GetHostName 
-		return dnAnswer(dotnet_callts('System.Net.Dns, System.Net.NameResolution','GetHostName'))
+		return dotnet_callts('System.Net.Dns, System.Net.NameResolution','GetHostName')
 
 	Func GetHostEntry P1
 		if dotnet_isnamed(P1)
@@ -1102,7 +1105,7 @@ Class DownloadStringCompletedEventArgs from AsyncCompletedEventArgs
 		return self
 
 	Func getResult
-		return dnAnswer(dotnet_getp(nHandle,"Result"))
+		return dotnet_getp(nHandle,"Result")
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
@@ -1141,7 +1144,7 @@ Class EndPoint from Object
 		return dn_x
 
 	Func getAddressFamily
-		return dnAnswer(dotnet_getp(nHandle,"AddressFamily"))
+		return dotnet_getp(nHandle,"AddressFamily")
 
 	Func setAddressFamily P1
 		raise("DotNet Error: AddressFamily is a read-only property")
@@ -1244,7 +1247,7 @@ Class HttpListener from Object
 		return self
 
 	Func getAuthenticationSchemes
-		return dnAnswer(dotnet_getp(nHandle,"AuthenticationSchemes"))
+		return dotnet_getp(nHandle,"AuthenticationSchemes")
 
 	Func setAuthenticationSchemes P1
 		dotnet_setp(nHandle,"AuthenticationSchemes",P1)
@@ -1401,7 +1404,7 @@ Class HttpListenerBasicIdentity from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func getPassword
-		return dnAnswer(dotnet_getp(nHandle,"Password"))
+		return dotnet_getp(nHandle,"Password")
 
 	Func setPassword P1
 		raise("DotNet Error: Password is a read-only property")
@@ -1413,13 +1416,13 @@ Class HttpListenerBasicIdentity from DotNetObject
 		raise("DotNet Error: Claims is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getAuthenticationType
-		return dnAnswer(dotnet_getp(nHandle,"AuthenticationType"))
+		return dotnet_getp(nHandle,"AuthenticationType")
 
 	Func setAuthenticationType P1
 		raise("DotNet Error: AuthenticationType is a read-only property")
@@ -1452,13 +1455,13 @@ Class HttpListenerBasicIdentity from DotNetObject
 		return self
 
 	Func getNameClaimType
-		return dnAnswer(dotnet_getp(nHandle,"NameClaimType"))
+		return dotnet_getp(nHandle,"NameClaimType")
 
 	Func setNameClaimType P1
 		raise("DotNet Error: NameClaimType is a read-only property")
 
 	Func getRoleClaimType
-		return dnAnswer(dotnet_getp(nHandle,"RoleClaimType"))
+		return dotnet_getp(nHandle,"RoleClaimType")
 
 	Func setRoleClaimType P1
 		raise("DotNet Error: RoleClaimType is a read-only property")
@@ -1784,13 +1787,13 @@ Class HttpListenerRequest from Object
 		raise("DotNet Error: UserAgent is a read-only property")
 
 	Func getUserHostAddress
-		return dnAnswer(dotnet_getp(nHandle,"UserHostAddress"))
+		return dotnet_getp(nHandle,"UserHostAddress")
 
 	Func setUserHostAddress P1
 		raise("DotNet Error: UserHostAddress is a read-only property")
 
 	Func getUserHostName
-		return dnAnswer(dotnet_getp(nHandle,"UserHostName"))
+		return dotnet_getp(nHandle,"UserHostName")
 
 	Func setUserHostName P1
 		raise("DotNet Error: UserHostName is a read-only property")
@@ -1838,7 +1841,7 @@ Class HttpListenerRequest from Object
 		raise("DotNet Error: Headers is a read-only property")
 
 	Func getHttpMethod
-		return dnAnswer(dotnet_getp(nHandle,"HttpMethod"))
+		return dotnet_getp(nHandle,"HttpMethod")
 
 	Func setHttpMethod P1
 		raise("DotNet Error: HttpMethod is a read-only property")
@@ -2027,7 +2030,7 @@ Class HttpListenerResponse from Object
 		return self
 
 	Func getStatusDescription
-		return dnAnswer(dotnet_getp(nHandle,"StatusDescription"))
+		return dotnet_getp(nHandle,"StatusDescription")
 
 	Func setStatusDescription P1
 		dotnet_setp(nHandle,"StatusDescription",P1)
@@ -2202,7 +2205,7 @@ Class IAuthenticationModule from DotNetObject
 		raise("DotNet Error: CanPreAuthenticate is a read-only property")
 
 	Func getAuthenticationType
-		return dnAnswer(dotnet_getp(nHandle,"AuthenticationType"))
+		return dotnet_getp(nHandle,"AuthenticationType")
 
 	Func setAuthenticationType P1
 		raise("DotNet Error: AuthenticationType is a read-only property")
@@ -2293,7 +2296,7 @@ Class IPHostEntry from Object
 		return dn_x
 
 	Func getHostName
-		return dnAnswer(dotnet_getp(nHandle,"HostName"))
+		return dotnet_getp(nHandle,"HostName")
 
 	Func setHostName P1
 		dotnet_setp(nHandle,"HostName",P1)
@@ -2357,6 +2360,9 @@ Class IPNetwork from ValueType
 		dn_x = dotnet_call("s4:call",nHandle,"s8:Contains",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFormat P1
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1))
@@ -2438,7 +2444,7 @@ Class IWebProxyScript from DotNetObject
 		return dn_x
 
 	Func Run P1,P2
-		return dnAnswer(dotnet_callt(nHandle,"Run",P1,P2))
+		return dotnet_callt(nHandle,"Run",P1,P2)
 
 
 Class IWebRequestCreate from DotNetObject
@@ -2513,14 +2519,14 @@ Class NetworkCredential from Object
 		return dn_x
 
 	Func getUserName
-		return dnAnswer(dotnet_getp(nHandle,"UserName"))
+		return dotnet_getp(nHandle,"UserName")
 
 	Func setUserName P1
 		dotnet_setp(nHandle,"UserName",P1)
 		return self
 
 	Func getPassword
-		return dnAnswer(dotnet_getp(nHandle,"Password"))
+		return dotnet_getp(nHandle,"Password")
 
 	Func setPassword P1
 		dotnet_setp(nHandle,"Password",P1)
@@ -2534,7 +2540,7 @@ Class NetworkCredential from Object
 		return self
 
 	Func getDomain
-		return dnAnswer(dotnet_getp(nHandle,"Domain"))
+		return dotnet_getp(nHandle,"Domain")
 
 	Func setDomain P1
 		dotnet_setp(nHandle,"Domain",P1)
@@ -2744,7 +2750,7 @@ Class ServicePoint from Object
 		raise("DotNet Error: ProtocolVersion is a read-only property")
 
 	Func getConnectionName
-		return dnAnswer(dotnet_getp(nHandle,"ConnectionName"))
+		return dotnet_getp(nHandle,"ConnectionName")
 
 	Func setConnectionName P1
 		raise("DotNet Error: ConnectionName is a read-only property")
@@ -2818,6 +2824,9 @@ Class SocketAddress from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func GetMaximumAddressSize P1
 		dn_x = dotnet_call("s4:call",'System.Net.SocketAddress, System.Net.Primitives',"s21:GetMaximumAddressSize",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2831,7 +2840,7 @@ Class SocketAddress from Object
 		return self
 
 	Func getFamily
-		return dnAnswer(dotnet_getp(nHandle,"Family"))
+		return dotnet_getp(nHandle,"Family")
 
 	Func setFamily P1
 		raise("DotNet Error: Family is a read-only property")
@@ -2969,7 +2978,7 @@ Class UploadStringCompletedEventArgs from AsyncCompletedEventArgs
 		return self
 
 	Func getResult
-		return dnAnswer(dotnet_getp(nHandle,"Result"))
+		return dotnet_getp(nHandle,"Result")
 
 	Func setResult P1
 		raise("DotNet Error: Result is a read-only property")
@@ -3083,7 +3092,7 @@ Class WebClient from Component
 		raise("DotNet Error: UploadString does not take one argument: use named arguments, UploadString([ :parameter = value, ... ])")
 
 	Func DownloadString P1
-		return dnAnswer(dotnet_callt(nHandle,"DownloadString",P1))
+		return dotnet_callt(nHandle,"DownloadString",P1)
 
 	Func OpenReadAsync P1
 		dotnet_calltd1v(nHandle,"OpenReadAsync",P1)
@@ -3306,7 +3315,7 @@ Class WebClient from Component
 		return self
 
 	Func getBaseAddress
-		return dnAnswer(dotnet_getp(nHandle,"BaseAddress"))
+		return dotnet_getp(nHandle,"BaseAddress")
 
 	Func setBaseAddress P1
 		dotnet_setp(nHandle,"BaseAddress",P1)
@@ -3421,7 +3430,7 @@ Class WebException from InvalidOperationException
 		return self
 
 	Func getStatus
-		return dnAnswer(dotnet_getp(nHandle,"Status"))
+		return dotnet_getp(nHandle,"Status")
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
@@ -3457,6 +3466,12 @@ Class WebHeaderCollection from NameValueCollection
 		dotnet_callv("s4:call",nHandle,"s6:Remove",P1)
 
 		return self
+
+	Func GetKey P1
+		return dotnet_callt(nHandle,"GetKey",P1)
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func ToByteArray 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToByteArray")
@@ -3703,14 +3718,14 @@ Class WebRequest from MarshalByRefObject
 		return self
 
 	Func getAuthenticationLevel
-		return dnAnswer(dotnet_getp(nHandle,"AuthenticationLevel"))
+		return dotnet_getp(nHandle,"AuthenticationLevel")
 
 	Func setAuthenticationLevel P1
 		dotnet_setp(nHandle,"AuthenticationLevel",P1)
 		return self
 
 	Func getImpersonationLevel
-		return dnAnswer(dotnet_getp(nHandle,"ImpersonationLevel"))
+		return dotnet_getp(nHandle,"ImpersonationLevel")
 
 	Func setImpersonationLevel P1
 		dotnet_setp(nHandle,"ImpersonationLevel",P1)
@@ -3724,7 +3739,7 @@ Class WebRequest from MarshalByRefObject
 		return self
 
 	Func getMethod
-		return dnAnswer(dotnet_getp(nHandle,"Method"))
+		return dotnet_getp(nHandle,"Method")
 
 	Func setMethod P1
 		dotnet_setp(nHandle,"Method",P1)
@@ -4121,7 +4136,7 @@ Class WebResponse from MarshalByRefObject
 		return self
 
 	Func getContentType
-		return dnAnswer(dotnet_getp(nHandle,"ContentType"))
+		return dotnet_getp(nHandle,"ContentType")
 
 	Func setContentType P1
 		dotnet_setp(nHandle,"ContentType",P1)
@@ -4289,6 +4304,9 @@ Class IPAddress from Object
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func TryFormat P1
 		return dnSend("s4:call",nHandle,"s9:TryFormat",dnPackItem(P1))
 
@@ -4329,7 +4347,7 @@ Class IPAddress from Object
 		return dn_x
 
 	Func getAddressFamily
-		return dnAnswer(dotnet_getp(nHandle,"AddressFamily"))
+		return dotnet_getp(nHandle,"AddressFamily")
 
 	Func setAddressFamily P1
 		raise("DotNet Error: AddressFamily is a read-only property")
@@ -4458,8 +4476,11 @@ Class DnsEndPoint from EndPoint
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getHost
-		return dnAnswer(dotnet_getp(nHandle,"Host"))
+		return dotnet_getp(nHandle,"Host")
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
@@ -4617,7 +4638,7 @@ Class FtpWebResponse from WebResponse
 		raise("DotNet Error: ContentLength is a read-only property")
 
 	Func getStatusCode
-		return dnAnswer(dotnet_getp(nHandle,"StatusCode"))
+		return dotnet_getp(nHandle,"StatusCode")
 
 	Func setStatusCode P1
 		raise("DotNet Error: StatusCode is a read-only property")
@@ -4754,7 +4775,7 @@ Class HttpWebRequest from WebRequest
 		return self
 
 	Func getHost
-		return dnAnswer(dotnet_getp(nHandle,"Host"))
+		return dotnet_getp(nHandle,"Host")
 
 	Func setHost P1
 		dotnet_setp(nHandle,"Host",P1)
@@ -4803,7 +4824,7 @@ Class HttpWebRequest from WebRequest
 		return self
 
 	Func getAutomaticDecompression
-		return dnAnswer(dotnet_getp(nHandle,"AutomaticDecompression"))
+		return dotnet_getp(nHandle,"AutomaticDecompression")
 
 	Func setAutomaticDecompression P1
 		dotnet_setp(nHandle,"AutomaticDecompression",P1)
@@ -4971,7 +4992,7 @@ Class HttpWebResponse from WebResponse
 		return self
 
 	Func GetResponseHeader P1
-		return dnAnswer(dotnet_callt(nHandle,"GetResponseHeader",P1))
+		return dotnet_callt(nHandle,"GetResponseHeader",P1)
 
 	Func setContentLength P1
 		raise("DotNet Error: ContentLength is a read-only property")
@@ -4980,7 +5001,7 @@ Class HttpWebResponse from WebResponse
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getContentEncoding
-		return dnAnswer(dotnet_getp(nHandle,"ContentEncoding"))
+		return dotnet_getp(nHandle,"ContentEncoding")
 
 	Func setContentEncoding P1
 		raise("DotNet Error: ContentEncoding is a read-only property")
@@ -4999,7 +5020,7 @@ Class HttpWebResponse from WebResponse
 		raise("DotNet Error: LastModified is a read-only property")
 
 	Func getServer
-		return dnAnswer(dotnet_getp(nHandle,"Server"))
+		return dotnet_getp(nHandle,"Server")
 
 	Func setServer P1
 		raise("DotNet Error: Server is a read-only property")
@@ -5011,19 +5032,19 @@ Class HttpWebResponse from WebResponse
 		raise("DotNet Error: ProtocolVersion is a read-only property")
 
 	Func getMethod
-		return dnAnswer(dotnet_getp(nHandle,"Method"))
+		return dotnet_getp(nHandle,"Method")
 
 	Func setMethod P1
 		raise("DotNet Error: Method is a read-only property")
 
 	Func getStatusCode
-		return dnAnswer(dotnet_getp(nHandle,"StatusCode"))
+		return dotnet_getp(nHandle,"StatusCode")
 
 	Func setStatusCode P1
 		raise("DotNet Error: StatusCode is a read-only property")
 
 	Func getStatusDescription
-		return dnAnswer(dotnet_getp(nHandle,"StatusDescription"))
+		return dotnet_getp(nHandle,"StatusDescription")
 
 	Func setStatusDescription P1
 		raise("DotNet Error: StatusDescription is a read-only property")
@@ -5052,6 +5073,9 @@ Class IPEndPoint from EndPoint
 		nHandle = dnCreate('System.Net.IPEndPoint, System.Net.Primitives',[P1,P2])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryParse P1
 		return dnSend("s4:call",dnTypeHandle('System.Net.IPEndPoint, System.Net.Primitives'),"s8:TryParse",dnPackItem(P1))

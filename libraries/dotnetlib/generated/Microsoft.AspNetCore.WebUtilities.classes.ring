@@ -212,7 +212,7 @@ Class BufferedReadStream from Stream
 		return dnObj(dn_x)
 
 	Func ReadLine P1
-		return dnAnswer(dotnet_callt(nHandle,"ReadLine",P1))
+		return dotnet_callt(nHandle,"ReadLine",P1)
 
 	Func ReadLineAsync P1,P2
 		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ReadLineAsync",P1,P2)
@@ -397,13 +397,13 @@ Class FileMultipartSection from Object
 		raise("DotNet Error: FileStream is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getFileName
-		return dnAnswer(dotnet_getp(nHandle,"FileName"))
+		return dotnet_getp(nHandle,"FileName")
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
@@ -469,7 +469,7 @@ Class FormMultipartSection from Object
 		raise("DotNet Error: Section is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1215,7 +1215,7 @@ Class ReasonPhrases from Object
 		return dn_x
 
 	Func GetReasonPhrase P1
-		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.WebUtilities.ReasonPhrases, Microsoft.AspNetCore.WebUtilities','GetReasonPhrase',P1))
+		return dotnet_callts('Microsoft.AspNetCore.WebUtilities.ReasonPhrases, Microsoft.AspNetCore.WebUtilities','GetReasonPhrase',P1)
 
 
 Class StreamHelperExtensions from Object

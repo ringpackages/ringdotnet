@@ -642,7 +642,7 @@ Class Activity from Object
 		return self
 
 	Func getStatus
-		return dnAnswer(dotnet_getp(nHandle,"Status"))
+		return dotnet_getp(nHandle,"Status")
 
 	Func getStatusDescription
 		return dnAnswer(dotnet_getp(nHandle,"StatusDescription"))
@@ -657,19 +657,19 @@ Class Activity from Object
 		raise("DotNet Error: HasRemoteParent is a read-only property")
 
 	Func getKind
-		return dnAnswer(dotnet_getp(nHandle,"Kind"))
+		return dotnet_getp(nHandle,"Kind")
 
 	Func setKind P1
 		raise("DotNet Error: Kind is a read-only property")
 
 	Func getOperationName
-		return dnAnswer(dotnet_getp(nHandle,"OperationName"))
+		return dotnet_getp(nHandle,"OperationName")
 
 	Func setOperationName P1
 		raise("DotNet Error: OperationName is a read-only property")
 
 	Func getDisplayName
-		return dnAnswer(dotnet_getp(nHandle,"DisplayName"))
+		return dotnet_getp(nHandle,"DisplayName")
 
 	Func setDisplayName P1
 		dotnet_setp(nHandle,"DisplayName",P1)
@@ -780,7 +780,7 @@ Class Activity from Object
 		return self
 
 	Func getActivityTraceFlags
-		return dnAnswer(dotnet_getp(nHandle,"ActivityTraceFlags"))
+		return dotnet_getp(nHandle,"ActivityTraceFlags")
 
 	Func setActivityTraceFlags P1
 		dotnet_setp(nHandle,"ActivityTraceFlags",P1)
@@ -799,7 +799,7 @@ Class Activity from Object
 		raise("DotNet Error: IsStopped is a read-only property")
 
 	Func getIdFormat
-		return dnAnswer(dotnet_getp(nHandle,"IdFormat"))
+		return dotnet_getp(nHandle,"IdFormat")
 
 	Func getForceDefaultIdFormat
 		return dotnet_call("s3:get",'System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource',"s20:ForceDefaultIdFormat")
@@ -971,7 +971,7 @@ Class ActivityContext from ValueType
 		raise("DotNet Error: SpanId is a read-only property")
 
 	Func getTraceFlags
-		return dnAnswer(dotnet_getp(nHandle,"TraceFlags"))
+		return dotnet_getp(nHandle,"TraceFlags")
 
 	Func setTraceFlags P1
 		raise("DotNet Error: TraceFlags is a read-only property")
@@ -1028,13 +1028,13 @@ Class ActivityCreationOptions from ValueType
 		raise("DotNet Error: Source is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getKind
-		return dnAnswer(dotnet_getp(nHandle,"Kind"))
+		return dotnet_getp(nHandle,"Kind")
 
 	Func setKind P1
 		raise("DotNet Error: Kind is a read-only property")
@@ -1125,7 +1125,7 @@ Class ActivityEvent from ValueType
 		return dnObj(dn_x)
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1358,7 +1358,7 @@ Class ActivitySource from Object
 		return self
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1397,7 +1397,10 @@ Class ActivitySpanId from ValueType
 		return self
 
 	Func ToHexString 
-		return dnAnswer(dotnet_callt(nHandle,"ToHexString"))
+		return dotnet_callt(nHandle,"ToHexString")
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func CopyTo P1
 		return dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1))
@@ -1620,7 +1623,10 @@ Class ActivityTraceId from ValueType
 		return self
 
 	Func ToHexString 
-		return dnAnswer(dotnet_callt(nHandle,"ToHexString"))
+		return dotnet_callt(nHandle,"ToHexString")
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func CopyTo P1
 		return dnSend("s4:call",nHandle,"s6:CopyTo",dnPackItem(P1))
@@ -1658,7 +1664,7 @@ Class ConditionalAttribute from Attribute
 		return self
 
 	Func getConditionString
-		return dnAnswer(dotnet_getp(nHandle,"ConditionString"))
+		return dotnet_getp(nHandle,"ConditionString")
 
 	Func setConditionString P1
 		raise("DotNet Error: ConditionString is a read-only property")
@@ -2037,7 +2043,7 @@ Class DebuggableAttribute from Attribute
 		raise("DotNet Error: IsJITOptimizerDisabled is a read-only property")
 
 	Func getDebuggingFlags
-		return dnAnswer(dotnet_getp(nHandle,"DebuggingFlags"))
+		return dotnet_getp(nHandle,"DebuggingFlags")
 
 	Func setDebuggingFlags P1
 		raise("DotNet Error: DebuggingFlags is a read-only property")
@@ -2116,7 +2122,7 @@ Class DebuggerBrowsableAttribute from Attribute
 		return self
 
 	Func getState
-		return dnAnswer(dotnet_getp(nHandle,"State"))
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -2170,7 +2176,7 @@ Class DebuggerDisplayAttribute from Attribute
 		return dnObj(dn_x)
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -2306,7 +2312,7 @@ Class DebuggerTypeProxyAttribute from Attribute
 		return self
 
 	Func getProxyTypeName
-		return dnAnswer(dotnet_getp(nHandle,"ProxyTypeName"))
+		return dotnet_getp(nHandle,"ProxyTypeName")
 
 	Func setProxyTypeName P1
 		raise("DotNet Error: ProxyTypeName is a read-only property")
@@ -2367,7 +2373,7 @@ Class DebuggerVisualizerAttribute from Attribute
 		raise("DotNet Error: VisualizerObjectSourceTypeName is a read-only property")
 
 	Func getVisualizerTypeName
-		return dnAnswer(dotnet_getp(nHandle,"VisualizerTypeName"))
+		return dotnet_getp(nHandle,"VisualizerTypeName")
 
 	Func setVisualizerTypeName P1
 		raise("DotNet Error: VisualizerTypeName is a read-only property")
@@ -2418,7 +2424,7 @@ Class DiagnosticMethodInfo from Object
 		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.DiagnosticMethodInfo, System.Private.CoreLib',"s6:Create",P1))
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2579,6 +2585,9 @@ Class FileVersionInfo from Object
 		ok
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2624,7 +2633,7 @@ Class FileVersionInfo from Object
 		raise("DotNet Error: FileMinorPart is a read-only property")
 
 	Func getFileName
-		return dnAnswer(dotnet_getp(nHandle,"FileName"))
+		return dotnet_getp(nHandle,"FileName")
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
@@ -3082,7 +3091,7 @@ Class Process from Component
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getMachineName
-		return dnAnswer(dotnet_getp(nHandle,"MachineName"))
+		return dotnet_getp(nHandle,"MachineName")
 
 	Func setMachineName P1
 		raise("DotNet Error: MachineName is a read-only property")
@@ -3187,7 +3196,7 @@ Class Process from Component
 		return self
 
 	Func getPriorityClass
-		return dnAnswer(dotnet_getp(nHandle,"PriorityClass"))
+		return dotnet_getp(nHandle,"PriorityClass")
 
 	Func setPriorityClass P1
 		dotnet_setp(nHandle,"PriorityClass",P1)
@@ -3318,7 +3327,7 @@ Class Process from Component
 		raise("DotNet Error: UserProcessorTime is a read-only property")
 
 	Func getProcessName
-		return dnAnswer(dotnet_getp(nHandle,"ProcessName"))
+		return dotnet_getp(nHandle,"ProcessName")
 
 	Func setProcessName P1
 		raise("DotNet Error: ProcessName is a read-only property")
@@ -3330,7 +3339,7 @@ Class Process from Component
 		raise("DotNet Error: MainWindowHandle is a read-only property")
 
 	Func getMainWindowTitle
-		return dnAnswer(dotnet_getp(nHandle,"MainWindowTitle"))
+		return dotnet_getp(nHandle,"MainWindowTitle")
 
 	Func setMainWindowTitle P1
 		raise("DotNet Error: MainWindowTitle is a read-only property")
@@ -3361,13 +3370,13 @@ Class ProcessModule from Component
 		return self
 
 	Func getModuleName
-		return dnAnswer(dotnet_getp(nHandle,"ModuleName"))
+		return dotnet_getp(nHandle,"ModuleName")
 
 	Func setModuleName P1
 		raise("DotNet Error: ModuleName is a read-only property")
 
 	Func getFileName
-		return dnAnswer(dotnet_getp(nHandle,"FileName"))
+		return dotnet_getp(nHandle,"FileName")
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
@@ -3501,7 +3510,7 @@ Class ProcessStartInfo from Object
 		return dn_x
 
 	Func getArguments
-		return dnAnswer(dotnet_getp(nHandle,"Arguments"))
+		return dotnet_getp(nHandle,"Arguments")
 
 	Func setArguments P1
 		dotnet_setp(nHandle,"Arguments",P1)
@@ -3575,14 +3584,14 @@ Class ProcessStartInfo from Object
 		return self
 
 	Func getFileName
-		return dnAnswer(dotnet_getp(nHandle,"FileName"))
+		return dotnet_getp(nHandle,"FileName")
 
 	Func setFileName P1
 		dotnet_setp(nHandle,"FileName",P1)
 		return self
 
 	Func getWorkingDirectory
-		return dnAnswer(dotnet_getp(nHandle,"WorkingDirectory"))
+		return dotnet_getp(nHandle,"WorkingDirectory")
 
 	Func setWorkingDirectory P1
 		dotnet_setp(nHandle,"WorkingDirectory",P1)
@@ -3603,21 +3612,21 @@ Class ProcessStartInfo from Object
 		return self
 
 	Func getUserName
-		return dnAnswer(dotnet_getp(nHandle,"UserName"))
+		return dotnet_getp(nHandle,"UserName")
 
 	Func setUserName P1
 		dotnet_setp(nHandle,"UserName",P1)
 		return self
 
 	Func getVerb
-		return dnAnswer(dotnet_getp(nHandle,"Verb"))
+		return dotnet_getp(nHandle,"Verb")
 
 	Func setVerb P1
 		dotnet_setp(nHandle,"Verb",P1)
 		return self
 
 	Func getWindowStyle
-		return dnAnswer(dotnet_getp(nHandle,"WindowStyle"))
+		return dotnet_getp(nHandle,"WindowStyle")
 
 	Func setWindowStyle P1
 		dotnet_setp(nHandle,"WindowStyle",P1)
@@ -3631,7 +3640,7 @@ Class ProcessStartInfo from Object
 		return self
 
 	Func getDomain
-		return dnAnswer(dotnet_getp(nHandle,"Domain"))
+		return dotnet_getp(nHandle,"Domain")
 
 	Func setDomain P1
 		dotnet_setp(nHandle,"Domain",P1)
@@ -3728,7 +3737,7 @@ Class ProcessThread from Component
 		return self
 
 	Func getPriorityLevel
-		return dnAnswer(dotnet_getp(nHandle,"PriorityLevel"))
+		return dotnet_getp(nHandle,"PriorityLevel")
 
 	Func setPriorityLevel P1
 		dotnet_setp(nHandle,"PriorityLevel",P1)
@@ -3741,13 +3750,13 @@ Class ProcessThread from Component
 		raise("DotNet Error: StartAddress is a read-only property")
 
 	Func getThreadState
-		return dnAnswer(dotnet_getp(nHandle,"ThreadState"))
+		return dotnet_getp(nHandle,"ThreadState")
 
 	Func setThreadState P1
 		raise("DotNet Error: ThreadState is a read-only property")
 
 	Func getWaitReason
-		return dnAnswer(dotnet_getp(nHandle,"WaitReason"))
+		return dotnet_getp(nHandle,"WaitReason")
 
 	Func setWaitReason P1
 		raise("DotNet Error: WaitReason is a read-only property")
@@ -3895,6 +3904,9 @@ Class StackFrame from Object
 
 	Func GetFileColumnNumber 
 		return dnAnswer(dotnet_callt(nHandle,"GetFileColumnNumber"))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4044,6 +4056,9 @@ Class StackTrace from Object
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4125,6 +4140,9 @@ Class Stopwatch from Object
 	Func Restart 
 		dotnet_calltv(nHandle,"Restart")
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4215,13 +4233,13 @@ Class Switch_ from Object
 		return self
 
 	Func getDisplayName
-		return dnAnswer(dotnet_getp(nHandle,"DisplayName"))
+		return dotnet_getp(nHandle,"DisplayName")
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getDescription
-		return dnAnswer(dotnet_getp(nHandle,"Description"))
+		return dotnet_getp(nHandle,"Description")
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
@@ -4233,13 +4251,13 @@ Class Switch_ from Object
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getDefaultValue
-		return dnAnswer(dotnet_getp(nHandle,"DefaultValue"))
+		return dotnet_getp(nHandle,"DefaultValue")
 
 	Func setDefaultValue P1
 		raise("DotNet Error: DefaultValue is a read-only property")
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		dotnet_setp(nHandle,"Value",P1)
@@ -4267,7 +4285,7 @@ Class SwitchAttribute from Attribute
 		return dnObj(dotnet_callo("s4:call",'System.Diagnostics.SwitchAttribute, System.Diagnostics.TraceSource',"s6:GetAll",P1))
 
 	Func getSwitchName
-		return dnAnswer(dotnet_getp(nHandle,"SwitchName"))
+		return dotnet_getp(nHandle,"SwitchName")
 
 	Func setSwitchName P1
 		dotnet_setp(nHandle,"SwitchName",P1)
@@ -4700,7 +4718,7 @@ Class TraceEventCache from Object
 		raise("DotNet Error: ProcessId is a read-only property")
 
 	Func getThreadId
-		return dnAnswer(dotnet_getp(nHandle,"ThreadId"))
+		return dotnet_getp(nHandle,"ThreadId")
 
 	Func setThreadId P1
 		raise("DotNet Error: ThreadId is a read-only property")
@@ -4712,7 +4730,7 @@ Class TraceEventCache from Object
 		raise("DotNet Error: Timestamp is a read-only property")
 
 	Func getCallstack
-		return dnAnswer(dotnet_getp(nHandle,"Callstack"))
+		return dotnet_getp(nHandle,"Callstack")
 
 	Func setCallstack P1
 		raise("DotNet Error: Callstack is a read-only property")
@@ -4813,7 +4831,7 @@ Class TraceListener from MarshalByRefObject
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
@@ -4847,7 +4865,7 @@ Class TraceListener from MarshalByRefObject
 		return self
 
 	Func getTraceOutputOptions
-		return dnAnswer(dotnet_getp(nHandle,"TraceOutputOptions"))
+		return dotnet_getp(nHandle,"TraceOutputOptions")
 
 	Func setTraceOutputOptions P1
 		dotnet_setp(nHandle,"TraceOutputOptions",P1)
@@ -5051,13 +5069,13 @@ Class TraceSource from Object
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getDefaultLevel
-		return dnAnswer(dotnet_getp(nHandle,"DefaultLevel"))
+		return dotnet_getp(nHandle,"DefaultLevel")
 
 	Func setDefaultLevel P1
 		raise("DotNet Error: DefaultLevel is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -5225,11 +5243,14 @@ Class DiagnosticListener from DiagnosticSource
 		dotnet_calltv(nHandle,"Dispose")
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func IsEnabled P1
 		return dnAnswer(dotnet_calltd(nHandle,"IsEnabled",P1))
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -5257,7 +5278,7 @@ Class EventTypeFilter from TraceFilter
 		return self
 
 	Func getEventType
-		return dnAnswer(dotnet_getp(nHandle,"EventType"))
+		return dotnet_getp(nHandle,"EventType")
 
 	Func setEventType P1
 		dotnet_setp(nHandle,"EventType",P1)
@@ -5280,7 +5301,7 @@ Class SourceFilter from TraceFilter
 		return self
 
 	Func getSource
-		return dnAnswer(dotnet_getp(nHandle,"Source"))
+		return dotnet_getp(nHandle,"Source")
 
 	Func setSource P1
 		dotnet_setp(nHandle,"Source",P1)
@@ -5323,7 +5344,7 @@ Class SourceSwitch from Switch_
 		return dn_x
 
 	Func getLevel
-		return dnAnswer(dotnet_getp(nHandle,"Level"))
+		return dotnet_getp(nHandle,"Level")
 
 	Func setLevel P1
 		dotnet_setp(nHandle,"Level",P1)
@@ -5411,7 +5432,7 @@ Class TraceSwitch from Switch_
 		return self
 
 	Func getLevel
-		return dnAnswer(dotnet_getp(nHandle,"Level"))
+		return dotnet_getp(nHandle,"Level")
 
 	Func setLevel P1
 		dotnet_setp(nHandle,"Level",P1)
@@ -5510,7 +5531,7 @@ Class DelimitedListTraceListener from TextWriterTraceListener
 		return self
 
 	Func getDelimiter
-		return dnAnswer(dotnet_getp(nHandle,"Delimiter"))
+		return dotnet_getp(nHandle,"Delimiter")
 
 	Func setDelimiter P1
 		dotnet_setp(nHandle,"Delimiter",P1)

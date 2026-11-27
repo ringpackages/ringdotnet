@@ -87,6 +87,9 @@ Class AssemblyLoadContext from Object
 		dotnet_calltv(nHandle,"StartProfileOptimization",P1)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func LoadFromAssemblyName P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s20:LoadFromAssemblyName",P1)
 		if isnumber(dn_x) and dn_x = -1

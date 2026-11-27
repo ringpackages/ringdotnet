@@ -979,19 +979,19 @@ Class Socket from Object
 		raise("DotNet Error: Connected is a read-only property")
 
 	Func getAddressFamily
-		return dnAnswer(dotnet_getp(nHandle,"AddressFamily"))
+		return dotnet_getp(nHandle,"AddressFamily")
 
 	Func setAddressFamily P1
 		raise("DotNet Error: AddressFamily is a read-only property")
 
 	Func getSocketType
-		return dnAnswer(dotnet_getp(nHandle,"SocketType"))
+		return dotnet_getp(nHandle,"SocketType")
 
 	Func setSocketType P1
 		raise("DotNet Error: SocketType is a read-only property")
 
 	Func getProtocolType
-		return dnAnswer(dotnet_getp(nHandle,"ProtocolType"))
+		return dotnet_getp(nHandle,"ProtocolType")
 
 	Func setProtocolType P1
 		raise("DotNet Error: ProtocolType is a read-only property")
@@ -1224,7 +1224,7 @@ Class SocketAsyncEventArgs from EventArgs
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getSendPacketsFlags
-		return dnAnswer(dotnet_getp(nHandle,"SendPacketsFlags"))
+		return dotnet_getp(nHandle,"SendPacketsFlags")
 
 	Func setSendPacketsFlags P1
 		dotnet_setp(nHandle,"SendPacketsFlags",P1)
@@ -1251,7 +1251,7 @@ Class SocketAsyncEventArgs from EventArgs
 		return self
 
 	Func getLastOperation
-		return dnAnswer(dotnet_getp(nHandle,"LastOperation"))
+		return dotnet_getp(nHandle,"LastOperation")
 
 	Func setLastOperation P1
 		raise("DotNet Error: LastOperation is a read-only property")
@@ -1284,7 +1284,7 @@ Class SocketAsyncEventArgs from EventArgs
 		return self
 
 	Func getSocketError
-		return dnAnswer(dotnet_getp(nHandle,"SocketError"))
+		return dotnet_getp(nHandle,"SocketError")
 
 	Func setSocketError P1
 		dotnet_setp(nHandle,"SocketError",P1)
@@ -1297,7 +1297,7 @@ Class SocketAsyncEventArgs from EventArgs
 		raise("DotNet Error: ConnectByNameError is a read-only property")
 
 	Func getSocketFlags
-		return dnAnswer(dotnet_getp(nHandle,"SocketFlags"))
+		return dotnet_getp(nHandle,"SocketFlags")
 
 	Func setSocketFlags P1
 		dotnet_setp(nHandle,"SocketFlags",P1)
@@ -1342,7 +1342,7 @@ Class SocketInformation from ValueType
 		return self
 
 	Func getOptions
-		return dnAnswer(dotnet_getp(nHandle,"Options"))
+		return dotnet_getp(nHandle,"Options")
 
 	Func setOptions P1
 		dotnet_setp(nHandle,"Options",P1)
@@ -1420,7 +1420,7 @@ Class SocketReceiveMessageFromResult from ValueType
 		return self
 
 	Func getSocketFlags
-		return dnAnswer(dotnet_getp(nHandle,"SocketFlags"))
+		return dotnet_getp(nHandle,"SocketFlags")
 
 	Func setSocketFlags P1
 		dotnet_setp(nHandle,"SocketFlags",P1)
@@ -1902,6 +1902,9 @@ Class UnixDomainSocketEndPoint from EndPoint
 		nHandle = dnCreate('System.Net.Sockets.UnixDomainSocketEndPoint, System.Net.Sockets',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 
 Class TcpListener from Object

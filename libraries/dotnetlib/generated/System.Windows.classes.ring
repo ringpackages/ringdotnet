@@ -1263,7 +1263,7 @@ Class WpfApplication from DispatcherObject
 		return self
 
 	Func getShutdownMode
-		return dnAnswer(dotnet_getp(nHandle,"ShutdownMode"))
+		return dotnet_getp(nHandle,"ShutdownMode")
 
 	Func setShutdownMode P1
 		dotnet_setp(nHandle,"ShutdownMode",P1)
@@ -3408,7 +3408,7 @@ Class FigureLength from ValueType
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getFigureUnitType
-		return dnAnswer(dotnet_getp(nHandle,"FigureUnitType"))
+		return dotnet_getp(nHandle,"FigureUnitType")
 
 	Func setFigureUnitType P1
 		raise("DotNet Error: FigureUnitType is a read-only property")
@@ -5754,20 +5754,20 @@ Class LocalizabilityAttribute from Attribute
 		return self
 
 	Func getCategory
-		return dnAnswer(dotnet_getp(nHandle,"Category"))
+		return dotnet_getp(nHandle,"Category")
 
 	Func setCategory P1
 		raise("DotNet Error: Category is a read-only property")
 
 	Func getReadability
-		return dnAnswer(dotnet_getp(nHandle,"Readability"))
+		return dotnet_getp(nHandle,"Readability")
 
 	Func setReadability P1
 		dotnet_setp(nHandle,"Readability",P1)
 		return self
 
 	Func getModifiability
-		return dnAnswer(dotnet_getp(nHandle,"Modifiability"))
+		return dotnet_getp(nHandle,"Modifiability")
 
 	Func setModifiability P1
 		dotnet_setp(nHandle,"Modifiability",P1)
@@ -6588,7 +6588,7 @@ Class RoutedEvent from Object
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getRoutingStrategy
-		return dnAnswer(dotnet_getp(nHandle,"RoutingStrategy"))
+		return dotnet_getp(nHandle,"RoutingStrategy")
 
 	Func setRoutingStrategy P1
 		raise("DotNet Error: RoutingStrategy is a read-only property")
@@ -6729,7 +6729,7 @@ Class SessionEndingCancelEventArgs from CancelEventArgs
 		return self
 
 	Func getReasonSessionEnding
-		return dnAnswer(dotnet_getp(nHandle,"ReasonSessionEnding"))
+		return dotnet_getp(nHandle,"ReasonSessionEnding")
 
 	Func setReasonSessionEnding P1
 		raise("DotNet Error: ReasonSessionEnding is a read-only property")
@@ -10826,21 +10826,21 @@ Class TextDecoration from Animatable
 		return self
 
 	Func getPenOffsetUnit
-		return dnAnswer(dotnet_getp(nHandle,"PenOffsetUnit"))
+		return dotnet_getp(nHandle,"PenOffsetUnit")
 
 	Func setPenOffsetUnit P1
 		dotnet_setp(nHandle,"PenOffsetUnit",P1)
 		return self
 
 	Func getPenThicknessUnit
-		return dnAnswer(dotnet_getp(nHandle,"PenThicknessUnit"))
+		return dotnet_getp(nHandle,"PenThicknessUnit")
 
 	Func setPenThicknessUnit P1
 		dotnet_setp(nHandle,"PenThicknessUnit",P1)
 		return self
 
 	Func getLocation
-		return dnAnswer(dotnet_getp(nHandle,"Location"))
+		return dotnet_getp(nHandle,"Location")
 
 	Func setLocation P1
 		dotnet_setp(nHandle,"Location",P1)
@@ -11191,13 +11191,13 @@ Class ThemeInfoAttribute from Attribute
 		return self
 
 	Func getThemeDictionaryLocation
-		return dnAnswer(dotnet_getp(nHandle,"ThemeDictionaryLocation"))
+		return dotnet_getp(nHandle,"ThemeDictionaryLocation")
 
 	Func setThemeDictionaryLocation P1
 		raise("DotNet Error: ThemeDictionaryLocation is a read-only property")
 
 	Func getGenericDictionaryLocation
-		return dnAnswer(dotnet_getp(nHandle,"GenericDictionaryLocation"))
+		return dotnet_getp(nHandle,"GenericDictionaryLocation")
 
 	Func setGenericDictionaryLocation P1
 		raise("DotNet Error: GenericDictionaryLocation is a read-only property")
@@ -12748,7 +12748,7 @@ Class UIElement from Visual
 		return self
 
 	Func getVisibility
-		return dnAnswer(dotnet_getp(nHandle,"Visibility"))
+		return dotnet_getp(nHandle,"Visibility")
 
 	Func setVisibility P1
 		dotnet_setp(nHandle,"Visibility",P1)
@@ -14334,7 +14334,7 @@ Class UIElement3D from Visual3D
 		raise("DotNet Error: IsInputMethodEnabled is a read-only property")
 
 	Func getVisibility
-		return dnAnswer(dotnet_getp(nHandle,"Visibility"))
+		return dotnet_getp(nHandle,"Visibility")
 
 	Func setVisibility P1
 		dotnet_setp(nHandle,"Visibility",P1)
@@ -14806,7 +14806,7 @@ Class ValueSource from ValueType
 		return self
 
 	Func getBaseValueSource
-		return dnAnswer(dotnet_getp(nHandle,"BaseValueSource"))
+		return dotnet_getp(nHandle,"BaseValueSource")
 
 	Func setBaseValueSource P1
 		raise("DotNet Error: BaseValueSource is a read-only property")
@@ -15705,7 +15705,7 @@ Class GridLength from ValueType
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getGridUnitType
-		return dnAnswer(dotnet_getp(nHandle,"GridUnitType"))
+		return dotnet_getp(nHandle,"GridUnitType")
 
 	Func setGridUnitType P1
 		raise("DotNet Error: GridUnitType is a read-only property")
@@ -15914,7 +15914,7 @@ Class Window from ContentControl
 		return self
 
 	Func getSizeToContent
-		return dnAnswer(dotnet_getp(nHandle,"SizeToContent"))
+		return dotnet_getp(nHandle,"SizeToContent")
 
 	Func setSizeToContent P1
 		dotnet_setp(nHandle,"SizeToContent",P1)
@@ -15941,7 +15941,7 @@ Class Window from ContentControl
 		raise("DotNet Error: RestoreBounds is a read-only property")
 
 	Func getWindowStartupLocation
-		return dnAnswer(dotnet_getp(nHandle,"WindowStartupLocation"))
+		return dotnet_getp(nHandle,"WindowStartupLocation")
 
 	Func setWindowStartupLocation P1
 		dotnet_setp(nHandle,"WindowStartupLocation",P1)
@@ -15981,21 +15981,21 @@ Class Window from ContentControl
 		return self
 
 	Func getWindowStyle
-		return dnAnswer(dotnet_getp(nHandle,"WindowStyle"))
+		return dotnet_getp(nHandle,"WindowStyle")
 
 	Func setWindowStyle P1
 		dotnet_setp(nHandle,"WindowStyle",P1)
 		return self
 
 	Func getWindowState
-		return dnAnswer(dotnet_getp(nHandle,"WindowState"))
+		return dotnet_getp(nHandle,"WindowState")
 
 	Func setWindowState P1
 		dotnet_setp(nHandle,"WindowState",P1)
 		return self
 
 	Func getResizeMode
-		return dnAnswer(dotnet_getp(nHandle,"ResizeMode"))
+		return dotnet_getp(nHandle,"ResizeMode")
 
 	Func setResizeMode P1
 		dotnet_setp(nHandle,"ResizeMode",P1)
@@ -17808,19 +17808,19 @@ Class WpfDragEventArgs from RoutedEventArgs
 		raise("DotNet Error: Data is a read-only property")
 
 	Func getKeyStates
-		return dnAnswer(dotnet_getp(nHandle,"KeyStates"))
+		return dotnet_getp(nHandle,"KeyStates")
 
 	Func setKeyStates P1
 		raise("DotNet Error: KeyStates is a read-only property")
 
 	Func getAllowedEffects
-		return dnAnswer(dotnet_getp(nHandle,"AllowedEffects"))
+		return dotnet_getp(nHandle,"AllowedEffects")
 
 	Func setAllowedEffects P1
 		raise("DotNet Error: AllowedEffects is a read-only property")
 
 	Func getEffects
-		return dnAnswer(dotnet_getp(nHandle,"Effects"))
+		return dotnet_getp(nHandle,"Effects")
 
 	Func setEffects P1
 		dotnet_setp(nHandle,"Effects",P1)
@@ -18331,7 +18331,7 @@ Class FrameworkElement from UIElement
 		return self
 
 	Func getFlowDirection
-		return dnAnswer(dotnet_getp(nHandle,"FlowDirection"))
+		return dotnet_getp(nHandle,"FlowDirection")
 
 	Func setFlowDirection P1
 		dotnet_setp(nHandle,"FlowDirection",P1)
@@ -18345,14 +18345,14 @@ Class FrameworkElement from UIElement
 		return self
 
 	Func getHorizontalAlignment
-		return dnAnswer(dotnet_getp(nHandle,"HorizontalAlignment"))
+		return dotnet_getp(nHandle,"HorizontalAlignment")
 
 	Func setHorizontalAlignment P1
 		dotnet_setp(nHandle,"HorizontalAlignment",P1)
 		return self
 
 	Func getVerticalAlignment
-		return dnAnswer(dotnet_getp(nHandle,"VerticalAlignment"))
+		return dotnet_getp(nHandle,"VerticalAlignment")
 
 	Func setVerticalAlignment P1
 		dotnet_setp(nHandle,"VerticalAlignment",P1)
@@ -18680,7 +18680,7 @@ Class WpfGiveFeedbackEventArgs from RoutedEventArgs
 		return self
 
 	Func getEffects
-		return dnAnswer(dotnet_getp(nHandle,"Effects"))
+		return dotnet_getp(nHandle,"Effects")
 
 	Func setEffects P1
 		raise("DotNet Error: Effects is a read-only property")
@@ -18774,13 +18774,13 @@ Class WpfQueryContinueDragEventArgs from RoutedEventArgs
 		raise("DotNet Error: EscapePressed is a read-only property")
 
 	Func getKeyStates
-		return dnAnswer(dotnet_getp(nHandle,"KeyStates"))
+		return dotnet_getp(nHandle,"KeyStates")
 
 	Func setKeyStates P1
 		raise("DotNet Error: KeyStates is a read-only property")
 
 	Func getAction
-		return dnAnswer(dotnet_getp(nHandle,"Action"))
+		return dotnet_getp(nHandle,"Action")
 
 	Func setAction P1
 		dotnet_setp(nHandle,"Action",P1)
@@ -20186,7 +20186,7 @@ Class FrameworkPropertyMetadata from UIPropertyMetadata
 		return self
 
 	Func getDefaultUpdateSourceTrigger
-		return dnAnswer(dotnet_getp(nHandle,"DefaultUpdateSourceTrigger"))
+		return dotnet_getp(nHandle,"DefaultUpdateSourceTrigger")
 
 	Func setDefaultUpdateSourceTrigger P1
 		dotnet_setp(nHandle,"DefaultUpdateSourceTrigger",P1)

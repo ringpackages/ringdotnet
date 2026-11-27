@@ -204,6 +204,9 @@ Class AuthenticationHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -216,7 +219,7 @@ Class AuthenticationHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.AuthenticationHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getScheme
-		return dnAnswer(dotnet_getp(nHandle,"Scheme"))
+		return dotnet_getp(nHandle,"Scheme")
 
 	Func setScheme P1
 		raise("DotNet Error: Scheme is a read-only property")
@@ -264,6 +267,9 @@ Class CacheControlHeaderValue from Object
 		nHandle = dnCreate('System.Net.Http.Headers.CacheControlHeaderValue, System.Net.Http',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -415,6 +421,9 @@ Class ContentDispositionHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -427,7 +436,7 @@ Class ContentDispositionHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ContentDispositionHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getDispositionType
-		return dnAnswer(dotnet_getp(nHandle,"DispositionType"))
+		return dotnet_getp(nHandle,"DispositionType")
 
 	Func setDispositionType P1
 		dotnet_setp(nHandle,"DispositionType",P1)
@@ -529,6 +538,9 @@ Class ContentRangeHeaderValue from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'System.Net.Http.Headers.ContentRangeHeaderValue, System.Net.Http',"s5:Parse",P1))
 
@@ -536,7 +548,7 @@ Class ContentRangeHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ContentRangeHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getUnit
-		return dnAnswer(dotnet_getp(nHandle,"Unit"))
+		return dotnet_getp(nHandle,"Unit")
 
 	Func setUnit P1
 		dotnet_setp(nHandle,"Unit",P1)
@@ -605,6 +617,9 @@ Class EntityTagHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -617,7 +632,7 @@ Class EntityTagHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.EntityTagHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getTag
-		return dnAnswer(dotnet_getp(nHandle,"Tag"))
+		return dotnet_getp(nHandle,"Tag")
 
 	Func setTag P1
 		raise("DotNet Error: Tag is a read-only property")
@@ -656,6 +671,9 @@ Class HeaderStringValues from ValueType
 		nHandle = dnCreate('System.Net.Http.Headers.HeaderStringValues, System.Net.Http',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func GetEnumerator 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
@@ -729,7 +747,7 @@ Class HeaderStringValuesEnumerator from ValueType
 		return self
 
 	Func getCurrent
-		return dnAnswer(dotnet_getp(nHandle,"Current"))
+		return dotnet_getp(nHandle,"Current")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -785,6 +803,9 @@ Class HttpHeaderValueCollection from Object
 			return self
 		ok
 		return dnObj(dn_x)
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
@@ -862,6 +883,9 @@ Class HttpHeaders from Object
 
 	Func Contains P1
 		return dnAnswer(dotnet_callt(nHandle,"Contains",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func GetEnumerator 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")
@@ -1062,6 +1086,9 @@ Class MediaTypeHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1130,6 +1157,9 @@ Class NameValueHeaderValue from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'System.Net.Http.Headers.NameValueHeaderValue, System.Net.Http',"s5:Parse",P1))
 
@@ -1137,7 +1167,7 @@ Class NameValueHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.NameValueHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1181,6 +1211,9 @@ Class ProductHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1193,7 +1226,7 @@ Class ProductHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.ProductHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1236,6 +1269,9 @@ Class ProductInfoHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1275,6 +1311,9 @@ Class RangeConditionHeaderValue from Object
 		nHandle = dnCreate('System.Net.Http.Headers.RangeConditionHeaderValue, System.Net.Http',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1339,6 +1378,9 @@ Class RangeHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1351,7 +1393,7 @@ Class RangeHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.RangeHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getUnit
-		return dnAnswer(dotnet_getp(nHandle,"Unit"))
+		return dotnet_getp(nHandle,"Unit")
 
 	Func setUnit P1
 		dotnet_setp(nHandle,"Unit",P1)
@@ -1379,6 +1421,9 @@ Class RangeItemHeaderValue from Object
 		nHandle = dnCreate('System.Net.Http.Headers.RangeItemHeaderValue, System.Net.Http',[P1,P2])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1413,6 +1458,9 @@ Class RetryConditionHeaderValue from Object
 		nHandle = dnCreate('System.Net.Http.Headers.RetryConditionHeaderValue, System.Net.Http',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1469,6 +1517,9 @@ Class StringWithQualityHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1481,7 +1532,7 @@ Class StringWithQualityHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.StringWithQualityHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1509,6 +1560,9 @@ Class TransferCodingHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1521,7 +1575,7 @@ Class TransferCodingHeaderValue from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Http.Headers.TransferCodingHeaderValue, System.Net.Http'),"s8:TryParse",dnPackItem(P1))
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1566,6 +1620,9 @@ Class ViaHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1584,13 +1641,13 @@ Class ViaHeaderValue from Object
 		raise("DotNet Error: ProtocolName is a read-only property")
 
 	Func getProtocolVersion
-		return dnAnswer(dotnet_getp(nHandle,"ProtocolVersion"))
+		return dotnet_getp(nHandle,"ProtocolVersion")
 
 	Func setProtocolVersion P1
 		raise("DotNet Error: ProtocolVersion is a read-only property")
 
 	Func getReceivedBy
-		return dnAnswer(dotnet_getp(nHandle,"ReceivedBy"))
+		return dotnet_getp(nHandle,"ReceivedBy")
 
 	Func setReceivedBy P1
 		raise("DotNet Error: ReceivedBy is a read-only property")
@@ -1635,6 +1692,9 @@ Class WarningHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1653,13 +1713,13 @@ Class WarningHeaderValue from Object
 		raise("DotNet Error: Code is a read-only property")
 
 	Func getAgent
-		return dnAnswer(dotnet_getp(nHandle,"Agent"))
+		return dotnet_getp(nHandle,"Agent")
 
 	Func setAgent P1
 		raise("DotNet Error: Agent is a read-only property")
 
 	Func getText
-		return dnAnswer(dotnet_getp(nHandle,"Text"))
+		return dotnet_getp(nHandle,"Text")
 
 	Func setText P1
 		raise("DotNet Error: Text is a read-only property")

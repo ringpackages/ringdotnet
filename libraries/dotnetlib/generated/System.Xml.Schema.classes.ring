@@ -463,7 +463,7 @@ Class IXmlSchemaInfo from DotNetObject
 		return self
 
 	Func getValidity
-		return dnAnswer(dotnet_getp(nHandle,"Validity"))
+		return dotnet_getp(nHandle,"Validity")
 
 	Func setValidity P1
 		raise("DotNet Error: Validity is a read-only property")
@@ -521,7 +521,7 @@ Class ValidationEventArgs from EventArgs
 		return self
 
 	Func getSeverity
-		return dnAnswer(dotnet_getp(nHandle,"Severity"))
+		return dotnet_getp(nHandle,"Severity")
 
 	Func setSeverity P1
 		raise("DotNet Error: Severity is a read-only property")
@@ -533,7 +533,7 @@ Class ValidationEventArgs from EventArgs
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getMessage
-		return dnAnswer(dotnet_getp(nHandle,"Message"))
+		return dotnet_getp(nHandle,"Message")
 
 	Func setMessage P1
 		raise("DotNet Error: Message is a read-only property")
@@ -556,6 +556,9 @@ Class XmlAtomicValue from XPathItem
 			return self
 		ok
 		return dnObj(dn_x)
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 
 Class XmlSchemaCollectionEnumerator from Object
@@ -667,19 +670,19 @@ Class XmlSchemaDatatype from Object
 		raise("DotNet Error: ValueType is a read-only property")
 
 	Func getTokenizedType
-		return dnAnswer(dotnet_getp(nHandle,"TokenizedType"))
+		return dotnet_getp(nHandle,"TokenizedType")
 
 	Func setTokenizedType P1
 		raise("DotNet Error: TokenizedType is a read-only property")
 
 	Func getVariety
-		return dnAnswer(dotnet_getp(nHandle,"Variety"))
+		return dotnet_getp(nHandle,"Variety")
 
 	Func setVariety P1
 		raise("DotNet Error: Variety is a read-only property")
 
 	Func getTypeCode
-		return dnAnswer(dotnet_getp(nHandle,"TypeCode"))
+		return dotnet_getp(nHandle,"TypeCode")
 
 	Func setTypeCode P1
 		raise("DotNet Error: TypeCode is a read-only property")
@@ -790,14 +793,14 @@ Class XmlSchemaInference from Object
 		return dn_x
 
 	Func getOccurrence
-		return dnAnswer(dotnet_getp(nHandle,"Occurrence"))
+		return dotnet_getp(nHandle,"Occurrence")
 
 	Func setOccurrence P1
 		dotnet_setp(nHandle,"Occurrence",P1)
 		return self
 
 	Func getTypeInference
-		return dnAnswer(dotnet_getp(nHandle,"TypeInference"))
+		return dotnet_getp(nHandle,"TypeInference")
 
 	Func setTypeInference P1
 		dotnet_setp(nHandle,"TypeInference",P1)
@@ -839,7 +842,7 @@ Class XmlSchemaInfo from Object
 		return dn_x
 
 	Func getValidity
-		return dnAnswer(dotnet_getp(nHandle,"Validity"))
+		return dotnet_getp(nHandle,"Validity")
 
 	Func setValidity P1
 		dotnet_setp(nHandle,"Validity",P1)
@@ -888,7 +891,7 @@ Class XmlSchemaInfo from Object
 		return self
 
 	Func getContentType
-		return dnAnswer(dotnet_getp(nHandle,"ContentType"))
+		return dotnet_getp(nHandle,"ContentType")
 
 	Func setContentType P1
 		dotnet_setp(nHandle,"ContentType",P1)
@@ -1468,28 +1471,28 @@ Class XmlSchema from XmlSchemaObject
 		return dnObj(dotnet_callo("s4:call",'System.Xml.Schema.XmlSchema, System.Private.Xml',"s4:Read",P1,P2))
 
 	Func getAttributeFormDefault
-		return dnAnswer(dotnet_getp(nHandle,"AttributeFormDefault"))
+		return dotnet_getp(nHandle,"AttributeFormDefault")
 
 	Func setAttributeFormDefault P1
 		dotnet_setp(nHandle,"AttributeFormDefault",P1)
 		return self
 
 	Func getBlockDefault
-		return dnAnswer(dotnet_getp(nHandle,"BlockDefault"))
+		return dotnet_getp(nHandle,"BlockDefault")
 
 	Func setBlockDefault P1
 		dotnet_setp(nHandle,"BlockDefault",P1)
 		return self
 
 	Func getFinalDefault
-		return dnAnswer(dotnet_getp(nHandle,"FinalDefault"))
+		return dotnet_getp(nHandle,"FinalDefault")
 
 	Func setFinalDefault P1
 		dotnet_setp(nHandle,"FinalDefault",P1)
 		return self
 
 	Func getElementFormDefault
-		return dnAnswer(dotnet_getp(nHandle,"ElementFormDefault"))
+		return dotnet_getp(nHandle,"ElementFormDefault")
 
 	Func setElementFormDefault P1
 		dotnet_setp(nHandle,"ElementFormDefault",P1)
@@ -1927,7 +1930,7 @@ Class XmlSchemaAnyAttribute from XmlSchemaAnnotated
 		return self
 
 	Func getProcessContents
-		return dnAnswer(dotnet_getp(nHandle,"ProcessContents"))
+		return dotnet_getp(nHandle,"ProcessContents")
 
 	Func setProcessContents P1
 		dotnet_setp(nHandle,"ProcessContents",P1)
@@ -1981,7 +1984,7 @@ Class XmlSchemaAttribute from XmlSchemaAnnotated
 		return self
 
 	Func getForm
-		return dnAnswer(dotnet_getp(nHandle,"Form"))
+		return dotnet_getp(nHandle,"Form")
 
 	Func setForm P1
 		dotnet_setp(nHandle,"Form",P1)
@@ -2016,7 +2019,7 @@ Class XmlSchemaAttribute from XmlSchemaAnnotated
 		return self
 
 	Func getUse
-		return dnAnswer(dotnet_getp(nHandle,"Use"))
+		return dotnet_getp(nHandle,"Use")
 
 	Func setUse P1
 		dotnet_setp(nHandle,"Use",P1)
@@ -2560,7 +2563,7 @@ Class XmlSchemaType from XmlSchemaAnnotated
 		return self
 
 	Func getFinal
-		return dnAnswer(dotnet_getp(nHandle,"Final"))
+		return dotnet_getp(nHandle,"Final")
 
 	Func setFinal P1
 		dotnet_setp(nHandle,"Final",P1)
@@ -2573,7 +2576,7 @@ Class XmlSchemaType from XmlSchemaAnnotated
 		raise("DotNet Error: QualifiedName is a read-only property")
 
 	Func getFinalResolved
-		return dnAnswer(dotnet_getp(nHandle,"FinalResolved"))
+		return dotnet_getp(nHandle,"FinalResolved")
 
 	Func setFinalResolved P1
 		raise("DotNet Error: FinalResolved is a read-only property")
@@ -2591,7 +2594,7 @@ Class XmlSchemaType from XmlSchemaAnnotated
 		raise("DotNet Error: BaseXmlSchemaType is a read-only property")
 
 	Func getDerivedBy
-		return dnAnswer(dotnet_getp(nHandle,"DerivedBy"))
+		return dotnet_getp(nHandle,"DerivedBy")
 
 	Func setDerivedBy P1
 		raise("DotNet Error: DerivedBy is a read-only property")
@@ -2610,7 +2613,7 @@ Class XmlSchemaType from XmlSchemaAnnotated
 		return self
 
 	Func getTypeCode
-		return dnAnswer(dotnet_getp(nHandle,"TypeCode"))
+		return dotnet_getp(nHandle,"TypeCode")
 
 	Func setTypeCode P1
 		raise("DotNet Error: TypeCode is a read-only property")
@@ -2677,7 +2680,7 @@ Class XmlSchemaAny from XmlSchemaParticle
 		return self
 
 	Func getProcessContents
-		return dnAnswer(dotnet_getp(nHandle,"ProcessContents"))
+		return dotnet_getp(nHandle,"ProcessContents")
 
 	Func setProcessContents P1
 		dotnet_setp(nHandle,"ProcessContents",P1)
@@ -2860,7 +2863,7 @@ Class XmlSchemaComplexType from XmlSchemaType
 		return self
 
 	Func getBlock
-		return dnAnswer(dotnet_getp(nHandle,"Block"))
+		return dotnet_getp(nHandle,"Block")
 
 	Func setBlock P1
 		dotnet_setp(nHandle,"Block",P1)
@@ -2894,7 +2897,7 @@ Class XmlSchemaComplexType from XmlSchemaType
 		return self
 
 	Func getContentType
-		return dnAnswer(dotnet_getp(nHandle,"ContentType"))
+		return dotnet_getp(nHandle,"ContentType")
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
@@ -2906,7 +2909,7 @@ Class XmlSchemaComplexType from XmlSchemaType
 		raise("DotNet Error: ContentTypeParticle is a read-only property")
 
 	Func getBlockResolved
-		return dnAnswer(dotnet_getp(nHandle,"BlockResolved"))
+		return dotnet_getp(nHandle,"BlockResolved")
 
 	Func setBlockResolved P1
 		raise("DotNet Error: BlockResolved is a read-only property")
@@ -2971,7 +2974,7 @@ Class XmlSchemaElement from XmlSchemaParticle
 		return self
 
 	Func getBlock
-		return dnAnswer(dotnet_getp(nHandle,"Block"))
+		return dotnet_getp(nHandle,"Block")
 
 	Func setBlock P1
 		dotnet_setp(nHandle,"Block",P1)
@@ -2985,7 +2988,7 @@ Class XmlSchemaElement from XmlSchemaParticle
 		return self
 
 	Func getFinal
-		return dnAnswer(dotnet_getp(nHandle,"Final"))
+		return dotnet_getp(nHandle,"Final")
 
 	Func setFinal P1
 		dotnet_setp(nHandle,"Final",P1)
@@ -2999,7 +3002,7 @@ Class XmlSchemaElement from XmlSchemaParticle
 		return self
 
 	Func getForm
-		return dnAnswer(dotnet_getp(nHandle,"Form"))
+		return dotnet_getp(nHandle,"Form")
 
 	Func setForm P1
 		dotnet_setp(nHandle,"Form",P1)
@@ -3072,13 +3075,13 @@ Class XmlSchemaElement from XmlSchemaParticle
 		raise("DotNet Error: ElementSchemaType is a read-only property")
 
 	Func getBlockResolved
-		return dnAnswer(dotnet_getp(nHandle,"BlockResolved"))
+		return dotnet_getp(nHandle,"BlockResolved")
 
 	Func setBlockResolved P1
 		raise("DotNet Error: BlockResolved is a read-only property")
 
 	Func getFinalResolved
-		return dnAnswer(dotnet_getp(nHandle,"FinalResolved"))
+		return dotnet_getp(nHandle,"FinalResolved")
 
 	Func setFinalResolved P1
 		raise("DotNet Error: FinalResolved is a read-only property")

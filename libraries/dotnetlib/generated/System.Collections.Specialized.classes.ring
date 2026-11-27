@@ -148,6 +148,9 @@ Class BitVector32 from ValueType
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func CreateMask P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_call("s9:callnamed",'System.Collections.Specialized.BitVector32, System.Collections.Specialized',"s10:CreateMask",P1)
@@ -220,6 +223,9 @@ Class BitVector32Section from ValueType
 		dn_x = dotnet_call("s4:call",'System.Collections.Specialized.BitVector32+Section, System.Collections.Specialized',"s8:ToString",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getMask
 		return dotnet_getp(nHandle,"Mask")
@@ -996,7 +1002,7 @@ Class NotifyCollectionChangedEventArgs from EventArgs
 		return self
 
 	Func getAction
-		return dnAnswer(dotnet_getp(nHandle,"Action"))
+		return dotnet_getp(nHandle,"Action")
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")

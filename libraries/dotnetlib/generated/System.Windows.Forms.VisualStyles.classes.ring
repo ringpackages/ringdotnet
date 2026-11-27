@@ -1325,14 +1325,14 @@ Class TextMetrics from ValueType
 		return self
 
 	Func getPitchAndFamily
-		return dnAnswer(dotnet_getp(nHandle,"PitchAndFamily"))
+		return dotnet_getp(nHandle,"PitchAndFamily")
 
 	Func setPitchAndFamily P1
 		dotnet_setp(nHandle,"PitchAndFamily",P1)
 		return self
 
 	Func getCharSet
-		return dnAnswer(dotnet_getp(nHandle,"CharSet"))
+		return dotnet_getp(nHandle,"CharSet")
 
 	Func setCharSet P1
 		dotnet_setp(nHandle,"CharSet",P1)
@@ -1363,7 +1363,7 @@ Class VisualStyleElement from Object
 		return dnObj(dotnet_callo("s4:call",'System.Windows.Forms.VisualStyles.VisualStyleElement, System.Windows.Forms',"s13:CreateElement",P1,P2,P3))
 
 	Func getClassName
-		return dnAnswer(dotnet_getp(nHandle,"ClassName"))
+		return dotnet_getp(nHandle,"ClassName")
 
 	Func setClassName P1
 		raise("DotNet Error: ClassName is a read-only property")
@@ -8122,7 +8122,7 @@ Class VisualStyleRenderer from Object
 		return dn_x
 
 	Func getClass
-		return dnAnswer(dotnet_getp(nHandle,"Class"))
+		return dotnet_getp(nHandle,"Class")
 
 	Func get@Class
 		return getClass()

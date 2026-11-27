@@ -391,7 +391,7 @@ Class WpfButtonBase from ContentControl
 		return self
 
 	Func getClickMode
-		return dnAnswer(dotnet_getp(nHandle,"ClickMode"))
+		return dotnet_getp(nHandle,"ClickMode")
 
 	Func setClickMode P1
 		dotnet_setp(nHandle,"ClickMode",P1)
@@ -649,7 +649,7 @@ Class CustomPopupPlacement from ValueType
 		return self
 
 	Func getPrimaryAxis
-		return dnAnswer(dotnet_getp(nHandle,"PrimaryAxis"))
+		return dotnet_getp(nHandle,"PrimaryAxis")
 
 	Func setPrimaryAxis P1
 		dotnet_setp(nHandle,"PrimaryAxis",P1)
@@ -977,14 +977,14 @@ Class DocumentPageView from FrameworkElement
 		return self
 
 	Func getStretch
-		return dnAnswer(dotnet_getp(nHandle,"Stretch"))
+		return dotnet_getp(nHandle,"Stretch")
 
 	Func setStretch P1
 		dotnet_setp(nHandle,"Stretch",P1)
 		return self
 
 	Func getStretchDirection
-		return dnAnswer(dotnet_getp(nHandle,"StretchDirection"))
+		return dotnet_getp(nHandle,"StretchDirection")
 
 	Func setStretchDirection P1
 		dotnet_setp(nHandle,"StretchDirection",P1)
@@ -1832,7 +1832,7 @@ Class ItemsChangedEventArgs from EventArgs
 		return self
 
 	Func getAction
-		return dnAnswer(dotnet_getp(nHandle,"Action"))
+		return dotnet_getp(nHandle,"Action")
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
@@ -2019,7 +2019,7 @@ Class Popup from FrameworkElement
 		return self
 
 	Func getPlacement
-		return dnAnswer(dotnet_getp(nHandle,"Placement"))
+		return dotnet_getp(nHandle,"Placement")
 
 	Func setPlacement P1
 		dotnet_setp(nHandle,"Placement",P1)
@@ -2068,7 +2068,7 @@ Class Popup from FrameworkElement
 		return self
 
 	Func getPopupAnimation
-		return dnAnswer(dotnet_getp(nHandle,"PopupAnimation"))
+		return dotnet_getp(nHandle,"PopupAnimation")
 
 	Func setPopupAnimation P1
 		dotnet_setp(nHandle,"PopupAnimation",P1)
@@ -2310,7 +2310,7 @@ Class WpfScrollEventArgs from RoutedEventArgs
 		return self
 
 	Func getScrollEventType
-		return dnAnswer(dotnet_getp(nHandle,"ScrollEventType"))
+		return dotnet_getp(nHandle,"ScrollEventType")
 
 	Func setScrollEventType P1
 		raise("DotNet Error: ScrollEventType is a read-only property")
@@ -2834,14 +2834,14 @@ Class WpfTextBoxBase from WpfControl
 		raise("DotNet Error: SpellCheck is a read-only property")
 
 	Func getHorizontalScrollBarVisibility
-		return dnAnswer(dotnet_getp(nHandle,"HorizontalScrollBarVisibility"))
+		return dotnet_getp(nHandle,"HorizontalScrollBarVisibility")
 
 	Func setHorizontalScrollBarVisibility P1
 		dotnet_setp(nHandle,"HorizontalScrollBarVisibility",P1)
 		return self
 
 	Func getVerticalScrollBarVisibility
-		return dnAnswer(dotnet_getp(nHandle,"VerticalScrollBarVisibility"))
+		return dotnet_getp(nHandle,"VerticalScrollBarVisibility")
 
 	Func setVerticalScrollBarVisibility P1
 		dotnet_setp(nHandle,"VerticalScrollBarVisibility",P1)
@@ -3237,7 +3237,7 @@ Class TickBar from FrameworkElement
 		return self
 
 	Func getPlacement
-		return dnAnswer(dotnet_getp(nHandle,"Placement"))
+		return dotnet_getp(nHandle,"Placement")
 
 	Func setPlacement P1
 		dotnet_setp(nHandle,"Placement",P1)
@@ -3453,7 +3453,7 @@ Class Track from FrameworkElement
 		return self
 
 	Func getOrientation
-		return dnAnswer(dotnet_getp(nHandle,"Orientation"))
+		return dotnet_getp(nHandle,"Orientation")
 
 	Func setOrientation P1
 		dotnet_setp(nHandle,"Orientation",P1)
@@ -3648,7 +3648,7 @@ Class DataGridColumnHeader from WpfButtonBase
 		return self
 
 	Func getSeparatorVisibility
-		return dnAnswer(dotnet_getp(nHandle,"SeparatorVisibility"))
+		return dotnet_getp(nHandle,"SeparatorVisibility")
 
 	Func setSeparatorVisibility P1
 		dotnet_setp(nHandle,"SeparatorVisibility",P1)
@@ -3762,7 +3762,7 @@ Class DataGridRowHeader from WpfButtonBase
 		return self
 
 	Func getSeparatorVisibility
-		return dnAnswer(dotnet_getp(nHandle,"SeparatorVisibility"))
+		return dotnet_getp(nHandle,"SeparatorVisibility")
 
 	Func setSeparatorVisibility P1
 		dotnet_setp(nHandle,"SeparatorVisibility",P1)
@@ -3928,7 +3928,7 @@ Class WpfScrollBar from RangeBase
 		return self
 
 	Func getOrientation
-		return dnAnswer(dotnet_getp(nHandle,"Orientation"))
+		return dotnet_getp(nHandle,"Orientation")
 
 	Func setOrientation P1
 		dotnet_setp(nHandle,"Orientation",P1)

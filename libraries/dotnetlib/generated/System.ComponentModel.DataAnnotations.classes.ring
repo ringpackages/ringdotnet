@@ -428,7 +428,7 @@ Class DisplayColumnAttribute from Attribute
 		return self
 
 	Func getDisplayColumn
-		return dnAnswer(dotnet_getp(nHandle,"DisplayColumn"))
+		return dotnet_getp(nHandle,"DisplayColumn")
 
 	Func setDisplayColumn P1
 		raise("DotNet Error: DisplayColumn is a read-only property")
@@ -687,7 +687,7 @@ Class UIHintAttribute from Attribute
 		return self
 
 	Func getUIHint
-		return dnAnswer(dotnet_getp(nHandle,"UIHint"))
+		return dotnet_getp(nHandle,"UIHint")
 
 	Func setUIHint P1
 		raise("DotNet Error: UIHint is a read-only property")
@@ -722,7 +722,7 @@ Class ValidationAttribute from Attribute
 		return self
 
 	Func FormatErrorMessage P1
-		return dnAnswer(dotnet_callt(nHandle,"FormatErrorMessage",P1))
+		return dotnet_callt(nHandle,"FormatErrorMessage",P1)
 
 	Func IsValid P1
 		dn_x = dotnet_call("s4:call",nHandle,"s7:IsValid",P1)
@@ -943,7 +943,7 @@ Class ValidationContext from Object
 		raise("DotNet Error: ObjectType is a read-only property")
 
 	Func getDisplayName
-		return dnAnswer(dotnet_getp(nHandle,"DisplayName"))
+		return dotnet_getp(nHandle,"DisplayName")
 
 	Func setDisplayName P1
 		dotnet_setp(nHandle,"DisplayName",P1)
@@ -1053,6 +1053,9 @@ Class DataAnnotationsValidationResult from Object
 		nHandle = dnCreate('System.ComponentModel.DataAnnotations.ValidationResult, System.ComponentModel.Annotations',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1191,7 +1194,7 @@ Class CompareAttribute from ValidationAttribute
 		return self
 
 	Func getOtherProperty
-		return dnAnswer(dotnet_getp(nHandle,"OtherProperty"))
+		return dotnet_getp(nHandle,"OtherProperty")
 
 	Func setOtherProperty P1
 		raise("DotNet Error: OtherProperty is a read-only property")
@@ -1226,7 +1229,7 @@ Class CustomValidationAttribute from ValidationAttribute
 		raise("DotNet Error: ValidatorType is a read-only property")
 
 	Func getMethod
-		return dnAnswer(dotnet_getp(nHandle,"Method"))
+		return dotnet_getp(nHandle,"Method")
 
 	Func setMethod P1
 		raise("DotNet Error: Method is a read-only property")
@@ -1250,10 +1253,10 @@ Class DataTypeAttribute from ValidationAttribute
 		return self
 
 	Func GetDataTypeName 
-		return dnAnswer(dotnet_callt(nHandle,"GetDataTypeName"))
+		return dotnet_callt(nHandle,"GetDataTypeName")
 
 	Func getDataType
-		return dnAnswer(dotnet_getp(nHandle,"DataType"))
+		return dotnet_getp(nHandle,"DataType")
 
 	Func setDataType P1
 		raise("DotNet Error: DataType is a read-only property")
@@ -1503,7 +1506,7 @@ Class RegularExpressionAttribute from ValidationAttribute
 		raise("DotNet Error: MatchTimeout is a read-only property")
 
 	Func getPattern
-		return dnAnswer(dotnet_getp(nHandle,"Pattern"))
+		return dotnet_getp(nHandle,"Pattern")
 
 	Func setPattern P1
 		raise("DotNet Error: Pattern is a read-only property")
@@ -1656,7 +1659,7 @@ Class FileExtensionsAttribute from DataTypeAttribute
 		return self
 
 	Func getExtensions
-		return dnAnswer(dotnet_getp(nHandle,"Extensions"))
+		return dotnet_getp(nHandle,"Extensions")
 
 	Func setExtensions P1
 		dotnet_setp(nHandle,"Extensions",P1)

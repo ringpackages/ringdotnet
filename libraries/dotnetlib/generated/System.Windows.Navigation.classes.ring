@@ -437,7 +437,7 @@ Class NavigatingCancelEventArgs from CancelEventArgs
 		raise("DotNet Error: ExtraData is a read-only property")
 
 	Func getNavigationMode
-		return dnAnswer(dotnet_getp(nHandle,"NavigationMode"))
+		return dotnet_getp(nHandle,"NavigationMode")
 
 	Func setNavigationMode P1
 		raise("DotNet Error: NavigationMode is a read-only property")

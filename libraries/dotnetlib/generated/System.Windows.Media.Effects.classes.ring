@@ -328,7 +328,7 @@ Class BitmapEffectInput from Animatable
 		return self
 
 	Func getAreaToApplyEffectUnits
-		return dnAnswer(dotnet_getp(nHandle,"AreaToApplyEffectUnits"))
+		return dotnet_getp(nHandle,"AreaToApplyEffectUnits")
 
 	Func setAreaToApplyEffectUnits P1
 		dotnet_setp(nHandle,"AreaToApplyEffectUnits",P1)
@@ -432,7 +432,7 @@ Class PixelShader from Animatable
 		return self
 
 	Func getShaderRenderMode
-		return dnAnswer(dotnet_getp(nHandle,"ShaderRenderMode"))
+		return dotnet_getp(nHandle,"ShaderRenderMode")
 
 	Func setShaderRenderMode P1
 		dotnet_setp(nHandle,"ShaderRenderMode",P1)
@@ -511,7 +511,7 @@ Class BevelBitmapEffect from BitmapEffect
 		return self
 
 	Func getEdgeProfile
-		return dnAnswer(dotnet_getp(nHandle,"EdgeProfile"))
+		return dotnet_getp(nHandle,"EdgeProfile")
 
 	Func setEdgeProfile P1
 		dotnet_setp(nHandle,"EdgeProfile",P1)
@@ -618,7 +618,7 @@ Class BlurBitmapEffect from BitmapEffect
 		return self
 
 	Func getKernelType
-		return dnAnswer(dotnet_getp(nHandle,"KernelType"))
+		return dotnet_getp(nHandle,"KernelType")
 
 	Func setKernelType P1
 		dotnet_setp(nHandle,"KernelType",P1)
@@ -672,14 +672,14 @@ Class BlurEffect from Effect
 		return self
 
 	Func getKernelType
-		return dnAnswer(dotnet_getp(nHandle,"KernelType"))
+		return dotnet_getp(nHandle,"KernelType")
 
 	Func setKernelType P1
 		dotnet_setp(nHandle,"KernelType",P1)
 		return self
 
 	Func getRenderingBias
-		return dnAnswer(dotnet_getp(nHandle,"RenderingBias"))
+		return dotnet_getp(nHandle,"RenderingBias")
 
 	Func setRenderingBias P1
 		dotnet_setp(nHandle,"RenderingBias",P1)
@@ -885,7 +885,7 @@ Class DropShadowEffect from Effect
 		return self
 
 	Func getRenderingBias
-		return dnAnswer(dotnet_getp(nHandle,"RenderingBias"))
+		return dotnet_getp(nHandle,"RenderingBias")
 
 	Func setRenderingBias P1
 		dotnet_setp(nHandle,"RenderingBias",P1)

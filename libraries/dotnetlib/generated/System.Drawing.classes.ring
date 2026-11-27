@@ -1679,6 +1679,9 @@ Class Color from ValueType
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func FromArgb P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Drawing.Color, System.Drawing.Primitives',"s8:FromArgb",P1))
@@ -1740,7 +1743,7 @@ Class Color from ValueType
 		raise("DotNet Error: IsSystemColor is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -2746,12 +2749,15 @@ Class FontFamily from MarshalByRefObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
 		return self
 
 	Func @GetName P1
-		return dnAnswer(dotnet_callt(nHandle,"GetName",P1))
+		return dotnet_callt(nHandle,"GetName",P1)
 
 	Func IsStyleAvailable P1
 		dn_x = dotnet_call("s4:call",nHandle,"s16:IsStyleAvailable",P1)
@@ -2782,7 +2788,7 @@ Class FontFamily from MarshalByRefObject
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.FontFamily, System.Drawing.Common',"s11:GetFamilies",P1))
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -3228,14 +3234,14 @@ Class Graphics from MarshalByRefObject
 		raise("DotNet Error: ClipBounds is a read-only property")
 
 	Func getCompositingMode
-		return dnAnswer(dotnet_getp(nHandle,"CompositingMode"))
+		return dotnet_getp(nHandle,"CompositingMode")
 
 	Func setCompositingMode P1
 		dotnet_setp(nHandle,"CompositingMode",P1)
 		return self
 
 	Func getCompositingQuality
-		return dnAnswer(dotnet_getp(nHandle,"CompositingQuality"))
+		return dotnet_getp(nHandle,"CompositingQuality")
 
 	Func setCompositingQuality P1
 		dotnet_setp(nHandle,"CompositingQuality",P1)
@@ -3254,7 +3260,7 @@ Class Graphics from MarshalByRefObject
 		raise("DotNet Error: DpiY is a read-only property")
 
 	Func getInterpolationMode
-		return dnAnswer(dotnet_getp(nHandle,"InterpolationMode"))
+		return dotnet_getp(nHandle,"InterpolationMode")
 
 	Func setInterpolationMode P1
 		dotnet_setp(nHandle,"InterpolationMode",P1)
@@ -3280,14 +3286,14 @@ Class Graphics from MarshalByRefObject
 		return self
 
 	Func getPageUnit
-		return dnAnswer(dotnet_getp(nHandle,"PageUnit"))
+		return dotnet_getp(nHandle,"PageUnit")
 
 	Func setPageUnit P1
 		dotnet_setp(nHandle,"PageUnit",P1)
 		return self
 
 	Func getPixelOffsetMode
-		return dnAnswer(dotnet_getp(nHandle,"PixelOffsetMode"))
+		return dotnet_getp(nHandle,"PixelOffsetMode")
 
 	Func setPixelOffsetMode P1
 		dotnet_setp(nHandle,"PixelOffsetMode",P1)
@@ -3301,7 +3307,7 @@ Class Graphics from MarshalByRefObject
 		return self
 
 	Func getSmoothingMode
-		return dnAnswer(dotnet_getp(nHandle,"SmoothingMode"))
+		return dotnet_getp(nHandle,"SmoothingMode")
 
 	Func setSmoothingMode P1
 		dotnet_setp(nHandle,"SmoothingMode",P1)
@@ -3315,7 +3321,7 @@ Class Graphics from MarshalByRefObject
 		return self
 
 	Func getTextRenderingHint
-		return dnAnswer(dotnet_getp(nHandle,"TextRenderingHint"))
+		return dotnet_getp(nHandle,"TextRenderingHint")
 
 	Func setTextRenderingHint P1
 		dotnet_setp(nHandle,"TextRenderingHint",P1)
@@ -3419,6 +3425,9 @@ Class Icon from MarshalByRefObject
 			return self
 		ok
 		return dnObj(dn_x)
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Save P1
 		dotnet_callv("s4:call",nHandle,"s4:Save",P1)
@@ -3670,7 +3679,7 @@ Class Image from MarshalByRefObject
 		raise("DotNet Error: RawFormat is a read-only property")
 
 	Func getPixelFormat
-		return dnAnswer(dotnet_getp(nHandle,"PixelFormat"))
+		return dotnet_getp(nHandle,"PixelFormat")
 
 	Func setPixelFormat P1
 		raise("DotNet Error: PixelFormat is a read-only property")
@@ -5011,43 +5020,46 @@ Class StringFormat from MarshalByRefObject
 
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getFormatFlags
-		return dnAnswer(dotnet_getp(nHandle,"FormatFlags"))
+		return dotnet_getp(nHandle,"FormatFlags")
 
 	Func setFormatFlags P1
 		dotnet_setp(nHandle,"FormatFlags",P1)
 		return self
 
 	Func getAlignment
-		return dnAnswer(dotnet_getp(nHandle,"Alignment"))
+		return dotnet_getp(nHandle,"Alignment")
 
 	Func setAlignment P1
 		dotnet_setp(nHandle,"Alignment",P1)
 		return self
 
 	Func getLineAlignment
-		return dnAnswer(dotnet_getp(nHandle,"LineAlignment"))
+		return dotnet_getp(nHandle,"LineAlignment")
 
 	Func setLineAlignment P1
 		dotnet_setp(nHandle,"LineAlignment",P1)
 		return self
 
 	Func getHotkeyPrefix
-		return dnAnswer(dotnet_getp(nHandle,"HotkeyPrefix"))
+		return dotnet_getp(nHandle,"HotkeyPrefix")
 
 	Func setHotkeyPrefix P1
 		dotnet_setp(nHandle,"HotkeyPrefix",P1)
 		return self
 
 	Func getTrimming
-		return dnAnswer(dotnet_getp(nHandle,"Trimming"))
+		return dotnet_getp(nHandle,"Trimming")
 
 	Func setTrimming P1
 		dotnet_setp(nHandle,"Trimming",P1)
 		return self
 
 	Func getDigitSubstitutionMethod
-		return dnAnswer(dotnet_getp(nHandle,"DigitSubstitutionMethod"))
+		return dotnet_getp(nHandle,"DigitSubstitutionMethod")
 
 	Func setDigitSubstitutionMethod P1
 		raise("DotNet Error: DigitSubstitutionMethod is a read-only property")
@@ -6090,6 +6102,9 @@ Class Point from ValueType
 		dotnet_calltd1v(nHandle,"Offset",P1)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Add P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.Point, System.Drawing.Primitives',"s3:Add",P1,P2))
 
@@ -6176,6 +6191,9 @@ Class PointF from ValueType
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Add P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.PointF, System.Drawing.Primitives',"s3:Add",P1,P2))
 
@@ -6245,6 +6263,9 @@ Class Size from ValueType
 		nHandle = dnCreate('System.Drawing.Size, System.Drawing.Primitives',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Add P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.Size, System.Drawing.Primitives',"s3:Add",P1,P2))
@@ -6345,6 +6366,9 @@ Class SizeF from ValueType
 			return self
 		ok
 		return dnObj(dn_x)
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Add P1,P2
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.SizeF, System.Drawing.Primitives',"s3:Add",P1,P2))
@@ -6465,6 +6489,9 @@ Class Rectangle from ValueType
 	Func Offset P1
 		dotnet_calltd1v(nHandle,"Offset",P1)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func FromLTRB P1,P2,P3,P4
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.Rectangle, System.Drawing.Primitives',"s8:FromLTRB",P1,P2,P3,P4))
@@ -6654,6 +6681,9 @@ Class RectangleF from ValueType
 		dotnet_calltd1v(nHandle,"Offset",P1)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func FromLTRB P1,P2,P3,P4
 		return dnObj(dotnet_callo("s4:call",'System.Drawing.RectangleF, System.Drawing.Primitives',"s8:FromLTRB",P1,P2,P3,P4))
 
@@ -6795,6 +6825,9 @@ Class Font from MarshalByRefObject
 	Func @GetHeight P1
 		return dnAnswer(dotnet_calltd(nHandle,"GetHeight",P1))
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func ToLogFont P1
 		if dotnet_isnamed(P1)
 			dn_x = dotnet_calla("s9:callnamed",nHandle,"s9:ToLogFont",P1)
@@ -6839,7 +6872,7 @@ Class Font from MarshalByRefObject
 		raise("DotNet Error: Size is a read-only property")
 
 	Func getStyle
-		return dnAnswer(dotnet_getp(nHandle,"Style"))
+		return dotnet_getp(nHandle,"Style")
 
 	Func setStyle P1
 		raise("DotNet Error: Style is a read-only property")
@@ -6875,13 +6908,13 @@ Class Font from MarshalByRefObject
 		raise("DotNet Error: FontFamily is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getUnit
-		return dnAnswer(dotnet_getp(nHandle,"Unit"))
+		return dotnet_getp(nHandle,"Unit")
 
 	Func setUnit P1
 		raise("DotNet Error: Unit is a read-only property")
@@ -6905,7 +6938,7 @@ Class Font from MarshalByRefObject
 		raise("DotNet Error: OriginalFontName is a read-only property")
 
 	Func getSystemFontName
-		return dnAnswer(dotnet_getp(nHandle,"SystemFontName"))
+		return dotnet_getp(nHandle,"SystemFontName")
 
 	Func setSystemFontName P1
 		raise("DotNet Error: SystemFontName is a read-only property")
@@ -7025,14 +7058,14 @@ Class Pen from MarshalByRefObject
 		return self
 
 	Func getStartCap
-		return dnAnswer(dotnet_getp(nHandle,"StartCap"))
+		return dotnet_getp(nHandle,"StartCap")
 
 	Func setStartCap P1
 		dotnet_setp(nHandle,"StartCap",P1)
 		return self
 
 	Func getEndCap
-		return dnAnswer(dotnet_getp(nHandle,"EndCap"))
+		return dotnet_getp(nHandle,"EndCap")
 
 	Func setEndCap P1
 		dotnet_setp(nHandle,"EndCap",P1)
@@ -7053,14 +7086,14 @@ Class Pen from MarshalByRefObject
 		return self
 
 	Func getDashCap
-		return dnAnswer(dotnet_getp(nHandle,"DashCap"))
+		return dotnet_getp(nHandle,"DashCap")
 
 	Func setDashCap P1
 		dotnet_setp(nHandle,"DashCap",P1)
 		return self
 
 	Func getLineJoin
-		return dnAnswer(dotnet_getp(nHandle,"LineJoin"))
+		return dotnet_getp(nHandle,"LineJoin")
 
 	Func setLineJoin P1
 		dotnet_setp(nHandle,"LineJoin",P1)
@@ -7074,7 +7107,7 @@ Class Pen from MarshalByRefObject
 		return self
 
 	Func getAlignment
-		return dnAnswer(dotnet_getp(nHandle,"Alignment"))
+		return dotnet_getp(nHandle,"Alignment")
 
 	Func setAlignment P1
 		dotnet_setp(nHandle,"Alignment",P1)
@@ -7088,7 +7121,7 @@ Class Pen from MarshalByRefObject
 		return self
 
 	Func getPenType
-		return dnAnswer(dotnet_getp(nHandle,"PenType"))
+		return dotnet_getp(nHandle,"PenType")
 
 	Func setPenType P1
 		raise("DotNet Error: PenType is a read-only property")
@@ -7108,7 +7141,7 @@ Class Pen from MarshalByRefObject
 		return self
 
 	Func getDashStyle
-		return dnAnswer(dotnet_getp(nHandle,"DashStyle"))
+		return dotnet_getp(nHandle,"DashStyle")
 
 	Func setDashStyle P1
 		dotnet_setp(nHandle,"DashStyle",P1)
@@ -7202,7 +7235,7 @@ Class TextureBrush from Brush
 		return self
 
 	Func getWrapMode
-		return dnAnswer(dotnet_getp(nHandle,"WrapMode"))
+		return dotnet_getp(nHandle,"WrapMode")
 
 	Func setWrapMode P1
 		dotnet_setp(nHandle,"WrapMode",P1)

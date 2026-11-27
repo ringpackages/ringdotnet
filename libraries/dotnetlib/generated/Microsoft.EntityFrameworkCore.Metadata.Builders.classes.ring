@@ -7821,7 +7821,7 @@ Class OwnedNavigationSplitTableBuilder from Object
 		return dnObj(dn_x)
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -7908,7 +7908,7 @@ Class OwnedNavigationSplitViewBuilder from Object
 		return dnObj(dn_x)
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -8252,7 +8252,7 @@ Class OwnedNavigationViewBuilder from Object
 		return dnObj(dn_x)
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -9438,7 +9438,7 @@ Class SplitTableBuilder from Object
 		return dnObj(dn_x)
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -9525,7 +9525,7 @@ Class SplitViewBuilder from Object
 		return dnObj(dn_x)
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -10187,7 +10187,7 @@ Class ViewBuilder from Object
 		return dnObj(dn_x)
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

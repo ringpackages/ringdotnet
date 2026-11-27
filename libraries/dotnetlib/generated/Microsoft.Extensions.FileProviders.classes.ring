@@ -267,7 +267,7 @@ Class IFileInfo from DotNetObject
 		raise("DotNet Error: PhysicalPath is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -514,7 +514,7 @@ Class NotFoundFileInfo from Object
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -696,7 +696,7 @@ Class PhysicalFileProvider from Object
 		return self
 
 	Func getRoot
-		return dnAnswer(dotnet_getp(nHandle,"Root"))
+		return dotnet_getp(nHandle,"Root")
 
 	Func setRoot P1
 		raise("DotNet Error: Root is a read-only property")

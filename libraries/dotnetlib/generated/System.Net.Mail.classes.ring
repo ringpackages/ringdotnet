@@ -131,7 +131,7 @@ Class AttachmentBase from Object
 		raise("DotNet Error: ContentStream is a read-only property")
 
 	Func getContentId
-		return dnAnswer(dotnet_getp(nHandle,"ContentId"))
+		return dotnet_getp(nHandle,"ContentId")
 
 	Func setContentId P1
 		dotnet_setp(nHandle,"ContentId",P1)
@@ -145,7 +145,7 @@ Class AttachmentBase from Object
 		return self
 
 	Func getTransferEncoding
-		return dnAnswer(dotnet_getp(nHandle,"TransferEncoding"))
+		return dotnet_getp(nHandle,"TransferEncoding")
 
 	Func setTransferEncoding P1
 		dotnet_setp(nHandle,"TransferEncoding",P1)
@@ -217,6 +217,9 @@ Class MailAddress from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -231,25 +234,25 @@ Class MailAddress from Object
 		return dnSend("s4:call",dnTypeHandle('System.Net.Mail.MailAddress, System.Net.Mail'),"s9:TryCreate",dnPackItem(P1))
 
 	Func getDisplayName
-		return dnAnswer(dotnet_getp(nHandle,"DisplayName"))
+		return dotnet_getp(nHandle,"DisplayName")
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getUser
-		return dnAnswer(dotnet_getp(nHandle,"User"))
+		return dotnet_getp(nHandle,"User")
 
 	Func setUser P1
 		raise("DotNet Error: User is a read-only property")
 
 	Func getHost
-		return dnAnswer(dotnet_getp(nHandle,"Host"))
+		return dotnet_getp(nHandle,"Host")
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
 
 	Func getAddress
-		return dnAnswer(dotnet_getp(nHandle,"Address"))
+		return dotnet_getp(nHandle,"Address")
 
 	Func setAddress P1
 		raise("DotNet Error: Address is a read-only property")
@@ -274,6 +277,9 @@ Class MailAddressCollection from Collection
 		nHandle = dnCreate('System.Net.Mail.MailAddressCollection, System.Net.Mail',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 
 Class MailMessage from Object
@@ -387,21 +393,21 @@ Class MailMessage from Object
 		raise("DotNet Error: CC is a read-only property")
 
 	Func getPriority
-		return dnAnswer(dotnet_getp(nHandle,"Priority"))
+		return dotnet_getp(nHandle,"Priority")
 
 	Func setPriority P1
 		dotnet_setp(nHandle,"Priority",P1)
 		return self
 
 	Func getDeliveryNotificationOptions
-		return dnAnswer(dotnet_getp(nHandle,"DeliveryNotificationOptions"))
+		return dotnet_getp(nHandle,"DeliveryNotificationOptions")
 
 	Func setDeliveryNotificationOptions P1
 		dotnet_setp(nHandle,"DeliveryNotificationOptions",P1)
 		return self
 
 	Func getSubject
-		return dnAnswer(dotnet_getp(nHandle,"Subject"))
+		return dotnet_getp(nHandle,"Subject")
 
 	Func setSubject P1
 		dotnet_setp(nHandle,"Subject",P1)
@@ -428,7 +434,7 @@ Class MailMessage from Object
 		return self
 
 	Func getBody
-		return dnAnswer(dotnet_getp(nHandle,"Body"))
+		return dotnet_getp(nHandle,"Body")
 
 	Func setBody P1
 		dotnet_setp(nHandle,"Body",P1)
@@ -442,7 +448,7 @@ Class MailMessage from Object
 		return self
 
 	Func getBodyTransferEncoding
-		return dnAnswer(dotnet_getp(nHandle,"BodyTransferEncoding"))
+		return dotnet_getp(nHandle,"BodyTransferEncoding")
 
 	Func setBodyTransferEncoding P1
 		dotnet_setp(nHandle,"BodyTransferEncoding",P1)
@@ -601,14 +607,14 @@ Class SmtpClient from Object
 		raise("DotNet Error: ServicePoint is a read-only property")
 
 	Func getDeliveryMethod
-		return dnAnswer(dotnet_getp(nHandle,"DeliveryMethod"))
+		return dotnet_getp(nHandle,"DeliveryMethod")
 
 	Func setDeliveryMethod P1
 		dotnet_setp(nHandle,"DeliveryMethod",P1)
 		return self
 
 	Func getDeliveryFormat
-		return dnAnswer(dotnet_getp(nHandle,"DeliveryFormat"))
+		return dotnet_getp(nHandle,"DeliveryFormat")
 
 	Func setDeliveryFormat P1
 		dotnet_setp(nHandle,"DeliveryFormat",P1)
@@ -681,7 +687,7 @@ Class SmtpException from Exception
 		return self
 
 	Func getStatusCode
-		return dnAnswer(dotnet_getp(nHandle,"StatusCode"))
+		return dotnet_getp(nHandle,"StatusCode")
 
 	Func setStatusCode P1
 		dotnet_setp(nHandle,"StatusCode",P1)

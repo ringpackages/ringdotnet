@@ -354,7 +354,7 @@ Class ZLibCompressionOptions from Object
 		return self
 
 	Func getCompressionStrategy
-		return dnAnswer(dotnet_getp(nHandle,"CompressionStrategy"))
+		return dotnet_getp(nHandle,"CompressionStrategy")
 
 	Func setCompressionStrategy P1
 		dotnet_setp(nHandle,"CompressionStrategy",P1)
@@ -511,7 +511,7 @@ Class ZipArchive from Object
 		return self
 
 	Func getComment
-		return dnAnswer(dotnet_getp(nHandle,"Comment"))
+		return dotnet_getp(nHandle,"Comment")
 
 	Func setComment P1
 		dotnet_setp(nHandle,"Comment",P1)
@@ -524,7 +524,7 @@ Class ZipArchive from Object
 		raise("DotNet Error: Entries is a read-only property")
 
 	Func getMode
-		return dnAnswer(dotnet_getp(nHandle,"Mode"))
+		return dotnet_getp(nHandle,"Mode")
 
 	Func setMode P1
 		raise("DotNet Error: Mode is a read-only property")
@@ -562,6 +562,9 @@ Class ZipArchiveEntry from Object
 			return self
 		ok
 		return dnObj(dn_x)
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -610,14 +613,14 @@ Class ZipArchiveEntry from Object
 		return self
 
 	Func getComment
-		return dnAnswer(dotnet_getp(nHandle,"Comment"))
+		return dotnet_getp(nHandle,"Comment")
 
 	Func setComment P1
 		dotnet_setp(nHandle,"Comment",P1)
 		return self
 
 	Func getFullName
-		return dnAnswer(dotnet_getp(nHandle,"FullName"))
+		return dotnet_getp(nHandle,"FullName")
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")
@@ -636,7 +639,7 @@ Class ZipArchiveEntry from Object
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")

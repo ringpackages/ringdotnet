@@ -147,13 +147,13 @@ Class PipeAccessRule from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func getPipeAccessRights
-		return dnAnswer(dotnet_getp(nHandle,"PipeAccessRights"))
+		return dotnet_getp(nHandle,"PipeAccessRights")
 
 	Func setPipeAccessRights P1
 		raise("DotNet Error: PipeAccessRights is a read-only property")
 
 	Func getAccessControlType
-		return dnAnswer(dotnet_getp(nHandle,"AccessControlType"))
+		return dotnet_getp(nHandle,"AccessControlType")
 
 	Func setAccessControlType P1
 		raise("DotNet Error: AccessControlType is a read-only property")
@@ -171,13 +171,13 @@ Class PipeAccessRule from DotNetObject
 		raise("DotNet Error: IsInherited is a read-only property")
 
 	Func getInheritanceFlags
-		return dnAnswer(dotnet_getp(nHandle,"InheritanceFlags"))
+		return dotnet_getp(nHandle,"InheritanceFlags")
 
 	Func setInheritanceFlags P1
 		raise("DotNet Error: InheritanceFlags is a read-only property")
 
 	Func getPropagationFlags
-		return dnAnswer(dotnet_getp(nHandle,"PropagationFlags"))
+		return dotnet_getp(nHandle,"PropagationFlags")
 
 	Func setPropagationFlags P1
 		raise("DotNet Error: PropagationFlags is a read-only property")
@@ -222,13 +222,13 @@ Class PipeAuditRule from DotNetObject
 		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
 
 	Func getPipeAccessRights
-		return dnAnswer(dotnet_getp(nHandle,"PipeAccessRights"))
+		return dotnet_getp(nHandle,"PipeAccessRights")
 
 	Func setPipeAccessRights P1
 		raise("DotNet Error: PipeAccessRights is a read-only property")
 
 	Func getAuditFlags
-		return dnAnswer(dotnet_getp(nHandle,"AuditFlags"))
+		return dotnet_getp(nHandle,"AuditFlags")
 
 	Func setAuditFlags P1
 		raise("DotNet Error: AuditFlags is a read-only property")
@@ -246,13 +246,13 @@ Class PipeAuditRule from DotNetObject
 		raise("DotNet Error: IsInherited is a read-only property")
 
 	Func getInheritanceFlags
-		return dnAnswer(dotnet_getp(nHandle,"InheritanceFlags"))
+		return dotnet_getp(nHandle,"InheritanceFlags")
 
 	Func setInheritanceFlags P1
 		raise("DotNet Error: InheritanceFlags is a read-only property")
 
 	Func getPropagationFlags
-		return dnAnswer(dotnet_getp(nHandle,"PropagationFlags"))
+		return dotnet_getp(nHandle,"PropagationFlags")
 
 	Func setPropagationFlags P1
 		raise("DotNet Error: PropagationFlags is a read-only property")
@@ -556,7 +556,7 @@ Class PipeStream from Stream
 		raise("DotNet Error: SafePipeHandle is a read-only property")
 
 	Func getTransmissionMode
-		return dnAnswer(dotnet_getp(nHandle,"TransmissionMode"))
+		return dotnet_getp(nHandle,"TransmissionMode")
 
 	Func setTransmissionMode P1
 		raise("DotNet Error: TransmissionMode is a read-only property")
@@ -574,7 +574,7 @@ Class PipeStream from Stream
 		raise("DotNet Error: OutBufferSize is a read-only property")
 
 	Func getReadMode
-		return dnAnswer(dotnet_getp(nHandle,"ReadMode"))
+		return dotnet_getp(nHandle,"ReadMode")
 
 	Func setReadMode P1
 		dotnet_setp(nHandle,"ReadMode",P1)
@@ -674,7 +674,7 @@ Class AnonymousPipeServerStream from PipeStream
 		return self
 
 	Func GetClientHandleAsString 
-		return dnAnswer(dotnet_callt(nHandle,"GetClientHandleAsString"))
+		return dotnet_callt(nHandle,"GetClientHandleAsString")
 
 	Func DisposeLocalCopyOfClientHandle 
 		dotnet_calltv(nHandle,"DisposeLocalCopyOfClientHandle")
@@ -755,7 +755,7 @@ Class NamedPipeServerStream from PipeStream
 		return self
 
 	Func GetImpersonationUserName 
-		return dnAnswer(dotnet_callt(nHandle,"GetImpersonationUserName"))
+		return dotnet_callt(nHandle,"GetImpersonationUserName")
 
 	Func RunAsClient P1
 		dotnet_callv("s4:call",nHandle,"s11:RunAsClient",P1)

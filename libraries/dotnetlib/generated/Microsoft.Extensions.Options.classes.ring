@@ -315,7 +315,7 @@ Class ConfigurationChangeTokenSource from Object
 		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1100,7 +1100,7 @@ Class OptionsBuilder from Object
 		return dnObj(dn_x)
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1279,7 +1279,7 @@ Class OptionsValidationException from Exception
 		return self
 
 	Func getOptionsName
-		return dnAnswer(dotnet_getp(nHandle,"OptionsName"))
+		return dotnet_getp(nHandle,"OptionsName")
 
 	Func setOptionsName P1
 		raise("DotNet Error: OptionsName is a read-only property")
@@ -1940,7 +1940,7 @@ Class ValidateOptions from Object
 		raise("DotNet Error: Validation is a read-only property")
 
 	Func getFailureMessage
-		return dnAnswer(dotnet_getp(nHandle,"FailureMessage"))
+		return dotnet_getp(nHandle,"FailureMessage")
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
@@ -1989,7 +1989,7 @@ Class ValidateOptions2 from Object
 		raise("DotNet Error: Validation is a read-only property")
 
 	Func getFailureMessage
-		return dnAnswer(dotnet_getp(nHandle,"FailureMessage"))
+		return dotnet_getp(nHandle,"FailureMessage")
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
@@ -2045,7 +2045,7 @@ Class ValidateOptions3 from Object
 		raise("DotNet Error: Validation is a read-only property")
 
 	Func getFailureMessage
-		return dnAnswer(dotnet_getp(nHandle,"FailureMessage"))
+		return dotnet_getp(nHandle,"FailureMessage")
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
@@ -2108,7 +2108,7 @@ Class ValidateOptions4 from Object
 		raise("DotNet Error: Validation is a read-only property")
 
 	Func getFailureMessage
-		return dnAnswer(dotnet_getp(nHandle,"FailureMessage"))
+		return dotnet_getp(nHandle,"FailureMessage")
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
@@ -2178,7 +2178,7 @@ Class ValidateOptions5 from Object
 		raise("DotNet Error: Validation is a read-only property")
 
 	Func getFailureMessage
-		return dnAnswer(dotnet_getp(nHandle,"FailureMessage"))
+		return dotnet_getp(nHandle,"FailureMessage")
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")
@@ -2255,7 +2255,7 @@ Class ValidateOptions6 from Object
 		raise("DotNet Error: Validation is a read-only property")
 
 	Func getFailureMessage
-		return dnAnswer(dotnet_getp(nHandle,"FailureMessage"))
+		return dotnet_getp(nHandle,"FailureMessage")
 
 	Func setFailureMessage P1
 		raise("DotNet Error: FailureMessage is a read-only property")

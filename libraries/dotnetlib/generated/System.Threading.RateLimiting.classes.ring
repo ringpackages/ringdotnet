@@ -144,7 +144,7 @@ Class ConcurrencyLimiterOptions from Object
 		return self
 
 	Func getQueueProcessingOrder
-		return dnAnswer(dotnet_getp(nHandle,"QueueProcessingOrder"))
+		return dotnet_getp(nHandle,"QueueProcessingOrder")
 
 	Func setQueueProcessingOrder P1
 		dotnet_setp(nHandle,"QueueProcessingOrder",P1)
@@ -211,7 +211,7 @@ Class FixedWindowRateLimiterOptions from Object
 		return self
 
 	Func getQueueProcessingOrder
-		return dnAnswer(dotnet_getp(nHandle,"QueueProcessingOrder"))
+		return dotnet_getp(nHandle,"QueueProcessingOrder")
 
 	Func setQueueProcessingOrder P1
 		dotnet_setp(nHandle,"QueueProcessingOrder",P1)
@@ -280,11 +280,14 @@ Class MetadataName1 from Object
 		ok
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -712,7 +715,7 @@ Class SlidingWindowRateLimiterOptions from Object
 		return self
 
 	Func getQueueProcessingOrder
-		return dnAnswer(dotnet_getp(nHandle,"QueueProcessingOrder"))
+		return dotnet_getp(nHandle,"QueueProcessingOrder")
 
 	Func setQueueProcessingOrder P1
 		dotnet_setp(nHandle,"QueueProcessingOrder",P1)
@@ -787,7 +790,7 @@ Class TokenBucketRateLimiterOptions from Object
 		return self
 
 	Func getQueueProcessingOrder
-		return dnAnswer(dotnet_getp(nHandle,"QueueProcessingOrder"))
+		return dotnet_getp(nHandle,"QueueProcessingOrder")
 
 	Func setQueueProcessingOrder P1
 		dotnet_setp(nHandle,"QueueProcessingOrder",P1)

@@ -156,6 +156,9 @@ Class AspCacheControlHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -412,6 +415,9 @@ Class AspContentDispositionHeaderValue from Object
 
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -565,6 +571,9 @@ Class AspContentRangeHeaderValue from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Net.Http.Headers.ContentRangeHeaderValue, Microsoft.Net.Http.Headers',"s5:Parse",P1))
 
@@ -640,6 +649,9 @@ Class CookieHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -709,6 +721,9 @@ Class AspEntityTagHeaderValue from Object
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.EntityTagHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1702,7 +1717,7 @@ Class HeaderUtilities from Object
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"s24:TryParseNonNegativeInt64",dnPackItem(P1))
 
 	Func FormatNonNegativeInt64 P1
-		return dnAnswer(dotnet_callts('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers','FormatNonNegativeInt64',P1))
+		return dotnet_callts('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers','FormatNonNegativeInt64',P1)
 
 	Func TryParseDate P1
 		return dnSend("s4:call",dnTypeHandle('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"s12:TryParseDate",dnPackItem(P1))
@@ -1799,6 +1814,9 @@ Class AspMediaTypeHeaderValue from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s16:MatchesMediaType",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2019,6 +2037,9 @@ Class AspNameValueHeaderValue from Object
 
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Net.Http.Headers.NameValueHeaderValue, Microsoft.Net.Http.Headers',"s5:Parse",P1))
 
@@ -2075,6 +2096,9 @@ Class AspRangeConditionHeaderValue from Object
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.RangeConditionHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2139,6 +2163,9 @@ Class AspRangeHeaderValue from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -2179,6 +2206,9 @@ Class AspRangeItemHeaderValue from Object
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.RangeItemHeaderValue, Microsoft.Net.Http.Headers',[P1,P2])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2236,6 +2266,9 @@ Class SetCookieHeaderValue from Object
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.SetCookieHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func AppendToStringBuilder P1
 		dotnet_callv("s4:call",nHandle,"s21:AppendToStringBuilder",P1)
@@ -2315,7 +2348,7 @@ Class SetCookieHeaderValue from Object
 		return self
 
 	Func getSameSite
-		return dnAnswer(dotnet_getp(nHandle,"SameSite"))
+		return dotnet_getp(nHandle,"SameSite")
 
 	Func setSameSite P1
 		dotnet_setp(nHandle,"SameSite",P1)
@@ -2365,6 +2398,9 @@ Class AspStringWithQualityHeaderValue from Object
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.StringWithQualityHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

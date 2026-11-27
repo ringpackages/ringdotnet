@@ -184,7 +184,7 @@ Class JsonDocumentOptions from ValueType
 		return self
 
 	Func getCommentHandling
-		return dnAnswer(dotnet_getp(nHandle,"CommentHandling"))
+		return dotnet_getp(nHandle,"CommentHandling")
 
 	Func setCommentHandling P1
 		dotnet_setp(nHandle,"CommentHandling",P1)
@@ -356,7 +356,7 @@ Class JsonElement from ValueType
 		return dnObj(dn_x)
 
 	Func GetRawText 
-		return dnAnswer(dotnet_callt(nHandle,"GetRawText"))
+		return dotnet_callt(nHandle,"GetRawText")
 
 	Func ValueEquals P1
 		return dnAnswer(dotnet_callt(nHandle,"ValueEquals",P1))
@@ -379,6 +379,9 @@ Class JsonElement from ValueType
 			return self
 		ok
 		return dnObj(dn_x)
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Clone 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
@@ -424,7 +427,7 @@ Class JsonElement from ValueType
 		return dnObj(dn_x)
 
 	Func getValueKind
-		return dnAnswer(dotnet_getp(nHandle,"ValueKind"))
+		return dotnet_getp(nHandle,"ValueKind")
 
 	Func setValueKind P1
 		raise("DotNet Error: ValueKind is a read-only property")
@@ -603,6 +606,9 @@ Class JsonEncodedText from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Encode P1
 		if dotnet_isnamed(P1)
 			return dnObj(dotnet_callo("s9:callnamed",'System.Text.Json.JsonEncodedText, System.Text.Json',"s6:Encode",P1))
@@ -616,7 +622,7 @@ Class JsonEncodedText from ValueType
 		raise("DotNet Error: EncodedUtf8Bytes is a read-only property")
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -699,7 +705,7 @@ Class JsonNamingPolicy from Object
 		return self
 
 	Func ConvertName P1
-		return dnAnswer(dotnet_callt(nHandle,"ConvertName",P1))
+		return dotnet_callt(nHandle,"ConvertName",P1)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -768,6 +774,9 @@ Class JsonProperty from ValueType
 
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getValue
 		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Value"))
 
@@ -775,7 +784,7 @@ Class JsonProperty from ValueType
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -807,7 +816,7 @@ Class JsonReaderOptions from ValueType
 		return self
 
 	Func getCommentHandling
-		return dnAnswer(dotnet_getp(nHandle,"CommentHandling"))
+		return dotnet_getp(nHandle,"CommentHandling")
 
 	Func setCommentHandling P1
 		dotnet_setp(nHandle,"CommentHandling",P1)
@@ -1131,21 +1140,21 @@ Class JsonSerializerOptions from Object
 		return self
 
 	Func getDefaultIgnoreCondition
-		return dnAnswer(dotnet_getp(nHandle,"DefaultIgnoreCondition"))
+		return dotnet_getp(nHandle,"DefaultIgnoreCondition")
 
 	Func setDefaultIgnoreCondition P1
 		dotnet_setp(nHandle,"DefaultIgnoreCondition",P1)
 		return self
 
 	Func getNumberHandling
-		return dnAnswer(dotnet_getp(nHandle,"NumberHandling"))
+		return dotnet_getp(nHandle,"NumberHandling")
 
 	Func setNumberHandling P1
 		dotnet_setp(nHandle,"NumberHandling",P1)
 		return self
 
 	Func getPreferredObjectCreationHandling
-		return dnAnswer(dotnet_getp(nHandle,"PreferredObjectCreationHandling"))
+		return dotnet_getp(nHandle,"PreferredObjectCreationHandling")
 
 	Func setPreferredObjectCreationHandling P1
 		dotnet_setp(nHandle,"PreferredObjectCreationHandling",P1)
@@ -1194,21 +1203,21 @@ Class JsonSerializerOptions from Object
 		return self
 
 	Func getReadCommentHandling
-		return dnAnswer(dotnet_getp(nHandle,"ReadCommentHandling"))
+		return dotnet_getp(nHandle,"ReadCommentHandling")
 
 	Func setReadCommentHandling P1
 		dotnet_setp(nHandle,"ReadCommentHandling",P1)
 		return self
 
 	Func getUnknownTypeHandling
-		return dnAnswer(dotnet_getp(nHandle,"UnknownTypeHandling"))
+		return dotnet_getp(nHandle,"UnknownTypeHandling")
 
 	Func setUnknownTypeHandling P1
 		dotnet_setp(nHandle,"UnknownTypeHandling",P1)
 		return self
 
 	Func getUnmappedMemberHandling
-		return dnAnswer(dotnet_getp(nHandle,"UnmappedMemberHandling"))
+		return dotnet_getp(nHandle,"UnmappedMemberHandling")
 
 	Func setUnmappedMemberHandling P1
 		dotnet_setp(nHandle,"UnmappedMemberHandling",P1)
@@ -1243,7 +1252,7 @@ Class JsonSerializerOptions from Object
 		return self
 
 	Func getNewLine
-		return dnAnswer(dotnet_getp(nHandle,"NewLine"))
+		return dotnet_getp(nHandle,"NewLine")
 
 	Func setNewLine P1
 		dotnet_setp(nHandle,"NewLine",P1)
@@ -1353,7 +1362,7 @@ Class JsonWriterOptions from ValueType
 		return self
 
 	Func getNewLine
-		return dnAnswer(dotnet_getp(nHandle,"NewLine"))
+		return dotnet_getp(nHandle,"NewLine")
 
 	Func setNewLine P1
 		dotnet_setp(nHandle,"NewLine",P1)

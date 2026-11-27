@@ -872,7 +872,7 @@ Class AsnEncodedData from Object
 		return self
 
 	Func Format P1
-		return dnAnswer(dotnet_callt(nHandle,"Format",P1))
+		return dotnet_callt(nHandle,"Format",P1)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1068,7 +1068,7 @@ Class AsymmetricAlgorithm from Object
 		return self
 
 	Func ToXmlString P1
-		return dnAnswer(dotnet_callt(nHandle,"ToXmlString",P1))
+		return dotnet_callt(nHandle,"ToXmlString",P1)
 
 	Func Clear 
 		dotnet_calltv(nHandle,"Clear")
@@ -1128,7 +1128,7 @@ Class AsymmetricAlgorithm from Object
 		return self
 
 	Func ExportPkcs8PrivateKeyPem 
-		return dnAnswer(dotnet_callt(nHandle,"ExportPkcs8PrivateKeyPem"))
+		return dotnet_callt(nHandle,"ExportPkcs8PrivateKeyPem")
 
 	Func ExportEncryptedPkcs8PrivateKeyPem P1,P2
 		dn_x = dotnet_call("s4:call",nHandle,"s33:ExportEncryptedPkcs8PrivateKeyPem",P1,P2)
@@ -1136,7 +1136,7 @@ Class AsymmetricAlgorithm from Object
 		return dn_x
 
 	Func ExportSubjectPublicKeyInfoPem 
-		return dnAnswer(dotnet_callt(nHandle,"ExportSubjectPublicKeyInfoPem"))
+		return dotnet_callt(nHandle,"ExportSubjectPublicKeyInfoPem")
 
 	Func TryExportSubjectPublicKeyInfoPem P1
 		return dnSend("s4:call",nHandle,"s32:TryExportSubjectPublicKeyInfoPem",dnPackItem(P1))
@@ -1408,8 +1408,11 @@ Class CngAlgorithm from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getAlgorithm
-		return dnAnswer(dotnet_getp(nHandle,"Algorithm"))
+		return dotnet_getp(nHandle,"Algorithm")
 
 	Func setAlgorithm P1
 		raise("DotNet Error: Algorithm is a read-only property")
@@ -1528,8 +1531,11 @@ Class CngAlgorithmGroup from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getAlgorithmGroup
-		return dnAnswer(dotnet_getp(nHandle,"AlgorithmGroup"))
+		return dotnet_getp(nHandle,"AlgorithmGroup")
 
 	Func setAlgorithmGroup P1
 		raise("DotNet Error: AlgorithmGroup is a read-only property")
@@ -1673,7 +1679,7 @@ Class CngKey from Object
 		raise("DotNet Error: AlgorithmGroup is a read-only property")
 
 	Func getExportPolicy
-		return dnAnswer(dotnet_getp(nHandle,"ExportPolicy"))
+		return dotnet_getp(nHandle,"ExportPolicy")
 
 	Func setExportPolicy P1
 		raise("DotNet Error: ExportPolicy is a read-only property")
@@ -1709,7 +1715,7 @@ Class CngKey from Object
 		raise("DotNet Error: KeySize is a read-only property")
 
 	Func getKeyUsage
-		return dnAnswer(dotnet_getp(nHandle,"KeyUsage"))
+		return dotnet_getp(nHandle,"KeyUsage")
 
 	Func setKeyUsage P1
 		raise("DotNet Error: KeyUsage is a read-only property")
@@ -1774,8 +1780,11 @@ Class CngKeyBlobFormat from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getFormat
-		return dnAnswer(dotnet_getp(nHandle,"Format"))
+		return dotnet_getp(nHandle,"Format")
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
@@ -1874,7 +1883,7 @@ Class CngKeyCreationParameters from Object
 		return self
 
 	Func getKeyCreationOptions
-		return dnAnswer(dotnet_getp(nHandle,"KeyCreationOptions"))
+		return dotnet_getp(nHandle,"KeyCreationOptions")
 
 	Func setKeyCreationOptions P1
 		dotnet_setp(nHandle,"KeyCreationOptions",P1)
@@ -1962,13 +1971,13 @@ Class CngProperty from ValueType
 		return dnObj(dn_x)
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getOptions
-		return dnAnswer(dotnet_getp(nHandle,"Options"))
+		return dotnet_getp(nHandle,"Options")
 
 	Func setOptions P1
 		raise("DotNet Error: Options is a read-only property")
@@ -2022,8 +2031,11 @@ Class CngProvider from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getProvider
-		return dnAnswer(dotnet_getp(nHandle,"Provider"))
+		return dotnet_getp(nHandle,"Provider")
 
 	Func setProvider P1
 		raise("DotNet Error: Provider is a read-only property")
@@ -2091,7 +2103,7 @@ Class CngUIPolicy from Object
 		return dn_x
 
 	Func getProtectionLevel
-		return dnAnswer(dotnet_getp(nHandle,"ProtectionLevel"))
+		return dotnet_getp(nHandle,"ProtectionLevel")
 
 	Func setProtectionLevel P1
 		raise("DotNet Error: ProtectionLevel is a read-only property")
@@ -2381,7 +2393,7 @@ Class CspKeyContainerInfo from Object
 		raise("DotNet Error: KeyContainerName is a read-only property")
 
 	Func getKeyNumber
-		return dnAnswer(dotnet_getp(nHandle,"KeyNumber"))
+		return dotnet_getp(nHandle,"KeyNumber")
 
 	Func setKeyNumber P1
 		raise("DotNet Error: KeyNumber is a read-only property")
@@ -2423,7 +2435,7 @@ Class CspKeyContainerInfo from Object
 		raise("DotNet Error: Removable is a read-only property")
 
 	Func getUniqueKeyContainerName
-		return dnAnswer(dotnet_getp(nHandle,"UniqueKeyContainerName"))
+		return dotnet_getp(nHandle,"UniqueKeyContainerName")
 
 	Func setUniqueKeyContainerName P1
 		raise("DotNet Error: UniqueKeyContainerName is a read-only property")
@@ -2479,7 +2491,7 @@ Class CspParameters from Object
 		return dn_x
 
 	Func getFlags
-		return dnAnswer(dotnet_getp(nHandle,"Flags"))
+		return dotnet_getp(nHandle,"Flags")
 
 	Func setFlags P1
 		dotnet_setp(nHandle,"Flags",P1)
@@ -2768,7 +2780,7 @@ Class ECCurve from ValueType
 		return self
 
 	Func getCurveType
-		return dnAnswer(dotnet_getp(nHandle,"CurveType"))
+		return dotnet_getp(nHandle,"CurveType")
 
 	Func setCurveType P1
 		dotnet_setp(nHandle,"CurveType",P1)
@@ -2956,7 +2968,7 @@ Class ECDiffieHellmanPublicKey from Object
 		return dnObj(dn_x)
 
 	Func ToXmlString 
-		return dnAnswer(dotnet_callt(nHandle,"ToXmlString"))
+		return dotnet_callt(nHandle,"ToXmlString")
 
 	Func ExportParameters 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s16:ExportParameters")
@@ -3363,6 +3375,9 @@ Class HashAlgorithmName from ValueType
 		nHandle = dnCreate('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryFromOid P1
 		return dnSend("s4:call",dnTypeHandle('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography'),"s10:TryFromOid",dnPackItem(P1))
@@ -4212,7 +4227,7 @@ Class PbeParameters from Object
 		return dn_x
 
 	Func getEncryptionAlgorithm
-		return dnAnswer(dotnet_getp(nHandle,"EncryptionAlgorithm"))
+		return dotnet_getp(nHandle,"EncryptionAlgorithm")
 
 	Func setEncryptionAlgorithm P1
 		raise("DotNet Error: EncryptionAlgorithm is a read-only property")
@@ -4344,11 +4359,14 @@ Class RSAEncryptionPadding from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func CreateOaep P1
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography',"s10:CreateOaep",P1))
 
 	Func getMode
-		return dnAnswer(dotnet_getp(nHandle,"Mode"))
+		return dotnet_getp(nHandle,"Mode")
 
 	Func setMode P1
 		raise("DotNet Error: Mode is a read-only property")
@@ -4518,8 +4536,11 @@ Class RSASignaturePadding from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getMode
-		return dnAnswer(dotnet_getp(nHandle,"Mode"))
+		return dotnet_getp(nHandle,"Mode")
 
 	Func setMode P1
 		raise("DotNet Error: Mode is a read-only property")
@@ -5201,14 +5222,14 @@ Class SymmetricAlgorithm from Object
 		raise("DotNet Error: LegalKeySizes is a read-only property")
 
 	Func getMode
-		return dnAnswer(dotnet_getp(nHandle,"Mode"))
+		return dotnet_getp(nHandle,"Mode")
 
 	Func setMode P1
 		dotnet_setp(nHandle,"Mode",P1)
 		return self
 
 	Func getPadding
-		return dnAnswer(dotnet_getp(nHandle,"Padding"))
+		return dotnet_getp(nHandle,"Padding")
 
 	Func setPadding P1
 		dotnet_setp(nHandle,"Padding",P1)
@@ -5625,7 +5646,7 @@ Class ECAlgorithm from AsymmetricAlgorithm
 		return dnSend("s4:call",nHandle,"s21:TryExportECPrivateKey",dnPackItem(P1))
 
 	Func ExportECPrivateKeyPem 
-		return dnAnswer(dotnet_callt(nHandle,"ExportECPrivateKeyPem"))
+		return dotnet_callt(nHandle,"ExportECPrivateKeyPem")
 
 	Func TryExportECPrivateKeyPem P1
 		return dnSend("s4:call",nHandle,"s24:TryExportECPrivateKeyPem",dnPackItem(P1))
@@ -5765,7 +5786,7 @@ Class PKCS1MaskGenerationMethod from MaskGenerationMethod
 		return self
 
 	Func getHashName
-		return dnAnswer(dotnet_getp(nHandle,"HashName"))
+		return dotnet_getp(nHandle,"HashName")
 
 	Func setHashName P1
 		dotnet_setp(nHandle,"HashName",P1)
@@ -5812,7 +5833,7 @@ Class PasswordDeriveBytes from DeriveBytes
 		return dnObj(dn_x)
 
 	Func getHashName
-		return dnAnswer(dotnet_getp(nHandle,"HashName"))
+		return dotnet_getp(nHandle,"HashName")
 
 	Func setHashName P1
 		dotnet_setp(nHandle,"HashName",P1)
@@ -5982,10 +6003,10 @@ Class RSA from AsymmetricAlgorithm
 		return dnSend("s4:call",nHandle,"s19:ImportRSAPrivateKey",dnPackItem(P1))
 
 	Func ExportRSAPrivateKeyPem 
-		return dnAnswer(dotnet_callt(nHandle,"ExportRSAPrivateKeyPem"))
+		return dotnet_callt(nHandle,"ExportRSAPrivateKeyPem")
 
 	Func ExportRSAPublicKeyPem 
-		return dnAnswer(dotnet_callt(nHandle,"ExportRSAPublicKeyPem"))
+		return dotnet_callt(nHandle,"ExportRSAPublicKeyPem")
 
 	Func TryExportRSAPrivateKeyPem P1
 		return dnSend("s4:call",nHandle,"s25:TryExportRSAPrivateKeyPem",dnPackItem(P1))
@@ -6001,6 +6022,9 @@ Class RSA from AsymmetricAlgorithm
 			return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.RSA, System.Security.Cryptography',"s6:Create"))
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.RSA, System.Security.Cryptography',"s6:Create",P1))
+
+	Func getSignatureAlgorithm
+		return dotnet_getp(nHandle,"SignatureAlgorithm")
 
 
 Class RSAOAEPKeyExchangeDeformatter from AsymmetricKeyExchangeDeformatter
@@ -6177,6 +6201,9 @@ Class RSAPKCS1KeyExchangeFormatter from AsymmetricKeyExchangeFormatter
 		nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1KeyExchangeFormatter, System.Security.Cryptography',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func getParameters
+		return dotnet_getp(nHandle,"Parameters")
 
 	Func getRng
 		return dnObj(dotnet_callo("s3:get",nHandle,"s3:Rng"))
@@ -6763,6 +6790,9 @@ Class DSACng from DSA
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func getSignatureAlgorithm
+		return dotnet_getp(nHandle,"SignatureAlgorithm")
+
 	Func getKey
 		return dnObj(dotnet_callo("s3:get",nHandle,"s3:Key"))
 
@@ -6866,6 +6896,9 @@ Class DSACryptoServiceProvider from DSA
 
 	Func setPublicOnly P1
 		raise("DotNet Error: PublicOnly is a read-only property")
+
+	Func getSignatureAlgorithm
+		return dotnet_getp(nHandle,"SignatureAlgorithm")
 
 	Func getUseMachineKeyStore
 		return dotnet_call("s3:get",'System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography',"s18:UseMachineKeyStore")
@@ -6974,6 +7007,9 @@ Class ECDiffieHellman from ECAlgorithm
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography',"s6:Create",P1))
 
+	Func getKeyExchangeAlgorithm
+		return dotnet_getp(nHandle,"KeyExchangeAlgorithm")
+
 	Func getPublicKey
 		return dnObj(dotnet_callo("s3:get",nHandle,"s9:PublicKey"))
 
@@ -7054,6 +7090,9 @@ Class ECDsa from ECAlgorithm
 		ok
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.ECDsa, System.Security.Cryptography',"s6:Create",P1))
 
+	Func getSignatureAlgorithm
+		return dotnet_getp(nHandle,"SignatureAlgorithm")
+
 
 Class HMAC from KeyedHashAlgorithm
 
@@ -7078,7 +7117,7 @@ Class HMAC from KeyedHashAlgorithm
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.HMAC, System.Security.Cryptography',"s6:Create",P1))
 
 	Func getHashName
-		return dnAnswer(dotnet_getp(nHandle,"HashName"))
+		return dotnet_getp(nHandle,"HashName")
 
 	Func setHashName P1
 		dotnet_setp(nHandle,"HashName",P1)
@@ -7378,7 +7417,7 @@ Class ECDiffieHellmanCng from ECDiffieHellman
 		return self
 
 	Func getKeyDerivationFunction
-		return dnAnswer(dotnet_getp(nHandle,"KeyDerivationFunction"))
+		return dotnet_getp(nHandle,"KeyDerivationFunction")
 
 	Func setKeyDerivationFunction P1
 		dotnet_setp(nHandle,"KeyDerivationFunction",P1)

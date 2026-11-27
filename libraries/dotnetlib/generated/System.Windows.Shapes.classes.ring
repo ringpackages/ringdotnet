@@ -78,7 +78,7 @@ Class Shape from FrameworkElement
 		return self
 
 	Func getStretch
-		return dnAnswer(dotnet_getp(nHandle,"Stretch"))
+		return dotnet_getp(nHandle,"Stretch")
 
 	Func setStretch P1
 		dotnet_setp(nHandle,"Stretch",P1)
@@ -118,28 +118,28 @@ Class Shape from FrameworkElement
 		return self
 
 	Func getStrokeStartLineCap
-		return dnAnswer(dotnet_getp(nHandle,"StrokeStartLineCap"))
+		return dotnet_getp(nHandle,"StrokeStartLineCap")
 
 	Func setStrokeStartLineCap P1
 		dotnet_setp(nHandle,"StrokeStartLineCap",P1)
 		return self
 
 	Func getStrokeEndLineCap
-		return dnAnswer(dotnet_getp(nHandle,"StrokeEndLineCap"))
+		return dotnet_getp(nHandle,"StrokeEndLineCap")
 
 	Func setStrokeEndLineCap P1
 		dotnet_setp(nHandle,"StrokeEndLineCap",P1)
 		return self
 
 	Func getStrokeDashCap
-		return dnAnswer(dotnet_getp(nHandle,"StrokeDashCap"))
+		return dotnet_getp(nHandle,"StrokeDashCap")
 
 	Func setStrokeDashCap P1
 		dotnet_setp(nHandle,"StrokeDashCap",P1)
 		return self
 
 	Func getStrokeLineJoin
-		return dnAnswer(dotnet_getp(nHandle,"StrokeLineJoin"))
+		return dotnet_getp(nHandle,"StrokeLineJoin")
 
 	Func setStrokeLineJoin P1
 		dotnet_setp(nHandle,"StrokeLineJoin",P1)
@@ -406,7 +406,7 @@ Class Polygon from Shape
 		return self
 
 	Func getFillRule
-		return dnAnswer(dotnet_getp(nHandle,"FillRule"))
+		return dotnet_getp(nHandle,"FillRule")
 
 	Func setFillRule P1
 		dotnet_setp(nHandle,"FillRule",P1)
@@ -458,7 +458,7 @@ Class Polyline from Shape
 		return self
 
 	Func getFillRule
-		return dnAnswer(dotnet_getp(nHandle,"FillRule"))
+		return dotnet_getp(nHandle,"FillRule")
 
 	Func setFillRule P1
 		dotnet_setp(nHandle,"FillRule",P1)

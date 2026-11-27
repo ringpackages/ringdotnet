@@ -378,25 +378,25 @@ Class XmlConvert from Object
 		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','DecodeName',P1))
 
 	Func VerifyName P1
-		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyName',P1))
+		return dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyName',P1)
 
 	Func VerifyNCName P1
-		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyNCName',P1))
+		return dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyNCName',P1)
 
 	Func VerifyTOKEN P1
 		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyTOKEN',P1))
 
 	Func VerifyNMTOKEN P1
-		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyNMTOKEN',P1))
+		return dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyNMTOKEN',P1)
 
 	Func VerifyXmlChars P1
-		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyXmlChars',P1))
+		return dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyXmlChars',P1)
 
 	Func VerifyPublicId P1
-		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyPublicId',P1))
+		return dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyPublicId',P1)
 
 	Func VerifyWhitespace P1
-		return dnAnswer(dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyWhitespace',P1))
+		return dotnet_callts('System.Xml.XmlConvert, System.Private.Xml','VerifyWhitespace',P1)
 
 	Func IsStartNCNameChar P1
 		dn_x = dotnet_call("s4:call",'System.Xml.XmlConvert, System.Private.Xml',"s17:IsStartNCNameChar",P1)
@@ -808,7 +808,7 @@ Class XmlNamespaceManager from Object
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getDefaultNamespace
-		return dnAnswer(dotnet_getp(nHandle,"DefaultNamespace"))
+		return dotnet_getp(nHandle,"DefaultNamespace")
 
 	Func setDefaultNamespace P1
 		raise("DotNet Error: DefaultNamespace is a read-only property")
@@ -960,10 +960,10 @@ Class XmlNode from Object
 		return self
 
 	Func GetNamespaceOfPrefix P1
-		return dnAnswer(dotnet_callt(nHandle,"GetNamespaceOfPrefix",P1))
+		return dotnet_callt(nHandle,"GetNamespaceOfPrefix",P1)
 
 	Func GetPrefixOfNamespace P1
-		return dnAnswer(dotnet_callt(nHandle,"GetPrefixOfNamespace",P1))
+		return dotnet_callt(nHandle,"GetPrefixOfNamespace",P1)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1009,7 +1009,7 @@ Class XmlNode from Object
 		return dnObj(dn_x)
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1022,7 +1022,7 @@ Class XmlNode from Object
 		return self
 
 	Func getNodeType
-		return dnAnswer(dotnet_getp(nHandle,"NodeType"))
+		return dotnet_getp(nHandle,"NodeType")
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
@@ -1082,20 +1082,20 @@ Class XmlNode from Object
 		raise("DotNet Error: HasChildNodes is a read-only property")
 
 	Func getNamespaceURI
-		return dnAnswer(dotnet_getp(nHandle,"NamespaceURI"))
+		return dotnet_getp(nHandle,"NamespaceURI")
 
 	Func setNamespaceURI P1
 		raise("DotNet Error: NamespaceURI is a read-only property")
 
 	Func getPrefix
-		return dnAnswer(dotnet_getp(nHandle,"Prefix"))
+		return dotnet_getp(nHandle,"Prefix")
 
 	Func setPrefix P1
 		dotnet_setp(nHandle,"Prefix",P1)
 		return self
 
 	Func getLocalName
-		return dnAnswer(dotnet_getp(nHandle,"LocalName"))
+		return dotnet_getp(nHandle,"LocalName")
 
 	Func setLocalName P1
 		raise("DotNet Error: LocalName is a read-only property")
@@ -1107,20 +1107,20 @@ Class XmlNode from Object
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getInnerText
-		return dnAnswer(dotnet_getp(nHandle,"InnerText"))
+		return dotnet_getp(nHandle,"InnerText")
 
 	Func setInnerText P1
 		dotnet_setp(nHandle,"InnerText",P1)
 		return self
 
 	Func getOuterXml
-		return dnAnswer(dotnet_getp(nHandle,"OuterXml"))
+		return dotnet_getp(nHandle,"OuterXml")
 
 	Func setOuterXml P1
 		raise("DotNet Error: OuterXml is a read-only property")
 
 	Func getInnerXml
-		return dnAnswer(dotnet_getp(nHandle,"InnerXml"))
+		return dotnet_getp(nHandle,"InnerXml")
 
 	Func setInnerXml P1
 		dotnet_setp(nHandle,"InnerXml",P1)
@@ -1133,7 +1133,7 @@ Class XmlNode from Object
 		raise("DotNet Error: SchemaInfo is a read-only property")
 
 	Func getBaseURI
-		return dnAnswer(dotnet_getp(nHandle,"BaseURI"))
+		return dotnet_getp(nHandle,"BaseURI")
 
 	Func setBaseURI P1
 		raise("DotNet Error: BaseURI is a read-only property")
@@ -1166,7 +1166,7 @@ Class XmlNodeChangedEventArgs from EventArgs
 		return self
 
 	Func getAction
-		return dnAnswer(dotnet_getp(nHandle,"Action"))
+		return dotnet_getp(nHandle,"Action")
 
 	Func setAction P1
 		raise("DotNet Error: Action is a read-only property")
@@ -1328,49 +1328,49 @@ Class XmlParserContext from Object
 		return self
 
 	Func getDocTypeName
-		return dnAnswer(dotnet_getp(nHandle,"DocTypeName"))
+		return dotnet_getp(nHandle,"DocTypeName")
 
 	Func setDocTypeName P1
 		dotnet_setp(nHandle,"DocTypeName",P1)
 		return self
 
 	Func getPublicId
-		return dnAnswer(dotnet_getp(nHandle,"PublicId"))
+		return dotnet_getp(nHandle,"PublicId")
 
 	Func setPublicId P1
 		dotnet_setp(nHandle,"PublicId",P1)
 		return self
 
 	Func getSystemId
-		return dnAnswer(dotnet_getp(nHandle,"SystemId"))
+		return dotnet_getp(nHandle,"SystemId")
 
 	Func setSystemId P1
 		dotnet_setp(nHandle,"SystemId",P1)
 		return self
 
 	Func getBaseURI
-		return dnAnswer(dotnet_getp(nHandle,"BaseURI"))
+		return dotnet_getp(nHandle,"BaseURI")
 
 	Func setBaseURI P1
 		dotnet_setp(nHandle,"BaseURI",P1)
 		return self
 
 	Func getInternalSubset
-		return dnAnswer(dotnet_getp(nHandle,"InternalSubset"))
+		return dotnet_getp(nHandle,"InternalSubset")
 
 	Func setInternalSubset P1
 		dotnet_setp(nHandle,"InternalSubset",P1)
 		return self
 
 	Func getXmlLang
-		return dnAnswer(dotnet_getp(nHandle,"XmlLang"))
+		return dotnet_getp(nHandle,"XmlLang")
 
 	Func setXmlLang P1
 		dotnet_setp(nHandle,"XmlLang",P1)
 		return self
 
 	Func getXmlSpace
-		return dnAnswer(dotnet_getp(nHandle,"XmlSpace"))
+		return dotnet_getp(nHandle,"XmlSpace")
 
 	Func setXmlSpace P1
 		dotnet_setp(nHandle,"XmlSpace",P1)
@@ -1438,19 +1438,22 @@ Class XmlQualifiedName from Object
 		ok
 		raise("DotNet Error: ToString does not take one argument: use named arguments, ToString([ :parameter = value, ... ])")
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
 	Func getNamespace
-		return dnAnswer(dotnet_getp(nHandle,"Namespace"))
+		return dotnet_getp(nHandle,"Namespace")
 
 	Func setNamespace P1
 		raise("DotNet Error: Namespace is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1549,7 +1552,7 @@ Class XmlReader from Object
 		return dnAnswer(dotnet_callt(nHandle,"ReadContentAsLong"))
 
 	Func ReadContentAsString 
-		return dnAnswer(dotnet_callt(nHandle,"ReadContentAsString"))
+		return dotnet_callt(nHandle,"ReadContentAsString")
 
 	Func ReadContentAs P1,P2
 		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ReadContentAs",P1,P2)
@@ -1750,7 +1753,7 @@ Class XmlReader from Object
 		return dn_x
 
 	Func ReadString 
-		return dnAnswer(dotnet_callt(nHandle,"ReadString"))
+		return dotnet_callt(nHandle,"ReadString")
 
 	Func MoveToContent 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s13:MoveToContent")
@@ -1783,10 +1786,10 @@ Class XmlReader from Object
 		return dnAnswer(dotnet_calltd1(nHandle,"ReadToNextSibling",P1))
 
 	Func ReadInnerXml 
-		return dnAnswer(dotnet_callt(nHandle,"ReadInnerXml"))
+		return dotnet_callt(nHandle,"ReadInnerXml")
 
 	Func ReadOuterXml 
-		return dnAnswer(dotnet_callt(nHandle,"ReadOuterXml"))
+		return dotnet_callt(nHandle,"ReadOuterXml")
 
 	Func ReadSubtree 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ReadSubtree")
@@ -1948,31 +1951,31 @@ Class XmlReader from Object
 		raise("DotNet Error: Settings is a read-only property")
 
 	Func getNodeType
-		return dnAnswer(dotnet_getp(nHandle,"NodeType"))
+		return dotnet_getp(nHandle,"NodeType")
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getLocalName
-		return dnAnswer(dotnet_getp(nHandle,"LocalName"))
+		return dotnet_getp(nHandle,"LocalName")
 
 	Func setLocalName P1
 		raise("DotNet Error: LocalName is a read-only property")
 
 	Func getNamespaceURI
-		return dnAnswer(dotnet_getp(nHandle,"NamespaceURI"))
+		return dotnet_getp(nHandle,"NamespaceURI")
 
 	Func setNamespaceURI P1
 		raise("DotNet Error: NamespaceURI is a read-only property")
 
 	Func getPrefix
-		return dnAnswer(dotnet_getp(nHandle,"Prefix"))
+		return dotnet_getp(nHandle,"Prefix")
 
 	Func setPrefix P1
 		raise("DotNet Error: Prefix is a read-only property")
@@ -1984,7 +1987,7 @@ Class XmlReader from Object
 		raise("DotNet Error: HasValue is a read-only property")
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -1996,7 +1999,7 @@ Class XmlReader from Object
 		raise("DotNet Error: Depth is a read-only property")
 
 	Func getBaseURI
-		return dnAnswer(dotnet_getp(nHandle,"BaseURI"))
+		return dotnet_getp(nHandle,"BaseURI")
 
 	Func setBaseURI P1
 		raise("DotNet Error: BaseURI is a read-only property")
@@ -2020,13 +2023,13 @@ Class XmlReader from Object
 		raise("DotNet Error: QuoteChar is a read-only property")
 
 	Func getXmlSpace
-		return dnAnswer(dotnet_getp(nHandle,"XmlSpace"))
+		return dotnet_getp(nHandle,"XmlSpace")
 
 	Func setXmlSpace P1
 		raise("DotNet Error: XmlSpace is a read-only property")
 
 	Func getXmlLang
-		return dnAnswer(dotnet_getp(nHandle,"XmlLang"))
+		return dotnet_getp(nHandle,"XmlLang")
 
 	Func setXmlLang P1
 		raise("DotNet Error: XmlLang is a read-only property")
@@ -2056,7 +2059,7 @@ Class XmlReader from Object
 		raise("DotNet Error: EOF is a read-only property")
 
 	Func getReadState
-		return dnAnswer(dotnet_getp(nHandle,"ReadState"))
+		return dotnet_getp(nHandle,"ReadState")
 
 	Func setReadState P1
 		raise("DotNet Error: ReadState is a read-only property")
@@ -2188,7 +2191,7 @@ Class XmlReaderSettings from Object
 		return self
 
 	Func getConformanceLevel
-		return dnAnswer(dotnet_getp(nHandle,"ConformanceLevel"))
+		return dotnet_getp(nHandle,"ConformanceLevel")
 
 	Func setConformanceLevel P1
 		dotnet_setp(nHandle,"ConformanceLevel",P1)
@@ -2244,7 +2247,7 @@ Class XmlReaderSettings from Object
 		return self
 
 	Func getDtdProcessing
-		return dnAnswer(dotnet_getp(nHandle,"DtdProcessing"))
+		return dotnet_getp(nHandle,"DtdProcessing")
 
 	Func setDtdProcessing P1
 		dotnet_setp(nHandle,"DtdProcessing",P1)
@@ -2258,14 +2261,14 @@ Class XmlReaderSettings from Object
 		return self
 
 	Func getValidationType
-		return dnAnswer(dotnet_getp(nHandle,"ValidationType"))
+		return dotnet_getp(nHandle,"ValidationType")
 
 	Func setValidationType P1
 		dotnet_setp(nHandle,"ValidationType",P1)
 		return self
 
 	Func getValidationFlags
-		return dnAnswer(dotnet_getp(nHandle,"ValidationFlags"))
+		return dotnet_getp(nHandle,"ValidationFlags")
 
 	Func setValidationFlags P1
 		dotnet_setp(nHandle,"ValidationFlags",P1)
@@ -2727,13 +2730,13 @@ Class XmlWriter from Object
 		raise("DotNet Error: Settings is a read-only property")
 
 	Func getWriteState
-		return dnAnswer(dotnet_getp(nHandle,"WriteState"))
+		return dotnet_getp(nHandle,"WriteState")
 
 	Func setWriteState P1
 		raise("DotNet Error: WriteState is a read-only property")
 
 	Func getXmlSpace
-		return dnAnswer(dotnet_getp(nHandle,"XmlSpace"))
+		return dotnet_getp(nHandle,"XmlSpace")
 
 	Func setXmlSpace P1
 		raise("DotNet Error: XmlSpace is a read-only property")
@@ -2819,14 +2822,14 @@ Class XmlWriterSettings from Object
 		return self
 
 	Func getNewLineHandling
-		return dnAnswer(dotnet_getp(nHandle,"NewLineHandling"))
+		return dotnet_getp(nHandle,"NewLineHandling")
 
 	Func setNewLineHandling P1
 		dotnet_setp(nHandle,"NewLineHandling",P1)
 		return self
 
 	Func getNewLineChars
-		return dnAnswer(dotnet_getp(nHandle,"NewLineChars"))
+		return dotnet_getp(nHandle,"NewLineChars")
 
 	Func setNewLineChars P1
 		dotnet_setp(nHandle,"NewLineChars",P1)
@@ -2840,7 +2843,7 @@ Class XmlWriterSettings from Object
 		return self
 
 	Func getIndentChars
-		return dnAnswer(dotnet_getp(nHandle,"IndentChars"))
+		return dotnet_getp(nHandle,"IndentChars")
 
 	Func setIndentChars P1
 		dotnet_setp(nHandle,"IndentChars",P1)
@@ -2861,7 +2864,7 @@ Class XmlWriterSettings from Object
 		return self
 
 	Func getConformanceLevel
-		return dnAnswer(dotnet_getp(nHandle,"ConformanceLevel"))
+		return dotnet_getp(nHandle,"ConformanceLevel")
 
 	Func setConformanceLevel P1
 		dotnet_setp(nHandle,"ConformanceLevel",P1)
@@ -2875,7 +2878,7 @@ Class XmlWriterSettings from Object
 		return self
 
 	Func getNamespaceHandling
-		return dnAnswer(dotnet_getp(nHandle,"NamespaceHandling"))
+		return dotnet_getp(nHandle,"NamespaceHandling")
 
 	Func setNamespaceHandling P1
 		dotnet_setp(nHandle,"NamespaceHandling",P1)
@@ -2889,7 +2892,7 @@ Class XmlWriterSettings from Object
 		return self
 
 	Func getOutputMethod
-		return dnAnswer(dotnet_getp(nHandle,"OutputMethod"))
+		return dotnet_getp(nHandle,"OutputMethod")
 
 	Func setOutputMethod P1
 		raise("DotNet Error: OutputMethod is a read-only property")
@@ -2936,6 +2939,9 @@ Class XmlAttribute from XmlNode
 			return self
 		ok
 		return self
+
+	Func getValue
+		return dotnet_getp(nHandle,"Value")
 
 	Func getSpecified
 		return dotnet_getp(nHandle,"Specified")
@@ -3498,7 +3504,7 @@ Class XmlTextReader from XmlReader
 		raise("DotNet Error: Encoding is a read-only property")
 
 	Func getWhitespaceHandling
-		return dnAnswer(dotnet_getp(nHandle,"WhitespaceHandling"))
+		return dotnet_getp(nHandle,"WhitespaceHandling")
 
 	Func setWhitespaceHandling P1
 		dotnet_setp(nHandle,"WhitespaceHandling",P1)
@@ -3512,14 +3518,14 @@ Class XmlTextReader from XmlReader
 		return self
 
 	Func getDtdProcessing
-		return dnAnswer(dotnet_getp(nHandle,"DtdProcessing"))
+		return dotnet_getp(nHandle,"DtdProcessing")
 
 	Func setDtdProcessing P1
 		dotnet_setp(nHandle,"DtdProcessing",P1)
 		return self
 
 	Func getEntityHandling
-		return dnAnswer(dotnet_getp(nHandle,"EntityHandling"))
+		return dotnet_getp(nHandle,"EntityHandling")
 
 	Func setEntityHandling P1
 		dotnet_setp(nHandle,"EntityHandling",P1)
@@ -3579,7 +3585,7 @@ Class XmlTextWriter from XmlWriter
 		return self
 
 	Func getFormatting
-		return dnAnswer(dotnet_getp(nHandle,"Formatting"))
+		return dotnet_getp(nHandle,"Formatting")
 
 	Func setFormatting P1
 		dotnet_setp(nHandle,"Formatting",P1)
@@ -3654,7 +3660,7 @@ Class XmlCharacterData from XmlLinkedNode
 		return self
 
 	Func Substring P1,P2
-		return dnAnswer(dotnet_callt(nHandle,"Substring",P1,P2))
+		return dotnet_callt(nHandle,"Substring",P1,P2)
 
 	Func AppendData P1
 		dotnet_calltv(nHandle,"AppendData",P1)
@@ -3673,7 +3679,7 @@ Class XmlCharacterData from XmlLinkedNode
 		return self
 
 	Func getData
-		return dnAnswer(dotnet_getp(nHandle,"Data"))
+		return dotnet_getp(nHandle,"Data")
 
 	Func setData P1
 		dotnet_setp(nHandle,"Data",P1)
@@ -3702,20 +3708,20 @@ Class XmlDeclaration from XmlLinkedNode
 		return self
 
 	Func getVersion
-		return dnAnswer(dotnet_getp(nHandle,"Version"))
+		return dotnet_getp(nHandle,"Version")
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getEncoding
-		return dnAnswer(dotnet_getp(nHandle,"Encoding"))
+		return dotnet_getp(nHandle,"Encoding")
 
 	Func setEncoding P1
 		dotnet_setp(nHandle,"Encoding",P1)
 		return self
 
 	Func getStandalone
-		return dnAnswer(dotnet_getp(nHandle,"Standalone"))
+		return dotnet_getp(nHandle,"Standalone")
 
 	Func setStandalone P1
 		dotnet_setp(nHandle,"Standalone",P1)
@@ -3893,14 +3899,17 @@ Class XmlProcessingInstruction from XmlLinkedNode
 		ok
 		return self
 
+	Func getValue
+		return dotnet_getp(nHandle,"Value")
+
 	Func getTarget
-		return dnAnswer(dotnet_getp(nHandle,"Target"))
+		return dotnet_getp(nHandle,"Target")
 
 	Func setTarget P1
 		raise("DotNet Error: Target is a read-only property")
 
 	Func getData
-		return dnAnswer(dotnet_getp(nHandle,"Data"))
+		return dotnet_getp(nHandle,"Data")
 
 	Func setData P1
 		dotnet_setp(nHandle,"Data",P1)

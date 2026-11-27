@@ -155,7 +155,7 @@ Class BitmapData from Object
 		return self
 
 	Func getPixelFormat
-		return dnAnswer(dotnet_getp(nHandle,"PixelFormat"))
+		return dotnet_getp(nHandle,"PixelFormat")
 
 	Func setPixelFormat P1
 		dotnet_setp(nHandle,"PixelFormat",P1)
@@ -712,13 +712,13 @@ Class EncoderParameter from Object
 		return self
 
 	Func getType
-		return dnAnswer(dotnet_getp(nHandle,"Type"))
+		return dotnet_getp(nHandle,"Type")
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 
 	Func getValueType
-		return dnAnswer(dotnet_getp(nHandle,"ValueType"))
+		return dotnet_getp(nHandle,"ValueType")
 
 	Func setValueType P1
 		raise("DotNet Error: ValueType is a read-only property")
@@ -807,6 +807,9 @@ Class FrameDimension from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getGuid
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Guid"))
@@ -1046,7 +1049,7 @@ Class ImageCodecInfo from Object
 		return self
 
 	Func getFlags
-		return dnAnswer(dotnet_getp(nHandle,"Flags"))
+		return dotnet_getp(nHandle,"Flags")
 
 	Func setFlags P1
 		dotnet_setp(nHandle,"Flags",P1)
@@ -1280,7 +1283,7 @@ Class MetafileHeader from Object
 		return dn_x
 
 	Func getType
-		return dnAnswer(dotnet_getp(nHandle,"Type"))
+		return dotnet_getp(nHandle,"Type")
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
@@ -1540,6 +1543,9 @@ Class ImageFormat from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getGuid
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Guid"))

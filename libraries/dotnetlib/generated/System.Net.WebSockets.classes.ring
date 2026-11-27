@@ -105,7 +105,7 @@ Class ClientWebSocketOptions from Object
 		return self
 
 	Func getHttpVersionPolicy
-		return dnAnswer(dotnet_getp(nHandle,"HttpVersionPolicy"))
+		return dotnet_getp(nHandle,"HttpVersionPolicy")
 
 	Func setHttpVersionPolicy P1
 		dotnet_setp(nHandle,"HttpVersionPolicy",P1)
@@ -235,7 +235,7 @@ Class ValueWebSocketReceiveResult from ValueType
 		raise("DotNet Error: EndOfMessage is a read-only property")
 
 	Func getMessageType
-		return dnAnswer(dotnet_getp(nHandle,"MessageType"))
+		return dotnet_getp(nHandle,"MessageType")
 
 	Func setMessageType P1
 		raise("DotNet Error: MessageType is a read-only property")
@@ -339,7 +339,7 @@ Class WebSocket from Object
 		raise("DotNet Error: SubProtocol is a read-only property")
 
 	Func getState
-		return dnAnswer(dotnet_getp(nHandle,"State"))
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -393,7 +393,7 @@ Class WebSocketContext from Object
 		raise("DotNet Error: Headers is a read-only property")
 
 	Func getOrigin
-		return dnAnswer(dotnet_getp(nHandle,"Origin"))
+		return dotnet_getp(nHandle,"Origin")
 
 	Func setOrigin P1
 		raise("DotNet Error: Origin is a read-only property")
@@ -405,13 +405,13 @@ Class WebSocketContext from Object
 		raise("DotNet Error: SecWebSocketProtocols is a read-only property")
 
 	Func getSecWebSocketVersion
-		return dnAnswer(dotnet_getp(nHandle,"SecWebSocketVersion"))
+		return dotnet_getp(nHandle,"SecWebSocketVersion")
 
 	Func setSecWebSocketVersion P1
 		raise("DotNet Error: SecWebSocketVersion is a read-only property")
 
 	Func getSecWebSocketKey
-		return dnAnswer(dotnet_getp(nHandle,"SecWebSocketKey"))
+		return dotnet_getp(nHandle,"SecWebSocketKey")
 
 	Func setSecWebSocketKey P1
 		raise("DotNet Error: SecWebSocketKey is a read-only property")
@@ -618,7 +618,7 @@ Class WebSocketException from Win32Exception
 		return self
 
 	Func getWebSocketErrorCode
-		return dnAnswer(dotnet_getp(nHandle,"WebSocketErrorCode"))
+		return dotnet_getp(nHandle,"WebSocketErrorCode")
 
 	Func setWebSocketErrorCode P1
 		raise("DotNet Error: WebSocketErrorCode is a read-only property")
@@ -676,7 +676,7 @@ Class WebSocketReceiveResult from Object
 		raise("DotNet Error: EndOfMessage is a read-only property")
 
 	Func getMessageType
-		return dnAnswer(dotnet_getp(nHandle,"MessageType"))
+		return dotnet_getp(nHandle,"MessageType")
 
 	Func setMessageType P1
 		raise("DotNet Error: MessageType is a read-only property")
@@ -738,7 +738,7 @@ Class ClientWebSocket from WebSocket
 		raise("DotNet Error: Options is a read-only property")
 
 	Func getHttpStatusCode
-		return dnAnswer(dotnet_getp(nHandle,"HttpStatusCode"))
+		return dotnet_getp(nHandle,"HttpStatusCode")
 
 	Func setHttpStatusCode P1
 		raise("DotNet Error: HttpStatusCode is a read-only property")

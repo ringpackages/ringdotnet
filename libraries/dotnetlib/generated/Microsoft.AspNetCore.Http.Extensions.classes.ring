@@ -86,6 +86,9 @@ Class QueryBuilder from Object
 
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func ToQueryString 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s13:ToQueryString")
 		if isnumber(dn_x) and dn_x = -1

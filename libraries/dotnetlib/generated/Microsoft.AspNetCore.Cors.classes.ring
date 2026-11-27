@@ -64,6 +64,9 @@ Class DisableCorsAttribute from Attribute
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 
 Class EnableCorsAttribute from Attribute
 
@@ -102,6 +105,9 @@ Class EnableCorsAttribute from Attribute
 		nHandle = dnCreate('Microsoft.AspNetCore.Cors.EnableCorsAttribute, Microsoft.AspNetCore.Cors',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getPolicyName
 		return dnAnswer(dotnet_getp(nHandle,"PolicyName"))

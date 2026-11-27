@@ -740,13 +740,13 @@ Class TaskFactory from Object
 		raise("DotNet Error: Scheduler is a read-only property")
 
 	Func getCreationOptions
-		return dnAnswer(dotnet_getp(nHandle,"CreationOptions"))
+		return dotnet_getp(nHandle,"CreationOptions")
 
 	Func setCreationOptions P1
 		raise("DotNet Error: CreationOptions is a read-only property")
 
 	Func getContinuationOptions
-		return dnAnswer(dotnet_getp(nHandle,"ContinuationOptions"))
+		return dotnet_getp(nHandle,"ContinuationOptions")
 
 	Func setContinuationOptions P1
 		raise("DotNet Error: ContinuationOptions is a read-only property")
@@ -816,13 +816,13 @@ Class TaskFactory1 from Object
 		raise("DotNet Error: Scheduler is a read-only property")
 
 	Func getCreationOptions
-		return dnAnswer(dotnet_getp(nHandle,"CreationOptions"))
+		return dotnet_getp(nHandle,"CreationOptions")
 
 	Func setCreationOptions P1
 		raise("DotNet Error: CreationOptions is a read-only property")
 
 	Func getContinuationOptions
-		return dnAnswer(dotnet_getp(nHandle,"ContinuationOptions"))
+		return dotnet_getp(nHandle,"ContinuationOptions")
 
 	Func setContinuationOptions P1
 		raise("DotNet Error: ContinuationOptions is a read-only property")
@@ -1355,7 +1355,7 @@ Class Task from Object
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getStatus
-		return dnAnswer(dotnet_getp(nHandle,"Status"))
+		return dotnet_getp(nHandle,"Status")
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
@@ -1379,7 +1379,7 @@ Class Task from Object
 		raise("DotNet Error: IsCompletedSuccessfully is a read-only property")
 
 	Func getCreationOptions
-		return dnAnswer(dotnet_getp(nHandle,"CreationOptions"))
+		return dotnet_getp(nHandle,"CreationOptions")
 
 	Func setCreationOptions P1
 		raise("DotNet Error: CreationOptions is a read-only property")

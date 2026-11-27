@@ -186,6 +186,9 @@ Class SqlBinary from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func ToSqlGuid 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ToSqlGuid")
 		if isnumber(dn_x) and dn_x = -1
@@ -314,6 +317,9 @@ Class SqlBoolean from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlBoolean, System.Data.Common',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func ToSqlByte 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s9:ToSqlByte")
@@ -534,6 +540,9 @@ Class SqlByte from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlByte, System.Data.Common',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func ToSqlBoolean 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlBoolean")
@@ -816,7 +825,7 @@ Class SqlBytes from Object
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getStorage
-		return dnAnswer(dotnet_getp(nHandle,"Storage"))
+		return dotnet_getp(nHandle,"Storage")
 
 	Func setStorage P1
 		raise("DotNet Error: Storage is a read-only property")
@@ -944,7 +953,7 @@ Class SqlChars from Object
 		raise("DotNet Error: Value is a read-only property")
 
 	Func getStorage
-		return dnAnswer(dotnet_getp(nHandle,"Storage"))
+		return dotnet_getp(nHandle,"Storage")
 
 	Func setStorage P1
 		raise("DotNet Error: Storage is a read-only property")
@@ -998,6 +1007,9 @@ Class SqlDateTime from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlDateTime, System.Data.Common',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func ToSqlString 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlString")
@@ -1162,6 +1174,9 @@ Class SqlDecimal from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlDecimal, System.Data.Common',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func ToDouble 
 		return dnAnswer(dotnet_callt(nHandle,"ToDouble"))
@@ -1428,6 +1443,9 @@ Class SqlDouble from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func ToSqlBoolean 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlBoolean")
 		if isnumber(dn_x) and dn_x = -1
@@ -1628,6 +1646,9 @@ Class SqlGuid from ValueType
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func ToSqlString 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s11:ToSqlString")
 		if isnumber(dn_x) and dn_x = -1
@@ -1744,6 +1765,9 @@ Class SqlInt16 from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlInt16, System.Data.Common',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func ToSqlBoolean 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlBoolean")
@@ -1959,6 +1983,9 @@ Class SqlInt32 from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func ToSqlBoolean 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlBoolean")
 		if isnumber(dn_x) and dn_x = -1
@@ -2172,6 +2199,9 @@ Class SqlInt64 from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlInt64, System.Data.Common',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func ToSqlBoolean 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlBoolean")
@@ -2399,6 +2429,9 @@ Class SqlMoney from ValueType
 	Func ToDouble 
 		return dnAnswer(dotnet_callt(nHandle,"ToDouble"))
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func GetTdsValue 
 		return dnAnswer(dotnet_callt(nHandle,"GetTdsValue"))
 
@@ -2600,6 +2633,9 @@ Class SqlSingle from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlSingle, System.Data.Common',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func ToSqlBoolean 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s12:ToSqlBoolean")
@@ -2804,6 +2840,9 @@ Class SqlString from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func GetUnicodeBytes 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetUnicodeBytes")
 		if isnumber(dn_x) and dn_x = -1
@@ -2953,7 +2992,7 @@ Class SqlString from ValueType
 		return dotnet_getp(nHandle,"IsNull")
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -2977,7 +3016,7 @@ Class SqlString from ValueType
 		raise("DotNet Error: CompareInfo is a read-only property")
 
 	Func getSqlCompareOptions
-		return dnAnswer(dotnet_getp(nHandle,"SqlCompareOptions"))
+		return dotnet_getp(nHandle,"SqlCompareOptions")
 
 	Func setSqlCompareOptions P1
 		raise("DotNet Error: SqlCompareOptions is a read-only property")
@@ -3124,7 +3163,7 @@ Class SqlXml from Object
 		return dotnet_getp(nHandle,"IsNull")
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

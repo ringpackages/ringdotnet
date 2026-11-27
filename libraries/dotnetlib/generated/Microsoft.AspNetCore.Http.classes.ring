@@ -638,6 +638,9 @@ Class BindingAddress from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -647,13 +650,13 @@ Class BindingAddress from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.BindingAddress, Microsoft.AspNetCore.Http',"s5:Parse",P1))
 
 	Func getHost
-		return dnAnswer(dotnet_getp(nHandle,"Host"))
+		return dotnet_getp(nHandle,"Host")
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
 
 	Func getPathBase
-		return dnAnswer(dotnet_getp(nHandle,"PathBase"))
+		return dotnet_getp(nHandle,"PathBase")
 
 	Func setPathBase P1
 		raise("DotNet Error: PathBase is a read-only property")
@@ -665,7 +668,7 @@ Class BindingAddress from Object
 		raise("DotNet Error: Port is a read-only property")
 
 	Func getScheme
-		return dnAnswer(dotnet_getp(nHandle,"Scheme"))
+		return dotnet_getp(nHandle,"Scheme")
 
 	Func setScheme P1
 		raise("DotNet Error: Scheme is a read-only property")
@@ -683,13 +686,13 @@ Class BindingAddress from Object
 		raise("DotNet Error: IsNamedPipe is a read-only property")
 
 	Func getUnixPipePath
-		return dnAnswer(dotnet_getp(nHandle,"UnixPipePath"))
+		return dotnet_getp(nHandle,"UnixPipePath")
 
 	Func setUnixPipePath P1
 		raise("DotNet Error: UnixPipePath is a read-only property")
 
 	Func getNamedPipeName
-		return dnAnswer(dotnet_getp(nHandle,"NamedPipeName"))
+		return dotnet_getp(nHandle,"NamedPipeName")
 
 	Func setNamedPipeName P1
 		raise("DotNet Error: NamedPipeName is a read-only property")
@@ -740,7 +743,7 @@ Class ConnectionInfo from Object
 		return dn_x
 
 	Func getId
-		return dnAnswer(dotnet_getp(nHandle,"Id"))
+		return dotnet_getp(nHandle,"Id")
 
 	Func setId P1
 		dotnet_setp(nHandle,"Id",P1)
@@ -857,14 +860,14 @@ Class CookieBuilder from Object
 		return self
 
 	Func getSameSite
-		return dnAnswer(dotnet_getp(nHandle,"SameSite"))
+		return dotnet_getp(nHandle,"SameSite")
 
 	Func setSameSite P1
 		dotnet_setp(nHandle,"SameSite",P1)
 		return self
 
 	Func getSecurePolicy
-		return dnAnswer(dotnet_getp(nHandle,"SecurePolicy"))
+		return dotnet_getp(nHandle,"SecurePolicy")
 
 	Func setSecurePolicy P1
 		dotnet_setp(nHandle,"SecurePolicy",P1)
@@ -985,7 +988,7 @@ Class CookieOptions from Object
 		return self
 
 	Func getSameSite
-		return dnAnswer(dotnet_getp(nHandle,"SameSite"))
+		return dotnet_getp(nHandle,"SameSite")
 
 	Func setSameSite P1
 		dotnet_setp(nHandle,"SameSite",P1)
@@ -1070,6 +1073,9 @@ Class DisableHttpMetricsAttribute from Attribute
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 
 Class AspEndpoint from Object
 
@@ -1127,8 +1133,11 @@ Class EndpointDescriptionAttribute from Attribute
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getDescription
-		return dnAnswer(dotnet_getp(nHandle,"Description"))
+		return dotnet_getp(nHandle,"Description")
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
@@ -1446,8 +1455,11 @@ Class EndpointSummaryAttribute from Attribute
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func getSummary
-		return dnAnswer(dotnet_getp(nHandle,"Summary"))
+		return dotnet_getp(nHandle,"Summary")
 
 	Func setSummary P1
 		raise("DotNet Error: Summary is a read-only property")
@@ -1648,14 +1660,14 @@ Class FormFile from Object
 		return dn_x
 
 	Func getContentDisposition
-		return dnAnswer(dotnet_getp(nHandle,"ContentDisposition"))
+		return dotnet_getp(nHandle,"ContentDisposition")
 
 	Func setContentDisposition P1
 		dotnet_setp(nHandle,"ContentDisposition",P1)
 		return self
 
 	Func getContentType
-		return dnAnswer(dotnet_getp(nHandle,"ContentType"))
+		return dotnet_getp(nHandle,"ContentType")
 
 	Func setContentType P1
 		dotnet_setp(nHandle,"ContentType",P1)
@@ -1675,13 +1687,13 @@ Class FormFile from Object
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getFileName
-		return dnAnswer(dotnet_getp(nHandle,"FileName"))
+		return dotnet_getp(nHandle,"FileName")
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
@@ -1762,14 +1774,17 @@ Class FragmentString from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func ToUriComponent 
-		return dnAnswer(dotnet_callt(nHandle,"ToUriComponent"))
+		return dotnet_callt(nHandle,"ToUriComponent")
 
 	Func FromUriComponent P1
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.FragmentString, Microsoft.AspNetCore.Http.Abstractions',"s16:FromUriComponent",P1))
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -2115,8 +2130,11 @@ Class HostString from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func ToUriComponent 
-		return dnAnswer(dotnet_callt(nHandle,"ToUriComponent"))
+		return dotnet_callt(nHandle,"ToUriComponent")
 
 	Func FromUriComponent P1
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions',"s16:FromUriComponent",P1))
@@ -2139,7 +2157,7 @@ Class HostString from ValueType
 		raise("DotNet Error: HasValue is a read-only property")
 
 	Func getHost
-		return dnAnswer(dotnet_getp(nHandle,"Host"))
+		return dotnet_getp(nHandle,"Host")
 
 	Func setHost P1
 		raise("DotNet Error: Host is a read-only property")
@@ -2376,7 +2394,7 @@ Class HttpContext from Object
 		return self
 
 	Func getTraceIdentifier
-		return dnAnswer(dotnet_getp(nHandle,"TraceIdentifier"))
+		return dotnet_getp(nHandle,"TraceIdentifier")
 
 	Func setTraceIdentifier P1
 		dotnet_setp(nHandle,"TraceIdentifier",P1)
@@ -2511,7 +2529,7 @@ Class HttpMethods from Object
 		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','IsTrace',P1))
 
 	Func GetCanonicalizedValue P1
-		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','GetCanonicalizedValue',P1))
+		return dotnet_callts('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions','GetCanonicalizedValue',P1)
 
 	Func getConnect
 		dn_x = dotnet_call("s3:get",'Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions',"s7:Connect")
@@ -2840,14 +2858,14 @@ Class HttpRequest from Object
 		raise("DotNet Error: HttpContext is a read-only property")
 
 	Func getMethod
-		return dnAnswer(dotnet_getp(nHandle,"Method"))
+		return dotnet_getp(nHandle,"Method")
 
 	Func setMethod P1
 		dotnet_setp(nHandle,"Method",P1)
 		return self
 
 	Func getScheme
-		return dnAnswer(dotnet_getp(nHandle,"Scheme"))
+		return dotnet_getp(nHandle,"Scheme")
 
 	Func setScheme P1
 		dotnet_setp(nHandle,"Scheme",P1)
@@ -2896,7 +2914,7 @@ Class HttpRequest from Object
 		return self
 
 	Func getProtocol
-		return dnAnswer(dotnet_getp(nHandle,"Protocol"))
+		return dotnet_getp(nHandle,"Protocol")
 
 	Func setProtocol P1
 		dotnet_setp(nHandle,"Protocol",P1)
@@ -3510,13 +3528,13 @@ Class IFormFile from DotNetObject
 		return dnObj(dn_x)
 
 	Func getContentType
-		return dnAnswer(dotnet_getp(nHandle,"ContentType"))
+		return dotnet_getp(nHandle,"ContentType")
 
 	Func setContentType P1
 		raise("DotNet Error: ContentType is a read-only property")
 
 	Func getContentDisposition
-		return dnAnswer(dotnet_getp(nHandle,"ContentDisposition"))
+		return dotnet_getp(nHandle,"ContentDisposition")
 
 	Func setContentDisposition P1
 		raise("DotNet Error: ContentDisposition is a read-only property")
@@ -3534,13 +3552,13 @@ Class IFormFile from DotNetObject
 		raise("DotNet Error: Length is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getFileName
-		return dnAnswer(dotnet_getp(nHandle,"FileName"))
+		return dotnet_getp(nHandle,"FileName")
 
 	Func setFileName P1
 		raise("DotNet Error: FileName is a read-only property")
@@ -4947,7 +4965,7 @@ Class ISession from DotNetObject
 		raise("DotNet Error: IsAvailable is a read-only property")
 
 	Func getId
-		return dnAnswer(dotnet_getp(nHandle,"Id"))
+		return dotnet_getp(nHandle,"Id")
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -5142,8 +5160,11 @@ Class PathString from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func ToUriComponent 
-		return dnAnswer(dotnet_callt(nHandle,"ToUriComponent"))
+		return dotnet_callt(nHandle,"ToUriComponent")
 
 	Func StartsWithSegments P1
 		if dotnet_isnamed(P1)
@@ -5316,6 +5337,9 @@ Class ProducesResponseTypeMetadata from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.ProducesResponseTypeMetadata, Microsoft.AspNetCore.Http.Abstractions',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func @GetType 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
@@ -5536,8 +5560,11 @@ Class QueryString from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func ToUriComponent 
-		return dnAnswer(dotnet_callt(nHandle,"ToUriComponent"))
+		return dotnet_callt(nHandle,"ToUriComponent")
 
 	Func Add P1
 		if dotnet_isnamed(P1)
@@ -6767,6 +6794,9 @@ Class TagsAttribute from Attribute
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.TagsAttribute, Microsoft.AspNetCore.Http.Extensions',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func getTags
 		return dnObj(dotnet_callo("s3:get",nHandle,"s4:Tags"))

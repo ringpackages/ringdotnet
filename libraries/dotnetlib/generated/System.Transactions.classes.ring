@@ -428,7 +428,7 @@ Class Transaction from Object
 		raise("DotNet Error: TransactionInformation is a read-only property")
 
 	Func getIsolationLevel
-		return dnAnswer(dotnet_getp(nHandle,"IsolationLevel"))
+		return dotnet_getp(nHandle,"IsolationLevel")
 
 	Func setIsolationLevel P1
 		raise("DotNet Error: IsolationLevel is a read-only property")
@@ -539,7 +539,7 @@ Class TransactionInformation from Object
 		return dn_x
 
 	Func getLocalIdentifier
-		return dnAnswer(dotnet_getp(nHandle,"LocalIdentifier"))
+		return dotnet_getp(nHandle,"LocalIdentifier")
 
 	Func setLocalIdentifier P1
 		raise("DotNet Error: LocalIdentifier is a read-only property")
@@ -557,7 +557,7 @@ Class TransactionInformation from Object
 		raise("DotNet Error: CreationTime is a read-only property")
 
 	Func getStatus
-		return dnAnswer(dotnet_getp(nHandle,"Status"))
+		return dotnet_getp(nHandle,"Status")
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
@@ -706,7 +706,7 @@ Class TransactionOptions from ValueType
 		return self
 
 	Func getIsolationLevel
-		return dnAnswer(dotnet_getp(nHandle,"IsolationLevel"))
+		return dotnet_getp(nHandle,"IsolationLevel")
 
 	Func setIsolationLevel P1
 		dotnet_setp(nHandle,"IsolationLevel",P1)

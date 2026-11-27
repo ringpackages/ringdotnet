@@ -183,13 +183,13 @@ Class XPathExpression from Object
 		return dnObj(dotnet_callo("s4:call",'System.Xml.XPath.XPathExpression, System.Private.Xml',"s7:Compile",P1))
 
 	Func getExpression
-		return dnAnswer(dotnet_getp(nHandle,"Expression"))
+		return dotnet_getp(nHandle,"Expression")
 
 	Func setExpression P1
 		raise("DotNet Error: Expression is a read-only property")
 
 	Func getReturnType
-		return dnAnswer(dotnet_getp(nHandle,"ReturnType"))
+		return dotnet_getp(nHandle,"ReturnType")
 
 	Func setReturnType P1
 		raise("DotNet Error: ReturnType is a read-only property")
@@ -245,7 +245,7 @@ Class XPathItem from Object
 		raise("DotNet Error: XmlType is a read-only property")
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")
@@ -406,6 +406,9 @@ Class XPathNavigator from XPathItem
 		ok
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func SetValue P1
 		dotnet_calltv(nHandle,"SetValue",P1)
 		return self
@@ -455,7 +458,7 @@ Class XPathNavigator from XPathItem
 		return self
 
 	Func GetAttribute P1,P2
-		return dnAnswer(dotnet_callt(nHandle,"GetAttribute",P1,P2))
+		return dotnet_callt(nHandle,"GetAttribute",P1,P2)
 
 	Func MoveToAttribute P1,P2
 		return dnAnswer(dotnet_callt(nHandle,"MoveToAttribute",P1,P2))
@@ -467,7 +470,7 @@ Class XPathNavigator from XPathItem
 		return dnAnswer(dotnet_callt(nHandle,"MoveToNextAttribute"))
 
 	Func GetNamespace P1
-		return dnAnswer(dotnet_callt(nHandle,"GetNamespace",P1))
+		return dotnet_callt(nHandle,"GetNamespace",P1)
 
 	Func MoveToNamespace P1
 		return dnAnswer(dotnet_callt(nHandle,"MoveToNamespace",P1))
@@ -719,37 +722,37 @@ Class XPathNavigator from XPathItem
 		raise("DotNet Error: NameTable is a read-only property")
 
 	Func getNodeType
-		return dnAnswer(dotnet_getp(nHandle,"NodeType"))
+		return dotnet_getp(nHandle,"NodeType")
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
 
 	Func getLocalName
-		return dnAnswer(dotnet_getp(nHandle,"LocalName"))
+		return dotnet_getp(nHandle,"LocalName")
 
 	Func setLocalName P1
 		raise("DotNet Error: LocalName is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getNamespaceURI
-		return dnAnswer(dotnet_getp(nHandle,"NamespaceURI"))
+		return dotnet_getp(nHandle,"NamespaceURI")
 
 	Func setNamespaceURI P1
 		raise("DotNet Error: NamespaceURI is a read-only property")
 
 	Func getPrefix
-		return dnAnswer(dotnet_getp(nHandle,"Prefix"))
+		return dotnet_getp(nHandle,"Prefix")
 
 	Func setPrefix P1
 		raise("DotNet Error: Prefix is a read-only property")
 
 	Func getBaseURI
-		return dnAnswer(dotnet_getp(nHandle,"BaseURI"))
+		return dotnet_getp(nHandle,"BaseURI")
 
 	Func setBaseURI P1
 		raise("DotNet Error: BaseURI is a read-only property")
@@ -761,7 +764,7 @@ Class XPathNavigator from XPathItem
 		raise("DotNet Error: IsEmptyElement is a read-only property")
 
 	Func getXmlLang
-		return dnAnswer(dotnet_getp(nHandle,"XmlLang"))
+		return dotnet_getp(nHandle,"XmlLang")
 
 	Func setXmlLang P1
 		raise("DotNet Error: XmlLang is a read-only property")
@@ -797,14 +800,14 @@ Class XPathNavigator from XPathItem
 		raise("DotNet Error: CanEdit is a read-only property")
 
 	Func getOuterXml
-		return dnAnswer(dotnet_getp(nHandle,"OuterXml"))
+		return dotnet_getp(nHandle,"OuterXml")
 
 	Func setOuterXml P1
 		dotnet_setp(nHandle,"OuterXml",P1)
 		return self
 
 	Func getInnerXml
-		return dnAnswer(dotnet_getp(nHandle,"InnerXml"))
+		return dotnet_getp(nHandle,"InnerXml")
 
 	Func setInnerXml P1
 		dotnet_setp(nHandle,"InnerXml",P1)

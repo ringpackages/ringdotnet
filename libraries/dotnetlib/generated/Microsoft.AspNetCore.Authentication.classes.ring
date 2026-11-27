@@ -1080,7 +1080,7 @@ Class AuthenticationScheme from Object
 		return dn_x
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1128,7 +1128,7 @@ Class AuthenticationSchemeBuilder from Object
 		return dn_x
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1491,7 +1491,7 @@ Class AuthenticationTicket from Object
 		return dn_x
 
 	Func getAuthenticationScheme
-		return dnAnswer(dotnet_getp(nHandle,"AuthenticationScheme"))
+		return dotnet_getp(nHandle,"AuthenticationScheme")
 
 	Func setAuthenticationScheme P1
 		raise("DotNet Error: AuthenticationScheme is a read-only property")
@@ -1538,14 +1538,14 @@ Class AuthenticationToken from Object
 		return dn_x
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		dotnet_setp(nHandle,"Name",P1)
 		return self
 
 	Func getValue
-		return dnAnswer(dotnet_getp(nHandle,"Value"))
+		return dotnet_getp(nHandle,"Value")
 
 	Func setValue P1
 		dotnet_setp(nHandle,"Value",P1)
@@ -2780,7 +2780,7 @@ Class RemoteAuthenticationOptions from AuthenticationSchemeOptions
 		return self
 
 	Func getReturnUrlParameter
-		return dnAnswer(dotnet_getp(nHandle,"ReturnUrlParameter"))
+		return dotnet_getp(nHandle,"ReturnUrlParameter")
 
 	Func setReturnUrlParameter P1
 		dotnet_setp(nHandle,"ReturnUrlParameter",P1)
@@ -2945,7 +2945,7 @@ Class AccessDeniedContext from HandleRequestContext
 		return self
 
 	Func getReturnUrlParameter
-		return dnAnswer(dotnet_getp(nHandle,"ReturnUrlParameter"))
+		return dotnet_getp(nHandle,"ReturnUrlParameter")
 
 	Func setReturnUrlParameter P1
 		dotnet_setp(nHandle,"ReturnUrlParameter",P1)
@@ -2995,7 +2995,7 @@ Class RedirectContext from PropertiesContext
 		return self
 
 	Func getRedirectUri
-		return dnAnswer(dotnet_getp(nHandle,"RedirectUri"))
+		return dotnet_getp(nHandle,"RedirectUri")
 
 	Func setRedirectUri P1
 		dotnet_setp(nHandle,"RedirectUri",P1)

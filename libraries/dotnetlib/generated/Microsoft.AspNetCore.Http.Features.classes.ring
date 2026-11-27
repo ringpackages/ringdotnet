@@ -866,7 +866,7 @@ Class HttpConnectionFeature from Object
 		return dn_x
 
 	Func getConnectionId
-		return dnAnswer(dotnet_getp(nHandle,"ConnectionId"))
+		return dotnet_getp(nHandle,"ConnectionId")
 
 	Func setConnectionId P1
 		dotnet_setp(nHandle,"ConnectionId",P1)
@@ -937,49 +937,49 @@ Class HttpRequestFeature from Object
 		return dn_x
 
 	Func getProtocol
-		return dnAnswer(dotnet_getp(nHandle,"Protocol"))
+		return dotnet_getp(nHandle,"Protocol")
 
 	Func setProtocol P1
 		dotnet_setp(nHandle,"Protocol",P1)
 		return self
 
 	Func getScheme
-		return dnAnswer(dotnet_getp(nHandle,"Scheme"))
+		return dotnet_getp(nHandle,"Scheme")
 
 	Func setScheme P1
 		dotnet_setp(nHandle,"Scheme",P1)
 		return self
 
 	Func getMethod
-		return dnAnswer(dotnet_getp(nHandle,"Method"))
+		return dotnet_getp(nHandle,"Method")
 
 	Func setMethod P1
 		dotnet_setp(nHandle,"Method",P1)
 		return self
 
 	Func getPathBase
-		return dnAnswer(dotnet_getp(nHandle,"PathBase"))
+		return dotnet_getp(nHandle,"PathBase")
 
 	Func setPathBase P1
 		dotnet_setp(nHandle,"PathBase",P1)
 		return self
 
 	Func getPath
-		return dnAnswer(dotnet_getp(nHandle,"Path"))
+		return dotnet_getp(nHandle,"Path")
 
 	Func setPath P1
 		dotnet_setp(nHandle,"Path",P1)
 		return self
 
 	Func getQueryString
-		return dnAnswer(dotnet_getp(nHandle,"QueryString"))
+		return dotnet_getp(nHandle,"QueryString")
 
 	Func setQueryString P1
 		dotnet_setp(nHandle,"QueryString",P1)
 		return self
 
 	Func getRawTarget
-		return dnAnswer(dotnet_getp(nHandle,"RawTarget"))
+		return dotnet_getp(nHandle,"RawTarget")
 
 	Func setRawTarget P1
 		dotnet_setp(nHandle,"RawTarget",P1)
@@ -1028,7 +1028,7 @@ Class HttpRequestIdentifierFeature from Object
 		return dn_x
 
 	Func getTraceIdentifier
-		return dnAnswer(dotnet_getp(nHandle,"TraceIdentifier"))
+		return dotnet_getp(nHandle,"TraceIdentifier")
 
 	Func setTraceIdentifier P1
 		dotnet_setp(nHandle,"TraceIdentifier",P1)
@@ -1402,7 +1402,7 @@ Class IHttpConnectionFeature from DotNetObject
 		return self
 
 	Func getConnectionId
-		return dnAnswer(dotnet_getp(nHandle,"ConnectionId"))
+		return dotnet_getp(nHandle,"ConnectionId")
 
 	Func setConnectionId P1
 		dotnet_setp(nHandle,"ConnectionId",P1)
@@ -1569,49 +1569,49 @@ Class IHttpRequestFeature from DotNetObject
 		return self
 
 	Func getProtocol
-		return dnAnswer(dotnet_getp(nHandle,"Protocol"))
+		return dotnet_getp(nHandle,"Protocol")
 
 	Func setProtocol P1
 		dotnet_setp(nHandle,"Protocol",P1)
 		return self
 
 	Func getScheme
-		return dnAnswer(dotnet_getp(nHandle,"Scheme"))
+		return dotnet_getp(nHandle,"Scheme")
 
 	Func setScheme P1
 		dotnet_setp(nHandle,"Scheme",P1)
 		return self
 
 	Func getMethod
-		return dnAnswer(dotnet_getp(nHandle,"Method"))
+		return dotnet_getp(nHandle,"Method")
 
 	Func setMethod P1
 		dotnet_setp(nHandle,"Method",P1)
 		return self
 
 	Func getPathBase
-		return dnAnswer(dotnet_getp(nHandle,"PathBase"))
+		return dotnet_getp(nHandle,"PathBase")
 
 	Func setPathBase P1
 		dotnet_setp(nHandle,"PathBase",P1)
 		return self
 
 	Func getPath
-		return dnAnswer(dotnet_getp(nHandle,"Path"))
+		return dotnet_getp(nHandle,"Path")
 
 	Func setPath P1
 		dotnet_setp(nHandle,"Path",P1)
 		return self
 
 	Func getQueryString
-		return dnAnswer(dotnet_getp(nHandle,"QueryString"))
+		return dotnet_getp(nHandle,"QueryString")
 
 	Func setQueryString P1
 		dotnet_setp(nHandle,"QueryString",P1)
 		return self
 
 	Func getRawTarget
-		return dnAnswer(dotnet_getp(nHandle,"RawTarget"))
+		return dotnet_getp(nHandle,"RawTarget")
 
 	Func setRawTarget P1
 		dotnet_setp(nHandle,"RawTarget",P1)
@@ -1646,7 +1646,7 @@ Class IHttpRequestIdentifierFeature from DotNetObject
 		return self
 
 	Func getTraceIdentifier
-		return dnAnswer(dotnet_getp(nHandle,"TraceIdentifier"))
+		return dotnet_getp(nHandle,"TraceIdentifier")
 
 	Func setTraceIdentifier P1
 		dotnet_setp(nHandle,"TraceIdentifier",P1)
@@ -1970,7 +1970,7 @@ Class IHttpsCompressionFeature from DotNetObject
 		return self
 
 	Func getMode
-		return dnAnswer(dotnet_getp(nHandle,"Mode"))
+		return dotnet_getp(nHandle,"Mode")
 
 	Func setMode P1
 		dotnet_setp(nHandle,"Mode",P1)
@@ -2240,7 +2240,7 @@ Class ITrackingConsentFeature from DotNetObject
 		return self
 
 	Func CreateConsentCookie 
-		return dnAnswer(dotnet_callt(nHandle,"CreateConsentCookie"))
+		return dotnet_callt(nHandle,"CreateConsentCookie")
 
 	Func getIsConsentNeeded
 		return dotnet_getp(nHandle,"IsConsentNeeded")

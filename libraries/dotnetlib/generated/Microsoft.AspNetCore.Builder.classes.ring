@@ -2278,21 +2278,21 @@ Class CookiePolicyOptions from Object
 		return dn_x
 
 	Func getMinimumSameSitePolicy
-		return dnAnswer(dotnet_getp(nHandle,"MinimumSameSitePolicy"))
+		return dotnet_getp(nHandle,"MinimumSameSitePolicy")
 
 	Func setMinimumSameSitePolicy P1
 		dotnet_setp(nHandle,"MinimumSameSitePolicy",P1)
 		return self
 
 	Func getHttpOnly
-		return dnAnswer(dotnet_getp(nHandle,"HttpOnly"))
+		return dotnet_getp(nHandle,"HttpOnly")
 
 	Func setHttpOnly P1
 		dotnet_setp(nHandle,"HttpOnly",P1)
 		return self
 
 	Func getSecure
-		return dnAnswer(dotnet_getp(nHandle,"Secure"))
+		return dotnet_getp(nHandle,"Secure")
 
 	Func setSecure P1
 		dotnet_setp(nHandle,"Secure",P1)
@@ -2306,7 +2306,7 @@ Class CookiePolicyOptions from Object
 		return self
 
 	Func getConsentCookieValue
-		return dnAnswer(dotnet_getp(nHandle,"ConsentCookieValue"))
+		return dotnet_getp(nHandle,"ConsentCookieValue")
 
 	Func setConsentCookieValue P1
 		dotnet_setp(nHandle,"ConsentCookieValue",P1)
@@ -3112,63 +3112,63 @@ Class ForwardedHeadersOptions from Object
 		return dn_x
 
 	Func getForwardedForHeaderName
-		return dnAnswer(dotnet_getp(nHandle,"ForwardedForHeaderName"))
+		return dotnet_getp(nHandle,"ForwardedForHeaderName")
 
 	Func setForwardedForHeaderName P1
 		dotnet_setp(nHandle,"ForwardedForHeaderName",P1)
 		return self
 
 	Func getForwardedHostHeaderName
-		return dnAnswer(dotnet_getp(nHandle,"ForwardedHostHeaderName"))
+		return dotnet_getp(nHandle,"ForwardedHostHeaderName")
 
 	Func setForwardedHostHeaderName P1
 		dotnet_setp(nHandle,"ForwardedHostHeaderName",P1)
 		return self
 
 	Func getForwardedProtoHeaderName
-		return dnAnswer(dotnet_getp(nHandle,"ForwardedProtoHeaderName"))
+		return dotnet_getp(nHandle,"ForwardedProtoHeaderName")
 
 	Func setForwardedProtoHeaderName P1
 		dotnet_setp(nHandle,"ForwardedProtoHeaderName",P1)
 		return self
 
 	Func getForwardedPrefixHeaderName
-		return dnAnswer(dotnet_getp(nHandle,"ForwardedPrefixHeaderName"))
+		return dotnet_getp(nHandle,"ForwardedPrefixHeaderName")
 
 	Func setForwardedPrefixHeaderName P1
 		dotnet_setp(nHandle,"ForwardedPrefixHeaderName",P1)
 		return self
 
 	Func getOriginalForHeaderName
-		return dnAnswer(dotnet_getp(nHandle,"OriginalForHeaderName"))
+		return dotnet_getp(nHandle,"OriginalForHeaderName")
 
 	Func setOriginalForHeaderName P1
 		dotnet_setp(nHandle,"OriginalForHeaderName",P1)
 		return self
 
 	Func getOriginalHostHeaderName
-		return dnAnswer(dotnet_getp(nHandle,"OriginalHostHeaderName"))
+		return dotnet_getp(nHandle,"OriginalHostHeaderName")
 
 	Func setOriginalHostHeaderName P1
 		dotnet_setp(nHandle,"OriginalHostHeaderName",P1)
 		return self
 
 	Func getOriginalProtoHeaderName
-		return dnAnswer(dotnet_getp(nHandle,"OriginalProtoHeaderName"))
+		return dotnet_getp(nHandle,"OriginalProtoHeaderName")
 
 	Func setOriginalProtoHeaderName P1
 		dotnet_setp(nHandle,"OriginalProtoHeaderName",P1)
 		return self
 
 	Func getOriginalPrefixHeaderName
-		return dnAnswer(dotnet_getp(nHandle,"OriginalPrefixHeaderName"))
+		return dotnet_getp(nHandle,"OriginalPrefixHeaderName")
 
 	Func setOriginalPrefixHeaderName P1
 		dotnet_setp(nHandle,"OriginalPrefixHeaderName",P1)
 		return self
 
 	Func getForwardedHeaders
-		return dnAnswer(dotnet_getp(nHandle,"ForwardedHeaders"))
+		return dotnet_getp(nHandle,"ForwardedHeaders")
 
 	Func setForwardedHeaders P1
 		dotnet_setp(nHandle,"ForwardedHeaders",P1)
@@ -5705,7 +5705,7 @@ Class StaticFileOptions from DotNetObject
 		return self
 
 	Func getHttpsCompression
-		return dnAnswer(dotnet_getp(nHandle,"HttpsCompression"))
+		return dotnet_getp(nHandle,"HttpsCompression")
 
 	Func setHttpsCompression P1
 		dotnet_setp(nHandle,"HttpsCompression",P1)

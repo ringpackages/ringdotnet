@@ -351,7 +351,7 @@ Class HttpIOException from IOException
 		return self
 
 	Func getHttpRequestError
-		return dnAnswer(dotnet_getp(nHandle,"HttpRequestError"))
+		return dotnet_getp(nHandle,"HttpRequestError")
 
 	Func setHttpRequestError P1
 		raise("DotNet Error: HttpRequestError is a read-only property")
@@ -459,11 +459,14 @@ Class HttpMethod from Object
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Parse P1
 		return dnObj(dotnet_callo("s4:call",'System.Net.Http.HttpMethod, System.Net.Http',"s5:Parse",P1))
 
 	Func getMethod
-		return dnAnswer(dotnet_getp(nHandle,"Method"))
+		return dotnet_getp(nHandle,"Method")
 
 	Func setMethod P1
 		raise("DotNet Error: Method is a read-only property")
@@ -579,7 +582,7 @@ Class HttpRequestException from Exception
 		return self
 
 	Func getHttpRequestError
-		return dnAnswer(dotnet_getp(nHandle,"HttpRequestError"))
+		return dotnet_getp(nHandle,"HttpRequestError")
 
 	Func setHttpRequestError P1
 		raise("DotNet Error: HttpRequestError is a read-only property")
@@ -636,6 +639,9 @@ Class HttpRequestMessage from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
 		return self
@@ -653,7 +659,7 @@ Class HttpRequestMessage from Object
 		return self
 
 	Func getVersionPolicy
-		return dnAnswer(dotnet_getp(nHandle,"VersionPolicy"))
+		return dotnet_getp(nHandle,"VersionPolicy")
 
 	Func setVersionPolicy P1
 		dotnet_setp(nHandle,"VersionPolicy",P1)
@@ -782,7 +788,7 @@ Class HttpRequestOptionsKey from ValueType
 		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getKey
-		return dnAnswer(dotnet_getp(nHandle,"Key"))
+		return dotnet_getp(nHandle,"Key")
 
 	Func setKey P1
 		raise("DotNet Error: Key is a read-only property")
@@ -840,6 +846,9 @@ Class HttpResponseMessage from Object
 		ok
 		return dnObj(dn_x)
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Dispose 
 		dotnet_calltv(nHandle,"Dispose")
 		return self
@@ -864,7 +873,7 @@ Class HttpResponseMessage from Object
 		return self
 
 	Func getStatusCode
-		return dnAnswer(dotnet_getp(nHandle,"StatusCode"))
+		return dotnet_getp(nHandle,"StatusCode")
 
 	Func setStatusCode P1
 		dotnet_setp(nHandle,"StatusCode",P1)
@@ -1268,7 +1277,7 @@ Class HttpClient from HttpMessageInvoker
 		return self
 
 	Func getDefaultVersionPolicy
-		return dnAnswer(dotnet_getp(nHandle,"DefaultVersionPolicy"))
+		return dotnet_getp(nHandle,"DefaultVersionPolicy")
 
 	Func setDefaultVersionPolicy P1
 		dotnet_setp(nHandle,"DefaultVersionPolicy",P1)
@@ -1389,7 +1398,7 @@ Class HttpClientHandler from HttpMessageHandler
 		return self
 
 	Func getAutomaticDecompression
-		return dnAnswer(dotnet_getp(nHandle,"AutomaticDecompression"))
+		return dotnet_getp(nHandle,"AutomaticDecompression")
 
 	Func setAutomaticDecompression P1
 		dotnet_setp(nHandle,"AutomaticDecompression",P1)
@@ -1473,7 +1482,7 @@ Class HttpClientHandler from HttpMessageHandler
 		return self
 
 	Func getClientCertificateOptions
-		return dnAnswer(dotnet_getp(nHandle,"ClientCertificateOptions"))
+		return dotnet_getp(nHandle,"ClientCertificateOptions")
 
 	Func setClientCertificateOptions P1
 		dotnet_setp(nHandle,"ClientCertificateOptions",P1)
@@ -1500,7 +1509,7 @@ Class HttpClientHandler from HttpMessageHandler
 		return self
 
 	Func getSslProtocols
-		return dnAnswer(dotnet_getp(nHandle,"SslProtocols"))
+		return dotnet_getp(nHandle,"SslProtocols")
 
 	Func setSslProtocols P1
 		dotnet_setp(nHandle,"SslProtocols",P1)
@@ -1710,7 +1719,7 @@ Class SocketsHttpHandler from HttpMessageHandler
 		return self
 
 	Func getAutomaticDecompression
-		return dnAnswer(dotnet_getp(nHandle,"AutomaticDecompression"))
+		return dotnet_getp(nHandle,"AutomaticDecompression")
 
 	Func setAutomaticDecompression P1
 		dotnet_setp(nHandle,"AutomaticDecompression",P1)
@@ -1850,7 +1859,7 @@ Class SocketsHttpHandler from HttpMessageHandler
 		return self
 
 	Func getKeepAlivePingPolicy
-		return dnAnswer(dotnet_getp(nHandle,"KeepAlivePingPolicy"))
+		return dotnet_getp(nHandle,"KeepAlivePingPolicy")
 
 	Func setKeepAlivePingPolicy P1
 		dotnet_setp(nHandle,"KeepAlivePingPolicy",P1)

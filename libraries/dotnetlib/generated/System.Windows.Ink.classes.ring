@@ -272,7 +272,7 @@ Class DrawingAttributes from Object
 		return self
 
 	Func getStylusTip
-		return dnAnswer(dotnet_getp(nHandle,"StylusTip"))
+		return dotnet_getp(nHandle,"StylusTip")
 
 	Func setStylusTip P1
 		dotnet_setp(nHandle,"StylusTip",P1)
@@ -398,13 +398,13 @@ Class GestureRecognitionResult from Object
 		return dn_x
 
 	Func getRecognitionConfidence
-		return dnAnswer(dotnet_getp(nHandle,"RecognitionConfidence"))
+		return dotnet_getp(nHandle,"RecognitionConfidence")
 
 	Func setRecognitionConfidence P1
 		raise("DotNet Error: RecognitionConfidence is a read-only property")
 
 	Func getApplicationGesture
-		return dnAnswer(dotnet_getp(nHandle,"ApplicationGesture"))
+		return dotnet_getp(nHandle,"ApplicationGesture")
 
 	Func setApplicationGesture P1
 		raise("DotNet Error: ApplicationGesture is a read-only property")

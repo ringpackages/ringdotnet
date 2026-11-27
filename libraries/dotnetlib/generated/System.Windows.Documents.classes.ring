@@ -2059,14 +2059,14 @@ Class FlowDocument from FrameworkContentElement
 		return self
 
 	Func getTextAlignment
-		return dnAnswer(dotnet_getp(nHandle,"TextAlignment"))
+		return dotnet_getp(nHandle,"TextAlignment")
 
 	Func setTextAlignment P1
 		dotnet_setp(nHandle,"TextAlignment",P1)
 		return self
 
 	Func getFlowDirection
-		return dnAnswer(dotnet_getp(nHandle,"FlowDirection"))
+		return dotnet_getp(nHandle,"FlowDirection")
 
 	Func setFlowDirection P1
 		dotnet_setp(nHandle,"FlowDirection",P1)
@@ -2080,7 +2080,7 @@ Class FlowDocument from FrameworkContentElement
 		return self
 
 	Func getLineStackingStrategy
-		return dnAnswer(dotnet_getp(nHandle,"LineStackingStrategy"))
+		return dotnet_getp(nHandle,"LineStackingStrategy")
 
 	Func setLineStackingStrategy P1
 		dotnet_setp(nHandle,"LineStackingStrategy",P1)
@@ -2575,7 +2575,7 @@ Class Glyphs from FrameworkElement
 		return self
 
 	Func getStyleSimulations
-		return dnAnswer(dotnet_getp(nHandle,"StyleSimulations"))
+		return dotnet_getp(nHandle,"StyleSimulations")
 
 	Func setStyleSimulations P1
 		dotnet_setp(nHandle,"StyleSimulations",P1)
@@ -4878,7 +4878,7 @@ Class Typography from Object
 		return self
 
 	Func getFraction
-		return dnAnswer(dotnet_getp(nHandle,"Fraction"))
+		return dotnet_getp(nHandle,"Fraction")
 
 	Func setFraction P1
 		dotnet_setp(nHandle,"Fraction",P1)
@@ -4906,42 +4906,42 @@ Class Typography from Object
 		return self
 
 	Func getVariants
-		return dnAnswer(dotnet_getp(nHandle,"Variants"))
+		return dotnet_getp(nHandle,"Variants")
 
 	Func setVariants P1
 		dotnet_setp(nHandle,"Variants",P1)
 		return self
 
 	Func getCapitals
-		return dnAnswer(dotnet_getp(nHandle,"Capitals"))
+		return dotnet_getp(nHandle,"Capitals")
 
 	Func setCapitals P1
 		dotnet_setp(nHandle,"Capitals",P1)
 		return self
 
 	Func getNumeralStyle
-		return dnAnswer(dotnet_getp(nHandle,"NumeralStyle"))
+		return dotnet_getp(nHandle,"NumeralStyle")
 
 	Func setNumeralStyle P1
 		dotnet_setp(nHandle,"NumeralStyle",P1)
 		return self
 
 	Func getNumeralAlignment
-		return dnAnswer(dotnet_getp(nHandle,"NumeralAlignment"))
+		return dotnet_getp(nHandle,"NumeralAlignment")
 
 	Func setNumeralAlignment P1
 		dotnet_setp(nHandle,"NumeralAlignment",P1)
 		return self
 
 	Func getEastAsianWidths
-		return dnAnswer(dotnet_getp(nHandle,"EastAsianWidths"))
+		return dotnet_getp(nHandle,"EastAsianWidths")
 
 	Func setEastAsianWidths P1
 		dotnet_setp(nHandle,"EastAsianWidths",P1)
 		return self
 
 	Func getEastAsianLanguage
-		return dnAnswer(dotnet_getp(nHandle,"EastAsianLanguage"))
+		return dotnet_getp(nHandle,"EastAsianLanguage")
 
 	Func setEastAsianLanguage P1
 		dotnet_setp(nHandle,"EastAsianLanguage",P1)
@@ -5396,14 +5396,14 @@ Class Block from TextElement
 		return self
 
 	Func getTextAlignment
-		return dnAnswer(dotnet_getp(nHandle,"TextAlignment"))
+		return dotnet_getp(nHandle,"TextAlignment")
 
 	Func setTextAlignment P1
 		dotnet_setp(nHandle,"TextAlignment",P1)
 		return self
 
 	Func getFlowDirection
-		return dnAnswer(dotnet_getp(nHandle,"FlowDirection"))
+		return dotnet_getp(nHandle,"FlowDirection")
 
 	Func setFlowDirection P1
 		dotnet_setp(nHandle,"FlowDirection",P1)
@@ -5417,7 +5417,7 @@ Class Block from TextElement
 		return self
 
 	Func getLineStackingStrategy
-		return dnAnswer(dotnet_getp(nHandle,"LineStackingStrategy"))
+		return dotnet_getp(nHandle,"LineStackingStrategy")
 
 	Func setLineStackingStrategy P1
 		dotnet_setp(nHandle,"LineStackingStrategy",P1)
@@ -5438,7 +5438,7 @@ Class Block from TextElement
 		return self
 
 	Func getClearFloaters
-		return dnAnswer(dotnet_getp(nHandle,"ClearFloaters"))
+		return dotnet_getp(nHandle,"ClearFloaters")
 
 	Func setClearFloaters P1
 		dotnet_setp(nHandle,"ClearFloaters",P1)
@@ -5693,7 +5693,7 @@ Class Inline from TextElement
 		raise("DotNet Error: PreviousInline is a read-only property")
 
 	Func getBaselineAlignment
-		return dnAnswer(dotnet_getp(nHandle,"BaselineAlignment"))
+		return dotnet_getp(nHandle,"BaselineAlignment")
 
 	Func setBaselineAlignment P1
 		dotnet_setp(nHandle,"BaselineAlignment",P1)
@@ -5707,7 +5707,7 @@ Class Inline from TextElement
 		return self
 
 	Func getFlowDirection
-		return dnAnswer(dotnet_getp(nHandle,"FlowDirection"))
+		return dotnet_getp(nHandle,"FlowDirection")
 
 	Func setFlowDirection P1
 		dotnet_setp(nHandle,"FlowDirection",P1)
@@ -5885,14 +5885,14 @@ Class ListItem from TextElement
 		return self
 
 	Func getTextAlignment
-		return dnAnswer(dotnet_getp(nHandle,"TextAlignment"))
+		return dotnet_getp(nHandle,"TextAlignment")
 
 	Func setTextAlignment P1
 		dotnet_setp(nHandle,"TextAlignment",P1)
 		return self
 
 	Func getFlowDirection
-		return dnAnswer(dotnet_getp(nHandle,"FlowDirection"))
+		return dotnet_getp(nHandle,"FlowDirection")
 
 	Func setFlowDirection P1
 		dotnet_setp(nHandle,"FlowDirection",P1)
@@ -5906,7 +5906,7 @@ Class ListItem from TextElement
 		return self
 
 	Func getLineStackingStrategy
-		return dnAnswer(dotnet_getp(nHandle,"LineStackingStrategy"))
+		return dotnet_getp(nHandle,"LineStackingStrategy")
 
 	Func setLineStackingStrategy P1
 		dotnet_setp(nHandle,"LineStackingStrategy",P1)
@@ -6086,14 +6086,14 @@ Class TableCell from TextElement
 		return self
 
 	Func getTextAlignment
-		return dnAnswer(dotnet_getp(nHandle,"TextAlignment"))
+		return dotnet_getp(nHandle,"TextAlignment")
 
 	Func setTextAlignment P1
 		dotnet_setp(nHandle,"TextAlignment",P1)
 		return self
 
 	Func getFlowDirection
-		return dnAnswer(dotnet_getp(nHandle,"FlowDirection"))
+		return dotnet_getp(nHandle,"FlowDirection")
 
 	Func setFlowDirection P1
 		dotnet_setp(nHandle,"FlowDirection",P1)
@@ -6107,7 +6107,7 @@ Class TableCell from TextElement
 		return self
 
 	Func getLineStackingStrategy
-		return dnAnswer(dotnet_getp(nHandle,"LineStackingStrategy"))
+		return dotnet_getp(nHandle,"LineStackingStrategy")
 
 	Func setLineStackingStrategy P1
 		dotnet_setp(nHandle,"LineStackingStrategy",P1)
@@ -6362,7 +6362,7 @@ Class TextPointer from ContentPosition
 		raise("DotNet Error: HasValidLayout is a read-only property")
 
 	Func getLogicalDirection
-		return dnAnswer(dotnet_getp(nHandle,"LogicalDirection"))
+		return dotnet_getp(nHandle,"LogicalDirection")
 
 	Func setLogicalDirection P1
 		raise("DotNet Error: LogicalDirection is a read-only property")
@@ -6483,7 +6483,7 @@ Class AnchoredBlock from Inline
 		return self
 
 	Func getTextAlignment
-		return dnAnswer(dotnet_getp(nHandle,"TextAlignment"))
+		return dotnet_getp(nHandle,"TextAlignment")
 
 	Func setTextAlignment P1
 		dotnet_setp(nHandle,"TextAlignment",P1)
@@ -6497,7 +6497,7 @@ Class AnchoredBlock from Inline
 		return self
 
 	Func getLineStackingStrategy
-		return dnAnswer(dotnet_getp(nHandle,"LineStackingStrategy"))
+		return dotnet_getp(nHandle,"LineStackingStrategy")
 
 	Func setLineStackingStrategy P1
 		dotnet_setp(nHandle,"LineStackingStrategy",P1)
@@ -6726,7 +6726,7 @@ Class WpfList from Block
 		raise("DotNet Error: ListItems is a read-only property")
 
 	Func getMarkerStyle
-		return dnAnswer(dotnet_getp(nHandle,"MarkerStyle"))
+		return dotnet_getp(nHandle,"MarkerStyle")
 
 	Func setMarkerStyle P1
 		dotnet_setp(nHandle,"MarkerStyle",P1)
@@ -7216,14 +7216,14 @@ Class Figure from AnchoredBlock
 		return self
 
 	Func getHorizontalAnchor
-		return dnAnswer(dotnet_getp(nHandle,"HorizontalAnchor"))
+		return dotnet_getp(nHandle,"HorizontalAnchor")
 
 	Func setHorizontalAnchor P1
 		dotnet_setp(nHandle,"HorizontalAnchor",P1)
 		return self
 
 	Func getVerticalAnchor
-		return dnAnswer(dotnet_getp(nHandle,"VerticalAnchor"))
+		return dotnet_getp(nHandle,"VerticalAnchor")
 
 	Func setVerticalAnchor P1
 		dotnet_setp(nHandle,"VerticalAnchor",P1)
@@ -7251,7 +7251,7 @@ Class Figure from AnchoredBlock
 		return self
 
 	Func getWrapDirection
-		return dnAnswer(dotnet_getp(nHandle,"WrapDirection"))
+		return dotnet_getp(nHandle,"WrapDirection")
 
 	Func setWrapDirection P1
 		dotnet_setp(nHandle,"WrapDirection",P1)
@@ -7362,7 +7362,7 @@ Class Floater from AnchoredBlock
 		return self
 
 	Func getHorizontalAlignment
-		return dnAnswer(dotnet_getp(nHandle,"HorizontalAlignment"))
+		return dotnet_getp(nHandle,"HorizontalAlignment")
 
 	Func setHorizontalAlignment P1
 		dotnet_setp(nHandle,"HorizontalAlignment",P1)

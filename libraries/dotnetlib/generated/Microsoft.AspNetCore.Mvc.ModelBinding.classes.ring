@@ -465,7 +465,7 @@ Class BindingBehaviorAttribute from Attribute
 		return self
 
 	Func getBehavior
-		return dnAnswer(dotnet_getp(nHandle,"Behavior"))
+		return dotnet_getp(nHandle,"Behavior")
 
 	Func setBehavior P1
 		raise("DotNet Error: Behavior is a read-only property")
@@ -567,7 +567,7 @@ Class BindingInfo from Object
 		return self
 
 	Func getEmptyBodyBehavior
-		return dnAnswer(dotnet_getp(nHandle,"EmptyBodyBehavior"))
+		return dotnet_getp(nHandle,"EmptyBodyBehavior")
 
 	Func setEmptyBodyBehavior P1
 		dotnet_setp(nHandle,"EmptyBodyBehavior",P1)
@@ -620,13 +620,13 @@ Class AspBindingSource from Object
 		return dn_x
 
 	Func getDisplayName
-		return dnAnswer(dotnet_getp(nHandle,"DisplayName"))
+		return dotnet_getp(nHandle,"DisplayName")
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getId
-		return dnAnswer(dotnet_getp(nHandle,"Id"))
+		return dotnet_getp(nHandle,"Id")
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -842,7 +842,7 @@ Class DefaultPropertyFilterProvider from Object
 		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getPrefix
-		return dnAnswer(dotnet_getp(nHandle,"Prefix"))
+		return dotnet_getp(nHandle,"Prefix")
 
 	Func setPrefix P1
 		raise("DotNet Error: Prefix is a read-only property")
@@ -977,13 +977,13 @@ Class EnumGroupAndName from ValueType
 		return self
 
 	Func getGroup
-		return dnAnswer(dotnet_getp(nHandle,"Group"))
+		return dotnet_getp(nHandle,"Group")
 
 	Func setGroup P1
 		raise("DotNet Error: Group is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1788,7 +1788,7 @@ Class ModelBindingContext from Object
 		return self
 
 	Func getFieldName
-		return dnAnswer(dotnet_getp(nHandle,"FieldName"))
+		return dotnet_getp(nHandle,"FieldName")
 
 	Func setFieldName P1
 		dotnet_setp(nHandle,"FieldName",P1)
@@ -1822,14 +1822,14 @@ Class ModelBindingContext from Object
 		return self
 
 	Func getModelName
-		return dnAnswer(dotnet_getp(nHandle,"ModelName"))
+		return dotnet_getp(nHandle,"ModelName")
 
 	Func setModelName P1
 		dotnet_setp(nHandle,"ModelName",P1)
 		return self
 
 	Func getOriginalModelName
-		return dnAnswer(dotnet_getp(nHandle,"OriginalModelName"))
+		return dotnet_getp(nHandle,"OriginalModelName")
 
 	Func setOriginalModelName P1
 		raise("DotNet Error: OriginalModelName is a read-only property")
@@ -1940,6 +1940,9 @@ Class ModelBindingResult from ValueType
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Failed 
 		return dnObj(dotnet_callo("s4:call",'Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingResult, Microsoft.AspNetCore.Mvc.Abstractions',"s6:Failed"))
 
@@ -2006,7 +2009,7 @@ Class ModelError from Object
 		raise("DotNet Error: Exception is a read-only property")
 
 	Func getErrorMessage
-		return dnAnswer(dotnet_getp(nHandle,"ErrorMessage"))
+		return dotnet_getp(nHandle,"ErrorMessage")
 
 	Func setErrorMessage P1
 		raise("DotNet Error: ErrorMessage is a read-only property")
@@ -2102,7 +2105,7 @@ Class ModelMetadata from Object
 		return self
 
 	Func @GetDisplayName 
-		return dnAnswer(dotnet_callt(nHandle,"GetDisplayName"))
+		return dotnet_callt(nHandle,"GetDisplayName")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -2144,7 +2147,7 @@ Class ModelMetadata from Object
 		raise("DotNet Error: ContainerMetadata is a read-only property")
 
 	Func getMetadataKind
-		return dnAnswer(dotnet_getp(nHandle,"MetadataKind"))
+		return dotnet_getp(nHandle,"MetadataKind")
 
 	Func setMetadataKind P1
 		raise("DotNet Error: MetadataKind is a read-only property")
@@ -2560,10 +2563,10 @@ Class ModelNames from Object
 		return dn_x
 
 	Func CreateIndexModelName P1,P2
-		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core','CreateIndexModelName',P1,P2))
+		return dotnet_callts('Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core','CreateIndexModelName',P1,P2)
 
 	Func CreatePropertyModelName P1,P2
-		return dnAnswer(dotnet_callts('Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core','CreatePropertyModelName',P1,P2))
+		return dotnet_callts('Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core','CreatePropertyModelName',P1,P2)
 
 
 Class ModelPropertyCollection from ReadOnlyCollection
@@ -2811,7 +2814,7 @@ Class ModelStateDictionary from Object
 		raise("DotNet Error: IsValid is a read-only property")
 
 	Func getValidationState
-		return dnAnswer(dotnet_getp(nHandle,"ValidationState"))
+		return dotnet_getp(nHandle,"ValidationState")
 
 	Func setValidationState P1
 		raise("DotNet Error: ValidationState is a read-only property")
@@ -3001,7 +3004,7 @@ Class ModelStateDictionaryKeyEnumerator from ValueType
 		return self
 
 	Func getCurrent
-		return dnAnswer(dotnet_getp(nHandle,"Current"))
+		return dotnet_getp(nHandle,"Current")
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")
@@ -3297,7 +3300,7 @@ Class ModelStateEntry from Object
 		raise("DotNet Error: Errors is a read-only property")
 
 	Func getValidationState
-		return dnAnswer(dotnet_getp(nHandle,"ValidationState"))
+		return dotnet_getp(nHandle,"ValidationState")
 
 	Func setValidationState P1
 		dotnet_setp(nHandle,"ValidationState",P1)
@@ -3716,6 +3719,9 @@ Class ValueProviderResult from ValueType
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func GetEnumerator 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s13:GetEnumerator")

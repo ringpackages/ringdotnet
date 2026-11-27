@@ -184,10 +184,10 @@ Class HistoryRepository from Object
 		return dnObj(dn_x)
 
 	Func GetCreateIfNotExistsScript 
-		return dnAnswer(dotnet_callt(nHandle,"GetCreateIfNotExistsScript"))
+		return dotnet_callt(nHandle,"GetCreateIfNotExistsScript")
 
 	Func GetCreateScript 
-		return dnAnswer(dotnet_callt(nHandle,"GetCreateScript"))
+		return dotnet_callt(nHandle,"GetCreateScript")
 
 	Func Create 
 		dotnet_calltv(nHandle,"Create")
@@ -264,16 +264,16 @@ Class HistoryRepository from Object
 		return dn_x
 
 	Func GetDeleteScript P1
-		return dnAnswer(dotnet_callt(nHandle,"GetDeleteScript",P1))
+		return dotnet_callt(nHandle,"GetDeleteScript",P1)
 
 	Func GetBeginIfNotExistsScript P1
-		return dnAnswer(dotnet_callt(nHandle,"GetBeginIfNotExistsScript",P1))
+		return dotnet_callt(nHandle,"GetBeginIfNotExistsScript",P1)
 
 	Func GetBeginIfExistsScript P1
-		return dnAnswer(dotnet_callt(nHandle,"GetBeginIfExistsScript",P1))
+		return dotnet_callt(nHandle,"GetBeginIfExistsScript",P1)
 
 	Func GetEndIfScript 
-		return dnAnswer(dotnet_callt(nHandle,"GetEndIfScript"))
+		return dotnet_callt(nHandle,"GetEndIfScript")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -281,7 +281,7 @@ Class HistoryRepository from Object
 		return dn_x
 
 	Func getLockReleaseBehavior
-		return dnAnswer(dotnet_getp(nHandle,"LockReleaseBehavior"))
+		return dotnet_getp(nHandle,"LockReleaseBehavior")
 
 	Func setLockReleaseBehavior P1
 		raise("DotNet Error: LockReleaseBehavior is a read-only property")
@@ -323,6 +323,9 @@ Class HistoryRepositoryDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.HistoryRepositoryDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -461,13 +464,13 @@ Class HistoryRow from Object
 		return dn_x
 
 	Func getMigrationId
-		return dnAnswer(dotnet_getp(nHandle,"MigrationId"))
+		return dotnet_getp(nHandle,"MigrationId")
 
 	Func setMigrationId P1
 		raise("DotNet Error: MigrationId is a read-only property")
 
 	Func getProductVersion
-		return dnAnswer(dotnet_getp(nHandle,"ProductVersion"))
+		return dotnet_getp(nHandle,"ProductVersion")
 
 	Func setProductVersion P1
 		raise("DotNet Error: ProductVersion is a read-only property")
@@ -596,10 +599,10 @@ Class IHistoryRepository from DotNetObject
 		return dnObj(dn_x)
 
 	Func GetCreateScript 
-		return dnAnswer(dotnet_callt(nHandle,"GetCreateScript"))
+		return dotnet_callt(nHandle,"GetCreateScript")
 
 	Func GetCreateIfNotExistsScript 
-		return dnAnswer(dotnet_callt(nHandle,"GetCreateIfNotExistsScript"))
+		return dotnet_callt(nHandle,"GetCreateIfNotExistsScript")
 
 	Func GetInsertScript P1
 		dn_x = dotnet_call("s4:call",nHandle,"s15:GetInsertScript",P1)
@@ -607,19 +610,19 @@ Class IHistoryRepository from DotNetObject
 		return dn_x
 
 	Func GetDeleteScript P1
-		return dnAnswer(dotnet_callt(nHandle,"GetDeleteScript",P1))
+		return dotnet_callt(nHandle,"GetDeleteScript",P1)
 
 	Func GetBeginIfNotExistsScript P1
-		return dnAnswer(dotnet_callt(nHandle,"GetBeginIfNotExistsScript",P1))
+		return dotnet_callt(nHandle,"GetBeginIfNotExistsScript",P1)
 
 	Func GetBeginIfExistsScript P1
-		return dnAnswer(dotnet_callt(nHandle,"GetBeginIfExistsScript",P1))
+		return dotnet_callt(nHandle,"GetBeginIfExistsScript",P1)
 
 	Func GetEndIfScript 
-		return dnAnswer(dotnet_callt(nHandle,"GetEndIfScript"))
+		return dotnet_callt(nHandle,"GetEndIfScript")
 
 	Func getLockReleaseBehavior
-		return dnAnswer(dotnet_getp(nHandle,"LockReleaseBehavior"))
+		return dotnet_getp(nHandle,"LockReleaseBehavior")
 
 	Func setLockReleaseBehavior P1
 		raise("DotNet Error: LockReleaseBehavior is a read-only property")
@@ -783,10 +786,10 @@ Class IMigrationsIdGenerator from DotNetObject
 		return self
 
 	Func GenerateId P1
-		return dnAnswer(dotnet_callt(nHandle,"GenerateId",P1))
+		return dotnet_callt(nHandle,"GenerateId",P1)
 
 	Func GetName P1
-		return dnAnswer(dotnet_callt(nHandle,"GetName",P1))
+		return dotnet_callt(nHandle,"GetName",P1)
 
 	Func IsValidId P1
 		return dnAnswer(dotnet_callt(nHandle,"IsValidId",P1))
@@ -949,7 +952,7 @@ Class MigrationAttribute from Attribute
 		return self
 
 	Func getId
-		return dnAnswer(dotnet_getp(nHandle,"Id"))
+		return dotnet_getp(nHandle,"Id")
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
@@ -1216,6 +1219,9 @@ Class MigrationBuilder from Object
 		ok
 		raise("DotNet Error: UpdateData does not take one argument: use named arguments, UpdateData([ :parameter = value, ... ])")
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1297,7 +1303,7 @@ Class MigrationCommand from Object
 		raise("DotNet Error: TransactionSuppressed is a read-only property")
 
 	Func getCommandText
-		return dnAnswer(dotnet_getp(nHandle,"CommandText"))
+		return dotnet_getp(nHandle,"CommandText")
 
 	Func setCommandText P1
 		raise("DotNet Error: CommandText is a read-only property")
@@ -1524,6 +1530,9 @@ Class MigrationsAnnotationProviderDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -1607,6 +1616,9 @@ Class MigrationsSqlGeneratorDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationsSqlGeneratorDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6,P7,P8,P9])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)

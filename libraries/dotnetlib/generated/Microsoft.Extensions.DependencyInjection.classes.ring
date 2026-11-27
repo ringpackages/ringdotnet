@@ -1762,7 +1762,7 @@ Class IHttpClientBuilder from DotNetObject
 		return dnObj(dn_x)
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -3946,7 +3946,7 @@ Class ISocketsHttpHandlerBuilder from DotNetObject
 		return dnObj(dn_x)
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -6551,6 +6551,9 @@ Class ServiceDescriptor from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -6608,7 +6611,7 @@ Class ServiceDescriptor from Object
 		return dnObj(dotnet_callo("s4:call",'Microsoft.Extensions.DependencyInjection.ServiceDescriptor, Microsoft.Extensions.DependencyInjection.Abstractions',"s13:DescribeKeyed",P1,P2,P3,P4))
 
 	Func getLifetime
-		return dnAnswer(dotnet_getp(nHandle,"Lifetime"))
+		return dotnet_getp(nHandle,"Lifetime")
 
 	Func setLifetime P1
 		raise("DotNet Error: Lifetime is a read-only property")

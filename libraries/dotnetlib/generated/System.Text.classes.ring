@@ -260,7 +260,7 @@ Class CompositeFormat from Object
 		return dnObj(dotnet_callo("s4:call",'System.Text.CompositeFormat, System.Private.CoreLib',"s5:Parse",P1))
 
 	Func getFormat
-		return dnAnswer(dotnet_getp(nHandle,"Format"))
+		return dotnet_getp(nHandle,"Format")
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
@@ -831,25 +831,25 @@ Class Encoding from Object
 		raise("DotNet Error: Preamble is a read-only property")
 
 	Func getBodyName
-		return dnAnswer(dotnet_getp(nHandle,"BodyName"))
+		return dotnet_getp(nHandle,"BodyName")
 
 	Func setBodyName P1
 		raise("DotNet Error: BodyName is a read-only property")
 
 	Func getEncodingName
-		return dnAnswer(dotnet_getp(nHandle,"EncodingName"))
+		return dotnet_getp(nHandle,"EncodingName")
 
 	Func setEncodingName P1
 		raise("DotNet Error: EncodingName is a read-only property")
 
 	Func getHeaderName
-		return dnAnswer(dotnet_getp(nHandle,"HeaderName"))
+		return dotnet_getp(nHandle,"HeaderName")
 
 	Func setHeaderName P1
 		raise("DotNet Error: HeaderName is a read-only property")
 
 	Func getWebName
-		return dnAnswer(dotnet_getp(nHandle,"WebName"))
+		return dotnet_getp(nHandle,"WebName")
 
 	Func setWebName P1
 		raise("DotNet Error: WebName is a read-only property")
@@ -1001,13 +1001,13 @@ Class EncodingInfo from Object
 		raise("DotNet Error: CodePage is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDisplayName
-		return dnAnswer(dotnet_getp(nHandle,"DisplayName"))
+		return dotnet_getp(nHandle,"DisplayName")
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
@@ -1101,6 +1101,9 @@ Class Rune from ValueType
 
 	Func EncodeToUtf8 P1
 		return dnSend("s4:call",nHandle,"s12:EncodeToUtf8",dnPackItem(P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func TryEncodeToUtf16 P1
 		return dnSend("s4:call",nHandle,"s16:TryEncodeToUtf16",dnPackItem(P1))
@@ -1465,6 +1468,9 @@ Class StringBuilder from Object
 		ok
 		raise("DotNet Error: ToString does not take one argument: use named arguments, ToString([ :parameter = value, ... ])")
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Clear 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clear")
 		if isnumber(dn_x) and dn_x = -1
@@ -1686,7 +1692,7 @@ Class DecoderReplacementFallback from DecoderFallback
 		return self
 
 	Func getDefaultString
-		return dnAnswer(dotnet_getp(nHandle,"DefaultString"))
+		return dotnet_getp(nHandle,"DefaultString")
 
 	Func setDefaultString P1
 		raise("DotNet Error: DefaultString is a read-only property")
@@ -1787,7 +1793,7 @@ Class EncoderReplacementFallback from EncoderFallback
 		return self
 
 	Func getDefaultString
-		return dnAnswer(dotnet_getp(nHandle,"DefaultString"))
+		return dotnet_getp(nHandle,"DefaultString")
 
 	Func setDefaultString P1
 		raise("DotNet Error: DefaultString is a read-only property")

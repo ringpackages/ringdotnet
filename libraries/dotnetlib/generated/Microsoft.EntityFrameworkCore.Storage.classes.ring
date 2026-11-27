@@ -768,6 +768,9 @@ Class DatabaseDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -818,6 +821,9 @@ Class DatabaseProviderDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -855,7 +861,7 @@ Class DatabaseProvider from Object
 		return dnAnswer(dotnet_callt(nHandle,"Equals",P1))
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1015,6 +1021,9 @@ Class ExecutionStrategyDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ExecutionStrategyDependencies, Microsoft.EntityFrameworkCore',[P1,P2,P3])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -1295,7 +1304,7 @@ Class IDatabaseProvider from DotNetObject
 		return dn_x
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1752,7 +1761,7 @@ Class IRelationalCommand from DotNetObject
 		return dnObj(dn_x)
 
 	Func getCommandText
-		return dnAnswer(dotnet_getp(nHandle,"CommandText"))
+		return dotnet_getp(nHandle,"CommandText")
 
 	Func setCommandText P1
 		raise("DotNet Error: CommandText is a read-only property")
@@ -1923,7 +1932,7 @@ Class IRelationalCommandTemplate from DotNetObject
 		return dnObj(dn_x)
 
 	Func getCommandText
-		return dnAnswer(dotnet_getp(nHandle,"CommandText"))
+		return dotnet_getp(nHandle,"CommandText")
 
 	Func setCommandText P1
 		raise("DotNet Error: CommandText is a read-only property")
@@ -2284,7 +2293,7 @@ Class IRelationalDatabaseCreator from DotNetObject
 		return dnObj(dn_x)
 
 	Func GenerateCreateScript 
-		return dnAnswer(dotnet_callt(nHandle,"GenerateCreateScript"))
+		return dotnet_callt(nHandle,"GenerateCreateScript")
 
 	Func EnsureDeleted 
 		return dnAnswer(dotnet_callt(nHandle,"EnsureDeleted"))
@@ -2470,7 +2479,7 @@ Class IRelationalParameter from DotNetObject
 		return self
 
 	Func getInvariantName
-		return dnAnswer(dotnet_getp(nHandle,"InvariantName"))
+		return dotnet_getp(nHandle,"InvariantName")
 
 	Func setInvariantName P1
 		raise("DotNet Error: InvariantName is a read-only property")
@@ -2743,46 +2752,46 @@ Class ISqlGenerationHelper from DotNetObject
 		return dn_x
 
 	Func DelimitJsonPathElement P1
-		return dnAnswer(dotnet_callt(nHandle,"DelimitJsonPathElement",P1))
+		return dotnet_callt(nHandle,"DelimitJsonPathElement",P1)
 
 	Func GenerateComment P1
-		return dnAnswer(dotnet_callt(nHandle,"GenerateComment",P1))
+		return dotnet_callt(nHandle,"GenerateComment",P1)
 
 	Func GenerateCreateSavepointStatement P1
-		return dnAnswer(dotnet_callt(nHandle,"GenerateCreateSavepointStatement",P1))
+		return dotnet_callt(nHandle,"GenerateCreateSavepointStatement",P1)
 
 	Func GenerateRollbackToSavepointStatement P1
-		return dnAnswer(dotnet_callt(nHandle,"GenerateRollbackToSavepointStatement",P1))
+		return dotnet_callt(nHandle,"GenerateRollbackToSavepointStatement",P1)
 
 	Func GenerateReleaseSavepointStatement P1
-		return dnAnswer(dotnet_callt(nHandle,"GenerateReleaseSavepointStatement",P1))
+		return dotnet_callt(nHandle,"GenerateReleaseSavepointStatement",P1)
 
 	Func getStatementTerminator
-		return dnAnswer(dotnet_getp(nHandle,"StatementTerminator"))
+		return dotnet_getp(nHandle,"StatementTerminator")
 
 	Func setStatementTerminator P1
 		raise("DotNet Error: StatementTerminator is a read-only property")
 
 	Func getBatchTerminator
-		return dnAnswer(dotnet_getp(nHandle,"BatchTerminator"))
+		return dotnet_getp(nHandle,"BatchTerminator")
 
 	Func setBatchTerminator P1
 		raise("DotNet Error: BatchTerminator is a read-only property")
 
 	Func getStartTransactionStatement
-		return dnAnswer(dotnet_getp(nHandle,"StartTransactionStatement"))
+		return dotnet_getp(nHandle,"StartTransactionStatement")
 
 	Func setStartTransactionStatement P1
 		raise("DotNet Error: StartTransactionStatement is a read-only property")
 
 	Func getCommitTransactionStatement
-		return dnAnswer(dotnet_getp(nHandle,"CommitTransactionStatement"))
+		return dotnet_getp(nHandle,"CommitTransactionStatement")
 
 	Func setCommitTransactionStatement P1
 		raise("DotNet Error: CommitTransactionStatement is a read-only property")
 
 	Func getSingleLineCommentToken
-		return dnAnswer(dotnet_getp(nHandle,"SingleLineCommentToken"))
+		return dotnet_getp(nHandle,"SingleLineCommentToken")
 
 	Func setSingleLineCommentToken P1
 		raise("DotNet Error: SingleLineCommentToken is a read-only property")
@@ -2997,7 +3006,7 @@ Class ParameterNameGenerator from Object
 		return self
 
 	Func GenerateNext 
-		return dnAnswer(dotnet_callt(nHandle,"GenerateNext"))
+		return dotnet_callt(nHandle,"GenerateNext")
 
 	Func Reset 
 		dotnet_calltv(nHandle,"Reset")
@@ -3028,6 +3037,9 @@ Class ParameterNameGeneratorDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ParameterNameGeneratorDependencies, Microsoft.EntityFrameworkCore.Relational',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3248,7 +3260,7 @@ Class RelationalCommand from Object
 		return dn_x
 
 	Func getCommandText
-		return dnAnswer(dotnet_getp(nHandle,"CommandText"))
+		return dotnet_getp(nHandle,"CommandText")
 
 	Func setCommandText P1
 		raise("DotNet Error: CommandText is a read-only property")
@@ -3283,6 +3295,9 @@ Class RelationalCommandBuilder from Object
 			return self
 		ok
 		return dnObj(dn_x)
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func AddParameter P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s12:AddParameter",P1)
@@ -3400,6 +3415,9 @@ Class RelationalCommandBuilderDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -3573,7 +3591,7 @@ Class RelationalCommandParameterObject from ValueType
 		raise("DotNet Error: DetailedErrorsEnabled is a read-only property")
 
 	Func getCommandSource
-		return dnAnswer(dotnet_getp(nHandle,"CommandSource"))
+		return dotnet_getp(nHandle,"CommandSource")
 
 	Func setCommandSource P1
 		raise("DotNet Error: CommandSource is a read-only property")
@@ -3840,6 +3858,9 @@ Class RelationalConnectionDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalConnectionDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6,P7])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4165,7 +4186,7 @@ Class RelationalDatabaseCreator from Object
 		return dnObj(dn_x)
 
 	Func GenerateCreateScript 
-		return dnAnswer(dotnet_callt(nHandle,"GenerateCreateScript"))
+		return dotnet_callt(nHandle,"GenerateCreateScript")
 
 	Func CanConnect 
 		return dnAnswer(dotnet_callt(nHandle,"CanConnect"))
@@ -4215,6 +4236,9 @@ Class RelationalDatabaseCreatorDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreatorDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6,P7,P8,P9])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4304,6 +4328,9 @@ Class RelationalDatabaseDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4453,22 +4480,22 @@ Class RelationalSqlGenerationHelper from Object
 		return dn_x
 
 	Func EscapeJsonPathElement P1
-		return dnAnswer(dotnet_callt(nHandle,"EscapeJsonPathElement",P1))
+		return dotnet_callt(nHandle,"EscapeJsonPathElement",P1)
 
 	Func DelimitJsonPathElement P1
-		return dnAnswer(dotnet_callt(nHandle,"DelimitJsonPathElement",P1))
+		return dotnet_callt(nHandle,"DelimitJsonPathElement",P1)
 
 	Func GenerateComment P1
-		return dnAnswer(dotnet_callt(nHandle,"GenerateComment",P1))
+		return dotnet_callt(nHandle,"GenerateComment",P1)
 
 	Func GenerateCreateSavepointStatement P1
-		return dnAnswer(dotnet_callt(nHandle,"GenerateCreateSavepointStatement",P1))
+		return dotnet_callt(nHandle,"GenerateCreateSavepointStatement",P1)
 
 	Func GenerateRollbackToSavepointStatement P1
-		return dnAnswer(dotnet_callt(nHandle,"GenerateRollbackToSavepointStatement",P1))
+		return dotnet_callt(nHandle,"GenerateRollbackToSavepointStatement",P1)
 
 	Func GenerateReleaseSavepointStatement P1
-		return dnAnswer(dotnet_callt(nHandle,"GenerateReleaseSavepointStatement",P1))
+		return dotnet_callt(nHandle,"GenerateReleaseSavepointStatement",P1)
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4476,31 +4503,31 @@ Class RelationalSqlGenerationHelper from Object
 		return dn_x
 
 	Func getStatementTerminator
-		return dnAnswer(dotnet_getp(nHandle,"StatementTerminator"))
+		return dotnet_getp(nHandle,"StatementTerminator")
 
 	Func setStatementTerminator P1
 		raise("DotNet Error: StatementTerminator is a read-only property")
 
 	Func getBatchTerminator
-		return dnAnswer(dotnet_getp(nHandle,"BatchTerminator"))
+		return dotnet_getp(nHandle,"BatchTerminator")
 
 	Func setBatchTerminator P1
 		raise("DotNet Error: BatchTerminator is a read-only property")
 
 	Func getStartTransactionStatement
-		return dnAnswer(dotnet_getp(nHandle,"StartTransactionStatement"))
+		return dotnet_getp(nHandle,"StartTransactionStatement")
 
 	Func setStartTransactionStatement P1
 		raise("DotNet Error: StartTransactionStatement is a read-only property")
 
 	Func getCommitTransactionStatement
-		return dnAnswer(dotnet_getp(nHandle,"CommitTransactionStatement"))
+		return dotnet_getp(nHandle,"CommitTransactionStatement")
 
 	Func setCommitTransactionStatement P1
 		raise("DotNet Error: CommitTransactionStatement is a read-only property")
 
 	Func getSingleLineCommentToken
-		return dnAnswer(dotnet_getp(nHandle,"SingleLineCommentToken"))
+		return dotnet_getp(nHandle,"SingleLineCommentToken")
 
 	Func setSingleLineCommentToken P1
 		raise("DotNet Error: SingleLineCommentToken is a read-only property")
@@ -4525,6 +4552,9 @@ Class RelationalSqlGenerationHelperDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalSqlGenerationHelperDependencies, Microsoft.EntityFrameworkCore.Relational',[])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -4748,6 +4778,9 @@ Class RelationalTransactionFactoryDependencies from Object
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
+
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
@@ -4947,6 +4980,9 @@ Class RelationalTypeMappingSourceDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceDependencies, Microsoft.EntityFrameworkCore.Relational',[P1])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -5203,6 +5239,9 @@ Class TypeMappingSourceDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMappingSourceDependencies, Microsoft.EntityFrameworkCore',[P1,P2,P3])
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func Equals P1
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
@@ -5498,19 +5537,19 @@ Class RelationalTypeMapping from CoreTypeMapping
 		return dnObj(dn_x)
 
 	Func getStoreTypePostfix
-		return dnAnswer(dotnet_getp(nHandle,"StoreTypePostfix"))
+		return dotnet_getp(nHandle,"StoreTypePostfix")
 
 	Func setStoreTypePostfix P1
 		raise("DotNet Error: StoreTypePostfix is a read-only property")
 
 	Func getStoreType
-		return dnAnswer(dotnet_getp(nHandle,"StoreType"))
+		return dotnet_getp(nHandle,"StoreType")
 
 	Func setStoreType P1
 		raise("DotNet Error: StoreType is a read-only property")
 
 	Func getStoreTypeNameBase
-		return dnAnswer(dotnet_getp(nHandle,"StoreTypeNameBase"))
+		return dotnet_getp(nHandle,"StoreTypeNameBase")
 
 	Func setStoreTypeNameBase P1
 		raise("DotNet Error: StoreTypeNameBase is a read-only property")
@@ -6211,10 +6250,10 @@ Class RelationalGeometryTypeMapping from RelationalTypeMapping
 		return self
 
 	Func GenerateSqlLiteral P1
-		return dnAnswer(dotnet_callt(nHandle,"GenerateSqlLiteral",P1))
+		return dotnet_callt(nHandle,"GenerateSqlLiteral",P1)
 
 	Func GenerateProviderValueSqlLiteral P1
-		return dnAnswer(dotnet_callt(nHandle,"GenerateProviderValueSqlLiteral",P1))
+		return dotnet_callt(nHandle,"GenerateProviderValueSqlLiteral",P1)
 
 	Func GetDataReaderMethod 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s19:GetDataReaderMethod")

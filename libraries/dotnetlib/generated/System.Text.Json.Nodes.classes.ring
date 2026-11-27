@@ -66,7 +66,7 @@ Class JsonNode from Object
 		return dnObj(dn_x)
 
 	Func GetPath 
-		return dnAnswer(dotnet_callt(nHandle,"GetPath"))
+		return dotnet_callt(nHandle,"GetPath")
 
 	Func GetValue P1
 		if dotnet_isnamed(P1)
@@ -96,7 +96,7 @@ Class JsonNode from Object
 		return dnObj(dn_x)
 
 	Func GetPropertyName 
-		return dnAnswer(dotnet_callt(nHandle,"GetPropertyName"))
+		return dotnet_callt(nHandle,"GetPropertyName")
 
 	Func GetElementIndex 
 		return dnAnswer(dotnet_callt(nHandle,"GetElementIndex"))
@@ -108,6 +108,9 @@ Class JsonNode from Object
 
 	Func ToJsonString P1
 		return dnAnswer(dotnet_calltd(nHandle,"ToJsonString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func WriteTo P1
 		dotnet_calltd1v(nHandle,"WriteTo",P1)

@@ -570,19 +570,19 @@ Class IPGlobalProperties from Object
 		return dnObj(dotnet_callo("s4:call",'System.Net.NetworkInformation.IPGlobalProperties, System.Net.NetworkInformation',"s21:GetIPGlobalProperties"))
 
 	Func getDhcpScopeName
-		return dnAnswer(dotnet_getp(nHandle,"DhcpScopeName"))
+		return dotnet_getp(nHandle,"DhcpScopeName")
 
 	Func setDhcpScopeName P1
 		raise("DotNet Error: DhcpScopeName is a read-only property")
 
 	Func getDomainName
-		return dnAnswer(dotnet_getp(nHandle,"DomainName"))
+		return dotnet_getp(nHandle,"DomainName")
 
 	Func setDomainName P1
 		raise("DotNet Error: DomainName is a read-only property")
 
 	Func getHostName
-		return dnAnswer(dotnet_getp(nHandle,"HostName"))
+		return dotnet_getp(nHandle,"HostName")
 
 	Func setHostName P1
 		raise("DotNet Error: HostName is a read-only property")
@@ -594,7 +594,7 @@ Class IPGlobalProperties from Object
 		raise("DotNet Error: IsWinsProxy is a read-only property")
 
 	Func getNodeType
-		return dnAnswer(dotnet_getp(nHandle,"NodeType"))
+		return dotnet_getp(nHandle,"NodeType")
 
 	Func setNodeType P1
 		raise("DotNet Error: NodeType is a read-only property")
@@ -820,7 +820,7 @@ Class IPInterfaceProperties from Object
 		raise("DotNet Error: IsDnsEnabled is a read-only property")
 
 	Func getDnsSuffix
-		return dnAnswer(dotnet_getp(nHandle,"DnsSuffix"))
+		return dotnet_getp(nHandle,"DnsSuffix")
 
 	Func setDnsSuffix P1
 		raise("DotNet Error: DnsSuffix is a read-only property")
@@ -1893,25 +1893,25 @@ Class NetworkInterface from Object
 		return dnAnswer(dotnet_callts('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation','GetIsNetworkAvailable'))
 
 	Func getId
-		return dnAnswer(dotnet_getp(nHandle,"Id"))
+		return dotnet_getp(nHandle,"Id")
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDescription
-		return dnAnswer(dotnet_getp(nHandle,"Description"))
+		return dotnet_getp(nHandle,"Description")
 
 	Func setDescription P1
 		raise("DotNet Error: Description is a read-only property")
 
 	Func getOperationalStatus
-		return dnAnswer(dotnet_getp(nHandle,"OperationalStatus"))
+		return dotnet_getp(nHandle,"OperationalStatus")
 
 	Func setOperationalStatus P1
 		raise("DotNet Error: OperationalStatus is a read-only property")
@@ -1935,7 +1935,7 @@ Class NetworkInterface from Object
 		raise("DotNet Error: SupportsMulticast is a read-only property")
 
 	Func getNetworkInterfaceType
-		return dnAnswer(dotnet_getp(nHandle,"NetworkInterfaceType"))
+		return dotnet_getp(nHandle,"NetworkInterfaceType")
 
 	Func setNetworkInterfaceType P1
 		raise("DotNet Error: NetworkInterfaceType is a read-only property")
@@ -1972,6 +1972,9 @@ Class PhysicalAddress from Object
 		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
 		if islist(dn_x) return dnFinish(dn_x[2]) ok
 		return dn_x
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func GetAddressBytes 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s15:GetAddressBytes")
@@ -2184,7 +2187,7 @@ Class PingReply from Object
 		return dn_x
 
 	Func getStatus
-		return dnAnswer(dotnet_getp(nHandle,"Status"))
+		return dotnet_getp(nHandle,"Status")
 
 	Func setStatus P1
 		raise("DotNet Error: Status is a read-only property")
@@ -2247,7 +2250,7 @@ Class TcpConnectionInformation from Object
 		raise("DotNet Error: RemoteEndPoint is a read-only property")
 
 	Func getState
-		return dnAnswer(dotnet_getp(nHandle,"State"))
+		return dotnet_getp(nHandle,"State")
 
 	Func setState P1
 		raise("DotNet Error: State is a read-only property")
@@ -2557,19 +2560,19 @@ Class MulticastIPAddressInformation from IPAddressInformation
 		raise("DotNet Error: DhcpLeaseLifetime is a read-only property")
 
 	Func getDuplicateAddressDetectionState
-		return dnAnswer(dotnet_getp(nHandle,"DuplicateAddressDetectionState"))
+		return dotnet_getp(nHandle,"DuplicateAddressDetectionState")
 
 	Func setDuplicateAddressDetectionState P1
 		raise("DotNet Error: DuplicateAddressDetectionState is a read-only property")
 
 	Func getPrefixOrigin
-		return dnAnswer(dotnet_getp(nHandle,"PrefixOrigin"))
+		return dotnet_getp(nHandle,"PrefixOrigin")
 
 	Func setPrefixOrigin P1
 		raise("DotNet Error: PrefixOrigin is a read-only property")
 
 	Func getSuffixOrigin
-		return dnAnswer(dotnet_getp(nHandle,"SuffixOrigin"))
+		return dotnet_getp(nHandle,"SuffixOrigin")
 
 	Func setSuffixOrigin P1
 		raise("DotNet Error: SuffixOrigin is a read-only property")
@@ -2614,19 +2617,19 @@ Class UnicastIPAddressInformation from IPAddressInformation
 		raise("DotNet Error: DhcpLeaseLifetime is a read-only property")
 
 	Func getDuplicateAddressDetectionState
-		return dnAnswer(dotnet_getp(nHandle,"DuplicateAddressDetectionState"))
+		return dotnet_getp(nHandle,"DuplicateAddressDetectionState")
 
 	Func setDuplicateAddressDetectionState P1
 		raise("DotNet Error: DuplicateAddressDetectionState is a read-only property")
 
 	Func getPrefixOrigin
-		return dnAnswer(dotnet_getp(nHandle,"PrefixOrigin"))
+		return dotnet_getp(nHandle,"PrefixOrigin")
 
 	Func setPrefixOrigin P1
 		raise("DotNet Error: PrefixOrigin is a read-only property")
 
 	Func getSuffixOrigin
-		return dnAnswer(dotnet_getp(nHandle,"SuffixOrigin"))
+		return dotnet_getp(nHandle,"SuffixOrigin")
 
 	Func setSuffixOrigin P1
 		raise("DotNet Error: SuffixOrigin is a read-only property")

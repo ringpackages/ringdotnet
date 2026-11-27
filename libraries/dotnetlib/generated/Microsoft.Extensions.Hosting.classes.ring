@@ -981,7 +981,7 @@ Class HostOptions from Object
 		return self
 
 	Func getBackgroundServiceExceptionBehavior
-		return dnAnswer(dotnet_getp(nHandle,"BackgroundServiceExceptionBehavior"))
+		return dotnet_getp(nHandle,"BackgroundServiceExceptionBehavior")
 
 	Func setBackgroundServiceExceptionBehavior P1
 		dotnet_setp(nHandle,"BackgroundServiceExceptionBehavior",P1)
@@ -1617,21 +1617,21 @@ Class IHostEnvironment from DotNetObject
 		return dn_x
 
 	Func getEnvironmentName
-		return dnAnswer(dotnet_getp(nHandle,"EnvironmentName"))
+		return dotnet_getp(nHandle,"EnvironmentName")
 
 	Func setEnvironmentName P1
 		dotnet_setp(nHandle,"EnvironmentName",P1)
 		return self
 
 	Func getApplicationName
-		return dnAnswer(dotnet_getp(nHandle,"ApplicationName"))
+		return dotnet_getp(nHandle,"ApplicationName")
 
 	Func setApplicationName P1
 		dotnet_setp(nHandle,"ApplicationName",P1)
 		return self
 
 	Func getContentRootPath
-		return dnAnswer(dotnet_getp(nHandle,"ContentRootPath"))
+		return dotnet_getp(nHandle,"ContentRootPath")
 
 	Func setContentRootPath P1
 		dotnet_setp(nHandle,"ContentRootPath",P1)

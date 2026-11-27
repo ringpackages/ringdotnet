@@ -859,7 +859,7 @@ Class X500DistinguishedName from AsnEncodedData
 		return dnObj(dn_x)
 
 	Func getName
-		return dnAnswer(dotnet_getp(nHandle,"Name"))
+		return dotnet_getp(nHandle,"Name")
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1044,7 +1044,7 @@ Class X509Certificate from Object
 		return dnObj(dn_x)
 
 	Func GetRawCertDataString 
-		return dnAnswer(dotnet_callt(nHandle,"GetRawCertDataString"))
+		return dotnet_callt(nHandle,"GetRawCertDataString")
 
 	Func GetCertHash P1
 		if dotnet_isnamed(P1)
@@ -1070,16 +1070,16 @@ Class X509Certificate from Object
 		return dnAnswer(dotnet_calltd(nHandle,"GetCertHashString",P1))
 
 	Func GetEffectiveDateString 
-		return dnAnswer(dotnet_callt(nHandle,"GetEffectiveDateString"))
+		return dotnet_callt(nHandle,"GetEffectiveDateString")
 
 	Func GetExpirationDateString 
-		return dnAnswer(dotnet_callt(nHandle,"GetExpirationDateString"))
+		return dotnet_callt(nHandle,"GetExpirationDateString")
 
 	Func GetFormat 
-		return dnAnswer(dotnet_callt(nHandle,"GetFormat"))
+		return dotnet_callt(nHandle,"GetFormat")
 
 	Func GetPublicKeyString 
-		return dnAnswer(dotnet_callt(nHandle,"GetPublicKeyString"))
+		return dotnet_callt(nHandle,"GetPublicKeyString")
 
 	Func GetRawCertData 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s14:GetRawCertData")
@@ -1089,7 +1089,7 @@ Class X509Certificate from Object
 		return dnObj(dn_x)
 
 	Func GetKeyAlgorithm 
-		return dnAnswer(dotnet_callt(nHandle,"GetKeyAlgorithm"))
+		return dotnet_callt(nHandle,"GetKeyAlgorithm")
 
 	Func GetKeyAlgorithmParameters 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s25:GetKeyAlgorithmParameters")
@@ -1099,7 +1099,7 @@ Class X509Certificate from Object
 		return dnObj(dn_x)
 
 	Func GetKeyAlgorithmParametersString 
-		return dnAnswer(dotnet_callt(nHandle,"GetKeyAlgorithmParametersString"))
+		return dotnet_callt(nHandle,"GetKeyAlgorithmParametersString")
 
 	Func GetPublicKey 
 		dn_x = dotnet_callo("s5:calls",nHandle,"s12:GetPublicKey")
@@ -1116,16 +1116,19 @@ Class X509Certificate from Object
 		return dnObj(dn_x)
 
 	Func GetSerialNumberString 
-		return dnAnswer(dotnet_callt(nHandle,"GetSerialNumberString"))
+		return dotnet_callt(nHandle,"GetSerialNumberString")
 
 	Func GetName 
-		return dnAnswer(dotnet_callt(nHandle,"GetName"))
+		return dotnet_callt(nHandle,"GetName")
 
 	Func GetIssuerName 
-		return dnAnswer(dotnet_callt(nHandle,"GetIssuerName"))
+		return dotnet_callt(nHandle,"GetIssuerName")
 
 	Func Format P1
 		return dnAnswer(dotnet_calltd1(nHandle,"ToString",P1))
+
+	Func ToString 
+		return dotnet_callt(nHandle,"ToString")
 
 	Func @Import P1
 		dotnet_calltd1v(nHandle,"Import",P1)
@@ -1144,13 +1147,13 @@ Class X509Certificate from Object
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getIssuer
-		return dnAnswer(dotnet_getp(nHandle,"Issuer"))
+		return dotnet_getp(nHandle,"Issuer")
 
 	Func setIssuer P1
 		raise("DotNet Error: Issuer is a read-only property")
 
 	Func getSubject
-		return dnAnswer(dotnet_getp(nHandle,"Subject"))
+		return dotnet_getp(nHandle,"Subject")
 
 	Func setSubject P1
 		raise("DotNet Error: Subject is a read-only property")
@@ -1486,7 +1489,7 @@ Class X509ChainElement from Object
 		raise("DotNet Error: ChainElementStatus is a read-only property")
 
 	Func getInformation
-		return dnAnswer(dotnet_getp(nHandle,"Information"))
+		return dotnet_getp(nHandle,"Information")
 
 	Func setInformation P1
 		raise("DotNet Error: Information is a read-only property")
@@ -1698,28 +1701,28 @@ Class X509ChainPolicy from Object
 		raise("DotNet Error: CustomTrustStore is a read-only property")
 
 	Func getRevocationMode
-		return dnAnswer(dotnet_getp(nHandle,"RevocationMode"))
+		return dotnet_getp(nHandle,"RevocationMode")
 
 	Func setRevocationMode P1
 		dotnet_setp(nHandle,"RevocationMode",P1)
 		return self
 
 	Func getRevocationFlag
-		return dnAnswer(dotnet_getp(nHandle,"RevocationFlag"))
+		return dotnet_getp(nHandle,"RevocationFlag")
 
 	Func setRevocationFlag P1
 		dotnet_setp(nHandle,"RevocationFlag",P1)
 		return self
 
 	Func getVerificationFlags
-		return dnAnswer(dotnet_getp(nHandle,"VerificationFlags"))
+		return dotnet_getp(nHandle,"VerificationFlags")
 
 	Func setVerificationFlags P1
 		dotnet_setp(nHandle,"VerificationFlags",P1)
 		return self
 
 	Func getTrustMode
-		return dnAnswer(dotnet_getp(nHandle,"TrustMode"))
+		return dotnet_getp(nHandle,"TrustMode")
 
 	Func setTrustMode P1
 		dotnet_setp(nHandle,"TrustMode",P1)
@@ -1764,14 +1767,14 @@ Class X509ChainStatus from ValueType
 		return self
 
 	Func getStatus
-		return dnAnswer(dotnet_getp(nHandle,"Status"))
+		return dotnet_getp(nHandle,"Status")
 
 	Func setStatus P1
 		dotnet_setp(nHandle,"Status",P1)
 		return self
 
 	Func getStatusInformation
-		return dnAnswer(dotnet_getp(nHandle,"StatusInformation"))
+		return dotnet_getp(nHandle,"StatusInformation")
 
 	Func setStatusInformation P1
 		dotnet_setp(nHandle,"StatusInformation",P1)
@@ -2080,7 +2083,7 @@ Class X509Store from Object
 		raise("DotNet Error: StoreHandle is a read-only property")
 
 	Func getLocation
-		return dnAnswer(dotnet_getp(nHandle,"Location"))
+		return dotnet_getp(nHandle,"Location")
 
 	Func setLocation P1
 		raise("DotNet Error: Location is a read-only property")
@@ -2400,7 +2403,7 @@ Class X509Certificate2 from X509Certificate
 		return dnObj(dn_x)
 
 	Func ExportCertificatePem 
-		return dnAnswer(dotnet_callt(nHandle,"ExportCertificatePem"))
+		return dotnet_callt(nHandle,"ExportCertificatePem")
 
 	Func TryExportCertificatePem P1
 		return dnSend("s4:call",nHandle,"s23:TryExportCertificatePem",dnPackItem(P1))
@@ -2423,7 +2426,7 @@ Class X509Certificate2 from X509Certificate
 		return dnObj(dn_x)
 
 	Func @GetIssuerName 
-		return dnAnswer(dotnet_callt(nHandle,"GetIssuerName"))
+		return dotnet_callt(nHandle,"GetIssuerName")
 
 	Func GetCertContentType P1
 		return dnObj(dotnet_callo("s4:call",'System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',"s18:GetCertContentType",P1))
@@ -2511,7 +2514,7 @@ Class X509Certificate2 from X509Certificate
 		raise("DotNet Error: Extensions is a read-only property")
 
 	Func getFriendlyName
-		return dnAnswer(dotnet_getp(nHandle,"FriendlyName"))
+		return dotnet_getp(nHandle,"FriendlyName")
 
 	Func setFriendlyName P1
 		dotnet_setp(nHandle,"FriendlyName",P1)
@@ -2567,7 +2570,7 @@ Class X509Certificate2 from X509Certificate
 		raise("DotNet Error: RawDataMemory is a read-only property")
 
 	Func getSerialNumber
-		return dnAnswer(dotnet_getp(nHandle,"SerialNumber"))
+		return dotnet_getp(nHandle,"SerialNumber")
 
 	Func setSerialNumber P1
 		raise("DotNet Error: SerialNumber is a read-only property")
@@ -2585,7 +2588,7 @@ Class X509Certificate2 from X509Certificate
 		raise("DotNet Error: SubjectName is a read-only property")
 
 	Func getThumbprint
-		return dnAnswer(dotnet_getp(nHandle,"Thumbprint"))
+		return dotnet_getp(nHandle,"Thumbprint")
 
 	Func setThumbprint P1
 		raise("DotNet Error: Thumbprint is a read-only property")
@@ -2669,13 +2672,13 @@ Class X509Certificate2Collection from X509CertificateCollection
 		return self
 
 	Func ExportPkcs7Pem 
-		return dnAnswer(dotnet_callt(nHandle,"ExportPkcs7Pem"))
+		return dotnet_callt(nHandle,"ExportPkcs7Pem")
 
 	Func TryExportPkcs7Pem P1
 		return dnSend("s4:call",nHandle,"s17:TryExportPkcs7Pem",dnPackItem(P1))
 
 	Func ExportCertificatePems 
-		return dnAnswer(dotnet_callt(nHandle,"ExportCertificatePems"))
+		return dotnet_callt(nHandle,"ExportCertificatePems")
 
 	Func TryExportCertificatePems P1
 		return dnSend("s4:call",nHandle,"s24:TryExportCertificatePems",dnPackItem(P1))
@@ -2765,7 +2768,7 @@ Class X509KeyUsageExtension from X509Extension
 		return self
 
 	Func getKeyUsages
-		return dnAnswer(dotnet_getp(nHandle,"KeyUsages"))
+		return dotnet_getp(nHandle,"KeyUsages")
 
 	Func setKeyUsages P1
 		raise("DotNet Error: KeyUsages is a read-only property")
