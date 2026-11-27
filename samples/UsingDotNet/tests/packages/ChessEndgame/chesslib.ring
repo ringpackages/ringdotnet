@@ -24,8 +24,9 @@ func chessSetup
 	# the classes of the namespaces that the example uses (the generator is a Ring program of this package: tools/dotnettools/wrapassembly.ring). The assemblies that belong together
 	# are wrapped in one run: the extension methods of the trainers (LightGbm, FastTree) join the classes of the catalogs of Microsoft.ML.Data, and the result of a call is wrapped
 	# by its real type (an estimator has Fit).
-	if not fexists(cClasses + "/Microsoft.ML.Trainers.LightGbm.classes.ring")
-		? "Making the Ring classes of ML.NET (the first time only) ..."
+	cStamp = chessStamp(cHere)
+	if not fexists(cClasses + "/Microsoft.ML.Trainers.LightGbm.classes.ring") or not fexists(cClasses + "/.generator") or read(cClasses + "/.generator") != cStamp
+		? "Making the Ring classes of ML.NET (the first time only, and when the generator changed) ..."
 		cDlls = ""
 		for cDll in ["Microsoft.ML.Data","Microsoft.ML.DataView","Microsoft.ML.Transforms","Microsoft.ML.StandardTrainers","Microsoft.ML.FastTree","Microsoft.ML.LightGbm"]
 			cDlls += cLibs + "/" + cDll + ".dll;"
@@ -33,6 +34,7 @@ func chessSetup
 		chdir("../../../../../tools/dotnettools")
 		system(exefilename() + ' wrapassembly.ring "' + left(cDlls,len(cDlls) - 1) + '" "' + cClasses + '" Microsoft.ML Microsoft.ML.Data Microsoft.ML.Transforms Microsoft.ML.Trainers Microsoft.ML.Trainers.FastTree Microsoft.ML.Trainers.LightGbm' + chessQuiet())
 		chdir(cHere)
+		write(cClasses + "/.generator",cStamp)
 	ok
 	for cDll in ["Microsoft.ML.Data","Microsoft.ML.Core","Microsoft.ML.StandardTrainers","Microsoft.ML.Transforms","Microsoft.ML.DataView","Microsoft.ML.CpuMath","Microsoft.ML.FastTree","Microsoft.ML.LightGbm"]
 		dnLoad(cLibs + "/" + cDll + ".dll")
@@ -40,6 +42,15 @@ func chessSetup
 	for cNamespace in ["Microsoft.ML","Microsoft.ML.Data","Microsoft.ML.Transforms","Microsoft.ML.Trainers","Microsoft.ML.Trainers.FastTree","Microsoft.ML.Trainers.LightGbm"]
 		dnImportFrom(cClasses + "/",cNamespace)
 	next
+
+# A text that changes when the generator, the bridge or the generated library changes: the classes of the folder are made again then (they would show an old generator)
+func chessStamp cHere
+
+	cText = ""
+	for cFile in ["tools/dotnettools/gendotnetcore.ring","tools/dotnettools/wrapassembly.ring","bin/RingDotNet.Bridge.dll","libraries/dotnetlib/generated/classindex.ring"]
+		cText += left(dnStatic("System.Convert","ToHexString",[dnStatic("System.Security.Cryptography.SHA256","HashData",[read(cHere + "/../../../../../" + cFile)])]),16) + ";"
+	next
+	return cText
 
 func chessQuiet
 
