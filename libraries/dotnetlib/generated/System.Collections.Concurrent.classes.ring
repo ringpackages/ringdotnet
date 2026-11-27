@@ -224,6 +224,22 @@ Class BlockingCollection from Object
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func getBoundedCapacity
 		return dotnet_getp(nHandle,"BoundedCapacity")
 
@@ -330,6 +346,22 @@ Class ConcurrentBag from Object
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -456,6 +488,22 @@ Class ConcurrentDictionary from Object
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
@@ -623,6 +671,22 @@ Class ConcurrentQueue from Object
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func getIsEmpty
 		return dotnet_getp(nHandle,"IsEmpty")
 
@@ -725,6 +789,22 @@ Class ConcurrentStack from Object
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func getIsEmpty
 		return dotnet_getp(nHandle,"IsEmpty")
 
@@ -809,6 +889,22 @@ Class IProducerConsumerCollection from DotNetObject
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -998,6 +1094,22 @@ Class ConcurrentStringQueue from Object
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func getIsEmpty
 		return dotnet_getp(nHandle,"IsEmpty")
 
@@ -1116,6 +1228,22 @@ Class ConcurrentObjectQueue from Object
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getIsEmpty
 		return dotnet_getp(nHandle,"IsEmpty")
@@ -1243,6 +1371,22 @@ Class ConcurrentObjectStack from Object
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func getIsEmpty
 		return dotnet_getp(nHandle,"IsEmpty")
 
@@ -1361,6 +1505,22 @@ Class ConcurrentObjectBag from Object
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")
@@ -1514,6 +1674,22 @@ Class ConcurrentObjectDictionary from Object
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
@@ -1696,6 +1872,22 @@ Class ConcurrentStringDictionary from Object
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		return dnAnswer(dotnet_callt(nHandle,"get_Item",P1))
@@ -1912,6 +2104,22 @@ Class BlockingObjectCollection from Object
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getBoundedCapacity
 		return dotnet_getp(nHandle,"BoundedCapacity")

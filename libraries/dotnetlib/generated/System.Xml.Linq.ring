@@ -2,7 +2,7 @@
 dnImport("System")
 dnImport("System.Xml")
 dnImport("System.IO")
-dnRegisterClass("System.Xml.Linq.Extensions","Extensions",0)
+dnRegisterClass("System.Xml.Linq.Extensions","LinqExtensions",0)
 dnRegisterClass("System.Xml.Linq.XDeclaration","XDeclaration",1)
 dnRegisterClass("System.Xml.Linq.XName","XName",0)
 dnRegisterClass("System.Xml.Linq.XNamespace","XNamespace",0)

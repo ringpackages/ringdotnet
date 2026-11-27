@@ -695,6 +695,22 @@ Class CookieCollection from Object
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -953,6 +969,22 @@ Class CredentialCache from Object
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getDefaultCredentials
 		return dnObj(dotnet_callo("s3:get",'System.Net.CredentialCache, System.Net.Primitives',"s18:DefaultCredentials"))
@@ -1312,18 +1344,9 @@ Class HttpListener from Object
 		raise("DotNet Error: IsSupported is a read-only property")
 
 
-Class HttpListenerBasicIdentity from DotNetObject
+Class HttpListenerBasicIdentity from GenericIdentity
 
 	Password
-	Claims
-	Name
-	AuthenticationType
-	IsAuthenticated
-	Actor
-	BootstrapContext
-	Label
-	NameClaimType
-	RoleClaimType
 
 	Func init P1,P2
 		if nDotNetWrapHandle != 0
@@ -1336,135 +1359,11 @@ Class HttpListenerBasicIdentity from DotNetObject
 		oDotNetGuard = dotnet_guard(nHandle)
 		return self
 
-	Func Clone 
-		dn_x = dotnet_callo("s5:calls",nHandle,"s5:Clone")
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
-
-	Func AddClaim P1
-		dotnet_callv("s4:call",nHandle,"s8:AddClaim",P1)
-
-		return self
-
-	Func AddClaims P1
-		dotnet_callv("s4:call",nHandle,"s9:AddClaims",P1)
-
-		return self
-
-	Func TryRemoveClaim P1
-		dn_x = dotnet_call("s4:call",nHandle,"s14:TryRemoveClaim",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func RemoveClaim P1
-		dotnet_callv("s4:call",nHandle,"s11:RemoveClaim",P1)
-
-		return self
-
-	Func FindAll P1
-		dn_x = dotnet_callo("s5:calls",nHandle,"s7:FindAll",P1)
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
-
-	Func FindFirst P1
-		dn_x = dotnet_callo("s5:calls",nHandle,"s9:FindFirst",P1)
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
-
-	Func HasClaim P1
-		return dnAnswer(dotnet_calltd1(nHandle,"HasClaim",P1))
-
-	Func WriteTo P1
-		dotnet_callv("s4:call",nHandle,"s7:WriteTo",P1)
-
-		return self
-
-	Func GetType 
-		dn_x = dotnet_callo("s5:calls",nHandle,"s7:GetType")
-		if isnumber(dn_x) and dn_x = -1
-			return self
-		ok
-		return dnObj(dn_x)
-
-	Func ToString 
-		return dnAnswer(dotnet_callt(nHandle,"ToString"))
-
-	Func Equals P1
-		dn_x = dotnet_call("s4:call",nHandle,"s6:Equals",P1)
-		if islist(dn_x) return dnFinish(dn_x[2]) ok
-		return dn_x
-
-	Func GetHashCode 
-		return dnAnswer(dotnet_callt(nHandle,"GetHashCode"))
-
 	Func getPassword
 		return dotnet_getp(nHandle,"Password")
 
 	Func setPassword P1
 		raise("DotNet Error: Password is a read-only property")
-
-	Func getClaims
-		return dnObj(dotnet_callo("s3:get",nHandle,"s6:Claims"))
-
-	Func setClaims P1
-		raise("DotNet Error: Claims is a read-only property")
-
-	Func getName
-		return dotnet_getp(nHandle,"Name")
-
-	Func setName P1
-		raise("DotNet Error: Name is a read-only property")
-
-	Func getAuthenticationType
-		return dotnet_getp(nHandle,"AuthenticationType")
-
-	Func setAuthenticationType P1
-		raise("DotNet Error: AuthenticationType is a read-only property")
-
-	Func getIsAuthenticated
-		return dotnet_getp(nHandle,"IsAuthenticated")
-
-	Func setIsAuthenticated P1
-		raise("DotNet Error: IsAuthenticated is a read-only property")
-
-	Func getActor
-		return dnObj(dotnet_callo("s3:get",nHandle,"s5:Actor"))
-
-	Func setActor P1
-		dotnet_callv("s3:set",nHandle,"s5:Actor",P1)
-		return self
-
-	Func getBootstrapContext
-		return dnObj(dotnet_callo("s3:get",nHandle,"s16:BootstrapContext"))
-
-	Func setBootstrapContext P1
-		dotnet_callv("s3:set",nHandle,"s16:BootstrapContext",P1)
-		return self
-
-	Func getLabel
-		return dnAnswer(dotnet_getp(nHandle,"Label"))
-
-	Func setLabel P1
-		dotnet_setp(nHandle,"Label",P1)
-		return self
-
-	Func getNameClaimType
-		return dotnet_getp(nHandle,"NameClaimType")
-
-	Func setNameClaimType P1
-		raise("DotNet Error: NameClaimType is a read-only property")
-
-	Func getRoleClaimType
-		return dotnet_getp(nHandle,"RoleClaimType")
-
-	Func setRoleClaimType P1
-		raise("DotNet Error: RoleClaimType is a read-only property")
 
 
 Class HttpListenerContext from Object
@@ -1626,6 +1525,22 @@ Class HttpListenerPrefixCollection from Object
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCount
 		return dotnet_getp(nHandle,"Count")

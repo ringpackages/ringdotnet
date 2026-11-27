@@ -1640,6 +1640,22 @@ Class BooleanKeyFrameCollection from Freezable
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -1845,6 +1861,22 @@ Class ByteKeyFrameCollection from Freezable
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
@@ -2055,6 +2087,22 @@ Class CharKeyFrameCollection from Freezable
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
@@ -2315,6 +2363,22 @@ Class ClockCollection from Object
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -2563,6 +2627,22 @@ Class ColorKeyFrameCollection from Freezable
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -2792,6 +2872,22 @@ Class DecimalKeyFrameCollection from Freezable
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -2997,6 +3093,22 @@ Class DoubleKeyFrameCollection from Freezable
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
@@ -3360,6 +3472,22 @@ Class Int16KeyFrameCollection from Freezable
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -3566,6 +3694,22 @@ Class Int32KeyFrameCollection from Freezable
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -3771,6 +3915,22 @@ Class Int64KeyFrameCollection from Freezable
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
@@ -4131,6 +4291,22 @@ Class MatrixKeyFrameCollection from Freezable
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -4340,6 +4516,22 @@ Class ObjectKeyFrameCollection from Freezable
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
@@ -4551,6 +4743,22 @@ Class Point3DKeyFrameCollection from Freezable
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -4760,6 +4968,22 @@ Class PointKeyFrameCollection from Freezable
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
@@ -4971,6 +5195,22 @@ Class QuaternionKeyFrameCollection from Freezable
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -5180,6 +5420,22 @@ Class RectKeyFrameCollection from Freezable
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
@@ -5507,6 +5763,22 @@ Class Rotation3DKeyFrameCollection from Freezable
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -5712,6 +5984,22 @@ Class SingleKeyFrameCollection from Freezable
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
@@ -5923,6 +6211,22 @@ Class SizeKeyFrameCollection from Freezable
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -6128,6 +6432,22 @@ Class StringKeyFrameCollection from Freezable
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
@@ -6338,6 +6658,22 @@ Class ThicknessKeyFrameCollection from Freezable
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
@@ -6585,6 +6921,22 @@ Class Vector3DKeyFrameCollection from Freezable
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -6794,6 +7146,22 @@ Class VectorKeyFrameCollection from Freezable
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
@@ -11020,6 +11388,22 @@ Class TimelineCollection from Animatable
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)

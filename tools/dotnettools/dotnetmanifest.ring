@@ -17,16 +17,17 @@
 aDotNetManifest = [
 
 	[ :namespace = "System",
-	  :assemblies = ["System.Private.CoreLib","System.Private.Uri","System.Console"],
+	  :assemblies = ["System.Private.CoreLib","System.Private.Uri","System.Console","System.ComponentModel","System.ComponentModel.TypeConverter","System.Memory"],
 	  :all = true,
 	  :types = [ ["System.Random","Random",1], ["System.DateTime","DateTime",3], ["System.String","String",0], ["System.Guid","Guid",0], ["System.Version","Version",1], ["System.DateOnly","DateOnly",3] ] ],
 
 	[ :namespace = "System.Text",
+	  :assemblies = ["System.Private.CoreLib","System.Memory","System.Text.Encoding.CodePages"],
 	  :all = true,
 	  :types = [ ["System.Text.StringBuilder","StringBuilder",1] ] ],
 
 	[ :namespace = "System.IO",
-	  :assemblies = ["System.Private.CoreLib","System.IO.FileSystem.Watcher","System.Runtime","System.IO.FileSystem.DriveInfo"],
+	  :assemblies = ["System.Private.CoreLib","System.IO.FileSystem.Watcher","System.Runtime","System.IO.FileSystem.DriveInfo","System.IO.FileSystem.AccessControl"],
 	  :all = true ],
 
 	[ :namespace = "System.IO.Compression",
@@ -42,7 +43,7 @@ aDotNetManifest = [
 
 	[ :namespace = "System.Linq",
 	  :uses = ["System.Collections.Generic"],
-	  :assemblies = ["System.Linq"],
+	  :assemblies = ["System.Linq","System.Collections.Immutable","System.Linq.Expressions","System.Linq.Parallel","System.Linq.Queryable"],
 	  :all = true,
 	  :extra = ["../linq.ring"] ],
 
@@ -80,13 +81,13 @@ aDotNetManifest = [
 
 	[ :namespace = "System.Net.Sockets",
 	  :uses = ["System.IO","System.Net"],
-	  :assemblies = ["System.Net.Sockets"],
+	  :assemblies = ["System.Net.Sockets","System.Net.Primitives"],
 	  :all = true,
 	  :types = [ ["System.Net.Sockets.TcpListener","TcpListener",2] ] ],
 
 	[ :namespace = "System.Net.NetworkInformation",
 	  :uses = ["System.Net"],
-	  :assemblies = ["System.Net.NetworkInformation","System.Net.Ping"],
+	  :assemblies = ["System.Net.NetworkInformation","System.Net.Ping","System.Net.Primitives"],
 	  :all = true ],
 
 	[ :namespace = "System.Globalization",
@@ -104,12 +105,12 @@ aDotNetManifest = [
 	  :all = true ],
 
 	[ :namespace = "System.Xml",
-	  :assemblies = ["System.Private.Xml","System.Xml.ReaderWriter"],
+	  :assemblies = ["System.Private.Xml","System.Xml.ReaderWriter","System.Private.DataContractSerialization"],
 	  :uses = ["System.IO","System.Xml.XPath"],
 	  :all = true ],
 
 	[ :namespace = "System.Xml.XPath",
-	  :assemblies = ["System.Private.Xml","System.Xml.XPath"],
+	  :assemblies = ["System.Private.Xml","System.Xml.XPath","System.Private.Xml.Linq","System.Xml.XPath.XDocument"],
 	  :uses = ["System.Xml"],
 	  :all = true ],
 
@@ -120,7 +121,7 @@ aDotNetManifest = [
 	  :types = [ ["System.Xml.Linq.XElement","XElement",2], ["System.Xml.Linq.XAttribute","XAttribute",2] ] ],
 
 	[ :namespace = "System.Xml.Schema",
-	  :assemblies = ["System.Private.Xml"],
+	  :assemblies = ["System.Private.Xml","System.Private.Xml.Linq"],
 	  :uses = ["System.Xml"],
 	  :all = true ],
 
@@ -164,12 +165,12 @@ aDotNetManifest = [
 	  :all = true ],
 
 	[ :namespace = "System.Reflection",
-	  :assemblies = ["System.Private.CoreLib","System.Reflection","System.Reflection.Primitives","System.Reflection.Extensions"],
+	  :assemblies = ["System.Private.CoreLib","System.Reflection","System.Reflection.Primitives","System.Reflection.Extensions","System.ObjectModel","System.Reflection.DispatchProxy","System.Reflection.TypeExtensions"],
 	  :uses = ["System.Collections.Generic"],
 	  :all = true ],
 
 	[ :namespace = "System.Runtime.InteropServices",
-	  :assemblies = ["System.Private.CoreLib","System.Runtime.InteropServices","System.Runtime.InteropServices.RuntimeInformation"],
+	  :assemblies = ["System.Private.CoreLib","System.Runtime.InteropServices","System.Runtime.InteropServices.RuntimeInformation","System.Collections.Immutable","System.Memory","System.Text.Json"],
 	  :all = true ],
 
 	[ :namespace = "System.Runtime.Loader",
@@ -194,7 +195,7 @@ aDotNetManifest = [
 	  :all = true ],
 
 	[ :namespace = "System.Security.Principal",
-	  :assemblies = ["System.Security.Principal.Windows","System.Security.Principal","System.Private.CoreLib"],
+	  :assemblies = ["System.Security.Principal.Windows","System.Security.Principal","System.Private.CoreLib","System.Security.Claims"],
 	  :types = [ ["System.Security.Principal.WindowsIdentity","WindowsIdentity",0] ],
 	  :all = true ],
 
@@ -226,7 +227,7 @@ aDotNetManifest = [
 	  :all = true ],
 
 	[ :namespace = "System.Net.WebSockets",
-	  :assemblies = ["System.Net.WebSockets","System.Net.WebSockets.Client"],
+	  :assemblies = ["System.Net.WebSockets","System.Net.WebSockets.Client","System.Net.HttpListener"],
 	  :uses = ["System.Threading.Tasks"],
 	  :all = true ],
 
@@ -254,7 +255,7 @@ aDotNetManifest = [
 	  :all = true ],
 
 	[ :namespace = "System.Resources",
-	  :assemblies = ["System.Resources.ResourceManager","System.Private.CoreLib"],
+	  :assemblies = ["System.Resources.ResourceManager","System.Private.CoreLib","System.Resources.Writer"],
 	  :all = true ],
 
 	[ :namespace = "System.Collections.Concurrent",
@@ -310,7 +311,7 @@ aDotNetManifest = [
 	  ] ],
 
 	[ :namespace = "System.Collections.ObjectModel",
-	  :assemblies = ["System.Private.CoreLib","System.ObjectModel"],
+	  :assemblies = ["System.Private.CoreLib","System.ObjectModel","System.Collections"],
 	  :all = true,
 	  :types = [ ["System.Collections.ObjectModel.ObservableCollection`1[[System.String]]","ObservableStringList",0],
 		["System.Collections.ObjectModel.ObservableCollection`1[[System.Object]]","ObservableObjectList",0],
@@ -318,7 +319,7 @@ aDotNetManifest = [
 		["System.Collections.ObjectModel.Collection`1[[System.String]]","StringCollectionList",0] ] ],
 
 	[ :namespace = "System.Drawing",
-	  :assemblies = ["System.Drawing.Common","System.Drawing.Primitives","System.Private.CoreLib"],
+	  :assemblies = ["System.Drawing.Common","System.Drawing.Primitives","System.Private.CoreLib","System.ComponentModel.TypeConverter"],
 	  :desktop = true,
 	  :uses = ["System.ComponentModel"],
 	  :all = true,
@@ -442,7 +443,7 @@ aDotNetManifest = [
 	  :all = true ],
 
 	[ :namespace = "System.Windows.Input",
-	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml"],
+	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml","System.ObjectModel"],
 	  :desktop = true,
 	  :prefix = "Wpf",
 	  :uses = ["System.Windows"],
@@ -463,7 +464,7 @@ aDotNetManifest = [
 	  :all = true ],
 
 	[ :namespace = "System.Windows.Markup",
-	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml"],
+	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml","System.ObjectModel"],
 	  :desktop = true,
 	  :prefix = "Wpf",
 	  :uses = ["System.Windows","System.IO","System.Xml"],
@@ -816,7 +817,7 @@ aDotNetManifest = [
 	  :all = true ],
 
 	[ :namespace = "System.Runtime.Serialization",
-	  :assemblies = ["System.Runtime.Serialization.Primitives","System.Runtime.Serialization.Xml","System.Runtime.Serialization.Json"],
+	  :assemblies = ["System.Runtime.Serialization.Primitives","System.Runtime.Serialization.Xml","System.Runtime.Serialization.Json","System.Private.DataContractSerialization","System.Runtime.Serialization.Formatters"],
 	  :uses = ["System.IO"],
 	  :all = true ]
 ]

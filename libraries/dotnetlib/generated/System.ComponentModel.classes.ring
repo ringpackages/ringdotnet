@@ -1209,6 +1209,22 @@ Class AttributeCollection from Object
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -3026,6 +3042,22 @@ Class EventDescriptorCollection from Object
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -3321,6 +3353,22 @@ Class IBindingList from DotNetObject
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func setListChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"ListChanged",dnCallback(P1)])
 		return self
@@ -3550,6 +3598,22 @@ Class IBindingListView from DotNetObject
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func setListChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(this.nHandle),"ListChanged",dnCallback(P1)])
@@ -5652,6 +5716,22 @@ Class ListSortDescriptionCollection from Object
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -6760,6 +6840,22 @@ Class PropertyDescriptorCollection from Object
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -7356,6 +7452,22 @@ Class TypeConverterStandardValuesCollection from Object
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)

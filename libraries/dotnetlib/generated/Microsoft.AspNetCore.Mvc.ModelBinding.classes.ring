@@ -2757,6 +2757,22 @@ Class ModelStateDictionary from Object
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 	Func Item P1
 		dn_x = dotnet_callo("s5:calls",nHandle,"s8:get_Item",P1)
 		if isnumber(dn_x) and dn_x = -1
@@ -2953,6 +2969,22 @@ Class ModelStateDictionaryKeyEnumerable from ValueType
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 
 Class ModelStateDictionaryKeyEnumerator from ValueType
 
@@ -3081,6 +3113,22 @@ Class ModelStateDictionaryPrefixEnumerable from ValueType
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
 
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
 
 Class ModelStateDictionaryValueEnumerable from ValueType
 
@@ -3152,6 +3200,22 @@ Class ModelStateDictionaryValueEnumerable from ValueType
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 
 Class ModelStateDictionaryValueEnumerator from ValueType
@@ -3757,6 +3821,22 @@ Class ValueProviderResult from ValueType
 		return dnObj(dn_x)
 		ok
 		raise("DotNet Error: OfType needs its type arguments: OfType([ :typeArguments = [ type names ], :parameter = value, ... ])")
+
+	Func AsParallel 
+		dnEnsureExt("System.Linq.ParallelEnumerable, System.Linq.Parallel")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s10:AsParallel")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
+
+	Func AsQueryable 
+		dnEnsureExt("System.Linq.Queryable, System.Linq.Queryable")
+		dn_x = dotnet_callo("s5:calls",nHandle,"s11:AsQueryable")
+		if isnumber(dn_x) and dn_x = -1
+			return self
+		ok
+		return dnObj(dn_x)
 
 	Func getCulture
 		return dnObj(dotnet_callo("s3:get",nHandle,"s7:Culture"))

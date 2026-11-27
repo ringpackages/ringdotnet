@@ -11,4 +11,5 @@ dnRegisterClass("System.Net.WebSockets.WebSocketDeflateOptions","WebSocketDeflat
 dnRegisterClass("System.Net.WebSockets.WebSocketException","WebSocketException",0)
 dnRegisterClass("System.Net.WebSockets.WebSocketReceiveResult","WebSocketReceiveResult",3)
 dnRegisterClass("System.Net.WebSockets.ClientWebSocket","ClientWebSocket",0)
+dnRegisterClass("System.Net.WebSockets.HttpListenerWebSocketContext","HttpListenerWebSocketContext",0)
 load "System.Net.WebSockets.classes.ring"

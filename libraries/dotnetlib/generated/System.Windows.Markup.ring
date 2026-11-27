@@ -44,6 +44,7 @@ dnRegisterClass("System.Windows.Markup.TrimSurroundingWhitespaceAttribute","Trim
 dnRegisterClass("System.Windows.Markup.UidPropertyAttribute","UidPropertyAttribute",1)
 dnRegisterClass("System.Windows.Markup.UsableDuringInitializationAttribute","UsableDuringInitializationAttribute",1)
 dnRegisterClass("System.Windows.Markup.ValueSerializer","ValueSerializer",0)
+dnRegisterClass("System.Windows.Markup.ValueSerializerAttribute","ValueSerializerAttribute",1)
 dnRegisterClass("System.Windows.Markup.WhitespaceSignificantCollectionAttribute","WhitespaceSignificantCollectionAttribute",0)
 dnRegisterClass("System.Windows.Markup.XData","XData",0)
 dnRegisterClass("System.Windows.Markup.XamlDeferLoadAttribute","XamlDeferLoadAttribute",2)

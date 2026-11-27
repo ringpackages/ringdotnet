@@ -5,6 +5,7 @@ dnRegisterClass("System.Collections.ObjectModel.ReadOnlyCollection`1","ReadOnlyC
 dnRegisterClass("System.Collections.ObjectModel.ReadOnlyDictionary`2","ReadOnlyDictionary",1)
 dnRegisterClass("System.Collections.ObjectModel.ReadOnlyDictionary`2+KeyCollection","ReadOnlyDictionaryKeyCollection",1)
 dnRegisterClass("System.Collections.ObjectModel.ReadOnlyDictionary`2+ValueCollection","ReadOnlyDictionaryValueCollection",1)
+dnRegisterClass("System.Collections.ObjectModel.ReadOnlySet`1","ReadOnlySet",1)
 dnRegisterClass("System.Collections.ObjectModel.ReadOnlyCollection`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]","ReadOnlyStringList",1)
 dnRegisterClass("System.Collections.ObjectModel.Collection`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]","StringCollectionList",0)
 dnRegisterClass("System.Collections.ObjectModel.KeyedCollection`2","KeyedCollection",1)

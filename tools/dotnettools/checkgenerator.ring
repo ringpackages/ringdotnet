@@ -265,12 +265,12 @@ func checkAllPackages
 func checkCoverage lUpdate
 
 	aRun = runIn(cRoot + "/tools/dotnettools",'"' + cRing + '" auditcoverage.ring')
-	nPlace = substr(aRun[1],"without a Ring class: ")
+	nPlace = substr(aRun[1],"without a Ring class that is not excluded on purpose: ")
 	if nPlace = 0
 		report("types without a class",false,"the audit gave no total")
 		return false
 	ok
-	cRest = right(aRun[1],len(aRun[1]) - nPlace - len("without a Ring class: ") + 1)
+	cRest = right(aRun[1],len(aRun[1]) - nPlace - len("without a Ring class that is not excluded on purpose: ") + 1)
 	cDigits = ""
 	for nChar = 1 to len(cRest)
 		if isdigit(cRest[nChar])

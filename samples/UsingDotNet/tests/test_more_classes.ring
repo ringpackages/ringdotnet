@@ -12,6 +12,10 @@ func main
 		"System.ComponentModel"
 		"System.Linq.Expressions"
 		"System.Transactions"
+		"System.Net.Sockets"
+		"System.Security.Principal"
+		"System.Drawing"
+		"System.Text"
 	}
 	cDriveName = "C"          # (the root of the file system on Linux and macOS)
 	if not iswindows()
@@ -51,4 +55,23 @@ func main
 	oAdd = oExpression.Lambda([ :body = oExpression.Add([ :left = oA, :right = oB ]), :parameters = [oA,oB] ]).Compile(NULL)
 	dnAssert("a compiled lambda: DynamicInvoke",oAdd.DynamicInvoke([2,3.5]),5.5)
 	dnAssert("a compiled lambda: Method",oAdd.Method.Name != "",True)
+	# classes of assemblies that the manifest did not list before: the other assemblies of a namespace (System.Net.Primitives, System.Security.Claims,
+	# System.ComponentModel.TypeConverter, System.Text.Encoding.CodePages)
+	oSocketError = (new SocketException).@New(10061)
+	dnAssert("SocketException: the error code",oSocketError.ErrorCode,10061)
+	dnAssert("SocketException: the error as a text",oSocketError.SocketErrorCode,"ConnectionRefused")
+	oIdentity = new GenericIdentity("ann")
+	dnAssert("GenericIdentity: the name",oIdentity.Name,"ann")
+	dnAssert("GenericIdentity: authenticated",oIdentity.IsAuthenticated,True)
+	oPrincipal = new GenericPrincipal(oIdentity,["admin","user"])
+	dnAssert("GenericPrincipal: a role that it has",oPrincipal.IsInRole("admin"),True)
+	dnAssert("GenericPrincipal: a role that it has not",oPrincipal.IsInRole("guest"),False)
+	oColorConverter = new ColorConverter()
+	oRed = oColorConverter.ConvertFromString("Red")
+	dnAssert("ColorConverter: a name gives a color",oRed.R,255)
+	oProvider = new CodePagesEncodingProvider()
+	oEncodingType = new Encoding()
+	oEncodingType.RegisterProvider(oProvider.Instance)
+	oWindows1252 = oEncodingType.GetEncoding(1252)
+	dnAssert("CodePagesEncodingProvider: windows-1252 is available",oWindows1252.WebName,"windows-1252")
 	dnTestSummary()
