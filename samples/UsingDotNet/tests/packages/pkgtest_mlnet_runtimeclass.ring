@@ -25,7 +25,8 @@ for tv = 0 to 5
 next
 dnAssert("the rows",oRows.Count,144)
 oData = oMl.Data.callGeneric("LoadFromEnumerable",["SalesRow"],[oRows])
-dnAssert("four columns in the data",oData.getProp("Schema").getProp("Count"),4)
+oSchema = oData.getProp("Schema")
+dnAssert("four columns in the data",oSchema.Count,4)
 oChain = oMl.Transforms.callMethod("Concatenate",["Features",["Tv","Radio","Web"]]).callMethod("Append",[oMl.Regression.Trainers.callMethod("Sdca",["Label","Features"])])
 oModel = oChain.Fit(oData)
 dnAssert("a model trained on a class that was made at run time",oMl.Regression.Evaluate(oModel.Transform(oData)).RSquared > 0.99,1)

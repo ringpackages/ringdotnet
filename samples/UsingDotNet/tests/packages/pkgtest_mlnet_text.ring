@@ -24,7 +24,8 @@ dnAssert("the rows that were written",nRows,72)
 # the columns: two texts, a number and a yes/no
 aColumns = mlColumns([["review","String"],["city","String"],["score","Single"],["positive","Boolean"]])
 oData = mlLoadCsv(oMl,cFile,aColumns)
-dnAssert("four columns",oData.getProp("Schema").getProp("Count"),4)
+oSchema = oData.getProp("Schema")
+dnAssert("four columns",oSchema.Count,4)
 
 # the pipeline: the review becomes a vector of word counts, the city a one-hot vector, and the three are joined with the score
 oPipeline = oMl.Transforms.Text.callMethod("FeaturizeText",["ReviewFeatures","review"])

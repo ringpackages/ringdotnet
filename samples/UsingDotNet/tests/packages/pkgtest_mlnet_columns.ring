@@ -28,7 +28,8 @@ for nColumn = 1 to len(cNames)
 	aColumns + dnNew("Microsoft.ML.Data.TextLoader+Column",[cNames[nColumn],"Single",nColumn - 1])
 next
 oData = mlLoadCsv(oMl,cFile,aColumns)
-dnAssert("the file was read",oData.getProp("Schema").getProp("Count"),6)
+oSchema = oData.getProp("Schema")
+dnAssert("the file was read",oSchema.Count,6)
 
 # the same pipeline as with classes, with five features
 oPipeline = oMl.Transforms.callMethod("Concatenate",["Features",["x1","x2","x3","x4","x5"]])

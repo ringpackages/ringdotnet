@@ -52,9 +52,11 @@ aKept = mlColumn(oRows,"System.Single","size")
 dnAssert("three rows have a size from 20 to 45",len(aKept),3)
 dnAssert("the first of them",aKept[1],20)
 oSelected = oMl.Transforms.callMethod("SelectColumns",[["size","color"]]).callMethod("Fit",[oData]).callMethod("Transform",[oData])
-dnAssert("two columns are kept",oSelected.getProp("Schema").getProp("Count"),2)
+oSchema = oSelected.getProp("Schema")
+dnAssert("two columns are kept",oSchema.Count,2)
 oDropped = oMl.Transforms.callMethod("DropColumns",[["note","weight"]]).callMethod("Fit",[oData]).callMethod("Transform",[oData])
-dnAssert("two columns are dropped",oDropped.getProp("Schema").getProp("Count"),2)
+oSchema = oDropped.getProp("Schema")
+dnAssert("two columns are dropped",oSchema.Count,2)
 
 # a category: the keys that stand for its values, and the one-hot vectors
 oKeys = oMl.Transforms.Conversion.callMethod("MapValueToKey",["colorKey","color"]).callMethod("Fit",[oData]).callMethod("Transform",[oData])

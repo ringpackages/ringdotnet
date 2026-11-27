@@ -20,7 +20,7 @@ dnAssert("Select squares",oSelect.toList()[6],36)
 oEnum = oSource.asyncEnumerator()
 nSum = 0
 while oEnum.asyncNext()
-	nSum += oEnum.getProp("Current")          # the object is wrapped as the first interface that it implements (IList), which has no Current: getProp
+	nSum += oEnum.Current          # the object has the members of all its interfaces (IList and IAsyncEnumerator): Current is an attribute
 end
 oEnum.asyncDispose()
 dnAssert("the sum of the items read one at a time",nSum,21)

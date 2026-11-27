@@ -19,7 +19,8 @@ for x = 1 to 8
 next
 dnAssert("the rows",oRows.Count,40)
 oData = oMl.Data.callGeneric("LoadFromEnumerable",["MlHelpers.RegressionRow"],[oRows])
-dnAssert("the data has two columns of features and a label",oData.getProp("Schema").getProp("Count"),3)
+oSchema = oData.getProp("Schema")
+dnAssert("the data has two columns of features and a label",oSchema.Count,3)
 oPipeline = oMl.Transforms.callMethod("Concatenate",["Features",["F1","F2"]])
 oTrainer = oMl.Regression.Trainers.callMethod("Sdca",["Label","Features"])
 oChain = oPipeline.callMethod("Append",[oTrainer])
