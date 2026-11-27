@@ -67,7 +67,7 @@ pkgImport("markdig","Markdig.dll","Markdig")
 To add a package, copy one of the tests and run it, or run all of them with `sh run.sh --packages-only`. What `pkgUse` does:
 
 - It restores the packages with `dotnet publish` and makes the Ring classes of the DLLs. Only the namespaces that you list get classes: the classes of a type that a method returns must be in the list, and a DLL listed with no namespaces is only loaded.
-- It keeps both in `packages/.cache`, so only the first run is slow. The cache is large (hundreds of megabytes after the first full run) and is not in git; it is made again whenever it is deleted.
+- It keeps both in `packages/.cache`, so only the first run is slow. The cache is large (hundreds of megabytes after the first full run) and is not in git; it is made again whenever it is deleted. The Ring classes of a package are made again, with the packages kept, whenever the generator, the bridge or the generated library changed since they were made, so a test never runs on classes of an old generator.
 - The versions are pinned, so a test says what works with those versions.
 - A computer that cannot reach nuget.org on the first run prints `SKIPPED`, and the runner shows `skipped`, not `FAILED`.
 
