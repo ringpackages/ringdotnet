@@ -233,7 +233,7 @@ The methods of the object itself come first, and an extension method never chang
 
 ## Interfaces and classes that are not public
 
-Many methods return an interface (`IServiceScope`, `ICollection`) or an object of a class that is not public (a row of a database library, for example). The object is wrapped as the **interface named after the class** when there is one (`XLWorksheet` comes back as `IXLWorksheet`), otherwise as the most specific interface that has a Ring class. A wrapped interface has the members that it inherits from other interfaces (`oScope.Dispose()` from `IDisposable`, `oKeys.GetEnumerator()` on an `ICollection`), and the methods that a class implements explicitly are found through its public interfaces.
+Many methods return an interface (`IServiceScope`, `ICollection`) or an object of a class that is not public (a row of a database library, for example). The object is wrapped as the **interface named after the class** when there is one (`XLWorksheet` comes back as `IXLWorksheet`), otherwise as the most specific interface that has a Ring class. The object also has the members of its other interfaces: the class that wraps it is made for the combination (its name starts with `DnMix_`) and derives from the interface that comes first. A wrapped interface has the members that it inherits from other interfaces (`oScope.Dispose()` from `IDisposable`, `oKeys.GetEnumerator()` on an `ICollection`), and the methods that a class implements explicitly are found through its public interfaces.
 
 A parameter of the type `System.Enum` does not say which enum it takes, so the text gives the full name of the member: `"System.DayOfWeek.Friday"`.
 

@@ -40,7 +40,7 @@ The container is a `ServiceCollection` (the list of registrations); `BuildServic
 
 ### Scoped
 
-**One object for each scope.** A *scope* is one unit of work: in a web server, one request. `CreateScope` makes one; the objects asked for **through the scope** are the same inside it and different in another scope. In the output the factory ran twice for two scopes, the same scope gives the same object and another scope gives another. When the scope is disposed, the scoped objects that need it are disposed too (files, connections). `CreateScope` is an extension method and the scope's provider is a plain object, so it is used with `callMethod("GetService",[type])`.
+**One object for each scope.** A *scope* is one unit of work: in a web server, one request. `CreateScope` makes one; the objects asked for **through the scope** are the same inside it and different in another scope. In the output the factory ran twice for two scopes, the same scope gives the same object and another scope gives another. When the scope is disposed, the scoped objects that need it are disposed too (files, connections). `CreateScope` is an extension method and the scope's provider has the method `GetService`: keep it in a variable (`oServices = oScope.ServiceProvider`) and call `oServices.GetService(type)`.
 
 ### Services that need services
 
