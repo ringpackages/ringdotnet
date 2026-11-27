@@ -1,4 +1,4 @@
-# NuGet packages for the audit (a version may follow the id: Npgsql 9.*, for a package whose newest version needs a newer .NET than the SDK) (tools/dotnettools/auditpackages.py): popular libraries of many kinds. One package id per line.
+# NuGet packages for the audit (a version may follow the id: Npgsql 9.*, for a package whose newest version needs a newer .NET than the SDK) (tools/dotnettools/auditpackages.ring): popular libraries of many kinds. One package id per line.
 Newtonsoft.Json
 Serilog
 Dapper

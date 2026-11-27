@@ -1,4 +1,4 @@
-# Imports every namespace of the manifest: a generated file that does not load stops here (used by checkgenerator.py)
+# Imports every namespace of the manifest: a generated file that does not load stops here (used by checkgenerator.ring)
 #   ring importall.ring
 load "../../libraries/dotnetlib/dotnetlib.ring"
 load "dotnetmanifest.ring"

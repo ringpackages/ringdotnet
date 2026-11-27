@@ -85,7 +85,7 @@ The ML.NET tests share their setup in `packages/mlcommon.ring`: `load "mlcommon.
 
 ### Newer versions
 
-The newest versions of many packages are audited by `tools/dotnettools/auditpackages.py` (see [The generator](generator.html)).
+The newest versions of many packages are audited by `tools/dotnettools/auditpackages.ring` (see [The generator](generator.html)).
 
 ### What the tests cover
 

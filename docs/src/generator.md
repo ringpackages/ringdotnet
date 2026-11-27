@@ -31,10 +31,10 @@ A run with names writes only those namespaces, and the base classes of the other
 
 ## Check a change of the generator
 
-A rule of the generator, a change of the bridge or a new namespace changes the generated files, sometimes by thousands of lines. `checkgenerator.py` makes the library again and checks the result before you commit it:
+A rule of the generator, a change of the bridge or a new namespace changes the generated files, sometimes by thousands of lines. `checkgenerator.ring` makes the library again and checks the result before you commit it:
 
 ```
-python tools/dotnettools/checkgenerator.py --ring B:/ring/bin/ring.exe
+ring tools/dotnettools/checkgenerator.ring
 ```
 
 It takes about a minute and a half. The checks:
@@ -153,7 +153,7 @@ This is an extract of the class that is in `libraries/dotnetlib/generated/System
 ring auditassembly.ring Library.dll
 ```
 
-Each line has a count, a tag and an example. The tags are `OK` (supported: wrapped classes, enums as texts, delegates as callbacks, extension methods, events), `INFO` (facts) or `GAP` (not usable today): operators that Ring has no syntax for (`++`, `op_True`) and the members of a ref struct that no value can make (a ref struct has to be made for the call from a text, bytes, a list or an object: [Advanced .NET types](advanced-types.html)). Spans, pointers, ref returns and asynchronous streams are `OK`. `tools/dotnettools/auditpackages.py` restores a list of NuGet packages (`packages.txt`) and audits all of them together; `audit-baseline.txt` has the result of the last run.
+Each line has a count, a tag and an example. The tags are `OK` (supported: wrapped classes, enums as texts, delegates as callbacks, extension methods, events), `INFO` (facts) or `GAP` (not usable today): operators that Ring has no syntax for (`++`, `op_True`) and the members of a ref struct that no value can make (a ref struct has to be made for the call from a text, bytes, a list or an object: [Advanced .NET types](advanced-types.html)). Spans, pointers, ref returns and asynchronous streams are `OK`. `tools/dotnettools/auditpackages.ring` restores a list of NuGet packages (`packages.txt`) and audits all of them together; `audit-baseline.txt` has the result of the last run.
 
 ## Where to go next
 

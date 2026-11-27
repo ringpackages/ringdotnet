@@ -1,5 +1,5 @@
-# Baseline of tools/dotnettools/auditpackages.py: the public API of the packages of packages.txt (87 packages, 210 assemblies with the DLLs they need), 59 lines.
-# Each package is audited in a process of its own, so that two versions of a dependency do not meet. Run it again after a change of the bridge (python auditpackages.py --reuse, when the packages are restored).
+# Baseline of tools/dotnettools/auditpackages.ring: the public API of the packages of packages.txt (87 packages, 210 assemblies with the DLLs they need), 59 lines.
+# Each package is audited in a process of its own, so that two versions of a dependency do not meet. Run it again after a change of the bridge (python auditpackages.ring --reuse, when the packages are restored).
 # Compare with a new run after a change of the bridge: a GAP line that gets smaller is a gap that was closed.
 == total of 210 assemblies
  134152  OK   method: callable   e.g. Newtonsoft.Json.dll: Newtonsoft.Json.DefaultJsonNameTable.Get

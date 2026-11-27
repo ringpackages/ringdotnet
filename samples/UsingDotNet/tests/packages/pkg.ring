@@ -5,7 +5,7 @@
 #   dnImport...                                                              the namespaces are then imported with pkgImport("markdig","Markdig.dll","Markdig")
 # The first run restores the packages from nuget.org (dotnet publish) and makes the Ring classes of the DLLs (wrapassembly.ring); both are kept in
 # the folder .cache next to the test, so the next runs only load them. A computer without nuget.org on its first run skips the test (SKIPPED), it does
-# not fail it. The versions are pinned: a test says what works with those versions; tools/dotnettools/auditpackages.py is for the newest ones.
+# not fail it. The versions are pinned: a test says what works with those versions; tools/dotnettools/auditpackages.ring is for the newest ones.
 load "dotnet.ring"
 
 cPkgHere = currentdir()
