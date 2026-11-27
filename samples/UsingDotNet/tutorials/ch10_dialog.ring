@@ -71,7 +71,8 @@ func askProfile cStartName, nStartAge
 	}
 	oDialog.Controls.Add(oAgeBox)
 	oError = uiLabel(oDialog,"",15,82,270,20)
-	oError.ForeColor = new Color().Crimson
+	oForeColor = new Color().Crimson
+	oError.ForeColor = oForeColor
 
 	oOk = uiButton(oDialog,"OK",120,112,80,28,"okPressed()")
 	oCancel = uiButton(oDialog,"Cancel",206,112,80,28,"")

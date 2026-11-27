@@ -113,7 +113,8 @@ dnAssert("binding updates the target",oTarget.Text,"42")
 # a dispatcher timer ticks inside the message loop and closes the window after 3 ticks
 oWindow2 = wpfWindow("Timer",200,100)
 oTimer = new DispatcherTimer()
-oTimer.Interval = new TimeSpan().FromMilliseconds(30)
+oInterval = new TimeSpan().FromMilliseconds(30)
+oTimer.Interval = oInterval
 oTimer.setTickEvent("tick()")
 oTimer.Start()
 wpfRun(oWindow2)

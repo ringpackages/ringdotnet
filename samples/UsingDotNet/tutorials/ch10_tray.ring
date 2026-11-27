@@ -22,7 +22,8 @@ func main
 
 	# The tray icon needs an ICON (a small picture). SystemIcons has the standard ones, and an icon can also be made from a file.
 	oTray = new NotifyIcon()
-	oTray.Icon = new SystemIcons().Application
+	oIcon = new SystemIcons().Application
+	oTray.Icon = oIcon
 	oTray.Text = "Tray demo (double-click to open)"           # the tip when the mouse rests on the icon (63 characters at most)
 	oTray.Visible = True
 

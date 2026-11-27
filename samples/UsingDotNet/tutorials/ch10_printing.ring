@@ -72,8 +72,10 @@ func main
 # A4 is 827 x 1169 hundredths of an inch; the margins are 50 (half an inch). Landscape turns the page.
 func setupPaper oDocument,lLandscape
 
-	oDocument.DefaultPageSettings.PaperSize = new PaperSize().@New([ :name = "A4", :width = 827, :height = 1169 ])
-	oDocument.DefaultPageSettings.Margins = new Margins().@New([ :left = 50, :right = 50, :top = 50, :bottom = 50 ])
+	oPaperSize = new PaperSize().@New([ :name = "A4", :width = 827, :height = 1169 ])
+	oDocument.DefaultPageSettings.PaperSize = oPaperSize
+	oMargins = new Margins().@New([ :left = 50, :right = 50, :top = 50, :bottom = 50 ])
+	oDocument.DefaultPageSettings.Margins = oMargins
 	oDocument.DefaultPageSettings.Landscape = lLandscape
 
 # The PrintPage event: draw one page. e.MarginBounds is the rectangle inside the margins (in hundredths of an inch).

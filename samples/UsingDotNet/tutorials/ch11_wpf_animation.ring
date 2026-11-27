@@ -57,9 +57,11 @@ func startAnimations
 	oMove = new DoubleAnimation()
 	oMove.SetProp("From",10)                      # From and To can be empty in WPF, so they are set by name
 	oMove.SetProp("To",340)
-	oMove.Duration = new Duration().@New([ :timeSpan = new TimeSpan().FromSeconds(2) ])
+	oDuration = new Duration().@New([ :timeSpan = new TimeSpan().FromSeconds(2) ])
+	oMove.Duration = oDuration
 	oMove.AutoReverse = True
-	oMove.RepeatBehavior = new RepeatBehavior().Forever
+	oRepeatBehavior = new RepeatBehavior().Forever
+	oMove.RepeatBehavior = oRepeatBehavior
 	oEase = new SineEase()
 	oEase.EasingMode = "EaseInOut"
 	oMove.EasingFunction = oEase
@@ -69,17 +71,21 @@ func startAnimations
 	oFade = new DoubleAnimation()
 	oFade.SetProp("From",1)
 	oFade.SetProp("To",0.1)
-	oFade.Duration = new Duration().@New([ :timeSpan = new TimeSpan().FromSeconds(1.5) ])
+	oDuration = new Duration().@New([ :timeSpan = new TimeSpan().FromSeconds(1.5) ])
+	oFade.Duration = oDuration
 	oFade.AutoReverse = True
-	oFade.RepeatBehavior = new RepeatBehavior().Forever
+	oRepeatBehavior = new RepeatBehavior().Forever
+	oFade.RepeatBehavior = oRepeatBehavior
 	oBox.BeginAnimation([ :dp = oBox.OpacityProperty, :animation = oFade ])
 
 	# the green square: the angle of its rotation from 0 to 360 in 3 seconds, a new turn each time
 	oTurn = new DoubleAnimation()
 	oTurn.SetProp("From",0)
 	oTurn.SetProp("To",360)
-	oTurn.Duration = new Duration().@New([ :timeSpan = new TimeSpan().FromSeconds(3) ])
-	oTurn.RepeatBehavior = new RepeatBehavior().Forever
+	oDuration = new Duration().@New([ :timeSpan = new TimeSpan().FromSeconds(3) ])
+	oTurn.Duration = oDuration
+	oRepeatBehavior = new RepeatBehavior().Forever
+	oTurn.RepeatBehavior = oRepeatBehavior
 	oSpin.BeginAnimation([ :dp = oSpin.AngleProperty, :animation = oTurn ])
 	oStatus.Text = "Running"
 

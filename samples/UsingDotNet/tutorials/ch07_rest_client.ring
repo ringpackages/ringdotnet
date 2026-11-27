@@ -25,7 +25,8 @@ func main
 
 	# --- the client
 	oClient = new HttpClient()
-	oClient.Timeout = new TimeSpan().FromSeconds(5)          # never wait forever for a server
+	oTimeout = new TimeSpan().FromSeconds(5)          # never wait forever for a server
+	oClient.Timeout = oTimeout
 
 	# 1. GET a list: read the JSON array
 	aAnswer = request("GET","/api/books","")

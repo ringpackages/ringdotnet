@@ -23,7 +23,8 @@ func main
 
 	# One HttpClient for the whole program: it keeps connections open. DefaultRequestHeaders are sent with EVERY request.
 	oClient = new HttpClient()
-	oClient.Timeout = new TimeSpan().FromSeconds(10)
+	oTimeout = new TimeSpan().FromSeconds(10)
+	oClient.Timeout = oTimeout
 	oClient.DefaultRequestHeaders.Add("X-Client","ringdotnet-http-client")
 	oClient.DefaultRequestHeaders.Add("Accept","text/plain")
 

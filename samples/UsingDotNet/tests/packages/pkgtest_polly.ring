@@ -9,7 +9,8 @@ nAttempts = 0
 oBuilder = new ResiliencePipelineBuilder()
 oOptions = new RetryStrategyOptions()
 oOptions.MaxRetryAttempts = 3
-oOptions.Delay = new TimeSpan().FromMilliseconds(10)
+oDelay = new TimeSpan().FromMilliseconds(10)
+oOptions.Delay = oDelay
 dnAssert("an option is set",oOptions.MaxRetryAttempts,3)
 oBuilder.AddRetry(oOptions)
 oPipeline = oBuilder.Build()

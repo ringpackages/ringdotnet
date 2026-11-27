@@ -20,7 +20,8 @@ func main
 	oRouter.add("GET","/users/:name/posts/:id","postPage")
 	oServer.notFound("dispatch")                  # every request that has no ordinary route comes here: the router decides
 	oClient = new HttpClient()
-	oClient.Timeout = new TimeSpan().FromSeconds(5)
+	oTimeout = new TimeSpan().FromSeconds(5)
+	oClient.Timeout = oTimeout
 	for cPath in ["/","/users/ali","/users/sara/posts/7","/users/<b>sara","/nothing/here"]
 		aAnswer = fetch(cPath)
 		? padRight(cPath,22) + aAnswer[1] + "  " + aAnswer[2]
