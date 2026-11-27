@@ -22,7 +22,7 @@ oClient = new HttpClient()
 oRequest = oClient.GetStringAsync(cPrefix + "greet?name=Ring")
 
 oWaiting.Wait(NULL)
-oContext = oWaiting.getProp("Result")
+oContext = oWaiting.Result
 ? "Request        : " + oContext.Request.HttpMethod + " " + oContext.Request.Url.PathAndQuery
 cReply = "Hello " + oContext.Request.QueryString.Item("name") + ", this is .NET speaking Ring!"
 cBytes = new UTF8Encoding().GetBytes(cReply)

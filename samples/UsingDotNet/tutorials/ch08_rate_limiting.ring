@@ -70,7 +70,8 @@ func makeBucket nTokens,nPeriodMs
 	oOptions = new TokenBucketRateLimiterOptions
 	oOptions.TokenLimit = nTokens
 	oOptions.TokensPerPeriod = 1
-	oOptions.setProp("ReplenishmentPeriod",new TimeSpan().FromMilliseconds(nPeriodMs))
+	oPeriod = new TimeSpan().FromMilliseconds(nPeriodMs)
+	oOptions.ReplenishmentPeriod = oPeriod
 	oOptions.AutoReplenishment = False
 	oOptions.QueueLimit = 0
 	return new TokenBucketRateLimiter(oOptions)
