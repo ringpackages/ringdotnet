@@ -4,6 +4,7 @@
 #     ring tools/dotnettools/checkgenerator.ring --no-generate    the checks only (the library is as it is)
 #     ring tools/dotnettools/checkgenerator.ring --allow-large    a big change of the generated files is expected (a new rule of the generator)
 #     ring tools/dotnettools/checkgenerator.ring --all-packages   also the package tests (all of them: about ten minutes)
+#     ring tools/dotnettools/checkgenerator.ring --no-docs        leave out the check of the documentation (it takes about 30 seconds)
 #     ring tools/dotnettools/checkgenerator.ring --update-baseline   write the number of types without a class as the new baseline
 #     --max-files N and --max-lines N change the limits of the size of the change (15 files, 600 lines)
 #
@@ -16,6 +17,8 @@
 #   5. A few package tests whose classes are made again by the generator now (fluent calls in callbacks, generic pipelines, properties named like Ring
 #      words, generic extension methods). The cache of a package is made again when the generator, the bridge or the library changed.
 #   6. The number of public types that have no class (auditcoverage.ring) against tools/dotnettools/coverage-baseline.txt: it must not grow.
+#   7. The documentation is made again (docs/tools/dumpapi.ring and build.ring) and the generated files that differ from the last commit are counted:
+#      a change of the classes changes the class reference, and those files belong to the same commit.
 # The exit code is not set by Ring: the last line says how many checks failed.
 #
 # This is plain Ring: the tool that checks the package does not use the package (a bridge that does not work must not stop the check). The programs that
@@ -37,6 +40,7 @@ func main
 	lLarge = false
 	lAllPackages = false
 	lUpdate = false
+	lDocs = true
 	nMaxFiles = 15
 	nMaxLines = 600
 	nArgs = len(sysargv)
@@ -50,6 +54,8 @@ func main
 			lAllPackages = true
 		on "--update-baseline"
 			lUpdate = true
+		on "--no-docs"
+			lDocs = false
 		on "--max-files"
 			nMaxFiles = number(sysargv[nArg + 1])
 		on "--max-lines"
@@ -93,6 +99,9 @@ func main
 		checkAllPackages()
 	ok
 	checkCoverage(lUpdate)
+	if lDocs
+		checkDocs()
+	ok
 	? nl + nChecks + " checks, " + len(aFailed) + " failed (" + floor((clock() - nStart) / clockspersecond()) + " seconds)"
 	for cName in aFailed
 		? "  FAILED: " + cName
@@ -291,6 +300,46 @@ func checkCoverage lUpdate
 	ok
 	report("types without a class",lOk,cDetail)
 	return lOk
+
+# The documentation: the API data (the bridge asks .NET for the API of every wrapped class), the pages and the class reference. The check passes when both
+# programs run; it says how many generated files of the documentation differ from the last commit.
+func checkDocs
+
+	cDocsTools = cRoot + "/docs/tools"
+	aRun = runIn(cDocsTools,'"' + cRing + '" dumpapi.ring')
+	nPlace = substr(aRun[1],"types written")
+	if nPlace = 0
+		report("the documentation: the API data",false,firstLine(aRun[1]))
+		return false
+	ok
+	report("the documentation: the API data",true,lastText(aRun[1]))
+	aRun = runIn(cDocsTools,'"' + cRing + '" build.ring')
+	if substr(aRun[1],"built ") = 0 or hasError(aRun[1])
+		report("the documentation: the pages",false,firstLine(aRun[1]))
+		return false
+	ok
+	cStatus = gitOutput("status --short -- docs/api docs/api.html docs/assets docs/reference.html")
+	nChanged = len(lines(cStatus))
+	cNote = "the pages and the class reference are made again in " + floor(aRun[2]) + " seconds"
+	if nChanged > 0
+		cNote += "; " + nChanged + " generated files of the documentation differ from the last commit: commit them with the change"
+	else
+		cNote += "; the generated documentation is the same as in the last commit"
+	ok
+	report("the documentation: the pages",true,cNote)
+	return true
+
+# the last line of a text that has text
+func lastText cText
+
+	aLines = lines(cText)
+	nMax = len(aLines)
+	for nLine = nMax to 1 step -1
+		if trim(aLines[nLine]) != ""
+			return trim(aLines[nLine])
+		ok
+	next
+	return ""
 
 # ---------------------------------------------------------------- helpers
 
