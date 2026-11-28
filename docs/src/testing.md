@@ -52,7 +52,7 @@ On **Linux** the same script runs the tests, the samples and the package tests; 
 
 ## Package tests
 
-`samples/UsingDotNet/tests/packages/pkgtest_*.ring` are real programs against NuGet packages: 219 tests, one for each package (the ML.NET package has several). Each one asks `dnAssert` about what the package gives back (HTML, a deserialized list, a determinant, a retried call, rows from a query), so a change of the bridge that breaks a library fails here before it fails in a program. The packages that need a class written in .NET have a small helper project, and the tests that need a native library (LibGit2Sharp, ML.NET, SQLite, SkiaSharp) run on Windows and on Linux.
+`samples/UsingDotNet/tests/packages/pkgtest_*.ring` are real programs against NuGet packages: 229 tests, one for each package (the ML.NET package has several). Each one asks `dnAssert` about what the package gives back (HTML, a deserialized list, a determinant, a retried call, rows from a query), so a change of the bridge that breaks a library fails here before it fails in a program. The packages that need a class written in .NET have a small helper project, and the tests that need a native library (LibGit2Sharp, ML.NET, SQLite, SkiaSharp) run on Windows and on Linux.
 
 ### Writing a package test
 
