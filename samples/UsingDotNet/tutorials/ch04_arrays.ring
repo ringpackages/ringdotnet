@@ -50,7 +50,7 @@ func main
 
 	# 6. Two dimensions: a table with rows and columns. Array.CreateInstance(type, rows, columns); items are written with SetValue(value, row, column)
 	#    and read with GetValue(row, column). The items are Doubles, because SetValue needs the type that a Ring number has.
-	oGrid = dnStatic("System.Array","CreateInstance",[dnType("System.Double"),3,4])
+	oGrid = new Array().CreateInstance([ :elementType = dnType("System.Double"), :length1 = 3, :length2 = 4 ])
 	for nRow = 0 to 2
 		for nColumn = 0 to 3
 			oGrid.SetValue([ :value = nRow * 10 + nColumn, :index1 = nRow, :index2 = nColumn ])
